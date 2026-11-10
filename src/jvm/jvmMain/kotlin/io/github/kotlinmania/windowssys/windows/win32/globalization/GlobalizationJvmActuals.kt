@@ -2,16 +2,17 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.globalization
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.core.s
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.ETO_OPTIONS
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HDC
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.EtoOptions
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hdc
 
 private object WindowsWin32GlobalizationJniBridge {
     init {
@@ -19,574 +20,574 @@ private object WindowsWin32GlobalizationJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_AdjustCalendarDate(lpcaldatetime: Long, calunit: Int, amount: Int): Int
+    external fun windowssys_windows_win32_globalization_adjustCalendarDate(lpcaldatetime: Long, calunit: Int, amount: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_CompareStringA(locale: Int, dwcmpflags: Int, lpstring1: Long, cchcount1: Int, lpstring2: Long, cchcount2: Int): Int
+    external fun windowssys_windows_win32_globalization_compareStringA(locale: Int, dwcmpflags: Int, lpstring1: Long, cchcount1: Int, lpstring2: Long, cchcount2: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_CompareStringEx(lplocalename: Long, dwcmpflags: Int, lpstring1: Long, cchcount1: Int, lpstring2: Long, cchcount2: Int, lpversioninformation: Long, lpreserved: Long, lparam: Long): Int
+    external fun windowssys_windows_win32_globalization_compareStringEx(lplocalename: Long, dwcmpflags: Int, lpstring1: Long, cchcount1: Int, lpstring2: Long, cchcount2: Int, lpversioninformation: Long, lpreserved: Long, lparam: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_CompareStringOrdinal(lpstring1: Long, cchcount1: Int, lpstring2: Long, cchcount2: Int, bignorecase: Int): Int
+    external fun windowssys_windows_win32_globalization_compareStringOrdinal(lpstring1: Long, cchcount1: Int, lpstring2: Long, cchcount2: Int, bignorecase: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_CompareStringW(locale: Int, dwcmpflags: Int, lpstring1: Long, cchcount1: Int, lpstring2: Long, cchcount2: Int): Int
+    external fun windowssys_windows_win32_globalization_compareStringW(locale: Int, dwcmpflags: Int, lpstring1: Long, cchcount1: Int, lpstring2: Long, cchcount2: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ConvertCalDateTimeToSystemTime(lpcaldatetime: Long, lpsystime: Long): Int
+    external fun windowssys_windows_win32_globalization_convertCalDateTimeToSystemTime(lpcaldatetime: Long, lpsystime: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ConvertDefaultLocale(locale: Int): Int
+    external fun windowssys_windows_win32_globalization_convertDefaultLocale(locale: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ConvertSystemTimeToCalDateTime(lpsystime: Long, calid: Int, lpcaldatetime: Long): Int
+    external fun windowssys_windows_win32_globalization_convertSystemTimeToCalDateTime(lpsystime: Long, calid: Int, lpcaldatetime: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_EnumCalendarInfoA(lpcalinfoenumproc: Long, locale: Int, calendar: Int, caltype: Int): Int
+    external fun windowssys_windows_win32_globalization_enumCalendarInfoA(lpcalinfoenumproc: Long, locale: Int, calendar: Int, caltype: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_EnumCalendarInfoExA(lpcalinfoenumprocex: Long, locale: Int, calendar: Int, caltype: Int): Int
+    external fun windowssys_windows_win32_globalization_enumCalendarInfoExA(lpcalinfoenumprocex: Long, locale: Int, calendar: Int, caltype: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_EnumCalendarInfoExEx(pcalinfoenumprocexex: Long, lplocalename: Long, calendar: Int, lpreserved: Long, caltype: Int, lparam: Long): Int
+    external fun windowssys_windows_win32_globalization_enumCalendarInfoExEx(pcalinfoenumprocexex: Long, lplocalename: Long, calendar: Int, lpreserved: Long, caltype: Int, lparam: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_EnumCalendarInfoExW(lpcalinfoenumprocex: Long, locale: Int, calendar: Int, caltype: Int): Int
+    external fun windowssys_windows_win32_globalization_enumCalendarInfoExW(lpcalinfoenumprocex: Long, locale: Int, calendar: Int, caltype: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_EnumCalendarInfoW(lpcalinfoenumproc: Long, locale: Int, calendar: Int, caltype: Int): Int
+    external fun windowssys_windows_win32_globalization_enumCalendarInfoW(lpcalinfoenumproc: Long, locale: Int, calendar: Int, caltype: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_EnumDateFormatsA(lpdatefmtenumproc: Long, locale: Int, dwflags: Int): Int
+    external fun windowssys_windows_win32_globalization_enumDateFormatsA(lpdatefmtenumproc: Long, locale: Int, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_EnumDateFormatsExA(lpdatefmtenumprocex: Long, locale: Int, dwflags: Int): Int
+    external fun windowssys_windows_win32_globalization_enumDateFormatsExA(lpdatefmtenumprocex: Long, locale: Int, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_EnumDateFormatsExEx(lpdatefmtenumprocexex: Long, lplocalename: Long, dwflags: Int, lparam: Long): Int
+    external fun windowssys_windows_win32_globalization_enumDateFormatsExEx(lpdatefmtenumprocexex: Long, lplocalename: Long, dwflags: Int, lparam: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_EnumDateFormatsExW(lpdatefmtenumprocex: Long, locale: Int, dwflags: Int): Int
+    external fun windowssys_windows_win32_globalization_enumDateFormatsExW(lpdatefmtenumprocex: Long, locale: Int, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_EnumDateFormatsW(lpdatefmtenumproc: Long, locale: Int, dwflags: Int): Int
+    external fun windowssys_windows_win32_globalization_enumDateFormatsW(lpdatefmtenumproc: Long, locale: Int, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_EnumLanguageGroupLocalesA(lplanggrouplocaleenumproc: Long, languagegroup: Int, dwflags: Int, lparam: Long): Int
+    external fun windowssys_windows_win32_globalization_enumLanguageGroupLocalesA(lplanggrouplocaleenumproc: Long, languagegroup: Int, dwflags: Int, lparam: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_EnumLanguageGroupLocalesW(lplanggrouplocaleenumproc: Long, languagegroup: Int, dwflags: Int, lparam: Long): Int
+    external fun windowssys_windows_win32_globalization_enumLanguageGroupLocalesW(lplanggrouplocaleenumproc: Long, languagegroup: Int, dwflags: Int, lparam: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_EnumSystemCodePagesA(lpcodepageenumproc: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_globalization_enumSystemCodePagesA(lpcodepageenumproc: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_EnumSystemCodePagesW(lpcodepageenumproc: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_globalization_enumSystemCodePagesW(lpcodepageenumproc: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_EnumSystemGeoID(geoclass: Int, parentgeoid: Int, lpgeoenumproc: Long): Int
+    external fun windowssys_windows_win32_globalization_enumSystemGeoID(geoclass: Int, parentgeoid: Int, lpgeoenumproc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_EnumSystemGeoNames(geoclass: Int, geoenumproc: Long, data: Long): Int
+    external fun windowssys_windows_win32_globalization_enumSystemGeoNames(geoclass: Int, geoenumproc: Long, data: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_EnumSystemLanguageGroupsA(lplanguagegroupenumproc: Long, dwflags: Int, lparam: Long): Int
+    external fun windowssys_windows_win32_globalization_enumSystemLanguageGroupsA(lplanguagegroupenumproc: Long, dwflags: Int, lparam: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_EnumSystemLanguageGroupsW(lplanguagegroupenumproc: Long, dwflags: Int, lparam: Long): Int
+    external fun windowssys_windows_win32_globalization_enumSystemLanguageGroupsW(lplanguagegroupenumproc: Long, dwflags: Int, lparam: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_EnumSystemLocalesA(lplocaleenumproc: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_globalization_enumSystemLocalesA(lplocaleenumproc: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_EnumSystemLocalesEx(lplocaleenumprocex: Long, dwflags: Int, lparam: Long, lpreserved: Long): Int
+    external fun windowssys_windows_win32_globalization_enumSystemLocalesEx(lplocaleenumprocex: Long, dwflags: Int, lparam: Long, lpreserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_EnumSystemLocalesW(lplocaleenumproc: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_globalization_enumSystemLocalesW(lplocaleenumproc: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_EnumTimeFormatsA(lptimefmtenumproc: Long, locale: Int, dwflags: Int): Int
+    external fun windowssys_windows_win32_globalization_enumTimeFormatsA(lptimefmtenumproc: Long, locale: Int, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_EnumTimeFormatsEx(lptimefmtenumprocex: Long, lplocalename: Long, dwflags: Int, lparam: Long): Int
+    external fun windowssys_windows_win32_globalization_enumTimeFormatsEx(lptimefmtenumprocex: Long, lplocalename: Long, dwflags: Int, lparam: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_EnumTimeFormatsW(lptimefmtenumproc: Long, locale: Int, dwflags: Int): Int
+    external fun windowssys_windows_win32_globalization_enumTimeFormatsW(lptimefmtenumproc: Long, locale: Int, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_EnumUILanguagesA(lpuilanguageenumproc: Long, dwflags: Int, lparam: Long): Int
+    external fun windowssys_windows_win32_globalization_enumUILanguagesA(lpuilanguageenumproc: Long, dwflags: Int, lparam: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_EnumUILanguagesW(lpuilanguageenumproc: Long, dwflags: Int, lparam: Long): Int
+    external fun windowssys_windows_win32_globalization_enumUILanguagesW(lpuilanguageenumproc: Long, dwflags: Int, lparam: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_FindNLSString(locale: Int, dwfindnlsstringflags: Int, lpstringsource: Long, cchsource: Int, lpstringvalue: Long, cchvalue: Int, pcchfound: Long): Int
+    external fun windowssys_windows_win32_globalization_findNLSString(locale: Int, dwfindnlsstringflags: Int, lpstringsource: Long, cchsource: Int, lpstringvalue: Long, cchvalue: Int, pcchfound: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_FindNLSStringEx(lplocalename: Long, dwfindnlsstringflags: Int, lpstringsource: Long, cchsource: Int, lpstringvalue: Long, cchvalue: Int, pcchfound: Long, lpversioninformation: Long, lpreserved: Long, sorthandle: Long): Int
+    external fun windowssys_windows_win32_globalization_findNLSStringEx(lplocalename: Long, dwfindnlsstringflags: Int, lpstringsource: Long, cchsource: Int, lpstringvalue: Long, cchvalue: Int, pcchfound: Long, lpversioninformation: Long, lpreserved: Long, sorthandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_FindStringOrdinal(dwfindstringordinalflags: Int, lpstringsource: Long, cchsource: Int, lpstringvalue: Long, cchvalue: Int, bignorecase: Int): Int
+    external fun windowssys_windows_win32_globalization_findStringOrdinal(dwfindstringordinalflags: Int, lpstringsource: Long, cchsource: Int, lpstringvalue: Long, cchvalue: Int, bignorecase: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_FoldStringA(dwmapflags: Int, lpsrcstr: Long, cchsrc: Int, lpdeststr: Long, cchdest: Int): Int
+    external fun windowssys_windows_win32_globalization_foldStringA(dwmapflags: Int, lpsrcstr: Long, cchsrc: Int, lpdeststr: Long, cchdest: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_FoldStringW(dwmapflags: Int, lpsrcstr: Long, cchsrc: Int, lpdeststr: Long, cchdest: Int): Int
+    external fun windowssys_windows_win32_globalization_foldStringW(dwmapflags: Int, lpsrcstr: Long, cchsrc: Int, lpdeststr: Long, cchdest: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_GetACP(): Int
+    external fun windowssys_windows_win32_globalization_getACP(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_GetCPInfo(codepage: Int, lpcpinfo: Long): Int
+    external fun windowssys_windows_win32_globalization_getCPInfo(codepage: Int, lpcpinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_GetCPInfoExA(codepage: Int, dwflags: Int, lpcpinfoex: Long): Int
+    external fun windowssys_windows_win32_globalization_getCPInfoExA(codepage: Int, dwflags: Int, lpcpinfoex: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_GetCPInfoExW(codepage: Int, dwflags: Int, lpcpinfoex: Long): Int
+    external fun windowssys_windows_win32_globalization_getCPInfoExW(codepage: Int, dwflags: Int, lpcpinfoex: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_GetCalendarDateFormatEx(lpszlocale: Long, dwflags: Int, lpcaldatetime: Long, lpformat: Long, lpdatestr: Long, cchdate: Int): Int
+    external fun windowssys_windows_win32_globalization_getCalendarDateFormatEx(lpszlocale: Long, dwflags: Int, lpcaldatetime: Long, lpformat: Long, lpdatestr: Long, cchdate: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_GetCalendarInfoA(locale: Int, calendar: Int, caltype: Int, lpcaldata: Long, cchdata: Int, lpvalue: Long): Int
+    external fun windowssys_windows_win32_globalization_getCalendarInfoA(locale: Int, calendar: Int, caltype: Int, lpcaldata: Long, cchdata: Int, lpvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_GetCalendarInfoEx(lplocalename: Long, calendar: Int, lpreserved: Long, caltype: Int, lpcaldata: Long, cchdata: Int, lpvalue: Long): Int
+    external fun windowssys_windows_win32_globalization_getCalendarInfoEx(lplocalename: Long, calendar: Int, lpreserved: Long, caltype: Int, lpcaldata: Long, cchdata: Int, lpvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_GetCalendarInfoW(locale: Int, calendar: Int, caltype: Int, lpcaldata: Long, cchdata: Int, lpvalue: Long): Int
+    external fun windowssys_windows_win32_globalization_getCalendarInfoW(locale: Int, calendar: Int, caltype: Int, lpcaldata: Long, cchdata: Int, lpvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_GetCalendarSupportedDateRange(calendar: Int, lpcalmindatetime: Long, lpcalmaxdatetime: Long): Int
+    external fun windowssys_windows_win32_globalization_getCalendarSupportedDateRange(calendar: Int, lpcalmindatetime: Long, lpcalmaxdatetime: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_GetCurrencyFormatA(locale: Int, dwflags: Int, lpvalue: Long, lpformat: Long, lpcurrencystr: Long, cchcurrency: Int): Int
+    external fun windowssys_windows_win32_globalization_getCurrencyFormatA(locale: Int, dwflags: Int, lpvalue: Long, lpformat: Long, lpcurrencystr: Long, cchcurrency: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_GetCurrencyFormatEx(lplocalename: Long, dwflags: Int, lpvalue: Long, lpformat: Long, lpcurrencystr: Long, cchcurrency: Int): Int
+    external fun windowssys_windows_win32_globalization_getCurrencyFormatEx(lplocalename: Long, dwflags: Int, lpvalue: Long, lpformat: Long, lpcurrencystr: Long, cchcurrency: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_GetCurrencyFormatW(locale: Int, dwflags: Int, lpvalue: Long, lpformat: Long, lpcurrencystr: Long, cchcurrency: Int): Int
+    external fun windowssys_windows_win32_globalization_getCurrencyFormatW(locale: Int, dwflags: Int, lpvalue: Long, lpformat: Long, lpcurrencystr: Long, cchcurrency: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_GetDateFormatA(locale: Int, dwflags: Int, lpdate: Long, lpformat: Long, lpdatestr: Long, cchdate: Int): Int
+    external fun windowssys_windows_win32_globalization_getDateFormatA(locale: Int, dwflags: Int, lpdate: Long, lpformat: Long, lpdatestr: Long, cchdate: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_GetDateFormatEx(lplocalename: Long, dwflags: Int, lpdate: Long, lpformat: Long, lpdatestr: Long, cchdate: Int, lpcalendar: Long): Int
+    external fun windowssys_windows_win32_globalization_getDateFormatEx(lplocalename: Long, dwflags: Int, lpdate: Long, lpformat: Long, lpdatestr: Long, cchdate: Int, lpcalendar: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_GetDateFormatW(locale: Int, dwflags: Int, lpdate: Long, lpformat: Long, lpdatestr: Long, cchdate: Int): Int
+    external fun windowssys_windows_win32_globalization_getDateFormatW(locale: Int, dwflags: Int, lpdate: Long, lpformat: Long, lpdatestr: Long, cchdate: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_GetDistanceOfClosestLanguageInList(pszlanguage: Long, pszlanguageslist: Long, wchlistdelimiter: Short, pclosestdistance: Long): Int
+    external fun windowssys_windows_win32_globalization_getDistanceOfClosestLanguageInList(pszlanguage: Long, pszlanguageslist: Long, wchlistdelimiter: Short, pclosestdistance: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_GetDurationFormat(locale: Int, dwflags: Int, lpduration: Long, ullduration: Long, lpformat: Long, lpdurationstr: Long, cchduration: Int): Int
+    external fun windowssys_windows_win32_globalization_getDurationFormat(locale: Int, dwflags: Int, lpduration: Long, ullduration: Long, lpformat: Long, lpdurationstr: Long, cchduration: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_GetDurationFormatEx(lplocalename: Long, dwflags: Int, lpduration: Long, ullduration: Long, lpformat: Long, lpdurationstr: Long, cchduration: Int): Int
+    external fun windowssys_windows_win32_globalization_getDurationFormatEx(lplocalename: Long, dwflags: Int, lpduration: Long, ullduration: Long, lpformat: Long, lpdurationstr: Long, cchduration: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_GetFileMUIInfo(dwflags: Int, pcwszfilepath: Long, pfilemuiinfo: Long, pcbfilemuiinfo: Long): Int
+    external fun windowssys_windows_win32_globalization_getFileMUIInfo(dwflags: Int, pcwszfilepath: Long, pfilemuiinfo: Long, pcbfilemuiinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_GetFileMUIPath(dwflags: Int, pcwszfilepath: Long, pwszlanguage: Long, pcchlanguage: Long, pwszfilemuipath: Long, pcchfilemuipath: Long, pululenumerator: Long): Int
+    external fun windowssys_windows_win32_globalization_getFileMUIPath(dwflags: Int, pcwszfilepath: Long, pwszlanguage: Long, pcchlanguage: Long, pwszfilemuipath: Long, pcchfilemuipath: Long, pululenumerator: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_GetGeoInfoA(location: Int, geotype: Int, lpgeodata: Long, cchdata: Int, langid: Short): Int
+    external fun windowssys_windows_win32_globalization_getGeoInfoA(location: Int, geotype: Int, lpgeodata: Long, cchdata: Int, langid: Short): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_GetGeoInfoEx(location: Long, geotype: Int, geodata: Long, geodatacount: Int): Int
+    external fun windowssys_windows_win32_globalization_getGeoInfoEx(location: Long, geotype: Int, geodata: Long, geodatacount: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_GetGeoInfoW(location: Int, geotype: Int, lpgeodata: Long, cchdata: Int, langid: Short): Int
+    external fun windowssys_windows_win32_globalization_getGeoInfoW(location: Int, geotype: Int, lpgeodata: Long, cchdata: Int, langid: Short): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_GetLocaleInfoA(locale: Int, lctype: Int, lplcdata: Long, cchdata: Int): Int
+    external fun windowssys_windows_win32_globalization_getLocaleInfoA(locale: Int, lctype: Int, lplcdata: Long, cchdata: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_GetLocaleInfoEx(lplocalename: Long, lctype: Int, lplcdata: Long, cchdata: Int): Int
+    external fun windowssys_windows_win32_globalization_getLocaleInfoEx(lplocalename: Long, lctype: Int, lplcdata: Long, cchdata: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_GetLocaleInfoW(locale: Int, lctype: Int, lplcdata: Long, cchdata: Int): Int
+    external fun windowssys_windows_win32_globalization_getLocaleInfoW(locale: Int, lctype: Int, lplcdata: Long, cchdata: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_GetNLSVersion(function: Int, locale: Int, lpversioninformation: Long): Int
+    external fun windowssys_windows_win32_globalization_getNLSVersion(function: Int, locale: Int, lpversioninformation: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_GetNLSVersionEx(function: Int, lplocalename: Long, lpversioninformation: Long): Int
+    external fun windowssys_windows_win32_globalization_getNLSVersionEx(function: Int, lplocalename: Long, lpversioninformation: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_GetNumberFormatA(locale: Int, dwflags: Int, lpvalue: Long, lpformat: Long, lpnumberstr: Long, cchnumber: Int): Int
+    external fun windowssys_windows_win32_globalization_getNumberFormatA(locale: Int, dwflags: Int, lpvalue: Long, lpformat: Long, lpnumberstr: Long, cchnumber: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_GetNumberFormatEx(lplocalename: Long, dwflags: Int, lpvalue: Long, lpformat: Long, lpnumberstr: Long, cchnumber: Int): Int
+    external fun windowssys_windows_win32_globalization_getNumberFormatEx(lplocalename: Long, dwflags: Int, lpvalue: Long, lpformat: Long, lpnumberstr: Long, cchnumber: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_GetNumberFormatW(locale: Int, dwflags: Int, lpvalue: Long, lpformat: Long, lpnumberstr: Long, cchnumber: Int): Int
+    external fun windowssys_windows_win32_globalization_getNumberFormatW(locale: Int, dwflags: Int, lpvalue: Long, lpformat: Long, lpnumberstr: Long, cchnumber: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_GetOEMCP(): Int
+    external fun windowssys_windows_win32_globalization_getOEMCP(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_GetProcessPreferredUILanguages(dwflags: Int, pulnumlanguages: Long, pwszlanguagesbuffer: Long, pcchlanguagesbuffer: Long): Int
+    external fun windowssys_windows_win32_globalization_getProcessPreferredUILanguages(dwflags: Int, pulnumlanguages: Long, pwszlanguagesbuffer: Long, pcchlanguagesbuffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_GetStringScripts(dwflags: Int, lpstring: Long, cchstring: Int, lpscripts: Long, cchscripts: Int): Int
+    external fun windowssys_windows_win32_globalization_getStringScripts(dwflags: Int, lpstring: Long, cchstring: Int, lpscripts: Long, cchscripts: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_GetStringTypeA(locale: Int, dwinfotype: Int, lpsrcstr: Long, cchsrc: Int, lpchartype: Long): Int
+    external fun windowssys_windows_win32_globalization_getStringTypeA(locale: Int, dwinfotype: Int, lpsrcstr: Long, cchsrc: Int, lpchartype: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_GetStringTypeExA(locale: Int, dwinfotype: Int, lpsrcstr: Long, cchsrc: Int, lpchartype: Long): Int
+    external fun windowssys_windows_win32_globalization_getStringTypeExA(locale: Int, dwinfotype: Int, lpsrcstr: Long, cchsrc: Int, lpchartype: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_GetStringTypeExW(locale: Int, dwinfotype: Int, lpsrcstr: Long, cchsrc: Int, lpchartype: Long): Int
+    external fun windowssys_windows_win32_globalization_getStringTypeExW(locale: Int, dwinfotype: Int, lpsrcstr: Long, cchsrc: Int, lpchartype: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_GetStringTypeW(dwinfotype: Int, lpsrcstr: Long, cchsrc: Int, lpchartype: Long): Int
+    external fun windowssys_windows_win32_globalization_getStringTypeW(dwinfotype: Int, lpsrcstr: Long, cchsrc: Int, lpchartype: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_GetSystemDefaultLCID(): Int
+    external fun windowssys_windows_win32_globalization_getSystemDefaultLCID(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_GetSystemDefaultLangID(): Short
+    external fun windowssys_windows_win32_globalization_getSystemDefaultLangID(): Short
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_GetSystemDefaultLocaleName(lplocalename: Long, cchlocalename: Int): Int
+    external fun windowssys_windows_win32_globalization_getSystemDefaultLocaleName(lplocalename: Long, cchlocalename: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_GetSystemDefaultUILanguage(): Short
+    external fun windowssys_windows_win32_globalization_getSystemDefaultUILanguage(): Short
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_GetSystemPreferredUILanguages(dwflags: Int, pulnumlanguages: Long, pwszlanguagesbuffer: Long, pcchlanguagesbuffer: Long): Int
+    external fun windowssys_windows_win32_globalization_getSystemPreferredUILanguages(dwflags: Int, pulnumlanguages: Long, pwszlanguagesbuffer: Long, pcchlanguagesbuffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_GetTextCharset(hdc: Long): Int
+    external fun windowssys_windows_win32_globalization_getTextCharset(hdc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_GetTextCharsetInfo(hdc: Long, lpsig: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_globalization_getTextCharsetInfo(hdc: Long, lpsig: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_GetThreadLocale(): Int
+    external fun windowssys_windows_win32_globalization_getThreadLocale(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_GetThreadPreferredUILanguages(dwflags: Int, pulnumlanguages: Long, pwszlanguagesbuffer: Long, pcchlanguagesbuffer: Long): Int
+    external fun windowssys_windows_win32_globalization_getThreadPreferredUILanguages(dwflags: Int, pulnumlanguages: Long, pwszlanguagesbuffer: Long, pcchlanguagesbuffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_GetThreadUILanguage(): Short
+    external fun windowssys_windows_win32_globalization_getThreadUILanguage(): Short
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_GetTimeFormatA(locale: Int, dwflags: Int, lptime: Long, lpformat: Long, lptimestr: Long, cchtime: Int): Int
+    external fun windowssys_windows_win32_globalization_getTimeFormatA(locale: Int, dwflags: Int, lptime: Long, lpformat: Long, lptimestr: Long, cchtime: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_GetTimeFormatEx(lplocalename: Long, dwflags: Int, lptime: Long, lpformat: Long, lptimestr: Long, cchtime: Int): Int
+    external fun windowssys_windows_win32_globalization_getTimeFormatEx(lplocalename: Long, dwflags: Int, lptime: Long, lpformat: Long, lptimestr: Long, cchtime: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_GetTimeFormatW(locale: Int, dwflags: Int, lptime: Long, lpformat: Long, lptimestr: Long, cchtime: Int): Int
+    external fun windowssys_windows_win32_globalization_getTimeFormatW(locale: Int, dwflags: Int, lptime: Long, lpformat: Long, lptimestr: Long, cchtime: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_GetUILanguageInfo(dwflags: Int, pwmszlanguage: Long, pwszfallbacklanguages: Long, pcchfallbacklanguages: Long, pattributes: Long): Int
+    external fun windowssys_windows_win32_globalization_getUILanguageInfo(dwflags: Int, pwmszlanguage: Long, pwszfallbacklanguages: Long, pcchfallbacklanguages: Long, pattributes: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_GetUserDefaultGeoName(geoname: Long, geonamecount: Int): Int
+    external fun windowssys_windows_win32_globalization_getUserDefaultGeoName(geoname: Long, geonamecount: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_GetUserDefaultLCID(): Int
+    external fun windowssys_windows_win32_globalization_getUserDefaultLCID(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_GetUserDefaultLangID(): Short
+    external fun windowssys_windows_win32_globalization_getUserDefaultLangID(): Short
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_GetUserDefaultLocaleName(lplocalename: Long, cchlocalename: Int): Int
+    external fun windowssys_windows_win32_globalization_getUserDefaultLocaleName(lplocalename: Long, cchlocalename: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_GetUserDefaultUILanguage(): Short
+    external fun windowssys_windows_win32_globalization_getUserDefaultUILanguage(): Short
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_GetUserGeoID(geoclass: Int): Int
+    external fun windowssys_windows_win32_globalization_getUserGeoID(geoclass: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_GetUserPreferredUILanguages(dwflags: Int, pulnumlanguages: Long, pwszlanguagesbuffer: Long, pcchlanguagesbuffer: Long): Int
+    external fun windowssys_windows_win32_globalization_getUserPreferredUILanguages(dwflags: Int, pulnumlanguages: Long, pwszlanguagesbuffer: Long, pcchlanguagesbuffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_IdnToAscii(dwflags: Int, lpunicodecharstr: Long, cchunicodechar: Int, lpasciicharstr: Long, cchasciichar: Int): Int
+    external fun windowssys_windows_win32_globalization_idnToAscii(dwflags: Int, lpunicodecharstr: Long, cchunicodechar: Int, lpasciicharstr: Long, cchasciichar: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_IdnToNameprepUnicode(dwflags: Int, lpunicodecharstr: Long, cchunicodechar: Int, lpnameprepcharstr: Long, cchnameprepchar: Int): Int
+    external fun windowssys_windows_win32_globalization_idnToNameprepUnicode(dwflags: Int, lpunicodecharstr: Long, cchunicodechar: Int, lpnameprepcharstr: Long, cchnameprepchar: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_IdnToUnicode(dwflags: Int, lpasciicharstr: Long, cchasciichar: Int, lpunicodecharstr: Long, cchunicodechar: Int): Int
+    external fun windowssys_windows_win32_globalization_idnToUnicode(dwflags: Int, lpasciicharstr: Long, cchasciichar: Int, lpunicodecharstr: Long, cchunicodechar: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_IsCalendarLeapYear(calid: Int, year: Int, era: Int): Int
+    external fun windowssys_windows_win32_globalization_isCalendarLeapYear(calid: Int, year: Int, era: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_IsDBCSLeadByte(testchar: Byte): Int
+    external fun windowssys_windows_win32_globalization_isDBCSLeadByte(testchar: Byte): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_IsDBCSLeadByteEx(codepage: Int, testchar: Byte): Int
+    external fun windowssys_windows_win32_globalization_isDBCSLeadByteEx(codepage: Int, testchar: Byte): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_IsNLSDefinedString(function: Int, dwflags: Int, lpversioninformation: Long, lpstring: Long, cchstr: Int): Int
+    external fun windowssys_windows_win32_globalization_isNLSDefinedString(function: Int, dwflags: Int, lpversioninformation: Long, lpstring: Long, cchstr: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_IsNormalizedString(normform: Int, lpstring: Long, cwlength: Int): Int
+    external fun windowssys_windows_win32_globalization_isNormalizedString(normform: Int, lpstring: Long, cwlength: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_IsTextUnicode(lpv: Long, isize: Int, lpiresult: Long): Int
+    external fun windowssys_windows_win32_globalization_isTextUnicode(lpv: Long, isize: Int, lpiresult: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_IsValidCodePage(codepage: Int): Int
+    external fun windowssys_windows_win32_globalization_isValidCodePage(codepage: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_IsValidLanguageGroup(languagegroup: Int, dwflags: Int): Int
+    external fun windowssys_windows_win32_globalization_isValidLanguageGroup(languagegroup: Int, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_IsValidLocale(locale: Int, dwflags: Int): Int
+    external fun windowssys_windows_win32_globalization_isValidLocale(locale: Int, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_IsValidLocaleName(lplocalename: Long): Int
+    external fun windowssys_windows_win32_globalization_isValidLocaleName(lplocalename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_IsValidNLSVersion(function: Int, lplocalename: Long, lpversioninformation: Long): Int
+    external fun windowssys_windows_win32_globalization_isValidNLSVersion(function: Int, lplocalename: Long, lpversioninformation: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_IsWellFormedTag(psztag: Long): Byte
+    external fun windowssys_windows_win32_globalization_isWellFormedTag(psztag: Long): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_LCIDToLocaleName(locale: Int, lpname: Long, cchname: Int, dwflags: Int): Int
+    external fun windowssys_windows_win32_globalization_lCIDToLocaleName(locale: Int, lpname: Long, cchname: Int, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_LCMapStringA(locale: Int, dwmapflags: Int, lpsrcstr: Long, cchsrc: Int, lpdeststr: Long, cchdest: Int): Int
+    external fun windowssys_windows_win32_globalization_lCMapStringA(locale: Int, dwmapflags: Int, lpsrcstr: Long, cchsrc: Int, lpdeststr: Long, cchdest: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_LCMapStringEx(lplocalename: Long, dwmapflags: Int, lpsrcstr: Long, cchsrc: Int, lpdeststr: Long, cchdest: Int, lpversioninformation: Long, lpreserved: Long, sorthandle: Long): Int
+    external fun windowssys_windows_win32_globalization_lCMapStringEx(lplocalename: Long, dwmapflags: Int, lpsrcstr: Long, cchsrc: Int, lpdeststr: Long, cchdest: Int, lpversioninformation: Long, lpreserved: Long, sorthandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_LCMapStringW(locale: Int, dwmapflags: Int, lpsrcstr: Long, cchsrc: Int, lpdeststr: Long, cchdest: Int): Int
+    external fun windowssys_windows_win32_globalization_lCMapStringW(locale: Int, dwmapflags: Int, lpsrcstr: Long, cchsrc: Int, lpdeststr: Long, cchdest: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_LocaleNameToLCID(lpname: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_globalization_localeNameToLCID(lpname: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_MappingDoAction(pbag: Long, dwrangeindex: Int, pszactionid: Long): Int
+    external fun windowssys_windows_win32_globalization_mappingDoAction(pbag: Long, dwrangeindex: Int, pszactionid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_MappingFreePropertyBag(pbag: Long): Int
+    external fun windowssys_windows_win32_globalization_mappingFreePropertyBag(pbag: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_MappingFreeServices(pserviceinfo: Long): Int
+    external fun windowssys_windows_win32_globalization_mappingFreeServices(pserviceinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_MappingGetServices(poptions: Long, prgservices: Long, pdwservicescount: Long): Int
+    external fun windowssys_windows_win32_globalization_mappingGetServices(poptions: Long, prgservices: Long, pdwservicescount: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_MappingRecognizeText(pserviceinfo: Long, psztext: Long, dwlength: Int, dwindex: Int, poptions: Long, pbag: Long): Int
+    external fun windowssys_windows_win32_globalization_mappingRecognizeText(pserviceinfo: Long, psztext: Long, dwlength: Int, dwindex: Int, poptions: Long, pbag: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_MultiByteToWideChar(codepage: Int, dwflags: Int, lpmultibytestr: Long, cbmultibyte: Int, lpwidecharstr: Long, cchwidechar: Int): Int
+    external fun windowssys_windows_win32_globalization_multiByteToWideChar(codepage: Int, dwflags: Int, lpmultibytestr: Long, cbmultibyte: Int, lpwidecharstr: Long, cchwidechar: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_NormalizeString(normform: Int, lpsrcstring: Long, cwsrclength: Int, lpdststring: Long, cwdstlength: Int): Int
+    external fun windowssys_windows_win32_globalization_normalizeString(normform: Int, lpsrcstring: Long, cwsrclength: Int, lpdststring: Long, cwdstlength: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_NotifyUILanguageChange(dwflags: Int, pcwstrnewlanguage: Long, pcwstrpreviouslanguage: Long, dwreserved: Int, pdwstatusrtrn: Long): Int
+    external fun windowssys_windows_win32_globalization_notifyUILanguageChange(dwflags: Int, pcwstrnewlanguage: Long, pcwstrpreviouslanguage: Long, dwreserved: Int, pdwstatusrtrn: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ResolveLocaleName(lpnametoresolve: Long, lplocalename: Long, cchlocalename: Int): Int
+    external fun windowssys_windows_win32_globalization_resolveLocaleName(lpnametoresolve: Long, lplocalename: Long, cchlocalename: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_RestoreThreadPreferredUILanguages(snapshot: Long)
+    external fun windowssys_windows_win32_globalization_restoreThreadPreferredUILanguages(snapshot: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ScriptApplyDigitSubstitution(psds: Long, psc: Long, pss: Long): Int
+    external fun windowssys_windows_win32_globalization_scriptApplyDigitSubstitution(psds: Long, psc: Long, pss: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ScriptApplyLogicalWidth(pidx: Long, cchars: Int, cglyphs: Int, pwlogclust: Long, psva: Long, piadvance: Long, psa: Long, pabc: Long, pijustify: Long): Int
+    external fun windowssys_windows_win32_globalization_scriptApplyLogicalWidth(pidx: Long, cchars: Int, cglyphs: Int, pwlogclust: Long, psva: Long, piadvance: Long, psa: Long, pabc: Long, pijustify: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ScriptBreak(pwcchars: Long, cchars: Int, psa: Long, psla: Long): Int
+    external fun windowssys_windows_win32_globalization_scriptBreak(pwcchars: Long, cchars: Int, psa: Long, psla: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ScriptCPtoX(icp: Int, ftrailing: Int, cchars: Int, cglyphs: Int, pwlogclust: Long, psva: Long, piadvance: Long, psa: Long, pix: Long): Int
+    external fun windowssys_windows_win32_globalization_scriptCPtoX(icp: Int, ftrailing: Int, cchars: Int, cglyphs: Int, pwlogclust: Long, psva: Long, piadvance: Long, psa: Long, pix: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ScriptCacheGetHeight(hdc: Long, psc: Long, tmheight: Long): Int
+    external fun windowssys_windows_win32_globalization_scriptCacheGetHeight(hdc: Long, psc: Long, tmheight: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ScriptFreeCache(psc: Long): Int
+    external fun windowssys_windows_win32_globalization_scriptFreeCache(psc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ScriptGetCMap(hdc: Long, psc: Long, pwcinchars: Long, cchars: Int, dwflags: Int, pwoutglyphs: Long): Int
+    external fun windowssys_windows_win32_globalization_scriptGetCMap(hdc: Long, psc: Long, pwcinchars: Long, cchars: Int, dwflags: Int, pwoutglyphs: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ScriptGetFontAlternateGlyphs(hdc: Long, psc: Long, psa: Long, tagscript: Int, taglangsys: Int, tagfeature: Int, wglyphid: Short, cmaxalternates: Int, palternateglyphs: Long, pcalternates: Long): Int
+    external fun windowssys_windows_win32_globalization_scriptGetFontAlternateGlyphs(hdc: Long, psc: Long, psa: Long, tagscript: Int, taglangsys: Int, tagfeature: Int, wglyphid: Short, cmaxalternates: Int, palternateglyphs: Long, pcalternates: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ScriptGetFontFeatureTags(hdc: Long, psc: Long, psa: Long, tagscript: Int, taglangsys: Int, cmaxtags: Int, pfeaturetags: Long, pctags: Long): Int
+    external fun windowssys_windows_win32_globalization_scriptGetFontFeatureTags(hdc: Long, psc: Long, psa: Long, tagscript: Int, taglangsys: Int, cmaxtags: Int, pfeaturetags: Long, pctags: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ScriptGetFontLanguageTags(hdc: Long, psc: Long, psa: Long, tagscript: Int, cmaxtags: Int, plangsystags: Long, pctags: Long): Int
+    external fun windowssys_windows_win32_globalization_scriptGetFontLanguageTags(hdc: Long, psc: Long, psa: Long, tagscript: Int, cmaxtags: Int, plangsystags: Long, pctags: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ScriptGetFontProperties(hdc: Long, psc: Long, sfp: Long): Int
+    external fun windowssys_windows_win32_globalization_scriptGetFontProperties(hdc: Long, psc: Long, sfp: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ScriptGetFontScriptTags(hdc: Long, psc: Long, psa: Long, cmaxtags: Int, pscripttags: Long, pctags: Long): Int
+    external fun windowssys_windows_win32_globalization_scriptGetFontScriptTags(hdc: Long, psc: Long, psa: Long, cmaxtags: Int, pscripttags: Long, pctags: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ScriptGetGlyphABCWidth(hdc: Long, psc: Long, wglyph: Short, pabc: Long): Int
+    external fun windowssys_windows_win32_globalization_scriptGetGlyphABCWidth(hdc: Long, psc: Long, wglyph: Short, pabc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ScriptGetLogicalWidths(psa: Long, cchars: Int, cglyphs: Int, piglyphwidth: Long, pwlogclust: Long, psva: Long, pidx: Long): Int
+    external fun windowssys_windows_win32_globalization_scriptGetLogicalWidths(psa: Long, cchars: Int, cglyphs: Int, piglyphwidth: Long, pwlogclust: Long, psva: Long, pidx: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ScriptGetProperties(ppsp: Long, pinumscripts: Long): Int
+    external fun windowssys_windows_win32_globalization_scriptGetProperties(ppsp: Long, pinumscripts: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ScriptIsComplex(pwcinchars: Long, cinchars: Int, dwflags: Int): Int
+    external fun windowssys_windows_win32_globalization_scriptIsComplex(pwcinchars: Long, cinchars: Int, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ScriptItemize(pwcinchars: Long, cinchars: Int, cmaxitems: Int, pscontrol: Long, psstate: Long, pitems: Long, pcitems: Long): Int
+    external fun windowssys_windows_win32_globalization_scriptItemize(pwcinchars: Long, cinchars: Int, cmaxitems: Int, pscontrol: Long, psstate: Long, pitems: Long, pcitems: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ScriptItemizeOpenType(pwcinchars: Long, cinchars: Int, cmaxitems: Int, pscontrol: Long, psstate: Long, pitems: Long, pscripttags: Long, pcitems: Long): Int
+    external fun windowssys_windows_win32_globalization_scriptItemizeOpenType(pwcinchars: Long, cinchars: Int, cmaxitems: Int, pscontrol: Long, psstate: Long, pitems: Long, pscripttags: Long, pcitems: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ScriptJustify(psva: Long, piadvance: Long, cglyphs: Int, idx: Int, iminkashida: Int, pijustify: Long): Int
+    external fun windowssys_windows_win32_globalization_scriptJustify(psva: Long, piadvance: Long, cglyphs: Int, idx: Int, iminkashida: Int, pijustify: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ScriptLayout(cruns: Int, pblevel: Long, pivisualtological: Long, pilogicaltovisual: Long): Int
+    external fun windowssys_windows_win32_globalization_scriptLayout(cruns: Int, pblevel: Long, pivisualtological: Long, pilogicaltovisual: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ScriptPlace(hdc: Long, psc: Long, pwglyphs: Long, cglyphs: Int, psva: Long, psa: Long, piadvance: Long, pgoffset: Long, pabc: Long): Int
+    external fun windowssys_windows_win32_globalization_scriptPlace(hdc: Long, psc: Long, pwglyphs: Long, cglyphs: Int, psva: Long, psa: Long, piadvance: Long, pgoffset: Long, pabc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ScriptPlaceOpenType(hdc: Long, psc: Long, psa: Long, tagscript: Int, taglangsys: Int, rcrangechars: Long, rprangeproperties: Long, cranges: Int, pwcchars: Long, pwlogclust: Long, pcharprops: Long, cchars: Int, pwglyphs: Long, pglyphprops: Long, cglyphs: Int, piadvance: Long, pgoffset: Long, pabc: Long): Int
+    external fun windowssys_windows_win32_globalization_scriptPlaceOpenType(hdc: Long, psc: Long, psa: Long, tagscript: Int, taglangsys: Int, rcrangechars: Long, rprangeproperties: Long, cranges: Int, pwcchars: Long, pwlogclust: Long, pcharprops: Long, cchars: Int, pwglyphs: Long, pglyphprops: Long, cglyphs: Int, piadvance: Long, pgoffset: Long, pabc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ScriptRecordDigitSubstitution(locale: Int, psds: Long): Int
+    external fun windowssys_windows_win32_globalization_scriptRecordDigitSubstitution(locale: Int, psds: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ScriptShape(hdc: Long, psc: Long, pwcchars: Long, cchars: Int, cmaxglyphs: Int, psa: Long, pwoutglyphs: Long, pwlogclust: Long, psva: Long, pcglyphs: Long): Int
+    external fun windowssys_windows_win32_globalization_scriptShape(hdc: Long, psc: Long, pwcchars: Long, cchars: Int, cmaxglyphs: Int, psa: Long, pwoutglyphs: Long, pwlogclust: Long, psva: Long, pcglyphs: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ScriptShapeOpenType(hdc: Long, psc: Long, psa: Long, tagscript: Int, taglangsys: Int, rcrangechars: Long, rprangeproperties: Long, cranges: Int, pwcchars: Long, cchars: Int, cmaxglyphs: Int, pwlogclust: Long, pcharprops: Long, pwoutglyphs: Long, poutglyphprops: Long, pcglyphs: Long): Int
+    external fun windowssys_windows_win32_globalization_scriptShapeOpenType(hdc: Long, psc: Long, psa: Long, tagscript: Int, taglangsys: Int, rcrangechars: Long, rprangeproperties: Long, cranges: Int, pwcchars: Long, cchars: Int, cmaxglyphs: Int, pwlogclust: Long, pcharprops: Long, pwoutglyphs: Long, poutglyphprops: Long, pcglyphs: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ScriptStringAnalyse(hdc: Long, pstring: Long, cstring: Int, cglyphs: Int, icharset: Int, dwflags: Int, ireqwidth: Int, pscontrol: Long, psstate: Long, pidx: Long, ptabdef: Long, pbinclass: Long, pssa: Long): Int
+    external fun windowssys_windows_win32_globalization_scriptStringAnalyse(hdc: Long, pstring: Long, cstring: Int, cglyphs: Int, icharset: Int, dwflags: Int, ireqwidth: Int, pscontrol: Long, psstate: Long, pidx: Long, ptabdef: Long, pbinclass: Long, pssa: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ScriptStringCPtoX(ssa: Long, icp: Int, ftrailing: Int, px: Long): Int
+    external fun windowssys_windows_win32_globalization_scriptStringCPtoX(ssa: Long, icp: Int, ftrailing: Int, px: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ScriptStringFree(pssa: Long): Int
+    external fun windowssys_windows_win32_globalization_scriptStringFree(pssa: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ScriptStringGetLogicalWidths(ssa: Long, pidx: Long): Int
+    external fun windowssys_windows_win32_globalization_scriptStringGetLogicalWidths(ssa: Long, pidx: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ScriptStringGetOrder(ssa: Long, puorder: Long): Int
+    external fun windowssys_windows_win32_globalization_scriptStringGetOrder(ssa: Long, puorder: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ScriptStringOut(ssa: Long, ix: Int, iy: Int, uoptions: Int, prc: Long, iminsel: Int, imaxsel: Int, fdisabled: Int): Int
+    external fun windowssys_windows_win32_globalization_scriptStringOut(ssa: Long, ix: Int, iy: Int, uoptions: Int, prc: Long, iminsel: Int, imaxsel: Int, fdisabled: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ScriptStringValidate(ssa: Long): Int
+    external fun windowssys_windows_win32_globalization_scriptStringValidate(ssa: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ScriptStringXtoCP(ssa: Long, ix: Int, pich: Long, pitrailing: Long): Int
+    external fun windowssys_windows_win32_globalization_scriptStringXtoCP(ssa: Long, ix: Int, pich: Long, pitrailing: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ScriptString_pLogAttr(ssa: Long): Long
+    external fun windowssys_windows_win32_globalization_scriptStringPLogAttr(ssa: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ScriptString_pSize(ssa: Long): Long
+    external fun windowssys_windows_win32_globalization_scriptStringPSize(ssa: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ScriptString_pcOutChars(ssa: Long): Long
+    external fun windowssys_windows_win32_globalization_scriptStringPcOutChars(ssa: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ScriptSubstituteSingleGlyph(hdc: Long, psc: Long, psa: Long, tagscript: Int, taglangsys: Int, tagfeature: Int, lparameter: Int, wglyphid: Short, pwoutglyphid: Long): Int
+    external fun windowssys_windows_win32_globalization_scriptSubstituteSingleGlyph(hdc: Long, psc: Long, psa: Long, tagscript: Int, taglangsys: Int, tagfeature: Int, lparameter: Int, wglyphid: Short, pwoutglyphid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ScriptTextOut(hdc: Long, psc: Long, x: Int, y: Int, fuoptions: Int, lprc: Long, psa: Long, pwcreserved: Long, ireserved: Int, pwglyphs: Long, cglyphs: Int, piadvance: Long, pijustify: Long, pgoffset: Long): Int
+    external fun windowssys_windows_win32_globalization_scriptTextOut(hdc: Long, psc: Long, x: Int, y: Int, fuoptions: Int, lprc: Long, psa: Long, pwcreserved: Long, ireserved: Int, pwglyphs: Long, cglyphs: Int, piadvance: Long, pijustify: Long, pgoffset: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ScriptXtoCP(ix: Int, cchars: Int, cglyphs: Int, pwlogclust: Long, psva: Long, piadvance: Long, psa: Long, picp: Long, pitrailing: Long): Int
+    external fun windowssys_windows_win32_globalization_scriptXtoCP(ix: Int, cchars: Int, cglyphs: Int, pwlogclust: Long, psva: Long, piadvance: Long, psa: Long, picp: Long, pitrailing: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_SetCalendarInfoA(locale: Int, calendar: Int, caltype: Int, lpcaldata: Long): Int
+    external fun windowssys_windows_win32_globalization_setCalendarInfoA(locale: Int, calendar: Int, caltype: Int, lpcaldata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_SetCalendarInfoW(locale: Int, calendar: Int, caltype: Int, lpcaldata: Long): Int
+    external fun windowssys_windows_win32_globalization_setCalendarInfoW(locale: Int, calendar: Int, caltype: Int, lpcaldata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_SetLocaleInfoA(locale: Int, lctype: Int, lplcdata: Long): Int
+    external fun windowssys_windows_win32_globalization_setLocaleInfoA(locale: Int, lctype: Int, lplcdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_SetLocaleInfoW(locale: Int, lctype: Int, lplcdata: Long): Int
+    external fun windowssys_windows_win32_globalization_setLocaleInfoW(locale: Int, lctype: Int, lplcdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_SetProcessPreferredUILanguages(dwflags: Int, pwszlanguagesbuffer: Long, pulnumlanguages: Long): Int
+    external fun windowssys_windows_win32_globalization_setProcessPreferredUILanguages(dwflags: Int, pwszlanguagesbuffer: Long, pulnumlanguages: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_SetThreadLocale(locale: Int): Int
+    external fun windowssys_windows_win32_globalization_setThreadLocale(locale: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_SetThreadPreferredUILanguages(dwflags: Int, pwszlanguagesbuffer: Long, pulnumlanguages: Long): Int
+    external fun windowssys_windows_win32_globalization_setThreadPreferredUILanguages(dwflags: Int, pwszlanguagesbuffer: Long, pulnumlanguages: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_SetThreadPreferredUILanguages2(flags: Int, languages: Long, numlanguagesset: Long, snapshot: Long): Int
+    external fun windowssys_windows_win32_globalization_setThreadPreferredUILanguages2(flags: Int, languages: Long, numlanguagesset: Long, snapshot: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_SetThreadUILanguage(langid: Short): Short
+    external fun windowssys_windows_win32_globalization_setThreadUILanguage(langid: Short): Short
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_SetUserGeoID(geoid: Int): Int
+    external fun windowssys_windows_win32_globalization_setUserGeoID(geoid: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_SetUserGeoName(geoname: Long): Int
+    external fun windowssys_windows_win32_globalization_setUserGeoName(geoname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_TranslateCharsetInfo(lpsrc: Long, lpcs: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_globalization_translateCharsetInfo(lpsrc: Long, lpcs: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_UCNV_FROM_U_CALLBACK_ESCAPE(context: Long, fromuargs: Long, codeunits: Long, length: Int, codepoint: Int, reason: Int, err: Long)
+    external fun windowssys_windows_win32_globalization_ucnvFromUCallbackEscape(context: Long, fromuargs: Long, codeunits: Long, length: Int, codepoint: Int, reason: Int, err: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_UCNV_FROM_U_CALLBACK_SKIP(context: Long, fromuargs: Long, codeunits: Long, length: Int, codepoint: Int, reason: Int, err: Long)
+    external fun windowssys_windows_win32_globalization_ucnvFromUCallbackSkip(context: Long, fromuargs: Long, codeunits: Long, length: Int, codepoint: Int, reason: Int, err: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_UCNV_FROM_U_CALLBACK_STOP(context: Long, fromuargs: Long, codeunits: Long, length: Int, codepoint: Int, reason: Int, err: Long)
+    external fun windowssys_windows_win32_globalization_ucnvFromUCallbackStop(context: Long, fromuargs: Long, codeunits: Long, length: Int, codepoint: Int, reason: Int, err: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_UCNV_FROM_U_CALLBACK_SUBSTITUTE(context: Long, fromuargs: Long, codeunits: Long, length: Int, codepoint: Int, reason: Int, err: Long)
+    external fun windowssys_windows_win32_globalization_ucnvFromUCallbackSubstitute(context: Long, fromuargs: Long, codeunits: Long, length: Int, codepoint: Int, reason: Int, err: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_UCNV_TO_U_CALLBACK_ESCAPE(context: Long, touargs: Long, codeunits: Long, length: Int, reason: Int, err: Long)
+    external fun windowssys_windows_win32_globalization_ucnvToUCallbackEscape(context: Long, touargs: Long, codeunits: Long, length: Int, reason: Int, err: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_UCNV_TO_U_CALLBACK_SKIP(context: Long, touargs: Long, codeunits: Long, length: Int, reason: Int, err: Long)
+    external fun windowssys_windows_win32_globalization_ucnvToUCallbackSkip(context: Long, touargs: Long, codeunits: Long, length: Int, reason: Int, err: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_UCNV_TO_U_CALLBACK_STOP(context: Long, touargs: Long, codeunits: Long, length: Int, reason: Int, err: Long)
+    external fun windowssys_windows_win32_globalization_ucnvToUCallbackStop(context: Long, touargs: Long, codeunits: Long, length: Int, reason: Int, err: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_UCNV_TO_U_CALLBACK_SUBSTITUTE(context: Long, touargs: Long, codeunits: Long, length: Int, reason: Int, err: Long)
+    external fun windowssys_windows_win32_globalization_ucnvToUCallbackSubstitute(context: Long, touargs: Long, codeunits: Long, length: Int, reason: Int, err: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_UpdateCalendarDayOfWeek(lpcaldatetime: Long): Int
+    external fun windowssys_windows_win32_globalization_updateCalendarDayOfWeek(lpcaldatetime: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_VerifyScripts(dwflags: Int, lplocalescripts: Long, cchlocalescripts: Int, lptestscripts: Long, cchtestscripts: Int): Int
+    external fun windowssys_windows_win32_globalization_verifyScripts(dwflags: Int, lplocalescripts: Long, cchlocalescripts: Int, lptestscripts: Long, cchtestscripts: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_WideCharToMultiByte(codepage: Int, dwflags: Int, lpwidecharstr: Long, cchwidechar: Int, lpmultibytestr: Long, cbmultibyte: Int, lpdefaultchar: Long, lpuseddefaultchar: Long): Int
+    external fun windowssys_windows_win32_globalization_wideCharToMultiByte(codepage: Int, dwflags: Int, lpwidecharstr: Long, cchwidechar: Int, lpmultibytestr: Long, cbmultibyte: Int, lpdefaultchar: Long, lpuseddefaultchar: Long): Int
 
     @JvmStatic
     external fun windowssys_windows_win32_globalization_lstrcatA(lpstring1: Long, lpstring2: Long): Long
@@ -625,6945 +626,6969 @@ private object WindowsWin32GlobalizationJniBridge {
     external fun windowssys_windows_win32_globalization_lstrlenW(lpstring: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_UCharsToChars(us: Long, cs: Long, length: Int)
+    external fun windowssys_windows_win32_globalization_uUcharsToChars(us: Long, cs: Long, length: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_austrcpy(dst: Long, src: Long): Long
+    external fun windowssys_windows_win32_globalization_uAustrcpy(dst: Long, src: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_austrncpy(dst: Long, src: Long, n: Int): Long
+    external fun windowssys_windows_win32_globalization_uAustrncpy(dst: Long, src: Long, n: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_catclose(catd: Long)
+    external fun windowssys_windows_win32_globalization_uCatclose(catd: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_catgets(catd: Long, set_num: Int, msg_num: Int, s: Long, len: Long, ec: Long): Long
+    external fun windowssys_windows_win32_globalization_uCatgets(catd: Long, setNum: Int, msgNum: Int, s: Long, len: Long, ec: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_catopen(name: Long, locale: Long, ec: Long): Long
+    external fun windowssys_windows_win32_globalization_uCatopen(name: Long, locale: Long, ec: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_charAge(c: Int, versionarray: Long)
+    external fun windowssys_windows_win32_globalization_uCharAge(c: Int, versionarray: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_charDigitValue(c: Int): Int
+    external fun windowssys_windows_win32_globalization_uCharDigitValue(c: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_charDirection(c: Int): Int
+    external fun windowssys_windows_win32_globalization_uCharDirection(c: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_charFromName(namechoice: Int, name: Long, perrorcode: Long): Int
+    external fun windowssys_windows_win32_globalization_uCharFromName(namechoice: Int, name: Long, perrorcode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_charMirror(c: Int): Int
+    external fun windowssys_windows_win32_globalization_uCharMirror(c: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_charName(code: Int, namechoice: Int, buffer: Long, bufferlength: Int, perrorcode: Long): Int
+    external fun windowssys_windows_win32_globalization_uCharName(code: Int, namechoice: Int, buffer: Long, bufferlength: Int, perrorcode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_charType(c: Int): Byte
+    external fun windowssys_windows_win32_globalization_uCharType(c: Int): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_charsToUChars(cs: Long, us: Long, length: Int)
+    external fun windowssys_windows_win32_globalization_uCharsToUchars(cs: Long, us: Long, length: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_cleanup()
+    external fun windowssys_windows_win32_globalization_uCleanup()
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_countChar32(s: Long, length: Int): Int
+    external fun windowssys_windows_win32_globalization_uCountChar32(s: Long, length: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_digit(ch: Int, radix: Byte): Int
+    external fun windowssys_windows_win32_globalization_uDigit(ch: Int, radix: Byte): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_enumCharNames(start: Int, limit: Int, fn: Long, context: Long, namechoice: Int, perrorcode: Long)
+    external fun windowssys_windows_win32_globalization_uEnumCharNames(start: Int, limit: Int, fn: Long, context: Long, namechoice: Int, perrorcode: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_enumCharTypes(enumrange: Long, context: Long)
+    external fun windowssys_windows_win32_globalization_uEnumCharTypes(enumrange: Long, context: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_errorName(code: Int): Long
+    external fun windowssys_windows_win32_globalization_uErrorName(code: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_foldCase(c: Int, options: Int): Int
+    external fun windowssys_windows_win32_globalization_uFoldCase(c: Int, options: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_forDigit(digit: Int, radix: Byte): Int
+    external fun windowssys_windows_win32_globalization_uForDigit(digit: Int, radix: Byte): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_getBidiPairedBracket(c: Int): Int
+    external fun windowssys_windows_win32_globalization_uFormatMessage(locale: Long, pattern: Long, patternlength: Int, result: Long, resultlength: Int, status: Long, km_vac: Int, km_va0: Long, km_va1: Long, km_va2: Long, km_va3: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_getBinaryPropertySet(property: Int, perrorcode: Long): Long
+    external fun windowssys_windows_win32_globalization_uFormatMessageWithError(locale: Long, pattern: Long, patternlength: Int, result: Long, resultlength: Int, parseerror: Long, status: Long, km_vac: Int, km_va0: Long, km_va1: Long, km_va2: Long, km_va3: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_getCombiningClass(c: Int): Byte
+    external fun windowssys_windows_win32_globalization_uGetBidiPairedBracket(c: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_getDataVersion(dataversionfillin: Long, status: Long)
+    external fun windowssys_windows_win32_globalization_uGetBinaryPropertySet(property: Int, perrorcode: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_getFC_NFKC_Closure(c: Int, dest: Long, destcapacity: Int, perrorcode: Long): Int
+    external fun windowssys_windows_win32_globalization_uGetCombiningClass(c: Int): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_getIntPropertyMap(property: Int, perrorcode: Long): Long
+    external fun windowssys_windows_win32_globalization_uGetDataVersion(dataversionfillin: Long, status: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_getIntPropertyMaxValue(which: Int): Int
+    external fun windowssys_windows_win32_globalization_uGetFcNfkcClosure(c: Int, dest: Long, destcapacity: Int, perrorcode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_getIntPropertyMinValue(which: Int): Int
+    external fun windowssys_windows_win32_globalization_uGetIntPropertyMap(property: Int, perrorcode: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_getIntPropertyValue(c: Int, which: Int): Int
+    external fun windowssys_windows_win32_globalization_uGetIntPropertyMaxValue(which: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_getNumericValue(c: Int): Double
+    external fun windowssys_windows_win32_globalization_uGetIntPropertyMinValue(which: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_getPropertyEnum(alias: Long): Int
+    external fun windowssys_windows_win32_globalization_uGetIntPropertyValue(c: Int, which: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_getPropertyName(property: Int, namechoice: Int): Long
+    external fun windowssys_windows_win32_globalization_uGetNumericValue(c: Int): Double
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_getPropertyValueEnum(property: Int, alias: Long): Int
+    external fun windowssys_windows_win32_globalization_uGetPropertyEnum(alias: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_getPropertyValueName(property: Int, value: Int, namechoice: Int): Long
+    external fun windowssys_windows_win32_globalization_uGetPropertyName(property: Int, namechoice: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_getUnicodeVersion(versionarray: Long)
+    external fun windowssys_windows_win32_globalization_uGetPropertyValueEnum(property: Int, alias: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_getVersion(versionarray: Long)
+    external fun windowssys_windows_win32_globalization_uGetPropertyValueName(property: Int, value: Int, namechoice: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_hasBinaryProperty(c: Int, which: Int): Byte
+    external fun windowssys_windows_win32_globalization_uGetUnicodeVersion(versionarray: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_init(status: Long)
+    external fun windowssys_windows_win32_globalization_uGetVersion(versionarray: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_isIDIgnorable(c: Int): Byte
+    external fun windowssys_windows_win32_globalization_uHasBinaryProperty(c: Int, which: Int): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_isIDPart(c: Int): Byte
+    external fun windowssys_windows_win32_globalization_uInit(status: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_isIDStart(c: Int): Byte
+    external fun windowssys_windows_win32_globalization_uIsIdignorable(c: Int): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_isISOControl(c: Int): Byte
+    external fun windowssys_windows_win32_globalization_uIsIdpart(c: Int): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_isJavaIDPart(c: Int): Byte
+    external fun windowssys_windows_win32_globalization_uIsIdstart(c: Int): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_isJavaIDStart(c: Int): Byte
+    external fun windowssys_windows_win32_globalization_uIsIsocontrol(c: Int): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_isJavaSpaceChar(c: Int): Byte
+    external fun windowssys_windows_win32_globalization_uIsJavaIdpart(c: Int): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_isMirrored(c: Int): Byte
+    external fun windowssys_windows_win32_globalization_uIsJavaIdstart(c: Int): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_isUAlphabetic(c: Int): Byte
+    external fun windowssys_windows_win32_globalization_uIsJavaSpaceChar(c: Int): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_isULowercase(c: Int): Byte
+    external fun windowssys_windows_win32_globalization_uIsMirrored(c: Int): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_isUUppercase(c: Int): Byte
+    external fun windowssys_windows_win32_globalization_uIsUalphabetic(c: Int): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_isUWhiteSpace(c: Int): Byte
+    external fun windowssys_windows_win32_globalization_uIsUlowercase(c: Int): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_isWhitespace(c: Int): Byte
+    external fun windowssys_windows_win32_globalization_uIsUuppercase(c: Int): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_isalnum(c: Int): Byte
+    external fun windowssys_windows_win32_globalization_uIsUwhiteSpace(c: Int): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_isalpha(c: Int): Byte
+    external fun windowssys_windows_win32_globalization_uIsWhitespace(c: Int): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_isbase(c: Int): Byte
+    external fun windowssys_windows_win32_globalization_uIsalnum(c: Int): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_isblank(c: Int): Byte
+    external fun windowssys_windows_win32_globalization_uIsalpha(c: Int): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_iscntrl(c: Int): Byte
+    external fun windowssys_windows_win32_globalization_uIsbase(c: Int): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_isdefined(c: Int): Byte
+    external fun windowssys_windows_win32_globalization_uIsblank(c: Int): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_isdigit(c: Int): Byte
+    external fun windowssys_windows_win32_globalization_uIscntrl(c: Int): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_isgraph(c: Int): Byte
+    external fun windowssys_windows_win32_globalization_uIsdefined(c: Int): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_islower(c: Int): Byte
+    external fun windowssys_windows_win32_globalization_uIsdigit(c: Int): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_isprint(c: Int): Byte
+    external fun windowssys_windows_win32_globalization_uIsgraph(c: Int): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_ispunct(c: Int): Byte
+    external fun windowssys_windows_win32_globalization_uIslower(c: Int): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_isspace(c: Int): Byte
+    external fun windowssys_windows_win32_globalization_uIsprint(c: Int): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_istitle(c: Int): Byte
+    external fun windowssys_windows_win32_globalization_uIspunct(c: Int): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_isupper(c: Int): Byte
+    external fun windowssys_windows_win32_globalization_uIsspace(c: Int): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_isxdigit(c: Int): Byte
+    external fun windowssys_windows_win32_globalization_uIstitle(c: Int): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_memcasecmp(s1: Long, s2: Long, length: Int, options: Int): Int
+    external fun windowssys_windows_win32_globalization_uIsupper(c: Int): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_memchr(s: Long, c: Short, count: Int): Long
+    external fun windowssys_windows_win32_globalization_uIsxdigit(c: Int): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_memchr32(s: Long, c: Int, count: Int): Long
+    external fun windowssys_windows_win32_globalization_uMemcasecmp(s1: Long, s2: Long, length: Int, options: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_memcmp(buf1: Long, buf2: Long, count: Int): Int
+    external fun windowssys_windows_win32_globalization_uMemchr(s: Long, c: Short, count: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_memcmpCodePointOrder(s1: Long, s2: Long, count: Int): Int
+    external fun windowssys_windows_win32_globalization_uMemchr32(s: Long, c: Int, count: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_memcpy(dest: Long, src: Long, count: Int): Long
+    external fun windowssys_windows_win32_globalization_uMemcmp(buf1: Long, buf2: Long, count: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_memmove(dest: Long, src: Long, count: Int): Long
+    external fun windowssys_windows_win32_globalization_uMemcmpCodePointOrder(s1: Long, s2: Long, count: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_memrchr(s: Long, c: Short, count: Int): Long
+    external fun windowssys_windows_win32_globalization_uMemcpy(dest: Long, src: Long, count: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_memrchr32(s: Long, c: Int, count: Int): Long
+    external fun windowssys_windows_win32_globalization_uMemmove(dest: Long, src: Long, count: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_memset(dest: Long, c: Short, count: Int): Long
+    external fun windowssys_windows_win32_globalization_uMemrchr(s: Long, c: Short, count: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_setMemoryFunctions(context: Long, a: Long, r: Long, f: Long, status: Long)
+    external fun windowssys_windows_win32_globalization_uMemrchr32(s: Long, c: Int, count: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_shapeArabic(source: Long, sourcelength: Int, dest: Long, destsize: Int, options: Int, perrorcode: Long): Int
+    external fun windowssys_windows_win32_globalization_uMemset(dest: Long, c: Short, count: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_strCaseCompare(s1: Long, length1: Int, s2: Long, length2: Int, options: Int, perrorcode: Long): Int
+    external fun windowssys_windows_win32_globalization_uParseMessage(locale: Long, pattern: Long, patternlength: Int, source: Long, sourcelength: Int, status: Long, km_vac: Int, km_va0: Long, km_va1: Long, km_va2: Long, km_va3: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_strCompare(s1: Long, length1: Int, s2: Long, length2: Int, codepointorder: Byte): Int
+    external fun windowssys_windows_win32_globalization_uParseMessageWithError(locale: Long, pattern: Long, patternlength: Int, source: Long, sourcelength: Int, parseerror: Long, status: Long, km_vac: Int, km_va0: Long, km_va1: Long, km_va2: Long, km_va3: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_strCompareIter(iter1: Long, iter2: Long, codepointorder: Byte): Int
+    external fun windowssys_windows_win32_globalization_uSetMemoryFunctions(context: Long, a: Long, r: Long, f: Long, status: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_strFindFirst(s: Long, length: Int, substring: Long, sublength: Int): Long
+    external fun windowssys_windows_win32_globalization_uShapeArabic(source: Long, sourcelength: Int, dest: Long, destsize: Int, options: Int, perrorcode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_strFindLast(s: Long, length: Int, substring: Long, sublength: Int): Long
+    external fun windowssys_windows_win32_globalization_uStrCaseCompare(s1: Long, length1: Int, s2: Long, length2: Int, options: Int, perrorcode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_strFoldCase(dest: Long, destcapacity: Int, src: Long, srclength: Int, options: Int, perrorcode: Long): Int
+    external fun windowssys_windows_win32_globalization_uStrCompare(s1: Long, length1: Int, s2: Long, length2: Int, codepointorder: Byte): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_strFromJavaModifiedUTF8WithSub(dest: Long, destcapacity: Int, pdestlength: Long, src: Long, srclength: Int, subchar: Int, pnumsubstitutions: Long, perrorcode: Long): Long
+    external fun windowssys_windows_win32_globalization_uStrCompareIter(iter1: Long, iter2: Long, codepointorder: Byte): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_strFromUTF32(dest: Long, destcapacity: Int, pdestlength: Long, src: Long, srclength: Int, perrorcode: Long): Long
+    external fun windowssys_windows_win32_globalization_uStrFindFirst(s: Long, length: Int, substring: Long, sublength: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_strFromUTF32WithSub(dest: Long, destcapacity: Int, pdestlength: Long, src: Long, srclength: Int, subchar: Int, pnumsubstitutions: Long, perrorcode: Long): Long
+    external fun windowssys_windows_win32_globalization_uStrFindLast(s: Long, length: Int, substring: Long, sublength: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_strFromUTF8(dest: Long, destcapacity: Int, pdestlength: Long, src: Long, srclength: Int, perrorcode: Long): Long
+    external fun windowssys_windows_win32_globalization_uStrFoldCase(dest: Long, destcapacity: Int, src: Long, srclength: Int, options: Int, perrorcode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_strFromUTF8Lenient(dest: Long, destcapacity: Int, pdestlength: Long, src: Long, srclength: Int, perrorcode: Long): Long
+    external fun windowssys_windows_win32_globalization_uStrFromJavaModifiedUtf8WithSub(dest: Long, destcapacity: Int, pdestlength: Long, src: Long, srclength: Int, subchar: Int, pnumsubstitutions: Long, perrorcode: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_strFromUTF8WithSub(dest: Long, destcapacity: Int, pdestlength: Long, src: Long, srclength: Int, subchar: Int, pnumsubstitutions: Long, perrorcode: Long): Long
+    external fun windowssys_windows_win32_globalization_uStrFromUtf32(dest: Long, destcapacity: Int, pdestlength: Long, src: Long, srclength: Int, perrorcode: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_strFromWCS(dest: Long, destcapacity: Int, pdestlength: Long, src: Long, srclength: Int, perrorcode: Long): Long
+    external fun windowssys_windows_win32_globalization_uStrFromUtf32WithSub(dest: Long, destcapacity: Int, pdestlength: Long, src: Long, srclength: Int, subchar: Int, pnumsubstitutions: Long, perrorcode: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_strHasMoreChar32Than(s: Long, length: Int, number: Int): Byte
+    external fun windowssys_windows_win32_globalization_uStrFromUtf8(dest: Long, destcapacity: Int, pdestlength: Long, src: Long, srclength: Int, perrorcode: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_strToJavaModifiedUTF8(dest: Long, destcapacity: Int, pdestlength: Long, src: Long, srclength: Int, perrorcode: Long): Long
+    external fun windowssys_windows_win32_globalization_uStrFromUtf8Lenient(dest: Long, destcapacity: Int, pdestlength: Long, src: Long, srclength: Int, perrorcode: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_strToLower(dest: Long, destcapacity: Int, src: Long, srclength: Int, locale: Long, perrorcode: Long): Int
+    external fun windowssys_windows_win32_globalization_uStrFromUtf8WithSub(dest: Long, destcapacity: Int, pdestlength: Long, src: Long, srclength: Int, subchar: Int, pnumsubstitutions: Long, perrorcode: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_strToTitle(dest: Long, destcapacity: Int, src: Long, srclength: Int, titleiter: Long, locale: Long, perrorcode: Long): Int
+    external fun windowssys_windows_win32_globalization_uStrFromWcs(dest: Long, destcapacity: Int, pdestlength: Long, src: Long, srclength: Int, perrorcode: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_strToUTF32(dest: Long, destcapacity: Int, pdestlength: Long, src: Long, srclength: Int, perrorcode: Long): Long
+    external fun windowssys_windows_win32_globalization_uStrHasMoreChar32Than(s: Long, length: Int, number: Int): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_strToUTF32WithSub(dest: Long, destcapacity: Int, pdestlength: Long, src: Long, srclength: Int, subchar: Int, pnumsubstitutions: Long, perrorcode: Long): Long
+    external fun windowssys_windows_win32_globalization_uStrToJavaModifiedUtf8(dest: Long, destcapacity: Int, pdestlength: Long, src: Long, srclength: Int, perrorcode: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_strToUTF8(dest: Long, destcapacity: Int, pdestlength: Long, src: Long, srclength: Int, perrorcode: Long): Long
+    external fun windowssys_windows_win32_globalization_uStrToLower(dest: Long, destcapacity: Int, src: Long, srclength: Int, locale: Long, perrorcode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_strToUTF8WithSub(dest: Long, destcapacity: Int, pdestlength: Long, src: Long, srclength: Int, subchar: Int, pnumsubstitutions: Long, perrorcode: Long): Long
+    external fun windowssys_windows_win32_globalization_uStrToTitle(dest: Long, destcapacity: Int, src: Long, srclength: Int, titleiter: Long, locale: Long, perrorcode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_strToUpper(dest: Long, destcapacity: Int, src: Long, srclength: Int, locale: Long, perrorcode: Long): Int
+    external fun windowssys_windows_win32_globalization_uStrToUtf32(dest: Long, destcapacity: Int, pdestlength: Long, src: Long, srclength: Int, perrorcode: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_strToWCS(dest: Long, destcapacity: Int, pdestlength: Long, src: Long, srclength: Int, perrorcode: Long): Long
+    external fun windowssys_windows_win32_globalization_uStrToUtf32WithSub(dest: Long, destcapacity: Int, pdestlength: Long, src: Long, srclength: Int, subchar: Int, pnumsubstitutions: Long, perrorcode: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_strcasecmp(s1: Long, s2: Long, options: Int): Int
+    external fun windowssys_windows_win32_globalization_uStrToUtf8(dest: Long, destcapacity: Int, pdestlength: Long, src: Long, srclength: Int, perrorcode: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_strcat(dst: Long, src: Long): Long
+    external fun windowssys_windows_win32_globalization_uStrToUtf8WithSub(dest: Long, destcapacity: Int, pdestlength: Long, src: Long, srclength: Int, subchar: Int, pnumsubstitutions: Long, perrorcode: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_strchr(s: Long, c: Short): Long
+    external fun windowssys_windows_win32_globalization_uStrToUpper(dest: Long, destcapacity: Int, src: Long, srclength: Int, locale: Long, perrorcode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_strchr32(s: Long, c: Int): Long
+    external fun windowssys_windows_win32_globalization_uStrToWcs(dest: Long, destcapacity: Int, pdestlength: Long, src: Long, srclength: Int, perrorcode: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_strcmp(s1: Long, s2: Long): Int
+    external fun windowssys_windows_win32_globalization_uStrcasecmp(s1: Long, s2: Long, options: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_strcmpCodePointOrder(s1: Long, s2: Long): Int
+    external fun windowssys_windows_win32_globalization_uStrcat(dst: Long, src: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_strcpy(dst: Long, src: Long): Long
+    external fun windowssys_windows_win32_globalization_uStrchr(s: Long, c: Short): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_strcspn(string: Long, matchset: Long): Int
+    external fun windowssys_windows_win32_globalization_uStrchr32(s: Long, c: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_strlen(s: Long): Int
+    external fun windowssys_windows_win32_globalization_uStrcmp(s1: Long, s2: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_strncasecmp(s1: Long, s2: Long, n: Int, options: Int): Int
+    external fun windowssys_windows_win32_globalization_uStrcmpCodePointOrder(s1: Long, s2: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_strncat(dst: Long, src: Long, n: Int): Long
+    external fun windowssys_windows_win32_globalization_uStrcpy(dst: Long, src: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_strncmp(ucs1: Long, ucs2: Long, n: Int): Int
+    external fun windowssys_windows_win32_globalization_uStrcspn(string: Long, matchset: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_strncmpCodePointOrder(s1: Long, s2: Long, n: Int): Int
+    external fun windowssys_windows_win32_globalization_uStrlen(s: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_strncpy(dst: Long, src: Long, n: Int): Long
+    external fun windowssys_windows_win32_globalization_uStrncasecmp(s1: Long, s2: Long, n: Int, options: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_strpbrk(string: Long, matchset: Long): Long
+    external fun windowssys_windows_win32_globalization_uStrncat(dst: Long, src: Long, n: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_strrchr(s: Long, c: Short): Long
+    external fun windowssys_windows_win32_globalization_uStrncmp(ucs1: Long, ucs2: Long, n: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_strrchr32(s: Long, c: Int): Long
+    external fun windowssys_windows_win32_globalization_uStrncmpCodePointOrder(s1: Long, s2: Long, n: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_strrstr(s: Long, substring: Long): Long
+    external fun windowssys_windows_win32_globalization_uStrncpy(dst: Long, src: Long, n: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_strspn(string: Long, matchset: Long): Int
+    external fun windowssys_windows_win32_globalization_uStrpbrk(string: Long, matchset: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_strstr(s: Long, substring: Long): Long
+    external fun windowssys_windows_win32_globalization_uStrrchr(s: Long, c: Short): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_strtok_r(src: Long, delim: Long, savestate: Long): Long
+    external fun windowssys_windows_win32_globalization_uStrrchr32(s: Long, c: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_tolower(c: Int): Int
+    external fun windowssys_windows_win32_globalization_uStrrstr(s: Long, substring: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_totitle(c: Int): Int
+    external fun windowssys_windows_win32_globalization_uStrspn(string: Long, matchset: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_toupper(c: Int): Int
+    external fun windowssys_windows_win32_globalization_uStrstr(s: Long, substring: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_uastrcpy(dst: Long, src: Long): Long
+    external fun windowssys_windows_win32_globalization_uStrtokR(src: Long, delim: Long, savestate: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_uastrncpy(dst: Long, src: Long, n: Int): Long
+    external fun windowssys_windows_win32_globalization_uTolower(c: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_unescape(src: Long, dest: Long, destcapacity: Int): Int
+    external fun windowssys_windows_win32_globalization_uTotitle(c: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_unescapeAt(charat: Long, offset: Long, length: Int, context: Long): Int
+    external fun windowssys_windows_win32_globalization_uToupper(c: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_versionFromString(versionarray: Long, versionstring: Long)
+    external fun windowssys_windows_win32_globalization_uUastrcpy(dst: Long, src: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_versionFromUString(versionarray: Long, versionstring: Long)
+    external fun windowssys_windows_win32_globalization_uUastrncpy(dst: Long, src: Long, n: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_versionToString(versionarray: Long, versionstring: Long)
+    external fun windowssys_windows_win32_globalization_uUnescape(src: Long, dest: Long, destcapacity: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_vformatMessage(locale: Long, pattern: Long, patternlength: Int, result: Long, resultlength: Int, ap: Long, status: Long): Int
+    external fun windowssys_windows_win32_globalization_uUnescapeAt(charat: Long, offset: Long, length: Int, context: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_vformatMessageWithError(locale: Long, pattern: Long, patternlength: Int, result: Long, resultlength: Int, parseerror: Long, ap: Long, status: Long): Int
+    external fun windowssys_windows_win32_globalization_uVersionFromString(versionarray: Long, versionstring: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_vparseMessage(locale: Long, pattern: Long, patternlength: Int, source: Long, sourcelength: Int, ap: Long, status: Long)
+    external fun windowssys_windows_win32_globalization_uVersionFromUstring(versionarray: Long, versionstring: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_u_vparseMessageWithError(locale: Long, pattern: Long, patternlength: Int, source: Long, sourcelength: Int, ap: Long, parseerror: Long, status: Long)
+    external fun windowssys_windows_win32_globalization_uVersionToString(versionarray: Long, versionstring: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ubidi_close(pbidi: Long)
+    external fun windowssys_windows_win32_globalization_uVformatMessage(locale: Long, pattern: Long, patternlength: Int, result: Long, resultlength: Int, ap: Long, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ubidi_countParagraphs(pbidi: Long): Int
+    external fun windowssys_windows_win32_globalization_uVformatMessageWithError(locale: Long, pattern: Long, patternlength: Int, result: Long, resultlength: Int, parseerror: Long, ap: Long, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ubidi_countRuns(pbidi: Long, perrorcode: Long): Int
+    external fun windowssys_windows_win32_globalization_uVparseMessage(locale: Long, pattern: Long, patternlength: Int, source: Long, sourcelength: Int, ap: Long, status: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ubidi_getBaseDirection(text: Long, length: Int): Int
+    external fun windowssys_windows_win32_globalization_uVparseMessageWithError(locale: Long, pattern: Long, patternlength: Int, source: Long, sourcelength: Int, ap: Long, parseerror: Long, status: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ubidi_getClassCallback(pbidi: Long, fn: Long, context: Long)
+    external fun windowssys_windows_win32_globalization_ubidiClose(pbidi: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ubidi_getCustomizedClass(pbidi: Long, c: Int): Int
+    external fun windowssys_windows_win32_globalization_ubidiCountParagraphs(pbidi: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ubidi_getDirection(pbidi: Long): Int
+    external fun windowssys_windows_win32_globalization_ubidiCountRuns(pbidi: Long, perrorcode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ubidi_getLength(pbidi: Long): Int
+    external fun windowssys_windows_win32_globalization_ubidiGetBaseDirection(text: Long, length: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ubidi_getLevelAt(pbidi: Long, charindex: Int): Byte
+    external fun windowssys_windows_win32_globalization_ubidiGetClassCallback(pbidi: Long, fn: Long, context: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ubidi_getLevels(pbidi: Long, perrorcode: Long): Long
+    external fun windowssys_windows_win32_globalization_ubidiGetCustomizedClass(pbidi: Long, c: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ubidi_getLogicalIndex(pbidi: Long, visualindex: Int, perrorcode: Long): Int
+    external fun windowssys_windows_win32_globalization_ubidiGetDirection(pbidi: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ubidi_getLogicalMap(pbidi: Long, indexmap: Long, perrorcode: Long)
+    external fun windowssys_windows_win32_globalization_ubidiGetLength(pbidi: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ubidi_getLogicalRun(pbidi: Long, logicalposition: Int, plogicallimit: Long, plevel: Long)
+    external fun windowssys_windows_win32_globalization_ubidiGetLevelAt(pbidi: Long, charindex: Int): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ubidi_getParaLevel(pbidi: Long): Byte
+    external fun windowssys_windows_win32_globalization_ubidiGetLevels(pbidi: Long, perrorcode: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ubidi_getParagraph(pbidi: Long, charindex: Int, pparastart: Long, pparalimit: Long, pparalevel: Long, perrorcode: Long): Int
+    external fun windowssys_windows_win32_globalization_ubidiGetLogicalIndex(pbidi: Long, visualindex: Int, perrorcode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ubidi_getParagraphByIndex(pbidi: Long, paraindex: Int, pparastart: Long, pparalimit: Long, pparalevel: Long, perrorcode: Long)
+    external fun windowssys_windows_win32_globalization_ubidiGetLogicalMap(pbidi: Long, indexmap: Long, perrorcode: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ubidi_getProcessedLength(pbidi: Long): Int
+    external fun windowssys_windows_win32_globalization_ubidiGetLogicalRun(pbidi: Long, logicalposition: Int, plogicallimit: Long, plevel: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ubidi_getReorderingMode(pbidi: Long): Int
+    external fun windowssys_windows_win32_globalization_ubidiGetParaLevel(pbidi: Long): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ubidi_getReorderingOptions(pbidi: Long): Int
+    external fun windowssys_windows_win32_globalization_ubidiGetParagraph(pbidi: Long, charindex: Int, pparastart: Long, pparalimit: Long, pparalevel: Long, perrorcode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ubidi_getResultLength(pbidi: Long): Int
+    external fun windowssys_windows_win32_globalization_ubidiGetParagraphByIndex(pbidi: Long, paraindex: Int, pparastart: Long, pparalimit: Long, pparalevel: Long, perrorcode: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ubidi_getText(pbidi: Long): Long
+    external fun windowssys_windows_win32_globalization_ubidiGetProcessedLength(pbidi: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ubidi_getVisualIndex(pbidi: Long, logicalindex: Int, perrorcode: Long): Int
+    external fun windowssys_windows_win32_globalization_ubidiGetReorderingMode(pbidi: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ubidi_getVisualMap(pbidi: Long, indexmap: Long, perrorcode: Long)
+    external fun windowssys_windows_win32_globalization_ubidiGetReorderingOptions(pbidi: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ubidi_getVisualRun(pbidi: Long, runindex: Int, plogicalstart: Long, plength: Long): Int
+    external fun windowssys_windows_win32_globalization_ubidiGetResultLength(pbidi: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ubidi_invertMap(srcmap: Long, destmap: Long, length: Int)
+    external fun windowssys_windows_win32_globalization_ubidiGetText(pbidi: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ubidi_isInverse(pbidi: Long): Byte
+    external fun windowssys_windows_win32_globalization_ubidiGetVisualIndex(pbidi: Long, logicalindex: Int, perrorcode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ubidi_isOrderParagraphsLTR(pbidi: Long): Byte
+    external fun windowssys_windows_win32_globalization_ubidiGetVisualMap(pbidi: Long, indexmap: Long, perrorcode: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ubidi_open(): Long
+    external fun windowssys_windows_win32_globalization_ubidiGetVisualRun(pbidi: Long, runindex: Int, plogicalstart: Long, plength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ubidi_openSized(maxlength: Int, maxruncount: Int, perrorcode: Long): Long
+    external fun windowssys_windows_win32_globalization_ubidiInvertMap(srcmap: Long, destmap: Long, length: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ubidi_orderParagraphsLTR(pbidi: Long, orderparagraphsltr: Byte)
+    external fun windowssys_windows_win32_globalization_ubidiIsInverse(pbidi: Long): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ubidi_reorderLogical(levels: Long, length: Int, indexmap: Long)
+    external fun windowssys_windows_win32_globalization_ubidiIsOrderParagraphsLtr(pbidi: Long): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ubidi_reorderVisual(levels: Long, length: Int, indexmap: Long)
+    external fun windowssys_windows_win32_globalization_ubidiOpen(): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ubidi_setClassCallback(pbidi: Long, newfn: Long, newcontext: Long, oldfn: Long, oldcontext: Long, perrorcode: Long)
+    external fun windowssys_windows_win32_globalization_ubidiOpenSized(maxlength: Int, maxruncount: Int, perrorcode: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ubidi_setContext(pbidi: Long, prologue: Long, prolength: Int, epilogue: Long, epilength: Int, perrorcode: Long)
+    external fun windowssys_windows_win32_globalization_ubidiOrderParagraphsLtr(pbidi: Long, orderparagraphsltr: Byte)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ubidi_setInverse(pbidi: Long, isinverse: Byte)
+    external fun windowssys_windows_win32_globalization_ubidiReorderLogical(levels: Long, length: Int, indexmap: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ubidi_setLine(pparabidi: Long, start: Int, limit: Int, plinebidi: Long, perrorcode: Long)
+    external fun windowssys_windows_win32_globalization_ubidiReorderVisual(levels: Long, length: Int, indexmap: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ubidi_setPara(pbidi: Long, text: Long, length: Int, paralevel: Byte, embeddinglevels: Long, perrorcode: Long)
+    external fun windowssys_windows_win32_globalization_ubidiSetClassCallback(pbidi: Long, newfn: Long, newcontext: Long, oldfn: Long, oldcontext: Long, perrorcode: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ubidi_setReorderingMode(pbidi: Long, reorderingmode: Int)
+    external fun windowssys_windows_win32_globalization_ubidiSetContext(pbidi: Long, prologue: Long, prolength: Int, epilogue: Long, epilength: Int, perrorcode: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ubidi_setReorderingOptions(pbidi: Long, reorderingoptions: Int)
+    external fun windowssys_windows_win32_globalization_ubidiSetInverse(pbidi: Long, isinverse: Byte)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ubidi_writeReordered(pbidi: Long, dest: Long, destsize: Int, options: Short, perrorcode: Long): Int
+    external fun windowssys_windows_win32_globalization_ubidiSetLine(pparabidi: Long, start: Int, limit: Int, plinebidi: Long, perrorcode: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ubidi_writeReverse(src: Long, srclength: Int, dest: Long, destsize: Int, options: Short, perrorcode: Long): Int
+    external fun windowssys_windows_win32_globalization_ubidiSetPara(pbidi: Long, text: Long, length: Int, paralevel: Byte, embeddinglevels: Long, perrorcode: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ubiditransform_close(pbiditransform: Long)
+    external fun windowssys_windows_win32_globalization_ubidiSetReorderingMode(pbidi: Long, reorderingmode: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ubiditransform_open(perrorcode: Long): Long
+    external fun windowssys_windows_win32_globalization_ubidiSetReorderingOptions(pbidi: Long, reorderingoptions: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ubiditransform_transform(pbiditransform: Long, src: Long, srclength: Int, dest: Long, destsize: Int, inparalevel: Byte, inorder: Int, outparalevel: Byte, outorder: Int, domirroring: Int, shapingoptions: Int, perrorcode: Long): Int
+    external fun windowssys_windows_win32_globalization_ubidiWriteReordered(pbidi: Long, dest: Long, destsize: Int, options: Short, perrorcode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ublock_getCode(c: Int): Int
+    external fun windowssys_windows_win32_globalization_ubidiWriteReverse(src: Long, srclength: Int, dest: Long, destsize: Int, options: Short, perrorcode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ubrk_close(bi: Long)
+    external fun windowssys_windows_win32_globalization_ubiditransformClose(pbiditransform: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ubrk_countAvailable(): Int
+    external fun windowssys_windows_win32_globalization_ubiditransformOpen(perrorcode: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ubrk_current(bi: Long): Int
+    external fun windowssys_windows_win32_globalization_ubiditransformTransform(pbiditransform: Long, src: Long, srclength: Int, dest: Long, destsize: Int, inparalevel: Byte, inorder: Int, outparalevel: Byte, outorder: Int, domirroring: Int, shapingoptions: Int, perrorcode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ubrk_first(bi: Long): Int
+    external fun windowssys_windows_win32_globalization_ublockGetCode(c: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ubrk_following(bi: Long, offset: Int): Int
+    external fun windowssys_windows_win32_globalization_ubrkClose(bi: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ubrk_getAvailable(index: Int): Long
+    external fun windowssys_windows_win32_globalization_ubrkCountAvailable(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ubrk_getBinaryRules(bi: Long, binaryrules: Long, rulescapacity: Int, status: Long): Int
+    external fun windowssys_windows_win32_globalization_ubrkCurrent(bi: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ubrk_getLocaleByType(bi: Long, type: Int, status: Long): Long
+    external fun windowssys_windows_win32_globalization_ubrkFirst(bi: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ubrk_getRuleStatus(bi: Long): Int
+    external fun windowssys_windows_win32_globalization_ubrkFollowing(bi: Long, offset: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ubrk_getRuleStatusVec(bi: Long, fillinvec: Long, capacity: Int, status: Long): Int
+    external fun windowssys_windows_win32_globalization_ubrkGetAvailable(index: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ubrk_isBoundary(bi: Long, offset: Int): Byte
+    external fun windowssys_windows_win32_globalization_ubrkGetBinaryRules(bi: Long, binaryrules: Long, rulescapacity: Int, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ubrk_last(bi: Long): Int
+    external fun windowssys_windows_win32_globalization_ubrkGetLocaleByType(bi: Long, type: Int, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ubrk_next(bi: Long): Int
+    external fun windowssys_windows_win32_globalization_ubrkGetRuleStatus(bi: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ubrk_open(type: Int, locale: Long, text: Long, textlength: Int, status: Long): Long
+    external fun windowssys_windows_win32_globalization_ubrkGetRuleStatusVec(bi: Long, fillinvec: Long, capacity: Int, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ubrk_openBinaryRules(binaryrules: Long, ruleslength: Int, text: Long, textlength: Int, status: Long): Long
+    external fun windowssys_windows_win32_globalization_ubrkIsBoundary(bi: Long, offset: Int): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ubrk_openRules(rules: Long, ruleslength: Int, text: Long, textlength: Int, parseerr: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_ubrkLast(bi: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ubrk_preceding(bi: Long, offset: Int): Int
+    external fun windowssys_windows_win32_globalization_ubrkNext(bi: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ubrk_previous(bi: Long): Int
+    external fun windowssys_windows_win32_globalization_ubrkOpen(type: Int, locale: Long, text: Long, textlength: Int, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ubrk_refreshUText(bi: Long, text: Long, status: Long)
+    external fun windowssys_windows_win32_globalization_ubrkOpenBinaryRules(binaryrules: Long, ruleslength: Int, text: Long, textlength: Int, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ubrk_safeClone(bi: Long, stackbuffer: Long, pbuffersize: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_ubrkOpenRules(rules: Long, ruleslength: Int, text: Long, textlength: Int, parseerr: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ubrk_setText(bi: Long, text: Long, textlength: Int, status: Long)
+    external fun windowssys_windows_win32_globalization_ubrkPreceding(bi: Long, offset: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ubrk_setUText(bi: Long, text: Long, status: Long)
+    external fun windowssys_windows_win32_globalization_ubrkPrevious(bi: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucal_add(cal: Long, field: Int, amount: Int, status: Long)
+    external fun windowssys_windows_win32_globalization_ubrkRefreshUtext(bi: Long, text: Long, status: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucal_clear(calendar: Long)
+    external fun windowssys_windows_win32_globalization_ubrkSafeClone(bi: Long, stackbuffer: Long, pbuffersize: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucal_clearField(cal: Long, field: Int)
+    external fun windowssys_windows_win32_globalization_ubrkSetText(bi: Long, text: Long, textlength: Int, status: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucal_clone(cal: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_ubrkSetUtext(bi: Long, text: Long, status: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucal_close(cal: Long)
+    external fun windowssys_windows_win32_globalization_ucalAdd(cal: Long, field: Int, amount: Int, status: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucal_countAvailable(): Int
+    external fun windowssys_windows_win32_globalization_ucalClear(calendar: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucal_equivalentTo(cal1: Long, cal2: Long): Byte
+    external fun windowssys_windows_win32_globalization_ucalClearField(cal: Long, field: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucal_get(cal: Long, field: Int, status: Long): Int
+    external fun windowssys_windows_win32_globalization_ucalClone(cal: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucal_getAttribute(cal: Long, attr: Int): Int
+    external fun windowssys_windows_win32_globalization_ucalClose(cal: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucal_getAvailable(localeindex: Int): Long
+    external fun windowssys_windows_win32_globalization_ucalCountAvailable(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucal_getCanonicalTimeZoneID(id: Long, len: Int, result: Long, resultcapacity: Int, issystemid: Long, status: Long): Int
+    external fun windowssys_windows_win32_globalization_ucalEquivalentTo(cal1: Long, cal2: Long): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucal_getDSTSavings(zoneid: Long, ec: Long): Int
+    external fun windowssys_windows_win32_globalization_ucalGet(cal: Long, field: Int, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucal_getDayOfWeekType(cal: Long, dayofweek: Int, status: Long): Int
+    external fun windowssys_windows_win32_globalization_ucalGetAttribute(cal: Long, attr: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucal_getDefaultTimeZone(result: Long, resultcapacity: Int, ec: Long): Int
+    external fun windowssys_windows_win32_globalization_ucalGetAvailable(localeindex: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucal_getFieldDifference(cal: Long, target: Double, field: Int, status: Long): Int
+    external fun windowssys_windows_win32_globalization_ucalGetCanonicalTimeZoneId(id: Long, len: Int, result: Long, resultcapacity: Int, issystemid: Long, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucal_getGregorianChange(cal: Long, perrorcode: Long): Double
+    external fun windowssys_windows_win32_globalization_ucalGetDstsavings(zoneid: Long, ec: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucal_getHostTimeZone(result: Long, resultcapacity: Int, ec: Long): Int
+    external fun windowssys_windows_win32_globalization_ucalGetDayOfWeekType(cal: Long, dayofweek: Int, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucal_getKeywordValuesForLocale(key: Long, locale: Long, commonlyused: Byte, status: Long): Long
+    external fun windowssys_windows_win32_globalization_ucalGetDefaultTimeZone(result: Long, resultcapacity: Int, ec: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucal_getLimit(cal: Long, field: Int, type: Int, status: Long): Int
+    external fun windowssys_windows_win32_globalization_ucalGetFieldDifference(cal: Long, target: Double, field: Int, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucal_getLocaleByType(cal: Long, type: Int, status: Long): Long
+    external fun windowssys_windows_win32_globalization_ucalGetGregorianChange(cal: Long, perrorcode: Long): Double
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucal_getMillis(cal: Long, status: Long): Double
+    external fun windowssys_windows_win32_globalization_ucalGetHostTimeZone(result: Long, resultcapacity: Int, ec: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucal_getNow(): Double
+    external fun windowssys_windows_win32_globalization_ucalGetKeywordValuesForLocale(key: Long, locale: Long, commonlyused: Byte, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucal_getTZDataVersion(status: Long): Long
+    external fun windowssys_windows_win32_globalization_ucalGetLimit(cal: Long, field: Int, type: Int, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucal_getTimeZoneDisplayName(cal: Long, type: Int, locale: Long, result: Long, resultlength: Int, status: Long): Int
+    external fun windowssys_windows_win32_globalization_ucalGetLocaleByType(cal: Long, type: Int, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucal_getTimeZoneID(cal: Long, result: Long, resultlength: Int, status: Long): Int
+    external fun windowssys_windows_win32_globalization_ucalGetMillis(cal: Long, status: Long): Double
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucal_getTimeZoneIDForWindowsID(winid: Long, len: Int, region: Long, id: Long, idcapacity: Int, status: Long): Int
+    external fun windowssys_windows_win32_globalization_ucalGetNow(): Double
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucal_getTimeZoneTransitionDate(cal: Long, type: Int, transition: Long, status: Long): Byte
+    external fun windowssys_windows_win32_globalization_ucalGetTzdataVersion(status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucal_getType(cal: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_ucalGetTimeZoneDisplayName(cal: Long, type: Int, locale: Long, result: Long, resultlength: Int, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucal_getWeekendTransition(cal: Long, dayofweek: Int, status: Long): Int
+    external fun windowssys_windows_win32_globalization_ucalGetTimeZoneId(cal: Long, result: Long, resultlength: Int, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucal_getWindowsTimeZoneID(id: Long, len: Int, winid: Long, winidcapacity: Int, status: Long): Int
+    external fun windowssys_windows_win32_globalization_ucalGetTimeZoneIdforWindowsId(winid: Long, len: Int, region: Long, id: Long, idcapacity: Int, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucal_inDaylightTime(cal: Long, status: Long): Byte
+    external fun windowssys_windows_win32_globalization_ucalGetTimeZoneTransitionDate(cal: Long, type: Int, transition: Long, status: Long): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucal_isSet(cal: Long, field: Int): Byte
+    external fun windowssys_windows_win32_globalization_ucalGetType(cal: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucal_isWeekend(cal: Long, date: Double, status: Long): Byte
+    external fun windowssys_windows_win32_globalization_ucalGetWeekendTransition(cal: Long, dayofweek: Int, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucal_open(zoneid: Long, len: Int, locale: Long, type: Int, status: Long): Long
+    external fun windowssys_windows_win32_globalization_ucalGetWindowsTimeZoneId(id: Long, len: Int, winid: Long, winidcapacity: Int, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucal_openCountryTimeZones(country: Long, ec: Long): Long
+    external fun windowssys_windows_win32_globalization_ucalInDaylightTime(cal: Long, status: Long): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucal_openTimeZoneIDEnumeration(zonetype: Int, region: Long, rawoffset: Long, ec: Long): Long
+    external fun windowssys_windows_win32_globalization_ucalIsSet(cal: Long, field: Int): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucal_openTimeZones(ec: Long): Long
+    external fun windowssys_windows_win32_globalization_ucalIsWeekend(cal: Long, date: Double, status: Long): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucal_roll(cal: Long, field: Int, amount: Int, status: Long)
+    external fun windowssys_windows_win32_globalization_ucalOpen(zoneid: Long, len: Int, locale: Long, type: Int, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucal_set(cal: Long, field: Int, value: Int)
+    external fun windowssys_windows_win32_globalization_ucalOpenCountryTimeZones(country: Long, ec: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucal_setAttribute(cal: Long, attr: Int, newvalue: Int)
+    external fun windowssys_windows_win32_globalization_ucalOpenTimeZoneIdenumeration(zonetype: Int, region: Long, rawoffset: Long, ec: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucal_setDate(cal: Long, year: Int, month: Int, date: Int, status: Long)
+    external fun windowssys_windows_win32_globalization_ucalOpenTimeZones(ec: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucal_setDateTime(cal: Long, year: Int, month: Int, date: Int, hour: Int, minute: Int, second: Int, status: Long)
+    external fun windowssys_windows_win32_globalization_ucalRoll(cal: Long, field: Int, amount: Int, status: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucal_setDefaultTimeZone(zoneid: Long, ec: Long)
+    external fun windowssys_windows_win32_globalization_ucalSet(cal: Long, field: Int, value: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucal_setGregorianChange(cal: Long, date: Double, perrorcode: Long)
+    external fun windowssys_windows_win32_globalization_ucalSetAttribute(cal: Long, attr: Int, newvalue: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucal_setMillis(cal: Long, datetime: Double, status: Long)
+    external fun windowssys_windows_win32_globalization_ucalSetDate(cal: Long, year: Int, month: Int, date: Int, status: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucal_setTimeZone(cal: Long, zoneid: Long, len: Int, status: Long)
+    external fun windowssys_windows_win32_globalization_ucalSetDateTime(cal: Long, year: Int, month: Int, date: Int, hour: Int, minute: Int, second: Int, status: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucasemap_close(csm: Long)
+    external fun windowssys_windows_win32_globalization_ucalSetDefaultTimeZone(zoneid: Long, ec: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucasemap_getBreakIterator(csm: Long): Long
+    external fun windowssys_windows_win32_globalization_ucalSetGregorianChange(cal: Long, date: Double, perrorcode: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucasemap_getLocale(csm: Long): Long
+    external fun windowssys_windows_win32_globalization_ucalSetMillis(cal: Long, datetime: Double, status: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucasemap_getOptions(csm: Long): Int
+    external fun windowssys_windows_win32_globalization_ucalSetTimeZone(cal: Long, zoneid: Long, len: Int, status: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucasemap_open(locale: Long, options: Int, perrorcode: Long): Long
+    external fun windowssys_windows_win32_globalization_ucasemapClose(csm: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucasemap_setBreakIterator(csm: Long, itertoadopt: Long, perrorcode: Long)
+    external fun windowssys_windows_win32_globalization_ucasemapGetBreakIterator(csm: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucasemap_setLocale(csm: Long, locale: Long, perrorcode: Long)
+    external fun windowssys_windows_win32_globalization_ucasemapGetLocale(csm: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucasemap_setOptions(csm: Long, options: Int, perrorcode: Long)
+    external fun windowssys_windows_win32_globalization_ucasemapGetOptions(csm: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucasemap_toTitle(csm: Long, dest: Long, destcapacity: Int, src: Long, srclength: Int, perrorcode: Long): Int
+    external fun windowssys_windows_win32_globalization_ucasemapOpen(locale: Long, options: Int, perrorcode: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucasemap_utf8FoldCase(csm: Long, dest: Long, destcapacity: Int, src: Long, srclength: Int, perrorcode: Long): Int
+    external fun windowssys_windows_win32_globalization_ucasemapSetBreakIterator(csm: Long, itertoadopt: Long, perrorcode: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucasemap_utf8ToLower(csm: Long, dest: Long, destcapacity: Int, src: Long, srclength: Int, perrorcode: Long): Int
+    external fun windowssys_windows_win32_globalization_ucasemapSetLocale(csm: Long, locale: Long, perrorcode: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucasemap_utf8ToTitle(csm: Long, dest: Long, destcapacity: Int, src: Long, srclength: Int, perrorcode: Long): Int
+    external fun windowssys_windows_win32_globalization_ucasemapSetOptions(csm: Long, options: Int, perrorcode: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucasemap_utf8ToUpper(csm: Long, dest: Long, destcapacity: Int, src: Long, srclength: Int, perrorcode: Long): Int
+    external fun windowssys_windows_win32_globalization_ucasemapToTitle(csm: Long, dest: Long, destcapacity: Int, src: Long, srclength: Int, perrorcode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucfpos_close(ucfpos: Long)
+    external fun windowssys_windows_win32_globalization_ucasemapUtf8FoldCase(csm: Long, dest: Long, destcapacity: Int, src: Long, srclength: Int, perrorcode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucfpos_constrainCategory(ucfpos: Long, category: Int, ec: Long)
+    external fun windowssys_windows_win32_globalization_ucasemapUtf8ToLower(csm: Long, dest: Long, destcapacity: Int, src: Long, srclength: Int, perrorcode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucfpos_constrainField(ucfpos: Long, category: Int, field: Int, ec: Long)
+    external fun windowssys_windows_win32_globalization_ucasemapUtf8ToTitle(csm: Long, dest: Long, destcapacity: Int, src: Long, srclength: Int, perrorcode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucfpos_getCategory(ucfpos: Long, ec: Long): Int
+    external fun windowssys_windows_win32_globalization_ucasemapUtf8ToUpper(csm: Long, dest: Long, destcapacity: Int, src: Long, srclength: Int, perrorcode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucfpos_getField(ucfpos: Long, ec: Long): Int
+    external fun windowssys_windows_win32_globalization_ucfposClose(ucfpos: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucfpos_getIndexes(ucfpos: Long, pstart: Long, plimit: Long, ec: Long)
+    external fun windowssys_windows_win32_globalization_ucfposConstrainCategory(ucfpos: Long, category: Int, ec: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucfpos_getInt64IterationContext(ucfpos: Long, ec: Long): Long
+    external fun windowssys_windows_win32_globalization_ucfposConstrainField(ucfpos: Long, category: Int, field: Int, ec: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucfpos_matchesField(ucfpos: Long, category: Int, field: Int, ec: Long): Byte
+    external fun windowssys_windows_win32_globalization_ucfposGetCategory(ucfpos: Long, ec: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucfpos_open(ec: Long): Long
+    external fun windowssys_windows_win32_globalization_ucfposGetField(ucfpos: Long, ec: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucfpos_reset(ucfpos: Long, ec: Long)
+    external fun windowssys_windows_win32_globalization_ucfposGetIndexes(ucfpos: Long, pstart: Long, plimit: Long, ec: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucfpos_setInt64IterationContext(ucfpos: Long, context: Long, ec: Long)
+    external fun windowssys_windows_win32_globalization_ucfposGetInt64IterationContext(ucfpos: Long, ec: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucfpos_setState(ucfpos: Long, category: Int, field: Int, start: Int, limit: Int, ec: Long)
+    external fun windowssys_windows_win32_globalization_ucfposMatchesField(ucfpos: Long, category: Int, field: Int, ec: Long): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucnv_cbFromUWriteBytes(args: Long, source: Long, length: Int, offsetindex: Int, err: Long)
+    external fun windowssys_windows_win32_globalization_ucfposOpen(ec: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucnv_cbFromUWriteSub(args: Long, offsetindex: Int, err: Long)
+    external fun windowssys_windows_win32_globalization_ucfposReset(ucfpos: Long, ec: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucnv_cbFromUWriteUChars(args: Long, source: Long, sourcelimit: Long, offsetindex: Int, err: Long)
+    external fun windowssys_windows_win32_globalization_ucfposSetInt64IterationContext(ucfpos: Long, context: Long, ec: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucnv_cbToUWriteSub(args: Long, offsetindex: Int, err: Long)
+    external fun windowssys_windows_win32_globalization_ucfposSetState(ucfpos: Long, category: Int, field: Int, start: Int, limit: Int, ec: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucnv_cbToUWriteUChars(args: Long, source: Long, length: Int, offsetindex: Int, err: Long)
+    external fun windowssys_windows_win32_globalization_ucnvCbFromUwriteBytes(args: Long, source: Long, length: Int, offsetindex: Int, err: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucnv_close(converter: Long)
+    external fun windowssys_windows_win32_globalization_ucnvCbFromUwriteSub(args: Long, offsetindex: Int, err: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucnv_compareNames(name1: Long, name2: Long): Int
+    external fun windowssys_windows_win32_globalization_ucnvCbFromUwriteUchars(args: Long, source: Long, sourcelimit: Long, offsetindex: Int, err: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucnv_convert(toconvertername: Long, fromconvertername: Long, target: Long, targetcapacity: Int, source: Long, sourcelength: Int, perrorcode: Long): Int
+    external fun windowssys_windows_win32_globalization_ucnvCbToUwriteSub(args: Long, offsetindex: Int, err: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucnv_convertEx(targetcnv: Long, sourcecnv: Long, target: Long, targetlimit: Long, source: Long, sourcelimit: Long, pivotstart: Long, pivotsource: Long, pivottarget: Long, pivotlimit: Long, reset: Byte, flush: Byte, perrorcode: Long)
+    external fun windowssys_windows_win32_globalization_ucnvCbToUwriteUchars(args: Long, source: Long, length: Int, offsetindex: Int, err: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucnv_countAliases(alias: Long, perrorcode: Long): Short
+    external fun windowssys_windows_win32_globalization_ucnvClose(converter: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucnv_countAvailable(): Int
+    external fun windowssys_windows_win32_globalization_ucnvCompareNames(name1: Long, name2: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucnv_countStandards(): Short
+    external fun windowssys_windows_win32_globalization_ucnvConvert(toconvertername: Long, fromconvertername: Long, target: Long, targetcapacity: Int, source: Long, sourcelength: Int, perrorcode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucnv_detectUnicodeSignature(source: Long, sourcelength: Int, signaturelength: Long, perrorcode: Long): Long
+    external fun windowssys_windows_win32_globalization_ucnvConvertEx(targetcnv: Long, sourcecnv: Long, target: Long, targetlimit: Long, source: Long, sourcelimit: Long, pivotstart: Long, pivotsource: Long, pivottarget: Long, pivotlimit: Long, reset: Byte, flush: Byte, perrorcode: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucnv_fixFileSeparator(cnv: Long, source: Long, sourcelen: Int)
+    external fun windowssys_windows_win32_globalization_ucnvCountAliases(alias: Long, perrorcode: Long): Short
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucnv_flushCache(): Int
+    external fun windowssys_windows_win32_globalization_ucnvCountAvailable(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucnv_fromAlgorithmic(cnv: Long, algorithmictype: Int, target: Long, targetcapacity: Int, source: Long, sourcelength: Int, perrorcode: Long): Int
+    external fun windowssys_windows_win32_globalization_ucnvCountStandards(): Short
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucnv_fromUChars(cnv: Long, dest: Long, destcapacity: Int, src: Long, srclength: Int, perrorcode: Long): Int
+    external fun windowssys_windows_win32_globalization_ucnvDetectUnicodeSignature(source: Long, sourcelength: Int, signaturelength: Long, perrorcode: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucnv_fromUCountPending(cnv: Long, status: Long): Int
+    external fun windowssys_windows_win32_globalization_ucnvFixFileSeparator(cnv: Long, source: Long, sourcelen: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucnv_fromUnicode(converter: Long, target: Long, targetlimit: Long, source: Long, sourcelimit: Long, offsets: Long, flush: Byte, err: Long)
+    external fun windowssys_windows_win32_globalization_ucnvFlushCache(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucnv_getAlias(alias: Long, n: Short, perrorcode: Long): Long
+    external fun windowssys_windows_win32_globalization_ucnvFromAlgorithmic(cnv: Long, algorithmictype: Int, target: Long, targetcapacity: Int, source: Long, sourcelength: Int, perrorcode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucnv_getAliases(alias: Long, aliases: Long, perrorcode: Long)
+    external fun windowssys_windows_win32_globalization_ucnvFromUchars(cnv: Long, dest: Long, destcapacity: Int, src: Long, srclength: Int, perrorcode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucnv_getAvailableName(n: Int): Long
+    external fun windowssys_windows_win32_globalization_ucnvFromUcountPending(cnv: Long, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucnv_getCCSID(converter: Long, err: Long): Int
+    external fun windowssys_windows_win32_globalization_ucnvFromUnicode(converter: Long, target: Long, targetlimit: Long, source: Long, sourcelimit: Long, offsets: Long, flush: Byte, err: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucnv_getCanonicalName(alias: Long, standard: Long, perrorcode: Long): Long
+    external fun windowssys_windows_win32_globalization_ucnvGetAlias(alias: Long, n: Short, perrorcode: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucnv_getDefaultName(): Long
+    external fun windowssys_windows_win32_globalization_ucnvGetAliases(alias: Long, aliases: Long, perrorcode: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucnv_getDisplayName(converter: Long, displaylocale: Long, displayname: Long, displaynamecapacity: Int, err: Long): Int
+    external fun windowssys_windows_win32_globalization_ucnvGetAvailableName(n: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucnv_getFromUCallBack(converter: Long, action: Long, context: Long)
+    external fun windowssys_windows_win32_globalization_ucnvGetCcsid(converter: Long, err: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucnv_getInvalidChars(converter: Long, errbytes: Long, len: Long, err: Long)
+    external fun windowssys_windows_win32_globalization_ucnvGetCanonicalName(alias: Long, standard: Long, perrorcode: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucnv_getInvalidUChars(converter: Long, erruchars: Long, len: Long, err: Long)
+    external fun windowssys_windows_win32_globalization_ucnvGetDefaultName(): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucnv_getMaxCharSize(converter: Long): Byte
+    external fun windowssys_windows_win32_globalization_ucnvGetDisplayName(converter: Long, displaylocale: Long, displayname: Long, displaynamecapacity: Int, err: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucnv_getMinCharSize(converter: Long): Byte
+    external fun windowssys_windows_win32_globalization_ucnvGetFromUcallBack(converter: Long, action: Long, context: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucnv_getName(converter: Long, err: Long): Long
+    external fun windowssys_windows_win32_globalization_ucnvGetInvalidChars(converter: Long, errbytes: Long, len: Long, err: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucnv_getNextUChar(converter: Long, source: Long, sourcelimit: Long, err: Long): Int
+    external fun windowssys_windows_win32_globalization_ucnvGetInvalidUchars(converter: Long, erruchars: Long, len: Long, err: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucnv_getPlatform(converter: Long, err: Long): Int
+    external fun windowssys_windows_win32_globalization_ucnvGetMaxCharSize(converter: Long): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucnv_getStandard(n: Short, perrorcode: Long): Long
+    external fun windowssys_windows_win32_globalization_ucnvGetMinCharSize(converter: Long): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucnv_getStandardName(name: Long, standard: Long, perrorcode: Long): Long
+    external fun windowssys_windows_win32_globalization_ucnvGetName(converter: Long, err: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucnv_getStarters(converter: Long, starters: Long, err: Long)
+    external fun windowssys_windows_win32_globalization_ucnvGetNextUchar(converter: Long, source: Long, sourcelimit: Long, err: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucnv_getSubstChars(converter: Long, subchars: Long, len: Long, err: Long)
+    external fun windowssys_windows_win32_globalization_ucnvGetPlatform(converter: Long, err: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucnv_getToUCallBack(converter: Long, action: Long, context: Long)
+    external fun windowssys_windows_win32_globalization_ucnvGetStandard(n: Short, perrorcode: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucnv_getType(converter: Long): Int
+    external fun windowssys_windows_win32_globalization_ucnvGetStandardName(name: Long, standard: Long, perrorcode: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucnv_getUnicodeSet(cnv: Long, setfillin: Long, whichset: Int, perrorcode: Long)
+    external fun windowssys_windows_win32_globalization_ucnvGetStarters(converter: Long, starters: Long, err: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucnv_isAmbiguous(cnv: Long): Byte
+    external fun windowssys_windows_win32_globalization_ucnvGetSubstChars(converter: Long, subchars: Long, len: Long, err: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucnv_isFixedWidth(cnv: Long, status: Long): Byte
+    external fun windowssys_windows_win32_globalization_ucnvGetToUcallBack(converter: Long, action: Long, context: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucnv_open(convertername: Long, err: Long): Long
+    external fun windowssys_windows_win32_globalization_ucnvGetType(converter: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucnv_openAllNames(perrorcode: Long): Long
+    external fun windowssys_windows_win32_globalization_ucnvGetUnicodeSet(cnv: Long, setfillin: Long, whichset: Int, perrorcode: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucnv_openCCSID(codepage: Int, platform: Int, err: Long): Long
+    external fun windowssys_windows_win32_globalization_ucnvIsAmbiguous(cnv: Long): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucnv_openPackage(packagename: Long, convertername: Long, err: Long): Long
+    external fun windowssys_windows_win32_globalization_ucnvIsFixedWidth(cnv: Long, status: Long): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucnv_openStandardNames(convname: Long, standard: Long, perrorcode: Long): Long
+    external fun windowssys_windows_win32_globalization_ucnvOpen(convertername: Long, err: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucnv_openU(name: Long, err: Long): Long
+    external fun windowssys_windows_win32_globalization_ucnvOpenAllNames(perrorcode: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucnv_reset(converter: Long)
+    external fun windowssys_windows_win32_globalization_ucnvOpenCcsid(codepage: Int, platform: Int, err: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucnv_resetFromUnicode(converter: Long)
+    external fun windowssys_windows_win32_globalization_ucnvOpenPackage(packagename: Long, convertername: Long, err: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucnv_resetToUnicode(converter: Long)
+    external fun windowssys_windows_win32_globalization_ucnvOpenStandardNames(convname: Long, standard: Long, perrorcode: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucnv_safeClone(cnv: Long, stackbuffer: Long, pbuffersize: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_ucnvOpenU(name: Long, err: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucnv_setDefaultName(name: Long)
+    external fun windowssys_windows_win32_globalization_ucnvReset(converter: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucnv_setFallback(cnv: Long, usesfallback: Byte)
+    external fun windowssys_windows_win32_globalization_ucnvResetFromUnicode(converter: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucnv_setFromUCallBack(converter: Long, newaction: Long, newcontext: Long, oldaction: Long, oldcontext: Long, err: Long)
+    external fun windowssys_windows_win32_globalization_ucnvResetToUnicode(converter: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucnv_setSubstChars(converter: Long, subchars: Long, len: Byte, err: Long)
+    external fun windowssys_windows_win32_globalization_ucnvSafeClone(cnv: Long, stackbuffer: Long, pbuffersize: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucnv_setSubstString(cnv: Long, s: Long, length: Int, err: Long)
+    external fun windowssys_windows_win32_globalization_ucnvSetDefaultName(name: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucnv_setToUCallBack(converter: Long, newaction: Long, newcontext: Long, oldaction: Long, oldcontext: Long, err: Long)
+    external fun windowssys_windows_win32_globalization_ucnvSetFallback(cnv: Long, usesfallback: Byte)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucnv_toAlgorithmic(algorithmictype: Int, cnv: Long, target: Long, targetcapacity: Int, source: Long, sourcelength: Int, perrorcode: Long): Int
+    external fun windowssys_windows_win32_globalization_ucnvSetFromUcallBack(converter: Long, newaction: Long, newcontext: Long, oldaction: Long, oldcontext: Long, err: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucnv_toUChars(cnv: Long, dest: Long, destcapacity: Int, src: Long, srclength: Int, perrorcode: Long): Int
+    external fun windowssys_windows_win32_globalization_ucnvSetSubstChars(converter: Long, subchars: Long, len: Byte, err: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucnv_toUCountPending(cnv: Long, status: Long): Int
+    external fun windowssys_windows_win32_globalization_ucnvSetSubstString(cnv: Long, s: Long, length: Int, err: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucnv_toUnicode(converter: Long, target: Long, targetlimit: Long, source: Long, sourcelimit: Long, offsets: Long, flush: Byte, err: Long)
+    external fun windowssys_windows_win32_globalization_ucnvSetToUcallBack(converter: Long, newaction: Long, newcontext: Long, oldaction: Long, oldcontext: Long, err: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucnv_usesFallback(cnv: Long): Byte
+    external fun windowssys_windows_win32_globalization_ucnvToAlgorithmic(algorithmictype: Int, cnv: Long, target: Long, targetcapacity: Int, source: Long, sourcelength: Int, perrorcode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucnvsel_close(sel: Long)
+    external fun windowssys_windows_win32_globalization_ucnvToUchars(cnv: Long, dest: Long, destcapacity: Int, src: Long, srclength: Int, perrorcode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucnvsel_open(converterlist: Long, converterlistsize: Int, excludedcodepoints: Long, whichset: Int, status: Long): Long
+    external fun windowssys_windows_win32_globalization_ucnvToUcountPending(cnv: Long, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucnvsel_openFromSerialized(buffer: Long, length: Int, status: Long): Long
+    external fun windowssys_windows_win32_globalization_ucnvToUnicode(converter: Long, target: Long, targetlimit: Long, source: Long, sourcelimit: Long, offsets: Long, flush: Byte, err: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucnvsel_selectForString(sel: Long, s: Long, length: Int, status: Long): Long
+    external fun windowssys_windows_win32_globalization_ucnvUsesFallback(cnv: Long): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucnvsel_selectForUTF8(sel: Long, s: Long, length: Int, status: Long): Long
+    external fun windowssys_windows_win32_globalization_ucnvselClose(sel: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucnvsel_serialize(sel: Long, buffer: Long, buffercapacity: Int, status: Long): Int
+    external fun windowssys_windows_win32_globalization_ucnvselOpen(converterlist: Long, converterlistsize: Int, excludedcodepoints: Long, whichset: Int, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucol_cloneBinary(coll: Long, buffer: Long, capacity: Int, status: Long): Int
+    external fun windowssys_windows_win32_globalization_ucnvselOpenFromSerialized(buffer: Long, length: Int, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucol_close(coll: Long)
+    external fun windowssys_windows_win32_globalization_ucnvselSelectForString(sel: Long, s: Long, length: Int, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucol_closeElements(elems: Long)
+    external fun windowssys_windows_win32_globalization_ucnvselSelectForUtf8(sel: Long, s: Long, length: Int, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucol_countAvailable(): Int
+    external fun windowssys_windows_win32_globalization_ucnvselSerialize(sel: Long, buffer: Long, buffercapacity: Int, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucol_equal(coll: Long, source: Long, sourcelength: Int, target: Long, targetlength: Int): Byte
+    external fun windowssys_windows_win32_globalization_ucolCloneBinary(coll: Long, buffer: Long, capacity: Int, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucol_getAttribute(coll: Long, attr: Int, status: Long): Int
+    external fun windowssys_windows_win32_globalization_ucolClose(coll: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucol_getAvailable(localeindex: Int): Long
+    external fun windowssys_windows_win32_globalization_ucolCloseElements(elems: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucol_getBound(source: Long, sourcelength: Int, boundtype: Int, nooflevels: Int, result: Long, resultlength: Int, status: Long): Int
+    external fun windowssys_windows_win32_globalization_ucolCountAvailable(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucol_getContractionsAndExpansions(coll: Long, contractions: Long, expansions: Long, addprefixes: Byte, status: Long)
+    external fun windowssys_windows_win32_globalization_ucolEqual(coll: Long, source: Long, sourcelength: Int, target: Long, targetlength: Int): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucol_getDisplayName(objloc: Long, disploc: Long, result: Long, resultlength: Int, status: Long): Int
+    external fun windowssys_windows_win32_globalization_ucolGetAttribute(coll: Long, attr: Int, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucol_getEquivalentReorderCodes(reordercode: Int, dest: Long, destcapacity: Int, perrorcode: Long): Int
+    external fun windowssys_windows_win32_globalization_ucolGetAvailable(localeindex: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucol_getFunctionalEquivalent(result: Long, resultcapacity: Int, keyword: Long, locale: Long, isavailable: Long, status: Long): Int
+    external fun windowssys_windows_win32_globalization_ucolGetBound(source: Long, sourcelength: Int, boundtype: Int, nooflevels: Int, result: Long, resultlength: Int, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucol_getKeywordValues(keyword: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_ucolGetContractionsAndExpansions(coll: Long, contractions: Long, expansions: Long, addprefixes: Byte, status: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucol_getKeywordValuesForLocale(key: Long, locale: Long, commonlyused: Byte, status: Long): Long
+    external fun windowssys_windows_win32_globalization_ucolGetDisplayName(objloc: Long, disploc: Long, result: Long, resultlength: Int, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucol_getKeywords(status: Long): Long
+    external fun windowssys_windows_win32_globalization_ucolGetEquivalentReorderCodes(reordercode: Int, dest: Long, destcapacity: Int, perrorcode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucol_getLocaleByType(coll: Long, type: Int, status: Long): Long
+    external fun windowssys_windows_win32_globalization_ucolGetFunctionalEquivalent(result: Long, resultcapacity: Int, keyword: Long, locale: Long, isavailable: Long, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucol_getMaxExpansion(elems: Long, order: Int): Int
+    external fun windowssys_windows_win32_globalization_ucolGetKeywordValues(keyword: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucol_getMaxVariable(coll: Long): Int
+    external fun windowssys_windows_win32_globalization_ucolGetKeywordValuesForLocale(key: Long, locale: Long, commonlyused: Byte, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucol_getOffset(elems: Long): Int
+    external fun windowssys_windows_win32_globalization_ucolGetKeywords(status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucol_getReorderCodes(coll: Long, dest: Long, destcapacity: Int, perrorcode: Long): Int
+    external fun windowssys_windows_win32_globalization_ucolGetLocaleByType(coll: Long, type: Int, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucol_getRules(coll: Long, length: Long): Long
+    external fun windowssys_windows_win32_globalization_ucolGetMaxExpansion(elems: Long, order: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucol_getRulesEx(coll: Long, delta: Int, buffer: Long, bufferlen: Int): Int
+    external fun windowssys_windows_win32_globalization_ucolGetMaxVariable(coll: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucol_getSortKey(coll: Long, source: Long, sourcelength: Int, result: Long, resultlength: Int): Int
+    external fun windowssys_windows_win32_globalization_ucolGetOffset(elems: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucol_getStrength(coll: Long): Int
+    external fun windowssys_windows_win32_globalization_ucolGetReorderCodes(coll: Long, dest: Long, destcapacity: Int, perrorcode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucol_getTailoredSet(coll: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_ucolGetRules(coll: Long, length: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucol_getUCAVersion(coll: Long, info: Long)
+    external fun windowssys_windows_win32_globalization_ucolGetRulesEx(coll: Long, delta: Int, buffer: Long, bufferlen: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucol_getVariableTop(coll: Long, status: Long): Int
+    external fun windowssys_windows_win32_globalization_ucolGetSortKey(coll: Long, source: Long, sourcelength: Int, result: Long, resultlength: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucol_getVersion(coll: Long, info: Long)
+    external fun windowssys_windows_win32_globalization_ucolGetStrength(coll: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucol_greater(coll: Long, source: Long, sourcelength: Int, target: Long, targetlength: Int): Byte
+    external fun windowssys_windows_win32_globalization_ucolGetTailoredSet(coll: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucol_greaterOrEqual(coll: Long, source: Long, sourcelength: Int, target: Long, targetlength: Int): Byte
+    external fun windowssys_windows_win32_globalization_ucolGetUcaversion(coll: Long, info: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucol_keyHashCode(key: Long, length: Int): Int
+    external fun windowssys_windows_win32_globalization_ucolGetVariableTop(coll: Long, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucol_mergeSortkeys(src1: Long, src1length: Int, src2: Long, src2length: Int, dest: Long, destcapacity: Int): Int
+    external fun windowssys_windows_win32_globalization_ucolGetVersion(coll: Long, info: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucol_next(elems: Long, status: Long): Int
+    external fun windowssys_windows_win32_globalization_ucolGreater(coll: Long, source: Long, sourcelength: Int, target: Long, targetlength: Int): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucol_nextSortKeyPart(coll: Long, iter: Long, state: Long, dest: Long, count: Int, status: Long): Int
+    external fun windowssys_windows_win32_globalization_ucolGreaterOrEqual(coll: Long, source: Long, sourcelength: Int, target: Long, targetlength: Int): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucol_open(loc: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_ucolKeyHashCode(key: Long, length: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucol_openAvailableLocales(status: Long): Long
+    external fun windowssys_windows_win32_globalization_ucolMergeSortkeys(src1: Long, src1length: Int, src2: Long, src2length: Int, dest: Long, destcapacity: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucol_openBinary(bin: Long, length: Int, base: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_ucolNext(elems: Long, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucol_openElements(coll: Long, text: Long, textlength: Int, status: Long): Long
+    external fun windowssys_windows_win32_globalization_ucolNextSortKeyPart(coll: Long, iter: Long, state: Long, dest: Long, count: Int, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucol_openRules(rules: Long, ruleslength: Int, normalizationmode: Int, strength: Int, parseerror: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_ucolOpen(loc: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucol_previous(elems: Long, status: Long): Int
+    external fun windowssys_windows_win32_globalization_ucolOpenAvailableLocales(status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucol_primaryOrder(order: Int): Int
+    external fun windowssys_windows_win32_globalization_ucolOpenBinary(bin: Long, length: Int, base: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucol_reset(elems: Long)
+    external fun windowssys_windows_win32_globalization_ucolOpenElements(coll: Long, text: Long, textlength: Int, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucol_safeClone(coll: Long, stackbuffer: Long, pbuffersize: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_ucolOpenRules(rules: Long, ruleslength: Int, normalizationmode: Int, strength: Int, parseerror: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucol_secondaryOrder(order: Int): Int
+    external fun windowssys_windows_win32_globalization_ucolPrevious(elems: Long, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucol_setAttribute(coll: Long, attr: Int, value: Int, status: Long)
+    external fun windowssys_windows_win32_globalization_ucolPrimaryOrder(order: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucol_setMaxVariable(coll: Long, group: Int, perrorcode: Long)
+    external fun windowssys_windows_win32_globalization_ucolReset(elems: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucol_setOffset(elems: Long, offset: Int, status: Long)
+    external fun windowssys_windows_win32_globalization_ucolSafeClone(coll: Long, stackbuffer: Long, pbuffersize: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucol_setReorderCodes(coll: Long, reordercodes: Long, reordercodeslength: Int, perrorcode: Long)
+    external fun windowssys_windows_win32_globalization_ucolSecondaryOrder(order: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucol_setStrength(coll: Long, strength: Int)
+    external fun windowssys_windows_win32_globalization_ucolSetAttribute(coll: Long, attr: Int, value: Int, status: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucol_setText(elems: Long, text: Long, textlength: Int, status: Long)
+    external fun windowssys_windows_win32_globalization_ucolSetMaxVariable(coll: Long, group: Int, perrorcode: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucol_strcoll(coll: Long, source: Long, sourcelength: Int, target: Long, targetlength: Int): Int
+    external fun windowssys_windows_win32_globalization_ucolSetOffset(elems: Long, offset: Int, status: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucol_strcollIter(coll: Long, siter: Long, titer: Long, status: Long): Int
+    external fun windowssys_windows_win32_globalization_ucolSetReorderCodes(coll: Long, reordercodes: Long, reordercodeslength: Int, perrorcode: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucol_strcollUTF8(coll: Long, source: Long, sourcelength: Int, target: Long, targetlength: Int, status: Long): Int
+    external fun windowssys_windows_win32_globalization_ucolSetStrength(coll: Long, strength: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucol_tertiaryOrder(order: Int): Int
+    external fun windowssys_windows_win32_globalization_ucolSetText(elems: Long, text: Long, textlength: Int, status: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucpmap_get(map: Long, c: Int): Int
+    external fun windowssys_windows_win32_globalization_ucolStrcoll(coll: Long, source: Long, sourcelength: Int, target: Long, targetlength: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucpmap_getRange(map: Long, start: Int, option: Int, surrogatevalue: Int, filter: Long, context: Long, pvalue: Long): Int
+    external fun windowssys_windows_win32_globalization_ucolStrcollIter(coll: Long, siter: Long, titer: Long, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucptrie_close(trie: Long)
+    external fun windowssys_windows_win32_globalization_ucolStrcollUtf8(coll: Long, source: Long, sourcelength: Int, target: Long, targetlength: Int, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucptrie_get(trie: Long, c: Int): Int
+    external fun windowssys_windows_win32_globalization_ucolTertiaryOrder(order: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucptrie_getRange(trie: Long, start: Int, option: Int, surrogatevalue: Int, filter: Long, context: Long, pvalue: Long): Int
+    external fun windowssys_windows_win32_globalization_ucpmapGet(map: Long, c: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucptrie_getType(trie: Long): Int
+    external fun windowssys_windows_win32_globalization_ucpmapGetRange(map: Long, start: Int, option: Int, surrogatevalue: Int, filter: Long, context: Long, pvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucptrie_getValueWidth(trie: Long): Int
+    external fun windowssys_windows_win32_globalization_ucptrieClose(trie: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucptrie_internalSmallIndex(trie: Long, c: Int): Int
+    external fun windowssys_windows_win32_globalization_ucptrieGet(trie: Long, c: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucptrie_internalSmallU8Index(trie: Long, lt1: Int, t2: Byte, t3: Byte): Int
+    external fun windowssys_windows_win32_globalization_ucptrieGetRange(trie: Long, start: Int, option: Int, surrogatevalue: Int, filter: Long, context: Long, pvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucptrie_internalU8PrevIndex(trie: Long, c: Int, start: Long, src: Long): Int
+    external fun windowssys_windows_win32_globalization_ucptrieGetType(trie: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucptrie_openFromBinary(type: Int, valuewidth: Int, data: Long, length: Int, pactuallength: Long, perrorcode: Long): Long
+    external fun windowssys_windows_win32_globalization_ucptrieGetValueWidth(trie: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucptrie_toBinary(trie: Long, data: Long, capacity: Int, perrorcode: Long): Int
+    external fun windowssys_windows_win32_globalization_ucptrieInternalSmallIndex(trie: Long, c: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucsdet_close(ucsd: Long)
+    external fun windowssys_windows_win32_globalization_ucptrieInternalSmallU8Index(trie: Long, lt1: Int, t2: Byte, t3: Byte): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucsdet_detect(ucsd: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_ucptrieInternalU8PrevIndex(trie: Long, c: Int, start: Long, src: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucsdet_detectAll(ucsd: Long, matchesfound: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_ucptrieOpenFromBinary(type: Int, valuewidth: Int, data: Long, length: Int, pactuallength: Long, perrorcode: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucsdet_enableInputFilter(ucsd: Long, filter: Byte): Byte
+    external fun windowssys_windows_win32_globalization_ucptrieToBinary(trie: Long, data: Long, capacity: Int, perrorcode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucsdet_getAllDetectableCharsets(ucsd: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_ucsdetClose(ucsd: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucsdet_getConfidence(ucsm: Long, status: Long): Int
+    external fun windowssys_windows_win32_globalization_ucsdetDetect(ucsd: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucsdet_getLanguage(ucsm: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_ucsdetDetectAll(ucsd: Long, matchesfound: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucsdet_getName(ucsm: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_ucsdetEnableInputFilter(ucsd: Long, filter: Byte): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucsdet_getUChars(ucsm: Long, buf: Long, cap: Int, status: Long): Int
+    external fun windowssys_windows_win32_globalization_ucsdetGetAllDetectableCharsets(ucsd: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucsdet_isInputFilterEnabled(ucsd: Long): Byte
+    external fun windowssys_windows_win32_globalization_ucsdetGetConfidence(ucsm: Long, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucsdet_open(status: Long): Long
+    external fun windowssys_windows_win32_globalization_ucsdetGetLanguage(ucsm: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucsdet_setDeclaredEncoding(ucsd: Long, encoding: Long, length: Int, status: Long)
+    external fun windowssys_windows_win32_globalization_ucsdetGetName(ucsm: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucsdet_setText(ucsd: Long, textin: Long, len: Int, status: Long)
+    external fun windowssys_windows_win32_globalization_ucsdetGetUchars(ucsm: Long, buf: Long, cap: Int, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucurr_countCurrencies(locale: Long, date: Double, ec: Long): Int
+    external fun windowssys_windows_win32_globalization_ucsdetIsInputFilterEnabled(ucsd: Long): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucurr_forLocale(locale: Long, buff: Long, buffcapacity: Int, ec: Long): Int
+    external fun windowssys_windows_win32_globalization_ucsdetOpen(status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucurr_forLocaleAndDate(locale: Long, date: Double, index: Int, buff: Long, buffcapacity: Int, ec: Long): Int
+    external fun windowssys_windows_win32_globalization_ucsdetSetDeclaredEncoding(ucsd: Long, encoding: Long, length: Int, status: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucurr_getDefaultFractionDigits(currency: Long, ec: Long): Int
+    external fun windowssys_windows_win32_globalization_ucsdetSetText(ucsd: Long, textin: Long, len: Int, status: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucurr_getDefaultFractionDigitsForUsage(currency: Long, usage: Int, ec: Long): Int
+    external fun windowssys_windows_win32_globalization_ucurrCountCurrencies(locale: Long, date: Double, ec: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucurr_getKeywordValuesForLocale(key: Long, locale: Long, commonlyused: Byte, status: Long): Long
+    external fun windowssys_windows_win32_globalization_ucurrForLocale(locale: Long, buff: Long, buffcapacity: Int, ec: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucurr_getName(currency: Long, locale: Long, namestyle: Int, ischoiceformat: Long, len: Long, ec: Long): Long
+    external fun windowssys_windows_win32_globalization_ucurrForLocaleAndDate(locale: Long, date: Double, index: Int, buff: Long, buffcapacity: Int, ec: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucurr_getNumericCode(currency: Long): Int
+    external fun windowssys_windows_win32_globalization_ucurrGetDefaultFractionDigits(currency: Long, ec: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucurr_getPluralName(currency: Long, locale: Long, ischoiceformat: Long, pluralcount: Long, len: Long, ec: Long): Long
+    external fun windowssys_windows_win32_globalization_ucurrGetDefaultFractionDigitsForUsage(currency: Long, usage: Int, ec: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucurr_getRoundingIncrement(currency: Long, ec: Long): Double
+    external fun windowssys_windows_win32_globalization_ucurrGetKeywordValuesForLocale(key: Long, locale: Long, commonlyused: Byte, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucurr_getRoundingIncrementForUsage(currency: Long, usage: Int, ec: Long): Double
+    external fun windowssys_windows_win32_globalization_ucurrGetName(currency: Long, locale: Long, namestyle: Int, ischoiceformat: Long, len: Long, ec: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucurr_isAvailable(isocode: Long, from: Double, to: Double, errorcode: Long): Byte
+    external fun windowssys_windows_win32_globalization_ucurrGetNumericCode(currency: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucurr_openISOCurrencies(currtype: Int, perrorcode: Long): Long
+    external fun windowssys_windows_win32_globalization_ucurrGetPluralName(currency: Long, locale: Long, ischoiceformat: Long, pluralcount: Long, len: Long, ec: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucurr_register(isocode: Long, locale: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_ucurrGetRoundingIncrement(currency: Long, ec: Long): Double
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ucurr_unregister(key: Long, status: Long): Byte
+    external fun windowssys_windows_win32_globalization_ucurrGetRoundingIncrementForUsage(currency: Long, usage: Int, ec: Long): Double
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_udat_adoptNumberFormat(fmt: Long, numberformattoadopt: Long)
+    external fun windowssys_windows_win32_globalization_ucurrIsAvailable(isocode: Long, from: Double, to: Double, errorcode: Long): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_udat_adoptNumberFormatForFields(fmt: Long, fields: Long, numberformattoset: Long, status: Long)
+    external fun windowssys_windows_win32_globalization_ucurrOpenIsocurrencies(currtype: Int, perrorcode: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_udat_applyPattern(format: Long, localized: Byte, pattern: Long, patternlength: Int)
+    external fun windowssys_windows_win32_globalization_ucurrRegister(isocode: Long, locale: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_udat_clone(fmt: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_ucurrUnregister(key: Long, status: Long): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_udat_close(format: Long)
+    external fun windowssys_windows_win32_globalization_udatAdoptNumberFormat(fmt: Long, numberformattoadopt: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_udat_countAvailable(): Int
+    external fun windowssys_windows_win32_globalization_udatAdoptNumberFormatForFields(fmt: Long, fields: Long, numberformattoset: Long, status: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_udat_countSymbols(fmt: Long, type: Int): Int
+    external fun windowssys_windows_win32_globalization_udatApplyPattern(format: Long, localized: Byte, pattern: Long, patternlength: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_udat_format(format: Long, datetoformat: Double, result: Long, resultlength: Int, position: Long, status: Long): Int
+    external fun windowssys_windows_win32_globalization_udatClone(fmt: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_udat_formatCalendar(format: Long, calendar: Long, result: Long, capacity: Int, position: Long, status: Long): Int
+    external fun windowssys_windows_win32_globalization_udatClose(format: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_udat_formatCalendarForFields(format: Long, calendar: Long, result: Long, capacity: Int, fpositer: Long, status: Long): Int
+    external fun windowssys_windows_win32_globalization_udatCountAvailable(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_udat_formatForFields(format: Long, datetoformat: Double, result: Long, resultlength: Int, fpositer: Long, status: Long): Int
+    external fun windowssys_windows_win32_globalization_udatCountSymbols(fmt: Long, type: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_udat_get2DigitYearStart(fmt: Long, status: Long): Double
+    external fun windowssys_windows_win32_globalization_udatFormat(format: Long, datetoformat: Double, result: Long, resultlength: Int, position: Long, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_udat_getAvailable(localeindex: Int): Long
+    external fun windowssys_windows_win32_globalization_udatFormatCalendar(format: Long, calendar: Long, result: Long, capacity: Int, position: Long, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_udat_getBooleanAttribute(fmt: Long, attr: Int, status: Long): Byte
+    external fun windowssys_windows_win32_globalization_udatFormatCalendarForFields(format: Long, calendar: Long, result: Long, capacity: Int, fpositer: Long, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_udat_getCalendar(fmt: Long): Long
+    external fun windowssys_windows_win32_globalization_udatFormatForFields(format: Long, datetoformat: Double, result: Long, resultlength: Int, fpositer: Long, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_udat_getContext(fmt: Long, type: Int, status: Long): Int
+    external fun windowssys_windows_win32_globalization_udatGet2DigitYearStart(fmt: Long, status: Long): Double
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_udat_getLocaleByType(fmt: Long, type: Int, status: Long): Long
+    external fun windowssys_windows_win32_globalization_udatGetAvailable(localeindex: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_udat_getNumberFormat(fmt: Long): Long
+    external fun windowssys_windows_win32_globalization_udatGetBooleanAttribute(fmt: Long, attr: Int, status: Long): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_udat_getNumberFormatForField(fmt: Long, field: Short): Long
+    external fun windowssys_windows_win32_globalization_udatGetCalendar(fmt: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_udat_getSymbols(fmt: Long, type: Int, symbolindex: Int, result: Long, resultlength: Int, status: Long): Int
+    external fun windowssys_windows_win32_globalization_udatGetContext(fmt: Long, type: Int, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_udat_isLenient(fmt: Long): Byte
+    external fun windowssys_windows_win32_globalization_udatGetLocaleByType(fmt: Long, type: Int, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_udat_open(timestyle: Int, datestyle: Int, locale: Long, tzid: Long, tzidlength: Int, pattern: Long, patternlength: Int, status: Long): Long
+    external fun windowssys_windows_win32_globalization_udatGetNumberFormat(fmt: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_udat_parse(format: Long, text: Long, textlength: Int, parsepos: Long, status: Long): Double
+    external fun windowssys_windows_win32_globalization_udatGetNumberFormatForField(fmt: Long, field: Short): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_udat_parseCalendar(format: Long, calendar: Long, text: Long, textlength: Int, parsepos: Long, status: Long)
+    external fun windowssys_windows_win32_globalization_udatGetSymbols(fmt: Long, type: Int, symbolindex: Int, result: Long, resultlength: Int, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_udat_set2DigitYearStart(fmt: Long, d: Double, status: Long)
+    external fun windowssys_windows_win32_globalization_udatIsLenient(fmt: Long): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_udat_setBooleanAttribute(fmt: Long, attr: Int, newvalue: Byte, status: Long)
+    external fun windowssys_windows_win32_globalization_udatOpen(timestyle: Int, datestyle: Int, locale: Long, tzid: Long, tzidlength: Int, pattern: Long, patternlength: Int, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_udat_setCalendar(fmt: Long, calendartoset: Long)
+    external fun windowssys_windows_win32_globalization_udatParse(format: Long, text: Long, textlength: Int, parsepos: Long, status: Long): Double
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_udat_setContext(fmt: Long, value: Int, status: Long)
+    external fun windowssys_windows_win32_globalization_udatParseCalendar(format: Long, calendar: Long, text: Long, textlength: Int, parsepos: Long, status: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_udat_setLenient(fmt: Long, islenient: Byte)
+    external fun windowssys_windows_win32_globalization_udatSet2DigitYearStart(fmt: Long, d: Double, status: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_udat_setNumberFormat(fmt: Long, numberformattoset: Long)
+    external fun windowssys_windows_win32_globalization_udatSetBooleanAttribute(fmt: Long, attr: Int, newvalue: Byte, status: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_udat_setSymbols(format: Long, type: Int, symbolindex: Int, value: Long, valuelength: Int, status: Long)
+    external fun windowssys_windows_win32_globalization_udatSetCalendar(fmt: Long, calendartoset: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_udat_toCalendarDateField(field: Int): Int
+    external fun windowssys_windows_win32_globalization_udatSetContext(fmt: Long, value: Int, status: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_udat_toPattern(fmt: Long, localized: Byte, result: Long, resultlength: Int, status: Long): Int
+    external fun windowssys_windows_win32_globalization_udatSetLenient(fmt: Long, islenient: Byte)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_udatpg_addPattern(dtpg: Long, pattern: Long, patternlength: Int, override: Byte, conflictingpattern: Long, capacity: Int, plength: Long, perrorcode: Long): Int
+    external fun windowssys_windows_win32_globalization_udatSetNumberFormat(fmt: Long, numberformattoset: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_udatpg_clone(dtpg: Long, perrorcode: Long): Long
+    external fun windowssys_windows_win32_globalization_udatSetSymbols(format: Long, type: Int, symbolindex: Int, value: Long, valuelength: Int, status: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_udatpg_close(dtpg: Long)
+    external fun windowssys_windows_win32_globalization_udatToCalendarDateField(field: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_udatpg_getAppendItemFormat(dtpg: Long, field: Int, plength: Long): Long
+    external fun windowssys_windows_win32_globalization_udatToPattern(fmt: Long, localized: Byte, result: Long, resultlength: Int, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_udatpg_getAppendItemName(dtpg: Long, field: Int, plength: Long): Long
+    external fun windowssys_windows_win32_globalization_udatpgAddPattern(dtpg: Long, pattern: Long, patternlength: Int, override: Byte, conflictingpattern: Long, capacity: Int, plength: Long, perrorcode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_udatpg_getBaseSkeleton(unuseddtpg: Long, pattern: Long, length: Int, baseskeleton: Long, capacity: Int, perrorcode: Long): Int
+    external fun windowssys_windows_win32_globalization_udatpgClone(dtpg: Long, perrorcode: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_udatpg_getBestPattern(dtpg: Long, skeleton: Long, length: Int, bestpattern: Long, capacity: Int, perrorcode: Long): Int
+    external fun windowssys_windows_win32_globalization_udatpgClose(dtpg: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_udatpg_getBestPatternWithOptions(dtpg: Long, skeleton: Long, length: Int, options: Int, bestpattern: Long, capacity: Int, perrorcode: Long): Int
+    external fun windowssys_windows_win32_globalization_udatpgGetAppendItemFormat(dtpg: Long, field: Int, plength: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_udatpg_getDateTimeFormat(dtpg: Long, plength: Long): Long
+    external fun windowssys_windows_win32_globalization_udatpgGetAppendItemName(dtpg: Long, field: Int, plength: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_udatpg_getDecimal(dtpg: Long, plength: Long): Long
+    external fun windowssys_windows_win32_globalization_udatpgGetBaseSkeleton(unuseddtpg: Long, pattern: Long, length: Int, baseskeleton: Long, capacity: Int, perrorcode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_udatpg_getFieldDisplayName(dtpg: Long, field: Int, width: Int, fieldname: Long, capacity: Int, perrorcode: Long): Int
+    external fun windowssys_windows_win32_globalization_udatpgGetBestPattern(dtpg: Long, skeleton: Long, length: Int, bestpattern: Long, capacity: Int, perrorcode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_udatpg_getPatternForSkeleton(dtpg: Long, skeleton: Long, skeletonlength: Int, plength: Long): Long
+    external fun windowssys_windows_win32_globalization_udatpgGetBestPatternWithOptions(dtpg: Long, skeleton: Long, length: Int, options: Int, bestpattern: Long, capacity: Int, perrorcode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_udatpg_getSkeleton(unuseddtpg: Long, pattern: Long, length: Int, skeleton: Long, capacity: Int, perrorcode: Long): Int
+    external fun windowssys_windows_win32_globalization_udatpgGetDateTimeFormat(dtpg: Long, plength: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_udatpg_open(locale: Long, perrorcode: Long): Long
+    external fun windowssys_windows_win32_globalization_udatpgGetDecimal(dtpg: Long, plength: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_udatpg_openBaseSkeletons(dtpg: Long, perrorcode: Long): Long
+    external fun windowssys_windows_win32_globalization_udatpgGetFieldDisplayName(dtpg: Long, field: Int, width: Int, fieldname: Long, capacity: Int, perrorcode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_udatpg_openEmpty(perrorcode: Long): Long
+    external fun windowssys_windows_win32_globalization_udatpgGetPatternForSkeleton(dtpg: Long, skeleton: Long, skeletonlength: Int, plength: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_udatpg_openSkeletons(dtpg: Long, perrorcode: Long): Long
+    external fun windowssys_windows_win32_globalization_udatpgGetSkeleton(unuseddtpg: Long, pattern: Long, length: Int, skeleton: Long, capacity: Int, perrorcode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_udatpg_replaceFieldTypes(dtpg: Long, pattern: Long, patternlength: Int, skeleton: Long, skeletonlength: Int, dest: Long, destcapacity: Int, perrorcode: Long): Int
+    external fun windowssys_windows_win32_globalization_udatpgOpen(locale: Long, perrorcode: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_udatpg_replaceFieldTypesWithOptions(dtpg: Long, pattern: Long, patternlength: Int, skeleton: Long, skeletonlength: Int, options: Int, dest: Long, destcapacity: Int, perrorcode: Long): Int
+    external fun windowssys_windows_win32_globalization_udatpgOpenBaseSkeletons(dtpg: Long, perrorcode: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_udatpg_setAppendItemFormat(dtpg: Long, field: Int, value: Long, length: Int)
+    external fun windowssys_windows_win32_globalization_udatpgOpenEmpty(perrorcode: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_udatpg_setAppendItemName(dtpg: Long, field: Int, value: Long, length: Int)
+    external fun windowssys_windows_win32_globalization_udatpgOpenSkeletons(dtpg: Long, perrorcode: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_udatpg_setDateTimeFormat(dtpg: Long, dtformat: Long, length: Int)
+    external fun windowssys_windows_win32_globalization_udatpgReplaceFieldTypes(dtpg: Long, pattern: Long, patternlength: Int, skeleton: Long, skeletonlength: Int, dest: Long, destcapacity: Int, perrorcode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_udatpg_setDecimal(dtpg: Long, decimal: Long, length: Int)
+    external fun windowssys_windows_win32_globalization_udatpgReplaceFieldTypesWithOptions(dtpg: Long, pattern: Long, patternlength: Int, skeleton: Long, skeletonlength: Int, options: Int, dest: Long, destcapacity: Int, perrorcode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_udtitvfmt_close(formatter: Long)
+    external fun windowssys_windows_win32_globalization_udatpgSetAppendItemFormat(dtpg: Long, field: Int, value: Long, length: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_udtitvfmt_closeResult(uresult: Long)
+    external fun windowssys_windows_win32_globalization_udatpgSetAppendItemName(dtpg: Long, field: Int, value: Long, length: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_udtitvfmt_format(formatter: Long, fromdate: Double, todate: Double, result: Long, resultcapacity: Int, position: Long, status: Long): Int
+    external fun windowssys_windows_win32_globalization_udatpgSetDateTimeFormat(dtpg: Long, dtformat: Long, length: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_udtitvfmt_open(locale: Long, skeleton: Long, skeletonlength: Int, tzid: Long, tzidlength: Int, status: Long): Long
+    external fun windowssys_windows_win32_globalization_udatpgSetDecimal(dtpg: Long, decimal: Long, length: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_udtitvfmt_openResult(ec: Long): Long
+    external fun windowssys_windows_win32_globalization_udtitvfmtClose(formatter: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_udtitvfmt_resultAsValue(uresult: Long, ec: Long): Long
+    external fun windowssys_windows_win32_globalization_udtitvfmtCloseResult(uresult: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uenum_close(en: Long)
+    external fun windowssys_windows_win32_globalization_udtitvfmtFormat(formatter: Long, fromdate: Double, todate: Double, result: Long, resultcapacity: Int, position: Long, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uenum_count(en: Long, status: Long): Int
+    external fun windowssys_windows_win32_globalization_udtitvfmtOpen(locale: Long, skeleton: Long, skeletonlength: Int, tzid: Long, tzidlength: Int, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uenum_next(en: Long, resultlength: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_udtitvfmtOpenResult(ec: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uenum_openCharStringsEnumeration(strings: Long, count: Int, ec: Long): Long
+    external fun windowssys_windows_win32_globalization_udtitvfmtResultAsValue(uresult: Long, ec: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uenum_openUCharStringsEnumeration(strings: Long, count: Int, ec: Long): Long
+    external fun windowssys_windows_win32_globalization_uenumClose(en: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uenum_reset(en: Long, status: Long)
+    external fun windowssys_windows_win32_globalization_uenumCount(en: Long, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uenum_unext(en: Long, resultlength: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_uenumNext(en: Long, resultlength: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ufieldpositer_close(fpositer: Long)
+    external fun windowssys_windows_win32_globalization_uenumOpenCharStringsEnumeration(strings: Long, count: Int, ec: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ufieldpositer_next(fpositer: Long, beginindex: Long, endindex: Long): Int
+    external fun windowssys_windows_win32_globalization_uenumOpenUcharStringsEnumeration(strings: Long, count: Int, ec: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ufieldpositer_open(status: Long): Long
+    external fun windowssys_windows_win32_globalization_uenumReset(en: Long, status: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ufmt_close(fmt: Long)
+    external fun windowssys_windows_win32_globalization_uenumUnext(en: Long, resultlength: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ufmt_getArrayItemByIndex(fmt: Long, n: Int, status: Long): Long
+    external fun windowssys_windows_win32_globalization_ufieldpositerClose(fpositer: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ufmt_getArrayLength(fmt: Long, status: Long): Int
+    external fun windowssys_windows_win32_globalization_ufieldpositerNext(fpositer: Long, beginindex: Long, endindex: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ufmt_getDate(fmt: Long, status: Long): Double
+    external fun windowssys_windows_win32_globalization_ufieldpositerOpen(status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ufmt_getDecNumChars(fmt: Long, len: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_ufmtClose(fmt: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ufmt_getDouble(fmt: Long, status: Long): Double
+    external fun windowssys_windows_win32_globalization_ufmtGetArrayItemByIndex(fmt: Long, n: Int, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ufmt_getInt64(fmt: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_ufmtGetArrayLength(fmt: Long, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ufmt_getLong(fmt: Long, status: Long): Int
+    external fun windowssys_windows_win32_globalization_ufmtGetDate(fmt: Long, status: Long): Double
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ufmt_getObject(fmt: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_ufmtGetDecNumChars(fmt: Long, len: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ufmt_getType(fmt: Long, status: Long): Int
+    external fun windowssys_windows_win32_globalization_ufmtGetDouble(fmt: Long, status: Long): Double
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ufmt_getUChars(fmt: Long, len: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_ufmtGetInt64(fmt: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ufmt_isNumeric(fmt: Long): Byte
+    external fun windowssys_windows_win32_globalization_ufmtGetLong(fmt: Long, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ufmt_open(status: Long): Long
+    external fun windowssys_windows_win32_globalization_ufmtGetObject(fmt: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ufmtval_getString(ufmtval: Long, plength: Long, ec: Long): Long
+    external fun windowssys_windows_win32_globalization_ufmtGetType(fmt: Long, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ufmtval_nextPosition(ufmtval: Long, ucfpos: Long, ec: Long): Byte
+    external fun windowssys_windows_win32_globalization_ufmtGetUchars(fmt: Long, len: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ugender_getInstance(locale: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_ufmtIsNumeric(fmt: Long): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ugender_getListGender(genderinfo: Long, genders: Long, size: Int, status: Long): Int
+    external fun windowssys_windows_win32_globalization_ufmtOpen(status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uidna_close(idna: Long)
+    external fun windowssys_windows_win32_globalization_ufmtvalGetString(ufmtval: Long, plength: Long, ec: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uidna_labelToASCII(idna: Long, label: Long, length: Int, dest: Long, capacity: Int, pinfo: Long, perrorcode: Long): Int
+    external fun windowssys_windows_win32_globalization_ufmtvalNextPosition(ufmtval: Long, ucfpos: Long, ec: Long): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uidna_labelToASCII_UTF8(idna: Long, label: Long, length: Int, dest: Long, capacity: Int, pinfo: Long, perrorcode: Long): Int
+    external fun windowssys_windows_win32_globalization_ugenderGetInstance(locale: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uidna_labelToUnicode(idna: Long, label: Long, length: Int, dest: Long, capacity: Int, pinfo: Long, perrorcode: Long): Int
+    external fun windowssys_windows_win32_globalization_ugenderGetListGender(genderinfo: Long, genders: Long, size: Int, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uidna_labelToUnicodeUTF8(idna: Long, label: Long, length: Int, dest: Long, capacity: Int, pinfo: Long, perrorcode: Long): Int
+    external fun windowssys_windows_win32_globalization_uidnaClose(idna: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uidna_nameToASCII(idna: Long, name: Long, length: Int, dest: Long, capacity: Int, pinfo: Long, perrorcode: Long): Int
+    external fun windowssys_windows_win32_globalization_uidnaLabelToAscii(idna: Long, label: Long, length: Int, dest: Long, capacity: Int, pinfo: Long, perrorcode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uidna_nameToASCII_UTF8(idna: Long, name: Long, length: Int, dest: Long, capacity: Int, pinfo: Long, perrorcode: Long): Int
+    external fun windowssys_windows_win32_globalization_uidnaLabelToAsciiUtf8(idna: Long, label: Long, length: Int, dest: Long, capacity: Int, pinfo: Long, perrorcode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uidna_nameToUnicode(idna: Long, name: Long, length: Int, dest: Long, capacity: Int, pinfo: Long, perrorcode: Long): Int
+    external fun windowssys_windows_win32_globalization_uidnaLabelToUnicode(idna: Long, label: Long, length: Int, dest: Long, capacity: Int, pinfo: Long, perrorcode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uidna_nameToUnicodeUTF8(idna: Long, name: Long, length: Int, dest: Long, capacity: Int, pinfo: Long, perrorcode: Long): Int
+    external fun windowssys_windows_win32_globalization_uidnaLabelToUnicodeUtf8(idna: Long, label: Long, length: Int, dest: Long, capacity: Int, pinfo: Long, perrorcode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uidna_openUTS46(options: Int, perrorcode: Long): Long
+    external fun windowssys_windows_win32_globalization_uidnaNameToAscii(idna: Long, name: Long, length: Int, dest: Long, capacity: Int, pinfo: Long, perrorcode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uiter_current32(iter: Long): Int
+    external fun windowssys_windows_win32_globalization_uidnaNameToAsciiUtf8(idna: Long, name: Long, length: Int, dest: Long, capacity: Int, pinfo: Long, perrorcode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uiter_getState(iter: Long): Int
+    external fun windowssys_windows_win32_globalization_uidnaNameToUnicode(idna: Long, name: Long, length: Int, dest: Long, capacity: Int, pinfo: Long, perrorcode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uiter_next32(iter: Long): Int
+    external fun windowssys_windows_win32_globalization_uidnaNameToUnicodeUtf8(idna: Long, name: Long, length: Int, dest: Long, capacity: Int, pinfo: Long, perrorcode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uiter_previous32(iter: Long): Int
+    external fun windowssys_windows_win32_globalization_uidnaOpenUts46(options: Int, perrorcode: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uiter_setState(iter: Long, state: Int, perrorcode: Long)
+    external fun windowssys_windows_win32_globalization_uiterCurrent32(iter: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uiter_setString(iter: Long, s: Long, length: Int)
+    external fun windowssys_windows_win32_globalization_uiterGetState(iter: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uiter_setUTF16BE(iter: Long, s: Long, length: Int)
+    external fun windowssys_windows_win32_globalization_uiterNext32(iter: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uiter_setUTF8(iter: Long, s: Long, length: Int)
+    external fun windowssys_windows_win32_globalization_uiterPrevious32(iter: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uldn_close(ldn: Long)
+    external fun windowssys_windows_win32_globalization_uiterSetState(iter: Long, state: Int, perrorcode: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uldn_getContext(ldn: Long, type: Int, perrorcode: Long): Int
+    external fun windowssys_windows_win32_globalization_uiterSetString(iter: Long, s: Long, length: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uldn_getDialectHandling(ldn: Long): Int
+    external fun windowssys_windows_win32_globalization_uiterSetUtf16Be(iter: Long, s: Long, length: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uldn_getLocale(ldn: Long): Long
+    external fun windowssys_windows_win32_globalization_uiterSetUtf8(iter: Long, s: Long, length: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uldn_keyDisplayName(ldn: Long, key: Long, result: Long, maxresultsize: Int, perrorcode: Long): Int
+    external fun windowssys_windows_win32_globalization_uldnClose(ldn: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uldn_keyValueDisplayName(ldn: Long, key: Long, value: Long, result: Long, maxresultsize: Int, perrorcode: Long): Int
+    external fun windowssys_windows_win32_globalization_uldnGetContext(ldn: Long, type: Int, perrorcode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uldn_languageDisplayName(ldn: Long, lang: Long, result: Long, maxresultsize: Int, perrorcode: Long): Int
+    external fun windowssys_windows_win32_globalization_uldnGetDialectHandling(ldn: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uldn_localeDisplayName(ldn: Long, locale: Long, result: Long, maxresultsize: Int, perrorcode: Long): Int
+    external fun windowssys_windows_win32_globalization_uldnGetLocale(ldn: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uldn_open(locale: Long, dialecthandling: Int, perrorcode: Long): Long
+    external fun windowssys_windows_win32_globalization_uldnKeyDisplayName(ldn: Long, key: Long, result: Long, maxresultsize: Int, perrorcode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uldn_openForContext(locale: Long, contexts: Long, length: Int, perrorcode: Long): Long
+    external fun windowssys_windows_win32_globalization_uldnKeyValueDisplayName(ldn: Long, key: Long, value: Long, result: Long, maxresultsize: Int, perrorcode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uldn_regionDisplayName(ldn: Long, region: Long, result: Long, maxresultsize: Int, perrorcode: Long): Int
+    external fun windowssys_windows_win32_globalization_uldnLanguageDisplayName(ldn: Long, lang: Long, result: Long, maxresultsize: Int, perrorcode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uldn_scriptCodeDisplayName(ldn: Long, scriptcode: Int, result: Long, maxresultsize: Int, perrorcode: Long): Int
+    external fun windowssys_windows_win32_globalization_uldnLocaleDisplayName(ldn: Long, locale: Long, result: Long, maxresultsize: Int, perrorcode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uldn_scriptDisplayName(ldn: Long, script: Long, result: Long, maxresultsize: Int, perrorcode: Long): Int
+    external fun windowssys_windows_win32_globalization_uldnOpen(locale: Long, dialecthandling: Int, perrorcode: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uldn_variantDisplayName(ldn: Long, variant: Long, result: Long, maxresultsize: Int, perrorcode: Long): Int
+    external fun windowssys_windows_win32_globalization_uldnOpenForContext(locale: Long, contexts: Long, length: Int, perrorcode: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ulistfmt_close(listfmt: Long)
+    external fun windowssys_windows_win32_globalization_uldnRegionDisplayName(ldn: Long, region: Long, result: Long, maxresultsize: Int, perrorcode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ulistfmt_closeResult(uresult: Long)
+    external fun windowssys_windows_win32_globalization_uldnScriptCodeDisplayName(ldn: Long, scriptcode: Int, result: Long, maxresultsize: Int, perrorcode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ulistfmt_format(listfmt: Long, strings: Long, stringlengths: Long, stringcount: Int, result: Long, resultcapacity: Int, status: Long): Int
+    external fun windowssys_windows_win32_globalization_uldnScriptDisplayName(ldn: Long, script: Long, result: Long, maxresultsize: Int, perrorcode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ulistfmt_formatStringsToResult(listfmt: Long, strings: Long, stringlengths: Long, stringcount: Int, uresult: Long, status: Long)
+    external fun windowssys_windows_win32_globalization_uldnVariantDisplayName(ldn: Long, variant: Long, result: Long, maxresultsize: Int, perrorcode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ulistfmt_open(locale: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_ulistfmtClose(listfmt: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ulistfmt_openForType(locale: Long, type: Int, width: Int, status: Long): Long
+    external fun windowssys_windows_win32_globalization_ulistfmtCloseResult(uresult: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ulistfmt_openResult(ec: Long): Long
+    external fun windowssys_windows_win32_globalization_ulistfmtFormat(listfmt: Long, strings: Long, stringlengths: Long, stringcount: Int, result: Long, resultcapacity: Int, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ulistfmt_resultAsValue(uresult: Long, ec: Long): Long
+    external fun windowssys_windows_win32_globalization_ulistfmtFormatStringsToResult(listfmt: Long, strings: Long, stringlengths: Long, stringcount: Int, uresult: Long, status: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uloc_acceptLanguage(result: Long, resultavailable: Int, outresult: Long, acceptlist: Long, acceptlistcount: Int, availablelocales: Long, status: Long): Int
+    external fun windowssys_windows_win32_globalization_ulistfmtOpen(locale: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uloc_acceptLanguageFromHTTP(result: Long, resultavailable: Int, outresult: Long, httpacceptlanguage: Long, availablelocales: Long, status: Long): Int
+    external fun windowssys_windows_win32_globalization_ulistfmtOpenForType(locale: Long, type: Int, width: Int, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uloc_addLikelySubtags(localeid: Long, maximizedlocaleid: Long, maximizedlocaleidcapacity: Int, err: Long): Int
+    external fun windowssys_windows_win32_globalization_ulistfmtOpenResult(ec: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uloc_canonicalize(localeid: Long, name: Long, namecapacity: Int, err: Long): Int
+    external fun windowssys_windows_win32_globalization_ulistfmtResultAsValue(uresult: Long, ec: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uloc_countAvailable(): Int
+    external fun windowssys_windows_win32_globalization_ulocAcceptLanguage(result: Long, resultavailable: Int, outresult: Long, acceptlist: Long, acceptlistcount: Int, availablelocales: Long, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uloc_forLanguageTag(langtag: Long, localeid: Long, localeidcapacity: Int, parsedlength: Long, err: Long): Int
+    external fun windowssys_windows_win32_globalization_ulocAcceptLanguageFromHttp(result: Long, resultavailable: Int, outresult: Long, httpacceptlanguage: Long, availablelocales: Long, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uloc_getAvailable(n: Int): Long
+    external fun windowssys_windows_win32_globalization_ulocAddLikelySubtags(localeid: Long, maximizedlocaleid: Long, maximizedlocaleidcapacity: Int, err: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uloc_getBaseName(localeid: Long, name: Long, namecapacity: Int, err: Long): Int
+    external fun windowssys_windows_win32_globalization_ulocCanonicalize(localeid: Long, name: Long, namecapacity: Int, err: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uloc_getCharacterOrientation(localeid: Long, status: Long): Int
+    external fun windowssys_windows_win32_globalization_ulocCountAvailable(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uloc_getCountry(localeid: Long, country: Long, countrycapacity: Int, err: Long): Int
+    external fun windowssys_windows_win32_globalization_ulocForLanguageTag(langtag: Long, localeid: Long, localeidcapacity: Int, parsedlength: Long, err: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uloc_getDefault(): Long
+    external fun windowssys_windows_win32_globalization_ulocGetAvailable(n: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uloc_getDisplayCountry(locale: Long, displaylocale: Long, country: Long, countrycapacity: Int, status: Long): Int
+    external fun windowssys_windows_win32_globalization_ulocGetBaseName(localeid: Long, name: Long, namecapacity: Int, err: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uloc_getDisplayKeyword(keyword: Long, displaylocale: Long, dest: Long, destcapacity: Int, status: Long): Int
+    external fun windowssys_windows_win32_globalization_ulocGetCharacterOrientation(localeid: Long, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uloc_getDisplayKeywordValue(locale: Long, keyword: Long, displaylocale: Long, dest: Long, destcapacity: Int, status: Long): Int
+    external fun windowssys_windows_win32_globalization_ulocGetCountry(localeid: Long, country: Long, countrycapacity: Int, err: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uloc_getDisplayLanguage(locale: Long, displaylocale: Long, language: Long, languagecapacity: Int, status: Long): Int
+    external fun windowssys_windows_win32_globalization_ulocGetDefault(): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uloc_getDisplayName(localeid: Long, inlocaleid: Long, result: Long, maxresultsize: Int, err: Long): Int
+    external fun windowssys_windows_win32_globalization_ulocGetDisplayCountry(locale: Long, displaylocale: Long, country: Long, countrycapacity: Int, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uloc_getDisplayScript(locale: Long, displaylocale: Long, script: Long, scriptcapacity: Int, status: Long): Int
+    external fun windowssys_windows_win32_globalization_ulocGetDisplayKeyword(keyword: Long, displaylocale: Long, dest: Long, destcapacity: Int, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uloc_getDisplayVariant(locale: Long, displaylocale: Long, variant: Long, variantcapacity: Int, status: Long): Int
+    external fun windowssys_windows_win32_globalization_ulocGetDisplayKeywordValue(locale: Long, keyword: Long, displaylocale: Long, dest: Long, destcapacity: Int, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uloc_getISO3Country(localeid: Long): Long
+    external fun windowssys_windows_win32_globalization_ulocGetDisplayLanguage(locale: Long, displaylocale: Long, language: Long, languagecapacity: Int, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uloc_getISO3Language(localeid: Long): Long
+    external fun windowssys_windows_win32_globalization_ulocGetDisplayName(localeid: Long, inlocaleid: Long, result: Long, maxresultsize: Int, err: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uloc_getISOCountries(): Long
+    external fun windowssys_windows_win32_globalization_ulocGetDisplayScript(locale: Long, displaylocale: Long, script: Long, scriptcapacity: Int, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uloc_getISOLanguages(): Long
+    external fun windowssys_windows_win32_globalization_ulocGetDisplayVariant(locale: Long, displaylocale: Long, variant: Long, variantcapacity: Int, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uloc_getKeywordValue(localeid: Long, keywordname: Long, buffer: Long, buffercapacity: Int, status: Long): Int
+    external fun windowssys_windows_win32_globalization_ulocGetIso3Country(localeid: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uloc_getLCID(localeid: Long): Int
+    external fun windowssys_windows_win32_globalization_ulocGetIso3Language(localeid: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uloc_getLanguage(localeid: Long, language: Long, languagecapacity: Int, err: Long): Int
+    external fun windowssys_windows_win32_globalization_ulocGetIsocountries(): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uloc_getLineOrientation(localeid: Long, status: Long): Int
+    external fun windowssys_windows_win32_globalization_ulocGetIsolanguages(): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uloc_getLocaleForLCID(hostid: Int, locale: Long, localecapacity: Int, status: Long): Int
+    external fun windowssys_windows_win32_globalization_ulocGetKeywordValue(localeid: Long, keywordname: Long, buffer: Long, buffercapacity: Int, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uloc_getName(localeid: Long, name: Long, namecapacity: Int, err: Long): Int
+    external fun windowssys_windows_win32_globalization_ulocGetLcid(localeid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uloc_getParent(localeid: Long, parent: Long, parentcapacity: Int, err: Long): Int
+    external fun windowssys_windows_win32_globalization_ulocGetLanguage(localeid: Long, language: Long, languagecapacity: Int, err: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uloc_getScript(localeid: Long, script: Long, scriptcapacity: Int, err: Long): Int
+    external fun windowssys_windows_win32_globalization_ulocGetLineOrientation(localeid: Long, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uloc_getVariant(localeid: Long, variant: Long, variantcapacity: Int, err: Long): Int
+    external fun windowssys_windows_win32_globalization_ulocGetLocaleForLcid(hostid: Int, locale: Long, localecapacity: Int, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uloc_isRightToLeft(locale: Long): Byte
+    external fun windowssys_windows_win32_globalization_ulocGetName(localeid: Long, name: Long, namecapacity: Int, err: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uloc_minimizeSubtags(localeid: Long, minimizedlocaleid: Long, minimizedlocaleidcapacity: Int, err: Long): Int
+    external fun windowssys_windows_win32_globalization_ulocGetParent(localeid: Long, parent: Long, parentcapacity: Int, err: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uloc_openAvailableByType(type: Int, status: Long): Long
+    external fun windowssys_windows_win32_globalization_ulocGetScript(localeid: Long, script: Long, scriptcapacity: Int, err: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uloc_openKeywords(localeid: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_ulocGetVariant(localeid: Long, variant: Long, variantcapacity: Int, err: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uloc_setDefault(localeid: Long, status: Long)
+    external fun windowssys_windows_win32_globalization_ulocIsRightToLeft(locale: Long): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uloc_setKeywordValue(keywordname: Long, keywordvalue: Long, buffer: Long, buffercapacity: Int, status: Long): Int
+    external fun windowssys_windows_win32_globalization_ulocMinimizeSubtags(localeid: Long, minimizedlocaleid: Long, minimizedlocaleidcapacity: Int, err: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uloc_toLanguageTag(localeid: Long, langtag: Long, langtagcapacity: Int, strict: Byte, err: Long): Int
+    external fun windowssys_windows_win32_globalization_ulocOpenAvailableByType(type: Int, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uloc_toLegacyKey(keyword: Long): Long
+    external fun windowssys_windows_win32_globalization_ulocOpenKeywords(localeid: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uloc_toLegacyType(keyword: Long, value: Long): Long
+    external fun windowssys_windows_win32_globalization_ulocSetDefault(localeid: Long, status: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uloc_toUnicodeLocaleKey(keyword: Long): Long
+    external fun windowssys_windows_win32_globalization_ulocSetKeywordValue(keywordname: Long, keywordvalue: Long, buffer: Long, buffercapacity: Int, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uloc_toUnicodeLocaleType(keyword: Long, value: Long): Long
+    external fun windowssys_windows_win32_globalization_ulocToLanguageTag(localeid: Long, langtag: Long, langtagcapacity: Int, strict: Byte, err: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ulocdata_close(uld: Long)
+    external fun windowssys_windows_win32_globalization_ulocToLegacyKey(keyword: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ulocdata_getCLDRVersion(versionarray: Long, status: Long)
+    external fun windowssys_windows_win32_globalization_ulocToLegacyType(keyword: Long, value: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ulocdata_getDelimiter(uld: Long, type: Int, result: Long, resultlength: Int, status: Long): Int
+    external fun windowssys_windows_win32_globalization_ulocToUnicodeLocaleKey(keyword: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ulocdata_getExemplarSet(uld: Long, fillin: Long, options: Int, extype: Int, status: Long): Long
+    external fun windowssys_windows_win32_globalization_ulocToUnicodeLocaleType(keyword: Long, value: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ulocdata_getLocaleDisplayPattern(uld: Long, pattern: Long, patterncapacity: Int, status: Long): Int
+    external fun windowssys_windows_win32_globalization_ulocdataClose(uld: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ulocdata_getLocaleSeparator(uld: Long, separator: Long, separatorcapacity: Int, status: Long): Int
+    external fun windowssys_windows_win32_globalization_ulocdataGetCldrversion(versionarray: Long, status: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ulocdata_getMeasurementSystem(localeid: Long, status: Long): Int
+    external fun windowssys_windows_win32_globalization_ulocdataGetDelimiter(uld: Long, type: Int, result: Long, resultlength: Int, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ulocdata_getNoSubstitute(uld: Long): Byte
+    external fun windowssys_windows_win32_globalization_ulocdataGetExemplarSet(uld: Long, fillin: Long, options: Int, extype: Int, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ulocdata_getPaperSize(localeid: Long, height: Long, width: Long, status: Long)
+    external fun windowssys_windows_win32_globalization_ulocdataGetLocaleDisplayPattern(uld: Long, pattern: Long, patterncapacity: Int, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ulocdata_open(localeid: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_ulocdataGetLocaleSeparator(uld: Long, separator: Long, separatorcapacity: Int, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ulocdata_setNoSubstitute(uld: Long, setting: Byte)
+    external fun windowssys_windows_win32_globalization_ulocdataGetMeasurementSystem(localeid: Long, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_umsg_applyPattern(fmt: Long, pattern: Long, patternlength: Int, parseerror: Long, status: Long)
+    external fun windowssys_windows_win32_globalization_ulocdataGetNoSubstitute(uld: Long): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_umsg_autoQuoteApostrophe(pattern: Long, patternlength: Int, dest: Long, destcapacity: Int, ec: Long): Int
+    external fun windowssys_windows_win32_globalization_ulocdataGetPaperSize(localeid: Long, height: Long, width: Long, status: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_umsg_clone(fmt: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_ulocdataOpen(localeid: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_umsg_close(format: Long)
+    external fun windowssys_windows_win32_globalization_ulocdataSetNoSubstitute(uld: Long, setting: Byte)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_umsg_getLocale(fmt: Long): Long
+    external fun windowssys_windows_win32_globalization_umsgApplyPattern(fmt: Long, pattern: Long, patternlength: Int, parseerror: Long, status: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_umsg_open(pattern: Long, patternlength: Int, locale: Long, parseerror: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_umsgAutoQuoteApostrophe(pattern: Long, patternlength: Int, dest: Long, destcapacity: Int, ec: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_umsg_setLocale(fmt: Long, locale: Long)
+    external fun windowssys_windows_win32_globalization_umsgClone(fmt: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_umsg_toPattern(fmt: Long, result: Long, resultlength: Int, status: Long): Int
+    external fun windowssys_windows_win32_globalization_umsgClose(format: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_umsg_vformat(fmt: Long, result: Long, resultlength: Int, ap: Long, status: Long): Int
+    external fun windowssys_windows_win32_globalization_umsgFormat(fmt: Long, result: Long, resultlength: Int, status: Long, km_vac: Int, km_va0: Long, km_va1: Long, km_va2: Long, km_va3: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_umsg_vparse(fmt: Long, source: Long, sourcelength: Int, count: Long, ap: Long, status: Long)
+    external fun windowssys_windows_win32_globalization_umsgGetLocale(fmt: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_umutablecptrie_buildImmutable(trie: Long, type: Int, valuewidth: Int, perrorcode: Long): Long
+    external fun windowssys_windows_win32_globalization_umsgOpen(pattern: Long, patternlength: Int, locale: Long, parseerror: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_umutablecptrie_clone(other: Long, perrorcode: Long): Long
+    external fun windowssys_windows_win32_globalization_umsgParse(fmt: Long, source: Long, sourcelength: Int, count: Long, status: Long, km_vac: Int, km_va0: Long, km_va1: Long, km_va2: Long, km_va3: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_umutablecptrie_close(trie: Long)
+    external fun windowssys_windows_win32_globalization_umsgSetLocale(fmt: Long, locale: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_umutablecptrie_fromUCPMap(map: Long, perrorcode: Long): Long
+    external fun windowssys_windows_win32_globalization_umsgToPattern(fmt: Long, result: Long, resultlength: Int, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_umutablecptrie_fromUCPTrie(trie: Long, perrorcode: Long): Long
+    external fun windowssys_windows_win32_globalization_umsgVformat(fmt: Long, result: Long, resultlength: Int, ap: Long, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_umutablecptrie_get(trie: Long, c: Int): Int
+    external fun windowssys_windows_win32_globalization_umsgVparse(fmt: Long, source: Long, sourcelength: Int, count: Long, ap: Long, status: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_umutablecptrie_getRange(trie: Long, start: Int, option: Int, surrogatevalue: Int, filter: Long, context: Long, pvalue: Long): Int
+    external fun windowssys_windows_win32_globalization_umutablecptrieBuildImmutable(trie: Long, type: Int, valuewidth: Int, perrorcode: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_umutablecptrie_open(initialvalue: Int, errorvalue: Int, perrorcode: Long): Long
+    external fun windowssys_windows_win32_globalization_umutablecptrieClone(other: Long, perrorcode: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_umutablecptrie_set(trie: Long, c: Int, value: Int, perrorcode: Long)
+    external fun windowssys_windows_win32_globalization_umutablecptrieClose(trie: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_umutablecptrie_setRange(trie: Long, start: Int, end: Int, value: Int, perrorcode: Long)
+    external fun windowssys_windows_win32_globalization_umutablecptrieFromUcpmap(map: Long, perrorcode: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unorm2_append(norm2: Long, first: Long, firstlength: Int, firstcapacity: Int, second: Long, secondlength: Int, perrorcode: Long): Int
+    external fun windowssys_windows_win32_globalization_umutablecptrieFromUcptrie(trie: Long, perrorcode: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unorm2_close(norm2: Long)
+    external fun windowssys_windows_win32_globalization_umutablecptrieGet(trie: Long, c: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unorm2_composePair(norm2: Long, a: Int, b: Int): Int
+    external fun windowssys_windows_win32_globalization_umutablecptrieGetRange(trie: Long, start: Int, option: Int, surrogatevalue: Int, filter: Long, context: Long, pvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unorm2_getCombiningClass(norm2: Long, c: Int): Byte
+    external fun windowssys_windows_win32_globalization_umutablecptrieOpen(initialvalue: Int, errorvalue: Int, perrorcode: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unorm2_getDecomposition(norm2: Long, c: Int, decomposition: Long, capacity: Int, perrorcode: Long): Int
+    external fun windowssys_windows_win32_globalization_umutablecptrieSet(trie: Long, c: Int, value: Int, perrorcode: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unorm2_getInstance(packagename: Long, name: Long, mode: Int, perrorcode: Long): Long
+    external fun windowssys_windows_win32_globalization_umutablecptrieSetRange(trie: Long, start: Int, end: Int, value: Int, perrorcode: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unorm2_getNFCInstance(perrorcode: Long): Long
+    external fun windowssys_windows_win32_globalization_unorm2Append(norm2: Long, first: Long, firstlength: Int, firstcapacity: Int, second: Long, secondlength: Int, perrorcode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unorm2_getNFDInstance(perrorcode: Long): Long
+    external fun windowssys_windows_win32_globalization_unorm2Close(norm2: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unorm2_getNFKCCasefoldInstance(perrorcode: Long): Long
+    external fun windowssys_windows_win32_globalization_unorm2ComposePair(norm2: Long, a: Int, b: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unorm2_getNFKCInstance(perrorcode: Long): Long
+    external fun windowssys_windows_win32_globalization_unorm2GetCombiningClass(norm2: Long, c: Int): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unorm2_getNFKDInstance(perrorcode: Long): Long
+    external fun windowssys_windows_win32_globalization_unorm2GetDecomposition(norm2: Long, c: Int, decomposition: Long, capacity: Int, perrorcode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unorm2_getRawDecomposition(norm2: Long, c: Int, decomposition: Long, capacity: Int, perrorcode: Long): Int
+    external fun windowssys_windows_win32_globalization_unorm2GetInstance(packagename: Long, name: Long, mode: Int, perrorcode: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unorm2_hasBoundaryAfter(norm2: Long, c: Int): Byte
+    external fun windowssys_windows_win32_globalization_unorm2GetNfcinstance(perrorcode: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unorm2_hasBoundaryBefore(norm2: Long, c: Int): Byte
+    external fun windowssys_windows_win32_globalization_unorm2GetNfdinstance(perrorcode: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unorm2_isInert(norm2: Long, c: Int): Byte
+    external fun windowssys_windows_win32_globalization_unorm2GetNfkccasefoldInstance(perrorcode: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unorm2_isNormalized(norm2: Long, s: Long, length: Int, perrorcode: Long): Byte
+    external fun windowssys_windows_win32_globalization_unorm2GetNfkcinstance(perrorcode: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unorm2_normalize(norm2: Long, src: Long, length: Int, dest: Long, capacity: Int, perrorcode: Long): Int
+    external fun windowssys_windows_win32_globalization_unorm2GetNfkdinstance(perrorcode: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unorm2_normalizeSecondAndAppend(norm2: Long, first: Long, firstlength: Int, firstcapacity: Int, second: Long, secondlength: Int, perrorcode: Long): Int
+    external fun windowssys_windows_win32_globalization_unorm2GetRawDecomposition(norm2: Long, c: Int, decomposition: Long, capacity: Int, perrorcode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unorm2_openFiltered(norm2: Long, filterset: Long, perrorcode: Long): Long
+    external fun windowssys_windows_win32_globalization_unorm2HasBoundaryAfter(norm2: Long, c: Int): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unorm2_quickCheck(norm2: Long, s: Long, length: Int, perrorcode: Long): Int
+    external fun windowssys_windows_win32_globalization_unorm2HasBoundaryBefore(norm2: Long, c: Int): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unorm2_spanQuickCheckYes(norm2: Long, s: Long, length: Int, perrorcode: Long): Int
+    external fun windowssys_windows_win32_globalization_unorm2IsInert(norm2: Long, c: Int): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unorm_compare(s1: Long, length1: Int, s2: Long, length2: Int, options: Int, perrorcode: Long): Int
+    external fun windowssys_windows_win32_globalization_unorm2IsNormalized(norm2: Long, s: Long, length: Int, perrorcode: Long): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unum_applyPattern(format: Long, localized: Byte, pattern: Long, patternlength: Int, parseerror: Long, status: Long)
+    external fun windowssys_windows_win32_globalization_unorm2Normalize(norm2: Long, src: Long, length: Int, dest: Long, capacity: Int, perrorcode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unum_clone(fmt: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_unorm2NormalizeSecondAndAppend(norm2: Long, first: Long, firstlength: Int, firstcapacity: Int, second: Long, secondlength: Int, perrorcode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unum_close(fmt: Long)
+    external fun windowssys_windows_win32_globalization_unorm2OpenFiltered(norm2: Long, filterset: Long, perrorcode: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unum_countAvailable(): Int
+    external fun windowssys_windows_win32_globalization_unorm2QuickCheck(norm2: Long, s: Long, length: Int, perrorcode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unum_format(fmt: Long, number: Int, result: Long, resultlength: Int, pos: Long, status: Long): Int
+    external fun windowssys_windows_win32_globalization_unorm2SpanQuickCheckYes(norm2: Long, s: Long, length: Int, perrorcode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unum_formatDecimal(fmt: Long, number: Long, length: Int, result: Long, resultlength: Int, pos: Long, status: Long): Int
+    external fun windowssys_windows_win32_globalization_unormCompare(s1: Long, length1: Int, s2: Long, length2: Int, options: Int, perrorcode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unum_formatDouble(fmt: Long, number: Double, result: Long, resultlength: Int, pos: Long, status: Long): Int
+    external fun windowssys_windows_win32_globalization_unumApplyPattern(format: Long, localized: Byte, pattern: Long, patternlength: Int, parseerror: Long, status: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unum_formatDoubleCurrency(fmt: Long, number: Double, currency: Long, result: Long, resultlength: Int, pos: Long, status: Long): Int
+    external fun windowssys_windows_win32_globalization_unumClone(fmt: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unum_formatDoubleForFields(format: Long, number: Double, result: Long, resultlength: Int, fpositer: Long, status: Long): Int
+    external fun windowssys_windows_win32_globalization_unumClose(fmt: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unum_formatInt64(fmt: Long, number: Long, result: Long, resultlength: Int, pos: Long, status: Long): Int
+    external fun windowssys_windows_win32_globalization_unumCountAvailable(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unum_formatUFormattable(fmt: Long, number: Long, result: Long, resultlength: Int, pos: Long, status: Long): Int
+    external fun windowssys_windows_win32_globalization_unumFormat(fmt: Long, number: Int, result: Long, resultlength: Int, pos: Long, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unum_getAttribute(fmt: Long, attr: Int): Int
+    external fun windowssys_windows_win32_globalization_unumFormatDecimal(fmt: Long, number: Long, length: Int, result: Long, resultlength: Int, pos: Long, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unum_getAvailable(localeindex: Int): Long
+    external fun windowssys_windows_win32_globalization_unumFormatDouble(fmt: Long, number: Double, result: Long, resultlength: Int, pos: Long, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unum_getContext(fmt: Long, type: Int, status: Long): Int
+    external fun windowssys_windows_win32_globalization_unumFormatDoubleCurrency(fmt: Long, number: Double, currency: Long, result: Long, resultlength: Int, pos: Long, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unum_getDoubleAttribute(fmt: Long, attr: Int): Double
+    external fun windowssys_windows_win32_globalization_unumFormatDoubleForFields(format: Long, number: Double, result: Long, resultlength: Int, fpositer: Long, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unum_getLocaleByType(fmt: Long, type: Int, status: Long): Long
+    external fun windowssys_windows_win32_globalization_unumFormatInt64(fmt: Long, number: Long, result: Long, resultlength: Int, pos: Long, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unum_getSymbol(fmt: Long, symbol: Int, buffer: Long, size: Int, status: Long): Int
+    external fun windowssys_windows_win32_globalization_unumFormatUformattable(fmt: Long, number: Long, result: Long, resultlength: Int, pos: Long, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unum_getTextAttribute(fmt: Long, tag: Int, result: Long, resultlength: Int, status: Long): Int
+    external fun windowssys_windows_win32_globalization_unumGetAttribute(fmt: Long, attr: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unum_open(style: Int, pattern: Long, patternlength: Int, locale: Long, parseerr: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_unumGetAvailable(localeindex: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unum_parse(fmt: Long, text: Long, textlength: Int, parsepos: Long, status: Long): Int
+    external fun windowssys_windows_win32_globalization_unumGetContext(fmt: Long, type: Int, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unum_parseDecimal(fmt: Long, text: Long, textlength: Int, parsepos: Long, outbuf: Long, outbuflength: Int, status: Long): Int
+    external fun windowssys_windows_win32_globalization_unumGetDoubleAttribute(fmt: Long, attr: Int): Double
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unum_parseDouble(fmt: Long, text: Long, textlength: Int, parsepos: Long, status: Long): Double
+    external fun windowssys_windows_win32_globalization_unumGetLocaleByType(fmt: Long, type: Int, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unum_parseDoubleCurrency(fmt: Long, text: Long, textlength: Int, parsepos: Long, currency: Long, status: Long): Double
+    external fun windowssys_windows_win32_globalization_unumGetSymbol(fmt: Long, symbol: Int, buffer: Long, size: Int, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unum_parseInt64(fmt: Long, text: Long, textlength: Int, parsepos: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_unumGetTextAttribute(fmt: Long, tag: Int, result: Long, resultlength: Int, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unum_parseToUFormattable(fmt: Long, result: Long, text: Long, textlength: Int, parsepos: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_unumOpen(style: Int, pattern: Long, patternlength: Int, locale: Long, parseerr: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unum_setAttribute(fmt: Long, attr: Int, newvalue: Int)
+    external fun windowssys_windows_win32_globalization_unumParse(fmt: Long, text: Long, textlength: Int, parsepos: Long, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unum_setContext(fmt: Long, value: Int, status: Long)
+    external fun windowssys_windows_win32_globalization_unumParseDecimal(fmt: Long, text: Long, textlength: Int, parsepos: Long, outbuf: Long, outbuflength: Int, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unum_setDoubleAttribute(fmt: Long, attr: Int, newvalue: Double)
+    external fun windowssys_windows_win32_globalization_unumParseDouble(fmt: Long, text: Long, textlength: Int, parsepos: Long, status: Long): Double
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unum_setSymbol(fmt: Long, symbol: Int, value: Long, length: Int, status: Long)
+    external fun windowssys_windows_win32_globalization_unumParseDoubleCurrency(fmt: Long, text: Long, textlength: Int, parsepos: Long, currency: Long, status: Long): Double
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unum_setTextAttribute(fmt: Long, tag: Int, newvalue: Long, newvaluelength: Int, status: Long)
+    external fun windowssys_windows_win32_globalization_unumParseInt64(fmt: Long, text: Long, textlength: Int, parsepos: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unum_toPattern(fmt: Long, ispatternlocalized: Byte, result: Long, resultlength: Int, status: Long): Int
+    external fun windowssys_windows_win32_globalization_unumParseToUformattable(fmt: Long, result: Long, text: Long, textlength: Int, parsepos: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unumf_close(uformatter: Long)
+    external fun windowssys_windows_win32_globalization_unumSetAttribute(fmt: Long, attr: Int, newvalue: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unumf_closeResult(uresult: Long)
+    external fun windowssys_windows_win32_globalization_unumSetContext(fmt: Long, value: Int, status: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unumf_formatDecimal(uformatter: Long, value: Long, valuelen: Int, uresult: Long, ec: Long)
+    external fun windowssys_windows_win32_globalization_unumSetDoubleAttribute(fmt: Long, attr: Int, newvalue: Double)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unumf_formatDouble(uformatter: Long, value: Double, uresult: Long, ec: Long)
+    external fun windowssys_windows_win32_globalization_unumSetSymbol(fmt: Long, symbol: Int, value: Long, length: Int, status: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unumf_formatInt(uformatter: Long, value: Long, uresult: Long, ec: Long)
+    external fun windowssys_windows_win32_globalization_unumSetTextAttribute(fmt: Long, tag: Int, newvalue: Long, newvaluelength: Int, status: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unumf_openForSkeletonAndLocale(skeleton: Long, skeletonlen: Int, locale: Long, ec: Long): Long
+    external fun windowssys_windows_win32_globalization_unumToPattern(fmt: Long, ispatternlocalized: Byte, result: Long, resultlength: Int, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unumf_openForSkeletonAndLocaleWithError(skeleton: Long, skeletonlen: Int, locale: Long, perror: Long, ec: Long): Long
+    external fun windowssys_windows_win32_globalization_unumfClose(uformatter: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unumf_openResult(ec: Long): Long
+    external fun windowssys_windows_win32_globalization_unumfCloseResult(uresult: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unumf_resultAsValue(uresult: Long, ec: Long): Long
+    external fun windowssys_windows_win32_globalization_unumfFormatDecimal(uformatter: Long, value: Long, valuelen: Int, uresult: Long, ec: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unumf_resultGetAllFieldPositions(uresult: Long, ufpositer: Long, ec: Long)
+    external fun windowssys_windows_win32_globalization_unumfFormatDouble(uformatter: Long, value: Double, uresult: Long, ec: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unumf_resultNextFieldPosition(uresult: Long, ufpos: Long, ec: Long): Byte
+    external fun windowssys_windows_win32_globalization_unumfFormatInt(uformatter: Long, value: Long, uresult: Long, ec: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unumf_resultToString(uresult: Long, buffer: Long, buffercapacity: Int, ec: Long): Int
+    external fun windowssys_windows_win32_globalization_unumfOpenForSkeletonAndLocale(skeleton: Long, skeletonlen: Int, locale: Long, ec: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unumsys_close(unumsys: Long)
+    external fun windowssys_windows_win32_globalization_unumfOpenForSkeletonAndLocaleWithError(skeleton: Long, skeletonlen: Int, locale: Long, perror: Long, ec: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unumsys_getDescription(unumsys: Long, result: Long, resultlength: Int, status: Long): Int
+    external fun windowssys_windows_win32_globalization_unumfOpenResult(ec: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unumsys_getName(unumsys: Long): Long
+    external fun windowssys_windows_win32_globalization_unumfResultAsValue(uresult: Long, ec: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unumsys_getRadix(unumsys: Long): Int
+    external fun windowssys_windows_win32_globalization_unumfResultGetAllFieldPositions(uresult: Long, ufpositer: Long, ec: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unumsys_isAlgorithmic(unumsys: Long): Byte
+    external fun windowssys_windows_win32_globalization_unumfResultNextFieldPosition(uresult: Long, ufpos: Long, ec: Long): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unumsys_open(locale: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_unumfResultToString(uresult: Long, buffer: Long, buffercapacity: Int, ec: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unumsys_openAvailableNames(status: Long): Long
+    external fun windowssys_windows_win32_globalization_unumsysClose(unumsys: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_unumsys_openByName(name: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_unumsysGetDescription(unumsys: Long, result: Long, resultlength: Int, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uplrules_close(uplrules: Long)
+    external fun windowssys_windows_win32_globalization_unumsysGetName(unumsys: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uplrules_getKeywords(uplrules: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_unumsysGetRadix(unumsys: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uplrules_open(locale: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_unumsysIsAlgorithmic(unumsys: Long): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uplrules_openForType(locale: Long, type: Int, status: Long): Long
+    external fun windowssys_windows_win32_globalization_unumsysOpen(locale: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uplrules_select(uplrules: Long, number: Double, keyword: Long, capacity: Int, status: Long): Int
+    external fun windowssys_windows_win32_globalization_unumsysOpenAvailableNames(status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uplrules_selectFormatted(uplrules: Long, number: Long, keyword: Long, capacity: Int, status: Long): Int
+    external fun windowssys_windows_win32_globalization_unumsysOpenByName(name: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregex_appendReplacement(regexp: Long, replacementtext: Long, replacementlength: Int, destbuf: Long, destcapacity: Long, status: Long): Int
+    external fun windowssys_windows_win32_globalization_uplrulesClose(uplrules: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregex_appendReplacementUText(regexp: Long, replacementtext: Long, dest: Long, status: Long)
+    external fun windowssys_windows_win32_globalization_uplrulesGetKeywords(uplrules: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregex_appendTail(regexp: Long, destbuf: Long, destcapacity: Long, status: Long): Int
+    external fun windowssys_windows_win32_globalization_uplrulesOpen(locale: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregex_appendTailUText(regexp: Long, dest: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_uplrulesOpenForType(locale: Long, type: Int, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregex_clone(regexp: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_uplrulesSelect(uplrules: Long, number: Double, keyword: Long, capacity: Int, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregex_close(regexp: Long)
+    external fun windowssys_windows_win32_globalization_uplrulesSelectFormatted(uplrules: Long, number: Long, keyword: Long, capacity: Int, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregex_end(regexp: Long, groupnum: Int, status: Long): Int
+    external fun windowssys_windows_win32_globalization_uregexAppendReplacement(regexp: Long, replacementtext: Long, replacementlength: Int, destbuf: Long, destcapacity: Long, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregex_end64(regexp: Long, groupnum: Int, status: Long): Long
+    external fun windowssys_windows_win32_globalization_uregexAppendReplacementUtext(regexp: Long, replacementtext: Long, dest: Long, status: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregex_find(regexp: Long, startindex: Int, status: Long): Byte
+    external fun windowssys_windows_win32_globalization_uregexAppendTail(regexp: Long, destbuf: Long, destcapacity: Long, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregex_find64(regexp: Long, startindex: Long, status: Long): Byte
+    external fun windowssys_windows_win32_globalization_uregexAppendTailUtext(regexp: Long, dest: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregex_findNext(regexp: Long, status: Long): Byte
+    external fun windowssys_windows_win32_globalization_uregexClone(regexp: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregex_flags(regexp: Long, status: Long): Int
+    external fun windowssys_windows_win32_globalization_uregexClose(regexp: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregex_getFindProgressCallback(regexp: Long, callback: Long, context: Long, status: Long)
+    external fun windowssys_windows_win32_globalization_uregexEnd(regexp: Long, groupnum: Int, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregex_getMatchCallback(regexp: Long, callback: Long, context: Long, status: Long)
+    external fun windowssys_windows_win32_globalization_uregexEnd64(regexp: Long, groupnum: Int, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregex_getStackLimit(regexp: Long, status: Long): Int
+    external fun windowssys_windows_win32_globalization_uregexFind(regexp: Long, startindex: Int, status: Long): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregex_getText(regexp: Long, textlength: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_uregexFind64(regexp: Long, startindex: Long, status: Long): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregex_getTimeLimit(regexp: Long, status: Long): Int
+    external fun windowssys_windows_win32_globalization_uregexFindNext(regexp: Long, status: Long): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregex_getUText(regexp: Long, dest: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_uregexFlags(regexp: Long, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregex_group(regexp: Long, groupnum: Int, dest: Long, destcapacity: Int, status: Long): Int
+    external fun windowssys_windows_win32_globalization_uregexGetFindProgressCallback(regexp: Long, callback: Long, context: Long, status: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregex_groupCount(regexp: Long, status: Long): Int
+    external fun windowssys_windows_win32_globalization_uregexGetMatchCallback(regexp: Long, callback: Long, context: Long, status: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregex_groupNumberFromCName(regexp: Long, groupname: Long, namelength: Int, status: Long): Int
+    external fun windowssys_windows_win32_globalization_uregexGetStackLimit(regexp: Long, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregex_groupNumberFromName(regexp: Long, groupname: Long, namelength: Int, status: Long): Int
+    external fun windowssys_windows_win32_globalization_uregexGetText(regexp: Long, textlength: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregex_groupUText(regexp: Long, groupnum: Int, dest: Long, grouplength: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_uregexGetTimeLimit(regexp: Long, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregex_hasAnchoringBounds(regexp: Long, status: Long): Byte
+    external fun windowssys_windows_win32_globalization_uregexGetUtext(regexp: Long, dest: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregex_hasTransparentBounds(regexp: Long, status: Long): Byte
+    external fun windowssys_windows_win32_globalization_uregexGroup(regexp: Long, groupnum: Int, dest: Long, destcapacity: Int, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregex_hitEnd(regexp: Long, status: Long): Byte
+    external fun windowssys_windows_win32_globalization_uregexGroupCount(regexp: Long, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregex_lookingAt(regexp: Long, startindex: Int, status: Long): Byte
+    external fun windowssys_windows_win32_globalization_uregexGroupNumberFromCname(regexp: Long, groupname: Long, namelength: Int, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregex_lookingAt64(regexp: Long, startindex: Long, status: Long): Byte
+    external fun windowssys_windows_win32_globalization_uregexGroupNumberFromName(regexp: Long, groupname: Long, namelength: Int, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregex_matches(regexp: Long, startindex: Int, status: Long): Byte
+    external fun windowssys_windows_win32_globalization_uregexGroupUtext(regexp: Long, groupnum: Int, dest: Long, grouplength: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregex_matches64(regexp: Long, startindex: Long, status: Long): Byte
+    external fun windowssys_windows_win32_globalization_uregexHasAnchoringBounds(regexp: Long, status: Long): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregex_open(pattern: Long, patternlength: Int, flags: Int, pe: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_uregexHasTransparentBounds(regexp: Long, status: Long): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregex_openC(pattern: Long, flags: Int, pe: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_uregexHitEnd(regexp: Long, status: Long): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregex_openUText(pattern: Long, flags: Int, pe: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_uregexLookingAt(regexp: Long, startindex: Int, status: Long): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregex_pattern(regexp: Long, patlength: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_uregexLookingAt64(regexp: Long, startindex: Long, status: Long): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregex_patternUText(regexp: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_uregexMatches(regexp: Long, startindex: Int, status: Long): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregex_refreshUText(regexp: Long, text: Long, status: Long)
+    external fun windowssys_windows_win32_globalization_uregexMatches64(regexp: Long, startindex: Long, status: Long): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregex_regionEnd(regexp: Long, status: Long): Int
+    external fun windowssys_windows_win32_globalization_uregexOpen(pattern: Long, patternlength: Int, flags: Int, pe: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregex_regionEnd64(regexp: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_uregexOpenC(pattern: Long, flags: Int, pe: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregex_regionStart(regexp: Long, status: Long): Int
+    external fun windowssys_windows_win32_globalization_uregexOpenUtext(pattern: Long, flags: Int, pe: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregex_regionStart64(regexp: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_uregexPattern(regexp: Long, patlength: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregex_replaceAll(regexp: Long, replacementtext: Long, replacementlength: Int, destbuf: Long, destcapacity: Int, status: Long): Int
+    external fun windowssys_windows_win32_globalization_uregexPatternUtext(regexp: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregex_replaceAllUText(regexp: Long, replacement: Long, dest: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_uregexRefreshUtext(regexp: Long, text: Long, status: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregex_replaceFirst(regexp: Long, replacementtext: Long, replacementlength: Int, destbuf: Long, destcapacity: Int, status: Long): Int
+    external fun windowssys_windows_win32_globalization_uregexRegionEnd(regexp: Long, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregex_replaceFirstUText(regexp: Long, replacement: Long, dest: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_uregexRegionEnd64(regexp: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregex_requireEnd(regexp: Long, status: Long): Byte
+    external fun windowssys_windows_win32_globalization_uregexRegionStart(regexp: Long, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregex_reset(regexp: Long, index: Int, status: Long)
+    external fun windowssys_windows_win32_globalization_uregexRegionStart64(regexp: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregex_reset64(regexp: Long, index: Long, status: Long)
+    external fun windowssys_windows_win32_globalization_uregexReplaceAll(regexp: Long, replacementtext: Long, replacementlength: Int, destbuf: Long, destcapacity: Int, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregex_setFindProgressCallback(regexp: Long, callback: Long, context: Long, status: Long)
+    external fun windowssys_windows_win32_globalization_uregexReplaceAllUtext(regexp: Long, replacement: Long, dest: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregex_setMatchCallback(regexp: Long, callback: Long, context: Long, status: Long)
+    external fun windowssys_windows_win32_globalization_uregexReplaceFirst(regexp: Long, replacementtext: Long, replacementlength: Int, destbuf: Long, destcapacity: Int, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregex_setRegion(regexp: Long, regionstart: Int, regionlimit: Int, status: Long)
+    external fun windowssys_windows_win32_globalization_uregexReplaceFirstUtext(regexp: Long, replacement: Long, dest: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregex_setRegion64(regexp: Long, regionstart: Long, regionlimit: Long, status: Long)
+    external fun windowssys_windows_win32_globalization_uregexRequireEnd(regexp: Long, status: Long): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregex_setRegionAndStart(regexp: Long, regionstart: Long, regionlimit: Long, startindex: Long, status: Long)
+    external fun windowssys_windows_win32_globalization_uregexReset(regexp: Long, index: Int, status: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregex_setStackLimit(regexp: Long, limit: Int, status: Long)
+    external fun windowssys_windows_win32_globalization_uregexReset64(regexp: Long, index: Long, status: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregex_setText(regexp: Long, text: Long, textlength: Int, status: Long)
+    external fun windowssys_windows_win32_globalization_uregexSetFindProgressCallback(regexp: Long, callback: Long, context: Long, status: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregex_setTimeLimit(regexp: Long, limit: Int, status: Long)
+    external fun windowssys_windows_win32_globalization_uregexSetMatchCallback(regexp: Long, callback: Long, context: Long, status: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregex_setUText(regexp: Long, text: Long, status: Long)
+    external fun windowssys_windows_win32_globalization_uregexSetRegion(regexp: Long, regionstart: Int, regionlimit: Int, status: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregex_split(regexp: Long, destbuf: Long, destcapacity: Int, requiredcapacity: Long, destfields: Long, destfieldscapacity: Int, status: Long): Int
+    external fun windowssys_windows_win32_globalization_uregexSetRegion64(regexp: Long, regionstart: Long, regionlimit: Long, status: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregex_splitUText(regexp: Long, destfields: Long, destfieldscapacity: Int, status: Long): Int
+    external fun windowssys_windows_win32_globalization_uregexSetRegionAndStart(regexp: Long, regionstart: Long, regionlimit: Long, startindex: Long, status: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregex_start(regexp: Long, groupnum: Int, status: Long): Int
+    external fun windowssys_windows_win32_globalization_uregexSetStackLimit(regexp: Long, limit: Int, status: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregex_start64(regexp: Long, groupnum: Int, status: Long): Long
+    external fun windowssys_windows_win32_globalization_uregexSetText(regexp: Long, text: Long, textlength: Int, status: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregex_useAnchoringBounds(regexp: Long, b: Byte, status: Long)
+    external fun windowssys_windows_win32_globalization_uregexSetTimeLimit(regexp: Long, limit: Int, status: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregex_useTransparentBounds(regexp: Long, b: Byte, status: Long)
+    external fun windowssys_windows_win32_globalization_uregexSetUtext(regexp: Long, text: Long, status: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregion_areEqual(uregion: Long, otherregion: Long): Byte
+    external fun windowssys_windows_win32_globalization_uregexSplit(regexp: Long, destbuf: Long, destcapacity: Int, requiredcapacity: Long, destfields: Long, destfieldscapacity: Int, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregion_contains(uregion: Long, otherregion: Long): Byte
+    external fun windowssys_windows_win32_globalization_uregexSplitUtext(regexp: Long, destfields: Long, destfieldscapacity: Int, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregion_getAvailable(type: Int, status: Long): Long
+    external fun windowssys_windows_win32_globalization_uregexStart(regexp: Long, groupnum: Int, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregion_getContainedRegions(uregion: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_uregexStart64(regexp: Long, groupnum: Int, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregion_getContainedRegionsOfType(uregion: Long, type: Int, status: Long): Long
+    external fun windowssys_windows_win32_globalization_uregexUseAnchoringBounds(regexp: Long, b: Byte, status: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregion_getContainingRegion(uregion: Long): Long
+    external fun windowssys_windows_win32_globalization_uregexUseTransparentBounds(regexp: Long, b: Byte, status: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregion_getContainingRegionOfType(uregion: Long, type: Int): Long
+    external fun windowssys_windows_win32_globalization_uregionAreEqual(uregion: Long, otherregion: Long): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregion_getNumericCode(uregion: Long): Int
+    external fun windowssys_windows_win32_globalization_uregionContains(uregion: Long, otherregion: Long): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregion_getPreferredValues(uregion: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_uregionGetAvailable(type: Int, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregion_getRegionCode(uregion: Long): Long
+    external fun windowssys_windows_win32_globalization_uregionGetContainedRegions(uregion: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregion_getRegionFromCode(regioncode: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_uregionGetContainedRegionsOfType(uregion: Long, type: Int, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregion_getRegionFromNumericCode(code: Int, status: Long): Long
+    external fun windowssys_windows_win32_globalization_uregionGetContainingRegion(uregion: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uregion_getType(uregion: Long): Int
+    external fun windowssys_windows_win32_globalization_uregionGetContainingRegionOfType(uregion: Long, type: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ureldatefmt_close(reldatefmt: Long)
+    external fun windowssys_windows_win32_globalization_uregionGetNumericCode(uregion: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ureldatefmt_closeResult(ufrdt: Long)
+    external fun windowssys_windows_win32_globalization_uregionGetPreferredValues(uregion: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ureldatefmt_combineDateAndTime(reldatefmt: Long, relativedatestring: Long, relativedatestringlen: Int, timestring: Long, timestringlen: Int, result: Long, resultcapacity: Int, status: Long): Int
+    external fun windowssys_windows_win32_globalization_uregionGetRegionCode(uregion: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ureldatefmt_format(reldatefmt: Long, offset: Double, unit: Int, result: Long, resultcapacity: Int, status: Long): Int
+    external fun windowssys_windows_win32_globalization_uregionGetRegionFromCode(regioncode: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ureldatefmt_formatNumeric(reldatefmt: Long, offset: Double, unit: Int, result: Long, resultcapacity: Int, status: Long): Int
+    external fun windowssys_windows_win32_globalization_uregionGetRegionFromNumericCode(code: Int, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ureldatefmt_formatNumericToResult(reldatefmt: Long, offset: Double, unit: Int, result: Long, status: Long)
+    external fun windowssys_windows_win32_globalization_uregionGetType(uregion: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ureldatefmt_formatToResult(reldatefmt: Long, offset: Double, unit: Int, result: Long, status: Long)
+    external fun windowssys_windows_win32_globalization_ureldatefmtClose(reldatefmt: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ureldatefmt_open(locale: Long, nftoadopt: Long, width: Int, capitalizationcontext: Int, status: Long): Long
+    external fun windowssys_windows_win32_globalization_ureldatefmtCloseResult(ufrdt: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ureldatefmt_openResult(ec: Long): Long
+    external fun windowssys_windows_win32_globalization_ureldatefmtCombineDateAndTime(reldatefmt: Long, relativedatestring: Long, relativedatestringlen: Int, timestring: Long, timestringlen: Int, result: Long, resultcapacity: Int, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ureldatefmt_resultAsValue(ufrdt: Long, ec: Long): Long
+    external fun windowssys_windows_win32_globalization_ureldatefmtFormat(reldatefmt: Long, offset: Double, unit: Int, result: Long, resultcapacity: Int, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ures_close(resourcebundle: Long)
+    external fun windowssys_windows_win32_globalization_ureldatefmtFormatNumeric(reldatefmt: Long, offset: Double, unit: Int, result: Long, resultcapacity: Int, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ures_getBinary(resourcebundle: Long, len: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_ureldatefmtFormatNumericToResult(reldatefmt: Long, offset: Double, unit: Int, result: Long, status: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ures_getByIndex(resourcebundle: Long, indexr: Int, fillin: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_ureldatefmtFormatToResult(reldatefmt: Long, offset: Double, unit: Int, result: Long, status: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ures_getByKey(resourcebundle: Long, key: Long, fillin: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_ureldatefmtOpen(locale: Long, nftoadopt: Long, width: Int, capitalizationcontext: Int, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ures_getInt(resourcebundle: Long, status: Long): Int
+    external fun windowssys_windows_win32_globalization_ureldatefmtOpenResult(ec: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ures_getIntVector(resourcebundle: Long, len: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_ureldatefmtResultAsValue(ufrdt: Long, ec: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ures_getKey(resourcebundle: Long): Long
+    external fun windowssys_windows_win32_globalization_uresClose(resourcebundle: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ures_getLocaleByType(resourcebundle: Long, type: Int, status: Long): Long
+    external fun windowssys_windows_win32_globalization_uresGetBinary(resourcebundle: Long, len: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ures_getNextResource(resourcebundle: Long, fillin: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_uresGetByIndex(resourcebundle: Long, indexr: Int, fillin: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ures_getNextString(resourcebundle: Long, len: Long, key: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_uresGetByKey(resourcebundle: Long, key: Long, fillin: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ures_getSize(resourcebundle: Long): Int
+    external fun windowssys_windows_win32_globalization_uresGetInt(resourcebundle: Long, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ures_getString(resourcebundle: Long, len: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_uresGetIntVector(resourcebundle: Long, len: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ures_getStringByIndex(resourcebundle: Long, indexs: Int, len: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_uresGetKey(resourcebundle: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ures_getStringByKey(resb: Long, key: Long, len: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_uresGetLocaleByType(resourcebundle: Long, type: Int, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ures_getType(resourcebundle: Long): Int
+    external fun windowssys_windows_win32_globalization_uresGetNextResource(resourcebundle: Long, fillin: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ures_getUInt(resourcebundle: Long, status: Long): Int
+    external fun windowssys_windows_win32_globalization_uresGetNextString(resourcebundle: Long, len: Long, key: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ures_getUTF8String(resb: Long, dest: Long, length: Long, forcecopy: Byte, status: Long): Long
+    external fun windowssys_windows_win32_globalization_uresGetSize(resourcebundle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ures_getUTF8StringByIndex(resb: Long, stringindex: Int, dest: Long, plength: Long, forcecopy: Byte, status: Long): Long
+    external fun windowssys_windows_win32_globalization_uresGetString(resourcebundle: Long, len: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ures_getUTF8StringByKey(resb: Long, key: Long, dest: Long, plength: Long, forcecopy: Byte, status: Long): Long
+    external fun windowssys_windows_win32_globalization_uresGetStringByIndex(resourcebundle: Long, indexs: Int, len: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ures_getVersion(resb: Long, versioninfo: Long)
+    external fun windowssys_windows_win32_globalization_uresGetStringByKey(resb: Long, key: Long, len: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ures_hasNext(resourcebundle: Long): Byte
+    external fun windowssys_windows_win32_globalization_uresGetType(resourcebundle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ures_open(packagename: Long, locale: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_uresGetUint(resourcebundle: Long, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ures_openAvailableLocales(packagename: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_uresGetUtf8String(resb: Long, dest: Long, length: Long, forcecopy: Byte, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ures_openDirect(packagename: Long, locale: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_uresGetUtf8StringByIndex(resb: Long, stringindex: Int, dest: Long, plength: Long, forcecopy: Byte, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ures_openU(packagename: Long, locale: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_uresGetUtf8StringByKey(resb: Long, key: Long, dest: Long, plength: Long, forcecopy: Byte, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_ures_resetIterator(resourcebundle: Long)
+    external fun windowssys_windows_win32_globalization_uresGetVersion(resb: Long, versioninfo: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uscript_breaksBetweenLetters(script: Int): Byte
+    external fun windowssys_windows_win32_globalization_uresHasNext(resourcebundle: Long): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uscript_getCode(nameorabbrorlocale: Long, fillin: Long, capacity: Int, err: Long): Int
+    external fun windowssys_windows_win32_globalization_uresOpen(packagename: Long, locale: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uscript_getName(scriptcode: Int): Long
+    external fun windowssys_windows_win32_globalization_uresOpenAvailableLocales(packagename: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uscript_getSampleString(script: Int, dest: Long, capacity: Int, perrorcode: Long): Int
+    external fun windowssys_windows_win32_globalization_uresOpenDirect(packagename: Long, locale: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uscript_getScript(codepoint: Int, err: Long): Int
+    external fun windowssys_windows_win32_globalization_uresOpenU(packagename: Long, locale: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uscript_getScriptExtensions(c: Int, scripts: Long, capacity: Int, errorcode: Long): Int
+    external fun windowssys_windows_win32_globalization_uresResetIterator(resourcebundle: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uscript_getShortName(scriptcode: Int): Long
+    external fun windowssys_windows_win32_globalization_uscriptBreaksBetweenLetters(script: Int): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uscript_getUsage(script: Int): Int
+    external fun windowssys_windows_win32_globalization_uscriptGetCode(nameorabbrorlocale: Long, fillin: Long, capacity: Int, err: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uscript_hasScript(c: Int, sc: Int): Byte
+    external fun windowssys_windows_win32_globalization_uscriptGetName(scriptcode: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uscript_isCased(script: Int): Byte
+    external fun windowssys_windows_win32_globalization_uscriptGetSampleString(script: Int, dest: Long, capacity: Int, perrorcode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uscript_isRightToLeft(script: Int): Byte
+    external fun windowssys_windows_win32_globalization_uscriptGetScript(codepoint: Int, err: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_usearch_close(searchiter: Long)
+    external fun windowssys_windows_win32_globalization_uscriptGetScriptExtensions(c: Int, scripts: Long, capacity: Int, errorcode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_usearch_first(strsrch: Long, status: Long): Int
+    external fun windowssys_windows_win32_globalization_uscriptGetShortName(scriptcode: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_usearch_following(strsrch: Long, position: Int, status: Long): Int
+    external fun windowssys_windows_win32_globalization_uscriptGetUsage(script: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_usearch_getAttribute(strsrch: Long, attribute: Int): Int
+    external fun windowssys_windows_win32_globalization_uscriptHasScript(c: Int, sc: Int): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_usearch_getBreakIterator(strsrch: Long): Long
+    external fun windowssys_windows_win32_globalization_uscriptIsCased(script: Int): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_usearch_getCollator(strsrch: Long): Long
+    external fun windowssys_windows_win32_globalization_uscriptIsRightToLeft(script: Int): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_usearch_getMatchedLength(strsrch: Long): Int
+    external fun windowssys_windows_win32_globalization_usearchClose(searchiter: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_usearch_getMatchedStart(strsrch: Long): Int
+    external fun windowssys_windows_win32_globalization_usearchFirst(strsrch: Long, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_usearch_getMatchedText(strsrch: Long, result: Long, resultcapacity: Int, status: Long): Int
+    external fun windowssys_windows_win32_globalization_usearchFollowing(strsrch: Long, position: Int, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_usearch_getOffset(strsrch: Long): Int
+    external fun windowssys_windows_win32_globalization_usearchGetAttribute(strsrch: Long, attribute: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_usearch_getPattern(strsrch: Long, length: Long): Long
+    external fun windowssys_windows_win32_globalization_usearchGetBreakIterator(strsrch: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_usearch_getText(strsrch: Long, length: Long): Long
+    external fun windowssys_windows_win32_globalization_usearchGetCollator(strsrch: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_usearch_last(strsrch: Long, status: Long): Int
+    external fun windowssys_windows_win32_globalization_usearchGetMatchedLength(strsrch: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_usearch_next(strsrch: Long, status: Long): Int
+    external fun windowssys_windows_win32_globalization_usearchGetMatchedStart(strsrch: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_usearch_open(pattern: Long, patternlength: Int, text: Long, textlength: Int, locale: Long, breakiter: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_usearchGetMatchedText(strsrch: Long, result: Long, resultcapacity: Int, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_usearch_openFromCollator(pattern: Long, patternlength: Int, text: Long, textlength: Int, collator: Long, breakiter: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_usearchGetOffset(strsrch: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_usearch_preceding(strsrch: Long, position: Int, status: Long): Int
+    external fun windowssys_windows_win32_globalization_usearchGetPattern(strsrch: Long, length: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_usearch_previous(strsrch: Long, status: Long): Int
+    external fun windowssys_windows_win32_globalization_usearchGetText(strsrch: Long, length: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_usearch_reset(strsrch: Long)
+    external fun windowssys_windows_win32_globalization_usearchLast(strsrch: Long, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_usearch_setAttribute(strsrch: Long, attribute: Int, value: Int, status: Long)
+    external fun windowssys_windows_win32_globalization_usearchNext(strsrch: Long, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_usearch_setBreakIterator(strsrch: Long, breakiter: Long, status: Long)
+    external fun windowssys_windows_win32_globalization_usearchOpen(pattern: Long, patternlength: Int, text: Long, textlength: Int, locale: Long, breakiter: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_usearch_setCollator(strsrch: Long, collator: Long, status: Long)
+    external fun windowssys_windows_win32_globalization_usearchOpenFromCollator(pattern: Long, patternlength: Int, text: Long, textlength: Int, collator: Long, breakiter: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_usearch_setOffset(strsrch: Long, position: Int, status: Long)
+    external fun windowssys_windows_win32_globalization_usearchPreceding(strsrch: Long, position: Int, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_usearch_setPattern(strsrch: Long, pattern: Long, patternlength: Int, status: Long)
+    external fun windowssys_windows_win32_globalization_usearchPrevious(strsrch: Long, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_usearch_setText(strsrch: Long, text: Long, textlength: Int, status: Long)
+    external fun windowssys_windows_win32_globalization_usearchReset(strsrch: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uset_add(set: Long, c: Int)
+    external fun windowssys_windows_win32_globalization_usearchSetAttribute(strsrch: Long, attribute: Int, value: Int, status: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uset_addAll(set: Long, additionalset: Long)
+    external fun windowssys_windows_win32_globalization_usearchSetBreakIterator(strsrch: Long, breakiter: Long, status: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uset_addAllCodePoints(set: Long, str: Long, strlen: Int)
+    external fun windowssys_windows_win32_globalization_usearchSetCollator(strsrch: Long, collator: Long, status: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uset_addRange(set: Long, start: Int, end: Int)
+    external fun windowssys_windows_win32_globalization_usearchSetOffset(strsrch: Long, position: Int, status: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uset_addString(set: Long, str: Long, strlen: Int)
+    external fun windowssys_windows_win32_globalization_usearchSetPattern(strsrch: Long, pattern: Long, patternlength: Int, status: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uset_applyIntPropertyValue(set: Long, prop: Int, value: Int, ec: Long)
+    external fun windowssys_windows_win32_globalization_usearchSetText(strsrch: Long, text: Long, textlength: Int, status: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uset_applyPattern(set: Long, pattern: Long, patternlength: Int, options: Int, status: Long): Int
+    external fun windowssys_windows_win32_globalization_usetAdd(set: Long, c: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uset_applyPropertyAlias(set: Long, prop: Long, proplength: Int, value: Long, valuelength: Int, ec: Long)
+    external fun windowssys_windows_win32_globalization_usetAddAll(set: Long, additionalset: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uset_charAt(set: Long, charindex: Int): Int
+    external fun windowssys_windows_win32_globalization_usetAddAllCodePoints(set: Long, str: Long, strlen: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uset_clear(set: Long)
+    external fun windowssys_windows_win32_globalization_usetAddRange(set: Long, start: Int, end: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uset_clone(set: Long): Long
+    external fun windowssys_windows_win32_globalization_usetAddString(set: Long, str: Long, strlen: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uset_cloneAsThawed(set: Long): Long
+    external fun windowssys_windows_win32_globalization_usetApplyIntPropertyValue(set: Long, prop: Int, value: Int, ec: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uset_close(set: Long)
+    external fun windowssys_windows_win32_globalization_usetApplyPattern(set: Long, pattern: Long, patternlength: Int, options: Int, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uset_closeOver(set: Long, attributes: Int)
+    external fun windowssys_windows_win32_globalization_usetApplyPropertyAlias(set: Long, prop: Long, proplength: Int, value: Long, valuelength: Int, ec: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uset_compact(set: Long)
+    external fun windowssys_windows_win32_globalization_usetCharAt(set: Long, charindex: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uset_complement(set: Long)
+    external fun windowssys_windows_win32_globalization_usetClear(set: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uset_complementAll(set: Long, complement: Long)
+    external fun windowssys_windows_win32_globalization_usetClone(set: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uset_contains(set: Long, c: Int): Byte
+    external fun windowssys_windows_win32_globalization_usetCloneAsThawed(set: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uset_containsAll(set1: Long, set2: Long): Byte
+    external fun windowssys_windows_win32_globalization_usetClose(set: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uset_containsAllCodePoints(set: Long, str: Long, strlen: Int): Byte
+    external fun windowssys_windows_win32_globalization_usetCloseOver(set: Long, attributes: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uset_containsNone(set1: Long, set2: Long): Byte
+    external fun windowssys_windows_win32_globalization_usetCompact(set: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uset_containsRange(set: Long, start: Int, end: Int): Byte
+    external fun windowssys_windows_win32_globalization_usetComplement(set: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uset_containsSome(set1: Long, set2: Long): Byte
+    external fun windowssys_windows_win32_globalization_usetComplementAll(set: Long, complement: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uset_containsString(set: Long, str: Long, strlen: Int): Byte
+    external fun windowssys_windows_win32_globalization_usetContains(set: Long, c: Int): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uset_equals(set1: Long, set2: Long): Byte
+    external fun windowssys_windows_win32_globalization_usetContainsAll(set1: Long, set2: Long): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uset_freeze(set: Long)
+    external fun windowssys_windows_win32_globalization_usetContainsAllCodePoints(set: Long, str: Long, strlen: Int): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uset_getItem(set: Long, itemindex: Int, start: Long, end: Long, str: Long, strcapacity: Int, ec: Long): Int
+    external fun windowssys_windows_win32_globalization_usetContainsNone(set1: Long, set2: Long): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uset_getItemCount(set: Long): Int
+    external fun windowssys_windows_win32_globalization_usetContainsRange(set: Long, start: Int, end: Int): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uset_getSerializedRange(set: Long, rangeindex: Int, pstart: Long, pend: Long): Byte
+    external fun windowssys_windows_win32_globalization_usetContainsSome(set1: Long, set2: Long): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uset_getSerializedRangeCount(set: Long): Int
+    external fun windowssys_windows_win32_globalization_usetContainsString(set: Long, str: Long, strlen: Int): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uset_getSerializedSet(fillset: Long, src: Long, srclength: Int): Byte
+    external fun windowssys_windows_win32_globalization_usetEquals(set1: Long, set2: Long): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uset_indexOf(set: Long, c: Int): Int
+    external fun windowssys_windows_win32_globalization_usetFreeze(set: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uset_isEmpty(set: Long): Byte
+    external fun windowssys_windows_win32_globalization_usetGetItem(set: Long, itemindex: Int, start: Long, end: Long, str: Long, strcapacity: Int, ec: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uset_isFrozen(set: Long): Byte
+    external fun windowssys_windows_win32_globalization_usetGetItemCount(set: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uset_open(start: Int, end: Int): Long
+    external fun windowssys_windows_win32_globalization_usetGetSerializedRange(set: Long, rangeindex: Int, pstart: Long, pend: Long): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uset_openEmpty(): Long
+    external fun windowssys_windows_win32_globalization_usetGetSerializedRangeCount(set: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uset_openPattern(pattern: Long, patternlength: Int, ec: Long): Long
+    external fun windowssys_windows_win32_globalization_usetGetSerializedSet(fillset: Long, src: Long, srclength: Int): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uset_openPatternOptions(pattern: Long, patternlength: Int, options: Int, ec: Long): Long
+    external fun windowssys_windows_win32_globalization_usetIndexOf(set: Long, c: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uset_remove(set: Long, c: Int)
+    external fun windowssys_windows_win32_globalization_usetIsEmpty(set: Long): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uset_removeAll(set: Long, removeset: Long)
+    external fun windowssys_windows_win32_globalization_usetIsFrozen(set: Long): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uset_removeAllStrings(set: Long)
+    external fun windowssys_windows_win32_globalization_usetOpen(start: Int, end: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uset_removeRange(set: Long, start: Int, end: Int)
+    external fun windowssys_windows_win32_globalization_usetOpenEmpty(): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uset_removeString(set: Long, str: Long, strlen: Int)
+    external fun windowssys_windows_win32_globalization_usetOpenPattern(pattern: Long, patternlength: Int, ec: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uset_resemblesPattern(pattern: Long, patternlength: Int, pos: Int): Byte
+    external fun windowssys_windows_win32_globalization_usetOpenPatternOptions(pattern: Long, patternlength: Int, options: Int, ec: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uset_retain(set: Long, start: Int, end: Int)
+    external fun windowssys_windows_win32_globalization_usetRemove(set: Long, c: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uset_retainAll(set: Long, retain: Long)
+    external fun windowssys_windows_win32_globalization_usetRemoveAll(set: Long, removeset: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uset_serialize(set: Long, dest: Long, destcapacity: Int, perrorcode: Long): Int
+    external fun windowssys_windows_win32_globalization_usetRemoveAllStrings(set: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uset_serializedContains(set: Long, c: Int): Byte
+    external fun windowssys_windows_win32_globalization_usetRemoveRange(set: Long, start: Int, end: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uset_set(set: Long, start: Int, end: Int)
+    external fun windowssys_windows_win32_globalization_usetRemoveString(set: Long, str: Long, strlen: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uset_setSerializedToOne(fillset: Long, c: Int)
+    external fun windowssys_windows_win32_globalization_usetResemblesPattern(pattern: Long, patternlength: Int, pos: Int): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uset_size(set: Long): Int
+    external fun windowssys_windows_win32_globalization_usetRetain(set: Long, start: Int, end: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uset_span(set: Long, s: Long, length: Int, spancondition: Int): Int
+    external fun windowssys_windows_win32_globalization_usetRetainAll(set: Long, retain: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uset_spanBack(set: Long, s: Long, length: Int, spancondition: Int): Int
+    external fun windowssys_windows_win32_globalization_usetSerialize(set: Long, dest: Long, destcapacity: Int, perrorcode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uset_spanBackUTF8(set: Long, s: Long, length: Int, spancondition: Int): Int
+    external fun windowssys_windows_win32_globalization_usetSerializedContains(set: Long, c: Int): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uset_spanUTF8(set: Long, s: Long, length: Int, spancondition: Int): Int
+    external fun windowssys_windows_win32_globalization_usetSet(set: Long, start: Int, end: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uset_toPattern(set: Long, result: Long, resultcapacity: Int, escapeunprintable: Byte, ec: Long): Int
+    external fun windowssys_windows_win32_globalization_usetSetSerializedToOne(fillset: Long, c: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uspoof_areConfusable(sc: Long, id1: Long, length1: Int, id2: Long, length2: Int, status: Long): Int
+    external fun windowssys_windows_win32_globalization_usetSize(set: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uspoof_areConfusableUTF8(sc: Long, id1: Long, length1: Int, id2: Long, length2: Int, status: Long): Int
+    external fun windowssys_windows_win32_globalization_usetSpan(set: Long, s: Long, length: Int, spancondition: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uspoof_check(sc: Long, id: Long, length: Int, position: Long, status: Long): Int
+    external fun windowssys_windows_win32_globalization_usetSpanBack(set: Long, s: Long, length: Int, spancondition: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uspoof_check2(sc: Long, id: Long, length: Int, checkresult: Long, status: Long): Int
+    external fun windowssys_windows_win32_globalization_usetSpanBackUtf8(set: Long, s: Long, length: Int, spancondition: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uspoof_check2UTF8(sc: Long, id: Long, length: Int, checkresult: Long, status: Long): Int
+    external fun windowssys_windows_win32_globalization_usetSpanUtf8(set: Long, s: Long, length: Int, spancondition: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uspoof_checkUTF8(sc: Long, id: Long, length: Int, position: Long, status: Long): Int
+    external fun windowssys_windows_win32_globalization_usetToPattern(set: Long, result: Long, resultcapacity: Int, escapeunprintable: Byte, ec: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uspoof_clone(sc: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_uspoofAreConfusable(sc: Long, id1: Long, length1: Int, id2: Long, length2: Int, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uspoof_close(sc: Long)
+    external fun windowssys_windows_win32_globalization_uspoofAreConfusableUtf8(sc: Long, id1: Long, length1: Int, id2: Long, length2: Int, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uspoof_closeCheckResult(checkresult: Long)
+    external fun windowssys_windows_win32_globalization_uspoofCheck(sc: Long, id: Long, length: Int, position: Long, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uspoof_getAllowedChars(sc: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_uspoofCheck2(sc: Long, id: Long, length: Int, checkresult: Long, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uspoof_getAllowedLocales(sc: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_uspoofCheck2Utf8(sc: Long, id: Long, length: Int, checkresult: Long, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uspoof_getCheckResultChecks(checkresult: Long, status: Long): Int
+    external fun windowssys_windows_win32_globalization_uspoofCheckUtf8(sc: Long, id: Long, length: Int, position: Long, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uspoof_getCheckResultNumerics(checkresult: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_uspoofClone(sc: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uspoof_getCheckResultRestrictionLevel(checkresult: Long, status: Long): Int
+    external fun windowssys_windows_win32_globalization_uspoofClose(sc: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uspoof_getChecks(sc: Long, status: Long): Int
+    external fun windowssys_windows_win32_globalization_uspoofCloseCheckResult(checkresult: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uspoof_getInclusionSet(status: Long): Long
+    external fun windowssys_windows_win32_globalization_uspoofGetAllowedChars(sc: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uspoof_getRecommendedSet(status: Long): Long
+    external fun windowssys_windows_win32_globalization_uspoofGetAllowedLocales(sc: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uspoof_getRestrictionLevel(sc: Long): Int
+    external fun windowssys_windows_win32_globalization_uspoofGetCheckResultChecks(checkresult: Long, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uspoof_getSkeleton(sc: Long, type: Int, id: Long, length: Int, dest: Long, destcapacity: Int, status: Long): Int
+    external fun windowssys_windows_win32_globalization_uspoofGetCheckResultNumerics(checkresult: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uspoof_getSkeletonUTF8(sc: Long, type: Int, id: Long, length: Int, dest: Long, destcapacity: Int, status: Long): Int
+    external fun windowssys_windows_win32_globalization_uspoofGetCheckResultRestrictionLevel(checkresult: Long, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uspoof_open(status: Long): Long
+    external fun windowssys_windows_win32_globalization_uspoofGetChecks(sc: Long, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uspoof_openCheckResult(status: Long): Long
+    external fun windowssys_windows_win32_globalization_uspoofGetInclusionSet(status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uspoof_openFromSerialized(data: Long, length: Int, pactuallength: Long, perrorcode: Long): Long
+    external fun windowssys_windows_win32_globalization_uspoofGetRecommendedSet(status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uspoof_openFromSource(confusables: Long, confusableslen: Int, confusableswholescript: Long, confusableswholescriptlen: Int, errtype: Long, pe: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_uspoofGetRestrictionLevel(sc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uspoof_serialize(sc: Long, data: Long, capacity: Int, status: Long): Int
+    external fun windowssys_windows_win32_globalization_uspoofGetSkeleton(sc: Long, type: Int, id: Long, length: Int, dest: Long, destcapacity: Int, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uspoof_setAllowedChars(sc: Long, chars: Long, status: Long)
+    external fun windowssys_windows_win32_globalization_uspoofGetSkeletonUtf8(sc: Long, type: Int, id: Long, length: Int, dest: Long, destcapacity: Int, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uspoof_setAllowedLocales(sc: Long, localeslist: Long, status: Long)
+    external fun windowssys_windows_win32_globalization_uspoofOpen(status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uspoof_setChecks(sc: Long, checks: Int, status: Long)
+    external fun windowssys_windows_win32_globalization_uspoofOpenCheckResult(status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_uspoof_setRestrictionLevel(sc: Long, restrictionlevel: Int)
+    external fun windowssys_windows_win32_globalization_uspoofOpenFromSerialized(data: Long, length: Int, pactuallength: Long, perrorcode: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_usprep_close(profile: Long)
+    external fun windowssys_windows_win32_globalization_uspoofOpenFromSource(confusables: Long, confusableslen: Int, confusableswholescript: Long, confusableswholescriptlen: Int, errtype: Long, pe: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_usprep_open(path: Long, filename: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_uspoofSerialize(sc: Long, data: Long, capacity: Int, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_usprep_openByType(type: Int, status: Long): Long
+    external fun windowssys_windows_win32_globalization_uspoofSetAllowedChars(sc: Long, chars: Long, status: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_usprep_prepare(prep: Long, src: Long, srclength: Int, dest: Long, destcapacity: Int, options: Int, parseerror: Long, status: Long): Int
+    external fun windowssys_windows_win32_globalization_uspoofSetAllowedLocales(sc: Long, localeslist: Long, status: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_utext_char32At(ut: Long, nativeindex: Long): Int
+    external fun windowssys_windows_win32_globalization_uspoofSetChecks(sc: Long, checks: Int, status: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_utext_clone(dest: Long, src: Long, deep: Byte, readonly: Byte, status: Long): Long
+    external fun windowssys_windows_win32_globalization_uspoofSetRestrictionLevel(sc: Long, restrictionlevel: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_utext_close(ut: Long): Long
+    external fun windowssys_windows_win32_globalization_usprepClose(profile: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_utext_copy(ut: Long, nativestart: Long, nativelimit: Long, destindex: Long, move: Byte, status: Long)
+    external fun windowssys_windows_win32_globalization_usprepOpen(path: Long, filename: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_utext_current32(ut: Long): Int
+    external fun windowssys_windows_win32_globalization_usprepOpenByType(type: Int, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_utext_equals(a: Long, b: Long): Byte
+    external fun windowssys_windows_win32_globalization_usprepPrepare(prep: Long, src: Long, srclength: Int, dest: Long, destcapacity: Int, options: Int, parseerror: Long, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_utext_extract(ut: Long, nativestart: Long, nativelimit: Long, dest: Long, destcapacity: Int, status: Long): Int
+    external fun windowssys_windows_win32_globalization_utextChar32At(ut: Long, nativeindex: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_utext_freeze(ut: Long)
+    external fun windowssys_windows_win32_globalization_utextClone(dest: Long, src: Long, deep: Byte, readonly: Byte, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_utext_getNativeIndex(ut: Long): Long
+    external fun windowssys_windows_win32_globalization_utextClose(ut: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_utext_getPreviousNativeIndex(ut: Long): Long
+    external fun windowssys_windows_win32_globalization_utextCopy(ut: Long, nativestart: Long, nativelimit: Long, destindex: Long, move: Byte, status: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_utext_hasMetaData(ut: Long): Byte
+    external fun windowssys_windows_win32_globalization_utextCurrent32(ut: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_utext_isLengthExpensive(ut: Long): Byte
+    external fun windowssys_windows_win32_globalization_utextEquals(a: Long, b: Long): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_utext_isWritable(ut: Long): Byte
+    external fun windowssys_windows_win32_globalization_utextExtract(ut: Long, nativestart: Long, nativelimit: Long, dest: Long, destcapacity: Int, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_utext_moveIndex32(ut: Long, delta: Int): Byte
+    external fun windowssys_windows_win32_globalization_utextFreeze(ut: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_utext_nativeLength(ut: Long): Long
+    external fun windowssys_windows_win32_globalization_utextGetNativeIndex(ut: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_utext_next32(ut: Long): Int
+    external fun windowssys_windows_win32_globalization_utextGetPreviousNativeIndex(ut: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_utext_next32From(ut: Long, nativeindex: Long): Int
+    external fun windowssys_windows_win32_globalization_utextHasMetaData(ut: Long): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_utext_openUChars(ut: Long, s: Long, length: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_utextIsLengthExpensive(ut: Long): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_utext_openUTF8(ut: Long, s: Long, length: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_utextIsWritable(ut: Long): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_utext_previous32(ut: Long): Int
+    external fun windowssys_windows_win32_globalization_utextMoveIndex32(ut: Long, delta: Int): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_utext_previous32From(ut: Long, nativeindex: Long): Int
+    external fun windowssys_windows_win32_globalization_utextNativeLength(ut: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_utext_replace(ut: Long, nativestart: Long, nativelimit: Long, replacementtext: Long, replacementlength: Int, status: Long): Int
+    external fun windowssys_windows_win32_globalization_utextNext32(ut: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_utext_setNativeIndex(ut: Long, nativeindex: Long)
+    external fun windowssys_windows_win32_globalization_utextNext32From(ut: Long, nativeindex: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_utext_setup(ut: Long, extraspace: Int, status: Long): Long
+    external fun windowssys_windows_win32_globalization_utextOpenUchars(ut: Long, s: Long, length: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_utf8_appendCharSafeBody(s: Long, i: Int, length: Int, c: Int, piserror: Long): Int
+    external fun windowssys_windows_win32_globalization_utextOpenUtf8(ut: Long, s: Long, length: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_utf8_back1SafeBody(s: Long, start: Int, i: Int): Int
+    external fun windowssys_windows_win32_globalization_utextPrevious32(ut: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_utf8_nextCharSafeBody(s: Long, pi: Long, length: Int, c: Int, strict: Byte): Int
+    external fun windowssys_windows_win32_globalization_utextPrevious32From(ut: Long, nativeindex: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_utf8_prevCharSafeBody(s: Long, start: Int, pi: Long, c: Int, strict: Byte): Int
+    external fun windowssys_windows_win32_globalization_utextReplace(ut: Long, nativestart: Long, nativelimit: Long, replacementtext: Long, replacementlength: Int, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_utmscale_fromInt64(othertime: Long, timescale: Int, status: Long): Long
+    external fun windowssys_windows_win32_globalization_utextSetNativeIndex(ut: Long, nativeindex: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_utmscale_getTimeScaleValue(timescale: Int, value: Int, status: Long): Long
+    external fun windowssys_windows_win32_globalization_utextSetup(ut: Long, extraspace: Int, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_utmscale_toInt64(universaltime: Long, timescale: Int, status: Long): Long
+    external fun windowssys_windows_win32_globalization_utf8AppendCharSafeBody(s: Long, i: Int, length: Int, c: Int, piserror: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_utrace_functionName(fnnumber: Int): Long
+    external fun windowssys_windows_win32_globalization_utf8Back1SafeBody(s: Long, start: Int, i: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_utrace_getFunctions(context: Long, e: Long, x: Long, d: Long)
+    external fun windowssys_windows_win32_globalization_utf8NextCharSafeBody(s: Long, pi: Long, length: Int, c: Int, strict: Byte): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_utrace_getLevel(): Int
+    external fun windowssys_windows_win32_globalization_utf8PrevCharSafeBody(s: Long, start: Int, pi: Long, c: Int, strict: Byte): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_utrace_setFunctions(context: Long, e: Long, x: Long, d: Long)
+    external fun windowssys_windows_win32_globalization_utmscaleFromInt64(othertime: Long, timescale: Int, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_utrace_setLevel(tracelevel: Int)
+    external fun windowssys_windows_win32_globalization_utmscaleGetTimeScaleValue(timescale: Int, value: Int, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_utrace_vformat(outbuf: Long, capacity: Int, indent: Int, fmt: Long, args: Long): Int
+    external fun windowssys_windows_win32_globalization_utmscaleToInt64(universaltime: Long, timescale: Int, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_utrans_clone(trans: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_utraceFormat(outbuf: Long, capacity: Int, indent: Int, fmt: Long, km_vac: Int, km_va0: Long, km_va1: Long, km_va2: Long, km_va3: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_utrans_close(trans: Long)
+    external fun windowssys_windows_win32_globalization_utraceFunctionName(fnnumber: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_utrans_countAvailableIDs(): Int
+    external fun windowssys_windows_win32_globalization_utraceGetFunctions(context: Long, e: Long, x: Long, d: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_utrans_getSourceSet(trans: Long, ignorefilter: Byte, fillin: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_utraceGetLevel(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_utrans_getUnicodeID(trans: Long, resultlength: Long): Long
+    external fun windowssys_windows_win32_globalization_utraceSetFunctions(context: Long, e: Long, x: Long, d: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_utrans_openIDs(perrorcode: Long): Long
+    external fun windowssys_windows_win32_globalization_utraceSetLevel(tracelevel: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_utrans_openInverse(trans: Long, status: Long): Long
+    external fun windowssys_windows_win32_globalization_utraceVformat(outbuf: Long, capacity: Int, indent: Int, fmt: Long, args: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_utrans_openU(id: Long, idlength: Int, dir: Int, rules: Long, ruleslength: Int, parseerror: Long, perrorcode: Long): Long
+    external fun windowssys_windows_win32_globalization_utransClone(trans: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_utrans_register(adoptedtrans: Long, status: Long)
+    external fun windowssys_windows_win32_globalization_utransClose(trans: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_utrans_setFilter(trans: Long, filterpattern: Long, filterpatternlen: Int, status: Long)
+    external fun windowssys_windows_win32_globalization_utransCountAvailableIds(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_utrans_toRules(trans: Long, escapeunprintable: Byte, result: Long, resultlength: Int, status: Long): Int
+    external fun windowssys_windows_win32_globalization_utransGetSourceSet(trans: Long, ignorefilter: Byte, fillin: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_utrans_trans(trans: Long, rep: Long, repfunc: Long, start: Int, limit: Long, status: Long)
+    external fun windowssys_windows_win32_globalization_utransGetUnicodeId(trans: Long, resultlength: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_utrans_transIncremental(trans: Long, rep: Long, repfunc: Long, pos: Long, status: Long)
+    external fun windowssys_windows_win32_globalization_utransOpenIds(perrorcode: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_utrans_transIncrementalUChars(trans: Long, text: Long, textlength: Long, textcapacity: Int, pos: Long, status: Long)
+    external fun windowssys_windows_win32_globalization_utransOpenInverse(trans: Long, status: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_utrans_transUChars(trans: Long, text: Long, textlength: Long, textcapacity: Int, start: Int, limit: Long, status: Long)
+    external fun windowssys_windows_win32_globalization_utransOpenU(id: Long, idlength: Int, dir: Int, rules: Long, ruleslength: Int, parseerror: Long, perrorcode: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_globalization_utrans_unregisterID(id: Long, idlength: Int)
+    external fun windowssys_windows_win32_globalization_utransRegister(adoptedtrans: Long, status: Long)
+
+    @JvmStatic
+    external fun windowssys_windows_win32_globalization_utransSetFilter(trans: Long, filterpattern: Long, filterpatternlen: Int, status: Long)
+
+    @JvmStatic
+    external fun windowssys_windows_win32_globalization_utransToRules(trans: Long, escapeunprintable: Byte, result: Long, resultlength: Int, status: Long): Int
+
+    @JvmStatic
+    external fun windowssys_windows_win32_globalization_utransTrans(trans: Long, rep: Long, repfunc: Long, start: Int, limit: Long, status: Long)
+
+    @JvmStatic
+    external fun windowssys_windows_win32_globalization_utransTransIncremental(trans: Long, rep: Long, repfunc: Long, pos: Long, status: Long)
+
+    @JvmStatic
+    external fun windowssys_windows_win32_globalization_utransTransIncrementalUchars(trans: Long, text: Long, textlength: Long, textcapacity: Int, pos: Long, status: Long)
+
+    @JvmStatic
+    external fun windowssys_windows_win32_globalization_utransTransUchars(trans: Long, text: Long, textlength: Long, textcapacity: Int, start: Int, limit: Long, status: Long)
+
+    @JvmStatic
+    external fun windowssys_windows_win32_globalization_utransUnregisterId(id: Long, idlength: Int)
 }
 
-public actual fun AdjustCalendarDate(lpcaldatetime: Long, calunit: CALDATETIME_DATEUNIT, amount: Int): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_AdjustCalendarDate(lpcaldatetime, calunit, amount)
+public actual fun adjustCalendarDate(lpcaldatetime: COpaquePointer?, calunit: CaldatetimeDateunit, amount: Int): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_adjustCalendarDate((lpcaldatetime?.value ?: 0L), calunit, amount)
 
-public actual fun CompareStringA(locale: UInt, dwcmpflags: UInt, lpstring1: Long, cchcount1: Int, lpstring2: Long, cchcount2: Int): COMPARESTRING_RESULT =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_CompareStringA(locale.toInt(), dwcmpflags.toInt(), lpstring1, cchcount1, lpstring2, cchcount2)
+public actual fun compareStringA(locale: UInt, dwcmpflags: UInt, lpstring1: COpaquePointer?, cchcount1: Int, lpstring2: COpaquePointer?, cchcount2: Int): ComparestringResult =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_compareStringA(locale.toInt(), dwcmpflags.toInt(), (lpstring1?.value ?: 0L), cchcount1, (lpstring2?.value ?: 0L), cchcount2)
 
-public actual fun CompareStringEx(lplocalename: PCWSTR, dwcmpflags: COMPARE_STRING_FLAGS, lpstring1: PCWSTR, cchcount1: Int, lpstring2: PCWSTR, cchcount2: Int, lpversioninformation: Long, lpreserved: Long, lparam: LPARAM): COMPARESTRING_RESULT =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_CompareStringEx(lplocalename, dwcmpflags.toInt(), lpstring1, cchcount1, lpstring2, cchcount2, lpversioninformation, lpreserved, lparam)
+public actual fun compareStringEx(lplocalename: Pcwstr, dwcmpflags: CompareStringFlags, lpstring1: Pcwstr, cchcount1: Int, lpstring2: Pcwstr, cchcount2: Int, lpversioninformation: COpaquePointer?, lpreserved: COpaquePointer?, lparam: Lparam): ComparestringResult =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_compareStringEx((lplocalename?.value ?: 0L), dwcmpflags.toInt(), (lpstring1?.value ?: 0L), cchcount1, (lpstring2?.value ?: 0L), cchcount2, (lpversioninformation?.value ?: 0L), (lpreserved?.value ?: 0L), lparam)
 
-public actual fun CompareStringOrdinal(lpstring1: PCWSTR, cchcount1: Int, lpstring2: PCWSTR, cchcount2: Int, bignorecase: BOOL): COMPARESTRING_RESULT =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_CompareStringOrdinal(lpstring1, cchcount1, lpstring2, cchcount2, bignorecase)
+public actual fun compareStringOrdinal(lpstring1: Pcwstr, cchcount1: Int, lpstring2: Pcwstr, cchcount2: Int, bignorecase: Bool): ComparestringResult =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_compareStringOrdinal((lpstring1?.value ?: 0L), cchcount1, (lpstring2?.value ?: 0L), cchcount2, bignorecase)
 
-public actual fun CompareStringW(locale: UInt, dwcmpflags: UInt, lpstring1: PCWSTR, cchcount1: Int, lpstring2: PCWSTR, cchcount2: Int): COMPARESTRING_RESULT =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_CompareStringW(locale.toInt(), dwcmpflags.toInt(), lpstring1, cchcount1, lpstring2, cchcount2)
+public actual fun compareStringW(locale: UInt, dwcmpflags: UInt, lpstring1: Pcwstr, cchcount1: Int, lpstring2: Pcwstr, cchcount2: Int): ComparestringResult =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_compareStringW(locale.toInt(), dwcmpflags.toInt(), (lpstring1?.value ?: 0L), cchcount1, (lpstring2?.value ?: 0L), cchcount2)
 
-public actual fun ConvertCalDateTimeToSystemTime(lpcaldatetime: Long, lpsystime: Long): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ConvertCalDateTimeToSystemTime(lpcaldatetime, lpsystime)
+public actual fun convertCalDateTimeToSystemTime(lpcaldatetime: COpaquePointer?, lpsystime: COpaquePointer?): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_convertCalDateTimeToSystemTime((lpcaldatetime?.value ?: 0L), (lpsystime?.value ?: 0L))
 
-public actual fun ConvertDefaultLocale(locale: UInt): UInt =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ConvertDefaultLocale(locale.toInt()).toUInt()
+public actual fun convertDefaultLocale(locale: UInt): UInt =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_convertDefaultLocale(locale.toInt()).toUInt()
 
-public actual fun ConvertSystemTimeToCalDateTime(lpsystime: Long, calid: UInt, lpcaldatetime: Long): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ConvertSystemTimeToCalDateTime(lpsystime, calid.toInt(), lpcaldatetime)
+public actual fun convertSystemTimeToCalDateTime(lpsystime: COpaquePointer?, calid: UInt, lpcaldatetime: COpaquePointer?): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_convertSystemTimeToCalDateTime((lpsystime?.value ?: 0L), calid.toInt(), (lpcaldatetime?.value ?: 0L))
 
-public actual fun EnumCalendarInfoA(lpcalinfoenumproc: CALINFO_ENUMPROCA, locale: UInt, calendar: UInt, caltype: UInt): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_EnumCalendarInfoA(lpcalinfoenumproc.toLong(), locale.toInt(), calendar.toInt(), caltype.toInt())
+public actual fun enumCalendarInfoA(lpcalinfoenumproc: CalinfoEnumproca, locale: UInt, calendar: UInt, caltype: UInt): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_enumCalendarInfoA(0L, locale.toInt(), calendar.toInt(), caltype.toInt())
 
-public actual fun EnumCalendarInfoExA(lpcalinfoenumprocex: CALINFO_ENUMPROCEXA, locale: UInt, calendar: UInt, caltype: UInt): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_EnumCalendarInfoExA(lpcalinfoenumprocex.toLong(), locale.toInt(), calendar.toInt(), caltype.toInt())
+public actual fun enumCalendarInfoExA(lpcalinfoenumprocex: CalinfoEnumprocexa, locale: UInt, calendar: UInt, caltype: UInt): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_enumCalendarInfoExA(0L, locale.toInt(), calendar.toInt(), caltype.toInt())
 
-public actual fun EnumCalendarInfoExEx(pcalinfoenumprocexex: CALINFO_ENUMPROCEXEX, lplocalename: PCWSTR, calendar: UInt, lpreserved: PCWSTR, caltype: UInt, lparam: LPARAM): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_EnumCalendarInfoExEx(pcalinfoenumprocexex.toLong(), lplocalename, calendar.toInt(), lpreserved, caltype.toInt(), lparam)
+public actual fun enumCalendarInfoExEx(pcalinfoenumprocexex: CalinfoEnumprocexex, lplocalename: Pcwstr, calendar: UInt, lpreserved: Pcwstr, caltype: UInt, lparam: Lparam): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_enumCalendarInfoExEx(0L, (lplocalename?.value ?: 0L), calendar.toInt(), (lpreserved?.value ?: 0L), caltype.toInt(), lparam)
 
-public actual fun EnumCalendarInfoExW(lpcalinfoenumprocex: CALINFO_ENUMPROCEXW, locale: UInt, calendar: UInt, caltype: UInt): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_EnumCalendarInfoExW(lpcalinfoenumprocex.toLong(), locale.toInt(), calendar.toInt(), caltype.toInt())
+public actual fun enumCalendarInfoExW(lpcalinfoenumprocex: CalinfoEnumprocexw, locale: UInt, calendar: UInt, caltype: UInt): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_enumCalendarInfoExW(0L, locale.toInt(), calendar.toInt(), caltype.toInt())
 
-public actual fun EnumCalendarInfoW(lpcalinfoenumproc: CALINFO_ENUMPROCW, locale: UInt, calendar: UInt, caltype: UInt): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_EnumCalendarInfoW(lpcalinfoenumproc.toLong(), locale.toInt(), calendar.toInt(), caltype.toInt())
+public actual fun enumCalendarInfoW(lpcalinfoenumproc: CalinfoEnumprocw, locale: UInt, calendar: UInt, caltype: UInt): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_enumCalendarInfoW(0L, locale.toInt(), calendar.toInt(), caltype.toInt())
 
-public actual fun EnumDateFormatsA(lpdatefmtenumproc: DATEFMT_ENUMPROCA, locale: UInt, dwflags: UInt): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_EnumDateFormatsA(lpdatefmtenumproc.toLong(), locale.toInt(), dwflags.toInt())
+public actual fun enumDateFormatsA(lpdatefmtenumproc: DatefmtEnumproca, locale: UInt, dwflags: UInt): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_enumDateFormatsA(0L, locale.toInt(), dwflags.toInt())
 
-public actual fun EnumDateFormatsExA(lpdatefmtenumprocex: DATEFMT_ENUMPROCEXA, locale: UInt, dwflags: UInt): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_EnumDateFormatsExA(lpdatefmtenumprocex.toLong(), locale.toInt(), dwflags.toInt())
+public actual fun enumDateFormatsExA(lpdatefmtenumprocex: DatefmtEnumprocexa, locale: UInt, dwflags: UInt): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_enumDateFormatsExA(0L, locale.toInt(), dwflags.toInt())
 
-public actual fun EnumDateFormatsExEx(lpdatefmtenumprocexex: DATEFMT_ENUMPROCEXEX, lplocalename: PCWSTR, dwflags: ENUM_DATE_FORMATS_FLAGS, lparam: LPARAM): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_EnumDateFormatsExEx(lpdatefmtenumprocexex.toLong(), lplocalename, dwflags.toInt(), lparam)
+public actual fun enumDateFormatsExEx(lpdatefmtenumprocexex: DatefmtEnumprocexex, lplocalename: Pcwstr, dwflags: EnumDateFormatsFlags, lparam: Lparam): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_enumDateFormatsExEx(0L, (lplocalename?.value ?: 0L), dwflags.toInt(), lparam)
 
-public actual fun EnumDateFormatsExW(lpdatefmtenumprocex: DATEFMT_ENUMPROCEXW, locale: UInt, dwflags: UInt): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_EnumDateFormatsExW(lpdatefmtenumprocex.toLong(), locale.toInt(), dwflags.toInt())
+public actual fun enumDateFormatsExW(lpdatefmtenumprocex: DatefmtEnumprocexw, locale: UInt, dwflags: UInt): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_enumDateFormatsExW(0L, locale.toInt(), dwflags.toInt())
 
-public actual fun EnumDateFormatsW(lpdatefmtenumproc: DATEFMT_ENUMPROCW, locale: UInt, dwflags: UInt): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_EnumDateFormatsW(lpdatefmtenumproc.toLong(), locale.toInt(), dwflags.toInt())
+public actual fun enumDateFormatsW(lpdatefmtenumproc: DatefmtEnumprocw, locale: UInt, dwflags: UInt): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_enumDateFormatsW(0L, locale.toInt(), dwflags.toInt())
 
-public actual fun EnumLanguageGroupLocalesA(lplanggrouplocaleenumproc: LANGGROUPLOCALE_ENUMPROCA, languagegroup: UInt, dwflags: UInt, lparam: Long): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_EnumLanguageGroupLocalesA(lplanggrouplocaleenumproc.toLong(), languagegroup.toInt(), dwflags.toInt(), lparam)
+public actual fun enumLanguageGroupLocalesA(lplanggrouplocaleenumproc: LanggrouplocaleEnumproca, languagegroup: UInt, dwflags: UInt, lparam: Long): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_enumLanguageGroupLocalesA(0L, languagegroup.toInt(), dwflags.toInt(), lparam)
 
-public actual fun EnumLanguageGroupLocalesW(lplanggrouplocaleenumproc: LANGGROUPLOCALE_ENUMPROCW, languagegroup: UInt, dwflags: UInt, lparam: Long): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_EnumLanguageGroupLocalesW(lplanggrouplocaleenumproc.toLong(), languagegroup.toInt(), dwflags.toInt(), lparam)
+public actual fun enumLanguageGroupLocalesW(lplanggrouplocaleenumproc: LanggrouplocaleEnumprocw, languagegroup: UInt, dwflags: UInt, lparam: Long): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_enumLanguageGroupLocalesW(0L, languagegroup.toInt(), dwflags.toInt(), lparam)
 
-public actual fun EnumSystemCodePagesA(lpcodepageenumproc: CODEPAGE_ENUMPROCA, dwflags: ENUM_SYSTEM_CODE_PAGES_FLAGS): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_EnumSystemCodePagesA(lpcodepageenumproc.toLong(), dwflags.toInt())
+public actual fun enumSystemCodePagesA(lpcodepageenumproc: CodepageEnumproca, dwflags: EnumSystemCodePagesFlags): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_enumSystemCodePagesA(0L, dwflags.toInt())
 
-public actual fun EnumSystemCodePagesW(lpcodepageenumproc: CODEPAGE_ENUMPROCW, dwflags: ENUM_SYSTEM_CODE_PAGES_FLAGS): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_EnumSystemCodePagesW(lpcodepageenumproc.toLong(), dwflags.toInt())
+public actual fun enumSystemCodePagesW(lpcodepageenumproc: CodepageEnumprocw, dwflags: EnumSystemCodePagesFlags): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_enumSystemCodePagesW(0L, dwflags.toInt())
 
-public actual fun EnumSystemGeoID(geoclass: UInt, parentgeoid: Int, lpgeoenumproc: GEO_ENUMPROC): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_EnumSystemGeoID(geoclass.toInt(), parentgeoid, lpgeoenumproc.toLong())
+public actual fun enumSystemGeoID(geoclass: UInt, parentgeoid: Int, lpgeoenumproc: GeoEnumproc): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_enumSystemGeoID(geoclass.toInt(), parentgeoid, 0L)
 
-public actual fun EnumSystemGeoNames(geoclass: UInt, geoenumproc: GEO_ENUMNAMEPROC, data: LPARAM): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_EnumSystemGeoNames(geoclass.toInt(), geoenumproc.toLong(), data)
+public actual fun enumSystemGeoNames(geoclass: UInt, geoenumproc: GeoEnumnameproc, data: Lparam): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_enumSystemGeoNames(geoclass.toInt(), 0L, data)
 
-public actual fun EnumSystemLanguageGroupsA(lplanguagegroupenumproc: LANGUAGEGROUP_ENUMPROCA, dwflags: ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS, lparam: Long): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_EnumSystemLanguageGroupsA(lplanguagegroupenumproc.toLong(), dwflags.toInt(), lparam)
+public actual fun enumSystemLanguageGroupsA(lplanguagegroupenumproc: LanguagegroupEnumproca, dwflags: EnumSystemLanguageGroupsFlags, lparam: Long): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_enumSystemLanguageGroupsA(0L, dwflags.toInt(), lparam)
 
-public actual fun EnumSystemLanguageGroupsW(lplanguagegroupenumproc: LANGUAGEGROUP_ENUMPROCW, dwflags: ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS, lparam: Long): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_EnumSystemLanguageGroupsW(lplanguagegroupenumproc.toLong(), dwflags.toInt(), lparam)
+public actual fun enumSystemLanguageGroupsW(lplanguagegroupenumproc: LanguagegroupEnumprocw, dwflags: EnumSystemLanguageGroupsFlags, lparam: Long): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_enumSystemLanguageGroupsW(0L, dwflags.toInt(), lparam)
 
-public actual fun EnumSystemLocalesA(lplocaleenumproc: LOCALE_ENUMPROCA, dwflags: UInt): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_EnumSystemLocalesA(lplocaleenumproc.toLong(), dwflags.toInt())
+public actual fun enumSystemLocalesA(lplocaleenumproc: LocaleEnumproca, dwflags: UInt): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_enumSystemLocalesA(0L, dwflags.toInt())
 
-public actual fun EnumSystemLocalesEx(lplocaleenumprocex: LOCALE_ENUMPROCEX, dwflags: UInt, lparam: LPARAM, lpreserved: Long): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_EnumSystemLocalesEx(lplocaleenumprocex.toLong(), dwflags.toInt(), lparam, lpreserved)
+public actual fun enumSystemLocalesEx(lplocaleenumprocex: LocaleEnumprocex, dwflags: UInt, lparam: Lparam, lpreserved: COpaquePointer?): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_enumSystemLocalesEx(0L, dwflags.toInt(), lparam, (lpreserved?.value ?: 0L))
 
-public actual fun EnumSystemLocalesW(lplocaleenumproc: LOCALE_ENUMPROCW, dwflags: UInt): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_EnumSystemLocalesW(lplocaleenumproc.toLong(), dwflags.toInt())
+public actual fun enumSystemLocalesW(lplocaleenumproc: LocaleEnumprocw, dwflags: UInt): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_enumSystemLocalesW(0L, dwflags.toInt())
 
-public actual fun EnumTimeFormatsA(lptimefmtenumproc: TIMEFMT_ENUMPROCA, locale: UInt, dwflags: TIME_FORMAT_FLAGS): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_EnumTimeFormatsA(lptimefmtenumproc.toLong(), locale.toInt(), dwflags.toInt())
+public actual fun enumTimeFormatsA(lptimefmtenumproc: TimefmtEnumproca, locale: UInt, dwflags: TimeFormatFlags): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_enumTimeFormatsA(0L, locale.toInt(), dwflags.toInt())
 
-public actual fun EnumTimeFormatsEx(lptimefmtenumprocex: TIMEFMT_ENUMPROCEX, lplocalename: PCWSTR, dwflags: UInt, lparam: LPARAM): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_EnumTimeFormatsEx(lptimefmtenumprocex.toLong(), lplocalename, dwflags.toInt(), lparam)
+public actual fun enumTimeFormatsEx(lptimefmtenumprocex: TimefmtEnumprocex, lplocalename: Pcwstr, dwflags: UInt, lparam: Lparam): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_enumTimeFormatsEx(0L, (lplocalename?.value ?: 0L), dwflags.toInt(), lparam)
 
-public actual fun EnumTimeFormatsW(lptimefmtenumproc: TIMEFMT_ENUMPROCW, locale: UInt, dwflags: TIME_FORMAT_FLAGS): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_EnumTimeFormatsW(lptimefmtenumproc.toLong(), locale.toInt(), dwflags.toInt())
+public actual fun enumTimeFormatsW(lptimefmtenumproc: TimefmtEnumprocw, locale: UInt, dwflags: TimeFormatFlags): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_enumTimeFormatsW(0L, locale.toInt(), dwflags.toInt())
 
-public actual fun EnumUILanguagesA(lpuilanguageenumproc: UILANGUAGE_ENUMPROCA, dwflags: UInt, lparam: Long): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_EnumUILanguagesA(lpuilanguageenumproc.toLong(), dwflags.toInt(), lparam)
+public actual fun enumUILanguagesA(lpuilanguageenumproc: UilanguageEnumproca, dwflags: UInt, lparam: Long): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_enumUILanguagesA(0L, dwflags.toInt(), lparam)
 
-public actual fun EnumUILanguagesW(lpuilanguageenumproc: UILANGUAGE_ENUMPROCW, dwflags: UInt, lparam: Long): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_EnumUILanguagesW(lpuilanguageenumproc.toLong(), dwflags.toInt(), lparam)
+public actual fun enumUILanguagesW(lpuilanguageenumproc: UilanguageEnumprocw, dwflags: UInt, lparam: Long): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_enumUILanguagesW(0L, dwflags.toInt(), lparam)
 
-public actual fun FindNLSString(locale: UInt, dwfindnlsstringflags: UInt, lpstringsource: PCWSTR, cchsource: Int, lpstringvalue: PCWSTR, cchvalue: Int, pcchfound: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_FindNLSString(locale.toInt(), dwfindnlsstringflags.toInt(), lpstringsource, cchsource, lpstringvalue, cchvalue, pcchfound)
+public actual fun findNLSString(locale: UInt, dwfindnlsstringflags: UInt, lpstringsource: Pcwstr, cchsource: Int, lpstringvalue: Pcwstr, cchvalue: Int, pcchfound: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_findNLSString(locale.toInt(), dwfindnlsstringflags.toInt(), (lpstringsource?.value ?: 0L), cchsource, (lpstringvalue?.value ?: 0L), cchvalue, (pcchfound?.value ?: 0L))
 
-public actual fun FindNLSStringEx(lplocalename: PCWSTR, dwfindnlsstringflags: UInt, lpstringsource: PCWSTR, cchsource: Int, lpstringvalue: PCWSTR, cchvalue: Int, pcchfound: Long, lpversioninformation: Long, lpreserved: Long, sorthandle: LPARAM): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_FindNLSStringEx(lplocalename, dwfindnlsstringflags.toInt(), lpstringsource, cchsource, lpstringvalue, cchvalue, pcchfound, lpversioninformation, lpreserved, sorthandle)
+public actual fun findNLSStringEx(lplocalename: Pcwstr, dwfindnlsstringflags: UInt, lpstringsource: Pcwstr, cchsource: Int, lpstringvalue: Pcwstr, cchvalue: Int, pcchfound: COpaquePointer?, lpversioninformation: COpaquePointer?, lpreserved: COpaquePointer?, sorthandle: Lparam): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_findNLSStringEx((lplocalename?.value ?: 0L), dwfindnlsstringflags.toInt(), (lpstringsource?.value ?: 0L), cchsource, (lpstringvalue?.value ?: 0L), cchvalue, (pcchfound?.value ?: 0L), (lpversioninformation?.value ?: 0L), (lpreserved?.value ?: 0L), sorthandle)
 
-public actual fun FindStringOrdinal(dwfindstringordinalflags: UInt, lpstringsource: PCWSTR, cchsource: Int, lpstringvalue: PCWSTR, cchvalue: Int, bignorecase: BOOL): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_FindStringOrdinal(dwfindstringordinalflags.toInt(), lpstringsource, cchsource, lpstringvalue, cchvalue, bignorecase)
+public actual fun findStringOrdinal(dwfindstringordinalflags: UInt, lpstringsource: Pcwstr, cchsource: Int, lpstringvalue: Pcwstr, cchvalue: Int, bignorecase: Bool): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_findStringOrdinal(dwfindstringordinalflags.toInt(), (lpstringsource?.value ?: 0L), cchsource, (lpstringvalue?.value ?: 0L), cchvalue, bignorecase)
 
-public actual fun FoldStringA(dwmapflags: FOLD_STRING_MAP_FLAGS, lpsrcstr: PCSTR, cchsrc: Int, lpdeststr: PSTR, cchdest: Int): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_FoldStringA(dwmapflags.toInt(), lpsrcstr, cchsrc, lpdeststr, cchdest)
+public actual fun foldStringA(dwmapflags: FoldStringMapFlags, lpsrcstr: Pcstr, cchsrc: Int, lpdeststr: Pstr, cchdest: Int): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_foldStringA(dwmapflags.toInt(), (lpsrcstr?.value ?: 0L), cchsrc, (lpdeststr?.value ?: 0L), cchdest)
 
-public actual fun FoldStringW(dwmapflags: FOLD_STRING_MAP_FLAGS, lpsrcstr: PCWSTR, cchsrc: Int, lpdeststr: PWSTR, cchdest: Int): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_FoldStringW(dwmapflags.toInt(), lpsrcstr, cchsrc, lpdeststr, cchdest)
+public actual fun foldStringW(dwmapflags: FoldStringMapFlags, lpsrcstr: Pcwstr, cchsrc: Int, lpdeststr: Pwstr, cchdest: Int): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_foldStringW(dwmapflags.toInt(), (lpsrcstr?.value ?: 0L), cchsrc, (lpdeststr?.value ?: 0L), cchdest)
 
-public actual fun GetACP(): UInt =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_GetACP().toUInt()
+public actual fun getACP(): UInt =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_getACP().toUInt()
 
-public actual fun GetCPInfo(codepage: UInt, lpcpinfo: Long): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_GetCPInfo(codepage.toInt(), lpcpinfo)
+public actual fun getCPInfo(codepage: UInt, lpcpinfo: COpaquePointer?): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_getCPInfo(codepage.toInt(), (lpcpinfo?.value ?: 0L))
 
-public actual fun GetCPInfoExA(codepage: UInt, dwflags: UInt, lpcpinfoex: Long): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_GetCPInfoExA(codepage.toInt(), dwflags.toInt(), lpcpinfoex)
+public actual fun getCPInfoExA(codepage: UInt, dwflags: UInt, lpcpinfoex: COpaquePointer?): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_getCPInfoExA(codepage.toInt(), dwflags.toInt(), (lpcpinfoex?.value ?: 0L))
 
-public actual fun GetCPInfoExW(codepage: UInt, dwflags: UInt, lpcpinfoex: Long): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_GetCPInfoExW(codepage.toInt(), dwflags.toInt(), lpcpinfoex)
+public actual fun getCPInfoExW(codepage: UInt, dwflags: UInt, lpcpinfoex: COpaquePointer?): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_getCPInfoExW(codepage.toInt(), dwflags.toInt(), (lpcpinfoex?.value ?: 0L))
 
-public actual fun GetCalendarDateFormatEx(lpszlocale: PCWSTR, dwflags: UInt, lpcaldatetime: Long, lpformat: PCWSTR, lpdatestr: PWSTR, cchdate: Int): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_GetCalendarDateFormatEx(lpszlocale, dwflags.toInt(), lpcaldatetime, lpformat, lpdatestr, cchdate)
+public actual fun getCalendarDateFormatEx(lpszlocale: Pcwstr, dwflags: UInt, lpcaldatetime: COpaquePointer?, lpformat: Pcwstr, lpdatestr: Pwstr, cchdate: Int): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_getCalendarDateFormatEx((lpszlocale?.value ?: 0L), dwflags.toInt(), (lpcaldatetime?.value ?: 0L), (lpformat?.value ?: 0L), (lpdatestr?.value ?: 0L), cchdate)
 
-public actual fun GetCalendarInfoA(locale: UInt, calendar: UInt, caltype: UInt, lpcaldata: PSTR, cchdata: Int, lpvalue: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_GetCalendarInfoA(locale.toInt(), calendar.toInt(), caltype.toInt(), lpcaldata, cchdata, lpvalue)
+public actual fun getCalendarInfoA(locale: UInt, calendar: UInt, caltype: UInt, lpcaldata: Pstr, cchdata: Int, lpvalue: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_getCalendarInfoA(locale.toInt(), calendar.toInt(), caltype.toInt(), (lpcaldata?.value ?: 0L), cchdata, (lpvalue?.value ?: 0L))
 
-public actual fun GetCalendarInfoEx(lplocalename: PCWSTR, calendar: UInt, lpreserved: PCWSTR, caltype: UInt, lpcaldata: PWSTR, cchdata: Int, lpvalue: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_GetCalendarInfoEx(lplocalename, calendar.toInt(), lpreserved, caltype.toInt(), lpcaldata, cchdata, lpvalue)
+public actual fun getCalendarInfoEx(lplocalename: Pcwstr, calendar: UInt, lpreserved: Pcwstr, caltype: UInt, lpcaldata: Pwstr, cchdata: Int, lpvalue: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_getCalendarInfoEx((lplocalename?.value ?: 0L), calendar.toInt(), (lpreserved?.value ?: 0L), caltype.toInt(), (lpcaldata?.value ?: 0L), cchdata, (lpvalue?.value ?: 0L))
 
-public actual fun GetCalendarInfoW(locale: UInt, calendar: UInt, caltype: UInt, lpcaldata: PWSTR, cchdata: Int, lpvalue: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_GetCalendarInfoW(locale.toInt(), calendar.toInt(), caltype.toInt(), lpcaldata, cchdata, lpvalue)
+public actual fun getCalendarInfoW(locale: UInt, calendar: UInt, caltype: UInt, lpcaldata: Pwstr, cchdata: Int, lpvalue: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_getCalendarInfoW(locale.toInt(), calendar.toInt(), caltype.toInt(), (lpcaldata?.value ?: 0L), cchdata, (lpvalue?.value ?: 0L))
 
-public actual fun GetCalendarSupportedDateRange(calendar: UInt, lpcalmindatetime: Long, lpcalmaxdatetime: Long): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_GetCalendarSupportedDateRange(calendar.toInt(), lpcalmindatetime, lpcalmaxdatetime)
+public actual fun getCalendarSupportedDateRange(calendar: UInt, lpcalmindatetime: COpaquePointer?, lpcalmaxdatetime: COpaquePointer?): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_getCalendarSupportedDateRange(calendar.toInt(), (lpcalmindatetime?.value ?: 0L), (lpcalmaxdatetime?.value ?: 0L))
 
-public actual fun GetCurrencyFormatA(locale: UInt, dwflags: UInt, lpvalue: PCSTR, lpformat: Long, lpcurrencystr: PSTR, cchcurrency: Int): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_GetCurrencyFormatA(locale.toInt(), dwflags.toInt(), lpvalue, lpformat, lpcurrencystr, cchcurrency)
+public actual fun getCurrencyFormatA(locale: UInt, dwflags: UInt, lpvalue: Pcstr, lpformat: COpaquePointer?, lpcurrencystr: Pstr, cchcurrency: Int): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_getCurrencyFormatA(locale.toInt(), dwflags.toInt(), (lpvalue?.value ?: 0L), (lpformat?.value ?: 0L), (lpcurrencystr?.value ?: 0L), cchcurrency)
 
-public actual fun GetCurrencyFormatEx(lplocalename: PCWSTR, dwflags: UInt, lpvalue: PCWSTR, lpformat: Long, lpcurrencystr: PWSTR, cchcurrency: Int): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_GetCurrencyFormatEx(lplocalename, dwflags.toInt(), lpvalue, lpformat, lpcurrencystr, cchcurrency)
+public actual fun getCurrencyFormatEx(lplocalename: Pcwstr, dwflags: UInt, lpvalue: Pcwstr, lpformat: COpaquePointer?, lpcurrencystr: Pwstr, cchcurrency: Int): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_getCurrencyFormatEx((lplocalename?.value ?: 0L), dwflags.toInt(), (lpvalue?.value ?: 0L), (lpformat?.value ?: 0L), (lpcurrencystr?.value ?: 0L), cchcurrency)
 
-public actual fun GetCurrencyFormatW(locale: UInt, dwflags: UInt, lpvalue: PCWSTR, lpformat: Long, lpcurrencystr: PWSTR, cchcurrency: Int): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_GetCurrencyFormatW(locale.toInt(), dwflags.toInt(), lpvalue, lpformat, lpcurrencystr, cchcurrency)
+public actual fun getCurrencyFormatW(locale: UInt, dwflags: UInt, lpvalue: Pcwstr, lpformat: COpaquePointer?, lpcurrencystr: Pwstr, cchcurrency: Int): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_getCurrencyFormatW(locale.toInt(), dwflags.toInt(), (lpvalue?.value ?: 0L), (lpformat?.value ?: 0L), (lpcurrencystr?.value ?: 0L), cchcurrency)
 
-public actual fun GetDateFormatA(locale: UInt, dwflags: UInt, lpdate: Long, lpformat: PCSTR, lpdatestr: PSTR, cchdate: Int): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_GetDateFormatA(locale.toInt(), dwflags.toInt(), lpdate, lpformat, lpdatestr, cchdate)
+public actual fun getDateFormatA(locale: UInt, dwflags: UInt, lpdate: COpaquePointer?, lpformat: Pcstr, lpdatestr: Pstr, cchdate: Int): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_getDateFormatA(locale.toInt(), dwflags.toInt(), (lpdate?.value ?: 0L), (lpformat?.value ?: 0L), (lpdatestr?.value ?: 0L), cchdate)
 
-public actual fun GetDateFormatEx(lplocalename: PCWSTR, dwflags: ENUM_DATE_FORMATS_FLAGS, lpdate: Long, lpformat: PCWSTR, lpdatestr: PWSTR, cchdate: Int, lpcalendar: PCWSTR): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_GetDateFormatEx(lplocalename, dwflags.toInt(), lpdate, lpformat, lpdatestr, cchdate, lpcalendar)
+public actual fun getDateFormatEx(lplocalename: Pcwstr, dwflags: EnumDateFormatsFlags, lpdate: COpaquePointer?, lpformat: Pcwstr, lpdatestr: Pwstr, cchdate: Int, lpcalendar: Pcwstr): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_getDateFormatEx((lplocalename?.value ?: 0L), dwflags.toInt(), (lpdate?.value ?: 0L), (lpformat?.value ?: 0L), (lpdatestr?.value ?: 0L), cchdate, (lpcalendar?.value ?: 0L))
 
-public actual fun GetDateFormatW(locale: UInt, dwflags: UInt, lpdate: Long, lpformat: PCWSTR, lpdatestr: PWSTR, cchdate: Int): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_GetDateFormatW(locale.toInt(), dwflags.toInt(), lpdate, lpformat, lpdatestr, cchdate)
+public actual fun getDateFormatW(locale: UInt, dwflags: UInt, lpdate: COpaquePointer?, lpformat: Pcwstr, lpdatestr: Pwstr, cchdate: Int): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_getDateFormatW(locale.toInt(), dwflags.toInt(), (lpdate?.value ?: 0L), (lpformat?.value ?: 0L), (lpdatestr?.value ?: 0L), cchdate)
 
-public actual fun GetDistanceOfClosestLanguageInList(pszlanguage: PCWSTR, pszlanguageslist: PCWSTR, wchlistdelimiter: UShort, pclosestdistance: Long): HRESULT =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_GetDistanceOfClosestLanguageInList(pszlanguage, pszlanguageslist, wchlistdelimiter.toShort(), pclosestdistance)
+public actual fun getDistanceOfClosestLanguageInList(pszlanguage: Pcwstr, pszlanguageslist: Pcwstr, wchlistdelimiter: UShort, pclosestdistance: COpaquePointer?): Hresult =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_getDistanceOfClosestLanguageInList((pszlanguage?.value ?: 0L), (pszlanguageslist?.value ?: 0L), wchlistdelimiter.toShort(), (pclosestdistance?.value ?: 0L))
 
-public actual fun GetDurationFormat(locale: UInt, dwflags: UInt, lpduration: Long, ullduration: ULong, lpformat: PCWSTR, lpdurationstr: PWSTR, cchduration: Int): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_GetDurationFormat(locale.toInt(), dwflags.toInt(), lpduration, ullduration.toLong(), lpformat, lpdurationstr, cchduration)
+public actual fun getDurationFormat(locale: UInt, dwflags: UInt, lpduration: COpaquePointer?, ullduration: ULong, lpformat: Pcwstr, lpdurationstr: Pwstr, cchduration: Int): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_getDurationFormat(locale.toInt(), dwflags.toInt(), (lpduration?.value ?: 0L), ullduration.toLong(), (lpformat?.value ?: 0L), (lpdurationstr?.value ?: 0L), cchduration)
 
-public actual fun GetDurationFormatEx(lplocalename: PCWSTR, dwflags: UInt, lpduration: Long, ullduration: ULong, lpformat: PCWSTR, lpdurationstr: PWSTR, cchduration: Int): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_GetDurationFormatEx(lplocalename, dwflags.toInt(), lpduration, ullduration.toLong(), lpformat, lpdurationstr, cchduration)
+public actual fun getDurationFormatEx(lplocalename: Pcwstr, dwflags: UInt, lpduration: COpaquePointer?, ullduration: ULong, lpformat: Pcwstr, lpdurationstr: Pwstr, cchduration: Int): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_getDurationFormatEx((lplocalename?.value ?: 0L), dwflags.toInt(), (lpduration?.value ?: 0L), ullduration.toLong(), (lpformat?.value ?: 0L), (lpdurationstr?.value ?: 0L), cchduration)
 
-public actual fun GetFileMUIInfo(dwflags: UInt, pcwszfilepath: PCWSTR, pfilemuiinfo: Long, pcbfilemuiinfo: Long): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_GetFileMUIInfo(dwflags.toInt(), pcwszfilepath, pfilemuiinfo, pcbfilemuiinfo)
+public actual fun getFileMUIInfo(dwflags: UInt, pcwszfilepath: Pcwstr, pfilemuiinfo: COpaquePointer?, pcbfilemuiinfo: COpaquePointer?): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_getFileMUIInfo(dwflags.toInt(), (pcwszfilepath?.value ?: 0L), (pfilemuiinfo?.value ?: 0L), (pcbfilemuiinfo?.value ?: 0L))
 
-public actual fun GetFileMUIPath(dwflags: UInt, pcwszfilepath: PCWSTR, pwszlanguage: PWSTR, pcchlanguage: Long, pwszfilemuipath: PWSTR, pcchfilemuipath: Long, pululenumerator: Long): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_GetFileMUIPath(dwflags.toInt(), pcwszfilepath, pwszlanguage, pcchlanguage, pwszfilemuipath, pcchfilemuipath, pululenumerator)
+public actual fun getFileMUIPath(dwflags: UInt, pcwszfilepath: Pcwstr, pwszlanguage: Pwstr, pcchlanguage: COpaquePointer?, pwszfilemuipath: Pwstr, pcchfilemuipath: COpaquePointer?, pululenumerator: COpaquePointer?): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_getFileMUIPath(dwflags.toInt(), (pcwszfilepath?.value ?: 0L), (pwszlanguage?.value ?: 0L), (pcchlanguage?.value ?: 0L), (pwszfilemuipath?.value ?: 0L), (pcchfilemuipath?.value ?: 0L), (pululenumerator?.value ?: 0L))
 
-public actual fun GetGeoInfoA(location: Int, geotype: SYSGEOTYPE, lpgeodata: PSTR, cchdata: Int, langid: UShort): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_GetGeoInfoA(location, geotype, lpgeodata, cchdata, langid.toShort())
+public actual fun getGeoInfoA(location: Int, geotype: Sysgeotype, lpgeodata: Pstr, cchdata: Int, langid: UShort): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_getGeoInfoA(location, geotype, (lpgeodata?.value ?: 0L), cchdata, langid.toShort())
 
-public actual fun GetGeoInfoEx(location: PCWSTR, geotype: SYSGEOTYPE, geodata: PWSTR, geodatacount: Int): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_GetGeoInfoEx(location, geotype, geodata, geodatacount)
+public actual fun getGeoInfoEx(location: Pcwstr, geotype: Sysgeotype, geodata: Pwstr, geodatacount: Int): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_getGeoInfoEx((location?.value ?: 0L), geotype, (geodata?.value ?: 0L), geodatacount)
 
-public actual fun GetGeoInfoW(location: Int, geotype: SYSGEOTYPE, lpgeodata: PWSTR, cchdata: Int, langid: UShort): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_GetGeoInfoW(location, geotype, lpgeodata, cchdata, langid.toShort())
+public actual fun getGeoInfoW(location: Int, geotype: Sysgeotype, lpgeodata: Pwstr, cchdata: Int, langid: UShort): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_getGeoInfoW(location, geotype, (lpgeodata?.value ?: 0L), cchdata, langid.toShort())
 
-public actual fun GetLocaleInfoA(locale: UInt, lctype: UInt, lplcdata: PSTR, cchdata: Int): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_GetLocaleInfoA(locale.toInt(), lctype.toInt(), lplcdata, cchdata)
+public actual fun getLocaleInfoA(locale: UInt, lctype: UInt, lplcdata: Pstr, cchdata: Int): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_getLocaleInfoA(locale.toInt(), lctype.toInt(), (lplcdata?.value ?: 0L), cchdata)
 
-public actual fun GetLocaleInfoEx(lplocalename: PCWSTR, lctype: UInt, lplcdata: PWSTR, cchdata: Int): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_GetLocaleInfoEx(lplocalename, lctype.toInt(), lplcdata, cchdata)
+public actual fun getLocaleInfoEx(lplocalename: Pcwstr, lctype: UInt, lplcdata: Pwstr, cchdata: Int): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_getLocaleInfoEx((lplocalename?.value ?: 0L), lctype.toInt(), (lplcdata?.value ?: 0L), cchdata)
 
-public actual fun GetLocaleInfoW(locale: UInt, lctype: UInt, lplcdata: PWSTR, cchdata: Int): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_GetLocaleInfoW(locale.toInt(), lctype.toInt(), lplcdata, cchdata)
+public actual fun getLocaleInfoW(locale: UInt, lctype: UInt, lplcdata: Pwstr, cchdata: Int): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_getLocaleInfoW(locale.toInt(), lctype.toInt(), (lplcdata?.value ?: 0L), cchdata)
 
-public actual fun GetNLSVersion(function: UInt, locale: UInt, lpversioninformation: Long): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_GetNLSVersion(function.toInt(), locale.toInt(), lpversioninformation)
+public actual fun getNLSVersion(function: UInt, locale: UInt, lpversioninformation: COpaquePointer?): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_getNLSVersion(function.toInt(), locale.toInt(), (lpversioninformation?.value ?: 0L))
 
-public actual fun GetNLSVersionEx(function: UInt, lplocalename: PCWSTR, lpversioninformation: Long): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_GetNLSVersionEx(function.toInt(), lplocalename, lpversioninformation)
+public actual fun getNLSVersionEx(function: UInt, lplocalename: Pcwstr, lpversioninformation: COpaquePointer?): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_getNLSVersionEx(function.toInt(), (lplocalename?.value ?: 0L), (lpversioninformation?.value ?: 0L))
 
-public actual fun GetNumberFormatA(locale: UInt, dwflags: UInt, lpvalue: PCSTR, lpformat: Long, lpnumberstr: PSTR, cchnumber: Int): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_GetNumberFormatA(locale.toInt(), dwflags.toInt(), lpvalue, lpformat, lpnumberstr, cchnumber)
+public actual fun getNumberFormatA(locale: UInt, dwflags: UInt, lpvalue: Pcstr, lpformat: COpaquePointer?, lpnumberstr: Pstr, cchnumber: Int): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_getNumberFormatA(locale.toInt(), dwflags.toInt(), (lpvalue?.value ?: 0L), (lpformat?.value ?: 0L), (lpnumberstr?.value ?: 0L), cchnumber)
 
-public actual fun GetNumberFormatEx(lplocalename: PCWSTR, dwflags: UInt, lpvalue: PCWSTR, lpformat: Long, lpnumberstr: PWSTR, cchnumber: Int): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_GetNumberFormatEx(lplocalename, dwflags.toInt(), lpvalue, lpformat, lpnumberstr, cchnumber)
+public actual fun getNumberFormatEx(lplocalename: Pcwstr, dwflags: UInt, lpvalue: Pcwstr, lpformat: COpaquePointer?, lpnumberstr: Pwstr, cchnumber: Int): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_getNumberFormatEx((lplocalename?.value ?: 0L), dwflags.toInt(), (lpvalue?.value ?: 0L), (lpformat?.value ?: 0L), (lpnumberstr?.value ?: 0L), cchnumber)
 
-public actual fun GetNumberFormatW(locale: UInt, dwflags: UInt, lpvalue: PCWSTR, lpformat: Long, lpnumberstr: PWSTR, cchnumber: Int): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_GetNumberFormatW(locale.toInt(), dwflags.toInt(), lpvalue, lpformat, lpnumberstr, cchnumber)
+public actual fun getNumberFormatW(locale: UInt, dwflags: UInt, lpvalue: Pcwstr, lpformat: COpaquePointer?, lpnumberstr: Pwstr, cchnumber: Int): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_getNumberFormatW(locale.toInt(), dwflags.toInt(), (lpvalue?.value ?: 0L), (lpformat?.value ?: 0L), (lpnumberstr?.value ?: 0L), cchnumber)
 
-public actual fun GetOEMCP(): UInt =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_GetOEMCP().toUInt()
+public actual fun getOEMCP(): UInt =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_getOEMCP().toUInt()
 
-public actual fun GetProcessPreferredUILanguages(dwflags: UInt, pulnumlanguages: Long, pwszlanguagesbuffer: PWSTR, pcchlanguagesbuffer: Long): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_GetProcessPreferredUILanguages(dwflags.toInt(), pulnumlanguages, pwszlanguagesbuffer, pcchlanguagesbuffer)
+public actual fun getProcessPreferredUILanguages(dwflags: UInt, pulnumlanguages: COpaquePointer?, pwszlanguagesbuffer: Pwstr, pcchlanguagesbuffer: COpaquePointer?): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_getProcessPreferredUILanguages(dwflags.toInt(), (pulnumlanguages?.value ?: 0L), (pwszlanguagesbuffer?.value ?: 0L), (pcchlanguagesbuffer?.value ?: 0L))
 
-public actual fun GetStringScripts(dwflags: UInt, lpstring: PCWSTR, cchstring: Int, lpscripts: PWSTR, cchscripts: Int): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_GetStringScripts(dwflags.toInt(), lpstring, cchstring, lpscripts, cchscripts)
+public actual fun getStringScripts(dwflags: UInt, lpstring: Pcwstr, cchstring: Int, lpscripts: Pwstr, cchscripts: Int): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_getStringScripts(dwflags.toInt(), (lpstring?.value ?: 0L), cchstring, (lpscripts?.value ?: 0L), cchscripts)
 
-public actual fun GetStringTypeA(locale: UInt, dwinfotype: UInt, lpsrcstr: PCSTR, cchsrc: Int, lpchartype: Long): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_GetStringTypeA(locale.toInt(), dwinfotype.toInt(), lpsrcstr, cchsrc, lpchartype)
+public actual fun getStringTypeA(locale: UInt, dwinfotype: UInt, lpsrcstr: Pcstr, cchsrc: Int, lpchartype: COpaquePointer?): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_getStringTypeA(locale.toInt(), dwinfotype.toInt(), (lpsrcstr?.value ?: 0L), cchsrc, (lpchartype?.value ?: 0L))
 
-public actual fun GetStringTypeExA(locale: UInt, dwinfotype: UInt, lpsrcstr: PCSTR, cchsrc: Int, lpchartype: Long): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_GetStringTypeExA(locale.toInt(), dwinfotype.toInt(), lpsrcstr, cchsrc, lpchartype)
+public actual fun getStringTypeExA(locale: UInt, dwinfotype: UInt, lpsrcstr: Pcstr, cchsrc: Int, lpchartype: COpaquePointer?): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_getStringTypeExA(locale.toInt(), dwinfotype.toInt(), (lpsrcstr?.value ?: 0L), cchsrc, (lpchartype?.value ?: 0L))
 
-public actual fun GetStringTypeExW(locale: UInt, dwinfotype: UInt, lpsrcstr: PCWSTR, cchsrc: Int, lpchartype: Long): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_GetStringTypeExW(locale.toInt(), dwinfotype.toInt(), lpsrcstr, cchsrc, lpchartype)
+public actual fun getStringTypeExW(locale: UInt, dwinfotype: UInt, lpsrcstr: Pcwstr, cchsrc: Int, lpchartype: COpaquePointer?): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_getStringTypeExW(locale.toInt(), dwinfotype.toInt(), (lpsrcstr?.value ?: 0L), cchsrc, (lpchartype?.value ?: 0L))
 
-public actual fun GetStringTypeW(dwinfotype: UInt, lpsrcstr: PCWSTR, cchsrc: Int, lpchartype: Long): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_GetStringTypeW(dwinfotype.toInt(), lpsrcstr, cchsrc, lpchartype)
+public actual fun getStringTypeW(dwinfotype: UInt, lpsrcstr: Pcwstr, cchsrc: Int, lpchartype: COpaquePointer?): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_getStringTypeW(dwinfotype.toInt(), (lpsrcstr?.value ?: 0L), cchsrc, (lpchartype?.value ?: 0L))
 
-public actual fun GetSystemDefaultLCID(): UInt =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_GetSystemDefaultLCID().toUInt()
+public actual fun getSystemDefaultLCID(): UInt =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_getSystemDefaultLCID().toUInt()
 
-public actual fun GetSystemDefaultLangID(): UShort =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_GetSystemDefaultLangID().toUShort()
+public actual fun getSystemDefaultLangID(): UShort =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_getSystemDefaultLangID().toUShort()
 
-public actual fun GetSystemDefaultLocaleName(lplocalename: PWSTR, cchlocalename: Int): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_GetSystemDefaultLocaleName(lplocalename, cchlocalename)
+public actual fun getSystemDefaultLocaleName(lplocalename: Pwstr, cchlocalename: Int): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_getSystemDefaultLocaleName((lplocalename?.value ?: 0L), cchlocalename)
 
-public actual fun GetSystemDefaultUILanguage(): UShort =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_GetSystemDefaultUILanguage().toUShort()
+public actual fun getSystemDefaultUILanguage(): UShort =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_getSystemDefaultUILanguage().toUShort()
 
-public actual fun GetSystemPreferredUILanguages(dwflags: UInt, pulnumlanguages: Long, pwszlanguagesbuffer: PWSTR, pcchlanguagesbuffer: Long): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_GetSystemPreferredUILanguages(dwflags.toInt(), pulnumlanguages, pwszlanguagesbuffer, pcchlanguagesbuffer)
+public actual fun getSystemPreferredUILanguages(dwflags: UInt, pulnumlanguages: COpaquePointer?, pwszlanguagesbuffer: Pwstr, pcchlanguagesbuffer: COpaquePointer?): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_getSystemPreferredUILanguages(dwflags.toInt(), (pulnumlanguages?.value ?: 0L), (pwszlanguagesbuffer?.value ?: 0L), (pcchlanguagesbuffer?.value ?: 0L))
 
-public actual fun GetTextCharset(hdc: HDC): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_GetTextCharset(hdc)
+public actual fun getTextCharset(hdc: Hdc): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_getTextCharset((hdc?.value ?: 0L))
 
-public actual fun GetTextCharsetInfo(hdc: HDC, lpsig: Long, dwflags: UInt): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_GetTextCharsetInfo(hdc, lpsig, dwflags.toInt())
+public actual fun getTextCharsetInfo(hdc: Hdc, lpsig: COpaquePointer?, dwflags: UInt): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_getTextCharsetInfo((hdc?.value ?: 0L), (lpsig?.value ?: 0L), dwflags.toInt())
 
-public actual fun GetThreadLocale(): UInt =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_GetThreadLocale().toUInt()
+public actual fun getThreadLocale(): UInt =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_getThreadLocale().toUInt()
 
-public actual fun GetThreadPreferredUILanguages(dwflags: UInt, pulnumlanguages: Long, pwszlanguagesbuffer: PWSTR, pcchlanguagesbuffer: Long): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_GetThreadPreferredUILanguages(dwflags.toInt(), pulnumlanguages, pwszlanguagesbuffer, pcchlanguagesbuffer)
+public actual fun getThreadPreferredUILanguages(dwflags: UInt, pulnumlanguages: COpaquePointer?, pwszlanguagesbuffer: Pwstr, pcchlanguagesbuffer: COpaquePointer?): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_getThreadPreferredUILanguages(dwflags.toInt(), (pulnumlanguages?.value ?: 0L), (pwszlanguagesbuffer?.value ?: 0L), (pcchlanguagesbuffer?.value ?: 0L))
 
-public actual fun GetThreadUILanguage(): UShort =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_GetThreadUILanguage().toUShort()
+public actual fun getThreadUILanguage(): UShort =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_getThreadUILanguage().toUShort()
 
-public actual fun GetTimeFormatA(locale: UInt, dwflags: UInt, lptime: Long, lpformat: PCSTR, lptimestr: PSTR, cchtime: Int): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_GetTimeFormatA(locale.toInt(), dwflags.toInt(), lptime, lpformat, lptimestr, cchtime)
+public actual fun getTimeFormatA(locale: UInt, dwflags: UInt, lptime: COpaquePointer?, lpformat: Pcstr, lptimestr: Pstr, cchtime: Int): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_getTimeFormatA(locale.toInt(), dwflags.toInt(), (lptime?.value ?: 0L), (lpformat?.value ?: 0L), (lptimestr?.value ?: 0L), cchtime)
 
-public actual fun GetTimeFormatEx(lplocalename: PCWSTR, dwflags: TIME_FORMAT_FLAGS, lptime: Long, lpformat: PCWSTR, lptimestr: PWSTR, cchtime: Int): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_GetTimeFormatEx(lplocalename, dwflags.toInt(), lptime, lpformat, lptimestr, cchtime)
+public actual fun getTimeFormatEx(lplocalename: Pcwstr, dwflags: TimeFormatFlags, lptime: COpaquePointer?, lpformat: Pcwstr, lptimestr: Pwstr, cchtime: Int): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_getTimeFormatEx((lplocalename?.value ?: 0L), dwflags.toInt(), (lptime?.value ?: 0L), (lpformat?.value ?: 0L), (lptimestr?.value ?: 0L), cchtime)
 
-public actual fun GetTimeFormatW(locale: UInt, dwflags: UInt, lptime: Long, lpformat: PCWSTR, lptimestr: PWSTR, cchtime: Int): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_GetTimeFormatW(locale.toInt(), dwflags.toInt(), lptime, lpformat, lptimestr, cchtime)
+public actual fun getTimeFormatW(locale: UInt, dwflags: UInt, lptime: COpaquePointer?, lpformat: Pcwstr, lptimestr: Pwstr, cchtime: Int): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_getTimeFormatW(locale.toInt(), dwflags.toInt(), (lptime?.value ?: 0L), (lpformat?.value ?: 0L), (lptimestr?.value ?: 0L), cchtime)
 
-public actual fun GetUILanguageInfo(dwflags: UInt, pwmszlanguage: PCWSTR, pwszfallbacklanguages: PWSTR, pcchfallbacklanguages: Long, pattributes: Long): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_GetUILanguageInfo(dwflags.toInt(), pwmszlanguage, pwszfallbacklanguages, pcchfallbacklanguages, pattributes)
+public actual fun getUILanguageInfo(dwflags: UInt, pwmszlanguage: Pcwstr, pwszfallbacklanguages: Pwstr, pcchfallbacklanguages: COpaquePointer?, pattributes: COpaquePointer?): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_getUILanguageInfo(dwflags.toInt(), (pwmszlanguage?.value ?: 0L), (pwszfallbacklanguages?.value ?: 0L), (pcchfallbacklanguages?.value ?: 0L), (pattributes?.value ?: 0L))
 
-public actual fun GetUserDefaultGeoName(geoname: PWSTR, geonamecount: Int): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_GetUserDefaultGeoName(geoname, geonamecount)
+public actual fun getUserDefaultGeoName(geoname: Pwstr, geonamecount: Int): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_getUserDefaultGeoName((geoname?.value ?: 0L), geonamecount)
 
-public actual fun GetUserDefaultLCID(): UInt =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_GetUserDefaultLCID().toUInt()
+public actual fun getUserDefaultLCID(): UInt =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_getUserDefaultLCID().toUInt()
 
-public actual fun GetUserDefaultLangID(): UShort =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_GetUserDefaultLangID().toUShort()
+public actual fun getUserDefaultLangID(): UShort =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_getUserDefaultLangID().toUShort()
 
-public actual fun GetUserDefaultLocaleName(lplocalename: PWSTR, cchlocalename: Int): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_GetUserDefaultLocaleName(lplocalename, cchlocalename)
+public actual fun getUserDefaultLocaleName(lplocalename: Pwstr, cchlocalename: Int): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_getUserDefaultLocaleName((lplocalename?.value ?: 0L), cchlocalename)
 
-public actual fun GetUserDefaultUILanguage(): UShort =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_GetUserDefaultUILanguage().toUShort()
+public actual fun getUserDefaultUILanguage(): UShort =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_getUserDefaultUILanguage().toUShort()
 
-public actual fun GetUserGeoID(geoclass: SYSGEOCLASS): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_GetUserGeoID(geoclass)
+public actual fun getUserGeoID(geoclass: Sysgeoclass): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_getUserGeoID(geoclass)
 
-public actual fun GetUserPreferredUILanguages(dwflags: UInt, pulnumlanguages: Long, pwszlanguagesbuffer: PWSTR, pcchlanguagesbuffer: Long): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_GetUserPreferredUILanguages(dwflags.toInt(), pulnumlanguages, pwszlanguagesbuffer, pcchlanguagesbuffer)
+public actual fun getUserPreferredUILanguages(dwflags: UInt, pulnumlanguages: COpaquePointer?, pwszlanguagesbuffer: Pwstr, pcchlanguagesbuffer: COpaquePointer?): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_getUserPreferredUILanguages(dwflags.toInt(), (pulnumlanguages?.value ?: 0L), (pwszlanguagesbuffer?.value ?: 0L), (pcchlanguagesbuffer?.value ?: 0L))
 
-public actual fun IdnToAscii(dwflags: UInt, lpunicodecharstr: PCWSTR, cchunicodechar: Int, lpasciicharstr: PWSTR, cchasciichar: Int): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_IdnToAscii(dwflags.toInt(), lpunicodecharstr, cchunicodechar, lpasciicharstr, cchasciichar)
+public actual fun idnToAscii(dwflags: UInt, lpunicodecharstr: Pcwstr, cchunicodechar: Int, lpasciicharstr: Pwstr, cchasciichar: Int): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_idnToAscii(dwflags.toInt(), (lpunicodecharstr?.value ?: 0L), cchunicodechar, (lpasciicharstr?.value ?: 0L), cchasciichar)
 
-public actual fun IdnToNameprepUnicode(dwflags: UInt, lpunicodecharstr: PCWSTR, cchunicodechar: Int, lpnameprepcharstr: PWSTR, cchnameprepchar: Int): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_IdnToNameprepUnicode(dwflags.toInt(), lpunicodecharstr, cchunicodechar, lpnameprepcharstr, cchnameprepchar)
+public actual fun idnToNameprepUnicode(dwflags: UInt, lpunicodecharstr: Pcwstr, cchunicodechar: Int, lpnameprepcharstr: Pwstr, cchnameprepchar: Int): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_idnToNameprepUnicode(dwflags.toInt(), (lpunicodecharstr?.value ?: 0L), cchunicodechar, (lpnameprepcharstr?.value ?: 0L), cchnameprepchar)
 
-public actual fun IdnToUnicode(dwflags: UInt, lpasciicharstr: PCWSTR, cchasciichar: Int, lpunicodecharstr: PWSTR, cchunicodechar: Int): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_IdnToUnicode(dwflags.toInt(), lpasciicharstr, cchasciichar, lpunicodecharstr, cchunicodechar)
+public actual fun idnToUnicode(dwflags: UInt, lpasciicharstr: Pcwstr, cchasciichar: Int, lpunicodecharstr: Pwstr, cchunicodechar: Int): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_idnToUnicode(dwflags.toInt(), (lpasciicharstr?.value ?: 0L), cchasciichar, (lpunicodecharstr?.value ?: 0L), cchunicodechar)
 
-public actual fun IsCalendarLeapYear(calid: UInt, year: UInt, era: UInt): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_IsCalendarLeapYear(calid.toInt(), year.toInt(), era.toInt())
+public actual fun isCalendarLeapYear(calid: UInt, year: UInt, era: UInt): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_isCalendarLeapYear(calid.toInt(), year.toInt(), era.toInt())
 
-public actual fun IsDBCSLeadByte(testchar: UByte): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_IsDBCSLeadByte(testchar.toByte())
+public actual fun isDBCSLeadByte(testchar: UByte): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_isDBCSLeadByte(testchar.toByte())
 
-public actual fun IsDBCSLeadByteEx(codepage: UInt, testchar: UByte): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_IsDBCSLeadByteEx(codepage.toInt(), testchar.toByte())
+public actual fun isDBCSLeadByteEx(codepage: UInt, testchar: UByte): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_isDBCSLeadByteEx(codepage.toInt(), testchar.toByte())
 
-public actual fun IsNLSDefinedString(function: UInt, dwflags: UInt, lpversioninformation: Long, lpstring: PCWSTR, cchstr: Int): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_IsNLSDefinedString(function.toInt(), dwflags.toInt(), lpversioninformation, lpstring, cchstr)
+public actual fun isNLSDefinedString(function: UInt, dwflags: UInt, lpversioninformation: COpaquePointer?, lpstring: Pcwstr, cchstr: Int): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_isNLSDefinedString(function.toInt(), dwflags.toInt(), (lpversioninformation?.value ?: 0L), (lpstring?.value ?: 0L), cchstr)
 
-public actual fun IsNormalizedString(normform: NORM_FORM, lpstring: PCWSTR, cwlength: Int): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_IsNormalizedString(normform, lpstring, cwlength)
+public actual fun isNormalizedString(normform: NormForm, lpstring: Pcwstr, cwlength: Int): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_isNormalizedString(normform, (lpstring?.value ?: 0L), cwlength)
 
-public actual fun IsTextUnicode(lpv: Long, isize: Int, lpiresult: Long): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_IsTextUnicode(lpv, isize, lpiresult)
+public actual fun isTextUnicode(lpv: COpaquePointer?, isize: Int, lpiresult: COpaquePointer?): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_isTextUnicode((lpv?.value ?: 0L), isize, (lpiresult?.value ?: 0L))
 
-public actual fun IsValidCodePage(codepage: UInt): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_IsValidCodePage(codepage.toInt())
+public actual fun isValidCodePage(codepage: UInt): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_isValidCodePage(codepage.toInt())
 
-public actual fun IsValidLanguageGroup(languagegroup: UInt, dwflags: ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_IsValidLanguageGroup(languagegroup.toInt(), dwflags.toInt())
+public actual fun isValidLanguageGroup(languagegroup: UInt, dwflags: EnumSystemLanguageGroupsFlags): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_isValidLanguageGroup(languagegroup.toInt(), dwflags.toInt())
 
-public actual fun IsValidLocale(locale: UInt, dwflags: IS_VALID_LOCALE_FLAGS): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_IsValidLocale(locale.toInt(), dwflags.toInt())
+public actual fun isValidLocale(locale: UInt, dwflags: IsValidLocaleFlags): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_isValidLocale(locale.toInt(), dwflags.toInt())
 
-public actual fun IsValidLocaleName(lplocalename: PCWSTR): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_IsValidLocaleName(lplocalename)
+public actual fun isValidLocaleName(lplocalename: Pcwstr): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_isValidLocaleName((lplocalename?.value ?: 0L))
 
-public actual fun IsValidNLSVersion(function: UInt, lplocalename: PCWSTR, lpversioninformation: Long): UInt =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_IsValidNLSVersion(function.toInt(), lplocalename, lpversioninformation).toUInt()
+public actual fun isValidNLSVersion(function: UInt, lplocalename: Pcwstr, lpversioninformation: COpaquePointer?): UInt =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_isValidNLSVersion(function.toInt(), (lplocalename?.value ?: 0L), (lpversioninformation?.value ?: 0L)).toUInt()
 
-public actual fun IsWellFormedTag(psztag: PCWSTR): UByte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_IsWellFormedTag(psztag).toUByte()
+public actual fun isWellFormedTag(psztag: Pcwstr): UByte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_isWellFormedTag((psztag?.value ?: 0L)).toUByte()
 
-public actual fun LCIDToLocaleName(locale: UInt, lpname: PWSTR, cchname: Int, dwflags: UInt): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_LCIDToLocaleName(locale.toInt(), lpname, cchname, dwflags.toInt())
+public actual fun lCIDToLocaleName(locale: UInt, lpname: Pwstr, cchname: Int, dwflags: UInt): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_lCIDToLocaleName(locale.toInt(), (lpname?.value ?: 0L), cchname, dwflags.toInt())
 
-public actual fun LCMapStringA(locale: UInt, dwmapflags: UInt, lpsrcstr: PCSTR, cchsrc: Int, lpdeststr: PSTR, cchdest: Int): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_LCMapStringA(locale.toInt(), dwmapflags.toInt(), lpsrcstr, cchsrc, lpdeststr, cchdest)
+public actual fun lCMapStringA(locale: UInt, dwmapflags: UInt, lpsrcstr: Pcstr, cchsrc: Int, lpdeststr: Pstr, cchdest: Int): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_lCMapStringA(locale.toInt(), dwmapflags.toInt(), (lpsrcstr?.value ?: 0L), cchsrc, (lpdeststr?.value ?: 0L), cchdest)
 
-public actual fun LCMapStringEx(lplocalename: PCWSTR, dwmapflags: UInt, lpsrcstr: PCWSTR, cchsrc: Int, lpdeststr: PWSTR, cchdest: Int, lpversioninformation: Long, lpreserved: Long, sorthandle: LPARAM): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_LCMapStringEx(lplocalename, dwmapflags.toInt(), lpsrcstr, cchsrc, lpdeststr, cchdest, lpversioninformation, lpreserved, sorthandle)
+public actual fun lCMapStringEx(lplocalename: Pcwstr, dwmapflags: UInt, lpsrcstr: Pcwstr, cchsrc: Int, lpdeststr: Pwstr, cchdest: Int, lpversioninformation: COpaquePointer?, lpreserved: COpaquePointer?, sorthandle: Lparam): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_lCMapStringEx((lplocalename?.value ?: 0L), dwmapflags.toInt(), (lpsrcstr?.value ?: 0L), cchsrc, (lpdeststr?.value ?: 0L), cchdest, (lpversioninformation?.value ?: 0L), (lpreserved?.value ?: 0L), sorthandle)
 
-public actual fun LCMapStringW(locale: UInt, dwmapflags: UInt, lpsrcstr: PCWSTR, cchsrc: Int, lpdeststr: PWSTR, cchdest: Int): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_LCMapStringW(locale.toInt(), dwmapflags.toInt(), lpsrcstr, cchsrc, lpdeststr, cchdest)
+public actual fun lCMapStringW(locale: UInt, dwmapflags: UInt, lpsrcstr: Pcwstr, cchsrc: Int, lpdeststr: Pwstr, cchdest: Int): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_lCMapStringW(locale.toInt(), dwmapflags.toInt(), (lpsrcstr?.value ?: 0L), cchsrc, (lpdeststr?.value ?: 0L), cchdest)
 
-public actual fun LocaleNameToLCID(lpname: PCWSTR, dwflags: UInt): UInt =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_LocaleNameToLCID(lpname, dwflags.toInt()).toUInt()
+public actual fun localeNameToLCID(lpname: Pcwstr, dwflags: UInt): UInt =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_localeNameToLCID((lpname?.value ?: 0L), dwflags.toInt()).toUInt()
 
-public actual fun MappingDoAction(pbag: Long, dwrangeindex: UInt, pszactionid: PCWSTR): HRESULT =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_MappingDoAction(pbag, dwrangeindex.toInt(), pszactionid)
+public actual fun mappingDoAction(pbag: COpaquePointer?, dwrangeindex: UInt, pszactionid: Pcwstr): Hresult =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_mappingDoAction((pbag?.value ?: 0L), dwrangeindex.toInt(), (pszactionid?.value ?: 0L))
 
-public actual fun MappingFreePropertyBag(pbag: Long): HRESULT =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_MappingFreePropertyBag(pbag)
+public actual fun mappingFreePropertyBag(pbag: COpaquePointer?): Hresult =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_mappingFreePropertyBag((pbag?.value ?: 0L))
 
-public actual fun MappingFreeServices(pserviceinfo: Long): HRESULT =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_MappingFreeServices(pserviceinfo)
+public actual fun mappingFreeServices(pserviceinfo: COpaquePointer?): Hresult =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_mappingFreeServices((pserviceinfo?.value ?: 0L))
 
-public actual fun MappingGetServices(poptions: Long, prgservices: Long, pdwservicescount: Long): HRESULT =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_MappingGetServices(poptions, prgservices, pdwservicescount)
+public actual fun mappingGetServices(poptions: COpaquePointer?, prgservices: COpaquePointer?, pdwservicescount: COpaquePointer?): Hresult =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_mappingGetServices((poptions?.value ?: 0L), (prgservices?.value ?: 0L), (pdwservicescount?.value ?: 0L))
 
-public actual fun MappingRecognizeText(pserviceinfo: Long, psztext: PCWSTR, dwlength: UInt, dwindex: UInt, poptions: Long, pbag: Long): HRESULT =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_MappingRecognizeText(pserviceinfo, psztext, dwlength.toInt(), dwindex.toInt(), poptions, pbag)
+public actual fun mappingRecognizeText(pserviceinfo: COpaquePointer?, psztext: Pcwstr, dwlength: UInt, dwindex: UInt, poptions: COpaquePointer?, pbag: COpaquePointer?): Hresult =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_mappingRecognizeText((pserviceinfo?.value ?: 0L), (psztext?.value ?: 0L), dwlength.toInt(), dwindex.toInt(), (poptions?.value ?: 0L), (pbag?.value ?: 0L))
 
-public actual fun MultiByteToWideChar(codepage: UInt, dwflags: MULTI_BYTE_TO_WIDE_CHAR_FLAGS, lpmultibytestr: PCSTR, cbmultibyte: Int, lpwidecharstr: PWSTR, cchwidechar: Int): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_MultiByteToWideChar(codepage.toInt(), dwflags.toInt(), lpmultibytestr, cbmultibyte, lpwidecharstr, cchwidechar)
+public actual fun multiByteToWideChar(codepage: UInt, dwflags: MultiByteToWideCharFlags, lpmultibytestr: Pcstr, cbmultibyte: Int, lpwidecharstr: Pwstr, cchwidechar: Int): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_multiByteToWideChar(codepage.toInt(), dwflags.toInt(), (lpmultibytestr?.value ?: 0L), cbmultibyte, (lpwidecharstr?.value ?: 0L), cchwidechar)
 
-public actual fun NormalizeString(normform: NORM_FORM, lpsrcstring: PCWSTR, cwsrclength: Int, lpdststring: PWSTR, cwdstlength: Int): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_NormalizeString(normform, lpsrcstring, cwsrclength, lpdststring, cwdstlength)
+public actual fun normalizeString(normform: NormForm, lpsrcstring: Pcwstr, cwsrclength: Int, lpdststring: Pwstr, cwdstlength: Int): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_normalizeString(normform, (lpsrcstring?.value ?: 0L), cwsrclength, (lpdststring?.value ?: 0L), cwdstlength)
 
-public actual fun NotifyUILanguageChange(dwflags: UInt, pcwstrnewlanguage: PCWSTR, pcwstrpreviouslanguage: PCWSTR, dwreserved: UInt, pdwstatusrtrn: Long): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_NotifyUILanguageChange(dwflags.toInt(), pcwstrnewlanguage, pcwstrpreviouslanguage, dwreserved.toInt(), pdwstatusrtrn)
+public actual fun notifyUILanguageChange(dwflags: UInt, pcwstrnewlanguage: Pcwstr, pcwstrpreviouslanguage: Pcwstr, dwreserved: UInt, pdwstatusrtrn: COpaquePointer?): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_notifyUILanguageChange(dwflags.toInt(), (pcwstrnewlanguage?.value ?: 0L), (pcwstrpreviouslanguage?.value ?: 0L), dwreserved.toInt(), (pdwstatusrtrn?.value ?: 0L))
 
-public actual fun ResolveLocaleName(lpnametoresolve: PCWSTR, lplocalename: PWSTR, cchlocalename: Int): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ResolveLocaleName(lpnametoresolve, lplocalename, cchlocalename)
+public actual fun resolveLocaleName(lpnametoresolve: Pcwstr, lplocalename: Pwstr, cchlocalename: Int): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_resolveLocaleName((lpnametoresolve?.value ?: 0L), (lplocalename?.value ?: 0L), cchlocalename)
 
-public actual fun RestoreThreadPreferredUILanguages(snapshot: HSAVEDUILANGUAGES) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_RestoreThreadPreferredUILanguages(snapshot)
+public actual fun restoreThreadPreferredUILanguages(snapshot: Hsaveduilanguages) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_restoreThreadPreferredUILanguages((snapshot?.value ?: 0L))
 }
 
-public actual fun ScriptApplyDigitSubstitution(psds: Long, psc: Long, pss: Long): HRESULT =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ScriptApplyDigitSubstitution(psds, psc, pss)
+public actual fun scriptApplyDigitSubstitution(psds: COpaquePointer?, psc: COpaquePointer?, pss: COpaquePointer?): Hresult =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_scriptApplyDigitSubstitution((psds?.value ?: 0L), (psc?.value ?: 0L), (pss?.value ?: 0L))
 
-public actual fun ScriptApplyLogicalWidth(pidx: Long, cchars: Int, cglyphs: Int, pwlogclust: Long, psva: Long, piadvance: Long, psa: Long, pabc: Long, pijustify: Long): HRESULT =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ScriptApplyLogicalWidth(pidx, cchars, cglyphs, pwlogclust, psva, piadvance, psa, pabc, pijustify)
+public actual fun scriptApplyLogicalWidth(pidx: COpaquePointer?, cchars: Int, cglyphs: Int, pwlogclust: COpaquePointer?, psva: COpaquePointer?, piadvance: COpaquePointer?, psa: COpaquePointer?, pabc: COpaquePointer?, pijustify: COpaquePointer?): Hresult =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_scriptApplyLogicalWidth((pidx?.value ?: 0L), cchars, cglyphs, (pwlogclust?.value ?: 0L), (psva?.value ?: 0L), (piadvance?.value ?: 0L), (psa?.value ?: 0L), (pabc?.value ?: 0L), (pijustify?.value ?: 0L))
 
-public actual fun ScriptBreak(pwcchars: PCWSTR, cchars: Int, psa: Long, psla: Long): HRESULT =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ScriptBreak(pwcchars, cchars, psa, psla)
+public actual fun scriptBreak(pwcchars: Pcwstr, cchars: Int, psa: COpaquePointer?, psla: COpaquePointer?): Hresult =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_scriptBreak((pwcchars?.value ?: 0L), cchars, (psa?.value ?: 0L), (psla?.value ?: 0L))
 
-public actual fun ScriptCPtoX(icp: Int, ftrailing: BOOL, cchars: Int, cglyphs: Int, pwlogclust: Long, psva: Long, piadvance: Long, psa: Long, pix: Long): HRESULT =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ScriptCPtoX(icp, ftrailing, cchars, cglyphs, pwlogclust, psva, piadvance, psa, pix)
+public actual fun scriptCPtoX(icp: Int, ftrailing: Bool, cchars: Int, cglyphs: Int, pwlogclust: COpaquePointer?, psva: COpaquePointer?, piadvance: COpaquePointer?, psa: COpaquePointer?, pix: COpaquePointer?): Hresult =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_scriptCPtoX(icp, ftrailing, cchars, cglyphs, (pwlogclust?.value ?: 0L), (psva?.value ?: 0L), (piadvance?.value ?: 0L), (psa?.value ?: 0L), (pix?.value ?: 0L))
 
-public actual fun ScriptCacheGetHeight(hdc: HDC, psc: Long, tmheight: Long): HRESULT =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ScriptCacheGetHeight(hdc, psc, tmheight)
+public actual fun scriptCacheGetHeight(hdc: Hdc, psc: COpaquePointer?, tmheight: COpaquePointer?): Hresult =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_scriptCacheGetHeight((hdc?.value ?: 0L), (psc?.value ?: 0L), (tmheight?.value ?: 0L))
 
-public actual fun ScriptFreeCache(psc: Long): HRESULT =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ScriptFreeCache(psc)
+public actual fun scriptFreeCache(psc: COpaquePointer?): Hresult =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_scriptFreeCache((psc?.value ?: 0L))
 
-public actual fun ScriptGetCMap(hdc: HDC, psc: Long, pwcinchars: PCWSTR, cchars: Int, dwflags: UInt, pwoutglyphs: Long): HRESULT =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ScriptGetCMap(hdc, psc, pwcinchars, cchars, dwflags.toInt(), pwoutglyphs)
+public actual fun scriptGetCMap(hdc: Hdc, psc: COpaquePointer?, pwcinchars: Pcwstr, cchars: Int, dwflags: UInt, pwoutglyphs: COpaquePointer?): Hresult =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_scriptGetCMap((hdc?.value ?: 0L), (psc?.value ?: 0L), (pwcinchars?.value ?: 0L), cchars, dwflags.toInt(), (pwoutglyphs?.value ?: 0L))
 
-public actual fun ScriptGetFontAlternateGlyphs(hdc: HDC, psc: Long, psa: Long, tagscript: UInt, taglangsys: UInt, tagfeature: UInt, wglyphid: UShort, cmaxalternates: Int, palternateglyphs: Long, pcalternates: Long): HRESULT =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ScriptGetFontAlternateGlyphs(hdc, psc, psa, tagscript.toInt(), taglangsys.toInt(), tagfeature.toInt(), wglyphid.toShort(), cmaxalternates, palternateglyphs, pcalternates)
+public actual fun scriptGetFontAlternateGlyphs(hdc: Hdc, psc: COpaquePointer?, psa: COpaquePointer?, tagscript: UInt, taglangsys: UInt, tagfeature: UInt, wglyphid: UShort, cmaxalternates: Int, palternateglyphs: COpaquePointer?, pcalternates: COpaquePointer?): Hresult =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_scriptGetFontAlternateGlyphs((hdc?.value ?: 0L), (psc?.value ?: 0L), (psa?.value ?: 0L), tagscript.toInt(), taglangsys.toInt(), tagfeature.toInt(), wglyphid.toShort(), cmaxalternates, (palternateglyphs?.value ?: 0L), (pcalternates?.value ?: 0L))
 
-public actual fun ScriptGetFontFeatureTags(hdc: HDC, psc: Long, psa: Long, tagscript: UInt, taglangsys: UInt, cmaxtags: Int, pfeaturetags: Long, pctags: Long): HRESULT =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ScriptGetFontFeatureTags(hdc, psc, psa, tagscript.toInt(), taglangsys.toInt(), cmaxtags, pfeaturetags, pctags)
+public actual fun scriptGetFontFeatureTags(hdc: Hdc, psc: COpaquePointer?, psa: COpaquePointer?, tagscript: UInt, taglangsys: UInt, cmaxtags: Int, pfeaturetags: COpaquePointer?, pctags: COpaquePointer?): Hresult =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_scriptGetFontFeatureTags((hdc?.value ?: 0L), (psc?.value ?: 0L), (psa?.value ?: 0L), tagscript.toInt(), taglangsys.toInt(), cmaxtags, (pfeaturetags?.value ?: 0L), (pctags?.value ?: 0L))
 
-public actual fun ScriptGetFontLanguageTags(hdc: HDC, psc: Long, psa: Long, tagscript: UInt, cmaxtags: Int, plangsystags: Long, pctags: Long): HRESULT =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ScriptGetFontLanguageTags(hdc, psc, psa, tagscript.toInt(), cmaxtags, plangsystags, pctags)
+public actual fun scriptGetFontLanguageTags(hdc: Hdc, psc: COpaquePointer?, psa: COpaquePointer?, tagscript: UInt, cmaxtags: Int, plangsystags: COpaquePointer?, pctags: COpaquePointer?): Hresult =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_scriptGetFontLanguageTags((hdc?.value ?: 0L), (psc?.value ?: 0L), (psa?.value ?: 0L), tagscript.toInt(), cmaxtags, (plangsystags?.value ?: 0L), (pctags?.value ?: 0L))
 
-public actual fun ScriptGetFontProperties(hdc: HDC, psc: Long, sfp: Long): HRESULT =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ScriptGetFontProperties(hdc, psc, sfp)
+public actual fun scriptGetFontProperties(hdc: Hdc, psc: COpaquePointer?, sfp: COpaquePointer?): Hresult =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_scriptGetFontProperties((hdc?.value ?: 0L), (psc?.value ?: 0L), (sfp?.value ?: 0L))
 
-public actual fun ScriptGetFontScriptTags(hdc: HDC, psc: Long, psa: Long, cmaxtags: Int, pscripttags: Long, pctags: Long): HRESULT =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ScriptGetFontScriptTags(hdc, psc, psa, cmaxtags, pscripttags, pctags)
+public actual fun scriptGetFontScriptTags(hdc: Hdc, psc: COpaquePointer?, psa: COpaquePointer?, cmaxtags: Int, pscripttags: COpaquePointer?, pctags: COpaquePointer?): Hresult =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_scriptGetFontScriptTags((hdc?.value ?: 0L), (psc?.value ?: 0L), (psa?.value ?: 0L), cmaxtags, (pscripttags?.value ?: 0L), (pctags?.value ?: 0L))
 
-public actual fun ScriptGetGlyphABCWidth(hdc: HDC, psc: Long, wglyph: UShort, pabc: Long): HRESULT =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ScriptGetGlyphABCWidth(hdc, psc, wglyph.toShort(), pabc)
+public actual fun scriptGetGlyphABCWidth(hdc: Hdc, psc: COpaquePointer?, wglyph: UShort, pabc: COpaquePointer?): Hresult =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_scriptGetGlyphABCWidth((hdc?.value ?: 0L), (psc?.value ?: 0L), wglyph.toShort(), (pabc?.value ?: 0L))
 
-public actual fun ScriptGetLogicalWidths(psa: Long, cchars: Int, cglyphs: Int, piglyphwidth: Long, pwlogclust: Long, psva: Long, pidx: Long): HRESULT =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ScriptGetLogicalWidths(psa, cchars, cglyphs, piglyphwidth, pwlogclust, psva, pidx)
+public actual fun scriptGetLogicalWidths(psa: COpaquePointer?, cchars: Int, cglyphs: Int, piglyphwidth: COpaquePointer?, pwlogclust: COpaquePointer?, psva: COpaquePointer?, pidx: COpaquePointer?): Hresult =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_scriptGetLogicalWidths((psa?.value ?: 0L), cchars, cglyphs, (piglyphwidth?.value ?: 0L), (pwlogclust?.value ?: 0L), (psva?.value ?: 0L), (pidx?.value ?: 0L))
 
-public actual fun ScriptGetProperties(ppsp: Long, pinumscripts: Long): HRESULT =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ScriptGetProperties(ppsp, pinumscripts)
+public actual fun scriptGetProperties(ppsp: COpaquePointer?, pinumscripts: COpaquePointer?): Hresult =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_scriptGetProperties((ppsp?.value ?: 0L), (pinumscripts?.value ?: 0L))
 
-public actual fun ScriptIsComplex(pwcinchars: PCWSTR, cinchars: Int, dwflags: SCRIPT_IS_COMPLEX_FLAGS): HRESULT =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ScriptIsComplex(pwcinchars, cinchars, dwflags.toInt())
+public actual fun scriptIsComplex(pwcinchars: Pcwstr, cinchars: Int, dwflags: ScriptIsComplexFlags): Hresult =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_scriptIsComplex((pwcinchars?.value ?: 0L), cinchars, dwflags.toInt())
 
-public actual fun ScriptItemize(pwcinchars: PCWSTR, cinchars: Int, cmaxitems: Int, pscontrol: Long, psstate: Long, pitems: Long, pcitems: Long): HRESULT =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ScriptItemize(pwcinchars, cinchars, cmaxitems, pscontrol, psstate, pitems, pcitems)
+public actual fun scriptItemize(pwcinchars: Pcwstr, cinchars: Int, cmaxitems: Int, pscontrol: COpaquePointer?, psstate: COpaquePointer?, pitems: COpaquePointer?, pcitems: COpaquePointer?): Hresult =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_scriptItemize((pwcinchars?.value ?: 0L), cinchars, cmaxitems, (pscontrol?.value ?: 0L), (psstate?.value ?: 0L), (pitems?.value ?: 0L), (pcitems?.value ?: 0L))
 
-public actual fun ScriptItemizeOpenType(pwcinchars: PCWSTR, cinchars: Int, cmaxitems: Int, pscontrol: Long, psstate: Long, pitems: Long, pscripttags: Long, pcitems: Long): HRESULT =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ScriptItemizeOpenType(pwcinchars, cinchars, cmaxitems, pscontrol, psstate, pitems, pscripttags, pcitems)
+public actual fun scriptItemizeOpenType(pwcinchars: Pcwstr, cinchars: Int, cmaxitems: Int, pscontrol: COpaquePointer?, psstate: COpaquePointer?, pitems: COpaquePointer?, pscripttags: COpaquePointer?, pcitems: COpaquePointer?): Hresult =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_scriptItemizeOpenType((pwcinchars?.value ?: 0L), cinchars, cmaxitems, (pscontrol?.value ?: 0L), (psstate?.value ?: 0L), (pitems?.value ?: 0L), (pscripttags?.value ?: 0L), (pcitems?.value ?: 0L))
 
-public actual fun ScriptJustify(psva: Long, piadvance: Long, cglyphs: Int, idx: Int, iminkashida: Int, pijustify: Long): HRESULT =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ScriptJustify(psva, piadvance, cglyphs, idx, iminkashida, pijustify)
+public actual fun scriptJustify(psva: COpaquePointer?, piadvance: COpaquePointer?, cglyphs: Int, idx: Int, iminkashida: Int, pijustify: COpaquePointer?): Hresult =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_scriptJustify((psva?.value ?: 0L), (piadvance?.value ?: 0L), cglyphs, idx, iminkashida, (pijustify?.value ?: 0L))
 
-public actual fun ScriptLayout(cruns: Int, pblevel: Long, pivisualtological: Long, pilogicaltovisual: Long): HRESULT =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ScriptLayout(cruns, pblevel, pivisualtological, pilogicaltovisual)
+public actual fun scriptLayout(cruns: Int, pblevel: COpaquePointer?, pivisualtological: COpaquePointer?, pilogicaltovisual: COpaquePointer?): Hresult =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_scriptLayout(cruns, (pblevel?.value ?: 0L), (pivisualtological?.value ?: 0L), (pilogicaltovisual?.value ?: 0L))
 
-public actual fun ScriptPlace(hdc: HDC, psc: Long, pwglyphs: Long, cglyphs: Int, psva: Long, psa: Long, piadvance: Long, pgoffset: Long, pabc: Long): HRESULT =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ScriptPlace(hdc, psc, pwglyphs, cglyphs, psva, psa, piadvance, pgoffset, pabc)
+public actual fun scriptPlace(hdc: Hdc, psc: COpaquePointer?, pwglyphs: COpaquePointer?, cglyphs: Int, psva: COpaquePointer?, psa: COpaquePointer?, piadvance: COpaquePointer?, pgoffset: COpaquePointer?, pabc: COpaquePointer?): Hresult =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_scriptPlace((hdc?.value ?: 0L), (psc?.value ?: 0L), (pwglyphs?.value ?: 0L), cglyphs, (psva?.value ?: 0L), (psa?.value ?: 0L), (piadvance?.value ?: 0L), (pgoffset?.value ?: 0L), (pabc?.value ?: 0L))
 
-public actual fun ScriptPlaceOpenType(hdc: HDC, psc: Long, psa: Long, tagscript: UInt, taglangsys: UInt, rcrangechars: Long, rprangeproperties: Long, cranges: Int, pwcchars: PCWSTR, pwlogclust: Long, pcharprops: Long, cchars: Int, pwglyphs: Long, pglyphprops: Long, cglyphs: Int, piadvance: Long, pgoffset: Long, pabc: Long): HRESULT =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ScriptPlaceOpenType(hdc, psc, psa, tagscript.toInt(), taglangsys.toInt(), rcrangechars, rprangeproperties, cranges, pwcchars, pwlogclust, pcharprops, cchars, pwglyphs, pglyphprops, cglyphs, piadvance, pgoffset, pabc)
+public actual fun scriptPlaceOpenType(hdc: Hdc, psc: COpaquePointer?, psa: COpaquePointer?, tagscript: UInt, taglangsys: UInt, rcrangechars: COpaquePointer?, rprangeproperties: COpaquePointer?, cranges: Int, pwcchars: Pcwstr, pwlogclust: COpaquePointer?, pcharprops: COpaquePointer?, cchars: Int, pwglyphs: COpaquePointer?, pglyphprops: COpaquePointer?, cglyphs: Int, piadvance: COpaquePointer?, pgoffset: COpaquePointer?, pabc: COpaquePointer?): Hresult =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_scriptPlaceOpenType((hdc?.value ?: 0L), (psc?.value ?: 0L), (psa?.value ?: 0L), tagscript.toInt(), taglangsys.toInt(), (rcrangechars?.value ?: 0L), (rprangeproperties?.value ?: 0L), cranges, (pwcchars?.value ?: 0L), (pwlogclust?.value ?: 0L), (pcharprops?.value ?: 0L), cchars, (pwglyphs?.value ?: 0L), (pglyphprops?.value ?: 0L), cglyphs, (piadvance?.value ?: 0L), (pgoffset?.value ?: 0L), (pabc?.value ?: 0L))
 
-public actual fun ScriptPositionSingleGlyph(hdc: HDC, psc: Long, psa: Long, tagscript: UInt, taglangsys: UInt, tagfeature: UInt, lparameter: Int, wglyphid: UShort, iadvance: Int, goffset: GOFFSET, pioutadvance: Long, poutgoffset: Long): HRESULT =
+public actual fun scriptPositionSingleGlyph(hdc: Hdc, psc: COpaquePointer?, psa: COpaquePointer?, tagscript: UInt, taglangsys: UInt, tagfeature: UInt, lparameter: Int, wglyphid: UShort, iadvance: Int, goffset: Goffset, pioutadvance: COpaquePointer?, poutgoffset: COpaquePointer?): Hresult =
     0
 
-public actual fun ScriptRecordDigitSubstitution(locale: UInt, psds: Long): HRESULT =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ScriptRecordDigitSubstitution(locale.toInt(), psds)
+public actual fun scriptRecordDigitSubstitution(locale: UInt, psds: COpaquePointer?): Hresult =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_scriptRecordDigitSubstitution(locale.toInt(), (psds?.value ?: 0L))
 
-public actual fun ScriptShape(hdc: HDC, psc: Long, pwcchars: PCWSTR, cchars: Int, cmaxglyphs: Int, psa: Long, pwoutglyphs: Long, pwlogclust: Long, psva: Long, pcglyphs: Long): HRESULT =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ScriptShape(hdc, psc, pwcchars, cchars, cmaxglyphs, psa, pwoutglyphs, pwlogclust, psva, pcglyphs)
+public actual fun scriptShape(hdc: Hdc, psc: COpaquePointer?, pwcchars: Pcwstr, cchars: Int, cmaxglyphs: Int, psa: COpaquePointer?, pwoutglyphs: COpaquePointer?, pwlogclust: COpaquePointer?, psva: COpaquePointer?, pcglyphs: COpaquePointer?): Hresult =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_scriptShape((hdc?.value ?: 0L), (psc?.value ?: 0L), (pwcchars?.value ?: 0L), cchars, cmaxglyphs, (psa?.value ?: 0L), (pwoutglyphs?.value ?: 0L), (pwlogclust?.value ?: 0L), (psva?.value ?: 0L), (pcglyphs?.value ?: 0L))
 
-public actual fun ScriptShapeOpenType(hdc: HDC, psc: Long, psa: Long, tagscript: UInt, taglangsys: UInt, rcrangechars: Long, rprangeproperties: Long, cranges: Int, pwcchars: PCWSTR, cchars: Int, cmaxglyphs: Int, pwlogclust: Long, pcharprops: Long, pwoutglyphs: Long, poutglyphprops: Long, pcglyphs: Long): HRESULT =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ScriptShapeOpenType(hdc, psc, psa, tagscript.toInt(), taglangsys.toInt(), rcrangechars, rprangeproperties, cranges, pwcchars, cchars, cmaxglyphs, pwlogclust, pcharprops, pwoutglyphs, poutglyphprops, pcglyphs)
+public actual fun scriptShapeOpenType(hdc: Hdc, psc: COpaquePointer?, psa: COpaquePointer?, tagscript: UInt, taglangsys: UInt, rcrangechars: COpaquePointer?, rprangeproperties: COpaquePointer?, cranges: Int, pwcchars: Pcwstr, cchars: Int, cmaxglyphs: Int, pwlogclust: COpaquePointer?, pcharprops: COpaquePointer?, pwoutglyphs: COpaquePointer?, poutglyphprops: COpaquePointer?, pcglyphs: COpaquePointer?): Hresult =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_scriptShapeOpenType((hdc?.value ?: 0L), (psc?.value ?: 0L), (psa?.value ?: 0L), tagscript.toInt(), taglangsys.toInt(), (rcrangechars?.value ?: 0L), (rprangeproperties?.value ?: 0L), cranges, (pwcchars?.value ?: 0L), cchars, cmaxglyphs, (pwlogclust?.value ?: 0L), (pcharprops?.value ?: 0L), (pwoutglyphs?.value ?: 0L), (poutglyphprops?.value ?: 0L), (pcglyphs?.value ?: 0L))
 
-public actual fun ScriptStringAnalyse(hdc: HDC, pstring: Long, cstring: Int, cglyphs: Int, icharset: Int, dwflags: UInt, ireqwidth: Int, pscontrol: Long, psstate: Long, pidx: Long, ptabdef: Long, pbinclass: Long, pssa: Long): HRESULT =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ScriptStringAnalyse(hdc, pstring, cstring, cglyphs, icharset, dwflags.toInt(), ireqwidth, pscontrol, psstate, pidx, ptabdef, pbinclass, pssa)
+public actual fun scriptStringAnalyse(hdc: Hdc, pstring: COpaquePointer?, cstring: Int, cglyphs: Int, icharset: Int, dwflags: UInt, ireqwidth: Int, pscontrol: COpaquePointer?, psstate: COpaquePointer?, pidx: COpaquePointer?, ptabdef: COpaquePointer?, pbinclass: COpaquePointer?, pssa: COpaquePointer?): Hresult =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_scriptStringAnalyse((hdc?.value ?: 0L), (pstring?.value ?: 0L), cstring, cglyphs, icharset, dwflags.toInt(), ireqwidth, (pscontrol?.value ?: 0L), (psstate?.value ?: 0L), (pidx?.value ?: 0L), (ptabdef?.value ?: 0L), (pbinclass?.value ?: 0L), (pssa?.value ?: 0L))
 
-public actual fun ScriptStringCPtoX(ssa: Long, icp: Int, ftrailing: BOOL, px: Long): HRESULT =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ScriptStringCPtoX(ssa, icp, ftrailing, px)
+public actual fun scriptStringCPtoX(ssa: COpaquePointer?, icp: Int, ftrailing: Bool, px: COpaquePointer?): Hresult =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_scriptStringCPtoX((ssa?.value ?: 0L), icp, ftrailing, (px?.value ?: 0L))
 
-public actual fun ScriptStringFree(pssa: Long): HRESULT =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ScriptStringFree(pssa)
+public actual fun scriptStringFree(pssa: COpaquePointer?): Hresult =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_scriptStringFree((pssa?.value ?: 0L))
 
-public actual fun ScriptStringGetLogicalWidths(ssa: Long, pidx: Long): HRESULT =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ScriptStringGetLogicalWidths(ssa, pidx)
+public actual fun scriptStringGetLogicalWidths(ssa: COpaquePointer?, pidx: COpaquePointer?): Hresult =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_scriptStringGetLogicalWidths((ssa?.value ?: 0L), (pidx?.value ?: 0L))
 
-public actual fun ScriptStringGetOrder(ssa: Long, puorder: Long): HRESULT =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ScriptStringGetOrder(ssa, puorder)
+public actual fun scriptStringGetOrder(ssa: COpaquePointer?, puorder: COpaquePointer?): Hresult =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_scriptStringGetOrder((ssa?.value ?: 0L), (puorder?.value ?: 0L))
 
-public actual fun ScriptStringOut(ssa: Long, ix: Int, iy: Int, uoptions: ETO_OPTIONS, prc: Long, iminsel: Int, imaxsel: Int, fdisabled: BOOL): HRESULT =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ScriptStringOut(ssa, ix, iy, uoptions.toInt(), prc, iminsel, imaxsel, fdisabled)
+public actual fun scriptStringOut(ssa: COpaquePointer?, ix: Int, iy: Int, uoptions: EtoOptions, prc: COpaquePointer?, iminsel: Int, imaxsel: Int, fdisabled: Bool): Hresult =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_scriptStringOut((ssa?.value ?: 0L), ix, iy, uoptions.toInt(), (prc?.value ?: 0L), iminsel, imaxsel, fdisabled)
 
-public actual fun ScriptStringValidate(ssa: Long): HRESULT =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ScriptStringValidate(ssa)
+public actual fun scriptStringValidate(ssa: COpaquePointer?): Hresult =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_scriptStringValidate((ssa?.value ?: 0L))
 
-public actual fun ScriptStringXtoCP(ssa: Long, ix: Int, pich: Long, pitrailing: Long): HRESULT =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ScriptStringXtoCP(ssa, ix, pich, pitrailing)
+public actual fun scriptStringXtoCP(ssa: COpaquePointer?, ix: Int, pich: COpaquePointer?, pitrailing: COpaquePointer?): Hresult =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_scriptStringXtoCP((ssa?.value ?: 0L), ix, (pich?.value ?: 0L), (pitrailing?.value ?: 0L))
 
-public actual fun ScriptString_pLogAttr(ssa: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ScriptString_pLogAttr(ssa)
+public actual fun scriptStringPLogAttr(ssa: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_scriptStringPLogAttr((ssa?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ScriptString_pSize(ssa: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ScriptString_pSize(ssa)
+public actual fun scriptStringPSize(ssa: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_scriptStringPSize((ssa?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ScriptString_pcOutChars(ssa: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ScriptString_pcOutChars(ssa)
+public actual fun scriptStringPcOutChars(ssa: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_scriptStringPcOutChars((ssa?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ScriptSubstituteSingleGlyph(hdc: HDC, psc: Long, psa: Long, tagscript: UInt, taglangsys: UInt, tagfeature: UInt, lparameter: Int, wglyphid: UShort, pwoutglyphid: Long): HRESULT =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ScriptSubstituteSingleGlyph(hdc, psc, psa, tagscript.toInt(), taglangsys.toInt(), tagfeature.toInt(), lparameter, wglyphid.toShort(), pwoutglyphid)
+public actual fun scriptSubstituteSingleGlyph(hdc: Hdc, psc: COpaquePointer?, psa: COpaquePointer?, tagscript: UInt, taglangsys: UInt, tagfeature: UInt, lparameter: Int, wglyphid: UShort, pwoutglyphid: COpaquePointer?): Hresult =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_scriptSubstituteSingleGlyph((hdc?.value ?: 0L), (psc?.value ?: 0L), (psa?.value ?: 0L), tagscript.toInt(), taglangsys.toInt(), tagfeature.toInt(), lparameter, wglyphid.toShort(), (pwoutglyphid?.value ?: 0L))
 
-public actual fun ScriptTextOut(hdc: HDC, psc: Long, x: Int, y: Int, fuoptions: UInt, lprc: Long, psa: Long, pwcreserved: PCWSTR, ireserved: Int, pwglyphs: Long, cglyphs: Int, piadvance: Long, pijustify: Long, pgoffset: Long): HRESULT =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ScriptTextOut(hdc, psc, x, y, fuoptions.toInt(), lprc, psa, pwcreserved, ireserved, pwglyphs, cglyphs, piadvance, pijustify, pgoffset)
+public actual fun scriptTextOut(hdc: Hdc, psc: COpaquePointer?, x: Int, y: Int, fuoptions: UInt, lprc: COpaquePointer?, psa: COpaquePointer?, pwcreserved: Pcwstr, ireserved: Int, pwglyphs: COpaquePointer?, cglyphs: Int, piadvance: COpaquePointer?, pijustify: COpaquePointer?, pgoffset: COpaquePointer?): Hresult =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_scriptTextOut((hdc?.value ?: 0L), (psc?.value ?: 0L), x, y, fuoptions.toInt(), (lprc?.value ?: 0L), (psa?.value ?: 0L), (pwcreserved?.value ?: 0L), ireserved, (pwglyphs?.value ?: 0L), cglyphs, (piadvance?.value ?: 0L), (pijustify?.value ?: 0L), (pgoffset?.value ?: 0L))
 
-public actual fun ScriptXtoCP(ix: Int, cchars: Int, cglyphs: Int, pwlogclust: Long, psva: Long, piadvance: Long, psa: Long, picp: Long, pitrailing: Long): HRESULT =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ScriptXtoCP(ix, cchars, cglyphs, pwlogclust, psva, piadvance, psa, picp, pitrailing)
+public actual fun scriptXtoCP(ix: Int, cchars: Int, cglyphs: Int, pwlogclust: COpaquePointer?, psva: COpaquePointer?, piadvance: COpaquePointer?, psa: COpaquePointer?, picp: COpaquePointer?, pitrailing: COpaquePointer?): Hresult =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_scriptXtoCP(ix, cchars, cglyphs, (pwlogclust?.value ?: 0L), (psva?.value ?: 0L), (piadvance?.value ?: 0L), (psa?.value ?: 0L), (picp?.value ?: 0L), (pitrailing?.value ?: 0L))
 
-public actual fun SetCalendarInfoA(locale: UInt, calendar: UInt, caltype: UInt, lpcaldata: PCSTR): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_SetCalendarInfoA(locale.toInt(), calendar.toInt(), caltype.toInt(), lpcaldata)
+public actual fun setCalendarInfoA(locale: UInt, calendar: UInt, caltype: UInt, lpcaldata: Pcstr): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_setCalendarInfoA(locale.toInt(), calendar.toInt(), caltype.toInt(), (lpcaldata?.value ?: 0L))
 
-public actual fun SetCalendarInfoW(locale: UInt, calendar: UInt, caltype: UInt, lpcaldata: PCWSTR): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_SetCalendarInfoW(locale.toInt(), calendar.toInt(), caltype.toInt(), lpcaldata)
+public actual fun setCalendarInfoW(locale: UInt, calendar: UInt, caltype: UInt, lpcaldata: Pcwstr): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_setCalendarInfoW(locale.toInt(), calendar.toInt(), caltype.toInt(), (lpcaldata?.value ?: 0L))
 
-public actual fun SetLocaleInfoA(locale: UInt, lctype: UInt, lplcdata: PCSTR): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_SetLocaleInfoA(locale.toInt(), lctype.toInt(), lplcdata)
+public actual fun setLocaleInfoA(locale: UInt, lctype: UInt, lplcdata: Pcstr): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_setLocaleInfoA(locale.toInt(), lctype.toInt(), (lplcdata?.value ?: 0L))
 
-public actual fun SetLocaleInfoW(locale: UInt, lctype: UInt, lplcdata: PCWSTR): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_SetLocaleInfoW(locale.toInt(), lctype.toInt(), lplcdata)
+public actual fun setLocaleInfoW(locale: UInt, lctype: UInt, lplcdata: Pcwstr): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_setLocaleInfoW(locale.toInt(), lctype.toInt(), (lplcdata?.value ?: 0L))
 
-public actual fun SetProcessPreferredUILanguages(dwflags: UInt, pwszlanguagesbuffer: PCWSTR, pulnumlanguages: Long): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_SetProcessPreferredUILanguages(dwflags.toInt(), pwszlanguagesbuffer, pulnumlanguages)
+public actual fun setProcessPreferredUILanguages(dwflags: UInt, pwszlanguagesbuffer: Pcwstr, pulnumlanguages: COpaquePointer?): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_setProcessPreferredUILanguages(dwflags.toInt(), (pwszlanguagesbuffer?.value ?: 0L), (pulnumlanguages?.value ?: 0L))
 
-public actual fun SetThreadLocale(locale: UInt): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_SetThreadLocale(locale.toInt())
+public actual fun setThreadLocale(locale: UInt): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_setThreadLocale(locale.toInt())
 
-public actual fun SetThreadPreferredUILanguages(dwflags: UInt, pwszlanguagesbuffer: PCWSTR, pulnumlanguages: Long): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_SetThreadPreferredUILanguages(dwflags.toInt(), pwszlanguagesbuffer, pulnumlanguages)
+public actual fun setThreadPreferredUILanguages(dwflags: UInt, pwszlanguagesbuffer: Pcwstr, pulnumlanguages: COpaquePointer?): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_setThreadPreferredUILanguages(dwflags.toInt(), (pwszlanguagesbuffer?.value ?: 0L), (pulnumlanguages?.value ?: 0L))
 
-public actual fun SetThreadPreferredUILanguages2(flags: UInt, languages: PCWSTR, numlanguagesset: Long, snapshot: Long): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_SetThreadPreferredUILanguages2(flags.toInt(), languages, numlanguagesset, snapshot)
+public actual fun setThreadPreferredUILanguages2(flags: UInt, languages: Pcwstr, numlanguagesset: COpaquePointer?, snapshot: COpaquePointer?): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_setThreadPreferredUILanguages2(flags.toInt(), (languages?.value ?: 0L), (numlanguagesset?.value ?: 0L), (snapshot?.value ?: 0L))
 
-public actual fun SetThreadUILanguage(langid: UShort): UShort =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_SetThreadUILanguage(langid.toShort()).toUShort()
+public actual fun setThreadUILanguage(langid: UShort): UShort =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_setThreadUILanguage(langid.toShort()).toUShort()
 
-public actual fun SetUserGeoID(geoid: Int): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_SetUserGeoID(geoid)
+public actual fun setUserGeoID(geoid: Int): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_setUserGeoID(geoid)
 
-public actual fun SetUserGeoName(geoname: PCWSTR): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_SetUserGeoName(geoname)
+public actual fun setUserGeoName(geoname: Pcwstr): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_setUserGeoName((geoname?.value ?: 0L))
 
-public actual fun TranslateCharsetInfo(lpsrc: Long, lpcs: Long, dwflags: TRANSLATE_CHARSET_INFO_FLAGS): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_TranslateCharsetInfo(lpsrc, lpcs, dwflags.toInt())
+public actual fun translateCharsetInfo(lpsrc: COpaquePointer?, lpcs: COpaquePointer?, dwflags: TranslateCharsetInfoFlags): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_translateCharsetInfo((lpsrc?.value ?: 0L), (lpcs?.value ?: 0L), dwflags.toInt())
 
-public actual fun UCNV_FROM_U_CALLBACK_ESCAPE(context: Long, fromuargs: Long, codeunits: Long, length: Int, codepoint: Int, reason: UConverterCallbackReason, err: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_UCNV_FROM_U_CALLBACK_ESCAPE(context, fromuargs, codeunits, length, codepoint, reason, err)
+public actual fun ucnvFromUCallbackEscape(context: COpaquePointer?, fromuargs: COpaquePointer?, codeunits: COpaquePointer?, length: Int, codepoint: Int, reason: UConverterCallbackReason, err: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvFromUCallbackEscape((context?.value ?: 0L), (fromuargs?.value ?: 0L), (codeunits?.value ?: 0L), length, codepoint, reason, (err?.value ?: 0L))
 }
 
-public actual fun UCNV_FROM_U_CALLBACK_SKIP(context: Long, fromuargs: Long, codeunits: Long, length: Int, codepoint: Int, reason: UConverterCallbackReason, err: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_UCNV_FROM_U_CALLBACK_SKIP(context, fromuargs, codeunits, length, codepoint, reason, err)
+public actual fun ucnvFromUCallbackSkip(context: COpaquePointer?, fromuargs: COpaquePointer?, codeunits: COpaquePointer?, length: Int, codepoint: Int, reason: UConverterCallbackReason, err: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvFromUCallbackSkip((context?.value ?: 0L), (fromuargs?.value ?: 0L), (codeunits?.value ?: 0L), length, codepoint, reason, (err?.value ?: 0L))
 }
 
-public actual fun UCNV_FROM_U_CALLBACK_STOP(context: Long, fromuargs: Long, codeunits: Long, length: Int, codepoint: Int, reason: UConverterCallbackReason, err: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_UCNV_FROM_U_CALLBACK_STOP(context, fromuargs, codeunits, length, codepoint, reason, err)
+public actual fun ucnvFromUCallbackStop(context: COpaquePointer?, fromuargs: COpaquePointer?, codeunits: COpaquePointer?, length: Int, codepoint: Int, reason: UConverterCallbackReason, err: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvFromUCallbackStop((context?.value ?: 0L), (fromuargs?.value ?: 0L), (codeunits?.value ?: 0L), length, codepoint, reason, (err?.value ?: 0L))
 }
 
-public actual fun UCNV_FROM_U_CALLBACK_SUBSTITUTE(context: Long, fromuargs: Long, codeunits: Long, length: Int, codepoint: Int, reason: UConverterCallbackReason, err: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_UCNV_FROM_U_CALLBACK_SUBSTITUTE(context, fromuargs, codeunits, length, codepoint, reason, err)
+public actual fun ucnvFromUCallbackSubstitute(context: COpaquePointer?, fromuargs: COpaquePointer?, codeunits: COpaquePointer?, length: Int, codepoint: Int, reason: UConverterCallbackReason, err: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvFromUCallbackSubstitute((context?.value ?: 0L), (fromuargs?.value ?: 0L), (codeunits?.value ?: 0L), length, codepoint, reason, (err?.value ?: 0L))
 }
 
-public actual fun UCNV_TO_U_CALLBACK_ESCAPE(context: Long, touargs: Long, codeunits: PCSTR, length: Int, reason: UConverterCallbackReason, err: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_UCNV_TO_U_CALLBACK_ESCAPE(context, touargs, codeunits, length, reason, err)
+public actual fun ucnvToUCallbackEscape(context: COpaquePointer?, touargs: COpaquePointer?, codeunits: Pcstr, length: Int, reason: UConverterCallbackReason, err: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvToUCallbackEscape((context?.value ?: 0L), (touargs?.value ?: 0L), (codeunits?.value ?: 0L), length, reason, (err?.value ?: 0L))
 }
 
-public actual fun UCNV_TO_U_CALLBACK_SKIP(context: Long, touargs: Long, codeunits: PCSTR, length: Int, reason: UConverterCallbackReason, err: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_UCNV_TO_U_CALLBACK_SKIP(context, touargs, codeunits, length, reason, err)
+public actual fun ucnvToUCallbackSkip(context: COpaquePointer?, touargs: COpaquePointer?, codeunits: Pcstr, length: Int, reason: UConverterCallbackReason, err: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvToUCallbackSkip((context?.value ?: 0L), (touargs?.value ?: 0L), (codeunits?.value ?: 0L), length, reason, (err?.value ?: 0L))
 }
 
-public actual fun UCNV_TO_U_CALLBACK_STOP(context: Long, touargs: Long, codeunits: PCSTR, length: Int, reason: UConverterCallbackReason, err: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_UCNV_TO_U_CALLBACK_STOP(context, touargs, codeunits, length, reason, err)
+public actual fun ucnvToUCallbackStop(context: COpaquePointer?, touargs: COpaquePointer?, codeunits: Pcstr, length: Int, reason: UConverterCallbackReason, err: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvToUCallbackStop((context?.value ?: 0L), (touargs?.value ?: 0L), (codeunits?.value ?: 0L), length, reason, (err?.value ?: 0L))
 }
 
-public actual fun UCNV_TO_U_CALLBACK_SUBSTITUTE(context: Long, touargs: Long, codeunits: PCSTR, length: Int, reason: UConverterCallbackReason, err: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_UCNV_TO_U_CALLBACK_SUBSTITUTE(context, touargs, codeunits, length, reason, err)
+public actual fun ucnvToUCallbackSubstitute(context: COpaquePointer?, touargs: COpaquePointer?, codeunits: Pcstr, length: Int, reason: UConverterCallbackReason, err: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvToUCallbackSubstitute((context?.value ?: 0L), (touargs?.value ?: 0L), (codeunits?.value ?: 0L), length, reason, (err?.value ?: 0L))
 }
 
-public actual fun UpdateCalendarDayOfWeek(lpcaldatetime: Long): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_UpdateCalendarDayOfWeek(lpcaldatetime)
+public actual fun updateCalendarDayOfWeek(lpcaldatetime: COpaquePointer?): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_updateCalendarDayOfWeek((lpcaldatetime?.value ?: 0L))
 
-public actual fun VerifyScripts(dwflags: UInt, lplocalescripts: PCWSTR, cchlocalescripts: Int, lptestscripts: PCWSTR, cchtestscripts: Int): BOOL =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_VerifyScripts(dwflags.toInt(), lplocalescripts, cchlocalescripts, lptestscripts, cchtestscripts)
+public actual fun verifyScripts(dwflags: UInt, lplocalescripts: Pcwstr, cchlocalescripts: Int, lptestscripts: Pcwstr, cchtestscripts: Int): Bool =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_verifyScripts(dwflags.toInt(), (lplocalescripts?.value ?: 0L), cchlocalescripts, (lptestscripts?.value ?: 0L), cchtestscripts)
 
-public actual fun WideCharToMultiByte(codepage: UInt, dwflags: UInt, lpwidecharstr: PCWSTR, cchwidechar: Int, lpmultibytestr: PSTR, cbmultibyte: Int, lpdefaultchar: PCSTR, lpuseddefaultchar: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_WideCharToMultiByte(codepage.toInt(), dwflags.toInt(), lpwidecharstr, cchwidechar, lpmultibytestr, cbmultibyte, lpdefaultchar, lpuseddefaultchar)
+public actual fun wideCharToMultiByte(codepage: UInt, dwflags: UInt, lpwidecharstr: Pcwstr, cchwidechar: Int, lpmultibytestr: Pstr, cbmultibyte: Int, lpdefaultchar: Pcstr, lpuseddefaultchar: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_wideCharToMultiByte(codepage.toInt(), dwflags.toInt(), (lpwidecharstr?.value ?: 0L), cchwidechar, (lpmultibytestr?.value ?: 0L), cbmultibyte, (lpdefaultchar?.value ?: 0L), (lpuseddefaultchar?.value ?: 0L))
 
-public actual fun lstrcatA(lpstring1: PSTR, lpstring2: PCSTR): PSTR =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_lstrcatA(lpstring1, lpstring2)
+public actual fun lstrcatA(lpstring1: Pstr, lpstring2: Pcstr): Pstr =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_lstrcatA((lpstring1?.value ?: 0L), (lpstring2?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun lstrcatW(lpstring1: PWSTR, lpstring2: PCWSTR): PWSTR =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_lstrcatW(lpstring1, lpstring2)
+public actual fun lstrcatW(lpstring1: Pwstr, lpstring2: Pcwstr): Pwstr =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_lstrcatW((lpstring1?.value ?: 0L), (lpstring2?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun lstrcmpA(lpstring1: PCSTR, lpstring2: PCSTR): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_lstrcmpA(lpstring1, lpstring2)
+public actual fun lstrcmpA(lpstring1: Pcstr, lpstring2: Pcstr): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_lstrcmpA((lpstring1?.value ?: 0L), (lpstring2?.value ?: 0L))
 
-public actual fun lstrcmpW(lpstring1: PCWSTR, lpstring2: PCWSTR): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_lstrcmpW(lpstring1, lpstring2)
+public actual fun lstrcmpW(lpstring1: Pcwstr, lpstring2: Pcwstr): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_lstrcmpW((lpstring1?.value ?: 0L), (lpstring2?.value ?: 0L))
 
-public actual fun lstrcmpiA(lpstring1: PCSTR, lpstring2: PCSTR): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_lstrcmpiA(lpstring1, lpstring2)
+public actual fun lstrcmpiA(lpstring1: Pcstr, lpstring2: Pcstr): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_lstrcmpiA((lpstring1?.value ?: 0L), (lpstring2?.value ?: 0L))
 
-public actual fun lstrcmpiW(lpstring1: PCWSTR, lpstring2: PCWSTR): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_lstrcmpiW(lpstring1, lpstring2)
+public actual fun lstrcmpiW(lpstring1: Pcwstr, lpstring2: Pcwstr): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_lstrcmpiW((lpstring1?.value ?: 0L), (lpstring2?.value ?: 0L))
 
-public actual fun lstrcpyA(lpstring1: PSTR, lpstring2: PCSTR): PSTR =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_lstrcpyA(lpstring1, lpstring2)
+public actual fun lstrcpyA(lpstring1: Pstr, lpstring2: Pcstr): Pstr =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_lstrcpyA((lpstring1?.value ?: 0L), (lpstring2?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun lstrcpyW(lpstring1: PWSTR, lpstring2: PCWSTR): PWSTR =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_lstrcpyW(lpstring1, lpstring2)
+public actual fun lstrcpyW(lpstring1: Pwstr, lpstring2: Pcwstr): Pwstr =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_lstrcpyW((lpstring1?.value ?: 0L), (lpstring2?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun lstrcpynA(lpstring1: PSTR, lpstring2: PCSTR, imaxlength: Int): PSTR =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_lstrcpynA(lpstring1, lpstring2, imaxlength)
+public actual fun lstrcpynA(lpstring1: Pstr, lpstring2: Pcstr, imaxlength: Int): Pstr =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_lstrcpynA((lpstring1?.value ?: 0L), (lpstring2?.value ?: 0L), imaxlength).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun lstrcpynW(lpstring1: PWSTR, lpstring2: PCWSTR, imaxlength: Int): PWSTR =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_lstrcpynW(lpstring1, lpstring2, imaxlength)
+public actual fun lstrcpynW(lpstring1: Pwstr, lpstring2: Pcwstr, imaxlength: Int): Pwstr =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_lstrcpynW((lpstring1?.value ?: 0L), (lpstring2?.value ?: 0L), imaxlength).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun lstrlenA(lpstring: PCSTR): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_lstrlenA(lpstring)
+public actual fun lstrlenA(lpstring: Pcstr): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_lstrlenA((lpstring?.value ?: 0L))
 
-public actual fun lstrlenW(lpstring: PCWSTR): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_lstrlenW(lpstring)
+public actual fun lstrlenW(lpstring: Pcwstr): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_lstrlenW((lpstring?.value ?: 0L))
 
-public actual fun u_UCharsToChars(us: Long, cs: PCSTR, length: Int) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_UCharsToChars(us, cs, length)
+public actual fun uUcharsToChars(us: COpaquePointer?, cs: Pcstr, length: Int) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uUcharsToChars((us?.value ?: 0L), (cs?.value ?: 0L), length)
 }
 
-public actual fun u_austrcpy(dst: PCSTR, src: Long): PSTR =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_austrcpy(dst, src)
+public actual fun uAustrcpy(dst: Pcstr, src: COpaquePointer?): Pstr =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uAustrcpy((dst?.value ?: 0L), (src?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun u_austrncpy(dst: PCSTR, src: Long, n: Int): PSTR =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_austrncpy(dst, src, n)
+public actual fun uAustrncpy(dst: Pcstr, src: COpaquePointer?, n: Int): Pstr =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uAustrncpy((dst?.value ?: 0L), (src?.value ?: 0L), n).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun u_catclose(catd: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_catclose(catd)
+public actual fun uCatclose(catd: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uCatclose((catd?.value ?: 0L))
 }
 
-public actual fun u_catgets(catd: Long, set_num: Int, msg_num: Int, s: Long, len: Long, ec: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_catgets(catd, set_num, msg_num, s, len, ec)
+public actual fun uCatgets(catd: COpaquePointer?, setNum: Int, msgNum: Int, s: COpaquePointer?, len: COpaquePointer?, ec: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uCatgets((catd?.value ?: 0L), setNum, msgNum, (s?.value ?: 0L), (len?.value ?: 0L), (ec?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun u_catopen(name: PCSTR, locale: PCSTR, ec: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_catopen(name, locale, ec)
+public actual fun uCatopen(name: Pcstr, locale: Pcstr, ec: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uCatopen((name?.value ?: 0L), (locale?.value ?: 0L), (ec?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun u_charAge(c: Int, versionarray: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_charAge(c, versionarray)
+public actual fun uCharAge(c: Int, versionarray: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uCharAge(c, (versionarray?.value ?: 0L))
 }
 
-public actual fun u_charDigitValue(c: Int): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_charDigitValue(c)
+public actual fun uCharDigitValue(c: Int): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uCharDigitValue(c)
 
-public actual fun u_charDirection(c: Int): UCharDirection =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_charDirection(c)
+public actual fun uCharDirection(c: Int): UCharDirection =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uCharDirection(c)
 
-public actual fun u_charFromName(namechoice: UCharNameChoice, name: PCSTR, perrorcode: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_charFromName(namechoice, name, perrorcode)
+public actual fun uCharFromName(namechoice: UCharNameChoice, name: Pcstr, perrorcode: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uCharFromName(namechoice, (name?.value ?: 0L), (perrorcode?.value ?: 0L))
 
-public actual fun u_charMirror(c: Int): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_charMirror(c)
+public actual fun uCharMirror(c: Int): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uCharMirror(c)
 
-public actual fun u_charName(code: Int, namechoice: UCharNameChoice, buffer: PCSTR, bufferlength: Int, perrorcode: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_charName(code, namechoice, buffer, bufferlength, perrorcode)
+public actual fun uCharName(code: Int, namechoice: UCharNameChoice, buffer: Pcstr, bufferlength: Int, perrorcode: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uCharName(code, namechoice, (buffer?.value ?: 0L), bufferlength, (perrorcode?.value ?: 0L))
 
-public actual fun u_charType(c: Int): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_charType(c)
+public actual fun uCharType(c: Int): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uCharType(c)
 
-public actual fun u_charsToUChars(cs: PCSTR, us: Long, length: Int) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_charsToUChars(cs, us, length)
+public actual fun uCharsToUchars(cs: Pcstr, us: COpaquePointer?, length: Int) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uCharsToUchars((cs?.value ?: 0L), (us?.value ?: 0L), length)
 }
 
-public actual fun u_cleanup() {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_cleanup()
+public actual fun uCleanup() {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uCleanup()
 }
 
-public actual fun u_countChar32(s: Long, length: Int): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_countChar32(s, length)
+public actual fun uCountChar32(s: COpaquePointer?, length: Int): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uCountChar32((s?.value ?: 0L), length)
 
-public actual fun u_digit(ch: Int, radix: Byte): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_digit(ch, radix)
+public actual fun uDigit(ch: Int, radix: Byte): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uDigit(ch, radix)
 
-public actual fun u_enumCharNames(start: Int, limit: Int, fn: Long, context: Long, namechoice: UCharNameChoice, perrorcode: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_enumCharNames(start, limit, fn, context, namechoice, perrorcode)
+public actual fun uEnumCharNames(start: Int, limit: Int, fn: COpaquePointer?, context: COpaquePointer?, namechoice: UCharNameChoice, perrorcode: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uEnumCharNames(start, limit, (fn?.value ?: 0L), (context?.value ?: 0L), namechoice, (perrorcode?.value ?: 0L))
 }
 
-public actual fun u_enumCharTypes(enumrange: Long, context: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_enumCharTypes(enumrange, context)
+public actual fun uEnumCharTypes(enumrange: COpaquePointer?, context: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uEnumCharTypes((enumrange?.value ?: 0L), (context?.value ?: 0L))
 }
 
-public actual fun u_errorName(code: UErrorCode): PCSTR =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_errorName(code)
+public actual fun uErrorName(code: UErrorCode): Pcstr =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uErrorName(code).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun u_foldCase(c: Int, options: UInt): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_foldCase(c, options.toInt())
+public actual fun uFoldCase(c: Int, options: UInt): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uFoldCase(c, options.toInt())
 
-public actual fun u_forDigit(digit: Int, radix: Byte): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_forDigit(digit, radix)
+public actual fun uForDigit(digit: Int, radix: Byte): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uForDigit(digit, radix)
 
-public actual fun u_formatMessage(locale: PCSTR, pattern: Long, patternlength: Int, result: Long, resultlength: Int, status: Long): Int =
-    0
+public actual fun uFormatMessage(locale: Pcstr, pattern: COpaquePointer?, patternlength: Int, result: COpaquePointer?, resultlength: Int, status: COpaquePointer?, vararg variadicArgs: Long): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uFormatMessage((locale?.value ?: 0L), (pattern?.value ?: 0L), patternlength, (result?.value ?: 0L), resultlength, (status?.value ?: 0L), variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
 
-public actual fun u_formatMessageWithError(locale: PCSTR, pattern: Long, patternlength: Int, result: Long, resultlength: Int, parseerror: Long, status: Long): Int =
-    0
+public actual fun uFormatMessageWithError(locale: Pcstr, pattern: COpaquePointer?, patternlength: Int, result: COpaquePointer?, resultlength: Int, parseerror: COpaquePointer?, status: COpaquePointer?, vararg variadicArgs: Long): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uFormatMessageWithError((locale?.value ?: 0L), (pattern?.value ?: 0L), patternlength, (result?.value ?: 0L), resultlength, (parseerror?.value ?: 0L), (status?.value ?: 0L), variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
 
-public actual fun u_getBidiPairedBracket(c: Int): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_getBidiPairedBracket(c)
+public actual fun uGetBidiPairedBracket(c: Int): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uGetBidiPairedBracket(c)
 
-public actual fun u_getBinaryPropertySet(property: UProperty, perrorcode: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_getBinaryPropertySet(property, perrorcode)
+public actual fun uGetBinaryPropertySet(property: UProperty, perrorcode: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uGetBinaryPropertySet(property, (perrorcode?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun u_getCombiningClass(c: Int): UByte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_getCombiningClass(c).toUByte()
+public actual fun uGetCombiningClass(c: Int): UByte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uGetCombiningClass(c).toUByte()
 
-public actual fun u_getDataVersion(dataversionfillin: Long, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_getDataVersion(dataversionfillin, status)
+public actual fun uGetDataVersion(dataversionfillin: COpaquePointer?, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uGetDataVersion((dataversionfillin?.value ?: 0L), (status?.value ?: 0L))
 }
 
-public actual fun u_getFC_NFKC_Closure(c: Int, dest: Long, destcapacity: Int, perrorcode: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_getFC_NFKC_Closure(c, dest, destcapacity, perrorcode)
+public actual fun uGetFcNfkcClosure(c: Int, dest: COpaquePointer?, destcapacity: Int, perrorcode: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uGetFcNfkcClosure(c, (dest?.value ?: 0L), destcapacity, (perrorcode?.value ?: 0L))
 
-public actual fun u_getIntPropertyMap(property: UProperty, perrorcode: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_getIntPropertyMap(property, perrorcode)
+public actual fun uGetIntPropertyMap(property: UProperty, perrorcode: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uGetIntPropertyMap(property, (perrorcode?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun u_getIntPropertyMaxValue(which: UProperty): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_getIntPropertyMaxValue(which)
+public actual fun uGetIntPropertyMaxValue(which: UProperty): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uGetIntPropertyMaxValue(which)
 
-public actual fun u_getIntPropertyMinValue(which: UProperty): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_getIntPropertyMinValue(which)
+public actual fun uGetIntPropertyMinValue(which: UProperty): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uGetIntPropertyMinValue(which)
 
-public actual fun u_getIntPropertyValue(c: Int, which: UProperty): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_getIntPropertyValue(c, which)
+public actual fun uGetIntPropertyValue(c: Int, which: UProperty): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uGetIntPropertyValue(c, which)
 
-public actual fun u_getNumericValue(c: Int): Double =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_getNumericValue(c)
+public actual fun uGetNumericValue(c: Int): Double =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uGetNumericValue(c)
 
-public actual fun u_getPropertyEnum(alias: PCSTR): UProperty =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_getPropertyEnum(alias)
+public actual fun uGetPropertyEnum(alias: Pcstr): UProperty =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uGetPropertyEnum((alias?.value ?: 0L))
 
-public actual fun u_getPropertyName(property: UProperty, namechoice: UPropertyNameChoice): PCSTR =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_getPropertyName(property, namechoice)
+public actual fun uGetPropertyName(property: UProperty, namechoice: UPropertyNameChoice): Pcstr =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uGetPropertyName(property, namechoice).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun u_getPropertyValueEnum(property: UProperty, alias: PCSTR): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_getPropertyValueEnum(property, alias)
+public actual fun uGetPropertyValueEnum(property: UProperty, alias: Pcstr): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uGetPropertyValueEnum(property, (alias?.value ?: 0L))
 
-public actual fun u_getPropertyValueName(property: UProperty, value: Int, namechoice: UPropertyNameChoice): PCSTR =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_getPropertyValueName(property, value, namechoice)
+public actual fun uGetPropertyValueName(property: UProperty, value: Int, namechoice: UPropertyNameChoice): Pcstr =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uGetPropertyValueName(property, value, namechoice).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun u_getUnicodeVersion(versionarray: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_getUnicodeVersion(versionarray)
+public actual fun uGetUnicodeVersion(versionarray: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uGetUnicodeVersion((versionarray?.value ?: 0L))
 }
 
-public actual fun u_getVersion(versionarray: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_getVersion(versionarray)
+public actual fun uGetVersion(versionarray: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uGetVersion((versionarray?.value ?: 0L))
 }
 
-public actual fun u_hasBinaryProperty(c: Int, which: UProperty): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_hasBinaryProperty(c, which)
+public actual fun uHasBinaryProperty(c: Int, which: UProperty): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uHasBinaryProperty(c, which)
 
-public actual fun u_init(status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_init(status)
+public actual fun uInit(status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uInit((status?.value ?: 0L))
 }
 
-public actual fun u_isIDIgnorable(c: Int): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_isIDIgnorable(c)
+public actual fun uIsIdignorable(c: Int): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uIsIdignorable(c)
 
-public actual fun u_isIDPart(c: Int): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_isIDPart(c)
+public actual fun uIsIdpart(c: Int): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uIsIdpart(c)
 
-public actual fun u_isIDStart(c: Int): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_isIDStart(c)
+public actual fun uIsIdstart(c: Int): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uIsIdstart(c)
 
-public actual fun u_isISOControl(c: Int): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_isISOControl(c)
+public actual fun uIsIsocontrol(c: Int): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uIsIsocontrol(c)
 
-public actual fun u_isJavaIDPart(c: Int): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_isJavaIDPart(c)
+public actual fun uIsJavaIdpart(c: Int): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uIsJavaIdpart(c)
 
-public actual fun u_isJavaIDStart(c: Int): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_isJavaIDStart(c)
+public actual fun uIsJavaIdstart(c: Int): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uIsJavaIdstart(c)
 
-public actual fun u_isJavaSpaceChar(c: Int): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_isJavaSpaceChar(c)
+public actual fun uIsJavaSpaceChar(c: Int): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uIsJavaSpaceChar(c)
 
-public actual fun u_isMirrored(c: Int): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_isMirrored(c)
+public actual fun uIsMirrored(c: Int): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uIsMirrored(c)
 
-public actual fun u_isUAlphabetic(c: Int): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_isUAlphabetic(c)
+public actual fun uIsUalphabetic(c: Int): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uIsUalphabetic(c)
 
-public actual fun u_isULowercase(c: Int): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_isULowercase(c)
+public actual fun uIsUlowercase(c: Int): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uIsUlowercase(c)
 
-public actual fun u_isUUppercase(c: Int): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_isUUppercase(c)
+public actual fun uIsUuppercase(c: Int): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uIsUuppercase(c)
 
-public actual fun u_isUWhiteSpace(c: Int): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_isUWhiteSpace(c)
+public actual fun uIsUwhiteSpace(c: Int): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uIsUwhiteSpace(c)
 
-public actual fun u_isWhitespace(c: Int): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_isWhitespace(c)
+public actual fun uIsWhitespace(c: Int): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uIsWhitespace(c)
 
-public actual fun u_isalnum(c: Int): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_isalnum(c)
+public actual fun uIsalnum(c: Int): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uIsalnum(c)
 
-public actual fun u_isalpha(c: Int): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_isalpha(c)
+public actual fun uIsalpha(c: Int): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uIsalpha(c)
 
-public actual fun u_isbase(c: Int): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_isbase(c)
+public actual fun uIsbase(c: Int): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uIsbase(c)
 
-public actual fun u_isblank(c: Int): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_isblank(c)
+public actual fun uIsblank(c: Int): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uIsblank(c)
 
-public actual fun u_iscntrl(c: Int): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_iscntrl(c)
+public actual fun uIscntrl(c: Int): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uIscntrl(c)
 
-public actual fun u_isdefined(c: Int): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_isdefined(c)
+public actual fun uIsdefined(c: Int): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uIsdefined(c)
 
-public actual fun u_isdigit(c: Int): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_isdigit(c)
+public actual fun uIsdigit(c: Int): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uIsdigit(c)
 
-public actual fun u_isgraph(c: Int): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_isgraph(c)
+public actual fun uIsgraph(c: Int): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uIsgraph(c)
 
-public actual fun u_islower(c: Int): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_islower(c)
+public actual fun uIslower(c: Int): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uIslower(c)
 
-public actual fun u_isprint(c: Int): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_isprint(c)
+public actual fun uIsprint(c: Int): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uIsprint(c)
 
-public actual fun u_ispunct(c: Int): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_ispunct(c)
+public actual fun uIspunct(c: Int): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uIspunct(c)
 
-public actual fun u_isspace(c: Int): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_isspace(c)
+public actual fun uIsspace(c: Int): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uIsspace(c)
 
-public actual fun u_istitle(c: Int): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_istitle(c)
+public actual fun uIstitle(c: Int): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uIstitle(c)
 
-public actual fun u_isupper(c: Int): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_isupper(c)
+public actual fun uIsupper(c: Int): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uIsupper(c)
 
-public actual fun u_isxdigit(c: Int): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_isxdigit(c)
+public actual fun uIsxdigit(c: Int): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uIsxdigit(c)
 
-public actual fun u_memcasecmp(s1: Long, s2: Long, length: Int, options: UInt): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_memcasecmp(s1, s2, length, options.toInt())
+public actual fun uMemcasecmp(s1: COpaquePointer?, s2: COpaquePointer?, length: Int, options: UInt): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uMemcasecmp((s1?.value ?: 0L), (s2?.value ?: 0L), length, options.toInt())
 
-public actual fun u_memchr(s: Long, c: UShort, count: Int): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_memchr(s, c.toShort(), count)
+public actual fun uMemchr(s: COpaquePointer?, c: UShort, count: Int): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uMemchr((s?.value ?: 0L), c.toShort(), count).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun u_memchr32(s: Long, c: Int, count: Int): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_memchr32(s, c, count)
+public actual fun uMemchr32(s: COpaquePointer?, c: Int, count: Int): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uMemchr32((s?.value ?: 0L), c, count).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun u_memcmp(buf1: Long, buf2: Long, count: Int): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_memcmp(buf1, buf2, count)
+public actual fun uMemcmp(buf1: COpaquePointer?, buf2: COpaquePointer?, count: Int): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uMemcmp((buf1?.value ?: 0L), (buf2?.value ?: 0L), count)
 
-public actual fun u_memcmpCodePointOrder(s1: Long, s2: Long, count: Int): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_memcmpCodePointOrder(s1, s2, count)
+public actual fun uMemcmpCodePointOrder(s1: COpaquePointer?, s2: COpaquePointer?, count: Int): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uMemcmpCodePointOrder((s1?.value ?: 0L), (s2?.value ?: 0L), count)
 
-public actual fun u_memcpy(dest: Long, src: Long, count: Int): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_memcpy(dest, src, count)
+public actual fun uMemcpy(dest: COpaquePointer?, src: COpaquePointer?, count: Int): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uMemcpy((dest?.value ?: 0L), (src?.value ?: 0L), count).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun u_memmove(dest: Long, src: Long, count: Int): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_memmove(dest, src, count)
+public actual fun uMemmove(dest: COpaquePointer?, src: COpaquePointer?, count: Int): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uMemmove((dest?.value ?: 0L), (src?.value ?: 0L), count).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun u_memrchr(s: Long, c: UShort, count: Int): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_memrchr(s, c.toShort(), count)
+public actual fun uMemrchr(s: COpaquePointer?, c: UShort, count: Int): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uMemrchr((s?.value ?: 0L), c.toShort(), count).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun u_memrchr32(s: Long, c: Int, count: Int): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_memrchr32(s, c, count)
+public actual fun uMemrchr32(s: COpaquePointer?, c: Int, count: Int): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uMemrchr32((s?.value ?: 0L), c, count).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun u_memset(dest: Long, c: UShort, count: Int): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_memset(dest, c.toShort(), count)
+public actual fun uMemset(dest: COpaquePointer?, c: UShort, count: Int): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uMemset((dest?.value ?: 0L), c.toShort(), count).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun u_parseMessage(locale: PCSTR, pattern: Long, patternlength: Int, source: Long, sourcelength: Int, status: Long) {
+public actual fun uParseMessage(locale: Pcstr, pattern: COpaquePointer?, patternlength: Int, source: COpaquePointer?, sourcelength: Int, status: COpaquePointer?, vararg variadicArgs: Long) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uParseMessage((locale?.value ?: 0L), (pattern?.value ?: 0L), patternlength, (source?.value ?: 0L), sourcelength, (status?.value ?: 0L), variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
 }
 
-public actual fun u_parseMessageWithError(locale: PCSTR, pattern: Long, patternlength: Int, source: Long, sourcelength: Int, parseerror: Long, status: Long) {
+public actual fun uParseMessageWithError(locale: Pcstr, pattern: COpaquePointer?, patternlength: Int, source: COpaquePointer?, sourcelength: Int, parseerror: COpaquePointer?, status: COpaquePointer?, vararg variadicArgs: Long) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uParseMessageWithError((locale?.value ?: 0L), (pattern?.value ?: 0L), patternlength, (source?.value ?: 0L), sourcelength, (parseerror?.value ?: 0L), (status?.value ?: 0L), variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
 }
 
-public actual fun u_setMemoryFunctions(context: Long, a: Long, r: Long, f: Long, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_setMemoryFunctions(context, a, r, f, status)
+public actual fun uSetMemoryFunctions(context: COpaquePointer?, a: COpaquePointer?, r: COpaquePointer?, f: COpaquePointer?, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uSetMemoryFunctions((context?.value ?: 0L), (a?.value ?: 0L), (r?.value ?: 0L), (f?.value ?: 0L), (status?.value ?: 0L))
 }
 
-public actual fun u_shapeArabic(source: Long, sourcelength: Int, dest: Long, destsize: Int, options: UInt, perrorcode: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_shapeArabic(source, sourcelength, dest, destsize, options.toInt(), perrorcode)
+public actual fun uShapeArabic(source: COpaquePointer?, sourcelength: Int, dest: COpaquePointer?, destsize: Int, options: UInt, perrorcode: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uShapeArabic((source?.value ?: 0L), sourcelength, (dest?.value ?: 0L), destsize, options.toInt(), (perrorcode?.value ?: 0L))
 
-public actual fun u_strCaseCompare(s1: Long, length1: Int, s2: Long, length2: Int, options: UInt, perrorcode: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_strCaseCompare(s1, length1, s2, length2, options.toInt(), perrorcode)
+public actual fun uStrCaseCompare(s1: COpaquePointer?, length1: Int, s2: COpaquePointer?, length2: Int, options: UInt, perrorcode: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uStrCaseCompare((s1?.value ?: 0L), length1, (s2?.value ?: 0L), length2, options.toInt(), (perrorcode?.value ?: 0L))
 
-public actual fun u_strCompare(s1: Long, length1: Int, s2: Long, length2: Int, codepointorder: Byte): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_strCompare(s1, length1, s2, length2, codepointorder)
+public actual fun uStrCompare(s1: COpaquePointer?, length1: Int, s2: COpaquePointer?, length2: Int, codepointorder: Byte): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uStrCompare((s1?.value ?: 0L), length1, (s2?.value ?: 0L), length2, codepointorder)
 
-public actual fun u_strCompareIter(iter1: Long, iter2: Long, codepointorder: Byte): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_strCompareIter(iter1, iter2, codepointorder)
+public actual fun uStrCompareIter(iter1: COpaquePointer?, iter2: COpaquePointer?, codepointorder: Byte): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uStrCompareIter((iter1?.value ?: 0L), (iter2?.value ?: 0L), codepointorder)
 
-public actual fun u_strFindFirst(s: Long, length: Int, substring: Long, sublength: Int): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_strFindFirst(s, length, substring, sublength)
+public actual fun uStrFindFirst(s: COpaquePointer?, length: Int, substring: COpaquePointer?, sublength: Int): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uStrFindFirst((s?.value ?: 0L), length, (substring?.value ?: 0L), sublength).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun u_strFindLast(s: Long, length: Int, substring: Long, sublength: Int): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_strFindLast(s, length, substring, sublength)
+public actual fun uStrFindLast(s: COpaquePointer?, length: Int, substring: COpaquePointer?, sublength: Int): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uStrFindLast((s?.value ?: 0L), length, (substring?.value ?: 0L), sublength).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun u_strFoldCase(dest: Long, destcapacity: Int, src: Long, srclength: Int, options: UInt, perrorcode: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_strFoldCase(dest, destcapacity, src, srclength, options.toInt(), perrorcode)
+public actual fun uStrFoldCase(dest: COpaquePointer?, destcapacity: Int, src: COpaquePointer?, srclength: Int, options: UInt, perrorcode: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uStrFoldCase((dest?.value ?: 0L), destcapacity, (src?.value ?: 0L), srclength, options.toInt(), (perrorcode?.value ?: 0L))
 
-public actual fun u_strFromJavaModifiedUTF8WithSub(dest: Long, destcapacity: Int, pdestlength: Long, src: PCSTR, srclength: Int, subchar: Int, pnumsubstitutions: Long, perrorcode: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_strFromJavaModifiedUTF8WithSub(dest, destcapacity, pdestlength, src, srclength, subchar, pnumsubstitutions, perrorcode)
+public actual fun uStrFromJavaModifiedUtf8WithSub(dest: COpaquePointer?, destcapacity: Int, pdestlength: COpaquePointer?, src: Pcstr, srclength: Int, subchar: Int, pnumsubstitutions: COpaquePointer?, perrorcode: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uStrFromJavaModifiedUtf8WithSub((dest?.value ?: 0L), destcapacity, (pdestlength?.value ?: 0L), (src?.value ?: 0L), srclength, subchar, (pnumsubstitutions?.value ?: 0L), (perrorcode?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun u_strFromUTF32(dest: Long, destcapacity: Int, pdestlength: Long, src: Long, srclength: Int, perrorcode: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_strFromUTF32(dest, destcapacity, pdestlength, src, srclength, perrorcode)
+public actual fun uStrFromUtf32(dest: COpaquePointer?, destcapacity: Int, pdestlength: COpaquePointer?, src: COpaquePointer?, srclength: Int, perrorcode: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uStrFromUtf32((dest?.value ?: 0L), destcapacity, (pdestlength?.value ?: 0L), (src?.value ?: 0L), srclength, (perrorcode?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun u_strFromUTF32WithSub(dest: Long, destcapacity: Int, pdestlength: Long, src: Long, srclength: Int, subchar: Int, pnumsubstitutions: Long, perrorcode: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_strFromUTF32WithSub(dest, destcapacity, pdestlength, src, srclength, subchar, pnumsubstitutions, perrorcode)
+public actual fun uStrFromUtf32WithSub(dest: COpaquePointer?, destcapacity: Int, pdestlength: COpaquePointer?, src: COpaquePointer?, srclength: Int, subchar: Int, pnumsubstitutions: COpaquePointer?, perrorcode: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uStrFromUtf32WithSub((dest?.value ?: 0L), destcapacity, (pdestlength?.value ?: 0L), (src?.value ?: 0L), srclength, subchar, (pnumsubstitutions?.value ?: 0L), (perrorcode?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun u_strFromUTF8(dest: Long, destcapacity: Int, pdestlength: Long, src: PCSTR, srclength: Int, perrorcode: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_strFromUTF8(dest, destcapacity, pdestlength, src, srclength, perrorcode)
+public actual fun uStrFromUtf8(dest: COpaquePointer?, destcapacity: Int, pdestlength: COpaquePointer?, src: Pcstr, srclength: Int, perrorcode: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uStrFromUtf8((dest?.value ?: 0L), destcapacity, (pdestlength?.value ?: 0L), (src?.value ?: 0L), srclength, (perrorcode?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun u_strFromUTF8Lenient(dest: Long, destcapacity: Int, pdestlength: Long, src: PCSTR, srclength: Int, perrorcode: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_strFromUTF8Lenient(dest, destcapacity, pdestlength, src, srclength, perrorcode)
+public actual fun uStrFromUtf8Lenient(dest: COpaquePointer?, destcapacity: Int, pdestlength: COpaquePointer?, src: Pcstr, srclength: Int, perrorcode: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uStrFromUtf8Lenient((dest?.value ?: 0L), destcapacity, (pdestlength?.value ?: 0L), (src?.value ?: 0L), srclength, (perrorcode?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun u_strFromUTF8WithSub(dest: Long, destcapacity: Int, pdestlength: Long, src: PCSTR, srclength: Int, subchar: Int, pnumsubstitutions: Long, perrorcode: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_strFromUTF8WithSub(dest, destcapacity, pdestlength, src, srclength, subchar, pnumsubstitutions, perrorcode)
+public actual fun uStrFromUtf8WithSub(dest: COpaquePointer?, destcapacity: Int, pdestlength: COpaquePointer?, src: Pcstr, srclength: Int, subchar: Int, pnumsubstitutions: COpaquePointer?, perrorcode: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uStrFromUtf8WithSub((dest?.value ?: 0L), destcapacity, (pdestlength?.value ?: 0L), (src?.value ?: 0L), srclength, subchar, (pnumsubstitutions?.value ?: 0L), (perrorcode?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun u_strFromWCS(dest: Long, destcapacity: Int, pdestlength: Long, src: PCWSTR, srclength: Int, perrorcode: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_strFromWCS(dest, destcapacity, pdestlength, src, srclength, perrorcode)
+public actual fun uStrFromWcs(dest: COpaquePointer?, destcapacity: Int, pdestlength: COpaquePointer?, src: Pcwstr, srclength: Int, perrorcode: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uStrFromWcs((dest?.value ?: 0L), destcapacity, (pdestlength?.value ?: 0L), (src?.value ?: 0L), srclength, (perrorcode?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun u_strHasMoreChar32Than(s: Long, length: Int, number: Int): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_strHasMoreChar32Than(s, length, number)
+public actual fun uStrHasMoreChar32Than(s: COpaquePointer?, length: Int, number: Int): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uStrHasMoreChar32Than((s?.value ?: 0L), length, number)
 
-public actual fun u_strToJavaModifiedUTF8(dest: PCSTR, destcapacity: Int, pdestlength: Long, src: Long, srclength: Int, perrorcode: Long): PSTR =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_strToJavaModifiedUTF8(dest, destcapacity, pdestlength, src, srclength, perrorcode)
+public actual fun uStrToJavaModifiedUtf8(dest: Pcstr, destcapacity: Int, pdestlength: COpaquePointer?, src: COpaquePointer?, srclength: Int, perrorcode: COpaquePointer?): Pstr =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uStrToJavaModifiedUtf8((dest?.value ?: 0L), destcapacity, (pdestlength?.value ?: 0L), (src?.value ?: 0L), srclength, (perrorcode?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun u_strToLower(dest: Long, destcapacity: Int, src: Long, srclength: Int, locale: PCSTR, perrorcode: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_strToLower(dest, destcapacity, src, srclength, locale, perrorcode)
+public actual fun uStrToLower(dest: COpaquePointer?, destcapacity: Int, src: COpaquePointer?, srclength: Int, locale: Pcstr, perrorcode: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uStrToLower((dest?.value ?: 0L), destcapacity, (src?.value ?: 0L), srclength, (locale?.value ?: 0L), (perrorcode?.value ?: 0L))
 
-public actual fun u_strToTitle(dest: Long, destcapacity: Int, src: Long, srclength: Int, titleiter: Long, locale: PCSTR, perrorcode: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_strToTitle(dest, destcapacity, src, srclength, titleiter, locale, perrorcode)
+public actual fun uStrToTitle(dest: COpaquePointer?, destcapacity: Int, src: COpaquePointer?, srclength: Int, titleiter: COpaquePointer?, locale: Pcstr, perrorcode: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uStrToTitle((dest?.value ?: 0L), destcapacity, (src?.value ?: 0L), srclength, (titleiter?.value ?: 0L), (locale?.value ?: 0L), (perrorcode?.value ?: 0L))
 
-public actual fun u_strToUTF32(dest: Long, destcapacity: Int, pdestlength: Long, src: Long, srclength: Int, perrorcode: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_strToUTF32(dest, destcapacity, pdestlength, src, srclength, perrorcode)
+public actual fun uStrToUtf32(dest: COpaquePointer?, destcapacity: Int, pdestlength: COpaquePointer?, src: COpaquePointer?, srclength: Int, perrorcode: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uStrToUtf32((dest?.value ?: 0L), destcapacity, (pdestlength?.value ?: 0L), (src?.value ?: 0L), srclength, (perrorcode?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun u_strToUTF32WithSub(dest: Long, destcapacity: Int, pdestlength: Long, src: Long, srclength: Int, subchar: Int, pnumsubstitutions: Long, perrorcode: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_strToUTF32WithSub(dest, destcapacity, pdestlength, src, srclength, subchar, pnumsubstitutions, perrorcode)
+public actual fun uStrToUtf32WithSub(dest: COpaquePointer?, destcapacity: Int, pdestlength: COpaquePointer?, src: COpaquePointer?, srclength: Int, subchar: Int, pnumsubstitutions: COpaquePointer?, perrorcode: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uStrToUtf32WithSub((dest?.value ?: 0L), destcapacity, (pdestlength?.value ?: 0L), (src?.value ?: 0L), srclength, subchar, (pnumsubstitutions?.value ?: 0L), (perrorcode?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun u_strToUTF8(dest: PCSTR, destcapacity: Int, pdestlength: Long, src: Long, srclength: Int, perrorcode: Long): PSTR =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_strToUTF8(dest, destcapacity, pdestlength, src, srclength, perrorcode)
+public actual fun uStrToUtf8(dest: Pcstr, destcapacity: Int, pdestlength: COpaquePointer?, src: COpaquePointer?, srclength: Int, perrorcode: COpaquePointer?): Pstr =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uStrToUtf8((dest?.value ?: 0L), destcapacity, (pdestlength?.value ?: 0L), (src?.value ?: 0L), srclength, (perrorcode?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun u_strToUTF8WithSub(dest: PCSTR, destcapacity: Int, pdestlength: Long, src: Long, srclength: Int, subchar: Int, pnumsubstitutions: Long, perrorcode: Long): PSTR =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_strToUTF8WithSub(dest, destcapacity, pdestlength, src, srclength, subchar, pnumsubstitutions, perrorcode)
+public actual fun uStrToUtf8WithSub(dest: Pcstr, destcapacity: Int, pdestlength: COpaquePointer?, src: COpaquePointer?, srclength: Int, subchar: Int, pnumsubstitutions: COpaquePointer?, perrorcode: COpaquePointer?): Pstr =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uStrToUtf8WithSub((dest?.value ?: 0L), destcapacity, (pdestlength?.value ?: 0L), (src?.value ?: 0L), srclength, subchar, (pnumsubstitutions?.value ?: 0L), (perrorcode?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun u_strToUpper(dest: Long, destcapacity: Int, src: Long, srclength: Int, locale: PCSTR, perrorcode: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_strToUpper(dest, destcapacity, src, srclength, locale, perrorcode)
+public actual fun uStrToUpper(dest: COpaquePointer?, destcapacity: Int, src: COpaquePointer?, srclength: Int, locale: Pcstr, perrorcode: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uStrToUpper((dest?.value ?: 0L), destcapacity, (src?.value ?: 0L), srclength, (locale?.value ?: 0L), (perrorcode?.value ?: 0L))
 
-public actual fun u_strToWCS(dest: PCWSTR, destcapacity: Int, pdestlength: Long, src: Long, srclength: Int, perrorcode: Long): PWSTR =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_strToWCS(dest, destcapacity, pdestlength, src, srclength, perrorcode)
+public actual fun uStrToWcs(dest: Pcwstr, destcapacity: Int, pdestlength: COpaquePointer?, src: COpaquePointer?, srclength: Int, perrorcode: COpaquePointer?): Pwstr =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uStrToWcs((dest?.value ?: 0L), destcapacity, (pdestlength?.value ?: 0L), (src?.value ?: 0L), srclength, (perrorcode?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun u_strcasecmp(s1: Long, s2: Long, options: UInt): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_strcasecmp(s1, s2, options.toInt())
+public actual fun uStrcasecmp(s1: COpaquePointer?, s2: COpaquePointer?, options: UInt): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uStrcasecmp((s1?.value ?: 0L), (s2?.value ?: 0L), options.toInt())
 
-public actual fun u_strcat(dst: Long, src: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_strcat(dst, src)
+public actual fun uStrcat(dst: COpaquePointer?, src: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uStrcat((dst?.value ?: 0L), (src?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun u_strchr(s: Long, c: UShort): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_strchr(s, c.toShort())
+public actual fun uStrchr(s: COpaquePointer?, c: UShort): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uStrchr((s?.value ?: 0L), c.toShort()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun u_strchr32(s: Long, c: Int): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_strchr32(s, c)
+public actual fun uStrchr32(s: COpaquePointer?, c: Int): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uStrchr32((s?.value ?: 0L), c).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun u_strcmp(s1: Long, s2: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_strcmp(s1, s2)
+public actual fun uStrcmp(s1: COpaquePointer?, s2: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uStrcmp((s1?.value ?: 0L), (s2?.value ?: 0L))
 
-public actual fun u_strcmpCodePointOrder(s1: Long, s2: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_strcmpCodePointOrder(s1, s2)
+public actual fun uStrcmpCodePointOrder(s1: COpaquePointer?, s2: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uStrcmpCodePointOrder((s1?.value ?: 0L), (s2?.value ?: 0L))
 
-public actual fun u_strcpy(dst: Long, src: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_strcpy(dst, src)
+public actual fun uStrcpy(dst: COpaquePointer?, src: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uStrcpy((dst?.value ?: 0L), (src?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun u_strcspn(string: Long, matchset: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_strcspn(string, matchset)
+public actual fun uStrcspn(string: COpaquePointer?, matchset: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uStrcspn((string?.value ?: 0L), (matchset?.value ?: 0L))
 
-public actual fun u_strlen(s: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_strlen(s)
+public actual fun uStrlen(s: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uStrlen((s?.value ?: 0L))
 
-public actual fun u_strncasecmp(s1: Long, s2: Long, n: Int, options: UInt): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_strncasecmp(s1, s2, n, options.toInt())
+public actual fun uStrncasecmp(s1: COpaquePointer?, s2: COpaquePointer?, n: Int, options: UInt): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uStrncasecmp((s1?.value ?: 0L), (s2?.value ?: 0L), n, options.toInt())
 
-public actual fun u_strncat(dst: Long, src: Long, n: Int): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_strncat(dst, src, n)
+public actual fun uStrncat(dst: COpaquePointer?, src: COpaquePointer?, n: Int): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uStrncat((dst?.value ?: 0L), (src?.value ?: 0L), n).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun u_strncmp(ucs1: Long, ucs2: Long, n: Int): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_strncmp(ucs1, ucs2, n)
+public actual fun uStrncmp(ucs1: COpaquePointer?, ucs2: COpaquePointer?, n: Int): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uStrncmp((ucs1?.value ?: 0L), (ucs2?.value ?: 0L), n)
 
-public actual fun u_strncmpCodePointOrder(s1: Long, s2: Long, n: Int): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_strncmpCodePointOrder(s1, s2, n)
+public actual fun uStrncmpCodePointOrder(s1: COpaquePointer?, s2: COpaquePointer?, n: Int): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uStrncmpCodePointOrder((s1?.value ?: 0L), (s2?.value ?: 0L), n)
 
-public actual fun u_strncpy(dst: Long, src: Long, n: Int): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_strncpy(dst, src, n)
+public actual fun uStrncpy(dst: COpaquePointer?, src: COpaquePointer?, n: Int): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uStrncpy((dst?.value ?: 0L), (src?.value ?: 0L), n).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun u_strpbrk(string: Long, matchset: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_strpbrk(string, matchset)
+public actual fun uStrpbrk(string: COpaquePointer?, matchset: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uStrpbrk((string?.value ?: 0L), (matchset?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun u_strrchr(s: Long, c: UShort): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_strrchr(s, c.toShort())
+public actual fun uStrrchr(s: COpaquePointer?, c: UShort): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uStrrchr((s?.value ?: 0L), c.toShort()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun u_strrchr32(s: Long, c: Int): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_strrchr32(s, c)
+public actual fun uStrrchr32(s: COpaquePointer?, c: Int): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uStrrchr32((s?.value ?: 0L), c).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun u_strrstr(s: Long, substring: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_strrstr(s, substring)
+public actual fun uStrrstr(s: COpaquePointer?, substring: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uStrrstr((s?.value ?: 0L), (substring?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun u_strspn(string: Long, matchset: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_strspn(string, matchset)
+public actual fun uStrspn(string: COpaquePointer?, matchset: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uStrspn((string?.value ?: 0L), (matchset?.value ?: 0L))
 
-public actual fun u_strstr(s: Long, substring: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_strstr(s, substring)
+public actual fun uStrstr(s: COpaquePointer?, substring: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uStrstr((s?.value ?: 0L), (substring?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun u_strtok_r(src: Long, delim: Long, savestate: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_strtok_r(src, delim, savestate)
+public actual fun uStrtokR(src: COpaquePointer?, delim: COpaquePointer?, savestate: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uStrtokR((src?.value ?: 0L), (delim?.value ?: 0L), (savestate?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun u_tolower(c: Int): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_tolower(c)
+public actual fun uTolower(c: Int): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uTolower(c)
 
-public actual fun u_totitle(c: Int): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_totitle(c)
+public actual fun uTotitle(c: Int): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uTotitle(c)
 
-public actual fun u_toupper(c: Int): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_toupper(c)
+public actual fun uToupper(c: Int): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uToupper(c)
 
-public actual fun u_uastrcpy(dst: Long, src: PCSTR): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_uastrcpy(dst, src)
+public actual fun uUastrcpy(dst: COpaquePointer?, src: Pcstr): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uUastrcpy((dst?.value ?: 0L), (src?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun u_uastrncpy(dst: Long, src: PCSTR, n: Int): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_uastrncpy(dst, src, n)
+public actual fun uUastrncpy(dst: COpaquePointer?, src: Pcstr, n: Int): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uUastrncpy((dst?.value ?: 0L), (src?.value ?: 0L), n).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun u_unescape(src: PCSTR, dest: Long, destcapacity: Int): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_unescape(src, dest, destcapacity)
+public actual fun uUnescape(src: Pcstr, dest: COpaquePointer?, destcapacity: Int): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uUnescape((src?.value ?: 0L), (dest?.value ?: 0L), destcapacity)
 
-public actual fun u_unescapeAt(charat: UNESCAPE_CHAR_AT, offset: Long, length: Int, context: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_unescapeAt(charat.toLong(), offset, length, context)
+public actual fun uUnescapeAt(charat: UnescapeCharAt, offset: COpaquePointer?, length: Int, context: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uUnescapeAt(0L, (offset?.value ?: 0L), length, (context?.value ?: 0L))
 
-public actual fun u_versionFromString(versionarray: Long, versionstring: PCSTR) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_versionFromString(versionarray, versionstring)
+public actual fun uVersionFromString(versionarray: COpaquePointer?, versionstring: Pcstr) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uVersionFromString((versionarray?.value ?: 0L), (versionstring?.value ?: 0L))
 }
 
-public actual fun u_versionFromUString(versionarray: Long, versionstring: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_versionFromUString(versionarray, versionstring)
+public actual fun uVersionFromUstring(versionarray: COpaquePointer?, versionstring: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uVersionFromUstring((versionarray?.value ?: 0L), (versionstring?.value ?: 0L))
 }
 
-public actual fun u_versionToString(versionarray: Long, versionstring: PCSTR) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_versionToString(versionarray, versionstring)
+public actual fun uVersionToString(versionarray: COpaquePointer?, versionstring: Pcstr) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uVersionToString((versionarray?.value ?: 0L), (versionstring?.value ?: 0L))
 }
 
-public actual fun u_vformatMessage(locale: PCSTR, pattern: Long, patternlength: Int, result: Long, resultlength: Int, ap: Long, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_vformatMessage(locale, pattern, patternlength, result, resultlength, ap, status)
+public actual fun uVformatMessage(locale: Pcstr, pattern: COpaquePointer?, patternlength: Int, result: COpaquePointer?, resultlength: Int, ap: COpaquePointer?, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uVformatMessage((locale?.value ?: 0L), (pattern?.value ?: 0L), patternlength, (result?.value ?: 0L), resultlength, (ap?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun u_vformatMessageWithError(locale: PCSTR, pattern: Long, patternlength: Int, result: Long, resultlength: Int, parseerror: Long, ap: Long, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_vformatMessageWithError(locale, pattern, patternlength, result, resultlength, parseerror, ap, status)
+public actual fun uVformatMessageWithError(locale: Pcstr, pattern: COpaquePointer?, patternlength: Int, result: COpaquePointer?, resultlength: Int, parseerror: COpaquePointer?, ap: COpaquePointer?, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uVformatMessageWithError((locale?.value ?: 0L), (pattern?.value ?: 0L), patternlength, (result?.value ?: 0L), resultlength, (parseerror?.value ?: 0L), (ap?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun u_vparseMessage(locale: PCSTR, pattern: Long, patternlength: Int, source: Long, sourcelength: Int, ap: Long, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_vparseMessage(locale, pattern, patternlength, source, sourcelength, ap, status)
+public actual fun uVparseMessage(locale: Pcstr, pattern: COpaquePointer?, patternlength: Int, source: COpaquePointer?, sourcelength: Int, ap: COpaquePointer?, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uVparseMessage((locale?.value ?: 0L), (pattern?.value ?: 0L), patternlength, (source?.value ?: 0L), sourcelength, (ap?.value ?: 0L), (status?.value ?: 0L))
 }
 
-public actual fun u_vparseMessageWithError(locale: PCSTR, pattern: Long, patternlength: Int, source: Long, sourcelength: Int, ap: Long, parseerror: Long, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_u_vparseMessageWithError(locale, pattern, patternlength, source, sourcelength, ap, parseerror, status)
+public actual fun uVparseMessageWithError(locale: Pcstr, pattern: COpaquePointer?, patternlength: Int, source: COpaquePointer?, sourcelength: Int, ap: COpaquePointer?, parseerror: COpaquePointer?, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uVparseMessageWithError((locale?.value ?: 0L), (pattern?.value ?: 0L), patternlength, (source?.value ?: 0L), sourcelength, (ap?.value ?: 0L), (parseerror?.value ?: 0L), (status?.value ?: 0L))
 }
 
-public actual fun ubidi_close(pbidi: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidi_close(pbidi)
+public actual fun ubidiClose(pbidi: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidiClose((pbidi?.value ?: 0L))
 }
 
-public actual fun ubidi_countParagraphs(pbidi: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidi_countParagraphs(pbidi)
+public actual fun ubidiCountParagraphs(pbidi: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidiCountParagraphs((pbidi?.value ?: 0L))
 
-public actual fun ubidi_countRuns(pbidi: Long, perrorcode: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidi_countRuns(pbidi, perrorcode)
+public actual fun ubidiCountRuns(pbidi: COpaquePointer?, perrorcode: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidiCountRuns((pbidi?.value ?: 0L), (perrorcode?.value ?: 0L))
 
-public actual fun ubidi_getBaseDirection(text: Long, length: Int): UBiDiDirection =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidi_getBaseDirection(text, length)
+public actual fun ubidiGetBaseDirection(text: COpaquePointer?, length: Int): UBiDiDirection =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidiGetBaseDirection((text?.value ?: 0L), length)
 
-public actual fun ubidi_getClassCallback(pbidi: Long, fn: Long, context: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidi_getClassCallback(pbidi, fn, context)
+public actual fun ubidiGetClassCallback(pbidi: COpaquePointer?, fn: COpaquePointer?, context: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidiGetClassCallback((pbidi?.value ?: 0L), (fn?.value ?: 0L), (context?.value ?: 0L))
 }
 
-public actual fun ubidi_getCustomizedClass(pbidi: Long, c: Int): UCharDirection =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidi_getCustomizedClass(pbidi, c)
+public actual fun ubidiGetCustomizedClass(pbidi: COpaquePointer?, c: Int): UCharDirection =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidiGetCustomizedClass((pbidi?.value ?: 0L), c)
 
-public actual fun ubidi_getDirection(pbidi: Long): UBiDiDirection =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidi_getDirection(pbidi)
+public actual fun ubidiGetDirection(pbidi: COpaquePointer?): UBiDiDirection =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidiGetDirection((pbidi?.value ?: 0L))
 
-public actual fun ubidi_getLength(pbidi: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidi_getLength(pbidi)
+public actual fun ubidiGetLength(pbidi: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidiGetLength((pbidi?.value ?: 0L))
 
-public actual fun ubidi_getLevelAt(pbidi: Long, charindex: Int): UByte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidi_getLevelAt(pbidi, charindex).toUByte()
+public actual fun ubidiGetLevelAt(pbidi: COpaquePointer?, charindex: Int): UByte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidiGetLevelAt((pbidi?.value ?: 0L), charindex).toUByte()
 
-public actual fun ubidi_getLevels(pbidi: Long, perrorcode: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidi_getLevels(pbidi, perrorcode)
+public actual fun ubidiGetLevels(pbidi: COpaquePointer?, perrorcode: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidiGetLevels((pbidi?.value ?: 0L), (perrorcode?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ubidi_getLogicalIndex(pbidi: Long, visualindex: Int, perrorcode: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidi_getLogicalIndex(pbidi, visualindex, perrorcode)
+public actual fun ubidiGetLogicalIndex(pbidi: COpaquePointer?, visualindex: Int, perrorcode: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidiGetLogicalIndex((pbidi?.value ?: 0L), visualindex, (perrorcode?.value ?: 0L))
 
-public actual fun ubidi_getLogicalMap(pbidi: Long, indexmap: Long, perrorcode: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidi_getLogicalMap(pbidi, indexmap, perrorcode)
+public actual fun ubidiGetLogicalMap(pbidi: COpaquePointer?, indexmap: COpaquePointer?, perrorcode: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidiGetLogicalMap((pbidi?.value ?: 0L), (indexmap?.value ?: 0L), (perrorcode?.value ?: 0L))
 }
 
-public actual fun ubidi_getLogicalRun(pbidi: Long, logicalposition: Int, plogicallimit: Long, plevel: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidi_getLogicalRun(pbidi, logicalposition, plogicallimit, plevel)
+public actual fun ubidiGetLogicalRun(pbidi: COpaquePointer?, logicalposition: Int, plogicallimit: COpaquePointer?, plevel: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidiGetLogicalRun((pbidi?.value ?: 0L), logicalposition, (plogicallimit?.value ?: 0L), (plevel?.value ?: 0L))
 }
 
-public actual fun ubidi_getParaLevel(pbidi: Long): UByte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidi_getParaLevel(pbidi).toUByte()
+public actual fun ubidiGetParaLevel(pbidi: COpaquePointer?): UByte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidiGetParaLevel((pbidi?.value ?: 0L)).toUByte()
 
-public actual fun ubidi_getParagraph(pbidi: Long, charindex: Int, pparastart: Long, pparalimit: Long, pparalevel: Long, perrorcode: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidi_getParagraph(pbidi, charindex, pparastart, pparalimit, pparalevel, perrorcode)
+public actual fun ubidiGetParagraph(pbidi: COpaquePointer?, charindex: Int, pparastart: COpaquePointer?, pparalimit: COpaquePointer?, pparalevel: COpaquePointer?, perrorcode: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidiGetParagraph((pbidi?.value ?: 0L), charindex, (pparastart?.value ?: 0L), (pparalimit?.value ?: 0L), (pparalevel?.value ?: 0L), (perrorcode?.value ?: 0L))
 
-public actual fun ubidi_getParagraphByIndex(pbidi: Long, paraindex: Int, pparastart: Long, pparalimit: Long, pparalevel: Long, perrorcode: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidi_getParagraphByIndex(pbidi, paraindex, pparastart, pparalimit, pparalevel, perrorcode)
+public actual fun ubidiGetParagraphByIndex(pbidi: COpaquePointer?, paraindex: Int, pparastart: COpaquePointer?, pparalimit: COpaquePointer?, pparalevel: COpaquePointer?, perrorcode: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidiGetParagraphByIndex((pbidi?.value ?: 0L), paraindex, (pparastart?.value ?: 0L), (pparalimit?.value ?: 0L), (pparalevel?.value ?: 0L), (perrorcode?.value ?: 0L))
 }
 
-public actual fun ubidi_getProcessedLength(pbidi: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidi_getProcessedLength(pbidi)
+public actual fun ubidiGetProcessedLength(pbidi: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidiGetProcessedLength((pbidi?.value ?: 0L))
 
-public actual fun ubidi_getReorderingMode(pbidi: Long): UBiDiReorderingMode =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidi_getReorderingMode(pbidi)
+public actual fun ubidiGetReorderingMode(pbidi: COpaquePointer?): UBiDiReorderingMode =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidiGetReorderingMode((pbidi?.value ?: 0L))
 
-public actual fun ubidi_getReorderingOptions(pbidi: Long): UInt =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidi_getReorderingOptions(pbidi).toUInt()
+public actual fun ubidiGetReorderingOptions(pbidi: COpaquePointer?): UInt =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidiGetReorderingOptions((pbidi?.value ?: 0L)).toUInt()
 
-public actual fun ubidi_getResultLength(pbidi: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidi_getResultLength(pbidi)
+public actual fun ubidiGetResultLength(pbidi: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidiGetResultLength((pbidi?.value ?: 0L))
 
-public actual fun ubidi_getText(pbidi: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidi_getText(pbidi)
+public actual fun ubidiGetText(pbidi: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidiGetText((pbidi?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ubidi_getVisualIndex(pbidi: Long, logicalindex: Int, perrorcode: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidi_getVisualIndex(pbidi, logicalindex, perrorcode)
+public actual fun ubidiGetVisualIndex(pbidi: COpaquePointer?, logicalindex: Int, perrorcode: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidiGetVisualIndex((pbidi?.value ?: 0L), logicalindex, (perrorcode?.value ?: 0L))
 
-public actual fun ubidi_getVisualMap(pbidi: Long, indexmap: Long, perrorcode: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidi_getVisualMap(pbidi, indexmap, perrorcode)
+public actual fun ubidiGetVisualMap(pbidi: COpaquePointer?, indexmap: COpaquePointer?, perrorcode: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidiGetVisualMap((pbidi?.value ?: 0L), (indexmap?.value ?: 0L), (perrorcode?.value ?: 0L))
 }
 
-public actual fun ubidi_getVisualRun(pbidi: Long, runindex: Int, plogicalstart: Long, plength: Long): UBiDiDirection =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidi_getVisualRun(pbidi, runindex, plogicalstart, plength)
+public actual fun ubidiGetVisualRun(pbidi: COpaquePointer?, runindex: Int, plogicalstart: COpaquePointer?, plength: COpaquePointer?): UBiDiDirection =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidiGetVisualRun((pbidi?.value ?: 0L), runindex, (plogicalstart?.value ?: 0L), (plength?.value ?: 0L))
 
-public actual fun ubidi_invertMap(srcmap: Long, destmap: Long, length: Int) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidi_invertMap(srcmap, destmap, length)
+public actual fun ubidiInvertMap(srcmap: COpaquePointer?, destmap: COpaquePointer?, length: Int) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidiInvertMap((srcmap?.value ?: 0L), (destmap?.value ?: 0L), length)
 }
 
-public actual fun ubidi_isInverse(pbidi: Long): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidi_isInverse(pbidi)
+public actual fun ubidiIsInverse(pbidi: COpaquePointer?): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidiIsInverse((pbidi?.value ?: 0L))
 
-public actual fun ubidi_isOrderParagraphsLTR(pbidi: Long): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidi_isOrderParagraphsLTR(pbidi)
+public actual fun ubidiIsOrderParagraphsLtr(pbidi: COpaquePointer?): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidiIsOrderParagraphsLtr((pbidi?.value ?: 0L))
 
-public actual fun ubidi_open(): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidi_open()
+public actual fun ubidiOpen(): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidiOpen().let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ubidi_openSized(maxlength: Int, maxruncount: Int, perrorcode: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidi_openSized(maxlength, maxruncount, perrorcode)
+public actual fun ubidiOpenSized(maxlength: Int, maxruncount: Int, perrorcode: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidiOpenSized(maxlength, maxruncount, (perrorcode?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ubidi_orderParagraphsLTR(pbidi: Long, orderparagraphsltr: Byte) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidi_orderParagraphsLTR(pbidi, orderparagraphsltr)
+public actual fun ubidiOrderParagraphsLtr(pbidi: COpaquePointer?, orderparagraphsltr: Byte) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidiOrderParagraphsLtr((pbidi?.value ?: 0L), orderparagraphsltr)
 }
 
-public actual fun ubidi_reorderLogical(levels: Long, length: Int, indexmap: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidi_reorderLogical(levels, length, indexmap)
+public actual fun ubidiReorderLogical(levels: COpaquePointer?, length: Int, indexmap: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidiReorderLogical((levels?.value ?: 0L), length, (indexmap?.value ?: 0L))
 }
 
-public actual fun ubidi_reorderVisual(levels: Long, length: Int, indexmap: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidi_reorderVisual(levels, length, indexmap)
+public actual fun ubidiReorderVisual(levels: COpaquePointer?, length: Int, indexmap: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidiReorderVisual((levels?.value ?: 0L), length, (indexmap?.value ?: 0L))
 }
 
-public actual fun ubidi_setClassCallback(pbidi: Long, newfn: UBiDiClassCallback, newcontext: Long, oldfn: Long, oldcontext: Long, perrorcode: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidi_setClassCallback(pbidi, newfn.toLong(), newcontext, oldfn, oldcontext, perrorcode)
+public actual fun ubidiSetClassCallback(pbidi: COpaquePointer?, newfn: UBiDiClassCallback, newcontext: COpaquePointer?, oldfn: COpaquePointer?, oldcontext: COpaquePointer?, perrorcode: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidiSetClassCallback((pbidi?.value ?: 0L), 0L, (newcontext?.value ?: 0L), (oldfn?.value ?: 0L), (oldcontext?.value ?: 0L), (perrorcode?.value ?: 0L))
 }
 
-public actual fun ubidi_setContext(pbidi: Long, prologue: Long, prolength: Int, epilogue: Long, epilength: Int, perrorcode: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidi_setContext(pbidi, prologue, prolength, epilogue, epilength, perrorcode)
+public actual fun ubidiSetContext(pbidi: COpaquePointer?, prologue: COpaquePointer?, prolength: Int, epilogue: COpaquePointer?, epilength: Int, perrorcode: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidiSetContext((pbidi?.value ?: 0L), (prologue?.value ?: 0L), prolength, (epilogue?.value ?: 0L), epilength, (perrorcode?.value ?: 0L))
 }
 
-public actual fun ubidi_setInverse(pbidi: Long, isinverse: Byte) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidi_setInverse(pbidi, isinverse)
+public actual fun ubidiSetInverse(pbidi: COpaquePointer?, isinverse: Byte) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidiSetInverse((pbidi?.value ?: 0L), isinverse)
 }
 
-public actual fun ubidi_setLine(pparabidi: Long, start: Int, limit: Int, plinebidi: Long, perrorcode: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidi_setLine(pparabidi, start, limit, plinebidi, perrorcode)
+public actual fun ubidiSetLine(pparabidi: COpaquePointer?, start: Int, limit: Int, plinebidi: COpaquePointer?, perrorcode: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidiSetLine((pparabidi?.value ?: 0L), start, limit, (plinebidi?.value ?: 0L), (perrorcode?.value ?: 0L))
 }
 
-public actual fun ubidi_setPara(pbidi: Long, text: Long, length: Int, paralevel: UByte, embeddinglevels: Long, perrorcode: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidi_setPara(pbidi, text, length, paralevel.toByte(), embeddinglevels, perrorcode)
+public actual fun ubidiSetPara(pbidi: COpaquePointer?, text: COpaquePointer?, length: Int, paralevel: UByte, embeddinglevels: COpaquePointer?, perrorcode: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidiSetPara((pbidi?.value ?: 0L), (text?.value ?: 0L), length, paralevel.toByte(), (embeddinglevels?.value ?: 0L), (perrorcode?.value ?: 0L))
 }
 
-public actual fun ubidi_setReorderingMode(pbidi: Long, reorderingmode: UBiDiReorderingMode) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidi_setReorderingMode(pbidi, reorderingmode)
+public actual fun ubidiSetReorderingMode(pbidi: COpaquePointer?, reorderingmode: UBiDiReorderingMode) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidiSetReorderingMode((pbidi?.value ?: 0L), reorderingmode)
 }
 
-public actual fun ubidi_setReorderingOptions(pbidi: Long, reorderingoptions: UInt) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidi_setReorderingOptions(pbidi, reorderingoptions.toInt())
+public actual fun ubidiSetReorderingOptions(pbidi: COpaquePointer?, reorderingoptions: UInt) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidiSetReorderingOptions((pbidi?.value ?: 0L), reorderingoptions.toInt())
 }
 
-public actual fun ubidi_writeReordered(pbidi: Long, dest: Long, destsize: Int, options: UShort, perrorcode: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidi_writeReordered(pbidi, dest, destsize, options.toShort(), perrorcode)
+public actual fun ubidiWriteReordered(pbidi: COpaquePointer?, dest: COpaquePointer?, destsize: Int, options: UShort, perrorcode: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidiWriteReordered((pbidi?.value ?: 0L), (dest?.value ?: 0L), destsize, options.toShort(), (perrorcode?.value ?: 0L))
 
-public actual fun ubidi_writeReverse(src: Long, srclength: Int, dest: Long, destsize: Int, options: UShort, perrorcode: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidi_writeReverse(src, srclength, dest, destsize, options.toShort(), perrorcode)
+public actual fun ubidiWriteReverse(src: COpaquePointer?, srclength: Int, dest: COpaquePointer?, destsize: Int, options: UShort, perrorcode: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubidiWriteReverse((src?.value ?: 0L), srclength, (dest?.value ?: 0L), destsize, options.toShort(), (perrorcode?.value ?: 0L))
 
-public actual fun ubiditransform_close(pbiditransform: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubiditransform_close(pbiditransform)
+public actual fun ubiditransformClose(pbiditransform: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubiditransformClose((pbiditransform?.value ?: 0L))
 }
 
-public actual fun ubiditransform_open(perrorcode: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubiditransform_open(perrorcode)
+public actual fun ubiditransformOpen(perrorcode: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubiditransformOpen((perrorcode?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ubiditransform_transform(pbiditransform: Long, src: Long, srclength: Int, dest: Long, destsize: Int, inparalevel: UByte, inorder: UBiDiOrder, outparalevel: UByte, outorder: UBiDiOrder, domirroring: UBiDiMirroring, shapingoptions: UInt, perrorcode: Long): UInt =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubiditransform_transform(pbiditransform, src, srclength, dest, destsize, inparalevel.toByte(), inorder, outparalevel.toByte(), outorder, domirroring, shapingoptions.toInt(), perrorcode).toUInt()
+public actual fun ubiditransformTransform(pbiditransform: COpaquePointer?, src: COpaquePointer?, srclength: Int, dest: COpaquePointer?, destsize: Int, inparalevel: UByte, inorder: UBiDiOrder, outparalevel: UByte, outorder: UBiDiOrder, domirroring: UBiDiMirroring, shapingoptions: UInt, perrorcode: COpaquePointer?): UInt =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubiditransformTransform((pbiditransform?.value ?: 0L), (src?.value ?: 0L), srclength, (dest?.value ?: 0L), destsize, inparalevel.toByte(), inorder, outparalevel.toByte(), outorder, domirroring, shapingoptions.toInt(), (perrorcode?.value ?: 0L)).toUInt()
 
-public actual fun ublock_getCode(c: Int): UBlockCode =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ublock_getCode(c)
+public actual fun ublockGetCode(c: Int): UBlockCode =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ublockGetCode(c)
 
-public actual fun ubrk_close(bi: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubrk_close(bi)
+public actual fun ubrkClose(bi: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubrkClose((bi?.value ?: 0L))
 }
 
-public actual fun ubrk_countAvailable(): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubrk_countAvailable()
+public actual fun ubrkCountAvailable(): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubrkCountAvailable()
 
-public actual fun ubrk_current(bi: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubrk_current(bi)
+public actual fun ubrkCurrent(bi: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubrkCurrent((bi?.value ?: 0L))
 
-public actual fun ubrk_first(bi: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubrk_first(bi)
+public actual fun ubrkFirst(bi: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubrkFirst((bi?.value ?: 0L))
 
-public actual fun ubrk_following(bi: Long, offset: Int): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubrk_following(bi, offset)
+public actual fun ubrkFollowing(bi: COpaquePointer?, offset: Int): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubrkFollowing((bi?.value ?: 0L), offset)
 
-public actual fun ubrk_getAvailable(index: Int): PCSTR =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubrk_getAvailable(index)
+public actual fun ubrkGetAvailable(index: Int): Pcstr =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubrkGetAvailable(index).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ubrk_getBinaryRules(bi: Long, binaryrules: Long, rulescapacity: Int, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubrk_getBinaryRules(bi, binaryrules, rulescapacity, status)
+public actual fun ubrkGetBinaryRules(bi: COpaquePointer?, binaryrules: COpaquePointer?, rulescapacity: Int, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubrkGetBinaryRules((bi?.value ?: 0L), (binaryrules?.value ?: 0L), rulescapacity, (status?.value ?: 0L))
 
-public actual fun ubrk_getLocaleByType(bi: Long, type: ULocDataLocaleType, status: Long): PCSTR =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubrk_getLocaleByType(bi, type, status)
+public actual fun ubrkGetLocaleByType(bi: COpaquePointer?, type: ULocDataLocaleType, status: COpaquePointer?): Pcstr =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubrkGetLocaleByType((bi?.value ?: 0L), type, (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ubrk_getRuleStatus(bi: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubrk_getRuleStatus(bi)
+public actual fun ubrkGetRuleStatus(bi: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubrkGetRuleStatus((bi?.value ?: 0L))
 
-public actual fun ubrk_getRuleStatusVec(bi: Long, fillinvec: Long, capacity: Int, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubrk_getRuleStatusVec(bi, fillinvec, capacity, status)
+public actual fun ubrkGetRuleStatusVec(bi: COpaquePointer?, fillinvec: COpaquePointer?, capacity: Int, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubrkGetRuleStatusVec((bi?.value ?: 0L), (fillinvec?.value ?: 0L), capacity, (status?.value ?: 0L))
 
-public actual fun ubrk_isBoundary(bi: Long, offset: Int): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubrk_isBoundary(bi, offset)
+public actual fun ubrkIsBoundary(bi: COpaquePointer?, offset: Int): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubrkIsBoundary((bi?.value ?: 0L), offset)
 
-public actual fun ubrk_last(bi: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubrk_last(bi)
+public actual fun ubrkLast(bi: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubrkLast((bi?.value ?: 0L))
 
-public actual fun ubrk_next(bi: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubrk_next(bi)
+public actual fun ubrkNext(bi: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubrkNext((bi?.value ?: 0L))
 
-public actual fun ubrk_open(type: UBreakIteratorType, locale: PCSTR, text: Long, textlength: Int, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubrk_open(type, locale, text, textlength, status)
+public actual fun ubrkOpen(type: UBreakIteratorType, locale: Pcstr, text: COpaquePointer?, textlength: Int, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubrkOpen(type, (locale?.value ?: 0L), (text?.value ?: 0L), textlength, (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ubrk_openBinaryRules(binaryrules: Long, ruleslength: Int, text: Long, textlength: Int, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubrk_openBinaryRules(binaryrules, ruleslength, text, textlength, status)
+public actual fun ubrkOpenBinaryRules(binaryrules: COpaquePointer?, ruleslength: Int, text: COpaquePointer?, textlength: Int, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubrkOpenBinaryRules((binaryrules?.value ?: 0L), ruleslength, (text?.value ?: 0L), textlength, (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ubrk_openRules(rules: Long, ruleslength: Int, text: Long, textlength: Int, parseerr: Long, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubrk_openRules(rules, ruleslength, text, textlength, parseerr, status)
+public actual fun ubrkOpenRules(rules: COpaquePointer?, ruleslength: Int, text: COpaquePointer?, textlength: Int, parseerr: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubrkOpenRules((rules?.value ?: 0L), ruleslength, (text?.value ?: 0L), textlength, (parseerr?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ubrk_preceding(bi: Long, offset: Int): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubrk_preceding(bi, offset)
+public actual fun ubrkPreceding(bi: COpaquePointer?, offset: Int): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubrkPreceding((bi?.value ?: 0L), offset)
 
-public actual fun ubrk_previous(bi: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubrk_previous(bi)
+public actual fun ubrkPrevious(bi: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubrkPrevious((bi?.value ?: 0L))
 
-public actual fun ubrk_refreshUText(bi: Long, text: Long, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubrk_refreshUText(bi, text, status)
+public actual fun ubrkRefreshUtext(bi: COpaquePointer?, text: COpaquePointer?, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubrkRefreshUtext((bi?.value ?: 0L), (text?.value ?: 0L), (status?.value ?: 0L))
 }
 
-public actual fun ubrk_safeClone(bi: Long, stackbuffer: Long, pbuffersize: Long, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubrk_safeClone(bi, stackbuffer, pbuffersize, status)
+public actual fun ubrkSafeClone(bi: COpaquePointer?, stackbuffer: COpaquePointer?, pbuffersize: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubrkSafeClone((bi?.value ?: 0L), (stackbuffer?.value ?: 0L), (pbuffersize?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ubrk_setText(bi: Long, text: Long, textlength: Int, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubrk_setText(bi, text, textlength, status)
+public actual fun ubrkSetText(bi: COpaquePointer?, text: COpaquePointer?, textlength: Int, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubrkSetText((bi?.value ?: 0L), (text?.value ?: 0L), textlength, (status?.value ?: 0L))
 }
 
-public actual fun ubrk_setUText(bi: Long, text: Long, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubrk_setUText(bi, text, status)
+public actual fun ubrkSetUtext(bi: COpaquePointer?, text: COpaquePointer?, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ubrkSetUtext((bi?.value ?: 0L), (text?.value ?: 0L), (status?.value ?: 0L))
 }
 
-public actual fun ucal_add(cal: Long, field: UCalendarDateFields, amount: Int, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucal_add(cal, field, amount, status)
+public actual fun ucalAdd(cal: COpaquePointer?, field: UCalendarDateFields, amount: Int, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucalAdd((cal?.value ?: 0L), field, amount, (status?.value ?: 0L))
 }
 
-public actual fun ucal_clear(calendar: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucal_clear(calendar)
+public actual fun ucalClear(calendar: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucalClear((calendar?.value ?: 0L))
 }
 
-public actual fun ucal_clearField(cal: Long, field: UCalendarDateFields) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucal_clearField(cal, field)
+public actual fun ucalClearField(cal: COpaquePointer?, field: UCalendarDateFields) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucalClearField((cal?.value ?: 0L), field)
 }
 
-public actual fun ucal_clone(cal: Long, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucal_clone(cal, status)
+public actual fun ucalClone(cal: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucalClone((cal?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ucal_close(cal: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucal_close(cal)
+public actual fun ucalClose(cal: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucalClose((cal?.value ?: 0L))
 }
 
-public actual fun ucal_countAvailable(): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucal_countAvailable()
+public actual fun ucalCountAvailable(): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucalCountAvailable()
 
-public actual fun ucal_equivalentTo(cal1: Long, cal2: Long): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucal_equivalentTo(cal1, cal2)
+public actual fun ucalEquivalentTo(cal1: COpaquePointer?, cal2: COpaquePointer?): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucalEquivalentTo((cal1?.value ?: 0L), (cal2?.value ?: 0L))
 
-public actual fun ucal_get(cal: Long, field: UCalendarDateFields, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucal_get(cal, field, status)
+public actual fun ucalGet(cal: COpaquePointer?, field: UCalendarDateFields, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucalGet((cal?.value ?: 0L), field, (status?.value ?: 0L))
 
-public actual fun ucal_getAttribute(cal: Long, attr: UCalendarAttribute): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucal_getAttribute(cal, attr)
+public actual fun ucalGetAttribute(cal: COpaquePointer?, attr: UCalendarAttribute): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucalGetAttribute((cal?.value ?: 0L), attr)
 
-public actual fun ucal_getAvailable(localeindex: Int): PCSTR =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucal_getAvailable(localeindex)
+public actual fun ucalGetAvailable(localeindex: Int): Pcstr =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucalGetAvailable(localeindex).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ucal_getCanonicalTimeZoneID(id: Long, len: Int, result: Long, resultcapacity: Int, issystemid: Long, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucal_getCanonicalTimeZoneID(id, len, result, resultcapacity, issystemid, status)
+public actual fun ucalGetCanonicalTimeZoneId(id: COpaquePointer?, len: Int, result: COpaquePointer?, resultcapacity: Int, issystemid: COpaquePointer?, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucalGetCanonicalTimeZoneId((id?.value ?: 0L), len, (result?.value ?: 0L), resultcapacity, (issystemid?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun ucal_getDSTSavings(zoneid: Long, ec: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucal_getDSTSavings(zoneid, ec)
+public actual fun ucalGetDstsavings(zoneid: COpaquePointer?, ec: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucalGetDstsavings((zoneid?.value ?: 0L), (ec?.value ?: 0L))
 
-public actual fun ucal_getDayOfWeekType(cal: Long, dayofweek: UCalendarDaysOfWeek, status: Long): UCalendarWeekdayType =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucal_getDayOfWeekType(cal, dayofweek, status)
+public actual fun ucalGetDayOfWeekType(cal: COpaquePointer?, dayofweek: UCalendarDaysOfWeek, status: COpaquePointer?): UCalendarWeekdayType =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucalGetDayOfWeekType((cal?.value ?: 0L), dayofweek, (status?.value ?: 0L))
 
-public actual fun ucal_getDefaultTimeZone(result: Long, resultcapacity: Int, ec: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucal_getDefaultTimeZone(result, resultcapacity, ec)
+public actual fun ucalGetDefaultTimeZone(result: COpaquePointer?, resultcapacity: Int, ec: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucalGetDefaultTimeZone((result?.value ?: 0L), resultcapacity, (ec?.value ?: 0L))
 
-public actual fun ucal_getFieldDifference(cal: Long, target: Double, field: UCalendarDateFields, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucal_getFieldDifference(cal, target, field, status)
+public actual fun ucalGetFieldDifference(cal: COpaquePointer?, target: Double, field: UCalendarDateFields, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucalGetFieldDifference((cal?.value ?: 0L), target, field, (status?.value ?: 0L))
 
-public actual fun ucal_getGregorianChange(cal: Long, perrorcode: Long): Double =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucal_getGregorianChange(cal, perrorcode)
+public actual fun ucalGetGregorianChange(cal: COpaquePointer?, perrorcode: COpaquePointer?): Double =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucalGetGregorianChange((cal?.value ?: 0L), (perrorcode?.value ?: 0L))
 
-public actual fun ucal_getHostTimeZone(result: Long, resultcapacity: Int, ec: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucal_getHostTimeZone(result, resultcapacity, ec)
+public actual fun ucalGetHostTimeZone(result: COpaquePointer?, resultcapacity: Int, ec: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucalGetHostTimeZone((result?.value ?: 0L), resultcapacity, (ec?.value ?: 0L))
 
-public actual fun ucal_getKeywordValuesForLocale(key: PCSTR, locale: PCSTR, commonlyused: Byte, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucal_getKeywordValuesForLocale(key, locale, commonlyused, status)
+public actual fun ucalGetKeywordValuesForLocale(key: Pcstr, locale: Pcstr, commonlyused: Byte, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucalGetKeywordValuesForLocale((key?.value ?: 0L), (locale?.value ?: 0L), commonlyused, (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ucal_getLimit(cal: Long, field: UCalendarDateFields, type: UCalendarLimitType, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucal_getLimit(cal, field, type, status)
+public actual fun ucalGetLimit(cal: COpaquePointer?, field: UCalendarDateFields, type: UCalendarLimitType, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucalGetLimit((cal?.value ?: 0L), field, type, (status?.value ?: 0L))
 
-public actual fun ucal_getLocaleByType(cal: Long, type: ULocDataLocaleType, status: Long): PCSTR =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucal_getLocaleByType(cal, type, status)
+public actual fun ucalGetLocaleByType(cal: COpaquePointer?, type: ULocDataLocaleType, status: COpaquePointer?): Pcstr =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucalGetLocaleByType((cal?.value ?: 0L), type, (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ucal_getMillis(cal: Long, status: Long): Double =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucal_getMillis(cal, status)
+public actual fun ucalGetMillis(cal: COpaquePointer?, status: COpaquePointer?): Double =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucalGetMillis((cal?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun ucal_getNow(): Double =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucal_getNow()
+public actual fun ucalGetNow(): Double =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucalGetNow()
 
-public actual fun ucal_getTZDataVersion(status: Long): PCSTR =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucal_getTZDataVersion(status)
+public actual fun ucalGetTzdataVersion(status: COpaquePointer?): Pcstr =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucalGetTzdataVersion((status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ucal_getTimeZoneDisplayName(cal: Long, type: UCalendarDisplayNameType, locale: PCSTR, result: Long, resultlength: Int, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucal_getTimeZoneDisplayName(cal, type, locale, result, resultlength, status)
+public actual fun ucalGetTimeZoneDisplayName(cal: COpaquePointer?, type: UCalendarDisplayNameType, locale: Pcstr, result: COpaquePointer?, resultlength: Int, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucalGetTimeZoneDisplayName((cal?.value ?: 0L), type, (locale?.value ?: 0L), (result?.value ?: 0L), resultlength, (status?.value ?: 0L))
 
-public actual fun ucal_getTimeZoneID(cal: Long, result: Long, resultlength: Int, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucal_getTimeZoneID(cal, result, resultlength, status)
+public actual fun ucalGetTimeZoneId(cal: COpaquePointer?, result: COpaquePointer?, resultlength: Int, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucalGetTimeZoneId((cal?.value ?: 0L), (result?.value ?: 0L), resultlength, (status?.value ?: 0L))
 
-public actual fun ucal_getTimeZoneIDForWindowsID(winid: Long, len: Int, region: PCSTR, id: Long, idcapacity: Int, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucal_getTimeZoneIDForWindowsID(winid, len, region, id, idcapacity, status)
+public actual fun ucalGetTimeZoneIdforWindowsId(winid: COpaquePointer?, len: Int, region: Pcstr, id: COpaquePointer?, idcapacity: Int, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucalGetTimeZoneIdforWindowsId((winid?.value ?: 0L), len, (region?.value ?: 0L), (id?.value ?: 0L), idcapacity, (status?.value ?: 0L))
 
-public actual fun ucal_getTimeZoneTransitionDate(cal: Long, type: UTimeZoneTransitionType, transition: Long, status: Long): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucal_getTimeZoneTransitionDate(cal, type, transition, status)
+public actual fun ucalGetTimeZoneTransitionDate(cal: COpaquePointer?, type: UTimeZoneTransitionType, transition: COpaquePointer?, status: COpaquePointer?): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucalGetTimeZoneTransitionDate((cal?.value ?: 0L), type, (transition?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun ucal_getType(cal: Long, status: Long): PCSTR =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucal_getType(cal, status)
+public actual fun ucalGetType(cal: COpaquePointer?, status: COpaquePointer?): Pcstr =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucalGetType((cal?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ucal_getWeekendTransition(cal: Long, dayofweek: UCalendarDaysOfWeek, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucal_getWeekendTransition(cal, dayofweek, status)
+public actual fun ucalGetWeekendTransition(cal: COpaquePointer?, dayofweek: UCalendarDaysOfWeek, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucalGetWeekendTransition((cal?.value ?: 0L), dayofweek, (status?.value ?: 0L))
 
-public actual fun ucal_getWindowsTimeZoneID(id: Long, len: Int, winid: Long, winidcapacity: Int, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucal_getWindowsTimeZoneID(id, len, winid, winidcapacity, status)
+public actual fun ucalGetWindowsTimeZoneId(id: COpaquePointer?, len: Int, winid: COpaquePointer?, winidcapacity: Int, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucalGetWindowsTimeZoneId((id?.value ?: 0L), len, (winid?.value ?: 0L), winidcapacity, (status?.value ?: 0L))
 
-public actual fun ucal_inDaylightTime(cal: Long, status: Long): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucal_inDaylightTime(cal, status)
+public actual fun ucalInDaylightTime(cal: COpaquePointer?, status: COpaquePointer?): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucalInDaylightTime((cal?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun ucal_isSet(cal: Long, field: UCalendarDateFields): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucal_isSet(cal, field)
+public actual fun ucalIsSet(cal: COpaquePointer?, field: UCalendarDateFields): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucalIsSet((cal?.value ?: 0L), field)
 
-public actual fun ucal_isWeekend(cal: Long, date: Double, status: Long): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucal_isWeekend(cal, date, status)
+public actual fun ucalIsWeekend(cal: COpaquePointer?, date: Double, status: COpaquePointer?): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucalIsWeekend((cal?.value ?: 0L), date, (status?.value ?: 0L))
 
-public actual fun ucal_open(zoneid: Long, len: Int, locale: PCSTR, type: UCalendarType, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucal_open(zoneid, len, locale, type, status)
+public actual fun ucalOpen(zoneid: COpaquePointer?, len: Int, locale: Pcstr, type: UCalendarType, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucalOpen((zoneid?.value ?: 0L), len, (locale?.value ?: 0L), type, (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ucal_openCountryTimeZones(country: PCSTR, ec: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucal_openCountryTimeZones(country, ec)
+public actual fun ucalOpenCountryTimeZones(country: Pcstr, ec: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucalOpenCountryTimeZones((country?.value ?: 0L), (ec?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ucal_openTimeZoneIDEnumeration(zonetype: USystemTimeZoneType, region: PCSTR, rawoffset: Long, ec: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucal_openTimeZoneIDEnumeration(zonetype, region, rawoffset, ec)
+public actual fun ucalOpenTimeZoneIdenumeration(zonetype: USystemTimeZoneType, region: Pcstr, rawoffset: COpaquePointer?, ec: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucalOpenTimeZoneIdenumeration(zonetype, (region?.value ?: 0L), (rawoffset?.value ?: 0L), (ec?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ucal_openTimeZones(ec: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucal_openTimeZones(ec)
+public actual fun ucalOpenTimeZones(ec: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucalOpenTimeZones((ec?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ucal_roll(cal: Long, field: UCalendarDateFields, amount: Int, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucal_roll(cal, field, amount, status)
+public actual fun ucalRoll(cal: COpaquePointer?, field: UCalendarDateFields, amount: Int, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucalRoll((cal?.value ?: 0L), field, amount, (status?.value ?: 0L))
 }
 
-public actual fun ucal_set(cal: Long, field: UCalendarDateFields, value: Int) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucal_set(cal, field, value)
+public actual fun ucalSet(cal: COpaquePointer?, field: UCalendarDateFields, value: Int) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucalSet((cal?.value ?: 0L), field, value)
 }
 
-public actual fun ucal_setAttribute(cal: Long, attr: UCalendarAttribute, newvalue: Int) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucal_setAttribute(cal, attr, newvalue)
+public actual fun ucalSetAttribute(cal: COpaquePointer?, attr: UCalendarAttribute, newvalue: Int) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucalSetAttribute((cal?.value ?: 0L), attr, newvalue)
 }
 
-public actual fun ucal_setDate(cal: Long, year: Int, month: Int, date: Int, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucal_setDate(cal, year, month, date, status)
+public actual fun ucalSetDate(cal: COpaquePointer?, year: Int, month: Int, date: Int, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucalSetDate((cal?.value ?: 0L), year, month, date, (status?.value ?: 0L))
 }
 
-public actual fun ucal_setDateTime(cal: Long, year: Int, month: Int, date: Int, hour: Int, minute: Int, second: Int, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucal_setDateTime(cal, year, month, date, hour, minute, second, status)
+public actual fun ucalSetDateTime(cal: COpaquePointer?, year: Int, month: Int, date: Int, hour: Int, minute: Int, second: Int, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucalSetDateTime((cal?.value ?: 0L), year, month, date, hour, minute, second, (status?.value ?: 0L))
 }
 
-public actual fun ucal_setDefaultTimeZone(zoneid: Long, ec: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucal_setDefaultTimeZone(zoneid, ec)
+public actual fun ucalSetDefaultTimeZone(zoneid: COpaquePointer?, ec: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucalSetDefaultTimeZone((zoneid?.value ?: 0L), (ec?.value ?: 0L))
 }
 
-public actual fun ucal_setGregorianChange(cal: Long, date: Double, perrorcode: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucal_setGregorianChange(cal, date, perrorcode)
+public actual fun ucalSetGregorianChange(cal: COpaquePointer?, date: Double, perrorcode: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucalSetGregorianChange((cal?.value ?: 0L), date, (perrorcode?.value ?: 0L))
 }
 
-public actual fun ucal_setMillis(cal: Long, datetime: Double, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucal_setMillis(cal, datetime, status)
+public actual fun ucalSetMillis(cal: COpaquePointer?, datetime: Double, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucalSetMillis((cal?.value ?: 0L), datetime, (status?.value ?: 0L))
 }
 
-public actual fun ucal_setTimeZone(cal: Long, zoneid: Long, len: Int, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucal_setTimeZone(cal, zoneid, len, status)
+public actual fun ucalSetTimeZone(cal: COpaquePointer?, zoneid: COpaquePointer?, len: Int, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucalSetTimeZone((cal?.value ?: 0L), (zoneid?.value ?: 0L), len, (status?.value ?: 0L))
 }
 
-public actual fun ucasemap_close(csm: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucasemap_close(csm)
+public actual fun ucasemapClose(csm: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucasemapClose((csm?.value ?: 0L))
 }
 
-public actual fun ucasemap_getBreakIterator(csm: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucasemap_getBreakIterator(csm)
+public actual fun ucasemapGetBreakIterator(csm: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucasemapGetBreakIterator((csm?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ucasemap_getLocale(csm: Long): PCSTR =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucasemap_getLocale(csm)
+public actual fun ucasemapGetLocale(csm: COpaquePointer?): Pcstr =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucasemapGetLocale((csm?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ucasemap_getOptions(csm: Long): UInt =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucasemap_getOptions(csm).toUInt()
+public actual fun ucasemapGetOptions(csm: COpaquePointer?): UInt =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucasemapGetOptions((csm?.value ?: 0L)).toUInt()
 
-public actual fun ucasemap_open(locale: PCSTR, options: UInt, perrorcode: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucasemap_open(locale, options.toInt(), perrorcode)
+public actual fun ucasemapOpen(locale: Pcstr, options: UInt, perrorcode: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucasemapOpen((locale?.value ?: 0L), options.toInt(), (perrorcode?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ucasemap_setBreakIterator(csm: Long, itertoadopt: Long, perrorcode: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucasemap_setBreakIterator(csm, itertoadopt, perrorcode)
+public actual fun ucasemapSetBreakIterator(csm: COpaquePointer?, itertoadopt: COpaquePointer?, perrorcode: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucasemapSetBreakIterator((csm?.value ?: 0L), (itertoadopt?.value ?: 0L), (perrorcode?.value ?: 0L))
 }
 
-public actual fun ucasemap_setLocale(csm: Long, locale: PCSTR, perrorcode: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucasemap_setLocale(csm, locale, perrorcode)
+public actual fun ucasemapSetLocale(csm: COpaquePointer?, locale: Pcstr, perrorcode: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucasemapSetLocale((csm?.value ?: 0L), (locale?.value ?: 0L), (perrorcode?.value ?: 0L))
 }
 
-public actual fun ucasemap_setOptions(csm: Long, options: UInt, perrorcode: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucasemap_setOptions(csm, options.toInt(), perrorcode)
+public actual fun ucasemapSetOptions(csm: COpaquePointer?, options: UInt, perrorcode: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucasemapSetOptions((csm?.value ?: 0L), options.toInt(), (perrorcode?.value ?: 0L))
 }
 
-public actual fun ucasemap_toTitle(csm: Long, dest: Long, destcapacity: Int, src: Long, srclength: Int, perrorcode: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucasemap_toTitle(csm, dest, destcapacity, src, srclength, perrorcode)
+public actual fun ucasemapToTitle(csm: COpaquePointer?, dest: COpaquePointer?, destcapacity: Int, src: COpaquePointer?, srclength: Int, perrorcode: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucasemapToTitle((csm?.value ?: 0L), (dest?.value ?: 0L), destcapacity, (src?.value ?: 0L), srclength, (perrorcode?.value ?: 0L))
 
-public actual fun ucasemap_utf8FoldCase(csm: Long, dest: PCSTR, destcapacity: Int, src: PCSTR, srclength: Int, perrorcode: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucasemap_utf8FoldCase(csm, dest, destcapacity, src, srclength, perrorcode)
+public actual fun ucasemapUtf8FoldCase(csm: COpaquePointer?, dest: Pcstr, destcapacity: Int, src: Pcstr, srclength: Int, perrorcode: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucasemapUtf8FoldCase((csm?.value ?: 0L), (dest?.value ?: 0L), destcapacity, (src?.value ?: 0L), srclength, (perrorcode?.value ?: 0L))
 
-public actual fun ucasemap_utf8ToLower(csm: Long, dest: PCSTR, destcapacity: Int, src: PCSTR, srclength: Int, perrorcode: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucasemap_utf8ToLower(csm, dest, destcapacity, src, srclength, perrorcode)
+public actual fun ucasemapUtf8ToLower(csm: COpaquePointer?, dest: Pcstr, destcapacity: Int, src: Pcstr, srclength: Int, perrorcode: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucasemapUtf8ToLower((csm?.value ?: 0L), (dest?.value ?: 0L), destcapacity, (src?.value ?: 0L), srclength, (perrorcode?.value ?: 0L))
 
-public actual fun ucasemap_utf8ToTitle(csm: Long, dest: PCSTR, destcapacity: Int, src: PCSTR, srclength: Int, perrorcode: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucasemap_utf8ToTitle(csm, dest, destcapacity, src, srclength, perrorcode)
+public actual fun ucasemapUtf8ToTitle(csm: COpaquePointer?, dest: Pcstr, destcapacity: Int, src: Pcstr, srclength: Int, perrorcode: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucasemapUtf8ToTitle((csm?.value ?: 0L), (dest?.value ?: 0L), destcapacity, (src?.value ?: 0L), srclength, (perrorcode?.value ?: 0L))
 
-public actual fun ucasemap_utf8ToUpper(csm: Long, dest: PCSTR, destcapacity: Int, src: PCSTR, srclength: Int, perrorcode: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucasemap_utf8ToUpper(csm, dest, destcapacity, src, srclength, perrorcode)
+public actual fun ucasemapUtf8ToUpper(csm: COpaquePointer?, dest: Pcstr, destcapacity: Int, src: Pcstr, srclength: Int, perrorcode: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucasemapUtf8ToUpper((csm?.value ?: 0L), (dest?.value ?: 0L), destcapacity, (src?.value ?: 0L), srclength, (perrorcode?.value ?: 0L))
 
-public actual fun ucfpos_close(ucfpos: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucfpos_close(ucfpos)
+public actual fun ucfposClose(ucfpos: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucfposClose((ucfpos?.value ?: 0L))
 }
 
-public actual fun ucfpos_constrainCategory(ucfpos: Long, category: Int, ec: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucfpos_constrainCategory(ucfpos, category, ec)
+public actual fun ucfposConstrainCategory(ucfpos: COpaquePointer?, category: Int, ec: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucfposConstrainCategory((ucfpos?.value ?: 0L), category, (ec?.value ?: 0L))
 }
 
-public actual fun ucfpos_constrainField(ucfpos: Long, category: Int, field: Int, ec: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucfpos_constrainField(ucfpos, category, field, ec)
+public actual fun ucfposConstrainField(ucfpos: COpaquePointer?, category: Int, field: Int, ec: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucfposConstrainField((ucfpos?.value ?: 0L), category, field, (ec?.value ?: 0L))
 }
 
-public actual fun ucfpos_getCategory(ucfpos: Long, ec: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucfpos_getCategory(ucfpos, ec)
+public actual fun ucfposGetCategory(ucfpos: COpaquePointer?, ec: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucfposGetCategory((ucfpos?.value ?: 0L), (ec?.value ?: 0L))
 
-public actual fun ucfpos_getField(ucfpos: Long, ec: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucfpos_getField(ucfpos, ec)
+public actual fun ucfposGetField(ucfpos: COpaquePointer?, ec: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucfposGetField((ucfpos?.value ?: 0L), (ec?.value ?: 0L))
 
-public actual fun ucfpos_getIndexes(ucfpos: Long, pstart: Long, plimit: Long, ec: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucfpos_getIndexes(ucfpos, pstart, plimit, ec)
+public actual fun ucfposGetIndexes(ucfpos: COpaquePointer?, pstart: COpaquePointer?, plimit: COpaquePointer?, ec: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucfposGetIndexes((ucfpos?.value ?: 0L), (pstart?.value ?: 0L), (plimit?.value ?: 0L), (ec?.value ?: 0L))
 }
 
-public actual fun ucfpos_getInt64IterationContext(ucfpos: Long, ec: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucfpos_getInt64IterationContext(ucfpos, ec)
+public actual fun ucfposGetInt64IterationContext(ucfpos: COpaquePointer?, ec: COpaquePointer?): Long =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucfposGetInt64IterationContext((ucfpos?.value ?: 0L), (ec?.value ?: 0L))
 
-public actual fun ucfpos_matchesField(ucfpos: Long, category: Int, field: Int, ec: Long): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucfpos_matchesField(ucfpos, category, field, ec)
+public actual fun ucfposMatchesField(ucfpos: COpaquePointer?, category: Int, field: Int, ec: COpaquePointer?): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucfposMatchesField((ucfpos?.value ?: 0L), category, field, (ec?.value ?: 0L))
 
-public actual fun ucfpos_open(ec: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucfpos_open(ec)
+public actual fun ucfposOpen(ec: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucfposOpen((ec?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ucfpos_reset(ucfpos: Long, ec: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucfpos_reset(ucfpos, ec)
+public actual fun ucfposReset(ucfpos: COpaquePointer?, ec: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucfposReset((ucfpos?.value ?: 0L), (ec?.value ?: 0L))
 }
 
-public actual fun ucfpos_setInt64IterationContext(ucfpos: Long, context: Long, ec: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucfpos_setInt64IterationContext(ucfpos, context, ec)
+public actual fun ucfposSetInt64IterationContext(ucfpos: COpaquePointer?, context: Long, ec: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucfposSetInt64IterationContext((ucfpos?.value ?: 0L), context, (ec?.value ?: 0L))
 }
 
-public actual fun ucfpos_setState(ucfpos: Long, category: Int, field: Int, start: Int, limit: Int, ec: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucfpos_setState(ucfpos, category, field, start, limit, ec)
+public actual fun ucfposSetState(ucfpos: COpaquePointer?, category: Int, field: Int, start: Int, limit: Int, ec: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucfposSetState((ucfpos?.value ?: 0L), category, field, start, limit, (ec?.value ?: 0L))
 }
 
-public actual fun ucnv_cbFromUWriteBytes(args: Long, source: PCSTR, length: Int, offsetindex: Int, err: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnv_cbFromUWriteBytes(args, source, length, offsetindex, err)
+public actual fun ucnvCbFromUwriteBytes(args: COpaquePointer?, source: Pcstr, length: Int, offsetindex: Int, err: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvCbFromUwriteBytes((args?.value ?: 0L), (source?.value ?: 0L), length, offsetindex, (err?.value ?: 0L))
 }
 
-public actual fun ucnv_cbFromUWriteSub(args: Long, offsetindex: Int, err: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnv_cbFromUWriteSub(args, offsetindex, err)
+public actual fun ucnvCbFromUwriteSub(args: COpaquePointer?, offsetindex: Int, err: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvCbFromUwriteSub((args?.value ?: 0L), offsetindex, (err?.value ?: 0L))
 }
 
-public actual fun ucnv_cbFromUWriteUChars(args: Long, source: Long, sourcelimit: Long, offsetindex: Int, err: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnv_cbFromUWriteUChars(args, source, sourcelimit, offsetindex, err)
+public actual fun ucnvCbFromUwriteUchars(args: COpaquePointer?, source: COpaquePointer?, sourcelimit: COpaquePointer?, offsetindex: Int, err: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvCbFromUwriteUchars((args?.value ?: 0L), (source?.value ?: 0L), (sourcelimit?.value ?: 0L), offsetindex, (err?.value ?: 0L))
 }
 
-public actual fun ucnv_cbToUWriteSub(args: Long, offsetindex: Int, err: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnv_cbToUWriteSub(args, offsetindex, err)
+public actual fun ucnvCbToUwriteSub(args: COpaquePointer?, offsetindex: Int, err: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvCbToUwriteSub((args?.value ?: 0L), offsetindex, (err?.value ?: 0L))
 }
 
-public actual fun ucnv_cbToUWriteUChars(args: Long, source: Long, length: Int, offsetindex: Int, err: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnv_cbToUWriteUChars(args, source, length, offsetindex, err)
+public actual fun ucnvCbToUwriteUchars(args: COpaquePointer?, source: COpaquePointer?, length: Int, offsetindex: Int, err: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvCbToUwriteUchars((args?.value ?: 0L), (source?.value ?: 0L), length, offsetindex, (err?.value ?: 0L))
 }
 
-public actual fun ucnv_close(converter: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnv_close(converter)
+public actual fun ucnvClose(converter: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvClose((converter?.value ?: 0L))
 }
 
-public actual fun ucnv_compareNames(name1: PCSTR, name2: PCSTR): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnv_compareNames(name1, name2)
+public actual fun ucnvCompareNames(name1: Pcstr, name2: Pcstr): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvCompareNames((name1?.value ?: 0L), (name2?.value ?: 0L))
 
-public actual fun ucnv_convert(toconvertername: PCSTR, fromconvertername: PCSTR, target: PCSTR, targetcapacity: Int, source: PCSTR, sourcelength: Int, perrorcode: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnv_convert(toconvertername, fromconvertername, target, targetcapacity, source, sourcelength, perrorcode)
+public actual fun ucnvConvert(toconvertername: Pcstr, fromconvertername: Pcstr, target: Pcstr, targetcapacity: Int, source: Pcstr, sourcelength: Int, perrorcode: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvConvert((toconvertername?.value ?: 0L), (fromconvertername?.value ?: 0L), (target?.value ?: 0L), targetcapacity, (source?.value ?: 0L), sourcelength, (perrorcode?.value ?: 0L))
 
-public actual fun ucnv_convertEx(targetcnv: Long, sourcecnv: Long, target: Long, targetlimit: PCSTR, source: Long, sourcelimit: PCSTR, pivotstart: Long, pivotsource: Long, pivottarget: Long, pivotlimit: Long, reset: Byte, flush: Byte, perrorcode: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnv_convertEx(targetcnv, sourcecnv, target, targetlimit, source, sourcelimit, pivotstart, pivotsource, pivottarget, pivotlimit, reset, flush, perrorcode)
+public actual fun ucnvConvertEx(targetcnv: COpaquePointer?, sourcecnv: COpaquePointer?, target: COpaquePointer?, targetlimit: Pcstr, source: COpaquePointer?, sourcelimit: Pcstr, pivotstart: COpaquePointer?, pivotsource: COpaquePointer?, pivottarget: COpaquePointer?, pivotlimit: COpaquePointer?, reset: Byte, flush: Byte, perrorcode: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvConvertEx((targetcnv?.value ?: 0L), (sourcecnv?.value ?: 0L), (target?.value ?: 0L), (targetlimit?.value ?: 0L), (source?.value ?: 0L), (sourcelimit?.value ?: 0L), (pivotstart?.value ?: 0L), (pivotsource?.value ?: 0L), (pivottarget?.value ?: 0L), (pivotlimit?.value ?: 0L), reset, flush, (perrorcode?.value ?: 0L))
 }
 
-public actual fun ucnv_countAliases(alias: PCSTR, perrorcode: Long): UShort =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnv_countAliases(alias, perrorcode).toUShort()
+public actual fun ucnvCountAliases(alias: Pcstr, perrorcode: COpaquePointer?): UShort =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvCountAliases((alias?.value ?: 0L), (perrorcode?.value ?: 0L)).toUShort()
 
-public actual fun ucnv_countAvailable(): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnv_countAvailable()
+public actual fun ucnvCountAvailable(): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvCountAvailable()
 
-public actual fun ucnv_countStandards(): UShort =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnv_countStandards().toUShort()
+public actual fun ucnvCountStandards(): UShort =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvCountStandards().toUShort()
 
-public actual fun ucnv_detectUnicodeSignature(source: PCSTR, sourcelength: Int, signaturelength: Long, perrorcode: Long): PCSTR =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnv_detectUnicodeSignature(source, sourcelength, signaturelength, perrorcode)
+public actual fun ucnvDetectUnicodeSignature(source: Pcstr, sourcelength: Int, signaturelength: COpaquePointer?, perrorcode: COpaquePointer?): Pcstr =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvDetectUnicodeSignature((source?.value ?: 0L), sourcelength, (signaturelength?.value ?: 0L), (perrorcode?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ucnv_fixFileSeparator(cnv: Long, source: Long, sourcelen: Int) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnv_fixFileSeparator(cnv, source, sourcelen)
+public actual fun ucnvFixFileSeparator(cnv: COpaquePointer?, source: COpaquePointer?, sourcelen: Int) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvFixFileSeparator((cnv?.value ?: 0L), (source?.value ?: 0L), sourcelen)
 }
 
-public actual fun ucnv_flushCache(): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnv_flushCache()
+public actual fun ucnvFlushCache(): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvFlushCache()
 
-public actual fun ucnv_fromAlgorithmic(cnv: Long, algorithmictype: UConverterType, target: PCSTR, targetcapacity: Int, source: PCSTR, sourcelength: Int, perrorcode: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnv_fromAlgorithmic(cnv, algorithmictype, target, targetcapacity, source, sourcelength, perrorcode)
+public actual fun ucnvFromAlgorithmic(cnv: COpaquePointer?, algorithmictype: UConverterType, target: Pcstr, targetcapacity: Int, source: Pcstr, sourcelength: Int, perrorcode: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvFromAlgorithmic((cnv?.value ?: 0L), algorithmictype, (target?.value ?: 0L), targetcapacity, (source?.value ?: 0L), sourcelength, (perrorcode?.value ?: 0L))
 
-public actual fun ucnv_fromUChars(cnv: Long, dest: PCSTR, destcapacity: Int, src: Long, srclength: Int, perrorcode: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnv_fromUChars(cnv, dest, destcapacity, src, srclength, perrorcode)
+public actual fun ucnvFromUchars(cnv: COpaquePointer?, dest: Pcstr, destcapacity: Int, src: COpaquePointer?, srclength: Int, perrorcode: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvFromUchars((cnv?.value ?: 0L), (dest?.value ?: 0L), destcapacity, (src?.value ?: 0L), srclength, (perrorcode?.value ?: 0L))
 
-public actual fun ucnv_fromUCountPending(cnv: Long, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnv_fromUCountPending(cnv, status)
+public actual fun ucnvFromUcountPending(cnv: COpaquePointer?, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvFromUcountPending((cnv?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun ucnv_fromUnicode(converter: Long, target: Long, targetlimit: PCSTR, source: Long, sourcelimit: Long, offsets: Long, flush: Byte, err: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnv_fromUnicode(converter, target, targetlimit, source, sourcelimit, offsets, flush, err)
+public actual fun ucnvFromUnicode(converter: COpaquePointer?, target: COpaquePointer?, targetlimit: Pcstr, source: COpaquePointer?, sourcelimit: COpaquePointer?, offsets: COpaquePointer?, flush: Byte, err: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvFromUnicode((converter?.value ?: 0L), (target?.value ?: 0L), (targetlimit?.value ?: 0L), (source?.value ?: 0L), (sourcelimit?.value ?: 0L), (offsets?.value ?: 0L), flush, (err?.value ?: 0L))
 }
 
-public actual fun ucnv_getAlias(alias: PCSTR, n: UShort, perrorcode: Long): PCSTR =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnv_getAlias(alias, n.toShort(), perrorcode)
+public actual fun ucnvGetAlias(alias: Pcstr, n: UShort, perrorcode: COpaquePointer?): Pcstr =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvGetAlias((alias?.value ?: 0L), n.toShort(), (perrorcode?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ucnv_getAliases(alias: PCSTR, aliases: Long, perrorcode: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnv_getAliases(alias, aliases, perrorcode)
+public actual fun ucnvGetAliases(alias: Pcstr, aliases: COpaquePointer?, perrorcode: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvGetAliases((alias?.value ?: 0L), (aliases?.value ?: 0L), (perrorcode?.value ?: 0L))
 }
 
-public actual fun ucnv_getAvailableName(n: Int): PCSTR =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnv_getAvailableName(n)
+public actual fun ucnvGetAvailableName(n: Int): Pcstr =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvGetAvailableName(n).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ucnv_getCCSID(converter: Long, err: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnv_getCCSID(converter, err)
+public actual fun ucnvGetCcsid(converter: COpaquePointer?, err: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvGetCcsid((converter?.value ?: 0L), (err?.value ?: 0L))
 
-public actual fun ucnv_getCanonicalName(alias: PCSTR, standard: PCSTR, perrorcode: Long): PCSTR =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnv_getCanonicalName(alias, standard, perrorcode)
+public actual fun ucnvGetCanonicalName(alias: Pcstr, standard: Pcstr, perrorcode: COpaquePointer?): Pcstr =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvGetCanonicalName((alias?.value ?: 0L), (standard?.value ?: 0L), (perrorcode?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ucnv_getDefaultName(): PCSTR =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnv_getDefaultName()
+public actual fun ucnvGetDefaultName(): Pcstr =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvGetDefaultName().let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ucnv_getDisplayName(converter: Long, displaylocale: PCSTR, displayname: Long, displaynamecapacity: Int, err: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnv_getDisplayName(converter, displaylocale, displayname, displaynamecapacity, err)
+public actual fun ucnvGetDisplayName(converter: COpaquePointer?, displaylocale: Pcstr, displayname: COpaquePointer?, displaynamecapacity: Int, err: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvGetDisplayName((converter?.value ?: 0L), (displaylocale?.value ?: 0L), (displayname?.value ?: 0L), displaynamecapacity, (err?.value ?: 0L))
 
-public actual fun ucnv_getFromUCallBack(converter: Long, action: Long, context: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnv_getFromUCallBack(converter, action, context)
+public actual fun ucnvGetFromUcallBack(converter: COpaquePointer?, action: COpaquePointer?, context: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvGetFromUcallBack((converter?.value ?: 0L), (action?.value ?: 0L), (context?.value ?: 0L))
 }
 
-public actual fun ucnv_getInvalidChars(converter: Long, errbytes: PCSTR, len: Long, err: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnv_getInvalidChars(converter, errbytes, len, err)
+public actual fun ucnvGetInvalidChars(converter: COpaquePointer?, errbytes: Pcstr, len: COpaquePointer?, err: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvGetInvalidChars((converter?.value ?: 0L), (errbytes?.value ?: 0L), (len?.value ?: 0L), (err?.value ?: 0L))
 }
 
-public actual fun ucnv_getInvalidUChars(converter: Long, erruchars: Long, len: Long, err: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnv_getInvalidUChars(converter, erruchars, len, err)
+public actual fun ucnvGetInvalidUchars(converter: COpaquePointer?, erruchars: COpaquePointer?, len: COpaquePointer?, err: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvGetInvalidUchars((converter?.value ?: 0L), (erruchars?.value ?: 0L), (len?.value ?: 0L), (err?.value ?: 0L))
 }
 
-public actual fun ucnv_getMaxCharSize(converter: Long): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnv_getMaxCharSize(converter)
+public actual fun ucnvGetMaxCharSize(converter: COpaquePointer?): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvGetMaxCharSize((converter?.value ?: 0L))
 
-public actual fun ucnv_getMinCharSize(converter: Long): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnv_getMinCharSize(converter)
+public actual fun ucnvGetMinCharSize(converter: COpaquePointer?): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvGetMinCharSize((converter?.value ?: 0L))
 
-public actual fun ucnv_getName(converter: Long, err: Long): PCSTR =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnv_getName(converter, err)
+public actual fun ucnvGetName(converter: COpaquePointer?, err: COpaquePointer?): Pcstr =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvGetName((converter?.value ?: 0L), (err?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ucnv_getNextUChar(converter: Long, source: Long, sourcelimit: PCSTR, err: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnv_getNextUChar(converter, source, sourcelimit, err)
+public actual fun ucnvGetNextUchar(converter: COpaquePointer?, source: COpaquePointer?, sourcelimit: Pcstr, err: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvGetNextUchar((converter?.value ?: 0L), (source?.value ?: 0L), (sourcelimit?.value ?: 0L), (err?.value ?: 0L))
 
-public actual fun ucnv_getPlatform(converter: Long, err: Long): UConverterPlatform =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnv_getPlatform(converter, err)
+public actual fun ucnvGetPlatform(converter: COpaquePointer?, err: COpaquePointer?): UConverterPlatform =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvGetPlatform((converter?.value ?: 0L), (err?.value ?: 0L))
 
-public actual fun ucnv_getStandard(n: UShort, perrorcode: Long): PCSTR =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnv_getStandard(n.toShort(), perrorcode)
+public actual fun ucnvGetStandard(n: UShort, perrorcode: COpaquePointer?): Pcstr =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvGetStandard(n.toShort(), (perrorcode?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ucnv_getStandardName(name: PCSTR, standard: PCSTR, perrorcode: Long): PCSTR =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnv_getStandardName(name, standard, perrorcode)
+public actual fun ucnvGetStandardName(name: Pcstr, standard: Pcstr, perrorcode: COpaquePointer?): Pcstr =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvGetStandardName((name?.value ?: 0L), (standard?.value ?: 0L), (perrorcode?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ucnv_getStarters(converter: Long, starters: Long, err: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnv_getStarters(converter, starters, err)
+public actual fun ucnvGetStarters(converter: COpaquePointer?, starters: COpaquePointer?, err: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvGetStarters((converter?.value ?: 0L), (starters?.value ?: 0L), (err?.value ?: 0L))
 }
 
-public actual fun ucnv_getSubstChars(converter: Long, subchars: PCSTR, len: Long, err: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnv_getSubstChars(converter, subchars, len, err)
+public actual fun ucnvGetSubstChars(converter: COpaquePointer?, subchars: Pcstr, len: COpaquePointer?, err: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvGetSubstChars((converter?.value ?: 0L), (subchars?.value ?: 0L), (len?.value ?: 0L), (err?.value ?: 0L))
 }
 
-public actual fun ucnv_getToUCallBack(converter: Long, action: Long, context: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnv_getToUCallBack(converter, action, context)
+public actual fun ucnvGetToUcallBack(converter: COpaquePointer?, action: COpaquePointer?, context: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvGetToUcallBack((converter?.value ?: 0L), (action?.value ?: 0L), (context?.value ?: 0L))
 }
 
-public actual fun ucnv_getType(converter: Long): UConverterType =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnv_getType(converter)
+public actual fun ucnvGetType(converter: COpaquePointer?): UConverterType =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvGetType((converter?.value ?: 0L))
 
-public actual fun ucnv_getUnicodeSet(cnv: Long, setfillin: Long, whichset: UConverterUnicodeSet, perrorcode: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnv_getUnicodeSet(cnv, setfillin, whichset, perrorcode)
+public actual fun ucnvGetUnicodeSet(cnv: COpaquePointer?, setfillin: COpaquePointer?, whichset: UConverterUnicodeSet, perrorcode: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvGetUnicodeSet((cnv?.value ?: 0L), (setfillin?.value ?: 0L), whichset, (perrorcode?.value ?: 0L))
 }
 
-public actual fun ucnv_isAmbiguous(cnv: Long): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnv_isAmbiguous(cnv)
+public actual fun ucnvIsAmbiguous(cnv: COpaquePointer?): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvIsAmbiguous((cnv?.value ?: 0L))
 
-public actual fun ucnv_isFixedWidth(cnv: Long, status: Long): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnv_isFixedWidth(cnv, status)
+public actual fun ucnvIsFixedWidth(cnv: COpaquePointer?, status: COpaquePointer?): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvIsFixedWidth((cnv?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun ucnv_open(convertername: PCSTR, err: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnv_open(convertername, err)
+public actual fun ucnvOpen(convertername: Pcstr, err: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvOpen((convertername?.value ?: 0L), (err?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ucnv_openAllNames(perrorcode: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnv_openAllNames(perrorcode)
+public actual fun ucnvOpenAllNames(perrorcode: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvOpenAllNames((perrorcode?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ucnv_openCCSID(codepage: Int, platform: UConverterPlatform, err: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnv_openCCSID(codepage, platform, err)
+public actual fun ucnvOpenCcsid(codepage: Int, platform: UConverterPlatform, err: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvOpenCcsid(codepage, platform, (err?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ucnv_openPackage(packagename: PCSTR, convertername: PCSTR, err: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnv_openPackage(packagename, convertername, err)
+public actual fun ucnvOpenPackage(packagename: Pcstr, convertername: Pcstr, err: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvOpenPackage((packagename?.value ?: 0L), (convertername?.value ?: 0L), (err?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ucnv_openStandardNames(convname: PCSTR, standard: PCSTR, perrorcode: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnv_openStandardNames(convname, standard, perrorcode)
+public actual fun ucnvOpenStandardNames(convname: Pcstr, standard: Pcstr, perrorcode: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvOpenStandardNames((convname?.value ?: 0L), (standard?.value ?: 0L), (perrorcode?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ucnv_openU(name: Long, err: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnv_openU(name, err)
+public actual fun ucnvOpenU(name: COpaquePointer?, err: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvOpenU((name?.value ?: 0L), (err?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ucnv_reset(converter: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnv_reset(converter)
+public actual fun ucnvReset(converter: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvReset((converter?.value ?: 0L))
 }
 
-public actual fun ucnv_resetFromUnicode(converter: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnv_resetFromUnicode(converter)
+public actual fun ucnvResetFromUnicode(converter: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvResetFromUnicode((converter?.value ?: 0L))
 }
 
-public actual fun ucnv_resetToUnicode(converter: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnv_resetToUnicode(converter)
+public actual fun ucnvResetToUnicode(converter: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvResetToUnicode((converter?.value ?: 0L))
 }
 
-public actual fun ucnv_safeClone(cnv: Long, stackbuffer: Long, pbuffersize: Long, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnv_safeClone(cnv, stackbuffer, pbuffersize, status)
+public actual fun ucnvSafeClone(cnv: COpaquePointer?, stackbuffer: COpaquePointer?, pbuffersize: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvSafeClone((cnv?.value ?: 0L), (stackbuffer?.value ?: 0L), (pbuffersize?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ucnv_setDefaultName(name: PCSTR) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnv_setDefaultName(name)
+public actual fun ucnvSetDefaultName(name: Pcstr) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvSetDefaultName((name?.value ?: 0L))
 }
 
-public actual fun ucnv_setFallback(cnv: Long, usesfallback: Byte) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnv_setFallback(cnv, usesfallback)
+public actual fun ucnvSetFallback(cnv: COpaquePointer?, usesfallback: Byte) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvSetFallback((cnv?.value ?: 0L), usesfallback)
 }
 
-public actual fun ucnv_setFromUCallBack(converter: Long, newaction: UConverterFromUCallback, newcontext: Long, oldaction: Long, oldcontext: Long, err: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnv_setFromUCallBack(converter, newaction.toLong(), newcontext, oldaction, oldcontext, err)
+public actual fun ucnvSetFromUcallBack(converter: COpaquePointer?, newaction: UConverterFromUCallback, newcontext: COpaquePointer?, oldaction: COpaquePointer?, oldcontext: COpaquePointer?, err: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvSetFromUcallBack((converter?.value ?: 0L), 0L, (newcontext?.value ?: 0L), (oldaction?.value ?: 0L), (oldcontext?.value ?: 0L), (err?.value ?: 0L))
 }
 
-public actual fun ucnv_setSubstChars(converter: Long, subchars: PCSTR, len: Byte, err: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnv_setSubstChars(converter, subchars, len, err)
+public actual fun ucnvSetSubstChars(converter: COpaquePointer?, subchars: Pcstr, len: Byte, err: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvSetSubstChars((converter?.value ?: 0L), (subchars?.value ?: 0L), len, (err?.value ?: 0L))
 }
 
-public actual fun ucnv_setSubstString(cnv: Long, s: Long, length: Int, err: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnv_setSubstString(cnv, s, length, err)
+public actual fun ucnvSetSubstString(cnv: COpaquePointer?, s: COpaquePointer?, length: Int, err: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvSetSubstString((cnv?.value ?: 0L), (s?.value ?: 0L), length, (err?.value ?: 0L))
 }
 
-public actual fun ucnv_setToUCallBack(converter: Long, newaction: UConverterToUCallback, newcontext: Long, oldaction: Long, oldcontext: Long, err: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnv_setToUCallBack(converter, newaction.toLong(), newcontext, oldaction, oldcontext, err)
+public actual fun ucnvSetToUcallBack(converter: COpaquePointer?, newaction: UConverterToUCallback, newcontext: COpaquePointer?, oldaction: COpaquePointer?, oldcontext: COpaquePointer?, err: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvSetToUcallBack((converter?.value ?: 0L), 0L, (newcontext?.value ?: 0L), (oldaction?.value ?: 0L), (oldcontext?.value ?: 0L), (err?.value ?: 0L))
 }
 
-public actual fun ucnv_toAlgorithmic(algorithmictype: UConverterType, cnv: Long, target: PCSTR, targetcapacity: Int, source: PCSTR, sourcelength: Int, perrorcode: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnv_toAlgorithmic(algorithmictype, cnv, target, targetcapacity, source, sourcelength, perrorcode)
+public actual fun ucnvToAlgorithmic(algorithmictype: UConverterType, cnv: COpaquePointer?, target: Pcstr, targetcapacity: Int, source: Pcstr, sourcelength: Int, perrorcode: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvToAlgorithmic(algorithmictype, (cnv?.value ?: 0L), (target?.value ?: 0L), targetcapacity, (source?.value ?: 0L), sourcelength, (perrorcode?.value ?: 0L))
 
-public actual fun ucnv_toUChars(cnv: Long, dest: Long, destcapacity: Int, src: PCSTR, srclength: Int, perrorcode: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnv_toUChars(cnv, dest, destcapacity, src, srclength, perrorcode)
+public actual fun ucnvToUchars(cnv: COpaquePointer?, dest: COpaquePointer?, destcapacity: Int, src: Pcstr, srclength: Int, perrorcode: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvToUchars((cnv?.value ?: 0L), (dest?.value ?: 0L), destcapacity, (src?.value ?: 0L), srclength, (perrorcode?.value ?: 0L))
 
-public actual fun ucnv_toUCountPending(cnv: Long, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnv_toUCountPending(cnv, status)
+public actual fun ucnvToUcountPending(cnv: COpaquePointer?, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvToUcountPending((cnv?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun ucnv_toUnicode(converter: Long, target: Long, targetlimit: Long, source: Long, sourcelimit: PCSTR, offsets: Long, flush: Byte, err: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnv_toUnicode(converter, target, targetlimit, source, sourcelimit, offsets, flush, err)
+public actual fun ucnvToUnicode(converter: COpaquePointer?, target: COpaquePointer?, targetlimit: COpaquePointer?, source: COpaquePointer?, sourcelimit: Pcstr, offsets: COpaquePointer?, flush: Byte, err: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvToUnicode((converter?.value ?: 0L), (target?.value ?: 0L), (targetlimit?.value ?: 0L), (source?.value ?: 0L), (sourcelimit?.value ?: 0L), (offsets?.value ?: 0L), flush, (err?.value ?: 0L))
 }
 
-public actual fun ucnv_usesFallback(cnv: Long): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnv_usesFallback(cnv)
+public actual fun ucnvUsesFallback(cnv: COpaquePointer?): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvUsesFallback((cnv?.value ?: 0L))
 
-public actual fun ucnvsel_close(sel: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvsel_close(sel)
+public actual fun ucnvselClose(sel: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvselClose((sel?.value ?: 0L))
 }
 
-public actual fun ucnvsel_open(converterlist: Long, converterlistsize: Int, excludedcodepoints: Long, whichset: UConverterUnicodeSet, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvsel_open(converterlist, converterlistsize, excludedcodepoints, whichset, status)
+public actual fun ucnvselOpen(converterlist: COpaquePointer?, converterlistsize: Int, excludedcodepoints: COpaquePointer?, whichset: UConverterUnicodeSet, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvselOpen((converterlist?.value ?: 0L), converterlistsize, (excludedcodepoints?.value ?: 0L), whichset, (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ucnvsel_openFromSerialized(buffer: Long, length: Int, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvsel_openFromSerialized(buffer, length, status)
+public actual fun ucnvselOpenFromSerialized(buffer: COpaquePointer?, length: Int, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvselOpenFromSerialized((buffer?.value ?: 0L), length, (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ucnvsel_selectForString(sel: Long, s: Long, length: Int, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvsel_selectForString(sel, s, length, status)
+public actual fun ucnvselSelectForString(sel: COpaquePointer?, s: COpaquePointer?, length: Int, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvselSelectForString((sel?.value ?: 0L), (s?.value ?: 0L), length, (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ucnvsel_selectForUTF8(sel: Long, s: PCSTR, length: Int, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvsel_selectForUTF8(sel, s, length, status)
+public actual fun ucnvselSelectForUtf8(sel: COpaquePointer?, s: Pcstr, length: Int, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvselSelectForUtf8((sel?.value ?: 0L), (s?.value ?: 0L), length, (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ucnvsel_serialize(sel: Long, buffer: Long, buffercapacity: Int, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvsel_serialize(sel, buffer, buffercapacity, status)
+public actual fun ucnvselSerialize(sel: COpaquePointer?, buffer: COpaquePointer?, buffercapacity: Int, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucnvselSerialize((sel?.value ?: 0L), (buffer?.value ?: 0L), buffercapacity, (status?.value ?: 0L))
 
-public actual fun ucol_cloneBinary(coll: Long, buffer: Long, capacity: Int, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucol_cloneBinary(coll, buffer, capacity, status)
+public actual fun ucolCloneBinary(coll: COpaquePointer?, buffer: COpaquePointer?, capacity: Int, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucolCloneBinary((coll?.value ?: 0L), (buffer?.value ?: 0L), capacity, (status?.value ?: 0L))
 
-public actual fun ucol_close(coll: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucol_close(coll)
+public actual fun ucolClose(coll: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucolClose((coll?.value ?: 0L))
 }
 
-public actual fun ucol_closeElements(elems: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucol_closeElements(elems)
+public actual fun ucolCloseElements(elems: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucolCloseElements((elems?.value ?: 0L))
 }
 
-public actual fun ucol_countAvailable(): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucol_countAvailable()
+public actual fun ucolCountAvailable(): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucolCountAvailable()
 
-public actual fun ucol_equal(coll: Long, source: Long, sourcelength: Int, target: Long, targetlength: Int): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucol_equal(coll, source, sourcelength, target, targetlength)
+public actual fun ucolEqual(coll: COpaquePointer?, source: COpaquePointer?, sourcelength: Int, target: COpaquePointer?, targetlength: Int): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucolEqual((coll?.value ?: 0L), (source?.value ?: 0L), sourcelength, (target?.value ?: 0L), targetlength)
 
-public actual fun ucol_getAttribute(coll: Long, attr: UColAttribute, status: Long): UColAttributeValue =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucol_getAttribute(coll, attr, status)
+public actual fun ucolGetAttribute(coll: COpaquePointer?, attr: UColAttribute, status: COpaquePointer?): UColAttributeValue =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucolGetAttribute((coll?.value ?: 0L), attr, (status?.value ?: 0L))
 
-public actual fun ucol_getAvailable(localeindex: Int): PCSTR =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucol_getAvailable(localeindex)
+public actual fun ucolGetAvailable(localeindex: Int): Pcstr =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucolGetAvailable(localeindex).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ucol_getBound(source: Long, sourcelength: Int, boundtype: UColBoundMode, nooflevels: UInt, result: Long, resultlength: Int, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucol_getBound(source, sourcelength, boundtype, nooflevels.toInt(), result, resultlength, status)
+public actual fun ucolGetBound(source: COpaquePointer?, sourcelength: Int, boundtype: UColBoundMode, nooflevels: UInt, result: COpaquePointer?, resultlength: Int, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucolGetBound((source?.value ?: 0L), sourcelength, boundtype, nooflevels.toInt(), (result?.value ?: 0L), resultlength, (status?.value ?: 0L))
 
-public actual fun ucol_getContractionsAndExpansions(coll: Long, contractions: Long, expansions: Long, addprefixes: Byte, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucol_getContractionsAndExpansions(coll, contractions, expansions, addprefixes, status)
+public actual fun ucolGetContractionsAndExpansions(coll: COpaquePointer?, contractions: COpaquePointer?, expansions: COpaquePointer?, addprefixes: Byte, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucolGetContractionsAndExpansions((coll?.value ?: 0L), (contractions?.value ?: 0L), (expansions?.value ?: 0L), addprefixes, (status?.value ?: 0L))
 }
 
-public actual fun ucol_getDisplayName(objloc: PCSTR, disploc: PCSTR, result: Long, resultlength: Int, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucol_getDisplayName(objloc, disploc, result, resultlength, status)
+public actual fun ucolGetDisplayName(objloc: Pcstr, disploc: Pcstr, result: COpaquePointer?, resultlength: Int, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucolGetDisplayName((objloc?.value ?: 0L), (disploc?.value ?: 0L), (result?.value ?: 0L), resultlength, (status?.value ?: 0L))
 
-public actual fun ucol_getEquivalentReorderCodes(reordercode: Int, dest: Long, destcapacity: Int, perrorcode: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucol_getEquivalentReorderCodes(reordercode, dest, destcapacity, perrorcode)
+public actual fun ucolGetEquivalentReorderCodes(reordercode: Int, dest: COpaquePointer?, destcapacity: Int, perrorcode: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucolGetEquivalentReorderCodes(reordercode, (dest?.value ?: 0L), destcapacity, (perrorcode?.value ?: 0L))
 
-public actual fun ucol_getFunctionalEquivalent(result: PCSTR, resultcapacity: Int, keyword: PCSTR, locale: PCSTR, isavailable: Long, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucol_getFunctionalEquivalent(result, resultcapacity, keyword, locale, isavailable, status)
+public actual fun ucolGetFunctionalEquivalent(result: Pcstr, resultcapacity: Int, keyword: Pcstr, locale: Pcstr, isavailable: COpaquePointer?, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucolGetFunctionalEquivalent((result?.value ?: 0L), resultcapacity, (keyword?.value ?: 0L), (locale?.value ?: 0L), (isavailable?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun ucol_getKeywordValues(keyword: PCSTR, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucol_getKeywordValues(keyword, status)
+public actual fun ucolGetKeywordValues(keyword: Pcstr, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucolGetKeywordValues((keyword?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ucol_getKeywordValuesForLocale(key: PCSTR, locale: PCSTR, commonlyused: Byte, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucol_getKeywordValuesForLocale(key, locale, commonlyused, status)
+public actual fun ucolGetKeywordValuesForLocale(key: Pcstr, locale: Pcstr, commonlyused: Byte, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucolGetKeywordValuesForLocale((key?.value ?: 0L), (locale?.value ?: 0L), commonlyused, (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ucol_getKeywords(status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucol_getKeywords(status)
+public actual fun ucolGetKeywords(status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucolGetKeywords((status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ucol_getLocaleByType(coll: Long, type: ULocDataLocaleType, status: Long): PCSTR =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucol_getLocaleByType(coll, type, status)
+public actual fun ucolGetLocaleByType(coll: COpaquePointer?, type: ULocDataLocaleType, status: COpaquePointer?): Pcstr =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucolGetLocaleByType((coll?.value ?: 0L), type, (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ucol_getMaxExpansion(elems: Long, order: Int): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucol_getMaxExpansion(elems, order)
+public actual fun ucolGetMaxExpansion(elems: COpaquePointer?, order: Int): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucolGetMaxExpansion((elems?.value ?: 0L), order)
 
-public actual fun ucol_getMaxVariable(coll: Long): UColReorderCode =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucol_getMaxVariable(coll)
+public actual fun ucolGetMaxVariable(coll: COpaquePointer?): UColReorderCode =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucolGetMaxVariable((coll?.value ?: 0L))
 
-public actual fun ucol_getOffset(elems: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucol_getOffset(elems)
+public actual fun ucolGetOffset(elems: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucolGetOffset((elems?.value ?: 0L))
 
-public actual fun ucol_getReorderCodes(coll: Long, dest: Long, destcapacity: Int, perrorcode: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucol_getReorderCodes(coll, dest, destcapacity, perrorcode)
+public actual fun ucolGetReorderCodes(coll: COpaquePointer?, dest: COpaquePointer?, destcapacity: Int, perrorcode: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucolGetReorderCodes((coll?.value ?: 0L), (dest?.value ?: 0L), destcapacity, (perrorcode?.value ?: 0L))
 
-public actual fun ucol_getRules(coll: Long, length: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucol_getRules(coll, length)
+public actual fun ucolGetRules(coll: COpaquePointer?, length: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucolGetRules((coll?.value ?: 0L), (length?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ucol_getRulesEx(coll: Long, delta: UColRuleOption, buffer: Long, bufferlen: Int): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucol_getRulesEx(coll, delta, buffer, bufferlen)
+public actual fun ucolGetRulesEx(coll: COpaquePointer?, delta: UColRuleOption, buffer: COpaquePointer?, bufferlen: Int): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucolGetRulesEx((coll?.value ?: 0L), delta, (buffer?.value ?: 0L), bufferlen)
 
-public actual fun ucol_getSortKey(coll: Long, source: Long, sourcelength: Int, result: Long, resultlength: Int): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucol_getSortKey(coll, source, sourcelength, result, resultlength)
+public actual fun ucolGetSortKey(coll: COpaquePointer?, source: COpaquePointer?, sourcelength: Int, result: COpaquePointer?, resultlength: Int): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucolGetSortKey((coll?.value ?: 0L), (source?.value ?: 0L), sourcelength, (result?.value ?: 0L), resultlength)
 
-public actual fun ucol_getStrength(coll: Long): UColAttributeValue =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucol_getStrength(coll)
+public actual fun ucolGetStrength(coll: COpaquePointer?): UColAttributeValue =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucolGetStrength((coll?.value ?: 0L))
 
-public actual fun ucol_getTailoredSet(coll: Long, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucol_getTailoredSet(coll, status)
+public actual fun ucolGetTailoredSet(coll: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucolGetTailoredSet((coll?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ucol_getUCAVersion(coll: Long, info: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucol_getUCAVersion(coll, info)
+public actual fun ucolGetUcaversion(coll: COpaquePointer?, info: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucolGetUcaversion((coll?.value ?: 0L), (info?.value ?: 0L))
 }
 
-public actual fun ucol_getVariableTop(coll: Long, status: Long): UInt =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucol_getVariableTop(coll, status).toUInt()
+public actual fun ucolGetVariableTop(coll: COpaquePointer?, status: COpaquePointer?): UInt =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucolGetVariableTop((coll?.value ?: 0L), (status?.value ?: 0L)).toUInt()
 
-public actual fun ucol_getVersion(coll: Long, info: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucol_getVersion(coll, info)
+public actual fun ucolGetVersion(coll: COpaquePointer?, info: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucolGetVersion((coll?.value ?: 0L), (info?.value ?: 0L))
 }
 
-public actual fun ucol_greater(coll: Long, source: Long, sourcelength: Int, target: Long, targetlength: Int): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucol_greater(coll, source, sourcelength, target, targetlength)
+public actual fun ucolGreater(coll: COpaquePointer?, source: COpaquePointer?, sourcelength: Int, target: COpaquePointer?, targetlength: Int): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucolGreater((coll?.value ?: 0L), (source?.value ?: 0L), sourcelength, (target?.value ?: 0L), targetlength)
 
-public actual fun ucol_greaterOrEqual(coll: Long, source: Long, sourcelength: Int, target: Long, targetlength: Int): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucol_greaterOrEqual(coll, source, sourcelength, target, targetlength)
+public actual fun ucolGreaterOrEqual(coll: COpaquePointer?, source: COpaquePointer?, sourcelength: Int, target: COpaquePointer?, targetlength: Int): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucolGreaterOrEqual((coll?.value ?: 0L), (source?.value ?: 0L), sourcelength, (target?.value ?: 0L), targetlength)
 
-public actual fun ucol_keyHashCode(key: Long, length: Int): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucol_keyHashCode(key, length)
+public actual fun ucolKeyHashCode(key: COpaquePointer?, length: Int): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucolKeyHashCode((key?.value ?: 0L), length)
 
-public actual fun ucol_mergeSortkeys(src1: Long, src1length: Int, src2: Long, src2length: Int, dest: Long, destcapacity: Int): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucol_mergeSortkeys(src1, src1length, src2, src2length, dest, destcapacity)
+public actual fun ucolMergeSortkeys(src1: COpaquePointer?, src1length: Int, src2: COpaquePointer?, src2length: Int, dest: COpaquePointer?, destcapacity: Int): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucolMergeSortkeys((src1?.value ?: 0L), src1length, (src2?.value ?: 0L), src2length, (dest?.value ?: 0L), destcapacity)
 
-public actual fun ucol_next(elems: Long, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucol_next(elems, status)
+public actual fun ucolNext(elems: COpaquePointer?, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucolNext((elems?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun ucol_nextSortKeyPart(coll: Long, iter: Long, state: Long, dest: Long, count: Int, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucol_nextSortKeyPart(coll, iter, state, dest, count, status)
+public actual fun ucolNextSortKeyPart(coll: COpaquePointer?, iter: COpaquePointer?, state: COpaquePointer?, dest: COpaquePointer?, count: Int, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucolNextSortKeyPart((coll?.value ?: 0L), (iter?.value ?: 0L), (state?.value ?: 0L), (dest?.value ?: 0L), count, (status?.value ?: 0L))
 
-public actual fun ucol_open(loc: PCSTR, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucol_open(loc, status)
+public actual fun ucolOpen(loc: Pcstr, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucolOpen((loc?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ucol_openAvailableLocales(status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucol_openAvailableLocales(status)
+public actual fun ucolOpenAvailableLocales(status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucolOpenAvailableLocales((status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ucol_openBinary(bin: Long, length: Int, base: Long, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucol_openBinary(bin, length, base, status)
+public actual fun ucolOpenBinary(bin: COpaquePointer?, length: Int, base: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucolOpenBinary((bin?.value ?: 0L), length, (base?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ucol_openElements(coll: Long, text: Long, textlength: Int, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucol_openElements(coll, text, textlength, status)
+public actual fun ucolOpenElements(coll: COpaquePointer?, text: COpaquePointer?, textlength: Int, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucolOpenElements((coll?.value ?: 0L), (text?.value ?: 0L), textlength, (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ucol_openRules(rules: Long, ruleslength: Int, normalizationmode: UColAttributeValue, strength: UColAttributeValue, parseerror: Long, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucol_openRules(rules, ruleslength, normalizationmode, strength, parseerror, status)
+public actual fun ucolOpenRules(rules: COpaquePointer?, ruleslength: Int, normalizationmode: UColAttributeValue, strength: UColAttributeValue, parseerror: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucolOpenRules((rules?.value ?: 0L), ruleslength, normalizationmode, strength, (parseerror?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ucol_previous(elems: Long, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucol_previous(elems, status)
+public actual fun ucolPrevious(elems: COpaquePointer?, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucolPrevious((elems?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun ucol_primaryOrder(order: Int): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucol_primaryOrder(order)
+public actual fun ucolPrimaryOrder(order: Int): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucolPrimaryOrder(order)
 
-public actual fun ucol_reset(elems: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucol_reset(elems)
+public actual fun ucolReset(elems: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucolReset((elems?.value ?: 0L))
 }
 
-public actual fun ucol_safeClone(coll: Long, stackbuffer: Long, pbuffersize: Long, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucol_safeClone(coll, stackbuffer, pbuffersize, status)
+public actual fun ucolSafeClone(coll: COpaquePointer?, stackbuffer: COpaquePointer?, pbuffersize: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucolSafeClone((coll?.value ?: 0L), (stackbuffer?.value ?: 0L), (pbuffersize?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ucol_secondaryOrder(order: Int): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucol_secondaryOrder(order)
+public actual fun ucolSecondaryOrder(order: Int): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucolSecondaryOrder(order)
 
-public actual fun ucol_setAttribute(coll: Long, attr: UColAttribute, value: UColAttributeValue, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucol_setAttribute(coll, attr, value, status)
+public actual fun ucolSetAttribute(coll: COpaquePointer?, attr: UColAttribute, value: UColAttributeValue, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucolSetAttribute((coll?.value ?: 0L), attr, value, (status?.value ?: 0L))
 }
 
-public actual fun ucol_setMaxVariable(coll: Long, group: UColReorderCode, perrorcode: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucol_setMaxVariable(coll, group, perrorcode)
+public actual fun ucolSetMaxVariable(coll: COpaquePointer?, group: UColReorderCode, perrorcode: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucolSetMaxVariable((coll?.value ?: 0L), group, (perrorcode?.value ?: 0L))
 }
 
-public actual fun ucol_setOffset(elems: Long, offset: Int, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucol_setOffset(elems, offset, status)
+public actual fun ucolSetOffset(elems: COpaquePointer?, offset: Int, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucolSetOffset((elems?.value ?: 0L), offset, (status?.value ?: 0L))
 }
 
-public actual fun ucol_setReorderCodes(coll: Long, reordercodes: Long, reordercodeslength: Int, perrorcode: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucol_setReorderCodes(coll, reordercodes, reordercodeslength, perrorcode)
+public actual fun ucolSetReorderCodes(coll: COpaquePointer?, reordercodes: COpaquePointer?, reordercodeslength: Int, perrorcode: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucolSetReorderCodes((coll?.value ?: 0L), (reordercodes?.value ?: 0L), reordercodeslength, (perrorcode?.value ?: 0L))
 }
 
-public actual fun ucol_setStrength(coll: Long, strength: UColAttributeValue) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucol_setStrength(coll, strength)
+public actual fun ucolSetStrength(coll: COpaquePointer?, strength: UColAttributeValue) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucolSetStrength((coll?.value ?: 0L), strength)
 }
 
-public actual fun ucol_setText(elems: Long, text: Long, textlength: Int, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucol_setText(elems, text, textlength, status)
+public actual fun ucolSetText(elems: COpaquePointer?, text: COpaquePointer?, textlength: Int, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucolSetText((elems?.value ?: 0L), (text?.value ?: 0L), textlength, (status?.value ?: 0L))
 }
 
-public actual fun ucol_strcoll(coll: Long, source: Long, sourcelength: Int, target: Long, targetlength: Int): UCollationResult =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucol_strcoll(coll, source, sourcelength, target, targetlength)
+public actual fun ucolStrcoll(coll: COpaquePointer?, source: COpaquePointer?, sourcelength: Int, target: COpaquePointer?, targetlength: Int): UCollationResult =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucolStrcoll((coll?.value ?: 0L), (source?.value ?: 0L), sourcelength, (target?.value ?: 0L), targetlength)
 
-public actual fun ucol_strcollIter(coll: Long, siter: Long, titer: Long, status: Long): UCollationResult =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucol_strcollIter(coll, siter, titer, status)
+public actual fun ucolStrcollIter(coll: COpaquePointer?, siter: COpaquePointer?, titer: COpaquePointer?, status: COpaquePointer?): UCollationResult =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucolStrcollIter((coll?.value ?: 0L), (siter?.value ?: 0L), (titer?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun ucol_strcollUTF8(coll: Long, source: PCSTR, sourcelength: Int, target: PCSTR, targetlength: Int, status: Long): UCollationResult =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucol_strcollUTF8(coll, source, sourcelength, target, targetlength, status)
+public actual fun ucolStrcollUtf8(coll: COpaquePointer?, source: Pcstr, sourcelength: Int, target: Pcstr, targetlength: Int, status: COpaquePointer?): UCollationResult =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucolStrcollUtf8((coll?.value ?: 0L), (source?.value ?: 0L), sourcelength, (target?.value ?: 0L), targetlength, (status?.value ?: 0L))
 
-public actual fun ucol_tertiaryOrder(order: Int): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucol_tertiaryOrder(order)
+public actual fun ucolTertiaryOrder(order: Int): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucolTertiaryOrder(order)
 
-public actual fun ucpmap_get(map: Long, c: Int): UInt =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucpmap_get(map, c).toUInt()
+public actual fun ucpmapGet(map: COpaquePointer?, c: Int): UInt =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucpmapGet((map?.value ?: 0L), c).toUInt()
 
-public actual fun ucpmap_getRange(map: Long, start: Int, option: UCPMapRangeOption, surrogatevalue: UInt, filter: Long, context: Long, pvalue: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucpmap_getRange(map, start, option, surrogatevalue.toInt(), filter, context, pvalue)
+public actual fun ucpmapGetRange(map: COpaquePointer?, start: Int, option: UCPMapRangeOption, surrogatevalue: UInt, filter: COpaquePointer?, context: COpaquePointer?, pvalue: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucpmapGetRange((map?.value ?: 0L), start, option, surrogatevalue.toInt(), (filter?.value ?: 0L), (context?.value ?: 0L), (pvalue?.value ?: 0L))
 
-public actual fun ucptrie_close(trie: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucptrie_close(trie)
+public actual fun ucptrieClose(trie: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucptrieClose((trie?.value ?: 0L))
 }
 
-public actual fun ucptrie_get(trie: Long, c: Int): UInt =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucptrie_get(trie, c).toUInt()
+public actual fun ucptrieGet(trie: COpaquePointer?, c: Int): UInt =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucptrieGet((trie?.value ?: 0L), c).toUInt()
 
-public actual fun ucptrie_getRange(trie: Long, start: Int, option: UCPMapRangeOption, surrogatevalue: UInt, filter: Long, context: Long, pvalue: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucptrie_getRange(trie, start, option, surrogatevalue.toInt(), filter, context, pvalue)
+public actual fun ucptrieGetRange(trie: COpaquePointer?, start: Int, option: UCPMapRangeOption, surrogatevalue: UInt, filter: COpaquePointer?, context: COpaquePointer?, pvalue: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucptrieGetRange((trie?.value ?: 0L), start, option, surrogatevalue.toInt(), (filter?.value ?: 0L), (context?.value ?: 0L), (pvalue?.value ?: 0L))
 
-public actual fun ucptrie_getType(trie: Long): UCPTrieType =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucptrie_getType(trie)
+public actual fun ucptrieGetType(trie: COpaquePointer?): UCPTrieType =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucptrieGetType((trie?.value ?: 0L))
 
-public actual fun ucptrie_getValueWidth(trie: Long): UCPTrieValueWidth =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucptrie_getValueWidth(trie)
+public actual fun ucptrieGetValueWidth(trie: COpaquePointer?): UCPTrieValueWidth =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucptrieGetValueWidth((trie?.value ?: 0L))
 
-public actual fun ucptrie_internalSmallIndex(trie: Long, c: Int): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucptrie_internalSmallIndex(trie, c)
+public actual fun ucptrieInternalSmallIndex(trie: COpaquePointer?, c: Int): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucptrieInternalSmallIndex((trie?.value ?: 0L), c)
 
-public actual fun ucptrie_internalSmallU8Index(trie: Long, lt1: Int, t2: UByte, t3: UByte): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucptrie_internalSmallU8Index(trie, lt1, t2.toByte(), t3.toByte())
+public actual fun ucptrieInternalSmallU8Index(trie: COpaquePointer?, lt1: Int, t2: UByte, t3: UByte): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucptrieInternalSmallU8Index((trie?.value ?: 0L), lt1, t2.toByte(), t3.toByte())
 
-public actual fun ucptrie_internalU8PrevIndex(trie: Long, c: Int, start: Long, src: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucptrie_internalU8PrevIndex(trie, c, start, src)
+public actual fun ucptrieInternalU8PrevIndex(trie: COpaquePointer?, c: Int, start: COpaquePointer?, src: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucptrieInternalU8PrevIndex((trie?.value ?: 0L), c, (start?.value ?: 0L), (src?.value ?: 0L))
 
-public actual fun ucptrie_openFromBinary(type: UCPTrieType, valuewidth: UCPTrieValueWidth, data: Long, length: Int, pactuallength: Long, perrorcode: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucptrie_openFromBinary(type, valuewidth, data, length, pactuallength, perrorcode)
+public actual fun ucptrieOpenFromBinary(type: UCPTrieType, valuewidth: UCPTrieValueWidth, data: COpaquePointer?, length: Int, pactuallength: COpaquePointer?, perrorcode: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucptrieOpenFromBinary(type, valuewidth, (data?.value ?: 0L), length, (pactuallength?.value ?: 0L), (perrorcode?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ucptrie_toBinary(trie: Long, data: Long, capacity: Int, perrorcode: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucptrie_toBinary(trie, data, capacity, perrorcode)
+public actual fun ucptrieToBinary(trie: COpaquePointer?, data: COpaquePointer?, capacity: Int, perrorcode: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucptrieToBinary((trie?.value ?: 0L), (data?.value ?: 0L), capacity, (perrorcode?.value ?: 0L))
 
-public actual fun ucsdet_close(ucsd: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucsdet_close(ucsd)
+public actual fun ucsdetClose(ucsd: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucsdetClose((ucsd?.value ?: 0L))
 }
 
-public actual fun ucsdet_detect(ucsd: Long, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucsdet_detect(ucsd, status)
+public actual fun ucsdetDetect(ucsd: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucsdetDetect((ucsd?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ucsdet_detectAll(ucsd: Long, matchesfound: Long, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucsdet_detectAll(ucsd, matchesfound, status)
+public actual fun ucsdetDetectAll(ucsd: COpaquePointer?, matchesfound: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucsdetDetectAll((ucsd?.value ?: 0L), (matchesfound?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ucsdet_enableInputFilter(ucsd: Long, filter: Byte): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucsdet_enableInputFilter(ucsd, filter)
+public actual fun ucsdetEnableInputFilter(ucsd: COpaquePointer?, filter: Byte): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucsdetEnableInputFilter((ucsd?.value ?: 0L), filter)
 
-public actual fun ucsdet_getAllDetectableCharsets(ucsd: Long, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucsdet_getAllDetectableCharsets(ucsd, status)
+public actual fun ucsdetGetAllDetectableCharsets(ucsd: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucsdetGetAllDetectableCharsets((ucsd?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ucsdet_getConfidence(ucsm: Long, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucsdet_getConfidence(ucsm, status)
+public actual fun ucsdetGetConfidence(ucsm: COpaquePointer?, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucsdetGetConfidence((ucsm?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun ucsdet_getLanguage(ucsm: Long, status: Long): PCSTR =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucsdet_getLanguage(ucsm, status)
+public actual fun ucsdetGetLanguage(ucsm: COpaquePointer?, status: COpaquePointer?): Pcstr =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucsdetGetLanguage((ucsm?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ucsdet_getName(ucsm: Long, status: Long): PCSTR =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucsdet_getName(ucsm, status)
+public actual fun ucsdetGetName(ucsm: COpaquePointer?, status: COpaquePointer?): Pcstr =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucsdetGetName((ucsm?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ucsdet_getUChars(ucsm: Long, buf: Long, cap: Int, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucsdet_getUChars(ucsm, buf, cap, status)
+public actual fun ucsdetGetUchars(ucsm: COpaquePointer?, buf: COpaquePointer?, cap: Int, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucsdetGetUchars((ucsm?.value ?: 0L), (buf?.value ?: 0L), cap, (status?.value ?: 0L))
 
-public actual fun ucsdet_isInputFilterEnabled(ucsd: Long): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucsdet_isInputFilterEnabled(ucsd)
+public actual fun ucsdetIsInputFilterEnabled(ucsd: COpaquePointer?): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucsdetIsInputFilterEnabled((ucsd?.value ?: 0L))
 
-public actual fun ucsdet_open(status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucsdet_open(status)
+public actual fun ucsdetOpen(status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucsdetOpen((status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ucsdet_setDeclaredEncoding(ucsd: Long, encoding: PCSTR, length: Int, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucsdet_setDeclaredEncoding(ucsd, encoding, length, status)
+public actual fun ucsdetSetDeclaredEncoding(ucsd: COpaquePointer?, encoding: Pcstr, length: Int, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucsdetSetDeclaredEncoding((ucsd?.value ?: 0L), (encoding?.value ?: 0L), length, (status?.value ?: 0L))
 }
 
-public actual fun ucsdet_setText(ucsd: Long, textin: PCSTR, len: Int, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucsdet_setText(ucsd, textin, len, status)
+public actual fun ucsdetSetText(ucsd: COpaquePointer?, textin: Pcstr, len: Int, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucsdetSetText((ucsd?.value ?: 0L), (textin?.value ?: 0L), len, (status?.value ?: 0L))
 }
 
-public actual fun ucurr_countCurrencies(locale: PCSTR, date: Double, ec: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucurr_countCurrencies(locale, date, ec)
+public actual fun ucurrCountCurrencies(locale: Pcstr, date: Double, ec: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucurrCountCurrencies((locale?.value ?: 0L), date, (ec?.value ?: 0L))
 
-public actual fun ucurr_forLocale(locale: PCSTR, buff: Long, buffcapacity: Int, ec: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucurr_forLocale(locale, buff, buffcapacity, ec)
+public actual fun ucurrForLocale(locale: Pcstr, buff: COpaquePointer?, buffcapacity: Int, ec: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucurrForLocale((locale?.value ?: 0L), (buff?.value ?: 0L), buffcapacity, (ec?.value ?: 0L))
 
-public actual fun ucurr_forLocaleAndDate(locale: PCSTR, date: Double, index: Int, buff: Long, buffcapacity: Int, ec: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucurr_forLocaleAndDate(locale, date, index, buff, buffcapacity, ec)
+public actual fun ucurrForLocaleAndDate(locale: Pcstr, date: Double, index: Int, buff: COpaquePointer?, buffcapacity: Int, ec: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucurrForLocaleAndDate((locale?.value ?: 0L), date, index, (buff?.value ?: 0L), buffcapacity, (ec?.value ?: 0L))
 
-public actual fun ucurr_getDefaultFractionDigits(currency: Long, ec: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucurr_getDefaultFractionDigits(currency, ec)
+public actual fun ucurrGetDefaultFractionDigits(currency: COpaquePointer?, ec: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucurrGetDefaultFractionDigits((currency?.value ?: 0L), (ec?.value ?: 0L))
 
-public actual fun ucurr_getDefaultFractionDigitsForUsage(currency: Long, usage: UCurrencyUsage, ec: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucurr_getDefaultFractionDigitsForUsage(currency, usage, ec)
+public actual fun ucurrGetDefaultFractionDigitsForUsage(currency: COpaquePointer?, usage: UCurrencyUsage, ec: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucurrGetDefaultFractionDigitsForUsage((currency?.value ?: 0L), usage, (ec?.value ?: 0L))
 
-public actual fun ucurr_getKeywordValuesForLocale(key: PCSTR, locale: PCSTR, commonlyused: Byte, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucurr_getKeywordValuesForLocale(key, locale, commonlyused, status)
+public actual fun ucurrGetKeywordValuesForLocale(key: Pcstr, locale: Pcstr, commonlyused: Byte, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucurrGetKeywordValuesForLocale((key?.value ?: 0L), (locale?.value ?: 0L), commonlyused, (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ucurr_getName(currency: Long, locale: PCSTR, namestyle: UCurrNameStyle, ischoiceformat: Long, len: Long, ec: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucurr_getName(currency, locale, namestyle, ischoiceformat, len, ec)
+public actual fun ucurrGetName(currency: COpaquePointer?, locale: Pcstr, namestyle: UCurrNameStyle, ischoiceformat: COpaquePointer?, len: COpaquePointer?, ec: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucurrGetName((currency?.value ?: 0L), (locale?.value ?: 0L), namestyle, (ischoiceformat?.value ?: 0L), (len?.value ?: 0L), (ec?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ucurr_getNumericCode(currency: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucurr_getNumericCode(currency)
+public actual fun ucurrGetNumericCode(currency: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucurrGetNumericCode((currency?.value ?: 0L))
 
-public actual fun ucurr_getPluralName(currency: Long, locale: PCSTR, ischoiceformat: Long, pluralcount: PCSTR, len: Long, ec: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucurr_getPluralName(currency, locale, ischoiceformat, pluralcount, len, ec)
+public actual fun ucurrGetPluralName(currency: COpaquePointer?, locale: Pcstr, ischoiceformat: COpaquePointer?, pluralcount: Pcstr, len: COpaquePointer?, ec: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucurrGetPluralName((currency?.value ?: 0L), (locale?.value ?: 0L), (ischoiceformat?.value ?: 0L), (pluralcount?.value ?: 0L), (len?.value ?: 0L), (ec?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ucurr_getRoundingIncrement(currency: Long, ec: Long): Double =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucurr_getRoundingIncrement(currency, ec)
+public actual fun ucurrGetRoundingIncrement(currency: COpaquePointer?, ec: COpaquePointer?): Double =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucurrGetRoundingIncrement((currency?.value ?: 0L), (ec?.value ?: 0L))
 
-public actual fun ucurr_getRoundingIncrementForUsage(currency: Long, usage: UCurrencyUsage, ec: Long): Double =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucurr_getRoundingIncrementForUsage(currency, usage, ec)
+public actual fun ucurrGetRoundingIncrementForUsage(currency: COpaquePointer?, usage: UCurrencyUsage, ec: COpaquePointer?): Double =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucurrGetRoundingIncrementForUsage((currency?.value ?: 0L), usage, (ec?.value ?: 0L))
 
-public actual fun ucurr_isAvailable(isocode: Long, from: Double, to: Double, errorcode: Long): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucurr_isAvailable(isocode, from, to, errorcode)
+public actual fun ucurrIsAvailable(isocode: COpaquePointer?, from: Double, to: Double, errorcode: COpaquePointer?): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucurrIsAvailable((isocode?.value ?: 0L), from, to, (errorcode?.value ?: 0L))
 
-public actual fun ucurr_openISOCurrencies(currtype: UInt, perrorcode: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucurr_openISOCurrencies(currtype.toInt(), perrorcode)
+public actual fun ucurrOpenIsocurrencies(currtype: UInt, perrorcode: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucurrOpenIsocurrencies(currtype.toInt(), (perrorcode?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ucurr_register(isocode: Long, locale: PCSTR, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucurr_register(isocode, locale, status)
+public actual fun ucurrRegister(isocode: COpaquePointer?, locale: Pcstr, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucurrRegister((isocode?.value ?: 0L), (locale?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ucurr_unregister(key: Long, status: Long): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucurr_unregister(key, status)
+public actual fun ucurrUnregister(key: COpaquePointer?, status: COpaquePointer?): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ucurrUnregister((key?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun udat_adoptNumberFormat(fmt: Long, numberformattoadopt: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udat_adoptNumberFormat(fmt, numberformattoadopt)
+public actual fun udatAdoptNumberFormat(fmt: COpaquePointer?, numberformattoadopt: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatAdoptNumberFormat((fmt?.value ?: 0L), (numberformattoadopt?.value ?: 0L))
 }
 
-public actual fun udat_adoptNumberFormatForFields(fmt: Long, fields: Long, numberformattoset: Long, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udat_adoptNumberFormatForFields(fmt, fields, numberformattoset, status)
+public actual fun udatAdoptNumberFormatForFields(fmt: COpaquePointer?, fields: COpaquePointer?, numberformattoset: COpaquePointer?, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatAdoptNumberFormatForFields((fmt?.value ?: 0L), (fields?.value ?: 0L), (numberformattoset?.value ?: 0L), (status?.value ?: 0L))
 }
 
-public actual fun udat_applyPattern(format: Long, localized: Byte, pattern: Long, patternlength: Int) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udat_applyPattern(format, localized, pattern, patternlength)
+public actual fun udatApplyPattern(format: COpaquePointer?, localized: Byte, pattern: COpaquePointer?, patternlength: Int) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatApplyPattern((format?.value ?: 0L), localized, (pattern?.value ?: 0L), patternlength)
 }
 
-public actual fun udat_clone(fmt: Long, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udat_clone(fmt, status)
+public actual fun udatClone(fmt: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatClone((fmt?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun udat_close(format: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udat_close(format)
+public actual fun udatClose(format: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatClose((format?.value ?: 0L))
 }
 
-public actual fun udat_countAvailable(): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udat_countAvailable()
+public actual fun udatCountAvailable(): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatCountAvailable()
 
-public actual fun udat_countSymbols(fmt: Long, type: UDateFormatSymbolType): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udat_countSymbols(fmt, type)
+public actual fun udatCountSymbols(fmt: COpaquePointer?, type: UDateFormatSymbolType): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatCountSymbols((fmt?.value ?: 0L), type)
 
-public actual fun udat_format(format: Long, datetoformat: Double, result: Long, resultlength: Int, position: Long, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udat_format(format, datetoformat, result, resultlength, position, status)
+public actual fun udatFormat(format: COpaquePointer?, datetoformat: Double, result: COpaquePointer?, resultlength: Int, position: COpaquePointer?, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatFormat((format?.value ?: 0L), datetoformat, (result?.value ?: 0L), resultlength, (position?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun udat_formatCalendar(format: Long, calendar: Long, result: Long, capacity: Int, position: Long, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udat_formatCalendar(format, calendar, result, capacity, position, status)
+public actual fun udatFormatCalendar(format: COpaquePointer?, calendar: COpaquePointer?, result: COpaquePointer?, capacity: Int, position: COpaquePointer?, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatFormatCalendar((format?.value ?: 0L), (calendar?.value ?: 0L), (result?.value ?: 0L), capacity, (position?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun udat_formatCalendarForFields(format: Long, calendar: Long, result: Long, capacity: Int, fpositer: Long, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udat_formatCalendarForFields(format, calendar, result, capacity, fpositer, status)
+public actual fun udatFormatCalendarForFields(format: COpaquePointer?, calendar: COpaquePointer?, result: COpaquePointer?, capacity: Int, fpositer: COpaquePointer?, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatFormatCalendarForFields((format?.value ?: 0L), (calendar?.value ?: 0L), (result?.value ?: 0L), capacity, (fpositer?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun udat_formatForFields(format: Long, datetoformat: Double, result: Long, resultlength: Int, fpositer: Long, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udat_formatForFields(format, datetoformat, result, resultlength, fpositer, status)
+public actual fun udatFormatForFields(format: COpaquePointer?, datetoformat: Double, result: COpaquePointer?, resultlength: Int, fpositer: COpaquePointer?, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatFormatForFields((format?.value ?: 0L), datetoformat, (result?.value ?: 0L), resultlength, (fpositer?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun udat_get2DigitYearStart(fmt: Long, status: Long): Double =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udat_get2DigitYearStart(fmt, status)
+public actual fun udatGet2DigitYearStart(fmt: COpaquePointer?, status: COpaquePointer?): Double =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatGet2DigitYearStart((fmt?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun udat_getAvailable(localeindex: Int): PCSTR =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udat_getAvailable(localeindex)
+public actual fun udatGetAvailable(localeindex: Int): Pcstr =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatGetAvailable(localeindex).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun udat_getBooleanAttribute(fmt: Long, attr: UDateFormatBooleanAttribute, status: Long): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udat_getBooleanAttribute(fmt, attr, status)
+public actual fun udatGetBooleanAttribute(fmt: COpaquePointer?, attr: UDateFormatBooleanAttribute, status: COpaquePointer?): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatGetBooleanAttribute((fmt?.value ?: 0L), attr, (status?.value ?: 0L))
 
-public actual fun udat_getCalendar(fmt: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udat_getCalendar(fmt)
+public actual fun udatGetCalendar(fmt: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatGetCalendar((fmt?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun udat_getContext(fmt: Long, type: UDisplayContextType, status: Long): UDisplayContext =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udat_getContext(fmt, type, status)
+public actual fun udatGetContext(fmt: COpaquePointer?, type: UDisplayContextType, status: COpaquePointer?): UDisplayContext =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatGetContext((fmt?.value ?: 0L), type, (status?.value ?: 0L))
 
-public actual fun udat_getLocaleByType(fmt: Long, type: ULocDataLocaleType, status: Long): PCSTR =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udat_getLocaleByType(fmt, type, status)
+public actual fun udatGetLocaleByType(fmt: COpaquePointer?, type: ULocDataLocaleType, status: COpaquePointer?): Pcstr =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatGetLocaleByType((fmt?.value ?: 0L), type, (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun udat_getNumberFormat(fmt: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udat_getNumberFormat(fmt)
+public actual fun udatGetNumberFormat(fmt: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatGetNumberFormat((fmt?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun udat_getNumberFormatForField(fmt: Long, field: UShort): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udat_getNumberFormatForField(fmt, field.toShort())
+public actual fun udatGetNumberFormatForField(fmt: COpaquePointer?, field: UShort): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatGetNumberFormatForField((fmt?.value ?: 0L), field.toShort()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun udat_getSymbols(fmt: Long, type: UDateFormatSymbolType, symbolindex: Int, result: Long, resultlength: Int, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udat_getSymbols(fmt, type, symbolindex, result, resultlength, status)
+public actual fun udatGetSymbols(fmt: COpaquePointer?, type: UDateFormatSymbolType, symbolindex: Int, result: COpaquePointer?, resultlength: Int, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatGetSymbols((fmt?.value ?: 0L), type, symbolindex, (result?.value ?: 0L), resultlength, (status?.value ?: 0L))
 
-public actual fun udat_isLenient(fmt: Long): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udat_isLenient(fmt)
+public actual fun udatIsLenient(fmt: COpaquePointer?): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatIsLenient((fmt?.value ?: 0L))
 
-public actual fun udat_open(timestyle: UDateFormatStyle, datestyle: UDateFormatStyle, locale: PCSTR, tzid: Long, tzidlength: Int, pattern: Long, patternlength: Int, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udat_open(timestyle, datestyle, locale, tzid, tzidlength, pattern, patternlength, status)
+public actual fun udatOpen(timestyle: UDateFormatStyle, datestyle: UDateFormatStyle, locale: Pcstr, tzid: COpaquePointer?, tzidlength: Int, pattern: COpaquePointer?, patternlength: Int, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatOpen(timestyle, datestyle, (locale?.value ?: 0L), (tzid?.value ?: 0L), tzidlength, (pattern?.value ?: 0L), patternlength, (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun udat_parse(format: Long, text: Long, textlength: Int, parsepos: Long, status: Long): Double =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udat_parse(format, text, textlength, parsepos, status)
+public actual fun udatParse(format: COpaquePointer?, text: COpaquePointer?, textlength: Int, parsepos: COpaquePointer?, status: COpaquePointer?): Double =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatParse((format?.value ?: 0L), (text?.value ?: 0L), textlength, (parsepos?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun udat_parseCalendar(format: Long, calendar: Long, text: Long, textlength: Int, parsepos: Long, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udat_parseCalendar(format, calendar, text, textlength, parsepos, status)
+public actual fun udatParseCalendar(format: COpaquePointer?, calendar: COpaquePointer?, text: COpaquePointer?, textlength: Int, parsepos: COpaquePointer?, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatParseCalendar((format?.value ?: 0L), (calendar?.value ?: 0L), (text?.value ?: 0L), textlength, (parsepos?.value ?: 0L), (status?.value ?: 0L))
 }
 
-public actual fun udat_set2DigitYearStart(fmt: Long, d: Double, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udat_set2DigitYearStart(fmt, d, status)
+public actual fun udatSet2DigitYearStart(fmt: COpaquePointer?, d: Double, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatSet2DigitYearStart((fmt?.value ?: 0L), d, (status?.value ?: 0L))
 }
 
-public actual fun udat_setBooleanAttribute(fmt: Long, attr: UDateFormatBooleanAttribute, newvalue: Byte, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udat_setBooleanAttribute(fmt, attr, newvalue, status)
+public actual fun udatSetBooleanAttribute(fmt: COpaquePointer?, attr: UDateFormatBooleanAttribute, newvalue: Byte, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatSetBooleanAttribute((fmt?.value ?: 0L), attr, newvalue, (status?.value ?: 0L))
 }
 
-public actual fun udat_setCalendar(fmt: Long, calendartoset: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udat_setCalendar(fmt, calendartoset)
+public actual fun udatSetCalendar(fmt: COpaquePointer?, calendartoset: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatSetCalendar((fmt?.value ?: 0L), (calendartoset?.value ?: 0L))
 }
 
-public actual fun udat_setContext(fmt: Long, value: UDisplayContext, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udat_setContext(fmt, value, status)
+public actual fun udatSetContext(fmt: COpaquePointer?, value: UDisplayContext, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatSetContext((fmt?.value ?: 0L), value, (status?.value ?: 0L))
 }
 
-public actual fun udat_setLenient(fmt: Long, islenient: Byte) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udat_setLenient(fmt, islenient)
+public actual fun udatSetLenient(fmt: COpaquePointer?, islenient: Byte) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatSetLenient((fmt?.value ?: 0L), islenient)
 }
 
-public actual fun udat_setNumberFormat(fmt: Long, numberformattoset: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udat_setNumberFormat(fmt, numberformattoset)
+public actual fun udatSetNumberFormat(fmt: COpaquePointer?, numberformattoset: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatSetNumberFormat((fmt?.value ?: 0L), (numberformattoset?.value ?: 0L))
 }
 
-public actual fun udat_setSymbols(format: Long, type: UDateFormatSymbolType, symbolindex: Int, value: Long, valuelength: Int, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udat_setSymbols(format, type, symbolindex, value, valuelength, status)
+public actual fun udatSetSymbols(format: COpaquePointer?, type: UDateFormatSymbolType, symbolindex: Int, value: COpaquePointer?, valuelength: Int, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatSetSymbols((format?.value ?: 0L), type, symbolindex, (value?.value ?: 0L), valuelength, (status?.value ?: 0L))
 }
 
-public actual fun udat_toCalendarDateField(field: UDateFormatField): UCalendarDateFields =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udat_toCalendarDateField(field)
+public actual fun udatToCalendarDateField(field: UDateFormatField): UCalendarDateFields =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatToCalendarDateField(field)
 
-public actual fun udat_toPattern(fmt: Long, localized: Byte, result: Long, resultlength: Int, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udat_toPattern(fmt, localized, result, resultlength, status)
+public actual fun udatToPattern(fmt: COpaquePointer?, localized: Byte, result: COpaquePointer?, resultlength: Int, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatToPattern((fmt?.value ?: 0L), localized, (result?.value ?: 0L), resultlength, (status?.value ?: 0L))
 
-public actual fun udatpg_addPattern(dtpg: Long, pattern: Long, patternlength: Int, override: Byte, conflictingpattern: Long, capacity: Int, plength: Long, perrorcode: Long): UDateTimePatternConflict =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatpg_addPattern(dtpg, pattern, patternlength, override, conflictingpattern, capacity, plength, perrorcode)
+public actual fun udatpgAddPattern(dtpg: COpaquePointer?, pattern: COpaquePointer?, patternlength: Int, override: Byte, conflictingpattern: COpaquePointer?, capacity: Int, plength: COpaquePointer?, perrorcode: COpaquePointer?): UDateTimePatternConflict =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatpgAddPattern((dtpg?.value ?: 0L), (pattern?.value ?: 0L), patternlength, override, (conflictingpattern?.value ?: 0L), capacity, (plength?.value ?: 0L), (perrorcode?.value ?: 0L))
 
-public actual fun udatpg_clone(dtpg: Long, perrorcode: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatpg_clone(dtpg, perrorcode)
+public actual fun udatpgClone(dtpg: COpaquePointer?, perrorcode: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatpgClone((dtpg?.value ?: 0L), (perrorcode?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun udatpg_close(dtpg: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatpg_close(dtpg)
+public actual fun udatpgClose(dtpg: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatpgClose((dtpg?.value ?: 0L))
 }
 
-public actual fun udatpg_getAppendItemFormat(dtpg: Long, field: UDateTimePatternField, plength: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatpg_getAppendItemFormat(dtpg, field, plength)
+public actual fun udatpgGetAppendItemFormat(dtpg: COpaquePointer?, field: UDateTimePatternField, plength: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatpgGetAppendItemFormat((dtpg?.value ?: 0L), field, (plength?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun udatpg_getAppendItemName(dtpg: Long, field: UDateTimePatternField, plength: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatpg_getAppendItemName(dtpg, field, plength)
+public actual fun udatpgGetAppendItemName(dtpg: COpaquePointer?, field: UDateTimePatternField, plength: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatpgGetAppendItemName((dtpg?.value ?: 0L), field, (plength?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun udatpg_getBaseSkeleton(unuseddtpg: Long, pattern: Long, length: Int, baseskeleton: Long, capacity: Int, perrorcode: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatpg_getBaseSkeleton(unuseddtpg, pattern, length, baseskeleton, capacity, perrorcode)
+public actual fun udatpgGetBaseSkeleton(unuseddtpg: COpaquePointer?, pattern: COpaquePointer?, length: Int, baseskeleton: COpaquePointer?, capacity: Int, perrorcode: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatpgGetBaseSkeleton((unuseddtpg?.value ?: 0L), (pattern?.value ?: 0L), length, (baseskeleton?.value ?: 0L), capacity, (perrorcode?.value ?: 0L))
 
-public actual fun udatpg_getBestPattern(dtpg: Long, skeleton: Long, length: Int, bestpattern: Long, capacity: Int, perrorcode: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatpg_getBestPattern(dtpg, skeleton, length, bestpattern, capacity, perrorcode)
+public actual fun udatpgGetBestPattern(dtpg: COpaquePointer?, skeleton: COpaquePointer?, length: Int, bestpattern: COpaquePointer?, capacity: Int, perrorcode: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatpgGetBestPattern((dtpg?.value ?: 0L), (skeleton?.value ?: 0L), length, (bestpattern?.value ?: 0L), capacity, (perrorcode?.value ?: 0L))
 
-public actual fun udatpg_getBestPatternWithOptions(dtpg: Long, skeleton: Long, length: Int, options: UDateTimePatternMatchOptions, bestpattern: Long, capacity: Int, perrorcode: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatpg_getBestPatternWithOptions(dtpg, skeleton, length, options, bestpattern, capacity, perrorcode)
+public actual fun udatpgGetBestPatternWithOptions(dtpg: COpaquePointer?, skeleton: COpaquePointer?, length: Int, options: UDateTimePatternMatchOptions, bestpattern: COpaquePointer?, capacity: Int, perrorcode: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatpgGetBestPatternWithOptions((dtpg?.value ?: 0L), (skeleton?.value ?: 0L), length, options, (bestpattern?.value ?: 0L), capacity, (perrorcode?.value ?: 0L))
 
-public actual fun udatpg_getDateTimeFormat(dtpg: Long, plength: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatpg_getDateTimeFormat(dtpg, plength)
+public actual fun udatpgGetDateTimeFormat(dtpg: COpaquePointer?, plength: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatpgGetDateTimeFormat((dtpg?.value ?: 0L), (plength?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun udatpg_getDecimal(dtpg: Long, plength: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatpg_getDecimal(dtpg, plength)
+public actual fun udatpgGetDecimal(dtpg: COpaquePointer?, plength: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatpgGetDecimal((dtpg?.value ?: 0L), (plength?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun udatpg_getFieldDisplayName(dtpg: Long, field: UDateTimePatternField, width: UDateTimePGDisplayWidth, fieldname: Long, capacity: Int, perrorcode: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatpg_getFieldDisplayName(dtpg, field, width, fieldname, capacity, perrorcode)
+public actual fun udatpgGetFieldDisplayName(dtpg: COpaquePointer?, field: UDateTimePatternField, width: UDateTimePGDisplayWidth, fieldname: COpaquePointer?, capacity: Int, perrorcode: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatpgGetFieldDisplayName((dtpg?.value ?: 0L), field, width, (fieldname?.value ?: 0L), capacity, (perrorcode?.value ?: 0L))
 
-public actual fun udatpg_getPatternForSkeleton(dtpg: Long, skeleton: Long, skeletonlength: Int, plength: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatpg_getPatternForSkeleton(dtpg, skeleton, skeletonlength, plength)
+public actual fun udatpgGetPatternForSkeleton(dtpg: COpaquePointer?, skeleton: COpaquePointer?, skeletonlength: Int, plength: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatpgGetPatternForSkeleton((dtpg?.value ?: 0L), (skeleton?.value ?: 0L), skeletonlength, (plength?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun udatpg_getSkeleton(unuseddtpg: Long, pattern: Long, length: Int, skeleton: Long, capacity: Int, perrorcode: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatpg_getSkeleton(unuseddtpg, pattern, length, skeleton, capacity, perrorcode)
+public actual fun udatpgGetSkeleton(unuseddtpg: COpaquePointer?, pattern: COpaquePointer?, length: Int, skeleton: COpaquePointer?, capacity: Int, perrorcode: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatpgGetSkeleton((unuseddtpg?.value ?: 0L), (pattern?.value ?: 0L), length, (skeleton?.value ?: 0L), capacity, (perrorcode?.value ?: 0L))
 
-public actual fun udatpg_open(locale: PCSTR, perrorcode: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatpg_open(locale, perrorcode)
+public actual fun udatpgOpen(locale: Pcstr, perrorcode: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatpgOpen((locale?.value ?: 0L), (perrorcode?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun udatpg_openBaseSkeletons(dtpg: Long, perrorcode: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatpg_openBaseSkeletons(dtpg, perrorcode)
+public actual fun udatpgOpenBaseSkeletons(dtpg: COpaquePointer?, perrorcode: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatpgOpenBaseSkeletons((dtpg?.value ?: 0L), (perrorcode?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun udatpg_openEmpty(perrorcode: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatpg_openEmpty(perrorcode)
+public actual fun udatpgOpenEmpty(perrorcode: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatpgOpenEmpty((perrorcode?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun udatpg_openSkeletons(dtpg: Long, perrorcode: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatpg_openSkeletons(dtpg, perrorcode)
+public actual fun udatpgOpenSkeletons(dtpg: COpaquePointer?, perrorcode: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatpgOpenSkeletons((dtpg?.value ?: 0L), (perrorcode?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun udatpg_replaceFieldTypes(dtpg: Long, pattern: Long, patternlength: Int, skeleton: Long, skeletonlength: Int, dest: Long, destcapacity: Int, perrorcode: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatpg_replaceFieldTypes(dtpg, pattern, patternlength, skeleton, skeletonlength, dest, destcapacity, perrorcode)
+public actual fun udatpgReplaceFieldTypes(dtpg: COpaquePointer?, pattern: COpaquePointer?, patternlength: Int, skeleton: COpaquePointer?, skeletonlength: Int, dest: COpaquePointer?, destcapacity: Int, perrorcode: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatpgReplaceFieldTypes((dtpg?.value ?: 0L), (pattern?.value ?: 0L), patternlength, (skeleton?.value ?: 0L), skeletonlength, (dest?.value ?: 0L), destcapacity, (perrorcode?.value ?: 0L))
 
-public actual fun udatpg_replaceFieldTypesWithOptions(dtpg: Long, pattern: Long, patternlength: Int, skeleton: Long, skeletonlength: Int, options: UDateTimePatternMatchOptions, dest: Long, destcapacity: Int, perrorcode: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatpg_replaceFieldTypesWithOptions(dtpg, pattern, patternlength, skeleton, skeletonlength, options, dest, destcapacity, perrorcode)
+public actual fun udatpgReplaceFieldTypesWithOptions(dtpg: COpaquePointer?, pattern: COpaquePointer?, patternlength: Int, skeleton: COpaquePointer?, skeletonlength: Int, options: UDateTimePatternMatchOptions, dest: COpaquePointer?, destcapacity: Int, perrorcode: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatpgReplaceFieldTypesWithOptions((dtpg?.value ?: 0L), (pattern?.value ?: 0L), patternlength, (skeleton?.value ?: 0L), skeletonlength, options, (dest?.value ?: 0L), destcapacity, (perrorcode?.value ?: 0L))
 
-public actual fun udatpg_setAppendItemFormat(dtpg: Long, field: UDateTimePatternField, value: Long, length: Int) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatpg_setAppendItemFormat(dtpg, field, value, length)
+public actual fun udatpgSetAppendItemFormat(dtpg: COpaquePointer?, field: UDateTimePatternField, value: COpaquePointer?, length: Int) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatpgSetAppendItemFormat((dtpg?.value ?: 0L), field, (value?.value ?: 0L), length)
 }
 
-public actual fun udatpg_setAppendItemName(dtpg: Long, field: UDateTimePatternField, value: Long, length: Int) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatpg_setAppendItemName(dtpg, field, value, length)
+public actual fun udatpgSetAppendItemName(dtpg: COpaquePointer?, field: UDateTimePatternField, value: COpaquePointer?, length: Int) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatpgSetAppendItemName((dtpg?.value ?: 0L), field, (value?.value ?: 0L), length)
 }
 
-public actual fun udatpg_setDateTimeFormat(dtpg: Long, dtformat: Long, length: Int) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatpg_setDateTimeFormat(dtpg, dtformat, length)
+public actual fun udatpgSetDateTimeFormat(dtpg: COpaquePointer?, dtformat: COpaquePointer?, length: Int) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatpgSetDateTimeFormat((dtpg?.value ?: 0L), (dtformat?.value ?: 0L), length)
 }
 
-public actual fun udatpg_setDecimal(dtpg: Long, decimal: Long, length: Int) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatpg_setDecimal(dtpg, decimal, length)
+public actual fun udatpgSetDecimal(dtpg: COpaquePointer?, decimal: COpaquePointer?, length: Int) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udatpgSetDecimal((dtpg?.value ?: 0L), (decimal?.value ?: 0L), length)
 }
 
-public actual fun udtitvfmt_close(formatter: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udtitvfmt_close(formatter)
+public actual fun udtitvfmtClose(formatter: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udtitvfmtClose((formatter?.value ?: 0L))
 }
 
-public actual fun udtitvfmt_closeResult(uresult: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udtitvfmt_closeResult(uresult)
+public actual fun udtitvfmtCloseResult(uresult: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udtitvfmtCloseResult((uresult?.value ?: 0L))
 }
 
-public actual fun udtitvfmt_format(formatter: Long, fromdate: Double, todate: Double, result: Long, resultcapacity: Int, position: Long, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udtitvfmt_format(formatter, fromdate, todate, result, resultcapacity, position, status)
+public actual fun udtitvfmtFormat(formatter: COpaquePointer?, fromdate: Double, todate: Double, result: COpaquePointer?, resultcapacity: Int, position: COpaquePointer?, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udtitvfmtFormat((formatter?.value ?: 0L), fromdate, todate, (result?.value ?: 0L), resultcapacity, (position?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun udtitvfmt_open(locale: PCSTR, skeleton: Long, skeletonlength: Int, tzid: Long, tzidlength: Int, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udtitvfmt_open(locale, skeleton, skeletonlength, tzid, tzidlength, status)
+public actual fun udtitvfmtOpen(locale: Pcstr, skeleton: COpaquePointer?, skeletonlength: Int, tzid: COpaquePointer?, tzidlength: Int, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udtitvfmtOpen((locale?.value ?: 0L), (skeleton?.value ?: 0L), skeletonlength, (tzid?.value ?: 0L), tzidlength, (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun udtitvfmt_openResult(ec: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udtitvfmt_openResult(ec)
+public actual fun udtitvfmtOpenResult(ec: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udtitvfmtOpenResult((ec?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun udtitvfmt_resultAsValue(uresult: Long, ec: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udtitvfmt_resultAsValue(uresult, ec)
+public actual fun udtitvfmtResultAsValue(uresult: COpaquePointer?, ec: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_udtitvfmtResultAsValue((uresult?.value ?: 0L), (ec?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun uenum_close(en: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uenum_close(en)
+public actual fun uenumClose(en: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uenumClose((en?.value ?: 0L))
 }
 
-public actual fun uenum_count(en: Long, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uenum_count(en, status)
+public actual fun uenumCount(en: COpaquePointer?, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uenumCount((en?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun uenum_next(en: Long, resultlength: Long, status: Long): PCSTR =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uenum_next(en, resultlength, status)
+public actual fun uenumNext(en: COpaquePointer?, resultlength: COpaquePointer?, status: COpaquePointer?): Pcstr =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uenumNext((en?.value ?: 0L), (resultlength?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun uenum_openCharStringsEnumeration(strings: Long, count: Int, ec: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uenum_openCharStringsEnumeration(strings, count, ec)
+public actual fun uenumOpenCharStringsEnumeration(strings: COpaquePointer?, count: Int, ec: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uenumOpenCharStringsEnumeration((strings?.value ?: 0L), count, (ec?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun uenum_openUCharStringsEnumeration(strings: Long, count: Int, ec: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uenum_openUCharStringsEnumeration(strings, count, ec)
+public actual fun uenumOpenUcharStringsEnumeration(strings: COpaquePointer?, count: Int, ec: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uenumOpenUcharStringsEnumeration((strings?.value ?: 0L), count, (ec?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun uenum_reset(en: Long, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uenum_reset(en, status)
+public actual fun uenumReset(en: COpaquePointer?, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uenumReset((en?.value ?: 0L), (status?.value ?: 0L))
 }
 
-public actual fun uenum_unext(en: Long, resultlength: Long, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uenum_unext(en, resultlength, status)
+public actual fun uenumUnext(en: COpaquePointer?, resultlength: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uenumUnext((en?.value ?: 0L), (resultlength?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ufieldpositer_close(fpositer: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ufieldpositer_close(fpositer)
+public actual fun ufieldpositerClose(fpositer: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ufieldpositerClose((fpositer?.value ?: 0L))
 }
 
-public actual fun ufieldpositer_next(fpositer: Long, beginindex: Long, endindex: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ufieldpositer_next(fpositer, beginindex, endindex)
+public actual fun ufieldpositerNext(fpositer: COpaquePointer?, beginindex: COpaquePointer?, endindex: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ufieldpositerNext((fpositer?.value ?: 0L), (beginindex?.value ?: 0L), (endindex?.value ?: 0L))
 
-public actual fun ufieldpositer_open(status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ufieldpositer_open(status)
+public actual fun ufieldpositerOpen(status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ufieldpositerOpen((status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ufmt_close(fmt: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ufmt_close(fmt)
+public actual fun ufmtClose(fmt: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ufmtClose((fmt?.value ?: 0L))
 }
 
-public actual fun ufmt_getArrayItemByIndex(fmt: Long, n: Int, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ufmt_getArrayItemByIndex(fmt, n, status)
+public actual fun ufmtGetArrayItemByIndex(fmt: COpaquePointer?, n: Int, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ufmtGetArrayItemByIndex((fmt?.value ?: 0L), n, (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ufmt_getArrayLength(fmt: Long, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ufmt_getArrayLength(fmt, status)
+public actual fun ufmtGetArrayLength(fmt: COpaquePointer?, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ufmtGetArrayLength((fmt?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun ufmt_getDate(fmt: Long, status: Long): Double =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ufmt_getDate(fmt, status)
+public actual fun ufmtGetDate(fmt: COpaquePointer?, status: COpaquePointer?): Double =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ufmtGetDate((fmt?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun ufmt_getDecNumChars(fmt: Long, len: Long, status: Long): PCSTR =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ufmt_getDecNumChars(fmt, len, status)
+public actual fun ufmtGetDecNumChars(fmt: COpaquePointer?, len: COpaquePointer?, status: COpaquePointer?): Pcstr =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ufmtGetDecNumChars((fmt?.value ?: 0L), (len?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ufmt_getDouble(fmt: Long, status: Long): Double =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ufmt_getDouble(fmt, status)
+public actual fun ufmtGetDouble(fmt: COpaquePointer?, status: COpaquePointer?): Double =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ufmtGetDouble((fmt?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun ufmt_getInt64(fmt: Long, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ufmt_getInt64(fmt, status)
+public actual fun ufmtGetInt64(fmt: COpaquePointer?, status: COpaquePointer?): Long =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ufmtGetInt64((fmt?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun ufmt_getLong(fmt: Long, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ufmt_getLong(fmt, status)
+public actual fun ufmtGetLong(fmt: COpaquePointer?, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ufmtGetLong((fmt?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun ufmt_getObject(fmt: Long, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ufmt_getObject(fmt, status)
+public actual fun ufmtGetObject(fmt: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ufmtGetObject((fmt?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ufmt_getType(fmt: Long, status: Long): UFormattableType =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ufmt_getType(fmt, status)
+public actual fun ufmtGetType(fmt: COpaquePointer?, status: COpaquePointer?): UFormattableType =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ufmtGetType((fmt?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun ufmt_getUChars(fmt: Long, len: Long, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ufmt_getUChars(fmt, len, status)
+public actual fun ufmtGetUchars(fmt: COpaquePointer?, len: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ufmtGetUchars((fmt?.value ?: 0L), (len?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ufmt_isNumeric(fmt: Long): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ufmt_isNumeric(fmt)
+public actual fun ufmtIsNumeric(fmt: COpaquePointer?): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ufmtIsNumeric((fmt?.value ?: 0L))
 
-public actual fun ufmt_open(status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ufmt_open(status)
+public actual fun ufmtOpen(status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ufmtOpen((status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ufmtval_getString(ufmtval: Long, plength: Long, ec: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ufmtval_getString(ufmtval, plength, ec)
+public actual fun ufmtvalGetString(ufmtval: COpaquePointer?, plength: COpaquePointer?, ec: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ufmtvalGetString((ufmtval?.value ?: 0L), (plength?.value ?: 0L), (ec?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ufmtval_nextPosition(ufmtval: Long, ucfpos: Long, ec: Long): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ufmtval_nextPosition(ufmtval, ucfpos, ec)
+public actual fun ufmtvalNextPosition(ufmtval: COpaquePointer?, ucfpos: COpaquePointer?, ec: COpaquePointer?): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ufmtvalNextPosition((ufmtval?.value ?: 0L), (ucfpos?.value ?: 0L), (ec?.value ?: 0L))
 
-public actual fun ugender_getInstance(locale: PCSTR, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ugender_getInstance(locale, status)
+public actual fun ugenderGetInstance(locale: Pcstr, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ugenderGetInstance((locale?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ugender_getListGender(genderinfo: Long, genders: Long, size: Int, status: Long): UGender =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ugender_getListGender(genderinfo, genders, size, status)
+public actual fun ugenderGetListGender(genderinfo: COpaquePointer?, genders: COpaquePointer?, size: Int, status: COpaquePointer?): UGender =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ugenderGetListGender((genderinfo?.value ?: 0L), (genders?.value ?: 0L), size, (status?.value ?: 0L))
 
-public actual fun uidna_close(idna: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uidna_close(idna)
+public actual fun uidnaClose(idna: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uidnaClose((idna?.value ?: 0L))
 }
 
-public actual fun uidna_labelToASCII(idna: Long, label: Long, length: Int, dest: Long, capacity: Int, pinfo: Long, perrorcode: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uidna_labelToASCII(idna, label, length, dest, capacity, pinfo, perrorcode)
+public actual fun uidnaLabelToAscii(idna: COpaquePointer?, label: COpaquePointer?, length: Int, dest: COpaquePointer?, capacity: Int, pinfo: COpaquePointer?, perrorcode: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uidnaLabelToAscii((idna?.value ?: 0L), (label?.value ?: 0L), length, (dest?.value ?: 0L), capacity, (pinfo?.value ?: 0L), (perrorcode?.value ?: 0L))
 
-public actual fun uidna_labelToASCII_UTF8(idna: Long, label: PCSTR, length: Int, dest: PCSTR, capacity: Int, pinfo: Long, perrorcode: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uidna_labelToASCII_UTF8(idna, label, length, dest, capacity, pinfo, perrorcode)
+public actual fun uidnaLabelToAsciiUtf8(idna: COpaquePointer?, label: Pcstr, length: Int, dest: Pcstr, capacity: Int, pinfo: COpaquePointer?, perrorcode: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uidnaLabelToAsciiUtf8((idna?.value ?: 0L), (label?.value ?: 0L), length, (dest?.value ?: 0L), capacity, (pinfo?.value ?: 0L), (perrorcode?.value ?: 0L))
 
-public actual fun uidna_labelToUnicode(idna: Long, label: Long, length: Int, dest: Long, capacity: Int, pinfo: Long, perrorcode: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uidna_labelToUnicode(idna, label, length, dest, capacity, pinfo, perrorcode)
+public actual fun uidnaLabelToUnicode(idna: COpaquePointer?, label: COpaquePointer?, length: Int, dest: COpaquePointer?, capacity: Int, pinfo: COpaquePointer?, perrorcode: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uidnaLabelToUnicode((idna?.value ?: 0L), (label?.value ?: 0L), length, (dest?.value ?: 0L), capacity, (pinfo?.value ?: 0L), (perrorcode?.value ?: 0L))
 
-public actual fun uidna_labelToUnicodeUTF8(idna: Long, label: PCSTR, length: Int, dest: PCSTR, capacity: Int, pinfo: Long, perrorcode: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uidna_labelToUnicodeUTF8(idna, label, length, dest, capacity, pinfo, perrorcode)
+public actual fun uidnaLabelToUnicodeUtf8(idna: COpaquePointer?, label: Pcstr, length: Int, dest: Pcstr, capacity: Int, pinfo: COpaquePointer?, perrorcode: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uidnaLabelToUnicodeUtf8((idna?.value ?: 0L), (label?.value ?: 0L), length, (dest?.value ?: 0L), capacity, (pinfo?.value ?: 0L), (perrorcode?.value ?: 0L))
 
-public actual fun uidna_nameToASCII(idna: Long, name: Long, length: Int, dest: Long, capacity: Int, pinfo: Long, perrorcode: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uidna_nameToASCII(idna, name, length, dest, capacity, pinfo, perrorcode)
+public actual fun uidnaNameToAscii(idna: COpaquePointer?, name: COpaquePointer?, length: Int, dest: COpaquePointer?, capacity: Int, pinfo: COpaquePointer?, perrorcode: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uidnaNameToAscii((idna?.value ?: 0L), (name?.value ?: 0L), length, (dest?.value ?: 0L), capacity, (pinfo?.value ?: 0L), (perrorcode?.value ?: 0L))
 
-public actual fun uidna_nameToASCII_UTF8(idna: Long, name: PCSTR, length: Int, dest: PCSTR, capacity: Int, pinfo: Long, perrorcode: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uidna_nameToASCII_UTF8(idna, name, length, dest, capacity, pinfo, perrorcode)
+public actual fun uidnaNameToAsciiUtf8(idna: COpaquePointer?, name: Pcstr, length: Int, dest: Pcstr, capacity: Int, pinfo: COpaquePointer?, perrorcode: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uidnaNameToAsciiUtf8((idna?.value ?: 0L), (name?.value ?: 0L), length, (dest?.value ?: 0L), capacity, (pinfo?.value ?: 0L), (perrorcode?.value ?: 0L))
 
-public actual fun uidna_nameToUnicode(idna: Long, name: Long, length: Int, dest: Long, capacity: Int, pinfo: Long, perrorcode: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uidna_nameToUnicode(idna, name, length, dest, capacity, pinfo, perrorcode)
+public actual fun uidnaNameToUnicode(idna: COpaquePointer?, name: COpaquePointer?, length: Int, dest: COpaquePointer?, capacity: Int, pinfo: COpaquePointer?, perrorcode: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uidnaNameToUnicode((idna?.value ?: 0L), (name?.value ?: 0L), length, (dest?.value ?: 0L), capacity, (pinfo?.value ?: 0L), (perrorcode?.value ?: 0L))
 
-public actual fun uidna_nameToUnicodeUTF8(idna: Long, name: PCSTR, length: Int, dest: PCSTR, capacity: Int, pinfo: Long, perrorcode: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uidna_nameToUnicodeUTF8(idna, name, length, dest, capacity, pinfo, perrorcode)
+public actual fun uidnaNameToUnicodeUtf8(idna: COpaquePointer?, name: Pcstr, length: Int, dest: Pcstr, capacity: Int, pinfo: COpaquePointer?, perrorcode: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uidnaNameToUnicodeUtf8((idna?.value ?: 0L), (name?.value ?: 0L), length, (dest?.value ?: 0L), capacity, (pinfo?.value ?: 0L), (perrorcode?.value ?: 0L))
 
-public actual fun uidna_openUTS46(options: UInt, perrorcode: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uidna_openUTS46(options.toInt(), perrorcode)
+public actual fun uidnaOpenUts46(options: UInt, perrorcode: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uidnaOpenUts46(options.toInt(), (perrorcode?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun uiter_current32(iter: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uiter_current32(iter)
+public actual fun uiterCurrent32(iter: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uiterCurrent32((iter?.value ?: 0L))
 
-public actual fun uiter_getState(iter: Long): UInt =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uiter_getState(iter).toUInt()
+public actual fun uiterGetState(iter: COpaquePointer?): UInt =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uiterGetState((iter?.value ?: 0L)).toUInt()
 
-public actual fun uiter_next32(iter: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uiter_next32(iter)
+public actual fun uiterNext32(iter: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uiterNext32((iter?.value ?: 0L))
 
-public actual fun uiter_previous32(iter: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uiter_previous32(iter)
+public actual fun uiterPrevious32(iter: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uiterPrevious32((iter?.value ?: 0L))
 
-public actual fun uiter_setState(iter: Long, state: UInt, perrorcode: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uiter_setState(iter, state.toInt(), perrorcode)
+public actual fun uiterSetState(iter: COpaquePointer?, state: UInt, perrorcode: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uiterSetState((iter?.value ?: 0L), state.toInt(), (perrorcode?.value ?: 0L))
 }
 
-public actual fun uiter_setString(iter: Long, s: Long, length: Int) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uiter_setString(iter, s, length)
+public actual fun uiterSetString(iter: COpaquePointer?, s: COpaquePointer?, length: Int) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uiterSetString((iter?.value ?: 0L), (s?.value ?: 0L), length)
 }
 
-public actual fun uiter_setUTF16BE(iter: Long, s: PCSTR, length: Int) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uiter_setUTF16BE(iter, s, length)
+public actual fun uiterSetUtf16Be(iter: COpaquePointer?, s: Pcstr, length: Int) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uiterSetUtf16Be((iter?.value ?: 0L), (s?.value ?: 0L), length)
 }
 
-public actual fun uiter_setUTF8(iter: Long, s: PCSTR, length: Int) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uiter_setUTF8(iter, s, length)
+public actual fun uiterSetUtf8(iter: COpaquePointer?, s: Pcstr, length: Int) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uiterSetUtf8((iter?.value ?: 0L), (s?.value ?: 0L), length)
 }
 
-public actual fun uldn_close(ldn: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uldn_close(ldn)
+public actual fun uldnClose(ldn: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uldnClose((ldn?.value ?: 0L))
 }
 
-public actual fun uldn_getContext(ldn: Long, type: UDisplayContextType, perrorcode: Long): UDisplayContext =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uldn_getContext(ldn, type, perrorcode)
+public actual fun uldnGetContext(ldn: COpaquePointer?, type: UDisplayContextType, perrorcode: COpaquePointer?): UDisplayContext =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uldnGetContext((ldn?.value ?: 0L), type, (perrorcode?.value ?: 0L))
 
-public actual fun uldn_getDialectHandling(ldn: Long): UDialectHandling =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uldn_getDialectHandling(ldn)
+public actual fun uldnGetDialectHandling(ldn: COpaquePointer?): UDialectHandling =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uldnGetDialectHandling((ldn?.value ?: 0L))
 
-public actual fun uldn_getLocale(ldn: Long): PCSTR =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uldn_getLocale(ldn)
+public actual fun uldnGetLocale(ldn: COpaquePointer?): Pcstr =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uldnGetLocale((ldn?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun uldn_keyDisplayName(ldn: Long, key: PCSTR, result: Long, maxresultsize: Int, perrorcode: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uldn_keyDisplayName(ldn, key, result, maxresultsize, perrorcode)
+public actual fun uldnKeyDisplayName(ldn: COpaquePointer?, key: Pcstr, result: COpaquePointer?, maxresultsize: Int, perrorcode: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uldnKeyDisplayName((ldn?.value ?: 0L), (key?.value ?: 0L), (result?.value ?: 0L), maxresultsize, (perrorcode?.value ?: 0L))
 
-public actual fun uldn_keyValueDisplayName(ldn: Long, key: PCSTR, value: PCSTR, result: Long, maxresultsize: Int, perrorcode: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uldn_keyValueDisplayName(ldn, key, value, result, maxresultsize, perrorcode)
+public actual fun uldnKeyValueDisplayName(ldn: COpaquePointer?, key: Pcstr, value: Pcstr, result: COpaquePointer?, maxresultsize: Int, perrorcode: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uldnKeyValueDisplayName((ldn?.value ?: 0L), (key?.value ?: 0L), (value?.value ?: 0L), (result?.value ?: 0L), maxresultsize, (perrorcode?.value ?: 0L))
 
-public actual fun uldn_languageDisplayName(ldn: Long, lang: PCSTR, result: Long, maxresultsize: Int, perrorcode: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uldn_languageDisplayName(ldn, lang, result, maxresultsize, perrorcode)
+public actual fun uldnLanguageDisplayName(ldn: COpaquePointer?, lang: Pcstr, result: COpaquePointer?, maxresultsize: Int, perrorcode: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uldnLanguageDisplayName((ldn?.value ?: 0L), (lang?.value ?: 0L), (result?.value ?: 0L), maxresultsize, (perrorcode?.value ?: 0L))
 
-public actual fun uldn_localeDisplayName(ldn: Long, locale: PCSTR, result: Long, maxresultsize: Int, perrorcode: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uldn_localeDisplayName(ldn, locale, result, maxresultsize, perrorcode)
+public actual fun uldnLocaleDisplayName(ldn: COpaquePointer?, locale: Pcstr, result: COpaquePointer?, maxresultsize: Int, perrorcode: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uldnLocaleDisplayName((ldn?.value ?: 0L), (locale?.value ?: 0L), (result?.value ?: 0L), maxresultsize, (perrorcode?.value ?: 0L))
 
-public actual fun uldn_open(locale: PCSTR, dialecthandling: UDialectHandling, perrorcode: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uldn_open(locale, dialecthandling, perrorcode)
+public actual fun uldnOpen(locale: Pcstr, dialecthandling: UDialectHandling, perrorcode: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uldnOpen((locale?.value ?: 0L), dialecthandling, (perrorcode?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun uldn_openForContext(locale: PCSTR, contexts: Long, length: Int, perrorcode: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uldn_openForContext(locale, contexts, length, perrorcode)
+public actual fun uldnOpenForContext(locale: Pcstr, contexts: COpaquePointer?, length: Int, perrorcode: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uldnOpenForContext((locale?.value ?: 0L), (contexts?.value ?: 0L), length, (perrorcode?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun uldn_regionDisplayName(ldn: Long, region: PCSTR, result: Long, maxresultsize: Int, perrorcode: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uldn_regionDisplayName(ldn, region, result, maxresultsize, perrorcode)
+public actual fun uldnRegionDisplayName(ldn: COpaquePointer?, region: Pcstr, result: COpaquePointer?, maxresultsize: Int, perrorcode: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uldnRegionDisplayName((ldn?.value ?: 0L), (region?.value ?: 0L), (result?.value ?: 0L), maxresultsize, (perrorcode?.value ?: 0L))
 
-public actual fun uldn_scriptCodeDisplayName(ldn: Long, scriptcode: UScriptCode, result: Long, maxresultsize: Int, perrorcode: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uldn_scriptCodeDisplayName(ldn, scriptcode, result, maxresultsize, perrorcode)
+public actual fun uldnScriptCodeDisplayName(ldn: COpaquePointer?, scriptcode: UScriptCode, result: COpaquePointer?, maxresultsize: Int, perrorcode: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uldnScriptCodeDisplayName((ldn?.value ?: 0L), scriptcode, (result?.value ?: 0L), maxresultsize, (perrorcode?.value ?: 0L))
 
-public actual fun uldn_scriptDisplayName(ldn: Long, script: PCSTR, result: Long, maxresultsize: Int, perrorcode: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uldn_scriptDisplayName(ldn, script, result, maxresultsize, perrorcode)
+public actual fun uldnScriptDisplayName(ldn: COpaquePointer?, script: Pcstr, result: COpaquePointer?, maxresultsize: Int, perrorcode: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uldnScriptDisplayName((ldn?.value ?: 0L), (script?.value ?: 0L), (result?.value ?: 0L), maxresultsize, (perrorcode?.value ?: 0L))
 
-public actual fun uldn_variantDisplayName(ldn: Long, variant: PCSTR, result: Long, maxresultsize: Int, perrorcode: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uldn_variantDisplayName(ldn, variant, result, maxresultsize, perrorcode)
+public actual fun uldnVariantDisplayName(ldn: COpaquePointer?, variant: Pcstr, result: COpaquePointer?, maxresultsize: Int, perrorcode: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uldnVariantDisplayName((ldn?.value ?: 0L), (variant?.value ?: 0L), (result?.value ?: 0L), maxresultsize, (perrorcode?.value ?: 0L))
 
-public actual fun ulistfmt_close(listfmt: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulistfmt_close(listfmt)
+public actual fun ulistfmtClose(listfmt: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulistfmtClose((listfmt?.value ?: 0L))
 }
 
-public actual fun ulistfmt_closeResult(uresult: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulistfmt_closeResult(uresult)
+public actual fun ulistfmtCloseResult(uresult: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulistfmtCloseResult((uresult?.value ?: 0L))
 }
 
-public actual fun ulistfmt_format(listfmt: Long, strings: Long, stringlengths: Long, stringcount: Int, result: Long, resultcapacity: Int, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulistfmt_format(listfmt, strings, stringlengths, stringcount, result, resultcapacity, status)
+public actual fun ulistfmtFormat(listfmt: COpaquePointer?, strings: COpaquePointer?, stringlengths: COpaquePointer?, stringcount: Int, result: COpaquePointer?, resultcapacity: Int, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulistfmtFormat((listfmt?.value ?: 0L), (strings?.value ?: 0L), (stringlengths?.value ?: 0L), stringcount, (result?.value ?: 0L), resultcapacity, (status?.value ?: 0L))
 
-public actual fun ulistfmt_formatStringsToResult(listfmt: Long, strings: Long, stringlengths: Long, stringcount: Int, uresult: Long, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulistfmt_formatStringsToResult(listfmt, strings, stringlengths, stringcount, uresult, status)
+public actual fun ulistfmtFormatStringsToResult(listfmt: COpaquePointer?, strings: COpaquePointer?, stringlengths: COpaquePointer?, stringcount: Int, uresult: COpaquePointer?, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulistfmtFormatStringsToResult((listfmt?.value ?: 0L), (strings?.value ?: 0L), (stringlengths?.value ?: 0L), stringcount, (uresult?.value ?: 0L), (status?.value ?: 0L))
 }
 
-public actual fun ulistfmt_open(locale: PCSTR, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulistfmt_open(locale, status)
+public actual fun ulistfmtOpen(locale: Pcstr, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulistfmtOpen((locale?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ulistfmt_openForType(locale: PCSTR, type: UListFormatterType, width: UListFormatterWidth, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulistfmt_openForType(locale, type, width, status)
+public actual fun ulistfmtOpenForType(locale: Pcstr, type: UListFormatterType, width: UListFormatterWidth, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulistfmtOpenForType((locale?.value ?: 0L), type, width, (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ulistfmt_openResult(ec: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulistfmt_openResult(ec)
+public actual fun ulistfmtOpenResult(ec: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulistfmtOpenResult((ec?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ulistfmt_resultAsValue(uresult: Long, ec: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulistfmt_resultAsValue(uresult, ec)
+public actual fun ulistfmtResultAsValue(uresult: COpaquePointer?, ec: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulistfmtResultAsValue((uresult?.value ?: 0L), (ec?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun uloc_acceptLanguage(result: PCSTR, resultavailable: Int, outresult: Long, acceptlist: Long, acceptlistcount: Int, availablelocales: Long, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uloc_acceptLanguage(result, resultavailable, outresult, acceptlist, acceptlistcount, availablelocales, status)
+public actual fun ulocAcceptLanguage(result: Pcstr, resultavailable: Int, outresult: COpaquePointer?, acceptlist: COpaquePointer?, acceptlistcount: Int, availablelocales: COpaquePointer?, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulocAcceptLanguage((result?.value ?: 0L), resultavailable, (outresult?.value ?: 0L), (acceptlist?.value ?: 0L), acceptlistcount, (availablelocales?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun uloc_acceptLanguageFromHTTP(result: PCSTR, resultavailable: Int, outresult: Long, httpacceptlanguage: PCSTR, availablelocales: Long, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uloc_acceptLanguageFromHTTP(result, resultavailable, outresult, httpacceptlanguage, availablelocales, status)
+public actual fun ulocAcceptLanguageFromHttp(result: Pcstr, resultavailable: Int, outresult: COpaquePointer?, httpacceptlanguage: Pcstr, availablelocales: COpaquePointer?, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulocAcceptLanguageFromHttp((result?.value ?: 0L), resultavailable, (outresult?.value ?: 0L), (httpacceptlanguage?.value ?: 0L), (availablelocales?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun uloc_addLikelySubtags(localeid: PCSTR, maximizedlocaleid: PCSTR, maximizedlocaleidcapacity: Int, err: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uloc_addLikelySubtags(localeid, maximizedlocaleid, maximizedlocaleidcapacity, err)
+public actual fun ulocAddLikelySubtags(localeid: Pcstr, maximizedlocaleid: Pcstr, maximizedlocaleidcapacity: Int, err: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulocAddLikelySubtags((localeid?.value ?: 0L), (maximizedlocaleid?.value ?: 0L), maximizedlocaleidcapacity, (err?.value ?: 0L))
 
-public actual fun uloc_canonicalize(localeid: PCSTR, name: PCSTR, namecapacity: Int, err: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uloc_canonicalize(localeid, name, namecapacity, err)
+public actual fun ulocCanonicalize(localeid: Pcstr, name: Pcstr, namecapacity: Int, err: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulocCanonicalize((localeid?.value ?: 0L), (name?.value ?: 0L), namecapacity, (err?.value ?: 0L))
 
-public actual fun uloc_countAvailable(): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uloc_countAvailable()
+public actual fun ulocCountAvailable(): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulocCountAvailable()
 
-public actual fun uloc_forLanguageTag(langtag: PCSTR, localeid: PCSTR, localeidcapacity: Int, parsedlength: Long, err: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uloc_forLanguageTag(langtag, localeid, localeidcapacity, parsedlength, err)
+public actual fun ulocForLanguageTag(langtag: Pcstr, localeid: Pcstr, localeidcapacity: Int, parsedlength: COpaquePointer?, err: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulocForLanguageTag((langtag?.value ?: 0L), (localeid?.value ?: 0L), localeidcapacity, (parsedlength?.value ?: 0L), (err?.value ?: 0L))
 
-public actual fun uloc_getAvailable(n: Int): PCSTR =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uloc_getAvailable(n)
+public actual fun ulocGetAvailable(n: Int): Pcstr =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulocGetAvailable(n).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun uloc_getBaseName(localeid: PCSTR, name: PCSTR, namecapacity: Int, err: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uloc_getBaseName(localeid, name, namecapacity, err)
+public actual fun ulocGetBaseName(localeid: Pcstr, name: Pcstr, namecapacity: Int, err: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulocGetBaseName((localeid?.value ?: 0L), (name?.value ?: 0L), namecapacity, (err?.value ?: 0L))
 
-public actual fun uloc_getCharacterOrientation(localeid: PCSTR, status: Long): ULayoutType =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uloc_getCharacterOrientation(localeid, status)
+public actual fun ulocGetCharacterOrientation(localeid: Pcstr, status: COpaquePointer?): ULayoutType =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulocGetCharacterOrientation((localeid?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun uloc_getCountry(localeid: PCSTR, country: PCSTR, countrycapacity: Int, err: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uloc_getCountry(localeid, country, countrycapacity, err)
+public actual fun ulocGetCountry(localeid: Pcstr, country: Pcstr, countrycapacity: Int, err: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulocGetCountry((localeid?.value ?: 0L), (country?.value ?: 0L), countrycapacity, (err?.value ?: 0L))
 
-public actual fun uloc_getDefault(): PCSTR =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uloc_getDefault()
+public actual fun ulocGetDefault(): Pcstr =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulocGetDefault().let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun uloc_getDisplayCountry(locale: PCSTR, displaylocale: PCSTR, country: Long, countrycapacity: Int, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uloc_getDisplayCountry(locale, displaylocale, country, countrycapacity, status)
+public actual fun ulocGetDisplayCountry(locale: Pcstr, displaylocale: Pcstr, country: COpaquePointer?, countrycapacity: Int, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulocGetDisplayCountry((locale?.value ?: 0L), (displaylocale?.value ?: 0L), (country?.value ?: 0L), countrycapacity, (status?.value ?: 0L))
 
-public actual fun uloc_getDisplayKeyword(keyword: PCSTR, displaylocale: PCSTR, dest: Long, destcapacity: Int, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uloc_getDisplayKeyword(keyword, displaylocale, dest, destcapacity, status)
+public actual fun ulocGetDisplayKeyword(keyword: Pcstr, displaylocale: Pcstr, dest: COpaquePointer?, destcapacity: Int, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulocGetDisplayKeyword((keyword?.value ?: 0L), (displaylocale?.value ?: 0L), (dest?.value ?: 0L), destcapacity, (status?.value ?: 0L))
 
-public actual fun uloc_getDisplayKeywordValue(locale: PCSTR, keyword: PCSTR, displaylocale: PCSTR, dest: Long, destcapacity: Int, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uloc_getDisplayKeywordValue(locale, keyword, displaylocale, dest, destcapacity, status)
+public actual fun ulocGetDisplayKeywordValue(locale: Pcstr, keyword: Pcstr, displaylocale: Pcstr, dest: COpaquePointer?, destcapacity: Int, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulocGetDisplayKeywordValue((locale?.value ?: 0L), (keyword?.value ?: 0L), (displaylocale?.value ?: 0L), (dest?.value ?: 0L), destcapacity, (status?.value ?: 0L))
 
-public actual fun uloc_getDisplayLanguage(locale: PCSTR, displaylocale: PCSTR, language: Long, languagecapacity: Int, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uloc_getDisplayLanguage(locale, displaylocale, language, languagecapacity, status)
+public actual fun ulocGetDisplayLanguage(locale: Pcstr, displaylocale: Pcstr, language: COpaquePointer?, languagecapacity: Int, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulocGetDisplayLanguage((locale?.value ?: 0L), (displaylocale?.value ?: 0L), (language?.value ?: 0L), languagecapacity, (status?.value ?: 0L))
 
-public actual fun uloc_getDisplayName(localeid: PCSTR, inlocaleid: PCSTR, result: Long, maxresultsize: Int, err: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uloc_getDisplayName(localeid, inlocaleid, result, maxresultsize, err)
+public actual fun ulocGetDisplayName(localeid: Pcstr, inlocaleid: Pcstr, result: COpaquePointer?, maxresultsize: Int, err: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulocGetDisplayName((localeid?.value ?: 0L), (inlocaleid?.value ?: 0L), (result?.value ?: 0L), maxresultsize, (err?.value ?: 0L))
 
-public actual fun uloc_getDisplayScript(locale: PCSTR, displaylocale: PCSTR, script: Long, scriptcapacity: Int, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uloc_getDisplayScript(locale, displaylocale, script, scriptcapacity, status)
+public actual fun ulocGetDisplayScript(locale: Pcstr, displaylocale: Pcstr, script: COpaquePointer?, scriptcapacity: Int, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulocGetDisplayScript((locale?.value ?: 0L), (displaylocale?.value ?: 0L), (script?.value ?: 0L), scriptcapacity, (status?.value ?: 0L))
 
-public actual fun uloc_getDisplayVariant(locale: PCSTR, displaylocale: PCSTR, variant: Long, variantcapacity: Int, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uloc_getDisplayVariant(locale, displaylocale, variant, variantcapacity, status)
+public actual fun ulocGetDisplayVariant(locale: Pcstr, displaylocale: Pcstr, variant: COpaquePointer?, variantcapacity: Int, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulocGetDisplayVariant((locale?.value ?: 0L), (displaylocale?.value ?: 0L), (variant?.value ?: 0L), variantcapacity, (status?.value ?: 0L))
 
-public actual fun uloc_getISO3Country(localeid: PCSTR): PCSTR =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uloc_getISO3Country(localeid)
+public actual fun ulocGetIso3Country(localeid: Pcstr): Pcstr =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulocGetIso3Country((localeid?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun uloc_getISO3Language(localeid: PCSTR): PCSTR =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uloc_getISO3Language(localeid)
+public actual fun ulocGetIso3Language(localeid: Pcstr): Pcstr =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulocGetIso3Language((localeid?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun uloc_getISOCountries(): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uloc_getISOCountries()
+public actual fun ulocGetIsocountries(): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulocGetIsocountries().let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun uloc_getISOLanguages(): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uloc_getISOLanguages()
+public actual fun ulocGetIsolanguages(): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulocGetIsolanguages().let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun uloc_getKeywordValue(localeid: PCSTR, keywordname: PCSTR, buffer: PCSTR, buffercapacity: Int, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uloc_getKeywordValue(localeid, keywordname, buffer, buffercapacity, status)
+public actual fun ulocGetKeywordValue(localeid: Pcstr, keywordname: Pcstr, buffer: Pcstr, buffercapacity: Int, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulocGetKeywordValue((localeid?.value ?: 0L), (keywordname?.value ?: 0L), (buffer?.value ?: 0L), buffercapacity, (status?.value ?: 0L))
 
-public actual fun uloc_getLCID(localeid: PCSTR): UInt =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uloc_getLCID(localeid).toUInt()
+public actual fun ulocGetLcid(localeid: Pcstr): UInt =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulocGetLcid((localeid?.value ?: 0L)).toUInt()
 
-public actual fun uloc_getLanguage(localeid: PCSTR, language: PCSTR, languagecapacity: Int, err: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uloc_getLanguage(localeid, language, languagecapacity, err)
+public actual fun ulocGetLanguage(localeid: Pcstr, language: Pcstr, languagecapacity: Int, err: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulocGetLanguage((localeid?.value ?: 0L), (language?.value ?: 0L), languagecapacity, (err?.value ?: 0L))
 
-public actual fun uloc_getLineOrientation(localeid: PCSTR, status: Long): ULayoutType =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uloc_getLineOrientation(localeid, status)
+public actual fun ulocGetLineOrientation(localeid: Pcstr, status: COpaquePointer?): ULayoutType =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulocGetLineOrientation((localeid?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun uloc_getLocaleForLCID(hostid: UInt, locale: PCSTR, localecapacity: Int, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uloc_getLocaleForLCID(hostid.toInt(), locale, localecapacity, status)
+public actual fun ulocGetLocaleForLcid(hostid: UInt, locale: Pcstr, localecapacity: Int, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulocGetLocaleForLcid(hostid.toInt(), (locale?.value ?: 0L), localecapacity, (status?.value ?: 0L))
 
-public actual fun uloc_getName(localeid: PCSTR, name: PCSTR, namecapacity: Int, err: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uloc_getName(localeid, name, namecapacity, err)
+public actual fun ulocGetName(localeid: Pcstr, name: Pcstr, namecapacity: Int, err: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulocGetName((localeid?.value ?: 0L), (name?.value ?: 0L), namecapacity, (err?.value ?: 0L))
 
-public actual fun uloc_getParent(localeid: PCSTR, parent: PCSTR, parentcapacity: Int, err: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uloc_getParent(localeid, parent, parentcapacity, err)
+public actual fun ulocGetParent(localeid: Pcstr, parent: Pcstr, parentcapacity: Int, err: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulocGetParent((localeid?.value ?: 0L), (parent?.value ?: 0L), parentcapacity, (err?.value ?: 0L))
 
-public actual fun uloc_getScript(localeid: PCSTR, script: PCSTR, scriptcapacity: Int, err: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uloc_getScript(localeid, script, scriptcapacity, err)
+public actual fun ulocGetScript(localeid: Pcstr, script: Pcstr, scriptcapacity: Int, err: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulocGetScript((localeid?.value ?: 0L), (script?.value ?: 0L), scriptcapacity, (err?.value ?: 0L))
 
-public actual fun uloc_getVariant(localeid: PCSTR, variant: PCSTR, variantcapacity: Int, err: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uloc_getVariant(localeid, variant, variantcapacity, err)
+public actual fun ulocGetVariant(localeid: Pcstr, variant: Pcstr, variantcapacity: Int, err: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulocGetVariant((localeid?.value ?: 0L), (variant?.value ?: 0L), variantcapacity, (err?.value ?: 0L))
 
-public actual fun uloc_isRightToLeft(locale: PCSTR): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uloc_isRightToLeft(locale)
+public actual fun ulocIsRightToLeft(locale: Pcstr): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulocIsRightToLeft((locale?.value ?: 0L))
 
-public actual fun uloc_minimizeSubtags(localeid: PCSTR, minimizedlocaleid: PCSTR, minimizedlocaleidcapacity: Int, err: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uloc_minimizeSubtags(localeid, minimizedlocaleid, minimizedlocaleidcapacity, err)
+public actual fun ulocMinimizeSubtags(localeid: Pcstr, minimizedlocaleid: Pcstr, minimizedlocaleidcapacity: Int, err: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulocMinimizeSubtags((localeid?.value ?: 0L), (minimizedlocaleid?.value ?: 0L), minimizedlocaleidcapacity, (err?.value ?: 0L))
 
-public actual fun uloc_openAvailableByType(type: ULocAvailableType, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uloc_openAvailableByType(type, status)
+public actual fun ulocOpenAvailableByType(type: ULocAvailableType, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulocOpenAvailableByType(type, (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun uloc_openKeywords(localeid: PCSTR, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uloc_openKeywords(localeid, status)
+public actual fun ulocOpenKeywords(localeid: Pcstr, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulocOpenKeywords((localeid?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun uloc_setDefault(localeid: PCSTR, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uloc_setDefault(localeid, status)
+public actual fun ulocSetDefault(localeid: Pcstr, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulocSetDefault((localeid?.value ?: 0L), (status?.value ?: 0L))
 }
 
-public actual fun uloc_setKeywordValue(keywordname: PCSTR, keywordvalue: PCSTR, buffer: PCSTR, buffercapacity: Int, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uloc_setKeywordValue(keywordname, keywordvalue, buffer, buffercapacity, status)
+public actual fun ulocSetKeywordValue(keywordname: Pcstr, keywordvalue: Pcstr, buffer: Pcstr, buffercapacity: Int, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulocSetKeywordValue((keywordname?.value ?: 0L), (keywordvalue?.value ?: 0L), (buffer?.value ?: 0L), buffercapacity, (status?.value ?: 0L))
 
-public actual fun uloc_toLanguageTag(localeid: PCSTR, langtag: PCSTR, langtagcapacity: Int, strict: Byte, err: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uloc_toLanguageTag(localeid, langtag, langtagcapacity, strict, err)
+public actual fun ulocToLanguageTag(localeid: Pcstr, langtag: Pcstr, langtagcapacity: Int, strict: Byte, err: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulocToLanguageTag((localeid?.value ?: 0L), (langtag?.value ?: 0L), langtagcapacity, strict, (err?.value ?: 0L))
 
-public actual fun uloc_toLegacyKey(keyword: PCSTR): PCSTR =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uloc_toLegacyKey(keyword)
+public actual fun ulocToLegacyKey(keyword: Pcstr): Pcstr =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulocToLegacyKey((keyword?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun uloc_toLegacyType(keyword: PCSTR, value: PCSTR): PCSTR =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uloc_toLegacyType(keyword, value)
+public actual fun ulocToLegacyType(keyword: Pcstr, value: Pcstr): Pcstr =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulocToLegacyType((keyword?.value ?: 0L), (value?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun uloc_toUnicodeLocaleKey(keyword: PCSTR): PCSTR =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uloc_toUnicodeLocaleKey(keyword)
+public actual fun ulocToUnicodeLocaleKey(keyword: Pcstr): Pcstr =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulocToUnicodeLocaleKey((keyword?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun uloc_toUnicodeLocaleType(keyword: PCSTR, value: PCSTR): PCSTR =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uloc_toUnicodeLocaleType(keyword, value)
+public actual fun ulocToUnicodeLocaleType(keyword: Pcstr, value: Pcstr): Pcstr =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulocToUnicodeLocaleType((keyword?.value ?: 0L), (value?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ulocdata_close(uld: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulocdata_close(uld)
+public actual fun ulocdataClose(uld: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulocdataClose((uld?.value ?: 0L))
 }
 
-public actual fun ulocdata_getCLDRVersion(versionarray: Long, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulocdata_getCLDRVersion(versionarray, status)
+public actual fun ulocdataGetCldrversion(versionarray: COpaquePointer?, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulocdataGetCldrversion((versionarray?.value ?: 0L), (status?.value ?: 0L))
 }
 
-public actual fun ulocdata_getDelimiter(uld: Long, type: ULocaleDataDelimiterType, result: Long, resultlength: Int, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulocdata_getDelimiter(uld, type, result, resultlength, status)
+public actual fun ulocdataGetDelimiter(uld: COpaquePointer?, type: ULocaleDataDelimiterType, result: COpaquePointer?, resultlength: Int, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulocdataGetDelimiter((uld?.value ?: 0L), type, (result?.value ?: 0L), resultlength, (status?.value ?: 0L))
 
-public actual fun ulocdata_getExemplarSet(uld: Long, fillin: Long, options: UInt, extype: ULocaleDataExemplarSetType, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulocdata_getExemplarSet(uld, fillin, options.toInt(), extype, status)
+public actual fun ulocdataGetExemplarSet(uld: COpaquePointer?, fillin: COpaquePointer?, options: UInt, extype: ULocaleDataExemplarSetType, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulocdataGetExemplarSet((uld?.value ?: 0L), (fillin?.value ?: 0L), options.toInt(), extype, (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ulocdata_getLocaleDisplayPattern(uld: Long, pattern: Long, patterncapacity: Int, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulocdata_getLocaleDisplayPattern(uld, pattern, patterncapacity, status)
+public actual fun ulocdataGetLocaleDisplayPattern(uld: COpaquePointer?, pattern: COpaquePointer?, patterncapacity: Int, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulocdataGetLocaleDisplayPattern((uld?.value ?: 0L), (pattern?.value ?: 0L), patterncapacity, (status?.value ?: 0L))
 
-public actual fun ulocdata_getLocaleSeparator(uld: Long, separator: Long, separatorcapacity: Int, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulocdata_getLocaleSeparator(uld, separator, separatorcapacity, status)
+public actual fun ulocdataGetLocaleSeparator(uld: COpaquePointer?, separator: COpaquePointer?, separatorcapacity: Int, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulocdataGetLocaleSeparator((uld?.value ?: 0L), (separator?.value ?: 0L), separatorcapacity, (status?.value ?: 0L))
 
-public actual fun ulocdata_getMeasurementSystem(localeid: PCSTR, status: Long): UMeasurementSystem =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulocdata_getMeasurementSystem(localeid, status)
+public actual fun ulocdataGetMeasurementSystem(localeid: Pcstr, status: COpaquePointer?): UMeasurementSystem =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulocdataGetMeasurementSystem((localeid?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun ulocdata_getNoSubstitute(uld: Long): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulocdata_getNoSubstitute(uld)
+public actual fun ulocdataGetNoSubstitute(uld: COpaquePointer?): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulocdataGetNoSubstitute((uld?.value ?: 0L))
 
-public actual fun ulocdata_getPaperSize(localeid: PCSTR, height: Long, width: Long, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulocdata_getPaperSize(localeid, height, width, status)
+public actual fun ulocdataGetPaperSize(localeid: Pcstr, height: COpaquePointer?, width: COpaquePointer?, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulocdataGetPaperSize((localeid?.value ?: 0L), (height?.value ?: 0L), (width?.value ?: 0L), (status?.value ?: 0L))
 }
 
-public actual fun ulocdata_open(localeid: PCSTR, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulocdata_open(localeid, status)
+public actual fun ulocdataOpen(localeid: Pcstr, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulocdataOpen((localeid?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ulocdata_setNoSubstitute(uld: Long, setting: Byte) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulocdata_setNoSubstitute(uld, setting)
+public actual fun ulocdataSetNoSubstitute(uld: COpaquePointer?, setting: Byte) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ulocdataSetNoSubstitute((uld?.value ?: 0L), setting)
 }
 
-public actual fun umsg_applyPattern(fmt: Long, pattern: Long, patternlength: Int, parseerror: Long, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_umsg_applyPattern(fmt, pattern, patternlength, parseerror, status)
+public actual fun umsgApplyPattern(fmt: COpaquePointer?, pattern: COpaquePointer?, patternlength: Int, parseerror: COpaquePointer?, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_umsgApplyPattern((fmt?.value ?: 0L), (pattern?.value ?: 0L), patternlength, (parseerror?.value ?: 0L), (status?.value ?: 0L))
 }
 
-public actual fun umsg_autoQuoteApostrophe(pattern: Long, patternlength: Int, dest: Long, destcapacity: Int, ec: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_umsg_autoQuoteApostrophe(pattern, patternlength, dest, destcapacity, ec)
+public actual fun umsgAutoQuoteApostrophe(pattern: COpaquePointer?, patternlength: Int, dest: COpaquePointer?, destcapacity: Int, ec: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_umsgAutoQuoteApostrophe((pattern?.value ?: 0L), patternlength, (dest?.value ?: 0L), destcapacity, (ec?.value ?: 0L))
 
-public actual fun umsg_clone(fmt: Long, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_umsg_clone(fmt, status)
+public actual fun umsgClone(fmt: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_umsgClone((fmt?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun umsg_close(format: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_umsg_close(format)
+public actual fun umsgClose(format: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_umsgClose((format?.value ?: 0L))
 }
 
-public actual fun umsg_format(fmt: Long, result: Long, resultlength: Int, status: Long): Int =
-    0
+public actual fun umsgFormat(fmt: COpaquePointer?, result: COpaquePointer?, resultlength: Int, status: COpaquePointer?, vararg variadicArgs: Long): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_umsgFormat((fmt?.value ?: 0L), (result?.value ?: 0L), resultlength, (status?.value ?: 0L), variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
 
-public actual fun umsg_getLocale(fmt: Long): PCSTR =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_umsg_getLocale(fmt)
+public actual fun umsgGetLocale(fmt: COpaquePointer?): Pcstr =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_umsgGetLocale((fmt?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun umsg_open(pattern: Long, patternlength: Int, locale: PCSTR, parseerror: Long, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_umsg_open(pattern, patternlength, locale, parseerror, status)
+public actual fun umsgOpen(pattern: COpaquePointer?, patternlength: Int, locale: Pcstr, parseerror: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_umsgOpen((pattern?.value ?: 0L), patternlength, (locale?.value ?: 0L), (parseerror?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun umsg_parse(fmt: Long, source: Long, sourcelength: Int, count: Long, status: Long) {
+public actual fun umsgParse(fmt: COpaquePointer?, source: COpaquePointer?, sourcelength: Int, count: COpaquePointer?, status: COpaquePointer?, vararg variadicArgs: Long) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_umsgParse((fmt?.value ?: 0L), (source?.value ?: 0L), sourcelength, (count?.value ?: 0L), (status?.value ?: 0L), variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
 }
 
-public actual fun umsg_setLocale(fmt: Long, locale: PCSTR) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_umsg_setLocale(fmt, locale)
+public actual fun umsgSetLocale(fmt: COpaquePointer?, locale: Pcstr) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_umsgSetLocale((fmt?.value ?: 0L), (locale?.value ?: 0L))
 }
 
-public actual fun umsg_toPattern(fmt: Long, result: Long, resultlength: Int, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_umsg_toPattern(fmt, result, resultlength, status)
+public actual fun umsgToPattern(fmt: COpaquePointer?, result: COpaquePointer?, resultlength: Int, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_umsgToPattern((fmt?.value ?: 0L), (result?.value ?: 0L), resultlength, (status?.value ?: 0L))
 
-public actual fun umsg_vformat(fmt: Long, result: Long, resultlength: Int, ap: Long, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_umsg_vformat(fmt, result, resultlength, ap, status)
+public actual fun umsgVformat(fmt: COpaquePointer?, result: COpaquePointer?, resultlength: Int, ap: COpaquePointer?, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_umsgVformat((fmt?.value ?: 0L), (result?.value ?: 0L), resultlength, (ap?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun umsg_vparse(fmt: Long, source: Long, sourcelength: Int, count: Long, ap: Long, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_umsg_vparse(fmt, source, sourcelength, count, ap, status)
+public actual fun umsgVparse(fmt: COpaquePointer?, source: COpaquePointer?, sourcelength: Int, count: COpaquePointer?, ap: COpaquePointer?, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_umsgVparse((fmt?.value ?: 0L), (source?.value ?: 0L), sourcelength, (count?.value ?: 0L), (ap?.value ?: 0L), (status?.value ?: 0L))
 }
 
-public actual fun umutablecptrie_buildImmutable(trie: Long, type: UCPTrieType, valuewidth: UCPTrieValueWidth, perrorcode: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_umutablecptrie_buildImmutable(trie, type, valuewidth, perrorcode)
+public actual fun umutablecptrieBuildImmutable(trie: COpaquePointer?, type: UCPTrieType, valuewidth: UCPTrieValueWidth, perrorcode: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_umutablecptrieBuildImmutable((trie?.value ?: 0L), type, valuewidth, (perrorcode?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun umutablecptrie_clone(other: Long, perrorcode: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_umutablecptrie_clone(other, perrorcode)
+public actual fun umutablecptrieClone(other: COpaquePointer?, perrorcode: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_umutablecptrieClone((other?.value ?: 0L), (perrorcode?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun umutablecptrie_close(trie: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_umutablecptrie_close(trie)
+public actual fun umutablecptrieClose(trie: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_umutablecptrieClose((trie?.value ?: 0L))
 }
 
-public actual fun umutablecptrie_fromUCPMap(map: Long, perrorcode: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_umutablecptrie_fromUCPMap(map, perrorcode)
+public actual fun umutablecptrieFromUcpmap(map: COpaquePointer?, perrorcode: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_umutablecptrieFromUcpmap((map?.value ?: 0L), (perrorcode?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun umutablecptrie_fromUCPTrie(trie: Long, perrorcode: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_umutablecptrie_fromUCPTrie(trie, perrorcode)
+public actual fun umutablecptrieFromUcptrie(trie: COpaquePointer?, perrorcode: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_umutablecptrieFromUcptrie((trie?.value ?: 0L), (perrorcode?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun umutablecptrie_get(trie: Long, c: Int): UInt =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_umutablecptrie_get(trie, c).toUInt()
+public actual fun umutablecptrieGet(trie: COpaquePointer?, c: Int): UInt =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_umutablecptrieGet((trie?.value ?: 0L), c).toUInt()
 
-public actual fun umutablecptrie_getRange(trie: Long, start: Int, option: UCPMapRangeOption, surrogatevalue: UInt, filter: Long, context: Long, pvalue: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_umutablecptrie_getRange(trie, start, option, surrogatevalue.toInt(), filter, context, pvalue)
+public actual fun umutablecptrieGetRange(trie: COpaquePointer?, start: Int, option: UCPMapRangeOption, surrogatevalue: UInt, filter: COpaquePointer?, context: COpaquePointer?, pvalue: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_umutablecptrieGetRange((trie?.value ?: 0L), start, option, surrogatevalue.toInt(), (filter?.value ?: 0L), (context?.value ?: 0L), (pvalue?.value ?: 0L))
 
-public actual fun umutablecptrie_open(initialvalue: UInt, errorvalue: UInt, perrorcode: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_umutablecptrie_open(initialvalue.toInt(), errorvalue.toInt(), perrorcode)
+public actual fun umutablecptrieOpen(initialvalue: UInt, errorvalue: UInt, perrorcode: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_umutablecptrieOpen(initialvalue.toInt(), errorvalue.toInt(), (perrorcode?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun umutablecptrie_set(trie: Long, c: Int, value: UInt, perrorcode: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_umutablecptrie_set(trie, c, value.toInt(), perrorcode)
+public actual fun umutablecptrieSet(trie: COpaquePointer?, c: Int, value: UInt, perrorcode: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_umutablecptrieSet((trie?.value ?: 0L), c, value.toInt(), (perrorcode?.value ?: 0L))
 }
 
-public actual fun umutablecptrie_setRange(trie: Long, start: Int, end: Int, value: UInt, perrorcode: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_umutablecptrie_setRange(trie, start, end, value.toInt(), perrorcode)
+public actual fun umutablecptrieSetRange(trie: COpaquePointer?, start: Int, end: Int, value: UInt, perrorcode: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_umutablecptrieSetRange((trie?.value ?: 0L), start, end, value.toInt(), (perrorcode?.value ?: 0L))
 }
 
-public actual fun unorm2_append(norm2: Long, first: Long, firstlength: Int, firstcapacity: Int, second: Long, secondlength: Int, perrorcode: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unorm2_append(norm2, first, firstlength, firstcapacity, second, secondlength, perrorcode)
+public actual fun unorm2Append(norm2: COpaquePointer?, first: COpaquePointer?, firstlength: Int, firstcapacity: Int, second: COpaquePointer?, secondlength: Int, perrorcode: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unorm2Append((norm2?.value ?: 0L), (first?.value ?: 0L), firstlength, firstcapacity, (second?.value ?: 0L), secondlength, (perrorcode?.value ?: 0L))
 
-public actual fun unorm2_close(norm2: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unorm2_close(norm2)
+public actual fun unorm2Close(norm2: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unorm2Close((norm2?.value ?: 0L))
 }
 
-public actual fun unorm2_composePair(norm2: Long, a: Int, b: Int): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unorm2_composePair(norm2, a, b)
+public actual fun unorm2ComposePair(norm2: COpaquePointer?, a: Int, b: Int): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unorm2ComposePair((norm2?.value ?: 0L), a, b)
 
-public actual fun unorm2_getCombiningClass(norm2: Long, c: Int): UByte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unorm2_getCombiningClass(norm2, c).toUByte()
+public actual fun unorm2GetCombiningClass(norm2: COpaquePointer?, c: Int): UByte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unorm2GetCombiningClass((norm2?.value ?: 0L), c).toUByte()
 
-public actual fun unorm2_getDecomposition(norm2: Long, c: Int, decomposition: Long, capacity: Int, perrorcode: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unorm2_getDecomposition(norm2, c, decomposition, capacity, perrorcode)
+public actual fun unorm2GetDecomposition(norm2: COpaquePointer?, c: Int, decomposition: COpaquePointer?, capacity: Int, perrorcode: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unorm2GetDecomposition((norm2?.value ?: 0L), c, (decomposition?.value ?: 0L), capacity, (perrorcode?.value ?: 0L))
 
-public actual fun unorm2_getInstance(packagename: PCSTR, name: PCSTR, mode: UNormalization2Mode, perrorcode: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unorm2_getInstance(packagename, name, mode, perrorcode)
+public actual fun unorm2GetInstance(packagename: Pcstr, name: Pcstr, mode: UNormalization2Mode, perrorcode: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unorm2GetInstance((packagename?.value ?: 0L), (name?.value ?: 0L), mode, (perrorcode?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun unorm2_getNFCInstance(perrorcode: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unorm2_getNFCInstance(perrorcode)
+public actual fun unorm2GetNfcinstance(perrorcode: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unorm2GetNfcinstance((perrorcode?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun unorm2_getNFDInstance(perrorcode: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unorm2_getNFDInstance(perrorcode)
+public actual fun unorm2GetNfdinstance(perrorcode: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unorm2GetNfdinstance((perrorcode?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun unorm2_getNFKCCasefoldInstance(perrorcode: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unorm2_getNFKCCasefoldInstance(perrorcode)
+public actual fun unorm2GetNfkccasefoldInstance(perrorcode: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unorm2GetNfkccasefoldInstance((perrorcode?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun unorm2_getNFKCInstance(perrorcode: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unorm2_getNFKCInstance(perrorcode)
+public actual fun unorm2GetNfkcinstance(perrorcode: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unorm2GetNfkcinstance((perrorcode?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun unorm2_getNFKDInstance(perrorcode: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unorm2_getNFKDInstance(perrorcode)
+public actual fun unorm2GetNfkdinstance(perrorcode: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unorm2GetNfkdinstance((perrorcode?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun unorm2_getRawDecomposition(norm2: Long, c: Int, decomposition: Long, capacity: Int, perrorcode: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unorm2_getRawDecomposition(norm2, c, decomposition, capacity, perrorcode)
+public actual fun unorm2GetRawDecomposition(norm2: COpaquePointer?, c: Int, decomposition: COpaquePointer?, capacity: Int, perrorcode: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unorm2GetRawDecomposition((norm2?.value ?: 0L), c, (decomposition?.value ?: 0L), capacity, (perrorcode?.value ?: 0L))
 
-public actual fun unorm2_hasBoundaryAfter(norm2: Long, c: Int): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unorm2_hasBoundaryAfter(norm2, c)
+public actual fun unorm2HasBoundaryAfter(norm2: COpaquePointer?, c: Int): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unorm2HasBoundaryAfter((norm2?.value ?: 0L), c)
 
-public actual fun unorm2_hasBoundaryBefore(norm2: Long, c: Int): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unorm2_hasBoundaryBefore(norm2, c)
+public actual fun unorm2HasBoundaryBefore(norm2: COpaquePointer?, c: Int): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unorm2HasBoundaryBefore((norm2?.value ?: 0L), c)
 
-public actual fun unorm2_isInert(norm2: Long, c: Int): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unorm2_isInert(norm2, c)
+public actual fun unorm2IsInert(norm2: COpaquePointer?, c: Int): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unorm2IsInert((norm2?.value ?: 0L), c)
 
-public actual fun unorm2_isNormalized(norm2: Long, s: Long, length: Int, perrorcode: Long): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unorm2_isNormalized(norm2, s, length, perrorcode)
+public actual fun unorm2IsNormalized(norm2: COpaquePointer?, s: COpaquePointer?, length: Int, perrorcode: COpaquePointer?): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unorm2IsNormalized((norm2?.value ?: 0L), (s?.value ?: 0L), length, (perrorcode?.value ?: 0L))
 
-public actual fun unorm2_normalize(norm2: Long, src: Long, length: Int, dest: Long, capacity: Int, perrorcode: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unorm2_normalize(norm2, src, length, dest, capacity, perrorcode)
+public actual fun unorm2Normalize(norm2: COpaquePointer?, src: COpaquePointer?, length: Int, dest: COpaquePointer?, capacity: Int, perrorcode: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unorm2Normalize((norm2?.value ?: 0L), (src?.value ?: 0L), length, (dest?.value ?: 0L), capacity, (perrorcode?.value ?: 0L))
 
-public actual fun unorm2_normalizeSecondAndAppend(norm2: Long, first: Long, firstlength: Int, firstcapacity: Int, second: Long, secondlength: Int, perrorcode: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unorm2_normalizeSecondAndAppend(norm2, first, firstlength, firstcapacity, second, secondlength, perrorcode)
+public actual fun unorm2NormalizeSecondAndAppend(norm2: COpaquePointer?, first: COpaquePointer?, firstlength: Int, firstcapacity: Int, second: COpaquePointer?, secondlength: Int, perrorcode: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unorm2NormalizeSecondAndAppend((norm2?.value ?: 0L), (first?.value ?: 0L), firstlength, firstcapacity, (second?.value ?: 0L), secondlength, (perrorcode?.value ?: 0L))
 
-public actual fun unorm2_openFiltered(norm2: Long, filterset: Long, perrorcode: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unorm2_openFiltered(norm2, filterset, perrorcode)
+public actual fun unorm2OpenFiltered(norm2: COpaquePointer?, filterset: COpaquePointer?, perrorcode: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unorm2OpenFiltered((norm2?.value ?: 0L), (filterset?.value ?: 0L), (perrorcode?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun unorm2_quickCheck(norm2: Long, s: Long, length: Int, perrorcode: Long): UNormalizationCheckResult =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unorm2_quickCheck(norm2, s, length, perrorcode)
+public actual fun unorm2QuickCheck(norm2: COpaquePointer?, s: COpaquePointer?, length: Int, perrorcode: COpaquePointer?): UNormalizationCheckResult =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unorm2QuickCheck((norm2?.value ?: 0L), (s?.value ?: 0L), length, (perrorcode?.value ?: 0L))
 
-public actual fun unorm2_spanQuickCheckYes(norm2: Long, s: Long, length: Int, perrorcode: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unorm2_spanQuickCheckYes(norm2, s, length, perrorcode)
+public actual fun unorm2SpanQuickCheckYes(norm2: COpaquePointer?, s: COpaquePointer?, length: Int, perrorcode: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unorm2SpanQuickCheckYes((norm2?.value ?: 0L), (s?.value ?: 0L), length, (perrorcode?.value ?: 0L))
 
-public actual fun unorm_compare(s1: Long, length1: Int, s2: Long, length2: Int, options: UInt, perrorcode: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unorm_compare(s1, length1, s2, length2, options.toInt(), perrorcode)
+public actual fun unormCompare(s1: COpaquePointer?, length1: Int, s2: COpaquePointer?, length2: Int, options: UInt, perrorcode: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unormCompare((s1?.value ?: 0L), length1, (s2?.value ?: 0L), length2, options.toInt(), (perrorcode?.value ?: 0L))
 
-public actual fun unum_applyPattern(format: Long, localized: Byte, pattern: Long, patternlength: Int, parseerror: Long, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unum_applyPattern(format, localized, pattern, patternlength, parseerror, status)
+public actual fun unumApplyPattern(format: COpaquePointer?, localized: Byte, pattern: COpaquePointer?, patternlength: Int, parseerror: COpaquePointer?, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumApplyPattern((format?.value ?: 0L), localized, (pattern?.value ?: 0L), patternlength, (parseerror?.value ?: 0L), (status?.value ?: 0L))
 }
 
-public actual fun unum_clone(fmt: Long, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unum_clone(fmt, status)
+public actual fun unumClone(fmt: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumClone((fmt?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun unum_close(fmt: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unum_close(fmt)
+public actual fun unumClose(fmt: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumClose((fmt?.value ?: 0L))
 }
 
-public actual fun unum_countAvailable(): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unum_countAvailable()
+public actual fun unumCountAvailable(): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumCountAvailable()
 
-public actual fun unum_format(fmt: Long, number: Int, result: Long, resultlength: Int, pos: Long, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unum_format(fmt, number, result, resultlength, pos, status)
+public actual fun unumFormat(fmt: COpaquePointer?, number: Int, result: COpaquePointer?, resultlength: Int, pos: COpaquePointer?, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumFormat((fmt?.value ?: 0L), number, (result?.value ?: 0L), resultlength, (pos?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun unum_formatDecimal(fmt: Long, number: PCSTR, length: Int, result: Long, resultlength: Int, pos: Long, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unum_formatDecimal(fmt, number, length, result, resultlength, pos, status)
+public actual fun unumFormatDecimal(fmt: COpaquePointer?, number: Pcstr, length: Int, result: COpaquePointer?, resultlength: Int, pos: COpaquePointer?, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumFormatDecimal((fmt?.value ?: 0L), (number?.value ?: 0L), length, (result?.value ?: 0L), resultlength, (pos?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun unum_formatDouble(fmt: Long, number: Double, result: Long, resultlength: Int, pos: Long, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unum_formatDouble(fmt, number, result, resultlength, pos, status)
+public actual fun unumFormatDouble(fmt: COpaquePointer?, number: Double, result: COpaquePointer?, resultlength: Int, pos: COpaquePointer?, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumFormatDouble((fmt?.value ?: 0L), number, (result?.value ?: 0L), resultlength, (pos?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun unum_formatDoubleCurrency(fmt: Long, number: Double, currency: Long, result: Long, resultlength: Int, pos: Long, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unum_formatDoubleCurrency(fmt, number, currency, result, resultlength, pos, status)
+public actual fun unumFormatDoubleCurrency(fmt: COpaquePointer?, number: Double, currency: COpaquePointer?, result: COpaquePointer?, resultlength: Int, pos: COpaquePointer?, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumFormatDoubleCurrency((fmt?.value ?: 0L), number, (currency?.value ?: 0L), (result?.value ?: 0L), resultlength, (pos?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun unum_formatDoubleForFields(format: Long, number: Double, result: Long, resultlength: Int, fpositer: Long, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unum_formatDoubleForFields(format, number, result, resultlength, fpositer, status)
+public actual fun unumFormatDoubleForFields(format: COpaquePointer?, number: Double, result: COpaquePointer?, resultlength: Int, fpositer: COpaquePointer?, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumFormatDoubleForFields((format?.value ?: 0L), number, (result?.value ?: 0L), resultlength, (fpositer?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun unum_formatInt64(fmt: Long, number: Long, result: Long, resultlength: Int, pos: Long, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unum_formatInt64(fmt, number, result, resultlength, pos, status)
+public actual fun unumFormatInt64(fmt: COpaquePointer?, number: Long, result: COpaquePointer?, resultlength: Int, pos: COpaquePointer?, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumFormatInt64((fmt?.value ?: 0L), number, (result?.value ?: 0L), resultlength, (pos?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun unum_formatUFormattable(fmt: Long, number: Long, result: Long, resultlength: Int, pos: Long, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unum_formatUFormattable(fmt, number, result, resultlength, pos, status)
+public actual fun unumFormatUformattable(fmt: COpaquePointer?, number: COpaquePointer?, result: COpaquePointer?, resultlength: Int, pos: COpaquePointer?, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumFormatUformattable((fmt?.value ?: 0L), (number?.value ?: 0L), (result?.value ?: 0L), resultlength, (pos?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun unum_getAttribute(fmt: Long, attr: UNumberFormatAttribute): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unum_getAttribute(fmt, attr)
+public actual fun unumGetAttribute(fmt: COpaquePointer?, attr: UNumberFormatAttribute): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumGetAttribute((fmt?.value ?: 0L), attr)
 
-public actual fun unum_getAvailable(localeindex: Int): PCSTR =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unum_getAvailable(localeindex)
+public actual fun unumGetAvailable(localeindex: Int): Pcstr =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumGetAvailable(localeindex).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun unum_getContext(fmt: Long, type: UDisplayContextType, status: Long): UDisplayContext =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unum_getContext(fmt, type, status)
+public actual fun unumGetContext(fmt: COpaquePointer?, type: UDisplayContextType, status: COpaquePointer?): UDisplayContext =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumGetContext((fmt?.value ?: 0L), type, (status?.value ?: 0L))
 
-public actual fun unum_getDoubleAttribute(fmt: Long, attr: UNumberFormatAttribute): Double =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unum_getDoubleAttribute(fmt, attr)
+public actual fun unumGetDoubleAttribute(fmt: COpaquePointer?, attr: UNumberFormatAttribute): Double =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumGetDoubleAttribute((fmt?.value ?: 0L), attr)
 
-public actual fun unum_getLocaleByType(fmt: Long, type: ULocDataLocaleType, status: Long): PCSTR =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unum_getLocaleByType(fmt, type, status)
+public actual fun unumGetLocaleByType(fmt: COpaquePointer?, type: ULocDataLocaleType, status: COpaquePointer?): Pcstr =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumGetLocaleByType((fmt?.value ?: 0L), type, (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun unum_getSymbol(fmt: Long, symbol: UNumberFormatSymbol, buffer: Long, size: Int, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unum_getSymbol(fmt, symbol, buffer, size, status)
+public actual fun unumGetSymbol(fmt: COpaquePointer?, symbol: UNumberFormatSymbol, buffer: COpaquePointer?, size: Int, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumGetSymbol((fmt?.value ?: 0L), symbol, (buffer?.value ?: 0L), size, (status?.value ?: 0L))
 
-public actual fun unum_getTextAttribute(fmt: Long, tag: UNumberFormatTextAttribute, result: Long, resultlength: Int, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unum_getTextAttribute(fmt, tag, result, resultlength, status)
+public actual fun unumGetTextAttribute(fmt: COpaquePointer?, tag: UNumberFormatTextAttribute, result: COpaquePointer?, resultlength: Int, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumGetTextAttribute((fmt?.value ?: 0L), tag, (result?.value ?: 0L), resultlength, (status?.value ?: 0L))
 
-public actual fun unum_open(style: UNumberFormatStyle, pattern: Long, patternlength: Int, locale: PCSTR, parseerr: Long, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unum_open(style, pattern, patternlength, locale, parseerr, status)
+public actual fun unumOpen(style: UNumberFormatStyle, pattern: COpaquePointer?, patternlength: Int, locale: Pcstr, parseerr: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumOpen(style, (pattern?.value ?: 0L), patternlength, (locale?.value ?: 0L), (parseerr?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun unum_parse(fmt: Long, text: Long, textlength: Int, parsepos: Long, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unum_parse(fmt, text, textlength, parsepos, status)
+public actual fun unumParse(fmt: COpaquePointer?, text: COpaquePointer?, textlength: Int, parsepos: COpaquePointer?, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumParse((fmt?.value ?: 0L), (text?.value ?: 0L), textlength, (parsepos?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun unum_parseDecimal(fmt: Long, text: Long, textlength: Int, parsepos: Long, outbuf: PCSTR, outbuflength: Int, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unum_parseDecimal(fmt, text, textlength, parsepos, outbuf, outbuflength, status)
+public actual fun unumParseDecimal(fmt: COpaquePointer?, text: COpaquePointer?, textlength: Int, parsepos: COpaquePointer?, outbuf: Pcstr, outbuflength: Int, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumParseDecimal((fmt?.value ?: 0L), (text?.value ?: 0L), textlength, (parsepos?.value ?: 0L), (outbuf?.value ?: 0L), outbuflength, (status?.value ?: 0L))
 
-public actual fun unum_parseDouble(fmt: Long, text: Long, textlength: Int, parsepos: Long, status: Long): Double =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unum_parseDouble(fmt, text, textlength, parsepos, status)
+public actual fun unumParseDouble(fmt: COpaquePointer?, text: COpaquePointer?, textlength: Int, parsepos: COpaquePointer?, status: COpaquePointer?): Double =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumParseDouble((fmt?.value ?: 0L), (text?.value ?: 0L), textlength, (parsepos?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun unum_parseDoubleCurrency(fmt: Long, text: Long, textlength: Int, parsepos: Long, currency: Long, status: Long): Double =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unum_parseDoubleCurrency(fmt, text, textlength, parsepos, currency, status)
+public actual fun unumParseDoubleCurrency(fmt: COpaquePointer?, text: COpaquePointer?, textlength: Int, parsepos: COpaquePointer?, currency: COpaquePointer?, status: COpaquePointer?): Double =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumParseDoubleCurrency((fmt?.value ?: 0L), (text?.value ?: 0L), textlength, (parsepos?.value ?: 0L), (currency?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun unum_parseInt64(fmt: Long, text: Long, textlength: Int, parsepos: Long, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unum_parseInt64(fmt, text, textlength, parsepos, status)
+public actual fun unumParseInt64(fmt: COpaquePointer?, text: COpaquePointer?, textlength: Int, parsepos: COpaquePointer?, status: COpaquePointer?): Long =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumParseInt64((fmt?.value ?: 0L), (text?.value ?: 0L), textlength, (parsepos?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun unum_parseToUFormattable(fmt: Long, result: Long, text: Long, textlength: Int, parsepos: Long, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unum_parseToUFormattable(fmt, result, text, textlength, parsepos, status)
+public actual fun unumParseToUformattable(fmt: COpaquePointer?, result: COpaquePointer?, text: COpaquePointer?, textlength: Int, parsepos: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumParseToUformattable((fmt?.value ?: 0L), (result?.value ?: 0L), (text?.value ?: 0L), textlength, (parsepos?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun unum_setAttribute(fmt: Long, attr: UNumberFormatAttribute, newvalue: Int) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unum_setAttribute(fmt, attr, newvalue)
+public actual fun unumSetAttribute(fmt: COpaquePointer?, attr: UNumberFormatAttribute, newvalue: Int) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumSetAttribute((fmt?.value ?: 0L), attr, newvalue)
 }
 
-public actual fun unum_setContext(fmt: Long, value: UDisplayContext, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unum_setContext(fmt, value, status)
+public actual fun unumSetContext(fmt: COpaquePointer?, value: UDisplayContext, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumSetContext((fmt?.value ?: 0L), value, (status?.value ?: 0L))
 }
 
-public actual fun unum_setDoubleAttribute(fmt: Long, attr: UNumberFormatAttribute, newvalue: Double) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unum_setDoubleAttribute(fmt, attr, newvalue)
+public actual fun unumSetDoubleAttribute(fmt: COpaquePointer?, attr: UNumberFormatAttribute, newvalue: Double) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumSetDoubleAttribute((fmt?.value ?: 0L), attr, newvalue)
 }
 
-public actual fun unum_setSymbol(fmt: Long, symbol: UNumberFormatSymbol, value: Long, length: Int, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unum_setSymbol(fmt, symbol, value, length, status)
+public actual fun unumSetSymbol(fmt: COpaquePointer?, symbol: UNumberFormatSymbol, value: COpaquePointer?, length: Int, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumSetSymbol((fmt?.value ?: 0L), symbol, (value?.value ?: 0L), length, (status?.value ?: 0L))
 }
 
-public actual fun unum_setTextAttribute(fmt: Long, tag: UNumberFormatTextAttribute, newvalue: Long, newvaluelength: Int, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unum_setTextAttribute(fmt, tag, newvalue, newvaluelength, status)
+public actual fun unumSetTextAttribute(fmt: COpaquePointer?, tag: UNumberFormatTextAttribute, newvalue: COpaquePointer?, newvaluelength: Int, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumSetTextAttribute((fmt?.value ?: 0L), tag, (newvalue?.value ?: 0L), newvaluelength, (status?.value ?: 0L))
 }
 
-public actual fun unum_toPattern(fmt: Long, ispatternlocalized: Byte, result: Long, resultlength: Int, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unum_toPattern(fmt, ispatternlocalized, result, resultlength, status)
+public actual fun unumToPattern(fmt: COpaquePointer?, ispatternlocalized: Byte, result: COpaquePointer?, resultlength: Int, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumToPattern((fmt?.value ?: 0L), ispatternlocalized, (result?.value ?: 0L), resultlength, (status?.value ?: 0L))
 
-public actual fun unumf_close(uformatter: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumf_close(uformatter)
+public actual fun unumfClose(uformatter: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumfClose((uformatter?.value ?: 0L))
 }
 
-public actual fun unumf_closeResult(uresult: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumf_closeResult(uresult)
+public actual fun unumfCloseResult(uresult: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumfCloseResult((uresult?.value ?: 0L))
 }
 
-public actual fun unumf_formatDecimal(uformatter: Long, value: PCSTR, valuelen: Int, uresult: Long, ec: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumf_formatDecimal(uformatter, value, valuelen, uresult, ec)
+public actual fun unumfFormatDecimal(uformatter: COpaquePointer?, value: Pcstr, valuelen: Int, uresult: COpaquePointer?, ec: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumfFormatDecimal((uformatter?.value ?: 0L), (value?.value ?: 0L), valuelen, (uresult?.value ?: 0L), (ec?.value ?: 0L))
 }
 
-public actual fun unumf_formatDouble(uformatter: Long, value: Double, uresult: Long, ec: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumf_formatDouble(uformatter, value, uresult, ec)
+public actual fun unumfFormatDouble(uformatter: COpaquePointer?, value: Double, uresult: COpaquePointer?, ec: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumfFormatDouble((uformatter?.value ?: 0L), value, (uresult?.value ?: 0L), (ec?.value ?: 0L))
 }
 
-public actual fun unumf_formatInt(uformatter: Long, value: Long, uresult: Long, ec: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumf_formatInt(uformatter, value, uresult, ec)
+public actual fun unumfFormatInt(uformatter: COpaquePointer?, value: Long, uresult: COpaquePointer?, ec: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumfFormatInt((uformatter?.value ?: 0L), value, (uresult?.value ?: 0L), (ec?.value ?: 0L))
 }
 
-public actual fun unumf_openForSkeletonAndLocale(skeleton: Long, skeletonlen: Int, locale: PCSTR, ec: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumf_openForSkeletonAndLocale(skeleton, skeletonlen, locale, ec)
+public actual fun unumfOpenForSkeletonAndLocale(skeleton: COpaquePointer?, skeletonlen: Int, locale: Pcstr, ec: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumfOpenForSkeletonAndLocale((skeleton?.value ?: 0L), skeletonlen, (locale?.value ?: 0L), (ec?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun unumf_openForSkeletonAndLocaleWithError(skeleton: Long, skeletonlen: Int, locale: PCSTR, perror: Long, ec: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumf_openForSkeletonAndLocaleWithError(skeleton, skeletonlen, locale, perror, ec)
+public actual fun unumfOpenForSkeletonAndLocaleWithError(skeleton: COpaquePointer?, skeletonlen: Int, locale: Pcstr, perror: COpaquePointer?, ec: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumfOpenForSkeletonAndLocaleWithError((skeleton?.value ?: 0L), skeletonlen, (locale?.value ?: 0L), (perror?.value ?: 0L), (ec?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun unumf_openResult(ec: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumf_openResult(ec)
+public actual fun unumfOpenResult(ec: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumfOpenResult((ec?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun unumf_resultAsValue(uresult: Long, ec: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumf_resultAsValue(uresult, ec)
+public actual fun unumfResultAsValue(uresult: COpaquePointer?, ec: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumfResultAsValue((uresult?.value ?: 0L), (ec?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun unumf_resultGetAllFieldPositions(uresult: Long, ufpositer: Long, ec: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumf_resultGetAllFieldPositions(uresult, ufpositer, ec)
+public actual fun unumfResultGetAllFieldPositions(uresult: COpaquePointer?, ufpositer: COpaquePointer?, ec: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumfResultGetAllFieldPositions((uresult?.value ?: 0L), (ufpositer?.value ?: 0L), (ec?.value ?: 0L))
 }
 
-public actual fun unumf_resultNextFieldPosition(uresult: Long, ufpos: Long, ec: Long): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumf_resultNextFieldPosition(uresult, ufpos, ec)
+public actual fun unumfResultNextFieldPosition(uresult: COpaquePointer?, ufpos: COpaquePointer?, ec: COpaquePointer?): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumfResultNextFieldPosition((uresult?.value ?: 0L), (ufpos?.value ?: 0L), (ec?.value ?: 0L))
 
-public actual fun unumf_resultToString(uresult: Long, buffer: Long, buffercapacity: Int, ec: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumf_resultToString(uresult, buffer, buffercapacity, ec)
+public actual fun unumfResultToString(uresult: COpaquePointer?, buffer: COpaquePointer?, buffercapacity: Int, ec: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumfResultToString((uresult?.value ?: 0L), (buffer?.value ?: 0L), buffercapacity, (ec?.value ?: 0L))
 
-public actual fun unumsys_close(unumsys: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumsys_close(unumsys)
+public actual fun unumsysClose(unumsys: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumsysClose((unumsys?.value ?: 0L))
 }
 
-public actual fun unumsys_getDescription(unumsys: Long, result: Long, resultlength: Int, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumsys_getDescription(unumsys, result, resultlength, status)
+public actual fun unumsysGetDescription(unumsys: COpaquePointer?, result: COpaquePointer?, resultlength: Int, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumsysGetDescription((unumsys?.value ?: 0L), (result?.value ?: 0L), resultlength, (status?.value ?: 0L))
 
-public actual fun unumsys_getName(unumsys: Long): PCSTR =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumsys_getName(unumsys)
+public actual fun unumsysGetName(unumsys: COpaquePointer?): Pcstr =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumsysGetName((unumsys?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun unumsys_getRadix(unumsys: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumsys_getRadix(unumsys)
+public actual fun unumsysGetRadix(unumsys: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumsysGetRadix((unumsys?.value ?: 0L))
 
-public actual fun unumsys_isAlgorithmic(unumsys: Long): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumsys_isAlgorithmic(unumsys)
+public actual fun unumsysIsAlgorithmic(unumsys: COpaquePointer?): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumsysIsAlgorithmic((unumsys?.value ?: 0L))
 
-public actual fun unumsys_open(locale: PCSTR, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumsys_open(locale, status)
+public actual fun unumsysOpen(locale: Pcstr, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumsysOpen((locale?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun unumsys_openAvailableNames(status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumsys_openAvailableNames(status)
+public actual fun unumsysOpenAvailableNames(status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumsysOpenAvailableNames((status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun unumsys_openByName(name: PCSTR, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumsys_openByName(name, status)
+public actual fun unumsysOpenByName(name: Pcstr, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_unumsysOpenByName((name?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun uplrules_close(uplrules: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uplrules_close(uplrules)
+public actual fun uplrulesClose(uplrules: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uplrulesClose((uplrules?.value ?: 0L))
 }
 
-public actual fun uplrules_getKeywords(uplrules: Long, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uplrules_getKeywords(uplrules, status)
+public actual fun uplrulesGetKeywords(uplrules: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uplrulesGetKeywords((uplrules?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun uplrules_open(locale: PCSTR, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uplrules_open(locale, status)
+public actual fun uplrulesOpen(locale: Pcstr, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uplrulesOpen((locale?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun uplrules_openForType(locale: PCSTR, type: UPluralType, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uplrules_openForType(locale, type, status)
+public actual fun uplrulesOpenForType(locale: Pcstr, type: UPluralType, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uplrulesOpenForType((locale?.value ?: 0L), type, (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun uplrules_select(uplrules: Long, number: Double, keyword: Long, capacity: Int, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uplrules_select(uplrules, number, keyword, capacity, status)
+public actual fun uplrulesSelect(uplrules: COpaquePointer?, number: Double, keyword: COpaquePointer?, capacity: Int, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uplrulesSelect((uplrules?.value ?: 0L), number, (keyword?.value ?: 0L), capacity, (status?.value ?: 0L))
 
-public actual fun uplrules_selectFormatted(uplrules: Long, number: Long, keyword: Long, capacity: Int, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uplrules_selectFormatted(uplrules, number, keyword, capacity, status)
+public actual fun uplrulesSelectFormatted(uplrules: COpaquePointer?, number: COpaquePointer?, keyword: COpaquePointer?, capacity: Int, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uplrulesSelectFormatted((uplrules?.value ?: 0L), (number?.value ?: 0L), (keyword?.value ?: 0L), capacity, (status?.value ?: 0L))
 
-public actual fun uregex_appendReplacement(regexp: Long, replacementtext: Long, replacementlength: Int, destbuf: Long, destcapacity: Long, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregex_appendReplacement(regexp, replacementtext, replacementlength, destbuf, destcapacity, status)
+public actual fun uregexAppendReplacement(regexp: COpaquePointer?, replacementtext: COpaquePointer?, replacementlength: Int, destbuf: COpaquePointer?, destcapacity: COpaquePointer?, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregexAppendReplacement((regexp?.value ?: 0L), (replacementtext?.value ?: 0L), replacementlength, (destbuf?.value ?: 0L), (destcapacity?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun uregex_appendReplacementUText(regexp: Long, replacementtext: Long, dest: Long, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregex_appendReplacementUText(regexp, replacementtext, dest, status)
+public actual fun uregexAppendReplacementUtext(regexp: COpaquePointer?, replacementtext: COpaquePointer?, dest: COpaquePointer?, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregexAppendReplacementUtext((regexp?.value ?: 0L), (replacementtext?.value ?: 0L), (dest?.value ?: 0L), (status?.value ?: 0L))
 }
 
-public actual fun uregex_appendTail(regexp: Long, destbuf: Long, destcapacity: Long, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregex_appendTail(regexp, destbuf, destcapacity, status)
+public actual fun uregexAppendTail(regexp: COpaquePointer?, destbuf: COpaquePointer?, destcapacity: COpaquePointer?, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregexAppendTail((regexp?.value ?: 0L), (destbuf?.value ?: 0L), (destcapacity?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun uregex_appendTailUText(regexp: Long, dest: Long, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregex_appendTailUText(regexp, dest, status)
+public actual fun uregexAppendTailUtext(regexp: COpaquePointer?, dest: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregexAppendTailUtext((regexp?.value ?: 0L), (dest?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun uregex_clone(regexp: Long, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregex_clone(regexp, status)
+public actual fun uregexClone(regexp: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregexClone((regexp?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun uregex_close(regexp: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregex_close(regexp)
+public actual fun uregexClose(regexp: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregexClose((regexp?.value ?: 0L))
 }
 
-public actual fun uregex_end(regexp: Long, groupnum: Int, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregex_end(regexp, groupnum, status)
+public actual fun uregexEnd(regexp: COpaquePointer?, groupnum: Int, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregexEnd((regexp?.value ?: 0L), groupnum, (status?.value ?: 0L))
 
-public actual fun uregex_end64(regexp: Long, groupnum: Int, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregex_end64(regexp, groupnum, status)
+public actual fun uregexEnd64(regexp: COpaquePointer?, groupnum: Int, status: COpaquePointer?): Long =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregexEnd64((regexp?.value ?: 0L), groupnum, (status?.value ?: 0L))
 
-public actual fun uregex_find(regexp: Long, startindex: Int, status: Long): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregex_find(regexp, startindex, status)
+public actual fun uregexFind(regexp: COpaquePointer?, startindex: Int, status: COpaquePointer?): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregexFind((regexp?.value ?: 0L), startindex, (status?.value ?: 0L))
 
-public actual fun uregex_find64(regexp: Long, startindex: Long, status: Long): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregex_find64(regexp, startindex, status)
+public actual fun uregexFind64(regexp: COpaquePointer?, startindex: Long, status: COpaquePointer?): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregexFind64((regexp?.value ?: 0L), startindex, (status?.value ?: 0L))
 
-public actual fun uregex_findNext(regexp: Long, status: Long): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregex_findNext(regexp, status)
+public actual fun uregexFindNext(regexp: COpaquePointer?, status: COpaquePointer?): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregexFindNext((regexp?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun uregex_flags(regexp: Long, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregex_flags(regexp, status)
+public actual fun uregexFlags(regexp: COpaquePointer?, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregexFlags((regexp?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun uregex_getFindProgressCallback(regexp: Long, callback: Long, context: Long, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregex_getFindProgressCallback(regexp, callback, context, status)
+public actual fun uregexGetFindProgressCallback(regexp: COpaquePointer?, callback: COpaquePointer?, context: COpaquePointer?, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregexGetFindProgressCallback((regexp?.value ?: 0L), (callback?.value ?: 0L), (context?.value ?: 0L), (status?.value ?: 0L))
 }
 
-public actual fun uregex_getMatchCallback(regexp: Long, callback: Long, context: Long, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregex_getMatchCallback(regexp, callback, context, status)
+public actual fun uregexGetMatchCallback(regexp: COpaquePointer?, callback: COpaquePointer?, context: COpaquePointer?, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregexGetMatchCallback((regexp?.value ?: 0L), (callback?.value ?: 0L), (context?.value ?: 0L), (status?.value ?: 0L))
 }
 
-public actual fun uregex_getStackLimit(regexp: Long, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregex_getStackLimit(regexp, status)
+public actual fun uregexGetStackLimit(regexp: COpaquePointer?, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregexGetStackLimit((regexp?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun uregex_getText(regexp: Long, textlength: Long, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregex_getText(regexp, textlength, status)
+public actual fun uregexGetText(regexp: COpaquePointer?, textlength: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregexGetText((regexp?.value ?: 0L), (textlength?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun uregex_getTimeLimit(regexp: Long, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregex_getTimeLimit(regexp, status)
+public actual fun uregexGetTimeLimit(regexp: COpaquePointer?, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregexGetTimeLimit((regexp?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun uregex_getUText(regexp: Long, dest: Long, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregex_getUText(regexp, dest, status)
+public actual fun uregexGetUtext(regexp: COpaquePointer?, dest: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregexGetUtext((regexp?.value ?: 0L), (dest?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun uregex_group(regexp: Long, groupnum: Int, dest: Long, destcapacity: Int, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregex_group(regexp, groupnum, dest, destcapacity, status)
+public actual fun uregexGroup(regexp: COpaquePointer?, groupnum: Int, dest: COpaquePointer?, destcapacity: Int, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregexGroup((regexp?.value ?: 0L), groupnum, (dest?.value ?: 0L), destcapacity, (status?.value ?: 0L))
 
-public actual fun uregex_groupCount(regexp: Long, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregex_groupCount(regexp, status)
+public actual fun uregexGroupCount(regexp: COpaquePointer?, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregexGroupCount((regexp?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun uregex_groupNumberFromCName(regexp: Long, groupname: PCSTR, namelength: Int, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregex_groupNumberFromCName(regexp, groupname, namelength, status)
+public actual fun uregexGroupNumberFromCname(regexp: COpaquePointer?, groupname: Pcstr, namelength: Int, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregexGroupNumberFromCname((regexp?.value ?: 0L), (groupname?.value ?: 0L), namelength, (status?.value ?: 0L))
 
-public actual fun uregex_groupNumberFromName(regexp: Long, groupname: Long, namelength: Int, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregex_groupNumberFromName(regexp, groupname, namelength, status)
+public actual fun uregexGroupNumberFromName(regexp: COpaquePointer?, groupname: COpaquePointer?, namelength: Int, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregexGroupNumberFromName((regexp?.value ?: 0L), (groupname?.value ?: 0L), namelength, (status?.value ?: 0L))
 
-public actual fun uregex_groupUText(regexp: Long, groupnum: Int, dest: Long, grouplength: Long, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregex_groupUText(regexp, groupnum, dest, grouplength, status)
+public actual fun uregexGroupUtext(regexp: COpaquePointer?, groupnum: Int, dest: COpaquePointer?, grouplength: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregexGroupUtext((regexp?.value ?: 0L), groupnum, (dest?.value ?: 0L), (grouplength?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun uregex_hasAnchoringBounds(regexp: Long, status: Long): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregex_hasAnchoringBounds(regexp, status)
+public actual fun uregexHasAnchoringBounds(regexp: COpaquePointer?, status: COpaquePointer?): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregexHasAnchoringBounds((regexp?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun uregex_hasTransparentBounds(regexp: Long, status: Long): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregex_hasTransparentBounds(regexp, status)
+public actual fun uregexHasTransparentBounds(regexp: COpaquePointer?, status: COpaquePointer?): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregexHasTransparentBounds((regexp?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun uregex_hitEnd(regexp: Long, status: Long): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregex_hitEnd(regexp, status)
+public actual fun uregexHitEnd(regexp: COpaquePointer?, status: COpaquePointer?): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregexHitEnd((regexp?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun uregex_lookingAt(regexp: Long, startindex: Int, status: Long): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregex_lookingAt(regexp, startindex, status)
+public actual fun uregexLookingAt(regexp: COpaquePointer?, startindex: Int, status: COpaquePointer?): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregexLookingAt((regexp?.value ?: 0L), startindex, (status?.value ?: 0L))
 
-public actual fun uregex_lookingAt64(regexp: Long, startindex: Long, status: Long): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregex_lookingAt64(regexp, startindex, status)
+public actual fun uregexLookingAt64(regexp: COpaquePointer?, startindex: Long, status: COpaquePointer?): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregexLookingAt64((regexp?.value ?: 0L), startindex, (status?.value ?: 0L))
 
-public actual fun uregex_matches(regexp: Long, startindex: Int, status: Long): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregex_matches(regexp, startindex, status)
+public actual fun uregexMatches(regexp: COpaquePointer?, startindex: Int, status: COpaquePointer?): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregexMatches((regexp?.value ?: 0L), startindex, (status?.value ?: 0L))
 
-public actual fun uregex_matches64(regexp: Long, startindex: Long, status: Long): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregex_matches64(regexp, startindex, status)
+public actual fun uregexMatches64(regexp: COpaquePointer?, startindex: Long, status: COpaquePointer?): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregexMatches64((regexp?.value ?: 0L), startindex, (status?.value ?: 0L))
 
-public actual fun uregex_open(pattern: Long, patternlength: Int, flags: UInt, pe: Long, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregex_open(pattern, patternlength, flags.toInt(), pe, status)
+public actual fun uregexOpen(pattern: COpaquePointer?, patternlength: Int, flags: UInt, pe: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregexOpen((pattern?.value ?: 0L), patternlength, flags.toInt(), (pe?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun uregex_openC(pattern: PCSTR, flags: UInt, pe: Long, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregex_openC(pattern, flags.toInt(), pe, status)
+public actual fun uregexOpenC(pattern: Pcstr, flags: UInt, pe: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregexOpenC((pattern?.value ?: 0L), flags.toInt(), (pe?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun uregex_openUText(pattern: Long, flags: UInt, pe: Long, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregex_openUText(pattern, flags.toInt(), pe, status)
+public actual fun uregexOpenUtext(pattern: COpaquePointer?, flags: UInt, pe: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregexOpenUtext((pattern?.value ?: 0L), flags.toInt(), (pe?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun uregex_pattern(regexp: Long, patlength: Long, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregex_pattern(regexp, patlength, status)
+public actual fun uregexPattern(regexp: COpaquePointer?, patlength: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregexPattern((regexp?.value ?: 0L), (patlength?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun uregex_patternUText(regexp: Long, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregex_patternUText(regexp, status)
+public actual fun uregexPatternUtext(regexp: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregexPatternUtext((regexp?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun uregex_refreshUText(regexp: Long, text: Long, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregex_refreshUText(regexp, text, status)
+public actual fun uregexRefreshUtext(regexp: COpaquePointer?, text: COpaquePointer?, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregexRefreshUtext((regexp?.value ?: 0L), (text?.value ?: 0L), (status?.value ?: 0L))
 }
 
-public actual fun uregex_regionEnd(regexp: Long, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregex_regionEnd(regexp, status)
+public actual fun uregexRegionEnd(regexp: COpaquePointer?, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregexRegionEnd((regexp?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun uregex_regionEnd64(regexp: Long, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregex_regionEnd64(regexp, status)
+public actual fun uregexRegionEnd64(regexp: COpaquePointer?, status: COpaquePointer?): Long =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregexRegionEnd64((regexp?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun uregex_regionStart(regexp: Long, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregex_regionStart(regexp, status)
+public actual fun uregexRegionStart(regexp: COpaquePointer?, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregexRegionStart((regexp?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun uregex_regionStart64(regexp: Long, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregex_regionStart64(regexp, status)
+public actual fun uregexRegionStart64(regexp: COpaquePointer?, status: COpaquePointer?): Long =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregexRegionStart64((regexp?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun uregex_replaceAll(regexp: Long, replacementtext: Long, replacementlength: Int, destbuf: Long, destcapacity: Int, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregex_replaceAll(regexp, replacementtext, replacementlength, destbuf, destcapacity, status)
+public actual fun uregexReplaceAll(regexp: COpaquePointer?, replacementtext: COpaquePointer?, replacementlength: Int, destbuf: COpaquePointer?, destcapacity: Int, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregexReplaceAll((regexp?.value ?: 0L), (replacementtext?.value ?: 0L), replacementlength, (destbuf?.value ?: 0L), destcapacity, (status?.value ?: 0L))
 
-public actual fun uregex_replaceAllUText(regexp: Long, replacement: Long, dest: Long, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregex_replaceAllUText(regexp, replacement, dest, status)
+public actual fun uregexReplaceAllUtext(regexp: COpaquePointer?, replacement: COpaquePointer?, dest: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregexReplaceAllUtext((regexp?.value ?: 0L), (replacement?.value ?: 0L), (dest?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun uregex_replaceFirst(regexp: Long, replacementtext: Long, replacementlength: Int, destbuf: Long, destcapacity: Int, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregex_replaceFirst(regexp, replacementtext, replacementlength, destbuf, destcapacity, status)
+public actual fun uregexReplaceFirst(regexp: COpaquePointer?, replacementtext: COpaquePointer?, replacementlength: Int, destbuf: COpaquePointer?, destcapacity: Int, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregexReplaceFirst((regexp?.value ?: 0L), (replacementtext?.value ?: 0L), replacementlength, (destbuf?.value ?: 0L), destcapacity, (status?.value ?: 0L))
 
-public actual fun uregex_replaceFirstUText(regexp: Long, replacement: Long, dest: Long, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregex_replaceFirstUText(regexp, replacement, dest, status)
+public actual fun uregexReplaceFirstUtext(regexp: COpaquePointer?, replacement: COpaquePointer?, dest: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregexReplaceFirstUtext((regexp?.value ?: 0L), (replacement?.value ?: 0L), (dest?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun uregex_requireEnd(regexp: Long, status: Long): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregex_requireEnd(regexp, status)
+public actual fun uregexRequireEnd(regexp: COpaquePointer?, status: COpaquePointer?): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregexRequireEnd((regexp?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun uregex_reset(regexp: Long, index: Int, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregex_reset(regexp, index, status)
+public actual fun uregexReset(regexp: COpaquePointer?, index: Int, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregexReset((regexp?.value ?: 0L), index, (status?.value ?: 0L))
 }
 
-public actual fun uregex_reset64(regexp: Long, index: Long, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregex_reset64(regexp, index, status)
+public actual fun uregexReset64(regexp: COpaquePointer?, index: Long, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregexReset64((regexp?.value ?: 0L), index, (status?.value ?: 0L))
 }
 
-public actual fun uregex_setFindProgressCallback(regexp: Long, callback: URegexFindProgressCallback, context: Long, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregex_setFindProgressCallback(regexp, callback.toLong(), context, status)
+public actual fun uregexSetFindProgressCallback(regexp: COpaquePointer?, callback: URegexFindProgressCallback, context: COpaquePointer?, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregexSetFindProgressCallback((regexp?.value ?: 0L), 0L, (context?.value ?: 0L), (status?.value ?: 0L))
 }
 
-public actual fun uregex_setMatchCallback(regexp: Long, callback: URegexMatchCallback, context: Long, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregex_setMatchCallback(regexp, callback.toLong(), context, status)
+public actual fun uregexSetMatchCallback(regexp: COpaquePointer?, callback: URegexMatchCallback, context: COpaquePointer?, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregexSetMatchCallback((regexp?.value ?: 0L), 0L, (context?.value ?: 0L), (status?.value ?: 0L))
 }
 
-public actual fun uregex_setRegion(regexp: Long, regionstart: Int, regionlimit: Int, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregex_setRegion(regexp, regionstart, regionlimit, status)
+public actual fun uregexSetRegion(regexp: COpaquePointer?, regionstart: Int, regionlimit: Int, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregexSetRegion((regexp?.value ?: 0L), regionstart, regionlimit, (status?.value ?: 0L))
 }
 
-public actual fun uregex_setRegion64(regexp: Long, regionstart: Long, regionlimit: Long, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregex_setRegion64(regexp, regionstart, regionlimit, status)
+public actual fun uregexSetRegion64(regexp: COpaquePointer?, regionstart: Long, regionlimit: Long, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregexSetRegion64((regexp?.value ?: 0L), regionstart, regionlimit, (status?.value ?: 0L))
 }
 
-public actual fun uregex_setRegionAndStart(regexp: Long, regionstart: Long, regionlimit: Long, startindex: Long, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregex_setRegionAndStart(regexp, regionstart, regionlimit, startindex, status)
+public actual fun uregexSetRegionAndStart(regexp: COpaquePointer?, regionstart: Long, regionlimit: Long, startindex: Long, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregexSetRegionAndStart((regexp?.value ?: 0L), regionstart, regionlimit, startindex, (status?.value ?: 0L))
 }
 
-public actual fun uregex_setStackLimit(regexp: Long, limit: Int, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregex_setStackLimit(regexp, limit, status)
+public actual fun uregexSetStackLimit(regexp: COpaquePointer?, limit: Int, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregexSetStackLimit((regexp?.value ?: 0L), limit, (status?.value ?: 0L))
 }
 
-public actual fun uregex_setText(regexp: Long, text: Long, textlength: Int, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregex_setText(regexp, text, textlength, status)
+public actual fun uregexSetText(regexp: COpaquePointer?, text: COpaquePointer?, textlength: Int, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregexSetText((regexp?.value ?: 0L), (text?.value ?: 0L), textlength, (status?.value ?: 0L))
 }
 
-public actual fun uregex_setTimeLimit(regexp: Long, limit: Int, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregex_setTimeLimit(regexp, limit, status)
+public actual fun uregexSetTimeLimit(regexp: COpaquePointer?, limit: Int, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregexSetTimeLimit((regexp?.value ?: 0L), limit, (status?.value ?: 0L))
 }
 
-public actual fun uregex_setUText(regexp: Long, text: Long, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregex_setUText(regexp, text, status)
+public actual fun uregexSetUtext(regexp: COpaquePointer?, text: COpaquePointer?, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregexSetUtext((regexp?.value ?: 0L), (text?.value ?: 0L), (status?.value ?: 0L))
 }
 
-public actual fun uregex_split(regexp: Long, destbuf: Long, destcapacity: Int, requiredcapacity: Long, destfields: Long, destfieldscapacity: Int, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregex_split(regexp, destbuf, destcapacity, requiredcapacity, destfields, destfieldscapacity, status)
+public actual fun uregexSplit(regexp: COpaquePointer?, destbuf: COpaquePointer?, destcapacity: Int, requiredcapacity: COpaquePointer?, destfields: COpaquePointer?, destfieldscapacity: Int, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregexSplit((regexp?.value ?: 0L), (destbuf?.value ?: 0L), destcapacity, (requiredcapacity?.value ?: 0L), (destfields?.value ?: 0L), destfieldscapacity, (status?.value ?: 0L))
 
-public actual fun uregex_splitUText(regexp: Long, destfields: Long, destfieldscapacity: Int, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregex_splitUText(regexp, destfields, destfieldscapacity, status)
+public actual fun uregexSplitUtext(regexp: COpaquePointer?, destfields: COpaquePointer?, destfieldscapacity: Int, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregexSplitUtext((regexp?.value ?: 0L), (destfields?.value ?: 0L), destfieldscapacity, (status?.value ?: 0L))
 
-public actual fun uregex_start(regexp: Long, groupnum: Int, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregex_start(regexp, groupnum, status)
+public actual fun uregexStart(regexp: COpaquePointer?, groupnum: Int, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregexStart((regexp?.value ?: 0L), groupnum, (status?.value ?: 0L))
 
-public actual fun uregex_start64(regexp: Long, groupnum: Int, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregex_start64(regexp, groupnum, status)
+public actual fun uregexStart64(regexp: COpaquePointer?, groupnum: Int, status: COpaquePointer?): Long =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregexStart64((regexp?.value ?: 0L), groupnum, (status?.value ?: 0L))
 
-public actual fun uregex_useAnchoringBounds(regexp: Long, b: Byte, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregex_useAnchoringBounds(regexp, b, status)
+public actual fun uregexUseAnchoringBounds(regexp: COpaquePointer?, b: Byte, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregexUseAnchoringBounds((regexp?.value ?: 0L), b, (status?.value ?: 0L))
 }
 
-public actual fun uregex_useTransparentBounds(regexp: Long, b: Byte, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregex_useTransparentBounds(regexp, b, status)
+public actual fun uregexUseTransparentBounds(regexp: COpaquePointer?, b: Byte, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregexUseTransparentBounds((regexp?.value ?: 0L), b, (status?.value ?: 0L))
 }
 
-public actual fun uregion_areEqual(uregion: Long, otherregion: Long): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregion_areEqual(uregion, otherregion)
+public actual fun uregionAreEqual(uregion: COpaquePointer?, otherregion: COpaquePointer?): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregionAreEqual((uregion?.value ?: 0L), (otherregion?.value ?: 0L))
 
-public actual fun uregion_contains(uregion: Long, otherregion: Long): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregion_contains(uregion, otherregion)
+public actual fun uregionContains(uregion: COpaquePointer?, otherregion: COpaquePointer?): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregionContains((uregion?.value ?: 0L), (otherregion?.value ?: 0L))
 
-public actual fun uregion_getAvailable(type: URegionType, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregion_getAvailable(type, status)
+public actual fun uregionGetAvailable(type: URegionType, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregionGetAvailable(type, (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun uregion_getContainedRegions(uregion: Long, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregion_getContainedRegions(uregion, status)
+public actual fun uregionGetContainedRegions(uregion: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregionGetContainedRegions((uregion?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun uregion_getContainedRegionsOfType(uregion: Long, type: URegionType, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregion_getContainedRegionsOfType(uregion, type, status)
+public actual fun uregionGetContainedRegionsOfType(uregion: COpaquePointer?, type: URegionType, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregionGetContainedRegionsOfType((uregion?.value ?: 0L), type, (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun uregion_getContainingRegion(uregion: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregion_getContainingRegion(uregion)
+public actual fun uregionGetContainingRegion(uregion: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregionGetContainingRegion((uregion?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun uregion_getContainingRegionOfType(uregion: Long, type: URegionType): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregion_getContainingRegionOfType(uregion, type)
+public actual fun uregionGetContainingRegionOfType(uregion: COpaquePointer?, type: URegionType): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregionGetContainingRegionOfType((uregion?.value ?: 0L), type).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun uregion_getNumericCode(uregion: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregion_getNumericCode(uregion)
+public actual fun uregionGetNumericCode(uregion: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregionGetNumericCode((uregion?.value ?: 0L))
 
-public actual fun uregion_getPreferredValues(uregion: Long, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregion_getPreferredValues(uregion, status)
+public actual fun uregionGetPreferredValues(uregion: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregionGetPreferredValues((uregion?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun uregion_getRegionCode(uregion: Long): PCSTR =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregion_getRegionCode(uregion)
+public actual fun uregionGetRegionCode(uregion: COpaquePointer?): Pcstr =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregionGetRegionCode((uregion?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun uregion_getRegionFromCode(regioncode: PCSTR, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregion_getRegionFromCode(regioncode, status)
+public actual fun uregionGetRegionFromCode(regioncode: Pcstr, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregionGetRegionFromCode((regioncode?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun uregion_getRegionFromNumericCode(code: Int, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregion_getRegionFromNumericCode(code, status)
+public actual fun uregionGetRegionFromNumericCode(code: Int, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregionGetRegionFromNumericCode(code, (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun uregion_getType(uregion: Long): URegionType =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregion_getType(uregion)
+public actual fun uregionGetType(uregion: COpaquePointer?): URegionType =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uregionGetType((uregion?.value ?: 0L))
 
-public actual fun ureldatefmt_close(reldatefmt: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ureldatefmt_close(reldatefmt)
+public actual fun ureldatefmtClose(reldatefmt: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ureldatefmtClose((reldatefmt?.value ?: 0L))
 }
 
-public actual fun ureldatefmt_closeResult(ufrdt: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ureldatefmt_closeResult(ufrdt)
+public actual fun ureldatefmtCloseResult(ufrdt: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ureldatefmtCloseResult((ufrdt?.value ?: 0L))
 }
 
-public actual fun ureldatefmt_combineDateAndTime(reldatefmt: Long, relativedatestring: Long, relativedatestringlen: Int, timestring: Long, timestringlen: Int, result: Long, resultcapacity: Int, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ureldatefmt_combineDateAndTime(reldatefmt, relativedatestring, relativedatestringlen, timestring, timestringlen, result, resultcapacity, status)
+public actual fun ureldatefmtCombineDateAndTime(reldatefmt: COpaquePointer?, relativedatestring: COpaquePointer?, relativedatestringlen: Int, timestring: COpaquePointer?, timestringlen: Int, result: COpaquePointer?, resultcapacity: Int, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ureldatefmtCombineDateAndTime((reldatefmt?.value ?: 0L), (relativedatestring?.value ?: 0L), relativedatestringlen, (timestring?.value ?: 0L), timestringlen, (result?.value ?: 0L), resultcapacity, (status?.value ?: 0L))
 
-public actual fun ureldatefmt_format(reldatefmt: Long, offset: Double, unit: URelativeDateTimeUnit, result: Long, resultcapacity: Int, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ureldatefmt_format(reldatefmt, offset, unit, result, resultcapacity, status)
+public actual fun ureldatefmtFormat(reldatefmt: COpaquePointer?, offset: Double, unit: URelativeDateTimeUnit, result: COpaquePointer?, resultcapacity: Int, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ureldatefmtFormat((reldatefmt?.value ?: 0L), offset, unit, (result?.value ?: 0L), resultcapacity, (status?.value ?: 0L))
 
-public actual fun ureldatefmt_formatNumeric(reldatefmt: Long, offset: Double, unit: URelativeDateTimeUnit, result: Long, resultcapacity: Int, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ureldatefmt_formatNumeric(reldatefmt, offset, unit, result, resultcapacity, status)
+public actual fun ureldatefmtFormatNumeric(reldatefmt: COpaquePointer?, offset: Double, unit: URelativeDateTimeUnit, result: COpaquePointer?, resultcapacity: Int, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ureldatefmtFormatNumeric((reldatefmt?.value ?: 0L), offset, unit, (result?.value ?: 0L), resultcapacity, (status?.value ?: 0L))
 
-public actual fun ureldatefmt_formatNumericToResult(reldatefmt: Long, offset: Double, unit: URelativeDateTimeUnit, result: Long, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ureldatefmt_formatNumericToResult(reldatefmt, offset, unit, result, status)
+public actual fun ureldatefmtFormatNumericToResult(reldatefmt: COpaquePointer?, offset: Double, unit: URelativeDateTimeUnit, result: COpaquePointer?, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ureldatefmtFormatNumericToResult((reldatefmt?.value ?: 0L), offset, unit, (result?.value ?: 0L), (status?.value ?: 0L))
 }
 
-public actual fun ureldatefmt_formatToResult(reldatefmt: Long, offset: Double, unit: URelativeDateTimeUnit, result: Long, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ureldatefmt_formatToResult(reldatefmt, offset, unit, result, status)
+public actual fun ureldatefmtFormatToResult(reldatefmt: COpaquePointer?, offset: Double, unit: URelativeDateTimeUnit, result: COpaquePointer?, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ureldatefmtFormatToResult((reldatefmt?.value ?: 0L), offset, unit, (result?.value ?: 0L), (status?.value ?: 0L))
 }
 
-public actual fun ureldatefmt_open(locale: PCSTR, nftoadopt: Long, width: UDateRelativeDateTimeFormatterStyle, capitalizationcontext: UDisplayContext, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ureldatefmt_open(locale, nftoadopt, width, capitalizationcontext, status)
+public actual fun ureldatefmtOpen(locale: Pcstr, nftoadopt: COpaquePointer?, width: UDateRelativeDateTimeFormatterStyle, capitalizationcontext: UDisplayContext, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ureldatefmtOpen((locale?.value ?: 0L), (nftoadopt?.value ?: 0L), width, capitalizationcontext, (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ureldatefmt_openResult(ec: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ureldatefmt_openResult(ec)
+public actual fun ureldatefmtOpenResult(ec: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ureldatefmtOpenResult((ec?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ureldatefmt_resultAsValue(ufrdt: Long, ec: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ureldatefmt_resultAsValue(ufrdt, ec)
+public actual fun ureldatefmtResultAsValue(ufrdt: COpaquePointer?, ec: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ureldatefmtResultAsValue((ufrdt?.value ?: 0L), (ec?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ures_close(resourcebundle: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ures_close(resourcebundle)
+public actual fun uresClose(resourcebundle: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uresClose((resourcebundle?.value ?: 0L))
 }
 
-public actual fun ures_getBinary(resourcebundle: Long, len: Long, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ures_getBinary(resourcebundle, len, status)
+public actual fun uresGetBinary(resourcebundle: COpaquePointer?, len: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uresGetBinary((resourcebundle?.value ?: 0L), (len?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ures_getByIndex(resourcebundle: Long, indexr: Int, fillin: Long, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ures_getByIndex(resourcebundle, indexr, fillin, status)
+public actual fun uresGetByIndex(resourcebundle: COpaquePointer?, indexr: Int, fillin: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uresGetByIndex((resourcebundle?.value ?: 0L), indexr, (fillin?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ures_getByKey(resourcebundle: Long, key: PCSTR, fillin: Long, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ures_getByKey(resourcebundle, key, fillin, status)
+public actual fun uresGetByKey(resourcebundle: COpaquePointer?, key: Pcstr, fillin: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uresGetByKey((resourcebundle?.value ?: 0L), (key?.value ?: 0L), (fillin?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ures_getInt(resourcebundle: Long, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ures_getInt(resourcebundle, status)
+public actual fun uresGetInt(resourcebundle: COpaquePointer?, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uresGetInt((resourcebundle?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun ures_getIntVector(resourcebundle: Long, len: Long, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ures_getIntVector(resourcebundle, len, status)
+public actual fun uresGetIntVector(resourcebundle: COpaquePointer?, len: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uresGetIntVector((resourcebundle?.value ?: 0L), (len?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ures_getKey(resourcebundle: Long): PCSTR =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ures_getKey(resourcebundle)
+public actual fun uresGetKey(resourcebundle: COpaquePointer?): Pcstr =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uresGetKey((resourcebundle?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ures_getLocaleByType(resourcebundle: Long, type: ULocDataLocaleType, status: Long): PCSTR =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ures_getLocaleByType(resourcebundle, type, status)
+public actual fun uresGetLocaleByType(resourcebundle: COpaquePointer?, type: ULocDataLocaleType, status: COpaquePointer?): Pcstr =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uresGetLocaleByType((resourcebundle?.value ?: 0L), type, (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ures_getNextResource(resourcebundle: Long, fillin: Long, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ures_getNextResource(resourcebundle, fillin, status)
+public actual fun uresGetNextResource(resourcebundle: COpaquePointer?, fillin: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uresGetNextResource((resourcebundle?.value ?: 0L), (fillin?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ures_getNextString(resourcebundle: Long, len: Long, key: Long, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ures_getNextString(resourcebundle, len, key, status)
+public actual fun uresGetNextString(resourcebundle: COpaquePointer?, len: COpaquePointer?, key: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uresGetNextString((resourcebundle?.value ?: 0L), (len?.value ?: 0L), (key?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ures_getSize(resourcebundle: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ures_getSize(resourcebundle)
+public actual fun uresGetSize(resourcebundle: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uresGetSize((resourcebundle?.value ?: 0L))
 
-public actual fun ures_getString(resourcebundle: Long, len: Long, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ures_getString(resourcebundle, len, status)
+public actual fun uresGetString(resourcebundle: COpaquePointer?, len: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uresGetString((resourcebundle?.value ?: 0L), (len?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ures_getStringByIndex(resourcebundle: Long, indexs: Int, len: Long, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ures_getStringByIndex(resourcebundle, indexs, len, status)
+public actual fun uresGetStringByIndex(resourcebundle: COpaquePointer?, indexs: Int, len: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uresGetStringByIndex((resourcebundle?.value ?: 0L), indexs, (len?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ures_getStringByKey(resb: Long, key: PCSTR, len: Long, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ures_getStringByKey(resb, key, len, status)
+public actual fun uresGetStringByKey(resb: COpaquePointer?, key: Pcstr, len: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uresGetStringByKey((resb?.value ?: 0L), (key?.value ?: 0L), (len?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ures_getType(resourcebundle: Long): UResType =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ures_getType(resourcebundle)
+public actual fun uresGetType(resourcebundle: COpaquePointer?): UResType =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uresGetType((resourcebundle?.value ?: 0L))
 
-public actual fun ures_getUInt(resourcebundle: Long, status: Long): UInt =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ures_getUInt(resourcebundle, status).toUInt()
+public actual fun uresGetUint(resourcebundle: COpaquePointer?, status: COpaquePointer?): UInt =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uresGetUint((resourcebundle?.value ?: 0L), (status?.value ?: 0L)).toUInt()
 
-public actual fun ures_getUTF8String(resb: Long, dest: PCSTR, length: Long, forcecopy: Byte, status: Long): PCSTR =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ures_getUTF8String(resb, dest, length, forcecopy, status)
+public actual fun uresGetUtf8String(resb: COpaquePointer?, dest: Pcstr, length: COpaquePointer?, forcecopy: Byte, status: COpaquePointer?): Pcstr =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uresGetUtf8String((resb?.value ?: 0L), (dest?.value ?: 0L), (length?.value ?: 0L), forcecopy, (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ures_getUTF8StringByIndex(resb: Long, stringindex: Int, dest: PCSTR, plength: Long, forcecopy: Byte, status: Long): PCSTR =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ures_getUTF8StringByIndex(resb, stringindex, dest, plength, forcecopy, status)
+public actual fun uresGetUtf8StringByIndex(resb: COpaquePointer?, stringindex: Int, dest: Pcstr, plength: COpaquePointer?, forcecopy: Byte, status: COpaquePointer?): Pcstr =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uresGetUtf8StringByIndex((resb?.value ?: 0L), stringindex, (dest?.value ?: 0L), (plength?.value ?: 0L), forcecopy, (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ures_getUTF8StringByKey(resb: Long, key: PCSTR, dest: PCSTR, plength: Long, forcecopy: Byte, status: Long): PCSTR =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ures_getUTF8StringByKey(resb, key, dest, plength, forcecopy, status)
+public actual fun uresGetUtf8StringByKey(resb: COpaquePointer?, key: Pcstr, dest: Pcstr, plength: COpaquePointer?, forcecopy: Byte, status: COpaquePointer?): Pcstr =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uresGetUtf8StringByKey((resb?.value ?: 0L), (key?.value ?: 0L), (dest?.value ?: 0L), (plength?.value ?: 0L), forcecopy, (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ures_getVersion(resb: Long, versioninfo: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ures_getVersion(resb, versioninfo)
+public actual fun uresGetVersion(resb: COpaquePointer?, versioninfo: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uresGetVersion((resb?.value ?: 0L), (versioninfo?.value ?: 0L))
 }
 
-public actual fun ures_hasNext(resourcebundle: Long): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ures_hasNext(resourcebundle)
+public actual fun uresHasNext(resourcebundle: COpaquePointer?): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uresHasNext((resourcebundle?.value ?: 0L))
 
-public actual fun ures_open(packagename: PCSTR, locale: PCSTR, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ures_open(packagename, locale, status)
+public actual fun uresOpen(packagename: Pcstr, locale: Pcstr, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uresOpen((packagename?.value ?: 0L), (locale?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ures_openAvailableLocales(packagename: PCSTR, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ures_openAvailableLocales(packagename, status)
+public actual fun uresOpenAvailableLocales(packagename: Pcstr, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uresOpenAvailableLocales((packagename?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ures_openDirect(packagename: PCSTR, locale: PCSTR, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ures_openDirect(packagename, locale, status)
+public actual fun uresOpenDirect(packagename: Pcstr, locale: Pcstr, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uresOpenDirect((packagename?.value ?: 0L), (locale?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ures_openU(packagename: Long, locale: PCSTR, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ures_openU(packagename, locale, status)
+public actual fun uresOpenU(packagename: COpaquePointer?, locale: Pcstr, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uresOpenU((packagename?.value ?: 0L), (locale?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ures_resetIterator(resourcebundle: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_ures_resetIterator(resourcebundle)
+public actual fun uresResetIterator(resourcebundle: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uresResetIterator((resourcebundle?.value ?: 0L))
 }
 
-public actual fun uscript_breaksBetweenLetters(script: UScriptCode): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uscript_breaksBetweenLetters(script)
+public actual fun uscriptBreaksBetweenLetters(script: UScriptCode): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uscriptBreaksBetweenLetters(script)
 
-public actual fun uscript_getCode(nameorabbrorlocale: PCSTR, fillin: Long, capacity: Int, err: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uscript_getCode(nameorabbrorlocale, fillin, capacity, err)
+public actual fun uscriptGetCode(nameorabbrorlocale: Pcstr, fillin: COpaquePointer?, capacity: Int, err: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uscriptGetCode((nameorabbrorlocale?.value ?: 0L), (fillin?.value ?: 0L), capacity, (err?.value ?: 0L))
 
-public actual fun uscript_getName(scriptcode: UScriptCode): PCSTR =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uscript_getName(scriptcode)
+public actual fun uscriptGetName(scriptcode: UScriptCode): Pcstr =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uscriptGetName(scriptcode).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun uscript_getSampleString(script: UScriptCode, dest: Long, capacity: Int, perrorcode: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uscript_getSampleString(script, dest, capacity, perrorcode)
+public actual fun uscriptGetSampleString(script: UScriptCode, dest: COpaquePointer?, capacity: Int, perrorcode: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uscriptGetSampleString(script, (dest?.value ?: 0L), capacity, (perrorcode?.value ?: 0L))
 
-public actual fun uscript_getScript(codepoint: Int, err: Long): UScriptCode =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uscript_getScript(codepoint, err)
+public actual fun uscriptGetScript(codepoint: Int, err: COpaquePointer?): UScriptCode =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uscriptGetScript(codepoint, (err?.value ?: 0L))
 
-public actual fun uscript_getScriptExtensions(c: Int, scripts: Long, capacity: Int, errorcode: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uscript_getScriptExtensions(c, scripts, capacity, errorcode)
+public actual fun uscriptGetScriptExtensions(c: Int, scripts: COpaquePointer?, capacity: Int, errorcode: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uscriptGetScriptExtensions(c, (scripts?.value ?: 0L), capacity, (errorcode?.value ?: 0L))
 
-public actual fun uscript_getShortName(scriptcode: UScriptCode): PCSTR =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uscript_getShortName(scriptcode)
+public actual fun uscriptGetShortName(scriptcode: UScriptCode): Pcstr =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uscriptGetShortName(scriptcode).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun uscript_getUsage(script: UScriptCode): UScriptUsage =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uscript_getUsage(script)
+public actual fun uscriptGetUsage(script: UScriptCode): UScriptUsage =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uscriptGetUsage(script)
 
-public actual fun uscript_hasScript(c: Int, sc: UScriptCode): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uscript_hasScript(c, sc)
+public actual fun uscriptHasScript(c: Int, sc: UScriptCode): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uscriptHasScript(c, sc)
 
-public actual fun uscript_isCased(script: UScriptCode): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uscript_isCased(script)
+public actual fun uscriptIsCased(script: UScriptCode): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uscriptIsCased(script)
 
-public actual fun uscript_isRightToLeft(script: UScriptCode): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uscript_isRightToLeft(script)
+public actual fun uscriptIsRightToLeft(script: UScriptCode): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uscriptIsRightToLeft(script)
 
-public actual fun usearch_close(searchiter: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usearch_close(searchiter)
+public actual fun usearchClose(searchiter: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usearchClose((searchiter?.value ?: 0L))
 }
 
-public actual fun usearch_first(strsrch: Long, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usearch_first(strsrch, status)
+public actual fun usearchFirst(strsrch: COpaquePointer?, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usearchFirst((strsrch?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun usearch_following(strsrch: Long, position: Int, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usearch_following(strsrch, position, status)
+public actual fun usearchFollowing(strsrch: COpaquePointer?, position: Int, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usearchFollowing((strsrch?.value ?: 0L), position, (status?.value ?: 0L))
 
-public actual fun usearch_getAttribute(strsrch: Long, attribute: USearchAttribute): USearchAttributeValue =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usearch_getAttribute(strsrch, attribute)
+public actual fun usearchGetAttribute(strsrch: COpaquePointer?, attribute: USearchAttribute): USearchAttributeValue =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usearchGetAttribute((strsrch?.value ?: 0L), attribute)
 
-public actual fun usearch_getBreakIterator(strsrch: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usearch_getBreakIterator(strsrch)
+public actual fun usearchGetBreakIterator(strsrch: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usearchGetBreakIterator((strsrch?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun usearch_getCollator(strsrch: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usearch_getCollator(strsrch)
+public actual fun usearchGetCollator(strsrch: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usearchGetCollator((strsrch?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun usearch_getMatchedLength(strsrch: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usearch_getMatchedLength(strsrch)
+public actual fun usearchGetMatchedLength(strsrch: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usearchGetMatchedLength((strsrch?.value ?: 0L))
 
-public actual fun usearch_getMatchedStart(strsrch: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usearch_getMatchedStart(strsrch)
+public actual fun usearchGetMatchedStart(strsrch: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usearchGetMatchedStart((strsrch?.value ?: 0L))
 
-public actual fun usearch_getMatchedText(strsrch: Long, result: Long, resultcapacity: Int, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usearch_getMatchedText(strsrch, result, resultcapacity, status)
+public actual fun usearchGetMatchedText(strsrch: COpaquePointer?, result: COpaquePointer?, resultcapacity: Int, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usearchGetMatchedText((strsrch?.value ?: 0L), (result?.value ?: 0L), resultcapacity, (status?.value ?: 0L))
 
-public actual fun usearch_getOffset(strsrch: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usearch_getOffset(strsrch)
+public actual fun usearchGetOffset(strsrch: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usearchGetOffset((strsrch?.value ?: 0L))
 
-public actual fun usearch_getPattern(strsrch: Long, length: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usearch_getPattern(strsrch, length)
+public actual fun usearchGetPattern(strsrch: COpaquePointer?, length: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usearchGetPattern((strsrch?.value ?: 0L), (length?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun usearch_getText(strsrch: Long, length: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usearch_getText(strsrch, length)
+public actual fun usearchGetText(strsrch: COpaquePointer?, length: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usearchGetText((strsrch?.value ?: 0L), (length?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun usearch_last(strsrch: Long, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usearch_last(strsrch, status)
+public actual fun usearchLast(strsrch: COpaquePointer?, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usearchLast((strsrch?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun usearch_next(strsrch: Long, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usearch_next(strsrch, status)
+public actual fun usearchNext(strsrch: COpaquePointer?, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usearchNext((strsrch?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun usearch_open(pattern: Long, patternlength: Int, text: Long, textlength: Int, locale: PCSTR, breakiter: Long, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usearch_open(pattern, patternlength, text, textlength, locale, breakiter, status)
+public actual fun usearchOpen(pattern: COpaquePointer?, patternlength: Int, text: COpaquePointer?, textlength: Int, locale: Pcstr, breakiter: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usearchOpen((pattern?.value ?: 0L), patternlength, (text?.value ?: 0L), textlength, (locale?.value ?: 0L), (breakiter?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun usearch_openFromCollator(pattern: Long, patternlength: Int, text: Long, textlength: Int, collator: Long, breakiter: Long, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usearch_openFromCollator(pattern, patternlength, text, textlength, collator, breakiter, status)
+public actual fun usearchOpenFromCollator(pattern: COpaquePointer?, patternlength: Int, text: COpaquePointer?, textlength: Int, collator: COpaquePointer?, breakiter: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usearchOpenFromCollator((pattern?.value ?: 0L), patternlength, (text?.value ?: 0L), textlength, (collator?.value ?: 0L), (breakiter?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun usearch_preceding(strsrch: Long, position: Int, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usearch_preceding(strsrch, position, status)
+public actual fun usearchPreceding(strsrch: COpaquePointer?, position: Int, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usearchPreceding((strsrch?.value ?: 0L), position, (status?.value ?: 0L))
 
-public actual fun usearch_previous(strsrch: Long, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usearch_previous(strsrch, status)
+public actual fun usearchPrevious(strsrch: COpaquePointer?, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usearchPrevious((strsrch?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun usearch_reset(strsrch: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usearch_reset(strsrch)
+public actual fun usearchReset(strsrch: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usearchReset((strsrch?.value ?: 0L))
 }
 
-public actual fun usearch_setAttribute(strsrch: Long, attribute: USearchAttribute, value: USearchAttributeValue, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usearch_setAttribute(strsrch, attribute, value, status)
+public actual fun usearchSetAttribute(strsrch: COpaquePointer?, attribute: USearchAttribute, value: USearchAttributeValue, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usearchSetAttribute((strsrch?.value ?: 0L), attribute, value, (status?.value ?: 0L))
 }
 
-public actual fun usearch_setBreakIterator(strsrch: Long, breakiter: Long, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usearch_setBreakIterator(strsrch, breakiter, status)
+public actual fun usearchSetBreakIterator(strsrch: COpaquePointer?, breakiter: COpaquePointer?, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usearchSetBreakIterator((strsrch?.value ?: 0L), (breakiter?.value ?: 0L), (status?.value ?: 0L))
 }
 
-public actual fun usearch_setCollator(strsrch: Long, collator: Long, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usearch_setCollator(strsrch, collator, status)
+public actual fun usearchSetCollator(strsrch: COpaquePointer?, collator: COpaquePointer?, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usearchSetCollator((strsrch?.value ?: 0L), (collator?.value ?: 0L), (status?.value ?: 0L))
 }
 
-public actual fun usearch_setOffset(strsrch: Long, position: Int, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usearch_setOffset(strsrch, position, status)
+public actual fun usearchSetOffset(strsrch: COpaquePointer?, position: Int, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usearchSetOffset((strsrch?.value ?: 0L), position, (status?.value ?: 0L))
 }
 
-public actual fun usearch_setPattern(strsrch: Long, pattern: Long, patternlength: Int, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usearch_setPattern(strsrch, pattern, patternlength, status)
+public actual fun usearchSetPattern(strsrch: COpaquePointer?, pattern: COpaquePointer?, patternlength: Int, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usearchSetPattern((strsrch?.value ?: 0L), (pattern?.value ?: 0L), patternlength, (status?.value ?: 0L))
 }
 
-public actual fun usearch_setText(strsrch: Long, text: Long, textlength: Int, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usearch_setText(strsrch, text, textlength, status)
+public actual fun usearchSetText(strsrch: COpaquePointer?, text: COpaquePointer?, textlength: Int, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usearchSetText((strsrch?.value ?: 0L), (text?.value ?: 0L), textlength, (status?.value ?: 0L))
 }
 
-public actual fun uset_add(set: Long, c: Int) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uset_add(set, c)
+public actual fun usetAdd(set: COpaquePointer?, c: Int) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usetAdd((set?.value ?: 0L), c)
 }
 
-public actual fun uset_addAll(set: Long, additionalset: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uset_addAll(set, additionalset)
+public actual fun usetAddAll(set: COpaquePointer?, additionalset: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usetAddAll((set?.value ?: 0L), (additionalset?.value ?: 0L))
 }
 
-public actual fun uset_addAllCodePoints(set: Long, str: Long, strlen: Int) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uset_addAllCodePoints(set, str, strlen)
+public actual fun usetAddAllCodePoints(set: COpaquePointer?, str: COpaquePointer?, strlen: Int) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usetAddAllCodePoints((set?.value ?: 0L), (str?.value ?: 0L), strlen)
 }
 
-public actual fun uset_addRange(set: Long, start: Int, end: Int) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uset_addRange(set, start, end)
+public actual fun usetAddRange(set: COpaquePointer?, start: Int, end: Int) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usetAddRange((set?.value ?: 0L), start, end)
 }
 
-public actual fun uset_addString(set: Long, str: Long, strlen: Int) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uset_addString(set, str, strlen)
+public actual fun usetAddString(set: COpaquePointer?, str: COpaquePointer?, strlen: Int) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usetAddString((set?.value ?: 0L), (str?.value ?: 0L), strlen)
 }
 
-public actual fun uset_applyIntPropertyValue(set: Long, prop: UProperty, value: Int, ec: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uset_applyIntPropertyValue(set, prop, value, ec)
+public actual fun usetApplyIntPropertyValue(set: COpaquePointer?, prop: UProperty, value: Int, ec: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usetApplyIntPropertyValue((set?.value ?: 0L), prop, value, (ec?.value ?: 0L))
 }
 
-public actual fun uset_applyPattern(set: Long, pattern: Long, patternlength: Int, options: UInt, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uset_applyPattern(set, pattern, patternlength, options.toInt(), status)
+public actual fun usetApplyPattern(set: COpaquePointer?, pattern: COpaquePointer?, patternlength: Int, options: UInt, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usetApplyPattern((set?.value ?: 0L), (pattern?.value ?: 0L), patternlength, options.toInt(), (status?.value ?: 0L))
 
-public actual fun uset_applyPropertyAlias(set: Long, prop: Long, proplength: Int, value: Long, valuelength: Int, ec: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uset_applyPropertyAlias(set, prop, proplength, value, valuelength, ec)
+public actual fun usetApplyPropertyAlias(set: COpaquePointer?, prop: COpaquePointer?, proplength: Int, value: COpaquePointer?, valuelength: Int, ec: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usetApplyPropertyAlias((set?.value ?: 0L), (prop?.value ?: 0L), proplength, (value?.value ?: 0L), valuelength, (ec?.value ?: 0L))
 }
 
-public actual fun uset_charAt(set: Long, charindex: Int): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uset_charAt(set, charindex)
+public actual fun usetCharAt(set: COpaquePointer?, charindex: Int): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usetCharAt((set?.value ?: 0L), charindex)
 
-public actual fun uset_clear(set: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uset_clear(set)
+public actual fun usetClear(set: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usetClear((set?.value ?: 0L))
 }
 
-public actual fun uset_clone(set: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uset_clone(set)
+public actual fun usetClone(set: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usetClone((set?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun uset_cloneAsThawed(set: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uset_cloneAsThawed(set)
+public actual fun usetCloneAsThawed(set: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usetCloneAsThawed((set?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun uset_close(set: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uset_close(set)
+public actual fun usetClose(set: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usetClose((set?.value ?: 0L))
 }
 
-public actual fun uset_closeOver(set: Long, attributes: Int) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uset_closeOver(set, attributes)
+public actual fun usetCloseOver(set: COpaquePointer?, attributes: Int) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usetCloseOver((set?.value ?: 0L), attributes)
 }
 
-public actual fun uset_compact(set: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uset_compact(set)
+public actual fun usetCompact(set: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usetCompact((set?.value ?: 0L))
 }
 
-public actual fun uset_complement(set: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uset_complement(set)
+public actual fun usetComplement(set: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usetComplement((set?.value ?: 0L))
 }
 
-public actual fun uset_complementAll(set: Long, complement: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uset_complementAll(set, complement)
+public actual fun usetComplementAll(set: COpaquePointer?, complement: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usetComplementAll((set?.value ?: 0L), (complement?.value ?: 0L))
 }
 
-public actual fun uset_contains(set: Long, c: Int): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uset_contains(set, c)
+public actual fun usetContains(set: COpaquePointer?, c: Int): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usetContains((set?.value ?: 0L), c)
 
-public actual fun uset_containsAll(set1: Long, set2: Long): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uset_containsAll(set1, set2)
+public actual fun usetContainsAll(set1: COpaquePointer?, set2: COpaquePointer?): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usetContainsAll((set1?.value ?: 0L), (set2?.value ?: 0L))
 
-public actual fun uset_containsAllCodePoints(set: Long, str: Long, strlen: Int): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uset_containsAllCodePoints(set, str, strlen)
+public actual fun usetContainsAllCodePoints(set: COpaquePointer?, str: COpaquePointer?, strlen: Int): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usetContainsAllCodePoints((set?.value ?: 0L), (str?.value ?: 0L), strlen)
 
-public actual fun uset_containsNone(set1: Long, set2: Long): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uset_containsNone(set1, set2)
+public actual fun usetContainsNone(set1: COpaquePointer?, set2: COpaquePointer?): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usetContainsNone((set1?.value ?: 0L), (set2?.value ?: 0L))
 
-public actual fun uset_containsRange(set: Long, start: Int, end: Int): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uset_containsRange(set, start, end)
+public actual fun usetContainsRange(set: COpaquePointer?, start: Int, end: Int): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usetContainsRange((set?.value ?: 0L), start, end)
 
-public actual fun uset_containsSome(set1: Long, set2: Long): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uset_containsSome(set1, set2)
+public actual fun usetContainsSome(set1: COpaquePointer?, set2: COpaquePointer?): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usetContainsSome((set1?.value ?: 0L), (set2?.value ?: 0L))
 
-public actual fun uset_containsString(set: Long, str: Long, strlen: Int): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uset_containsString(set, str, strlen)
+public actual fun usetContainsString(set: COpaquePointer?, str: COpaquePointer?, strlen: Int): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usetContainsString((set?.value ?: 0L), (str?.value ?: 0L), strlen)
 
-public actual fun uset_equals(set1: Long, set2: Long): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uset_equals(set1, set2)
+public actual fun usetEquals(set1: COpaquePointer?, set2: COpaquePointer?): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usetEquals((set1?.value ?: 0L), (set2?.value ?: 0L))
 
-public actual fun uset_freeze(set: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uset_freeze(set)
+public actual fun usetFreeze(set: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usetFreeze((set?.value ?: 0L))
 }
 
-public actual fun uset_getItem(set: Long, itemindex: Int, start: Long, end: Long, str: Long, strcapacity: Int, ec: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uset_getItem(set, itemindex, start, end, str, strcapacity, ec)
+public actual fun usetGetItem(set: COpaquePointer?, itemindex: Int, start: COpaquePointer?, end: COpaquePointer?, str: COpaquePointer?, strcapacity: Int, ec: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usetGetItem((set?.value ?: 0L), itemindex, (start?.value ?: 0L), (end?.value ?: 0L), (str?.value ?: 0L), strcapacity, (ec?.value ?: 0L))
 
-public actual fun uset_getItemCount(set: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uset_getItemCount(set)
+public actual fun usetGetItemCount(set: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usetGetItemCount((set?.value ?: 0L))
 
-public actual fun uset_getSerializedRange(set: Long, rangeindex: Int, pstart: Long, pend: Long): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uset_getSerializedRange(set, rangeindex, pstart, pend)
+public actual fun usetGetSerializedRange(set: COpaquePointer?, rangeindex: Int, pstart: COpaquePointer?, pend: COpaquePointer?): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usetGetSerializedRange((set?.value ?: 0L), rangeindex, (pstart?.value ?: 0L), (pend?.value ?: 0L))
 
-public actual fun uset_getSerializedRangeCount(set: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uset_getSerializedRangeCount(set)
+public actual fun usetGetSerializedRangeCount(set: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usetGetSerializedRangeCount((set?.value ?: 0L))
 
-public actual fun uset_getSerializedSet(fillset: Long, src: Long, srclength: Int): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uset_getSerializedSet(fillset, src, srclength)
+public actual fun usetGetSerializedSet(fillset: COpaquePointer?, src: COpaquePointer?, srclength: Int): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usetGetSerializedSet((fillset?.value ?: 0L), (src?.value ?: 0L), srclength)
 
-public actual fun uset_indexOf(set: Long, c: Int): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uset_indexOf(set, c)
+public actual fun usetIndexOf(set: COpaquePointer?, c: Int): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usetIndexOf((set?.value ?: 0L), c)
 
-public actual fun uset_isEmpty(set: Long): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uset_isEmpty(set)
+public actual fun usetIsEmpty(set: COpaquePointer?): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usetIsEmpty((set?.value ?: 0L))
 
-public actual fun uset_isFrozen(set: Long): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uset_isFrozen(set)
+public actual fun usetIsFrozen(set: COpaquePointer?): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usetIsFrozen((set?.value ?: 0L))
 
-public actual fun uset_open(start: Int, end: Int): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uset_open(start, end)
+public actual fun usetOpen(start: Int, end: Int): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usetOpen(start, end).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun uset_openEmpty(): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uset_openEmpty()
+public actual fun usetOpenEmpty(): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usetOpenEmpty().let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun uset_openPattern(pattern: Long, patternlength: Int, ec: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uset_openPattern(pattern, patternlength, ec)
+public actual fun usetOpenPattern(pattern: COpaquePointer?, patternlength: Int, ec: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usetOpenPattern((pattern?.value ?: 0L), patternlength, (ec?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun uset_openPatternOptions(pattern: Long, patternlength: Int, options: UInt, ec: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uset_openPatternOptions(pattern, patternlength, options.toInt(), ec)
+public actual fun usetOpenPatternOptions(pattern: COpaquePointer?, patternlength: Int, options: UInt, ec: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usetOpenPatternOptions((pattern?.value ?: 0L), patternlength, options.toInt(), (ec?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun uset_remove(set: Long, c: Int) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uset_remove(set, c)
+public actual fun usetRemove(set: COpaquePointer?, c: Int) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usetRemove((set?.value ?: 0L), c)
 }
 
-public actual fun uset_removeAll(set: Long, removeset: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uset_removeAll(set, removeset)
+public actual fun usetRemoveAll(set: COpaquePointer?, removeset: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usetRemoveAll((set?.value ?: 0L), (removeset?.value ?: 0L))
 }
 
-public actual fun uset_removeAllStrings(set: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uset_removeAllStrings(set)
+public actual fun usetRemoveAllStrings(set: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usetRemoveAllStrings((set?.value ?: 0L))
 }
 
-public actual fun uset_removeRange(set: Long, start: Int, end: Int) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uset_removeRange(set, start, end)
+public actual fun usetRemoveRange(set: COpaquePointer?, start: Int, end: Int) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usetRemoveRange((set?.value ?: 0L), start, end)
 }
 
-public actual fun uset_removeString(set: Long, str: Long, strlen: Int) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uset_removeString(set, str, strlen)
+public actual fun usetRemoveString(set: COpaquePointer?, str: COpaquePointer?, strlen: Int) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usetRemoveString((set?.value ?: 0L), (str?.value ?: 0L), strlen)
 }
 
-public actual fun uset_resemblesPattern(pattern: Long, patternlength: Int, pos: Int): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uset_resemblesPattern(pattern, patternlength, pos)
+public actual fun usetResemblesPattern(pattern: COpaquePointer?, patternlength: Int, pos: Int): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usetResemblesPattern((pattern?.value ?: 0L), patternlength, pos)
 
-public actual fun uset_retain(set: Long, start: Int, end: Int) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uset_retain(set, start, end)
+public actual fun usetRetain(set: COpaquePointer?, start: Int, end: Int) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usetRetain((set?.value ?: 0L), start, end)
 }
 
-public actual fun uset_retainAll(set: Long, retain: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uset_retainAll(set, retain)
+public actual fun usetRetainAll(set: COpaquePointer?, retain: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usetRetainAll((set?.value ?: 0L), (retain?.value ?: 0L))
 }
 
-public actual fun uset_serialize(set: Long, dest: Long, destcapacity: Int, perrorcode: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uset_serialize(set, dest, destcapacity, perrorcode)
+public actual fun usetSerialize(set: COpaquePointer?, dest: COpaquePointer?, destcapacity: Int, perrorcode: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usetSerialize((set?.value ?: 0L), (dest?.value ?: 0L), destcapacity, (perrorcode?.value ?: 0L))
 
-public actual fun uset_serializedContains(set: Long, c: Int): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uset_serializedContains(set, c)
+public actual fun usetSerializedContains(set: COpaquePointer?, c: Int): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usetSerializedContains((set?.value ?: 0L), c)
 
-public actual fun uset_set(set: Long, start: Int, end: Int) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uset_set(set, start, end)
+public actual fun usetSet(set: COpaquePointer?, start: Int, end: Int) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usetSet((set?.value ?: 0L), start, end)
 }
 
-public actual fun uset_setSerializedToOne(fillset: Long, c: Int) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uset_setSerializedToOne(fillset, c)
+public actual fun usetSetSerializedToOne(fillset: COpaquePointer?, c: Int) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usetSetSerializedToOne((fillset?.value ?: 0L), c)
 }
 
-public actual fun uset_size(set: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uset_size(set)
+public actual fun usetSize(set: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usetSize((set?.value ?: 0L))
 
-public actual fun uset_span(set: Long, s: Long, length: Int, spancondition: USetSpanCondition): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uset_span(set, s, length, spancondition)
+public actual fun usetSpan(set: COpaquePointer?, s: COpaquePointer?, length: Int, spancondition: USetSpanCondition): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usetSpan((set?.value ?: 0L), (s?.value ?: 0L), length, spancondition)
 
-public actual fun uset_spanBack(set: Long, s: Long, length: Int, spancondition: USetSpanCondition): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uset_spanBack(set, s, length, spancondition)
+public actual fun usetSpanBack(set: COpaquePointer?, s: COpaquePointer?, length: Int, spancondition: USetSpanCondition): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usetSpanBack((set?.value ?: 0L), (s?.value ?: 0L), length, spancondition)
 
-public actual fun uset_spanBackUTF8(set: Long, s: PCSTR, length: Int, spancondition: USetSpanCondition): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uset_spanBackUTF8(set, s, length, spancondition)
+public actual fun usetSpanBackUtf8(set: COpaquePointer?, s: Pcstr, length: Int, spancondition: USetSpanCondition): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usetSpanBackUtf8((set?.value ?: 0L), (s?.value ?: 0L), length, spancondition)
 
-public actual fun uset_spanUTF8(set: Long, s: PCSTR, length: Int, spancondition: USetSpanCondition): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uset_spanUTF8(set, s, length, spancondition)
+public actual fun usetSpanUtf8(set: COpaquePointer?, s: Pcstr, length: Int, spancondition: USetSpanCondition): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usetSpanUtf8((set?.value ?: 0L), (s?.value ?: 0L), length, spancondition)
 
-public actual fun uset_toPattern(set: Long, result: Long, resultcapacity: Int, escapeunprintable: Byte, ec: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uset_toPattern(set, result, resultcapacity, escapeunprintable, ec)
+public actual fun usetToPattern(set: COpaquePointer?, result: COpaquePointer?, resultcapacity: Int, escapeunprintable: Byte, ec: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usetToPattern((set?.value ?: 0L), (result?.value ?: 0L), resultcapacity, escapeunprintable, (ec?.value ?: 0L))
 
-public actual fun uspoof_areConfusable(sc: Long, id1: Long, length1: Int, id2: Long, length2: Int, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uspoof_areConfusable(sc, id1, length1, id2, length2, status)
+public actual fun uspoofAreConfusable(sc: COpaquePointer?, id1: COpaquePointer?, length1: Int, id2: COpaquePointer?, length2: Int, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uspoofAreConfusable((sc?.value ?: 0L), (id1?.value ?: 0L), length1, (id2?.value ?: 0L), length2, (status?.value ?: 0L))
 
-public actual fun uspoof_areConfusableUTF8(sc: Long, id1: PCSTR, length1: Int, id2: PCSTR, length2: Int, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uspoof_areConfusableUTF8(sc, id1, length1, id2, length2, status)
+public actual fun uspoofAreConfusableUtf8(sc: COpaquePointer?, id1: Pcstr, length1: Int, id2: Pcstr, length2: Int, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uspoofAreConfusableUtf8((sc?.value ?: 0L), (id1?.value ?: 0L), length1, (id2?.value ?: 0L), length2, (status?.value ?: 0L))
 
-public actual fun uspoof_check(sc: Long, id: Long, length: Int, position: Long, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uspoof_check(sc, id, length, position, status)
+public actual fun uspoofCheck(sc: COpaquePointer?, id: COpaquePointer?, length: Int, position: COpaquePointer?, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uspoofCheck((sc?.value ?: 0L), (id?.value ?: 0L), length, (position?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun uspoof_check2(sc: Long, id: Long, length: Int, checkresult: Long, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uspoof_check2(sc, id, length, checkresult, status)
+public actual fun uspoofCheck2(sc: COpaquePointer?, id: COpaquePointer?, length: Int, checkresult: COpaquePointer?, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uspoofCheck2((sc?.value ?: 0L), (id?.value ?: 0L), length, (checkresult?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun uspoof_check2UTF8(sc: Long, id: PCSTR, length: Int, checkresult: Long, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uspoof_check2UTF8(sc, id, length, checkresult, status)
+public actual fun uspoofCheck2Utf8(sc: COpaquePointer?, id: Pcstr, length: Int, checkresult: COpaquePointer?, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uspoofCheck2Utf8((sc?.value ?: 0L), (id?.value ?: 0L), length, (checkresult?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun uspoof_checkUTF8(sc: Long, id: PCSTR, length: Int, position: Long, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uspoof_checkUTF8(sc, id, length, position, status)
+public actual fun uspoofCheckUtf8(sc: COpaquePointer?, id: Pcstr, length: Int, position: COpaquePointer?, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uspoofCheckUtf8((sc?.value ?: 0L), (id?.value ?: 0L), length, (position?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun uspoof_clone(sc: Long, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uspoof_clone(sc, status)
+public actual fun uspoofClone(sc: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uspoofClone((sc?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun uspoof_close(sc: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uspoof_close(sc)
+public actual fun uspoofClose(sc: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uspoofClose((sc?.value ?: 0L))
 }
 
-public actual fun uspoof_closeCheckResult(checkresult: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uspoof_closeCheckResult(checkresult)
+public actual fun uspoofCloseCheckResult(checkresult: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uspoofCloseCheckResult((checkresult?.value ?: 0L))
 }
 
-public actual fun uspoof_getAllowedChars(sc: Long, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uspoof_getAllowedChars(sc, status)
+public actual fun uspoofGetAllowedChars(sc: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uspoofGetAllowedChars((sc?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun uspoof_getAllowedLocales(sc: Long, status: Long): PCSTR =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uspoof_getAllowedLocales(sc, status)
+public actual fun uspoofGetAllowedLocales(sc: COpaquePointer?, status: COpaquePointer?): Pcstr =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uspoofGetAllowedLocales((sc?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun uspoof_getCheckResultChecks(checkresult: Long, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uspoof_getCheckResultChecks(checkresult, status)
+public actual fun uspoofGetCheckResultChecks(checkresult: COpaquePointer?, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uspoofGetCheckResultChecks((checkresult?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun uspoof_getCheckResultNumerics(checkresult: Long, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uspoof_getCheckResultNumerics(checkresult, status)
+public actual fun uspoofGetCheckResultNumerics(checkresult: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uspoofGetCheckResultNumerics((checkresult?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun uspoof_getCheckResultRestrictionLevel(checkresult: Long, status: Long): URestrictionLevel =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uspoof_getCheckResultRestrictionLevel(checkresult, status)
+public actual fun uspoofGetCheckResultRestrictionLevel(checkresult: COpaquePointer?, status: COpaquePointer?): URestrictionLevel =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uspoofGetCheckResultRestrictionLevel((checkresult?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun uspoof_getChecks(sc: Long, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uspoof_getChecks(sc, status)
+public actual fun uspoofGetChecks(sc: COpaquePointer?, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uspoofGetChecks((sc?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun uspoof_getInclusionSet(status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uspoof_getInclusionSet(status)
+public actual fun uspoofGetInclusionSet(status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uspoofGetInclusionSet((status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun uspoof_getRecommendedSet(status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uspoof_getRecommendedSet(status)
+public actual fun uspoofGetRecommendedSet(status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uspoofGetRecommendedSet((status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun uspoof_getRestrictionLevel(sc: Long): URestrictionLevel =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uspoof_getRestrictionLevel(sc)
+public actual fun uspoofGetRestrictionLevel(sc: COpaquePointer?): URestrictionLevel =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uspoofGetRestrictionLevel((sc?.value ?: 0L))
 
-public actual fun uspoof_getSkeleton(sc: Long, type: UInt, id: Long, length: Int, dest: Long, destcapacity: Int, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uspoof_getSkeleton(sc, type.toInt(), id, length, dest, destcapacity, status)
+public actual fun uspoofGetSkeleton(sc: COpaquePointer?, type: UInt, id: COpaquePointer?, length: Int, dest: COpaquePointer?, destcapacity: Int, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uspoofGetSkeleton((sc?.value ?: 0L), type.toInt(), (id?.value ?: 0L), length, (dest?.value ?: 0L), destcapacity, (status?.value ?: 0L))
 
-public actual fun uspoof_getSkeletonUTF8(sc: Long, type: UInt, id: PCSTR, length: Int, dest: PCSTR, destcapacity: Int, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uspoof_getSkeletonUTF8(sc, type.toInt(), id, length, dest, destcapacity, status)
+public actual fun uspoofGetSkeletonUtf8(sc: COpaquePointer?, type: UInt, id: Pcstr, length: Int, dest: Pcstr, destcapacity: Int, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uspoofGetSkeletonUtf8((sc?.value ?: 0L), type.toInt(), (id?.value ?: 0L), length, (dest?.value ?: 0L), destcapacity, (status?.value ?: 0L))
 
-public actual fun uspoof_open(status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uspoof_open(status)
+public actual fun uspoofOpen(status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uspoofOpen((status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun uspoof_openCheckResult(status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uspoof_openCheckResult(status)
+public actual fun uspoofOpenCheckResult(status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uspoofOpenCheckResult((status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun uspoof_openFromSerialized(data: Long, length: Int, pactuallength: Long, perrorcode: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uspoof_openFromSerialized(data, length, pactuallength, perrorcode)
+public actual fun uspoofOpenFromSerialized(data: COpaquePointer?, length: Int, pactuallength: COpaquePointer?, perrorcode: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uspoofOpenFromSerialized((data?.value ?: 0L), length, (pactuallength?.value ?: 0L), (perrorcode?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun uspoof_openFromSource(confusables: PCSTR, confusableslen: Int, confusableswholescript: PCSTR, confusableswholescriptlen: Int, errtype: Long, pe: Long, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uspoof_openFromSource(confusables, confusableslen, confusableswholescript, confusableswholescriptlen, errtype, pe, status)
+public actual fun uspoofOpenFromSource(confusables: Pcstr, confusableslen: Int, confusableswholescript: Pcstr, confusableswholescriptlen: Int, errtype: COpaquePointer?, pe: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uspoofOpenFromSource((confusables?.value ?: 0L), confusableslen, (confusableswholescript?.value ?: 0L), confusableswholescriptlen, (errtype?.value ?: 0L), (pe?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun uspoof_serialize(sc: Long, data: Long, capacity: Int, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uspoof_serialize(sc, data, capacity, status)
+public actual fun uspoofSerialize(sc: COpaquePointer?, data: COpaquePointer?, capacity: Int, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uspoofSerialize((sc?.value ?: 0L), (data?.value ?: 0L), capacity, (status?.value ?: 0L))
 
-public actual fun uspoof_setAllowedChars(sc: Long, chars: Long, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uspoof_setAllowedChars(sc, chars, status)
+public actual fun uspoofSetAllowedChars(sc: COpaquePointer?, chars: COpaquePointer?, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uspoofSetAllowedChars((sc?.value ?: 0L), (chars?.value ?: 0L), (status?.value ?: 0L))
 }
 
-public actual fun uspoof_setAllowedLocales(sc: Long, localeslist: PCSTR, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uspoof_setAllowedLocales(sc, localeslist, status)
+public actual fun uspoofSetAllowedLocales(sc: COpaquePointer?, localeslist: Pcstr, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uspoofSetAllowedLocales((sc?.value ?: 0L), (localeslist?.value ?: 0L), (status?.value ?: 0L))
 }
 
-public actual fun uspoof_setChecks(sc: Long, checks: Int, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uspoof_setChecks(sc, checks, status)
+public actual fun uspoofSetChecks(sc: COpaquePointer?, checks: Int, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uspoofSetChecks((sc?.value ?: 0L), checks, (status?.value ?: 0L))
 }
 
-public actual fun uspoof_setRestrictionLevel(sc: Long, restrictionlevel: URestrictionLevel) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uspoof_setRestrictionLevel(sc, restrictionlevel)
+public actual fun uspoofSetRestrictionLevel(sc: COpaquePointer?, restrictionlevel: URestrictionLevel) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_uspoofSetRestrictionLevel((sc?.value ?: 0L), restrictionlevel)
 }
 
-public actual fun usprep_close(profile: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usprep_close(profile)
+public actual fun usprepClose(profile: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usprepClose((profile?.value ?: 0L))
 }
 
-public actual fun usprep_open(path: PCSTR, filename: PCSTR, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usprep_open(path, filename, status)
+public actual fun usprepOpen(path: Pcstr, filename: Pcstr, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usprepOpen((path?.value ?: 0L), (filename?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun usprep_openByType(type: UStringPrepProfileType, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usprep_openByType(type, status)
+public actual fun usprepOpenByType(type: UStringPrepProfileType, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usprepOpenByType(type, (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun usprep_prepare(prep: Long, src: Long, srclength: Int, dest: Long, destcapacity: Int, options: Int, parseerror: Long, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usprep_prepare(prep, src, srclength, dest, destcapacity, options, parseerror, status)
+public actual fun usprepPrepare(prep: COpaquePointer?, src: COpaquePointer?, srclength: Int, dest: COpaquePointer?, destcapacity: Int, options: Int, parseerror: COpaquePointer?, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_usprepPrepare((prep?.value ?: 0L), (src?.value ?: 0L), srclength, (dest?.value ?: 0L), destcapacity, options, (parseerror?.value ?: 0L), (status?.value ?: 0L))
 
-public actual fun utext_char32At(ut: Long, nativeindex: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utext_char32At(ut, nativeindex)
+public actual fun utextChar32At(ut: COpaquePointer?, nativeindex: Long): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utextChar32At((ut?.value ?: 0L), nativeindex)
 
-public actual fun utext_clone(dest: Long, src: Long, deep: Byte, readonly: Byte, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utext_clone(dest, src, deep, readonly, status)
+public actual fun utextClone(dest: COpaquePointer?, src: COpaquePointer?, deep: Byte, readonly: Byte, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utextClone((dest?.value ?: 0L), (src?.value ?: 0L), deep, readonly, (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun utext_close(ut: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utext_close(ut)
+public actual fun utextClose(ut: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utextClose((ut?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun utext_copy(ut: Long, nativestart: Long, nativelimit: Long, destindex: Long, move: Byte, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utext_copy(ut, nativestart, nativelimit, destindex, move, status)
+public actual fun utextCopy(ut: COpaquePointer?, nativestart: Long, nativelimit: Long, destindex: Long, move: Byte, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utextCopy((ut?.value ?: 0L), nativestart, nativelimit, destindex, move, (status?.value ?: 0L))
 }
 
-public actual fun utext_current32(ut: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utext_current32(ut)
+public actual fun utextCurrent32(ut: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utextCurrent32((ut?.value ?: 0L))
 
-public actual fun utext_equals(a: Long, b: Long): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utext_equals(a, b)
+public actual fun utextEquals(a: COpaquePointer?, b: COpaquePointer?): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utextEquals((a?.value ?: 0L), (b?.value ?: 0L))
 
-public actual fun utext_extract(ut: Long, nativestart: Long, nativelimit: Long, dest: Long, destcapacity: Int, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utext_extract(ut, nativestart, nativelimit, dest, destcapacity, status)
+public actual fun utextExtract(ut: COpaquePointer?, nativestart: Long, nativelimit: Long, dest: COpaquePointer?, destcapacity: Int, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utextExtract((ut?.value ?: 0L), nativestart, nativelimit, (dest?.value ?: 0L), destcapacity, (status?.value ?: 0L))
 
-public actual fun utext_freeze(ut: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utext_freeze(ut)
+public actual fun utextFreeze(ut: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utextFreeze((ut?.value ?: 0L))
 }
 
-public actual fun utext_getNativeIndex(ut: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utext_getNativeIndex(ut)
+public actual fun utextGetNativeIndex(ut: COpaquePointer?): Long =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utextGetNativeIndex((ut?.value ?: 0L))
 
-public actual fun utext_getPreviousNativeIndex(ut: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utext_getPreviousNativeIndex(ut)
+public actual fun utextGetPreviousNativeIndex(ut: COpaquePointer?): Long =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utextGetPreviousNativeIndex((ut?.value ?: 0L))
 
-public actual fun utext_hasMetaData(ut: Long): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utext_hasMetaData(ut)
+public actual fun utextHasMetaData(ut: COpaquePointer?): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utextHasMetaData((ut?.value ?: 0L))
 
-public actual fun utext_isLengthExpensive(ut: Long): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utext_isLengthExpensive(ut)
+public actual fun utextIsLengthExpensive(ut: COpaquePointer?): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utextIsLengthExpensive((ut?.value ?: 0L))
 
-public actual fun utext_isWritable(ut: Long): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utext_isWritable(ut)
+public actual fun utextIsWritable(ut: COpaquePointer?): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utextIsWritable((ut?.value ?: 0L))
 
-public actual fun utext_moveIndex32(ut: Long, delta: Int): Byte =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utext_moveIndex32(ut, delta)
+public actual fun utextMoveIndex32(ut: COpaquePointer?, delta: Int): Byte =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utextMoveIndex32((ut?.value ?: 0L), delta)
 
-public actual fun utext_nativeLength(ut: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utext_nativeLength(ut)
+public actual fun utextNativeLength(ut: COpaquePointer?): Long =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utextNativeLength((ut?.value ?: 0L))
 
-public actual fun utext_next32(ut: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utext_next32(ut)
+public actual fun utextNext32(ut: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utextNext32((ut?.value ?: 0L))
 
-public actual fun utext_next32From(ut: Long, nativeindex: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utext_next32From(ut, nativeindex)
+public actual fun utextNext32From(ut: COpaquePointer?, nativeindex: Long): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utextNext32From((ut?.value ?: 0L), nativeindex)
 
-public actual fun utext_openUChars(ut: Long, s: Long, length: Long, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utext_openUChars(ut, s, length, status)
+public actual fun utextOpenUchars(ut: COpaquePointer?, s: COpaquePointer?, length: Long, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utextOpenUchars((ut?.value ?: 0L), (s?.value ?: 0L), length, (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun utext_openUTF8(ut: Long, s: PCSTR, length: Long, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utext_openUTF8(ut, s, length, status)
+public actual fun utextOpenUtf8(ut: COpaquePointer?, s: Pcstr, length: Long, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utextOpenUtf8((ut?.value ?: 0L), (s?.value ?: 0L), length, (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun utext_previous32(ut: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utext_previous32(ut)
+public actual fun utextPrevious32(ut: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utextPrevious32((ut?.value ?: 0L))
 
-public actual fun utext_previous32From(ut: Long, nativeindex: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utext_previous32From(ut, nativeindex)
+public actual fun utextPrevious32From(ut: COpaquePointer?, nativeindex: Long): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utextPrevious32From((ut?.value ?: 0L), nativeindex)
 
-public actual fun utext_replace(ut: Long, nativestart: Long, nativelimit: Long, replacementtext: Long, replacementlength: Int, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utext_replace(ut, nativestart, nativelimit, replacementtext, replacementlength, status)
+public actual fun utextReplace(ut: COpaquePointer?, nativestart: Long, nativelimit: Long, replacementtext: COpaquePointer?, replacementlength: Int, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utextReplace((ut?.value ?: 0L), nativestart, nativelimit, (replacementtext?.value ?: 0L), replacementlength, (status?.value ?: 0L))
 
-public actual fun utext_setNativeIndex(ut: Long, nativeindex: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utext_setNativeIndex(ut, nativeindex)
+public actual fun utextSetNativeIndex(ut: COpaquePointer?, nativeindex: Long) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utextSetNativeIndex((ut?.value ?: 0L), nativeindex)
 }
 
-public actual fun utext_setup(ut: Long, extraspace: Int, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utext_setup(ut, extraspace, status)
+public actual fun utextSetup(ut: COpaquePointer?, extraspace: Int, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utextSetup((ut?.value ?: 0L), extraspace, (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun utf8_appendCharSafeBody(s: Long, i: Int, length: Int, c: Int, piserror: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utf8_appendCharSafeBody(s, i, length, c, piserror)
+public actual fun utf8AppendCharSafeBody(s: COpaquePointer?, i: Int, length: Int, c: Int, piserror: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utf8AppendCharSafeBody((s?.value ?: 0L), i, length, c, (piserror?.value ?: 0L))
 
-public actual fun utf8_back1SafeBody(s: Long, start: Int, i: Int): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utf8_back1SafeBody(s, start, i)
+public actual fun utf8Back1SafeBody(s: COpaquePointer?, start: Int, i: Int): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utf8Back1SafeBody((s?.value ?: 0L), start, i)
 
-public actual fun utf8_nextCharSafeBody(s: Long, pi: Long, length: Int, c: Int, strict: Byte): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utf8_nextCharSafeBody(s, pi, length, c, strict)
+public actual fun utf8NextCharSafeBody(s: COpaquePointer?, pi: COpaquePointer?, length: Int, c: Int, strict: Byte): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utf8NextCharSafeBody((s?.value ?: 0L), (pi?.value ?: 0L), length, c, strict)
 
-public actual fun utf8_prevCharSafeBody(s: Long, start: Int, pi: Long, c: Int, strict: Byte): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utf8_prevCharSafeBody(s, start, pi, c, strict)
+public actual fun utf8PrevCharSafeBody(s: COpaquePointer?, start: Int, pi: COpaquePointer?, c: Int, strict: Byte): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utf8PrevCharSafeBody((s?.value ?: 0L), start, (pi?.value ?: 0L), c, strict)
 
-public actual fun utmscale_fromInt64(othertime: Long, timescale: UDateTimeScale, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utmscale_fromInt64(othertime, timescale, status)
+public actual fun utmscaleFromInt64(othertime: Long, timescale: UDateTimeScale, status: COpaquePointer?): Long =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utmscaleFromInt64(othertime, timescale, (status?.value ?: 0L))
 
-public actual fun utmscale_getTimeScaleValue(timescale: UDateTimeScale, value: UTimeScaleValue, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utmscale_getTimeScaleValue(timescale, value, status)
+public actual fun utmscaleGetTimeScaleValue(timescale: UDateTimeScale, value: UTimeScaleValue, status: COpaquePointer?): Long =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utmscaleGetTimeScaleValue(timescale, value, (status?.value ?: 0L))
 
-public actual fun utmscale_toInt64(universaltime: Long, timescale: UDateTimeScale, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utmscale_toInt64(universaltime, timescale, status)
+public actual fun utmscaleToInt64(universaltime: Long, timescale: UDateTimeScale, status: COpaquePointer?): Long =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utmscaleToInt64(universaltime, timescale, (status?.value ?: 0L))
 
-public actual fun utrace_format(outbuf: PCSTR, capacity: Int, indent: Int, fmt: PCSTR): Int =
-    0
+public actual fun utraceFormat(outbuf: Pcstr, capacity: Int, indent: Int, fmt: Pcstr, vararg variadicArgs: Long): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utraceFormat((outbuf?.value ?: 0L), capacity, indent, (fmt?.value ?: 0L), variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
 
-public actual fun utrace_functionName(fnnumber: Int): PCSTR =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utrace_functionName(fnnumber)
+public actual fun utraceFunctionName(fnnumber: Int): Pcstr =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utraceFunctionName(fnnumber).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun utrace_getFunctions(context: Long, e: Long, x: Long, d: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utrace_getFunctions(context, e, x, d)
+public actual fun utraceGetFunctions(context: COpaquePointer?, e: COpaquePointer?, x: COpaquePointer?, d: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utraceGetFunctions((context?.value ?: 0L), (e?.value ?: 0L), (x?.value ?: 0L), (d?.value ?: 0L))
 }
 
-public actual fun utrace_getLevel(): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utrace_getLevel()
+public actual fun utraceGetLevel(): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utraceGetLevel()
 
-public actual fun utrace_setFunctions(context: Long, e: UTraceEntry, x: UTraceExit, d: UTraceData) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utrace_setFunctions(context, e.toLong(), x.toLong(), d.toLong())
+public actual fun utraceSetFunctions(context: COpaquePointer?, e: UTraceEntry, x: UTraceExit, d: UTraceData) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utraceSetFunctions((context?.value ?: 0L), 0L, 0L, 0L)
 }
 
-public actual fun utrace_setLevel(tracelevel: Int) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utrace_setLevel(tracelevel)
+public actual fun utraceSetLevel(tracelevel: Int) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utraceSetLevel(tracelevel)
 }
 
-public actual fun utrace_vformat(outbuf: PCSTR, capacity: Int, indent: Int, fmt: PCSTR, args: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utrace_vformat(outbuf, capacity, indent, fmt, args)
+public actual fun utraceVformat(outbuf: Pcstr, capacity: Int, indent: Int, fmt: Pcstr, args: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utraceVformat((outbuf?.value ?: 0L), capacity, indent, (fmt?.value ?: 0L), (args?.value ?: 0L))
 
-public actual fun utrans_clone(trans: Long, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utrans_clone(trans, status)
+public actual fun utransClone(trans: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utransClone((trans?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun utrans_close(trans: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utrans_close(trans)
+public actual fun utransClose(trans: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utransClose((trans?.value ?: 0L))
 }
 
-public actual fun utrans_countAvailableIDs(): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utrans_countAvailableIDs()
+public actual fun utransCountAvailableIds(): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utransCountAvailableIds()
 
-public actual fun utrans_getSourceSet(trans: Long, ignorefilter: Byte, fillin: Long, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utrans_getSourceSet(trans, ignorefilter, fillin, status)
+public actual fun utransGetSourceSet(trans: COpaquePointer?, ignorefilter: Byte, fillin: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utransGetSourceSet((trans?.value ?: 0L), ignorefilter, (fillin?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun utrans_getUnicodeID(trans: Long, resultlength: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utrans_getUnicodeID(trans, resultlength)
+public actual fun utransGetUnicodeId(trans: COpaquePointer?, resultlength: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utransGetUnicodeId((trans?.value ?: 0L), (resultlength?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun utrans_openIDs(perrorcode: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utrans_openIDs(perrorcode)
+public actual fun utransOpenIds(perrorcode: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utransOpenIds((perrorcode?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun utrans_openInverse(trans: Long, status: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utrans_openInverse(trans, status)
+public actual fun utransOpenInverse(trans: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utransOpenInverse((trans?.value ?: 0L), (status?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun utrans_openU(id: Long, idlength: Int, dir: UTransDirection, rules: Long, ruleslength: Int, parseerror: Long, perrorcode: Long): Long =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utrans_openU(id, idlength, dir, rules, ruleslength, parseerror, perrorcode)
+public actual fun utransOpenU(id: COpaquePointer?, idlength: Int, dir: UTransDirection, rules: COpaquePointer?, ruleslength: Int, parseerror: COpaquePointer?, perrorcode: COpaquePointer?): COpaquePointer? =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utransOpenU((id?.value ?: 0L), idlength, dir, (rules?.value ?: 0L), ruleslength, (parseerror?.value ?: 0L), (perrorcode?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun utrans_register(adoptedtrans: Long, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utrans_register(adoptedtrans, status)
+public actual fun utransRegister(adoptedtrans: COpaquePointer?, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utransRegister((adoptedtrans?.value ?: 0L), (status?.value ?: 0L))
 }
 
-public actual fun utrans_setFilter(trans: Long, filterpattern: Long, filterpatternlen: Int, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utrans_setFilter(trans, filterpattern, filterpatternlen, status)
+public actual fun utransSetFilter(trans: COpaquePointer?, filterpattern: COpaquePointer?, filterpatternlen: Int, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utransSetFilter((trans?.value ?: 0L), (filterpattern?.value ?: 0L), filterpatternlen, (status?.value ?: 0L))
 }
 
-public actual fun utrans_toRules(trans: Long, escapeunprintable: Byte, result: Long, resultlength: Int, status: Long): Int =
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utrans_toRules(trans, escapeunprintable, result, resultlength, status)
+public actual fun utransToRules(trans: COpaquePointer?, escapeunprintable: Byte, result: COpaquePointer?, resultlength: Int, status: COpaquePointer?): Int =
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utransToRules((trans?.value ?: 0L), escapeunprintable, (result?.value ?: 0L), resultlength, (status?.value ?: 0L))
 
-public actual fun utrans_trans(trans: Long, rep: Long, repfunc: Long, start: Int, limit: Long, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utrans_trans(trans, rep, repfunc, start, limit, status)
+public actual fun utransTrans(trans: COpaquePointer?, rep: COpaquePointer?, repfunc: COpaquePointer?, start: Int, limit: COpaquePointer?, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utransTrans((trans?.value ?: 0L), (rep?.value ?: 0L), (repfunc?.value ?: 0L), start, (limit?.value ?: 0L), (status?.value ?: 0L))
 }
 
-public actual fun utrans_transIncremental(trans: Long, rep: Long, repfunc: Long, pos: Long, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utrans_transIncremental(trans, rep, repfunc, pos, status)
+public actual fun utransTransIncremental(trans: COpaquePointer?, rep: COpaquePointer?, repfunc: COpaquePointer?, pos: COpaquePointer?, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utransTransIncremental((trans?.value ?: 0L), (rep?.value ?: 0L), (repfunc?.value ?: 0L), (pos?.value ?: 0L), (status?.value ?: 0L))
 }
 
-public actual fun utrans_transIncrementalUChars(trans: Long, text: Long, textlength: Long, textcapacity: Int, pos: Long, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utrans_transIncrementalUChars(trans, text, textlength, textcapacity, pos, status)
+public actual fun utransTransIncrementalUchars(trans: COpaquePointer?, text: COpaquePointer?, textlength: COpaquePointer?, textcapacity: Int, pos: COpaquePointer?, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utransTransIncrementalUchars((trans?.value ?: 0L), (text?.value ?: 0L), (textlength?.value ?: 0L), textcapacity, (pos?.value ?: 0L), (status?.value ?: 0L))
 }
 
-public actual fun utrans_transUChars(trans: Long, text: Long, textlength: Long, textcapacity: Int, start: Int, limit: Long, status: Long) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utrans_transUChars(trans, text, textlength, textcapacity, start, limit, status)
+public actual fun utransTransUchars(trans: COpaquePointer?, text: COpaquePointer?, textlength: COpaquePointer?, textcapacity: Int, start: Int, limit: COpaquePointer?, status: COpaquePointer?) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utransTransUchars((trans?.value ?: 0L), (text?.value ?: 0L), (textlength?.value ?: 0L), textcapacity, start, (limit?.value ?: 0L), (status?.value ?: 0L))
 }
 
-public actual fun utrans_unregisterID(id: Long, idlength: Int) {
-    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utrans_unregisterID(id, idlength)
+public actual fun utransUnregisterId(id: COpaquePointer?, idlength: Int) {
+    WindowsWin32GlobalizationJniBridge.windowssys_windows_win32_globalization_utransUnregisterId((id?.value ?: 0L), idlength)
 }

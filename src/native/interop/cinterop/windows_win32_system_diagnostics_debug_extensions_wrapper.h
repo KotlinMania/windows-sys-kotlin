@@ -9,11 +9,11 @@
 extern "C" {
 #endif
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_extensions_CreateDataModelManager(void* debughost, void* manager);
-int32_t windowssys_windows_win32_system_diagnostics_debug_extensions_DebugConnect(void* remoteoptions, void* interfaceid, void* arg_2_interface);
-int32_t windowssys_windows_win32_system_diagnostics_debug_extensions_DebugConnectWide(void* remoteoptions, void* interfaceid, void* arg_2_interface);
-int32_t windowssys_windows_win32_system_diagnostics_debug_extensions_DebugCreate(void* interfaceid, void* arg_1_interface);
-int32_t windowssys_windows_win32_system_diagnostics_debug_extensions_DebugCreateEx(void* interfaceid, uint32_t dbgengoptions, void* arg_2_interface);
+int32_t windowssys_windows_win32_system_diagnostics_debug_extensions_createDataModelManager(void* debughost, void* manager);
+int32_t windowssys_windows_win32_system_diagnostics_debug_extensions_debugConnect(void* remoteoptions, void* interfaceid, void* arg_2_interface);
+int32_t windowssys_windows_win32_system_diagnostics_debug_extensions_debugConnectWide(void* remoteoptions, void* interfaceid, void* arg_2_interface);
+int32_t windowssys_windows_win32_system_diagnostics_debug_extensions_debugCreate(void* interfaceid, void* arg_1_interface);
+int32_t windowssys_windows_win32_system_diagnostics_debug_extensions_debugCreateEx(void* interfaceid, uint32_t dbgengoptions, void* arg_2_interface);
 
 #ifdef __cplusplus
 }

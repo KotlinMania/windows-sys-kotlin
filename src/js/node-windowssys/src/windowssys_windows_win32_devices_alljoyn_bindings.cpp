@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_AllJoynAcceptBusConnection_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_allJoynAcceptBusConnection_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serverbushandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* abortevent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -71,7 +71,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_AllJoynAcceptBusConn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_AllJoynCloseBusHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_allJoynCloseBusHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* bushandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -89,7 +89,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_AllJoynCloseBusHandl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_AllJoynConnectToBus_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_allJoynConnectToBus_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* connectionspec = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -107,7 +107,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_AllJoynConnectToBus_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_AllJoynCreateBus_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_allJoynCreateBus_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t outbuffersize = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t inbuffersize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -129,7 +129,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_AllJoynCreateBus_nap
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_AllJoynEnumEvents_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_allJoynEnumEvents_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* connectedbushandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* eventtoreset = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -151,7 +151,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_AllJoynEnumEvents_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_AllJoynEventSelect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_allJoynEventSelect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* connectedbushandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* eventhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -173,7 +173,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_AllJoynEventSelect_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_AllJoynReceiveFromBus_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_allJoynReceiveFromBus_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* connectedbushandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -199,7 +199,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_AllJoynReceiveFromBu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_AllJoynSendToBus_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_allJoynSendToBus_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* connectedbushandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -225,7 +225,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_AllJoynSendToBus_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_QCC_StatusText_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_qccStatusText_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t status = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -243,61 +243,61 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_QCC_StatusText_napi(
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_create_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCreate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* defaultlanguage = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(void*);
+    typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutdata_create")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(defaultlanguage) : -1;
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(defaultlanguage) : -1;
 #else
     (void)defaultlanguage;
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_create_empty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCreateEmpty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(void);
+    typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutdata_create_empty")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
 #else
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_create_full_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCreateFull_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* language = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(int64_t, void*);
+    typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutdata_create_full")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg, language) : -1;
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg, language) : -1;
 #else
     (void)arg;
     (void)language;
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_createfrommsgarg_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCreatefrommsgarg_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t data = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t arg = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -319,7 +319,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_cr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_createfromxml_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCreatefromxml_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t data = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* aboutdataxml = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -339,7 +339,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_cr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_destroy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataDestroy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t data = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -356,7 +356,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_de
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getaboutdata_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetaboutdata_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t data = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t msgarg = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -378,7 +378,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_ge
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getajsoftwareversion_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetajsoftwareversion_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t data = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* ajsoftwareversion = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -398,7 +398,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_ge
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getannouncedaboutdata_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetannouncedaboutdata_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t data = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t msgarg = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -418,7 +418,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_ge
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getappid_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetappid_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t data = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* appid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -440,7 +440,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_ge
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getappname_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetappname_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t data = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* appname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -462,7 +462,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_ge
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getdateofmanufacture_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetdateofmanufacture_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t data = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* dateofmanufacture = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -482,7 +482,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_ge
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getdefaultlanguage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetdefaultlanguage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t data = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* defaultlanguage = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -502,7 +502,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_ge
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getdescription_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetdescription_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t data = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* description = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -524,7 +524,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_ge
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getdeviceid_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetdeviceid_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t data = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -544,7 +544,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_ge
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getdevicename_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetdevicename_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t data = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* devicename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -566,7 +566,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_ge
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getfield_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetfield_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t data = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* name = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -590,7 +590,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_ge
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getfields_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetfields_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t data = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* fields = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -612,7 +612,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_ge
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getfieldsignature_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetfieldsignature_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t data = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* fieldname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -632,7 +632,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_ge
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_gethardwareversion_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGethardwareversion_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t data = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* hardwareversion = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -652,7 +652,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_ge
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getmanufacturer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetmanufacturer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t data = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* manufacturer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -674,7 +674,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_ge
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getmodelnumber_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetmodelnumber_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t data = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* modelnumber = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -694,7 +694,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_ge
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getsoftwareversion_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetsoftwareversion_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t data = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* softwareversion = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -714,7 +714,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_ge
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getsupportedlanguages_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetsupportedlanguages_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t data = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* languagetags = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -736,7 +736,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_ge
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getsupporturl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetsupporturl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t data = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* supporturl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -756,7 +756,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_ge
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_isfieldannounced_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataIsfieldannounced_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t data = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* fieldname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -776,7 +776,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_is
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_isfieldlocalized_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataIsfieldlocalized_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t data = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* fieldname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -796,7 +796,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_is
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_isfieldrequired_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataIsfieldrequired_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t data = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* fieldname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -816,7 +816,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_is
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_isvalid_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataIsvalid_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t data = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* language = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -836,7 +836,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_is
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_setappid_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetappid_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t data = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* appid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -858,7 +858,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_se
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_setappid_fromstring_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetappidFromstring_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t data = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* appid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -878,7 +878,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_se
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_setappname_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetappname_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t data = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* appname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -900,7 +900,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_se
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_setdateofmanufacture_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetdateofmanufacture_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t data = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* dateofmanufacture = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -920,7 +920,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_se
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_setdefaultlanguage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetdefaultlanguage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t data = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* defaultlanguage = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -940,7 +940,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_se
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_setdescription_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetdescription_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t data = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* description = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -962,7 +962,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_se
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_setdeviceid_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetdeviceid_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t data = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -982,7 +982,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_se
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_setdevicename_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetdevicename_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t data = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* devicename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1004,7 +1004,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_se
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_setfield_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetfield_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t data = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* name = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1028,7 +1028,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_se
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_sethardwareversion_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSethardwareversion_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t data = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* hardwareversion = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1048,7 +1048,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_se
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_setmanufacturer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetmanufacturer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t data = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* manufacturer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1070,7 +1070,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_se
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_setmodelnumber_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetmodelnumber_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t data = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* modelnumber = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1090,7 +1090,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_se
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_setsoftwareversion_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetsoftwareversion_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t data = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* softwareversion = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1110,7 +1110,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_se
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_setsupportedlanguage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetsupportedlanguage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t data = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* language = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1130,7 +1130,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_se
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_setsupporturl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetsupporturl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t data = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* supporturl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1150,27 +1150,27 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_se
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdatalistener_create_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdatalistenerCreate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* callbacks = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(void*, void*);
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutdatalistener_create")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(callbacks, context) : -1;
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(callbacks, context) : -1;
 #else
     (void)callbacks;
     (void)context;
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdatalistener_destroy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdatalistenerDestroy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t listener = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -1187,7 +1187,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdatalis
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_abouticon_clear_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAbouticonClear_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t icon = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -1204,23 +1204,23 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_abouticon_cl
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_abouticon_create_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAbouticonCreate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(void);
+    typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_abouticon_create")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
 #else
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_abouticon_destroy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAbouticonDestroy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t icon = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -1237,7 +1237,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_abouticon_de
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_abouticon_getcontent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAbouticonGetcontent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t icon = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* data = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1258,7 +1258,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_abouticon_ge
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_abouticon_geturl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAbouticonGeturl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t icon = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* type = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1279,7 +1279,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_abouticon_ge
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_abouticon_setcontent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAbouticonSetcontent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t icon = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* type = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1305,7 +1305,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_abouticon_se
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_abouticon_setcontent_frommsgarg_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAbouticonSetcontentFrommsgarg_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t icon = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t arg = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -1325,7 +1325,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_abouticon_se
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_abouticon_seturl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAbouticonSeturl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t icon = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* type = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1347,27 +1347,27 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_abouticon_se
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_abouticonobj_create_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAbouticonobjCreate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t icon = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(int64_t, int64_t);
+    typedef int32_t (__stdcall *km_fn_t)(int64_t, int64_t);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_abouticonobj_create")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, icon) : -1;
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, icon) : -1;
 #else
     (void)bus;
     (void)icon;
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_abouticonobj_destroy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAbouticonobjDestroy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t icon = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -1384,29 +1384,29 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_abouticonobj
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_abouticonproxy_create_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAbouticonproxyCreate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* busname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
     uint32_t sessionid = static_cast<uint32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t);
+    typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_abouticonproxy_create")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, busname, sessionid) : -1;
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, busname, sessionid) : -1;
 #else
     (void)bus;
     (void)busname;
     (void)sessionid;
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_abouticonproxy_destroy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAbouticonproxyDestroy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t proxy = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -1423,7 +1423,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_abouticonpro
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_abouticonproxy_geticon_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAbouticonproxyGeticon_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t proxy = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t icon = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -1443,7 +1443,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_abouticonpro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_abouticonproxy_getversion_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAbouticonproxyGetversion_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t proxy = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* version = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1463,27 +1463,27 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_abouticonpro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutlistener_create_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutlistenerCreate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* callback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(void*, void*);
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutlistener_create")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(callback, context) : -1;
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(callback, context) : -1;
 #else
     (void)callback;
     (void)context;
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutlistener_destroy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutlistenerDestroy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t listener = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -1500,7 +1500,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutlistene
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobj_announce_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutobjAnnounce_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t obj = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint16_t sessionport = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1522,7 +1522,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobj_ann
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobj_announce_using_datalistener_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutobjAnnounceUsingDatalistener_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t obj = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint16_t sessionport = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1544,27 +1544,27 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobj_ann
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobj_create_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutobjCreate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t isannounced = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(int64_t, int32_t);
+    typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutobj_create")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, isannounced) : -1;
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, isannounced) : -1;
 #else
     (void)bus;
     (void)isannounced;
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobj_destroy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutobjDestroy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t obj = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -1581,7 +1581,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobj_des
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobj_unannounce_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutobjUnannounce_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t obj = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -1599,7 +1599,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobj_una
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobjectdescription_clear_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionClear_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t description = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -1616,41 +1616,41 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobjectd
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobjectdescription_create_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionCreate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(void);
+    typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutobjectdescription_create")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
 #else
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobjectdescription_create_full_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionCreateFull_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(int64_t);
+    typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutobjectdescription_create_full")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg) : -1;
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg) : -1;
 #else
     (void)arg;
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobjectdescription_createfrommsgarg_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionCreatefrommsgarg_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t description = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t arg = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -1670,7 +1670,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobjectd
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobjectdescription_destroy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionDestroy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t description = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -1687,7 +1687,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobjectd
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobjectdescription_getinterfacepaths_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionGetinterfacepaths_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t description = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* interfacename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1711,7 +1711,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobjectd
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobjectdescription_getinterfaces_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionGetinterfaces_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t description = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* path = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1735,7 +1735,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobjectd
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobjectdescription_getmsgarg_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionGetmsgarg_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t description = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t msgarg = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -1755,7 +1755,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobjectd
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobjectdescription_getpaths_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionGetpaths_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t description = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* paths = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1777,7 +1777,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobjectd
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobjectdescription_hasinterface_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionHasinterface_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t description = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* interfacename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1797,7 +1797,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobjectd
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobjectdescription_hasinterfaceatpath_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionHasinterfaceatpath_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t description = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* path = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1819,7 +1819,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobjectd
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobjectdescription_haspath_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionHaspath_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t description = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* path = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1839,29 +1839,29 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobjectd
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutproxy_create_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutproxyCreate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* busname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
     uint32_t sessionid = static_cast<uint32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t);
+    typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutproxy_create")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, busname, sessionid) : -1;
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, busname, sessionid) : -1;
 #else
     (void)bus;
     (void)busname;
     (void)sessionid;
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutproxy_destroy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutproxyDestroy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t proxy = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -1878,7 +1878,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutproxy_d
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutproxy_getaboutdata_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutproxyGetaboutdata_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t proxy = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* language = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1900,7 +1900,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutproxy_g
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutproxy_getobjectdescription_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutproxyGetobjectdescription_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t proxy = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t objectdesc = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -1920,7 +1920,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutproxy_g
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutproxy_getversion_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutproxyGetversion_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t proxy = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* version = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1940,27 +1940,27 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_aboutproxy_g
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_applicationstatelistener_create_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynApplicationstatelistenerCreate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* callbacks = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(void*, void*);
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_applicationstatelistener_create")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(callbacks, context) : -1;
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(callbacks, context) : -1;
 #else
     (void)callbacks;
     (void)context;
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_applicationstatelistener_destroy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynApplicationstatelistenerDestroy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t listener = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -1977,7 +1977,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_applications
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_authlistener_create_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAuthlistenerCreate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* callbacks = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1997,7 +1997,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_authlistener
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_authlistener_destroy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAuthlistenerDestroy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t listener = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -2014,7 +2014,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_authlistener
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_authlistener_requestcredentialsresponse_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAuthlistenerRequestcredentialsresponse_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t listener = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* authcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2038,7 +2038,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_authlistener
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_authlistener_setsharedsecret_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAuthlistenerSetsharedsecret_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t listener = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* sharedsecret = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2060,7 +2060,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_authlistener
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_authlistener_verifycredentialsresponse_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAuthlistenerVerifycredentialsresponse_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t listener = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* authcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2082,7 +2082,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_authlistener
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_authlistenerasync_create_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAuthlistenerasyncCreate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* callbacks = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2102,7 +2102,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_authlistener
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_authlistenerasync_destroy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAuthlistenerasyncDestroy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t listener = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -2119,7 +2119,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_authlistener
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_autopinger_adddestination_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAutopingerAdddestination_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t autopinger = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* group = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2141,7 +2141,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_autopinger_a
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_autopinger_addpinggroup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAutopingerAddpinggroup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t autopinger = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* group = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2164,25 +2164,25 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_autopinger_a
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_autopinger_create_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAutopingerCreate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(int64_t);
+    typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_autopinger_create")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus) : -1;
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus) : -1;
 #else
     (void)bus;
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_autopinger_destroy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAutopingerDestroy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t autopinger = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -2199,7 +2199,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_autopinger_d
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_autopinger_pause_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAutopingerPause_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t autopinger = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -2216,7 +2216,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_autopinger_p
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_autopinger_removedestination_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAutopingerRemovedestination_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t autopinger = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* group = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2240,7 +2240,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_autopinger_r
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_autopinger_removepinggroup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAutopingerRemovepinggroup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t autopinger = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* group = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2259,7 +2259,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_autopinger_r
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_autopinger_resume_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAutopingerResume_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t autopinger = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -2276,7 +2276,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_autopinger_r
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_autopinger_setpinginterval_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAutopingerSetpinginterval_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t autopinger = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* group = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2298,7 +2298,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_autopinger_s
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_addlogonentry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentAddlogonentry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* authmechanism = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2322,7 +2322,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_addmatch_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentAddmatch_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* rule = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2342,7 +2342,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_advertisename_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentAdvertisename_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* name = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2364,7 +2364,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_bindsessionport_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentBindsessionport_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* sessionport = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2388,7 +2388,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_canceladvertisename_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCanceladvertisename_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* name = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2410,7 +2410,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_cancelfindadvertisedname_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCancelfindadvertisedname_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* nameprefix = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2430,7 +2430,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_cancelfindadvertisednamebytransport_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCancelfindadvertisednamebytransport_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* nameprefix = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2452,7 +2452,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_cancelwhoimplements_interface_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCancelwhoimplementsInterface_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* implementsinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2472,7 +2472,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_cancelwhoimplements_interfaces_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCancelwhoimplementsInterfaces_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* implementsinterfaces = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2494,7 +2494,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_clearkeys_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentClearkeys_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* guid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2514,7 +2514,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_clearkeystore_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentClearkeystore_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -2531,7 +2531,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_connect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentConnect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* connectspec = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2551,7 +2551,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_create_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCreate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* applicationname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t allowremotemessages = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2571,7 +2571,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_create_concurrency_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCreateConcurrency_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* applicationname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t allowremotemessages = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2593,7 +2593,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_createinterface_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCreateinterface_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* name = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2615,7 +2615,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_createinterface_secure_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCreateinterfaceSecure_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* name = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2639,7 +2639,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_createinterfacesfromxml_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCreateinterfacesfromxml_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* xml = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2659,7 +2659,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_deletedefaultkeystore_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentDeletedefaultkeystore_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* applicationname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2677,7 +2677,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_deleteinterface_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentDeleteinterface_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t iface = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -2697,7 +2697,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_destroy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentDestroy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -2714,7 +2714,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_disconnect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentDisconnect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* unused = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2734,7 +2734,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_enableconcurrentcallbacks_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentEnableconcurrentcallbacks_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -2751,7 +2751,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_enablepeersecurity_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentEnablepeersecurity_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* authmechanisms = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2777,7 +2777,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_enablepeersecuritywithpermissionconfigurationlistener_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentEnablepeersecuritywithpermissionconfigurationlistener_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* authmechanisms = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2805,7 +2805,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_findadvertisedname_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentFindadvertisedname_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* nameprefix = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2825,7 +2825,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_findadvertisednamebytransport_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentFindadvertisednamebytransport_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* nameprefix = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2847,7 +2847,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_getalljoyndebugobj_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetalljoyndebugobj_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -2865,7 +2865,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_getalljoynproxyobj_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetalljoynproxyobj_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -2883,7 +2883,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_getconcurrency_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetconcurrency_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -2901,7 +2901,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_getconnectspec_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetconnectspec_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -2919,7 +2919,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_getdbusproxyobj_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetdbusproxyobj_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -2937,7 +2937,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_getglobalguidstring_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetglobalguidstring_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -2955,27 +2955,27 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_getinterface_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetinterface_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* name = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(int64_t, void*);
+    typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_getinterface")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, name) : -1;
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, name) : -1;
 #else
     (void)bus;
     (void)name;
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_getinterfaces_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetinterfaces_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* ifaces = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2997,7 +2997,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_getkeyexpiration_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetkeyexpiration_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* guid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3019,7 +3019,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_getpeerguid_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetpeerguid_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* name = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3043,25 +3043,25 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_getpermissionconfigurator_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetpermissionconfigurator_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(int64_t);
+    typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_getpermissionconfigurator")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus) : -1;
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus) : -1;
 #else
     (void)bus;
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_gettimestamp_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGettimestamp_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -3077,7 +3077,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_getuniquename_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetuniquename_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -3095,7 +3095,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_isconnected_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentIsconnected_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -3113,7 +3113,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_ispeersecurityenabled_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentIspeersecurityenabled_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -3131,7 +3131,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_isstarted_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentIsstarted_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -3149,7 +3149,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_isstopping_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentIsstopping_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -3167,7 +3167,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_join_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentJoin_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -3185,7 +3185,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_joinsession_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentJoinsession_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* sessionhost = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3213,7 +3213,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_joinsessionasync_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentJoinsessionasync_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* sessionhost = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3243,7 +3243,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_leavesession_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentLeavesession_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t sessionid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3263,7 +3263,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_namehasowner_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentNamehasowner_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* name = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3285,7 +3285,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_ping_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentPing_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* name = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3307,7 +3307,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_registeraboutlistener_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRegisteraboutlistener_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t aboutlistener = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -3326,7 +3326,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_registerapplicationstatelistener_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRegisterapplicationstatelistener_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t listener = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -3346,7 +3346,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_registerbuslistener_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRegisterbuslistener_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t listener = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -3365,7 +3365,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_registerbusobject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRegisterbusobject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t obj = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -3385,7 +3385,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_registerbusobject_secure_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRegisterbusobjectSecure_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t obj = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -3405,7 +3405,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_registerkeystorelistener_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRegisterkeystorelistener_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t listener = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -3425,7 +3425,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_releasename_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentReleasename_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* name = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3445,7 +3445,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_reloadkeystore_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentReloadkeystore_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -3463,7 +3463,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_removematch_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRemovematch_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* rule = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3483,7 +3483,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_removesessionmember_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRemovesessionmember_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t sessionid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3505,7 +3505,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_requestname_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRequestname_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* requestedname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3527,7 +3527,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_secureconnection_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentSecureconnection_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* name = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3549,7 +3549,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_secureconnectionasync_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentSecureconnectionasync_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* name = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3571,7 +3571,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_setdaemondebug_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentSetdaemondebug_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* module = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3593,7 +3593,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_setkeyexpiration_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentSetkeyexpiration_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* guid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3615,7 +3615,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_setlinktimeout_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentSetlinktimeout_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t sessionid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3637,7 +3637,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_setlinktimeoutasync_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentSetlinktimeoutasync_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t sessionid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3663,7 +3663,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_setsessionlistener_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentSetsessionlistener_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t sessionid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3685,7 +3685,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_start_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentStart_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -3703,7 +3703,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_stop_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentStop_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -3721,7 +3721,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_unbindsessionport_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnbindsessionport_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint16_t sessionport = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3741,7 +3741,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_unregisteraboutlistener_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnregisteraboutlistener_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t aboutlistener = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -3760,7 +3760,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_unregisterallaboutlisteners_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnregisterallaboutlisteners_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -3777,7 +3777,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_unregisterallhandlers_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnregisterallhandlers_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -3795,7 +3795,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_unregisterapplicationstatelistener_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnregisterapplicationstatelistener_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t listener = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -3815,7 +3815,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_unregisterbuslistener_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnregisterbuslistener_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t listener = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -3834,7 +3834,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_unregisterbusobject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnregisterbusobject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t object = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -3853,7 +3853,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_whoimplements_interface_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentWhoimplementsInterface_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* implementsinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3873,7 +3873,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_whoimplements_interfaces_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentWhoimplementsInterfaces_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* implementsinterfaces = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3895,27 +3895,27 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busattachmen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_buslistener_create_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBuslistenerCreate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* callbacks = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(void*, void*);
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_buslistener_create")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(callbacks, context) : -1;
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(callbacks, context) : -1;
 #else
     (void)callbacks;
     (void)context;
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_buslistener_destroy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBuslistenerDestroy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t listener = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -3932,7 +3932,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_buslistener_
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_addinterface_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusobjectAddinterface_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t iface = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -3952,7 +3952,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_ad
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_addinterface_announced_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusobjectAddinterfaceAnnounced_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t iface = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -3972,7 +3972,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_ad
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_addmethodhandlers_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusobjectAddmethodhandlers_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* entries = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3994,7 +3994,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_ad
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_cancelsessionlessmessage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusobjectCancelsessionlessmessage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t msg = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -4014,7 +4014,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_ca
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_cancelsessionlessmessage_serial_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusobjectCancelsessionlessmessageSerial_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t serialnumber = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4034,7 +4034,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_ca
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_create_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusobjectCreate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* path = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t isplaceholder = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4058,7 +4058,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_cr
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_destroy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusobjectDestroy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -4075,7 +4075,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_de
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_emitpropertieschanged_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusobjectEmitpropertieschanged_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* ifcname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4100,7 +4100,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_em
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_emitpropertychanged_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusobjectEmitpropertychanged_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* ifcname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4125,7 +4125,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_em
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_getannouncedinterfacenames_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusobjectGetannouncedinterfacenames_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* interfaces = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4147,7 +4147,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_ge
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_getbusattachment_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusobjectGetbusattachment_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -4165,7 +4165,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_ge
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_getname_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusobjectGetname_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4187,7 +4187,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_ge
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_getpath_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusobjectGetpath_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -4205,7 +4205,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_ge
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_issecure_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusobjectIssecure_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -4223,7 +4223,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_is
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_methodreply_args_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusobjectMethodreplyArgs_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t msg = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -4247,7 +4247,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_me
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_methodreply_err_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusobjectMethodreplyErr_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t msg = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -4271,7 +4271,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_me
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_methodreply_status_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusobjectMethodreplyStatus_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t msg = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -4293,7 +4293,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_me
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_setannounceflag_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusobjectSetannounceflag_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t iface = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -4315,7 +4315,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_se
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_clear_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynCredentialsClear_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t cred = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -4332,7 +4332,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_create_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynCredentialsCreate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void);
@@ -4348,7 +4348,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_destroy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynCredentialsDestroy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t cred = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -4365,7 +4365,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_getcertchain_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynCredentialsGetcertchain_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t cred = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -4383,7 +4383,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_getexpiration_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynCredentialsGetexpiration_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t cred = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -4401,7 +4401,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_getlogonentry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynCredentialsGetlogonentry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t cred = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -4419,7 +4419,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_getpassword_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynCredentialsGetpassword_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t cred = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -4437,7 +4437,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_getprivateKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynCredentialsGetprivateKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t cred = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -4455,7 +4455,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_getusername_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynCredentialsGetusername_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t cred = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -4473,7 +4473,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_isset_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynCredentialsIsset_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t cred = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint16_t creds = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4493,7 +4493,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_setcertchain_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynCredentialsSetcertchain_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t cred = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* certchain = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4512,7 +4512,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_setexpiration_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynCredentialsSetexpiration_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t cred = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t expiration = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4531,7 +4531,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_setlogonentry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynCredentialsSetlogonentry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t cred = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* logonentry = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4550,7 +4550,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_setpassword_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynCredentialsSetpassword_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t cred = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pwd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4569,7 +4569,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_setprivatekey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynCredentialsSetprivatekey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t cred = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pk = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4588,7 +4588,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_setusername_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynCredentialsSetusername_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t cred = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* username = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4607,7 +4607,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_getbuildinfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynGetbuildinfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
@@ -4623,7 +4623,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_getbuildinfo
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_getnumericversion_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynGetnumericversion_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -4639,7 +4639,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_getnumericve
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_getversion_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynGetversion_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
@@ -4655,7 +4655,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_getversion_n
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_init_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInit_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -4671,7 +4671,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_init_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_activate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionActivate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t iface = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -4688,7 +4688,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedes
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_addannotation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddannotation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t iface = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* name = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4710,7 +4710,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_addargannotation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddargannotation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t iface = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* member = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4736,7 +4736,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_addmember_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddmember_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t iface = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t type = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4766,7 +4766,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_addmemberannotation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddmemberannotation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t iface = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* member = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4790,7 +4790,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_addmethod_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddmethod_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t iface = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* name = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4820,7 +4820,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_addproperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddproperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t iface = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* name = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4844,7 +4844,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_addpropertyannotation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddpropertyannotation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t iface = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* property = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4868,7 +4868,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_addsignal_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddsignal_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t iface = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* name = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4896,7 +4896,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_eql_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionEql_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t one = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t other = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -4916,7 +4916,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getannotation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetannotation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t iface = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* name = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4940,7 +4940,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getannotationatindex_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetannotationatindex_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t iface = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint64_t arg_1_index = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -4967,7 +4967,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedes
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getannotationscount_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetannotationscount_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t iface = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -4985,7 +4985,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedes
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getargdescriptionforlanguage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetargdescriptionforlanguage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t iface = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* member = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5013,7 +5013,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedes
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getdescriptionforlanguage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetdescriptionforlanguage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t iface = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* description = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5037,7 +5037,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedes
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getdescriptionlanguages_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetdescriptionlanguages_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t iface = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* languages = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5059,7 +5059,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedes
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getdescriptionlanguages2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetdescriptionlanguages2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t iface = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* languages = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5081,7 +5081,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedes
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getdescriptiontranslationcallback_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetdescriptiontranslationcallback_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t iface = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -5099,7 +5099,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedes
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getmember_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetmember_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t iface = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* name = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5121,7 +5121,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getmemberannotation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetmemberannotation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t iface = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* member = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5147,7 +5147,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getmemberargannotation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetmemberargannotation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t iface = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* member = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5175,7 +5175,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getmemberdescriptionforlanguage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetmemberdescriptionforlanguage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t iface = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* member = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5201,7 +5201,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedes
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getmembers_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetmembers_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t iface = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* members = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5223,7 +5223,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedes
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getmethod_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetmethod_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t iface = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* name = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5245,7 +5245,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getname_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetname_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t iface = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -5263,7 +5263,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedes
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getproperties_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetproperties_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t iface = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* props = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5285,7 +5285,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedes
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getproperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetproperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t iface = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* name = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5307,7 +5307,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getpropertyannotation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetpropertyannotation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t iface = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* property = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5333,7 +5333,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getpropertydescriptionforlanguage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetpropertydescriptionforlanguage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t iface = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* property = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5359,7 +5359,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedes
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getsecuritypolicy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetsecuritypolicy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t iface = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -5377,7 +5377,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getsignal_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetsignal_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t iface = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* name = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5399,7 +5399,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_hasdescription_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionHasdescription_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t iface = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -5417,7 +5417,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_hasmember_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionHasmember_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t iface = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* name = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5441,7 +5441,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_hasproperties_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionHasproperties_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t iface = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -5459,7 +5459,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_hasproperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionHasproperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t iface = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* name = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5479,7 +5479,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_introspect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionIntrospect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t iface = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* str = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5503,7 +5503,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedes
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_issecure_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionIssecure_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t iface = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -5521,7 +5521,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_setargdescription_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetargdescription_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t iface = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* member = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5545,7 +5545,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_setargdescriptionforlanguage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetargdescriptionforlanguage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t iface = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* member = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5571,7 +5571,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_setdescription_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetdescription_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t iface = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* description = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5590,7 +5590,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedes
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_setdescriptionforlanguage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetdescriptionforlanguage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t iface = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* description = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5612,7 +5612,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_setdescriptionlanguage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetdescriptionlanguage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t iface = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* language = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5631,7 +5631,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedes
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_setdescriptiontranslationcallback_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetdescriptiontranslationcallback_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t iface = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* translationcallback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5650,7 +5650,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedes
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_setmemberdescription_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetmemberdescription_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t iface = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* member = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5672,7 +5672,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_setmemberdescriptionforlanguage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetmemberdescriptionforlanguage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t iface = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* member = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5696,7 +5696,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_setpropertydescription_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetpropertydescription_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t iface = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* name = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5718,7 +5718,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_setpropertydescriptionforlanguage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetpropertydescriptionforlanguage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t iface = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* name = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5742,7 +5742,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_keystorelistener_create_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynKeystorelistenerCreate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* callbacks = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5762,7 +5762,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_keystorelist
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_keystorelistener_destroy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynKeystorelistenerDestroy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t listener = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -5779,7 +5779,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_keystorelist
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_keystorelistener_getkeys_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynKeystorelistenerGetkeys_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t listener = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t keystore = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -5803,7 +5803,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_keystorelist
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_keystorelistener_putkeys_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynKeystorelistenerPutkeys_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t listener = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t keystore = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -5827,7 +5827,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_keystorelist
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_keystorelistener_with_synchronization_create_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynKeystorelistenerWithSynchronizationCreate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* callbacks = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5847,7 +5847,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_keystorelist
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_message_create_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMessageCreate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -5865,7 +5865,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_message_crea
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_message_description_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMessageDescription_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t msg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* str = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5887,7 +5887,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_message_desc
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_message_destroy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMessageDestroy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t msg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -5904,7 +5904,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_message_dest
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_message_eql_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMessageEql_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t one = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t other = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -5924,7 +5924,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_message_eql_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_message_getarg_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMessageGetarg_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t msg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint64_t argn = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -5944,7 +5944,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_message_geta
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_message_getargs_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMessageGetargs_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t msg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* numargs = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5965,7 +5965,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_message_geta
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_message_getauthmechanism_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMessageGetauthmechanism_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t msg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -5983,7 +5983,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_message_geta
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_message_getcallserial_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMessageGetcallserial_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t msg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -6001,7 +6001,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_message_getc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_message_getcompressiontoken_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMessageGetcompressiontoken_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t msg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -6019,7 +6019,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_message_getc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_message_getdestination_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMessageGetdestination_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t msg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -6037,7 +6037,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_message_getd
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_message_geterrorname_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMessageGeterrorname_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t msg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* errormessage = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6059,7 +6059,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_message_gete
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_message_getflags_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMessageGetflags_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t msg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -6077,7 +6077,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_message_getf
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_message_getinterface_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMessageGetinterface_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t msg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -6095,7 +6095,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_message_geti
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_message_getmembername_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMessageGetmembername_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t msg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -6113,7 +6113,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_message_getm
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_message_getobjectpath_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMessageGetobjectpath_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t msg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -6131,7 +6131,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_message_geto
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_message_getreceiveendpointname_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMessageGetreceiveendpointname_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t msg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -6149,7 +6149,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_message_getr
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_message_getreplyserial_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMessageGetreplyserial_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t msg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -6167,7 +6167,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_message_getr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_message_getsender_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMessageGetsender_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t msg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -6185,7 +6185,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_message_gets
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_message_getsessionid_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMessageGetsessionid_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t msg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -6203,7 +6203,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_message_gets
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_message_getsignature_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMessageGetsignature_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t msg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -6221,7 +6221,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_message_gets
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_message_gettimestamp_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMessageGettimestamp_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t msg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -6239,7 +6239,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_message_gett
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_message_gettype_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMessageGettype_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t msg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -6257,7 +6257,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_message_gett
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_message_isbroadcastsignal_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMessageIsbroadcastsignal_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t msg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -6275,7 +6275,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_message_isbr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_message_isencrypted_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMessageIsencrypted_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t msg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -6293,7 +6293,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_message_isen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_message_isexpired_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMessageIsexpired_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t msg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* tillexpirems = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6313,7 +6313,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_message_isex
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_message_isglobalbroadcast_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMessageIsglobalbroadcast_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t msg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -6331,7 +6331,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_message_isgl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_message_issessionless_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMessageIssessionless_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t msg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -6349,7 +6349,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_message_isse
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_message_isunreliable_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMessageIsunreliable_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t msg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -6367,7 +6367,42 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_message_isun
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_message_setendianess_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMessageParseargs_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    int64_t msg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
+    void* signature = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    int32_t km_vac = km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0;
+    int64_t km_va0 = km_info.Length() > 3 ? km_napi_arg_i64(km_info[3]) : 0;
+    int64_t km_va1 = km_info.Length() > 4 ? km_napi_arg_i64(km_info[4]) : 0;
+    int64_t km_va2 = km_info.Length() > 5 ? km_napi_arg_i64(km_info[5]) : 0;
+    int64_t km_va3 = km_info.Length() > 6 ? km_napi_arg_i64(km_info[6]) : 0;
+#ifdef _WIN32
+    typedef int32_t (*km_fn_t)(int64_t, void*, ...);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_message_parseargs")));
+    }
+    int32_t km_res = -1;
+    if (km_fn_ptr != nullptr) {
+        switch (km_vac) {
+            case 0: km_res = km_fn_ptr(msg, signature); break;
+            case 1: km_res = km_fn_ptr(msg, signature, static_cast<intptr_t>(km_va0)); break;
+            case 2: km_res = km_fn_ptr(msg, signature, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1)); break;
+            case 3: km_res = km_fn_ptr(msg, signature, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2)); break;
+            default: km_res = km_fn_ptr(msg, signature, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2), static_cast<intptr_t>(km_va3)); break;
+        }
+    }
+#else
+    (void)msg;
+    (void)signature;
+    (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMessageSetendianess_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int8_t endian = static_cast<int8_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -6384,7 +6419,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_message_sete
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_message_tostring_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMessageTostring_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t msg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* str = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6406,7 +6441,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_message_tost
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_array_create_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargArrayCreate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t size = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -6424,7 +6459,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_array
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_array_element_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargArrayElement_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint64_t arg_1_index = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -6444,7 +6479,120 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_array
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_array_signature_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargArrayGet_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    int64_t args = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
+    uint64_t numargs = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
+    void* signature = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    int32_t km_vac = km_info.Length() > 3 ? km_info[3].ToNumber().Int32Value() : 0;
+    int64_t km_va0 = km_info.Length() > 4 ? km_napi_arg_i64(km_info[4]) : 0;
+    int64_t km_va1 = km_info.Length() > 5 ? km_napi_arg_i64(km_info[5]) : 0;
+    int64_t km_va2 = km_info.Length() > 6 ? km_napi_arg_i64(km_info[6]) : 0;
+    int64_t km_va3 = km_info.Length() > 7 ? km_napi_arg_i64(km_info[7]) : 0;
+#ifdef _WIN32
+    typedef int32_t (*km_fn_t)(int64_t, uint64_t, void*, ...);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_array_get")));
+    }
+    int32_t km_res = -1;
+    if (km_fn_ptr != nullptr) {
+        switch (km_vac) {
+            case 0: km_res = km_fn_ptr(args, numargs, signature); break;
+            case 1: km_res = km_fn_ptr(args, numargs, signature, static_cast<intptr_t>(km_va0)); break;
+            case 2: km_res = km_fn_ptr(args, numargs, signature, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1)); break;
+            case 3: km_res = km_fn_ptr(args, numargs, signature, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2)); break;
+            default: km_res = km_fn_ptr(args, numargs, signature, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2), static_cast<intptr_t>(km_va3)); break;
+        }
+    }
+#else
+    (void)args;
+    (void)numargs;
+    (void)signature;
+    (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargArraySet_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    int64_t args = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
+    void* numargs = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* signature = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    int32_t km_vac = km_info.Length() > 3 ? km_info[3].ToNumber().Int32Value() : 0;
+    int64_t km_va0 = km_info.Length() > 4 ? km_napi_arg_i64(km_info[4]) : 0;
+    int64_t km_va1 = km_info.Length() > 5 ? km_napi_arg_i64(km_info[5]) : 0;
+    int64_t km_va2 = km_info.Length() > 6 ? km_napi_arg_i64(km_info[6]) : 0;
+    int64_t km_va3 = km_info.Length() > 7 ? km_napi_arg_i64(km_info[7]) : 0;
+#ifdef _WIN32
+    typedef int32_t (*km_fn_t)(int64_t, void*, void*, ...);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_array_set")));
+    }
+    int32_t km_res = -1;
+    if (km_fn_ptr != nullptr) {
+        switch (km_vac) {
+            case 0: km_res = km_fn_ptr(args, numargs, signature); break;
+            case 1: km_res = km_fn_ptr(args, numargs, signature, static_cast<intptr_t>(km_va0)); break;
+            case 2: km_res = km_fn_ptr(args, numargs, signature, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1)); break;
+            case 3: km_res = km_fn_ptr(args, numargs, signature, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2)); break;
+            default: km_res = km_fn_ptr(args, numargs, signature, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2), static_cast<intptr_t>(km_va3)); break;
+        }
+    }
+#else
+    (void)args;
+    (void)numargs;
+    (void)signature;
+    (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargArraySetOffset_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    int64_t args = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
+    uint64_t argoffset = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
+    void* numargs = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    void* signature = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+    int32_t km_vac = km_info.Length() > 4 ? km_info[4].ToNumber().Int32Value() : 0;
+    int64_t km_va0 = km_info.Length() > 5 ? km_napi_arg_i64(km_info[5]) : 0;
+    int64_t km_va1 = km_info.Length() > 6 ? km_napi_arg_i64(km_info[6]) : 0;
+    int64_t km_va2 = km_info.Length() > 7 ? km_napi_arg_i64(km_info[7]) : 0;
+    int64_t km_va3 = km_info.Length() > 8 ? km_napi_arg_i64(km_info[8]) : 0;
+#ifdef _WIN32
+    typedef int32_t (*km_fn_t)(int64_t, uint64_t, void*, void*, ...);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_array_set_offset")));
+    }
+    int32_t km_res = -1;
+    if (km_fn_ptr != nullptr) {
+        switch (km_vac) {
+            case 0: km_res = km_fn_ptr(args, argoffset, numargs, signature); break;
+            case 1: km_res = km_fn_ptr(args, argoffset, numargs, signature, static_cast<intptr_t>(km_va0)); break;
+            case 2: km_res = km_fn_ptr(args, argoffset, numargs, signature, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1)); break;
+            case 3: km_res = km_fn_ptr(args, argoffset, numargs, signature, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2)); break;
+            default: km_res = km_fn_ptr(args, argoffset, numargs, signature, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2), static_cast<intptr_t>(km_va3)); break;
+        }
+    }
+#else
+    (void)args;
+    (void)argoffset;
+    (void)numargs;
+    (void)signature;
+    (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargArraySignature_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t values = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint64_t numvalues = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -6468,7 +6616,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_array
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_array_tostring_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargArrayTostring_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t args = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint64_t numargs = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -6494,7 +6642,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_array
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_clear_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargClear_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -6511,7 +6659,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_clear
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_clone_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargClone_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t destination = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t source = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -6530,7 +6678,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_clone
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_copy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargCopy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t source = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -6548,7 +6696,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_copy_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_create_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargCreate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void);
@@ -6564,7 +6712,40 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_creat
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_destroy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargCreateAndSet_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* signature = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    int32_t km_vac = km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0;
+    int64_t km_va0 = km_info.Length() > 2 ? km_napi_arg_i64(km_info[2]) : 0;
+    int64_t km_va1 = km_info.Length() > 3 ? km_napi_arg_i64(km_info[3]) : 0;
+    int64_t km_va2 = km_info.Length() > 4 ? km_napi_arg_i64(km_info[4]) : 0;
+    int64_t km_va3 = km_info.Length() > 5 ? km_napi_arg_i64(km_info[5]) : 0;
+#ifdef _WIN32
+    typedef int64_t (*km_fn_t)(void*, ...);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_create_and_set")));
+    }
+    int64_t km_res = -1;
+    if (km_fn_ptr != nullptr) {
+        switch (km_vac) {
+            case 0: km_res = km_fn_ptr(signature); break;
+            case 1: km_res = km_fn_ptr(signature, static_cast<intptr_t>(km_va0)); break;
+            case 2: km_res = km_fn_ptr(signature, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1)); break;
+            case 3: km_res = km_fn_ptr(signature, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2)); break;
+            default: km_res = km_fn_ptr(signature, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2), static_cast<intptr_t>(km_va3)); break;
+        }
+    }
+#else
+    (void)signature;
+    (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    int64_t km_res = -1;
+#endif
+    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
+}
+
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargDestroy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -6581,7 +6762,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_destr
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_equal_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargEqual_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t lhv = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t rhv = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -6601,7 +6782,42 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_equal
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_array_element_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargGet_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
+    void* signature = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    int32_t km_vac = km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0;
+    int64_t km_va0 = km_info.Length() > 3 ? km_napi_arg_i64(km_info[3]) : 0;
+    int64_t km_va1 = km_info.Length() > 4 ? km_napi_arg_i64(km_info[4]) : 0;
+    int64_t km_va2 = km_info.Length() > 5 ? km_napi_arg_i64(km_info[5]) : 0;
+    int64_t km_va3 = km_info.Length() > 6 ? km_napi_arg_i64(km_info[6]) : 0;
+#ifdef _WIN32
+    typedef int32_t (*km_fn_t)(int64_t, void*, ...);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_get")));
+    }
+    int32_t km_res = -1;
+    if (km_fn_ptr != nullptr) {
+        switch (km_vac) {
+            case 0: km_res = km_fn_ptr(arg, signature); break;
+            case 1: km_res = km_fn_ptr(arg, signature, static_cast<intptr_t>(km_va0)); break;
+            case 2: km_res = km_fn_ptr(arg, signature, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1)); break;
+            case 3: km_res = km_fn_ptr(arg, signature, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2)); break;
+            default: km_res = km_fn_ptr(arg, signature, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2), static_cast<intptr_t>(km_va3)); break;
+        }
+    }
+#else
+    (void)arg;
+    (void)signature;
+    (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetArrayElement_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint64_t arg_1_index = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -6622,7 +6838,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_a
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_array_elementsignature_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetArrayElementsignature_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint64_t arg_1_index = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -6642,7 +6858,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_a
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_array_numberofelements_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetArrayNumberofelements_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -6660,7 +6876,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_a
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_bool_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetBool_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* b = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6680,7 +6896,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_b
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_bool_array_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetBoolArray_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* length = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6702,7 +6918,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_b
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_double_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetDouble_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* d = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6722,7 +6938,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_d
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_double_array_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetDoubleArray_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* length = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6744,7 +6960,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_d
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_int16_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetInt16_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* n = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6764,7 +6980,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_i
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_int16_array_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetInt16Array_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* length = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6786,7 +7002,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_i
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_int32_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetInt32_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* i = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6806,7 +7022,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_i
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_int32_array_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetInt32Array_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* length = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6828,7 +7044,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_i
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_int64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetInt64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* x = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6848,7 +7064,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_i
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_int64_array_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetInt64Array_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* length = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6870,7 +7086,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_i
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_objectpath_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetObjectpath_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* o = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6890,7 +7106,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_o
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_signature_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetSignature_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* g = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6910,7 +7126,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_s
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_string_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetString_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* s = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6930,7 +7146,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_s
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_uint16_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint16_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* q = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6950,7 +7166,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_u
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_uint16_array_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint16Array_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* length = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6972,7 +7188,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_u
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_uint32_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint32_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* u = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6992,7 +7208,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_u
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_uint32_array_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint32Array_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* length = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7014,7 +7230,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_u
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_uint64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* t = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7034,7 +7250,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_u
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_uint64_array_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint64Array_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* length = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7056,7 +7272,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_u
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_uint8_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint8_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* y = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7076,7 +7292,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_u
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_uint8_array_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint8Array_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* length = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7098,7 +7314,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_u
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_variant_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetVariant_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t v = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -7118,7 +7334,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_v
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_variant_array_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetVariantArray_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* signature = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7142,7 +7358,42 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_v
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_getkey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetdictelement_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
+    void* elemsig = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    int32_t km_vac = km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0;
+    int64_t km_va0 = km_info.Length() > 3 ? km_napi_arg_i64(km_info[3]) : 0;
+    int64_t km_va1 = km_info.Length() > 4 ? km_napi_arg_i64(km_info[4]) : 0;
+    int64_t km_va2 = km_info.Length() > 5 ? km_napi_arg_i64(km_info[5]) : 0;
+    int64_t km_va3 = km_info.Length() > 6 ? km_napi_arg_i64(km_info[6]) : 0;
+#ifdef _WIN32
+    typedef int32_t (*km_fn_t)(int64_t, void*, ...);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_getdictelement")));
+    }
+    int32_t km_res = -1;
+    if (km_fn_ptr != nullptr) {
+        switch (km_vac) {
+            case 0: km_res = km_fn_ptr(arg, elemsig); break;
+            case 1: km_res = km_fn_ptr(arg, elemsig, static_cast<intptr_t>(km_va0)); break;
+            case 2: km_res = km_fn_ptr(arg, elemsig, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1)); break;
+            case 3: km_res = km_fn_ptr(arg, elemsig, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2)); break;
+            default: km_res = km_fn_ptr(arg, elemsig, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2), static_cast<intptr_t>(km_va3)); break;
+        }
+    }
+#else
+    (void)arg;
+    (void)elemsig;
+    (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetkey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -7160,7 +7411,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_getke
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_getmember_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetmember_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint64_t arg_1_index = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -7180,7 +7431,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_getme
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_getnummembers_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetnummembers_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -7198,7 +7449,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_getnu
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_gettype_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargGettype_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -7216,7 +7467,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_getty
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_getvalue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetvalue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -7234,7 +7485,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_getva
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_hassignature_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargHassignature_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* signature = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7254,7 +7505,77 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_hassi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_bool_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargSet_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
+    void* signature = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    int32_t km_vac = km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0;
+    int64_t km_va0 = km_info.Length() > 3 ? km_napi_arg_i64(km_info[3]) : 0;
+    int64_t km_va1 = km_info.Length() > 4 ? km_napi_arg_i64(km_info[4]) : 0;
+    int64_t km_va2 = km_info.Length() > 5 ? km_napi_arg_i64(km_info[5]) : 0;
+    int64_t km_va3 = km_info.Length() > 6 ? km_napi_arg_i64(km_info[6]) : 0;
+#ifdef _WIN32
+    typedef int32_t (*km_fn_t)(int64_t, void*, ...);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_set")));
+    }
+    int32_t km_res = -1;
+    if (km_fn_ptr != nullptr) {
+        switch (km_vac) {
+            case 0: km_res = km_fn_ptr(arg, signature); break;
+            case 1: km_res = km_fn_ptr(arg, signature, static_cast<intptr_t>(km_va0)); break;
+            case 2: km_res = km_fn_ptr(arg, signature, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1)); break;
+            case 3: km_res = km_fn_ptr(arg, signature, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2)); break;
+            default: km_res = km_fn_ptr(arg, signature, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2), static_cast<intptr_t>(km_va3)); break;
+        }
+    }
+#else
+    (void)arg;
+    (void)signature;
+    (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetAndStabilize_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
+    void* signature = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    int32_t km_vac = km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0;
+    int64_t km_va0 = km_info.Length() > 3 ? km_napi_arg_i64(km_info[3]) : 0;
+    int64_t km_va1 = km_info.Length() > 4 ? km_napi_arg_i64(km_info[4]) : 0;
+    int64_t km_va2 = km_info.Length() > 5 ? km_napi_arg_i64(km_info[5]) : 0;
+    int64_t km_va3 = km_info.Length() > 6 ? km_napi_arg_i64(km_info[6]) : 0;
+#ifdef _WIN32
+    typedef int32_t (*km_fn_t)(int64_t, void*, ...);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_set_and_stabilize")));
+    }
+    int32_t km_res = -1;
+    if (km_fn_ptr != nullptr) {
+        switch (km_vac) {
+            case 0: km_res = km_fn_ptr(arg, signature); break;
+            case 1: km_res = km_fn_ptr(arg, signature, static_cast<intptr_t>(km_va0)); break;
+            case 2: km_res = km_fn_ptr(arg, signature, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1)); break;
+            case 3: km_res = km_fn_ptr(arg, signature, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2)); break;
+            default: km_res = km_fn_ptr(arg, signature, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2), static_cast<intptr_t>(km_va3)); break;
+        }
+    }
+#else
+    (void)arg;
+    (void)signature;
+    (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetBool_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t b = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7274,7 +7595,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_b
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_bool_array_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetBoolArray_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint64_t length = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -7296,7 +7617,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_b
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_double_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetDouble_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     double d = km_info.Length() > 1 ? km_info[1].ToNumber().DoubleValue() : 0.0;
@@ -7316,7 +7637,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_d
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_double_array_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetDoubleArray_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint64_t length = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -7338,7 +7659,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_d
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_int16_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetInt16_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int16_t n = static_cast<int16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7358,7 +7679,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_i
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_int16_array_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetInt16Array_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint64_t length = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -7380,7 +7701,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_i
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_int32_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetInt32_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t i = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7400,7 +7721,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_i
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_int32_array_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetInt32Array_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint64_t length = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -7422,7 +7743,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_i
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_int64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetInt64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t x = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -7442,7 +7763,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_i
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_int64_array_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetInt64Array_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint64_t length = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -7464,7 +7785,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_i
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_objectpath_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetObjectpath_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* o = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7484,7 +7805,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_o
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_objectpath_array_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetObjectpathArray_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint64_t length = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -7506,7 +7827,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_o
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_signature_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetSignature_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* g = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7526,7 +7847,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_s
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_signature_array_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetSignatureArray_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint64_t length = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -7548,7 +7869,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_s
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_string_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetString_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* s = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7568,7 +7889,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_s
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_string_array_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetStringArray_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint64_t length = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -7590,7 +7911,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_s
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_uint16_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint16_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint16_t q = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7610,7 +7931,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_u
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_uint16_array_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint16Array_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint64_t length = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -7632,7 +7953,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_u
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_uint32_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint32_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t u = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7652,7 +7973,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_u
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_uint32_array_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint32Array_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint64_t length = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -7674,7 +7995,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_u
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_uint64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint64_t t = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -7694,7 +8015,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_u
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_uint64_array_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint64Array_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint64_t length = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -7716,7 +8037,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_u
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_uint8_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint8_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint8_t y = static_cast<uint8_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7736,7 +8057,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_u
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_uint8_array_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint8Array_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint64_t length = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -7758,7 +8079,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_u
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_setdictentry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetdictentry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t key = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -7780,7 +8101,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_setdi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_setstruct_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetstruct_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t struct_members = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -7802,7 +8123,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_setst
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_signature_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargSignature_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* str = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7824,7 +8145,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_signa
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_stabilize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargStabilize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -7841,7 +8162,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_stabi
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_tostring_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargTostring_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* str = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7865,29 +8186,29 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_tostr
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_observer_create_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynObserverCreate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* mandatoryinterfaces = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
     uint64_t nummandatoryinterfaces = km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0;
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(int64_t, void*, uint64_t);
+    typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint64_t);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_observer_create")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, mandatoryinterfaces, nummandatoryinterfaces) : -1;
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, mandatoryinterfaces, nummandatoryinterfaces) : -1;
 #else
     (void)bus;
     (void)mandatoryinterfaces;
     (void)nummandatoryinterfaces;
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_observer_destroy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynObserverDestroy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t observer = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -7904,7 +8225,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_observer_des
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_observer_get_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynObserverGet_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t observer = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* uniquebusname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7926,7 +8247,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_observer_get
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_observer_getfirst_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynObserverGetfirst_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t observer = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -7944,7 +8265,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_observer_get
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_observer_getnext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynObserverGetnext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t observer = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t proxyref = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -7964,7 +8285,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_observer_get
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_observer_registerlistener_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynObserverRegisterlistener_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t observer = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t listener = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -7985,7 +8306,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_observer_reg
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_observer_unregisteralllisteners_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynObserverUnregisteralllisteners_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t observer = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -8002,7 +8323,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_observer_unr
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_observer_unregisterlistener_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynObserverUnregisterlistener_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t observer = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t listener = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -8021,27 +8342,27 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_observer_unr
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_observerlistener_create_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynObserverlistenerCreate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* callback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(void*, void*);
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_observerlistener_create")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(callback, context) : -1;
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(callback, context) : -1;
 #else
     (void)callback;
     (void)context;
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_observerlistener_destroy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynObserverlistenerDestroy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t listener = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -8058,7 +8379,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_observerlist
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_passwordmanager_setcredentials_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPasswordmanagerSetcredentials_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* authmechanism = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* password = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8078,27 +8399,27 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_passwordmana
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurationlistener_create_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfigurationlistenerCreate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* callbacks = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(void*, void*);
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_permissionconfigurationlistener_create")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(callbacks, context) : -1;
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(callbacks, context) : -1;
 #else
     (void)callbacks;
     (void)context;
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurationlistener_destroy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfigurationlistenerDestroy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t listener = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -8115,7 +8436,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_permissionco
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_certificatechain_destroy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorCertificatechainDestroy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* certificatechain = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -8132,7 +8453,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_permissionco
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_certificateid_cleanup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorCertificateidCleanup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* certificateid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -8149,7 +8470,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_permissionco
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_certificateidarray_cleanup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorCertificateidarrayCleanup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* certificateidarray = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -8166,7 +8487,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_permissionco
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_claim_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorClaim_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t configurator = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* cakey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8198,7 +8519,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_permissionco
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_endmanagement_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorEndmanagement_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t configurator = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -8216,7 +8537,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_permissionco
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_getapplicationstate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetapplicationstate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t configurator = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* state = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8236,7 +8557,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_permissionco
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_getclaimcapabilities_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetclaimcapabilities_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t configurator = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* claimcapabilities = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8256,7 +8577,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_permissionco
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_getclaimcapabilitiesadditionalinfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetclaimcapabilitiesadditionalinfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t configurator = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* additionalinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8276,7 +8597,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_permissionco
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_getdefaultclaimcapabilities_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetdefaultclaimcapabilities_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint16_t (__stdcall *km_fn_t)(void);
@@ -8292,7 +8613,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_permissionco
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_getdefaultpolicy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetdefaultpolicy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t configurator = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* policyxml = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8312,7 +8633,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_permissionco
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_getidentity_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetidentity_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t configurator = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* identitycertificatechain = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8332,7 +8653,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_permissionco
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_getidentitycertificateid_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetidentitycertificateid_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t configurator = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* certificateid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8352,7 +8673,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_permissionco
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_getmanifests_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetmanifests_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t configurator = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* manifestarray = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8372,7 +8693,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_permissionco
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_getmanifesttemplate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetmanifesttemplate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t configurator = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* manifesttemplatexml = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8392,7 +8713,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_permissionco
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_getmembershipsummaries_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetmembershipsummaries_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t configurator = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* certificateids = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8412,7 +8733,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_permissionco
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_getpolicy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetpolicy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t configurator = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* policyxml = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8432,7 +8753,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_permissionco
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_getpublickey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetpublickey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t configurator = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* publickey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8452,7 +8773,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_permissionco
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_installmanifests_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorInstallmanifests_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t configurator = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* manifestsxmls = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8476,7 +8797,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_permissionco
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_installmembership_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorInstallmembership_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t configurator = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* membershipcertificatechain = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8496,7 +8817,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_permissionco
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_manifestarray_cleanup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorManifestarrayCleanup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* manifestarray = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -8513,7 +8834,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_permissionco
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_manifesttemplate_destroy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorManifesttemplateDestroy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* manifesttemplatexml = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -8530,7 +8851,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_permissionco
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_policy_destroy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorPolicyDestroy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* policyxml = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -8547,7 +8868,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_permissionco
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_publickey_destroy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorPublickeyDestroy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* publickey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -8564,7 +8885,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_permissionco
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_removemembership_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorRemovemembership_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t configurator = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* serial = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8592,7 +8913,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_permissionco
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_reset_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorReset_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t configurator = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -8610,7 +8931,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_permissionco
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_resetpolicy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorResetpolicy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t configurator = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -8628,7 +8949,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_permissionco
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_setapplicationstate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorSetapplicationstate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t configurator = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t state = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8648,7 +8969,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_permissionco
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_setclaimcapabilities_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorSetclaimcapabilities_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t configurator = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint16_t claimcapabilities = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8668,7 +8989,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_permissionco
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_setclaimcapabilitiesadditionalinfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorSetclaimcapabilitiesadditionalinfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t configurator = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint16_t additionalinfo = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8688,7 +9009,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_permissionco
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_setmanifesttemplatefromxml_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorSetmanifesttemplatefromxml_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t configurator = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* manifesttemplatexml = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8708,7 +9029,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_permissionco
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_startmanagement_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorStartmanagement_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t configurator = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -8726,7 +9047,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_permissionco
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_updateidentity_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorUpdateidentity_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t configurator = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* identitycertificatechain = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8750,7 +9071,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_permissionco
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_updatepolicy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorUpdatepolicy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t configurator = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* policyxml = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8770,27 +9091,27 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_permissionco
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_pinglistener_create_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPinglistenerCreate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* callback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(void*, void*);
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_pinglistener_create")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(callback, context) : -1;
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(callback, context) : -1;
 #else
     (void)callback;
     (void)context;
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_pinglistener_destroy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPinglistenerDestroy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t listener = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -8807,7 +9128,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_pinglistener
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_addchild_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectAddchild_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t proxyobj = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t child = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -8827,7 +9148,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobje
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_addinterface_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectAddinterface_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t proxyobj = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t iface = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -8847,7 +9168,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobje
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_addinterface_by_name_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectAddinterfaceByName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t proxyobj = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* name = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8867,7 +9188,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobje
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_copy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectCopy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t source = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -8885,7 +9206,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobje
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_create_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectCreate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* service = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8909,7 +9230,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobje
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_create_secure_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectCreateSecure_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* service = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8933,7 +9254,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobje
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_destroy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectDestroy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t proxyobj = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -8950,7 +9271,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobje
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_enablepropertycaching_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectEnablepropertycaching_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t proxyobj = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -8967,7 +9288,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobje
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_getallproperties_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetallproperties_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t proxyobj = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* iface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8989,7 +9310,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobje
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_getallpropertiesasync_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetallpropertiesasync_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t proxyobj = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* iface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9015,7 +9336,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobje
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_getchild_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetchild_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t proxyobj = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* path = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9035,7 +9356,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobje
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_getchildren_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetchildren_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t proxyobj = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* children = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9057,27 +9378,27 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobje
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_getinterface_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetinterface_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t proxyobj = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* iface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(int64_t, void*);
+    typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_proxybusobject_getinterface")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(proxyobj, iface) : -1;
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(proxyobj, iface) : -1;
 #else
     (void)proxyobj;
     (void)iface;
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_getinterfaces_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetinterfaces_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t proxyobj = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* ifaces = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9099,7 +9420,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobje
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_getpath_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetpath_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t proxyobj = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -9117,7 +9438,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobje
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_getproperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetproperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t proxyobj = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* iface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9141,7 +9462,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobje
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_getpropertyasync_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetpropertyasync_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t proxyobj = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* iface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9169,7 +9490,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobje
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_getservicename_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetservicename_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t proxyobj = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -9187,7 +9508,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobje
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_getsessionid_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetsessionid_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t proxyobj = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -9205,7 +9526,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobje
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_getuniquename_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetuniquename_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t proxyobj = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -9223,7 +9544,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobje
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_implementsinterface_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectImplementsinterface_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t proxyobj = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* iface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9243,7 +9564,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobje
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_introspectremoteobject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectIntrospectremoteobject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t proxyobj = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -9261,7 +9582,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobje
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_introspectremoteobjectasync_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectIntrospectremoteobjectasync_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t proxyobj = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* callback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9283,7 +9604,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobje
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_issecure_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectIssecure_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t proxyobj = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -9301,7 +9622,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobje
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_isvalid_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectIsvalid_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t proxyobj = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -9319,7 +9640,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobje
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_methodcall_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectMethodcall_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t proxyobj = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* ifacename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9351,7 +9672,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobje
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_methodcall_noreply_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectMethodcallNoreply_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t proxyobj = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* ifacename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9379,7 +9700,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobje
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_methodcallasync_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectMethodcallasync_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t proxyobj = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* ifacename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9413,7 +9734,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobje
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_parsexml_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectParsexml_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t proxyobj = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* xml = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9435,7 +9756,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobje
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_ref_create_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectRefCreate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t proxy = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -9453,7 +9774,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobje
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_ref_decref_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectRefDecref_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t ref = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -9470,7 +9791,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobje
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_ref_get_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectRefGet_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t ref = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -9488,7 +9809,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobje
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_ref_incref_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectRefIncref_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t ref = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -9505,7 +9826,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobje
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_registerpropertieschangedlistener_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectRegisterpropertieschangedlistener_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t proxyobj = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* iface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9533,7 +9854,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobje
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_removechild_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectRemovechild_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t proxyobj = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* path = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9553,7 +9874,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobje
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_secureconnection_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectSecureconnection_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t proxyobj = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t forceauth = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9573,7 +9894,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobje
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_secureconnectionasync_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectSecureconnectionasync_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t proxyobj = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t forceauth = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9593,7 +9914,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobje
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_setproperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectSetproperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t proxyobj = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* iface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9617,7 +9938,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobje
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_setpropertyasync_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectSetpropertyasync_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t proxyobj = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* iface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9647,7 +9968,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobje
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_unregisterpropertieschangedlistener_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectUnregisterpropertieschangedlistener_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t proxyobj = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* iface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9669,7 +9990,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobje
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_routerinit_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynRouterinit_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -9685,7 +10006,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_routerinit_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_routerinitwithconfig_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynRouterinitwithconfig_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* configxml = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -9703,7 +10024,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_routerinitwi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_routershutdown_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynRoutershutdown_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -9719,7 +10040,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_routershutdo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_claim_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyClaim_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t proxy = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* cakey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9751,7 +10072,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_securityappl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_computemanifestdigest_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyComputemanifestdigest_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* unsignedmanifestxml = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* identitycertificatepem = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9775,29 +10096,29 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_securityappl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_create_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyCreate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* appbusname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
     uint32_t sessionid = static_cast<uint32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t);
+    typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_securityapplicationproxy_create")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, appbusname, sessionid) : -1;
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, appbusname, sessionid) : -1;
 #else
     (void)bus;
     (void)appbusname;
     (void)sessionid;
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_destroy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyDestroy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t proxy = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -9814,7 +10135,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_securityappl
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_digest_destroy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyDigestDestroy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* digest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -9831,7 +10152,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_securityappl
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_eccpublickey_destroy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyEccpublickeyDestroy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* eccpublickey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -9848,7 +10169,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_securityappl
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_endmanagement_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyEndmanagement_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t proxy = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -9866,7 +10187,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_securityappl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_getapplicationstate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGetapplicationstate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t proxy = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* applicationstate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9886,7 +10207,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_securityappl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_getclaimcapabilities_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGetclaimcapabilities_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t proxy = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* capabilities = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9906,7 +10227,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_securityappl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_getclaimcapabilitiesadditionalinfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGetclaimcapabilitiesadditionalinfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t proxy = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* additionalinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9926,7 +10247,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_securityappl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_getdefaultpolicy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGetdefaultpolicy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t proxy = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* policyxml = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9946,7 +10267,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_securityappl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_geteccpublickey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGeteccpublickey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t proxy = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* eccpublickey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9966,7 +10287,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_securityappl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_getmanifesttemplate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGetmanifesttemplate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t proxy = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* manifesttemplatexml = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9986,7 +10307,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_securityappl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_getpermissionmanagementsessionport_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGetpermissionmanagementsessionport_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint16_t (__stdcall *km_fn_t)(void);
@@ -10002,7 +10323,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_securityappl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_getpolicy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGetpolicy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t proxy = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* policyxml = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10022,7 +10343,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_securityappl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_installmembership_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyInstallmembership_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t proxy = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* membershipcertificatechain = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10042,7 +10363,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_securityappl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_manifest_destroy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyManifestDestroy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* signedmanifestxml = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -10059,7 +10380,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_securityappl
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_manifesttemplate_destroy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyManifesttemplateDestroy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* manifesttemplatexml = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -10076,7 +10397,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_securityappl
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_policy_destroy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyPolicyDestroy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* policyxml = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -10093,7 +10414,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_securityappl
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_reset_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyReset_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t proxy = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -10111,7 +10432,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_securityappl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_resetpolicy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyResetpolicy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t proxy = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -10129,7 +10450,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_securityappl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_setmanifestsignature_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxySetmanifestsignature_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* unsignedmanifestxml = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* identitycertificatepem = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10155,7 +10476,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_securityappl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_signmanifest_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxySignmanifest_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* unsignedmanifestxml = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* identitycertificatepem = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10179,7 +10500,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_securityappl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_startmanagement_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyStartmanagement_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t proxy = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -10197,7 +10518,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_securityappl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_updateidentity_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyUpdateidentity_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t proxy = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* identitycertificatechain = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10221,7 +10542,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_securityappl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_updatepolicy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyUpdatepolicy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t proxy = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* policyxml = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10241,27 +10562,27 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_securityappl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_sessionlistener_create_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSessionlistenerCreate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* callbacks = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(void*, void*);
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_sessionlistener_create")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(callbacks, context) : -1;
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(callbacks, context) : -1;
 #else
     (void)callbacks;
     (void)context;
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_sessionlistener_destroy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSessionlistenerDestroy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t listener = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -10278,7 +10599,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_sessionliste
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_sessionopts_cmp_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsCmp_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t one = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t other = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -10298,7 +10619,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_sessionopts_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_sessionopts_create_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsCreate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint8_t traffic = static_cast<uint8_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t ismultipoint = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -10322,7 +10643,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_sessionopts_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_sessionopts_destroy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsDestroy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t opts = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -10339,7 +10660,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_sessionopts_
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_sessionopts_get_multipoint_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsGetMultipoint_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t opts = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -10357,7 +10678,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_sessionopts_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_sessionopts_get_proximity_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsGetProximity_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t opts = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -10375,7 +10696,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_sessionopts_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_sessionopts_get_traffic_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsGetTraffic_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t opts = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -10393,7 +10714,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_sessionopts_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_sessionopts_get_transports_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsGetTransports_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t opts = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -10411,7 +10732,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_sessionopts_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_sessionopts_iscompatible_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsIscompatible_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t one = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t other = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -10431,7 +10752,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_sessionopts_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_sessionopts_set_multipoint_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsSetMultipoint_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t opts = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t ismultipoint = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -10450,7 +10771,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_sessionopts_
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_sessionopts_set_proximity_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsSetProximity_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t opts = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint8_t proximity = static_cast<uint8_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -10469,7 +10790,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_sessionopts_
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_sessionopts_set_traffic_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsSetTraffic_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t opts = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint8_t traffic = static_cast<uint8_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -10488,7 +10809,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_sessionopts_
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_sessionopts_set_transports_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsSetTransports_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t opts = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint16_t transports = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -10507,27 +10828,27 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_sessionopts_
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_sessionportlistener_create_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSessionportlistenerCreate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* callbacks = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(void*, void*);
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_sessionportlistener_create")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(callbacks, context) : -1;
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(callbacks, context) : -1;
 #else
     (void)callbacks;
     (void)context;
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_sessionportlistener_destroy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSessionportlistenerDestroy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t listener = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -10544,7 +10865,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_sessionportl
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_shutdown_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynShutdown_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -10560,7 +10881,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_shutdown_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_unity_deferred_callbacks_process_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynUnityDeferredCallbacksProcess_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -10576,7 +10897,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_unity_deferr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_unity_set_deferred_callback_mainthread_only_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynUnitySetDeferredCallbackMainthreadOnly_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t mainthread_only = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -10594,524 +10915,533 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoyn_unity_set_de
 }
 
 static void register_windows_win32_devices_alljoyn_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_devices_alljoyn_AllJoynAcceptBusConnection", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_AllJoynAcceptBusConnection_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_AllJoynCloseBusHandle", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_AllJoynCloseBusHandle_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_AllJoynConnectToBus", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_AllJoynConnectToBus_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_AllJoynCreateBus", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_AllJoynCreateBus_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_AllJoynEnumEvents", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_AllJoynEnumEvents_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_AllJoynEventSelect", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_AllJoynEventSelect_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_AllJoynReceiveFromBus", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_AllJoynReceiveFromBus_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_AllJoynSendToBus", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_AllJoynSendToBus_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_QCC_StatusText", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_QCC_StatusText_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_create", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_create_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_create_empty", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_create_empty_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_create_full", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_create_full_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_createfrommsgarg", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_createfrommsgarg_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_createfromxml", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_createfromxml_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_destroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_destroy_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getaboutdata", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getaboutdata_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getajsoftwareversion", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getajsoftwareversion_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getannouncedaboutdata", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getannouncedaboutdata_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getappid", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getappid_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getappname", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getappname_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getdateofmanufacture", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getdateofmanufacture_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getdefaultlanguage", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getdefaultlanguage_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getdescription", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getdescription_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getdeviceid", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getdeviceid_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getdevicename", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getdevicename_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getfield", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getfield_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getfields", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getfields_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getfieldsignature", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getfieldsignature_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_gethardwareversion", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_gethardwareversion_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getmanufacturer", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getmanufacturer_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getmodelnumber", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getmodelnumber_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getsoftwareversion", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getsoftwareversion_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getsupportedlanguages", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getsupportedlanguages_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getsupporturl", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getsupporturl_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_isfieldannounced", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_isfieldannounced_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_isfieldlocalized", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_isfieldlocalized_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_isfieldrequired", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_isfieldrequired_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_isvalid", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_isvalid_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_setappid", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_setappid_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_setappid_fromstring", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_setappid_fromstring_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_setappname", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_setappname_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_setdateofmanufacture", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_setdateofmanufacture_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_setdefaultlanguage", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_setdefaultlanguage_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_setdescription", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_setdescription_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_setdeviceid", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_setdeviceid_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_setdevicename", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_setdevicename_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_setfield", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_setfield_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_sethardwareversion", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_sethardwareversion_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_setmanufacturer", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_setmanufacturer_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_setmodelnumber", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_setmodelnumber_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_setsoftwareversion", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_setsoftwareversion_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_setsupportedlanguage", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_setsupportedlanguage_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_setsupporturl", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_setsupporturl_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdatalistener_create", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdatalistener_create_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdatalistener_destroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdatalistener_destroy_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_abouticon_clear", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_abouticon_clear_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_abouticon_create", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_abouticon_create_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_abouticon_destroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_abouticon_destroy_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_abouticon_getcontent", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_abouticon_getcontent_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_abouticon_geturl", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_abouticon_geturl_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_abouticon_setcontent", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_abouticon_setcontent_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_abouticon_setcontent_frommsgarg", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_abouticon_setcontent_frommsgarg_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_abouticon_seturl", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_abouticon_seturl_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_abouticonobj_create", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_abouticonobj_create_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_abouticonobj_destroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_abouticonobj_destroy_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_abouticonproxy_create", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_abouticonproxy_create_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_abouticonproxy_destroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_abouticonproxy_destroy_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_abouticonproxy_geticon", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_abouticonproxy_geticon_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_abouticonproxy_getversion", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_abouticonproxy_getversion_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_aboutlistener_create", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_aboutlistener_create_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_aboutlistener_destroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_aboutlistener_destroy_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobj_announce", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobj_announce_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobj_announce_using_datalistener", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobj_announce_using_datalistener_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobj_create", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobj_create_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobj_destroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobj_destroy_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobj_unannounce", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobj_unannounce_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobjectdescription_clear", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobjectdescription_clear_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobjectdescription_create", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobjectdescription_create_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobjectdescription_create_full", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobjectdescription_create_full_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobjectdescription_createfrommsgarg", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobjectdescription_createfrommsgarg_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobjectdescription_destroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobjectdescription_destroy_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobjectdescription_getinterfacepaths", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobjectdescription_getinterfacepaths_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobjectdescription_getinterfaces", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobjectdescription_getinterfaces_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobjectdescription_getmsgarg", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobjectdescription_getmsgarg_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobjectdescription_getpaths", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobjectdescription_getpaths_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobjectdescription_hasinterface", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobjectdescription_hasinterface_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobjectdescription_hasinterfaceatpath", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobjectdescription_hasinterfaceatpath_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobjectdescription_haspath", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobjectdescription_haspath_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_aboutproxy_create", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_aboutproxy_create_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_aboutproxy_destroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_aboutproxy_destroy_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_aboutproxy_getaboutdata", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_aboutproxy_getaboutdata_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_aboutproxy_getobjectdescription", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_aboutproxy_getobjectdescription_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_aboutproxy_getversion", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_aboutproxy_getversion_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_applicationstatelistener_create", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_applicationstatelistener_create_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_applicationstatelistener_destroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_applicationstatelistener_destroy_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_authlistener_create", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_authlistener_create_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_authlistener_destroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_authlistener_destroy_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_authlistener_requestcredentialsresponse", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_authlistener_requestcredentialsresponse_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_authlistener_setsharedsecret", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_authlistener_setsharedsecret_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_authlistener_verifycredentialsresponse", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_authlistener_verifycredentialsresponse_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_authlistenerasync_create", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_authlistenerasync_create_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_authlistenerasync_destroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_authlistenerasync_destroy_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_autopinger_adddestination", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_autopinger_adddestination_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_autopinger_addpinggroup", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_autopinger_addpinggroup_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_autopinger_create", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_autopinger_create_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_autopinger_destroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_autopinger_destroy_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_autopinger_pause", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_autopinger_pause_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_autopinger_removedestination", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_autopinger_removedestination_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_autopinger_removepinggroup", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_autopinger_removepinggroup_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_autopinger_resume", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_autopinger_resume_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_autopinger_setpinginterval", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_autopinger_setpinginterval_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_addlogonentry", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_addlogonentry_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_addmatch", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_addmatch_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_advertisename", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_advertisename_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_bindsessionport", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_bindsessionport_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_canceladvertisename", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_canceladvertisename_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_cancelfindadvertisedname", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_cancelfindadvertisedname_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_cancelfindadvertisednamebytransport", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_cancelfindadvertisednamebytransport_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_cancelwhoimplements_interface", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_cancelwhoimplements_interface_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_cancelwhoimplements_interfaces", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_cancelwhoimplements_interfaces_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_clearkeys", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_clearkeys_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_clearkeystore", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_clearkeystore_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_connect", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_connect_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_create", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_create_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_create_concurrency", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_create_concurrency_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_createinterface", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_createinterface_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_createinterface_secure", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_createinterface_secure_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_createinterfacesfromxml", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_createinterfacesfromxml_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_deletedefaultkeystore", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_deletedefaultkeystore_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_deleteinterface", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_deleteinterface_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_destroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_destroy_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_disconnect", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_disconnect_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_enableconcurrentcallbacks", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_enableconcurrentcallbacks_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_enablepeersecurity", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_enablepeersecurity_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_enablepeersecuritywithpermissionconfigurationlistener", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_enablepeersecuritywithpermissionconfigurationlistener_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_findadvertisedname", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_findadvertisedname_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_findadvertisednamebytransport", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_findadvertisednamebytransport_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_getalljoyndebugobj", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_getalljoyndebugobj_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_getalljoynproxyobj", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_getalljoynproxyobj_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_getconcurrency", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_getconcurrency_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_getconnectspec", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_getconnectspec_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_getdbusproxyobj", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_getdbusproxyobj_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_getglobalguidstring", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_getglobalguidstring_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_getinterface", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_getinterface_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_getinterfaces", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_getinterfaces_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_getkeyexpiration", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_getkeyexpiration_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_getpeerguid", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_getpeerguid_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_getpermissionconfigurator", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_getpermissionconfigurator_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_gettimestamp", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_gettimestamp_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_getuniquename", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_getuniquename_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_isconnected", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_isconnected_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_ispeersecurityenabled", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_ispeersecurityenabled_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_isstarted", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_isstarted_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_isstopping", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_isstopping_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_join", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_join_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_joinsession", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_joinsession_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_joinsessionasync", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_joinsessionasync_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_leavesession", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_leavesession_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_namehasowner", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_namehasowner_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_ping", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_ping_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_registeraboutlistener", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_registeraboutlistener_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_registerapplicationstatelistener", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_registerapplicationstatelistener_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_registerbuslistener", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_registerbuslistener_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_registerbusobject", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_registerbusobject_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_registerbusobject_secure", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_registerbusobject_secure_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_registerkeystorelistener", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_registerkeystorelistener_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_releasename", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_releasename_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_reloadkeystore", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_reloadkeystore_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_removematch", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_removematch_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_removesessionmember", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_removesessionmember_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_requestname", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_requestname_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_secureconnection", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_secureconnection_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_secureconnectionasync", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_secureconnectionasync_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_setdaemondebug", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_setdaemondebug_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_setkeyexpiration", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_setkeyexpiration_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_setlinktimeout", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_setlinktimeout_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_setlinktimeoutasync", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_setlinktimeoutasync_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_setsessionlistener", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_setsessionlistener_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_start", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_start_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_stop", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_stop_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_unbindsessionport", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_unbindsessionport_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_unregisteraboutlistener", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_unregisteraboutlistener_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_unregisterallaboutlisteners", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_unregisterallaboutlisteners_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_unregisterallhandlers", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_unregisterallhandlers_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_unregisterapplicationstatelistener", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_unregisterapplicationstatelistener_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_unregisterbuslistener", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_unregisterbuslistener_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_unregisterbusobject", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_unregisterbusobject_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_whoimplements_interface", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_whoimplements_interface_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_whoimplements_interfaces", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_whoimplements_interfaces_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_buslistener_create", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_buslistener_create_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_buslistener_destroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_buslistener_destroy_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_addinterface", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_addinterface_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_addinterface_announced", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_addinterface_announced_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_addmethodhandlers", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_addmethodhandlers_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_cancelsessionlessmessage", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_cancelsessionlessmessage_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_cancelsessionlessmessage_serial", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_cancelsessionlessmessage_serial_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_create", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_create_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_destroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_destroy_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_emitpropertieschanged", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_emitpropertieschanged_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_emitpropertychanged", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_emitpropertychanged_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_getannouncedinterfacenames", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_getannouncedinterfacenames_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_getbusattachment", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_getbusattachment_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_getname", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_getname_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_getpath", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_getpath_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_issecure", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_issecure_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_methodreply_args", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_methodreply_args_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_methodreply_err", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_methodreply_err_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_methodreply_status", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_methodreply_status_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_setannounceflag", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_setannounceflag_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_clear", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_clear_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_create", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_create_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_destroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_destroy_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_getcertchain", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_getcertchain_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_getexpiration", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_getexpiration_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_getlogonentry", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_getlogonentry_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_getpassword", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_getpassword_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_getprivateKey", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_getprivateKey_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_getusername", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_getusername_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_isset", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_isset_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_setcertchain", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_setcertchain_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_setexpiration", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_setexpiration_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_setlogonentry", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_setlogonentry_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_setpassword", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_setpassword_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_setprivatekey", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_setprivatekey_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_setusername", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_setusername_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_getbuildinfo", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_getbuildinfo_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_getnumericversion", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_getnumericversion_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_getversion", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_getversion_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_init", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_init_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_activate", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_activate_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_addannotation", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_addannotation_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_addargannotation", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_addargannotation_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_addmember", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_addmember_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_addmemberannotation", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_addmemberannotation_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_addmethod", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_addmethod_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_addproperty", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_addproperty_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_addpropertyannotation", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_addpropertyannotation_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_addsignal", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_addsignal_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_eql", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_eql_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getannotation", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getannotation_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getannotationatindex", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getannotationatindex_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getannotationscount", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getannotationscount_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getargdescriptionforlanguage", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getargdescriptionforlanguage_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getdescriptionforlanguage", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getdescriptionforlanguage_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getdescriptionlanguages", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getdescriptionlanguages_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getdescriptionlanguages2", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getdescriptionlanguages2_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getdescriptiontranslationcallback", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getdescriptiontranslationcallback_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getmember", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getmember_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getmemberannotation", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getmemberannotation_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getmemberargannotation", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getmemberargannotation_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getmemberdescriptionforlanguage", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getmemberdescriptionforlanguage_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getmembers", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getmembers_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getmethod", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getmethod_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getname", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getname_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getproperties", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getproperties_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getproperty", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getproperty_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getpropertyannotation", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getpropertyannotation_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getpropertydescriptionforlanguage", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getpropertydescriptionforlanguage_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getsecuritypolicy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getsecuritypolicy_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getsignal", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getsignal_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_hasdescription", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_hasdescription_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_hasmember", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_hasmember_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_hasproperties", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_hasproperties_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_hasproperty", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_hasproperty_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_introspect", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_introspect_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_issecure", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_issecure_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_setargdescription", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_setargdescription_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_setargdescriptionforlanguage", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_setargdescriptionforlanguage_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_setdescription", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_setdescription_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_setdescriptionforlanguage", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_setdescriptionforlanguage_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_setdescriptionlanguage", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_setdescriptionlanguage_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_setdescriptiontranslationcallback", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_setdescriptiontranslationcallback_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_setmemberdescription", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_setmemberdescription_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_setmemberdescriptionforlanguage", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_setmemberdescriptionforlanguage_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_setpropertydescription", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_setpropertydescription_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_setpropertydescriptionforlanguage", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_setpropertydescriptionforlanguage_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_keystorelistener_create", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_keystorelistener_create_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_keystorelistener_destroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_keystorelistener_destroy_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_keystorelistener_getkeys", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_keystorelistener_getkeys_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_keystorelistener_putkeys", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_keystorelistener_putkeys_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_keystorelistener_with_synchronization_create", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_keystorelistener_with_synchronization_create_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_message_create", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_message_create_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_message_description", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_message_description_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_message_destroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_message_destroy_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_message_eql", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_message_eql_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_message_getarg", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_message_getarg_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_message_getargs", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_message_getargs_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_message_getauthmechanism", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_message_getauthmechanism_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_message_getcallserial", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_message_getcallserial_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_message_getcompressiontoken", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_message_getcompressiontoken_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_message_getdestination", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_message_getdestination_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_message_geterrorname", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_message_geterrorname_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_message_getflags", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_message_getflags_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_message_getinterface", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_message_getinterface_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_message_getmembername", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_message_getmembername_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_message_getobjectpath", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_message_getobjectpath_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_message_getreceiveendpointname", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_message_getreceiveendpointname_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_message_getreplyserial", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_message_getreplyserial_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_message_getsender", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_message_getsender_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_message_getsessionid", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_message_getsessionid_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_message_getsignature", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_message_getsignature_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_message_gettimestamp", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_message_gettimestamp_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_message_gettype", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_message_gettype_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_message_isbroadcastsignal", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_message_isbroadcastsignal_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_message_isencrypted", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_message_isencrypted_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_message_isexpired", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_message_isexpired_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_message_isglobalbroadcast", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_message_isglobalbroadcast_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_message_issessionless", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_message_issessionless_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_message_isunreliable", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_message_isunreliable_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_message_setendianess", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_message_setendianess_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_message_tostring", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_message_tostring_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_array_create", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_array_create_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_array_element", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_array_element_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_array_signature", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_array_signature_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_array_tostring", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_array_tostring_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_clear", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_clear_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_clone", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_clone_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_copy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_copy_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_create", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_create_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_destroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_destroy_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_equal", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_equal_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_array_element", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_array_element_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_array_elementsignature", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_array_elementsignature_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_array_numberofelements", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_array_numberofelements_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_bool", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_bool_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_bool_array", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_bool_array_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_double", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_double_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_double_array", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_double_array_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_int16", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_int16_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_int16_array", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_int16_array_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_int32", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_int32_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_int32_array", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_int32_array_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_int64", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_int64_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_int64_array", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_int64_array_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_objectpath", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_objectpath_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_signature", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_signature_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_string", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_string_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_uint16", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_uint16_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_uint16_array", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_uint16_array_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_uint32", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_uint32_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_uint32_array", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_uint32_array_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_uint64", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_uint64_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_uint64_array", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_uint64_array_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_uint8", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_uint8_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_uint8_array", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_uint8_array_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_variant", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_variant_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_variant_array", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_variant_array_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_getkey", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_getkey_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_getmember", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_getmember_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_getnummembers", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_getnummembers_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_gettype", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_gettype_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_getvalue", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_getvalue_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_hassignature", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_hassignature_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_bool", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_bool_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_bool_array", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_bool_array_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_double", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_double_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_double_array", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_double_array_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_int16", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_int16_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_int16_array", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_int16_array_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_int32", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_int32_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_int32_array", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_int32_array_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_int64", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_int64_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_int64_array", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_int64_array_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_objectpath", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_objectpath_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_objectpath_array", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_objectpath_array_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_signature", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_signature_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_signature_array", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_signature_array_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_string", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_string_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_string_array", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_string_array_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_uint16", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_uint16_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_uint16_array", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_uint16_array_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_uint32", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_uint32_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_uint32_array", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_uint32_array_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_uint64", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_uint64_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_uint64_array", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_uint64_array_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_uint8", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_uint8_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_uint8_array", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_uint8_array_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_setdictentry", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_setdictentry_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_setstruct", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_setstruct_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_signature", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_signature_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_stabilize", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_stabilize_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_tostring", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_tostring_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_observer_create", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_observer_create_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_observer_destroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_observer_destroy_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_observer_get", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_observer_get_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_observer_getfirst", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_observer_getfirst_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_observer_getnext", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_observer_getnext_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_observer_registerlistener", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_observer_registerlistener_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_observer_unregisteralllisteners", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_observer_unregisteralllisteners_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_observer_unregisterlistener", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_observer_unregisterlistener_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_observerlistener_create", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_observerlistener_create_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_observerlistener_destroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_observerlistener_destroy_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_passwordmanager_setcredentials", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_passwordmanager_setcredentials_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurationlistener_create", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurationlistener_create_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurationlistener_destroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurationlistener_destroy_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_certificatechain_destroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_certificatechain_destroy_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_certificateid_cleanup", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_certificateid_cleanup_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_certificateidarray_cleanup", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_certificateidarray_cleanup_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_claim", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_claim_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_endmanagement", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_endmanagement_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_getapplicationstate", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_getapplicationstate_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_getclaimcapabilities", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_getclaimcapabilities_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_getclaimcapabilitiesadditionalinfo", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_getclaimcapabilitiesadditionalinfo_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_getdefaultclaimcapabilities", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_getdefaultclaimcapabilities_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_getdefaultpolicy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_getdefaultpolicy_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_getidentity", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_getidentity_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_getidentitycertificateid", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_getidentitycertificateid_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_getmanifests", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_getmanifests_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_getmanifesttemplate", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_getmanifesttemplate_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_getmembershipsummaries", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_getmembershipsummaries_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_getpolicy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_getpolicy_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_getpublickey", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_getpublickey_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_installmanifests", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_installmanifests_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_installmembership", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_installmembership_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_manifestarray_cleanup", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_manifestarray_cleanup_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_manifesttemplate_destroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_manifesttemplate_destroy_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_policy_destroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_policy_destroy_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_publickey_destroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_publickey_destroy_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_removemembership", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_removemembership_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_reset", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_reset_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_resetpolicy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_resetpolicy_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_setapplicationstate", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_setapplicationstate_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_setclaimcapabilities", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_setclaimcapabilities_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_setclaimcapabilitiesadditionalinfo", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_setclaimcapabilitiesadditionalinfo_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_setmanifesttemplatefromxml", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_setmanifesttemplatefromxml_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_startmanagement", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_startmanagement_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_updateidentity", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_updateidentity_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_updatepolicy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_updatepolicy_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_pinglistener_create", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_pinglistener_create_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_pinglistener_destroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_pinglistener_destroy_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_addchild", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_addchild_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_addinterface", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_addinterface_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_addinterface_by_name", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_addinterface_by_name_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_copy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_copy_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_create", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_create_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_create_secure", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_create_secure_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_destroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_destroy_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_enablepropertycaching", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_enablepropertycaching_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_getallproperties", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_getallproperties_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_getallpropertiesasync", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_getallpropertiesasync_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_getchild", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_getchild_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_getchildren", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_getchildren_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_getinterface", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_getinterface_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_getinterfaces", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_getinterfaces_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_getpath", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_getpath_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_getproperty", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_getproperty_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_getpropertyasync", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_getpropertyasync_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_getservicename", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_getservicename_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_getsessionid", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_getsessionid_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_getuniquename", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_getuniquename_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_implementsinterface", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_implementsinterface_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_introspectremoteobject", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_introspectremoteobject_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_introspectremoteobjectasync", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_introspectremoteobjectasync_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_issecure", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_issecure_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_isvalid", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_isvalid_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_methodcall", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_methodcall_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_methodcall_noreply", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_methodcall_noreply_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_methodcallasync", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_methodcallasync_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_parsexml", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_parsexml_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_ref_create", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_ref_create_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_ref_decref", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_ref_decref_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_ref_get", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_ref_get_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_ref_incref", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_ref_incref_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_registerpropertieschangedlistener", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_registerpropertieschangedlistener_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_removechild", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_removechild_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_secureconnection", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_secureconnection_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_secureconnectionasync", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_secureconnectionasync_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_setproperty", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_setproperty_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_setpropertyasync", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_setpropertyasync_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_unregisterpropertieschangedlistener", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_unregisterpropertieschangedlistener_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_routerinit", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_routerinit_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_routerinitwithconfig", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_routerinitwithconfig_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_routershutdown", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_routershutdown_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_claim", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_claim_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_computemanifestdigest", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_computemanifestdigest_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_create", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_create_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_destroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_destroy_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_digest_destroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_digest_destroy_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_eccpublickey_destroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_eccpublickey_destroy_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_endmanagement", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_endmanagement_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_getapplicationstate", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_getapplicationstate_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_getclaimcapabilities", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_getclaimcapabilities_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_getclaimcapabilitiesadditionalinfo", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_getclaimcapabilitiesadditionalinfo_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_getdefaultpolicy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_getdefaultpolicy_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_geteccpublickey", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_geteccpublickey_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_getmanifesttemplate", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_getmanifesttemplate_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_getpermissionmanagementsessionport", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_getpermissionmanagementsessionport_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_getpolicy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_getpolicy_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_installmembership", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_installmembership_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_manifest_destroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_manifest_destroy_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_manifesttemplate_destroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_manifesttemplate_destroy_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_policy_destroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_policy_destroy_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_reset", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_reset_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_resetpolicy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_resetpolicy_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_setmanifestsignature", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_setmanifestsignature_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_signmanifest", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_signmanifest_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_startmanagement", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_startmanagement_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_updateidentity", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_updateidentity_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_updatepolicy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_updatepolicy_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_sessionlistener_create", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_sessionlistener_create_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_sessionlistener_destroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_sessionlistener_destroy_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_sessionopts_cmp", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_sessionopts_cmp_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_sessionopts_create", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_sessionopts_create_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_sessionopts_destroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_sessionopts_destroy_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_sessionopts_get_multipoint", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_sessionopts_get_multipoint_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_sessionopts_get_proximity", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_sessionopts_get_proximity_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_sessionopts_get_traffic", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_sessionopts_get_traffic_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_sessionopts_get_transports", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_sessionopts_get_transports_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_sessionopts_iscompatible", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_sessionopts_iscompatible_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_sessionopts_set_multipoint", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_sessionopts_set_multipoint_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_sessionopts_set_proximity", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_sessionopts_set_proximity_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_sessionopts_set_traffic", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_sessionopts_set_traffic_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_sessionopts_set_transports", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_sessionopts_set_transports_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_sessionportlistener_create", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_sessionportlistener_create_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_sessionportlistener_destroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_sessionportlistener_destroy_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_shutdown", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_shutdown_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_unity_deferred_callbacks_process", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_unity_deferred_callbacks_process_napi));
-    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoyn_unity_set_deferred_callback_mainthread_only", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoyn_unity_set_deferred_callback_mainthread_only_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_allJoynAcceptBusConnection", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_allJoynAcceptBusConnection_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_allJoynCloseBusHandle", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_allJoynCloseBusHandle_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_allJoynConnectToBus", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_allJoynConnectToBus_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_allJoynCreateBus", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_allJoynCreateBus_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_allJoynEnumEvents", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_allJoynEnumEvents_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_allJoynEventSelect", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_allJoynEventSelect_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_allJoynReceiveFromBus", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_allJoynReceiveFromBus_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_allJoynSendToBus", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_allJoynSendToBus_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_qccStatusText", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_qccStatusText_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCreate", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCreate_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCreateEmpty", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCreateEmpty_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCreateFull", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCreateFull_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCreatefrommsgarg", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCreatefrommsgarg_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCreatefromxml", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCreatefromxml_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAboutdataDestroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAboutdataDestroy_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetaboutdata", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetaboutdata_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetajsoftwareversion", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetajsoftwareversion_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetannouncedaboutdata", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetannouncedaboutdata_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetappid", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetappid_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetappname", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetappname_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetdateofmanufacture", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetdateofmanufacture_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetdefaultlanguage", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetdefaultlanguage_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetdescription", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetdescription_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetdeviceid", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetdeviceid_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetdevicename", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetdevicename_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetfield", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetfield_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetfields", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetfields_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetfieldsignature", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetfieldsignature_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGethardwareversion", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGethardwareversion_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetmanufacturer", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetmanufacturer_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetmodelnumber", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetmodelnumber_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetsoftwareversion", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetsoftwareversion_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetsupportedlanguages", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetsupportedlanguages_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetsupporturl", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetsupporturl_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAboutdataIsfieldannounced", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAboutdataIsfieldannounced_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAboutdataIsfieldlocalized", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAboutdataIsfieldlocalized_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAboutdataIsfieldrequired", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAboutdataIsfieldrequired_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAboutdataIsvalid", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAboutdataIsvalid_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetappid", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetappid_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetappidFromstring", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetappidFromstring_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetappname", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetappname_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetdateofmanufacture", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetdateofmanufacture_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetdefaultlanguage", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetdefaultlanguage_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetdescription", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetdescription_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetdeviceid", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetdeviceid_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetdevicename", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetdevicename_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetfield", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetfield_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSethardwareversion", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSethardwareversion_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetmanufacturer", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetmanufacturer_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetmodelnumber", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetmodelnumber_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetsoftwareversion", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetsoftwareversion_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetsupportedlanguage", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetsupportedlanguage_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetsupporturl", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetsupporturl_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAboutdatalistenerCreate", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAboutdatalistenerCreate_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAboutdatalistenerDestroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAboutdatalistenerDestroy_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAbouticonClear", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAbouticonClear_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAbouticonCreate", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAbouticonCreate_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAbouticonDestroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAbouticonDestroy_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAbouticonGetcontent", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAbouticonGetcontent_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAbouticonGeturl", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAbouticonGeturl_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAbouticonSetcontent", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAbouticonSetcontent_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAbouticonSetcontentFrommsgarg", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAbouticonSetcontentFrommsgarg_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAbouticonSeturl", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAbouticonSeturl_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAbouticonobjCreate", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAbouticonobjCreate_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAbouticonobjDestroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAbouticonobjDestroy_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAbouticonproxyCreate", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAbouticonproxyCreate_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAbouticonproxyDestroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAbouticonproxyDestroy_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAbouticonproxyGeticon", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAbouticonproxyGeticon_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAbouticonproxyGetversion", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAbouticonproxyGetversion_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAboutlistenerCreate", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAboutlistenerCreate_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAboutlistenerDestroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAboutlistenerDestroy_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAboutobjAnnounce", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAboutobjAnnounce_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAboutobjAnnounceUsingDatalistener", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAboutobjAnnounceUsingDatalistener_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAboutobjCreate", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAboutobjCreate_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAboutobjDestroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAboutobjDestroy_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAboutobjUnannounce", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAboutobjUnannounce_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionClear", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionClear_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionCreate", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionCreate_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionCreateFull", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionCreateFull_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionCreatefrommsgarg", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionCreatefrommsgarg_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionDestroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionDestroy_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionGetinterfacepaths", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionGetinterfacepaths_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionGetinterfaces", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionGetinterfaces_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionGetmsgarg", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionGetmsgarg_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionGetpaths", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionGetpaths_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionHasinterface", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionHasinterface_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionHasinterfaceatpath", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionHasinterfaceatpath_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionHaspath", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionHaspath_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAboutproxyCreate", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAboutproxyCreate_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAboutproxyDestroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAboutproxyDestroy_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAboutproxyGetaboutdata", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAboutproxyGetaboutdata_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAboutproxyGetobjectdescription", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAboutproxyGetobjectdescription_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAboutproxyGetversion", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAboutproxyGetversion_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynApplicationstatelistenerCreate", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynApplicationstatelistenerCreate_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynApplicationstatelistenerDestroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynApplicationstatelistenerDestroy_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAuthlistenerCreate", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAuthlistenerCreate_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAuthlistenerDestroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAuthlistenerDestroy_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAuthlistenerRequestcredentialsresponse", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAuthlistenerRequestcredentialsresponse_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAuthlistenerSetsharedsecret", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAuthlistenerSetsharedsecret_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAuthlistenerVerifycredentialsresponse", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAuthlistenerVerifycredentialsresponse_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAuthlistenerasyncCreate", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAuthlistenerasyncCreate_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAuthlistenerasyncDestroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAuthlistenerasyncDestroy_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAutopingerAdddestination", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAutopingerAdddestination_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAutopingerAddpinggroup", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAutopingerAddpinggroup_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAutopingerCreate", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAutopingerCreate_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAutopingerDestroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAutopingerDestroy_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAutopingerPause", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAutopingerPause_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAutopingerRemovedestination", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAutopingerRemovedestination_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAutopingerRemovepinggroup", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAutopingerRemovepinggroup_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAutopingerResume", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAutopingerResume_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynAutopingerSetpinginterval", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynAutopingerSetpinginterval_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentAddlogonentry", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentAddlogonentry_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentAddmatch", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentAddmatch_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentAdvertisename", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentAdvertisename_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentBindsessionport", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentBindsessionport_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCanceladvertisename", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCanceladvertisename_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCancelfindadvertisedname", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCancelfindadvertisedname_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCancelfindadvertisednamebytransport", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCancelfindadvertisednamebytransport_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCancelwhoimplementsInterface", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCancelwhoimplementsInterface_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCancelwhoimplementsInterfaces", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCancelwhoimplementsInterfaces_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentClearkeys", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentClearkeys_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentClearkeystore", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentClearkeystore_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentConnect", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentConnect_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCreate", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCreate_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCreateConcurrency", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCreateConcurrency_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCreateinterface", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCreateinterface_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCreateinterfaceSecure", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCreateinterfaceSecure_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCreateinterfacesfromxml", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCreateinterfacesfromxml_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentDeletedefaultkeystore", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentDeletedefaultkeystore_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentDeleteinterface", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentDeleteinterface_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentDestroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentDestroy_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentDisconnect", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentDisconnect_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentEnableconcurrentcallbacks", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentEnableconcurrentcallbacks_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentEnablepeersecurity", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentEnablepeersecurity_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentEnablepeersecuritywithpermissionconfigurationlistener", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentEnablepeersecuritywithpermissionconfigurationlistener_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentFindadvertisedname", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentFindadvertisedname_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentFindadvertisednamebytransport", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentFindadvertisednamebytransport_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetalljoyndebugobj", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetalljoyndebugobj_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetalljoynproxyobj", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetalljoynproxyobj_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetconcurrency", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetconcurrency_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetconnectspec", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetconnectspec_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetdbusproxyobj", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetdbusproxyobj_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetglobalguidstring", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetglobalguidstring_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetinterface", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetinterface_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetinterfaces", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetinterfaces_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetkeyexpiration", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetkeyexpiration_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetpeerguid", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetpeerguid_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetpermissionconfigurator", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetpermissionconfigurator_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGettimestamp", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGettimestamp_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetuniquename", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetuniquename_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentIsconnected", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentIsconnected_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentIspeersecurityenabled", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentIspeersecurityenabled_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentIsstarted", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentIsstarted_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentIsstopping", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentIsstopping_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentJoin", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentJoin_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentJoinsession", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentJoinsession_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentJoinsessionasync", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentJoinsessionasync_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentLeavesession", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentLeavesession_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentNamehasowner", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentNamehasowner_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentPing", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentPing_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRegisteraboutlistener", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRegisteraboutlistener_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRegisterapplicationstatelistener", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRegisterapplicationstatelistener_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRegisterbuslistener", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRegisterbuslistener_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRegisterbusobject", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRegisterbusobject_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRegisterbusobjectSecure", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRegisterbusobjectSecure_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRegisterkeystorelistener", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRegisterkeystorelistener_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentReleasename", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentReleasename_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentReloadkeystore", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentReloadkeystore_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRemovematch", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRemovematch_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRemovesessionmember", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRemovesessionmember_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRequestname", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRequestname_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentSecureconnection", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentSecureconnection_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentSecureconnectionasync", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentSecureconnectionasync_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentSetdaemondebug", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentSetdaemondebug_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentSetkeyexpiration", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentSetkeyexpiration_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentSetlinktimeout", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentSetlinktimeout_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentSetlinktimeoutasync", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentSetlinktimeoutasync_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentSetsessionlistener", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentSetsessionlistener_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentStart", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentStart_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentStop", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentStop_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnbindsessionport", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnbindsessionport_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnregisteraboutlistener", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnregisteraboutlistener_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnregisterallaboutlisteners", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnregisterallaboutlisteners_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnregisterallhandlers", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnregisterallhandlers_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnregisterapplicationstatelistener", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnregisterapplicationstatelistener_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnregisterbuslistener", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnregisterbuslistener_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnregisterbusobject", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnregisterbusobject_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentWhoimplementsInterface", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentWhoimplementsInterface_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentWhoimplementsInterfaces", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentWhoimplementsInterfaces_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBuslistenerCreate", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBuslistenerCreate_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBuslistenerDestroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBuslistenerDestroy_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusobjectAddinterface", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusobjectAddinterface_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusobjectAddinterfaceAnnounced", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusobjectAddinterfaceAnnounced_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusobjectAddmethodhandlers", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusobjectAddmethodhandlers_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusobjectCancelsessionlessmessage", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusobjectCancelsessionlessmessage_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusobjectCancelsessionlessmessageSerial", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusobjectCancelsessionlessmessageSerial_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusobjectCreate", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusobjectCreate_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusobjectDestroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusobjectDestroy_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusobjectEmitpropertieschanged", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusobjectEmitpropertieschanged_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusobjectEmitpropertychanged", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusobjectEmitpropertychanged_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusobjectGetannouncedinterfacenames", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusobjectGetannouncedinterfacenames_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusobjectGetbusattachment", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusobjectGetbusattachment_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusobjectGetname", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusobjectGetname_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusobjectGetpath", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusobjectGetpath_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusobjectIssecure", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusobjectIssecure_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusobjectMethodreplyArgs", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusobjectMethodreplyArgs_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusobjectMethodreplyErr", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusobjectMethodreplyErr_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusobjectMethodreplyStatus", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusobjectMethodreplyStatus_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynBusobjectSetannounceflag", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynBusobjectSetannounceflag_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynCredentialsClear", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynCredentialsClear_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynCredentialsCreate", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynCredentialsCreate_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynCredentialsDestroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynCredentialsDestroy_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynCredentialsGetcertchain", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynCredentialsGetcertchain_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynCredentialsGetexpiration", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynCredentialsGetexpiration_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynCredentialsGetlogonentry", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynCredentialsGetlogonentry_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynCredentialsGetpassword", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynCredentialsGetpassword_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynCredentialsGetprivateKey", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynCredentialsGetprivateKey_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynCredentialsGetusername", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynCredentialsGetusername_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynCredentialsIsset", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynCredentialsIsset_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynCredentialsSetcertchain", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynCredentialsSetcertchain_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynCredentialsSetexpiration", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynCredentialsSetexpiration_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynCredentialsSetlogonentry", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynCredentialsSetlogonentry_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynCredentialsSetpassword", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynCredentialsSetpassword_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynCredentialsSetprivatekey", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynCredentialsSetprivatekey_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynCredentialsSetusername", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynCredentialsSetusername_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynGetbuildinfo", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynGetbuildinfo_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynGetnumericversion", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynGetnumericversion_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynGetversion", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynGetversion_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynInit", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynInit_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionActivate", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionActivate_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddannotation", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddannotation_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddargannotation", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddargannotation_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddmember", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddmember_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddmemberannotation", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddmemberannotation_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddmethod", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddmethod_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddproperty", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddproperty_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddpropertyannotation", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddpropertyannotation_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddsignal", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddsignal_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionEql", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionEql_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetannotation", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetannotation_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetannotationatindex", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetannotationatindex_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetannotationscount", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetannotationscount_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetargdescriptionforlanguage", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetargdescriptionforlanguage_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetdescriptionforlanguage", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetdescriptionforlanguage_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetdescriptionlanguages", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetdescriptionlanguages_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetdescriptionlanguages2", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetdescriptionlanguages2_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetdescriptiontranslationcallback", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetdescriptiontranslationcallback_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetmember", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetmember_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetmemberannotation", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetmemberannotation_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetmemberargannotation", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetmemberargannotation_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetmemberdescriptionforlanguage", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetmemberdescriptionforlanguage_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetmembers", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetmembers_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetmethod", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetmethod_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetname", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetname_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetproperties", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetproperties_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetproperty", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetproperty_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetpropertyannotation", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetpropertyannotation_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetpropertydescriptionforlanguage", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetpropertydescriptionforlanguage_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetsecuritypolicy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetsecuritypolicy_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetsignal", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetsignal_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionHasdescription", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionHasdescription_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionHasmember", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionHasmember_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionHasproperties", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionHasproperties_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionHasproperty", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionHasproperty_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionIntrospect", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionIntrospect_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionIssecure", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionIssecure_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetargdescription", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetargdescription_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetargdescriptionforlanguage", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetargdescriptionforlanguage_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetdescription", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetdescription_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetdescriptionforlanguage", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetdescriptionforlanguage_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetdescriptionlanguage", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetdescriptionlanguage_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetdescriptiontranslationcallback", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetdescriptiontranslationcallback_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetmemberdescription", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetmemberdescription_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetmemberdescriptionforlanguage", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetmemberdescriptionforlanguage_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetpropertydescription", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetpropertydescription_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetpropertydescriptionforlanguage", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetpropertydescriptionforlanguage_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynKeystorelistenerCreate", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynKeystorelistenerCreate_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynKeystorelistenerDestroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynKeystorelistenerDestroy_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynKeystorelistenerGetkeys", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynKeystorelistenerGetkeys_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynKeystorelistenerPutkeys", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynKeystorelistenerPutkeys_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynKeystorelistenerWithSynchronizationCreate", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynKeystorelistenerWithSynchronizationCreate_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMessageCreate", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMessageCreate_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMessageDescription", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMessageDescription_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMessageDestroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMessageDestroy_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMessageEql", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMessageEql_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMessageGetarg", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMessageGetarg_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMessageGetargs", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMessageGetargs_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMessageGetauthmechanism", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMessageGetauthmechanism_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMessageGetcallserial", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMessageGetcallserial_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMessageGetcompressiontoken", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMessageGetcompressiontoken_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMessageGetdestination", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMessageGetdestination_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMessageGeterrorname", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMessageGeterrorname_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMessageGetflags", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMessageGetflags_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMessageGetinterface", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMessageGetinterface_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMessageGetmembername", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMessageGetmembername_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMessageGetobjectpath", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMessageGetobjectpath_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMessageGetreceiveendpointname", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMessageGetreceiveendpointname_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMessageGetreplyserial", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMessageGetreplyserial_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMessageGetsender", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMessageGetsender_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMessageGetsessionid", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMessageGetsessionid_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMessageGetsignature", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMessageGetsignature_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMessageGettimestamp", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMessageGettimestamp_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMessageGettype", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMessageGettype_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMessageIsbroadcastsignal", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMessageIsbroadcastsignal_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMessageIsencrypted", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMessageIsencrypted_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMessageIsexpired", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMessageIsexpired_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMessageIsglobalbroadcast", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMessageIsglobalbroadcast_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMessageIssessionless", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMessageIssessionless_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMessageIsunreliable", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMessageIsunreliable_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMessageParseargs", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMessageParseargs_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMessageSetendianess", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMessageSetendianess_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMessageTostring", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMessageTostring_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargArrayCreate", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargArrayCreate_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargArrayElement", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargArrayElement_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargArrayGet", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargArrayGet_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargArraySet", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargArraySet_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargArraySetOffset", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargArraySetOffset_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargArraySignature", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargArraySignature_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargArrayTostring", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargArrayTostring_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargClear", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargClear_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargClone", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargClone_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargCopy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargCopy_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargCreate", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargCreate_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargCreateAndSet", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargCreateAndSet_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargDestroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargDestroy_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargEqual", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargEqual_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargGet", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargGet_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetArrayElement", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetArrayElement_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetArrayElementsignature", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetArrayElementsignature_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetArrayNumberofelements", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetArrayNumberofelements_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetBool", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetBool_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetBoolArray", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetBoolArray_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetDouble", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetDouble_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetDoubleArray", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetDoubleArray_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetInt16", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetInt16_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetInt16Array", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetInt16Array_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetInt32", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetInt32_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetInt32Array", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetInt32Array_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetInt64", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetInt64_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetInt64Array", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetInt64Array_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetObjectpath", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetObjectpath_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetSignature", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetSignature_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetString", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetString_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint16", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint16_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint16Array", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint16Array_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint32", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint32_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint32Array", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint32Array_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint64", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint64_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint64Array", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint64Array_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint8", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint8_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint8Array", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint8Array_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetVariant", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetVariant_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetVariantArray", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetVariantArray_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetdictelement", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetdictelement_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetkey", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetkey_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetmember", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetmember_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetnummembers", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetnummembers_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargGettype", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargGettype_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetvalue", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetvalue_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargHassignature", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargHassignature_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargSet", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargSet_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetAndStabilize", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetAndStabilize_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetBool", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetBool_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetBoolArray", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetBoolArray_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetDouble", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetDouble_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetDoubleArray", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetDoubleArray_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetInt16", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetInt16_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetInt16Array", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetInt16Array_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetInt32", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetInt32_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetInt32Array", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetInt32Array_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetInt64", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetInt64_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetInt64Array", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetInt64Array_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetObjectpath", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetObjectpath_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetObjectpathArray", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetObjectpathArray_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetSignature", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetSignature_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetSignatureArray", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetSignatureArray_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetString", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetString_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetStringArray", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetStringArray_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint16", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint16_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint16Array", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint16Array_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint32", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint32_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint32Array", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint32Array_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint64", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint64_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint64Array", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint64Array_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint8", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint8_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint8Array", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint8Array_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetdictentry", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetdictentry_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetstruct", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetstruct_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargSignature", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargSignature_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargStabilize", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargStabilize_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynMsgargTostring", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynMsgargTostring_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynObserverCreate", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynObserverCreate_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynObserverDestroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynObserverDestroy_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynObserverGet", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynObserverGet_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynObserverGetfirst", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynObserverGetfirst_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynObserverGetnext", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynObserverGetnext_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynObserverRegisterlistener", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynObserverRegisterlistener_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynObserverUnregisteralllisteners", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynObserverUnregisteralllisteners_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynObserverUnregisterlistener", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynObserverUnregisterlistener_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynObserverlistenerCreate", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynObserverlistenerCreate_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynObserverlistenerDestroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynObserverlistenerDestroy_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynPasswordmanagerSetcredentials", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynPasswordmanagerSetcredentials_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfigurationlistenerCreate", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfigurationlistenerCreate_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfigurationlistenerDestroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfigurationlistenerDestroy_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorCertificatechainDestroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorCertificatechainDestroy_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorCertificateidCleanup", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorCertificateidCleanup_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorCertificateidarrayCleanup", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorCertificateidarrayCleanup_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorClaim", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorClaim_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorEndmanagement", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorEndmanagement_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetapplicationstate", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetapplicationstate_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetclaimcapabilities", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetclaimcapabilities_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetclaimcapabilitiesadditionalinfo", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetclaimcapabilitiesadditionalinfo_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetdefaultclaimcapabilities", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetdefaultclaimcapabilities_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetdefaultpolicy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetdefaultpolicy_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetidentity", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetidentity_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetidentitycertificateid", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetidentitycertificateid_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetmanifests", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetmanifests_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetmanifesttemplate", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetmanifesttemplate_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetmembershipsummaries", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetmembershipsummaries_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetpolicy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetpolicy_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetpublickey", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetpublickey_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorInstallmanifests", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorInstallmanifests_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorInstallmembership", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorInstallmembership_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorManifestarrayCleanup", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorManifestarrayCleanup_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorManifesttemplateDestroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorManifesttemplateDestroy_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorPolicyDestroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorPolicyDestroy_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorPublickeyDestroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorPublickeyDestroy_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorRemovemembership", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorRemovemembership_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorReset", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorReset_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorResetpolicy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorResetpolicy_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorSetapplicationstate", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorSetapplicationstate_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorSetclaimcapabilities", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorSetclaimcapabilities_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorSetclaimcapabilitiesadditionalinfo", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorSetclaimcapabilitiesadditionalinfo_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorSetmanifesttemplatefromxml", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorSetmanifesttemplatefromxml_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorStartmanagement", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorStartmanagement_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorUpdateidentity", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorUpdateidentity_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorUpdatepolicy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorUpdatepolicy_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynPinglistenerCreate", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynPinglistenerCreate_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynPinglistenerDestroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynPinglistenerDestroy_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectAddchild", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectAddchild_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectAddinterface", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectAddinterface_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectAddinterfaceByName", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectAddinterfaceByName_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectCopy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectCopy_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectCreate", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectCreate_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectCreateSecure", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectCreateSecure_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectDestroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectDestroy_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectEnablepropertycaching", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectEnablepropertycaching_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetallproperties", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetallproperties_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetallpropertiesasync", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetallpropertiesasync_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetchild", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetchild_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetchildren", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetchildren_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetinterface", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetinterface_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetinterfaces", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetinterfaces_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetpath", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetpath_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetproperty", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetproperty_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetpropertyasync", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetpropertyasync_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetservicename", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetservicename_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetsessionid", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetsessionid_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetuniquename", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetuniquename_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectImplementsinterface", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectImplementsinterface_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectIntrospectremoteobject", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectIntrospectremoteobject_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectIntrospectremoteobjectasync", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectIntrospectremoteobjectasync_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectIssecure", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectIssecure_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectIsvalid", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectIsvalid_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectMethodcall", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectMethodcall_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectMethodcallNoreply", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectMethodcallNoreply_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectMethodcallasync", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectMethodcallasync_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectParsexml", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectParsexml_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectRefCreate", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectRefCreate_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectRefDecref", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectRefDecref_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectRefGet", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectRefGet_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectRefIncref", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectRefIncref_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectRegisterpropertieschangedlistener", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectRegisterpropertieschangedlistener_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectRemovechild", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectRemovechild_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectSecureconnection", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectSecureconnection_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectSecureconnectionasync", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectSecureconnectionasync_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectSetproperty", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectSetproperty_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectSetpropertyasync", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectSetpropertyasync_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectUnregisterpropertieschangedlistener", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectUnregisterpropertieschangedlistener_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynRouterinit", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynRouterinit_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynRouterinitwithconfig", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynRouterinitwithconfig_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynRoutershutdown", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynRoutershutdown_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyClaim", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyClaim_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyComputemanifestdigest", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyComputemanifestdigest_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyCreate", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyCreate_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyDestroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyDestroy_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyDigestDestroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyDigestDestroy_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyEccpublickeyDestroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyEccpublickeyDestroy_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyEndmanagement", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyEndmanagement_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGetapplicationstate", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGetapplicationstate_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGetclaimcapabilities", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGetclaimcapabilities_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGetclaimcapabilitiesadditionalinfo", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGetclaimcapabilitiesadditionalinfo_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGetdefaultpolicy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGetdefaultpolicy_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGeteccpublickey", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGeteccpublickey_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGetmanifesttemplate", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGetmanifesttemplate_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGetpermissionmanagementsessionport", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGetpermissionmanagementsessionport_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGetpolicy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGetpolicy_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyInstallmembership", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyInstallmembership_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyManifestDestroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyManifestDestroy_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyManifesttemplateDestroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyManifesttemplateDestroy_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyPolicyDestroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyPolicyDestroy_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyReset", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyReset_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyResetpolicy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyResetpolicy_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxySetmanifestsignature", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxySetmanifestsignature_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxySignmanifest", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxySignmanifest_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyStartmanagement", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyStartmanagement_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyUpdateidentity", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyUpdateidentity_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyUpdatepolicy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyUpdatepolicy_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynSessionlistenerCreate", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynSessionlistenerCreate_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynSessionlistenerDestroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynSessionlistenerDestroy_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsCmp", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsCmp_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsCreate", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsCreate_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsDestroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsDestroy_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsGetMultipoint", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsGetMultipoint_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsGetProximity", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsGetProximity_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsGetTraffic", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsGetTraffic_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsGetTransports", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsGetTransports_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsIscompatible", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsIscompatible_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsSetMultipoint", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsSetMultipoint_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsSetProximity", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsSetProximity_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsSetTraffic", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsSetTraffic_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsSetTransports", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsSetTransports_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynSessionportlistenerCreate", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynSessionportlistenerCreate_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynSessionportlistenerDestroy", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynSessionportlistenerDestroy_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynShutdown", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynShutdown_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynUnityDeferredCallbacksProcess", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynUnityDeferredCallbacksProcess_napi));
+    exports.Set("windowssys_windows_win32_devices_alljoyn_alljoynUnitySetDeferredCallbackMainthreadOnly", Napi::Function::New(env, windowssys_windows_win32_devices_alljoyn_alljoynUnitySetDeferredCallbackMainthreadOnly_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_devices_alljoyn_napi, nullptr };

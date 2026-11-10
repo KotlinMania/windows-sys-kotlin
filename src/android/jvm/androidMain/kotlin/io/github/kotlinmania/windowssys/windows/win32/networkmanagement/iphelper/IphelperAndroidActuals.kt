@@ -2,17 +2,18 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.WIN32_ERROR
-import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.ADDRESS_FAMILY
-import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.ndis.NET_IF_COMPARTMENT_ID
-import io.github.kotlinmania.windowssys.windows.win32.system.io.PIO_APC_ROUTINE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Win32Error
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.AddressFamily
+import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.ndis.NetIfCompartmentId
+import io.github.kotlinmania.windowssys.windows.win32.system.io.PioApcRoutine
 
 private object WindowsWin32NetworkmanagementIphelperJniBridge {
     init {
@@ -20,1202 +21,1211 @@ private object WindowsWin32NetworkmanagementIphelperJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_AddIPAddress(address: Int, ipmask: Int, ifindex: Int, ntecontext: Long, nteinstance: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_addIPAddress(address: Int, ipmask: Int, ifindex: Int, ntecontext: Long, nteinstance: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_CancelIPChangeNotify(notifyoverlapped: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_cancelIPChangeNotify(notifyoverlapped: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_CancelIfTimestampConfigChange(notificationhandle: Long)
+    external fun windowssys_windows_win32_networkmanagement_iphelper_cancelIfTimestampConfigChange(notificationhandle: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_CancelMibChangeNotify2(notificationhandle: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_cancelMibChangeNotify2(notificationhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_CaptureInterfaceHardwareCrossTimestamp(interfaceluid: Long, crosstimestamp: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_captureInterfaceHardwareCrossTimestamp(interfaceluid: Long, crosstimestamp: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_ConvertCompartmentGuidToId(compartmentguid: Long, compartmentid: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_convertCompartmentGuidToId(compartmentguid: Long, compartmentid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_ConvertCompartmentIdToGuid(compartmentid: Int, compartmentguid: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_convertCompartmentIdToGuid(compartmentid: Int, compartmentguid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_ConvertInterfaceAliasToLuid(interfacealias: Long, interfaceluid: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceAliasToLuid(interfacealias: Long, interfaceluid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_ConvertInterfaceGuidToLuid(interfaceguid: Long, interfaceluid: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceGuidToLuid(interfaceguid: Long, interfaceluid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_ConvertInterfaceIndexToLuid(interfaceindex: Int, interfaceluid: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceIndexToLuid(interfaceindex: Int, interfaceluid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_ConvertInterfaceLuidToAlias(interfaceluid: Long, interfacealias: Long, length: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceLuidToAlias(interfaceluid: Long, interfacealias: Long, length: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_ConvertInterfaceLuidToGuid(interfaceluid: Long, interfaceguid: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceLuidToGuid(interfaceluid: Long, interfaceguid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_ConvertInterfaceLuidToIndex(interfaceluid: Long, interfaceindex: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceLuidToIndex(interfaceluid: Long, interfaceindex: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_ConvertInterfaceLuidToNameA(interfaceluid: Long, interfacename: Long, length: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceLuidToNameA(interfaceluid: Long, interfacename: Long, length: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_ConvertInterfaceLuidToNameW(interfaceluid: Long, interfacename: Long, length: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceLuidToNameW(interfaceluid: Long, interfacename: Long, length: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_ConvertInterfaceNameToLuidA(interfacename: Long, interfaceluid: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceNameToLuidA(interfacename: Long, interfaceluid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_ConvertInterfaceNameToLuidW(interfacename: Long, interfaceluid: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceNameToLuidW(interfacename: Long, interfaceluid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_ConvertIpv4MaskToLength(mask: Int, masklength: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_convertIpv4MaskToLength(mask: Int, masklength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_ConvertLengthToIpv4Mask(masklength: Int, mask: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_convertLengthToIpv4Mask(masklength: Int, mask: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_CreateAnycastIpAddressEntry(row: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_createAnycastIpAddressEntry(row: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_CreateIpForwardEntry(proute: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_createIpForwardEntry(proute: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_CreateIpForwardEntry2(row: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_createIpForwardEntry2(row: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_CreateIpNetEntry(parpentry: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_createIpNetEntry(parpentry: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_CreateIpNetEntry2(row: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_createIpNetEntry2(row: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_CreatePersistentTcpPortReservation(startport: Short, numberofports: Short, token: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_createPersistentTcpPortReservation(startport: Short, numberofports: Short, token: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_CreatePersistentUdpPortReservation(startport: Short, numberofports: Short, token: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_createPersistentUdpPortReservation(startport: Short, numberofports: Short, token: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_CreateProxyArpEntry(dwaddress: Int, dwmask: Int, dwifindex: Int): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_createProxyArpEntry(dwaddress: Int, dwmask: Int, dwifindex: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_CreateSortedAddressPairs(sourceaddresslist: Long, sourceaddresscount: Int, destinationaddresslist: Long, destinationaddresscount: Int, addresssortoptions: Int, sortedaddresspairlist: Long, sortedaddresspaircount: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_createSortedAddressPairs(sourceaddresslist: Long, sourceaddresscount: Int, destinationaddresslist: Long, destinationaddresscount: Int, addresssortoptions: Int, sortedaddresspairlist: Long, sortedaddresspaircount: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_CreateUnicastIpAddressEntry(row: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_createUnicastIpAddressEntry(row: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_DeleteAnycastIpAddressEntry(row: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_deleteAnycastIpAddressEntry(row: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_DeleteIPAddress(ntecontext: Int): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_deleteIPAddress(ntecontext: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_DeleteIpForwardEntry(proute: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_deleteIpForwardEntry(proute: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_DeleteIpForwardEntry2(row: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_deleteIpForwardEntry2(row: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_DeleteIpNetEntry(parpentry: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_deleteIpNetEntry(parpentry: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_DeleteIpNetEntry2(row: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_deleteIpNetEntry2(row: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_DeletePersistentTcpPortReservation(startport: Short, numberofports: Short): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_deletePersistentTcpPortReservation(startport: Short, numberofports: Short): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_DeletePersistentUdpPortReservation(startport: Short, numberofports: Short): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_deletePersistentUdpPortReservation(startport: Short, numberofports: Short): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_DeleteProxyArpEntry(dwaddress: Int, dwmask: Int, dwifindex: Int): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_deleteProxyArpEntry(dwaddress: Int, dwmask: Int, dwifindex: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_DeleteUnicastIpAddressEntry(row: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_deleteUnicastIpAddressEntry(row: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_DisableMediaSense(phandle: Long, poverlapped: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_disableMediaSense(phandle: Long, poverlapped: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_EnableRouter(phandle: Long, poverlapped: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_enableRouter(phandle: Long, poverlapped: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_FlushIpNetTable(dwifindex: Int): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_flushIpNetTable(dwifindex: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_FlushIpNetTable2(family: Short, interfaceindex: Int): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_flushIpNetTable2(family: Short, interfaceindex: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_FlushIpPathTable(family: Short): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_flushIpPathTable(family: Short): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_FreeDnsSettings(settings: Long)
+    external fun windowssys_windows_win32_networkmanagement_iphelper_freeDnsSettings(settings: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_FreeInterfaceDnsSettings(settings: Long)
+    external fun windowssys_windows_win32_networkmanagement_iphelper_freeInterfaceDnsSettings(settings: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_FreeMibTable(memory: Long)
+    external fun windowssys_windows_win32_networkmanagement_iphelper_freeMibTable(memory: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetAdapterIndex(adaptername: Long, ifindex: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getAdapterIndex(adaptername: Long, ifindex: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetAdapterOrderMap(): Long
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getAdapterOrderMap(): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetAdaptersAddresses(family: Int, flags: Int, reserved: Long, adapteraddresses: Long, sizepointer: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getAdaptersAddresses(family: Int, flags: Int, reserved: Long, adapteraddresses: Long, sizepointer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetAdaptersInfo(adapterinfo: Long, sizepointer: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getAdaptersInfo(adapterinfo: Long, sizepointer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetAnycastIpAddressEntry(row: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getAnycastIpAddressEntry(row: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetAnycastIpAddressTable(family: Short, table: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getAnycastIpAddressTable(family: Short, table: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetBestInterface(dwdestaddr: Int, pdwbestifindex: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getBestInterface(dwdestaddr: Int, pdwbestifindex: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetBestInterfaceEx(pdestaddr: Long, pdwbestifindex: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getBestInterfaceEx(pdestaddr: Long, pdwbestifindex: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetBestRoute(dwdestaddr: Int, dwsourceaddr: Int, pbestroute: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getBestRoute(dwdestaddr: Int, dwsourceaddr: Int, pbestroute: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetBestRoute2(interfaceluid: Long, interfaceindex: Int, sourceaddress: Long, destinationaddress: Long, addresssortoptions: Int, bestroute: Long, bestsourceaddress: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getBestRoute2(interfaceluid: Long, interfaceindex: Int, sourceaddress: Long, destinationaddress: Long, addresssortoptions: Int, bestroute: Long, bestsourceaddress: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetCurrentThreadCompartmentId(): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getCurrentThreadCompartmentId(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetCurrentThreadCompartmentScope(compartmentscope: Long, compartmentid: Long)
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getCurrentThreadCompartmentScope(compartmentscope: Long, compartmentid: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetDefaultCompartmentId(): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getDefaultCompartmentId(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetDnsSettings(settings: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getDnsSettings(settings: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetExtendedTcpTable(ptcptable: Long, pdwsize: Long, border: Int, ulaf: Int, tableclass: Int, reserved: Int): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getExtendedTcpTable(ptcptable: Long, pdwsize: Long, border: Int, ulaf: Int, tableclass: Int, reserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetExtendedUdpTable(pudptable: Long, pdwsize: Long, border: Int, ulaf: Int, tableclass: Int, reserved: Int): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getExtendedUdpTable(pudptable: Long, pdwsize: Long, border: Int, ulaf: Int, tableclass: Int, reserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetFriendlyIfIndex(ifindex: Int): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getFriendlyIfIndex(ifindex: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetIcmpStatistics(statistics: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getIcmpStatistics(statistics: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetIcmpStatisticsEx(statistics: Long, family: Int): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getIcmpStatisticsEx(statistics: Long, family: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetIfEntry(pifrow: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getIfEntry(pifrow: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetIfEntry2(row: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getIfEntry2(row: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetIfEntry2Ex(level: Int, row: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getIfEntry2Ex(level: Int, row: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetIfStackTable(table: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getIfStackTable(table: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetIfTable(piftable: Long, pdwsize: Long, border: Int): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getIfTable(piftable: Long, pdwsize: Long, border: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetIfTable2(table: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getIfTable2(table: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetIfTable2Ex(level: Int, table: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getIfTable2Ex(level: Int, table: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetInterfaceActiveTimestampCapabilities(interfaceluid: Long, timestampcapabilites: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getInterfaceActiveTimestampCapabilities(interfaceluid: Long, timestampcapabilites: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetInterfaceCurrentTimestampCapabilities(interfaceluid: Long, timestampcapabilites: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getInterfaceCurrentTimestampCapabilities(interfaceluid: Long, timestampcapabilites: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetInterfaceHardwareTimestampCapabilities(interfaceluid: Long, timestampcapabilites: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getInterfaceHardwareTimestampCapabilities(interfaceluid: Long, timestampcapabilites: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetInterfaceInfo(piftable: Long, dwoutbuflen: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getInterfaceInfo(piftable: Long, dwoutbuflen: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetInterfaceSupportedTimestampCapabilities(interfaceluid: Long, timestampcapabilites: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getInterfaceSupportedTimestampCapabilities(interfaceluid: Long, timestampcapabilites: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetInvertedIfStackTable(table: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getInvertedIfStackTable(table: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetIpAddrTable(pipaddrtable: Long, pdwsize: Long, border: Int): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getIpAddrTable(pipaddrtable: Long, pdwsize: Long, border: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetIpErrorString(errorcode: Int, buffer: Long, size: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getIpErrorString(errorcode: Int, buffer: Long, size: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetIpForwardEntry2(row: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getIpForwardEntry2(row: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetIpForwardTable(pipforwardtable: Long, pdwsize: Long, border: Int): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getIpForwardTable(pipforwardtable: Long, pdwsize: Long, border: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetIpForwardTable2(family: Short, table: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getIpForwardTable2(family: Short, table: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetIpInterfaceEntry(row: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getIpInterfaceEntry(row: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetIpInterfaceTable(family: Short, table: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getIpInterfaceTable(family: Short, table: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetIpNetEntry2(row: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getIpNetEntry2(row: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetIpNetTable(ipnettable: Long, sizepointer: Long, order: Int): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getIpNetTable(ipnettable: Long, sizepointer: Long, order: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetIpNetTable2(family: Short, table: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getIpNetTable2(family: Short, table: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetIpNetworkConnectionBandwidthEstimates(interfaceindex: Int, addressfamily: Short, bandwidthestimates: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getIpNetworkConnectionBandwidthEstimates(interfaceindex: Int, addressfamily: Short, bandwidthestimates: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetIpPathEntry(row: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getIpPathEntry(row: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetIpPathTable(family: Short, table: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getIpPathTable(family: Short, table: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetIpStatistics(statistics: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getIpStatistics(statistics: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetIpStatisticsEx(statistics: Long, family: Int): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getIpStatisticsEx(statistics: Long, family: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetJobCompartmentId(jobhandle: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getJobCompartmentId(jobhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetMulticastIpAddressEntry(row: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getMulticastIpAddressEntry(row: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetMulticastIpAddressTable(family: Short, table: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getMulticastIpAddressTable(family: Short, table: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetNetworkConnectivityHint(connectivityhint: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getNetworkConnectivityHint(connectivityhint: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetNetworkConnectivityHintForInterface(interfaceindex: Int, connectivityhint: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getNetworkConnectivityHintForInterface(interfaceindex: Int, connectivityhint: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetNetworkInformation(networkguid: Long, compartmentid: Long, siteid: Long, networkname: Long, length: Int): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getNetworkInformation(networkguid: Long, compartmentid: Long, siteid: Long, networkname: Long, length: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetNetworkParams(pfixedinfo: Long, poutbuflen: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getNetworkParams(pfixedinfo: Long, poutbuflen: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetNumberOfInterfaces(pdwnumif: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getNumberOfInterfaces(pdwnumif: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetOwnerModuleFromPidAndInfo(ulpid: Int, pinfo: Long, cls: Int, pbuffer: Long, pdwsize: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getOwnerModuleFromPidAndInfo(ulpid: Int, pinfo: Long, cls: Int, pbuffer: Long, pdwsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetOwnerModuleFromTcp6Entry(ptcpentry: Long, cls: Int, pbuffer: Long, pdwsize: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getOwnerModuleFromTcp6Entry(ptcpentry: Long, cls: Int, pbuffer: Long, pdwsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetOwnerModuleFromTcpEntry(ptcpentry: Long, cls: Int, pbuffer: Long, pdwsize: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getOwnerModuleFromTcpEntry(ptcpentry: Long, cls: Int, pbuffer: Long, pdwsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetOwnerModuleFromUdp6Entry(pudpentry: Long, cls: Int, pbuffer: Long, pdwsize: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getOwnerModuleFromUdp6Entry(pudpentry: Long, cls: Int, pbuffer: Long, pdwsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetOwnerModuleFromUdpEntry(pudpentry: Long, cls: Int, pbuffer: Long, pdwsize: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getOwnerModuleFromUdpEntry(pudpentry: Long, cls: Int, pbuffer: Long, pdwsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetPerAdapterInfo(ifindex: Int, pperadapterinfo: Long, poutbuflen: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getPerAdapterInfo(ifindex: Int, pperadapterinfo: Long, poutbuflen: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetPerTcp6ConnectionEStats(row: Long, estatstype: Int, rw: Long, rwversion: Int, rwsize: Int, ros: Long, rosversion: Int, rossize: Int, rod: Long, rodversion: Int, rodsize: Int): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getPerTcp6ConnectionEStats(row: Long, estatstype: Int, rw: Long, rwversion: Int, rwsize: Int, ros: Long, rosversion: Int, rossize: Int, rod: Long, rodversion: Int, rodsize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetPerTcpConnectionEStats(row: Long, estatstype: Int, rw: Long, rwversion: Int, rwsize: Int, ros: Long, rosversion: Int, rossize: Int, rod: Long, rodversion: Int, rodsize: Int): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getPerTcpConnectionEStats(row: Long, estatstype: Int, rw: Long, rwversion: Int, rwsize: Int, ros: Long, rosversion: Int, rossize: Int, rod: Long, rodversion: Int, rodsize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetRTTAndHopCount(destipaddress: Int, hopcount: Long, maxhops: Int, rtt: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getRTTAndHopCount(destipaddress: Int, hopcount: Long, maxhops: Int, rtt: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetSessionCompartmentId(sessionid: Int): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getSessionCompartmentId(sessionid: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetTcp6Table(tcptable: Long, sizepointer: Long, order: Int): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getTcp6Table(tcptable: Long, sizepointer: Long, order: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetTcp6Table2(tcptable: Long, sizepointer: Long, order: Int): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getTcp6Table2(tcptable: Long, sizepointer: Long, order: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetTcpStatistics(statistics: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getTcpStatistics(statistics: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetTcpStatisticsEx(statistics: Long, family: Int): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getTcpStatisticsEx(statistics: Long, family: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetTcpStatisticsEx2(statistics: Long, family: Int): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getTcpStatisticsEx2(statistics: Long, family: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetTcpTable(tcptable: Long, sizepointer: Long, order: Int): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getTcpTable(tcptable: Long, sizepointer: Long, order: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetTcpTable2(tcptable: Long, sizepointer: Long, order: Int): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getTcpTable2(tcptable: Long, sizepointer: Long, order: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetTeredoPort(port: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getTeredoPort(port: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetUdp6Table(udp6table: Long, sizepointer: Long, order: Int): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getUdp6Table(udp6table: Long, sizepointer: Long, order: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetUdpStatistics(stats: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getUdpStatistics(stats: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetUdpStatisticsEx(statistics: Long, family: Int): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getUdpStatisticsEx(statistics: Long, family: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetUdpStatisticsEx2(statistics: Long, family: Int): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getUdpStatisticsEx2(statistics: Long, family: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetUdpTable(udptable: Long, sizepointer: Long, order: Int): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getUdpTable(udptable: Long, sizepointer: Long, order: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetUniDirectionalAdapterInfo(pipifinfo: Long, dwoutbuflen: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getUniDirectionalAdapterInfo(pipifinfo: Long, dwoutbuflen: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetUnicastIpAddressEntry(row: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getUnicastIpAddressEntry(row: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_GetUnicastIpAddressTable(family: Short, table: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_getUnicastIpAddressTable(family: Short, table: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_Icmp6CreateFile(): Long
+    external fun windowssys_windows_win32_networkmanagement_iphelper_icmp6CreateFile(): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_Icmp6ParseReplies(replybuffer: Long, replysize: Int): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_icmp6ParseReplies(replybuffer: Long, replysize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_IcmpCloseHandle(icmphandle: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_icmp6SendEcho2(icmphandle: Long, event: Long, apcroutine: Long, apccontext: Long, sourceaddress: Long, destinationaddress: Long, requestdata: Long, requestsize: Short, requestoptions: Long, replybuffer: Long, replysize: Int, timeout: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_IcmpCreateFile(): Long
+    external fun windowssys_windows_win32_networkmanagement_iphelper_icmpCloseHandle(icmphandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_IcmpParseReplies(replybuffer: Long, replysize: Int): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_icmpCreateFile(): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_IcmpSendEcho(icmphandle: Long, destinationaddress: Int, requestdata: Long, requestsize: Short, requestoptions: Long, replybuffer: Long, replysize: Int, timeout: Int): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_icmpParseReplies(replybuffer: Long, replysize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_InitializeIpForwardEntry(row: Long)
+    external fun windowssys_windows_win32_networkmanagement_iphelper_icmpSendEcho(icmphandle: Long, destinationaddress: Int, requestdata: Long, requestsize: Short, requestoptions: Long, replybuffer: Long, replysize: Int, timeout: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_InitializeIpInterfaceEntry(row: Long)
+    external fun windowssys_windows_win32_networkmanagement_iphelper_icmpSendEcho2(icmphandle: Long, event: Long, apcroutine: Long, apccontext: Long, destinationaddress: Int, requestdata: Long, requestsize: Short, requestoptions: Long, replybuffer: Long, replysize: Int, timeout: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_InitializeUnicastIpAddressEntry(row: Long)
+    external fun windowssys_windows_win32_networkmanagement_iphelper_icmpSendEcho2Ex(icmphandle: Long, event: Long, apcroutine: Long, apccontext: Long, sourceaddress: Int, destinationaddress: Int, requestdata: Long, requestsize: Short, requestoptions: Long, replybuffer: Long, replysize: Int, timeout: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_IpReleaseAddress(adapterinfo: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_initializeIpForwardEntry(row: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_IpRenewAddress(adapterinfo: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_initializeIpInterfaceEntry(row: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_LookupPersistentTcpPortReservation(startport: Short, numberofports: Short, token: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_initializeUnicastIpAddressEntry(row: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_LookupPersistentUdpPortReservation(startport: Short, numberofports: Short, token: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_ipReleaseAddress(adapterinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_NhpAllocateAndGetInterfaceInfoFromStack(pptable: Long, pdwcount: Long, border: Int, hheap: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_ipRenewAddress(adapterinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_NotifyAddrChange(handle: Long, overlapped: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_lookupPersistentTcpPortReservation(startport: Short, numberofports: Short, token: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_NotifyIfTimestampConfigChange(callercontext: Long, callback: Long, notificationhandle: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_lookupPersistentUdpPortReservation(startport: Short, numberofports: Short, token: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_NotifyIpInterfaceChange(family: Short, callback: Long, callercontext: Long, initialnotification: Boolean, notificationhandle: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_nhpAllocateAndGetInterfaceInfoFromStack(pptable: Long, pdwcount: Long, border: Int, hheap: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_NotifyNetworkConnectivityHintChange(callback: Long, callercontext: Long, initialnotification: Boolean, notificationhandle: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_notifyAddrChange(handle: Long, overlapped: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_NotifyRouteChange(handle: Long, overlapped: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_notifyIfTimestampConfigChange(callercontext: Long, callback: Long, notificationhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_NotifyRouteChange2(addressfamily: Short, callback: Long, callercontext: Long, initialnotification: Boolean, notificationhandle: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_notifyIpInterfaceChange(family: Short, callback: Long, callercontext: Long, initialnotification: Boolean, notificationhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_NotifyStableUnicastIpAddressTable(family: Short, table: Long, callercallback: Long, callercontext: Long, notificationhandle: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_notifyNetworkConnectivityHintChange(callback: Long, callercontext: Long, initialnotification: Boolean, notificationhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_NotifyTeredoPortChange(callback: Long, callercontext: Long, initialnotification: Boolean, notificationhandle: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_notifyRouteChange(handle: Long, overlapped: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_NotifyUnicastIpAddressChange(family: Short, callback: Long, callercontext: Long, initialnotification: Boolean, notificationhandle: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_notifyRouteChange2(addressfamily: Short, callback: Long, callercontext: Long, initialnotification: Boolean, notificationhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_ParseNetworkString(networkstring: Long, types: Int, addressinfo: Long, portnumber: Long, prefixlength: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_notifyStableUnicastIpAddressTable(family: Short, table: Long, callercallback: Long, callercontext: Long, notificationhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_PfAddFiltersToInterface(ih: Long, cinfilters: Int, pfiltin: Long, coutfilters: Int, pfiltout: Long, pfhandle: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_notifyTeredoPortChange(callback: Long, callercontext: Long, initialnotification: Boolean, notificationhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_PfAddGlobalFilterToInterface(pinterface: Long, gffilter: Int): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_notifyUnicastIpAddressChange(family: Short, callback: Long, callercontext: Long, initialnotification: Boolean, notificationhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_PfBindInterfaceToIPAddress(pinterface: Long, pfattype: Int, ipaddress: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_parseNetworkString(networkstring: Long, types: Int, addressinfo: Long, portnumber: Long, prefixlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_PfBindInterfaceToIndex(pinterface: Long, dwindex: Int, pfatlinktype: Int, linkipaddress: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_pfAddFiltersToInterface(ih: Long, cinfilters: Int, pfiltin: Long, coutfilters: Int, pfiltout: Long, pfhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_PfCreateInterface(dwname: Int, inaction: Int, outaction: Int, buselog: Int, bmustbeunique: Int, ppinterface: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_pfAddGlobalFilterToInterface(pinterface: Long, gffilter: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_PfDeleteInterface(pinterface: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_pfBindInterfaceToIPAddress(pinterface: Long, pfattype: Int, ipaddress: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_PfDeleteLog(): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_pfBindInterfaceToIndex(pinterface: Long, dwindex: Int, pfatlinktype: Int, linkipaddress: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_PfGetInterfaceStatistics(pinterface: Long, ppfstats: Long, pdwbuffersize: Long, fresetcounters: Int): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_pfCreateInterface(dwname: Int, inaction: Int, outaction: Int, buselog: Int, bmustbeunique: Int, ppinterface: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_PfMakeLog(hevent: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_pfDeleteInterface(pinterface: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_PfRebindFilters(pinterface: Long, platebindinfo: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_pfDeleteLog(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_PfRemoveFilterHandles(pinterface: Long, cfilters: Int, pvhandles: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_pfGetInterfaceStatistics(pinterface: Long, ppfstats: Long, pdwbuffersize: Long, fresetcounters: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_PfRemoveFiltersFromInterface(ih: Long, cinfilters: Int, pfiltin: Long, coutfilters: Int, pfiltout: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_pfMakeLog(hevent: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_PfRemoveGlobalFilterFromInterface(pinterface: Long, gffilter: Int): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_pfRebindFilters(pinterface: Long, platebindinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_PfSetLogBuffer(pbbuffer: Long, dwsize: Int, dwthreshold: Int, dwentries: Int, pdwloggedentries: Long, pdwlostentries: Long, pdwsizeused: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_pfRemoveFilterHandles(pinterface: Long, cfilters: Int, pvhandles: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_PfTestPacket(pininterface: Long, poutinterface: Long, cbytes: Int, pbpacket: Long, ppaction: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_pfRemoveFiltersFromInterface(ih: Long, cinfilters: Int, pfiltin: Long, coutfilters: Int, pfiltout: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_PfUnBindInterface(pinterface: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_pfRemoveGlobalFilterFromInterface(pinterface: Long, gffilter: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_RegisterInterfaceTimestampConfigChange(callback: Long, callercontext: Long, notificationhandle: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_pfSetLogBuffer(pbbuffer: Long, dwsize: Int, dwthreshold: Int, dwentries: Int, pdwloggedentries: Long, pdwlostentries: Long, pdwsizeused: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_ResolveIpNetEntry2(row: Long, sourceaddress: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_pfTestPacket(pininterface: Long, poutinterface: Long, cbytes: Int, pbpacket: Long, ppaction: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_ResolveNeighbor(networkaddress: Long, physicaladdress: Long, physicaladdresslength: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_pfUnBindInterface(pinterface: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_RestoreMediaSense(poverlapped: Long, lpdwenablecount: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_registerInterfaceTimestampConfigChange(callback: Long, callercontext: Long, notificationhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_SendARP(destip: Int, srcip: Int, pmacaddr: Long, phyaddrlen: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_resolveIpNetEntry2(row: Long, sourceaddress: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_SetCurrentThreadCompartmentId(compartmentid: Int): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_resolveNeighbor(networkaddress: Long, physicaladdress: Long, physicaladdresslength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_SetCurrentThreadCompartmentScope(compartmentscope: Int): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_restoreMediaSense(poverlapped: Long, lpdwenablecount: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_SetDnsSettings(settings: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_sendARP(destip: Int, srcip: Int, pmacaddr: Long, phyaddrlen: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_SetIfEntry(pifrow: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_setCurrentThreadCompartmentId(compartmentid: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_SetIpForwardEntry(proute: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_setCurrentThreadCompartmentScope(compartmentscope: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_SetIpForwardEntry2(route: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_setDnsSettings(settings: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_SetIpInterfaceEntry(row: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_setIfEntry(pifrow: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_SetIpNetEntry(parpentry: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_setIpForwardEntry(proute: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_SetIpNetEntry2(row: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_setIpForwardEntry2(route: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_SetIpStatistics(pipstats: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_setIpInterfaceEntry(row: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_SetIpStatisticsEx(statistics: Long, family: Int): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_setIpNetEntry(parpentry: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_SetIpTTL(nttl: Int): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_setIpNetEntry2(row: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_SetJobCompartmentId(jobhandle: Long, compartmentid: Int): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_setIpStatistics(pipstats: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_SetNetworkInformation(networkguid: Long, compartmentid: Int, networkname: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_setIpStatisticsEx(statistics: Long, family: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_SetPerTcp6ConnectionEStats(row: Long, estatstype: Int, rw: Long, rwversion: Int, rwsize: Int, offset: Int): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_setIpTTL(nttl: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_SetPerTcpConnectionEStats(row: Long, estatstype: Int, rw: Long, rwversion: Int, rwsize: Int, offset: Int): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_setJobCompartmentId(jobhandle: Long, compartmentid: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_SetSessionCompartmentId(sessionid: Int, compartmentid: Int): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_setNetworkInformation(networkguid: Long, compartmentid: Int, networkname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_SetTcpEntry(ptcprow: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_setPerTcp6ConnectionEStats(row: Long, estatstype: Int, rw: Long, rwversion: Int, rwsize: Int, offset: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_SetUnicastIpAddressEntry(row: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_setPerTcpConnectionEStats(row: Long, estatstype: Int, rw: Long, rwversion: Int, rwsize: Int, offset: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_UnenableRouter(poverlapped: Long, lpdwenablecount: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_setSessionCompartmentId(sessionid: Int, compartmentid: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_UnregisterInterfaceTimestampConfigChange(notificationhandle: Long)
+    external fun windowssys_windows_win32_networkmanagement_iphelper_setTcpEntry(ptcprow: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_if_indextoname(interfaceindex: Int, interfacename: Long): Long
+    external fun windowssys_windows_win32_networkmanagement_iphelper_setUnicastIpAddressEntry(row: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_iphelper_if_nametoindex(interfacename: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_iphelper_unenableRouter(poverlapped: Long, lpdwenablecount: Long): Int
+
+    @JvmStatic
+    external fun windowssys_windows_win32_networkmanagement_iphelper_unregisterInterfaceTimestampConfigChange(notificationhandle: Long)
+
+    @JvmStatic
+    external fun windowssys_windows_win32_networkmanagement_iphelper_ifIndextoname(interfaceindex: Int, interfacename: Long): Long
+
+    @JvmStatic
+    external fun windowssys_windows_win32_networkmanagement_iphelper_ifNametoindex(interfacename: Long): Int
 }
 
-public actual fun AddIPAddress(address: UInt, ipmask: UInt, ifindex: UInt, ntecontext: Long, nteinstance: Long): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_AddIPAddress(address.toInt(), ipmask.toInt(), ifindex.toInt(), ntecontext, nteinstance).toUInt()
+public actual fun addIPAddress(address: UInt, ipmask: UInt, ifindex: UInt, ntecontext: COpaquePointer?, nteinstance: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_addIPAddress(address.toInt(), ipmask.toInt(), ifindex.toInt(), (ntecontext?.value ?: 0L), (nteinstance?.value ?: 0L)).toUInt()
 
-public actual fun CancelIPChangeNotify(notifyoverlapped: Long): BOOL =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_CancelIPChangeNotify(notifyoverlapped)
+public actual fun cancelIPChangeNotify(notifyoverlapped: COpaquePointer?): Bool =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_cancelIPChangeNotify((notifyoverlapped?.value ?: 0L))
 
-public actual fun CancelIfTimestampConfigChange(notificationhandle: HIFTIMESTAMPCHANGE) {
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_CancelIfTimestampConfigChange(notificationhandle)
+public actual fun cancelIfTimestampConfigChange(notificationhandle: Hiftimestampchange) {
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_cancelIfTimestampConfigChange((notificationhandle?.value ?: 0L))
 }
 
-public actual fun CancelMibChangeNotify2(notificationhandle: HANDLE): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_CancelMibChangeNotify2(notificationhandle).toUInt()
+public actual fun cancelMibChangeNotify2(notificationhandle: Handle): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_cancelMibChangeNotify2((notificationhandle?.value ?: 0L)).toUInt()
 
-public actual fun CaptureInterfaceHardwareCrossTimestamp(interfaceluid: Long, crosstimestamp: Long): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_CaptureInterfaceHardwareCrossTimestamp(interfaceluid, crosstimestamp).toUInt()
+public actual fun captureInterfaceHardwareCrossTimestamp(interfaceluid: COpaquePointer?, crosstimestamp: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_captureInterfaceHardwareCrossTimestamp((interfaceluid?.value ?: 0L), (crosstimestamp?.value ?: 0L)).toUInt()
 
-public actual fun ConvertCompartmentGuidToId(compartmentguid: Long, compartmentid: Long): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_ConvertCompartmentGuidToId(compartmentguid, compartmentid).toUInt()
+public actual fun convertCompartmentGuidToId(compartmentguid: COpaquePointer?, compartmentid: COpaquePointer?): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_convertCompartmentGuidToId((compartmentguid?.value ?: 0L), (compartmentid?.value ?: 0L)).toUInt()
 
-public actual fun ConvertCompartmentIdToGuid(compartmentid: NET_IF_COMPARTMENT_ID, compartmentguid: Long): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_ConvertCompartmentIdToGuid(compartmentid.toInt(), compartmentguid).toUInt()
+public actual fun convertCompartmentIdToGuid(compartmentid: NetIfCompartmentId, compartmentguid: COpaquePointer?): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_convertCompartmentIdToGuid(compartmentid.toInt(), (compartmentguid?.value ?: 0L)).toUInt()
 
-public actual fun ConvertInterfaceAliasToLuid(interfacealias: PCWSTR, interfaceluid: Long): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_ConvertInterfaceAliasToLuid(interfacealias, interfaceluid).toUInt()
+public actual fun convertInterfaceAliasToLuid(interfacealias: Pcwstr, interfaceluid: COpaquePointer?): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceAliasToLuid((interfacealias?.value ?: 0L), (interfaceluid?.value ?: 0L)).toUInt()
 
-public actual fun ConvertInterfaceGuidToLuid(interfaceguid: Long, interfaceluid: Long): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_ConvertInterfaceGuidToLuid(interfaceguid, interfaceluid).toUInt()
+public actual fun convertInterfaceGuidToLuid(interfaceguid: COpaquePointer?, interfaceluid: COpaquePointer?): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceGuidToLuid((interfaceguid?.value ?: 0L), (interfaceluid?.value ?: 0L)).toUInt()
 
-public actual fun ConvertInterfaceIndexToLuid(interfaceindex: UInt, interfaceluid: Long): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_ConvertInterfaceIndexToLuid(interfaceindex.toInt(), interfaceluid).toUInt()
+public actual fun convertInterfaceIndexToLuid(interfaceindex: UInt, interfaceluid: COpaquePointer?): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceIndexToLuid(interfaceindex.toInt(), (interfaceluid?.value ?: 0L)).toUInt()
 
-public actual fun ConvertInterfaceLuidToAlias(interfaceluid: Long, interfacealias: PWSTR, length: ULong): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_ConvertInterfaceLuidToAlias(interfaceluid, interfacealias, length.toLong()).toUInt()
+public actual fun convertInterfaceLuidToAlias(interfaceluid: COpaquePointer?, interfacealias: Pwstr, length: ULong): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceLuidToAlias((interfaceluid?.value ?: 0L), (interfacealias?.value ?: 0L), length.toLong()).toUInt()
 
-public actual fun ConvertInterfaceLuidToGuid(interfaceluid: Long, interfaceguid: Long): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_ConvertInterfaceLuidToGuid(interfaceluid, interfaceguid).toUInt()
+public actual fun convertInterfaceLuidToGuid(interfaceluid: COpaquePointer?, interfaceguid: COpaquePointer?): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceLuidToGuid((interfaceluid?.value ?: 0L), (interfaceguid?.value ?: 0L)).toUInt()
 
-public actual fun ConvertInterfaceLuidToIndex(interfaceluid: Long, interfaceindex: Long): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_ConvertInterfaceLuidToIndex(interfaceluid, interfaceindex).toUInt()
+public actual fun convertInterfaceLuidToIndex(interfaceluid: COpaquePointer?, interfaceindex: COpaquePointer?): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceLuidToIndex((interfaceluid?.value ?: 0L), (interfaceindex?.value ?: 0L)).toUInt()
 
-public actual fun ConvertInterfaceLuidToNameA(interfaceluid: Long, interfacename: PSTR, length: ULong): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_ConvertInterfaceLuidToNameA(interfaceluid, interfacename, length.toLong()).toUInt()
+public actual fun convertInterfaceLuidToNameA(interfaceluid: COpaquePointer?, interfacename: Pstr, length: ULong): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceLuidToNameA((interfaceluid?.value ?: 0L), (interfacename?.value ?: 0L), length.toLong()).toUInt()
 
-public actual fun ConvertInterfaceLuidToNameW(interfaceluid: Long, interfacename: PWSTR, length: ULong): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_ConvertInterfaceLuidToNameW(interfaceluid, interfacename, length.toLong()).toUInt()
+public actual fun convertInterfaceLuidToNameW(interfaceluid: COpaquePointer?, interfacename: Pwstr, length: ULong): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceLuidToNameW((interfaceluid?.value ?: 0L), (interfacename?.value ?: 0L), length.toLong()).toUInt()
 
-public actual fun ConvertInterfaceNameToLuidA(interfacename: PCSTR, interfaceluid: Long): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_ConvertInterfaceNameToLuidA(interfacename, interfaceluid).toUInt()
+public actual fun convertInterfaceNameToLuidA(interfacename: Pcstr, interfaceluid: COpaquePointer?): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceNameToLuidA((interfacename?.value ?: 0L), (interfaceluid?.value ?: 0L)).toUInt()
 
-public actual fun ConvertInterfaceNameToLuidW(interfacename: PCWSTR, interfaceluid: Long): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_ConvertInterfaceNameToLuidW(interfacename, interfaceluid).toUInt()
+public actual fun convertInterfaceNameToLuidW(interfacename: Pcwstr, interfaceluid: COpaquePointer?): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceNameToLuidW((interfacename?.value ?: 0L), (interfaceluid?.value ?: 0L)).toUInt()
 
-public actual fun ConvertIpv4MaskToLength(mask: UInt, masklength: Long): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_ConvertIpv4MaskToLength(mask.toInt(), masklength).toUInt()
+public actual fun convertIpv4MaskToLength(mask: UInt, masklength: COpaquePointer?): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_convertIpv4MaskToLength(mask.toInt(), (masklength?.value ?: 0L)).toUInt()
 
-public actual fun ConvertLengthToIpv4Mask(masklength: UInt, mask: Long): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_ConvertLengthToIpv4Mask(masklength.toInt(), mask).toUInt()
+public actual fun convertLengthToIpv4Mask(masklength: UInt, mask: COpaquePointer?): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_convertLengthToIpv4Mask(masklength.toInt(), (mask?.value ?: 0L)).toUInt()
 
-public actual fun CreateAnycastIpAddressEntry(row: Long): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_CreateAnycastIpAddressEntry(row).toUInt()
+public actual fun createAnycastIpAddressEntry(row: COpaquePointer?): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_createAnycastIpAddressEntry((row?.value ?: 0L)).toUInt()
 
-public actual fun CreateIpForwardEntry(proute: Long): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_CreateIpForwardEntry(proute).toUInt()
+public actual fun createIpForwardEntry(proute: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_createIpForwardEntry((proute?.value ?: 0L)).toUInt()
 
-public actual fun CreateIpForwardEntry2(row: Long): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_CreateIpForwardEntry2(row).toUInt()
+public actual fun createIpForwardEntry2(row: COpaquePointer?): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_createIpForwardEntry2((row?.value ?: 0L)).toUInt()
 
-public actual fun CreateIpNetEntry(parpentry: Long): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_CreateIpNetEntry(parpentry).toUInt()
+public actual fun createIpNetEntry(parpentry: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_createIpNetEntry((parpentry?.value ?: 0L)).toUInt()
 
-public actual fun CreateIpNetEntry2(row: Long): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_CreateIpNetEntry2(row).toUInt()
+public actual fun createIpNetEntry2(row: COpaquePointer?): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_createIpNetEntry2((row?.value ?: 0L)).toUInt()
 
-public actual fun CreatePersistentTcpPortReservation(startport: UShort, numberofports: UShort, token: Long): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_CreatePersistentTcpPortReservation(startport.toShort(), numberofports.toShort(), token).toUInt()
+public actual fun createPersistentTcpPortReservation(startport: UShort, numberofports: UShort, token: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_createPersistentTcpPortReservation(startport.toShort(), numberofports.toShort(), (token?.value ?: 0L)).toUInt()
 
-public actual fun CreatePersistentUdpPortReservation(startport: UShort, numberofports: UShort, token: Long): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_CreatePersistentUdpPortReservation(startport.toShort(), numberofports.toShort(), token).toUInt()
+public actual fun createPersistentUdpPortReservation(startport: UShort, numberofports: UShort, token: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_createPersistentUdpPortReservation(startport.toShort(), numberofports.toShort(), (token?.value ?: 0L)).toUInt()
 
-public actual fun CreateProxyArpEntry(dwaddress: UInt, dwmask: UInt, dwifindex: UInt): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_CreateProxyArpEntry(dwaddress.toInt(), dwmask.toInt(), dwifindex.toInt()).toUInt()
+public actual fun createProxyArpEntry(dwaddress: UInt, dwmask: UInt, dwifindex: UInt): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_createProxyArpEntry(dwaddress.toInt(), dwmask.toInt(), dwifindex.toInt()).toUInt()
 
-public actual fun CreateSortedAddressPairs(sourceaddresslist: Long, sourceaddresscount: UInt, destinationaddresslist: Long, destinationaddresscount: UInt, addresssortoptions: UInt, sortedaddresspairlist: Long, sortedaddresspaircount: Long): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_CreateSortedAddressPairs(sourceaddresslist, sourceaddresscount.toInt(), destinationaddresslist, destinationaddresscount.toInt(), addresssortoptions.toInt(), sortedaddresspairlist, sortedaddresspaircount).toUInt()
+public actual fun createSortedAddressPairs(sourceaddresslist: COpaquePointer?, sourceaddresscount: UInt, destinationaddresslist: COpaquePointer?, destinationaddresscount: UInt, addresssortoptions: UInt, sortedaddresspairlist: COpaquePointer?, sortedaddresspaircount: COpaquePointer?): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_createSortedAddressPairs((sourceaddresslist?.value ?: 0L), sourceaddresscount.toInt(), (destinationaddresslist?.value ?: 0L), destinationaddresscount.toInt(), addresssortoptions.toInt(), (sortedaddresspairlist?.value ?: 0L), (sortedaddresspaircount?.value ?: 0L)).toUInt()
 
-public actual fun CreateUnicastIpAddressEntry(row: Long): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_CreateUnicastIpAddressEntry(row).toUInt()
+public actual fun createUnicastIpAddressEntry(row: COpaquePointer?): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_createUnicastIpAddressEntry((row?.value ?: 0L)).toUInt()
 
-public actual fun DeleteAnycastIpAddressEntry(row: Long): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_DeleteAnycastIpAddressEntry(row).toUInt()
+public actual fun deleteAnycastIpAddressEntry(row: COpaquePointer?): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_deleteAnycastIpAddressEntry((row?.value ?: 0L)).toUInt()
 
-public actual fun DeleteIPAddress(ntecontext: UInt): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_DeleteIPAddress(ntecontext.toInt()).toUInt()
+public actual fun deleteIPAddress(ntecontext: UInt): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_deleteIPAddress(ntecontext.toInt()).toUInt()
 
-public actual fun DeleteIpForwardEntry(proute: Long): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_DeleteIpForwardEntry(proute).toUInt()
+public actual fun deleteIpForwardEntry(proute: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_deleteIpForwardEntry((proute?.value ?: 0L)).toUInt()
 
-public actual fun DeleteIpForwardEntry2(row: Long): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_DeleteIpForwardEntry2(row).toUInt()
+public actual fun deleteIpForwardEntry2(row: COpaquePointer?): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_deleteIpForwardEntry2((row?.value ?: 0L)).toUInt()
 
-public actual fun DeleteIpNetEntry(parpentry: Long): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_DeleteIpNetEntry(parpentry).toUInt()
+public actual fun deleteIpNetEntry(parpentry: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_deleteIpNetEntry((parpentry?.value ?: 0L)).toUInt()
 
-public actual fun DeleteIpNetEntry2(row: Long): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_DeleteIpNetEntry2(row).toUInt()
+public actual fun deleteIpNetEntry2(row: COpaquePointer?): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_deleteIpNetEntry2((row?.value ?: 0L)).toUInt()
 
-public actual fun DeletePersistentTcpPortReservation(startport: UShort, numberofports: UShort): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_DeletePersistentTcpPortReservation(startport.toShort(), numberofports.toShort()).toUInt()
+public actual fun deletePersistentTcpPortReservation(startport: UShort, numberofports: UShort): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_deletePersistentTcpPortReservation(startport.toShort(), numberofports.toShort()).toUInt()
 
-public actual fun DeletePersistentUdpPortReservation(startport: UShort, numberofports: UShort): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_DeletePersistentUdpPortReservation(startport.toShort(), numberofports.toShort()).toUInt()
+public actual fun deletePersistentUdpPortReservation(startport: UShort, numberofports: UShort): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_deletePersistentUdpPortReservation(startport.toShort(), numberofports.toShort()).toUInt()
 
-public actual fun DeleteProxyArpEntry(dwaddress: UInt, dwmask: UInt, dwifindex: UInt): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_DeleteProxyArpEntry(dwaddress.toInt(), dwmask.toInt(), dwifindex.toInt()).toUInt()
+public actual fun deleteProxyArpEntry(dwaddress: UInt, dwmask: UInt, dwifindex: UInt): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_deleteProxyArpEntry(dwaddress.toInt(), dwmask.toInt(), dwifindex.toInt()).toUInt()
 
-public actual fun DeleteUnicastIpAddressEntry(row: Long): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_DeleteUnicastIpAddressEntry(row).toUInt()
+public actual fun deleteUnicastIpAddressEntry(row: COpaquePointer?): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_deleteUnicastIpAddressEntry((row?.value ?: 0L)).toUInt()
 
-public actual fun DisableMediaSense(phandle: Long, poverlapped: Long): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_DisableMediaSense(phandle, poverlapped).toUInt()
+public actual fun disableMediaSense(phandle: COpaquePointer?, poverlapped: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_disableMediaSense((phandle?.value ?: 0L), (poverlapped?.value ?: 0L)).toUInt()
 
-public actual fun EnableRouter(phandle: Long, poverlapped: Long): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_EnableRouter(phandle, poverlapped).toUInt()
+public actual fun enableRouter(phandle: COpaquePointer?, poverlapped: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_enableRouter((phandle?.value ?: 0L), (poverlapped?.value ?: 0L)).toUInt()
 
-public actual fun FlushIpNetTable(dwifindex: UInt): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_FlushIpNetTable(dwifindex.toInt()).toUInt()
+public actual fun flushIpNetTable(dwifindex: UInt): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_flushIpNetTable(dwifindex.toInt()).toUInt()
 
-public actual fun FlushIpNetTable2(family: ADDRESS_FAMILY, interfaceindex: UInt): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_FlushIpNetTable2(family.toShort(), interfaceindex.toInt()).toUInt()
+public actual fun flushIpNetTable2(family: AddressFamily, interfaceindex: UInt): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_flushIpNetTable2(family.toShort(), interfaceindex.toInt()).toUInt()
 
-public actual fun FlushIpPathTable(family: ADDRESS_FAMILY): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_FlushIpPathTable(family.toShort()).toUInt()
+public actual fun flushIpPathTable(family: AddressFamily): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_flushIpPathTable(family.toShort()).toUInt()
 
-public actual fun FreeDnsSettings(settings: Long) {
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_FreeDnsSettings(settings)
+public actual fun freeDnsSettings(settings: COpaquePointer?) {
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_freeDnsSettings((settings?.value ?: 0L))
 }
 
-public actual fun FreeInterfaceDnsSettings(settings: Long) {
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_FreeInterfaceDnsSettings(settings)
+public actual fun freeInterfaceDnsSettings(settings: COpaquePointer?) {
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_freeInterfaceDnsSettings((settings?.value ?: 0L))
 }
 
-public actual fun FreeMibTable(memory: Long) {
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_FreeMibTable(memory)
+public actual fun freeMibTable(memory: COpaquePointer?) {
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_freeMibTable((memory?.value ?: 0L))
 }
 
-public actual fun GetAdapterIndex(adaptername: PCWSTR, ifindex: Long): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetAdapterIndex(adaptername, ifindex).toUInt()
+public actual fun getAdapterIndex(adaptername: Pcwstr, ifindex: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getAdapterIndex((adaptername?.value ?: 0L), (ifindex?.value ?: 0L)).toUInt()
 
-public actual fun GetAdapterOrderMap(): Long =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetAdapterOrderMap()
+public actual fun getAdapterOrderMap(): COpaquePointer? =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getAdapterOrderMap().let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun GetAdaptersAddresses(family: UInt, flags: GET_ADAPTERS_ADDRESSES_FLAGS, reserved: Long, adapteraddresses: Long, sizepointer: Long): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetAdaptersAddresses(family.toInt(), flags.toInt(), reserved, adapteraddresses, sizepointer).toUInt()
+public actual fun getAdaptersAddresses(family: UInt, flags: GetAdaptersAddressesFlags, reserved: COpaquePointer?, adapteraddresses: COpaquePointer?, sizepointer: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getAdaptersAddresses(family.toInt(), flags.toInt(), (reserved?.value ?: 0L), (adapteraddresses?.value ?: 0L), (sizepointer?.value ?: 0L)).toUInt()
 
-public actual fun GetAdaptersInfo(adapterinfo: Long, sizepointer: Long): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetAdaptersInfo(adapterinfo, sizepointer).toUInt()
+public actual fun getAdaptersInfo(adapterinfo: COpaquePointer?, sizepointer: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getAdaptersInfo((adapterinfo?.value ?: 0L), (sizepointer?.value ?: 0L)).toUInt()
 
-public actual fun GetAnycastIpAddressEntry(row: Long): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetAnycastIpAddressEntry(row).toUInt()
+public actual fun getAnycastIpAddressEntry(row: COpaquePointer?): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getAnycastIpAddressEntry((row?.value ?: 0L)).toUInt()
 
-public actual fun GetAnycastIpAddressTable(family: ADDRESS_FAMILY, table: Long): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetAnycastIpAddressTable(family.toShort(), table).toUInt()
+public actual fun getAnycastIpAddressTable(family: AddressFamily, table: COpaquePointer?): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getAnycastIpAddressTable(family.toShort(), (table?.value ?: 0L)).toUInt()
 
-public actual fun GetBestInterface(dwdestaddr: UInt, pdwbestifindex: Long): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetBestInterface(dwdestaddr.toInt(), pdwbestifindex).toUInt()
+public actual fun getBestInterface(dwdestaddr: UInt, pdwbestifindex: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getBestInterface(dwdestaddr.toInt(), (pdwbestifindex?.value ?: 0L)).toUInt()
 
-public actual fun GetBestInterfaceEx(pdestaddr: Long, pdwbestifindex: Long): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetBestInterfaceEx(pdestaddr, pdwbestifindex).toUInt()
+public actual fun getBestInterfaceEx(pdestaddr: COpaquePointer?, pdwbestifindex: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getBestInterfaceEx((pdestaddr?.value ?: 0L), (pdwbestifindex?.value ?: 0L)).toUInt()
 
-public actual fun GetBestRoute(dwdestaddr: UInt, dwsourceaddr: UInt, pbestroute: Long): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetBestRoute(dwdestaddr.toInt(), dwsourceaddr.toInt(), pbestroute).toUInt()
+public actual fun getBestRoute(dwdestaddr: UInt, dwsourceaddr: UInt, pbestroute: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getBestRoute(dwdestaddr.toInt(), dwsourceaddr.toInt(), (pbestroute?.value ?: 0L)).toUInt()
 
-public actual fun GetBestRoute2(interfaceluid: Long, interfaceindex: UInt, sourceaddress: Long, destinationaddress: Long, addresssortoptions: UInt, bestroute: Long, bestsourceaddress: Long): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetBestRoute2(interfaceluid, interfaceindex.toInt(), sourceaddress, destinationaddress, addresssortoptions.toInt(), bestroute, bestsourceaddress).toUInt()
+public actual fun getBestRoute2(interfaceluid: COpaquePointer?, interfaceindex: UInt, sourceaddress: COpaquePointer?, destinationaddress: COpaquePointer?, addresssortoptions: UInt, bestroute: COpaquePointer?, bestsourceaddress: COpaquePointer?): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getBestRoute2((interfaceluid?.value ?: 0L), interfaceindex.toInt(), (sourceaddress?.value ?: 0L), (destinationaddress?.value ?: 0L), addresssortoptions.toInt(), (bestroute?.value ?: 0L), (bestsourceaddress?.value ?: 0L)).toUInt()
 
-public actual fun GetCurrentThreadCompartmentId(): NET_IF_COMPARTMENT_ID =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetCurrentThreadCompartmentId().toUInt()
+public actual fun getCurrentThreadCompartmentId(): NetIfCompartmentId =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getCurrentThreadCompartmentId().toUInt()
 
-public actual fun GetCurrentThreadCompartmentScope(compartmentscope: Long, compartmentid: Long) {
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetCurrentThreadCompartmentScope(compartmentscope, compartmentid)
+public actual fun getCurrentThreadCompartmentScope(compartmentscope: COpaquePointer?, compartmentid: COpaquePointer?) {
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getCurrentThreadCompartmentScope((compartmentscope?.value ?: 0L), (compartmentid?.value ?: 0L))
 }
 
-public actual fun GetDefaultCompartmentId(): NET_IF_COMPARTMENT_ID =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetDefaultCompartmentId().toUInt()
+public actual fun getDefaultCompartmentId(): NetIfCompartmentId =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getDefaultCompartmentId().toUInt()
 
-public actual fun GetDnsSettings(settings: Long): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetDnsSettings(settings).toUInt()
+public actual fun getDnsSettings(settings: COpaquePointer?): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getDnsSettings((settings?.value ?: 0L)).toUInt()
 
-public actual fun GetExtendedTcpTable(ptcptable: Long, pdwsize: Long, border: BOOL, ulaf: UInt, tableclass: TCP_TABLE_CLASS, reserved: UInt): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetExtendedTcpTable(ptcptable, pdwsize, border, ulaf.toInt(), tableclass, reserved.toInt()).toUInt()
+public actual fun getExtendedTcpTable(ptcptable: COpaquePointer?, pdwsize: COpaquePointer?, border: Bool, ulaf: UInt, tableclass: TcpTableClass, reserved: UInt): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getExtendedTcpTable((ptcptable?.value ?: 0L), (pdwsize?.value ?: 0L), border, ulaf.toInt(), tableclass, reserved.toInt()).toUInt()
 
-public actual fun GetExtendedUdpTable(pudptable: Long, pdwsize: Long, border: BOOL, ulaf: UInt, tableclass: UDP_TABLE_CLASS, reserved: UInt): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetExtendedUdpTable(pudptable, pdwsize, border, ulaf.toInt(), tableclass, reserved.toInt()).toUInt()
+public actual fun getExtendedUdpTable(pudptable: COpaquePointer?, pdwsize: COpaquePointer?, border: Bool, ulaf: UInt, tableclass: UdpTableClass, reserved: UInt): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getExtendedUdpTable((pudptable?.value ?: 0L), (pdwsize?.value ?: 0L), border, ulaf.toInt(), tableclass, reserved.toInt()).toUInt()
 
-public actual fun GetFriendlyIfIndex(ifindex: UInt): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetFriendlyIfIndex(ifindex.toInt()).toUInt()
+public actual fun getFriendlyIfIndex(ifindex: UInt): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getFriendlyIfIndex(ifindex.toInt()).toUInt()
 
-public actual fun GetIcmpStatistics(statistics: Long): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetIcmpStatistics(statistics).toUInt()
+public actual fun getIcmpStatistics(statistics: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getIcmpStatistics((statistics?.value ?: 0L)).toUInt()
 
-public actual fun GetIcmpStatisticsEx(statistics: Long, family: UInt): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetIcmpStatisticsEx(statistics, family.toInt()).toUInt()
+public actual fun getIcmpStatisticsEx(statistics: COpaquePointer?, family: UInt): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getIcmpStatisticsEx((statistics?.value ?: 0L), family.toInt()).toUInt()
 
-public actual fun GetIfEntry(pifrow: Long): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetIfEntry(pifrow).toUInt()
+public actual fun getIfEntry(pifrow: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getIfEntry((pifrow?.value ?: 0L)).toUInt()
 
-public actual fun GetIfEntry2(row: Long): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetIfEntry2(row).toUInt()
+public actual fun getIfEntry2(row: COpaquePointer?): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getIfEntry2((row?.value ?: 0L)).toUInt()
 
-public actual fun GetIfEntry2Ex(level: MIB_IF_ENTRY_LEVEL, row: Long): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetIfEntry2Ex(level, row).toUInt()
+public actual fun getIfEntry2Ex(level: MibIfEntryLevel, row: COpaquePointer?): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getIfEntry2Ex(level, (row?.value ?: 0L)).toUInt()
 
-public actual fun GetIfStackTable(table: Long): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetIfStackTable(table).toUInt()
+public actual fun getIfStackTable(table: COpaquePointer?): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getIfStackTable((table?.value ?: 0L)).toUInt()
 
-public actual fun GetIfTable(piftable: Long, pdwsize: Long, border: BOOL): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetIfTable(piftable, pdwsize, border).toUInt()
+public actual fun getIfTable(piftable: COpaquePointer?, pdwsize: COpaquePointer?, border: Bool): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getIfTable((piftable?.value ?: 0L), (pdwsize?.value ?: 0L), border).toUInt()
 
-public actual fun GetIfTable2(table: Long): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetIfTable2(table).toUInt()
+public actual fun getIfTable2(table: COpaquePointer?): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getIfTable2((table?.value ?: 0L)).toUInt()
 
-public actual fun GetIfTable2Ex(level: MIB_IF_TABLE_LEVEL, table: Long): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetIfTable2Ex(level, table).toUInt()
+public actual fun getIfTable2Ex(level: MibIfTableLevel, table: COpaquePointer?): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getIfTable2Ex(level, (table?.value ?: 0L)).toUInt()
 
-public actual fun GetInterfaceActiveTimestampCapabilities(interfaceluid: Long, timestampcapabilites: Long): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetInterfaceActiveTimestampCapabilities(interfaceluid, timestampcapabilites).toUInt()
+public actual fun getInterfaceActiveTimestampCapabilities(interfaceluid: COpaquePointer?, timestampcapabilites: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getInterfaceActiveTimestampCapabilities((interfaceluid?.value ?: 0L), (timestampcapabilites?.value ?: 0L)).toUInt()
 
-public actual fun GetInterfaceCurrentTimestampCapabilities(interfaceluid: Long, timestampcapabilites: Long): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetInterfaceCurrentTimestampCapabilities(interfaceluid, timestampcapabilites).toUInt()
+public actual fun getInterfaceCurrentTimestampCapabilities(interfaceluid: COpaquePointer?, timestampcapabilites: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getInterfaceCurrentTimestampCapabilities((interfaceluid?.value ?: 0L), (timestampcapabilites?.value ?: 0L)).toUInt()
 
-public actual fun GetInterfaceDnsSettings(iface: GUID, settings: Long): WIN32_ERROR =
+public actual fun getInterfaceDnsSettings(iface: Guid, settings: COpaquePointer?): Win32Error =
     0u
 
-public actual fun GetInterfaceHardwareTimestampCapabilities(interfaceluid: Long, timestampcapabilites: Long): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetInterfaceHardwareTimestampCapabilities(interfaceluid, timestampcapabilites).toUInt()
+public actual fun getInterfaceHardwareTimestampCapabilities(interfaceluid: COpaquePointer?, timestampcapabilites: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getInterfaceHardwareTimestampCapabilities((interfaceluid?.value ?: 0L), (timestampcapabilites?.value ?: 0L)).toUInt()
 
-public actual fun GetInterfaceInfo(piftable: Long, dwoutbuflen: Long): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetInterfaceInfo(piftable, dwoutbuflen).toUInt()
+public actual fun getInterfaceInfo(piftable: COpaquePointer?, dwoutbuflen: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getInterfaceInfo((piftable?.value ?: 0L), (dwoutbuflen?.value ?: 0L)).toUInt()
 
-public actual fun GetInterfaceSupportedTimestampCapabilities(interfaceluid: Long, timestampcapabilites: Long): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetInterfaceSupportedTimestampCapabilities(interfaceluid, timestampcapabilites).toUInt()
+public actual fun getInterfaceSupportedTimestampCapabilities(interfaceluid: COpaquePointer?, timestampcapabilites: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getInterfaceSupportedTimestampCapabilities((interfaceluid?.value ?: 0L), (timestampcapabilites?.value ?: 0L)).toUInt()
 
-public actual fun GetInvertedIfStackTable(table: Long): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetInvertedIfStackTable(table).toUInt()
+public actual fun getInvertedIfStackTable(table: COpaquePointer?): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getInvertedIfStackTable((table?.value ?: 0L)).toUInt()
 
-public actual fun GetIpAddrTable(pipaddrtable: Long, pdwsize: Long, border: BOOL): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetIpAddrTable(pipaddrtable, pdwsize, border).toUInt()
+public actual fun getIpAddrTable(pipaddrtable: COpaquePointer?, pdwsize: COpaquePointer?, border: Bool): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getIpAddrTable((pipaddrtable?.value ?: 0L), (pdwsize?.value ?: 0L), border).toUInt()
 
-public actual fun GetIpErrorString(errorcode: UInt, buffer: PWSTR, size: Long): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetIpErrorString(errorcode.toInt(), buffer, size).toUInt()
+public actual fun getIpErrorString(errorcode: UInt, buffer: Pwstr, size: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getIpErrorString(errorcode.toInt(), (buffer?.value ?: 0L), (size?.value ?: 0L)).toUInt()
 
-public actual fun GetIpForwardEntry2(row: Long): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetIpForwardEntry2(row).toUInt()
+public actual fun getIpForwardEntry2(row: COpaquePointer?): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getIpForwardEntry2((row?.value ?: 0L)).toUInt()
 
-public actual fun GetIpForwardTable(pipforwardtable: Long, pdwsize: Long, border: BOOL): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetIpForwardTable(pipforwardtable, pdwsize, border).toUInt()
+public actual fun getIpForwardTable(pipforwardtable: COpaquePointer?, pdwsize: COpaquePointer?, border: Bool): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getIpForwardTable((pipforwardtable?.value ?: 0L), (pdwsize?.value ?: 0L), border).toUInt()
 
-public actual fun GetIpForwardTable2(family: ADDRESS_FAMILY, table: Long): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetIpForwardTable2(family.toShort(), table).toUInt()
+public actual fun getIpForwardTable2(family: AddressFamily, table: COpaquePointer?): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getIpForwardTable2(family.toShort(), (table?.value ?: 0L)).toUInt()
 
-public actual fun GetIpInterfaceEntry(row: Long): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetIpInterfaceEntry(row).toUInt()
+public actual fun getIpInterfaceEntry(row: COpaquePointer?): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getIpInterfaceEntry((row?.value ?: 0L)).toUInt()
 
-public actual fun GetIpInterfaceTable(family: ADDRESS_FAMILY, table: Long): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetIpInterfaceTable(family.toShort(), table).toUInt()
+public actual fun getIpInterfaceTable(family: AddressFamily, table: COpaquePointer?): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getIpInterfaceTable(family.toShort(), (table?.value ?: 0L)).toUInt()
 
-public actual fun GetIpNetEntry2(row: Long): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetIpNetEntry2(row).toUInt()
+public actual fun getIpNetEntry2(row: COpaquePointer?): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getIpNetEntry2((row?.value ?: 0L)).toUInt()
 
-public actual fun GetIpNetTable(ipnettable: Long, sizepointer: Long, order: BOOL): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetIpNetTable(ipnettable, sizepointer, order).toUInt()
+public actual fun getIpNetTable(ipnettable: COpaquePointer?, sizepointer: COpaquePointer?, order: Bool): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getIpNetTable((ipnettable?.value ?: 0L), (sizepointer?.value ?: 0L), order).toUInt()
 
-public actual fun GetIpNetTable2(family: ADDRESS_FAMILY, table: Long): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetIpNetTable2(family.toShort(), table).toUInt()
+public actual fun getIpNetTable2(family: AddressFamily, table: COpaquePointer?): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getIpNetTable2(family.toShort(), (table?.value ?: 0L)).toUInt()
 
-public actual fun GetIpNetworkConnectionBandwidthEstimates(interfaceindex: UInt, addressfamily: ADDRESS_FAMILY, bandwidthestimates: Long): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetIpNetworkConnectionBandwidthEstimates(interfaceindex.toInt(), addressfamily.toShort(), bandwidthestimates).toUInt()
+public actual fun getIpNetworkConnectionBandwidthEstimates(interfaceindex: UInt, addressfamily: AddressFamily, bandwidthestimates: COpaquePointer?): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getIpNetworkConnectionBandwidthEstimates(interfaceindex.toInt(), addressfamily.toShort(), (bandwidthestimates?.value ?: 0L)).toUInt()
 
-public actual fun GetIpPathEntry(row: Long): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetIpPathEntry(row).toUInt()
+public actual fun getIpPathEntry(row: COpaquePointer?): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getIpPathEntry((row?.value ?: 0L)).toUInt()
 
-public actual fun GetIpPathTable(family: ADDRESS_FAMILY, table: Long): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetIpPathTable(family.toShort(), table).toUInt()
+public actual fun getIpPathTable(family: AddressFamily, table: COpaquePointer?): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getIpPathTable(family.toShort(), (table?.value ?: 0L)).toUInt()
 
-public actual fun GetIpStatistics(statistics: Long): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetIpStatistics(statistics).toUInt()
+public actual fun getIpStatistics(statistics: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getIpStatistics((statistics?.value ?: 0L)).toUInt()
 
-public actual fun GetIpStatisticsEx(statistics: Long, family: UInt): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetIpStatisticsEx(statistics, family.toInt()).toUInt()
+public actual fun getIpStatisticsEx(statistics: COpaquePointer?, family: UInt): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getIpStatisticsEx((statistics?.value ?: 0L), family.toInt()).toUInt()
 
-public actual fun GetJobCompartmentId(jobhandle: HANDLE): NET_IF_COMPARTMENT_ID =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetJobCompartmentId(jobhandle).toUInt()
+public actual fun getJobCompartmentId(jobhandle: Handle): NetIfCompartmentId =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getJobCompartmentId((jobhandle?.value ?: 0L)).toUInt()
 
-public actual fun GetMulticastIpAddressEntry(row: Long): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetMulticastIpAddressEntry(row).toUInt()
+public actual fun getMulticastIpAddressEntry(row: COpaquePointer?): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getMulticastIpAddressEntry((row?.value ?: 0L)).toUInt()
 
-public actual fun GetMulticastIpAddressTable(family: ADDRESS_FAMILY, table: Long): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetMulticastIpAddressTable(family.toShort(), table).toUInt()
+public actual fun getMulticastIpAddressTable(family: AddressFamily, table: COpaquePointer?): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getMulticastIpAddressTable(family.toShort(), (table?.value ?: 0L)).toUInt()
 
-public actual fun GetNetworkConnectivityHint(connectivityhint: Long): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetNetworkConnectivityHint(connectivityhint).toUInt()
+public actual fun getNetworkConnectivityHint(connectivityhint: COpaquePointer?): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getNetworkConnectivityHint((connectivityhint?.value ?: 0L)).toUInt()
 
-public actual fun GetNetworkConnectivityHintForInterface(interfaceindex: UInt, connectivityhint: Long): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetNetworkConnectivityHintForInterface(interfaceindex.toInt(), connectivityhint).toUInt()
+public actual fun getNetworkConnectivityHintForInterface(interfaceindex: UInt, connectivityhint: COpaquePointer?): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getNetworkConnectivityHintForInterface(interfaceindex.toInt(), (connectivityhint?.value ?: 0L)).toUInt()
 
-public actual fun GetNetworkInformation(networkguid: Long, compartmentid: Long, siteid: Long, networkname: PWSTR, length: UInt): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetNetworkInformation(networkguid, compartmentid, siteid, networkname, length.toInt()).toUInt()
+public actual fun getNetworkInformation(networkguid: COpaquePointer?, compartmentid: COpaquePointer?, siteid: COpaquePointer?, networkname: Pwstr, length: UInt): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getNetworkInformation((networkguid?.value ?: 0L), (compartmentid?.value ?: 0L), (siteid?.value ?: 0L), (networkname?.value ?: 0L), length.toInt()).toUInt()
 
-public actual fun GetNetworkParams(pfixedinfo: Long, poutbuflen: Long): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetNetworkParams(pfixedinfo, poutbuflen).toUInt()
+public actual fun getNetworkParams(pfixedinfo: COpaquePointer?, poutbuflen: COpaquePointer?): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getNetworkParams((pfixedinfo?.value ?: 0L), (poutbuflen?.value ?: 0L)).toUInt()
 
-public actual fun GetNumberOfInterfaces(pdwnumif: Long): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetNumberOfInterfaces(pdwnumif).toUInt()
+public actual fun getNumberOfInterfaces(pdwnumif: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getNumberOfInterfaces((pdwnumif?.value ?: 0L)).toUInt()
 
-public actual fun GetOwnerModuleFromPidAndInfo(ulpid: UInt, pinfo: Long, cls: TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer: Long, pdwsize: Long): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetOwnerModuleFromPidAndInfo(ulpid.toInt(), pinfo, cls, pbuffer, pdwsize).toUInt()
+public actual fun getOwnerModuleFromPidAndInfo(ulpid: UInt, pinfo: COpaquePointer?, cls: TcpipOwnerModuleInfoClass, pbuffer: COpaquePointer?, pdwsize: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getOwnerModuleFromPidAndInfo(ulpid.toInt(), (pinfo?.value ?: 0L), cls, (pbuffer?.value ?: 0L), (pdwsize?.value ?: 0L)).toUInt()
 
-public actual fun GetOwnerModuleFromTcp6Entry(ptcpentry: Long, cls: TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer: Long, pdwsize: Long): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetOwnerModuleFromTcp6Entry(ptcpentry, cls, pbuffer, pdwsize).toUInt()
+public actual fun getOwnerModuleFromTcp6Entry(ptcpentry: COpaquePointer?, cls: TcpipOwnerModuleInfoClass, pbuffer: COpaquePointer?, pdwsize: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getOwnerModuleFromTcp6Entry((ptcpentry?.value ?: 0L), cls, (pbuffer?.value ?: 0L), (pdwsize?.value ?: 0L)).toUInt()
 
-public actual fun GetOwnerModuleFromTcpEntry(ptcpentry: Long, cls: TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer: Long, pdwsize: Long): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetOwnerModuleFromTcpEntry(ptcpentry, cls, pbuffer, pdwsize).toUInt()
+public actual fun getOwnerModuleFromTcpEntry(ptcpentry: COpaquePointer?, cls: TcpipOwnerModuleInfoClass, pbuffer: COpaquePointer?, pdwsize: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getOwnerModuleFromTcpEntry((ptcpentry?.value ?: 0L), cls, (pbuffer?.value ?: 0L), (pdwsize?.value ?: 0L)).toUInt()
 
-public actual fun GetOwnerModuleFromUdp6Entry(pudpentry: Long, cls: TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer: Long, pdwsize: Long): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetOwnerModuleFromUdp6Entry(pudpentry, cls, pbuffer, pdwsize).toUInt()
+public actual fun getOwnerModuleFromUdp6Entry(pudpentry: COpaquePointer?, cls: TcpipOwnerModuleInfoClass, pbuffer: COpaquePointer?, pdwsize: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getOwnerModuleFromUdp6Entry((pudpentry?.value ?: 0L), cls, (pbuffer?.value ?: 0L), (pdwsize?.value ?: 0L)).toUInt()
 
-public actual fun GetOwnerModuleFromUdpEntry(pudpentry: Long, cls: TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer: Long, pdwsize: Long): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetOwnerModuleFromUdpEntry(pudpentry, cls, pbuffer, pdwsize).toUInt()
+public actual fun getOwnerModuleFromUdpEntry(pudpentry: COpaquePointer?, cls: TcpipOwnerModuleInfoClass, pbuffer: COpaquePointer?, pdwsize: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getOwnerModuleFromUdpEntry((pudpentry?.value ?: 0L), cls, (pbuffer?.value ?: 0L), (pdwsize?.value ?: 0L)).toUInt()
 
-public actual fun GetPerAdapterInfo(ifindex: UInt, pperadapterinfo: Long, poutbuflen: Long): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetPerAdapterInfo(ifindex.toInt(), pperadapterinfo, poutbuflen).toUInt()
+public actual fun getPerAdapterInfo(ifindex: UInt, pperadapterinfo: COpaquePointer?, poutbuflen: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getPerAdapterInfo(ifindex.toInt(), (pperadapterinfo?.value ?: 0L), (poutbuflen?.value ?: 0L)).toUInt()
 
-public actual fun GetPerTcp6ConnectionEStats(row: Long, estatstype: TCP_ESTATS_TYPE, rw: Long, rwversion: UInt, rwsize: UInt, ros: Long, rosversion: UInt, rossize: UInt, rod: Long, rodversion: UInt, rodsize: UInt): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetPerTcp6ConnectionEStats(row, estatstype, rw, rwversion.toInt(), rwsize.toInt(), ros, rosversion.toInt(), rossize.toInt(), rod, rodversion.toInt(), rodsize.toInt()).toUInt()
+public actual fun getPerTcp6ConnectionEStats(row: COpaquePointer?, estatstype: TcpEstatsType, rw: COpaquePointer?, rwversion: UInt, rwsize: UInt, ros: COpaquePointer?, rosversion: UInt, rossize: UInt, rod: COpaquePointer?, rodversion: UInt, rodsize: UInt): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getPerTcp6ConnectionEStats((row?.value ?: 0L), estatstype, (rw?.value ?: 0L), rwversion.toInt(), rwsize.toInt(), (ros?.value ?: 0L), rosversion.toInt(), rossize.toInt(), (rod?.value ?: 0L), rodversion.toInt(), rodsize.toInt()).toUInt()
 
-public actual fun GetPerTcpConnectionEStats(row: Long, estatstype: TCP_ESTATS_TYPE, rw: Long, rwversion: UInt, rwsize: UInt, ros: Long, rosversion: UInt, rossize: UInt, rod: Long, rodversion: UInt, rodsize: UInt): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetPerTcpConnectionEStats(row, estatstype, rw, rwversion.toInt(), rwsize.toInt(), ros, rosversion.toInt(), rossize.toInt(), rod, rodversion.toInt(), rodsize.toInt()).toUInt()
+public actual fun getPerTcpConnectionEStats(row: COpaquePointer?, estatstype: TcpEstatsType, rw: COpaquePointer?, rwversion: UInt, rwsize: UInt, ros: COpaquePointer?, rosversion: UInt, rossize: UInt, rod: COpaquePointer?, rodversion: UInt, rodsize: UInt): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getPerTcpConnectionEStats((row?.value ?: 0L), estatstype, (rw?.value ?: 0L), rwversion.toInt(), rwsize.toInt(), (ros?.value ?: 0L), rosversion.toInt(), rossize.toInt(), (rod?.value ?: 0L), rodversion.toInt(), rodsize.toInt()).toUInt()
 
-public actual fun GetRTTAndHopCount(destipaddress: UInt, hopcount: Long, maxhops: UInt, rtt: Long): BOOL =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetRTTAndHopCount(destipaddress.toInt(), hopcount, maxhops.toInt(), rtt)
+public actual fun getRTTAndHopCount(destipaddress: UInt, hopcount: COpaquePointer?, maxhops: UInt, rtt: COpaquePointer?): Bool =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getRTTAndHopCount(destipaddress.toInt(), (hopcount?.value ?: 0L), maxhops.toInt(), (rtt?.value ?: 0L))
 
-public actual fun GetSessionCompartmentId(sessionid: UInt): NET_IF_COMPARTMENT_ID =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetSessionCompartmentId(sessionid.toInt()).toUInt()
+public actual fun getSessionCompartmentId(sessionid: UInt): NetIfCompartmentId =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getSessionCompartmentId(sessionid.toInt()).toUInt()
 
-public actual fun GetTcp6Table(tcptable: Long, sizepointer: Long, order: BOOL): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetTcp6Table(tcptable, sizepointer, order).toUInt()
+public actual fun getTcp6Table(tcptable: COpaquePointer?, sizepointer: COpaquePointer?, order: Bool): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getTcp6Table((tcptable?.value ?: 0L), (sizepointer?.value ?: 0L), order).toUInt()
 
-public actual fun GetTcp6Table2(tcptable: Long, sizepointer: Long, order: BOOL): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetTcp6Table2(tcptable, sizepointer, order).toUInt()
+public actual fun getTcp6Table2(tcptable: COpaquePointer?, sizepointer: COpaquePointer?, order: Bool): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getTcp6Table2((tcptable?.value ?: 0L), (sizepointer?.value ?: 0L), order).toUInt()
 
-public actual fun GetTcpStatistics(statistics: Long): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetTcpStatistics(statistics).toUInt()
+public actual fun getTcpStatistics(statistics: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getTcpStatistics((statistics?.value ?: 0L)).toUInt()
 
-public actual fun GetTcpStatisticsEx(statistics: Long, family: UInt): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetTcpStatisticsEx(statistics, family.toInt()).toUInt()
+public actual fun getTcpStatisticsEx(statistics: COpaquePointer?, family: UInt): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getTcpStatisticsEx((statistics?.value ?: 0L), family.toInt()).toUInt()
 
-public actual fun GetTcpStatisticsEx2(statistics: Long, family: UInt): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetTcpStatisticsEx2(statistics, family.toInt()).toUInt()
+public actual fun getTcpStatisticsEx2(statistics: COpaquePointer?, family: UInt): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getTcpStatisticsEx2((statistics?.value ?: 0L), family.toInt()).toUInt()
 
-public actual fun GetTcpTable(tcptable: Long, sizepointer: Long, order: BOOL): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetTcpTable(tcptable, sizepointer, order).toUInt()
+public actual fun getTcpTable(tcptable: COpaquePointer?, sizepointer: COpaquePointer?, order: Bool): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getTcpTable((tcptable?.value ?: 0L), (sizepointer?.value ?: 0L), order).toUInt()
 
-public actual fun GetTcpTable2(tcptable: Long, sizepointer: Long, order: BOOL): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetTcpTable2(tcptable, sizepointer, order).toUInt()
+public actual fun getTcpTable2(tcptable: COpaquePointer?, sizepointer: COpaquePointer?, order: Bool): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getTcpTable2((tcptable?.value ?: 0L), (sizepointer?.value ?: 0L), order).toUInt()
 
-public actual fun GetTeredoPort(port: Long): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetTeredoPort(port).toUInt()
+public actual fun getTeredoPort(port: COpaquePointer?): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getTeredoPort((port?.value ?: 0L)).toUInt()
 
-public actual fun GetUdp6Table(udp6table: Long, sizepointer: Long, order: BOOL): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetUdp6Table(udp6table, sizepointer, order).toUInt()
+public actual fun getUdp6Table(udp6table: COpaquePointer?, sizepointer: COpaquePointer?, order: Bool): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getUdp6Table((udp6table?.value ?: 0L), (sizepointer?.value ?: 0L), order).toUInt()
 
-public actual fun GetUdpStatistics(stats: Long): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetUdpStatistics(stats).toUInt()
+public actual fun getUdpStatistics(stats: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getUdpStatistics((stats?.value ?: 0L)).toUInt()
 
-public actual fun GetUdpStatisticsEx(statistics: Long, family: UInt): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetUdpStatisticsEx(statistics, family.toInt()).toUInt()
+public actual fun getUdpStatisticsEx(statistics: COpaquePointer?, family: UInt): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getUdpStatisticsEx((statistics?.value ?: 0L), family.toInt()).toUInt()
 
-public actual fun GetUdpStatisticsEx2(statistics: Long, family: UInt): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetUdpStatisticsEx2(statistics, family.toInt()).toUInt()
+public actual fun getUdpStatisticsEx2(statistics: COpaquePointer?, family: UInt): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getUdpStatisticsEx2((statistics?.value ?: 0L), family.toInt()).toUInt()
 
-public actual fun GetUdpTable(udptable: Long, sizepointer: Long, order: BOOL): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetUdpTable(udptable, sizepointer, order).toUInt()
+public actual fun getUdpTable(udptable: COpaquePointer?, sizepointer: COpaquePointer?, order: Bool): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getUdpTable((udptable?.value ?: 0L), (sizepointer?.value ?: 0L), order).toUInt()
 
-public actual fun GetUniDirectionalAdapterInfo(pipifinfo: Long, dwoutbuflen: Long): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetUniDirectionalAdapterInfo(pipifinfo, dwoutbuflen).toUInt()
+public actual fun getUniDirectionalAdapterInfo(pipifinfo: COpaquePointer?, dwoutbuflen: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getUniDirectionalAdapterInfo((pipifinfo?.value ?: 0L), (dwoutbuflen?.value ?: 0L)).toUInt()
 
-public actual fun GetUnicastIpAddressEntry(row: Long): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetUnicastIpAddressEntry(row).toUInt()
+public actual fun getUnicastIpAddressEntry(row: COpaquePointer?): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getUnicastIpAddressEntry((row?.value ?: 0L)).toUInt()
 
-public actual fun GetUnicastIpAddressTable(family: ADDRESS_FAMILY, table: Long): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_GetUnicastIpAddressTable(family.toShort(), table).toUInt()
+public actual fun getUnicastIpAddressTable(family: AddressFamily, table: COpaquePointer?): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_getUnicastIpAddressTable(family.toShort(), (table?.value ?: 0L)).toUInt()
 
-public actual fun Icmp6CreateFile(): HANDLE =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_Icmp6CreateFile()
+public actual fun icmp6CreateFile(): Handle =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_icmp6CreateFile().let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun Icmp6ParseReplies(replybuffer: Long, replysize: UInt): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_Icmp6ParseReplies(replybuffer, replysize.toInt()).toUInt()
+public actual fun icmp6ParseReplies(replybuffer: COpaquePointer?, replysize: UInt): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_icmp6ParseReplies((replybuffer?.value ?: 0L), replysize.toInt()).toUInt()
 
-public actual fun Icmp6SendEcho2(icmphandle: HANDLE, event: HANDLE, apcroutine: PIO_APC_ROUTINE, apccontext: Long, sourceaddress: Long, destinationaddress: Long, requestdata: Long, requestsize: UShort, requestoptions: Long, replybuffer: Long, replysize: UInt, timeout: UInt): UInt =
-    0u
+public actual fun icmp6SendEcho2(icmphandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: COpaquePointer?, sourceaddress: COpaquePointer?, destinationaddress: COpaquePointer?, requestdata: COpaquePointer?, requestsize: UShort, requestoptions: COpaquePointer?, replybuffer: COpaquePointer?, replysize: UInt, timeout: UInt): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_icmp6SendEcho2((icmphandle?.value ?: 0L), (event?.value ?: 0L), 0L, (apccontext?.value ?: 0L), (sourceaddress?.value ?: 0L), (destinationaddress?.value ?: 0L), (requestdata?.value ?: 0L), requestsize.toShort(), (requestoptions?.value ?: 0L), (replybuffer?.value ?: 0L), replysize.toInt(), timeout.toInt()).toUInt()
 
-public actual fun IcmpCloseHandle(icmphandle: HANDLE): BOOL =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_IcmpCloseHandle(icmphandle)
+public actual fun icmpCloseHandle(icmphandle: Handle): Bool =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_icmpCloseHandle((icmphandle?.value ?: 0L))
 
-public actual fun IcmpCreateFile(): HANDLE =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_IcmpCreateFile()
+public actual fun icmpCreateFile(): Handle =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_icmpCreateFile().let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun IcmpParseReplies(replybuffer: Long, replysize: UInt): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_IcmpParseReplies(replybuffer, replysize.toInt()).toUInt()
+public actual fun icmpParseReplies(replybuffer: COpaquePointer?, replysize: UInt): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_icmpParseReplies((replybuffer?.value ?: 0L), replysize.toInt()).toUInt()
 
-public actual fun IcmpSendEcho(icmphandle: HANDLE, destinationaddress: UInt, requestdata: Long, requestsize: UShort, requestoptions: Long, replybuffer: Long, replysize: UInt, timeout: UInt): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_IcmpSendEcho(icmphandle, destinationaddress.toInt(), requestdata, requestsize.toShort(), requestoptions, replybuffer, replysize.toInt(), timeout.toInt()).toUInt()
+public actual fun icmpSendEcho(icmphandle: Handle, destinationaddress: UInt, requestdata: COpaquePointer?, requestsize: UShort, requestoptions: COpaquePointer?, replybuffer: COpaquePointer?, replysize: UInt, timeout: UInt): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_icmpSendEcho((icmphandle?.value ?: 0L), destinationaddress.toInt(), (requestdata?.value ?: 0L), requestsize.toShort(), (requestoptions?.value ?: 0L), (replybuffer?.value ?: 0L), replysize.toInt(), timeout.toInt()).toUInt()
 
-public actual fun IcmpSendEcho2(icmphandle: HANDLE, event: HANDLE, apcroutine: PIO_APC_ROUTINE, apccontext: Long, destinationaddress: UInt, requestdata: Long, requestsize: UShort, requestoptions: Long, replybuffer: Long, replysize: UInt, timeout: UInt): UInt =
-    0u
+public actual fun icmpSendEcho2(icmphandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: COpaquePointer?, destinationaddress: UInt, requestdata: COpaquePointer?, requestsize: UShort, requestoptions: COpaquePointer?, replybuffer: COpaquePointer?, replysize: UInt, timeout: UInt): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_icmpSendEcho2((icmphandle?.value ?: 0L), (event?.value ?: 0L), 0L, (apccontext?.value ?: 0L), destinationaddress.toInt(), (requestdata?.value ?: 0L), requestsize.toShort(), (requestoptions?.value ?: 0L), (replybuffer?.value ?: 0L), replysize.toInt(), timeout.toInt()).toUInt()
 
-public actual fun IcmpSendEcho2Ex(icmphandle: HANDLE, event: HANDLE, apcroutine: PIO_APC_ROUTINE, apccontext: Long, sourceaddress: UInt, destinationaddress: UInt, requestdata: Long, requestsize: UShort, requestoptions: Long, replybuffer: Long, replysize: UInt, timeout: UInt): UInt =
-    0u
+public actual fun icmpSendEcho2Ex(icmphandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: COpaquePointer?, sourceaddress: UInt, destinationaddress: UInt, requestdata: COpaquePointer?, requestsize: UShort, requestoptions: COpaquePointer?, replybuffer: COpaquePointer?, replysize: UInt, timeout: UInt): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_icmpSendEcho2Ex((icmphandle?.value ?: 0L), (event?.value ?: 0L), 0L, (apccontext?.value ?: 0L), sourceaddress.toInt(), destinationaddress.toInt(), (requestdata?.value ?: 0L), requestsize.toShort(), (requestoptions?.value ?: 0L), (replybuffer?.value ?: 0L), replysize.toInt(), timeout.toInt()).toUInt()
 
-public actual fun InitializeIpForwardEntry(row: Long) {
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_InitializeIpForwardEntry(row)
+public actual fun initializeIpForwardEntry(row: COpaquePointer?) {
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_initializeIpForwardEntry((row?.value ?: 0L))
 }
 
-public actual fun InitializeIpInterfaceEntry(row: Long) {
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_InitializeIpInterfaceEntry(row)
+public actual fun initializeIpInterfaceEntry(row: COpaquePointer?) {
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_initializeIpInterfaceEntry((row?.value ?: 0L))
 }
 
-public actual fun InitializeUnicastIpAddressEntry(row: Long) {
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_InitializeUnicastIpAddressEntry(row)
+public actual fun initializeUnicastIpAddressEntry(row: COpaquePointer?) {
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_initializeUnicastIpAddressEntry((row?.value ?: 0L))
 }
 
-public actual fun IpReleaseAddress(adapterinfo: Long): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_IpReleaseAddress(adapterinfo).toUInt()
+public actual fun ipReleaseAddress(adapterinfo: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_ipReleaseAddress((adapterinfo?.value ?: 0L)).toUInt()
 
-public actual fun IpRenewAddress(adapterinfo: Long): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_IpRenewAddress(adapterinfo).toUInt()
+public actual fun ipRenewAddress(adapterinfo: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_ipRenewAddress((adapterinfo?.value ?: 0L)).toUInt()
 
-public actual fun LookupPersistentTcpPortReservation(startport: UShort, numberofports: UShort, token: Long): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_LookupPersistentTcpPortReservation(startport.toShort(), numberofports.toShort(), token).toUInt()
+public actual fun lookupPersistentTcpPortReservation(startport: UShort, numberofports: UShort, token: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_lookupPersistentTcpPortReservation(startport.toShort(), numberofports.toShort(), (token?.value ?: 0L)).toUInt()
 
-public actual fun LookupPersistentUdpPortReservation(startport: UShort, numberofports: UShort, token: Long): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_LookupPersistentUdpPortReservation(startport.toShort(), numberofports.toShort(), token).toUInt()
+public actual fun lookupPersistentUdpPortReservation(startport: UShort, numberofports: UShort, token: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_lookupPersistentUdpPortReservation(startport.toShort(), numberofports.toShort(), (token?.value ?: 0L)).toUInt()
 
-public actual fun NhpAllocateAndGetInterfaceInfoFromStack(pptable: Long, pdwcount: Long, border: BOOL, hheap: HANDLE, dwflags: UInt): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_NhpAllocateAndGetInterfaceInfoFromStack(pptable, pdwcount, border, hheap, dwflags.toInt()).toUInt()
+public actual fun nhpAllocateAndGetInterfaceInfoFromStack(pptable: COpaquePointer?, pdwcount: COpaquePointer?, border: Bool, hheap: Handle, dwflags: UInt): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_nhpAllocateAndGetInterfaceInfoFromStack((pptable?.value ?: 0L), (pdwcount?.value ?: 0L), border, (hheap?.value ?: 0L), dwflags.toInt()).toUInt()
 
-public actual fun NotifyAddrChange(handle: Long, overlapped: Long): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_NotifyAddrChange(handle, overlapped).toUInt()
+public actual fun notifyAddrChange(handle: COpaquePointer?, overlapped: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_notifyAddrChange((handle?.value ?: 0L), (overlapped?.value ?: 0L)).toUInt()
 
-public actual fun NotifyIfTimestampConfigChange(callercontext: Long, callback: PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK, notificationhandle: Long): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_NotifyIfTimestampConfigChange(callercontext, callback.toLong(), notificationhandle).toUInt()
+public actual fun notifyIfTimestampConfigChange(callercontext: COpaquePointer?, callback: PinterfaceTimestampConfigChangeCallback, notificationhandle: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_notifyIfTimestampConfigChange((callercontext?.value ?: 0L), 0L, (notificationhandle?.value ?: 0L)).toUInt()
 
-public actual fun NotifyIpInterfaceChange(family: ADDRESS_FAMILY, callback: PIPINTERFACE_CHANGE_CALLBACK, callercontext: Long, initialnotification: Boolean, notificationhandle: Long): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_NotifyIpInterfaceChange(family.toShort(), callback.toLong(), callercontext, initialnotification, notificationhandle).toUInt()
+public actual fun notifyIpInterfaceChange(family: AddressFamily, callback: PipinterfaceChangeCallback, callercontext: COpaquePointer?, initialnotification: Boolean, notificationhandle: COpaquePointer?): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_notifyIpInterfaceChange(family.toShort(), 0L, (callercontext?.value ?: 0L), initialnotification, (notificationhandle?.value ?: 0L)).toUInt()
 
-public actual fun NotifyNetworkConnectivityHintChange(callback: PNETWORK_CONNECTIVITY_HINT_CHANGE_CALLBACK, callercontext: Long, initialnotification: Boolean, notificationhandle: Long): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_NotifyNetworkConnectivityHintChange(callback.toLong(), callercontext, initialnotification, notificationhandle).toUInt()
+public actual fun notifyNetworkConnectivityHintChange(callback: PnetworkConnectivityHintChangeCallback, callercontext: COpaquePointer?, initialnotification: Boolean, notificationhandle: COpaquePointer?): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_notifyNetworkConnectivityHintChange(0L, (callercontext?.value ?: 0L), initialnotification, (notificationhandle?.value ?: 0L)).toUInt()
 
-public actual fun NotifyRouteChange(handle: Long, overlapped: Long): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_NotifyRouteChange(handle, overlapped).toUInt()
+public actual fun notifyRouteChange(handle: COpaquePointer?, overlapped: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_notifyRouteChange((handle?.value ?: 0L), (overlapped?.value ?: 0L)).toUInt()
 
-public actual fun NotifyRouteChange2(addressfamily: ADDRESS_FAMILY, callback: PIPFORWARD_CHANGE_CALLBACK, callercontext: Long, initialnotification: Boolean, notificationhandle: Long): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_NotifyRouteChange2(addressfamily.toShort(), callback.toLong(), callercontext, initialnotification, notificationhandle).toUInt()
+public actual fun notifyRouteChange2(addressfamily: AddressFamily, callback: PipforwardChangeCallback, callercontext: COpaquePointer?, initialnotification: Boolean, notificationhandle: COpaquePointer?): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_notifyRouteChange2(addressfamily.toShort(), 0L, (callercontext?.value ?: 0L), initialnotification, (notificationhandle?.value ?: 0L)).toUInt()
 
-public actual fun NotifyStableUnicastIpAddressTable(family: ADDRESS_FAMILY, table: Long, callercallback: PSTABLE_UNICAST_IPADDRESS_TABLE_CALLBACK, callercontext: Long, notificationhandle: Long): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_NotifyStableUnicastIpAddressTable(family.toShort(), table, callercallback.toLong(), callercontext, notificationhandle).toUInt()
+public actual fun notifyStableUnicastIpAddressTable(family: AddressFamily, table: COpaquePointer?, callercallback: PstableUnicastIpaddressTableCallback, callercontext: COpaquePointer?, notificationhandle: COpaquePointer?): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_notifyStableUnicastIpAddressTable(family.toShort(), (table?.value ?: 0L), 0L, (callercontext?.value ?: 0L), (notificationhandle?.value ?: 0L)).toUInt()
 
-public actual fun NotifyTeredoPortChange(callback: PTEREDO_PORT_CHANGE_CALLBACK, callercontext: Long, initialnotification: Boolean, notificationhandle: Long): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_NotifyTeredoPortChange(callback.toLong(), callercontext, initialnotification, notificationhandle).toUInt()
+public actual fun notifyTeredoPortChange(callback: PteredoPortChangeCallback, callercontext: COpaquePointer?, initialnotification: Boolean, notificationhandle: COpaquePointer?): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_notifyTeredoPortChange(0L, (callercontext?.value ?: 0L), initialnotification, (notificationhandle?.value ?: 0L)).toUInt()
 
-public actual fun NotifyUnicastIpAddressChange(family: ADDRESS_FAMILY, callback: PUNICAST_IPADDRESS_CHANGE_CALLBACK, callercontext: Long, initialnotification: Boolean, notificationhandle: Long): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_NotifyUnicastIpAddressChange(family.toShort(), callback.toLong(), callercontext, initialnotification, notificationhandle).toUInt()
+public actual fun notifyUnicastIpAddressChange(family: AddressFamily, callback: PunicastIpaddressChangeCallback, callercontext: COpaquePointer?, initialnotification: Boolean, notificationhandle: COpaquePointer?): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_notifyUnicastIpAddressChange(family.toShort(), 0L, (callercontext?.value ?: 0L), initialnotification, (notificationhandle?.value ?: 0L)).toUInt()
 
-public actual fun ParseNetworkString(networkstring: PCWSTR, types: UInt, addressinfo: Long, portnumber: Long, prefixlength: Long): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_ParseNetworkString(networkstring, types.toInt(), addressinfo, portnumber, prefixlength).toUInt()
+public actual fun parseNetworkString(networkstring: Pcwstr, types: UInt, addressinfo: COpaquePointer?, portnumber: COpaquePointer?, prefixlength: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_parseNetworkString((networkstring?.value ?: 0L), types.toInt(), (addressinfo?.value ?: 0L), (portnumber?.value ?: 0L), (prefixlength?.value ?: 0L)).toUInt()
 
-public actual fun PfAddFiltersToInterface(ih: Long, cinfilters: UInt, pfiltin: Long, coutfilters: UInt, pfiltout: Long, pfhandle: Long): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_PfAddFiltersToInterface(ih, cinfilters.toInt(), pfiltin, coutfilters.toInt(), pfiltout, pfhandle).toUInt()
+public actual fun pfAddFiltersToInterface(ih: COpaquePointer?, cinfilters: UInt, pfiltin: COpaquePointer?, coutfilters: UInt, pfiltout: COpaquePointer?, pfhandle: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_pfAddFiltersToInterface((ih?.value ?: 0L), cinfilters.toInt(), (pfiltin?.value ?: 0L), coutfilters.toInt(), (pfiltout?.value ?: 0L), (pfhandle?.value ?: 0L)).toUInt()
 
-public actual fun PfAddGlobalFilterToInterface(pinterface: Long, gffilter: GLOBAL_FILTER): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_PfAddGlobalFilterToInterface(pinterface, gffilter).toUInt()
+public actual fun pfAddGlobalFilterToInterface(pinterface: COpaquePointer?, gffilter: GlobalFilter): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_pfAddGlobalFilterToInterface((pinterface?.value ?: 0L), gffilter).toUInt()
 
-public actual fun PfBindInterfaceToIPAddress(pinterface: Long, pfattype: PFADDRESSTYPE, ipaddress: Long): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_PfBindInterfaceToIPAddress(pinterface, pfattype, ipaddress).toUInt()
+public actual fun pfBindInterfaceToIPAddress(pinterface: COpaquePointer?, pfattype: Pfaddresstype, ipaddress: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_pfBindInterfaceToIPAddress((pinterface?.value ?: 0L), pfattype, (ipaddress?.value ?: 0L)).toUInt()
 
-public actual fun PfBindInterfaceToIndex(pinterface: Long, dwindex: UInt, pfatlinktype: PFADDRESSTYPE, linkipaddress: Long): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_PfBindInterfaceToIndex(pinterface, dwindex.toInt(), pfatlinktype, linkipaddress).toUInt()
+public actual fun pfBindInterfaceToIndex(pinterface: COpaquePointer?, dwindex: UInt, pfatlinktype: Pfaddresstype, linkipaddress: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_pfBindInterfaceToIndex((pinterface?.value ?: 0L), dwindex.toInt(), pfatlinktype, (linkipaddress?.value ?: 0L)).toUInt()
 
-public actual fun PfCreateInterface(dwname: UInt, inaction: PFFORWARD_ACTION, outaction: PFFORWARD_ACTION, buselog: BOOL, bmustbeunique: BOOL, ppinterface: Long): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_PfCreateInterface(dwname.toInt(), inaction, outaction, buselog, bmustbeunique, ppinterface).toUInt()
+public actual fun pfCreateInterface(dwname: UInt, inaction: PfforwardAction, outaction: PfforwardAction, buselog: Bool, bmustbeunique: Bool, ppinterface: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_pfCreateInterface(dwname.toInt(), inaction, outaction, buselog, bmustbeunique, (ppinterface?.value ?: 0L)).toUInt()
 
-public actual fun PfDeleteInterface(pinterface: Long): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_PfDeleteInterface(pinterface).toUInt()
+public actual fun pfDeleteInterface(pinterface: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_pfDeleteInterface((pinterface?.value ?: 0L)).toUInt()
 
-public actual fun PfDeleteLog(): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_PfDeleteLog().toUInt()
+public actual fun pfDeleteLog(): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_pfDeleteLog().toUInt()
 
-public actual fun PfGetInterfaceStatistics(pinterface: Long, ppfstats: Long, pdwbuffersize: Long, fresetcounters: BOOL): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_PfGetInterfaceStatistics(pinterface, ppfstats, pdwbuffersize, fresetcounters).toUInt()
+public actual fun pfGetInterfaceStatistics(pinterface: COpaquePointer?, ppfstats: COpaquePointer?, pdwbuffersize: COpaquePointer?, fresetcounters: Bool): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_pfGetInterfaceStatistics((pinterface?.value ?: 0L), (ppfstats?.value ?: 0L), (pdwbuffersize?.value ?: 0L), fresetcounters).toUInt()
 
-public actual fun PfMakeLog(hevent: HANDLE): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_PfMakeLog(hevent).toUInt()
+public actual fun pfMakeLog(hevent: Handle): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_pfMakeLog((hevent?.value ?: 0L)).toUInt()
 
-public actual fun PfRebindFilters(pinterface: Long, platebindinfo: Long): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_PfRebindFilters(pinterface, platebindinfo).toUInt()
+public actual fun pfRebindFilters(pinterface: COpaquePointer?, platebindinfo: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_pfRebindFilters((pinterface?.value ?: 0L), (platebindinfo?.value ?: 0L)).toUInt()
 
-public actual fun PfRemoveFilterHandles(pinterface: Long, cfilters: UInt, pvhandles: Long): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_PfRemoveFilterHandles(pinterface, cfilters.toInt(), pvhandles).toUInt()
+public actual fun pfRemoveFilterHandles(pinterface: COpaquePointer?, cfilters: UInt, pvhandles: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_pfRemoveFilterHandles((pinterface?.value ?: 0L), cfilters.toInt(), (pvhandles?.value ?: 0L)).toUInt()
 
-public actual fun PfRemoveFiltersFromInterface(ih: Long, cinfilters: UInt, pfiltin: Long, coutfilters: UInt, pfiltout: Long): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_PfRemoveFiltersFromInterface(ih, cinfilters.toInt(), pfiltin, coutfilters.toInt(), pfiltout).toUInt()
+public actual fun pfRemoveFiltersFromInterface(ih: COpaquePointer?, cinfilters: UInt, pfiltin: COpaquePointer?, coutfilters: UInt, pfiltout: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_pfRemoveFiltersFromInterface((ih?.value ?: 0L), cinfilters.toInt(), (pfiltin?.value ?: 0L), coutfilters.toInt(), (pfiltout?.value ?: 0L)).toUInt()
 
-public actual fun PfRemoveGlobalFilterFromInterface(pinterface: Long, gffilter: GLOBAL_FILTER): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_PfRemoveGlobalFilterFromInterface(pinterface, gffilter).toUInt()
+public actual fun pfRemoveGlobalFilterFromInterface(pinterface: COpaquePointer?, gffilter: GlobalFilter): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_pfRemoveGlobalFilterFromInterface((pinterface?.value ?: 0L), gffilter).toUInt()
 
-public actual fun PfSetLogBuffer(pbbuffer: Long, dwsize: UInt, dwthreshold: UInt, dwentries: UInt, pdwloggedentries: Long, pdwlostentries: Long, pdwsizeused: Long): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_PfSetLogBuffer(pbbuffer, dwsize.toInt(), dwthreshold.toInt(), dwentries.toInt(), pdwloggedentries, pdwlostentries, pdwsizeused).toUInt()
+public actual fun pfSetLogBuffer(pbbuffer: COpaquePointer?, dwsize: UInt, dwthreshold: UInt, dwentries: UInt, pdwloggedentries: COpaquePointer?, pdwlostentries: COpaquePointer?, pdwsizeused: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_pfSetLogBuffer((pbbuffer?.value ?: 0L), dwsize.toInt(), dwthreshold.toInt(), dwentries.toInt(), (pdwloggedentries?.value ?: 0L), (pdwlostentries?.value ?: 0L), (pdwsizeused?.value ?: 0L)).toUInt()
 
-public actual fun PfTestPacket(pininterface: Long, poutinterface: Long, cbytes: UInt, pbpacket: Long, ppaction: Long): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_PfTestPacket(pininterface, poutinterface, cbytes.toInt(), pbpacket, ppaction).toUInt()
+public actual fun pfTestPacket(pininterface: COpaquePointer?, poutinterface: COpaquePointer?, cbytes: UInt, pbpacket: COpaquePointer?, ppaction: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_pfTestPacket((pininterface?.value ?: 0L), (poutinterface?.value ?: 0L), cbytes.toInt(), (pbpacket?.value ?: 0L), (ppaction?.value ?: 0L)).toUInt()
 
-public actual fun PfUnBindInterface(pinterface: Long): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_PfUnBindInterface(pinterface).toUInt()
+public actual fun pfUnBindInterface(pinterface: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_pfUnBindInterface((pinterface?.value ?: 0L)).toUInt()
 
-public actual fun RegisterInterfaceTimestampConfigChange(callback: PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK, callercontext: Long, notificationhandle: Long): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_RegisterInterfaceTimestampConfigChange(callback.toLong(), callercontext, notificationhandle).toUInt()
+public actual fun registerInterfaceTimestampConfigChange(callback: PinterfaceTimestampConfigChangeCallback, callercontext: COpaquePointer?, notificationhandle: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_registerInterfaceTimestampConfigChange(0L, (callercontext?.value ?: 0L), (notificationhandle?.value ?: 0L)).toUInt()
 
-public actual fun ResolveIpNetEntry2(row: Long, sourceaddress: Long): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_ResolveIpNetEntry2(row, sourceaddress).toUInt()
+public actual fun resolveIpNetEntry2(row: COpaquePointer?, sourceaddress: COpaquePointer?): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_resolveIpNetEntry2((row?.value ?: 0L), (sourceaddress?.value ?: 0L)).toUInt()
 
-public actual fun ResolveNeighbor(networkaddress: Long, physicaladdress: Long, physicaladdresslength: Long): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_ResolveNeighbor(networkaddress, physicaladdress, physicaladdresslength).toUInt()
+public actual fun resolveNeighbor(networkaddress: COpaquePointer?, physicaladdress: COpaquePointer?, physicaladdresslength: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_resolveNeighbor((networkaddress?.value ?: 0L), (physicaladdress?.value ?: 0L), (physicaladdresslength?.value ?: 0L)).toUInt()
 
-public actual fun RestoreMediaSense(poverlapped: Long, lpdwenablecount: Long): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_RestoreMediaSense(poverlapped, lpdwenablecount).toUInt()
+public actual fun restoreMediaSense(poverlapped: COpaquePointer?, lpdwenablecount: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_restoreMediaSense((poverlapped?.value ?: 0L), (lpdwenablecount?.value ?: 0L)).toUInt()
 
-public actual fun SendARP(destip: UInt, srcip: UInt, pmacaddr: Long, phyaddrlen: Long): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_SendARP(destip.toInt(), srcip.toInt(), pmacaddr, phyaddrlen).toUInt()
+public actual fun sendARP(destip: UInt, srcip: UInt, pmacaddr: COpaquePointer?, phyaddrlen: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_sendARP(destip.toInt(), srcip.toInt(), (pmacaddr?.value ?: 0L), (phyaddrlen?.value ?: 0L)).toUInt()
 
-public actual fun SetCurrentThreadCompartmentId(compartmentid: NET_IF_COMPARTMENT_ID): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_SetCurrentThreadCompartmentId(compartmentid.toInt()).toUInt()
+public actual fun setCurrentThreadCompartmentId(compartmentid: NetIfCompartmentId): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_setCurrentThreadCompartmentId(compartmentid.toInt()).toUInt()
 
-public actual fun SetCurrentThreadCompartmentScope(compartmentscope: UInt): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_SetCurrentThreadCompartmentScope(compartmentscope.toInt()).toUInt()
+public actual fun setCurrentThreadCompartmentScope(compartmentscope: UInt): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_setCurrentThreadCompartmentScope(compartmentscope.toInt()).toUInt()
 
-public actual fun SetDnsSettings(settings: Long): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_SetDnsSettings(settings).toUInt()
+public actual fun setDnsSettings(settings: COpaquePointer?): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_setDnsSettings((settings?.value ?: 0L)).toUInt()
 
-public actual fun SetIfEntry(pifrow: Long): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_SetIfEntry(pifrow).toUInt()
+public actual fun setIfEntry(pifrow: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_setIfEntry((pifrow?.value ?: 0L)).toUInt()
 
-public actual fun SetInterfaceDnsSettings(iface: GUID, settings: Long): WIN32_ERROR =
+public actual fun setInterfaceDnsSettings(iface: Guid, settings: COpaquePointer?): Win32Error =
     0u
 
-public actual fun SetIpForwardEntry(proute: Long): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_SetIpForwardEntry(proute).toUInt()
+public actual fun setIpForwardEntry(proute: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_setIpForwardEntry((proute?.value ?: 0L)).toUInt()
 
-public actual fun SetIpForwardEntry2(route: Long): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_SetIpForwardEntry2(route).toUInt()
+public actual fun setIpForwardEntry2(route: COpaquePointer?): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_setIpForwardEntry2((route?.value ?: 0L)).toUInt()
 
-public actual fun SetIpInterfaceEntry(row: Long): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_SetIpInterfaceEntry(row).toUInt()
+public actual fun setIpInterfaceEntry(row: COpaquePointer?): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_setIpInterfaceEntry((row?.value ?: 0L)).toUInt()
 
-public actual fun SetIpNetEntry(parpentry: Long): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_SetIpNetEntry(parpentry).toUInt()
+public actual fun setIpNetEntry(parpentry: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_setIpNetEntry((parpentry?.value ?: 0L)).toUInt()
 
-public actual fun SetIpNetEntry2(row: Long): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_SetIpNetEntry2(row).toUInt()
+public actual fun setIpNetEntry2(row: COpaquePointer?): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_setIpNetEntry2((row?.value ?: 0L)).toUInt()
 
-public actual fun SetIpStatistics(pipstats: Long): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_SetIpStatistics(pipstats).toUInt()
+public actual fun setIpStatistics(pipstats: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_setIpStatistics((pipstats?.value ?: 0L)).toUInt()
 
-public actual fun SetIpStatisticsEx(statistics: Long, family: UInt): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_SetIpStatisticsEx(statistics, family.toInt()).toUInt()
+public actual fun setIpStatisticsEx(statistics: COpaquePointer?, family: UInt): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_setIpStatisticsEx((statistics?.value ?: 0L), family.toInt()).toUInt()
 
-public actual fun SetIpTTL(nttl: UInt): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_SetIpTTL(nttl.toInt()).toUInt()
+public actual fun setIpTTL(nttl: UInt): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_setIpTTL(nttl.toInt()).toUInt()
 
-public actual fun SetJobCompartmentId(jobhandle: HANDLE, compartmentid: NET_IF_COMPARTMENT_ID): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_SetJobCompartmentId(jobhandle, compartmentid.toInt()).toUInt()
+public actual fun setJobCompartmentId(jobhandle: Handle, compartmentid: NetIfCompartmentId): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_setJobCompartmentId((jobhandle?.value ?: 0L), compartmentid.toInt()).toUInt()
 
-public actual fun SetNetworkInformation(networkguid: Long, compartmentid: NET_IF_COMPARTMENT_ID, networkname: PCWSTR): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_SetNetworkInformation(networkguid, compartmentid.toInt(), networkname).toUInt()
+public actual fun setNetworkInformation(networkguid: COpaquePointer?, compartmentid: NetIfCompartmentId, networkname: Pcwstr): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_setNetworkInformation((networkguid?.value ?: 0L), compartmentid.toInt(), (networkname?.value ?: 0L)).toUInt()
 
-public actual fun SetPerTcp6ConnectionEStats(row: Long, estatstype: TCP_ESTATS_TYPE, rw: Long, rwversion: UInt, rwsize: UInt, offset: UInt): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_SetPerTcp6ConnectionEStats(row, estatstype, rw, rwversion.toInt(), rwsize.toInt(), offset.toInt()).toUInt()
+public actual fun setPerTcp6ConnectionEStats(row: COpaquePointer?, estatstype: TcpEstatsType, rw: COpaquePointer?, rwversion: UInt, rwsize: UInt, offset: UInt): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_setPerTcp6ConnectionEStats((row?.value ?: 0L), estatstype, (rw?.value ?: 0L), rwversion.toInt(), rwsize.toInt(), offset.toInt()).toUInt()
 
-public actual fun SetPerTcpConnectionEStats(row: Long, estatstype: TCP_ESTATS_TYPE, rw: Long, rwversion: UInt, rwsize: UInt, offset: UInt): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_SetPerTcpConnectionEStats(row, estatstype, rw, rwversion.toInt(), rwsize.toInt(), offset.toInt()).toUInt()
+public actual fun setPerTcpConnectionEStats(row: COpaquePointer?, estatstype: TcpEstatsType, rw: COpaquePointer?, rwversion: UInt, rwsize: UInt, offset: UInt): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_setPerTcpConnectionEStats((row?.value ?: 0L), estatstype, (rw?.value ?: 0L), rwversion.toInt(), rwsize.toInt(), offset.toInt()).toUInt()
 
-public actual fun SetSessionCompartmentId(sessionid: UInt, compartmentid: NET_IF_COMPARTMENT_ID): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_SetSessionCompartmentId(sessionid.toInt(), compartmentid.toInt()).toUInt()
+public actual fun setSessionCompartmentId(sessionid: UInt, compartmentid: NetIfCompartmentId): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_setSessionCompartmentId(sessionid.toInt(), compartmentid.toInt()).toUInt()
 
-public actual fun SetTcpEntry(ptcprow: Long): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_SetTcpEntry(ptcprow).toUInt()
+public actual fun setTcpEntry(ptcprow: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_setTcpEntry((ptcprow?.value ?: 0L)).toUInt()
 
-public actual fun SetUnicastIpAddressEntry(row: Long): WIN32_ERROR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_SetUnicastIpAddressEntry(row).toUInt()
+public actual fun setUnicastIpAddressEntry(row: COpaquePointer?): Win32Error =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_setUnicastIpAddressEntry((row?.value ?: 0L)).toUInt()
 
-public actual fun UnenableRouter(poverlapped: Long, lpdwenablecount: Long): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_UnenableRouter(poverlapped, lpdwenablecount).toUInt()
+public actual fun unenableRouter(poverlapped: COpaquePointer?, lpdwenablecount: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_unenableRouter((poverlapped?.value ?: 0L), (lpdwenablecount?.value ?: 0L)).toUInt()
 
-public actual fun UnregisterInterfaceTimestampConfigChange(notificationhandle: HIFTIMESTAMPCHANGE) {
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_UnregisterInterfaceTimestampConfigChange(notificationhandle)
+public actual fun unregisterInterfaceTimestampConfigChange(notificationhandle: Hiftimestampchange) {
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_unregisterInterfaceTimestampConfigChange((notificationhandle?.value ?: 0L))
 }
 
-public actual fun if_indextoname(interfaceindex: UInt, interfacename: PSTR): PSTR =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_if_indextoname(interfaceindex.toInt(), interfacename)
+public actual fun ifIndextoname(interfaceindex: UInt, interfacename: Pstr): Pstr =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_ifIndextoname(interfaceindex.toInt(), (interfacename?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun if_nametoindex(interfacename: PCSTR): UInt =
-    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_if_nametoindex(interfacename).toUInt()
+public actual fun ifNametoindex(interfacename: Pcstr): UInt =
+    WindowsWin32NetworkmanagementIphelperJniBridge.windowssys_windows_win32_networkmanagement_iphelper_ifNametoindex((interfacename?.value ?: 0L)).toUInt()

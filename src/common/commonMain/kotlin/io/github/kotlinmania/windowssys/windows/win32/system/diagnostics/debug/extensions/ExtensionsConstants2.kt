@@ -218,9 +218,9 @@ public val DEBUG_VSOURCE_MAPPED_IMAGE: UInt = 2u
 
 public val DEBUG_WAIT_DEFAULT: UInt = 0u
 
-public val DISK_READ_0_BYTES: TANALYZE_RETURN = 3
+public val DISK_READ_0_BYTES: TanalyzeReturn = 3
 
-public val DISK_WRITE: TANALYZE_RETURN = 4
+public val DISK_WRITE: TanalyzeReturn = 4
 
 public val DUMP_HANDLE_FLAG_CID_TABLE: UInt = 32u
 
@@ -230,19 +230,19 @@ public val DUMP_HANDLE_FLAG_PRINT_FREE_ENTRY: UInt = 4u
 
 public val DUMP_HANDLE_FLAG_PRINT_OBJECT: UInt = 2u
 
-public val DbgPoolRegionMax: DEBUG_POOL_REGION = 6
+public val DBG_POOL_REGION_MAX: DebugPoolRegion = 6
 
-public val DbgPoolRegionNonPaged: DEBUG_POOL_REGION = 3
+public val DBG_POOL_REGION_NON_PAGED: DebugPoolRegion = 3
 
-public val DbgPoolRegionNonPagedExpansion: DEBUG_POOL_REGION = 4
+public val DBG_POOL_REGION_NON_PAGED_EXPANSION: DebugPoolRegion = 4
 
-public val DbgPoolRegionPaged: DEBUG_POOL_REGION = 2
+public val DBG_POOL_REGION_PAGED: DebugPoolRegion = 2
 
-public val DbgPoolRegionSessionPaged: DEBUG_POOL_REGION = 5
+public val DBG_POOL_REGION_SESSION_PAGED: DebugPoolRegion = 5
 
-public val DbgPoolRegionSpecial: DEBUG_POOL_REGION = 1
+public val DBG_POOL_REGION_SPECIAL: DebugPoolRegion = 1
 
-public val DbgPoolRegionUnknown: DEBUG_POOL_REGION = 0
+public val DBG_POOL_REGION_UNKNOWN: DebugPoolRegion = 0
 
 public val ERROR_DBG_CANCELLED: UInt = 3221226695u
 
@@ -250,7 +250,7 @@ public val ERROR_DBG_TIMEOUT: UInt = 3221226932u
 
 public val EXIT_ON_CONTROLC: UInt = 8u
 
-public val EXIT_STATUS: TANALYZE_RETURN = 2
+public val EXIT_STATUS: TanalyzeReturn = 2
 
 public val EXTDLL_DATA_QUERY_BUILD_BINDIR: UInt = 1u
 
@@ -290,49 +290,49 @@ public val EXT_TDF_PHYSICAL_UNCACHED: UInt = 6u
 
 public val EXT_TDF_PHYSICAL_WRITE_COMBINED: UInt = 8u
 
-public val EXT_TDOP_COPY: EXT_TDOP = 0
+public val EXT_TDOP_COPY: ExtTdop = 0
 
-public val EXT_TDOP_COUNT: EXT_TDOP = 19
+public val EXT_TDOP_COUNT: ExtTdop = 19
 
-public val EXT_TDOP_EVALUATE: EXT_TDOP = 5
+public val EXT_TDOP_EVALUATE: ExtTdop = 5
 
-public val EXT_TDOP_GET_ARRAY_ELEMENT: EXT_TDOP = 12
+public val EXT_TDOP_GET_ARRAY_ELEMENT: ExtTdop = 12
 
-public val EXT_TDOP_GET_DEREFERENCE: EXT_TDOP = 13
+public val EXT_TDOP_GET_DEREFERENCE: ExtTdop = 13
 
-public val EXT_TDOP_GET_FIELD: EXT_TDOP = 4
+public val EXT_TDOP_GET_FIELD: ExtTdop = 4
 
-public val EXT_TDOP_GET_FIELD_OFFSET: EXT_TDOP = 11
+public val EXT_TDOP_GET_FIELD_OFFSET: ExtTdop = 11
 
-public val EXT_TDOP_GET_POINTER_TO: EXT_TDOP = 16
+public val EXT_TDOP_GET_POINTER_TO: ExtTdop = 16
 
-public val EXT_TDOP_GET_TYPE_NAME: EXT_TDOP = 6
+public val EXT_TDOP_GET_TYPE_NAME: ExtTdop = 6
 
-public val EXT_TDOP_GET_TYPE_SIZE: EXT_TDOP = 14
+public val EXT_TDOP_GET_TYPE_SIZE: ExtTdop = 14
 
-public val EXT_TDOP_HAS_FIELD: EXT_TDOP = 10
+public val EXT_TDOP_HAS_FIELD: ExtTdop = 10
 
-public val EXT_TDOP_OUTPUT_FULL_VALUE: EXT_TDOP = 9
+public val EXT_TDOP_OUTPUT_FULL_VALUE: ExtTdop = 9
 
-public val EXT_TDOP_OUTPUT_SIMPLE_VALUE: EXT_TDOP = 8
+public val EXT_TDOP_OUTPUT_SIMPLE_VALUE: ExtTdop = 8
 
-public val EXT_TDOP_OUTPUT_TYPE_DEFINITION: EXT_TDOP = 15
+public val EXT_TDOP_OUTPUT_TYPE_DEFINITION: ExtTdop = 15
 
-public val EXT_TDOP_OUTPUT_TYPE_NAME: EXT_TDOP = 7
+public val EXT_TDOP_OUTPUT_TYPE_NAME: ExtTdop = 7
 
-public val EXT_TDOP_RELEASE: EXT_TDOP = 1
+public val EXT_TDOP_RELEASE: ExtTdop = 1
 
-public val EXT_TDOP_SET_FROM_EXPR: EXT_TDOP = 2
+public val EXT_TDOP_SET_FROM_EXPR: ExtTdop = 2
 
-public val EXT_TDOP_SET_FROM_TYPE_ID_AND_U64: EXT_TDOP = 17
+public val EXT_TDOP_SET_FROM_TYPE_ID_AND_U64: ExtTdop = 17
 
-public val EXT_TDOP_SET_FROM_U64_EXPR: EXT_TDOP = 3
+public val EXT_TDOP_SET_FROM_U64_EXPR: ExtTdop = 3
 
-public val EXT_TDOP_SET_PTR_FROM_TYPE_ID_AND_U64: EXT_TDOP = 18
+public val EXT_TDOP_SET_PTR_FROM_TYPE_ID_AND_U64: ExtTdop = 18
 
-public val ErrorClassError: ErrorClass = 1
+public val ERROR_CLASS_ERROR: ErrorClass = 1
 
-public val ErrorClassWarning: ErrorClass = 0
+public val ERROR_CLASS_WARNING: ErrorClass = 0
 
 public val FAILURE_ANALYSIS_ASSUME_HANG: UInt = 4u
 
@@ -392,47 +392,47 @@ public val FAILURE_ANALYSIS_XSLT_FILE_INPUT: UInt = 268435456u
 
 public val FAILURE_ANALYSIS_XSLT_FILE_OUTPUT: UInt = 536870912u
 
-public val FA_PLUGIN_INITIALIZATION: FA_EXTENSION_PLUGIN_PHASE = 1
+public val FA_PLUGIN_INITIALIZATION: FaExtensionPluginPhase = 1
 
-public val FA_PLUGIN_POST_BUCKETING: FA_EXTENSION_PLUGIN_PHASE = 8
+public val FA_PLUGIN_POST_BUCKETING: FaExtensionPluginPhase = 8
 
-public val FA_PLUGIN_PRE_BUCKETING: FA_EXTENSION_PLUGIN_PHASE = 4
+public val FA_PLUGIN_PRE_BUCKETING: FaExtensionPluginPhase = 4
 
-public val FA_PLUGIN_STACK_ANALYSIS: FA_EXTENSION_PLUGIN_PHASE = 2
+public val FA_PLUGIN_STACK_ANALYSIS: FaExtensionPluginPhase = 2
 
 public val FIELDS_DID_NOT_MATCH: UInt = 4u
 
-public val FormatBSTRString: PreferredFormat = 8
+public val FORMAT_BSTR_STRING: PreferredFormat = 8
 
-public val FormatEnumNameOnly: PreferredFormat = 12
+public val FORMAT_ENUM_NAME_ONLY: PreferredFormat = 12
 
-public val FormatEscapedStringWithQuote: PreferredFormat = 13
+public val FORMAT_ESCAPED_STRING_WITH_QUOTE: PreferredFormat = 13
 
-public val FormatHString: PreferredFormat = 10
+public val FORMAT_H_STRING: PreferredFormat = 10
 
-public val FormatNone: PreferredFormat = 0
+public val FORMAT_NONE: PreferredFormat = 0
 
-public val FormatQuotedHString: PreferredFormat = 9
+public val FORMAT_QUOTED_H_STRING: PreferredFormat = 9
 
-public val FormatQuotedString: PreferredFormat = 2
+public val FORMAT_QUOTED_STRING: PreferredFormat = 2
 
-public val FormatQuotedUTF32String: PreferredFormat = 15
+public val FORMAT_QUOTED_UTF32STRING: PreferredFormat = 15
 
-public val FormatQuotedUTF8String: PreferredFormat = 6
+public val FORMAT_QUOTED_UTF8STRING: PreferredFormat = 6
 
-public val FormatQuotedUnicodeString: PreferredFormat = 4
+public val FORMAT_QUOTED_UNICODE_STRING: PreferredFormat = 4
 
-public val FormatRaw: PreferredFormat = 11
+public val FORMAT_RAW: PreferredFormat = 11
 
-public val FormatSingleCharacter: PreferredFormat = 1
+public val FORMAT_SINGLE_CHARACTER: PreferredFormat = 1
 
-public val FormatString: PreferredFormat = 3
+public val FORMAT_STRING: PreferredFormat = 3
 
-public val FormatUTF32String: PreferredFormat = 14
+public val FORMAT_UTF32STRING: PreferredFormat = 14
 
-public val FormatUTF8String: PreferredFormat = 7
+public val FORMAT_UTF8STRING: PreferredFormat = 7
 
-public val FormatUnicodeString: PreferredFormat = 5
+public val FORMAT_UNICODE_STRING: PreferredFormat = 5
 
 public val IG_DISASSEMBLE_BUFFER: UInt = 44u
 
@@ -538,31 +538,31 @@ public val INCORRECT_VERSION_INFO: UInt = 7u
 
 public val INSUFFICIENT_SPACE_TO_COPY: UInt = 10u
 
-public val Identical: SignatureComparison = 4
+public val IDENTICAL: SignatureComparison = 4
 
-public val IntrinsicBool: IntrinsicKind = 1
+public val INTRINSIC_BOOL: IntrinsicKind = 1
 
-public val IntrinsicChar: IntrinsicKind = 2
+public val INTRINSIC_CHAR: IntrinsicKind = 2
 
-public val IntrinsicChar16: IntrinsicKind = 10
+public val INTRINSIC_CHAR16: IntrinsicKind = 10
 
-public val IntrinsicChar32: IntrinsicKind = 11
+public val INTRINSIC_CHAR32: IntrinsicKind = 11
 
-public val IntrinsicFloat: IntrinsicKind = 8
+public val INTRINSIC_FLOAT: IntrinsicKind = 8
 
-public val IntrinsicHRESULT: IntrinsicKind = 9
+public val INTRINSIC_HRESULT: IntrinsicKind = 9
 
-public val IntrinsicInt: IntrinsicKind = 4
+public val INTRINSIC_INT: IntrinsicKind = 4
 
-public val IntrinsicLong: IntrinsicKind = 6
+public val INTRINSIC_LONG: IntrinsicKind = 6
 
-public val IntrinsicUInt: IntrinsicKind = 5
+public val INTRINSIC_U_INT: IntrinsicKind = 5
 
-public val IntrinsicULong: IntrinsicKind = 7
+public val INTRINSIC_U_LONG: IntrinsicKind = 7
 
-public val IntrinsicVoid: IntrinsicKind = 0
+public val INTRINSIC_VOID: IntrinsicKind = 0
 
-public val IntrinsicWChar: IntrinsicKind = 3
+public val INTRINSIC_W_CHAR: IntrinsicKind = 3
 
 public val KDEXTS_LOCK_CALLBACKROUTINE_DEFINED: UInt = 2u
 
@@ -574,23 +574,23 @@ public val KD_SECONDARY_VERSION_AMD64_OBSOLETE_CONTEXT_2: UInt = 1u
 
 public val KD_SECONDARY_VERSION_DEFAULT: UInt = 0u
 
-public val LanguageAssembly: LanguageKind = 3
+public val LANGUAGE_ASSEMBLY: LanguageKind = 3
 
-public val LanguageC: LanguageKind = 1
+public val LANGUAGE_C: LanguageKind = 1
 
-public val LanguageCPP: LanguageKind = 2
+public val LANGUAGE_CPP: LanguageKind = 2
 
-public val LanguageUnknown: LanguageKind = 0
+public val LANGUAGE_UNKNOWN: LanguageKind = 0
 
-public val LessSpecific: SignatureComparison = 2
+public val LESS_SPECIFIC: SignatureComparison = 2
 
-public val LocationConstant: LocationKind = 2
+public val LOCATION_CONSTANT: LocationKind = 2
 
-public val LocationMember: LocationKind = 0
+public val LOCATION_MEMBER: LocationKind = 0
 
-public val LocationNone: LocationKind = 3
+public val LOCATION_NONE: LocationKind = 3
 
-public val LocationStatic: LocationKind = 1
+public val LOCATION_STATIC: LocationKind = 1
 
 public val MAX_STACK_IN_BYTES: UInt = 4096u
 
@@ -602,35 +602,35 @@ public val MODULE_ORDERS_MASK: UInt = 4026531840u
 
 public val MODULE_ORDERS_MODULENAME: UInt = 536870912u
 
-public val MoreSpecific: SignatureComparison = 3
+public val MORE_SPECIFIC: SignatureComparison = 3
 
-public val NO_TYPE: TANALYZE_RETURN = 0
+public val NO_TYPE: TanalyzeReturn = 0
 
-public val NT_STATUS_CODE: TANALYZE_RETURN = 5
+public val NT_STATUS_CODE: TanalyzeReturn = 5
 
 public val NULL_FIELD_NAME: UInt = 6u
 
 public val NULL_SYM_DUMP_PARAM: UInt = 5u
 
-public val ObjectContext: ModelObjectKind = 1
+public val OBJECT_CONTEXT: ModelObjectKind = 1
 
-public val ObjectError: ModelObjectKind = 6
+public val OBJECT_ERROR: ModelObjectKind = 6
 
-public val ObjectIntrinsic: ModelObjectKind = 7
+public val OBJECT_INTRINSIC: ModelObjectKind = 7
 
-public val ObjectKeyReference: ModelObjectKind = 9
+public val OBJECT_KEY_REFERENCE: ModelObjectKind = 9
 
-public val ObjectMethod: ModelObjectKind = 8
+public val OBJECT_METHOD: ModelObjectKind = 8
 
-public val ObjectNoValue: ModelObjectKind = 5
+public val OBJECT_NO_VALUE: ModelObjectKind = 5
 
-public val ObjectPropertyAccessor: ModelObjectKind = 0
+public val OBJECT_PROPERTY_ACCESSOR: ModelObjectKind = 0
 
-public val ObjectSynthetic: ModelObjectKind = 4
+public val OBJECT_SYNTHETIC: ModelObjectKind = 4
 
-public val ObjectTargetObject: ModelObjectKind = 2
+public val OBJECT_TARGET_OBJECT: ModelObjectKind = 2
 
-public val ObjectTargetObjectReference: ModelObjectKind = 3
+public val OBJECT_TARGET_OBJECT_REFERENCE: ModelObjectKind = 3
 
 public val PHYS_FLAG_CACHED: UInt = 1u
 
@@ -640,7 +640,7 @@ public val PHYS_FLAG_UNCACHED: UInt = 2u
 
 public val PHYS_FLAG_WRITE_COMBINED: UInt = 3u
 
-public val PROCESS_END: TANALYZE_RETURN = 1
+public val PROCESS_END: TanalyzeReturn = 1
 
 public val PTR_SEARCH_NO_SYMBOL_CHECK: UInt = 2147483648u
 
@@ -652,19 +652,19 @@ public val PTR_SEARCH_PHYS_RANGE_CHECK_ONLY: UInt = 4u
 
 public val PTR_SEARCH_PHYS_SIZE_SHIFT: UInt = 3u
 
-public val PointerCXHat: PointerKind = 3
+public val POINTER_CX_HAT: PointerKind = 3
 
-public val PointerManagedReference: PointerKind = 4
+public val POINTER_MANAGED_REFERENCE: PointerKind = 4
 
-public val PointerRValueReference: PointerKind = 2
+public val POINTER_R_VALUE_REFERENCE: PointerKind = 2
 
-public val PointerReference: PointerKind = 1
+public val POINTER_REFERENCE: PointerKind = 1
 
-public val PointerStandard: PointerKind = 0
+public val POINTER_STANDARD: PointerKind = 0
 
-public val RawSearchNoBases: RawSearchFlags = 1
+public val RAW_SEARCH_NO_BASES: RawSearchFlags = 1
 
-public val RawSearchNone: RawSearchFlags = 0
+public val RAW_SEARCH_NONE: RawSearchFlags = 0
 
 public val STACK_FRAME_TYPE_IGNORE: UInt = 255u
 
@@ -680,63 +680,63 @@ public val SYMBOL_TYPE_INDEX_NOT_FOUND: UInt = 2u
 
 public val SYMBOL_TYPE_INFO_NOT_FOUND: UInt = 3u
 
-public val ScriptDebugAsyncBreak: ScriptDebugEvent = 3
+public val SCRIPT_DEBUG_ASYNC_BREAK: ScriptDebugEvent = 3
 
-public val ScriptDebugBreak: ScriptDebugState = 3
+public val SCRIPT_DEBUG_BREAK: ScriptDebugState = 3
 
-public val ScriptDebugBreakpoint: ScriptDebugEvent = 0
+public val SCRIPT_DEBUG_BREAKPOINT: ScriptDebugEvent = 0
 
-public val ScriptDebugEventFilterAbort: ScriptDebugEventFilter = 3
+public val SCRIPT_DEBUG_EVENT_FILTER_ABORT: ScriptDebugEventFilter = 3
 
-public val ScriptDebugEventFilterEntry: ScriptDebugEventFilter = 0
+public val SCRIPT_DEBUG_EVENT_FILTER_ENTRY: ScriptDebugEventFilter = 0
 
-public val ScriptDebugEventFilterException: ScriptDebugEventFilter = 1
+public val SCRIPT_DEBUG_EVENT_FILTER_EXCEPTION: ScriptDebugEventFilter = 1
 
-public val ScriptDebugEventFilterUnhandledException: ScriptDebugEventFilter = 2
+public val SCRIPT_DEBUG_EVENT_FILTER_UNHANDLED_EXCEPTION: ScriptDebugEventFilter = 2
 
-public val ScriptDebugException: ScriptDebugEvent = 2
+public val SCRIPT_DEBUG_EXCEPTION: ScriptDebugEvent = 2
 
-public val ScriptDebugExecuting: ScriptDebugState = 2
+public val SCRIPT_DEBUG_EXECUTING: ScriptDebugState = 2
 
-public val ScriptDebugNoDebugger: ScriptDebugState = 0
+public val SCRIPT_DEBUG_NO_DEBUGGER: ScriptDebugState = 0
 
-public val ScriptDebugNotExecuting: ScriptDebugState = 1
+public val SCRIPT_DEBUG_NOT_EXECUTING: ScriptDebugState = 1
 
-public val ScriptDebugStep: ScriptDebugEvent = 1
+public val SCRIPT_DEBUG_STEP: ScriptDebugEvent = 1
 
-public val ScriptExecutionNormal: ScriptExecutionKind = 0
+public val SCRIPT_EXECUTION_NORMAL: ScriptExecutionKind = 0
 
-public val ScriptExecutionStepIn: ScriptExecutionKind = 1
+public val SCRIPT_EXECUTION_STEP_IN: ScriptExecutionKind = 1
 
-public val ScriptExecutionStepOut: ScriptExecutionKind = 2
+public val SCRIPT_EXECUTION_STEP_OUT: ScriptExecutionKind = 2
 
-public val ScriptExecutionStepOver: ScriptExecutionKind = 3
+public val SCRIPT_EXECUTION_STEP_OVER: ScriptExecutionKind = 3
 
-public val ScriptRename: ScriptChangeKind = 0
+public val SCRIPT_RENAME: ScriptChangeKind = 0
 
-public val Symbol: SymbolKind = 0
+public val SYMBOL: SymbolKind = 0
 
-public val SymbolBaseClass: SymbolKind = 6
+public val SYMBOL_BASE_CLASS: SymbolKind = 6
 
-public val SymbolConstant: SymbolKind = 4
+public val SYMBOL_CONSTANT: SymbolKind = 4
 
-public val SymbolData: SymbolKind = 5
+public val SYMBOL_DATA: SymbolKind = 5
 
-public val SymbolField: SymbolKind = 3
+public val SYMBOL_FIELD: SymbolKind = 3
 
-public val SymbolFunction: SymbolKind = 8
+public val SYMBOL_FUNCTION: SymbolKind = 8
 
-public val SymbolModule: SymbolKind = 1
+public val SYMBOL_MODULE: SymbolKind = 1
 
-public val SymbolPublic: SymbolKind = 7
+public val SYMBOL_PUBLIC: SymbolKind = 7
 
-public val SymbolSearchCaseInsensitive: SymbolSearchOptions = 2
+public val SYMBOL_SEARCH_CASE_INSENSITIVE: SymbolSearchOptions = 2
 
-public val SymbolSearchCompletion: SymbolSearchOptions = 1
+public val SYMBOL_SEARCH_COMPLETION: SymbolSearchOptions = 1
 
-public val SymbolSearchNone: SymbolSearchOptions = 0
+public val SYMBOL_SEARCH_NONE: SymbolSearchOptions = 0
 
-public val SymbolType: SymbolKind = 2
+public val SYMBOL_TYPE: SymbolKind = 2
 
 public val TRIAGE_FOLLOWUP_DEFAULT: UInt = 2u
 
@@ -746,31 +746,31 @@ public val TRIAGE_FOLLOWUP_IGNORE: UInt = 1u
 
 public val TRIAGE_FOLLOWUP_SUCCESS: UInt = 3u
 
-public val TypeArray: TypeKind = 3
+public val TYPE_ARRAY: TypeKind = 3
 
-public val TypeEnum: TypeKind = 6
+public val TYPE_ENUM: TypeKind = 6
 
-public val TypeExtendedArray: TypeKind = 8
+public val TYPE_EXTENDED_ARRAY: TypeKind = 8
 
-public val TypeFunction: TypeKind = 4
+public val TYPE_FUNCTION: TypeKind = 4
 
-public val TypeIntrinsic: TypeKind = 7
+public val TYPE_INTRINSIC: TypeKind = 7
 
-public val TypeMemberPointer: TypeKind = 2
+public val TYPE_MEMBER_POINTER: TypeKind = 2
 
-public val TypePointer: TypeKind = 1
+public val TYPE_POINTER: TypeKind = 1
 
-public val TypeTypedef: TypeKind = 5
+public val TYPE_TYPEDEF: TypeKind = 5
 
-public val TypeUDT: TypeKind = 0
+public val TYPE_UDT: TypeKind = 0
 
 public val UNAVAILABLE_ERROR: UInt = 12u
 
-public val Unrelated: SignatureComparison = 0
+public val UNRELATED: SignatureComparison = 0
 
-public val VarArgsCStyle: VarArgsKind = 1
+public val VAR_ARGS_C_STYLE: VarArgsKind = 1
 
-public val VarArgsNone: VarArgsKind = 0
+public val VAR_ARGS_NONE: VarArgsKind = 0
 
 public val WDBGEXTS_ADDRESS_DEFAULT: UInt = 0u
 
@@ -780,24 +780,24 @@ public val WDBGEXTS_ADDRESS_SEG16: UInt = 1u
 
 public val WDBGEXTS_ADDRESS_SEG32: UInt = 2u
 
-public val WIN_95: OS_TYPE = 0
+public val WIN_95: OsType = 0
 
-public val WIN_98: OS_TYPE = 1
+public val WIN_98: OsType = 1
 
-public val WIN_ME: OS_TYPE = 2
+public val WIN_ME: OsType = 2
 
-public val WIN_NT4: OS_TYPE = 3
+public val WIN_NT4: OsType = 3
 
-public val WIN_NT5: OS_TYPE = 4
+public val WIN_NT5: OsType = 4
 
-public val WIN_NT5_1: OS_TYPE = 5
+public val WIN_NT5_1: OsType = 5
 
-public val WIN_NT5_2: OS_TYPE = 6
+public val WIN_NT5_2: OsType = 6
 
-public val WIN_NT6_0: OS_TYPE = 7
+public val WIN_NT6_0: OsType = 7
 
-public val WIN_NT6_1: OS_TYPE = 8
+public val WIN_NT6_1: OsType = 8
 
-public val WIN_UNDEFINED: OS_TYPE = 255
+public val WIN_UNDEFINED: OsType = 255
 
-public val _EXTSAPI_VER_: UInt = 10u
+public val EXTSAPI_VER: UInt = 10u

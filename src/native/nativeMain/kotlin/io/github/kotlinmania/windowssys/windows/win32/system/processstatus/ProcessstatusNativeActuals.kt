@@ -2,172 +2,173 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.processstatus
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HMODULE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hmodule
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun EmptyWorkingSet(hprocess: HANDLE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_EmptyWorkingSet(hprocess.toCPointer<ByteVar>())
+public actual fun emptyWorkingSet(hprocess: Handle): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_emptyWorkingSet(hprocess?.value?.toCPointer<ByteVar>())
 
-public actual fun EnumDeviceDrivers(lpimagebase: Long, cb: UInt, lpcbneeded: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_EnumDeviceDrivers(lpimagebase.toCPointer<ByteVar>(), cb, lpcbneeded.toCPointer<ByteVar>())
+public actual fun enumDeviceDrivers(lpimagebase: COpaquePointer?, cb: UInt, lpcbneeded: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_enumDeviceDrivers(lpimagebase?.value?.toCPointer<ByteVar>(), cb, lpcbneeded?.value?.toCPointer<ByteVar>())
 
-public actual fun EnumPageFilesA(pcallbackroutine: PENUM_PAGE_FILE_CALLBACKA, pcontext: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_EnumPageFilesA(pcallbackroutine.toLong().toCPointer<ByteVar>(), pcontext.toCPointer<ByteVar>())
+public actual fun enumPageFilesA(pcallbackroutine: PenumPageFileCallbacka, pcontext: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_enumPageFilesA(0L.toCPointer<ByteVar>(), pcontext?.value?.toCPointer<ByteVar>())
 
-public actual fun EnumPageFilesW(pcallbackroutine: PENUM_PAGE_FILE_CALLBACKW, pcontext: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_EnumPageFilesW(pcallbackroutine.toLong().toCPointer<ByteVar>(), pcontext.toCPointer<ByteVar>())
+public actual fun enumPageFilesW(pcallbackroutine: PenumPageFileCallbackw, pcontext: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_enumPageFilesW(0L.toCPointer<ByteVar>(), pcontext?.value?.toCPointer<ByteVar>())
 
-public actual fun EnumProcessModules(hprocess: HANDLE, lphmodule: Long, cb: UInt, lpcbneeded: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_EnumProcessModules(hprocess.toCPointer<ByteVar>(), lphmodule.toCPointer<ByteVar>(), cb, lpcbneeded.toCPointer<ByteVar>())
+public actual fun enumProcessModules(hprocess: Handle, lphmodule: COpaquePointer?, cb: UInt, lpcbneeded: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_enumProcessModules(hprocess?.value?.toCPointer<ByteVar>(), lphmodule?.value?.toCPointer<ByteVar>(), cb, lpcbneeded?.value?.toCPointer<ByteVar>())
 
-public actual fun EnumProcessModulesEx(hprocess: HANDLE, lphmodule: Long, cb: UInt, lpcbneeded: Long, dwfilterflag: ENUM_PROCESS_MODULES_EX_FLAGS): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_EnumProcessModulesEx(hprocess.toCPointer<ByteVar>(), lphmodule.toCPointer<ByteVar>(), cb, lpcbneeded.toCPointer<ByteVar>(), dwfilterflag)
+public actual fun enumProcessModulesEx(hprocess: Handle, lphmodule: COpaquePointer?, cb: UInt, lpcbneeded: COpaquePointer?, dwfilterflag: EnumProcessModulesExFlags): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_enumProcessModulesEx(hprocess?.value?.toCPointer<ByteVar>(), lphmodule?.value?.toCPointer<ByteVar>(), cb, lpcbneeded?.value?.toCPointer<ByteVar>(), dwfilterflag)
 
-public actual fun EnumProcesses(lpidprocess: Long, cb: UInt, lpcbneeded: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_EnumProcesses(lpidprocess.toCPointer<ByteVar>(), cb, lpcbneeded.toCPointer<ByteVar>())
+public actual fun enumProcesses(lpidprocess: COpaquePointer?, cb: UInt, lpcbneeded: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_enumProcesses(lpidprocess?.value?.toCPointer<ByteVar>(), cb, lpcbneeded?.value?.toCPointer<ByteVar>())
 
-public actual fun GetDeviceDriverBaseNameA(imagebase: Long, lpfilename: PSTR, nsize: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_GetDeviceDriverBaseNameA(imagebase.toCPointer<ByteVar>(), lpfilename.toCPointer<ByteVar>(), nsize)
+public actual fun getDeviceDriverBaseNameA(imagebase: COpaquePointer?, lpfilename: Pstr, nsize: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_getDeviceDriverBaseNameA(imagebase?.value?.toCPointer<ByteVar>(), lpfilename?.value?.toCPointer<ByteVar>(), nsize)
 
-public actual fun GetDeviceDriverBaseNameW(imagebase: Long, lpbasename: PWSTR, nsize: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_GetDeviceDriverBaseNameW(imagebase.toCPointer<ByteVar>(), lpbasename.toCPointer<ByteVar>(), nsize)
+public actual fun getDeviceDriverBaseNameW(imagebase: COpaquePointer?, lpbasename: Pwstr, nsize: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_getDeviceDriverBaseNameW(imagebase?.value?.toCPointer<ByteVar>(), lpbasename?.value?.toCPointer<ByteVar>(), nsize)
 
-public actual fun GetDeviceDriverFileNameA(imagebase: Long, lpfilename: PSTR, nsize: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_GetDeviceDriverFileNameA(imagebase.toCPointer<ByteVar>(), lpfilename.toCPointer<ByteVar>(), nsize)
+public actual fun getDeviceDriverFileNameA(imagebase: COpaquePointer?, lpfilename: Pstr, nsize: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_getDeviceDriverFileNameA(imagebase?.value?.toCPointer<ByteVar>(), lpfilename?.value?.toCPointer<ByteVar>(), nsize)
 
-public actual fun GetDeviceDriverFileNameW(imagebase: Long, lpfilename: PWSTR, nsize: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_GetDeviceDriverFileNameW(imagebase.toCPointer<ByteVar>(), lpfilename.toCPointer<ByteVar>(), nsize)
+public actual fun getDeviceDriverFileNameW(imagebase: COpaquePointer?, lpfilename: Pwstr, nsize: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_getDeviceDriverFileNameW(imagebase?.value?.toCPointer<ByteVar>(), lpfilename?.value?.toCPointer<ByteVar>(), nsize)
 
-public actual fun GetMappedFileNameA(hprocess: HANDLE, lpv: Long, lpfilename: PSTR, nsize: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_GetMappedFileNameA(hprocess.toCPointer<ByteVar>(), lpv.toCPointer<ByteVar>(), lpfilename.toCPointer<ByteVar>(), nsize)
+public actual fun getMappedFileNameA(hprocess: Handle, lpv: COpaquePointer?, lpfilename: Pstr, nsize: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_getMappedFileNameA(hprocess?.value?.toCPointer<ByteVar>(), lpv?.value?.toCPointer<ByteVar>(), lpfilename?.value?.toCPointer<ByteVar>(), nsize)
 
-public actual fun GetMappedFileNameW(hprocess: HANDLE, lpv: Long, lpfilename: PWSTR, nsize: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_GetMappedFileNameW(hprocess.toCPointer<ByteVar>(), lpv.toCPointer<ByteVar>(), lpfilename.toCPointer<ByteVar>(), nsize)
+public actual fun getMappedFileNameW(hprocess: Handle, lpv: COpaquePointer?, lpfilename: Pwstr, nsize: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_getMappedFileNameW(hprocess?.value?.toCPointer<ByteVar>(), lpv?.value?.toCPointer<ByteVar>(), lpfilename?.value?.toCPointer<ByteVar>(), nsize)
 
-public actual fun GetModuleBaseNameA(hprocess: HANDLE, hmodule: HMODULE, lpbasename: PSTR, nsize: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_GetModuleBaseNameA(hprocess.toCPointer<ByteVar>(), hmodule.toCPointer<ByteVar>(), lpbasename.toCPointer<ByteVar>(), nsize)
+public actual fun getModuleBaseNameA(hprocess: Handle, hmodule: Hmodule, lpbasename: Pstr, nsize: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_getModuleBaseNameA(hprocess?.value?.toCPointer<ByteVar>(), hmodule?.value?.toCPointer<ByteVar>(), lpbasename?.value?.toCPointer<ByteVar>(), nsize)
 
-public actual fun GetModuleBaseNameW(hprocess: HANDLE, hmodule: HMODULE, lpbasename: PWSTR, nsize: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_GetModuleBaseNameW(hprocess.toCPointer<ByteVar>(), hmodule.toCPointer<ByteVar>(), lpbasename.toCPointer<ByteVar>(), nsize)
+public actual fun getModuleBaseNameW(hprocess: Handle, hmodule: Hmodule, lpbasename: Pwstr, nsize: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_getModuleBaseNameW(hprocess?.value?.toCPointer<ByteVar>(), hmodule?.value?.toCPointer<ByteVar>(), lpbasename?.value?.toCPointer<ByteVar>(), nsize)
 
-public actual fun GetModuleFileNameExA(hprocess: HANDLE, hmodule: HMODULE, lpfilename: PSTR, nsize: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_GetModuleFileNameExA(hprocess.toCPointer<ByteVar>(), hmodule.toCPointer<ByteVar>(), lpfilename.toCPointer<ByteVar>(), nsize)
+public actual fun getModuleFileNameExA(hprocess: Handle, hmodule: Hmodule, lpfilename: Pstr, nsize: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_getModuleFileNameExA(hprocess?.value?.toCPointer<ByteVar>(), hmodule?.value?.toCPointer<ByteVar>(), lpfilename?.value?.toCPointer<ByteVar>(), nsize)
 
-public actual fun GetModuleFileNameExW(hprocess: HANDLE, hmodule: HMODULE, lpfilename: PWSTR, nsize: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_GetModuleFileNameExW(hprocess.toCPointer<ByteVar>(), hmodule.toCPointer<ByteVar>(), lpfilename.toCPointer<ByteVar>(), nsize)
+public actual fun getModuleFileNameExW(hprocess: Handle, hmodule: Hmodule, lpfilename: Pwstr, nsize: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_getModuleFileNameExW(hprocess?.value?.toCPointer<ByteVar>(), hmodule?.value?.toCPointer<ByteVar>(), lpfilename?.value?.toCPointer<ByteVar>(), nsize)
 
-public actual fun GetModuleInformation(hprocess: HANDLE, hmodule: HMODULE, lpmodinfo: Long, cb: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_GetModuleInformation(hprocess.toCPointer<ByteVar>(), hmodule.toCPointer<ByteVar>(), lpmodinfo.toCPointer<ByteVar>(), cb)
+public actual fun getModuleInformation(hprocess: Handle, hmodule: Hmodule, lpmodinfo: COpaquePointer?, cb: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_getModuleInformation(hprocess?.value?.toCPointer<ByteVar>(), hmodule?.value?.toCPointer<ByteVar>(), lpmodinfo?.value?.toCPointer<ByteVar>(), cb)
 
-public actual fun GetPerformanceInfo(pperformanceinformation: Long, cb: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_GetPerformanceInfo(pperformanceinformation.toCPointer<ByteVar>(), cb)
+public actual fun getPerformanceInfo(pperformanceinformation: COpaquePointer?, cb: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_getPerformanceInfo(pperformanceinformation?.value?.toCPointer<ByteVar>(), cb)
 
-public actual fun GetProcessImageFileNameA(hprocess: HANDLE, lpimagefilename: PSTR, nsize: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_GetProcessImageFileNameA(hprocess.toCPointer<ByteVar>(), lpimagefilename.toCPointer<ByteVar>(), nsize)
+public actual fun getProcessImageFileNameA(hprocess: Handle, lpimagefilename: Pstr, nsize: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_getProcessImageFileNameA(hprocess?.value?.toCPointer<ByteVar>(), lpimagefilename?.value?.toCPointer<ByteVar>(), nsize)
 
-public actual fun GetProcessImageFileNameW(hprocess: HANDLE, lpimagefilename: PWSTR, nsize: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_GetProcessImageFileNameW(hprocess.toCPointer<ByteVar>(), lpimagefilename.toCPointer<ByteVar>(), nsize)
+public actual fun getProcessImageFileNameW(hprocess: Handle, lpimagefilename: Pwstr, nsize: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_getProcessImageFileNameW(hprocess?.value?.toCPointer<ByteVar>(), lpimagefilename?.value?.toCPointer<ByteVar>(), nsize)
 
-public actual fun GetProcessMemoryInfo(process: HANDLE, ppsmemcounters: Long, cb: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_GetProcessMemoryInfo(process.toCPointer<ByteVar>(), ppsmemcounters.toCPointer<ByteVar>(), cb)
+public actual fun getProcessMemoryInfo(process: Handle, ppsmemcounters: COpaquePointer?, cb: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_getProcessMemoryInfo(process?.value?.toCPointer<ByteVar>(), ppsmemcounters?.value?.toCPointer<ByteVar>(), cb)
 
-public actual fun GetWsChanges(hprocess: HANDLE, lpwatchinfo: Long, cb: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_GetWsChanges(hprocess.toCPointer<ByteVar>(), lpwatchinfo.toCPointer<ByteVar>(), cb)
+public actual fun getWsChanges(hprocess: Handle, lpwatchinfo: COpaquePointer?, cb: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_getWsChanges(hprocess?.value?.toCPointer<ByteVar>(), lpwatchinfo?.value?.toCPointer<ByteVar>(), cb)
 
-public actual fun GetWsChangesEx(hprocess: HANDLE, lpwatchinfoex: Long, cb: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_GetWsChangesEx(hprocess.toCPointer<ByteVar>(), lpwatchinfoex.toCPointer<ByteVar>(), cb.toCPointer<ByteVar>())
+public actual fun getWsChangesEx(hprocess: Handle, lpwatchinfoex: COpaquePointer?, cb: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_getWsChangesEx(hprocess?.value?.toCPointer<ByteVar>(), lpwatchinfoex?.value?.toCPointer<ByteVar>(), cb?.value?.toCPointer<ByteVar>())
 
-public actual fun InitializeProcessForWsWatch(hprocess: HANDLE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_InitializeProcessForWsWatch(hprocess.toCPointer<ByteVar>())
+public actual fun initializeProcessForWsWatch(hprocess: Handle): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_initializeProcessForWsWatch(hprocess?.value?.toCPointer<ByteVar>())
 
-public actual fun K32EmptyWorkingSet(hprocess: HANDLE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_K32EmptyWorkingSet(hprocess.toCPointer<ByteVar>())
+public actual fun k32EmptyWorkingSet(hprocess: Handle): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_k32EmptyWorkingSet(hprocess?.value?.toCPointer<ByteVar>())
 
-public actual fun K32EnumDeviceDrivers(lpimagebase: Long, cb: UInt, lpcbneeded: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_K32EnumDeviceDrivers(lpimagebase.toCPointer<ByteVar>(), cb, lpcbneeded.toCPointer<ByteVar>())
+public actual fun k32EnumDeviceDrivers(lpimagebase: COpaquePointer?, cb: UInt, lpcbneeded: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_k32EnumDeviceDrivers(lpimagebase?.value?.toCPointer<ByteVar>(), cb, lpcbneeded?.value?.toCPointer<ByteVar>())
 
-public actual fun K32EnumPageFilesA(pcallbackroutine: PENUM_PAGE_FILE_CALLBACKA, pcontext: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_K32EnumPageFilesA(pcallbackroutine.toLong().toCPointer<ByteVar>(), pcontext.toCPointer<ByteVar>())
+public actual fun k32EnumPageFilesA(pcallbackroutine: PenumPageFileCallbacka, pcontext: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_k32EnumPageFilesA(0L.toCPointer<ByteVar>(), pcontext?.value?.toCPointer<ByteVar>())
 
-public actual fun K32EnumPageFilesW(pcallbackroutine: PENUM_PAGE_FILE_CALLBACKW, pcontext: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_K32EnumPageFilesW(pcallbackroutine.toLong().toCPointer<ByteVar>(), pcontext.toCPointer<ByteVar>())
+public actual fun k32EnumPageFilesW(pcallbackroutine: PenumPageFileCallbackw, pcontext: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_k32EnumPageFilesW(0L.toCPointer<ByteVar>(), pcontext?.value?.toCPointer<ByteVar>())
 
-public actual fun K32EnumProcessModules(hprocess: HANDLE, lphmodule: Long, cb: UInt, lpcbneeded: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_K32EnumProcessModules(hprocess.toCPointer<ByteVar>(), lphmodule.toCPointer<ByteVar>(), cb, lpcbneeded.toCPointer<ByteVar>())
+public actual fun k32EnumProcessModules(hprocess: Handle, lphmodule: COpaquePointer?, cb: UInt, lpcbneeded: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_k32EnumProcessModules(hprocess?.value?.toCPointer<ByteVar>(), lphmodule?.value?.toCPointer<ByteVar>(), cb, lpcbneeded?.value?.toCPointer<ByteVar>())
 
-public actual fun K32EnumProcessModulesEx(hprocess: HANDLE, lphmodule: Long, cb: UInt, lpcbneeded: Long, dwfilterflag: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_K32EnumProcessModulesEx(hprocess.toCPointer<ByteVar>(), lphmodule.toCPointer<ByteVar>(), cb, lpcbneeded.toCPointer<ByteVar>(), dwfilterflag)
+public actual fun k32EnumProcessModulesEx(hprocess: Handle, lphmodule: COpaquePointer?, cb: UInt, lpcbneeded: COpaquePointer?, dwfilterflag: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_k32EnumProcessModulesEx(hprocess?.value?.toCPointer<ByteVar>(), lphmodule?.value?.toCPointer<ByteVar>(), cb, lpcbneeded?.value?.toCPointer<ByteVar>(), dwfilterflag)
 
-public actual fun K32EnumProcesses(lpidprocess: Long, cb: UInt, lpcbneeded: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_K32EnumProcesses(lpidprocess.toCPointer<ByteVar>(), cb, lpcbneeded.toCPointer<ByteVar>())
+public actual fun k32EnumProcesses(lpidprocess: COpaquePointer?, cb: UInt, lpcbneeded: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_k32EnumProcesses(lpidprocess?.value?.toCPointer<ByteVar>(), cb, lpcbneeded?.value?.toCPointer<ByteVar>())
 
-public actual fun K32GetDeviceDriverBaseNameA(imagebase: Long, lpfilename: PSTR, nsize: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_K32GetDeviceDriverBaseNameA(imagebase.toCPointer<ByteVar>(), lpfilename.toCPointer<ByteVar>(), nsize)
+public actual fun k32GetDeviceDriverBaseNameA(imagebase: COpaquePointer?, lpfilename: Pstr, nsize: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_k32GetDeviceDriverBaseNameA(imagebase?.value?.toCPointer<ByteVar>(), lpfilename?.value?.toCPointer<ByteVar>(), nsize)
 
-public actual fun K32GetDeviceDriverBaseNameW(imagebase: Long, lpbasename: PWSTR, nsize: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_K32GetDeviceDriverBaseNameW(imagebase.toCPointer<ByteVar>(), lpbasename.toCPointer<ByteVar>(), nsize)
+public actual fun k32GetDeviceDriverBaseNameW(imagebase: COpaquePointer?, lpbasename: Pwstr, nsize: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_k32GetDeviceDriverBaseNameW(imagebase?.value?.toCPointer<ByteVar>(), lpbasename?.value?.toCPointer<ByteVar>(), nsize)
 
-public actual fun K32GetDeviceDriverFileNameA(imagebase: Long, lpfilename: PSTR, nsize: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_K32GetDeviceDriverFileNameA(imagebase.toCPointer<ByteVar>(), lpfilename.toCPointer<ByteVar>(), nsize)
+public actual fun k32GetDeviceDriverFileNameA(imagebase: COpaquePointer?, lpfilename: Pstr, nsize: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_k32GetDeviceDriverFileNameA(imagebase?.value?.toCPointer<ByteVar>(), lpfilename?.value?.toCPointer<ByteVar>(), nsize)
 
-public actual fun K32GetDeviceDriverFileNameW(imagebase: Long, lpfilename: PWSTR, nsize: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_K32GetDeviceDriverFileNameW(imagebase.toCPointer<ByteVar>(), lpfilename.toCPointer<ByteVar>(), nsize)
+public actual fun k32GetDeviceDriverFileNameW(imagebase: COpaquePointer?, lpfilename: Pwstr, nsize: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_k32GetDeviceDriverFileNameW(imagebase?.value?.toCPointer<ByteVar>(), lpfilename?.value?.toCPointer<ByteVar>(), nsize)
 
-public actual fun K32GetMappedFileNameA(hprocess: HANDLE, lpv: Long, lpfilename: PSTR, nsize: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_K32GetMappedFileNameA(hprocess.toCPointer<ByteVar>(), lpv.toCPointer<ByteVar>(), lpfilename.toCPointer<ByteVar>(), nsize)
+public actual fun k32GetMappedFileNameA(hprocess: Handle, lpv: COpaquePointer?, lpfilename: Pstr, nsize: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_k32GetMappedFileNameA(hprocess?.value?.toCPointer<ByteVar>(), lpv?.value?.toCPointer<ByteVar>(), lpfilename?.value?.toCPointer<ByteVar>(), nsize)
 
-public actual fun K32GetMappedFileNameW(hprocess: HANDLE, lpv: Long, lpfilename: PWSTR, nsize: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_K32GetMappedFileNameW(hprocess.toCPointer<ByteVar>(), lpv.toCPointer<ByteVar>(), lpfilename.toCPointer<ByteVar>(), nsize)
+public actual fun k32GetMappedFileNameW(hprocess: Handle, lpv: COpaquePointer?, lpfilename: Pwstr, nsize: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_k32GetMappedFileNameW(hprocess?.value?.toCPointer<ByteVar>(), lpv?.value?.toCPointer<ByteVar>(), lpfilename?.value?.toCPointer<ByteVar>(), nsize)
 
-public actual fun K32GetModuleBaseNameA(hprocess: HANDLE, hmodule: HMODULE, lpbasename: PSTR, nsize: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_K32GetModuleBaseNameA(hprocess.toCPointer<ByteVar>(), hmodule.toCPointer<ByteVar>(), lpbasename.toCPointer<ByteVar>(), nsize)
+public actual fun k32GetModuleBaseNameA(hprocess: Handle, hmodule: Hmodule, lpbasename: Pstr, nsize: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_k32GetModuleBaseNameA(hprocess?.value?.toCPointer<ByteVar>(), hmodule?.value?.toCPointer<ByteVar>(), lpbasename?.value?.toCPointer<ByteVar>(), nsize)
 
-public actual fun K32GetModuleBaseNameW(hprocess: HANDLE, hmodule: HMODULE, lpbasename: PWSTR, nsize: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_K32GetModuleBaseNameW(hprocess.toCPointer<ByteVar>(), hmodule.toCPointer<ByteVar>(), lpbasename.toCPointer<ByteVar>(), nsize)
+public actual fun k32GetModuleBaseNameW(hprocess: Handle, hmodule: Hmodule, lpbasename: Pwstr, nsize: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_k32GetModuleBaseNameW(hprocess?.value?.toCPointer<ByteVar>(), hmodule?.value?.toCPointer<ByteVar>(), lpbasename?.value?.toCPointer<ByteVar>(), nsize)
 
-public actual fun K32GetModuleFileNameExA(hprocess: HANDLE, hmodule: HMODULE, lpfilename: PSTR, nsize: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_K32GetModuleFileNameExA(hprocess.toCPointer<ByteVar>(), hmodule.toCPointer<ByteVar>(), lpfilename.toCPointer<ByteVar>(), nsize)
+public actual fun k32GetModuleFileNameExA(hprocess: Handle, hmodule: Hmodule, lpfilename: Pstr, nsize: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_k32GetModuleFileNameExA(hprocess?.value?.toCPointer<ByteVar>(), hmodule?.value?.toCPointer<ByteVar>(), lpfilename?.value?.toCPointer<ByteVar>(), nsize)
 
-public actual fun K32GetModuleFileNameExW(hprocess: HANDLE, hmodule: HMODULE, lpfilename: PWSTR, nsize: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_K32GetModuleFileNameExW(hprocess.toCPointer<ByteVar>(), hmodule.toCPointer<ByteVar>(), lpfilename.toCPointer<ByteVar>(), nsize)
+public actual fun k32GetModuleFileNameExW(hprocess: Handle, hmodule: Hmodule, lpfilename: Pwstr, nsize: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_k32GetModuleFileNameExW(hprocess?.value?.toCPointer<ByteVar>(), hmodule?.value?.toCPointer<ByteVar>(), lpfilename?.value?.toCPointer<ByteVar>(), nsize)
 
-public actual fun K32GetModuleInformation(hprocess: HANDLE, hmodule: HMODULE, lpmodinfo: Long, cb: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_K32GetModuleInformation(hprocess.toCPointer<ByteVar>(), hmodule.toCPointer<ByteVar>(), lpmodinfo.toCPointer<ByteVar>(), cb)
+public actual fun k32GetModuleInformation(hprocess: Handle, hmodule: Hmodule, lpmodinfo: COpaquePointer?, cb: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_k32GetModuleInformation(hprocess?.value?.toCPointer<ByteVar>(), hmodule?.value?.toCPointer<ByteVar>(), lpmodinfo?.value?.toCPointer<ByteVar>(), cb)
 
-public actual fun K32GetPerformanceInfo(pperformanceinformation: Long, cb: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_K32GetPerformanceInfo(pperformanceinformation.toCPointer<ByteVar>(), cb)
+public actual fun k32GetPerformanceInfo(pperformanceinformation: COpaquePointer?, cb: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_k32GetPerformanceInfo(pperformanceinformation?.value?.toCPointer<ByteVar>(), cb)
 
-public actual fun K32GetProcessImageFileNameA(hprocess: HANDLE, lpimagefilename: PSTR, nsize: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_K32GetProcessImageFileNameA(hprocess.toCPointer<ByteVar>(), lpimagefilename.toCPointer<ByteVar>(), nsize)
+public actual fun k32GetProcessImageFileNameA(hprocess: Handle, lpimagefilename: Pstr, nsize: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_k32GetProcessImageFileNameA(hprocess?.value?.toCPointer<ByteVar>(), lpimagefilename?.value?.toCPointer<ByteVar>(), nsize)
 
-public actual fun K32GetProcessImageFileNameW(hprocess: HANDLE, lpimagefilename: PWSTR, nsize: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_K32GetProcessImageFileNameW(hprocess.toCPointer<ByteVar>(), lpimagefilename.toCPointer<ByteVar>(), nsize)
+public actual fun k32GetProcessImageFileNameW(hprocess: Handle, lpimagefilename: Pwstr, nsize: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_k32GetProcessImageFileNameW(hprocess?.value?.toCPointer<ByteVar>(), lpimagefilename?.value?.toCPointer<ByteVar>(), nsize)
 
-public actual fun K32GetProcessMemoryInfo(process: HANDLE, ppsmemcounters: Long, cb: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_K32GetProcessMemoryInfo(process.toCPointer<ByteVar>(), ppsmemcounters.toCPointer<ByteVar>(), cb)
+public actual fun k32GetProcessMemoryInfo(process: Handle, ppsmemcounters: COpaquePointer?, cb: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_k32GetProcessMemoryInfo(process?.value?.toCPointer<ByteVar>(), ppsmemcounters?.value?.toCPointer<ByteVar>(), cb)
 
-public actual fun K32GetWsChanges(hprocess: HANDLE, lpwatchinfo: Long, cb: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_K32GetWsChanges(hprocess.toCPointer<ByteVar>(), lpwatchinfo.toCPointer<ByteVar>(), cb)
+public actual fun k32GetWsChanges(hprocess: Handle, lpwatchinfo: COpaquePointer?, cb: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_k32GetWsChanges(hprocess?.value?.toCPointer<ByteVar>(), lpwatchinfo?.value?.toCPointer<ByteVar>(), cb)
 
-public actual fun K32GetWsChangesEx(hprocess: HANDLE, lpwatchinfoex: Long, cb: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_K32GetWsChangesEx(hprocess.toCPointer<ByteVar>(), lpwatchinfoex.toCPointer<ByteVar>(), cb.toCPointer<ByteVar>())
+public actual fun k32GetWsChangesEx(hprocess: Handle, lpwatchinfoex: COpaquePointer?, cb: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_k32GetWsChangesEx(hprocess?.value?.toCPointer<ByteVar>(), lpwatchinfoex?.value?.toCPointer<ByteVar>(), cb?.value?.toCPointer<ByteVar>())
 
-public actual fun K32InitializeProcessForWsWatch(hprocess: HANDLE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_K32InitializeProcessForWsWatch(hprocess.toCPointer<ByteVar>())
+public actual fun k32InitializeProcessForWsWatch(hprocess: Handle): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_k32InitializeProcessForWsWatch(hprocess?.value?.toCPointer<ByteVar>())
 
-public actual fun K32QueryWorkingSet(hprocess: HANDLE, pv: Long, cb: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_K32QueryWorkingSet(hprocess.toCPointer<ByteVar>(), pv.toCPointer<ByteVar>(), cb)
+public actual fun k32QueryWorkingSet(hprocess: Handle, pv: COpaquePointer?, cb: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_k32QueryWorkingSet(hprocess?.value?.toCPointer<ByteVar>(), pv?.value?.toCPointer<ByteVar>(), cb)
 
-public actual fun K32QueryWorkingSetEx(hprocess: HANDLE, pv: Long, cb: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_K32QueryWorkingSetEx(hprocess.toCPointer<ByteVar>(), pv.toCPointer<ByteVar>(), cb)
+public actual fun k32QueryWorkingSetEx(hprocess: Handle, pv: COpaquePointer?, cb: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_k32QueryWorkingSetEx(hprocess?.value?.toCPointer<ByteVar>(), pv?.value?.toCPointer<ByteVar>(), cb)
 
-public actual fun QueryWorkingSet(hprocess: HANDLE, pv: Long, cb: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_QueryWorkingSet(hprocess.toCPointer<ByteVar>(), pv.toCPointer<ByteVar>(), cb)
+public actual fun queryWorkingSet(hprocess: Handle, pv: COpaquePointer?, cb: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_queryWorkingSet(hprocess?.value?.toCPointer<ByteVar>(), pv?.value?.toCPointer<ByteVar>(), cb)
 
-public actual fun QueryWorkingSetEx(hprocess: HANDLE, pv: Long, cb: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_QueryWorkingSetEx(hprocess.toCPointer<ByteVar>(), pv.toCPointer<ByteVar>(), cb)
+public actual fun queryWorkingSetEx(hprocess: Handle, pv: COpaquePointer?, cb: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.processstatus.cinterop.windowssys_windows_win32_system_processstatus_queryWorkingSetEx(hprocess?.value?.toCPointer<ByteVar>(), pv?.value?.toCPointer<ByteVar>(), cb)

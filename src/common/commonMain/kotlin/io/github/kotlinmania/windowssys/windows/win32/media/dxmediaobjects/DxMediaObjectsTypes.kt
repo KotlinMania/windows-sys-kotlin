@@ -1,25 +1,25 @@
 package io.github.kotlinmania.windowssys.windows.win32.media.dxmediaobjects
 
-public typealias DMO_ENUM_FLAGS = Int
+public typealias DmoEnumFlags = Int
 
-public typealias DMO_REGISTER_FLAGS = Int
+public typealias DmoRegisterFlags = Int
 
-public typealias _DMO_INPLACE_PROCESS_FLAGS = Int
+public typealias DmoInplaceProcessFlags = Int
 
-public typealias _DMO_INPUT_DATA_BUFFER_FLAGS = Int
+public typealias DmoInputDataBufferFlags = Int
 
-public typealias _DMO_INPUT_STATUS_FLAGS = Int
+public typealias DmoInputStatusFlags = Int
 
-public typealias _DMO_INPUT_STREAM_INFO_FLAGS = Int
+public typealias DmoInputStreamInfoFlags = Int
 
-public typealias _DMO_OUTPUT_DATA_BUFFER_FLAGS = Int
+public typealias DmoOutputDataBufferFlags = Int
 
-public typealias _DMO_OUTPUT_STREAM_INFO_FLAGS = Int
+public typealias DmoOutputStreamInfoFlags = Int
 
-public typealias _DMO_PROCESS_OUTPUT_FLAGS = Int
+public typealias DmoProcessOutputFlags = Int
 
-public typealias _DMO_QUALITY_STATUS_FLAGS = Int
+public typealias DmoQualityStatusFlags = Int
 
-public typealias _DMO_SET_TYPE_FLAGS = Int
+public typealias DmoSetTypeFlags = Int
 
-public typealias _DMO_VIDEO_OUTPUT_STREAM_FLAGS = Int
+public typealias DmoVideoOutputStreamFlags = Int

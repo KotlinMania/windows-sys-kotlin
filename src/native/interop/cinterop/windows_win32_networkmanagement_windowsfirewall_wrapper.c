@@ -15,7 +15,7 @@
 #endif
 #endif
 
-void windowssys_windows_win32_networkmanagement_windowsfirewall_NcFreeNetconProperties(void* pprops) {
+void windowssys_windows_win32_networkmanagement_windowsfirewall_ncFreeNetconProperties(void* pprops) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -36,7 +36,7 @@ void windowssys_windows_win32_networkmanagement_windowsfirewall_NcFreeNetconProp
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_windowsfirewall_NcIsValidConnectionName(void* pszwname) {
+int32_t windowssys_windows_win32_networkmanagement_windowsfirewall_ncIsValidConnectionName(void* pszwname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -58,7 +58,7 @@ int32_t windowssys_windows_win32_networkmanagement_windowsfirewall_NcIsValidConn
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfirewall_NetworkIsolationDiagnoseConnectFailureAndGetInfo(void* wszservername, void* netisoerror) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfirewall_networkIsolationDiagnoseConnectFailureAndGetInfo(void* wszservername, void* netisoerror) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -81,7 +81,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfirewall_NetworkIsola
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfirewall_NetworkIsolationEnumAppContainers(uint32_t flags, void* pdwnumpublicappcs, void* pppublicappcs) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfirewall_networkIsolationEnumAppContainers(uint32_t flags, void* pdwnumpublicappcs, void* pppublicappcs) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -105,7 +105,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfirewall_NetworkIsola
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_windowsfirewall_NetworkIsolationEnumerateAppContainerRules(void* newenum) {
+int32_t windowssys_windows_win32_networkmanagement_windowsfirewall_networkIsolationEnumerateAppContainerRules(void* newenum) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -127,7 +127,7 @@ int32_t windowssys_windows_win32_networkmanagement_windowsfirewall_NetworkIsolat
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfirewall_NetworkIsolationFreeAppContainers(void* ppublicappcs) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfirewall_networkIsolationFreeAppContainers(void* ppublicappcs) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -149,7 +149,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfirewall_NetworkIsola
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfirewall_NetworkIsolationGetAppContainerConfig(void* pdwnumpublicappcs, void* appcontainersids) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfirewall_networkIsolationGetAppContainerConfig(void* pdwnumpublicappcs, void* appcontainersids) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -172,7 +172,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfirewall_NetworkIsola
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfirewall_NetworkIsolationGetEnterpriseIdAsync(void* wszservername, uint32_t dwflags, void* context, void* callback, void* hoperation) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfirewall_networkIsolationGetEnterpriseIdAsync(void* wszservername, uint32_t dwflags, void* context, void* callback, void* hoperation) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -198,7 +198,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfirewall_NetworkIsola
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfirewall_NetworkIsolationGetEnterpriseIdClose(void* hoperation, int32_t bwaitforoperation) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfirewall_networkIsolationGetEnterpriseIdClose(void* hoperation, int32_t bwaitforoperation) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -221,7 +221,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfirewall_NetworkIsola
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfirewall_NetworkIsolationRegisterForAppContainerChanges(uint32_t flags, void* callback, void* context, void* registrationobject) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfirewall_networkIsolationRegisterForAppContainerChanges(uint32_t flags, void* callback, void* context, void* registrationobject) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -246,7 +246,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfirewall_NetworkIsola
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfirewall_NetworkIsolationSetAppContainerConfig(uint32_t dwnumpublicappcs, void* appcontainersids) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfirewall_networkIsolationSetAppContainerConfig(uint32_t dwnumpublicappcs, void* appcontainersids) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -269,7 +269,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfirewall_NetworkIsola
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_windowsfirewall_NetworkIsolationSetupAppContainerBinaries(void* applicationcontainersid, void* packagefullname, void* packagefolder, void* displayname, int32_t bbinariesfullycomputed, void* binaries, uint32_t binariescount) {
+int32_t windowssys_windows_win32_networkmanagement_windowsfirewall_networkIsolationSetupAppContainerBinaries(void* applicationcontainersid, void* packagefullname, void* packagefolder, void* displayname, int32_t bbinariesfullycomputed, void* binaries, uint32_t binariescount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -297,7 +297,7 @@ int32_t windowssys_windows_win32_networkmanagement_windowsfirewall_NetworkIsolat
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfirewall_NetworkIsolationUnregisterForAppContainerChanges(void* registrationobject) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfirewall_networkIsolationUnregisterForAppContainerChanges(void* registrationobject) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;

@@ -2,9 +2,10 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.eventcollector
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
 
 private object WindowsWin32SystemEventcollectorJniBridge {
     init {
@@ -12,92 +13,92 @@ private object WindowsWin32SystemEventcollectorJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_eventcollector_EcClose(obj: Long): Int
+    external fun windowssys_windows_win32_system_eventcollector_ecClose(obj: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_eventcollector_EcDeleteSubscription(subscriptionname: Long, flags: Int): Int
+    external fun windowssys_windows_win32_system_eventcollector_ecDeleteSubscription(subscriptionname: Long, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_eventcollector_EcEnumNextSubscription(subscriptionenum: Long, subscriptionnamebuffersize: Int, subscriptionnamebuffer: Long, subscriptionnamebufferused: Long): Int
+    external fun windowssys_windows_win32_system_eventcollector_ecEnumNextSubscription(subscriptionenum: Long, subscriptionnamebuffersize: Int, subscriptionnamebuffer: Long, subscriptionnamebufferused: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_eventcollector_EcGetObjectArrayProperty(objectarray: Long, propertyid: Int, arrayindex: Int, flags: Int, propertyvaluebuffersize: Int, propertyvaluebuffer: Long, propertyvaluebufferused: Long): Int
+    external fun windowssys_windows_win32_system_eventcollector_ecGetObjectArrayProperty(objectarray: Long, propertyid: Int, arrayindex: Int, flags: Int, propertyvaluebuffersize: Int, propertyvaluebuffer: Long, propertyvaluebufferused: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_eventcollector_EcGetObjectArraySize(objectarray: Long, objectarraysize: Long): Int
+    external fun windowssys_windows_win32_system_eventcollector_ecGetObjectArraySize(objectarray: Long, objectarraysize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_eventcollector_EcGetSubscriptionProperty(subscription: Long, propertyid: Int, flags: Int, propertyvaluebuffersize: Int, propertyvaluebuffer: Long, propertyvaluebufferused: Long): Int
+    external fun windowssys_windows_win32_system_eventcollector_ecGetSubscriptionProperty(subscription: Long, propertyid: Int, flags: Int, propertyvaluebuffersize: Int, propertyvaluebuffer: Long, propertyvaluebufferused: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_eventcollector_EcGetSubscriptionRunTimeStatus(subscriptionname: Long, statusinfoid: Int, eventsourcename: Long, flags: Int, statusvaluebuffersize: Int, statusvaluebuffer: Long, statusvaluebufferused: Long): Int
+    external fun windowssys_windows_win32_system_eventcollector_ecGetSubscriptionRunTimeStatus(subscriptionname: Long, statusinfoid: Int, eventsourcename: Long, flags: Int, statusvaluebuffersize: Int, statusvaluebuffer: Long, statusvaluebufferused: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_eventcollector_EcInsertObjectArrayElement(objectarray: Long, arrayindex: Int): Int
+    external fun windowssys_windows_win32_system_eventcollector_ecInsertObjectArrayElement(objectarray: Long, arrayindex: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_eventcollector_EcOpenSubscription(subscriptionname: Long, accessmask: Int, flags: Int): Long
+    external fun windowssys_windows_win32_system_eventcollector_ecOpenSubscription(subscriptionname: Long, accessmask: Int, flags: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_eventcollector_EcOpenSubscriptionEnum(flags: Int): Long
+    external fun windowssys_windows_win32_system_eventcollector_ecOpenSubscriptionEnum(flags: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_eventcollector_EcRemoveObjectArrayElement(objectarray: Long, arrayindex: Int): Int
+    external fun windowssys_windows_win32_system_eventcollector_ecRemoveObjectArrayElement(objectarray: Long, arrayindex: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_eventcollector_EcRetrySubscription(subscriptionname: Long, eventsourcename: Long, flags: Int): Int
+    external fun windowssys_windows_win32_system_eventcollector_ecRetrySubscription(subscriptionname: Long, eventsourcename: Long, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_eventcollector_EcSaveSubscription(subscription: Long, flags: Int): Int
+    external fun windowssys_windows_win32_system_eventcollector_ecSaveSubscription(subscription: Long, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_eventcollector_EcSetObjectArrayProperty(objectarray: Long, propertyid: Int, arrayindex: Int, flags: Int, propertyvalue: Long): Int
+    external fun windowssys_windows_win32_system_eventcollector_ecSetObjectArrayProperty(objectarray: Long, propertyid: Int, arrayindex: Int, flags: Int, propertyvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_eventcollector_EcSetSubscriptionProperty(subscription: Long, propertyid: Int, flags: Int, propertyvalue: Long): Int
+    external fun windowssys_windows_win32_system_eventcollector_ecSetSubscriptionProperty(subscription: Long, propertyid: Int, flags: Int, propertyvalue: Long): Int
 }
 
-public actual fun EcClose(obj: Long): BOOL =
-    WindowsWin32SystemEventcollectorJniBridge.windowssys_windows_win32_system_eventcollector_EcClose(obj)
+public actual fun ecClose(obj: Long): Bool =
+    WindowsWin32SystemEventcollectorJniBridge.windowssys_windows_win32_system_eventcollector_ecClose(obj)
 
-public actual fun EcDeleteSubscription(subscriptionname: PCWSTR, flags: UInt): BOOL =
-    WindowsWin32SystemEventcollectorJniBridge.windowssys_windows_win32_system_eventcollector_EcDeleteSubscription(subscriptionname, flags.toInt())
+public actual fun ecDeleteSubscription(subscriptionname: Pcwstr, flags: UInt): Bool =
+    WindowsWin32SystemEventcollectorJniBridge.windowssys_windows_win32_system_eventcollector_ecDeleteSubscription((subscriptionname?.value ?: 0L), flags.toInt())
 
-public actual fun EcEnumNextSubscription(subscriptionenum: Long, subscriptionnamebuffersize: UInt, subscriptionnamebuffer: PWSTR, subscriptionnamebufferused: Long): BOOL =
-    WindowsWin32SystemEventcollectorJniBridge.windowssys_windows_win32_system_eventcollector_EcEnumNextSubscription(subscriptionenum, subscriptionnamebuffersize.toInt(), subscriptionnamebuffer, subscriptionnamebufferused)
+public actual fun ecEnumNextSubscription(subscriptionenum: Long, subscriptionnamebuffersize: UInt, subscriptionnamebuffer: Pwstr, subscriptionnamebufferused: COpaquePointer?): Bool =
+    WindowsWin32SystemEventcollectorJniBridge.windowssys_windows_win32_system_eventcollector_ecEnumNextSubscription(subscriptionenum, subscriptionnamebuffersize.toInt(), (subscriptionnamebuffer?.value ?: 0L), (subscriptionnamebufferused?.value ?: 0L))
 
-public actual fun EcGetObjectArrayProperty(objectarray: Long, propertyid: EC_SUBSCRIPTION_PROPERTY_ID, arrayindex: UInt, flags: UInt, propertyvaluebuffersize: UInt, propertyvaluebuffer: Long, propertyvaluebufferused: Long): BOOL =
-    WindowsWin32SystemEventcollectorJniBridge.windowssys_windows_win32_system_eventcollector_EcGetObjectArrayProperty(objectarray, propertyid, arrayindex.toInt(), flags.toInt(), propertyvaluebuffersize.toInt(), propertyvaluebuffer, propertyvaluebufferused)
+public actual fun ecGetObjectArrayProperty(objectarray: Long, propertyid: EcSubscriptionPropertyId, arrayindex: UInt, flags: UInt, propertyvaluebuffersize: UInt, propertyvaluebuffer: COpaquePointer?, propertyvaluebufferused: COpaquePointer?): Bool =
+    WindowsWin32SystemEventcollectorJniBridge.windowssys_windows_win32_system_eventcollector_ecGetObjectArrayProperty(objectarray, propertyid, arrayindex.toInt(), flags.toInt(), propertyvaluebuffersize.toInt(), (propertyvaluebuffer?.value ?: 0L), (propertyvaluebufferused?.value ?: 0L))
 
-public actual fun EcGetObjectArraySize(objectarray: Long, objectarraysize: Long): BOOL =
-    WindowsWin32SystemEventcollectorJniBridge.windowssys_windows_win32_system_eventcollector_EcGetObjectArraySize(objectarray, objectarraysize)
+public actual fun ecGetObjectArraySize(objectarray: Long, objectarraysize: COpaquePointer?): Bool =
+    WindowsWin32SystemEventcollectorJniBridge.windowssys_windows_win32_system_eventcollector_ecGetObjectArraySize(objectarray, (objectarraysize?.value ?: 0L))
 
-public actual fun EcGetSubscriptionProperty(subscription: Long, propertyid: EC_SUBSCRIPTION_PROPERTY_ID, flags: UInt, propertyvaluebuffersize: UInt, propertyvaluebuffer: Long, propertyvaluebufferused: Long): BOOL =
-    WindowsWin32SystemEventcollectorJniBridge.windowssys_windows_win32_system_eventcollector_EcGetSubscriptionProperty(subscription, propertyid, flags.toInt(), propertyvaluebuffersize.toInt(), propertyvaluebuffer, propertyvaluebufferused)
+public actual fun ecGetSubscriptionProperty(subscription: Long, propertyid: EcSubscriptionPropertyId, flags: UInt, propertyvaluebuffersize: UInt, propertyvaluebuffer: COpaquePointer?, propertyvaluebufferused: COpaquePointer?): Bool =
+    WindowsWin32SystemEventcollectorJniBridge.windowssys_windows_win32_system_eventcollector_ecGetSubscriptionProperty(subscription, propertyid, flags.toInt(), propertyvaluebuffersize.toInt(), (propertyvaluebuffer?.value ?: 0L), (propertyvaluebufferused?.value ?: 0L))
 
-public actual fun EcGetSubscriptionRunTimeStatus(subscriptionname: PCWSTR, statusinfoid: EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID, eventsourcename: PCWSTR, flags: UInt, statusvaluebuffersize: UInt, statusvaluebuffer: Long, statusvaluebufferused: Long): BOOL =
-    WindowsWin32SystemEventcollectorJniBridge.windowssys_windows_win32_system_eventcollector_EcGetSubscriptionRunTimeStatus(subscriptionname, statusinfoid, eventsourcename, flags.toInt(), statusvaluebuffersize.toInt(), statusvaluebuffer, statusvaluebufferused)
+public actual fun ecGetSubscriptionRunTimeStatus(subscriptionname: Pcwstr, statusinfoid: EcSubscriptionRuntimeStatusInfoId, eventsourcename: Pcwstr, flags: UInt, statusvaluebuffersize: UInt, statusvaluebuffer: COpaquePointer?, statusvaluebufferused: COpaquePointer?): Bool =
+    WindowsWin32SystemEventcollectorJniBridge.windowssys_windows_win32_system_eventcollector_ecGetSubscriptionRunTimeStatus((subscriptionname?.value ?: 0L), statusinfoid, (eventsourcename?.value ?: 0L), flags.toInt(), statusvaluebuffersize.toInt(), (statusvaluebuffer?.value ?: 0L), (statusvaluebufferused?.value ?: 0L))
 
-public actual fun EcInsertObjectArrayElement(objectarray: Long, arrayindex: UInt): BOOL =
-    WindowsWin32SystemEventcollectorJniBridge.windowssys_windows_win32_system_eventcollector_EcInsertObjectArrayElement(objectarray, arrayindex.toInt())
+public actual fun ecInsertObjectArrayElement(objectarray: Long, arrayindex: UInt): Bool =
+    WindowsWin32SystemEventcollectorJniBridge.windowssys_windows_win32_system_eventcollector_ecInsertObjectArrayElement(objectarray, arrayindex.toInt())
 
-public actual fun EcOpenSubscription(subscriptionname: PCWSTR, accessmask: UInt, flags: UInt): Long =
-    WindowsWin32SystemEventcollectorJniBridge.windowssys_windows_win32_system_eventcollector_EcOpenSubscription(subscriptionname, accessmask.toInt(), flags.toInt())
+public actual fun ecOpenSubscription(subscriptionname: Pcwstr, accessmask: UInt, flags: UInt): Long =
+    WindowsWin32SystemEventcollectorJniBridge.windowssys_windows_win32_system_eventcollector_ecOpenSubscription((subscriptionname?.value ?: 0L), accessmask.toInt(), flags.toInt())
 
-public actual fun EcOpenSubscriptionEnum(flags: UInt): Long =
-    WindowsWin32SystemEventcollectorJniBridge.windowssys_windows_win32_system_eventcollector_EcOpenSubscriptionEnum(flags.toInt())
+public actual fun ecOpenSubscriptionEnum(flags: UInt): Long =
+    WindowsWin32SystemEventcollectorJniBridge.windowssys_windows_win32_system_eventcollector_ecOpenSubscriptionEnum(flags.toInt())
 
-public actual fun EcRemoveObjectArrayElement(objectarray: Long, arrayindex: UInt): BOOL =
-    WindowsWin32SystemEventcollectorJniBridge.windowssys_windows_win32_system_eventcollector_EcRemoveObjectArrayElement(objectarray, arrayindex.toInt())
+public actual fun ecRemoveObjectArrayElement(objectarray: Long, arrayindex: UInt): Bool =
+    WindowsWin32SystemEventcollectorJniBridge.windowssys_windows_win32_system_eventcollector_ecRemoveObjectArrayElement(objectarray, arrayindex.toInt())
 
-public actual fun EcRetrySubscription(subscriptionname: PCWSTR, eventsourcename: PCWSTR, flags: UInt): BOOL =
-    WindowsWin32SystemEventcollectorJniBridge.windowssys_windows_win32_system_eventcollector_EcRetrySubscription(subscriptionname, eventsourcename, flags.toInt())
+public actual fun ecRetrySubscription(subscriptionname: Pcwstr, eventsourcename: Pcwstr, flags: UInt): Bool =
+    WindowsWin32SystemEventcollectorJniBridge.windowssys_windows_win32_system_eventcollector_ecRetrySubscription((subscriptionname?.value ?: 0L), (eventsourcename?.value ?: 0L), flags.toInt())
 
-public actual fun EcSaveSubscription(subscription: Long, flags: UInt): BOOL =
-    WindowsWin32SystemEventcollectorJniBridge.windowssys_windows_win32_system_eventcollector_EcSaveSubscription(subscription, flags.toInt())
+public actual fun ecSaveSubscription(subscription: Long, flags: UInt): Bool =
+    WindowsWin32SystemEventcollectorJniBridge.windowssys_windows_win32_system_eventcollector_ecSaveSubscription(subscription, flags.toInt())
 
-public actual fun EcSetObjectArrayProperty(objectarray: Long, propertyid: EC_SUBSCRIPTION_PROPERTY_ID, arrayindex: UInt, flags: UInt, propertyvalue: Long): BOOL =
-    WindowsWin32SystemEventcollectorJniBridge.windowssys_windows_win32_system_eventcollector_EcSetObjectArrayProperty(objectarray, propertyid, arrayindex.toInt(), flags.toInt(), propertyvalue)
+public actual fun ecSetObjectArrayProperty(objectarray: Long, propertyid: EcSubscriptionPropertyId, arrayindex: UInt, flags: UInt, propertyvalue: COpaquePointer?): Bool =
+    WindowsWin32SystemEventcollectorJniBridge.windowssys_windows_win32_system_eventcollector_ecSetObjectArrayProperty(objectarray, propertyid, arrayindex.toInt(), flags.toInt(), (propertyvalue?.value ?: 0L))
 
-public actual fun EcSetSubscriptionProperty(subscription: Long, propertyid: EC_SUBSCRIPTION_PROPERTY_ID, flags: UInt, propertyvalue: Long): BOOL =
-    WindowsWin32SystemEventcollectorJniBridge.windowssys_windows_win32_system_eventcollector_EcSetSubscriptionProperty(subscription, propertyid, flags.toInt(), propertyvalue)
+public actual fun ecSetSubscriptionProperty(subscription: Long, propertyid: EcSubscriptionPropertyId, flags: UInt, propertyvalue: COpaquePointer?): Bool =
+    WindowsWin32SystemEventcollectorJniBridge.windowssys_windows_win32_system_eventcollector_ecSetSubscriptionProperty(subscription, propertyid, flags.toInt(), (propertyvalue?.value ?: 0L))

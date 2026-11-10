@@ -1,540 +1,541 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.devices.usb
 
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 
-public data class ALTERNATE_INTERFACE(public var InterfaceNumber: UShort = 0u, public var AlternateInterfaceNumber: UShort = 0u)
+public data class AlternateInterface(public var interfaceNumber: UShort = 0u, public var alternateInterfaceNumber: UShort = 0u)
 
-public data class BM_REQUEST_TYPE(public var s: BM_REQUEST_TYPE_0 = BM_REQUEST_TYPE_0(), public var B: UByte = 0u)
+public data class BmRequestType(public var s: BmRequestType0 = BmRequestType0(), public var b: UByte = 0u)
 
-public data class BM_REQUEST_TYPE_0(public var _bitfield: UByte = 0u)
+public data class BmRequestType0(public var bitfield: UByte = 0u)
 
-public data class CHANNEL_INFO(
-    public var EventChannelSize: UInt = 0u,
+public data class ChannelInfo(
+    public var eventChannelSize: UInt = 0u,
     public var uReadDataAlignment: UInt = 0u,
     public var uWriteDataAlignment: UInt = 0u,
 )
 
-public data class DEVICE_DESCRIPTOR(
+public data class DeviceDescriptor(
     public var usVendorId: UShort = 0u,
     public var usProductId: UShort = 0u,
     public var usBcdDevice: UShort = 0u,
     public var usLanguageId: UShort = 0u,
 )
 
-public data class DRV_VERSION(
+public data class DrvVersion(
     public var major: UInt = 0u,
     public var minor: UInt = 0u,
     public var internal: UInt = 0u,
 )
 
-public class HCD_ISO_STAT_COUNTERS(
-    public var LateUrbs: UShort = 0u,
-    public var DoubleBufferedPackets: UShort = 0u,
-    public var TransfersCF_5ms: UShort = 0u,
-    public var TransfersCF_2ms: UShort = 0u,
-    public var TransfersCF_1ms: UShort = 0u,
-    public var MaxInterruptLatency: UShort = 0u,
-    public var BadStartFrame: UShort = 0u,
-    public var StaleUrbs: UShort = 0u,
-    public var IsoPacketNotAccesed: UShort = 0u,
-    public var IsoPacketHWError: UShort = 0u,
-    public var SmallestUrbPacketCount: UShort = 0u,
-    public var LargestUrbPacketCount: UShort = 0u,
-    public var IsoCRC_Error: UShort = 0u,
-    public var IsoOVERRUN_Error: UShort = 0u,
-    public var IsoINTERNAL_Error: UShort = 0u,
-    public var IsoUNKNOWN_Error: UShort = 0u,
-    public var IsoBytesTransferred: UInt = 0u,
-    public var LateMissedCount: UShort = 0u,
-    public var HWIsoMissedCount: UShort = 0u,
-    public var Reserved7: UIntArray = UIntArray(8),
+public class HcdIsoStatCounters(
+    public var lateUrbs: UShort = 0u,
+    public var doubleBufferedPackets: UShort = 0u,
+    public var transfersCf5ms: UShort = 0u,
+    public var transfersCf2ms: UShort = 0u,
+    public var transfersCf1ms: UShort = 0u,
+    public var maxInterruptLatency: UShort = 0u,
+    public var badStartFrame: UShort = 0u,
+    public var staleUrbs: UShort = 0u,
+    public var isoPacketNotAccesed: UShort = 0u,
+    public var isoPacketHWError: UShort = 0u,
+    public var smallestUrbPacketCount: UShort = 0u,
+    public var largestUrbPacketCount: UShort = 0u,
+    public var isoCrcError: UShort = 0u,
+    public var isoOverrunError: UShort = 0u,
+    public var isoInternalError: UShort = 0u,
+    public var isoUnknownError: UShort = 0u,
+    public var isoBytesTransferred: UInt = 0u,
+    public var lateMissedCount: UShort = 0u,
+    public var hWIsoMissedCount: UShort = 0u,
+    public var reserved7: UIntArray = UIntArray(8),
 )
 
-public data class HCD_STAT_COUNTERS(
-    public var BytesTransferred: UInt = 0u,
-    public var IsoMissedCount: UShort = 0u,
-    public var DataOverrunErrorCount: UShort = 0u,
-    public var CrcErrorCount: UShort = 0u,
-    public var ScheduleOverrunCount: UShort = 0u,
-    public var TimeoutErrorCount: UShort = 0u,
-    public var InternalHcErrorCount: UShort = 0u,
-    public var BufferOverrunErrorCount: UShort = 0u,
-    public var SWErrorCount: UShort = 0u,
-    public var StallPidCount: UShort = 0u,
-    public var PortDisableCount: UShort = 0u,
+public data class HcdStatCounters(
+    public var bytesTransferred: UInt = 0u,
+    public var isoMissedCount: UShort = 0u,
+    public var dataOverrunErrorCount: UShort = 0u,
+    public var crcErrorCount: UShort = 0u,
+    public var scheduleOverrunCount: UShort = 0u,
+    public var timeoutErrorCount: UShort = 0u,
+    public var internalHcErrorCount: UShort = 0u,
+    public var bufferOverrunErrorCount: UShort = 0u,
+    public var sWErrorCount: UShort = 0u,
+    public var stallPidCount: UShort = 0u,
+    public var portDisableCount: UShort = 0u,
 )
 
-public data class HCD_STAT_INFORMATION_1(
-    public var Reserved1: UInt = 0u,
-    public var Reserved2: UInt = 0u,
-    public var ResetCounters: UInt = 0u,
-    public var TimeRead: Long = 0L,
-    public var Counters: HCD_STAT_COUNTERS = HCD_STAT_COUNTERS(),
+public data class HcdStatInformation1(
+    public var reserved1: UInt = 0u,
+    public var reserved2: UInt = 0u,
+    public var resetCounters: UInt = 0u,
+    public var timeRead: Long = 0L,
+    public var counters: HcdStatCounters = HcdStatCounters(),
 )
 
-public data class HCD_STAT_INFORMATION_2(
-    public var Reserved1: UInt = 0u,
-    public var Reserved2: UInt = 0u,
-    public var ResetCounters: UInt = 0u,
-    public var TimeRead: Long = 0L,
-    public var LockedMemoryUsed: Int = 0,
-    public var Counters: HCD_STAT_COUNTERS = HCD_STAT_COUNTERS(),
-    public var IsoCounters: HCD_ISO_STAT_COUNTERS = HCD_ISO_STAT_COUNTERS(),
+public data class HcdStatInformation2(
+    public var reserved1: UInt = 0u,
+    public var reserved2: UInt = 0u,
+    public var resetCounters: UInt = 0u,
+    public var timeRead: Long = 0L,
+    public var lockedMemoryUsed: Int = 0,
+    public var counters: HcdStatCounters = HcdStatCounters(),
+    public var isoCounters: HcdIsoStatCounters = HcdIsoStatCounters(),
 )
 
-public data class HUB_DEVICE_CONFIG_INFO(
-    public var Version: UInt = 0u,
-    public var Length: UInt = 0u,
-    public var HubFlags: USB_HUB_CAP_FLAGS = USB_HUB_CAP_FLAGS(),
-    public var HardwareIds: USB_ID_STRING = USB_ID_STRING(),
-    public var CompatibleIds: USB_ID_STRING = USB_ID_STRING(),
-    public var DeviceDescription: USB_ID_STRING = USB_ID_STRING(),
-    public var Reserved: UIntArray = UIntArray(19),
-    public var UxdSettings: USB_HUB_DEVICE_UXD_SETTINGS = USB_HUB_DEVICE_UXD_SETTINGS(),
+public data class HubDeviceConfigInfo(
+    public var version: UInt = 0u,
+    public var length: UInt = 0u,
+    public var hubFlags: UsbHubCapFlags = UsbHubCapFlags(),
+    public var hardwareIds: UsbIdString = UsbIdString(),
+    public var compatibleIds: UsbIdString = UsbIdString(),
+    public var deviceDescription: UsbIdString = UsbIdString(),
+    public var reserved: UIntArray = UIntArray(19),
+    public var uxdSettings: UsbHubDeviceUxdSettings = UsbHubDeviceUxdSettings(),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is HUB_DEVICE_CONFIG_INFO) return false
-        if (this.Version != other.Version) return false
-        if (this.Length != other.Length) return false
-        if (this.HubFlags != other.HubFlags) return false
-        if (this.HardwareIds != other.HardwareIds) return false
-        if (this.CompatibleIds != other.CompatibleIds) return false
-        if (this.DeviceDescription != other.DeviceDescription) return false
-        if (!this.Reserved.contentEquals(other.Reserved)) return false
-        if (this.UxdSettings != other.UxdSettings) return false
+        if (other !is HubDeviceConfigInfo) return false
+        if (this.version != other.version) return false
+        if (this.length != other.length) return false
+        if (this.hubFlags != other.hubFlags) return false
+        if (this.hardwareIds != other.hardwareIds) return false
+        if (this.compatibleIds != other.compatibleIds) return false
+        if (this.deviceDescription != other.deviceDescription) return false
+        if (!this.reserved.contentEquals(other.reserved)) return false
+        if (this.uxdSettings != other.uxdSettings) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Version.hashCode()
-        result = 31 * result + this.Length.hashCode()
-        result = 31 * result + this.HubFlags.hashCode()
-        result = 31 * result + this.HardwareIds.hashCode()
-        result = 31 * result + this.CompatibleIds.hashCode()
-        result = 31 * result + this.DeviceDescription.hashCode()
-        result = 31 * result + this.Reserved.contentHashCode()
-        result = 31 * result + this.UxdSettings.hashCode()
+        var result = this.version.hashCode()
+        result = 31 * result + this.length.hashCode()
+        result = 31 * result + this.hubFlags.hashCode()
+        result = 31 * result + this.hardwareIds.hashCode()
+        result = 31 * result + this.compatibleIds.hashCode()
+        result = 31 * result + this.deviceDescription.hashCode()
+        result = 31 * result + this.reserved.contentHashCode()
+        result = 31 * result + this.uxdSettings.hashCode()
         return result
     }
 }
 
-public data class IO_BLOCK(
+public data class IoBlock(
     public var uOffset: UInt = 0u,
     public var uLength: UInt = 0u,
-    public var pbyData: Long = 0L,
+    public var pbyData: COpaquePointer? = null,
     public var uIndex: UInt = 0u,
 )
 
-public data class IO_BLOCK_EX(
+public data class IoBlockEx(
     public var uOffset: UInt = 0u,
     public var uLength: UInt = 0u,
-    public var pbyData: Long = 0L,
+    public var pbyData: COpaquePointer? = null,
     public var uIndex: UInt = 0u,
     public var bRequest: UByte = 0u,
     public var bmRequestType: UByte = 0u,
     public var fTransferDirectionIn: UByte = 0u,
 )
 
-public data class OS_STRING(
+public data class OsString(
     public var bLength: UByte = 0u,
     public var bDescriptorType: UByte = 0u,
-    public var MicrosoftString: UShortArray = UShortArray(7),
+    public var microsoftString: UShortArray = UShortArray(7),
     public var bVendorCode: UByte = 0u,
-    public var Anonymous: OS_STRING_0 = OS_STRING_0(),
+    public var anonymous: OsString0 = OsString0(),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is OS_STRING) return false
+        if (other !is OsString) return false
         if (this.bLength != other.bLength) return false
         if (this.bDescriptorType != other.bDescriptorType) return false
-        if (!this.MicrosoftString.contentEquals(other.MicrosoftString)) return false
+        if (!this.microsoftString.contentEquals(other.microsoftString)) return false
         if (this.bVendorCode != other.bVendorCode) return false
-        if (this.Anonymous != other.Anonymous) return false
+        if (this.anonymous != other.anonymous) return false
         return true
     }
 
     override fun hashCode(): Int {
         var result = this.bLength.hashCode()
         result = 31 * result + this.bDescriptorType.hashCode()
-        result = 31 * result + this.MicrosoftString.contentHashCode()
+        result = 31 * result + this.microsoftString.contentHashCode()
         result = 31 * result + this.bVendorCode.hashCode()
-        result = 31 * result + this.Anonymous.hashCode()
+        result = 31 * result + this.anonymous.hashCode()
         return result
     }
 }
 
-public data class OS_STRING_0(public var bPad: UByte = 0u, public var bFlags: UByte = 0u)
+public data class OsString0(public var bPad: UByte = 0u, public var bFlags: UByte = 0u)
 
-public data class PACKET_PARAMETERS(
-    public var DeviceAddress: UByte = 0u,
-    public var EndpointAddress: UByte = 0u,
-    public var MaximumPacketSize: UShort = 0u,
-    public var Timeout: UInt = 0u,
-    public var Flags: UInt = 0u,
-    public var DataLength: UInt = 0u,
-    public var HubDeviceAddress: UShort = 0u,
-    public var PortTTNumber: UShort = 0u,
-    public var ErrorCount: UByte = 0u,
-    public var Pad: UByteArray = UByteArray(3),
-    public var UsbdStatusCode: Int = 0,
-    public var Data: UByteArray = UByteArray(4),
+public data class PacketParameters(
+    public var deviceAddress: UByte = 0u,
+    public var endpointAddress: UByte = 0u,
+    public var maximumPacketSize: UShort = 0u,
+    public var timeout: UInt = 0u,
+    public var flags: UInt = 0u,
+    public var dataLength: UInt = 0u,
+    public var hubDeviceAddress: UShort = 0u,
+    public var portTTNumber: UShort = 0u,
+    public var errorCount: UByte = 0u,
+    public var pad: UByteArray = UByteArray(3),
+    public var usbdStatusCode: Int = 0,
+    public var data: UByteArray = UByteArray(4),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is PACKET_PARAMETERS) return false
-        if (this.DeviceAddress != other.DeviceAddress) return false
-        if (this.EndpointAddress != other.EndpointAddress) return false
-        if (this.MaximumPacketSize != other.MaximumPacketSize) return false
-        if (this.Timeout != other.Timeout) return false
-        if (this.Flags != other.Flags) return false
-        if (this.DataLength != other.DataLength) return false
-        if (this.HubDeviceAddress != other.HubDeviceAddress) return false
-        if (this.PortTTNumber != other.PortTTNumber) return false
-        if (this.ErrorCount != other.ErrorCount) return false
-        if (!this.Pad.contentEquals(other.Pad)) return false
-        if (this.UsbdStatusCode != other.UsbdStatusCode) return false
-        if (!this.Data.contentEquals(other.Data)) return false
+        if (other !is PacketParameters) return false
+        if (this.deviceAddress != other.deviceAddress) return false
+        if (this.endpointAddress != other.endpointAddress) return false
+        if (this.maximumPacketSize != other.maximumPacketSize) return false
+        if (this.timeout != other.timeout) return false
+        if (this.flags != other.flags) return false
+        if (this.dataLength != other.dataLength) return false
+        if (this.hubDeviceAddress != other.hubDeviceAddress) return false
+        if (this.portTTNumber != other.portTTNumber) return false
+        if (this.errorCount != other.errorCount) return false
+        if (!this.pad.contentEquals(other.pad)) return false
+        if (this.usbdStatusCode != other.usbdStatusCode) return false
+        if (!this.data.contentEquals(other.data)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.DeviceAddress.hashCode()
-        result = 31 * result + this.EndpointAddress.hashCode()
-        result = 31 * result + this.MaximumPacketSize.hashCode()
-        result = 31 * result + this.Timeout.hashCode()
-        result = 31 * result + this.Flags.hashCode()
-        result = 31 * result + this.DataLength.hashCode()
-        result = 31 * result + this.HubDeviceAddress.hashCode()
-        result = 31 * result + this.PortTTNumber.hashCode()
-        result = 31 * result + this.ErrorCount.hashCode()
-        result = 31 * result + this.Pad.contentHashCode()
-        result = 31 * result + this.UsbdStatusCode.hashCode()
-        result = 31 * result + this.Data.contentHashCode()
+        var result = this.deviceAddress.hashCode()
+        result = 31 * result + this.endpointAddress.hashCode()
+        result = 31 * result + this.maximumPacketSize.hashCode()
+        result = 31 * result + this.timeout.hashCode()
+        result = 31 * result + this.flags.hashCode()
+        result = 31 * result + this.dataLength.hashCode()
+        result = 31 * result + this.hubDeviceAddress.hashCode()
+        result = 31 * result + this.portTTNumber.hashCode()
+        result = 31 * result + this.errorCount.hashCode()
+        result = 31 * result + this.pad.contentHashCode()
+        result = 31 * result + this.usbdStatusCode.hashCode()
+        result = 31 * result + this.data.contentHashCode()
         return result
     }
 }
 
-public data class RAW_RESET_PORT_PARAMETERS(public var PortNumber: UShort = 0u, public var PortStatus: UShort = 0u)
+public data class RawResetPortParameters(public var portNumber: UShort = 0u, public var portStatus: UShort = 0u)
 
-public data class RAW_ROOTPORT_FEATURE(
-    public var PortNumber: UShort = 0u,
-    public var PortFeature: UShort = 0u,
-    public var PortStatus: UShort = 0u,
+public data class RawRootportFeature(
+    public var portNumber: UShort = 0u,
+    public var portFeature: UShort = 0u,
+    public var portStatus: UShort = 0u,
 )
 
-public data class RAW_ROOTPORT_PARAMETERS(public var PortNumber: UShort = 0u, public var PortStatus: UShort = 0u)
+public data class RawRootportParameters(public var portNumber: UShort = 0u, public var portStatus: UShort = 0u)
 
-public data class URB(public var Anonymous: URB_0 = URB_0())
+public data class Urb(public var anonymous: Urb0 = Urb0())
 
-public class URB_0(
-    public var UrbHeader: _URB_HEADER = _URB_HEADER(),
-    public var UrbSelectInterface: _URB_SELECT_INTERFACE = _URB_SELECT_INTERFACE(),
-    public var UrbSelectConfiguration: _URB_SELECT_CONFIGURATION = _URB_SELECT_CONFIGURATION(),
-    public var UrbPipeRequest: _URB_PIPE_REQUEST = _URB_PIPE_REQUEST(),
-    public var UrbFrameLengthControl: _URB_FRAME_LENGTH_CONTROL = _URB_FRAME_LENGTH_CONTROL(),
-    public var UrbGetFrameLength: _URB_GET_FRAME_LENGTH = _URB_GET_FRAME_LENGTH(),
-    public var UrbSetFrameLength: _URB_SET_FRAME_LENGTH = _URB_SET_FRAME_LENGTH(),
-    public var UrbGetCurrentFrameNumber: _URB_GET_CURRENT_FRAME_NUMBER = _URB_GET_CURRENT_FRAME_NUMBER(),
-    public var UrbControlTransfer: _URB_CONTROL_TRANSFER = _URB_CONTROL_TRANSFER(),
-    public var UrbControlTransferEx: _URB_CONTROL_TRANSFER_EX = _URB_CONTROL_TRANSFER_EX(),
-    public var UrbBulkOrInterruptTransfer: _URB_BULK_OR_INTERRUPT_TRANSFER = _URB_BULK_OR_INTERRUPT_TRANSFER(),
-    public var UrbIsochronousTransfer: _URB_ISOCH_TRANSFER = _URB_ISOCH_TRANSFER(),
-    public var UrbControlDescriptorRequest: _URB_CONTROL_DESCRIPTOR_REQUEST = _URB_CONTROL_DESCRIPTOR_REQUEST(),
-    public var UrbControlGetStatusRequest: _URB_CONTROL_GET_STATUS_REQUEST = _URB_CONTROL_GET_STATUS_REQUEST(),
-    public var UrbControlFeatureRequest: _URB_CONTROL_FEATURE_REQUEST = _URB_CONTROL_FEATURE_REQUEST(),
-    public var UrbControlVendorClassRequest: _URB_CONTROL_VENDOR_OR_CLASS_REQUEST = _URB_CONTROL_VENDOR_OR_CLASS_REQUEST(),
-    public var UrbControlGetInterfaceRequest: _URB_CONTROL_GET_INTERFACE_REQUEST = _URB_CONTROL_GET_INTERFACE_REQUEST(),
-    public var UrbControlGetConfigurationRequest: _URB_CONTROL_GET_CONFIGURATION_REQUEST = _URB_CONTROL_GET_CONFIGURATION_REQUEST(),
-    public var UrbOSFeatureDescriptorRequest: _URB_OS_FEATURE_DESCRIPTOR_REQUEST = _URB_OS_FEATURE_DESCRIPTOR_REQUEST(),
-    public var UrbOpenStaticStreams: _URB_OPEN_STATIC_STREAMS = _URB_OPEN_STATIC_STREAMS(),
-    public var UrbGetIsochPipeTransferPathDelays: _URB_GET_ISOCH_PIPE_TRANSFER_PATH_DELAYS = _URB_GET_ISOCH_PIPE_TRANSFER_PATH_DELAYS(),
+public class Urb0(
+    public var urbHeader: UrbHeader = UrbHeader(),
+    public var urbSelectInterface: UrbSelectInterface = UrbSelectInterface(),
+    public var urbSelectConfiguration: UrbSelectConfiguration = UrbSelectConfiguration(),
+    public var urbPipeRequest: UrbPipeRequest = UrbPipeRequest(),
+    public var urbFrameLengthControl: UrbFrameLengthControl = UrbFrameLengthControl(),
+    public var urbGetFrameLength: UrbGetFrameLength = UrbGetFrameLength(),
+    public var urbSetFrameLength: UrbSetFrameLength = UrbSetFrameLength(),
+    public var urbGetCurrentFrameNumber: UrbGetCurrentFrameNumber = UrbGetCurrentFrameNumber(),
+    public var urbControlTransfer: UrbControlTransfer = UrbControlTransfer(),
+    public var urbControlTransferEx: UrbControlTransferEx = UrbControlTransferEx(),
+    public var urbBulkOrInterruptTransfer: UrbBulkOrInterruptTransfer = UrbBulkOrInterruptTransfer(),
+    public var urbIsochronousTransfer: UrbIsochTransfer = UrbIsochTransfer(),
+    public var urbControlDescriptorRequest: UrbControlDescriptorRequest = UrbControlDescriptorRequest(),
+    public var urbControlGetStatusRequest: UrbControlGetStatusRequest = UrbControlGetStatusRequest(),
+    public var urbControlFeatureRequest: UrbControlFeatureRequest = UrbControlFeatureRequest(),
+    public var urbControlVendorClassRequest: UrbControlVendorOrClassRequest = UrbControlVendorOrClassRequest(),
+    public var urbControlGetInterfaceRequest: UrbControlGetInterfaceRequest = UrbControlGetInterfaceRequest(),
+    public var urbControlGetConfigurationRequest: UrbControlGetConfigurationRequest = UrbControlGetConfigurationRequest(),
+    public var urbOSFeatureDescriptorRequest: UrbOsFeatureDescriptorRequest = UrbOsFeatureDescriptorRequest(),
+    public var urbOpenStaticStreams: UrbOpenStaticStreams = UrbOpenStaticStreams(),
+    public var urbGetIsochPipeTransferPathDelays: UrbGetIsochPipeTransferPathDelays = UrbGetIsochPipeTransferPathDelays(),
 )
 
-public data class USBD_DEVICE_INFORMATION(
-    public var OffsetNext: UInt = 0u,
-    public var UsbdDeviceHandle: Long = 0L,
-    public var DeviceDescriptor: USB_DEVICE_DESCRIPTOR = USB_DEVICE_DESCRIPTOR(),
+public data class UsbdDeviceInformation(
+    public var offsetNext: UInt = 0u,
+    public var usbdDeviceHandle: COpaquePointer? = null,
+    public var deviceDescriptor: UsbDeviceDescriptor = UsbDeviceDescriptor(),
 )
 
-public data class USBD_ENDPOINT_OFFLOAD_INFORMATION(
-    public var Size: UInt = 0u,
-    public var EndpointAddress: UShort = 0u,
-    public var ResourceId: UInt = 0u,
-    public var Mode: USBD_ENDPOINT_OFFLOAD_MODE = 0,
-    public var _bitfield1: UInt = 0u,
-    public var _bitfield2: UInt = 0u,
-    public var TransferSegmentLA: Long = 0L,
-    public var TransferSegmentVA: Long = 0L,
-    public var TransferRingSize: ULong = 0uL,
-    public var TransferRingInitialCycleBit: UInt = 0u,
-    public var MessageNumber: UInt = 0u,
-    public var EventRingSegmentLA: Long = 0L,
-    public var EventRingSegmentVA: Long = 0L,
-    public var EventRingSize: ULong = 0uL,
-    public var EventRingInitialCycleBit: UInt = 0u,
+public data class UsbdEndpointOffloadInformation(
+    public var size: UInt = 0u,
+    public var endpointAddress: UShort = 0u,
+    public var resourceId: UInt = 0u,
+    public var mode: UsbdEndpointOffloadMode = 0,
+    public var bitfield1: UInt = 0u,
+    public var bitfield2: UInt = 0u,
+    public var transferSegmentLA: Long = 0L,
+    public var transferSegmentVA: COpaquePointer? = null,
+    public var transferRingSize: Int = 0,
+    public var transferRingInitialCycleBit: UInt = 0u,
+    public var messageNumber: UInt = 0u,
+    public var eventRingSegmentLA: Long = 0L,
+    public var eventRingSegmentVA: COpaquePointer? = null,
+    public var eventRingSize: Int = 0,
+    public var eventRingInitialCycleBit: UInt = 0u,
 )
 
-public data class USBD_INTERFACE_INFORMATION(
-    public var Length: UShort = 0u,
-    public var InterfaceNumber: UByte = 0u,
-    public var AlternateSetting: UByte = 0u,
-    public var Class: UByte = 0u,
-    public var SubClass: UByte = 0u,
-    public var Protocol: UByte = 0u,
-    public var Reserved: UByte = 0u,
-    public var InterfaceHandle: Long = 0L,
-    public var NumberOfPipes: UInt = 0u,
-    public var Pipes: List<USBD_PIPE_INFORMATION> = List(1) { USBD_PIPE_INFORMATION() },
+public data class UsbdInterfaceInformation(
+    public var length: UShort = 0u,
+    public var interfaceNumber: UByte = 0u,
+    public var alternateSetting: UByte = 0u,
+    public var cls: UByte = 0u,
+    public var subClass: UByte = 0u,
+    public var protocol: UByte = 0u,
+    public var reserved: UByte = 0u,
+    public var interfaceHandle: COpaquePointer? = null,
+    public var numberOfPipes: UInt = 0u,
+    public var pipes: List<UsbdPipeInformation> = List(1) { UsbdPipeInformation() },
 )
 
-public data class USBD_ISO_PACKET_DESCRIPTOR(
-    public var Offset: UInt = 0u,
-    public var Length: UInt = 0u,
-    public var Status: Int = 0,
+public data class UsbdIsoPacketDescriptor(
+    public var offset: UInt = 0u,
+    public var length: UInt = 0u,
+    public var status: Int = 0,
 )
 
-public data class USBD_PIPE_INFORMATION(
-    public var MaximumPacketSize: UShort = 0u,
-    public var EndpointAddress: UByte = 0u,
-    public var Interval: UByte = 0u,
-    public var PipeType: USBD_PIPE_TYPE = 0,
-    public var PipeHandle: Long = 0L,
-    public var MaximumTransferSize: UInt = 0u,
-    public var PipeFlags: UInt = 0u,
+public data class UsbdPipeInformation(
+    public var maximumPacketSize: UShort = 0u,
+    public var endpointAddress: UByte = 0u,
+    public var interval: UByte = 0u,
+    public var pipeType: UsbdPipeType = 0,
+    public var pipeHandle: COpaquePointer? = null,
+    public var maximumTransferSize: UInt = 0u,
+    public var pipeFlags: UInt = 0u,
 )
 
-public data class USBD_STREAM_INFORMATION(
-    public var PipeHandle: Long = 0L,
-    public var StreamID: UInt = 0u,
-    public var MaximumTransferSize: UInt = 0u,
-    public var PipeFlags: UInt = 0u,
+public data class UsbdStreamInformation(
+    public var pipeHandle: COpaquePointer? = null,
+    public var streamID: UInt = 0u,
+    public var maximumTransferSize: UInt = 0u,
+    public var pipeFlags: UInt = 0u,
 )
 
-public data class USBD_VERSION_INFORMATION(public var USBDI_Version: UInt = 0u, public var Supported_USB_Version: UInt = 0u)
+public data class UsbdVersionInformation(public var usbdiVersion: UInt = 0u, public var supportedUsbVersion: UInt = 0u)
 
-public data class USBFN_BUS_CONFIGURATION_INFO(
-    public var ConfigurationName: UShortArray = UShortArray(40),
-    public var IsCurrent: Boolean = false,
-    public var IsActive: Boolean = false,
+public data class UsbfnBusConfigurationInfo(
+    public var configurationName: UShortArray = UShortArray(40),
+    public var isCurrent: Boolean = false,
+    public var isActive: Boolean = false,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is USBFN_BUS_CONFIGURATION_INFO) return false
-        if (!this.ConfigurationName.contentEquals(other.ConfigurationName)) return false
-        if (this.IsCurrent != other.IsCurrent) return false
-        if (this.IsActive != other.IsActive) return false
+        if (other !is UsbfnBusConfigurationInfo) return false
+        if (!this.configurationName.contentEquals(other.configurationName)) return false
+        if (this.isCurrent != other.isCurrent) return false
+        if (this.isActive != other.isActive) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.ConfigurationName.contentHashCode()
-        result = 31 * result + this.IsCurrent.hashCode()
-        result = 31 * result + this.IsActive.hashCode()
+        var result = this.configurationName.contentHashCode()
+        result = 31 * result + this.isCurrent.hashCode()
+        result = 31 * result + this.isActive.hashCode()
         return result
     }
 }
 
-public data class USBFN_CLASS_INFORMATION_PACKET(
-    public var FullSpeedClassInterface: USBFN_CLASS_INTERFACE = USBFN_CLASS_INTERFACE(),
-    public var HighSpeedClassInterface: USBFN_CLASS_INTERFACE = USBFN_CLASS_INTERFACE(),
-    public var InterfaceName: UShortArray = UShortArray(40),
-    public var InterfaceGuid: UShortArray = UShortArray(39),
-    public var HasInterfaceGuid: Boolean = false,
-    public var SuperSpeedClassInterface: USBFN_CLASS_INTERFACE = USBFN_CLASS_INTERFACE(),
+public data class UsbfnClassInformationPacket(
+    public var fullSpeedClassInterface: UsbfnClassInterface = UsbfnClassInterface(),
+    public var highSpeedClassInterface: UsbfnClassInterface = UsbfnClassInterface(),
+    public var interfaceName: UShortArray = UShortArray(40),
+    public var interfaceGuid: UShortArray = UShortArray(39),
+    public var hasInterfaceGuid: Boolean = false,
+    public var superSpeedClassInterface: UsbfnClassInterface = UsbfnClassInterface(),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is USBFN_CLASS_INFORMATION_PACKET) return false
-        if (this.FullSpeedClassInterface != other.FullSpeedClassInterface) return false
-        if (this.HighSpeedClassInterface != other.HighSpeedClassInterface) return false
-        if (!this.InterfaceName.contentEquals(other.InterfaceName)) return false
-        if (!this.InterfaceGuid.contentEquals(other.InterfaceGuid)) return false
-        if (this.HasInterfaceGuid != other.HasInterfaceGuid) return false
-        if (this.SuperSpeedClassInterface != other.SuperSpeedClassInterface) return false
+        if (other !is UsbfnClassInformationPacket) return false
+        if (this.fullSpeedClassInterface != other.fullSpeedClassInterface) return false
+        if (this.highSpeedClassInterface != other.highSpeedClassInterface) return false
+        if (!this.interfaceName.contentEquals(other.interfaceName)) return false
+        if (!this.interfaceGuid.contentEquals(other.interfaceGuid)) return false
+        if (this.hasInterfaceGuid != other.hasInterfaceGuid) return false
+        if (this.superSpeedClassInterface != other.superSpeedClassInterface) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.FullSpeedClassInterface.hashCode()
-        result = 31 * result + this.HighSpeedClassInterface.hashCode()
-        result = 31 * result + this.InterfaceName.contentHashCode()
-        result = 31 * result + this.InterfaceGuid.contentHashCode()
-        result = 31 * result + this.HasInterfaceGuid.hashCode()
-        result = 31 * result + this.SuperSpeedClassInterface.hashCode()
+        var result = this.fullSpeedClassInterface.hashCode()
+        result = 31 * result + this.highSpeedClassInterface.hashCode()
+        result = 31 * result + this.interfaceName.contentHashCode()
+        result = 31 * result + this.interfaceGuid.contentHashCode()
+        result = 31 * result + this.hasInterfaceGuid.hashCode()
+        result = 31 * result + this.superSpeedClassInterface.hashCode()
         return result
     }
 }
 
-public data class USBFN_CLASS_INFORMATION_PACKET_EX(
-    public var FullSpeedClassInterfaceEx: USBFN_CLASS_INTERFACE_EX = USBFN_CLASS_INTERFACE_EX(),
-    public var HighSpeedClassInterfaceEx: USBFN_CLASS_INTERFACE_EX = USBFN_CLASS_INTERFACE_EX(),
-    public var SuperSpeedClassInterfaceEx: USBFN_CLASS_INTERFACE_EX = USBFN_CLASS_INTERFACE_EX(),
-    public var InterfaceName: UShortArray = UShortArray(40),
-    public var InterfaceGuid: UShortArray = UShortArray(39),
-    public var HasInterfaceGuid: Boolean = false,
+public data class UsbfnClassInformationPacketEx(
+    public var fullSpeedClassInterfaceEx: UsbfnClassInterfaceEx = UsbfnClassInterfaceEx(),
+    public var highSpeedClassInterfaceEx: UsbfnClassInterfaceEx = UsbfnClassInterfaceEx(),
+    public var superSpeedClassInterfaceEx: UsbfnClassInterfaceEx = UsbfnClassInterfaceEx(),
+    public var interfaceName: UShortArray = UShortArray(40),
+    public var interfaceGuid: UShortArray = UShortArray(39),
+    public var hasInterfaceGuid: Boolean = false,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is USBFN_CLASS_INFORMATION_PACKET_EX) return false
-        if (this.FullSpeedClassInterfaceEx != other.FullSpeedClassInterfaceEx) return false
-        if (this.HighSpeedClassInterfaceEx != other.HighSpeedClassInterfaceEx) return false
-        if (this.SuperSpeedClassInterfaceEx != other.SuperSpeedClassInterfaceEx) return false
-        if (!this.InterfaceName.contentEquals(other.InterfaceName)) return false
-        if (!this.InterfaceGuid.contentEquals(other.InterfaceGuid)) return false
-        if (this.HasInterfaceGuid != other.HasInterfaceGuid) return false
+        if (other !is UsbfnClassInformationPacketEx) return false
+        if (this.fullSpeedClassInterfaceEx != other.fullSpeedClassInterfaceEx) return false
+        if (this.highSpeedClassInterfaceEx != other.highSpeedClassInterfaceEx) return false
+        if (this.superSpeedClassInterfaceEx != other.superSpeedClassInterfaceEx) return false
+        if (!this.interfaceName.contentEquals(other.interfaceName)) return false
+        if (!this.interfaceGuid.contentEquals(other.interfaceGuid)) return false
+        if (this.hasInterfaceGuid != other.hasInterfaceGuid) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.FullSpeedClassInterfaceEx.hashCode()
-        result = 31 * result + this.HighSpeedClassInterfaceEx.hashCode()
-        result = 31 * result + this.SuperSpeedClassInterfaceEx.hashCode()
-        result = 31 * result + this.InterfaceName.contentHashCode()
-        result = 31 * result + this.InterfaceGuid.contentHashCode()
-        result = 31 * result + this.HasInterfaceGuid.hashCode()
+        var result = this.fullSpeedClassInterfaceEx.hashCode()
+        result = 31 * result + this.highSpeedClassInterfaceEx.hashCode()
+        result = 31 * result + this.superSpeedClassInterfaceEx.hashCode()
+        result = 31 * result + this.interfaceName.contentHashCode()
+        result = 31 * result + this.interfaceGuid.contentHashCode()
+        result = 31 * result + this.hasInterfaceGuid.hashCode()
         return result
     }
 }
 
-public data class USBFN_CLASS_INTERFACE(
-    public var InterfaceNumber: UByte = 0u,
-    public var PipeCount: UByte = 0u,
-    public var PipeArr: List<USBFN_PIPE_INFORMATION> = List(16) { USBFN_PIPE_INFORMATION() },
+public data class UsbfnClassInterface(
+    public var interfaceNumber: UByte = 0u,
+    public var pipeCount: UByte = 0u,
+    public var pipeArr: List<UsbfnPipeInformation> = List(16) { UsbfnPipeInformation() },
 )
 
-public data class USBFN_CLASS_INTERFACE_EX(
-    public var BaseInterfaceNumber: UByte = 0u,
-    public var InterfaceCount: UByte = 0u,
-    public var PipeCount: UByte = 0u,
-    public var PipeArr: List<USBFN_PIPE_INFORMATION> = List(16) { USBFN_PIPE_INFORMATION() },
+public data class UsbfnClassInterfaceEx(
+    public var baseInterfaceNumber: UByte = 0u,
+    public var interfaceCount: UByte = 0u,
+    public var pipeCount: UByte = 0u,
+    public var pipeArr: List<UsbfnPipeInformation> = List(16) { UsbfnPipeInformation() },
 )
 
-public data class USBFN_INTERFACE_INFO(
-    public var InterfaceNumber: UByte = 0u,
-    public var Speed: USBFN_BUS_SPEED = 0,
-    public var Size: UShort = 0u,
-    public var InterfaceDescriptorSet: UByteArray = UByteArray(1),
+public data class UsbfnInterfaceInfo(
+    public var interfaceNumber: UByte = 0u,
+    public var speed: UsbfnBusSpeed = 0,
+    public var size: UShort = 0u,
+    public var interfaceDescriptorSet: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is USBFN_INTERFACE_INFO) return false
-        if (this.InterfaceNumber != other.InterfaceNumber) return false
-        if (this.Speed != other.Speed) return false
-        if (this.Size != other.Size) return false
-        if (!this.InterfaceDescriptorSet.contentEquals(other.InterfaceDescriptorSet)) return false
+        if (other !is UsbfnInterfaceInfo) return false
+        if (this.interfaceNumber != other.interfaceNumber) return false
+        if (this.speed != other.speed) return false
+        if (this.size != other.size) return false
+        if (!this.interfaceDescriptorSet.contentEquals(other.interfaceDescriptorSet)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.InterfaceNumber.hashCode()
-        result = 31 * result + this.Speed.hashCode()
-        result = 31 * result + this.Size.hashCode()
-        result = 31 * result + this.InterfaceDescriptorSet.contentHashCode()
+        var result = this.interfaceNumber.hashCode()
+        result = 31 * result + this.speed.hashCode()
+        result = 31 * result + this.size.hashCode()
+        result = 31 * result + this.interfaceDescriptorSet.contentHashCode()
         return result
     }
 }
 
-public data class USBFN_NOTIFICATION(public var Event: USBFN_EVENT = 0, public var u: USBFN_NOTIFICATION_0 = USBFN_NOTIFICATION_0())
+public data class UsbfnNotification(public var event: UsbfnEvent = 0, public var u: UsbfnNotification0 = UsbfnNotification0())
 
-public data class USBFN_NOTIFICATION_0(
-    public var BusSpeed: USBFN_BUS_SPEED = 0,
-    public var SetupPacket: USB_DEFAULT_PIPE_SETUP_PACKET = USB_DEFAULT_PIPE_SETUP_PACKET(),
-    public var ConfigurationValue: UShort = 0u,
-    public var PortType: USBFN_PORT_TYPE = 0,
-    public var AlternateInterface: ALTERNATE_INTERFACE = ALTERNATE_INTERFACE(),
+public data class UsbfnNotification0(
+    public var busSpeed: UsbfnBusSpeed = 0,
+    public var setupPacket: UsbDefaultPipeSetupPacket = UsbDefaultPipeSetupPacket(),
+    public var configurationValue: UShort = 0u,
+    public var portType: UsbfnPortType = 0,
+    public var alternateInterface: AlternateInterface = AlternateInterface(),
 )
 
-public data class USBFN_PIPE_INFORMATION(public var EpDesc: USB_ENDPOINT_DESCRIPTOR = USB_ENDPOINT_DESCRIPTOR(), public var PipeId: UInt = 0u)
+public data class UsbfnPipeInformation(public var epDesc: UsbEndpointDescriptor = UsbEndpointDescriptor(), public var pipeId: UInt = 0u)
 
-public data class USBFN_USB_STRING(public var StringIndex: UByte = 0u, public var UsbString: UShortArray = UShortArray(255)) {
+public data class UsbfnUsbString(public var stringIndex: UByte = 0u, public var usbString: UShortArray = UShortArray(255)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is USBFN_USB_STRING) return false
-        if (this.StringIndex != other.StringIndex) return false
-        if (!this.UsbString.contentEquals(other.UsbString)) return false
+        if (other !is UsbfnUsbString) return false
+        if (this.stringIndex != other.stringIndex) return false
+        if (!this.usbString.contentEquals(other.usbString)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.StringIndex.hashCode()
-        result = 31 * result + this.UsbString.contentHashCode()
+        var result = this.stringIndex.hashCode()
+        result = 31 * result + this.usbString.contentHashCode()
         return result
     }
 }
 
-public data class USBSCAN_GET_DESCRIPTOR(
-    public var DescriptorType: UByte = 0u,
-    public var Index: UByte = 0u,
-    public var LanguageId: UShort = 0u,
+public data class UsbscanGetDescriptor(
+    public var descriptorType: UByte = 0u,
+    public var index: UByte = 0u,
+    public var languageId: UShort = 0u,
 )
 
-public data class USBSCAN_PIPE_CONFIGURATION(public var NumberOfPipes: UInt = 0u, public var PipeInfo: List<USBSCAN_PIPE_INFORMATION> = List(8) { USBSCAN_PIPE_INFORMATION() })
+public data class UsbscanPipeConfiguration(public var numberOfPipes: UInt = 0u, public var pipeInfo: List<UsbscanPipeInformation> = List(8) { UsbscanPipeInformation() })
 
-public data class USBSCAN_PIPE_INFORMATION(
-    public var MaximumPacketSize: UShort = 0u,
-    public var EndpointAddress: UByte = 0u,
-    public var Interval: UByte = 0u,
-    public var PipeType: RAW_PIPE_TYPE = 0,
+public data class UsbscanPipeInformation(
+    public var maximumPacketSize: UShort = 0u,
+    public var endpointAddress: UByte = 0u,
+    public var interval: UByte = 0u,
+    public var pipeType: RawPipeType = 0,
 )
 
-public data class USBSCAN_TIMEOUT(
-    public var TimeoutRead: UInt = 0u,
-    public var TimeoutWrite: UInt = 0u,
-    public var TimeoutEvent: UInt = 0u,
+public data class UsbscanTimeout(
+    public var timeoutRead: UInt = 0u,
+    public var timeoutWrite: UInt = 0u,
+    public var timeoutEvent: UInt = 0u,
 )
 
-public data class USBUSER_BANDWIDTH_INFO_REQUEST(public var Header: USBUSER_REQUEST_HEADER = USBUSER_REQUEST_HEADER(), public var BandwidthInformation: USB_BANDWIDTH_INFO = USB_BANDWIDTH_INFO())
+public data class UsbuserBandwidthInfoRequest(public var header: UsbuserRequestHeader = UsbuserRequestHeader(), public var bandwidthInformation: UsbBandwidthInfo = UsbBandwidthInfo())
 
-public data class USBUSER_BUS_STATISTICS_0_REQUEST(public var Header: USBUSER_REQUEST_HEADER = USBUSER_REQUEST_HEADER(), public var BusStatistics0: USB_BUS_STATISTICS_0 = USB_BUS_STATISTICS_0())
+public data class UsbuserBusStatistics0Request(public var header: UsbuserRequestHeader = UsbuserRequestHeader(), public var busStatistics0: UsbBusStatistics0 = UsbBusStatistics0())
 
-public data class USBUSER_CLOSE_RAW_DEVICE(public var Header: USBUSER_REQUEST_HEADER = USBUSER_REQUEST_HEADER(), public var Parameters: USB_CLOSE_RAW_DEVICE_PARAMETERS = USB_CLOSE_RAW_DEVICE_PARAMETERS())
+public data class UsbuserCloseRawDevice(public var header: UsbuserRequestHeader = UsbuserRequestHeader(), public var parameters: UsbCloseRawDeviceParameters = UsbCloseRawDeviceParameters())
 
-public data class USBUSER_CONTROLLER_INFO_0(public var Header: USBUSER_REQUEST_HEADER = USBUSER_REQUEST_HEADER(), public var Info0: USB_CONTROLLER_INFO_0 = USB_CONTROLLER_INFO_0())
+public data class UsbuserControllerInfo0(public var header: UsbuserRequestHeader = UsbuserRequestHeader(), public var info0: UsbControllerInfo0 = UsbControllerInfo0())
 
-public data class USBUSER_CONTROLLER_UNICODE_NAME(public var Header: USBUSER_REQUEST_HEADER = USBUSER_REQUEST_HEADER(), public var UnicodeName: USB_UNICODE_NAME = USB_UNICODE_NAME())
+public data class UsbuserControllerUnicodeName(public var header: UsbuserRequestHeader = UsbuserRequestHeader(), public var unicodeName: UsbUnicodeName = UsbUnicodeName())
 
-public data class USBUSER_GET_DRIVER_VERSION(public var Header: USBUSER_REQUEST_HEADER = USBUSER_REQUEST_HEADER(), public var Parameters: USB_DRIVER_VERSION_PARAMETERS = USB_DRIVER_VERSION_PARAMETERS())
+public data class UsbuserGetDriverVersion(public var header: UsbuserRequestHeader = UsbuserRequestHeader(), public var parameters: UsbDriverVersionParameters = UsbDriverVersionParameters())
 
-public data class USBUSER_GET_USB2HW_VERSION(public var Header: USBUSER_REQUEST_HEADER = USBUSER_REQUEST_HEADER(), public var Parameters: USB_USB2HW_VERSION_PARAMETERS = USB_USB2HW_VERSION_PARAMETERS())
+public data class UsbuserGetUsb2hwVersion(public var header: UsbuserRequestHeader = UsbuserRequestHeader(), public var parameters: UsbUsb2hwVersionParameters = UsbUsb2hwVersionParameters())
 
-public data class USBUSER_OPEN_RAW_DEVICE(public var Header: USBUSER_REQUEST_HEADER = USBUSER_REQUEST_HEADER(), public var Parameters: USB_OPEN_RAW_DEVICE_PARAMETERS = USB_OPEN_RAW_DEVICE_PARAMETERS())
+public data class UsbuserOpenRawDevice(public var header: UsbuserRequestHeader = UsbuserRequestHeader(), public var parameters: UsbOpenRawDeviceParameters = UsbOpenRawDeviceParameters())
 
-public data class USBUSER_PASS_THRU_REQUEST(public var Header: USBUSER_REQUEST_HEADER = USBUSER_REQUEST_HEADER(), public var PassThru: USB_PASS_THRU_PARAMETERS = USB_PASS_THRU_PARAMETERS())
+public data class UsbuserPassThruRequest(public var header: UsbuserRequestHeader = UsbuserRequestHeader(), public var passThru: UsbPassThruParameters = UsbPassThruParameters())
 
-public data class USBUSER_POWER_INFO_REQUEST(public var Header: USBUSER_REQUEST_HEADER = USBUSER_REQUEST_HEADER(), public var PowerInformation: USB_POWER_INFO = USB_POWER_INFO())
+public data class UsbuserPowerInfoRequest(public var header: UsbuserRequestHeader = UsbuserRequestHeader(), public var powerInformation: UsbPowerInfo = UsbPowerInfo())
 
-public data class USBUSER_RAW_RESET_ROOT_PORT(public var Header: USBUSER_REQUEST_HEADER = USBUSER_REQUEST_HEADER(), public var Parameters: RAW_RESET_PORT_PARAMETERS = RAW_RESET_PORT_PARAMETERS())
+public data class UsbuserRawResetRootPort(public var header: UsbuserRequestHeader = UsbuserRequestHeader(), public var parameters: RawResetPortParameters = RawResetPortParameters())
 
-public data class USBUSER_REFRESH_HCT_REG(public var Header: USBUSER_REQUEST_HEADER = USBUSER_REQUEST_HEADER(), public var Flags: UInt = 0u)
+public data class UsbuserRefreshHctReg(public var header: UsbuserRequestHeader = UsbuserRequestHeader(), public var flags: UInt = 0u)
 
-public data class USBUSER_REQUEST_HEADER(
-    public var UsbUserRequest: UInt = 0u,
-    public var UsbUserStatusCode: USB_USER_ERROR_CODE = 0,
-    public var RequestBufferLength: UInt = 0u,
-    public var ActualBufferLength: UInt = 0u,
+public data class UsbuserRequestHeader(
+    public var usbUserRequest: UInt = 0u,
+    public var usbUserStatusCode: UsbUserErrorCode = 0,
+    public var requestBufferLength: UInt = 0u,
+    public var actualBufferLength: UInt = 0u,
 )
 
-public data class USBUSER_ROOTPORT_FEATURE_REQUEST(public var Header: USBUSER_REQUEST_HEADER = USBUSER_REQUEST_HEADER(), public var Parameters: RAW_ROOTPORT_FEATURE = RAW_ROOTPORT_FEATURE())
+public data class UsbuserRootportFeatureRequest(public var header: UsbuserRequestHeader = UsbuserRequestHeader(), public var parameters: RawRootportFeature = RawRootportFeature())
 
-public data class USBUSER_ROOTPORT_PARAMETERS(public var Header: USBUSER_REQUEST_HEADER = USBUSER_REQUEST_HEADER(), public var Parameters: RAW_ROOTPORT_PARAMETERS = RAW_ROOTPORT_PARAMETERS())
+public data class UsbuserRootportParameters(public var header: UsbuserRequestHeader = UsbuserRequestHeader(), public var parameters: RawRootportParameters = RawRootportParameters())
 
-public data class USBUSER_SEND_ONE_PACKET(public var Header: USBUSER_REQUEST_HEADER = USBUSER_REQUEST_HEADER(), public var PacketParameters: PACKET_PARAMETERS = PACKET_PARAMETERS())
+public data class UsbuserSendOnePacket(public var header: UsbuserRequestHeader = UsbuserRequestHeader(), public var packetParameters: PacketParameters = PacketParameters())
 
-public data class USBUSER_SEND_RAW_COMMAND(public var Header: USBUSER_REQUEST_HEADER = USBUSER_REQUEST_HEADER(), public var Parameters: USB_SEND_RAW_COMMAND_PARAMETERS = USB_SEND_RAW_COMMAND_PARAMETERS())
+public data class UsbuserSendRawCommand(public var header: UsbuserRequestHeader = UsbuserRequestHeader(), public var parameters: UsbSendRawCommandParameters = UsbSendRawCommandParameters())
 
-public data class USB_20_PORT_CHANGE(public var AsUshort16: UShort = 0u, public var Anonymous: USB_20_PORT_CHANGE_0 = USB_20_PORT_CHANGE_0())
+public data class Usb20PortChange(public var asUshort16: UShort = 0u, public var anonymous: Usb20PortChange0 = Usb20PortChange0())
 
-public data class USB_20_PORT_CHANGE_0(public var _bitfield: UShort = 0u)
+public data class Usb20PortChange0(public var bitfield: UShort = 0u)
 
-public data class USB_20_PORT_STATUS(public var AsUshort16: UShort = 0u, public var Anonymous: USB_20_PORT_STATUS_0 = USB_20_PORT_STATUS_0())
+public data class Usb20PortStatus(public var asUshort16: UShort = 0u, public var anonymous: Usb20PortStatus0 = Usb20PortStatus0())
 
-public data class USB_20_PORT_STATUS_0(public var _bitfield: UShort = 0u)
+public data class Usb20PortStatus0(public var bitfield: UShort = 0u)
 
-public data class USB_30_HUB_DESCRIPTOR(
+public data class Usb30HubDescriptor(
     public var bLength: UByte = 0u,
     public var bDescriptorType: UByte = 0u,
     public var bNumberOfPorts: UByte = 0u,
@@ -543,106 +544,106 @@ public data class USB_30_HUB_DESCRIPTOR(
     public var bHubControlCurrent: UByte = 0u,
     public var bHubHdrDecLat: UByte = 0u,
     public var wHubDelay: UShort = 0u,
-    public var DeviceRemovable: UShort = 0u,
+    public var deviceRemovable: UShort = 0u,
 )
 
-public data class USB_30_PORT_CHANGE(public var AsUshort16: UShort = 0u, public var Anonymous: USB_30_PORT_CHANGE_0 = USB_30_PORT_CHANGE_0())
+public data class Usb30PortChange(public var asUshort16: UShort = 0u, public var anonymous: Usb30PortChange0 = Usb30PortChange0())
 
-public data class USB_30_PORT_CHANGE_0(public var _bitfield: UShort = 0u)
+public data class Usb30PortChange0(public var bitfield: UShort = 0u)
 
-public data class USB_30_PORT_STATUS(public var AsUshort16: UShort = 0u, public var Anonymous: USB_30_PORT_STATUS_0 = USB_30_PORT_STATUS_0())
+public data class Usb30PortStatus(public var asUshort16: UShort = 0u, public var anonymous: Usb30PortStatus0 = Usb30PortStatus0())
 
-public data class USB_30_PORT_STATUS_0(public var _bitfield: UShort = 0u)
+public data class Usb30PortStatus0(public var bitfield: UShort = 0u)
 
-public data class USB_ACQUIRE_INFO(
-    public var NotificationType: USB_NOTIFICATION_TYPE = 0,
-    public var TotalSize: UInt = 0u,
-    public var Buffer: UShortArray = UShortArray(1),
+public data class UsbAcquireInfo(
+    public var notificationType: UsbNotificationType = 0,
+    public var totalSize: UInt = 0u,
+    public var buffer: UShortArray = UShortArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is USB_ACQUIRE_INFO) return false
-        if (this.NotificationType != other.NotificationType) return false
-        if (this.TotalSize != other.TotalSize) return false
-        if (!this.Buffer.contentEquals(other.Buffer)) return false
+        if (other !is UsbAcquireInfo) return false
+        if (this.notificationType != other.notificationType) return false
+        if (this.totalSize != other.totalSize) return false
+        if (!this.buffer.contentEquals(other.buffer)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.NotificationType.hashCode()
-        result = 31 * result + this.TotalSize.hashCode()
-        result = 31 * result + this.Buffer.contentHashCode()
+        var result = this.notificationType.hashCode()
+        result = 31 * result + this.totalSize.hashCode()
+        result = 31 * result + this.buffer.contentHashCode()
         return result
     }
 }
 
-public data class USB_BANDWIDTH_INFO(
-    public var DeviceCount: UInt = 0u,
-    public var TotalBusBandwidth: UInt = 0u,
-    public var Total32secBandwidth: UInt = 0u,
-    public var AllocedBulkAndControl: UInt = 0u,
-    public var AllocedIso: UInt = 0u,
-    public var AllocedInterrupt_1ms: UInt = 0u,
-    public var AllocedInterrupt_2ms: UInt = 0u,
-    public var AllocedInterrupt_4ms: UInt = 0u,
-    public var AllocedInterrupt_8ms: UInt = 0u,
-    public var AllocedInterrupt_16ms: UInt = 0u,
-    public var AllocedInterrupt_32ms: UInt = 0u,
+public data class UsbBandwidthInfo(
+    public var deviceCount: UInt = 0u,
+    public var totalBusBandwidth: UInt = 0u,
+    public var total32secBandwidth: UInt = 0u,
+    public var allocedBulkAndControl: UInt = 0u,
+    public var allocedIso: UInt = 0u,
+    public var allocedInterrupt1ms: UInt = 0u,
+    public var allocedInterrupt2ms: UInt = 0u,
+    public var allocedInterrupt4ms: UInt = 0u,
+    public var allocedInterrupt8ms: UInt = 0u,
+    public var allocedInterrupt16ms: UInt = 0u,
+    public var allocedInterrupt32ms: UInt = 0u,
 )
 
-public data class USB_BOS_DESCRIPTOR(
+public data class UsbBosDescriptor(
     public var bLength: UByte = 0u,
     public var bDescriptorType: UByte = 0u,
     public var wTotalLength: UShort = 0u,
     public var bNumDeviceCaps: UByte = 0u,
 )
 
-public data class USB_BUS_NOTIFICATION(
-    public var NotificationType: USB_NOTIFICATION_TYPE = 0,
-    public var TotalBandwidth: UInt = 0u,
-    public var ConsumedBandwidth: UInt = 0u,
-    public var ControllerNameLength: UInt = 0u,
+public data class UsbBusNotification(
+    public var notificationType: UsbNotificationType = 0,
+    public var totalBandwidth: UInt = 0u,
+    public var consumedBandwidth: UInt = 0u,
+    public var controllerNameLength: UInt = 0u,
 )
 
-public data class USB_BUS_STATISTICS_0(
-    public var DeviceCount: UInt = 0u,
-    public var CurrentSystemTime: Long = 0L,
-    public var CurrentUsbFrame: UInt = 0u,
-    public var BulkBytes: UInt = 0u,
-    public var IsoBytes: UInt = 0u,
-    public var InterruptBytes: UInt = 0u,
-    public var ControlDataBytes: UInt = 0u,
-    public var PciInterruptCount: UInt = 0u,
-    public var HardResetCount: UInt = 0u,
-    public var WorkerSignalCount: UInt = 0u,
-    public var CommonBufferBytes: UInt = 0u,
-    public var WorkerIdleTimeMs: UInt = 0u,
-    public var RootHubEnabled: Boolean = false,
-    public var RootHubDevicePowerState: UByte = 0u,
-    public var Unused: UByte = 0u,
-    public var NameIndex: UByte = 0u,
+public data class UsbBusStatistics0(
+    public var deviceCount: UInt = 0u,
+    public var currentSystemTime: Long = 0L,
+    public var currentUsbFrame: UInt = 0u,
+    public var bulkBytes: UInt = 0u,
+    public var isoBytes: UInt = 0u,
+    public var interruptBytes: UInt = 0u,
+    public var controlDataBytes: UInt = 0u,
+    public var pciInterruptCount: UInt = 0u,
+    public var hardResetCount: UInt = 0u,
+    public var workerSignalCount: UInt = 0u,
+    public var commonBufferBytes: UInt = 0u,
+    public var workerIdleTimeMs: UInt = 0u,
+    public var rootHubEnabled: Boolean = false,
+    public var rootHubDevicePowerState: UByte = 0u,
+    public var unused: UByte = 0u,
+    public var nameIndex: UByte = 0u,
 )
 
-public data class USB_CLOSE_RAW_DEVICE_PARAMETERS(public var xxx: UInt = 0u)
+public data class UsbCloseRawDeviceParameters(public var xxx: UInt = 0u)
 
-public data class USB_COMMON_DESCRIPTOR(public var bLength: UByte = 0u, public var bDescriptorType: UByte = 0u)
+public data class UsbCommonDescriptor(public var bLength: UByte = 0u, public var bDescriptorType: UByte = 0u)
 
-public data class USB_COMPOSITE_DEVICE_INFO(
-    public var DeviceDescriptor: USB_DEVICE_DESCRIPTOR = USB_DEVICE_DESCRIPTOR(),
-    public var CurrentConfigDescriptor: USB_CONFIGURATION_DESCRIPTOR = USB_CONFIGURATION_DESCRIPTOR(),
-    public var CurrentConfigurationValue: UByte = 0u,
-    public var NumberOfFunctions: UByte = 0u,
-    public var FunctionInfo: List<USB_COMPOSITE_FUNCTION_INFO> = List(1) { USB_COMPOSITE_FUNCTION_INFO() },
+public data class UsbCompositeDeviceInfo(
+    public var deviceDescriptor: UsbDeviceDescriptor = UsbDeviceDescriptor(),
+    public var currentConfigDescriptor: UsbConfigurationDescriptor = UsbConfigurationDescriptor(),
+    public var currentConfigurationValue: UByte = 0u,
+    public var numberOfFunctions: UByte = 0u,
+    public var functionInfo: List<UsbCompositeFunctionInfo> = List(1) { UsbCompositeFunctionInfo() },
 )
 
-public data class USB_COMPOSITE_FUNCTION_INFO(
-    public var FunctionNumber: UByte = 0u,
-    public var BaseInterfaceNumber: UByte = 0u,
-    public var NumberOfInterfaces: UByte = 0u,
-    public var FunctionIsIdle: Boolean = false,
+public data class UsbCompositeFunctionInfo(
+    public var functionNumber: UByte = 0u,
+    public var baseInterfaceNumber: UByte = 0u,
+    public var numberOfInterfaces: UByte = 0u,
+    public var functionIsIdle: Boolean = false,
 )
 
-public data class USB_CONFIGURATION_DESCRIPTOR(
+public data class UsbConfigurationDescriptor(
     public var bLength: UByte = 0u,
     public var bDescriptorType: UByte = 0u,
     public var wTotalLength: UShort = 0u,
@@ -650,13 +651,13 @@ public data class USB_CONFIGURATION_DESCRIPTOR(
     public var bConfigurationValue: UByte = 0u,
     public var iConfiguration: UByte = 0u,
     public var bmAttributes: UByte = 0u,
-    public var MaxPower: UByte = 0u,
+    public var maxPower: UByte = 0u,
 )
 
-public data class USB_CONFIGURATION_POWER_DESCRIPTOR(
+public data class UsbConfigurationPowerDescriptor(
     public var bLength: UByte = 0u,
     public var bDescriptorType: UByte = 0u,
-    public var SelfPowerConsumedD0: UByteArray = UByteArray(3),
+    public var selfPowerConsumedD0: UByteArray = UByteArray(3),
     public var bPowerSummaryId: UByte = 0u,
     public var bBusPowerSavingD1: UByte = 0u,
     public var bSelfPowerSavingD1: UByte = 0u,
@@ -664,16 +665,16 @@ public data class USB_CONFIGURATION_POWER_DESCRIPTOR(
     public var bSelfPowerSavingD2: UByte = 0u,
     public var bBusPowerSavingD3: UByte = 0u,
     public var bSelfPowerSavingD3: UByte = 0u,
-    public var TransitionTimeFromD1: UShort = 0u,
-    public var TransitionTimeFromD2: UShort = 0u,
-    public var TransitionTimeFromD3: UShort = 0u,
+    public var transitionTimeFromD1: UShort = 0u,
+    public var transitionTimeFromD2: UShort = 0u,
+    public var transitionTimeFromD3: UShort = 0u,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is USB_CONFIGURATION_POWER_DESCRIPTOR) return false
+        if (other !is UsbConfigurationPowerDescriptor) return false
         if (this.bLength != other.bLength) return false
         if (this.bDescriptorType != other.bDescriptorType) return false
-        if (!this.SelfPowerConsumedD0.contentEquals(other.SelfPowerConsumedD0)) return false
+        if (!this.selfPowerConsumedD0.contentEquals(other.selfPowerConsumedD0)) return false
         if (this.bPowerSummaryId != other.bPowerSummaryId) return false
         if (this.bBusPowerSavingD1 != other.bBusPowerSavingD1) return false
         if (this.bSelfPowerSavingD1 != other.bSelfPowerSavingD1) return false
@@ -681,16 +682,16 @@ public data class USB_CONFIGURATION_POWER_DESCRIPTOR(
         if (this.bSelfPowerSavingD2 != other.bSelfPowerSavingD2) return false
         if (this.bBusPowerSavingD3 != other.bBusPowerSavingD3) return false
         if (this.bSelfPowerSavingD3 != other.bSelfPowerSavingD3) return false
-        if (this.TransitionTimeFromD1 != other.TransitionTimeFromD1) return false
-        if (this.TransitionTimeFromD2 != other.TransitionTimeFromD2) return false
-        if (this.TransitionTimeFromD3 != other.TransitionTimeFromD3) return false
+        if (this.transitionTimeFromD1 != other.transitionTimeFromD1) return false
+        if (this.transitionTimeFromD2 != other.transitionTimeFromD2) return false
+        if (this.transitionTimeFromD3 != other.transitionTimeFromD3) return false
         return true
     }
 
     override fun hashCode(): Int {
         var result = this.bLength.hashCode()
         result = 31 * result + this.bDescriptorType.hashCode()
-        result = 31 * result + this.SelfPowerConsumedD0.contentHashCode()
+        result = 31 * result + this.selfPowerConsumedD0.contentHashCode()
         result = 31 * result + this.bPowerSummaryId.hashCode()
         result = 31 * result + this.bBusPowerSavingD1.hashCode()
         result = 31 * result + this.bSelfPowerSavingD1.hashCode()
@@ -698,80 +699,80 @@ public data class USB_CONFIGURATION_POWER_DESCRIPTOR(
         result = 31 * result + this.bSelfPowerSavingD2.hashCode()
         result = 31 * result + this.bBusPowerSavingD3.hashCode()
         result = 31 * result + this.bSelfPowerSavingD3.hashCode()
-        result = 31 * result + this.TransitionTimeFromD1.hashCode()
-        result = 31 * result + this.TransitionTimeFromD2.hashCode()
-        result = 31 * result + this.TransitionTimeFromD3.hashCode()
+        result = 31 * result + this.transitionTimeFromD1.hashCode()
+        result = 31 * result + this.transitionTimeFromD2.hashCode()
+        result = 31 * result + this.transitionTimeFromD3.hashCode()
         return result
     }
 }
 
-public data class USB_CONNECTION_NOTIFICATION(
-    public var NotificationType: USB_NOTIFICATION_TYPE = 0,
-    public var ConnectionNumber: UInt = 0u,
-    public var RequestedBandwidth: UInt = 0u,
-    public var EnumerationFailReason: UInt = 0u,
-    public var PowerRequested: UInt = 0u,
-    public var HubNameLength: UInt = 0u,
+public data class UsbConnectionNotification(
+    public var notificationType: UsbNotificationType = 0,
+    public var connectionNumber: UInt = 0u,
+    public var requestedBandwidth: UInt = 0u,
+    public var enumerationFailReason: UInt = 0u,
+    public var powerRequested: UInt = 0u,
+    public var hubNameLength: UInt = 0u,
 )
 
-public data class USB_CONTROLLER_DEVICE_INFO(
-    public var PciVendorId: UInt = 0u,
-    public var PciDeviceId: UInt = 0u,
-    public var PciRevision: UInt = 0u,
-    public var NumberOfRootPorts: UInt = 0u,
-    public var HcFeatureFlags: UInt = 0u,
+public data class UsbControllerDeviceInfo(
+    public var pciVendorId: UInt = 0u,
+    public var pciDeviceId: UInt = 0u,
+    public var pciRevision: UInt = 0u,
+    public var numberOfRootPorts: UInt = 0u,
+    public var hcFeatureFlags: UInt = 0u,
 )
 
-public data class USB_CONTROLLER_INFO_0(
-    public var PciVendorId: UInt = 0u,
-    public var PciDeviceId: UInt = 0u,
-    public var PciRevision: UInt = 0u,
-    public var NumberOfRootPorts: UInt = 0u,
-    public var ControllerFlavor: USB_CONTROLLER_FLAVOR = 0,
-    public var HcFeatureFlags: UInt = 0u,
+public data class UsbControllerInfo0(
+    public var pciVendorId: UInt = 0u,
+    public var pciDeviceId: UInt = 0u,
+    public var pciRevision: UInt = 0u,
+    public var numberOfRootPorts: UInt = 0u,
+    public var controllerFlavor: UsbControllerFlavor = 0,
+    public var hcFeatureFlags: UInt = 0u,
 )
 
-public data class USB_CYCLE_PORT_PARAMS(public var ConnectionIndex: UInt = 0u, public var StatusReturned: UInt = 0u)
+public data class UsbCyclePortParams(public var connectionIndex: UInt = 0u, public var statusReturned: UInt = 0u)
 
-public data class USB_DEFAULT_PIPE_SETUP_PACKET(
-    public var bmRequestType: BM_REQUEST_TYPE = BM_REQUEST_TYPE(),
+public data class UsbDefaultPipeSetupPacket(
+    public var bmRequestType: BmRequestType = BmRequestType(),
     public var bRequest: UByte = 0u,
-    public var wValue: USB_DEFAULT_PIPE_SETUP_PACKET_0 = USB_DEFAULT_PIPE_SETUP_PACKET_0(),
-    public var wIndex: USB_DEFAULT_PIPE_SETUP_PACKET_1 = USB_DEFAULT_PIPE_SETUP_PACKET_1(),
+    public var wValue: UsbDefaultPipeSetupPacket0 = UsbDefaultPipeSetupPacket0(),
+    public var wIndex: UsbDefaultPipeSetupPacket1 = UsbDefaultPipeSetupPacket1(),
     public var wLength: UShort = 0u,
 )
 
-public data class USB_DEFAULT_PIPE_SETUP_PACKET_1(public var Anonymous: USB_DEFAULT_PIPE_SETUP_PACKET_1_0 = USB_DEFAULT_PIPE_SETUP_PACKET_1_0(), public var W: UShort = 0u)
+public data class UsbDefaultPipeSetupPacket1(public var anonymous: UsbDefaultPipeSetupPacket10 = UsbDefaultPipeSetupPacket10(), public var w: UShort = 0u)
 
-public data class USB_DEFAULT_PIPE_SETUP_PACKET_1_0(public var LowByte: UByte = 0u, public var HiByte: UByte = 0u)
+public data class UsbDefaultPipeSetupPacket10(public var lowByte: UByte = 0u, public var hiByte: UByte = 0u)
 
-public data class USB_DEFAULT_PIPE_SETUP_PACKET_0(public var Anonymous: USB_DEFAULT_PIPE_SETUP_PACKET_0_0 = USB_DEFAULT_PIPE_SETUP_PACKET_0_0(), public var W: UShort = 0u)
+public data class UsbDefaultPipeSetupPacket0(public var anonymous: UsbDefaultPipeSetupPacket00 = UsbDefaultPipeSetupPacket00(), public var w: UShort = 0u)
 
-public data class USB_DEFAULT_PIPE_SETUP_PACKET_0_0(public var LowByte: UByte = 0u, public var HiByte: UByte = 0u)
+public data class UsbDefaultPipeSetupPacket00(public var lowByte: UByte = 0u, public var hiByte: UByte = 0u)
 
-public data class USB_DESCRIPTOR_REQUEST(
-    public var ConnectionIndex: UInt = 0u,
-    public var SetupPacket: USB_DESCRIPTOR_REQUEST_0 = USB_DESCRIPTOR_REQUEST_0(),
-    public var Data: UByteArray = UByteArray(1),
+public data class UsbDescriptorRequest(
+    public var connectionIndex: UInt = 0u,
+    public var setupPacket: UsbDescriptorRequest0 = UsbDescriptorRequest0(),
+    public var data: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is USB_DESCRIPTOR_REQUEST) return false
-        if (this.ConnectionIndex != other.ConnectionIndex) return false
-        if (this.SetupPacket != other.SetupPacket) return false
-        if (!this.Data.contentEquals(other.Data)) return false
+        if (other !is UsbDescriptorRequest) return false
+        if (this.connectionIndex != other.connectionIndex) return false
+        if (this.setupPacket != other.setupPacket) return false
+        if (!this.data.contentEquals(other.data)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.ConnectionIndex.hashCode()
-        result = 31 * result + this.SetupPacket.hashCode()
-        result = 31 * result + this.Data.contentHashCode()
+        var result = this.connectionIndex.hashCode()
+        result = 31 * result + this.setupPacket.hashCode()
+        result = 31 * result + this.data.contentHashCode()
         return result
     }
 }
 
-public data class USB_DESCRIPTOR_REQUEST_0(
+public data class UsbDescriptorRequest0(
     public var bmRequest: UByte = 0u,
     public var bRequest: UByte = 0u,
     public var wValue: UShort = 0u,
@@ -779,31 +780,31 @@ public data class USB_DESCRIPTOR_REQUEST_0(
     public var wLength: UShort = 0u,
 )
 
-public data class USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR(
+public data class UsbDeviceCapabilityBillboardDescriptor(
     public var bLength: UByte = 0u,
     public var bDescriptorType: UByte = 0u,
     public var bDevCapabilityType: UByte = 0u,
     public var iAddtionalInfoURL: UByte = 0u,
     public var bNumberOfAlternateModes: UByte = 0u,
     public var bPreferredAlternateMode: UByte = 0u,
-    public var VconnPower: USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_0 = USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_0(),
+    public var vconnPower: UsbDeviceCapabilityBillboardDescriptor0 = UsbDeviceCapabilityBillboardDescriptor0(),
     public var bmConfigured: UByteArray = UByteArray(32),
     public var bReserved: UInt = 0u,
-    public var AlternateMode: List<USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1> = List(1) { USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1() },
+    public var alternateMode: List<UsbDeviceCapabilityBillboardDescriptor1> = List(1) { UsbDeviceCapabilityBillboardDescriptor1() },
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR) return false
+        if (other !is UsbDeviceCapabilityBillboardDescriptor) return false
         if (this.bLength != other.bLength) return false
         if (this.bDescriptorType != other.bDescriptorType) return false
         if (this.bDevCapabilityType != other.bDevCapabilityType) return false
         if (this.iAddtionalInfoURL != other.iAddtionalInfoURL) return false
         if (this.bNumberOfAlternateModes != other.bNumberOfAlternateModes) return false
         if (this.bPreferredAlternateMode != other.bPreferredAlternateMode) return false
-        if (this.VconnPower != other.VconnPower) return false
+        if (this.vconnPower != other.vconnPower) return false
         if (!this.bmConfigured.contentEquals(other.bmConfigured)) return false
         if (this.bReserved != other.bReserved) return false
-        if (this.AlternateMode != other.AlternateMode) return false
+        if (this.alternateMode != other.alternateMode) return false
         return true
     }
 
@@ -814,39 +815,39 @@ public data class USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR(
         result = 31 * result + this.iAddtionalInfoURL.hashCode()
         result = 31 * result + this.bNumberOfAlternateModes.hashCode()
         result = 31 * result + this.bPreferredAlternateMode.hashCode()
-        result = 31 * result + this.VconnPower.hashCode()
+        result = 31 * result + this.vconnPower.hashCode()
         result = 31 * result + this.bmConfigured.contentHashCode()
         result = 31 * result + this.bReserved.hashCode()
-        result = 31 * result + this.AlternateMode.hashCode()
+        result = 31 * result + this.alternateMode.hashCode()
         return result
     }
 }
 
-public data class USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1(
+public data class UsbDeviceCapabilityBillboardDescriptor1(
     public var wSVID: UShort = 0u,
     public var bAlternateMode: UByte = 0u,
     public var iAlternateModeSetting: UByte = 0u,
 )
 
-public data class USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_0(public var AsUshort: UShort = 0u, public var Anonymous: USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_0_0 = USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_0_0())
+public data class UsbDeviceCapabilityBillboardDescriptor0(public var asUshort: UShort = 0u, public var anonymous: UsbDeviceCapabilityBillboardDescriptor00 = UsbDeviceCapabilityBillboardDescriptor00())
 
-public data class USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_0_0(public var _bitfield: UShort = 0u)
+public data class UsbDeviceCapabilityBillboardDescriptor00(public var bitfield: UShort = 0u)
 
-public data class USB_DEVICE_CAPABILITY_CONTAINER_ID_DESCRIPTOR(
+public data class UsbDeviceCapabilityContainerIdDescriptor(
     public var bLength: UByte = 0u,
     public var bDescriptorType: UByte = 0u,
     public var bDevCapabilityType: UByte = 0u,
     public var bReserved: UByte = 0u,
-    public var ContainerID: UByteArray = UByteArray(16),
+    public var containerID: UByteArray = UByteArray(16),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is USB_DEVICE_CAPABILITY_CONTAINER_ID_DESCRIPTOR) return false
+        if (other !is UsbDeviceCapabilityContainerIdDescriptor) return false
         if (this.bLength != other.bLength) return false
         if (this.bDescriptorType != other.bDescriptorType) return false
         if (this.bDevCapabilityType != other.bDevCapabilityType) return false
         if (this.bReserved != other.bReserved) return false
-        if (!this.ContainerID.contentEquals(other.ContainerID)) return false
+        if (!this.containerID.contentEquals(other.containerID)) return false
         return true
     }
 
@@ -855,35 +856,35 @@ public data class USB_DEVICE_CAPABILITY_CONTAINER_ID_DESCRIPTOR(
         result = 31 * result + this.bDescriptorType.hashCode()
         result = 31 * result + this.bDevCapabilityType.hashCode()
         result = 31 * result + this.bReserved.hashCode()
-        result = 31 * result + this.ContainerID.contentHashCode()
+        result = 31 * result + this.containerID.contentHashCode()
         return result
     }
 }
 
-public data class USB_DEVICE_CAPABILITY_DESCRIPTOR(
+public data class UsbDeviceCapabilityDescriptor(
     public var bLength: UByte = 0u,
     public var bDescriptorType: UByte = 0u,
     public var bDevCapabilityType: UByte = 0u,
 )
 
-public data class USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR(
+public data class UsbDeviceCapabilityFirmwareStatusDescriptor(
     public var bLength: UByte = 0u,
     public var bDescriptorType: UByte = 0u,
     public var bDevCapabilityType: UByte = 0u,
     public var bcdDescriptorVersion: UByte = 0u,
-    public var bmAttributes: USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR_0 = USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR_0(),
+    public var bmAttributes: UsbDeviceCapabilityFirmwareStatusDescriptor0 = UsbDeviceCapabilityFirmwareStatusDescriptor0(),
 )
 
-public data class USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR_0(public var AsUlong: UInt = 0u, public var Anonymous: USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR_0_0 = USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR_0_0())
+public data class UsbDeviceCapabilityFirmwareStatusDescriptor0(public var asUlong: UInt = 0u, public var anonymous: UsbDeviceCapabilityFirmwareStatusDescriptor00 = UsbDeviceCapabilityFirmwareStatusDescriptor00())
 
-public data class USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR_0_0(public var _bitfield: UInt = 0u)
+public data class UsbDeviceCapabilityFirmwareStatusDescriptor00(public var bitfield: UInt = 0u)
 
-public data class USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR(
+public data class UsbDeviceCapabilityPdConsumerPortDescriptor(
     public var bLength: UByte = 0u,
     public var bDescriptorType: UByte = 0u,
     public var bDevCapabilityType: UByte = 0u,
     public var bReserved: UByte = 0u,
-    public var bmCapabilities: USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR_0 = USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR_0(),
+    public var bmCapabilities: UsbDeviceCapabilityPdConsumerPortDescriptor0 = UsbDeviceCapabilityPdConsumerPortDescriptor0(),
     public var wMinVoltage: UShort = 0u,
     public var wMaxVoltage: UShort = 0u,
     public var wReserved: UShort = 0u,
@@ -892,27 +893,27 @@ public data class USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR(
     public var dwMaxPeakPowerTime: UInt = 0u,
 )
 
-public data class USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR_0(public var AsUshort: UShort = 0u, public var Anonymous: USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR_0_0 = USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR_0_0())
+public data class UsbDeviceCapabilityPdConsumerPortDescriptor0(public var asUshort: UShort = 0u, public var anonymous: UsbDeviceCapabilityPdConsumerPortDescriptor00 = UsbDeviceCapabilityPdConsumerPortDescriptor00())
 
-public data class USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR_0_0(public var _bitfield: UShort = 0u)
+public data class UsbDeviceCapabilityPdConsumerPortDescriptor00(public var bitfield: UShort = 0u)
 
-public data class USB_DEVICE_CAPABILITY_PLATFORM_DESCRIPTOR(
+public data class UsbDeviceCapabilityPlatformDescriptor(
     public var bLength: UByte = 0u,
     public var bDescriptorType: UByte = 0u,
     public var bDevCapabilityType: UByte = 0u,
     public var bReserved: UByte = 0u,
-    public var PlatformCapabilityUuid: GUID = GUID(),
-    public var CapabililityData: UByteArray = UByteArray(1),
+    public var platformCapabilityUuid: Guid = Guid(),
+    public var capabililityData: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is USB_DEVICE_CAPABILITY_PLATFORM_DESCRIPTOR) return false
+        if (other !is UsbDeviceCapabilityPlatformDescriptor) return false
         if (this.bLength != other.bLength) return false
         if (this.bDescriptorType != other.bDescriptorType) return false
         if (this.bDevCapabilityType != other.bDevCapabilityType) return false
         if (this.bReserved != other.bReserved) return false
-        if (this.PlatformCapabilityUuid != other.PlatformCapabilityUuid) return false
-        if (!this.CapabililityData.contentEquals(other.CapabililityData)) return false
+        if (this.platformCapabilityUuid != other.platformCapabilityUuid) return false
+        if (!this.capabililityData.contentEquals(other.capabililityData)) return false
         return true
     }
 
@@ -921,18 +922,18 @@ public data class USB_DEVICE_CAPABILITY_PLATFORM_DESCRIPTOR(
         result = 31 * result + this.bDescriptorType.hashCode()
         result = 31 * result + this.bDevCapabilityType.hashCode()
         result = 31 * result + this.bReserved.hashCode()
-        result = 31 * result + this.PlatformCapabilityUuid.hashCode()
-        result = 31 * result + this.CapabililityData.contentHashCode()
+        result = 31 * result + this.platformCapabilityUuid.hashCode()
+        result = 31 * result + this.capabililityData.contentHashCode()
         return result
     }
 }
 
-public data class USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR(
+public data class UsbDeviceCapabilityPowerDeliveryDescriptor(
     public var bLength: UByte = 0u,
     public var bDescriptorType: UByte = 0u,
     public var bDevCapabilityType: UByte = 0u,
     public var bReserved: UByte = 0u,
-    public var bmAttributes: USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR_0 = USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR_0(),
+    public var bmAttributes: UsbDeviceCapabilityPowerDeliveryDescriptor0 = UsbDeviceCapabilityPowerDeliveryDescriptor0(),
     public var bmProviderPorts: UShort = 0u,
     public var bmConsumerPorts: UShort = 0u,
     public var bcdBCVersion: UShort = 0u,
@@ -940,34 +941,34 @@ public data class USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR(
     public var bcdUSBTypeCVersion: UShort = 0u,
 )
 
-public data class USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR_0(public var AsUlong: UInt = 0u, public var Anonymous: USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR_0_0 = USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR_0_0())
+public data class UsbDeviceCapabilityPowerDeliveryDescriptor0(public var asUlong: UInt = 0u, public var anonymous: UsbDeviceCapabilityPowerDeliveryDescriptor00 = UsbDeviceCapabilityPowerDeliveryDescriptor00())
 
-public data class USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR_0_0(public var _bitfield: UInt = 0u)
+public data class UsbDeviceCapabilityPowerDeliveryDescriptor00(public var bitfield: UInt = 0u)
 
-public data class USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED(public var AsUlong32: UInt = 0u, public var Anonymous: USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_0 = USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_0())
+public data class UsbDeviceCapabilitySuperspeedplusSpeed(public var asUlong32: UInt = 0u, public var anonymous: UsbDeviceCapabilitySuperspeedplusSpeed0 = UsbDeviceCapabilitySuperspeedplusSpeed0())
 
-public data class USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_0(public var _bitfield: UInt = 0u)
+public data class UsbDeviceCapabilitySuperspeedplusSpeed0(public var bitfield: UInt = 0u)
 
-public data class USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR(
+public data class UsbDeviceCapabilitySuperspeedplusUsbDescriptor(
     public var bLength: UByte = 0u,
     public var bDescriptorType: UByte = 0u,
     public var bDevCapabilityType: UByte = 0u,
     public var bReserved: UByte = 0u,
-    public var bmAttributes: USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_0 = USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_0(),
-    public var wFunctionalitySupport: USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_1 = USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_1(),
+    public var bmAttributes: UsbDeviceCapabilitySuperspeedplusUsbDescriptor0 = UsbDeviceCapabilitySuperspeedplusUsbDescriptor0(),
+    public var wFunctionalitySupport: UsbDeviceCapabilitySuperspeedplusUsbDescriptor1 = UsbDeviceCapabilitySuperspeedplusUsbDescriptor1(),
     public var wReserved: UShort = 0u,
-    public var bmSublinkSpeedAttr: List<USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED> = List(1) { USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED() },
+    public var bmSublinkSpeedAttr: List<UsbDeviceCapabilitySuperspeedplusSpeed> = List(1) { UsbDeviceCapabilitySuperspeedplusSpeed() },
 )
 
-public data class USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_0(public var AsUlong: UInt = 0u, public var Anonymous: USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_0_0 = USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_0_0())
+public data class UsbDeviceCapabilitySuperspeedplusUsbDescriptor0(public var asUlong: UInt = 0u, public var anonymous: UsbDeviceCapabilitySuperspeedplusUsbDescriptor00 = UsbDeviceCapabilitySuperspeedplusUsbDescriptor00())
 
-public data class USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_0_0(public var _bitfield: UInt = 0u)
+public data class UsbDeviceCapabilitySuperspeedplusUsbDescriptor00(public var bitfield: UInt = 0u)
 
-public data class USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_1(public var AsUshort: UShort = 0u, public var Anonymous: USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_1_0 = USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_1_0())
+public data class UsbDeviceCapabilitySuperspeedplusUsbDescriptor1(public var asUshort: UShort = 0u, public var anonymous: UsbDeviceCapabilitySuperspeedplusUsbDescriptor10 = UsbDeviceCapabilitySuperspeedplusUsbDescriptor10())
 
-public data class USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_1_0(public var _bitfield: UShort = 0u)
+public data class UsbDeviceCapabilitySuperspeedplusUsbDescriptor10(public var bitfield: UShort = 0u)
 
-public data class USB_DEVICE_CAPABILITY_SUPERSPEED_USB_DESCRIPTOR(
+public data class UsbDeviceCapabilitySuperspeedUsbDescriptor(
     public var bLength: UByte = 0u,
     public var bDescriptorType: UByte = 0u,
     public var bDevCapabilityType: UByte = 0u,
@@ -978,46 +979,46 @@ public data class USB_DEVICE_CAPABILITY_SUPERSPEED_USB_DESCRIPTOR(
     public var wU2DevExitLat: UShort = 0u,
 )
 
-public data class USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR(
+public data class UsbDeviceCapabilityUsb20ExtensionDescriptor(
     public var bLength: UByte = 0u,
     public var bDescriptorType: UByte = 0u,
     public var bDevCapabilityType: UByte = 0u,
-    public var bmAttributes: USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR_0 = USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR_0(),
+    public var bmAttributes: UsbDeviceCapabilityUsb20ExtensionDescriptor0 = UsbDeviceCapabilityUsb20ExtensionDescriptor0(),
 )
 
-public data class USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR_0(public var AsUlong: UInt = 0u, public var Anonymous: USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR_0_0 = USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR_0_0())
+public data class UsbDeviceCapabilityUsb20ExtensionDescriptor0(public var asUlong: UInt = 0u, public var anonymous: UsbDeviceCapabilityUsb20ExtensionDescriptor00 = UsbDeviceCapabilityUsb20ExtensionDescriptor00())
 
-public data class USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR_0_0(public var _bitfield: UInt = 0u)
+public data class UsbDeviceCapabilityUsb20ExtensionDescriptor00(public var bitfield: UInt = 0u)
 
-public data class USB_DEVICE_CHARACTERISTICS(
-    public var Version: UInt = 0u,
-    public var Reserved: UIntArray = UIntArray(2),
-    public var UsbDeviceCharacteristicsFlags: UInt = 0u,
-    public var MaximumSendPathDelayInMilliSeconds: UInt = 0u,
-    public var MaximumCompletionPathDelayInMilliSeconds: UInt = 0u,
+public data class UsbDeviceCharacteristics(
+    public var version: UInt = 0u,
+    public var reserved: UIntArray = UIntArray(2),
+    public var usbDeviceCharacteristicsFlags: UInt = 0u,
+    public var maximumSendPathDelayInMilliSeconds: UInt = 0u,
+    public var maximumCompletionPathDelayInMilliSeconds: UInt = 0u,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is USB_DEVICE_CHARACTERISTICS) return false
-        if (this.Version != other.Version) return false
-        if (!this.Reserved.contentEquals(other.Reserved)) return false
-        if (this.UsbDeviceCharacteristicsFlags != other.UsbDeviceCharacteristicsFlags) return false
-        if (this.MaximumSendPathDelayInMilliSeconds != other.MaximumSendPathDelayInMilliSeconds) return false
-        if (this.MaximumCompletionPathDelayInMilliSeconds != other.MaximumCompletionPathDelayInMilliSeconds) return false
+        if (other !is UsbDeviceCharacteristics) return false
+        if (this.version != other.version) return false
+        if (!this.reserved.contentEquals(other.reserved)) return false
+        if (this.usbDeviceCharacteristicsFlags != other.usbDeviceCharacteristicsFlags) return false
+        if (this.maximumSendPathDelayInMilliSeconds != other.maximumSendPathDelayInMilliSeconds) return false
+        if (this.maximumCompletionPathDelayInMilliSeconds != other.maximumCompletionPathDelayInMilliSeconds) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Version.hashCode()
-        result = 31 * result + this.Reserved.contentHashCode()
-        result = 31 * result + this.UsbDeviceCharacteristicsFlags.hashCode()
-        result = 31 * result + this.MaximumSendPathDelayInMilliSeconds.hashCode()
-        result = 31 * result + this.MaximumCompletionPathDelayInMilliSeconds.hashCode()
+        var result = this.version.hashCode()
+        result = 31 * result + this.reserved.contentHashCode()
+        result = 31 * result + this.usbDeviceCharacteristicsFlags.hashCode()
+        result = 31 * result + this.maximumSendPathDelayInMilliSeconds.hashCode()
+        result = 31 * result + this.maximumCompletionPathDelayInMilliSeconds.hashCode()
         return result
     }
 }
 
-public data class USB_DEVICE_DESCRIPTOR(
+public data class UsbDeviceDescriptor(
     public var bLength: UByte = 0u,
     public var bDescriptorType: UByte = 0u,
     public var bcdUSB: UShort = 0u,
@@ -1034,147 +1035,147 @@ public data class USB_DEVICE_DESCRIPTOR(
     public var bNumConfigurations: UByte = 0u,
 )
 
-public data class USB_DEVICE_INFO(
-    public var DeviceState: USB_DEVICE_STATE = USB_DEVICE_STATE(),
-    public var PortNumber: UShort = 0u,
-    public var DeviceDescriptor: USB_DEVICE_DESCRIPTOR = USB_DEVICE_DESCRIPTOR(),
-    public var CurrentConfigurationValue: UByte = 0u,
-    public var Speed: USB_DEVICE_SPEED = 0,
-    public var DeviceAddress: UShort = 0u,
-    public var ConnectionIndex: UInt = 0u,
-    public var ConnectionStatus: USB_CONNECTION_STATUS = 0,
-    public var PnpHardwareId: UShortArray = UShortArray(128),
-    public var PnpCompatibleId: UShortArray = UShortArray(128),
-    public var SerialNumberId: UShortArray = UShortArray(128),
-    public var PnpDeviceDescription: UShortArray = UShortArray(128),
-    public var NumberOfOpenPipes: UInt = 0u,
-    public var PipeList: List<USB_PIPE_INFO> = List(1) { USB_PIPE_INFO() },
+public data class UsbDeviceInfo(
+    public var deviceState: UsbDeviceState = UsbDeviceState(),
+    public var portNumber: UShort = 0u,
+    public var deviceDescriptor: UsbDeviceDescriptor = UsbDeviceDescriptor(),
+    public var currentConfigurationValue: UByte = 0u,
+    public var speed: UsbDeviceSpeed = 0,
+    public var deviceAddress: UShort = 0u,
+    public var connectionIndex: UInt = 0u,
+    public var connectionStatus: UsbConnectionStatus = 0,
+    public var pnpHardwareId: UShortArray = UShortArray(128),
+    public var pnpCompatibleId: UShortArray = UShortArray(128),
+    public var serialNumberId: UShortArray = UShortArray(128),
+    public var pnpDeviceDescription: UShortArray = UShortArray(128),
+    public var numberOfOpenPipes: UInt = 0u,
+    public var pipeList: List<UsbPipeInfo> = List(1) { UsbPipeInfo() },
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is USB_DEVICE_INFO) return false
-        if (this.DeviceState != other.DeviceState) return false
-        if (this.PortNumber != other.PortNumber) return false
-        if (this.DeviceDescriptor != other.DeviceDescriptor) return false
-        if (this.CurrentConfigurationValue != other.CurrentConfigurationValue) return false
-        if (this.Speed != other.Speed) return false
-        if (this.DeviceAddress != other.DeviceAddress) return false
-        if (this.ConnectionIndex != other.ConnectionIndex) return false
-        if (this.ConnectionStatus != other.ConnectionStatus) return false
-        if (!this.PnpHardwareId.contentEquals(other.PnpHardwareId)) return false
-        if (!this.PnpCompatibleId.contentEquals(other.PnpCompatibleId)) return false
-        if (!this.SerialNumberId.contentEquals(other.SerialNumberId)) return false
-        if (!this.PnpDeviceDescription.contentEquals(other.PnpDeviceDescription)) return false
-        if (this.NumberOfOpenPipes != other.NumberOfOpenPipes) return false
-        if (this.PipeList != other.PipeList) return false
+        if (other !is UsbDeviceInfo) return false
+        if (this.deviceState != other.deviceState) return false
+        if (this.portNumber != other.portNumber) return false
+        if (this.deviceDescriptor != other.deviceDescriptor) return false
+        if (this.currentConfigurationValue != other.currentConfigurationValue) return false
+        if (this.speed != other.speed) return false
+        if (this.deviceAddress != other.deviceAddress) return false
+        if (this.connectionIndex != other.connectionIndex) return false
+        if (this.connectionStatus != other.connectionStatus) return false
+        if (!this.pnpHardwareId.contentEquals(other.pnpHardwareId)) return false
+        if (!this.pnpCompatibleId.contentEquals(other.pnpCompatibleId)) return false
+        if (!this.serialNumberId.contentEquals(other.serialNumberId)) return false
+        if (!this.pnpDeviceDescription.contentEquals(other.pnpDeviceDescription)) return false
+        if (this.numberOfOpenPipes != other.numberOfOpenPipes) return false
+        if (this.pipeList != other.pipeList) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.DeviceState.hashCode()
-        result = 31 * result + this.PortNumber.hashCode()
-        result = 31 * result + this.DeviceDescriptor.hashCode()
-        result = 31 * result + this.CurrentConfigurationValue.hashCode()
-        result = 31 * result + this.Speed.hashCode()
-        result = 31 * result + this.DeviceAddress.hashCode()
-        result = 31 * result + this.ConnectionIndex.hashCode()
-        result = 31 * result + this.ConnectionStatus.hashCode()
-        result = 31 * result + this.PnpHardwareId.contentHashCode()
-        result = 31 * result + this.PnpCompatibleId.contentHashCode()
-        result = 31 * result + this.SerialNumberId.contentHashCode()
-        result = 31 * result + this.PnpDeviceDescription.contentHashCode()
-        result = 31 * result + this.NumberOfOpenPipes.hashCode()
-        result = 31 * result + this.PipeList.hashCode()
+        var result = this.deviceState.hashCode()
+        result = 31 * result + this.portNumber.hashCode()
+        result = 31 * result + this.deviceDescriptor.hashCode()
+        result = 31 * result + this.currentConfigurationValue.hashCode()
+        result = 31 * result + this.speed.hashCode()
+        result = 31 * result + this.deviceAddress.hashCode()
+        result = 31 * result + this.connectionIndex.hashCode()
+        result = 31 * result + this.connectionStatus.hashCode()
+        result = 31 * result + this.pnpHardwareId.contentHashCode()
+        result = 31 * result + this.pnpCompatibleId.contentHashCode()
+        result = 31 * result + this.serialNumberId.contentHashCode()
+        result = 31 * result + this.pnpDeviceDescription.contentHashCode()
+        result = 31 * result + this.numberOfOpenPipes.hashCode()
+        result = 31 * result + this.pipeList.hashCode()
         return result
     }
 }
 
-public data class USB_DEVICE_NODE_INFO(
-    public var Sig: UInt = 0u,
-    public var LengthInBytes: UInt = 0u,
-    public var DeviceDescription: UShortArray = UShortArray(40),
-    public var NodeType: USB_WMI_DEVICE_NODE_TYPE = 0,
-    public var BusAddress: USB_TOPOLOGY_ADDRESS = USB_TOPOLOGY_ADDRESS(),
-    public var Anonymous: USB_DEVICE_NODE_INFO_0 = USB_DEVICE_NODE_INFO_0(),
+public data class UsbDeviceNodeInfo(
+    public var sig: UInt = 0u,
+    public var lengthInBytes: UInt = 0u,
+    public var deviceDescription: UShortArray = UShortArray(40),
+    public var nodeType: UsbWmiDeviceNodeType = 0,
+    public var busAddress: UsbTopologyAddress = UsbTopologyAddress(),
+    public var anonymous: UsbDeviceNodeInfo0 = UsbDeviceNodeInfo0(),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is USB_DEVICE_NODE_INFO) return false
-        if (this.Sig != other.Sig) return false
-        if (this.LengthInBytes != other.LengthInBytes) return false
-        if (!this.DeviceDescription.contentEquals(other.DeviceDescription)) return false
-        if (this.NodeType != other.NodeType) return false
-        if (this.BusAddress != other.BusAddress) return false
-        if (this.Anonymous != other.Anonymous) return false
+        if (other !is UsbDeviceNodeInfo) return false
+        if (this.sig != other.sig) return false
+        if (this.lengthInBytes != other.lengthInBytes) return false
+        if (!this.deviceDescription.contentEquals(other.deviceDescription)) return false
+        if (this.nodeType != other.nodeType) return false
+        if (this.busAddress != other.busAddress) return false
+        if (this.anonymous != other.anonymous) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Sig.hashCode()
-        result = 31 * result + this.LengthInBytes.hashCode()
-        result = 31 * result + this.DeviceDescription.contentHashCode()
-        result = 31 * result + this.NodeType.hashCode()
-        result = 31 * result + this.BusAddress.hashCode()
-        result = 31 * result + this.Anonymous.hashCode()
+        var result = this.sig.hashCode()
+        result = 31 * result + this.lengthInBytes.hashCode()
+        result = 31 * result + this.deviceDescription.contentHashCode()
+        result = 31 * result + this.nodeType.hashCode()
+        result = 31 * result + this.busAddress.hashCode()
+        result = 31 * result + this.anonymous.hashCode()
         return result
     }
 }
 
-public data class USB_DEVICE_NODE_INFO_0(
-    public var UsbDeviceInfo: USB_DEVICE_INFO = USB_DEVICE_INFO(),
-    public var HubDeviceInfo: USB_HUB_DEVICE_INFO = USB_HUB_DEVICE_INFO(),
-    public var CompositeDeviceInfo: USB_COMPOSITE_DEVICE_INFO = USB_COMPOSITE_DEVICE_INFO(),
-    public var ControllerDeviceInfo: USB_CONTROLLER_DEVICE_INFO = USB_CONTROLLER_DEVICE_INFO(),
-    public var DeviceInformation: UByteArray = UByteArray(4),
+public data class UsbDeviceNodeInfo0(
+    public var usbDeviceInfo: UsbDeviceInfo = UsbDeviceInfo(),
+    public var hubDeviceInfo: UsbHubDeviceInfo = UsbHubDeviceInfo(),
+    public var compositeDeviceInfo: UsbCompositeDeviceInfo = UsbCompositeDeviceInfo(),
+    public var controllerDeviceInfo: UsbControllerDeviceInfo = UsbControllerDeviceInfo(),
+    public var deviceInformation: UByteArray = UByteArray(4),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is USB_DEVICE_NODE_INFO_0) return false
-        if (this.UsbDeviceInfo != other.UsbDeviceInfo) return false
-        if (this.HubDeviceInfo != other.HubDeviceInfo) return false
-        if (this.CompositeDeviceInfo != other.CompositeDeviceInfo) return false
-        if (this.ControllerDeviceInfo != other.ControllerDeviceInfo) return false
-        if (!this.DeviceInformation.contentEquals(other.DeviceInformation)) return false
+        if (other !is UsbDeviceNodeInfo0) return false
+        if (this.usbDeviceInfo != other.usbDeviceInfo) return false
+        if (this.hubDeviceInfo != other.hubDeviceInfo) return false
+        if (this.compositeDeviceInfo != other.compositeDeviceInfo) return false
+        if (this.controllerDeviceInfo != other.controllerDeviceInfo) return false
+        if (!this.deviceInformation.contentEquals(other.deviceInformation)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.UsbDeviceInfo.hashCode()
-        result = 31 * result + this.HubDeviceInfo.hashCode()
-        result = 31 * result + this.CompositeDeviceInfo.hashCode()
-        result = 31 * result + this.ControllerDeviceInfo.hashCode()
-        result = 31 * result + this.DeviceInformation.contentHashCode()
+        var result = this.usbDeviceInfo.hashCode()
+        result = 31 * result + this.hubDeviceInfo.hashCode()
+        result = 31 * result + this.compositeDeviceInfo.hashCode()
+        result = 31 * result + this.controllerDeviceInfo.hashCode()
+        result = 31 * result + this.deviceInformation.contentHashCode()
         return result
     }
 }
 
-public class USB_DEVICE_PERFORMANCE_INFO(
-    public var BulkBytes: UInt = 0u,
-    public var ControlDataBytes: UInt = 0u,
-    public var IsoBytes: UInt = 0u,
-    public var InterruptBytes: UInt = 0u,
-    public var BulkUrbCount: UInt = 0u,
-    public var ControlUrbCount: UInt = 0u,
-    public var IsoUrbCount: UInt = 0u,
-    public var InterruptUrbCount: UInt = 0u,
-    public var AllocedInterrupt: UIntArray = UIntArray(6),
-    public var AllocedIso: UInt = 0u,
-    public var Total32secBandwidth: UInt = 0u,
-    public var TotalTtBandwidth: UInt = 0u,
-    public var DeviceDescription: UShortArray = UShortArray(60),
-    public var DeviceSpeed: USB_DEVICE_SPEED = 0,
-    public var TotalIsoLatency: UInt = 0u,
-    public var DroppedIsoPackets: UInt = 0u,
-    public var TransferErrors: UInt = 0u,
-    public var PciInterruptCount: UInt = 0u,
-    public var HcIdleState: UInt = 0u,
-    public var HcAsyncIdleState: UInt = 0u,
-    public var HcAsyncCacheFlushCount: UInt = 0u,
-    public var HcPeriodicIdleState: UInt = 0u,
-    public var HcPeriodicCacheFlushCount: UInt = 0u,
+public class UsbDevicePerformanceInfo(
+    public var bulkBytes: UInt = 0u,
+    public var controlDataBytes: UInt = 0u,
+    public var isoBytes: UInt = 0u,
+    public var interruptBytes: UInt = 0u,
+    public var bulkUrbCount: UInt = 0u,
+    public var controlUrbCount: UInt = 0u,
+    public var isoUrbCount: UInt = 0u,
+    public var interruptUrbCount: UInt = 0u,
+    public var allocedInterrupt: UIntArray = UIntArray(6),
+    public var allocedIso: UInt = 0u,
+    public var total32secBandwidth: UInt = 0u,
+    public var totalTtBandwidth: UInt = 0u,
+    public var deviceDescription: UShortArray = UShortArray(60),
+    public var deviceSpeed: UsbDeviceSpeed = 0,
+    public var totalIsoLatency: UInt = 0u,
+    public var droppedIsoPackets: UInt = 0u,
+    public var transferErrors: UInt = 0u,
+    public var pciInterruptCount: UInt = 0u,
+    public var hcIdleState: UInt = 0u,
+    public var hcAsyncIdleState: UInt = 0u,
+    public var hcAsyncCacheFlushCount: UInt = 0u,
+    public var hcPeriodicIdleState: UInt = 0u,
+    public var hcPeriodicCacheFlushCount: UInt = 0u,
 )
 
-public data class USB_DEVICE_QUALIFIER_DESCRIPTOR(
+public data class UsbDeviceQualifierDescriptor(
     public var bLength: UByte = 0u,
     public var bDescriptorType: UByte = 0u,
     public var bcdUSB: UShort = 0u,
@@ -1186,22 +1187,22 @@ public data class USB_DEVICE_QUALIFIER_DESCRIPTOR(
     public var bReserved: UByte = 0u,
 )
 
-public data class USB_DEVICE_STATE(public var _bitfield: UInt = 0u)
+public data class UsbDeviceState(public var bitfield: UInt = 0u)
 
-public data class USB_DEVICE_STATUS(public var AsUshort16: UShort = 0u, public var Anonymous: USB_DEVICE_STATUS_0 = USB_DEVICE_STATUS_0())
+public data class UsbDeviceStatus(public var asUshort16: UShort = 0u, public var anonymous: UsbDeviceStatus0 = UsbDeviceStatus0())
 
-public data class USB_DEVICE_STATUS_0(public var _bitfield: UShort = 0u)
+public data class UsbDeviceStatus0(public var bitfield: UShort = 0u)
 
-public data class USB_DRIVER_VERSION_PARAMETERS(
-    public var DriverTrackingCode: UInt = 0u,
-    public var USBDI_Version: UInt = 0u,
-    public var USBUSER_Version: UInt = 0u,
-    public var CheckedPortDriver: Boolean = false,
-    public var CheckedMiniportDriver: Boolean = false,
-    public var USB_Version: UShort = 0u,
+public data class UsbDriverVersionParameters(
+    public var driverTrackingCode: UInt = 0u,
+    public var usbdiVersion: UInt = 0u,
+    public var usbuserVersion: UInt = 0u,
+    public var checkedPortDriver: Boolean = false,
+    public var checkedMiniportDriver: Boolean = false,
+    public var usbVersion: UShort = 0u,
 )
 
-public data class USB_ENDPOINT_DESCRIPTOR(
+public data class UsbEndpointDescriptor(
     public var bLength: UByte = 0u,
     public var bDescriptorType: UByte = 0u,
     public var bEndpointAddress: UByte = 0u,
@@ -1210,65 +1211,65 @@ public data class USB_ENDPOINT_DESCRIPTOR(
     public var bInterval: UByte = 0u,
 )
 
-public data class USB_ENDPOINT_STATUS(public var AsUshort16: UShort = 0u, public var Anonymous: USB_ENDPOINT_STATUS_0 = USB_ENDPOINT_STATUS_0())
+public data class UsbEndpointStatus(public var asUshort16: UShort = 0u, public var anonymous: UsbEndpointStatus0 = UsbEndpointStatus0())
 
-public data class USB_ENDPOINT_STATUS_0(public var _bitfield: UShort = 0u)
+public data class UsbEndpointStatus0(public var bitfield: UShort = 0u)
 
-public data class USB_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC_INFORMATION(
-    public var TimeTrackingHandle: HANDLE = 0L,
-    public var InputFrameNumber: UInt = 0u,
-    public var InputMicroFrameNumber: UInt = 0u,
-    public var QueryPerformanceCounterAtInputFrameOrMicroFrame: Long = 0L,
-    public var QueryPerformanceCounterFrequency: Long = 0L,
-    public var PredictedAccuracyInMicroSeconds: UInt = 0u,
-    public var CurrentGenerationID: UInt = 0u,
-    public var CurrentQueryPerformanceCounter: Long = 0L,
-    public var CurrentHardwareFrameNumber: UInt = 0u,
-    public var CurrentHardwareMicroFrameNumber: UInt = 0u,
-    public var CurrentUSBFrameNumber: UInt = 0u,
+public data class UsbFrameNumberAndQpcForTimeSyncInformation(
+    public var timeTrackingHandle: Handle = null,
+    public var inputFrameNumber: UInt = 0u,
+    public var inputMicroFrameNumber: UInt = 0u,
+    public var queryPerformanceCounterAtInputFrameOrMicroFrame: Long = 0L,
+    public var queryPerformanceCounterFrequency: Long = 0L,
+    public var predictedAccuracyInMicroSeconds: UInt = 0u,
+    public var currentGenerationID: UInt = 0u,
+    public var currentQueryPerformanceCounter: Long = 0L,
+    public var currentHardwareFrameNumber: UInt = 0u,
+    public var currentHardwareMicroFrameNumber: UInt = 0u,
+    public var currentUSBFrameNumber: UInt = 0u,
 )
 
-public data class USB_FUNCTION_SUSPEND_OPTIONS(public var AsUchar: UByte = 0u, public var Anonymous: USB_FUNCTION_SUSPEND_OPTIONS_0 = USB_FUNCTION_SUSPEND_OPTIONS_0())
+public data class UsbFunctionSuspendOptions(public var asUchar: UByte = 0u, public var anonymous: UsbFunctionSuspendOptions0 = UsbFunctionSuspendOptions0())
 
-public data class USB_FUNCTION_SUSPEND_OPTIONS_0(public var _bitfield: UByte = 0u)
+public data class UsbFunctionSuspendOptions0(public var bitfield: UByte = 0u)
 
-public data class USB_HCD_DRIVERKEY_NAME(public var ActualLength: UInt = 0u, public var DriverKeyName: UShortArray = UShortArray(1)) {
+public data class UsbHcdDriverkeyName(public var actualLength: UInt = 0u, public var driverKeyName: UShortArray = UShortArray(1)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is USB_HCD_DRIVERKEY_NAME) return false
-        if (this.ActualLength != other.ActualLength) return false
-        if (!this.DriverKeyName.contentEquals(other.DriverKeyName)) return false
+        if (other !is UsbHcdDriverkeyName) return false
+        if (this.actualLength != other.actualLength) return false
+        if (!this.driverKeyName.contentEquals(other.driverKeyName)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.ActualLength.hashCode()
-        result = 31 * result + this.DriverKeyName.contentHashCode()
+        var result = this.actualLength.hashCode()
+        result = 31 * result + this.driverKeyName.contentHashCode()
         return result
     }
 }
 
-public data class USB_HIGH_SPEED_MAXPACKET(public var us: UShort = 0u)
+public data class UsbHighSpeedMaxpacket(public var us: UShort = 0u)
 
-public data class USB_HIGH_SPEED_MAXPACKET_0(public var _bitfield: UShort = 0u)
+public data class UsbHighSpeedMaxpacket0(public var bitfield: UShort = 0u)
 
-public data class USB_HUB_30_PORT_REMOTE_WAKE_MASK(public var AsUchar8: UByte = 0u, public var Anonymous: USB_HUB_30_PORT_REMOTE_WAKE_MASK_0 = USB_HUB_30_PORT_REMOTE_WAKE_MASK_0())
+public data class UsbHub30PortRemoteWakeMask(public var asUchar8: UByte = 0u, public var anonymous: UsbHub30PortRemoteWakeMask0 = UsbHub30PortRemoteWakeMask0())
 
-public data class USB_HUB_30_PORT_REMOTE_WAKE_MASK_0(public var _bitfield: UByte = 0u)
+public data class UsbHub30PortRemoteWakeMask0(public var bitfield: UByte = 0u)
 
-public data class USB_HUB_CAPABILITIES(public var _bitfield: UInt = 0u)
+public data class UsbHubCapabilities(public var bitfield: UInt = 0u)
 
-public data class USB_HUB_CAPABILITIES_EX(public var CapabilityFlags: USB_HUB_CAP_FLAGS = USB_HUB_CAP_FLAGS())
+public data class UsbHubCapabilitiesEx(public var capabilityFlags: UsbHubCapFlags = UsbHubCapFlags())
 
-public data class USB_HUB_CAP_FLAGS(public var ul: UInt = 0u, public var Anonymous: USB_HUB_CAP_FLAGS_0 = USB_HUB_CAP_FLAGS_0())
+public data class UsbHubCapFlags(public var ul: UInt = 0u, public var anonymous: UsbHubCapFlags0 = UsbHubCapFlags0())
 
-public data class USB_HUB_CAP_FLAGS_0(public var _bitfield: UInt = 0u)
+public data class UsbHubCapFlags0(public var bitfield: UInt = 0u)
 
-public data class USB_HUB_CHANGE(public var AsUshort16: UShort = 0u, public var Anonymous: USB_HUB_CHANGE_0 = USB_HUB_CHANGE_0())
+public data class UsbHubChange(public var asUshort16: UShort = 0u, public var anonymous: UsbHubChange0 = UsbHubChange0())
 
-public data class USB_HUB_CHANGE_0(public var _bitfield: UShort = 0u)
+public data class UsbHubChange0(public var bitfield: UShort = 0u)
 
-public data class USB_HUB_DESCRIPTOR(
+public data class UsbHubDescriptor(
     public var bDescriptorLength: UByte = 0u,
     public var bDescriptorType: UByte = 0u,
     public var bNumberOfPorts: UByte = 0u,
@@ -1279,7 +1280,7 @@ public data class USB_HUB_DESCRIPTOR(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is USB_HUB_DESCRIPTOR) return false
+        if (other !is UsbHubDescriptor) return false
         if (this.bDescriptorLength != other.bDescriptorLength) return false
         if (this.bDescriptorType != other.bDescriptorType) return false
         if (this.bNumberOfPorts != other.bNumberOfPorts) return false
@@ -1302,103 +1303,103 @@ public data class USB_HUB_DESCRIPTOR(
     }
 }
 
-public data class USB_HUB_DEVICE_INFO(
-    public var HubDescriptor: USB_HUB_DESCRIPTOR = USB_HUB_DESCRIPTOR(),
-    public var HubNumber: UInt = 0u,
-    public var DeviceAddress: UShort = 0u,
-    public var HubIsSelfPowered: Boolean = false,
-    public var HubIsRootHub: Boolean = false,
-    public var HubCapabilities: USB_HUB_CAPABILITIES = USB_HUB_CAPABILITIES(),
-    public var NumberOfHubPorts: UInt = 0u,
-    public var PortInfo: List<USB_HUB_PORT_INFORMATION> = List(1) { USB_HUB_PORT_INFORMATION() },
+public data class UsbHubDeviceInfo(
+    public var hubDescriptor: UsbHubDescriptor = UsbHubDescriptor(),
+    public var hubNumber: UInt = 0u,
+    public var deviceAddress: UShort = 0u,
+    public var hubIsSelfPowered: Boolean = false,
+    public var hubIsRootHub: Boolean = false,
+    public var hubCapabilities: UsbHubCapabilities = UsbHubCapabilities(),
+    public var numberOfHubPorts: UInt = 0u,
+    public var portInfo: List<UsbHubPortInformation> = List(1) { UsbHubPortInformation() },
 )
 
-public data class USB_HUB_DEVICE_UXD_SETTINGS(
-    public var Version: UInt = 0u,
-    public var PnpGuid: GUID = GUID(),
-    public var OwnerGuid: GUID = GUID(),
-    public var DeleteOnShutdown: UInt = 0u,
-    public var DeleteOnReload: UInt = 0u,
-    public var DeleteOnDisconnect: UInt = 0u,
-    public var Reserved: UIntArray = UIntArray(5),
+public data class UsbHubDeviceUxdSettings(
+    public var version: UInt = 0u,
+    public var pnpGuid: Guid = Guid(),
+    public var ownerGuid: Guid = Guid(),
+    public var deleteOnShutdown: UInt = 0u,
+    public var deleteOnReload: UInt = 0u,
+    public var deleteOnDisconnect: UInt = 0u,
+    public var reserved: UIntArray = UIntArray(5),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is USB_HUB_DEVICE_UXD_SETTINGS) return false
-        if (this.Version != other.Version) return false
-        if (this.PnpGuid != other.PnpGuid) return false
-        if (this.OwnerGuid != other.OwnerGuid) return false
-        if (this.DeleteOnShutdown != other.DeleteOnShutdown) return false
-        if (this.DeleteOnReload != other.DeleteOnReload) return false
-        if (this.DeleteOnDisconnect != other.DeleteOnDisconnect) return false
-        if (!this.Reserved.contentEquals(other.Reserved)) return false
+        if (other !is UsbHubDeviceUxdSettings) return false
+        if (this.version != other.version) return false
+        if (this.pnpGuid != other.pnpGuid) return false
+        if (this.ownerGuid != other.ownerGuid) return false
+        if (this.deleteOnShutdown != other.deleteOnShutdown) return false
+        if (this.deleteOnReload != other.deleteOnReload) return false
+        if (this.deleteOnDisconnect != other.deleteOnDisconnect) return false
+        if (!this.reserved.contentEquals(other.reserved)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Version.hashCode()
-        result = 31 * result + this.PnpGuid.hashCode()
-        result = 31 * result + this.OwnerGuid.hashCode()
-        result = 31 * result + this.DeleteOnShutdown.hashCode()
-        result = 31 * result + this.DeleteOnReload.hashCode()
-        result = 31 * result + this.DeleteOnDisconnect.hashCode()
-        result = 31 * result + this.Reserved.contentHashCode()
+        var result = this.version.hashCode()
+        result = 31 * result + this.pnpGuid.hashCode()
+        result = 31 * result + this.ownerGuid.hashCode()
+        result = 31 * result + this.deleteOnShutdown.hashCode()
+        result = 31 * result + this.deleteOnReload.hashCode()
+        result = 31 * result + this.deleteOnDisconnect.hashCode()
+        result = 31 * result + this.reserved.contentHashCode()
         return result
     }
 }
 
-public data class USB_HUB_INFORMATION(public var HubDescriptor: USB_HUB_DESCRIPTOR = USB_HUB_DESCRIPTOR(), public var HubIsBusPowered: Boolean = false)
+public data class UsbHubInformation(public var hubDescriptor: UsbHubDescriptor = UsbHubDescriptor(), public var hubIsBusPowered: Boolean = false)
 
-public data class USB_HUB_INFORMATION_EX(
-    public var HubType: USB_HUB_TYPE = 0,
-    public var HighestPortNumber: UShort = 0u,
-    public var u: USB_HUB_INFORMATION_EX_0 = USB_HUB_INFORMATION_EX_0(),
+public data class UsbHubInformationEx(
+    public var hubType: UsbHubType = 0,
+    public var highestPortNumber: UShort = 0u,
+    public var u: UsbHubInformationEx0 = UsbHubInformationEx0(),
 )
 
-public data class USB_HUB_INFORMATION_EX_0(public var UsbHubDescriptor: USB_HUB_DESCRIPTOR = USB_HUB_DESCRIPTOR(), public var Usb30HubDescriptor: USB_30_HUB_DESCRIPTOR = USB_30_HUB_DESCRIPTOR())
+public data class UsbHubInformationEx0(public var usbHubDescriptor: UsbHubDescriptor = UsbHubDescriptor(), public var usb30HubDescriptor: Usb30HubDescriptor = Usb30HubDescriptor())
 
-public data class USB_HUB_NAME(public var ActualLength: UInt = 0u, public var HubName: UShortArray = UShortArray(1)) {
+public data class UsbHubName(public var actualLength: UInt = 0u, public var hubName: UShortArray = UShortArray(1)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is USB_HUB_NAME) return false
-        if (this.ActualLength != other.ActualLength) return false
-        if (!this.HubName.contentEquals(other.HubName)) return false
+        if (other !is UsbHubName) return false
+        if (this.actualLength != other.actualLength) return false
+        if (!this.hubName.contentEquals(other.hubName)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.ActualLength.hashCode()
-        result = 31 * result + this.HubName.contentHashCode()
+        var result = this.actualLength.hashCode()
+        result = 31 * result + this.hubName.contentHashCode()
         return result
     }
 }
 
-public data class USB_HUB_PORT_INFORMATION(
-    public var DeviceState: USB_DEVICE_STATE = USB_DEVICE_STATE(),
-    public var PortNumber: UShort = 0u,
-    public var DeviceAddress: UShort = 0u,
-    public var ConnectionIndex: UInt = 0u,
-    public var ConnectionStatus: USB_CONNECTION_STATUS = 0,
+public data class UsbHubPortInformation(
+    public var deviceState: UsbDeviceState = UsbDeviceState(),
+    public var portNumber: UShort = 0u,
+    public var deviceAddress: UShort = 0u,
+    public var connectionIndex: UInt = 0u,
+    public var connectionStatus: UsbConnectionStatus = 0,
 )
 
-public data class USB_HUB_STATUS(public var AsUshort16: UShort = 0u, public var Anonymous: USB_HUB_STATUS_0 = USB_HUB_STATUS_0())
+public data class UsbHubStatus(public var asUshort16: UShort = 0u, public var anonymous: UsbHubStatus0 = UsbHubStatus0())
 
-public data class USB_HUB_STATUS_0(public var _bitfield: UShort = 0u)
+public data class UsbHubStatus0(public var bitfield: UShort = 0u)
 
-public data class USB_HUB_STATUS_AND_CHANGE(public var AsUlong32: UInt = 0u, public var Anonymous: USB_HUB_STATUS_AND_CHANGE_0 = USB_HUB_STATUS_AND_CHANGE_0())
+public data class UsbHubStatusAndChange(public var asUlong32: UInt = 0u, public var anonymous: UsbHubStatusAndChange0 = UsbHubStatusAndChange0())
 
-public data class USB_HUB_STATUS_AND_CHANGE_0(public var HubStatus: USB_HUB_STATUS = USB_HUB_STATUS(), public var HubChange: USB_HUB_CHANGE = USB_HUB_CHANGE())
+public data class UsbHubStatusAndChange0(public var hubStatus: UsbHubStatus = UsbHubStatus(), public var hubChange: UsbHubChange = UsbHubChange())
 
-public data class USB_IDLE_CALLBACK_INFO(public var IdleCallback: USB_IDLE_CALLBACK = null, public var IdleContext: Long = 0L)
+public data class UsbIdleCallbackInfo(public var idleCallback: UsbIdleCallback = null, public var idleContext: COpaquePointer? = null)
 
-public data class USB_ID_STRING(
-    public var LanguageId: UShort = 0u,
-    public var Pad: UShort = 0u,
-    public var LengthInBytes: UInt = 0u,
-    public var Buffer: PWSTR = 0L,
+public data class UsbIdString(
+    public var languageId: UShort = 0u,
+    public var pad: UShort = 0u,
+    public var lengthInBytes: UInt = 0u,
+    public var buffer: Pwstr = null,
 )
 
-public data class USB_INTERFACE_ASSOCIATION_DESCRIPTOR(
+public data class UsbInterfaceAssociationDescriptor(
     public var bLength: UByte = 0u,
     public var bDescriptorType: UByte = 0u,
     public var bFirstInterface: UByte = 0u,
@@ -1409,7 +1410,7 @@ public data class USB_INTERFACE_ASSOCIATION_DESCRIPTOR(
     public var iFunction: UByte = 0u,
 )
 
-public data class USB_INTERFACE_DESCRIPTOR(
+public data class UsbInterfaceDescriptor(
     public var bLength: UByte = 0u,
     public var bDescriptorType: UByte = 0u,
     public var bInterfaceNumber: UByte = 0u,
@@ -1421,7 +1422,7 @@ public data class USB_INTERFACE_DESCRIPTOR(
     public var iInterface: UByte = 0u,
 )
 
-public data class USB_INTERFACE_POWER_DESCRIPTOR(
+public data class UsbInterfacePowerDescriptor(
     public var bLength: UByte = 0u,
     public var bDescriptorType: UByte = 0u,
     public var bmCapabilitiesFlags: UByte = 0u,
@@ -1431,284 +1432,284 @@ public data class USB_INTERFACE_POWER_DESCRIPTOR(
     public var bSelfPowerSavingD2: UByte = 0u,
     public var bBusPowerSavingD3: UByte = 0u,
     public var bSelfPowerSavingD3: UByte = 0u,
-    public var TransitionTimeFromD1: UShort = 0u,
-    public var TransitionTimeFromD2: UShort = 0u,
-    public var TransitionTimeFromD3: UShort = 0u,
+    public var transitionTimeFromD1: UShort = 0u,
+    public var transitionTimeFromD2: UShort = 0u,
+    public var transitionTimeFromD3: UShort = 0u,
 )
 
-public data class USB_INTERFACE_STATUS(public var AsUshort16: UShort = 0u, public var Anonymous: USB_INTERFACE_STATUS_0 = USB_INTERFACE_STATUS_0())
+public data class UsbInterfaceStatus(public var asUshort16: UShort = 0u, public var anonymous: UsbInterfaceStatus0 = UsbInterfaceStatus0())
 
-public data class USB_INTERFACE_STATUS_0(public var _bitfield: UShort = 0u)
+public data class UsbInterfaceStatus0(public var bitfield: UShort = 0u)
 
-public data class USB_MI_PARENT_INFORMATION(public var NumberOfInterfaces: UInt = 0u)
+public data class UsbMiParentInformation(public var numberOfInterfaces: UInt = 0u)
 
-public data class USB_NODE_CONNECTION_ATTRIBUTES(
-    public var ConnectionIndex: UInt = 0u,
-    public var ConnectionStatus: USB_CONNECTION_STATUS = 0,
-    public var PortAttributes: UInt = 0u,
+public data class UsbNodeConnectionAttributes(
+    public var connectionIndex: UInt = 0u,
+    public var connectionStatus: UsbConnectionStatus = 0,
+    public var portAttributes: UInt = 0u,
 )
 
-public data class USB_NODE_CONNECTION_DRIVERKEY_NAME(
-    public var ConnectionIndex: UInt = 0u,
-    public var ActualLength: UInt = 0u,
-    public var DriverKeyName: UShortArray = UShortArray(1),
+public data class UsbNodeConnectionDriverkeyName(
+    public var connectionIndex: UInt = 0u,
+    public var actualLength: UInt = 0u,
+    public var driverKeyName: UShortArray = UShortArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is USB_NODE_CONNECTION_DRIVERKEY_NAME) return false
-        if (this.ConnectionIndex != other.ConnectionIndex) return false
-        if (this.ActualLength != other.ActualLength) return false
-        if (!this.DriverKeyName.contentEquals(other.DriverKeyName)) return false
+        if (other !is UsbNodeConnectionDriverkeyName) return false
+        if (this.connectionIndex != other.connectionIndex) return false
+        if (this.actualLength != other.actualLength) return false
+        if (!this.driverKeyName.contentEquals(other.driverKeyName)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.ConnectionIndex.hashCode()
-        result = 31 * result + this.ActualLength.hashCode()
-        result = 31 * result + this.DriverKeyName.contentHashCode()
+        var result = this.connectionIndex.hashCode()
+        result = 31 * result + this.actualLength.hashCode()
+        result = 31 * result + this.driverKeyName.contentHashCode()
         return result
     }
 }
 
-public data class USB_NODE_CONNECTION_INFORMATION(
-    public var ConnectionIndex: UInt = 0u,
-    public var DeviceDescriptor: USB_DEVICE_DESCRIPTOR = USB_DEVICE_DESCRIPTOR(),
-    public var CurrentConfigurationValue: UByte = 0u,
-    public var LowSpeed: Boolean = false,
-    public var DeviceIsHub: Boolean = false,
-    public var DeviceAddress: UShort = 0u,
-    public var NumberOfOpenPipes: UInt = 0u,
-    public var ConnectionStatus: USB_CONNECTION_STATUS = 0,
-    public var PipeList: List<USB_PIPE_INFO> = List(1) { USB_PIPE_INFO() },
+public data class UsbNodeConnectionInformation(
+    public var connectionIndex: UInt = 0u,
+    public var deviceDescriptor: UsbDeviceDescriptor = UsbDeviceDescriptor(),
+    public var currentConfigurationValue: UByte = 0u,
+    public var lowSpeed: Boolean = false,
+    public var deviceIsHub: Boolean = false,
+    public var deviceAddress: UShort = 0u,
+    public var numberOfOpenPipes: UInt = 0u,
+    public var connectionStatus: UsbConnectionStatus = 0,
+    public var pipeList: List<UsbPipeInfo> = List(1) { UsbPipeInfo() },
 )
 
-public data class USB_NODE_CONNECTION_INFORMATION_EX(
-    public var ConnectionIndex: UInt = 0u,
-    public var DeviceDescriptor: USB_DEVICE_DESCRIPTOR = USB_DEVICE_DESCRIPTOR(),
-    public var CurrentConfigurationValue: UByte = 0u,
-    public var Speed: UByte = 0u,
-    public var DeviceIsHub: Boolean = false,
-    public var DeviceAddress: UShort = 0u,
-    public var NumberOfOpenPipes: UInt = 0u,
-    public var ConnectionStatus: USB_CONNECTION_STATUS = 0,
-    public var PipeList: List<USB_PIPE_INFO> = List(1) { USB_PIPE_INFO() },
+public data class UsbNodeConnectionInformationEx(
+    public var connectionIndex: UInt = 0u,
+    public var deviceDescriptor: UsbDeviceDescriptor = UsbDeviceDescriptor(),
+    public var currentConfigurationValue: UByte = 0u,
+    public var speed: UByte = 0u,
+    public var deviceIsHub: Boolean = false,
+    public var deviceAddress: UShort = 0u,
+    public var numberOfOpenPipes: UInt = 0u,
+    public var connectionStatus: UsbConnectionStatus = 0,
+    public var pipeList: List<UsbPipeInfo> = List(1) { UsbPipeInfo() },
 )
 
-public data class USB_NODE_CONNECTION_INFORMATION_EX_V2(
-    public var ConnectionIndex: UInt = 0u,
-    public var Length: UInt = 0u,
-    public var SupportedUsbProtocols: USB_PROTOCOLS = USB_PROTOCOLS(),
-    public var Flags: USB_NODE_CONNECTION_INFORMATION_EX_V2_FLAGS = USB_NODE_CONNECTION_INFORMATION_EX_V2_FLAGS(),
+public data class UsbNodeConnectionInformationExV2(
+    public var connectionIndex: UInt = 0u,
+    public var length: UInt = 0u,
+    public var supportedUsbProtocols: UsbProtocols = UsbProtocols(),
+    public var flags: UsbNodeConnectionInformationExV2Flags = UsbNodeConnectionInformationExV2Flags(),
 )
 
-public data class USB_NODE_CONNECTION_INFORMATION_EX_V2_FLAGS(public var ul: UInt = 0u, public var Anonymous: USB_NODE_CONNECTION_INFORMATION_EX_V2_FLAGS_0 = USB_NODE_CONNECTION_INFORMATION_EX_V2_FLAGS_0())
+public data class UsbNodeConnectionInformationExV2Flags(public var ul: UInt = 0u, public var anonymous: UsbNodeConnectionInformationExV2Flags0 = UsbNodeConnectionInformationExV2Flags0())
 
-public data class USB_NODE_CONNECTION_INFORMATION_EX_V2_FLAGS_0(public var _bitfield: UInt = 0u)
+public data class UsbNodeConnectionInformationExV2Flags0(public var bitfield: UInt = 0u)
 
-public data class USB_NODE_CONNECTION_NAME(
-    public var ConnectionIndex: UInt = 0u,
-    public var ActualLength: UInt = 0u,
-    public var NodeName: UShortArray = UShortArray(1),
+public data class UsbNodeConnectionName(
+    public var connectionIndex: UInt = 0u,
+    public var actualLength: UInt = 0u,
+    public var nodeName: UShortArray = UShortArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is USB_NODE_CONNECTION_NAME) return false
-        if (this.ConnectionIndex != other.ConnectionIndex) return false
-        if (this.ActualLength != other.ActualLength) return false
-        if (!this.NodeName.contentEquals(other.NodeName)) return false
+        if (other !is UsbNodeConnectionName) return false
+        if (this.connectionIndex != other.connectionIndex) return false
+        if (this.actualLength != other.actualLength) return false
+        if (!this.nodeName.contentEquals(other.nodeName)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.ConnectionIndex.hashCode()
-        result = 31 * result + this.ActualLength.hashCode()
-        result = 31 * result + this.NodeName.contentHashCode()
+        var result = this.connectionIndex.hashCode()
+        result = 31 * result + this.actualLength.hashCode()
+        result = 31 * result + this.nodeName.contentHashCode()
         return result
     }
 }
 
-public data class USB_NODE_INFORMATION(public var NodeType: USB_HUB_NODE = 0, public var u: USB_NODE_INFORMATION_0 = USB_NODE_INFORMATION_0())
+public data class UsbNodeInformation(public var nodeType: UsbHubNode = 0, public var u: UsbNodeInformation0 = UsbNodeInformation0())
 
-public data class USB_NODE_INFORMATION_0(public var HubInformation: USB_HUB_INFORMATION = USB_HUB_INFORMATION(), public var MiParentInformation: USB_MI_PARENT_INFORMATION = USB_MI_PARENT_INFORMATION())
+public data class UsbNodeInformation0(public var hubInformation: UsbHubInformation = UsbHubInformation(), public var miParentInformation: UsbMiParentInformation = UsbMiParentInformation())
 
-public data class USB_NOTIFICATION(public var NotificationType: USB_NOTIFICATION_TYPE = 0)
+public data class UsbNotification(public var notificationType: UsbNotificationType = 0)
 
-public data class USB_OPEN_RAW_DEVICE_PARAMETERS(public var PortStatus: UShort = 0u, public var MaxPacketEp0: UShort = 0u)
+public data class UsbOpenRawDeviceParameters(public var portStatus: UShort = 0u, public var maxPacketEp0: UShort = 0u)
 
-public data class USB_PASS_THRU_PARAMETERS(
-    public var FunctionGUID: GUID = GUID(),
-    public var ParameterLength: UInt = 0u,
-    public var Parameters: UByteArray = UByteArray(4),
+public data class UsbPassThruParameters(
+    public var functionGUID: Guid = Guid(),
+    public var parameterLength: UInt = 0u,
+    public var parameters: UByteArray = UByteArray(4),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is USB_PASS_THRU_PARAMETERS) return false
-        if (this.FunctionGUID != other.FunctionGUID) return false
-        if (this.ParameterLength != other.ParameterLength) return false
-        if (!this.Parameters.contentEquals(other.Parameters)) return false
+        if (other !is UsbPassThruParameters) return false
+        if (this.functionGUID != other.functionGUID) return false
+        if (this.parameterLength != other.parameterLength) return false
+        if (!this.parameters.contentEquals(other.parameters)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.FunctionGUID.hashCode()
-        result = 31 * result + this.ParameterLength.hashCode()
-        result = 31 * result + this.Parameters.contentHashCode()
+        var result = this.functionGUID.hashCode()
+        result = 31 * result + this.parameterLength.hashCode()
+        result = 31 * result + this.parameters.contentHashCode()
         return result
     }
 }
 
-public data class USB_PIPE_INFO(public var EndpointDescriptor: USB_ENDPOINT_DESCRIPTOR = USB_ENDPOINT_DESCRIPTOR(), public var ScheduleOffset: UInt = 0u)
+public data class UsbPipeInfo(public var endpointDescriptor: UsbEndpointDescriptor = UsbEndpointDescriptor(), public var scheduleOffset: UInt = 0u)
 
-public data class USB_PORT_CHANGE(
-    public var AsUshort16: UShort = 0u,
-    public var Usb20PortChange: USB_20_PORT_CHANGE = USB_20_PORT_CHANGE(),
-    public var Usb30PortChange: USB_30_PORT_CHANGE = USB_30_PORT_CHANGE(),
+public data class UsbPortChange(
+    public var asUshort16: UShort = 0u,
+    public var usb20PortChange: Usb20PortChange = Usb20PortChange(),
+    public var usb30PortChange: Usb30PortChange = Usb30PortChange(),
 )
 
-public data class USB_PORT_CONNECTOR_PROPERTIES(
-    public var ConnectionIndex: UInt = 0u,
-    public var ActualLength: UInt = 0u,
-    public var UsbPortProperties: USB_PORT_PROPERTIES = USB_PORT_PROPERTIES(),
-    public var CompanionIndex: UShort = 0u,
-    public var CompanionPortNumber: UShort = 0u,
-    public var CompanionHubSymbolicLinkName: UShortArray = UShortArray(1),
+public data class UsbPortConnectorProperties(
+    public var connectionIndex: UInt = 0u,
+    public var actualLength: UInt = 0u,
+    public var usbPortProperties: UsbPortProperties = UsbPortProperties(),
+    public var companionIndex: UShort = 0u,
+    public var companionPortNumber: UShort = 0u,
+    public var companionHubSymbolicLinkName: UShortArray = UShortArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is USB_PORT_CONNECTOR_PROPERTIES) return false
-        if (this.ConnectionIndex != other.ConnectionIndex) return false
-        if (this.ActualLength != other.ActualLength) return false
-        if (this.UsbPortProperties != other.UsbPortProperties) return false
-        if (this.CompanionIndex != other.CompanionIndex) return false
-        if (this.CompanionPortNumber != other.CompanionPortNumber) return false
-        if (!this.CompanionHubSymbolicLinkName.contentEquals(other.CompanionHubSymbolicLinkName)) return false
+        if (other !is UsbPortConnectorProperties) return false
+        if (this.connectionIndex != other.connectionIndex) return false
+        if (this.actualLength != other.actualLength) return false
+        if (this.usbPortProperties != other.usbPortProperties) return false
+        if (this.companionIndex != other.companionIndex) return false
+        if (this.companionPortNumber != other.companionPortNumber) return false
+        if (!this.companionHubSymbolicLinkName.contentEquals(other.companionHubSymbolicLinkName)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.ConnectionIndex.hashCode()
-        result = 31 * result + this.ActualLength.hashCode()
-        result = 31 * result + this.UsbPortProperties.hashCode()
-        result = 31 * result + this.CompanionIndex.hashCode()
-        result = 31 * result + this.CompanionPortNumber.hashCode()
-        result = 31 * result + this.CompanionHubSymbolicLinkName.contentHashCode()
+        var result = this.connectionIndex.hashCode()
+        result = 31 * result + this.actualLength.hashCode()
+        result = 31 * result + this.usbPortProperties.hashCode()
+        result = 31 * result + this.companionIndex.hashCode()
+        result = 31 * result + this.companionPortNumber.hashCode()
+        result = 31 * result + this.companionHubSymbolicLinkName.contentHashCode()
         return result
     }
 }
 
-public data class USB_PORT_EXT_STATUS(public var AsUlong32: UInt = 0u, public var Anonymous: USB_PORT_EXT_STATUS_0 = USB_PORT_EXT_STATUS_0())
+public data class UsbPortExtStatus(public var asUlong32: UInt = 0u, public var anonymous: UsbPortExtStatus0 = UsbPortExtStatus0())
 
-public data class USB_PORT_EXT_STATUS_0(public var _bitfield: UInt = 0u)
+public data class UsbPortExtStatus0(public var bitfield: UInt = 0u)
 
-public data class USB_PORT_EXT_STATUS_AND_CHANGE(public var AsUlong64: ULong = 0uL, public var Anonymous: USB_PORT_EXT_STATUS_AND_CHANGE_0 = USB_PORT_EXT_STATUS_AND_CHANGE_0())
+public data class UsbPortExtStatusAndChange(public var asUlong64: ULong = 0uL, public var anonymous: UsbPortExtStatusAndChange0 = UsbPortExtStatusAndChange0())
 
-public data class USB_PORT_EXT_STATUS_AND_CHANGE_0(public var PortStatusChange: USB_PORT_STATUS_AND_CHANGE = USB_PORT_STATUS_AND_CHANGE(), public var PortExtStatus: USB_PORT_EXT_STATUS = USB_PORT_EXT_STATUS())
+public data class UsbPortExtStatusAndChange0(public var portStatusChange: UsbPortStatusAndChange = UsbPortStatusAndChange(), public var portExtStatus: UsbPortExtStatus = UsbPortExtStatus())
 
-public data class USB_PORT_PROPERTIES(public var ul: UInt = 0u, public var Anonymous: USB_PORT_PROPERTIES_0 = USB_PORT_PROPERTIES_0())
+public data class UsbPortProperties(public var ul: UInt = 0u, public var anonymous: UsbPortProperties0 = UsbPortProperties0())
 
-public data class USB_PORT_PROPERTIES_0(public var _bitfield: UInt = 0u)
+public data class UsbPortProperties0(public var bitfield: UInt = 0u)
 
-public data class USB_PORT_STATUS(
-    public var AsUshort16: UShort = 0u,
-    public var Usb20PortStatus: USB_20_PORT_STATUS = USB_20_PORT_STATUS(),
-    public var Usb30PortStatus: USB_30_PORT_STATUS = USB_30_PORT_STATUS(),
+public data class UsbPortStatus(
+    public var asUshort16: UShort = 0u,
+    public var usb20PortStatus: Usb20PortStatus = Usb20PortStatus(),
+    public var usb30PortStatus: Usb30PortStatus = Usb30PortStatus(),
 )
 
-public data class USB_PORT_STATUS_AND_CHANGE(public var AsUlong32: UInt = 0u, public var Anonymous: USB_PORT_STATUS_AND_CHANGE_0 = USB_PORT_STATUS_AND_CHANGE_0())
+public data class UsbPortStatusAndChange(public var asUlong32: UInt = 0u, public var anonymous: UsbPortStatusAndChange0 = UsbPortStatusAndChange0())
 
-public data class USB_PORT_STATUS_AND_CHANGE_0(public var PortStatus: USB_PORT_STATUS = USB_PORT_STATUS(), public var PortChange: USB_PORT_CHANGE = USB_PORT_CHANGE())
+public data class UsbPortStatusAndChange0(public var portStatus: UsbPortStatus = UsbPortStatus(), public var portChange: UsbPortChange = UsbPortChange())
 
-public data class USB_POWER_INFO(
-    public var SystemState: WDMUSB_POWER_STATE = 0,
-    public var HcDevicePowerState: WDMUSB_POWER_STATE = 0,
-    public var HcDeviceWake: WDMUSB_POWER_STATE = 0,
-    public var HcSystemWake: WDMUSB_POWER_STATE = 0,
-    public var RhDevicePowerState: WDMUSB_POWER_STATE = 0,
-    public var RhDeviceWake: WDMUSB_POWER_STATE = 0,
-    public var RhSystemWake: WDMUSB_POWER_STATE = 0,
-    public var LastSystemSleepState: WDMUSB_POWER_STATE = 0,
-    public var CanWakeup: Boolean = false,
-    public var IsPowered: Boolean = false,
+public data class UsbPowerInfo(
+    public var systemState: WdmusbPowerState = 0,
+    public var hcDevicePowerState: WdmusbPowerState = 0,
+    public var hcDeviceWake: WdmusbPowerState = 0,
+    public var hcSystemWake: WdmusbPowerState = 0,
+    public var rhDevicePowerState: WdmusbPowerState = 0,
+    public var rhDeviceWake: WdmusbPowerState = 0,
+    public var rhSystemWake: WdmusbPowerState = 0,
+    public var lastSystemSleepState: WdmusbPowerState = 0,
+    public var canWakeup: Boolean = false,
+    public var isPowered: Boolean = false,
 )
 
-public data class USB_PROTOCOLS(public var ul: UInt = 0u, public var Anonymous: USB_PROTOCOLS_0 = USB_PROTOCOLS_0())
+public data class UsbProtocols(public var ul: UInt = 0u, public var anonymous: UsbProtocols0 = UsbProtocols0())
 
-public data class USB_PROTOCOLS_0(public var _bitfield: UInt = 0u)
+public data class UsbProtocols0(public var bitfield: UInt = 0u)
 
-public data class USB_ROOT_HUB_NAME(public var ActualLength: UInt = 0u, public var RootHubName: UShortArray = UShortArray(1)) {
+public data class UsbRootHubName(public var actualLength: UInt = 0u, public var rootHubName: UShortArray = UShortArray(1)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is USB_ROOT_HUB_NAME) return false
-        if (this.ActualLength != other.ActualLength) return false
-        if (!this.RootHubName.contentEquals(other.RootHubName)) return false
+        if (other !is UsbRootHubName) return false
+        if (this.actualLength != other.actualLength) return false
+        if (!this.rootHubName.contentEquals(other.rootHubName)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.ActualLength.hashCode()
-        result = 31 * result + this.RootHubName.contentHashCode()
+        var result = this.actualLength.hashCode()
+        result = 31 * result + this.rootHubName.contentHashCode()
         return result
     }
 }
 
-public data class USB_SEND_RAW_COMMAND_PARAMETERS(
-    public var Usb_bmRequest: UByte = 0u,
-    public var Usb_bRequest: UByte = 0u,
-    public var Usb_wVlaue: UShort = 0u,
-    public var Usb_wIndex: UShort = 0u,
-    public var Usb_wLength: UShort = 0u,
-    public var DeviceAddress: UShort = 0u,
-    public var MaximumPacketSize: UShort = 0u,
-    public var Timeout: UInt = 0u,
-    public var DataLength: UInt = 0u,
-    public var UsbdStatusCode: Int = 0,
-    public var Data: UByteArray = UByteArray(4),
+public data class UsbSendRawCommandParameters(
+    public var usbBmRequest: UByte = 0u,
+    public var usbBRequest: UByte = 0u,
+    public var usbWVlaue: UShort = 0u,
+    public var usbWIndex: UShort = 0u,
+    public var usbWLength: UShort = 0u,
+    public var deviceAddress: UShort = 0u,
+    public var maximumPacketSize: UShort = 0u,
+    public var timeout: UInt = 0u,
+    public var dataLength: UInt = 0u,
+    public var usbdStatusCode: Int = 0,
+    public var data: UByteArray = UByteArray(4),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is USB_SEND_RAW_COMMAND_PARAMETERS) return false
-        if (this.Usb_bmRequest != other.Usb_bmRequest) return false
-        if (this.Usb_bRequest != other.Usb_bRequest) return false
-        if (this.Usb_wVlaue != other.Usb_wVlaue) return false
-        if (this.Usb_wIndex != other.Usb_wIndex) return false
-        if (this.Usb_wLength != other.Usb_wLength) return false
-        if (this.DeviceAddress != other.DeviceAddress) return false
-        if (this.MaximumPacketSize != other.MaximumPacketSize) return false
-        if (this.Timeout != other.Timeout) return false
-        if (this.DataLength != other.DataLength) return false
-        if (this.UsbdStatusCode != other.UsbdStatusCode) return false
-        if (!this.Data.contentEquals(other.Data)) return false
+        if (other !is UsbSendRawCommandParameters) return false
+        if (this.usbBmRequest != other.usbBmRequest) return false
+        if (this.usbBRequest != other.usbBRequest) return false
+        if (this.usbWVlaue != other.usbWVlaue) return false
+        if (this.usbWIndex != other.usbWIndex) return false
+        if (this.usbWLength != other.usbWLength) return false
+        if (this.deviceAddress != other.deviceAddress) return false
+        if (this.maximumPacketSize != other.maximumPacketSize) return false
+        if (this.timeout != other.timeout) return false
+        if (this.dataLength != other.dataLength) return false
+        if (this.usbdStatusCode != other.usbdStatusCode) return false
+        if (!this.data.contentEquals(other.data)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Usb_bmRequest.hashCode()
-        result = 31 * result + this.Usb_bRequest.hashCode()
-        result = 31 * result + this.Usb_wVlaue.hashCode()
-        result = 31 * result + this.Usb_wIndex.hashCode()
-        result = 31 * result + this.Usb_wLength.hashCode()
-        result = 31 * result + this.DeviceAddress.hashCode()
-        result = 31 * result + this.MaximumPacketSize.hashCode()
-        result = 31 * result + this.Timeout.hashCode()
-        result = 31 * result + this.DataLength.hashCode()
-        result = 31 * result + this.UsbdStatusCode.hashCode()
-        result = 31 * result + this.Data.contentHashCode()
+        var result = this.usbBmRequest.hashCode()
+        result = 31 * result + this.usbBRequest.hashCode()
+        result = 31 * result + this.usbWVlaue.hashCode()
+        result = 31 * result + this.usbWIndex.hashCode()
+        result = 31 * result + this.usbWLength.hashCode()
+        result = 31 * result + this.deviceAddress.hashCode()
+        result = 31 * result + this.maximumPacketSize.hashCode()
+        result = 31 * result + this.timeout.hashCode()
+        result = 31 * result + this.dataLength.hashCode()
+        result = 31 * result + this.usbdStatusCode.hashCode()
+        result = 31 * result + this.data.contentHashCode()
         return result
     }
 }
 
-public data class USB_START_TRACKING_FOR_TIME_SYNC_INFORMATION(public var TimeTrackingHandle: HANDLE = 0L, public var IsStartupDelayTolerable: Boolean = false)
+public data class UsbStartTrackingForTimeSyncInformation(public var timeTrackingHandle: Handle = null, public var isStartupDelayTolerable: Boolean = false)
 
-public data class USB_STOP_TRACKING_FOR_TIME_SYNC_INFORMATION(public var TimeTrackingHandle: HANDLE = 0L)
+public data class UsbStopTrackingForTimeSyncInformation(public var timeTrackingHandle: Handle = null)
 
-public data class USB_STRING_DESCRIPTOR(
+public data class UsbStringDescriptor(
     public var bLength: UByte = 0u,
     public var bDescriptorType: UByte = 0u,
     public var bString: UShortArray = UShortArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is USB_STRING_DESCRIPTOR) return false
+        if (other !is UsbStringDescriptor) return false
         if (this.bLength != other.bLength) return false
         if (this.bDescriptorType != other.bDescriptorType) return false
         if (!this.bString.contentEquals(other.bString)) return false
@@ -1723,489 +1724,478 @@ public data class USB_STRING_DESCRIPTOR(
     }
 }
 
-public data class USB_SUPERSPEEDPLUS_ISOCH_ENDPOINT_COMPANION_DESCRIPTOR(
+public data class UsbSuperspeedplusIsochEndpointCompanionDescriptor(
     public var bLength: UByte = 0u,
     public var bDescriptorType: UByte = 0u,
     public var wReserved: UShort = 0u,
     public var dwBytesPerInterval: UInt = 0u,
 )
 
-public data class USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR(
+public data class UsbSuperspeedEndpointCompanionDescriptor(
     public var bLength: UByte = 0u,
     public var bDescriptorType: UByte = 0u,
     public var bMaxBurst: UByte = 0u,
-    public var bmAttributes: USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0 = USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0(),
+    public var bmAttributes: UsbSuperspeedEndpointCompanionDescriptor0 = UsbSuperspeedEndpointCompanionDescriptor0(),
     public var wBytesPerInterval: UShort = 0u,
 )
 
-public data class USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0(
-    public var AsUchar: UByte = 0u,
-    public var Bulk: USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_0 = USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_0(),
-    public var Isochronous: USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_1 = USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_1(),
+public data class UsbSuperspeedEndpointCompanionDescriptor0(
+    public var asUchar: UByte = 0u,
+    public var bulk: UsbSuperspeedEndpointCompanionDescriptor00 = UsbSuperspeedEndpointCompanionDescriptor00(),
+    public var isochronous: UsbSuperspeedEndpointCompanionDescriptor01 = UsbSuperspeedEndpointCompanionDescriptor01(),
 )
 
-public data class USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_0(public var _bitfield: UByte = 0u)
+public data class UsbSuperspeedEndpointCompanionDescriptor00(public var bitfield: UByte = 0u)
 
-public data class USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_1(public var _bitfield: UByte = 0u)
+public data class UsbSuperspeedEndpointCompanionDescriptor01(public var bitfield: UByte = 0u)
 
-public data class USB_TOPOLOGY_ADDRESS(
-    public var PciBusNumber: UInt = 0u,
-    public var PciDeviceNumber: UInt = 0u,
-    public var PciFunctionNumber: UInt = 0u,
-    public var Reserved: UInt = 0u,
-    public var RootHubPortNumber: UShort = 0u,
-    public var HubPortNumber: UShortArray = UShortArray(5),
-    public var Reserved2: UShort = 0u,
+public data class UsbTopologyAddress(
+    public var pciBusNumber: UInt = 0u,
+    public var pciDeviceNumber: UInt = 0u,
+    public var pciFunctionNumber: UInt = 0u,
+    public var reserved: UInt = 0u,
+    public var rootHubPortNumber: UShort = 0u,
+    public var hubPortNumber: UShortArray = UShortArray(5),
+    public var reserved2: UShort = 0u,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is USB_TOPOLOGY_ADDRESS) return false
-        if (this.PciBusNumber != other.PciBusNumber) return false
-        if (this.PciDeviceNumber != other.PciDeviceNumber) return false
-        if (this.PciFunctionNumber != other.PciFunctionNumber) return false
-        if (this.Reserved != other.Reserved) return false
-        if (this.RootHubPortNumber != other.RootHubPortNumber) return false
-        if (!this.HubPortNumber.contentEquals(other.HubPortNumber)) return false
-        if (this.Reserved2 != other.Reserved2) return false
+        if (other !is UsbTopologyAddress) return false
+        if (this.pciBusNumber != other.pciBusNumber) return false
+        if (this.pciDeviceNumber != other.pciDeviceNumber) return false
+        if (this.pciFunctionNumber != other.pciFunctionNumber) return false
+        if (this.reserved != other.reserved) return false
+        if (this.rootHubPortNumber != other.rootHubPortNumber) return false
+        if (!this.hubPortNumber.contentEquals(other.hubPortNumber)) return false
+        if (this.reserved2 != other.reserved2) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.PciBusNumber.hashCode()
-        result = 31 * result + this.PciDeviceNumber.hashCode()
-        result = 31 * result + this.PciFunctionNumber.hashCode()
-        result = 31 * result + this.Reserved.hashCode()
-        result = 31 * result + this.RootHubPortNumber.hashCode()
-        result = 31 * result + this.HubPortNumber.contentHashCode()
-        result = 31 * result + this.Reserved2.hashCode()
+        var result = this.pciBusNumber.hashCode()
+        result = 31 * result + this.pciDeviceNumber.hashCode()
+        result = 31 * result + this.pciFunctionNumber.hashCode()
+        result = 31 * result + this.reserved.hashCode()
+        result = 31 * result + this.rootHubPortNumber.hashCode()
+        result = 31 * result + this.hubPortNumber.contentHashCode()
+        result = 31 * result + this.reserved2.hashCode()
         return result
     }
 }
 
-public data class USB_TRANSPORT_CHARACTERISTICS(
-    public var Version: UInt = 0u,
-    public var TransportCharacteristicsFlags: UInt = 0u,
-    public var CurrentRoundtripLatencyInMilliSeconds: ULong = 0uL,
-    public var MaxPotentialBandwidth: ULong = 0uL,
+public data class UsbTransportCharacteristics(
+    public var version: UInt = 0u,
+    public var transportCharacteristicsFlags: UInt = 0u,
+    public var currentRoundtripLatencyInMilliSeconds: ULong = 0uL,
+    public var maxPotentialBandwidth: ULong = 0uL,
 )
 
-public data class USB_TRANSPORT_CHARACTERISTICS_CHANGE_NOTIFICATION(public var Handle: USB_CHANGE_REGISTRATION_HANDLE = 0L, public var UsbTransportCharacteristics: USB_TRANSPORT_CHARACTERISTICS = USB_TRANSPORT_CHARACTERISTICS())
+public data class UsbTransportCharacteristicsChangeNotification(public var handle: UsbChangeRegistrationHandle = null, public var usbTransportCharacteristics: UsbTransportCharacteristics = UsbTransportCharacteristics())
 
-public data class USB_TRANSPORT_CHARACTERISTICS_CHANGE_REGISTRATION(
-    public var ChangeNotificationInputFlags: UInt = 0u,
-    public var Handle: USB_CHANGE_REGISTRATION_HANDLE = 0L,
-    public var UsbTransportCharacteristics: USB_TRANSPORT_CHARACTERISTICS = USB_TRANSPORT_CHARACTERISTICS(),
+public data class UsbTransportCharacteristicsChangeRegistration(
+    public var changeNotificationInputFlags: UInt = 0u,
+    public var handle: UsbChangeRegistrationHandle = null,
+    public var usbTransportCharacteristics: UsbTransportCharacteristics = UsbTransportCharacteristics(),
 )
 
-public data class USB_TRANSPORT_CHARACTERISTICS_CHANGE_UNREGISTRATION(public var Handle: USB_CHANGE_REGISTRATION_HANDLE = 0L)
+public data class UsbTransportCharacteristicsChangeUnregistration(public var handle: UsbChangeRegistrationHandle = null)
 
-public data class USB_UNICODE_NAME(public var Length: UInt = 0u, public var String: UShortArray = UShortArray(1)) {
+public data class UsbUnicodeName(public var length: UInt = 0u, public var string: UShortArray = UShortArray(1)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is USB_UNICODE_NAME) return false
-        if (this.Length != other.Length) return false
-        if (!this.String.contentEquals(other.String)) return false
+        if (other !is UsbUnicodeName) return false
+        if (this.length != other.length) return false
+        if (!this.string.contentEquals(other.string)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Length.hashCode()
-        result = 31 * result + this.String.contentHashCode()
+        var result = this.length.hashCode()
+        result = 31 * result + this.string.contentHashCode()
         return result
     }
 }
 
-public data class USB_USB2HW_VERSION_PARAMETERS(public var Usb2HwRevision: UByte = 0u)
+public data class UsbUsb2hwVersionParameters(public var usb2HwRevision: UByte = 0u)
 
-public data class WINUSB_PIPE_INFORMATION(
-    public var PipeType: USBD_PIPE_TYPE = 0,
-    public var PipeId: UByte = 0u,
-    public var MaximumPacketSize: UShort = 0u,
-    public var Interval: UByte = 0u,
+public data class WinusbPipeInformation(
+    public var pipeType: UsbdPipeType = 0,
+    public var pipeId: UByte = 0u,
+    public var maximumPacketSize: UShort = 0u,
+    public var interval: UByte = 0u,
 )
 
-public data class WINUSB_PIPE_INFORMATION_EX(
-    public var PipeType: USBD_PIPE_TYPE = 0,
-    public var PipeId: UByte = 0u,
-    public var MaximumPacketSize: UShort = 0u,
-    public var Interval: UByte = 0u,
-    public var MaximumBytesPerInterval: UInt = 0u,
+public data class WinusbPipeInformationEx(
+    public var pipeType: UsbdPipeType = 0,
+    public var pipeId: UByte = 0u,
+    public var maximumPacketSize: UShort = 0u,
+    public var interval: UByte = 0u,
+    public var maximumBytesPerInterval: UInt = 0u,
 )
 
-public data class WINUSB_SETUP_PACKET(
-    public var RequestType: UByte = 0u,
-    public var Request: UByte = 0u,
-    public var Value: UShort = 0u,
-    public var Index: UShort = 0u,
-    public var Length: UShort = 0u,
+public data class WinusbSetupPacket(
+    public var requestType: UByte = 0u,
+    public var request: UByte = 0u,
+    public var value: UShort = 0u,
+    public var index: UShort = 0u,
+    public var length: UShort = 0u,
 )
 
-public data class _URB_BULK_OR_INTERRUPT_TRANSFER(
-    public var Hdr: _URB_HEADER = _URB_HEADER(),
-    public var PipeHandle: Long = 0L,
-    public var TransferFlags: UInt = 0u,
-    public var TransferBufferLength: UInt = 0u,
-    public var TransferBuffer: Long = 0L,
-    public var TransferBufferMDL: Long = 0L,
-    public var UrbLink: Long = 0L,
-    public var hca: _URB_HCD_AREA = _URB_HCD_AREA(),
+public data class UrbBulkOrInterruptTransfer(
+    public var hdr: UrbHeader = UrbHeader(),
+    public var pipeHandle: COpaquePointer? = null,
+    public var transferFlags: UInt = 0u,
+    public var transferBufferLength: UInt = 0u,
+    public var transferBuffer: COpaquePointer? = null,
+    public var transferBufferMDL: COpaquePointer? = null,
+    public var urbLink: Urb? = null,
+    public var hca: UrbHcdArea = UrbHcdArea(),
 )
 
-public data class _URB_CONTROL_DESCRIPTOR_REQUEST(
-    public var Hdr: _URB_HEADER = _URB_HEADER(),
-    public var Reserved: Long = 0L,
-    public var Reserved0: UInt = 0u,
-    public var TransferBufferLength: UInt = 0u,
-    public var TransferBuffer: Long = 0L,
-    public var TransferBufferMDL: Long = 0L,
-    public var UrbLink: Long = 0L,
-    public var hca: _URB_HCD_AREA = _URB_HCD_AREA(),
-    public var Reserved1: UShort = 0u,
-    public var Index: UByte = 0u,
-    public var DescriptorType: UByte = 0u,
-    public var LanguageId: UShort = 0u,
-    public var Reserved2: UShort = 0u,
+public data class UrbControlDescriptorRequest(
+    public var hdr: UrbHeader = UrbHeader(),
+    public var reserved: COpaquePointer? = null,
+    public var reserved0: UInt = 0u,
+    public var transferBufferLength: UInt = 0u,
+    public var transferBuffer: COpaquePointer? = null,
+    public var transferBufferMDL: COpaquePointer? = null,
+    public var urbLink: Urb? = null,
+    public var hca: UrbHcdArea = UrbHcdArea(),
+    public var reserved1: UShort = 0u,
+    public var index: UByte = 0u,
+    public var descriptorType: UByte = 0u,
+    public var languageId: UShort = 0u,
+    public var reserved2: UShort = 0u,
 )
 
-public data class _URB_CONTROL_FEATURE_REQUEST(
-    public var Hdr: _URB_HEADER = _URB_HEADER(),
-    public var Reserved: Long = 0L,
-    public var Reserved2: UInt = 0u,
-    public var Reserved3: UInt = 0u,
-    public var Reserved4: Long = 0L,
-    public var Reserved5: Long = 0L,
-    public var UrbLink: Long = 0L,
-    public var hca: _URB_HCD_AREA = _URB_HCD_AREA(),
-    public var Reserved0: UShort = 0u,
-    public var FeatureSelector: UShort = 0u,
-    public var Index: UShort = 0u,
-    public var Reserved1: UShort = 0u,
+public data class UrbControlFeatureRequest(
+    public var hdr: UrbHeader = UrbHeader(),
+    public var reserved: COpaquePointer? = null,
+    public var reserved2: UInt = 0u,
+    public var reserved3: UInt = 0u,
+    public var reserved4: COpaquePointer? = null,
+    public var reserved5: COpaquePointer? = null,
+    public var urbLink: Urb? = null,
+    public var hca: UrbHcdArea = UrbHcdArea(),
+    public var reserved0: UShort = 0u,
+    public var featureSelector: UShort = 0u,
+    public var index: UShort = 0u,
+    public var reserved1: UShort = 0u,
 )
 
-public data class _URB_CONTROL_GET_CONFIGURATION_REQUEST(
-    public var Hdr: _URB_HEADER = _URB_HEADER(),
-    public var Reserved: Long = 0L,
-    public var Reserved0: UInt = 0u,
-    public var TransferBufferLength: UInt = 0u,
-    public var TransferBuffer: Long = 0L,
-    public var TransferBufferMDL: Long = 0L,
-    public var UrbLink: Long = 0L,
-    public var hca: _URB_HCD_AREA = _URB_HCD_AREA(),
-    public var Reserved1: UByteArray = UByteArray(8),
+public data class UrbControlGetConfigurationRequest(
+    public var hdr: UrbHeader = UrbHeader(),
+    public var reserved: COpaquePointer? = null,
+    public var reserved0: UInt = 0u,
+    public var transferBufferLength: UInt = 0u,
+    public var transferBuffer: COpaquePointer? = null,
+    public var transferBufferMDL: COpaquePointer? = null,
+    public var urbLink: Urb? = null,
+    public var hca: UrbHcdArea = UrbHcdArea(),
+    public var reserved1: UByteArray = UByteArray(8),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is _URB_CONTROL_GET_CONFIGURATION_REQUEST) return false
-        if (this.Hdr != other.Hdr) return false
-        if (this.Reserved != other.Reserved) return false
-        if (this.Reserved0 != other.Reserved0) return false
-        if (this.TransferBufferLength != other.TransferBufferLength) return false
-        if (this.TransferBuffer != other.TransferBuffer) return false
-        if (this.TransferBufferMDL != other.TransferBufferMDL) return false
-        if (this.UrbLink != other.UrbLink) return false
+        if (other !is UrbControlGetConfigurationRequest) return false
+        if (this.hdr != other.hdr) return false
+        if (this.reserved != other.reserved) return false
+        if (this.reserved0 != other.reserved0) return false
+        if (this.transferBufferLength != other.transferBufferLength) return false
+        if (this.transferBuffer != other.transferBuffer) return false
+        if (this.transferBufferMDL != other.transferBufferMDL) return false
+        if (this.urbLink != other.urbLink) return false
         if (this.hca != other.hca) return false
-        if (!this.Reserved1.contentEquals(other.Reserved1)) return false
+        if (!this.reserved1.contentEquals(other.reserved1)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Hdr.hashCode()
-        result = 31 * result + this.Reserved.hashCode()
-        result = 31 * result + this.Reserved0.hashCode()
-        result = 31 * result + this.TransferBufferLength.hashCode()
-        result = 31 * result + this.TransferBuffer.hashCode()
-        result = 31 * result + this.TransferBufferMDL.hashCode()
-        result = 31 * result + this.UrbLink.hashCode()
+        var result = this.hdr.hashCode()
+        result = 31 * result + this.reserved.hashCode()
+        result = 31 * result + this.reserved0.hashCode()
+        result = 31 * result + this.transferBufferLength.hashCode()
+        result = 31 * result + this.transferBuffer.hashCode()
+        result = 31 * result + this.transferBufferMDL.hashCode()
+        result = 31 * result + this.urbLink.hashCode()
         result = 31 * result + this.hca.hashCode()
-        result = 31 * result + this.Reserved1.contentHashCode()
+        result = 31 * result + this.reserved1.contentHashCode()
         return result
     }
 }
 
-public data class _URB_CONTROL_GET_INTERFACE_REQUEST(
-    public var Hdr: _URB_HEADER = _URB_HEADER(),
-    public var Reserved: Long = 0L,
-    public var Reserved0: UInt = 0u,
-    public var TransferBufferLength: UInt = 0u,
-    public var TransferBuffer: Long = 0L,
-    public var TransferBufferMDL: Long = 0L,
-    public var UrbLink: Long = 0L,
-    public var hca: _URB_HCD_AREA = _URB_HCD_AREA(),
-    public var Reserved1: UByteArray = UByteArray(4),
-    public var Interface: UShort = 0u,
-    public var Reserved2: UShort = 0u,
+public data class UrbControlGetInterfaceRequest(
+    public var hdr: UrbHeader = UrbHeader(),
+    public var reserved: COpaquePointer? = null,
+    public var reserved0: UInt = 0u,
+    public var transferBufferLength: UInt = 0u,
+    public var transferBuffer: COpaquePointer? = null,
+    public var transferBufferMDL: COpaquePointer? = null,
+    public var urbLink: Urb? = null,
+    public var hca: UrbHcdArea = UrbHcdArea(),
+    public var reserved1: UByteArray = UByteArray(4),
+    public var iface: UShort = 0u,
+    public var reserved2: UShort = 0u,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is _URB_CONTROL_GET_INTERFACE_REQUEST) return false
-        if (this.Hdr != other.Hdr) return false
-        if (this.Reserved != other.Reserved) return false
-        if (this.Reserved0 != other.Reserved0) return false
-        if (this.TransferBufferLength != other.TransferBufferLength) return false
-        if (this.TransferBuffer != other.TransferBuffer) return false
-        if (this.TransferBufferMDL != other.TransferBufferMDL) return false
-        if (this.UrbLink != other.UrbLink) return false
+        if (other !is UrbControlGetInterfaceRequest) return false
+        if (this.hdr != other.hdr) return false
+        if (this.reserved != other.reserved) return false
+        if (this.reserved0 != other.reserved0) return false
+        if (this.transferBufferLength != other.transferBufferLength) return false
+        if (this.transferBuffer != other.transferBuffer) return false
+        if (this.transferBufferMDL != other.transferBufferMDL) return false
+        if (this.urbLink != other.urbLink) return false
         if (this.hca != other.hca) return false
-        if (!this.Reserved1.contentEquals(other.Reserved1)) return false
-        if (this.Interface != other.Interface) return false
-        if (this.Reserved2 != other.Reserved2) return false
+        if (!this.reserved1.contentEquals(other.reserved1)) return false
+        if (this.iface != other.iface) return false
+        if (this.reserved2 != other.reserved2) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Hdr.hashCode()
-        result = 31 * result + this.Reserved.hashCode()
-        result = 31 * result + this.Reserved0.hashCode()
-        result = 31 * result + this.TransferBufferLength.hashCode()
-        result = 31 * result + this.TransferBuffer.hashCode()
-        result = 31 * result + this.TransferBufferMDL.hashCode()
-        result = 31 * result + this.UrbLink.hashCode()
+        var result = this.hdr.hashCode()
+        result = 31 * result + this.reserved.hashCode()
+        result = 31 * result + this.reserved0.hashCode()
+        result = 31 * result + this.transferBufferLength.hashCode()
+        result = 31 * result + this.transferBuffer.hashCode()
+        result = 31 * result + this.transferBufferMDL.hashCode()
+        result = 31 * result + this.urbLink.hashCode()
         result = 31 * result + this.hca.hashCode()
-        result = 31 * result + this.Reserved1.contentHashCode()
-        result = 31 * result + this.Interface.hashCode()
-        result = 31 * result + this.Reserved2.hashCode()
+        result = 31 * result + this.reserved1.contentHashCode()
+        result = 31 * result + this.iface.hashCode()
+        result = 31 * result + this.reserved2.hashCode()
         return result
     }
 }
 
-public data class _URB_CONTROL_GET_STATUS_REQUEST(
-    public var Hdr: _URB_HEADER = _URB_HEADER(),
-    public var Reserved: Long = 0L,
-    public var Reserved0: UInt = 0u,
-    public var TransferBufferLength: UInt = 0u,
-    public var TransferBuffer: Long = 0L,
-    public var TransferBufferMDL: Long = 0L,
-    public var UrbLink: Long = 0L,
-    public var hca: _URB_HCD_AREA = _URB_HCD_AREA(),
-    public var Reserved1: UByteArray = UByteArray(4),
-    public var Index: UShort = 0u,
-    public var Reserved2: UShort = 0u,
+public data class UrbControlGetStatusRequest(
+    public var hdr: UrbHeader = UrbHeader(),
+    public var reserved: COpaquePointer? = null,
+    public var reserved0: UInt = 0u,
+    public var transferBufferLength: UInt = 0u,
+    public var transferBuffer: COpaquePointer? = null,
+    public var transferBufferMDL: COpaquePointer? = null,
+    public var urbLink: Urb? = null,
+    public var hca: UrbHcdArea = UrbHcdArea(),
+    public var reserved1: UByteArray = UByteArray(4),
+    public var index: UShort = 0u,
+    public var reserved2: UShort = 0u,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is _URB_CONTROL_GET_STATUS_REQUEST) return false
-        if (this.Hdr != other.Hdr) return false
-        if (this.Reserved != other.Reserved) return false
-        if (this.Reserved0 != other.Reserved0) return false
-        if (this.TransferBufferLength != other.TransferBufferLength) return false
-        if (this.TransferBuffer != other.TransferBuffer) return false
-        if (this.TransferBufferMDL != other.TransferBufferMDL) return false
-        if (this.UrbLink != other.UrbLink) return false
+        if (other !is UrbControlGetStatusRequest) return false
+        if (this.hdr != other.hdr) return false
+        if (this.reserved != other.reserved) return false
+        if (this.reserved0 != other.reserved0) return false
+        if (this.transferBufferLength != other.transferBufferLength) return false
+        if (this.transferBuffer != other.transferBuffer) return false
+        if (this.transferBufferMDL != other.transferBufferMDL) return false
+        if (this.urbLink != other.urbLink) return false
         if (this.hca != other.hca) return false
-        if (!this.Reserved1.contentEquals(other.Reserved1)) return false
-        if (this.Index != other.Index) return false
-        if (this.Reserved2 != other.Reserved2) return false
+        if (!this.reserved1.contentEquals(other.reserved1)) return false
+        if (this.index != other.index) return false
+        if (this.reserved2 != other.reserved2) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Hdr.hashCode()
-        result = 31 * result + this.Reserved.hashCode()
-        result = 31 * result + this.Reserved0.hashCode()
-        result = 31 * result + this.TransferBufferLength.hashCode()
-        result = 31 * result + this.TransferBuffer.hashCode()
-        result = 31 * result + this.TransferBufferMDL.hashCode()
-        result = 31 * result + this.UrbLink.hashCode()
+        var result = this.hdr.hashCode()
+        result = 31 * result + this.reserved.hashCode()
+        result = 31 * result + this.reserved0.hashCode()
+        result = 31 * result + this.transferBufferLength.hashCode()
+        result = 31 * result + this.transferBuffer.hashCode()
+        result = 31 * result + this.transferBufferMDL.hashCode()
+        result = 31 * result + this.urbLink.hashCode()
         result = 31 * result + this.hca.hashCode()
-        result = 31 * result + this.Reserved1.contentHashCode()
-        result = 31 * result + this.Index.hashCode()
-        result = 31 * result + this.Reserved2.hashCode()
+        result = 31 * result + this.reserved1.contentHashCode()
+        result = 31 * result + this.index.hashCode()
+        result = 31 * result + this.reserved2.hashCode()
         return result
     }
 }
 
-public data class _URB_CONTROL_TRANSFER(
-    public var Hdr: _URB_HEADER = _URB_HEADER(),
-    public var PipeHandle: Long = 0L,
-    public var TransferFlags: UInt = 0u,
-    public var TransferBufferLength: UInt = 0u,
-    public var TransferBuffer: Long = 0L,
-    public var TransferBufferMDL: Long = 0L,
-    public var UrbLink: Long = 0L,
-    public var hca: _URB_HCD_AREA = _URB_HCD_AREA(),
-    public var SetupPacket: UByteArray = UByteArray(8),
+public data class UrbControlTransfer(
+    public var hdr: UrbHeader = UrbHeader(),
+    public var pipeHandle: COpaquePointer? = null,
+    public var transferFlags: UInt = 0u,
+    public var transferBufferLength: UInt = 0u,
+    public var transferBuffer: COpaquePointer? = null,
+    public var transferBufferMDL: COpaquePointer? = null,
+    public var urbLink: Urb? = null,
+    public var hca: UrbHcdArea = UrbHcdArea(),
+    public var setupPacket: UByteArray = UByteArray(8),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is _URB_CONTROL_TRANSFER) return false
-        if (this.Hdr != other.Hdr) return false
-        if (this.PipeHandle != other.PipeHandle) return false
-        if (this.TransferFlags != other.TransferFlags) return false
-        if (this.TransferBufferLength != other.TransferBufferLength) return false
-        if (this.TransferBuffer != other.TransferBuffer) return false
-        if (this.TransferBufferMDL != other.TransferBufferMDL) return false
-        if (this.UrbLink != other.UrbLink) return false
+        if (other !is UrbControlTransfer) return false
+        if (this.hdr != other.hdr) return false
+        if (this.pipeHandle != other.pipeHandle) return false
+        if (this.transferFlags != other.transferFlags) return false
+        if (this.transferBufferLength != other.transferBufferLength) return false
+        if (this.transferBuffer != other.transferBuffer) return false
+        if (this.transferBufferMDL != other.transferBufferMDL) return false
+        if (this.urbLink != other.urbLink) return false
         if (this.hca != other.hca) return false
-        if (!this.SetupPacket.contentEquals(other.SetupPacket)) return false
+        if (!this.setupPacket.contentEquals(other.setupPacket)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Hdr.hashCode()
-        result = 31 * result + this.PipeHandle.hashCode()
-        result = 31 * result + this.TransferFlags.hashCode()
-        result = 31 * result + this.TransferBufferLength.hashCode()
-        result = 31 * result + this.TransferBuffer.hashCode()
-        result = 31 * result + this.TransferBufferMDL.hashCode()
-        result = 31 * result + this.UrbLink.hashCode()
+        var result = this.hdr.hashCode()
+        result = 31 * result + this.pipeHandle.hashCode()
+        result = 31 * result + this.transferFlags.hashCode()
+        result = 31 * result + this.transferBufferLength.hashCode()
+        result = 31 * result + this.transferBuffer.hashCode()
+        result = 31 * result + this.transferBufferMDL.hashCode()
+        result = 31 * result + this.urbLink.hashCode()
         result = 31 * result + this.hca.hashCode()
-        result = 31 * result + this.SetupPacket.contentHashCode()
+        result = 31 * result + this.setupPacket.contentHashCode()
         return result
     }
 }
 
-public data class _URB_CONTROL_TRANSFER_EX(
-    public var Hdr: _URB_HEADER = _URB_HEADER(),
-    public var PipeHandle: Long = 0L,
-    public var TransferFlags: UInt = 0u,
-    public var TransferBufferLength: UInt = 0u,
-    public var TransferBuffer: Long = 0L,
-    public var TransferBufferMDL: Long = 0L,
-    public var Timeout: UInt = 0u,
-    public var hca: _URB_HCD_AREA = _URB_HCD_AREA(),
-    public var SetupPacket: UByteArray = UByteArray(8),
+public data class UrbControlTransferEx(
+    public var hdr: UrbHeader = UrbHeader(),
+    public var pipeHandle: COpaquePointer? = null,
+    public var transferFlags: UInt = 0u,
+    public var transferBufferLength: UInt = 0u,
+    public var transferBuffer: COpaquePointer? = null,
+    public var transferBufferMDL: COpaquePointer? = null,
+    public var timeout: UInt = 0u,
+    public var hca: UrbHcdArea = UrbHcdArea(),
+    public var setupPacket: UByteArray = UByteArray(8),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is _URB_CONTROL_TRANSFER_EX) return false
-        if (this.Hdr != other.Hdr) return false
-        if (this.PipeHandle != other.PipeHandle) return false
-        if (this.TransferFlags != other.TransferFlags) return false
-        if (this.TransferBufferLength != other.TransferBufferLength) return false
-        if (this.TransferBuffer != other.TransferBuffer) return false
-        if (this.TransferBufferMDL != other.TransferBufferMDL) return false
-        if (this.Timeout != other.Timeout) return false
+        if (other !is UrbControlTransferEx) return false
+        if (this.hdr != other.hdr) return false
+        if (this.pipeHandle != other.pipeHandle) return false
+        if (this.transferFlags != other.transferFlags) return false
+        if (this.transferBufferLength != other.transferBufferLength) return false
+        if (this.transferBuffer != other.transferBuffer) return false
+        if (this.transferBufferMDL != other.transferBufferMDL) return false
+        if (this.timeout != other.timeout) return false
         if (this.hca != other.hca) return false
-        if (!this.SetupPacket.contentEquals(other.SetupPacket)) return false
+        if (!this.setupPacket.contentEquals(other.setupPacket)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Hdr.hashCode()
-        result = 31 * result + this.PipeHandle.hashCode()
-        result = 31 * result + this.TransferFlags.hashCode()
-        result = 31 * result + this.TransferBufferLength.hashCode()
-        result = 31 * result + this.TransferBuffer.hashCode()
-        result = 31 * result + this.TransferBufferMDL.hashCode()
-        result = 31 * result + this.Timeout.hashCode()
+        var result = this.hdr.hashCode()
+        result = 31 * result + this.pipeHandle.hashCode()
+        result = 31 * result + this.transferFlags.hashCode()
+        result = 31 * result + this.transferBufferLength.hashCode()
+        result = 31 * result + this.transferBuffer.hashCode()
+        result = 31 * result + this.transferBufferMDL.hashCode()
+        result = 31 * result + this.timeout.hashCode()
         result = 31 * result + this.hca.hashCode()
-        result = 31 * result + this.SetupPacket.contentHashCode()
+        result = 31 * result + this.setupPacket.contentHashCode()
         return result
     }
 }
 
-public data class _URB_CONTROL_VENDOR_OR_CLASS_REQUEST(
-    public var Hdr: _URB_HEADER = _URB_HEADER(),
-    public var Reserved: Long = 0L,
-    public var TransferFlags: UInt = 0u,
-    public var TransferBufferLength: UInt = 0u,
-    public var TransferBuffer: Long = 0L,
-    public var TransferBufferMDL: Long = 0L,
-    public var UrbLink: Long = 0L,
-    public var hca: _URB_HCD_AREA = _URB_HCD_AREA(),
-    public var RequestTypeReservedBits: UByte = 0u,
-    public var Request: UByte = 0u,
-    public var Value: UShort = 0u,
-    public var Index: UShort = 0u,
-    public var Reserved1: UShort = 0u,
+public data class UrbControlVendorOrClassRequest(
+    public var hdr: UrbHeader = UrbHeader(),
+    public var reserved: COpaquePointer? = null,
+    public var transferFlags: UInt = 0u,
+    public var transferBufferLength: UInt = 0u,
+    public var transferBuffer: COpaquePointer? = null,
+    public var transferBufferMDL: COpaquePointer? = null,
+    public var urbLink: Urb? = null,
+    public var hca: UrbHcdArea = UrbHcdArea(),
+    public var requestTypeReservedBits: UByte = 0u,
+    public var request: UByte = 0u,
+    public var value: UShort = 0u,
+    public var index: UShort = 0u,
+    public var reserved1: UShort = 0u,
 )
 
-public data class _URB_FRAME_LENGTH_CONTROL(public var Hdr: _URB_HEADER = _URB_HEADER())
+public data class UrbFrameLengthControl(public var hdr: UrbHeader = UrbHeader())
 
-public data class _URB_GET_CURRENT_FRAME_NUMBER(public var Hdr: _URB_HEADER = _URB_HEADER(), public var FrameNumber: UInt = 0u)
+public data class UrbGetCurrentFrameNumber(public var hdr: UrbHeader = UrbHeader(), public var frameNumber: UInt = 0u)
 
-public data class _URB_GET_FRAME_LENGTH(
-    public var Hdr: _URB_HEADER = _URB_HEADER(),
-    public var FrameLength: UInt = 0u,
-    public var FrameNumber: UInt = 0u,
+public data class UrbGetFrameLength(
+    public var hdr: UrbHeader = UrbHeader(),
+    public var frameLength: UInt = 0u,
+    public var frameNumber: UInt = 0u,
 )
 
-public data class _URB_GET_ISOCH_PIPE_TRANSFER_PATH_DELAYS(
-    public var Hdr: _URB_HEADER = _URB_HEADER(),
-    public var PipeHandle: Long = 0L,
-    public var MaximumSendPathDelayInMilliSeconds: UInt = 0u,
-    public var MaximumCompletionPathDelayInMilliSeconds: UInt = 0u,
+public data class UrbGetIsochPipeTransferPathDelays(
+    public var hdr: UrbHeader = UrbHeader(),
+    public var pipeHandle: COpaquePointer? = null,
+    public var maximumSendPathDelayInMilliSeconds: UInt = 0u,
+    public var maximumCompletionPathDelayInMilliSeconds: UInt = 0u,
 )
 
-public data class _URB_HCD_AREA(public var Reserved8: LongArray = LongArray(8)) {
-    override fun equals(other: Any?): Boolean {
-        if (this === other) return true
-        if (other !is _URB_HCD_AREA) return false
-        if (!this.Reserved8.contentEquals(other.Reserved8)) return false
-        return true
-    }
+public data class UrbHcdArea(public var reserved8: List<COpaquePointer> = List(8) { COpaquePointer(0L) })
 
-    override fun hashCode(): Int {
-        return this.Reserved8.contentHashCode()
-    }
-}
-
-public data class _URB_HEADER(
-    public var Length: UShort = 0u,
-    public var Function: UShort = 0u,
-    public var Status: Int = 0,
-    public var UsbdDeviceHandle: Long = 0L,
-    public var UsbdFlags: UInt = 0u,
+public data class UrbHeader(
+    public var length: UShort = 0u,
+    public var function: UShort = 0u,
+    public var status: Int = 0,
+    public var usbdDeviceHandle: COpaquePointer? = null,
+    public var usbdFlags: UInt = 0u,
 )
 
-public data class _URB_ISOCH_TRANSFER(
-    public var Hdr: _URB_HEADER = _URB_HEADER(),
-    public var PipeHandle: Long = 0L,
-    public var TransferFlags: UInt = 0u,
-    public var TransferBufferLength: UInt = 0u,
-    public var TransferBuffer: Long = 0L,
-    public var TransferBufferMDL: Long = 0L,
-    public var UrbLink: Long = 0L,
-    public var hca: _URB_HCD_AREA = _URB_HCD_AREA(),
-    public var StartFrame: UInt = 0u,
-    public var NumberOfPackets: UInt = 0u,
-    public var ErrorCount: UInt = 0u,
-    public var IsoPacket: List<USBD_ISO_PACKET_DESCRIPTOR> = List(1) { USBD_ISO_PACKET_DESCRIPTOR() },
+public data class UrbIsochTransfer(
+    public var hdr: UrbHeader = UrbHeader(),
+    public var pipeHandle: COpaquePointer? = null,
+    public var transferFlags: UInt = 0u,
+    public var transferBufferLength: UInt = 0u,
+    public var transferBuffer: COpaquePointer? = null,
+    public var transferBufferMDL: COpaquePointer? = null,
+    public var urbLink: Urb? = null,
+    public var hca: UrbHcdArea = UrbHcdArea(),
+    public var startFrame: UInt = 0u,
+    public var numberOfPackets: UInt = 0u,
+    public var errorCount: UInt = 0u,
+    public var isoPacket: List<UsbdIsoPacketDescriptor> = List(1) { UsbdIsoPacketDescriptor() },
 )
 
-public data class _URB_OPEN_STATIC_STREAMS(
-    public var Hdr: _URB_HEADER = _URB_HEADER(),
-    public var PipeHandle: Long = 0L,
-    public var NumberOfStreams: UInt = 0u,
-    public var StreamInfoVersion: UShort = 0u,
-    public var StreamInfoSize: UShort = 0u,
-    public var Streams: Long = 0L,
+public data class UrbOpenStaticStreams(
+    public var hdr: UrbHeader = UrbHeader(),
+    public var pipeHandle: COpaquePointer? = null,
+    public var numberOfStreams: UInt = 0u,
+    public var streamInfoVersion: UShort = 0u,
+    public var streamInfoSize: UShort = 0u,
+    public var streams: UsbdStreamInformation? = null,
 )
 
-public data class _URB_OS_FEATURE_DESCRIPTOR_REQUEST(
-    public var Hdr: _URB_HEADER = _URB_HEADER(),
-    public var Reserved: Long = 0L,
-    public var Reserved0: UInt = 0u,
-    public var TransferBufferLength: UInt = 0u,
-    public var TransferBuffer: Long = 0L,
-    public var TransferBufferMDL: Long = 0L,
-    public var UrbLink: Long = 0L,
-    public var hca: _URB_HCD_AREA = _URB_HCD_AREA(),
-    public var _bitfield: UByte = 0u,
-    public var Reserved2: UByte = 0u,
-    public var InterfaceNumber: UByte = 0u,
-    public var MS_PageIndex: UByte = 0u,
-    public var MS_FeatureDescriptorIndex: UShort = 0u,
-    public var Reserved3: UShort = 0u,
+public data class UrbOsFeatureDescriptorRequest(
+    public var hdr: UrbHeader = UrbHeader(),
+    public var reserved: COpaquePointer? = null,
+    public var reserved0: UInt = 0u,
+    public var transferBufferLength: UInt = 0u,
+    public var transferBuffer: COpaquePointer? = null,
+    public var transferBufferMDL: COpaquePointer? = null,
+    public var urbLink: Urb? = null,
+    public var hca: UrbHcdArea = UrbHcdArea(),
+    public var bitfield: UByte = 0u,
+    public var reserved2: UByte = 0u,
+    public var interfaceNumber: UByte = 0u,
+    public var msPageIndex: UByte = 0u,
+    public var msFeatureDescriptorIndex: UShort = 0u,
+    public var reserved3: UShort = 0u,
 )
 
-public data class _URB_PIPE_REQUEST(
-    public var Hdr: _URB_HEADER = _URB_HEADER(),
-    public var PipeHandle: Long = 0L,
-    public var Reserved: UInt = 0u,
+public data class UrbPipeRequest(
+    public var hdr: UrbHeader = UrbHeader(),
+    public var pipeHandle: COpaquePointer? = null,
+    public var reserved: UInt = 0u,
 )
 
-public data class _URB_SELECT_CONFIGURATION(
-    public var Hdr: _URB_HEADER = _URB_HEADER(),
-    public var ConfigurationDescriptor: Long = 0L,
-    public var ConfigurationHandle: Long = 0L,
-    public var Interface: USBD_INTERFACE_INFORMATION = USBD_INTERFACE_INFORMATION(),
+public data class UrbSelectConfiguration(
+    public var hdr: UrbHeader = UrbHeader(),
+    public var configurationDescriptor: UsbConfigurationDescriptor? = null,
+    public var configurationHandle: COpaquePointer? = null,
+    public var iface: UsbdInterfaceInformation = UsbdInterfaceInformation(),
 )
 
-public data class _URB_SELECT_INTERFACE(
-    public var Hdr: _URB_HEADER = _URB_HEADER(),
-    public var ConfigurationHandle: Long = 0L,
-    public var Interface: USBD_INTERFACE_INFORMATION = USBD_INTERFACE_INFORMATION(),
+public data class UrbSelectInterface(
+    public var hdr: UrbHeader = UrbHeader(),
+    public var configurationHandle: COpaquePointer? = null,
+    public var iface: UsbdInterfaceInformation = UsbdInterfaceInformation(),
 )
 
-public data class _URB_SET_FRAME_LENGTH(public var Hdr: _URB_HEADER = _URB_HEADER(), public var FrameLengthDelta: Int = 0)
+public data class UrbSetFrameLength(public var hdr: UrbHeader = UrbHeader(), public var frameLengthDelta: Int = 0)

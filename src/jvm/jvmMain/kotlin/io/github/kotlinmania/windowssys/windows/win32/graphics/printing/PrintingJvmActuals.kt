@@ -2,18 +2,19 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.graphics.printing
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HDC
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hdc
 
 private object WindowsWin32GraphicsPrintingJniBridge {
     init {
@@ -21,1014 +22,1014 @@ private object WindowsWin32GraphicsPrintingJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_AddMonitorA(pname: Long, level: Int, pmonitors: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_addMonitorA(pname: Long, level: Int, pmonitors: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_AddMonitorW(pname: Long, level: Int, pmonitors: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_addMonitorW(pname: Long, level: Int, pmonitors: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_AddPortA(pname: Long, hwnd: Long, pmonitorname: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_addPortA(pname: Long, hwnd: Long, pmonitorname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_AddPortW(pname: Long, hwnd: Long, pmonitorname: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_addPortW(pname: Long, hwnd: Long, pmonitorname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_AddPrintProcessorA(pname: Long, penvironment: Long, ppathname: Long, pprintprocessorname: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_addPrintProcessorA(pname: Long, penvironment: Long, ppathname: Long, pprintprocessorname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_AddPrintProcessorW(pname: Long, penvironment: Long, ppathname: Long, pprintprocessorname: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_addPrintProcessorW(pname: Long, penvironment: Long, ppathname: Long, pprintprocessorname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_AddPrintProvidorA(pname: Long, level: Int, pprovidorinfo: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_addPrintProvidorA(pname: Long, level: Int, pprovidorinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_AddPrintProvidorW(pname: Long, level: Int, pprovidorinfo: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_addPrintProvidorW(pname: Long, level: Int, pprovidorinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_AddPrinterA(pname: Long, level: Int, pprinter: Long): Long
+    external fun windowssys_windows_win32_graphics_printing_addPrinterA(pname: Long, level: Int, pprinter: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_AddPrinterConnection2A(hwnd: Long, pszname: Long, dwlevel: Int, pconnectioninfo: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_addPrinterConnection2A(hwnd: Long, pszname: Long, dwlevel: Int, pconnectioninfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_AddPrinterConnection2W(hwnd: Long, pszname: Long, dwlevel: Int, pconnectioninfo: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_addPrinterConnection2W(hwnd: Long, pszname: Long, dwlevel: Int, pconnectioninfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_AddPrinterConnectionA(pname: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_addPrinterConnectionA(pname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_AddPrinterConnectionW(pname: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_addPrinterConnectionW(pname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_AddPrinterDriverA(pname: Long, level: Int, pdriverinfo: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_addPrinterDriverA(pname: Long, level: Int, pdriverinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_AddPrinterDriverExA(pname: Long, level: Int, lpbdriverinfo: Long, dwfilecopyflags: Int): Int
+    external fun windowssys_windows_win32_graphics_printing_addPrinterDriverExA(pname: Long, level: Int, lpbdriverinfo: Long, dwfilecopyflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_AddPrinterDriverExW(pname: Long, level: Int, lpbdriverinfo: Long, dwfilecopyflags: Int): Int
+    external fun windowssys_windows_win32_graphics_printing_addPrinterDriverExW(pname: Long, level: Int, lpbdriverinfo: Long, dwfilecopyflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_AddPrinterDriverW(pname: Long, level: Int, pdriverinfo: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_addPrinterDriverW(pname: Long, level: Int, pdriverinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_AddPrinterW(pname: Long, level: Int, pprinter: Long): Long
+    external fun windowssys_windows_win32_graphics_printing_addPrinterW(pname: Long, level: Int, pprinter: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_AppendPrinterNotifyInfoData(pinfodest: Long, pdatasrc: Long, fdwflags: Int): Int
+    external fun windowssys_windows_win32_graphics_printing_appendPrinterNotifyInfoData(pinfodest: Long, pdatasrc: Long, fdwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_CallRouterFindFirstPrinterChangeNotification(hprinterrpc: Long, fdwfilterflags: Int, fdwoptions: Int, hnotify: Long, pprinternotifyoptions: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_callRouterFindFirstPrinterChangeNotification(hprinterrpc: Long, fdwfilterflags: Int, fdwoptions: Int, hnotify: Long, pprinternotifyoptions: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_CommonPropertySheetUIA(hwndowner: Long, pfnpropsheetui: Long, lparam: Long, presult: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_commonPropertySheetUIA(hwndowner: Long, pfnpropsheetui: Long, lparam: Long, presult: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_CommonPropertySheetUIW(hwndowner: Long, pfnpropsheetui: Long, lparam: Long, presult: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_commonPropertySheetUIW(hwndowner: Long, pfnpropsheetui: Long, lparam: Long, presult: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_ConfigurePortA(pname: Long, hwnd: Long, pportname: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_configurePortA(pname: Long, hwnd: Long, pportname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_ConfigurePortW(pname: Long, hwnd: Long, pportname: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_configurePortW(pname: Long, hwnd: Long, pportname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_ConnectToPrinterDlg(hwnd: Long, flags: Int): Long
+    external fun windowssys_windows_win32_graphics_printing_connectToPrinterDlg(hwnd: Long, flags: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_CreatePrintAsyncNotifyChannel(pszname: Long, pnotificationtype: Long, euserfilter: Int, econversationstyle: Int, pcallback: Long, ppiasynchnotification: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_createPrintAsyncNotifyChannel(pszname: Long, pnotificationtype: Long, euserfilter: Int, econversationstyle: Int, pcallback: Long, ppiasynchnotification: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_DeleteMonitorA(pname: Long, penvironment: Long, pmonitorname: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_deleteMonitorA(pname: Long, penvironment: Long, pmonitorname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_DeleteMonitorW(pname: Long, penvironment: Long, pmonitorname: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_deleteMonitorW(pname: Long, penvironment: Long, pmonitorname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_DeletePortA(pname: Long, hwnd: Long, pportname: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_deletePortA(pname: Long, hwnd: Long, pportname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_DeletePortW(pname: Long, hwnd: Long, pportname: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_deletePortW(pname: Long, hwnd: Long, pportname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_DeletePrintProcessorA(pname: Long, penvironment: Long, pprintprocessorname: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_deletePrintProcessorA(pname: Long, penvironment: Long, pprintprocessorname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_DeletePrintProcessorW(pname: Long, penvironment: Long, pprintprocessorname: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_deletePrintProcessorW(pname: Long, penvironment: Long, pprintprocessorname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_DeletePrintProvidorA(pname: Long, penvironment: Long, pprintprovidorname: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_deletePrintProvidorA(pname: Long, penvironment: Long, pprintprovidorname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_DeletePrintProvidorW(pname: Long, penvironment: Long, pprintprovidorname: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_deletePrintProvidorW(pname: Long, penvironment: Long, pprintprovidorname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_DeletePrinterConnectionA(pname: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_deletePrinterConnectionA(pname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_DeletePrinterConnectionW(pname: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_deletePrinterConnectionW(pname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_DeletePrinterDriverA(pname: Long, penvironment: Long, pdrivername: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_deletePrinterDriverA(pname: Long, penvironment: Long, pdrivername: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_DeletePrinterDriverExA(pname: Long, penvironment: Long, pdrivername: Long, dwdeleteflag: Int, dwversionflag: Int): Int
+    external fun windowssys_windows_win32_graphics_printing_deletePrinterDriverExA(pname: Long, penvironment: Long, pdrivername: Long, dwdeleteflag: Int, dwversionflag: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_DeletePrinterDriverExW(pname: Long, penvironment: Long, pdrivername: Long, dwdeleteflag: Int, dwversionflag: Int): Int
+    external fun windowssys_windows_win32_graphics_printing_deletePrinterDriverExW(pname: Long, penvironment: Long, pdrivername: Long, dwdeleteflag: Int, dwversionflag: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_DeletePrinterDriverPackageA(pszserver: Long, pszinfpath: Long, pszenvironment: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_deletePrinterDriverPackageA(pszserver: Long, pszinfpath: Long, pszenvironment: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_DeletePrinterDriverPackageW(pszserver: Long, pszinfpath: Long, pszenvironment: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_deletePrinterDriverPackageW(pszserver: Long, pszinfpath: Long, pszenvironment: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_DeletePrinterDriverW(pname: Long, penvironment: Long, pdrivername: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_deletePrinterDriverW(pname: Long, penvironment: Long, pdrivername: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_DeletePrinterIC(hprinteric: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_deletePrinterIC(hprinteric: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_DevQueryPrintEx(pdqpinfo: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_devQueryPrintEx(pdqpinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_EnumMonitorsA(pname: Long, level: Int, pmonitor: Long, cbbuf: Int, pcbneeded: Long, pcreturned: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_enumMonitorsA(pname: Long, level: Int, pmonitor: Long, cbbuf: Int, pcbneeded: Long, pcreturned: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_EnumMonitorsW(pname: Long, level: Int, pmonitor: Long, cbbuf: Int, pcbneeded: Long, pcreturned: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_enumMonitorsW(pname: Long, level: Int, pmonitor: Long, cbbuf: Int, pcbneeded: Long, pcreturned: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_EnumPortsA(pname: Long, level: Int, pport: Long, cbbuf: Int, pcbneeded: Long, pcreturned: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_enumPortsA(pname: Long, level: Int, pport: Long, cbbuf: Int, pcbneeded: Long, pcreturned: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_EnumPortsW(pname: Long, level: Int, pport: Long, cbbuf: Int, pcbneeded: Long, pcreturned: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_enumPortsW(pname: Long, level: Int, pport: Long, cbbuf: Int, pcbneeded: Long, pcreturned: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_EnumPrintProcessorDatatypesA(pname: Long, pprintprocessorname: Long, level: Int, pdatatypes: Long, cbbuf: Int, pcbneeded: Long, pcreturned: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_enumPrintProcessorDatatypesA(pname: Long, pprintprocessorname: Long, level: Int, pdatatypes: Long, cbbuf: Int, pcbneeded: Long, pcreturned: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_EnumPrintProcessorDatatypesW(pname: Long, pprintprocessorname: Long, level: Int, pdatatypes: Long, cbbuf: Int, pcbneeded: Long, pcreturned: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_enumPrintProcessorDatatypesW(pname: Long, pprintprocessorname: Long, level: Int, pdatatypes: Long, cbbuf: Int, pcbneeded: Long, pcreturned: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_EnumPrintProcessorsA(pname: Long, penvironment: Long, level: Int, pprintprocessorinfo: Long, cbbuf: Int, pcbneeded: Long, pcreturned: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_enumPrintProcessorsA(pname: Long, penvironment: Long, level: Int, pprintprocessorinfo: Long, cbbuf: Int, pcbneeded: Long, pcreturned: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_EnumPrintProcessorsW(pname: Long, penvironment: Long, level: Int, pprintprocessorinfo: Long, cbbuf: Int, pcbneeded: Long, pcreturned: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_enumPrintProcessorsW(pname: Long, penvironment: Long, level: Int, pprintprocessorinfo: Long, cbbuf: Int, pcbneeded: Long, pcreturned: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_EnumPrinterDriversA(pname: Long, penvironment: Long, level: Int, pdriverinfo: Long, cbbuf: Int, pcbneeded: Long, pcreturned: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_enumPrinterDriversA(pname: Long, penvironment: Long, level: Int, pdriverinfo: Long, cbbuf: Int, pcbneeded: Long, pcreturned: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_EnumPrinterDriversW(pname: Long, penvironment: Long, level: Int, pdriverinfo: Long, cbbuf: Int, pcbneeded: Long, pcreturned: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_enumPrinterDriversW(pname: Long, penvironment: Long, level: Int, pdriverinfo: Long, cbbuf: Int, pcbneeded: Long, pcreturned: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_EnumPrintersA(flags: Int, name: Long, level: Int, pprinterenum: Long, cbbuf: Int, pcbneeded: Long, pcreturned: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_enumPrintersA(flags: Int, name: Long, level: Int, pprinterenum: Long, cbbuf: Int, pcbneeded: Long, pcreturned: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_EnumPrintersW(flags: Int, name: Long, level: Int, pprinterenum: Long, cbbuf: Int, pcbneeded: Long, pcreturned: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_enumPrintersW(flags: Int, name: Long, level: Int, pprinterenum: Long, cbbuf: Int, pcbneeded: Long, pcreturned: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_ExtDeviceMode(hwnd: Long, hinst: Long, pdevmodeoutput: Long, pdevicename: Long, pport: Long, pdevmodeinput: Long, pprofile: Long, fmode: Int): Int
+    external fun windowssys_windows_win32_graphics_printing_extDeviceMode(hwnd: Long, hinst: Long, pdevmodeoutput: Long, pdevicename: Long, pport: Long, pdevmodeinput: Long, pprofile: Long, fmode: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_FindClosePrinterChangeNotification(hchange: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_findClosePrinterChangeNotification(hchange: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_FindNextPrinterChangeNotification(hchange: Long, pdwchange: Long, pvreserved: Long, ppprinternotifyinfo: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_findNextPrinterChangeNotification(hchange: Long, pdwchange: Long, pvreserved: Long, ppprinternotifyinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_FreePrintNamedPropertyArray(cproperties: Int, ppproperties: Long)
+    external fun windowssys_windows_win32_graphics_printing_freePrintNamedPropertyArray(cproperties: Int, ppproperties: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_FreePrintPropertyValue(pvalue: Long)
+    external fun windowssys_windows_win32_graphics_printing_freePrintPropertyValue(pvalue: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_FreePrinterNotifyInfo(pprinternotifyinfo: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_freePrinterNotifyInfo(pprinternotifyinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_GdiDeleteSpoolFileHandle(spoolfilehandle: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_gdiDeleteSpoolFileHandle(spoolfilehandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_GdiEndDocEMF(spoolfilehandle: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_gdiEndDocEMF(spoolfilehandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_GdiEndPageEMF(spoolfilehandle: Long, dwoptimization: Int): Int
+    external fun windowssys_windows_win32_graphics_printing_gdiEndPageEMF(spoolfilehandle: Long, dwoptimization: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_GdiGetDC(spoolfilehandle: Long): Long
+    external fun windowssys_windows_win32_graphics_printing_gdiGetDC(spoolfilehandle: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_GdiGetDevmodeForPage(spoolfilehandle: Long, dwpagenumber: Int, pcurrdm: Long, plastdm: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_gdiGetDevmodeForPage(spoolfilehandle: Long, dwpagenumber: Int, pcurrdm: Long, plastdm: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_GdiGetPageCount(spoolfilehandle: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_gdiGetPageCount(spoolfilehandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_GdiGetPageHandle(spoolfilehandle: Long, page: Int, pdwpagetype: Long): Long
+    external fun windowssys_windows_win32_graphics_printing_gdiGetPageHandle(spoolfilehandle: Long, page: Int, pdwpagetype: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_GdiGetSpoolFileHandle(pwszprintername: Long, pdevmode: Long, pwszdocname: Long): Long
+    external fun windowssys_windows_win32_graphics_printing_gdiGetSpoolFileHandle(pwszprintername: Long, pdevmode: Long, pwszdocname: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_GdiPlayPageEMF(spoolfilehandle: Long, hemf: Long, prectdocument: Long, prectborder: Long, prectclip: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_gdiPlayPageEMF(spoolfilehandle: Long, hemf: Long, prectdocument: Long, prectborder: Long, prectclip: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_GdiResetDCEMF(spoolfilehandle: Long, pcurrdm: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_gdiResetDCEMF(spoolfilehandle: Long, pcurrdm: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_GdiStartDocEMF(spoolfilehandle: Long, pdocinfo: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_gdiStartDocEMF(spoolfilehandle: Long, pdocinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_GdiStartPageEMF(spoolfilehandle: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_gdiStartPageEMF(spoolfilehandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_GenerateCopyFilePaths(pszprintername: Long, pszdirectory: Long, psplclientinfo: Long, dwlevel: Int, pszsourcedir: Long, pcchsourcedirsize: Long, psztargetdir: Long, pcchtargetdirsize: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_graphics_printing_generateCopyFilePaths(pszprintername: Long, pszdirectory: Long, psplclientinfo: Long, dwlevel: Int, pszsourcedir: Long, pcchsourcedirsize: Long, psztargetdir: Long, pcchtargetdirsize: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_GetCPSUIUserData(hdlg: Long): Long
+    external fun windowssys_windows_win32_graphics_printing_getCPSUIUserData(hdlg: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_GetCorePrinterDriversA(pszserver: Long, pszenvironment: Long, pszzcoredriverdependencies: Long, ccoreprinterdrivers: Int, pcoreprinterdrivers: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_getCorePrinterDriversA(pszserver: Long, pszenvironment: Long, pszzcoredriverdependencies: Long, ccoreprinterdrivers: Int, pcoreprinterdrivers: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_GetCorePrinterDriversW(pszserver: Long, pszenvironment: Long, pszzcoredriverdependencies: Long, ccoreprinterdrivers: Int, pcoreprinterdrivers: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_getCorePrinterDriversW(pszserver: Long, pszenvironment: Long, pszzcoredriverdependencies: Long, ccoreprinterdrivers: Int, pcoreprinterdrivers: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_GetDefaultPrinterA(pszbuffer: Long, pcchbuffer: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_getDefaultPrinterA(pszbuffer: Long, pcchbuffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_GetDefaultPrinterW(pszbuffer: Long, pcchbuffer: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_getDefaultPrinterW(pszbuffer: Long, pcchbuffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_GetJobAttributes(pprintername: Long, pdevmode: Long, pattributeinfo: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_getJobAttributes(pprintername: Long, pdevmode: Long, pattributeinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_GetJobAttributesEx(pprintername: Long, pdevmode: Long, dwlevel: Int, pattributeinfo: Long, nsize: Int, dwflags: Int): Int
+    external fun windowssys_windows_win32_graphics_printing_getJobAttributesEx(pprintername: Long, pdevmode: Long, dwlevel: Int, pattributeinfo: Long, nsize: Int, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_GetPrintExecutionData(pdata: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_getPrintExecutionData(pdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_GetPrintOutputInfo(hwnd: Long, pszprinter: Long, phfile: Long, ppszoutputfile: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_getPrintOutputInfo(hwnd: Long, pszprinter: Long, phfile: Long, ppszoutputfile: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_GetPrintProcessorDirectoryA(pname: Long, penvironment: Long, level: Int, pprintprocessorinfo: Long, cbbuf: Int, pcbneeded: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_getPrintProcessorDirectoryA(pname: Long, penvironment: Long, level: Int, pprintprocessorinfo: Long, cbbuf: Int, pcbneeded: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_GetPrintProcessorDirectoryW(pname: Long, penvironment: Long, level: Int, pprintprocessorinfo: Long, cbbuf: Int, pcbneeded: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_getPrintProcessorDirectoryW(pname: Long, penvironment: Long, level: Int, pprintprocessorinfo: Long, cbbuf: Int, pcbneeded: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_GetPrinterDriverDirectoryA(pname: Long, penvironment: Long, level: Int, pdriverdirectory: Long, cbbuf: Int, pcbneeded: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_getPrinterDriverDirectoryA(pname: Long, penvironment: Long, level: Int, pdriverdirectory: Long, cbbuf: Int, pcbneeded: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_GetPrinterDriverDirectoryW(pname: Long, penvironment: Long, level: Int, pdriverdirectory: Long, cbbuf: Int, pcbneeded: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_getPrinterDriverDirectoryW(pname: Long, penvironment: Long, level: Int, pdriverdirectory: Long, cbbuf: Int, pcbneeded: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_GetPrinterDriverPackagePathA(pszserver: Long, pszenvironment: Long, pszlanguage: Long, pszpackageid: Long, pszdriverpackagecab: Long, cchdriverpackagecab: Int, pcchrequiredsize: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_getPrinterDriverPackagePathA(pszserver: Long, pszenvironment: Long, pszlanguage: Long, pszpackageid: Long, pszdriverpackagecab: Long, cchdriverpackagecab: Int, pcchrequiredsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_GetPrinterDriverPackagePathW(pszserver: Long, pszenvironment: Long, pszlanguage: Long, pszpackageid: Long, pszdriverpackagecab: Long, cchdriverpackagecab: Int, pcchrequiredsize: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_getPrinterDriverPackagePathW(pszserver: Long, pszenvironment: Long, pszlanguage: Long, pszpackageid: Long, pszdriverpackagecab: Long, cchdriverpackagecab: Int, pcchrequiredsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_ImpersonatePrinterClient(htoken: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_impersonatePrinterClient(htoken: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_InstallPrinterDriverFromPackageA(pszserver: Long, pszinfpath: Long, pszdrivername: Long, pszenvironment: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_graphics_printing_installPrinterDriverFromPackageA(pszserver: Long, pszinfpath: Long, pszdrivername: Long, pszenvironment: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_InstallPrinterDriverFromPackageW(pszserver: Long, pszinfpath: Long, pszdrivername: Long, pszenvironment: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_graphics_printing_installPrinterDriverFromPackageW(pszserver: Long, pszinfpath: Long, pszdrivername: Long, pszenvironment: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_IsValidDevmodeA(pdevmode: Long, devmodesize: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_isValidDevmodeA(pdevmode: Long, devmodesize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_IsValidDevmodeW(pdevmode: Long, devmodesize: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_isValidDevmodeW(pdevmode: Long, devmodesize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_OpenPrinter2A(pprintername: Long, phprinter: Long, pdefault: Long, poptions: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_openPrinter2A(pprintername: Long, phprinter: Long, pdefault: Long, poptions: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_OpenPrinter2W(pprintername: Long, phprinter: Long, pdefault: Long, poptions: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_openPrinter2W(pprintername: Long, phprinter: Long, pdefault: Long, poptions: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_OpenPrinterA(pprintername: Long, phprinter: Long, pdefault: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_openPrinterA(pprintername: Long, phprinter: Long, pdefault: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_OpenPrinterW(pprintername: Long, phprinter: Long, pdefault: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_openPrinterW(pprintername: Long, phprinter: Long, pdefault: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_PlayGdiScriptOnPrinterIC(hprinteric: Long, pin: Long, cin: Int, pout: Long, cout: Int, ul: Int): Int
+    external fun windowssys_windows_win32_graphics_printing_playGdiScriptOnPrinterIC(hprinteric: Long, pin: Long, cin: Int, pout: Long, cout: Int, ul: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_RegisterForPrintAsyncNotifications(pszname: Long, pnotificationtype: Long, euserfilter: Int, econversationstyle: Int, pcallback: Long, phnotify: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_registerForPrintAsyncNotifications(pszname: Long, pnotificationtype: Long, euserfilter: Int, econversationstyle: Int, pcallback: Long, phnotify: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_RemovePrintDeviceObject(hdeviceobject: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_removePrintDeviceObject(hdeviceobject: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_ReplyPrinterChangeNotificationEx(hnotify: Long, dwcolor: Int, fdwflags: Int, pdwresult: Long, pprinternotifyinfo: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_replyPrinterChangeNotificationEx(hnotify: Long, dwcolor: Int, fdwflags: Int, pdwresult: Long, pprinternotifyinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_ReportJobProcessingProgress(printerhandle: Long, jobid: Int, joboperation: Int, jobprogress: Int): Int
+    external fun windowssys_windows_win32_graphics_printing_reportJobProcessingProgress(printerhandle: Long, jobid: Int, joboperation: Int, jobprogress: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_RevertToPrinterSelf(): Long
+    external fun windowssys_windows_win32_graphics_printing_revertToPrinterSelf(): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_RouterAllocBidiMem(numbytes: Long): Long
+    external fun windowssys_windows_win32_graphics_printing_routerAllocBidiMem(numbytes: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_RouterAllocBidiResponseContainer(count: Int): Long
+    external fun windowssys_windows_win32_graphics_printing_routerAllocBidiResponseContainer(count: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_RouterAllocPrinterNotifyInfo(cprinternotifyinfodata: Int): Long
+    external fun windowssys_windows_win32_graphics_printing_routerAllocPrinterNotifyInfo(cprinternotifyinfodata: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_RouterFreeBidiMem(pmempointer: Long)
+    external fun windowssys_windows_win32_graphics_printing_routerFreeBidiMem(pmempointer: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_RouterFreeBidiResponseContainer(pdata: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_routerFreeBidiResponseContainer(pdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_RouterFreePrinterNotifyInfo(pinfo: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_routerFreePrinterNotifyInfo(pinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_SetCPSUIUserData(hdlg: Long, cpsuiuserdata: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_setCPSUIUserData(hdlg: Long, cpsuiuserdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_SetDefaultPrinterA(pszprinter: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_setDefaultPrinterA(pszprinter: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_SetDefaultPrinterW(pszprinter: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_setDefaultPrinterW(pszprinter: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_SetPortA(pname: Long, pportname: Long, dwlevel: Int, pportinfo: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_setPortA(pname: Long, pportname: Long, dwlevel: Int, pportinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_SetPortW(pname: Long, pportname: Long, dwlevel: Int, pportinfo: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_setPortW(pname: Long, pportname: Long, dwlevel: Int, pportinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_SpoolerCopyFileEvent(pszprintername: Long, pszkey: Long, dwcopyfileevent: Int): Int
+    external fun windowssys_windows_win32_graphics_printing_spoolerCopyFileEvent(pszprintername: Long, pszkey: Long, dwcopyfileevent: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_SpoolerFreePrinterNotifyInfo(pinfo: Long)
+    external fun windowssys_windows_win32_graphics_printing_spoolerFreePrinterNotifyInfo(pinfo: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_UnRegisterForPrintAsyncNotifications(param0: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_unRegisterForPrintAsyncNotifications(param0: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_UploadPrinterDriverPackageA(pszserver: Long, pszinfpath: Long, pszenvironment: Long, dwflags: Int, hwnd: Long, pszdestinfpath: Long, pcchdestinfpath: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_uploadPrinterDriverPackageA(pszserver: Long, pszinfpath: Long, pszenvironment: Long, dwflags: Int, hwnd: Long, pszdestinfpath: Long, pcchdestinfpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_UploadPrinterDriverPackageW(pszserver: Long, pszinfpath: Long, pszenvironment: Long, dwflags: Int, hwnd: Long, pszdestinfpath: Long, pcchdestinfpath: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_uploadPrinterDriverPackageW(pszserver: Long, pszinfpath: Long, pszenvironment: Long, dwflags: Int, hwnd: Long, pszdestinfpath: Long, pcchdestinfpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_XcvDataW(hxcv: Long, pszdataname: Long, pinputdata: Long, cbinputdata: Int, poutputdata: Long, cboutputdata: Int, pcboutputneeded: Long, pdwstatus: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_xcvDataW(hxcv: Long, pszdataname: Long, pinputdata: Long, cbinputdata: Int, poutputdata: Long, cboutputdata: Int, pcboutputneeded: Long, pdwstatus: Long): Int
 }
 
-public actual fun AbortPrinter(hprinter: PRINTER_HANDLE): BOOL =
+public actual fun abortPrinter(hprinter: PrinterHandle): Bool =
     0
 
-public actual fun AddFormA(hprinter: PRINTER_HANDLE, level: UInt, pform: Long): BOOL =
+public actual fun addFormA(hprinter: PrinterHandle, level: UInt, pform: COpaquePointer?): Bool =
     0
 
-public actual fun AddFormW(hprinter: PRINTER_HANDLE, level: UInt, pform: Long): BOOL =
+public actual fun addFormW(hprinter: PrinterHandle, level: UInt, pform: COpaquePointer?): Bool =
     0
 
-public actual fun AddJobA(hprinter: PRINTER_HANDLE, level: UInt, pdata: Long, cbbuf: UInt, pcbneeded: Long): BOOL =
+public actual fun addJobA(hprinter: PrinterHandle, level: UInt, pdata: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?): Bool =
     0
 
-public actual fun AddJobW(hprinter: PRINTER_HANDLE, level: UInt, pdata: Long, cbbuf: UInt, pcbneeded: Long): BOOL =
+public actual fun addJobW(hprinter: PrinterHandle, level: UInt, pdata: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?): Bool =
     0
 
-public actual fun AddMonitorA(pname: PCSTR, level: UInt, pmonitors: Long): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_AddMonitorA(pname, level.toInt(), pmonitors)
+public actual fun addMonitorA(pname: Pcstr, level: UInt, pmonitors: COpaquePointer?): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_addMonitorA((pname?.value ?: 0L), level.toInt(), (pmonitors?.value ?: 0L))
 
-public actual fun AddMonitorW(pname: PCWSTR, level: UInt, pmonitors: Long): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_AddMonitorW(pname, level.toInt(), pmonitors)
+public actual fun addMonitorW(pname: Pcwstr, level: UInt, pmonitors: COpaquePointer?): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_addMonitorW((pname?.value ?: 0L), level.toInt(), (pmonitors?.value ?: 0L))
 
-public actual fun AddPortA(pname: PCSTR, hwnd: HWND, pmonitorname: PCSTR): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_AddPortA(pname, hwnd, pmonitorname)
+public actual fun addPortA(pname: Pcstr, hwnd: Hwnd, pmonitorname: Pcstr): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_addPortA((pname?.value ?: 0L), (hwnd?.value ?: 0L), (pmonitorname?.value ?: 0L))
 
-public actual fun AddPortW(pname: PCWSTR, hwnd: HWND, pmonitorname: PCWSTR): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_AddPortW(pname, hwnd, pmonitorname)
+public actual fun addPortW(pname: Pcwstr, hwnd: Hwnd, pmonitorname: Pcwstr): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_addPortW((pname?.value ?: 0L), (hwnd?.value ?: 0L), (pmonitorname?.value ?: 0L))
 
-public actual fun AddPrintDeviceObject(hprinter: PRINTER_HANDLE, phdeviceobject: Long): HRESULT =
+public actual fun addPrintDeviceObject(hprinter: PrinterHandle, phdeviceobject: COpaquePointer?): Hresult =
     0
 
-public actual fun AddPrintProcessorA(pname: PCSTR, penvironment: PCSTR, ppathname: PCSTR, pprintprocessorname: PCSTR): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_AddPrintProcessorA(pname, penvironment, ppathname, pprintprocessorname)
+public actual fun addPrintProcessorA(pname: Pcstr, penvironment: Pcstr, ppathname: Pcstr, pprintprocessorname: Pcstr): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_addPrintProcessorA((pname?.value ?: 0L), (penvironment?.value ?: 0L), (ppathname?.value ?: 0L), (pprintprocessorname?.value ?: 0L))
 
-public actual fun AddPrintProcessorW(pname: PCWSTR, penvironment: PCWSTR, ppathname: PCWSTR, pprintprocessorname: PCWSTR): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_AddPrintProcessorW(pname, penvironment, ppathname, pprintprocessorname)
+public actual fun addPrintProcessorW(pname: Pcwstr, penvironment: Pcwstr, ppathname: Pcwstr, pprintprocessorname: Pcwstr): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_addPrintProcessorW((pname?.value ?: 0L), (penvironment?.value ?: 0L), (ppathname?.value ?: 0L), (pprintprocessorname?.value ?: 0L))
 
-public actual fun AddPrintProvidorA(pname: PCSTR, level: UInt, pprovidorinfo: Long): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_AddPrintProvidorA(pname, level.toInt(), pprovidorinfo)
+public actual fun addPrintProvidorA(pname: Pcstr, level: UInt, pprovidorinfo: COpaquePointer?): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_addPrintProvidorA((pname?.value ?: 0L), level.toInt(), (pprovidorinfo?.value ?: 0L))
 
-public actual fun AddPrintProvidorW(pname: PCWSTR, level: UInt, pprovidorinfo: Long): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_AddPrintProvidorW(pname, level.toInt(), pprovidorinfo)
+public actual fun addPrintProvidorW(pname: Pcwstr, level: UInt, pprovidorinfo: COpaquePointer?): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_addPrintProvidorW((pname?.value ?: 0L), level.toInt(), (pprovidorinfo?.value ?: 0L))
 
-public actual fun AddPrinterA(pname: PCSTR, level: UInt, pprinter: Long): HANDLE =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_AddPrinterA(pname, level.toInt(), pprinter)
+public actual fun addPrinterA(pname: Pcstr, level: UInt, pprinter: COpaquePointer?): Handle =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_addPrinterA((pname?.value ?: 0L), level.toInt(), (pprinter?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun AddPrinterConnection2A(hwnd: HWND, pszname: PCSTR, dwlevel: UInt, pconnectioninfo: Long): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_AddPrinterConnection2A(hwnd, pszname, dwlevel.toInt(), pconnectioninfo)
+public actual fun addPrinterConnection2A(hwnd: Hwnd, pszname: Pcstr, dwlevel: UInt, pconnectioninfo: COpaquePointer?): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_addPrinterConnection2A((hwnd?.value ?: 0L), (pszname?.value ?: 0L), dwlevel.toInt(), (pconnectioninfo?.value ?: 0L))
 
-public actual fun AddPrinterConnection2W(hwnd: HWND, pszname: PCWSTR, dwlevel: UInt, pconnectioninfo: Long): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_AddPrinterConnection2W(hwnd, pszname, dwlevel.toInt(), pconnectioninfo)
+public actual fun addPrinterConnection2W(hwnd: Hwnd, pszname: Pcwstr, dwlevel: UInt, pconnectioninfo: COpaquePointer?): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_addPrinterConnection2W((hwnd?.value ?: 0L), (pszname?.value ?: 0L), dwlevel.toInt(), (pconnectioninfo?.value ?: 0L))
 
-public actual fun AddPrinterConnectionA(pname: PCSTR): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_AddPrinterConnectionA(pname)
+public actual fun addPrinterConnectionA(pname: Pcstr): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_addPrinterConnectionA((pname?.value ?: 0L))
 
-public actual fun AddPrinterConnectionW(pname: PCWSTR): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_AddPrinterConnectionW(pname)
+public actual fun addPrinterConnectionW(pname: Pcwstr): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_addPrinterConnectionW((pname?.value ?: 0L))
 
-public actual fun AddPrinterDriverA(pname: PCSTR, level: UInt, pdriverinfo: Long): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_AddPrinterDriverA(pname, level.toInt(), pdriverinfo)
+public actual fun addPrinterDriverA(pname: Pcstr, level: UInt, pdriverinfo: COpaquePointer?): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_addPrinterDriverA((pname?.value ?: 0L), level.toInt(), (pdriverinfo?.value ?: 0L))
 
-public actual fun AddPrinterDriverExA(pname: PCSTR, level: UInt, lpbdriverinfo: Long, dwfilecopyflags: UInt): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_AddPrinterDriverExA(pname, level.toInt(), lpbdriverinfo, dwfilecopyflags.toInt())
+public actual fun addPrinterDriverExA(pname: Pcstr, level: UInt, lpbdriverinfo: COpaquePointer?, dwfilecopyflags: UInt): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_addPrinterDriverExA((pname?.value ?: 0L), level.toInt(), (lpbdriverinfo?.value ?: 0L), dwfilecopyflags.toInt())
 
-public actual fun AddPrinterDriverExW(pname: PCWSTR, level: UInt, lpbdriverinfo: Long, dwfilecopyflags: UInt): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_AddPrinterDriverExW(pname, level.toInt(), lpbdriverinfo, dwfilecopyflags.toInt())
+public actual fun addPrinterDriverExW(pname: Pcwstr, level: UInt, lpbdriverinfo: COpaquePointer?, dwfilecopyflags: UInt): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_addPrinterDriverExW((pname?.value ?: 0L), level.toInt(), (lpbdriverinfo?.value ?: 0L), dwfilecopyflags.toInt())
 
-public actual fun AddPrinterDriverW(pname: PCWSTR, level: UInt, pdriverinfo: Long): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_AddPrinterDriverW(pname, level.toInt(), pdriverinfo)
+public actual fun addPrinterDriverW(pname: Pcwstr, level: UInt, pdriverinfo: COpaquePointer?): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_addPrinterDriverW((pname?.value ?: 0L), level.toInt(), (pdriverinfo?.value ?: 0L))
 
-public actual fun AddPrinterW(pname: PCWSTR, level: UInt, pprinter: Long): HANDLE =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_AddPrinterW(pname, level.toInt(), pprinter)
+public actual fun addPrinterW(pname: Pcwstr, level: UInt, pprinter: COpaquePointer?): Handle =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_addPrinterW((pname?.value ?: 0L), level.toInt(), (pprinter?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun AdvancedDocumentPropertiesA(hwnd: HWND, hprinter: PRINTER_HANDLE, pdevicename: PCSTR, pdevmodeoutput: Long, pdevmodeinput: Long): Int =
+public actual fun advancedDocumentPropertiesA(hwnd: Hwnd, hprinter: PrinterHandle, pdevicename: Pcstr, pdevmodeoutput: COpaquePointer?, pdevmodeinput: COpaquePointer?): Int =
     0
 
-public actual fun AdvancedDocumentPropertiesW(hwnd: HWND, hprinter: PRINTER_HANDLE, pdevicename: PCWSTR, pdevmodeoutput: Long, pdevmodeinput: Long): Int =
+public actual fun advancedDocumentPropertiesW(hwnd: Hwnd, hprinter: PrinterHandle, pdevicename: Pcwstr, pdevmodeoutput: COpaquePointer?, pdevmodeinput: COpaquePointer?): Int =
     0
 
-public actual fun AppendPrinterNotifyInfoData(pinfodest: Long, pdatasrc: Long, fdwflags: UInt): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_AppendPrinterNotifyInfoData(pinfodest, pdatasrc, fdwflags.toInt())
+public actual fun appendPrinterNotifyInfoData(pinfodest: COpaquePointer?, pdatasrc: COpaquePointer?, fdwflags: UInt): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_appendPrinterNotifyInfoData((pinfodest?.value ?: 0L), (pdatasrc?.value ?: 0L), fdwflags.toInt())
 
-public actual fun CallRouterFindFirstPrinterChangeNotification(hprinterrpc: HANDLE, fdwfilterflags: UInt, fdwoptions: UInt, hnotify: HANDLE, pprinternotifyoptions: Long): UInt =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_CallRouterFindFirstPrinterChangeNotification(hprinterrpc, fdwfilterflags.toInt(), fdwoptions.toInt(), hnotify, pprinternotifyoptions).toUInt()
+public actual fun callRouterFindFirstPrinterChangeNotification(hprinterrpc: Handle, fdwfilterflags: UInt, fdwoptions: UInt, hnotify: Handle, pprinternotifyoptions: COpaquePointer?): UInt =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_callRouterFindFirstPrinterChangeNotification((hprinterrpc?.value ?: 0L), fdwfilterflags.toInt(), fdwoptions.toInt(), (hnotify?.value ?: 0L), (pprinternotifyoptions?.value ?: 0L)).toUInt()
 
-public actual fun ClosePrinter(hprinter: PRINTER_HANDLE): BOOL =
+public actual fun closePrinter(hprinter: PrinterHandle): Bool =
     0
 
-public actual fun CloseSpoolFileHandle(hprinter: PRINTER_HANDLE, hspoolfile: HANDLE): BOOL =
+public actual fun closeSpoolFileHandle(hprinter: PrinterHandle, hspoolfile: Handle): Bool =
     0
 
-public actual fun CommitSpoolData(hprinter: PRINTER_HANDLE, hspoolfile: HANDLE, cbcommit: UInt): HANDLE =
-    0L
+public actual fun commitSpoolData(hprinter: PrinterHandle, hspoolfile: Handle, cbcommit: UInt): Handle =
+    null
 
-public actual fun CommonPropertySheetUIA(hwndowner: HWND, pfnpropsheetui: PFNPROPSHEETUI, lparam: LPARAM, presult: Long): Int =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_CommonPropertySheetUIA(hwndowner, pfnpropsheetui.toLong(), lparam, presult)
+public actual fun commonPropertySheetUIA(hwndowner: Hwnd, pfnpropsheetui: Pfnpropsheetui, lparam: Lparam, presult: COpaquePointer?): Int =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_commonPropertySheetUIA((hwndowner?.value ?: 0L), 0L, lparam, (presult?.value ?: 0L))
 
-public actual fun CommonPropertySheetUIW(hwndowner: HWND, pfnpropsheetui: PFNPROPSHEETUI, lparam: LPARAM, presult: Long): Int =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_CommonPropertySheetUIW(hwndowner, pfnpropsheetui.toLong(), lparam, presult)
+public actual fun commonPropertySheetUIW(hwndowner: Hwnd, pfnpropsheetui: Pfnpropsheetui, lparam: Lparam, presult: COpaquePointer?): Int =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_commonPropertySheetUIW((hwndowner?.value ?: 0L), 0L, lparam, (presult?.value ?: 0L))
 
-public actual fun ConfigurePortA(pname: PCSTR, hwnd: HWND, pportname: PCSTR): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_ConfigurePortA(pname, hwnd, pportname)
+public actual fun configurePortA(pname: Pcstr, hwnd: Hwnd, pportname: Pcstr): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_configurePortA((pname?.value ?: 0L), (hwnd?.value ?: 0L), (pportname?.value ?: 0L))
 
-public actual fun ConfigurePortW(pname: PCWSTR, hwnd: HWND, pportname: PCWSTR): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_ConfigurePortW(pname, hwnd, pportname)
+public actual fun configurePortW(pname: Pcwstr, hwnd: Hwnd, pportname: Pcwstr): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_configurePortW((pname?.value ?: 0L), (hwnd?.value ?: 0L), (pportname?.value ?: 0L))
 
-public actual fun ConnectToPrinterDlg(hwnd: HWND, flags: UInt): HANDLE =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_ConnectToPrinterDlg(hwnd, flags.toInt())
+public actual fun connectToPrinterDlg(hwnd: Hwnd, flags: UInt): Handle =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_connectToPrinterDlg((hwnd?.value ?: 0L), flags.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CorePrinterDriverInstalledA(pszserver: PCSTR, pszenvironment: PCSTR, coredriverguid: GUID, ftdriverdate: FILETIME, dwldriverversion: ULong, pbdriverinstalled: Long): HRESULT =
+public actual fun corePrinterDriverInstalledA(pszserver: Pcstr, pszenvironment: Pcstr, coredriverguid: Guid, ftdriverdate: Filetime, dwldriverversion: ULong, pbdriverinstalled: COpaquePointer?): Hresult =
     0
 
-public actual fun CorePrinterDriverInstalledW(pszserver: PCWSTR, pszenvironment: PCWSTR, coredriverguid: GUID, ftdriverdate: FILETIME, dwldriverversion: ULong, pbdriverinstalled: Long): HRESULT =
+public actual fun corePrinterDriverInstalledW(pszserver: Pcwstr, pszenvironment: Pcwstr, coredriverguid: Guid, ftdriverdate: Filetime, dwldriverversion: ULong, pbdriverinstalled: COpaquePointer?): Hresult =
     0
 
-public actual fun CreatePrintAsyncNotifyChannel(pszname: PCWSTR, pnotificationtype: Long, euserfilter: PrintAsyncNotifyUserFilter, econversationstyle: PrintAsyncNotifyConversationStyle, pcallback: Long, ppiasynchnotification: Long): HRESULT =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_CreatePrintAsyncNotifyChannel(pszname, pnotificationtype, euserfilter, econversationstyle, pcallback, ppiasynchnotification)
+public actual fun createPrintAsyncNotifyChannel(pszname: Pcwstr, pnotificationtype: COpaquePointer?, euserfilter: PrintAsyncNotifyUserFilter, econversationstyle: PrintAsyncNotifyConversationStyle, pcallback: COpaquePointer?, ppiasynchnotification: COpaquePointer?): Hresult =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_createPrintAsyncNotifyChannel((pszname?.value ?: 0L), (pnotificationtype?.value ?: 0L), euserfilter, econversationstyle, (pcallback?.value ?: 0L), (ppiasynchnotification?.value ?: 0L))
 
-public actual fun CreatePrinterIC(hprinter: PRINTER_HANDLE, pdevmode: Long): HANDLE =
-    0L
+public actual fun createPrinterIC(hprinter: PrinterHandle, pdevmode: COpaquePointer?): Handle =
+    null
 
-public actual fun DeleteFormA(hprinter: PRINTER_HANDLE, pformname: PCSTR): BOOL =
+public actual fun deleteFormA(hprinter: PrinterHandle, pformname: Pcstr): Bool =
     0
 
-public actual fun DeleteFormW(hprinter: PRINTER_HANDLE, pformname: PCWSTR): BOOL =
+public actual fun deleteFormW(hprinter: PrinterHandle, pformname: Pcwstr): Bool =
     0
 
-public actual fun DeleteJobNamedProperty(hprinter: PRINTER_HANDLE, jobid: UInt, pszname: PCWSTR): UInt =
+public actual fun deleteJobNamedProperty(hprinter: PrinterHandle, jobid: UInt, pszname: Pcwstr): UInt =
     0u
 
-public actual fun DeleteMonitorA(pname: PCSTR, penvironment: PCSTR, pmonitorname: PCSTR): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_DeleteMonitorA(pname, penvironment, pmonitorname)
+public actual fun deleteMonitorA(pname: Pcstr, penvironment: Pcstr, pmonitorname: Pcstr): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_deleteMonitorA((pname?.value ?: 0L), (penvironment?.value ?: 0L), (pmonitorname?.value ?: 0L))
 
-public actual fun DeleteMonitorW(pname: PCWSTR, penvironment: PCWSTR, pmonitorname: PCWSTR): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_DeleteMonitorW(pname, penvironment, pmonitorname)
+public actual fun deleteMonitorW(pname: Pcwstr, penvironment: Pcwstr, pmonitorname: Pcwstr): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_deleteMonitorW((pname?.value ?: 0L), (penvironment?.value ?: 0L), (pmonitorname?.value ?: 0L))
 
-public actual fun DeletePortA(pname: PCSTR, hwnd: HWND, pportname: PCSTR): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_DeletePortA(pname, hwnd, pportname)
+public actual fun deletePortA(pname: Pcstr, hwnd: Hwnd, pportname: Pcstr): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_deletePortA((pname?.value ?: 0L), (hwnd?.value ?: 0L), (pportname?.value ?: 0L))
 
-public actual fun DeletePortW(pname: PCWSTR, hwnd: HWND, pportname: PCWSTR): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_DeletePortW(pname, hwnd, pportname)
+public actual fun deletePortW(pname: Pcwstr, hwnd: Hwnd, pportname: Pcwstr): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_deletePortW((pname?.value ?: 0L), (hwnd?.value ?: 0L), (pportname?.value ?: 0L))
 
-public actual fun DeletePrintProcessorA(pname: PCSTR, penvironment: PCSTR, pprintprocessorname: PCSTR): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_DeletePrintProcessorA(pname, penvironment, pprintprocessorname)
+public actual fun deletePrintProcessorA(pname: Pcstr, penvironment: Pcstr, pprintprocessorname: Pcstr): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_deletePrintProcessorA((pname?.value ?: 0L), (penvironment?.value ?: 0L), (pprintprocessorname?.value ?: 0L))
 
-public actual fun DeletePrintProcessorW(pname: PCWSTR, penvironment: PCWSTR, pprintprocessorname: PCWSTR): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_DeletePrintProcessorW(pname, penvironment, pprintprocessorname)
+public actual fun deletePrintProcessorW(pname: Pcwstr, penvironment: Pcwstr, pprintprocessorname: Pcwstr): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_deletePrintProcessorW((pname?.value ?: 0L), (penvironment?.value ?: 0L), (pprintprocessorname?.value ?: 0L))
 
-public actual fun DeletePrintProvidorA(pname: PCSTR, penvironment: PCSTR, pprintprovidorname: PCSTR): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_DeletePrintProvidorA(pname, penvironment, pprintprovidorname)
+public actual fun deletePrintProvidorA(pname: Pcstr, penvironment: Pcstr, pprintprovidorname: Pcstr): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_deletePrintProvidorA((pname?.value ?: 0L), (penvironment?.value ?: 0L), (pprintprovidorname?.value ?: 0L))
 
-public actual fun DeletePrintProvidorW(pname: PCWSTR, penvironment: PCWSTR, pprintprovidorname: PCWSTR): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_DeletePrintProvidorW(pname, penvironment, pprintprovidorname)
+public actual fun deletePrintProvidorW(pname: Pcwstr, penvironment: Pcwstr, pprintprovidorname: Pcwstr): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_deletePrintProvidorW((pname?.value ?: 0L), (penvironment?.value ?: 0L), (pprintprovidorname?.value ?: 0L))
 
-public actual fun DeletePrinter(hprinter: PRINTER_HANDLE): BOOL =
+public actual fun deletePrinter(hprinter: PrinterHandle): Bool =
     0
 
-public actual fun DeletePrinterConnectionA(pname: PCSTR): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_DeletePrinterConnectionA(pname)
+public actual fun deletePrinterConnectionA(pname: Pcstr): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_deletePrinterConnectionA((pname?.value ?: 0L))
 
-public actual fun DeletePrinterConnectionW(pname: PCWSTR): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_DeletePrinterConnectionW(pname)
+public actual fun deletePrinterConnectionW(pname: Pcwstr): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_deletePrinterConnectionW((pname?.value ?: 0L))
 
-public actual fun DeletePrinterDataA(hprinter: PRINTER_HANDLE, pvaluename: PCSTR): UInt =
+public actual fun deletePrinterDataA(hprinter: PrinterHandle, pvaluename: Pcstr): UInt =
     0u
 
-public actual fun DeletePrinterDataExA(hprinter: PRINTER_HANDLE, pkeyname: PCSTR, pvaluename: PCSTR): UInt =
+public actual fun deletePrinterDataExA(hprinter: PrinterHandle, pkeyname: Pcstr, pvaluename: Pcstr): UInt =
     0u
 
-public actual fun DeletePrinterDataExW(hprinter: PRINTER_HANDLE, pkeyname: PCWSTR, pvaluename: PCWSTR): UInt =
+public actual fun deletePrinterDataExW(hprinter: PrinterHandle, pkeyname: Pcwstr, pvaluename: Pcwstr): UInt =
     0u
 
-public actual fun DeletePrinterDataW(hprinter: PRINTER_HANDLE, pvaluename: PCWSTR): UInt =
+public actual fun deletePrinterDataW(hprinter: PrinterHandle, pvaluename: Pcwstr): UInt =
     0u
 
-public actual fun DeletePrinterDriverA(pname: PCSTR, penvironment: PCSTR, pdrivername: PCSTR): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_DeletePrinterDriverA(pname, penvironment, pdrivername)
+public actual fun deletePrinterDriverA(pname: Pcstr, penvironment: Pcstr, pdrivername: Pcstr): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_deletePrinterDriverA((pname?.value ?: 0L), (penvironment?.value ?: 0L), (pdrivername?.value ?: 0L))
 
-public actual fun DeletePrinterDriverExA(pname: PCSTR, penvironment: PCSTR, pdrivername: PCSTR, dwdeleteflag: UInt, dwversionflag: UInt): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_DeletePrinterDriverExA(pname, penvironment, pdrivername, dwdeleteflag.toInt(), dwversionflag.toInt())
+public actual fun deletePrinterDriverExA(pname: Pcstr, penvironment: Pcstr, pdrivername: Pcstr, dwdeleteflag: UInt, dwversionflag: UInt): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_deletePrinterDriverExA((pname?.value ?: 0L), (penvironment?.value ?: 0L), (pdrivername?.value ?: 0L), dwdeleteflag.toInt(), dwversionflag.toInt())
 
-public actual fun DeletePrinterDriverExW(pname: PCWSTR, penvironment: PCWSTR, pdrivername: PCWSTR, dwdeleteflag: UInt, dwversionflag: UInt): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_DeletePrinterDriverExW(pname, penvironment, pdrivername, dwdeleteflag.toInt(), dwversionflag.toInt())
+public actual fun deletePrinterDriverExW(pname: Pcwstr, penvironment: Pcwstr, pdrivername: Pcwstr, dwdeleteflag: UInt, dwversionflag: UInt): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_deletePrinterDriverExW((pname?.value ?: 0L), (penvironment?.value ?: 0L), (pdrivername?.value ?: 0L), dwdeleteflag.toInt(), dwversionflag.toInt())
 
-public actual fun DeletePrinterDriverPackageA(pszserver: PCSTR, pszinfpath: PCSTR, pszenvironment: PCSTR): HRESULT =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_DeletePrinterDriverPackageA(pszserver, pszinfpath, pszenvironment)
+public actual fun deletePrinterDriverPackageA(pszserver: Pcstr, pszinfpath: Pcstr, pszenvironment: Pcstr): Hresult =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_deletePrinterDriverPackageA((pszserver?.value ?: 0L), (pszinfpath?.value ?: 0L), (pszenvironment?.value ?: 0L))
 
-public actual fun DeletePrinterDriverPackageW(pszserver: PCWSTR, pszinfpath: PCWSTR, pszenvironment: PCWSTR): HRESULT =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_DeletePrinterDriverPackageW(pszserver, pszinfpath, pszenvironment)
+public actual fun deletePrinterDriverPackageW(pszserver: Pcwstr, pszinfpath: Pcwstr, pszenvironment: Pcwstr): Hresult =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_deletePrinterDriverPackageW((pszserver?.value ?: 0L), (pszinfpath?.value ?: 0L), (pszenvironment?.value ?: 0L))
 
-public actual fun DeletePrinterDriverW(pname: PCWSTR, penvironment: PCWSTR, pdrivername: PCWSTR): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_DeletePrinterDriverW(pname, penvironment, pdrivername)
+public actual fun deletePrinterDriverW(pname: Pcwstr, penvironment: Pcwstr, pdrivername: Pcwstr): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_deletePrinterDriverW((pname?.value ?: 0L), (penvironment?.value ?: 0L), (pdrivername?.value ?: 0L))
 
-public actual fun DeletePrinterIC(hprinteric: HANDLE): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_DeletePrinterIC(hprinteric)
+public actual fun deletePrinterIC(hprinteric: Handle): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_deletePrinterIC((hprinteric?.value ?: 0L))
 
-public actual fun DeletePrinterKeyA(hprinter: PRINTER_HANDLE, pkeyname: PCSTR): UInt =
+public actual fun deletePrinterKeyA(hprinter: PrinterHandle, pkeyname: Pcstr): UInt =
     0u
 
-public actual fun DeletePrinterKeyW(hprinter: PRINTER_HANDLE, pkeyname: PCWSTR): UInt =
+public actual fun deletePrinterKeyW(hprinter: PrinterHandle, pkeyname: Pcwstr): UInt =
     0u
 
-public actual fun DevQueryPrint(hprinter: PRINTER_HANDLE, pdevmode: Long, presid: Long): BOOL =
+public actual fun devQueryPrint(hprinter: PrinterHandle, pdevmode: COpaquePointer?, presid: COpaquePointer?): Bool =
     0
 
-public actual fun DevQueryPrintEx(pdqpinfo: Long): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_DevQueryPrintEx(pdqpinfo)
+public actual fun devQueryPrintEx(pdqpinfo: COpaquePointer?): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_devQueryPrintEx((pdqpinfo?.value ?: 0L))
 
-public actual fun DocumentPropertiesA(hwnd: HWND, hprinter: PRINTER_HANDLE, pdevicename: PCSTR, pdevmodeoutput: Long, pdevmodeinput: Long, fmode: UInt): Int =
+public actual fun documentPropertiesA(hwnd: Hwnd, hprinter: PrinterHandle, pdevicename: Pcstr, pdevmodeoutput: COpaquePointer?, pdevmodeinput: COpaquePointer?, fmode: UInt): Int =
     0
 
-public actual fun DocumentPropertiesW(hwnd: HWND, hprinter: PRINTER_HANDLE, pdevicename: PCWSTR, pdevmodeoutput: Long, pdevmodeinput: Long, fmode: UInt): Int =
+public actual fun documentPropertiesW(hwnd: Hwnd, hprinter: PrinterHandle, pdevicename: Pcwstr, pdevmodeoutput: COpaquePointer?, pdevmodeinput: COpaquePointer?, fmode: UInt): Int =
     0
 
-public actual fun EndDocPrinter(hprinter: PRINTER_HANDLE): BOOL =
+public actual fun endDocPrinter(hprinter: PrinterHandle): Bool =
     0
 
-public actual fun EndPagePrinter(hprinter: PRINTER_HANDLE): BOOL =
+public actual fun endPagePrinter(hprinter: PrinterHandle): Bool =
     0
 
-public actual fun EnumFormsA(hprinter: PRINTER_HANDLE, level: UInt, pform: Long, cbbuf: UInt, pcbneeded: Long, pcreturned: Long): BOOL =
+public actual fun enumFormsA(hprinter: PrinterHandle, level: UInt, pform: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?, pcreturned: COpaquePointer?): Bool =
     0
 
-public actual fun EnumFormsW(hprinter: PRINTER_HANDLE, level: UInt, pform: Long, cbbuf: UInt, pcbneeded: Long, pcreturned: Long): BOOL =
+public actual fun enumFormsW(hprinter: PrinterHandle, level: UInt, pform: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?, pcreturned: COpaquePointer?): Bool =
     0
 
-public actual fun EnumJobNamedProperties(hprinter: PRINTER_HANDLE, jobid: UInt, pcproperties: Long, ppproperties: Long): UInt =
+public actual fun enumJobNamedProperties(hprinter: PrinterHandle, jobid: UInt, pcproperties: COpaquePointer?, ppproperties: COpaquePointer?): UInt =
     0u
 
-public actual fun EnumJobsA(hprinter: PRINTER_HANDLE, firstjob: UInt, nojobs: UInt, level: UInt, pjob: Long, cbbuf: UInt, pcbneeded: Long, pcreturned: Long): BOOL =
+public actual fun enumJobsA(hprinter: PrinterHandle, firstjob: UInt, nojobs: UInt, level: UInt, pjob: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?, pcreturned: COpaquePointer?): Bool =
     0
 
-public actual fun EnumJobsW(hprinter: PRINTER_HANDLE, firstjob: UInt, nojobs: UInt, level: UInt, pjob: Long, cbbuf: UInt, pcbneeded: Long, pcreturned: Long): BOOL =
+public actual fun enumJobsW(hprinter: PrinterHandle, firstjob: UInt, nojobs: UInt, level: UInt, pjob: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?, pcreturned: COpaquePointer?): Bool =
     0
 
-public actual fun EnumMonitorsA(pname: PCSTR, level: UInt, pmonitor: Long, cbbuf: UInt, pcbneeded: Long, pcreturned: Long): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_EnumMonitorsA(pname, level.toInt(), pmonitor, cbbuf.toInt(), pcbneeded, pcreturned)
+public actual fun enumMonitorsA(pname: Pcstr, level: UInt, pmonitor: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?, pcreturned: COpaquePointer?): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_enumMonitorsA((pname?.value ?: 0L), level.toInt(), (pmonitor?.value ?: 0L), cbbuf.toInt(), (pcbneeded?.value ?: 0L), (pcreturned?.value ?: 0L))
 
-public actual fun EnumMonitorsW(pname: PCWSTR, level: UInt, pmonitor: Long, cbbuf: UInt, pcbneeded: Long, pcreturned: Long): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_EnumMonitorsW(pname, level.toInt(), pmonitor, cbbuf.toInt(), pcbneeded, pcreturned)
+public actual fun enumMonitorsW(pname: Pcwstr, level: UInt, pmonitor: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?, pcreturned: COpaquePointer?): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_enumMonitorsW((pname?.value ?: 0L), level.toInt(), (pmonitor?.value ?: 0L), cbbuf.toInt(), (pcbneeded?.value ?: 0L), (pcreturned?.value ?: 0L))
 
-public actual fun EnumPortsA(pname: PCSTR, level: UInt, pport: Long, cbbuf: UInt, pcbneeded: Long, pcreturned: Long): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_EnumPortsA(pname, level.toInt(), pport, cbbuf.toInt(), pcbneeded, pcreturned)
+public actual fun enumPortsA(pname: Pcstr, level: UInt, pport: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?, pcreturned: COpaquePointer?): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_enumPortsA((pname?.value ?: 0L), level.toInt(), (pport?.value ?: 0L), cbbuf.toInt(), (pcbneeded?.value ?: 0L), (pcreturned?.value ?: 0L))
 
-public actual fun EnumPortsW(pname: PCWSTR, level: UInt, pport: Long, cbbuf: UInt, pcbneeded: Long, pcreturned: Long): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_EnumPortsW(pname, level.toInt(), pport, cbbuf.toInt(), pcbneeded, pcreturned)
+public actual fun enumPortsW(pname: Pcwstr, level: UInt, pport: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?, pcreturned: COpaquePointer?): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_enumPortsW((pname?.value ?: 0L), level.toInt(), (pport?.value ?: 0L), cbbuf.toInt(), (pcbneeded?.value ?: 0L), (pcreturned?.value ?: 0L))
 
-public actual fun EnumPrintProcessorDatatypesA(pname: PCSTR, pprintprocessorname: PCSTR, level: UInt, pdatatypes: Long, cbbuf: UInt, pcbneeded: Long, pcreturned: Long): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_EnumPrintProcessorDatatypesA(pname, pprintprocessorname, level.toInt(), pdatatypes, cbbuf.toInt(), pcbneeded, pcreturned)
+public actual fun enumPrintProcessorDatatypesA(pname: Pcstr, pprintprocessorname: Pcstr, level: UInt, pdatatypes: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?, pcreturned: COpaquePointer?): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_enumPrintProcessorDatatypesA((pname?.value ?: 0L), (pprintprocessorname?.value ?: 0L), level.toInt(), (pdatatypes?.value ?: 0L), cbbuf.toInt(), (pcbneeded?.value ?: 0L), (pcreturned?.value ?: 0L))
 
-public actual fun EnumPrintProcessorDatatypesW(pname: PCWSTR, pprintprocessorname: PCWSTR, level: UInt, pdatatypes: Long, cbbuf: UInt, pcbneeded: Long, pcreturned: Long): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_EnumPrintProcessorDatatypesW(pname, pprintprocessorname, level.toInt(), pdatatypes, cbbuf.toInt(), pcbneeded, pcreturned)
+public actual fun enumPrintProcessorDatatypesW(pname: Pcwstr, pprintprocessorname: Pcwstr, level: UInt, pdatatypes: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?, pcreturned: COpaquePointer?): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_enumPrintProcessorDatatypesW((pname?.value ?: 0L), (pprintprocessorname?.value ?: 0L), level.toInt(), (pdatatypes?.value ?: 0L), cbbuf.toInt(), (pcbneeded?.value ?: 0L), (pcreturned?.value ?: 0L))
 
-public actual fun EnumPrintProcessorsA(pname: PCSTR, penvironment: PCSTR, level: UInt, pprintprocessorinfo: Long, cbbuf: UInt, pcbneeded: Long, pcreturned: Long): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_EnumPrintProcessorsA(pname, penvironment, level.toInt(), pprintprocessorinfo, cbbuf.toInt(), pcbneeded, pcreturned)
+public actual fun enumPrintProcessorsA(pname: Pcstr, penvironment: Pcstr, level: UInt, pprintprocessorinfo: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?, pcreturned: COpaquePointer?): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_enumPrintProcessorsA((pname?.value ?: 0L), (penvironment?.value ?: 0L), level.toInt(), (pprintprocessorinfo?.value ?: 0L), cbbuf.toInt(), (pcbneeded?.value ?: 0L), (pcreturned?.value ?: 0L))
 
-public actual fun EnumPrintProcessorsW(pname: PCWSTR, penvironment: PCWSTR, level: UInt, pprintprocessorinfo: Long, cbbuf: UInt, pcbneeded: Long, pcreturned: Long): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_EnumPrintProcessorsW(pname, penvironment, level.toInt(), pprintprocessorinfo, cbbuf.toInt(), pcbneeded, pcreturned)
+public actual fun enumPrintProcessorsW(pname: Pcwstr, penvironment: Pcwstr, level: UInt, pprintprocessorinfo: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?, pcreturned: COpaquePointer?): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_enumPrintProcessorsW((pname?.value ?: 0L), (penvironment?.value ?: 0L), level.toInt(), (pprintprocessorinfo?.value ?: 0L), cbbuf.toInt(), (pcbneeded?.value ?: 0L), (pcreturned?.value ?: 0L))
 
-public actual fun EnumPrinterDataA(hprinter: PRINTER_HANDLE, dwindex: UInt, pvaluename: PSTR, cbvaluename: UInt, pcbvaluename: Long, ptype: Long, pdata: Long, cbdata: UInt, pcbdata: Long): UInt =
+public actual fun enumPrinterDataA(hprinter: PrinterHandle, dwindex: UInt, pvaluename: Pstr, cbvaluename: UInt, pcbvaluename: COpaquePointer?, ptype: COpaquePointer?, pdata: COpaquePointer?, cbdata: UInt, pcbdata: COpaquePointer?): UInt =
     0u
 
-public actual fun EnumPrinterDataExA(hprinter: PRINTER_HANDLE, pkeyname: PCSTR, penumvalues: Long, cbenumvalues: UInt, pcbenumvalues: Long, pnenumvalues: Long): UInt =
+public actual fun enumPrinterDataExA(hprinter: PrinterHandle, pkeyname: Pcstr, penumvalues: COpaquePointer?, cbenumvalues: UInt, pcbenumvalues: COpaquePointer?, pnenumvalues: COpaquePointer?): UInt =
     0u
 
-public actual fun EnumPrinterDataExW(hprinter: PRINTER_HANDLE, pkeyname: PCWSTR, penumvalues: Long, cbenumvalues: UInt, pcbenumvalues: Long, pnenumvalues: Long): UInt =
+public actual fun enumPrinterDataExW(hprinter: PrinterHandle, pkeyname: Pcwstr, penumvalues: COpaquePointer?, cbenumvalues: UInt, pcbenumvalues: COpaquePointer?, pnenumvalues: COpaquePointer?): UInt =
     0u
 
-public actual fun EnumPrinterDataW(hprinter: PRINTER_HANDLE, dwindex: UInt, pvaluename: PWSTR, cbvaluename: UInt, pcbvaluename: Long, ptype: Long, pdata: Long, cbdata: UInt, pcbdata: Long): UInt =
+public actual fun enumPrinterDataW(hprinter: PrinterHandle, dwindex: UInt, pvaluename: Pwstr, cbvaluename: UInt, pcbvaluename: COpaquePointer?, ptype: COpaquePointer?, pdata: COpaquePointer?, cbdata: UInt, pcbdata: COpaquePointer?): UInt =
     0u
 
-public actual fun EnumPrinterDriversA(pname: PCSTR, penvironment: PCSTR, level: UInt, pdriverinfo: Long, cbbuf: UInt, pcbneeded: Long, pcreturned: Long): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_EnumPrinterDriversA(pname, penvironment, level.toInt(), pdriverinfo, cbbuf.toInt(), pcbneeded, pcreturned)
+public actual fun enumPrinterDriversA(pname: Pcstr, penvironment: Pcstr, level: UInt, pdriverinfo: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?, pcreturned: COpaquePointer?): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_enumPrinterDriversA((pname?.value ?: 0L), (penvironment?.value ?: 0L), level.toInt(), (pdriverinfo?.value ?: 0L), cbbuf.toInt(), (pcbneeded?.value ?: 0L), (pcreturned?.value ?: 0L))
 
-public actual fun EnumPrinterDriversW(pname: PCWSTR, penvironment: PCWSTR, level: UInt, pdriverinfo: Long, cbbuf: UInt, pcbneeded: Long, pcreturned: Long): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_EnumPrinterDriversW(pname, penvironment, level.toInt(), pdriverinfo, cbbuf.toInt(), pcbneeded, pcreturned)
+public actual fun enumPrinterDriversW(pname: Pcwstr, penvironment: Pcwstr, level: UInt, pdriverinfo: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?, pcreturned: COpaquePointer?): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_enumPrinterDriversW((pname?.value ?: 0L), (penvironment?.value ?: 0L), level.toInt(), (pdriverinfo?.value ?: 0L), cbbuf.toInt(), (pcbneeded?.value ?: 0L), (pcreturned?.value ?: 0L))
 
-public actual fun EnumPrinterKeyA(hprinter: PRINTER_HANDLE, pkeyname: PCSTR, psubkey: PSTR, cbsubkey: UInt, pcbsubkey: Long): UInt =
+public actual fun enumPrinterKeyA(hprinter: PrinterHandle, pkeyname: Pcstr, psubkey: Pstr, cbsubkey: UInt, pcbsubkey: COpaquePointer?): UInt =
     0u
 
-public actual fun EnumPrinterKeyW(hprinter: PRINTER_HANDLE, pkeyname: PCWSTR, psubkey: PWSTR, cbsubkey: UInt, pcbsubkey: Long): UInt =
+public actual fun enumPrinterKeyW(hprinter: PrinterHandle, pkeyname: Pcwstr, psubkey: Pwstr, cbsubkey: UInt, pcbsubkey: COpaquePointer?): UInt =
     0u
 
-public actual fun EnumPrintersA(flags: UInt, name: PCSTR, level: UInt, pprinterenum: Long, cbbuf: UInt, pcbneeded: Long, pcreturned: Long): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_EnumPrintersA(flags.toInt(), name, level.toInt(), pprinterenum, cbbuf.toInt(), pcbneeded, pcreturned)
+public actual fun enumPrintersA(flags: UInt, name: Pcstr, level: UInt, pprinterenum: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?, pcreturned: COpaquePointer?): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_enumPrintersA(flags.toInt(), (name?.value ?: 0L), level.toInt(), (pprinterenum?.value ?: 0L), cbbuf.toInt(), (pcbneeded?.value ?: 0L), (pcreturned?.value ?: 0L))
 
-public actual fun EnumPrintersW(flags: UInt, name: PCWSTR, level: UInt, pprinterenum: Long, cbbuf: UInt, pcbneeded: Long, pcreturned: Long): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_EnumPrintersW(flags.toInt(), name, level.toInt(), pprinterenum, cbbuf.toInt(), pcbneeded, pcreturned)
+public actual fun enumPrintersW(flags: UInt, name: Pcwstr, level: UInt, pprinterenum: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?, pcreturned: COpaquePointer?): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_enumPrintersW(flags.toInt(), (name?.value ?: 0L), level.toInt(), (pprinterenum?.value ?: 0L), cbbuf.toInt(), (pcbneeded?.value ?: 0L), (pcreturned?.value ?: 0L))
 
-public actual fun ExtDeviceMode(hwnd: HWND, hinst: HANDLE, pdevmodeoutput: Long, pdevicename: PCSTR, pport: PCSTR, pdevmodeinput: Long, pprofile: PCSTR, fmode: UInt): Int =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_ExtDeviceMode(hwnd, hinst, pdevmodeoutput, pdevicename, pport, pdevmodeinput, pprofile, fmode.toInt())
+public actual fun extDeviceMode(hwnd: Hwnd, hinst: Handle, pdevmodeoutput: COpaquePointer?, pdevicename: Pcstr, pport: Pcstr, pdevmodeinput: COpaquePointer?, pprofile: Pcstr, fmode: UInt): Int =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_extDeviceMode((hwnd?.value ?: 0L), (hinst?.value ?: 0L), (pdevmodeoutput?.value ?: 0L), (pdevicename?.value ?: 0L), (pport?.value ?: 0L), (pdevmodeinput?.value ?: 0L), (pprofile?.value ?: 0L), fmode.toInt())
 
-public actual fun FindClosePrinterChangeNotification(hchange: HANDLE): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_FindClosePrinterChangeNotification(hchange)
+public actual fun findClosePrinterChangeNotification(hchange: Handle): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_findClosePrinterChangeNotification((hchange?.value ?: 0L))
 
-public actual fun FindFirstPrinterChangeNotification(hprinter: PRINTER_HANDLE, fdwfilter: UInt, fdwoptions: UInt, pprinternotifyoptions: Long): HANDLE =
-    0L
+public actual fun findFirstPrinterChangeNotification(hprinter: PrinterHandle, fdwfilter: UInt, fdwoptions: UInt, pprinternotifyoptions: COpaquePointer?): Handle =
+    null
 
-public actual fun FindNextPrinterChangeNotification(hchange: HANDLE, pdwchange: Long, pvreserved: Long, ppprinternotifyinfo: Long): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_FindNextPrinterChangeNotification(hchange, pdwchange, pvreserved, ppprinternotifyinfo)
+public actual fun findNextPrinterChangeNotification(hchange: Handle, pdwchange: COpaquePointer?, pvreserved: COpaquePointer?, ppprinternotifyinfo: COpaquePointer?): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_findNextPrinterChangeNotification((hchange?.value ?: 0L), (pdwchange?.value ?: 0L), (pvreserved?.value ?: 0L), (ppprinternotifyinfo?.value ?: 0L))
 
-public actual fun FlushPrinter(hprinter: PRINTER_HANDLE, pbuf: Long, cbbuf: UInt, pcwritten: Long, csleep: UInt): BOOL =
+public actual fun flushPrinter(hprinter: PrinterHandle, pbuf: COpaquePointer?, cbbuf: UInt, pcwritten: COpaquePointer?, csleep: UInt): Bool =
     0
 
-public actual fun FreePrintNamedPropertyArray(cproperties: UInt, ppproperties: Long) {
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_FreePrintNamedPropertyArray(cproperties.toInt(), ppproperties)
+public actual fun freePrintNamedPropertyArray(cproperties: UInt, ppproperties: COpaquePointer?) {
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_freePrintNamedPropertyArray(cproperties.toInt(), (ppproperties?.value ?: 0L))
 }
 
-public actual fun FreePrintPropertyValue(pvalue: Long) {
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_FreePrintPropertyValue(pvalue)
+public actual fun freePrintPropertyValue(pvalue: COpaquePointer?) {
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_freePrintPropertyValue((pvalue?.value ?: 0L))
 }
 
-public actual fun FreePrinterNotifyInfo(pprinternotifyinfo: Long): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_FreePrinterNotifyInfo(pprinternotifyinfo)
+public actual fun freePrinterNotifyInfo(pprinternotifyinfo: COpaquePointer?): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_freePrinterNotifyInfo((pprinternotifyinfo?.value ?: 0L))
 
-public actual fun GdiDeleteSpoolFileHandle(spoolfilehandle: HANDLE): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_GdiDeleteSpoolFileHandle(spoolfilehandle)
+public actual fun gdiDeleteSpoolFileHandle(spoolfilehandle: Handle): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_gdiDeleteSpoolFileHandle((spoolfilehandle?.value ?: 0L))
 
-public actual fun GdiEndDocEMF(spoolfilehandle: HANDLE): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_GdiEndDocEMF(spoolfilehandle)
+public actual fun gdiEndDocEMF(spoolfilehandle: Handle): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_gdiEndDocEMF((spoolfilehandle?.value ?: 0L))
 
-public actual fun GdiEndPageEMF(spoolfilehandle: HANDLE, dwoptimization: UInt): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_GdiEndPageEMF(spoolfilehandle, dwoptimization.toInt())
+public actual fun gdiEndPageEMF(spoolfilehandle: Handle, dwoptimization: UInt): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_gdiEndPageEMF((spoolfilehandle?.value ?: 0L), dwoptimization.toInt())
 
-public actual fun GdiGetDC(spoolfilehandle: HANDLE): HDC =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_GdiGetDC(spoolfilehandle)
+public actual fun gdiGetDC(spoolfilehandle: Handle): Hdc =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_gdiGetDC((spoolfilehandle?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun GdiGetDevmodeForPage(spoolfilehandle: HANDLE, dwpagenumber: UInt, pcurrdm: Long, plastdm: Long): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_GdiGetDevmodeForPage(spoolfilehandle, dwpagenumber.toInt(), pcurrdm, plastdm)
+public actual fun gdiGetDevmodeForPage(spoolfilehandle: Handle, dwpagenumber: UInt, pcurrdm: COpaquePointer?, plastdm: COpaquePointer?): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_gdiGetDevmodeForPage((spoolfilehandle?.value ?: 0L), dwpagenumber.toInt(), (pcurrdm?.value ?: 0L), (plastdm?.value ?: 0L))
 
-public actual fun GdiGetPageCount(spoolfilehandle: HANDLE): UInt =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_GdiGetPageCount(spoolfilehandle).toUInt()
+public actual fun gdiGetPageCount(spoolfilehandle: Handle): UInt =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_gdiGetPageCount((spoolfilehandle?.value ?: 0L)).toUInt()
 
-public actual fun GdiGetPageHandle(spoolfilehandle: HANDLE, page: UInt, pdwpagetype: Long): HANDLE =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_GdiGetPageHandle(spoolfilehandle, page.toInt(), pdwpagetype)
+public actual fun gdiGetPageHandle(spoolfilehandle: Handle, page: UInt, pdwpagetype: COpaquePointer?): Handle =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_gdiGetPageHandle((spoolfilehandle?.value ?: 0L), page.toInt(), (pdwpagetype?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun GdiGetSpoolFileHandle(pwszprintername: PCWSTR, pdevmode: Long, pwszdocname: PCWSTR): HANDLE =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_GdiGetSpoolFileHandle(pwszprintername, pdevmode, pwszdocname)
+public actual fun gdiGetSpoolFileHandle(pwszprintername: Pcwstr, pdevmode: COpaquePointer?, pwszdocname: Pcwstr): Handle =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_gdiGetSpoolFileHandle((pwszprintername?.value ?: 0L), (pdevmode?.value ?: 0L), (pwszdocname?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun GdiPlayPageEMF(spoolfilehandle: HANDLE, hemf: HANDLE, prectdocument: Long, prectborder: Long, prectclip: Long): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_GdiPlayPageEMF(spoolfilehandle, hemf, prectdocument, prectborder, prectclip)
+public actual fun gdiPlayPageEMF(spoolfilehandle: Handle, hemf: Handle, prectdocument: COpaquePointer?, prectborder: COpaquePointer?, prectclip: COpaquePointer?): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_gdiPlayPageEMF((spoolfilehandle?.value ?: 0L), (hemf?.value ?: 0L), (prectdocument?.value ?: 0L), (prectborder?.value ?: 0L), (prectclip?.value ?: 0L))
 
-public actual fun GdiResetDCEMF(spoolfilehandle: HANDLE, pcurrdm: Long): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_GdiResetDCEMF(spoolfilehandle, pcurrdm)
+public actual fun gdiResetDCEMF(spoolfilehandle: Handle, pcurrdm: COpaquePointer?): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_gdiResetDCEMF((spoolfilehandle?.value ?: 0L), (pcurrdm?.value ?: 0L))
 
-public actual fun GdiStartDocEMF(spoolfilehandle: HANDLE, pdocinfo: Long): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_GdiStartDocEMF(spoolfilehandle, pdocinfo)
+public actual fun gdiStartDocEMF(spoolfilehandle: Handle, pdocinfo: COpaquePointer?): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_gdiStartDocEMF((spoolfilehandle?.value ?: 0L), (pdocinfo?.value ?: 0L))
 
-public actual fun GdiStartPageEMF(spoolfilehandle: HANDLE): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_GdiStartPageEMF(spoolfilehandle)
+public actual fun gdiStartPageEMF(spoolfilehandle: Handle): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_gdiStartPageEMF((spoolfilehandle?.value ?: 0L))
 
-public actual fun GenerateCopyFilePaths(pszprintername: PCWSTR, pszdirectory: PCWSTR, psplclientinfo: Long, dwlevel: UInt, pszsourcedir: PWSTR, pcchsourcedirsize: Long, psztargetdir: PWSTR, pcchtargetdirsize: Long, dwflags: UInt): UInt =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_GenerateCopyFilePaths(pszprintername, pszdirectory, psplclientinfo, dwlevel.toInt(), pszsourcedir, pcchsourcedirsize, psztargetdir, pcchtargetdirsize, dwflags.toInt()).toUInt()
+public actual fun generateCopyFilePaths(pszprintername: Pcwstr, pszdirectory: Pcwstr, psplclientinfo: COpaquePointer?, dwlevel: UInt, pszsourcedir: Pwstr, pcchsourcedirsize: COpaquePointer?, psztargetdir: Pwstr, pcchtargetdirsize: COpaquePointer?, dwflags: UInt): UInt =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_generateCopyFilePaths((pszprintername?.value ?: 0L), (pszdirectory?.value ?: 0L), (psplclientinfo?.value ?: 0L), dwlevel.toInt(), (pszsourcedir?.value ?: 0L), (pcchsourcedirsize?.value ?: 0L), (psztargetdir?.value ?: 0L), (pcchtargetdirsize?.value ?: 0L), dwflags.toInt()).toUInt()
 
-public actual fun GetCPSUIUserData(hdlg: HWND): ULong =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_GetCPSUIUserData(hdlg).toULong()
+public actual fun getCPSUIUserData(hdlg: Hwnd): ULong =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_getCPSUIUserData((hdlg?.value ?: 0L)).toULong()
 
-public actual fun GetCorePrinterDriversA(pszserver: PCSTR, pszenvironment: PCSTR, pszzcoredriverdependencies: PCSTR, ccoreprinterdrivers: UInt, pcoreprinterdrivers: Long): HRESULT =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_GetCorePrinterDriversA(pszserver, pszenvironment, pszzcoredriverdependencies, ccoreprinterdrivers.toInt(), pcoreprinterdrivers)
+public actual fun getCorePrinterDriversA(pszserver: Pcstr, pszenvironment: Pcstr, pszzcoredriverdependencies: Pcstr, ccoreprinterdrivers: UInt, pcoreprinterdrivers: COpaquePointer?): Hresult =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_getCorePrinterDriversA((pszserver?.value ?: 0L), (pszenvironment?.value ?: 0L), (pszzcoredriverdependencies?.value ?: 0L), ccoreprinterdrivers.toInt(), (pcoreprinterdrivers?.value ?: 0L))
 
-public actual fun GetCorePrinterDriversW(pszserver: PCWSTR, pszenvironment: PCWSTR, pszzcoredriverdependencies: PCWSTR, ccoreprinterdrivers: UInt, pcoreprinterdrivers: Long): HRESULT =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_GetCorePrinterDriversW(pszserver, pszenvironment, pszzcoredriverdependencies, ccoreprinterdrivers.toInt(), pcoreprinterdrivers)
+public actual fun getCorePrinterDriversW(pszserver: Pcwstr, pszenvironment: Pcwstr, pszzcoredriverdependencies: Pcwstr, ccoreprinterdrivers: UInt, pcoreprinterdrivers: COpaquePointer?): Hresult =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_getCorePrinterDriversW((pszserver?.value ?: 0L), (pszenvironment?.value ?: 0L), (pszzcoredriverdependencies?.value ?: 0L), ccoreprinterdrivers.toInt(), (pcoreprinterdrivers?.value ?: 0L))
 
-public actual fun GetDefaultPrinterA(pszbuffer: PSTR, pcchbuffer: Long): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_GetDefaultPrinterA(pszbuffer, pcchbuffer)
+public actual fun getDefaultPrinterA(pszbuffer: Pstr, pcchbuffer: COpaquePointer?): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_getDefaultPrinterA((pszbuffer?.value ?: 0L), (pcchbuffer?.value ?: 0L))
 
-public actual fun GetDefaultPrinterW(pszbuffer: PWSTR, pcchbuffer: Long): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_GetDefaultPrinterW(pszbuffer, pcchbuffer)
+public actual fun getDefaultPrinterW(pszbuffer: Pwstr, pcchbuffer: COpaquePointer?): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_getDefaultPrinterW((pszbuffer?.value ?: 0L), (pcchbuffer?.value ?: 0L))
 
-public actual fun GetFormA(hprinter: PRINTER_HANDLE, pformname: PCSTR, level: UInt, pform: Long, cbbuf: UInt, pcbneeded: Long): BOOL =
+public actual fun getFormA(hprinter: PrinterHandle, pformname: Pcstr, level: UInt, pform: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?): Bool =
     0
 
-public actual fun GetFormW(hprinter: PRINTER_HANDLE, pformname: PCWSTR, level: UInt, pform: Long, cbbuf: UInt, pcbneeded: Long): BOOL =
+public actual fun getFormW(hprinter: PrinterHandle, pformname: Pcwstr, level: UInt, pform: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?): Bool =
     0
 
-public actual fun GetJobA(hprinter: PRINTER_HANDLE, jobid: UInt, level: UInt, pjob: Long, cbbuf: UInt, pcbneeded: Long): BOOL =
+public actual fun getJobA(hprinter: PrinterHandle, jobid: UInt, level: UInt, pjob: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?): Bool =
     0
 
-public actual fun GetJobAttributes(pprintername: PCWSTR, pdevmode: Long, pattributeinfo: Long): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_GetJobAttributes(pprintername, pdevmode, pattributeinfo)
+public actual fun getJobAttributes(pprintername: Pcwstr, pdevmode: COpaquePointer?, pattributeinfo: COpaquePointer?): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_getJobAttributes((pprintername?.value ?: 0L), (pdevmode?.value ?: 0L), (pattributeinfo?.value ?: 0L))
 
-public actual fun GetJobAttributesEx(pprintername: PCWSTR, pdevmode: Long, dwlevel: UInt, pattributeinfo: Long, nsize: UInt, dwflags: UInt): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_GetJobAttributesEx(pprintername, pdevmode, dwlevel.toInt(), pattributeinfo, nsize.toInt(), dwflags.toInt())
+public actual fun getJobAttributesEx(pprintername: Pcwstr, pdevmode: COpaquePointer?, dwlevel: UInt, pattributeinfo: COpaquePointer?, nsize: UInt, dwflags: UInt): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_getJobAttributesEx((pprintername?.value ?: 0L), (pdevmode?.value ?: 0L), dwlevel.toInt(), (pattributeinfo?.value ?: 0L), nsize.toInt(), dwflags.toInt())
 
-public actual fun GetJobNamedPropertyValue(hprinter: PRINTER_HANDLE, jobid: UInt, pszname: PCWSTR, pvalue: Long): UInt =
+public actual fun getJobNamedPropertyValue(hprinter: PrinterHandle, jobid: UInt, pszname: Pcwstr, pvalue: COpaquePointer?): UInt =
     0u
 
-public actual fun GetJobW(hprinter: PRINTER_HANDLE, jobid: UInt, level: UInt, pjob: Long, cbbuf: UInt, pcbneeded: Long): BOOL =
+public actual fun getJobW(hprinter: PrinterHandle, jobid: UInt, level: UInt, pjob: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?): Bool =
     0
 
-public actual fun GetPrintExecutionData(pdata: Long): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_GetPrintExecutionData(pdata)
+public actual fun getPrintExecutionData(pdata: COpaquePointer?): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_getPrintExecutionData((pdata?.value ?: 0L))
 
-public actual fun GetPrintOutputInfo(hwnd: HWND, pszprinter: PCWSTR, phfile: Long, ppszoutputfile: Long): HRESULT =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_GetPrintOutputInfo(hwnd, pszprinter, phfile, ppszoutputfile)
+public actual fun getPrintOutputInfo(hwnd: Hwnd, pszprinter: Pcwstr, phfile: COpaquePointer?, ppszoutputfile: COpaquePointer?): Hresult =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_getPrintOutputInfo((hwnd?.value ?: 0L), (pszprinter?.value ?: 0L), (phfile?.value ?: 0L), (ppszoutputfile?.value ?: 0L))
 
-public actual fun GetPrintProcessorDirectoryA(pname: PCSTR, penvironment: PCSTR, level: UInt, pprintprocessorinfo: Long, cbbuf: UInt, pcbneeded: Long): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_GetPrintProcessorDirectoryA(pname, penvironment, level.toInt(), pprintprocessorinfo, cbbuf.toInt(), pcbneeded)
+public actual fun getPrintProcessorDirectoryA(pname: Pcstr, penvironment: Pcstr, level: UInt, pprintprocessorinfo: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_getPrintProcessorDirectoryA((pname?.value ?: 0L), (penvironment?.value ?: 0L), level.toInt(), (pprintprocessorinfo?.value ?: 0L), cbbuf.toInt(), (pcbneeded?.value ?: 0L))
 
-public actual fun GetPrintProcessorDirectoryW(pname: PCWSTR, penvironment: PCWSTR, level: UInt, pprintprocessorinfo: Long, cbbuf: UInt, pcbneeded: Long): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_GetPrintProcessorDirectoryW(pname, penvironment, level.toInt(), pprintprocessorinfo, cbbuf.toInt(), pcbneeded)
+public actual fun getPrintProcessorDirectoryW(pname: Pcwstr, penvironment: Pcwstr, level: UInt, pprintprocessorinfo: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_getPrintProcessorDirectoryW((pname?.value ?: 0L), (penvironment?.value ?: 0L), level.toInt(), (pprintprocessorinfo?.value ?: 0L), cbbuf.toInt(), (pcbneeded?.value ?: 0L))
 
-public actual fun GetPrinterA(hprinter: PRINTER_HANDLE, level: UInt, pprinter: Long, cbbuf: UInt, pcbneeded: Long): BOOL =
+public actual fun getPrinterA(hprinter: PrinterHandle, level: UInt, pprinter: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?): Bool =
     0
 
-public actual fun GetPrinterDataA(hprinter: PRINTER_HANDLE, pvaluename: PCSTR, ptype: Long, pdata: Long, nsize: UInt, pcbneeded: Long): UInt =
+public actual fun getPrinterDataA(hprinter: PrinterHandle, pvaluename: Pcstr, ptype: COpaquePointer?, pdata: COpaquePointer?, nsize: UInt, pcbneeded: COpaquePointer?): UInt =
     0u
 
-public actual fun GetPrinterDataExA(hprinter: PRINTER_HANDLE, pkeyname: PCSTR, pvaluename: PCSTR, ptype: Long, pdata: Long, nsize: UInt, pcbneeded: Long): UInt =
+public actual fun getPrinterDataExA(hprinter: PrinterHandle, pkeyname: Pcstr, pvaluename: Pcstr, ptype: COpaquePointer?, pdata: COpaquePointer?, nsize: UInt, pcbneeded: COpaquePointer?): UInt =
     0u
 
-public actual fun GetPrinterDataExW(hprinter: PRINTER_HANDLE, pkeyname: PCWSTR, pvaluename: PCWSTR, ptype: Long, pdata: Long, nsize: UInt, pcbneeded: Long): UInt =
+public actual fun getPrinterDataExW(hprinter: PrinterHandle, pkeyname: Pcwstr, pvaluename: Pcwstr, ptype: COpaquePointer?, pdata: COpaquePointer?, nsize: UInt, pcbneeded: COpaquePointer?): UInt =
     0u
 
-public actual fun GetPrinterDataW(hprinter: PRINTER_HANDLE, pvaluename: PCWSTR, ptype: Long, pdata: Long, nsize: UInt, pcbneeded: Long): UInt =
+public actual fun getPrinterDataW(hprinter: PrinterHandle, pvaluename: Pcwstr, ptype: COpaquePointer?, pdata: COpaquePointer?, nsize: UInt, pcbneeded: COpaquePointer?): UInt =
     0u
 
-public actual fun GetPrinterDriver2A(hwnd: HWND, hprinter: PRINTER_HANDLE, penvironment: PCSTR, level: UInt, pdriverinfo: Long, cbbuf: UInt, pcbneeded: Long): BOOL =
+public actual fun getPrinterDriver2A(hwnd: Hwnd, hprinter: PrinterHandle, penvironment: Pcstr, level: UInt, pdriverinfo: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?): Bool =
     0
 
-public actual fun GetPrinterDriver2W(hwnd: HWND, hprinter: PRINTER_HANDLE, penvironment: PCWSTR, level: UInt, pdriverinfo: Long, cbbuf: UInt, pcbneeded: Long): BOOL =
+public actual fun getPrinterDriver2W(hwnd: Hwnd, hprinter: PrinterHandle, penvironment: Pcwstr, level: UInt, pdriverinfo: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?): Bool =
     0
 
-public actual fun GetPrinterDriverA(hprinter: PRINTER_HANDLE, penvironment: PCSTR, level: UInt, pdriverinfo: Long, cbbuf: UInt, pcbneeded: Long): BOOL =
+public actual fun getPrinterDriverA(hprinter: PrinterHandle, penvironment: Pcstr, level: UInt, pdriverinfo: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?): Bool =
     0
 
-public actual fun GetPrinterDriverDirectoryA(pname: PCSTR, penvironment: PCSTR, level: UInt, pdriverdirectory: Long, cbbuf: UInt, pcbneeded: Long): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_GetPrinterDriverDirectoryA(pname, penvironment, level.toInt(), pdriverdirectory, cbbuf.toInt(), pcbneeded)
+public actual fun getPrinterDriverDirectoryA(pname: Pcstr, penvironment: Pcstr, level: UInt, pdriverdirectory: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_getPrinterDriverDirectoryA((pname?.value ?: 0L), (penvironment?.value ?: 0L), level.toInt(), (pdriverdirectory?.value ?: 0L), cbbuf.toInt(), (pcbneeded?.value ?: 0L))
 
-public actual fun GetPrinterDriverDirectoryW(pname: PCWSTR, penvironment: PCWSTR, level: UInt, pdriverdirectory: Long, cbbuf: UInt, pcbneeded: Long): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_GetPrinterDriverDirectoryW(pname, penvironment, level.toInt(), pdriverdirectory, cbbuf.toInt(), pcbneeded)
+public actual fun getPrinterDriverDirectoryW(pname: Pcwstr, penvironment: Pcwstr, level: UInt, pdriverdirectory: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_getPrinterDriverDirectoryW((pname?.value ?: 0L), (penvironment?.value ?: 0L), level.toInt(), (pdriverdirectory?.value ?: 0L), cbbuf.toInt(), (pcbneeded?.value ?: 0L))
 
-public actual fun GetPrinterDriverPackagePathA(pszserver: PCSTR, pszenvironment: PCSTR, pszlanguage: PCSTR, pszpackageid: PCSTR, pszdriverpackagecab: PSTR, cchdriverpackagecab: UInt, pcchrequiredsize: Long): HRESULT =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_GetPrinterDriverPackagePathA(pszserver, pszenvironment, pszlanguage, pszpackageid, pszdriverpackagecab, cchdriverpackagecab.toInt(), pcchrequiredsize)
+public actual fun getPrinterDriverPackagePathA(pszserver: Pcstr, pszenvironment: Pcstr, pszlanguage: Pcstr, pszpackageid: Pcstr, pszdriverpackagecab: Pstr, cchdriverpackagecab: UInt, pcchrequiredsize: COpaquePointer?): Hresult =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_getPrinterDriverPackagePathA((pszserver?.value ?: 0L), (pszenvironment?.value ?: 0L), (pszlanguage?.value ?: 0L), (pszpackageid?.value ?: 0L), (pszdriverpackagecab?.value ?: 0L), cchdriverpackagecab.toInt(), (pcchrequiredsize?.value ?: 0L))
 
-public actual fun GetPrinterDriverPackagePathW(pszserver: PCWSTR, pszenvironment: PCWSTR, pszlanguage: PCWSTR, pszpackageid: PCWSTR, pszdriverpackagecab: PWSTR, cchdriverpackagecab: UInt, pcchrequiredsize: Long): HRESULT =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_GetPrinterDriverPackagePathW(pszserver, pszenvironment, pszlanguage, pszpackageid, pszdriverpackagecab, cchdriverpackagecab.toInt(), pcchrequiredsize)
+public actual fun getPrinterDriverPackagePathW(pszserver: Pcwstr, pszenvironment: Pcwstr, pszlanguage: Pcwstr, pszpackageid: Pcwstr, pszdriverpackagecab: Pwstr, cchdriverpackagecab: UInt, pcchrequiredsize: COpaquePointer?): Hresult =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_getPrinterDriverPackagePathW((pszserver?.value ?: 0L), (pszenvironment?.value ?: 0L), (pszlanguage?.value ?: 0L), (pszpackageid?.value ?: 0L), (pszdriverpackagecab?.value ?: 0L), cchdriverpackagecab.toInt(), (pcchrequiredsize?.value ?: 0L))
 
-public actual fun GetPrinterDriverW(hprinter: PRINTER_HANDLE, penvironment: PCWSTR, level: UInt, pdriverinfo: Long, cbbuf: UInt, pcbneeded: Long): BOOL =
+public actual fun getPrinterDriverW(hprinter: PrinterHandle, penvironment: Pcwstr, level: UInt, pdriverinfo: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?): Bool =
     0
 
-public actual fun GetPrinterW(hprinter: PRINTER_HANDLE, level: UInt, pprinter: Long, cbbuf: UInt, pcbneeded: Long): BOOL =
+public actual fun getPrinterW(hprinter: PrinterHandle, level: UInt, pprinter: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?): Bool =
     0
 
-public actual fun GetSpoolFileHandle(hprinter: PRINTER_HANDLE): HANDLE =
-    0L
+public actual fun getSpoolFileHandle(hprinter: PrinterHandle): Handle =
+    null
 
-public actual fun ImpersonatePrinterClient(htoken: HANDLE): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_ImpersonatePrinterClient(htoken)
+public actual fun impersonatePrinterClient(htoken: Handle): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_impersonatePrinterClient((htoken?.value ?: 0L))
 
-public actual fun InstallPrinterDriverFromPackageA(pszserver: PCSTR, pszinfpath: PCSTR, pszdrivername: PCSTR, pszenvironment: PCSTR, dwflags: UInt): HRESULT =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_InstallPrinterDriverFromPackageA(pszserver, pszinfpath, pszdrivername, pszenvironment, dwflags.toInt())
+public actual fun installPrinterDriverFromPackageA(pszserver: Pcstr, pszinfpath: Pcstr, pszdrivername: Pcstr, pszenvironment: Pcstr, dwflags: UInt): Hresult =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_installPrinterDriverFromPackageA((pszserver?.value ?: 0L), (pszinfpath?.value ?: 0L), (pszdrivername?.value ?: 0L), (pszenvironment?.value ?: 0L), dwflags.toInt())
 
-public actual fun InstallPrinterDriverFromPackageW(pszserver: PCWSTR, pszinfpath: PCWSTR, pszdrivername: PCWSTR, pszenvironment: PCWSTR, dwflags: UInt): HRESULT =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_InstallPrinterDriverFromPackageW(pszserver, pszinfpath, pszdrivername, pszenvironment, dwflags.toInt())
+public actual fun installPrinterDriverFromPackageW(pszserver: Pcwstr, pszinfpath: Pcwstr, pszdrivername: Pcwstr, pszenvironment: Pcwstr, dwflags: UInt): Hresult =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_installPrinterDriverFromPackageW((pszserver?.value ?: 0L), (pszinfpath?.value ?: 0L), (pszdrivername?.value ?: 0L), (pszenvironment?.value ?: 0L), dwflags.toInt())
 
-public actual fun IsValidDevmodeA(pdevmode: Long, devmodesize: ULong): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_IsValidDevmodeA(pdevmode, devmodesize.toLong())
+public actual fun isValidDevmodeA(pdevmode: COpaquePointer?, devmodesize: ULong): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_isValidDevmodeA((pdevmode?.value ?: 0L), devmodesize.toLong())
 
-public actual fun IsValidDevmodeW(pdevmode: Long, devmodesize: ULong): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_IsValidDevmodeW(pdevmode, devmodesize.toLong())
+public actual fun isValidDevmodeW(pdevmode: COpaquePointer?, devmodesize: ULong): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_isValidDevmodeW((pdevmode?.value ?: 0L), devmodesize.toLong())
 
-public actual fun OpenPrinter2A(pprintername: PCSTR, phprinter: Long, pdefault: Long, poptions: Long): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_OpenPrinter2A(pprintername, phprinter, pdefault, poptions)
+public actual fun openPrinter2A(pprintername: Pcstr, phprinter: COpaquePointer?, pdefault: COpaquePointer?, poptions: COpaquePointer?): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_openPrinter2A((pprintername?.value ?: 0L), (phprinter?.value ?: 0L), (pdefault?.value ?: 0L), (poptions?.value ?: 0L))
 
-public actual fun OpenPrinter2W(pprintername: PCWSTR, phprinter: Long, pdefault: Long, poptions: Long): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_OpenPrinter2W(pprintername, phprinter, pdefault, poptions)
+public actual fun openPrinter2W(pprintername: Pcwstr, phprinter: COpaquePointer?, pdefault: COpaquePointer?, poptions: COpaquePointer?): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_openPrinter2W((pprintername?.value ?: 0L), (phprinter?.value ?: 0L), (pdefault?.value ?: 0L), (poptions?.value ?: 0L))
 
-public actual fun OpenPrinterA(pprintername: PCSTR, phprinter: Long, pdefault: Long): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_OpenPrinterA(pprintername, phprinter, pdefault)
+public actual fun openPrinterA(pprintername: Pcstr, phprinter: COpaquePointer?, pdefault: COpaquePointer?): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_openPrinterA((pprintername?.value ?: 0L), (phprinter?.value ?: 0L), (pdefault?.value ?: 0L))
 
-public actual fun OpenPrinterW(pprintername: PCWSTR, phprinter: Long, pdefault: Long): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_OpenPrinterW(pprintername, phprinter, pdefault)
+public actual fun openPrinterW(pprintername: Pcwstr, phprinter: COpaquePointer?, pdefault: COpaquePointer?): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_openPrinterW((pprintername?.value ?: 0L), (phprinter?.value ?: 0L), (pdefault?.value ?: 0L))
 
-public actual fun PartialReplyPrinterChangeNotification(hprinter: PRINTER_HANDLE, pdatasrc: Long): BOOL =
+public actual fun partialReplyPrinterChangeNotification(hprinter: PrinterHandle, pdatasrc: COpaquePointer?): Bool =
     0
 
-public actual fun PlayGdiScriptOnPrinterIC(hprinteric: HANDLE, pin: Long, cin: UInt, pout: Long, cout: UInt, ul: UInt): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_PlayGdiScriptOnPrinterIC(hprinteric, pin, cin.toInt(), pout, cout.toInt(), ul.toInt())
+public actual fun playGdiScriptOnPrinterIC(hprinteric: Handle, pin: COpaquePointer?, cin: UInt, pout: COpaquePointer?, cout: UInt, ul: UInt): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_playGdiScriptOnPrinterIC((hprinteric?.value ?: 0L), (pin?.value ?: 0L), cin.toInt(), (pout?.value ?: 0L), cout.toInt(), ul.toInt())
 
-public actual fun PrinterMessageBoxA(hprinter: PRINTER_HANDLE, error: UInt, hwnd: HWND, ptext: PCSTR, pcaption: PCSTR, dwtype: UInt): UInt =
+public actual fun printerMessageBoxA(hprinter: PrinterHandle, error: UInt, hwnd: Hwnd, ptext: Pcstr, pcaption: Pcstr, dwtype: UInt): UInt =
     0u
 
-public actual fun PrinterMessageBoxW(hprinter: PRINTER_HANDLE, error: UInt, hwnd: HWND, ptext: PCWSTR, pcaption: PCWSTR, dwtype: UInt): UInt =
+public actual fun printerMessageBoxW(hprinter: PrinterHandle, error: UInt, hwnd: Hwnd, ptext: Pcwstr, pcaption: Pcwstr, dwtype: UInt): UInt =
     0u
 
-public actual fun PrinterProperties(hwnd: HWND, hprinter: PRINTER_HANDLE): BOOL =
+public actual fun printerProperties(hwnd: Hwnd, hprinter: PrinterHandle): Bool =
     0
 
-public actual fun ProvidorFindClosePrinterChangeNotification(hprinter: PRINTER_HANDLE): BOOL =
+public actual fun providorFindClosePrinterChangeNotification(hprinter: PrinterHandle): Bool =
     0
 
-public actual fun ProvidorFindFirstPrinterChangeNotification(hprinter: PRINTER_HANDLE, fdwflags: UInt, fdwoptions: UInt, hnotify: HANDLE, pprinternotifyoptions: Long, pvreserved1: Long): BOOL =
+public actual fun providorFindFirstPrinterChangeNotification(hprinter: PrinterHandle, fdwflags: UInt, fdwoptions: UInt, hnotify: Handle, pprinternotifyoptions: COpaquePointer?, pvreserved1: COpaquePointer?): Bool =
     0
 
-public actual fun ReadPrinter(hprinter: PRINTER_HANDLE, pbuf: Long, cbbuf: UInt, pnobytesread: Long): BOOL =
+public actual fun readPrinter(hprinter: PrinterHandle, pbuf: COpaquePointer?, cbbuf: UInt, pnobytesread: COpaquePointer?): Bool =
     0
 
-public actual fun RegisterForPrintAsyncNotifications(pszname: PCWSTR, pnotificationtype: Long, euserfilter: PrintAsyncNotifyUserFilter, econversationstyle: PrintAsyncNotifyConversationStyle, pcallback: Long, phnotify: Long): HRESULT =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_RegisterForPrintAsyncNotifications(pszname, pnotificationtype, euserfilter, econversationstyle, pcallback, phnotify)
+public actual fun registerForPrintAsyncNotifications(pszname: Pcwstr, pnotificationtype: COpaquePointer?, euserfilter: PrintAsyncNotifyUserFilter, econversationstyle: PrintAsyncNotifyConversationStyle, pcallback: COpaquePointer?, phnotify: COpaquePointer?): Hresult =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_registerForPrintAsyncNotifications((pszname?.value ?: 0L), (pnotificationtype?.value ?: 0L), euserfilter, econversationstyle, (pcallback?.value ?: 0L), (phnotify?.value ?: 0L))
 
-public actual fun RemovePrintDeviceObject(hdeviceobject: HANDLE): HRESULT =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_RemovePrintDeviceObject(hdeviceobject)
+public actual fun removePrintDeviceObject(hdeviceobject: Handle): Hresult =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_removePrintDeviceObject((hdeviceobject?.value ?: 0L))
 
-public actual fun ReplyPrinterChangeNotification(hprinter: PRINTER_HANDLE, fdwchangeflags: UInt, pdwresult: Long, pprinternotifyinfo: Long): BOOL =
+public actual fun replyPrinterChangeNotification(hprinter: PrinterHandle, fdwchangeflags: UInt, pdwresult: COpaquePointer?, pprinternotifyinfo: COpaquePointer?): Bool =
     0
 
-public actual fun ReplyPrinterChangeNotificationEx(hnotify: HANDLE, dwcolor: UInt, fdwflags: UInt, pdwresult: Long, pprinternotifyinfo: Long): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_ReplyPrinterChangeNotificationEx(hnotify, dwcolor.toInt(), fdwflags.toInt(), pdwresult, pprinternotifyinfo)
+public actual fun replyPrinterChangeNotificationEx(hnotify: Handle, dwcolor: UInt, fdwflags: UInt, pdwresult: COpaquePointer?, pprinternotifyinfo: COpaquePointer?): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_replyPrinterChangeNotificationEx((hnotify?.value ?: 0L), dwcolor.toInt(), fdwflags.toInt(), (pdwresult?.value ?: 0L), (pprinternotifyinfo?.value ?: 0L))
 
-public actual fun ReportJobProcessingProgress(printerhandle: HANDLE, jobid: UInt, joboperation: EPrintXPSJobOperation, jobprogress: EPrintXPSJobProgress): HRESULT =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_ReportJobProcessingProgress(printerhandle, jobid.toInt(), joboperation, jobprogress)
+public actual fun reportJobProcessingProgress(printerhandle: Handle, jobid: UInt, joboperation: EPrintXPSJobOperation, jobprogress: EPrintXPSJobProgress): Hresult =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_reportJobProcessingProgress((printerhandle?.value ?: 0L), jobid.toInt(), joboperation, jobprogress)
 
-public actual fun ResetPrinterA(hprinter: PRINTER_HANDLE, pdefault: Long): BOOL =
+public actual fun resetPrinterA(hprinter: PrinterHandle, pdefault: COpaquePointer?): Bool =
     0
 
-public actual fun ResetPrinterW(hprinter: PRINTER_HANDLE, pdefault: Long): BOOL =
+public actual fun resetPrinterW(hprinter: PrinterHandle, pdefault: COpaquePointer?): Bool =
     0
 
-public actual fun RevertToPrinterSelf(): HANDLE =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_RevertToPrinterSelf()
+public actual fun revertToPrinterSelf(): Handle =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_revertToPrinterSelf().let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun RouterAllocBidiMem(numbytes: ULong): Long =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_RouterAllocBidiMem(numbytes.toLong())
+public actual fun routerAllocBidiMem(numbytes: ULong): COpaquePointer? =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_routerAllocBidiMem(numbytes.toLong()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun RouterAllocBidiResponseContainer(count: UInt): Long =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_RouterAllocBidiResponseContainer(count.toInt())
+public actual fun routerAllocBidiResponseContainer(count: UInt): COpaquePointer? =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_routerAllocBidiResponseContainer(count.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun RouterAllocPrinterNotifyInfo(cprinternotifyinfodata: UInt): Long =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_RouterAllocPrinterNotifyInfo(cprinternotifyinfodata.toInt())
+public actual fun routerAllocPrinterNotifyInfo(cprinternotifyinfodata: UInt): COpaquePointer? =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_routerAllocPrinterNotifyInfo(cprinternotifyinfodata.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun RouterFreeBidiMem(pmempointer: Long) {
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_RouterFreeBidiMem(pmempointer)
+public actual fun routerFreeBidiMem(pmempointer: COpaquePointer?) {
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_routerFreeBidiMem((pmempointer?.value ?: 0L))
 }
 
-public actual fun RouterFreeBidiResponseContainer(pdata: Long): UInt =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_RouterFreeBidiResponseContainer(pdata).toUInt()
+public actual fun routerFreeBidiResponseContainer(pdata: COpaquePointer?): UInt =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_routerFreeBidiResponseContainer((pdata?.value ?: 0L)).toUInt()
 
-public actual fun RouterFreePrinterNotifyInfo(pinfo: Long): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_RouterFreePrinterNotifyInfo(pinfo)
+public actual fun routerFreePrinterNotifyInfo(pinfo: COpaquePointer?): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_routerFreePrinterNotifyInfo((pinfo?.value ?: 0L))
 
-public actual fun ScheduleJob(hprinter: PRINTER_HANDLE, jobid: UInt): BOOL =
+public actual fun scheduleJob(hprinter: PrinterHandle, jobid: UInt): Bool =
     0
 
-public actual fun SetCPSUIUserData(hdlg: HWND, cpsuiuserdata: ULong): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_SetCPSUIUserData(hdlg, cpsuiuserdata.toLong())
+public actual fun setCPSUIUserData(hdlg: Hwnd, cpsuiuserdata: ULong): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_setCPSUIUserData((hdlg?.value ?: 0L), cpsuiuserdata.toLong())
 
-public actual fun SetDefaultPrinterA(pszprinter: PCSTR): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_SetDefaultPrinterA(pszprinter)
+public actual fun setDefaultPrinterA(pszprinter: Pcstr): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_setDefaultPrinterA((pszprinter?.value ?: 0L))
 
-public actual fun SetDefaultPrinterW(pszprinter: PCWSTR): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_SetDefaultPrinterW(pszprinter)
+public actual fun setDefaultPrinterW(pszprinter: Pcwstr): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_setDefaultPrinterW((pszprinter?.value ?: 0L))
 
-public actual fun SetFormA(hprinter: PRINTER_HANDLE, pformname: PCSTR, level: UInt, pform: Long): BOOL =
+public actual fun setFormA(hprinter: PrinterHandle, pformname: Pcstr, level: UInt, pform: COpaquePointer?): Bool =
     0
 
-public actual fun SetFormW(hprinter: PRINTER_HANDLE, pformname: PCWSTR, level: UInt, pform: Long): BOOL =
+public actual fun setFormW(hprinter: PrinterHandle, pformname: Pcwstr, level: UInt, pform: COpaquePointer?): Bool =
     0
 
-public actual fun SetJobA(hprinter: PRINTER_HANDLE, jobid: UInt, level: UInt, pjob: Long, command: UInt): BOOL =
+public actual fun setJobA(hprinter: PrinterHandle, jobid: UInt, level: UInt, pjob: COpaquePointer?, command: UInt): Bool =
     0
 
-public actual fun SetJobNamedProperty(hprinter: PRINTER_HANDLE, jobid: UInt, pproperty: Long): UInt =
+public actual fun setJobNamedProperty(hprinter: PrinterHandle, jobid: UInt, pproperty: COpaquePointer?): UInt =
     0u
 
-public actual fun SetJobW(hprinter: PRINTER_HANDLE, jobid: UInt, level: UInt, pjob: Long, command: UInt): BOOL =
+public actual fun setJobW(hprinter: PrinterHandle, jobid: UInt, level: UInt, pjob: COpaquePointer?, command: UInt): Bool =
     0
 
-public actual fun SetPortA(pname: PCSTR, pportname: PCSTR, dwlevel: UInt, pportinfo: Long): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_SetPortA(pname, pportname, dwlevel.toInt(), pportinfo)
+public actual fun setPortA(pname: Pcstr, pportname: Pcstr, dwlevel: UInt, pportinfo: COpaquePointer?): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_setPortA((pname?.value ?: 0L), (pportname?.value ?: 0L), dwlevel.toInt(), (pportinfo?.value ?: 0L))
 
-public actual fun SetPortW(pname: PCWSTR, pportname: PCWSTR, dwlevel: UInt, pportinfo: Long): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_SetPortW(pname, pportname, dwlevel.toInt(), pportinfo)
+public actual fun setPortW(pname: Pcwstr, pportname: Pcwstr, dwlevel: UInt, pportinfo: COpaquePointer?): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_setPortW((pname?.value ?: 0L), (pportname?.value ?: 0L), dwlevel.toInt(), (pportinfo?.value ?: 0L))
 
-public actual fun SetPrinterA(hprinter: PRINTER_HANDLE, level: UInt, pprinter: Long, command: UInt): BOOL =
+public actual fun setPrinterA(hprinter: PrinterHandle, level: UInt, pprinter: COpaquePointer?, command: UInt): Bool =
     0
 
-public actual fun SetPrinterDataA(hprinter: PRINTER_HANDLE, pvaluename: PCSTR, type: UInt, pdata: Long, cbdata: UInt): UInt =
+public actual fun setPrinterDataA(hprinter: PrinterHandle, pvaluename: Pcstr, type: UInt, pdata: COpaquePointer?, cbdata: UInt): UInt =
     0u
 
-public actual fun SetPrinterDataExA(hprinter: PRINTER_HANDLE, pkeyname: PCSTR, pvaluename: PCSTR, type: UInt, pdata: Long, cbdata: UInt): UInt =
+public actual fun setPrinterDataExA(hprinter: PrinterHandle, pkeyname: Pcstr, pvaluename: Pcstr, type: UInt, pdata: COpaquePointer?, cbdata: UInt): UInt =
     0u
 
-public actual fun SetPrinterDataExW(hprinter: PRINTER_HANDLE, pkeyname: PCWSTR, pvaluename: PCWSTR, type: UInt, pdata: Long, cbdata: UInt): UInt =
+public actual fun setPrinterDataExW(hprinter: PrinterHandle, pkeyname: Pcwstr, pvaluename: Pcwstr, type: UInt, pdata: COpaquePointer?, cbdata: UInt): UInt =
     0u
 
-public actual fun SetPrinterDataW(hprinter: PRINTER_HANDLE, pvaluename: PCWSTR, type: UInt, pdata: Long, cbdata: UInt): UInt =
+public actual fun setPrinterDataW(hprinter: PrinterHandle, pvaluename: Pcwstr, type: UInt, pdata: COpaquePointer?, cbdata: UInt): UInt =
     0u
 
-public actual fun SetPrinterW(hprinter: PRINTER_HANDLE, level: UInt, pprinter: Long, command: UInt): BOOL =
+public actual fun setPrinterW(hprinter: PrinterHandle, level: UInt, pprinter: COpaquePointer?, command: UInt): Bool =
     0
 
-public actual fun SplIsSessionZero(hprinter: PRINTER_HANDLE, jobid: UInt, pissessionzero: Long): UInt =
+public actual fun splIsSessionZero(hprinter: PrinterHandle, jobid: UInt, pissessionzero: COpaquePointer?): UInt =
     0u
 
-public actual fun SplPromptUIInUsersSession(hprinter: PRINTER_HANDLE, jobid: UInt, puiparams: Long, presponse: Long): BOOL =
+public actual fun splPromptUIInUsersSession(hprinter: PrinterHandle, jobid: UInt, puiparams: COpaquePointer?, presponse: COpaquePointer?): Bool =
     0
 
-public actual fun SpoolerCopyFileEvent(pszprintername: PCWSTR, pszkey: PCWSTR, dwcopyfileevent: UInt): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_SpoolerCopyFileEvent(pszprintername, pszkey, dwcopyfileevent.toInt())
+public actual fun spoolerCopyFileEvent(pszprintername: Pcwstr, pszkey: Pcwstr, dwcopyfileevent: UInt): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_spoolerCopyFileEvent((pszprintername?.value ?: 0L), (pszkey?.value ?: 0L), dwcopyfileevent.toInt())
 
-public actual fun SpoolerFindClosePrinterChangeNotification(hprinter: PRINTER_HANDLE): BOOL =
+public actual fun spoolerFindClosePrinterChangeNotification(hprinter: PrinterHandle): Bool =
     0
 
-public actual fun SpoolerFindFirstPrinterChangeNotification(hprinter: PRINTER_HANDLE, fdwfilterflags: UInt, fdwoptions: UInt, pprinternotifyoptions: Long, pvreserved: Long, pnotificationconfig: Long, phnotify: Long, phevent: Long): BOOL =
+public actual fun spoolerFindFirstPrinterChangeNotification(hprinter: PrinterHandle, fdwfilterflags: UInt, fdwoptions: UInt, pprinternotifyoptions: COpaquePointer?, pvreserved: COpaquePointer?, pnotificationconfig: COpaquePointer?, phnotify: COpaquePointer?, phevent: COpaquePointer?): Bool =
     0
 
-public actual fun SpoolerFindNextPrinterChangeNotification(hprinter: PRINTER_HANDLE, pfdwchange: Long, pprinternotifyoptions: Long, ppprinternotifyinfo: Long): BOOL =
+public actual fun spoolerFindNextPrinterChangeNotification(hprinter: PrinterHandle, pfdwchange: COpaquePointer?, pprinternotifyoptions: COpaquePointer?, ppprinternotifyinfo: COpaquePointer?): Bool =
     0
 
-public actual fun SpoolerFreePrinterNotifyInfo(pinfo: Long) {
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_SpoolerFreePrinterNotifyInfo(pinfo)
+public actual fun spoolerFreePrinterNotifyInfo(pinfo: COpaquePointer?) {
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_spoolerFreePrinterNotifyInfo((pinfo?.value ?: 0L))
 }
 
-public actual fun SpoolerRefreshPrinterChangeNotification(hprinter: PRINTER_HANDLE, dwcolor: UInt, poptions: Long, ppinfo: Long): BOOL =
+public actual fun spoolerRefreshPrinterChangeNotification(hprinter: PrinterHandle, dwcolor: UInt, poptions: COpaquePointer?, ppinfo: COpaquePointer?): Bool =
     0
 
-public actual fun StartDocPrinterA(hprinter: PRINTER_HANDLE, level: UInt, pdocinfo: Long): UInt =
+public actual fun startDocPrinterA(hprinter: PrinterHandle, level: UInt, pdocinfo: COpaquePointer?): UInt =
     0u
 
-public actual fun StartDocPrinterW(hprinter: PRINTER_HANDLE, level: UInt, pdocinfo: Long): UInt =
+public actual fun startDocPrinterW(hprinter: PrinterHandle, level: UInt, pdocinfo: COpaquePointer?): UInt =
     0u
 
-public actual fun StartPagePrinter(hprinter: PRINTER_HANDLE): BOOL =
+public actual fun startPagePrinter(hprinter: PrinterHandle): Bool =
     0
 
-public actual fun UnRegisterForPrintAsyncNotifications(param0: HANDLE): HRESULT =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_UnRegisterForPrintAsyncNotifications(param0)
+public actual fun unRegisterForPrintAsyncNotifications(param0: Handle): Hresult =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_unRegisterForPrintAsyncNotifications((param0?.value ?: 0L))
 
-public actual fun UpdatePrintDeviceObject(hprinter: PRINTER_HANDLE, hdeviceobject: HANDLE): HRESULT =
+public actual fun updatePrintDeviceObject(hprinter: PrinterHandle, hdeviceobject: Handle): Hresult =
     0
 
-public actual fun UploadPrinterDriverPackageA(pszserver: PCSTR, pszinfpath: PCSTR, pszenvironment: PCSTR, dwflags: UInt, hwnd: HWND, pszdestinfpath: PSTR, pcchdestinfpath: Long): HRESULT =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_UploadPrinterDriverPackageA(pszserver, pszinfpath, pszenvironment, dwflags.toInt(), hwnd, pszdestinfpath, pcchdestinfpath)
+public actual fun uploadPrinterDriverPackageA(pszserver: Pcstr, pszinfpath: Pcstr, pszenvironment: Pcstr, dwflags: UInt, hwnd: Hwnd, pszdestinfpath: Pstr, pcchdestinfpath: COpaquePointer?): Hresult =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_uploadPrinterDriverPackageA((pszserver?.value ?: 0L), (pszinfpath?.value ?: 0L), (pszenvironment?.value ?: 0L), dwflags.toInt(), (hwnd?.value ?: 0L), (pszdestinfpath?.value ?: 0L), (pcchdestinfpath?.value ?: 0L))
 
-public actual fun UploadPrinterDriverPackageW(pszserver: PCWSTR, pszinfpath: PCWSTR, pszenvironment: PCWSTR, dwflags: UInt, hwnd: HWND, pszdestinfpath: PWSTR, pcchdestinfpath: Long): HRESULT =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_UploadPrinterDriverPackageW(pszserver, pszinfpath, pszenvironment, dwflags.toInt(), hwnd, pszdestinfpath, pcchdestinfpath)
+public actual fun uploadPrinterDriverPackageW(pszserver: Pcwstr, pszinfpath: Pcwstr, pszenvironment: Pcwstr, dwflags: UInt, hwnd: Hwnd, pszdestinfpath: Pwstr, pcchdestinfpath: COpaquePointer?): Hresult =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_uploadPrinterDriverPackageW((pszserver?.value ?: 0L), (pszinfpath?.value ?: 0L), (pszenvironment?.value ?: 0L), dwflags.toInt(), (hwnd?.value ?: 0L), (pszdestinfpath?.value ?: 0L), (pcchdestinfpath?.value ?: 0L))
 
-public actual fun WaitForPrinterChange(hprinter: PRINTER_HANDLE, flags: UInt): UInt =
+public actual fun waitForPrinterChange(hprinter: PrinterHandle, flags: UInt): UInt =
     0u
 
-public actual fun WritePrinter(hprinter: PRINTER_HANDLE, pbuf: Long, cbbuf: UInt, pcwritten: Long): BOOL =
+public actual fun writePrinter(hprinter: PrinterHandle, pbuf: COpaquePointer?, cbbuf: UInt, pcwritten: COpaquePointer?): Bool =
     0
 
-public actual fun XcvDataW(hxcv: HANDLE, pszdataname: PCWSTR, pinputdata: Long, cbinputdata: UInt, poutputdata: Long, cboutputdata: UInt, pcboutputneeded: Long, pdwstatus: Long): BOOL =
-    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_XcvDataW(hxcv, pszdataname, pinputdata, cbinputdata.toInt(), poutputdata, cboutputdata.toInt(), pcboutputneeded, pdwstatus)
+public actual fun xcvDataW(hxcv: Handle, pszdataname: Pcwstr, pinputdata: COpaquePointer?, cbinputdata: UInt, poutputdata: COpaquePointer?, cboutputdata: UInt, pcboutputneeded: COpaquePointer?, pdwstatus: COpaquePointer?): Bool =
+    WindowsWin32GraphicsPrintingJniBridge.windowssys_windows_win32_graphics_printing_xcvDataW((hxcv?.value ?: 0L), (pszdataname?.value ?: 0L), (pinputdata?.value ?: 0L), cbinputdata.toInt(), (poutputdata?.value ?: 0L), cboutputdata.toInt(), (pcboutputneeded?.value ?: 0L), (pdwstatus?.value ?: 0L))

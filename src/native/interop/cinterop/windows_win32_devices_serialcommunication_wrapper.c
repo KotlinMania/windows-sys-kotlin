@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_devices_serialcommunication_ComDBClaimNextFreePort(void* hcomdb, void* comnumber) {
+int32_t windowssys_windows_win32_devices_serialcommunication_comDBClaimNextFreePort(void* hcomdb, void* comnumber) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -38,7 +38,7 @@ int32_t windowssys_windows_win32_devices_serialcommunication_ComDBClaimNextFreeP
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_serialcommunication_ComDBClaimPort(void* hcomdb, uint32_t comnumber, int32_t forceclaim, void* forced) {
+int32_t windowssys_windows_win32_devices_serialcommunication_comDBClaimPort(void* hcomdb, uint32_t comnumber, int32_t forceclaim, void* forced) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -63,7 +63,7 @@ int32_t windowssys_windows_win32_devices_serialcommunication_ComDBClaimPort(void
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_serialcommunication_ComDBClose(void* hcomdb) {
+int32_t windowssys_windows_win32_devices_serialcommunication_comDBClose(void* hcomdb) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -85,7 +85,7 @@ int32_t windowssys_windows_win32_devices_serialcommunication_ComDBClose(void* hc
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_serialcommunication_ComDBGetCurrentPortUsage(void* hcomdb, void* buffer, uint32_t buffersize, uint32_t reporttype, void* maxportsreported) {
+int32_t windowssys_windows_win32_devices_serialcommunication_comDBGetCurrentPortUsage(void* hcomdb, void* buffer, uint32_t buffersize, uint32_t reporttype, void* maxportsreported) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -111,7 +111,7 @@ int32_t windowssys_windows_win32_devices_serialcommunication_ComDBGetCurrentPort
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_serialcommunication_ComDBOpen(void* phcomdb) {
+int32_t windowssys_windows_win32_devices_serialcommunication_comDBOpen(void* phcomdb) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -133,7 +133,7 @@ int32_t windowssys_windows_win32_devices_serialcommunication_ComDBOpen(void* phc
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_serialcommunication_ComDBReleasePort(void* hcomdb, uint32_t comnumber) {
+int32_t windowssys_windows_win32_devices_serialcommunication_comDBReleasePort(void* hcomdb, uint32_t comnumber) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -156,7 +156,7 @@ int32_t windowssys_windows_win32_devices_serialcommunication_ComDBReleasePort(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_serialcommunication_ComDBResizeDatabase(void* hcomdb, uint32_t newsize) {
+int32_t windowssys_windows_win32_devices_serialcommunication_comDBResizeDatabase(void* hcomdb, uint32_t newsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;

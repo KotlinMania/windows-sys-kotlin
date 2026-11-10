@@ -2,405 +2,412 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.security.credentials
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.WIN32_ERROR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Win32Error
 
 private val _windowsWin32SecurityCredentialsNapiAddon: dynamic =
-    js("(function() { if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var req = (new Function('t', 'return typeof require === t ? require : null'))('function'); if (!req) return null; var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; for (var d = 0; d < 8; d++) { var c1 = path.resolve(dir, 'build/node-ffi/windows_sys_native.node'); if (fs.existsSync(c1)) return req(c1); var c2 = path.resolve(dir, 'src/js/node-windows_sys/build/Release/windows_sys_native.node'); if (fs.existsSync(c2)) return req(c2); var c3 = path.resolve(dir, 'src/js/node-windows_sys/build/Debug/windows_sys_native.node'); if (fs.existsSync(c3)) return req(c3); var c4 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Release/windows_sys_native.node'); if (fs.existsSync(c4)) return req(c4); var c5 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Debug/windows_sys_native.node'); if (fs.existsSync(c5)) return req(c5); var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } return null; })()")
+    js("(function() { if (typeof globalThis !== 'undefined' && typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys; if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) return null; try { var pkg = req('@kotlinmania/windowssys-native-bindings'); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = pkg; return pkg; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { var loaded = req(c); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = loaded; return loaded; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = null; return null; })()")
 
-public actual fun CredDeleteA(targetname: PCSTR, type: CRED_TYPE, flags: UInt): BOOL =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_CredDeleteA(targetname.toString(), type.toInt(), flags.toInt()) as Int) else 0
+public actual fun credDeleteA(targetname: Pcstr, type: CredType, flags: UInt): Bool =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_credDeleteA((targetname?.value ?: 0L).toString(), type.toInt(), flags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CredDeleteW(targetname: PCWSTR, type: CRED_TYPE, flags: UInt): BOOL =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_CredDeleteW(targetname.toString(), type.toInt(), flags.toInt()) as Int) else 0
+public actual fun credDeleteW(targetname: Pcwstr, type: CredType, flags: UInt): Bool =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_credDeleteW((targetname?.value ?: 0L).toString(), type.toInt(), flags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CredEnumerateA(filter: PCSTR, flags: CRED_ENUMERATE_FLAGS, count: Long, credential: Long): BOOL =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_CredEnumerateA(filter.toString(), flags.toInt(), count.toString(), credential.toString()) as Int) else 0
+public actual fun credEnumerateA(filter: Pcstr, flags: CredEnumerateFlags, count: COpaquePointer?, credential: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_credEnumerateA((filter?.value ?: 0L).toString(), flags.toInt(), (count?.value ?: 0L).toString(), (credential?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CredEnumerateW(filter: PCWSTR, flags: CRED_ENUMERATE_FLAGS, count: Long, credential: Long): BOOL =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_CredEnumerateW(filter.toString(), flags.toInt(), count.toString(), credential.toString()) as Int) else 0
+public actual fun credEnumerateW(filter: Pcwstr, flags: CredEnumerateFlags, count: COpaquePointer?, credential: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_credEnumerateW((filter?.value ?: 0L).toString(), flags.toInt(), (count?.value ?: 0L).toString(), (credential?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CredFindBestCredentialA(targetname: PCSTR, type: UInt, flags: UInt, credential: Long): BOOL =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_CredFindBestCredentialA(targetname.toString(), type.toInt(), flags.toInt(), credential.toString()) as Int) else 0
+public actual fun credFindBestCredentialA(targetname: Pcstr, type: UInt, flags: UInt, credential: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_credFindBestCredentialA((targetname?.value ?: 0L).toString(), type.toInt(), flags.toInt(), (credential?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CredFindBestCredentialW(targetname: PCWSTR, type: UInt, flags: UInt, credential: Long): BOOL =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_CredFindBestCredentialW(targetname.toString(), type.toInt(), flags.toInt(), credential.toString()) as Int) else 0
+public actual fun credFindBestCredentialW(targetname: Pcwstr, type: UInt, flags: UInt, credential: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_credFindBestCredentialW((targetname?.value ?: 0L).toString(), type.toInt(), flags.toInt(), (credential?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CredFree(buffer: Long) {
+public actual fun credFree(buffer: COpaquePointer?) {
     if (_windowsWin32SecurityCredentialsNapiAddon != null) {
-        _windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_CredFree(buffer.toString())
+        _windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_credFree((buffer?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun CredGetSessionTypes(maximumpersistcount: UInt, maximumpersist: Long): BOOL =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_CredGetSessionTypes(maximumpersistcount.toInt(), maximumpersist.toString()) as Int) else 0
+public actual fun credGetSessionTypes(maximumpersistcount: UInt, maximumpersist: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_credGetSessionTypes(maximumpersistcount.toInt(), (maximumpersist?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CredGetTargetInfoA(targetname: PCSTR, flags: UInt, targetinfo: Long): BOOL =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_CredGetTargetInfoA(targetname.toString(), flags.toInt(), targetinfo.toString()) as Int) else 0
+public actual fun credGetTargetInfoA(targetname: Pcstr, flags: UInt, targetinfo: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_credGetTargetInfoA((targetname?.value ?: 0L).toString(), flags.toInt(), (targetinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CredGetTargetInfoW(targetname: PCWSTR, flags: UInt, targetinfo: Long): BOOL =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_CredGetTargetInfoW(targetname.toString(), flags.toInt(), targetinfo.toString()) as Int) else 0
+public actual fun credGetTargetInfoW(targetname: Pcwstr, flags: UInt, targetinfo: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_credGetTargetInfoW((targetname?.value ?: 0L).toString(), flags.toInt(), (targetinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CredIsMarshaledCredentialA(marshaledcredential: PCSTR): BOOL =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_CredIsMarshaledCredentialA(marshaledcredential.toString()) as Int) else 0
+public actual fun credIsMarshaledCredentialA(marshaledcredential: Pcstr): Bool =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_credIsMarshaledCredentialA((marshaledcredential?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CredIsMarshaledCredentialW(marshaledcredential: PCWSTR): BOOL =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_CredIsMarshaledCredentialW(marshaledcredential.toString()) as Int) else 0
+public actual fun credIsMarshaledCredentialW(marshaledcredential: Pcwstr): Bool =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_credIsMarshaledCredentialW((marshaledcredential?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CredIsProtectedA(pszprotectedcredentials: PCSTR, pprotectiontype: Long): BOOL =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_CredIsProtectedA(pszprotectedcredentials.toString(), pprotectiontype.toString()) as Int) else 0
+public actual fun credIsProtectedA(pszprotectedcredentials: Pcstr, pprotectiontype: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_credIsProtectedA((pszprotectedcredentials?.value ?: 0L).toString(), (pprotectiontype?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CredIsProtectedW(pszprotectedcredentials: PCWSTR, pprotectiontype: Long): BOOL =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_CredIsProtectedW(pszprotectedcredentials.toString(), pprotectiontype.toString()) as Int) else 0
+public actual fun credIsProtectedW(pszprotectedcredentials: Pcwstr, pprotectiontype: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_credIsProtectedW((pszprotectedcredentials?.value ?: 0L).toString(), (pprotectiontype?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CredMarshalCredentialA(credtype: CRED_MARSHAL_TYPE, credential: Long, marshaledcredential: Long): BOOL =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_CredMarshalCredentialA(credtype, credential.toString(), marshaledcredential.toString()) as Int) else 0
+public actual fun credMarshalCredentialA(credtype: CredMarshalType, credential: COpaquePointer?, marshaledcredential: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_credMarshalCredentialA(credtype, (credential?.value ?: 0L).toString(), (marshaledcredential?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CredMarshalCredentialW(credtype: CRED_MARSHAL_TYPE, credential: Long, marshaledcredential: Long): BOOL =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_CredMarshalCredentialW(credtype, credential.toString(), marshaledcredential.toString()) as Int) else 0
+public actual fun credMarshalCredentialW(credtype: CredMarshalType, credential: COpaquePointer?, marshaledcredential: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_credMarshalCredentialW(credtype, (credential?.value ?: 0L).toString(), (marshaledcredential?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CredPackAuthenticationBufferA(dwflags: CRED_PACK_FLAGS, pszusername: PCSTR, pszpassword: PCSTR, ppackedcredentials: Long, pcbpackedcredentials: Long): BOOL =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_CredPackAuthenticationBufferA(dwflags.toInt(), pszusername.toString(), pszpassword.toString(), ppackedcredentials.toString(), pcbpackedcredentials.toString()) as Int) else 0
+public actual fun credPackAuthenticationBufferA(dwflags: CredPackFlags, pszusername: Pcstr, pszpassword: Pcstr, ppackedcredentials: COpaquePointer?, pcbpackedcredentials: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_credPackAuthenticationBufferA(dwflags.toInt(), (pszusername?.value ?: 0L).toString(), (pszpassword?.value ?: 0L).toString(), (ppackedcredentials?.value ?: 0L).toString(), (pcbpackedcredentials?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CredPackAuthenticationBufferW(dwflags: CRED_PACK_FLAGS, pszusername: PCWSTR, pszpassword: PCWSTR, ppackedcredentials: Long, pcbpackedcredentials: Long): BOOL =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_CredPackAuthenticationBufferW(dwflags.toInt(), pszusername.toString(), pszpassword.toString(), ppackedcredentials.toString(), pcbpackedcredentials.toString()) as Int) else 0
+public actual fun credPackAuthenticationBufferW(dwflags: CredPackFlags, pszusername: Pcwstr, pszpassword: Pcwstr, ppackedcredentials: COpaquePointer?, pcbpackedcredentials: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_credPackAuthenticationBufferW(dwflags.toInt(), (pszusername?.value ?: 0L).toString(), (pszpassword?.value ?: 0L).toString(), (ppackedcredentials?.value ?: 0L).toString(), (pcbpackedcredentials?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CredProtectA(fasself: BOOL, pszcredentials: PCSTR, cchcredentials: UInt, pszprotectedcredentials: PSTR, pcchmaxchars: Long, protectiontype: Long): BOOL =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_CredProtectA(fasself, pszcredentials.toString(), cchcredentials.toInt(), pszprotectedcredentials.toString(), pcchmaxchars.toString(), protectiontype.toString()) as Int) else 0
+public actual fun credProtectA(fasself: Bool, pszcredentials: Pcstr, cchcredentials: UInt, pszprotectedcredentials: Pstr, pcchmaxchars: COpaquePointer?, protectiontype: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_credProtectA(fasself, (pszcredentials?.value ?: 0L).toString(), cchcredentials.toInt(), (pszprotectedcredentials?.value ?: 0L).toString(), (pcchmaxchars?.value ?: 0L).toString(), (protectiontype?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CredProtectW(fasself: BOOL, pszcredentials: PCWSTR, cchcredentials: UInt, pszprotectedcredentials: PWSTR, pcchmaxchars: Long, protectiontype: Long): BOOL =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_CredProtectW(fasself, pszcredentials.toString(), cchcredentials.toInt(), pszprotectedcredentials.toString(), pcchmaxchars.toString(), protectiontype.toString()) as Int) else 0
+public actual fun credProtectW(fasself: Bool, pszcredentials: Pcwstr, cchcredentials: UInt, pszprotectedcredentials: Pwstr, pcchmaxchars: COpaquePointer?, protectiontype: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_credProtectW(fasself, (pszcredentials?.value ?: 0L).toString(), cchcredentials.toInt(), (pszprotectedcredentials?.value ?: 0L).toString(), (pcchmaxchars?.value ?: 0L).toString(), (protectiontype?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CredReadA(targetname: PCSTR, type: CRED_TYPE, flags: UInt, credential: Long): BOOL =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_CredReadA(targetname.toString(), type.toInt(), flags.toInt(), credential.toString()) as Int) else 0
+public actual fun credReadA(targetname: Pcstr, type: CredType, flags: UInt, credential: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_credReadA((targetname?.value ?: 0L).toString(), type.toInt(), flags.toInt(), (credential?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CredReadDomainCredentialsA(targetinfo: Long, flags: UInt, count: Long, credential: Long): BOOL =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_CredReadDomainCredentialsA(targetinfo.toString(), flags.toInt(), count.toString(), credential.toString()) as Int) else 0
+public actual fun credReadDomainCredentialsA(targetinfo: COpaquePointer?, flags: UInt, count: COpaquePointer?, credential: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_credReadDomainCredentialsA((targetinfo?.value ?: 0L).toString(), flags.toInt(), (count?.value ?: 0L).toString(), (credential?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CredReadDomainCredentialsW(targetinfo: Long, flags: UInt, count: Long, credential: Long): BOOL =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_CredReadDomainCredentialsW(targetinfo.toString(), flags.toInt(), count.toString(), credential.toString()) as Int) else 0
+public actual fun credReadDomainCredentialsW(targetinfo: COpaquePointer?, flags: UInt, count: COpaquePointer?, credential: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_credReadDomainCredentialsW((targetinfo?.value ?: 0L).toString(), flags.toInt(), (count?.value ?: 0L).toString(), (credential?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CredReadW(targetname: PCWSTR, type: CRED_TYPE, flags: UInt, credential: Long): BOOL =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_CredReadW(targetname.toString(), type.toInt(), flags.toInt(), credential.toString()) as Int) else 0
+public actual fun credReadW(targetname: Pcwstr, type: CredType, flags: UInt, credential: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_credReadW((targetname?.value ?: 0L).toString(), type.toInt(), flags.toInt(), (credential?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CredRenameA(oldtargetname: PCSTR, newtargetname: PCSTR, type: CRED_TYPE, flags: UInt): BOOL =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_CredRenameA(oldtargetname.toString(), newtargetname.toString(), type.toInt(), flags.toInt()) as Int) else 0
+public actual fun credRenameA(oldtargetname: Pcstr, newtargetname: Pcstr, type: CredType, flags: UInt): Bool =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_credRenameA((oldtargetname?.value ?: 0L).toString(), (newtargetname?.value ?: 0L).toString(), type.toInt(), flags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CredRenameW(oldtargetname: PCWSTR, newtargetname: PCWSTR, type: CRED_TYPE, flags: UInt): BOOL =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_CredRenameW(oldtargetname.toString(), newtargetname.toString(), type.toInt(), flags.toInt()) as Int) else 0
+public actual fun credRenameW(oldtargetname: Pcwstr, newtargetname: Pcwstr, type: CredType, flags: UInt): Bool =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_credRenameW((oldtargetname?.value ?: 0L).toString(), (newtargetname?.value ?: 0L).toString(), type.toInt(), flags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CredUICmdLinePromptForCredentialsA(psztargetname: PCSTR, pcontext: Long, dwautherror: UInt, username: PSTR, uluserbuffersize: UInt, pszpassword: PSTR, ulpasswordbuffersize: UInt, pfsave: Long, dwflags: CREDUI_FLAGS): UInt =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_CredUICmdLinePromptForCredentialsA(psztargetname.toString(), pcontext.toString(), dwautherror.toInt(), username.toString(), uluserbuffersize.toInt(), pszpassword.toString(), ulpasswordbuffersize.toInt(), pfsave.toString(), dwflags.toInt()) as Int).toUInt() else 0u
+public actual fun credUICmdLinePromptForCredentialsA(psztargetname: Pcstr, pcontext: COpaquePointer?, dwautherror: UInt, username: Pstr, uluserbuffersize: UInt, pszpassword: Pstr, ulpasswordbuffersize: UInt, pfsave: COpaquePointer?, dwflags: CreduiFlags): UInt =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_credUICmdLinePromptForCredentialsA((psztargetname?.value ?: 0L).toString(), (pcontext?.value ?: 0L).toString(), dwautherror.toInt(), (username?.value ?: 0L).toString(), uluserbuffersize.toInt(), (pszpassword?.value ?: 0L).toString(), ulpasswordbuffersize.toInt(), (pfsave?.value ?: 0L).toString(), dwflags.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CredUICmdLinePromptForCredentialsW(psztargetname: PCWSTR, pcontext: Long, dwautherror: UInt, username: PWSTR, uluserbuffersize: UInt, pszpassword: PWSTR, ulpasswordbuffersize: UInt, pfsave: Long, dwflags: CREDUI_FLAGS): UInt =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_CredUICmdLinePromptForCredentialsW(psztargetname.toString(), pcontext.toString(), dwautherror.toInt(), username.toString(), uluserbuffersize.toInt(), pszpassword.toString(), ulpasswordbuffersize.toInt(), pfsave.toString(), dwflags.toInt()) as Int).toUInt() else 0u
+public actual fun credUICmdLinePromptForCredentialsW(psztargetname: Pcwstr, pcontext: COpaquePointer?, dwautherror: UInt, username: Pwstr, uluserbuffersize: UInt, pszpassword: Pwstr, ulpasswordbuffersize: UInt, pfsave: COpaquePointer?, dwflags: CreduiFlags): UInt =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_credUICmdLinePromptForCredentialsW((psztargetname?.value ?: 0L).toString(), (pcontext?.value ?: 0L).toString(), dwautherror.toInt(), (username?.value ?: 0L).toString(), uluserbuffersize.toInt(), (pszpassword?.value ?: 0L).toString(), ulpasswordbuffersize.toInt(), (pfsave?.value ?: 0L).toString(), dwflags.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CredUIConfirmCredentialsA(psztargetname: PCSTR, bconfirm: BOOL): UInt =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_CredUIConfirmCredentialsA(psztargetname.toString(), bconfirm) as Int).toUInt() else 0u
+public actual fun credUIConfirmCredentialsA(psztargetname: Pcstr, bconfirm: Bool): UInt =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_credUIConfirmCredentialsA((psztargetname?.value ?: 0L).toString(), bconfirm) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CredUIConfirmCredentialsW(psztargetname: PCWSTR, bconfirm: BOOL): UInt =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_CredUIConfirmCredentialsW(psztargetname.toString(), bconfirm) as Int).toUInt() else 0u
+public actual fun credUIConfirmCredentialsW(psztargetname: Pcwstr, bconfirm: Bool): UInt =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_credUIConfirmCredentialsW((psztargetname?.value ?: 0L).toString(), bconfirm) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CredUIParseUserNameA(username: PCSTR, user: PSTR, userbuffersize: UInt, domain: PSTR, domainbuffersize: UInt): WIN32_ERROR =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_CredUIParseUserNameA(username.toString(), user.toString(), userbuffersize.toInt(), domain.toString(), domainbuffersize.toInt()) as Int).toUInt() else 0u
+public actual fun credUIParseUserNameA(username: Pcstr, user: Pstr, userbuffersize: UInt, domain: Pstr, domainbuffersize: UInt): Win32Error =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_credUIParseUserNameA((username?.value ?: 0L).toString(), (user?.value ?: 0L).toString(), userbuffersize.toInt(), (domain?.value ?: 0L).toString(), domainbuffersize.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CredUIParseUserNameW(username: PCWSTR, user: PWSTR, userbuffersize: UInt, domain: PWSTR, domainbuffersize: UInt): WIN32_ERROR =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_CredUIParseUserNameW(username.toString(), user.toString(), userbuffersize.toInt(), domain.toString(), domainbuffersize.toInt()) as Int).toUInt() else 0u
+public actual fun credUIParseUserNameW(username: Pcwstr, user: Pwstr, userbuffersize: UInt, domain: Pwstr, domainbuffersize: UInt): Win32Error =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_credUIParseUserNameW((username?.value ?: 0L).toString(), (user?.value ?: 0L).toString(), userbuffersize.toInt(), (domain?.value ?: 0L).toString(), domainbuffersize.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CredUIPromptForCredentialsA(puiinfo: Long, psztargetname: PCSTR, pcontext: Long, dwautherror: UInt, pszusername: PSTR, ulusernamebuffersize: UInt, pszpassword: PSTR, ulpasswordbuffersize: UInt, save: Long, dwflags: CREDUI_FLAGS): WIN32_ERROR =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_CredUIPromptForCredentialsA(puiinfo.toString(), psztargetname.toString(), pcontext.toString(), dwautherror.toInt(), pszusername.toString(), ulusernamebuffersize.toInt(), pszpassword.toString(), ulpasswordbuffersize.toInt(), save.toString(), dwflags.toInt()) as Int).toUInt() else 0u
+public actual fun credUIPromptForCredentialsA(puiinfo: COpaquePointer?, psztargetname: Pcstr, pcontext: COpaquePointer?, dwautherror: UInt, pszusername: Pstr, ulusernamebuffersize: UInt, pszpassword: Pstr, ulpasswordbuffersize: UInt, save: COpaquePointer?, dwflags: CreduiFlags): Win32Error =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_credUIPromptForCredentialsA((puiinfo?.value ?: 0L).toString(), (psztargetname?.value ?: 0L).toString(), (pcontext?.value ?: 0L).toString(), dwautherror.toInt(), (pszusername?.value ?: 0L).toString(), ulusernamebuffersize.toInt(), (pszpassword?.value ?: 0L).toString(), ulpasswordbuffersize.toInt(), (save?.value ?: 0L).toString(), dwflags.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CredUIPromptForCredentialsW(puiinfo: Long, psztargetname: PCWSTR, pcontext: Long, dwautherror: UInt, pszusername: PWSTR, ulusernamebuffersize: UInt, pszpassword: PWSTR, ulpasswordbuffersize: UInt, save: Long, dwflags: CREDUI_FLAGS): WIN32_ERROR =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_CredUIPromptForCredentialsW(puiinfo.toString(), psztargetname.toString(), pcontext.toString(), dwautherror.toInt(), pszusername.toString(), ulusernamebuffersize.toInt(), pszpassword.toString(), ulpasswordbuffersize.toInt(), save.toString(), dwflags.toInt()) as Int).toUInt() else 0u
+public actual fun credUIPromptForCredentialsW(puiinfo: COpaquePointer?, psztargetname: Pcwstr, pcontext: COpaquePointer?, dwautherror: UInt, pszusername: Pwstr, ulusernamebuffersize: UInt, pszpassword: Pwstr, ulpasswordbuffersize: UInt, save: COpaquePointer?, dwflags: CreduiFlags): Win32Error =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_credUIPromptForCredentialsW((puiinfo?.value ?: 0L).toString(), (psztargetname?.value ?: 0L).toString(), (pcontext?.value ?: 0L).toString(), dwautherror.toInt(), (pszusername?.value ?: 0L).toString(), ulusernamebuffersize.toInt(), (pszpassword?.value ?: 0L).toString(), ulpasswordbuffersize.toInt(), (save?.value ?: 0L).toString(), dwflags.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CredUIPromptForWindowsCredentialsA(puiinfo: Long, dwautherror: UInt, pulauthpackage: Long, pvinauthbuffer: Long, ulinauthbuffersize: UInt, ppvoutauthbuffer: Long, puloutauthbuffersize: Long, pfsave: Long, dwflags: CREDUIWIN_FLAGS): UInt =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_CredUIPromptForWindowsCredentialsA(puiinfo.toString(), dwautherror.toInt(), pulauthpackage.toString(), pvinauthbuffer.toString(), ulinauthbuffersize.toInt(), ppvoutauthbuffer.toString(), puloutauthbuffersize.toString(), pfsave.toString(), dwflags.toInt()) as Int).toUInt() else 0u
+public actual fun credUIPromptForWindowsCredentialsA(puiinfo: COpaquePointer?, dwautherror: UInt, pulauthpackage: COpaquePointer?, pvinauthbuffer: COpaquePointer?, ulinauthbuffersize: UInt, ppvoutauthbuffer: COpaquePointer?, puloutauthbuffersize: COpaquePointer?, pfsave: COpaquePointer?, dwflags: CreduiwinFlags): UInt =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_credUIPromptForWindowsCredentialsA((puiinfo?.value ?: 0L).toString(), dwautherror.toInt(), (pulauthpackage?.value ?: 0L).toString(), (pvinauthbuffer?.value ?: 0L).toString(), ulinauthbuffersize.toInt(), (ppvoutauthbuffer?.value ?: 0L).toString(), (puloutauthbuffersize?.value ?: 0L).toString(), (pfsave?.value ?: 0L).toString(), dwflags.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CredUIPromptForWindowsCredentialsW(puiinfo: Long, dwautherror: UInt, pulauthpackage: Long, pvinauthbuffer: Long, ulinauthbuffersize: UInt, ppvoutauthbuffer: Long, puloutauthbuffersize: Long, pfsave: Long, dwflags: CREDUIWIN_FLAGS): UInt =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_CredUIPromptForWindowsCredentialsW(puiinfo.toString(), dwautherror.toInt(), pulauthpackage.toString(), pvinauthbuffer.toString(), ulinauthbuffersize.toInt(), ppvoutauthbuffer.toString(), puloutauthbuffersize.toString(), pfsave.toString(), dwflags.toInt()) as Int).toUInt() else 0u
+public actual fun credUIPromptForWindowsCredentialsW(puiinfo: COpaquePointer?, dwautherror: UInt, pulauthpackage: COpaquePointer?, pvinauthbuffer: COpaquePointer?, ulinauthbuffersize: UInt, ppvoutauthbuffer: COpaquePointer?, puloutauthbuffersize: COpaquePointer?, pfsave: COpaquePointer?, dwflags: CreduiwinFlags): UInt =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_credUIPromptForWindowsCredentialsW((puiinfo?.value ?: 0L).toString(), dwautherror.toInt(), (pulauthpackage?.value ?: 0L).toString(), (pvinauthbuffer?.value ?: 0L).toString(), ulinauthbuffersize.toInt(), (ppvoutauthbuffer?.value ?: 0L).toString(), (puloutauthbuffersize?.value ?: 0L).toString(), (pfsave?.value ?: 0L).toString(), dwflags.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CredUIReadSSOCredW(pszrealm: PCWSTR, ppszusername: Long): UInt =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_CredUIReadSSOCredW(pszrealm.toString(), ppszusername.toString()) as Int).toUInt() else 0u
+public actual fun credUIReadSSOCredW(pszrealm: Pcwstr, ppszusername: COpaquePointer?): UInt =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_credUIReadSSOCredW((pszrealm?.value ?: 0L).toString(), (ppszusername?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CredUIStoreSSOCredW(pszrealm: PCWSTR, pszusername: PCWSTR, pszpassword: PCWSTR, bpersist: BOOL): UInt =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_CredUIStoreSSOCredW(pszrealm.toString(), pszusername.toString(), pszpassword.toString(), bpersist) as Int).toUInt() else 0u
+public actual fun credUIStoreSSOCredW(pszrealm: Pcwstr, pszusername: Pcwstr, pszpassword: Pcwstr, bpersist: Bool): UInt =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_credUIStoreSSOCredW((pszrealm?.value ?: 0L).toString(), (pszusername?.value ?: 0L).toString(), (pszpassword?.value ?: 0L).toString(), bpersist) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CredUnPackAuthenticationBufferA(dwflags: CRED_PACK_FLAGS, pauthbuffer: Long, cbauthbuffer: UInt, pszusername: PSTR, pcchlmaxusername: Long, pszdomainname: PSTR, pcchmaxdomainname: Long, pszpassword: PSTR, pcchmaxpassword: Long): BOOL =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_CredUnPackAuthenticationBufferA(dwflags.toInt(), pauthbuffer.toString(), cbauthbuffer.toInt(), pszusername.toString(), pcchlmaxusername.toString(), pszdomainname.toString(), pcchmaxdomainname.toString(), pszpassword.toString(), pcchmaxpassword.toString()) as Int) else 0
+public actual fun credUnPackAuthenticationBufferA(dwflags: CredPackFlags, pauthbuffer: COpaquePointer?, cbauthbuffer: UInt, pszusername: Pstr, pcchlmaxusername: COpaquePointer?, pszdomainname: Pstr, pcchmaxdomainname: COpaquePointer?, pszpassword: Pstr, pcchmaxpassword: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_credUnPackAuthenticationBufferA(dwflags.toInt(), (pauthbuffer?.value ?: 0L).toString(), cbauthbuffer.toInt(), (pszusername?.value ?: 0L).toString(), (pcchlmaxusername?.value ?: 0L).toString(), (pszdomainname?.value ?: 0L).toString(), (pcchmaxdomainname?.value ?: 0L).toString(), (pszpassword?.value ?: 0L).toString(), (pcchmaxpassword?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CredUnPackAuthenticationBufferW(dwflags: CRED_PACK_FLAGS, pauthbuffer: Long, cbauthbuffer: UInt, pszusername: PWSTR, pcchmaxusername: Long, pszdomainname: PWSTR, pcchmaxdomainname: Long, pszpassword: PWSTR, pcchmaxpassword: Long): BOOL =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_CredUnPackAuthenticationBufferW(dwflags.toInt(), pauthbuffer.toString(), cbauthbuffer.toInt(), pszusername.toString(), pcchmaxusername.toString(), pszdomainname.toString(), pcchmaxdomainname.toString(), pszpassword.toString(), pcchmaxpassword.toString()) as Int) else 0
+public actual fun credUnPackAuthenticationBufferW(dwflags: CredPackFlags, pauthbuffer: COpaquePointer?, cbauthbuffer: UInt, pszusername: Pwstr, pcchmaxusername: COpaquePointer?, pszdomainname: Pwstr, pcchmaxdomainname: COpaquePointer?, pszpassword: Pwstr, pcchmaxpassword: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_credUnPackAuthenticationBufferW(dwflags.toInt(), (pauthbuffer?.value ?: 0L).toString(), cbauthbuffer.toInt(), (pszusername?.value ?: 0L).toString(), (pcchmaxusername?.value ?: 0L).toString(), (pszdomainname?.value ?: 0L).toString(), (pcchmaxdomainname?.value ?: 0L).toString(), (pszpassword?.value ?: 0L).toString(), (pcchmaxpassword?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CredUnmarshalCredentialA(marshaledcredential: PCSTR, credtype: Long, credential: Long): BOOL =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_CredUnmarshalCredentialA(marshaledcredential.toString(), credtype.toString(), credential.toString()) as Int) else 0
+public actual fun credUnmarshalCredentialA(marshaledcredential: Pcstr, credtype: COpaquePointer?, credential: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_credUnmarshalCredentialA((marshaledcredential?.value ?: 0L).toString(), (credtype?.value ?: 0L).toString(), (credential?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CredUnmarshalCredentialW(marshaledcredential: PCWSTR, credtype: Long, credential: Long): BOOL =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_CredUnmarshalCredentialW(marshaledcredential.toString(), credtype.toString(), credential.toString()) as Int) else 0
+public actual fun credUnmarshalCredentialW(marshaledcredential: Pcwstr, credtype: COpaquePointer?, credential: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_credUnmarshalCredentialW((marshaledcredential?.value ?: 0L).toString(), (credtype?.value ?: 0L).toString(), (credential?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CredUnprotectA(fasself: BOOL, pszprotectedcredentials: PCSTR, cchprotectedcredentials: UInt, pszcredentials: PSTR, pcchmaxchars: Long): BOOL =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_CredUnprotectA(fasself, pszprotectedcredentials.toString(), cchprotectedcredentials.toInt(), pszcredentials.toString(), pcchmaxchars.toString()) as Int) else 0
+public actual fun credUnprotectA(fasself: Bool, pszprotectedcredentials: Pcstr, cchprotectedcredentials: UInt, pszcredentials: Pstr, pcchmaxchars: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_credUnprotectA(fasself, (pszprotectedcredentials?.value ?: 0L).toString(), cchprotectedcredentials.toInt(), (pszcredentials?.value ?: 0L).toString(), (pcchmaxchars?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CredUnprotectW(fasself: BOOL, pszprotectedcredentials: PCWSTR, cchprotectedcredentials: UInt, pszcredentials: PWSTR, pcchmaxchars: Long): BOOL =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_CredUnprotectW(fasself, pszprotectedcredentials.toString(), cchprotectedcredentials.toInt(), pszcredentials.toString(), pcchmaxchars.toString()) as Int) else 0
+public actual fun credUnprotectW(fasself: Bool, pszprotectedcredentials: Pcwstr, cchprotectedcredentials: UInt, pszcredentials: Pwstr, pcchmaxchars: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_credUnprotectW(fasself, (pszprotectedcredentials?.value ?: 0L).toString(), cchprotectedcredentials.toInt(), (pszcredentials?.value ?: 0L).toString(), (pcchmaxchars?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CredWriteA(credential: Long, flags: UInt): BOOL =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_CredWriteA(credential.toString(), flags.toInt()) as Int) else 0
+public actual fun credWriteA(credential: COpaquePointer?, flags: UInt): Bool =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_credWriteA((credential?.value ?: 0L).toString(), flags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CredWriteDomainCredentialsA(targetinfo: Long, credential: Long, flags: UInt): BOOL =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_CredWriteDomainCredentialsA(targetinfo.toString(), credential.toString(), flags.toInt()) as Int) else 0
+public actual fun credWriteDomainCredentialsA(targetinfo: COpaquePointer?, credential: COpaquePointer?, flags: UInt): Bool =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_credWriteDomainCredentialsA((targetinfo?.value ?: 0L).toString(), (credential?.value ?: 0L).toString(), flags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CredWriteDomainCredentialsW(targetinfo: Long, credential: Long, flags: UInt): BOOL =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_CredWriteDomainCredentialsW(targetinfo.toString(), credential.toString(), flags.toInt()) as Int) else 0
+public actual fun credWriteDomainCredentialsW(targetinfo: COpaquePointer?, credential: COpaquePointer?, flags: UInt): Bool =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_credWriteDomainCredentialsW((targetinfo?.value ?: 0L).toString(), (credential?.value ?: 0L).toString(), flags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CredWriteW(credential: Long, flags: UInt): BOOL =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_CredWriteW(credential.toString(), flags.toInt()) as Int) else 0
+public actual fun credWriteW(credential: COpaquePointer?, flags: UInt): Bool =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_credWriteW((credential?.value ?: 0L).toString(), flags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetOpenCardNameA(param0: Long): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_GetOpenCardNameA(param0.toString()) as Int) else 0
+public actual fun getOpenCardNameA(param0: COpaquePointer?): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_getOpenCardNameA((param0?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetOpenCardNameW(param0: Long): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_GetOpenCardNameW(param0.toString()) as Int) else 0
+public actual fun getOpenCardNameW(param0: COpaquePointer?): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_getOpenCardNameW((param0?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun KeyCredentialManagerFreeInformation(keycredentialmanagerinfo: Long) {
+public actual fun keyCredentialManagerFreeInformation(keycredentialmanagerinfo: COpaquePointer?) {
     if (_windowsWin32SecurityCredentialsNapiAddon != null) {
-        _windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_KeyCredentialManagerFreeInformation(keycredentialmanagerinfo.toString())
+        _windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_keyCredentialManagerFreeInformation((keycredentialmanagerinfo?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun KeyCredentialManagerGetInformation(keycredentialmanagerinfo: Long): HRESULT =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_KeyCredentialManagerGetInformation(keycredentialmanagerinfo.toString()) as Int) else 0
+public actual fun keyCredentialManagerGetInformation(keycredentialmanagerinfo: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_keyCredentialManagerGetInformation((keycredentialmanagerinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun KeyCredentialManagerGetOperationErrorStates(keycredentialmanageroperationtype: KeyCredentialManagerOperationType, isready: Long, keycredentialmanageroperationerrorstates: Long): HRESULT =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_KeyCredentialManagerGetOperationErrorStates(keycredentialmanageroperationtype, isready.toString(), keycredentialmanageroperationerrorstates.toString()) as Int) else 0
+public actual fun keyCredentialManagerGetOperationErrorStates(keycredentialmanageroperationtype: KeyCredentialManagerOperationType, isready: COpaquePointer?, keycredentialmanageroperationerrorstates: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_keyCredentialManagerGetOperationErrorStates(keycredentialmanageroperationtype, (isready?.value ?: 0L).toString(), (keycredentialmanageroperationerrorstates?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun KeyCredentialManagerShowUIOperation(hwndowner: HWND, keycredentialmanageroperationtype: KeyCredentialManagerOperationType): HRESULT =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_KeyCredentialManagerShowUIOperation(hwndowner.toString(), keycredentialmanageroperationtype) as Int) else 0
+public actual fun keyCredentialManagerShowUIOperation(hwndowner: Hwnd, keycredentialmanageroperationtype: KeyCredentialManagerOperationType): Hresult =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_keyCredentialManagerShowUIOperation((hwndowner?.value ?: 0L).toString(), keycredentialmanageroperationtype) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardAccessStartedEvent(): HANDLE =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardAccessStartedEvent() as String).toLong() else 0L
+public actual fun sCardAccessStartedEvent(): Handle =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardAccessStartedEvent() as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardAddReaderToGroupA(hcontext: ULong, szreadername: PCSTR, szgroupname: PCSTR): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardAddReaderToGroupA(hcontext.toString(), szreadername.toString(), szgroupname.toString()) as Int) else 0
+public actual fun sCardAddReaderToGroupA(hcontext: ULong, szreadername: Pcstr, szgroupname: Pcstr): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardAddReaderToGroupA(hcontext.toString(), (szreadername?.value ?: 0L).toString(), (szgroupname?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardAddReaderToGroupW(hcontext: ULong, szreadername: PCWSTR, szgroupname: PCWSTR): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardAddReaderToGroupW(hcontext.toString(), szreadername.toString(), szgroupname.toString()) as Int) else 0
+public actual fun sCardAddReaderToGroupW(hcontext: ULong, szreadername: Pcwstr, szgroupname: Pcwstr): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardAddReaderToGroupW(hcontext.toString(), (szreadername?.value ?: 0L).toString(), (szgroupname?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardAudit(hcontext: ULong, dwevent: UInt): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardAudit(hcontext.toString(), dwevent.toInt()) as Int) else 0
+public actual fun sCardAudit(hcontext: ULong, dwevent: UInt): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardAudit(hcontext.toString(), dwevent.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardBeginTransaction(hcard: ULong): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardBeginTransaction(hcard.toString()) as Int) else 0
+public actual fun sCardBeginTransaction(hcard: ULong): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardBeginTransaction(hcard.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardCancel(hcontext: ULong): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardCancel(hcontext.toString()) as Int) else 0
+public actual fun sCardCancel(hcontext: ULong): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardCancel(hcontext.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardConnectA(hcontext: ULong, szreader: PCSTR, dwsharemode: UInt, dwpreferredprotocols: UInt, phcard: Long, pdwactiveprotocol: Long): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardConnectA(hcontext.toString(), szreader.toString(), dwsharemode.toInt(), dwpreferredprotocols.toInt(), phcard.toString(), pdwactiveprotocol.toString()) as Int) else 0
+public actual fun sCardConnectA(hcontext: ULong, szreader: Pcstr, dwsharemode: UInt, dwpreferredprotocols: UInt, phcard: COpaquePointer?, pdwactiveprotocol: COpaquePointer?): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardConnectA(hcontext.toString(), (szreader?.value ?: 0L).toString(), dwsharemode.toInt(), dwpreferredprotocols.toInt(), (phcard?.value ?: 0L).toString(), (pdwactiveprotocol?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardConnectW(hcontext: ULong, szreader: PCWSTR, dwsharemode: UInt, dwpreferredprotocols: UInt, phcard: Long, pdwactiveprotocol: Long): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardConnectW(hcontext.toString(), szreader.toString(), dwsharemode.toInt(), dwpreferredprotocols.toInt(), phcard.toString(), pdwactiveprotocol.toString()) as Int) else 0
+public actual fun sCardConnectW(hcontext: ULong, szreader: Pcwstr, dwsharemode: UInt, dwpreferredprotocols: UInt, phcard: COpaquePointer?, pdwactiveprotocol: COpaquePointer?): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardConnectW(hcontext.toString(), (szreader?.value ?: 0L).toString(), dwsharemode.toInt(), dwpreferredprotocols.toInt(), (phcard?.value ?: 0L).toString(), (pdwactiveprotocol?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardControl(hcard: ULong, dwcontrolcode: UInt, lpinbuffer: Long, cbinbuffersize: UInt, lpoutbuffer: Long, cboutbuffersize: UInt, lpbytesreturned: Long): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardControl(hcard.toString(), dwcontrolcode.toInt(), lpinbuffer.toString(), cbinbuffersize.toInt(), lpoutbuffer.toString(), cboutbuffersize.toInt(), lpbytesreturned.toString()) as Int) else 0
+public actual fun sCardControl(hcard: ULong, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt, lpoutbuffer: COpaquePointer?, cboutbuffersize: UInt, lpbytesreturned: COpaquePointer?): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardControl(hcard.toString(), dwcontrolcode.toInt(), (lpinbuffer?.value ?: 0L).toString(), cbinbuffersize.toInt(), (lpoutbuffer?.value ?: 0L).toString(), cboutbuffersize.toInt(), (lpbytesreturned?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardDisconnect(hcard: ULong, dwdisposition: UInt): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardDisconnect(hcard.toString(), dwdisposition.toInt()) as Int) else 0
+public actual fun sCardDisconnect(hcard: ULong, dwdisposition: UInt): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardDisconnect(hcard.toString(), dwdisposition.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardDlgExtendedError(): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardDlgExtendedError() as Int) else 0
+public actual fun sCardDlgExtendedError(): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardDlgExtendedError() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardEndTransaction(hcard: ULong, dwdisposition: UInt): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardEndTransaction(hcard.toString(), dwdisposition.toInt()) as Int) else 0
+public actual fun sCardEndTransaction(hcard: ULong, dwdisposition: UInt): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardEndTransaction(hcard.toString(), dwdisposition.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardEstablishContext(dwscope: SCARD_SCOPE, pvreserved1: Long, pvreserved2: Long, phcontext: Long): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardEstablishContext(dwscope.toInt(), pvreserved1.toString(), pvreserved2.toString(), phcontext.toString()) as Int) else 0
+public actual fun sCardEstablishContext(dwscope: ScardScope, pvreserved1: COpaquePointer?, pvreserved2: COpaquePointer?, phcontext: COpaquePointer?): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardEstablishContext(dwscope.toInt(), (pvreserved1?.value ?: 0L).toString(), (pvreserved2?.value ?: 0L).toString(), (phcontext?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardForgetCardTypeA(hcontext: ULong, szcardname: PCSTR): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardForgetCardTypeA(hcontext.toString(), szcardname.toString()) as Int) else 0
+public actual fun sCardForgetCardTypeA(hcontext: ULong, szcardname: Pcstr): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardForgetCardTypeA(hcontext.toString(), (szcardname?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardForgetCardTypeW(hcontext: ULong, szcardname: PCWSTR): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardForgetCardTypeW(hcontext.toString(), szcardname.toString()) as Int) else 0
+public actual fun sCardForgetCardTypeW(hcontext: ULong, szcardname: Pcwstr): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardForgetCardTypeW(hcontext.toString(), (szcardname?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardForgetReaderA(hcontext: ULong, szreadername: PCSTR): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardForgetReaderA(hcontext.toString(), szreadername.toString()) as Int) else 0
+public actual fun sCardForgetReaderA(hcontext: ULong, szreadername: Pcstr): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardForgetReaderA(hcontext.toString(), (szreadername?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardForgetReaderGroupA(hcontext: ULong, szgroupname: PCSTR): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardForgetReaderGroupA(hcontext.toString(), szgroupname.toString()) as Int) else 0
+public actual fun sCardForgetReaderGroupA(hcontext: ULong, szgroupname: Pcstr): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardForgetReaderGroupA(hcontext.toString(), (szgroupname?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardForgetReaderGroupW(hcontext: ULong, szgroupname: PCWSTR): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardForgetReaderGroupW(hcontext.toString(), szgroupname.toString()) as Int) else 0
+public actual fun sCardForgetReaderGroupW(hcontext: ULong, szgroupname: Pcwstr): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardForgetReaderGroupW(hcontext.toString(), (szgroupname?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardForgetReaderW(hcontext: ULong, szreadername: PCWSTR): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardForgetReaderW(hcontext.toString(), szreadername.toString()) as Int) else 0
+public actual fun sCardForgetReaderW(hcontext: ULong, szreadername: Pcwstr): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardForgetReaderW(hcontext.toString(), (szreadername?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardFreeMemory(hcontext: ULong, pvmem: Long): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardFreeMemory(hcontext.toString(), pvmem.toString()) as Int) else 0
+public actual fun sCardFreeMemory(hcontext: ULong, pvmem: COpaquePointer?): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardFreeMemory(hcontext.toString(), (pvmem?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardGetAttrib(hcard: ULong, dwattrid: UInt, pbattr: Long, pcbattrlen: Long): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardGetAttrib(hcard.toString(), dwattrid.toInt(), pbattr.toString(), pcbattrlen.toString()) as Int) else 0
+public actual fun sCardGetAttrib(hcard: ULong, dwattrid: UInt, pbattr: COpaquePointer?, pcbattrlen: COpaquePointer?): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardGetAttrib(hcard.toString(), dwattrid.toInt(), (pbattr?.value ?: 0L).toString(), (pcbattrlen?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardGetCardTypeProviderNameA(hcontext: ULong, szcardname: PCSTR, dwproviderid: UInt, szprovider: PSTR, pcchprovider: Long): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardGetCardTypeProviderNameA(hcontext.toString(), szcardname.toString(), dwproviderid.toInt(), szprovider.toString(), pcchprovider.toString()) as Int) else 0
+public actual fun sCardGetCardTypeProviderNameA(hcontext: ULong, szcardname: Pcstr, dwproviderid: UInt, szprovider: Pstr, pcchprovider: COpaquePointer?): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardGetCardTypeProviderNameA(hcontext.toString(), (szcardname?.value ?: 0L).toString(), dwproviderid.toInt(), (szprovider?.value ?: 0L).toString(), (pcchprovider?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardGetCardTypeProviderNameW(hcontext: ULong, szcardname: PCWSTR, dwproviderid: UInt, szprovider: PWSTR, pcchprovider: Long): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardGetCardTypeProviderNameW(hcontext.toString(), szcardname.toString(), dwproviderid.toInt(), szprovider.toString(), pcchprovider.toString()) as Int) else 0
+public actual fun sCardGetCardTypeProviderNameW(hcontext: ULong, szcardname: Pcwstr, dwproviderid: UInt, szprovider: Pwstr, pcchprovider: COpaquePointer?): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardGetCardTypeProviderNameW(hcontext.toString(), (szcardname?.value ?: 0L).toString(), dwproviderid.toInt(), (szprovider?.value ?: 0L).toString(), (pcchprovider?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardGetDeviceTypeIdA(hcontext: ULong, szreadername: PCSTR, pdwdevicetypeid: Long): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardGetDeviceTypeIdA(hcontext.toString(), szreadername.toString(), pdwdevicetypeid.toString()) as Int) else 0
+public actual fun sCardGetDeviceTypeIdA(hcontext: ULong, szreadername: Pcstr, pdwdevicetypeid: COpaquePointer?): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardGetDeviceTypeIdA(hcontext.toString(), (szreadername?.value ?: 0L).toString(), (pdwdevicetypeid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardGetDeviceTypeIdW(hcontext: ULong, szreadername: PCWSTR, pdwdevicetypeid: Long): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardGetDeviceTypeIdW(hcontext.toString(), szreadername.toString(), pdwdevicetypeid.toString()) as Int) else 0
+public actual fun sCardGetDeviceTypeIdW(hcontext: ULong, szreadername: Pcwstr, pdwdevicetypeid: COpaquePointer?): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardGetDeviceTypeIdW(hcontext.toString(), (szreadername?.value ?: 0L).toString(), (pdwdevicetypeid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardGetProviderIdA(hcontext: ULong, szcard: PCSTR, pguidproviderid: Long): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardGetProviderIdA(hcontext.toString(), szcard.toString(), pguidproviderid.toString()) as Int) else 0
+public actual fun sCardGetProviderIdA(hcontext: ULong, szcard: Pcstr, pguidproviderid: COpaquePointer?): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardGetProviderIdA(hcontext.toString(), (szcard?.value ?: 0L).toString(), (pguidproviderid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardGetProviderIdW(hcontext: ULong, szcard: PCWSTR, pguidproviderid: Long): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardGetProviderIdW(hcontext.toString(), szcard.toString(), pguidproviderid.toString()) as Int) else 0
+public actual fun sCardGetProviderIdW(hcontext: ULong, szcard: Pcwstr, pguidproviderid: COpaquePointer?): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardGetProviderIdW(hcontext.toString(), (szcard?.value ?: 0L).toString(), (pguidproviderid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardGetReaderDeviceInstanceIdA(hcontext: ULong, szreadername: PCSTR, szdeviceinstanceid: PSTR, pcchdeviceinstanceid: Long): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardGetReaderDeviceInstanceIdA(hcontext.toString(), szreadername.toString(), szdeviceinstanceid.toString(), pcchdeviceinstanceid.toString()) as Int) else 0
+public actual fun sCardGetReaderDeviceInstanceIdA(hcontext: ULong, szreadername: Pcstr, szdeviceinstanceid: Pstr, pcchdeviceinstanceid: COpaquePointer?): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardGetReaderDeviceInstanceIdA(hcontext.toString(), (szreadername?.value ?: 0L).toString(), (szdeviceinstanceid?.value ?: 0L).toString(), (pcchdeviceinstanceid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardGetReaderDeviceInstanceIdW(hcontext: ULong, szreadername: PCWSTR, szdeviceinstanceid: PWSTR, pcchdeviceinstanceid: Long): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardGetReaderDeviceInstanceIdW(hcontext.toString(), szreadername.toString(), szdeviceinstanceid.toString(), pcchdeviceinstanceid.toString()) as Int) else 0
+public actual fun sCardGetReaderDeviceInstanceIdW(hcontext: ULong, szreadername: Pcwstr, szdeviceinstanceid: Pwstr, pcchdeviceinstanceid: COpaquePointer?): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardGetReaderDeviceInstanceIdW(hcontext.toString(), (szreadername?.value ?: 0L).toString(), (szdeviceinstanceid?.value ?: 0L).toString(), (pcchdeviceinstanceid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardGetReaderIconA(hcontext: ULong, szreadername: PCSTR, pbicon: Long, pcbicon: Long): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardGetReaderIconA(hcontext.toString(), szreadername.toString(), pbicon.toString(), pcbicon.toString()) as Int) else 0
+public actual fun sCardGetReaderIconA(hcontext: ULong, szreadername: Pcstr, pbicon: COpaquePointer?, pcbicon: COpaquePointer?): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardGetReaderIconA(hcontext.toString(), (szreadername?.value ?: 0L).toString(), (pbicon?.value ?: 0L).toString(), (pcbicon?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardGetReaderIconW(hcontext: ULong, szreadername: PCWSTR, pbicon: Long, pcbicon: Long): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardGetReaderIconW(hcontext.toString(), szreadername.toString(), pbicon.toString(), pcbicon.toString()) as Int) else 0
+public actual fun sCardGetReaderIconW(hcontext: ULong, szreadername: Pcwstr, pbicon: COpaquePointer?, pcbicon: COpaquePointer?): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardGetReaderIconW(hcontext.toString(), (szreadername?.value ?: 0L).toString(), (pbicon?.value ?: 0L).toString(), (pcbicon?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardGetStatusChangeA(hcontext: ULong, dwtimeout: UInt, rgreaderstates: Long, creaders: UInt): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardGetStatusChangeA(hcontext.toString(), dwtimeout.toInt(), rgreaderstates.toString(), creaders.toInt()) as Int) else 0
+public actual fun sCardGetStatusChangeA(hcontext: ULong, dwtimeout: UInt, rgreaderstates: COpaquePointer?, creaders: UInt): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardGetStatusChangeA(hcontext.toString(), dwtimeout.toInt(), (rgreaderstates?.value ?: 0L).toString(), creaders.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardGetStatusChangeW(hcontext: ULong, dwtimeout: UInt, rgreaderstates: Long, creaders: UInt): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardGetStatusChangeW(hcontext.toString(), dwtimeout.toInt(), rgreaderstates.toString(), creaders.toInt()) as Int) else 0
+public actual fun sCardGetStatusChangeW(hcontext: ULong, dwtimeout: UInt, rgreaderstates: COpaquePointer?, creaders: UInt): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardGetStatusChangeW(hcontext.toString(), dwtimeout.toInt(), (rgreaderstates?.value ?: 0L).toString(), creaders.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardGetTransmitCount(hcard: ULong, pctransmitcount: Long): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardGetTransmitCount(hcard.toString(), pctransmitcount.toString()) as Int) else 0
+public actual fun sCardGetTransmitCount(hcard: ULong, pctransmitcount: COpaquePointer?): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardGetTransmitCount(hcard.toString(), (pctransmitcount?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardIntroduceCardTypeA(hcontext: ULong, szcardname: PCSTR, pguidprimaryprovider: Long, rgguidinterfaces: Long, dwinterfacecount: UInt, pbatr: Long, pbatrmask: Long, cbatrlen: UInt): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardIntroduceCardTypeA(hcontext.toString(), szcardname.toString(), pguidprimaryprovider.toString(), rgguidinterfaces.toString(), dwinterfacecount.toInt(), pbatr.toString(), pbatrmask.toString(), cbatrlen.toInt()) as Int) else 0
+public actual fun sCardIntroduceCardTypeA(hcontext: ULong, szcardname: Pcstr, pguidprimaryprovider: COpaquePointer?, rgguidinterfaces: COpaquePointer?, dwinterfacecount: UInt, pbatr: COpaquePointer?, pbatrmask: COpaquePointer?, cbatrlen: UInt): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardIntroduceCardTypeA(hcontext.toString(), (szcardname?.value ?: 0L).toString(), (pguidprimaryprovider?.value ?: 0L).toString(), (rgguidinterfaces?.value ?: 0L).toString(), dwinterfacecount.toInt(), (pbatr?.value ?: 0L).toString(), (pbatrmask?.value ?: 0L).toString(), cbatrlen.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardIntroduceCardTypeW(hcontext: ULong, szcardname: PCWSTR, pguidprimaryprovider: Long, rgguidinterfaces: Long, dwinterfacecount: UInt, pbatr: Long, pbatrmask: Long, cbatrlen: UInt): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardIntroduceCardTypeW(hcontext.toString(), szcardname.toString(), pguidprimaryprovider.toString(), rgguidinterfaces.toString(), dwinterfacecount.toInt(), pbatr.toString(), pbatrmask.toString(), cbatrlen.toInt()) as Int) else 0
+public actual fun sCardIntroduceCardTypeW(hcontext: ULong, szcardname: Pcwstr, pguidprimaryprovider: COpaquePointer?, rgguidinterfaces: COpaquePointer?, dwinterfacecount: UInt, pbatr: COpaquePointer?, pbatrmask: COpaquePointer?, cbatrlen: UInt): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardIntroduceCardTypeW(hcontext.toString(), (szcardname?.value ?: 0L).toString(), (pguidprimaryprovider?.value ?: 0L).toString(), (rgguidinterfaces?.value ?: 0L).toString(), dwinterfacecount.toInt(), (pbatr?.value ?: 0L).toString(), (pbatrmask?.value ?: 0L).toString(), cbatrlen.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardIntroduceReaderA(hcontext: ULong, szreadername: PCSTR, szdevicename: PCSTR): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardIntroduceReaderA(hcontext.toString(), szreadername.toString(), szdevicename.toString()) as Int) else 0
+public actual fun sCardIntroduceReaderA(hcontext: ULong, szreadername: Pcstr, szdevicename: Pcstr): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardIntroduceReaderA(hcontext.toString(), (szreadername?.value ?: 0L).toString(), (szdevicename?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardIntroduceReaderGroupA(hcontext: ULong, szgroupname: PCSTR): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardIntroduceReaderGroupA(hcontext.toString(), szgroupname.toString()) as Int) else 0
+public actual fun sCardIntroduceReaderGroupA(hcontext: ULong, szgroupname: Pcstr): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardIntroduceReaderGroupA(hcontext.toString(), (szgroupname?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardIntroduceReaderGroupW(hcontext: ULong, szgroupname: PCWSTR): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardIntroduceReaderGroupW(hcontext.toString(), szgroupname.toString()) as Int) else 0
+public actual fun sCardIntroduceReaderGroupW(hcontext: ULong, szgroupname: Pcwstr): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardIntroduceReaderGroupW(hcontext.toString(), (szgroupname?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardIntroduceReaderW(hcontext: ULong, szreadername: PCWSTR, szdevicename: PCWSTR): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardIntroduceReaderW(hcontext.toString(), szreadername.toString(), szdevicename.toString()) as Int) else 0
+public actual fun sCardIntroduceReaderW(hcontext: ULong, szreadername: Pcwstr, szdevicename: Pcwstr): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardIntroduceReaderW(hcontext.toString(), (szreadername?.value ?: 0L).toString(), (szdevicename?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardIsValidContext(hcontext: ULong): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardIsValidContext(hcontext.toString()) as Int) else 0
+public actual fun sCardIsValidContext(hcontext: ULong): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardIsValidContext(hcontext.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardListCardsA(hcontext: ULong, pbatr: Long, rgquidinterfaces: Long, cguidinterfacecount: UInt, mszcards: PSTR, pcchcards: Long): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardListCardsA(hcontext.toString(), pbatr.toString(), rgquidinterfaces.toString(), cguidinterfacecount.toInt(), mszcards.toString(), pcchcards.toString()) as Int) else 0
+public actual fun sCardListCardsA(hcontext: ULong, pbatr: COpaquePointer?, rgquidinterfaces: COpaquePointer?, cguidinterfacecount: UInt, mszcards: Pstr, pcchcards: COpaquePointer?): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardListCardsA(hcontext.toString(), (pbatr?.value ?: 0L).toString(), (rgquidinterfaces?.value ?: 0L).toString(), cguidinterfacecount.toInt(), (mszcards?.value ?: 0L).toString(), (pcchcards?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardListCardsW(hcontext: ULong, pbatr: Long, rgquidinterfaces: Long, cguidinterfacecount: UInt, mszcards: PWSTR, pcchcards: Long): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardListCardsW(hcontext.toString(), pbatr.toString(), rgquidinterfaces.toString(), cguidinterfacecount.toInt(), mszcards.toString(), pcchcards.toString()) as Int) else 0
+public actual fun sCardListCardsW(hcontext: ULong, pbatr: COpaquePointer?, rgquidinterfaces: COpaquePointer?, cguidinterfacecount: UInt, mszcards: Pwstr, pcchcards: COpaquePointer?): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardListCardsW(hcontext.toString(), (pbatr?.value ?: 0L).toString(), (rgquidinterfaces?.value ?: 0L).toString(), cguidinterfacecount.toInt(), (mszcards?.value ?: 0L).toString(), (pcchcards?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardListInterfacesA(hcontext: ULong, szcard: PCSTR, pguidinterfaces: Long, pcguidinterfaces: Long): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardListInterfacesA(hcontext.toString(), szcard.toString(), pguidinterfaces.toString(), pcguidinterfaces.toString()) as Int) else 0
+public actual fun sCardListInterfacesA(hcontext: ULong, szcard: Pcstr, pguidinterfaces: COpaquePointer?, pcguidinterfaces: COpaquePointer?): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardListInterfacesA(hcontext.toString(), (szcard?.value ?: 0L).toString(), (pguidinterfaces?.value ?: 0L).toString(), (pcguidinterfaces?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardListInterfacesW(hcontext: ULong, szcard: PCWSTR, pguidinterfaces: Long, pcguidinterfaces: Long): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardListInterfacesW(hcontext.toString(), szcard.toString(), pguidinterfaces.toString(), pcguidinterfaces.toString()) as Int) else 0
+public actual fun sCardListInterfacesW(hcontext: ULong, szcard: Pcwstr, pguidinterfaces: COpaquePointer?, pcguidinterfaces: COpaquePointer?): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardListInterfacesW(hcontext.toString(), (szcard?.value ?: 0L).toString(), (pguidinterfaces?.value ?: 0L).toString(), (pcguidinterfaces?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardListReaderGroupsA(hcontext: ULong, mszgroups: PSTR, pcchgroups: Long): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardListReaderGroupsA(hcontext.toString(), mszgroups.toString(), pcchgroups.toString()) as Int) else 0
+public actual fun sCardListReaderGroupsA(hcontext: ULong, mszgroups: Pstr, pcchgroups: COpaquePointer?): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardListReaderGroupsA(hcontext.toString(), (mszgroups?.value ?: 0L).toString(), (pcchgroups?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardListReaderGroupsW(hcontext: ULong, mszgroups: PWSTR, pcchgroups: Long): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardListReaderGroupsW(hcontext.toString(), mszgroups.toString(), pcchgroups.toString()) as Int) else 0
+public actual fun sCardListReaderGroupsW(hcontext: ULong, mszgroups: Pwstr, pcchgroups: COpaquePointer?): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardListReaderGroupsW(hcontext.toString(), (mszgroups?.value ?: 0L).toString(), (pcchgroups?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardListReadersA(hcontext: ULong, mszgroups: PCSTR, mszreaders: PSTR, pcchreaders: Long): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardListReadersA(hcontext.toString(), mszgroups.toString(), mszreaders.toString(), pcchreaders.toString()) as Int) else 0
+public actual fun sCardListReadersA(hcontext: ULong, mszgroups: Pcstr, mszreaders: Pstr, pcchreaders: COpaquePointer?): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardListReadersA(hcontext.toString(), (mszgroups?.value ?: 0L).toString(), (mszreaders?.value ?: 0L).toString(), (pcchreaders?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardListReadersW(hcontext: ULong, mszgroups: PCWSTR, mszreaders: PWSTR, pcchreaders: Long): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardListReadersW(hcontext.toString(), mszgroups.toString(), mszreaders.toString(), pcchreaders.toString()) as Int) else 0
+public actual fun sCardListReadersW(hcontext: ULong, mszgroups: Pcwstr, mszreaders: Pwstr, pcchreaders: COpaquePointer?): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardListReadersW(hcontext.toString(), (mszgroups?.value ?: 0L).toString(), (mszreaders?.value ?: 0L).toString(), (pcchreaders?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardListReadersWithDeviceInstanceIdA(hcontext: ULong, szdeviceinstanceid: PCSTR, mszreaders: PSTR, pcchreaders: Long): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardListReadersWithDeviceInstanceIdA(hcontext.toString(), szdeviceinstanceid.toString(), mszreaders.toString(), pcchreaders.toString()) as Int) else 0
+public actual fun sCardListReadersWithDeviceInstanceIdA(hcontext: ULong, szdeviceinstanceid: Pcstr, mszreaders: Pstr, pcchreaders: COpaquePointer?): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardListReadersWithDeviceInstanceIdA(hcontext.toString(), (szdeviceinstanceid?.value ?: 0L).toString(), (mszreaders?.value ?: 0L).toString(), (pcchreaders?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardListReadersWithDeviceInstanceIdW(hcontext: ULong, szdeviceinstanceid: PCWSTR, mszreaders: PWSTR, pcchreaders: Long): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardListReadersWithDeviceInstanceIdW(hcontext.toString(), szdeviceinstanceid.toString(), mszreaders.toString(), pcchreaders.toString()) as Int) else 0
+public actual fun sCardListReadersWithDeviceInstanceIdW(hcontext: ULong, szdeviceinstanceid: Pcwstr, mszreaders: Pwstr, pcchreaders: COpaquePointer?): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardListReadersWithDeviceInstanceIdW(hcontext.toString(), (szdeviceinstanceid?.value ?: 0L).toString(), (mszreaders?.value ?: 0L).toString(), (pcchreaders?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardLocateCardsA(hcontext: ULong, mszcards: PCSTR, rgreaderstates: Long, creaders: UInt): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardLocateCardsA(hcontext.toString(), mszcards.toString(), rgreaderstates.toString(), creaders.toInt()) as Int) else 0
+public actual fun sCardLocateCardsA(hcontext: ULong, mszcards: Pcstr, rgreaderstates: COpaquePointer?, creaders: UInt): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardLocateCardsA(hcontext.toString(), (mszcards?.value ?: 0L).toString(), (rgreaderstates?.value ?: 0L).toString(), creaders.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardLocateCardsByATRA(hcontext: ULong, rgatrmasks: Long, catrs: UInt, rgreaderstates: Long, creaders: UInt): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardLocateCardsByATRA(hcontext.toString(), rgatrmasks.toString(), catrs.toInt(), rgreaderstates.toString(), creaders.toInt()) as Int) else 0
+public actual fun sCardLocateCardsByATRA(hcontext: ULong, rgatrmasks: COpaquePointer?, catrs: UInt, rgreaderstates: COpaquePointer?, creaders: UInt): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardLocateCardsByATRA(hcontext.toString(), (rgatrmasks?.value ?: 0L).toString(), catrs.toInt(), (rgreaderstates?.value ?: 0L).toString(), creaders.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardLocateCardsByATRW(hcontext: ULong, rgatrmasks: Long, catrs: UInt, rgreaderstates: Long, creaders: UInt): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardLocateCardsByATRW(hcontext.toString(), rgatrmasks.toString(), catrs.toInt(), rgreaderstates.toString(), creaders.toInt()) as Int) else 0
+public actual fun sCardLocateCardsByATRW(hcontext: ULong, rgatrmasks: COpaquePointer?, catrs: UInt, rgreaderstates: COpaquePointer?, creaders: UInt): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardLocateCardsByATRW(hcontext.toString(), (rgatrmasks?.value ?: 0L).toString(), catrs.toInt(), (rgreaderstates?.value ?: 0L).toString(), creaders.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardLocateCardsW(hcontext: ULong, mszcards: PCWSTR, rgreaderstates: Long, creaders: UInt): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardLocateCardsW(hcontext.toString(), mszcards.toString(), rgreaderstates.toString(), creaders.toInt()) as Int) else 0
+public actual fun sCardLocateCardsW(hcontext: ULong, mszcards: Pcwstr, rgreaderstates: COpaquePointer?, creaders: UInt): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardLocateCardsW(hcontext.toString(), (mszcards?.value ?: 0L).toString(), (rgreaderstates?.value ?: 0L).toString(), creaders.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardReadCacheA(hcontext: ULong, cardidentifier: Long, freshnesscounter: UInt, lookupname: PCSTR, data: Long, datalen: Long): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardReadCacheA(hcontext.toString(), cardidentifier.toString(), freshnesscounter.toInt(), lookupname.toString(), data.toString(), datalen.toString()) as Int) else 0
+public actual fun sCardReadCacheA(hcontext: ULong, cardidentifier: COpaquePointer?, freshnesscounter: UInt, lookupname: Pcstr, data: COpaquePointer?, datalen: COpaquePointer?): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardReadCacheA(hcontext.toString(), (cardidentifier?.value ?: 0L).toString(), freshnesscounter.toInt(), (lookupname?.value ?: 0L).toString(), (data?.value ?: 0L).toString(), (datalen?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardReadCacheW(hcontext: ULong, cardidentifier: Long, freshnesscounter: UInt, lookupname: PCWSTR, data: Long, datalen: Long): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardReadCacheW(hcontext.toString(), cardidentifier.toString(), freshnesscounter.toInt(), lookupname.toString(), data.toString(), datalen.toString()) as Int) else 0
+public actual fun sCardReadCacheW(hcontext: ULong, cardidentifier: COpaquePointer?, freshnesscounter: UInt, lookupname: Pcwstr, data: COpaquePointer?, datalen: COpaquePointer?): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardReadCacheW(hcontext.toString(), (cardidentifier?.value ?: 0L).toString(), freshnesscounter.toInt(), (lookupname?.value ?: 0L).toString(), (data?.value ?: 0L).toString(), (datalen?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardReconnect(hcard: ULong, dwsharemode: UInt, dwpreferredprotocols: UInt, dwinitialization: UInt, pdwactiveprotocol: Long): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardReconnect(hcard.toString(), dwsharemode.toInt(), dwpreferredprotocols.toInt(), dwinitialization.toInt(), pdwactiveprotocol.toString()) as Int) else 0
+public actual fun sCardReconnect(hcard: ULong, dwsharemode: UInt, dwpreferredprotocols: UInt, dwinitialization: UInt, pdwactiveprotocol: COpaquePointer?): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardReconnect(hcard.toString(), dwsharemode.toInt(), dwpreferredprotocols.toInt(), dwinitialization.toInt(), (pdwactiveprotocol?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardReleaseContext(hcontext: ULong): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardReleaseContext(hcontext.toString()) as Int) else 0
+public actual fun sCardReleaseContext(hcontext: ULong): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardReleaseContext(hcontext.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardReleaseStartedEvent() {
+public actual fun sCardReleaseStartedEvent() {
     if (_windowsWin32SecurityCredentialsNapiAddon != null) {
-        _windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardReleaseStartedEvent()
+        _windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardReleaseStartedEvent()
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun SCardRemoveReaderFromGroupA(hcontext: ULong, szreadername: PCSTR, szgroupname: PCSTR): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardRemoveReaderFromGroupA(hcontext.toString(), szreadername.toString(), szgroupname.toString()) as Int) else 0
+public actual fun sCardRemoveReaderFromGroupA(hcontext: ULong, szreadername: Pcstr, szgroupname: Pcstr): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardRemoveReaderFromGroupA(hcontext.toString(), (szreadername?.value ?: 0L).toString(), (szgroupname?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardRemoveReaderFromGroupW(hcontext: ULong, szreadername: PCWSTR, szgroupname: PCWSTR): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardRemoveReaderFromGroupW(hcontext.toString(), szreadername.toString(), szgroupname.toString()) as Int) else 0
+public actual fun sCardRemoveReaderFromGroupW(hcontext: ULong, szreadername: Pcwstr, szgroupname: Pcwstr): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardRemoveReaderFromGroupW(hcontext.toString(), (szreadername?.value ?: 0L).toString(), (szgroupname?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardSetAttrib(hcard: ULong, dwattrid: UInt, pbattr: Long, cbattrlen: UInt): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardSetAttrib(hcard.toString(), dwattrid.toInt(), pbattr.toString(), cbattrlen.toInt()) as Int) else 0
+public actual fun sCardSetAttrib(hcard: ULong, dwattrid: UInt, pbattr: COpaquePointer?, cbattrlen: UInt): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardSetAttrib(hcard.toString(), dwattrid.toInt(), (pbattr?.value ?: 0L).toString(), cbattrlen.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardSetCardTypeProviderNameA(hcontext: ULong, szcardname: PCSTR, dwproviderid: UInt, szprovider: PCSTR): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardSetCardTypeProviderNameA(hcontext.toString(), szcardname.toString(), dwproviderid.toInt(), szprovider.toString()) as Int) else 0
+public actual fun sCardSetCardTypeProviderNameA(hcontext: ULong, szcardname: Pcstr, dwproviderid: UInt, szprovider: Pcstr): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardSetCardTypeProviderNameA(hcontext.toString(), (szcardname?.value ?: 0L).toString(), dwproviderid.toInt(), (szprovider?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardSetCardTypeProviderNameW(hcontext: ULong, szcardname: PCWSTR, dwproviderid: UInt, szprovider: PCWSTR): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardSetCardTypeProviderNameW(hcontext.toString(), szcardname.toString(), dwproviderid.toInt(), szprovider.toString()) as Int) else 0
+public actual fun sCardSetCardTypeProviderNameW(hcontext: ULong, szcardname: Pcwstr, dwproviderid: UInt, szprovider: Pcwstr): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardSetCardTypeProviderNameW(hcontext.toString(), (szcardname?.value ?: 0L).toString(), dwproviderid.toInt(), (szprovider?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardState(hcard: ULong, pdwstate: Long, pdwprotocol: Long, pbatr: Long, pcbatrlen: Long): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardState(hcard.toString(), pdwstate.toString(), pdwprotocol.toString(), pbatr.toString(), pcbatrlen.toString()) as Int) else 0
+public actual fun sCardState(hcard: ULong, pdwstate: COpaquePointer?, pdwprotocol: COpaquePointer?, pbatr: COpaquePointer?, pcbatrlen: COpaquePointer?): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardState(hcard.toString(), (pdwstate?.value ?: 0L).toString(), (pdwprotocol?.value ?: 0L).toString(), (pbatr?.value ?: 0L).toString(), (pcbatrlen?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardStatusA(hcard: ULong, mszreadernames: PSTR, pcchreaderlen: Long, pdwstate: Long, pdwprotocol: Long, pbatr: Long, pcbatrlen: Long): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardStatusA(hcard.toString(), mszreadernames.toString(), pcchreaderlen.toString(), pdwstate.toString(), pdwprotocol.toString(), pbatr.toString(), pcbatrlen.toString()) as Int) else 0
+public actual fun sCardStatusA(hcard: ULong, mszreadernames: Pstr, pcchreaderlen: COpaquePointer?, pdwstate: COpaquePointer?, pdwprotocol: COpaquePointer?, pbatr: COpaquePointer?, pcbatrlen: COpaquePointer?): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardStatusA(hcard.toString(), (mszreadernames?.value ?: 0L).toString(), (pcchreaderlen?.value ?: 0L).toString(), (pdwstate?.value ?: 0L).toString(), (pdwprotocol?.value ?: 0L).toString(), (pbatr?.value ?: 0L).toString(), (pcbatrlen?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardStatusW(hcard: ULong, mszreadernames: PWSTR, pcchreaderlen: Long, pdwstate: Long, pdwprotocol: Long, pbatr: Long, pcbatrlen: Long): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardStatusW(hcard.toString(), mszreadernames.toString(), pcchreaderlen.toString(), pdwstate.toString(), pdwprotocol.toString(), pbatr.toString(), pcbatrlen.toString()) as Int) else 0
+public actual fun sCardStatusW(hcard: ULong, mszreadernames: Pwstr, pcchreaderlen: COpaquePointer?, pdwstate: COpaquePointer?, pdwprotocol: COpaquePointer?, pbatr: COpaquePointer?, pcbatrlen: COpaquePointer?): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardStatusW(hcard.toString(), (mszreadernames?.value ?: 0L).toString(), (pcchreaderlen?.value ?: 0L).toString(), (pdwstate?.value ?: 0L).toString(), (pdwprotocol?.value ?: 0L).toString(), (pbatr?.value ?: 0L).toString(), (pcbatrlen?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardTransmit(hcard: ULong, piosendpci: Long, pbsendbuffer: Long, cbsendlength: UInt, piorecvpci: Long, pbrecvbuffer: Long, pcbrecvlength: Long): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardTransmit(hcard.toString(), piosendpci.toString(), pbsendbuffer.toString(), cbsendlength.toInt(), piorecvpci.toString(), pbrecvbuffer.toString(), pcbrecvlength.toString()) as Int) else 0
+public actual fun sCardTransmit(hcard: ULong, piosendpci: COpaquePointer?, pbsendbuffer: COpaquePointer?, cbsendlength: UInt, piorecvpci: COpaquePointer?, pbrecvbuffer: COpaquePointer?, pcbrecvlength: COpaquePointer?): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardTransmit(hcard.toString(), (piosendpci?.value ?: 0L).toString(), (pbsendbuffer?.value ?: 0L).toString(), cbsendlength.toInt(), (piorecvpci?.value ?: 0L).toString(), (pbrecvbuffer?.value ?: 0L).toString(), (pcbrecvlength?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardUIDlgSelectCardA(param0: Long): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardUIDlgSelectCardA(param0.toString()) as Int) else 0
+public actual fun sCardUIDlgSelectCardA(param0: COpaquePointer?): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardUIDlgSelectCardA((param0?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardUIDlgSelectCardW(param0: Long): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardUIDlgSelectCardW(param0.toString()) as Int) else 0
+public actual fun sCardUIDlgSelectCardW(param0: COpaquePointer?): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardUIDlgSelectCardW((param0?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardWriteCacheA(hcontext: ULong, cardidentifier: Long, freshnesscounter: UInt, lookupname: PCSTR, data: Long, datalen: UInt): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardWriteCacheA(hcontext.toString(), cardidentifier.toString(), freshnesscounter.toInt(), lookupname.toString(), data.toString(), datalen.toInt()) as Int) else 0
+public actual fun sCardWriteCacheA(hcontext: ULong, cardidentifier: COpaquePointer?, freshnesscounter: UInt, lookupname: Pcstr, data: COpaquePointer?, datalen: UInt): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardWriteCacheA(hcontext.toString(), (cardidentifier?.value ?: 0L).toString(), freshnesscounter.toInt(), (lookupname?.value ?: 0L).toString(), (data?.value ?: 0L).toString(), datalen.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SCardWriteCacheW(hcontext: ULong, cardidentifier: Long, freshnesscounter: UInt, lookupname: PCWSTR, data: Long, datalen: UInt): Int =
-    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_SCardWriteCacheW(hcontext.toString(), cardidentifier.toString(), freshnesscounter.toInt(), lookupname.toString(), data.toString(), datalen.toInt()) as Int) else 0
+public actual fun sCardWriteCacheW(hcontext: ULong, cardidentifier: COpaquePointer?, freshnesscounter: UInt, lookupname: Pcwstr, data: COpaquePointer?, datalen: UInt): Int =
+    if (_windowsWin32SecurityCredentialsNapiAddon != null) (_windowsWin32SecurityCredentialsNapiAddon.windowssys_windows_win32_security_credentials_sCardWriteCacheW(hcontext.toString(), (cardidentifier?.value ?: 0L).toString(), freshnesscounter.toInt(), (lookupname?.value ?: 0L).toString(), (data?.value ?: 0L).toString(), datalen.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")

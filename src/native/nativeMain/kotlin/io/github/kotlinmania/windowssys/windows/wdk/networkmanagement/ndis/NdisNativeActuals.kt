@@ -2,389 +2,391 @@
 
 package io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis
 
-import io.github.kotlinmania.windowssys.windows.win32.foundation.UNICODE_STRING
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.windows.win32.foundation.UnicodeString
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun NdisAcquireReadWriteLock(lock: Long, fwrite: Boolean, lockstate: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisAcquireReadWriteLock(lock.toCPointer<ByteVar>(), fwrite, lockstate.toCPointer<ByteVar>())
+public actual fun ndisAcquireReadWriteLock(lock: COpaquePointer?, fwrite: Boolean, lockstate: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisAcquireReadWriteLock(lock?.value?.toCPointer<ByteVar>(), fwrite, lockstate?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun NdisAllocateMemoryWithTag(virtualaddress: Long, length: UInt, tag: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisAllocateMemoryWithTag(virtualaddress.toCPointer<ByteVar>(), length, tag)
+public actual fun ndisAllocateMemoryWithTag(virtualaddress: COpaquePointer?, length: UInt, tag: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisAllocateMemoryWithTag(virtualaddress?.value?.toCPointer<ByteVar>(), length, tag)
 
-public actual fun NdisCancelTimer(timer: Long, timercancelled: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisCancelTimer(timer.toCPointer<ByteVar>(), timercancelled.toCPointer<ByteVar>())
+public actual fun ndisCancelTimer(timer: COpaquePointer?, timercancelled: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisCancelTimer(timer?.value?.toCPointer<ByteVar>(), timercancelled?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun NdisClAddParty(ndisvchandle: Long, protocolpartycontext: Long, callparameters: Long, ndispartyhandle: Long): Int =
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisClAddParty(ndisvchandle.toCPointer<ByteVar>(), protocolpartycontext.toCPointer<ByteVar>(), callparameters.toCPointer<ByteVar>(), ndispartyhandle.toCPointer<ByteVar>())
+public actual fun ndisClAddParty(ndisvchandle: COpaquePointer?, protocolpartycontext: COpaquePointer?, callparameters: COpaquePointer?, ndispartyhandle: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisClAddParty(ndisvchandle?.value?.toCPointer<ByteVar>(), protocolpartycontext?.value?.toCPointer<ByteVar>(), callparameters?.value?.toCPointer<ByteVar>(), ndispartyhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun NdisClCloseAddressFamily(ndisafhandle: Long): Int =
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisClCloseAddressFamily(ndisafhandle.toCPointer<ByteVar>())
+public actual fun ndisClCloseAddressFamily(ndisafhandle: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisClCloseAddressFamily(ndisafhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun NdisClCloseCall(ndisvchandle: Long, ndispartyhandle: Long, buffer: Long, size: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisClCloseCall(ndisvchandle.toCPointer<ByteVar>(), ndispartyhandle.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>(), size)
+public actual fun ndisClCloseCall(ndisvchandle: COpaquePointer?, ndispartyhandle: COpaquePointer?, buffer: COpaquePointer?, size: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisClCloseCall(ndisvchandle?.value?.toCPointer<ByteVar>(), ndispartyhandle?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), size)
 
-public actual fun NdisClDeregisterSap(ndissaphandle: Long): Int =
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisClDeregisterSap(ndissaphandle.toCPointer<ByteVar>())
+public actual fun ndisClDeregisterSap(ndissaphandle: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisClDeregisterSap(ndissaphandle?.value?.toCPointer<ByteVar>())
 
-public actual fun NdisClDropParty(ndispartyhandle: Long, buffer: Long, size: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisClDropParty(ndispartyhandle.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>(), size)
+public actual fun ndisClDropParty(ndispartyhandle: COpaquePointer?, buffer: COpaquePointer?, size: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisClDropParty(ndispartyhandle?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), size)
 
-public actual fun NdisClGetProtocolVcContextFromTapiCallId(tapicallid: UNICODE_STRING, protocolvccontext: Long): Int =
+public actual fun ndisClGetProtocolVcContextFromTapiCallId(tapicallid: UnicodeString, protocolvccontext: COpaquePointer?): Int =
     0
 
-public actual fun NdisClIncomingCallComplete(status: Int, ndisvchandle: Long, callparameters: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisClIncomingCallComplete(status, ndisvchandle.toCPointer<ByteVar>(), callparameters.toCPointer<ByteVar>())
+public actual fun ndisClIncomingCallComplete(status: Int, ndisvchandle: COpaquePointer?, callparameters: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisClIncomingCallComplete(status, ndisvchandle?.value?.toCPointer<ByteVar>(), callparameters?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun NdisClMakeCall(ndisvchandle: Long, callparameters: Long, protocolpartycontext: Long, ndispartyhandle: Long): Int =
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisClMakeCall(ndisvchandle.toCPointer<ByteVar>(), callparameters.toCPointer<ByteVar>(), protocolpartycontext.toCPointer<ByteVar>(), ndispartyhandle.toCPointer<ByteVar>())
+public actual fun ndisClMakeCall(ndisvchandle: COpaquePointer?, callparameters: COpaquePointer?, protocolpartycontext: COpaquePointer?, ndispartyhandle: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisClMakeCall(ndisvchandle?.value?.toCPointer<ByteVar>(), callparameters?.value?.toCPointer<ByteVar>(), protocolpartycontext?.value?.toCPointer<ByteVar>(), ndispartyhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun NdisClModifyCallQoS(ndisvchandle: Long, callparameters: Long): Int =
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisClModifyCallQoS(ndisvchandle.toCPointer<ByteVar>(), callparameters.toCPointer<ByteVar>())
+public actual fun ndisClModifyCallQoS(ndisvchandle: COpaquePointer?, callparameters: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisClModifyCallQoS(ndisvchandle?.value?.toCPointer<ByteVar>(), callparameters?.value?.toCPointer<ByteVar>())
 
-public actual fun NdisClRegisterSap(ndisafhandle: Long, protocolsapcontext: Long, sap: Long, ndissaphandle: Long): Int =
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisClRegisterSap(ndisafhandle.toCPointer<ByteVar>(), protocolsapcontext.toCPointer<ByteVar>(), sap.toCPointer<ByteVar>(), ndissaphandle.toCPointer<ByteVar>())
+public actual fun ndisClRegisterSap(ndisafhandle: COpaquePointer?, protocolsapcontext: COpaquePointer?, sap: COpaquePointer?, ndissaphandle: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisClRegisterSap(ndisafhandle?.value?.toCPointer<ByteVar>(), protocolsapcontext?.value?.toCPointer<ByteVar>(), sap?.value?.toCPointer<ByteVar>(), ndissaphandle?.value?.toCPointer<ByteVar>())
 
-public actual fun NdisCloseConfiguration(configurationhandle: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisCloseConfiguration(configurationhandle.toCPointer<ByteVar>())
+public actual fun ndisCloseConfiguration(configurationhandle: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisCloseConfiguration(configurationhandle?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun NdisCloseFile(filehandle: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisCloseFile(filehandle.toCPointer<ByteVar>())
+public actual fun ndisCloseFile(filehandle: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisCloseFile(filehandle?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun NdisCmActivateVc(ndisvchandle: Long, callparameters: Long): Int =
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisCmActivateVc(ndisvchandle.toCPointer<ByteVar>(), callparameters.toCPointer<ByteVar>())
+public actual fun ndisCmActivateVc(ndisvchandle: COpaquePointer?, callparameters: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisCmActivateVc(ndisvchandle?.value?.toCPointer<ByteVar>(), callparameters?.value?.toCPointer<ByteVar>())
 
-public actual fun NdisCmAddPartyComplete(status: Int, ndispartyhandle: Long, callmgrpartycontext: Long, callparameters: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisCmAddPartyComplete(status, ndispartyhandle.toCPointer<ByteVar>(), callmgrpartycontext.toCPointer<ByteVar>(), callparameters.toCPointer<ByteVar>())
+public actual fun ndisCmAddPartyComplete(status: Int, ndispartyhandle: COpaquePointer?, callmgrpartycontext: COpaquePointer?, callparameters: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisCmAddPartyComplete(status, ndispartyhandle?.value?.toCPointer<ByteVar>(), callmgrpartycontext?.value?.toCPointer<ByteVar>(), callparameters?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun NdisCmCloseAddressFamilyComplete(status: Int, ndisafhandle: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisCmCloseAddressFamilyComplete(status, ndisafhandle.toCPointer<ByteVar>())
+public actual fun ndisCmCloseAddressFamilyComplete(status: Int, ndisafhandle: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisCmCloseAddressFamilyComplete(status, ndisafhandle?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun NdisCmCloseCallComplete(status: Int, ndisvchandle: Long, ndispartyhandle: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisCmCloseCallComplete(status, ndisvchandle.toCPointer<ByteVar>(), ndispartyhandle.toCPointer<ByteVar>())
+public actual fun ndisCmCloseCallComplete(status: Int, ndisvchandle: COpaquePointer?, ndispartyhandle: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisCmCloseCallComplete(status, ndisvchandle?.value?.toCPointer<ByteVar>(), ndispartyhandle?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun NdisCmDeactivateVc(ndisvchandle: Long): Int =
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisCmDeactivateVc(ndisvchandle.toCPointer<ByteVar>())
+public actual fun ndisCmDeactivateVc(ndisvchandle: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisCmDeactivateVc(ndisvchandle?.value?.toCPointer<ByteVar>())
 
-public actual fun NdisCmDeregisterSapComplete(status: Int, ndissaphandle: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisCmDeregisterSapComplete(status, ndissaphandle.toCPointer<ByteVar>())
+public actual fun ndisCmDeregisterSapComplete(status: Int, ndissaphandle: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisCmDeregisterSapComplete(status, ndissaphandle?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun NdisCmDispatchCallConnected(ndisvchandle: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisCmDispatchCallConnected(ndisvchandle.toCPointer<ByteVar>())
+public actual fun ndisCmDispatchCallConnected(ndisvchandle: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisCmDispatchCallConnected(ndisvchandle?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun NdisCmDispatchIncomingCall(ndissaphandle: Long, ndisvchandle: Long, callparameters: Long): Int =
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisCmDispatchIncomingCall(ndissaphandle.toCPointer<ByteVar>(), ndisvchandle.toCPointer<ByteVar>(), callparameters.toCPointer<ByteVar>())
+public actual fun ndisCmDispatchIncomingCall(ndissaphandle: COpaquePointer?, ndisvchandle: COpaquePointer?, callparameters: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisCmDispatchIncomingCall(ndissaphandle?.value?.toCPointer<ByteVar>(), ndisvchandle?.value?.toCPointer<ByteVar>(), callparameters?.value?.toCPointer<ByteVar>())
 
-public actual fun NdisCmDispatchIncomingCallQoSChange(ndisvchandle: Long, callparameters: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisCmDispatchIncomingCallQoSChange(ndisvchandle.toCPointer<ByteVar>(), callparameters.toCPointer<ByteVar>())
+public actual fun ndisCmDispatchIncomingCallQoSChange(ndisvchandle: COpaquePointer?, callparameters: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisCmDispatchIncomingCallQoSChange(ndisvchandle?.value?.toCPointer<ByteVar>(), callparameters?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun NdisCmDispatchIncomingCloseCall(closestatus: Int, ndisvchandle: Long, buffer: Long, size: UInt) {
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisCmDispatchIncomingCloseCall(closestatus, ndisvchandle.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>(), size)
+public actual fun ndisCmDispatchIncomingCloseCall(closestatus: Int, ndisvchandle: COpaquePointer?, buffer: COpaquePointer?, size: UInt) {
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisCmDispatchIncomingCloseCall(closestatus, ndisvchandle?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), size)
 }
 
-public actual fun NdisCmDispatchIncomingDropParty(dropstatus: Int, ndispartyhandle: Long, buffer: Long, size: UInt) {
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisCmDispatchIncomingDropParty(dropstatus, ndispartyhandle.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>(), size)
+public actual fun ndisCmDispatchIncomingDropParty(dropstatus: Int, ndispartyhandle: COpaquePointer?, buffer: COpaquePointer?, size: UInt) {
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisCmDispatchIncomingDropParty(dropstatus, ndispartyhandle?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), size)
 }
 
-public actual fun NdisCmDropPartyComplete(status: Int, ndispartyhandle: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisCmDropPartyComplete(status, ndispartyhandle.toCPointer<ByteVar>())
+public actual fun ndisCmDropPartyComplete(status: Int, ndispartyhandle: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisCmDropPartyComplete(status, ndispartyhandle?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun NdisCmMakeCallComplete(status: Int, ndisvchandle: Long, ndispartyhandle: Long, callmgrpartycontext: Long, callparameters: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisCmMakeCallComplete(status, ndisvchandle.toCPointer<ByteVar>(), ndispartyhandle.toCPointer<ByteVar>(), callmgrpartycontext.toCPointer<ByteVar>(), callparameters.toCPointer<ByteVar>())
+public actual fun ndisCmMakeCallComplete(status: Int, ndisvchandle: COpaquePointer?, ndispartyhandle: COpaquePointer?, callmgrpartycontext: COpaquePointer?, callparameters: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisCmMakeCallComplete(status, ndisvchandle?.value?.toCPointer<ByteVar>(), ndispartyhandle?.value?.toCPointer<ByteVar>(), callmgrpartycontext?.value?.toCPointer<ByteVar>(), callparameters?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun NdisCmModifyCallQoSComplete(status: Int, ndisvchandle: Long, callparameters: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisCmModifyCallQoSComplete(status, ndisvchandle.toCPointer<ByteVar>(), callparameters.toCPointer<ByteVar>())
+public actual fun ndisCmModifyCallQoSComplete(status: Int, ndisvchandle: COpaquePointer?, callparameters: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisCmModifyCallQoSComplete(status, ndisvchandle?.value?.toCPointer<ByteVar>(), callparameters?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun NdisCmOpenAddressFamilyComplete(status: Int, ndisafhandle: Long, callmgrafcontext: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisCmOpenAddressFamilyComplete(status, ndisafhandle.toCPointer<ByteVar>(), callmgrafcontext.toCPointer<ByteVar>())
+public actual fun ndisCmOpenAddressFamilyComplete(status: Int, ndisafhandle: COpaquePointer?, callmgrafcontext: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisCmOpenAddressFamilyComplete(status, ndisafhandle?.value?.toCPointer<ByteVar>(), callmgrafcontext?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun NdisCmRegisterSapComplete(status: Int, ndissaphandle: Long, callmgrsapcontext: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisCmRegisterSapComplete(status, ndissaphandle.toCPointer<ByteVar>(), callmgrsapcontext.toCPointer<ByteVar>())
+public actual fun ndisCmRegisterSapComplete(status: Int, ndissaphandle: COpaquePointer?, callmgrsapcontext: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisCmRegisterSapComplete(status, ndissaphandle?.value?.toCPointer<ByteVar>(), callmgrsapcontext?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun NdisCoAssignInstanceName(ndisvchandle: Long, baseinstancename: Long, vcinstancename: Long): Int =
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisCoAssignInstanceName(ndisvchandle.toCPointer<ByteVar>(), baseinstancename.toCPointer<ByteVar>(), vcinstancename.toCPointer<ByteVar>())
+public actual fun ndisCoAssignInstanceName(ndisvchandle: COpaquePointer?, baseinstancename: COpaquePointer?, vcinstancename: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisCoAssignInstanceName(ndisvchandle?.value?.toCPointer<ByteVar>(), baseinstancename?.value?.toCPointer<ByteVar>(), vcinstancename?.value?.toCPointer<ByteVar>())
 
-public actual fun NdisCoCreateVc(ndisbindinghandle: Long, ndisafhandle: Long, protocolvccontext: Long, ndisvchandle: Long): Int =
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisCoCreateVc(ndisbindinghandle.toCPointer<ByteVar>(), ndisafhandle.toCPointer<ByteVar>(), protocolvccontext.toCPointer<ByteVar>(), ndisvchandle.toCPointer<ByteVar>())
+public actual fun ndisCoCreateVc(ndisbindinghandle: COpaquePointer?, ndisafhandle: COpaquePointer?, protocolvccontext: COpaquePointer?, ndisvchandle: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisCoCreateVc(ndisbindinghandle?.value?.toCPointer<ByteVar>(), ndisafhandle?.value?.toCPointer<ByteVar>(), protocolvccontext?.value?.toCPointer<ByteVar>(), ndisvchandle?.value?.toCPointer<ByteVar>())
 
-public actual fun NdisCoDeleteVc(ndisvchandle: Long): Int =
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisCoDeleteVc(ndisvchandle.toCPointer<ByteVar>())
+public actual fun ndisCoDeleteVc(ndisvchandle: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisCoDeleteVc(ndisvchandle?.value?.toCPointer<ByteVar>())
 
-public actual fun NdisCoGetTapiCallId(ndisvchandle: Long, tapicallid: Long): Int =
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisCoGetTapiCallId(ndisvchandle.toCPointer<ByteVar>(), tapicallid.toCPointer<ByteVar>())
+public actual fun ndisCoGetTapiCallId(ndisvchandle: COpaquePointer?, tapicallid: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisCoGetTapiCallId(ndisvchandle?.value?.toCPointer<ByteVar>(), tapicallid?.value?.toCPointer<ByteVar>())
 
-public actual fun NdisCompleteDmaTransfer(status: Long, ndisdmahandle: Long, buffer: Long, offset: UInt, length: UInt, writetodevice: Boolean) {
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisCompleteDmaTransfer(status.toCPointer<ByteVar>(), ndisdmahandle.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>(), offset, length, writetodevice)
+public actual fun ndisCompleteDmaTransfer(status: COpaquePointer?, ndisdmahandle: COpaquePointer?, buffer: COpaquePointer?, offset: UInt, length: UInt, writetodevice: Boolean) {
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisCompleteDmaTransfer(status?.value?.toCPointer<ByteVar>(), ndisdmahandle?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), offset, length, writetodevice)
 }
 
-public actual fun NdisCopyBuffer(status: Long, buffer: Long, poolhandle: Long, memorydescriptor: Long, offset: UInt, length: UInt) {
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisCopyBuffer(status.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>(), poolhandle.toCPointer<ByteVar>(), memorydescriptor.toCPointer<ByteVar>(), offset, length)
+public actual fun ndisCopyBuffer(status: COpaquePointer?, buffer: COpaquePointer?, poolhandle: COpaquePointer?, memorydescriptor: COpaquePointer?, offset: UInt, length: UInt) {
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisCopyBuffer(status?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), poolhandle?.value?.toCPointer<ByteVar>(), memorydescriptor?.value?.toCPointer<ByteVar>(), offset, length)
 }
 
-public actual fun NdisDeregisterTdiCallBack() {
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisDeregisterTdiCallBack()
+public actual fun ndisDeregisterTdiCallBack() {
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisDeregisterTdiCallBack()
 }
 
-public actual fun NdisFreeMemory(virtualaddress: Long, length: UInt, memoryflags: UInt) {
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisFreeMemory(virtualaddress.toCPointer<ByteVar>(), length, memoryflags)
+public actual fun ndisFreeMemory(virtualaddress: COpaquePointer?, length: UInt, memoryflags: UInt) {
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisFreeMemory(virtualaddress?.value?.toCPointer<ByteVar>(), length, memoryflags)
 }
 
-public actual fun NdisGeneratePartialCancelId(): UByte =
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisGeneratePartialCancelId()
+public actual fun ndisGeneratePartialCancelId(): UByte =
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisGeneratePartialCancelId()
 
-public actual fun NdisGetCurrentProcessorCounts(pidlecount: Long, pkernelanduser: Long, pindex: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisGetCurrentProcessorCounts(pidlecount.toCPointer<ByteVar>(), pkernelanduser.toCPointer<ByteVar>(), pindex.toCPointer<ByteVar>())
+public actual fun ndisGetCurrentProcessorCounts(pidlecount: COpaquePointer?, pkernelanduser: COpaquePointer?, pindex: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisGetCurrentProcessorCounts(pidlecount?.value?.toCPointer<ByteVar>(), pkernelanduser?.value?.toCPointer<ByteVar>(), pindex?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun NdisGetCurrentProcessorCpuUsage(pcpuusage: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisGetCurrentProcessorCpuUsage(pcpuusage.toCPointer<ByteVar>())
+public actual fun ndisGetCurrentProcessorCpuUsage(pcpuusage: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisGetCurrentProcessorCpuUsage(pcpuusage?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun NdisGetRoutineAddress(ndisroutinename: Long): Long =
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisGetRoutineAddress(ndisroutinename.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ndisGetRoutineAddress(ndisroutinename: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisGetRoutineAddress(ndisroutinename?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun NdisGetSharedDataAlignment(): UInt =
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisGetSharedDataAlignment()
+public actual fun ndisGetSharedDataAlignment(): UInt =
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisGetSharedDataAlignment()
 
-public actual fun NdisGetVersion(): UInt =
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisGetVersion()
+public actual fun ndisGetVersion(): UInt =
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisGetVersion()
 
-public actual fun NdisIMAssociateMiniport(driverhandle: Long, protocolhandle: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisIMAssociateMiniport(driverhandle.toCPointer<ByteVar>(), protocolhandle.toCPointer<ByteVar>())
+public actual fun ndisIMAssociateMiniport(driverhandle: COpaquePointer?, protocolhandle: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisIMAssociateMiniport(driverhandle?.value?.toCPointer<ByteVar>(), protocolhandle?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun NdisIMCancelInitializeDeviceInstance(driverhandle: Long, deviceinstance: Long): Int =
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisIMCancelInitializeDeviceInstance(driverhandle.toCPointer<ByteVar>(), deviceinstance.toCPointer<ByteVar>())
+public actual fun ndisIMCancelInitializeDeviceInstance(driverhandle: COpaquePointer?, deviceinstance: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisIMCancelInitializeDeviceInstance(driverhandle?.value?.toCPointer<ByteVar>(), deviceinstance?.value?.toCPointer<ByteVar>())
 
-public actual fun NdisIMDeInitializeDeviceInstance(ndisminiporthandle: Long): Int =
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisIMDeInitializeDeviceInstance(ndisminiporthandle.toCPointer<ByteVar>())
+public actual fun ndisIMDeInitializeDeviceInstance(ndisminiporthandle: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisIMDeInitializeDeviceInstance(ndisminiporthandle?.value?.toCPointer<ByteVar>())
 
-public actual fun NdisIMGetBindingContext(ndisbindinghandle: Long): Long =
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisIMGetBindingContext(ndisbindinghandle.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ndisIMGetBindingContext(ndisbindinghandle: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisIMGetBindingContext(ndisbindinghandle?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun NdisIMInitializeDeviceInstanceEx(driverhandle: Long, driverinstance: Long, devicecontext: Long): Int =
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisIMInitializeDeviceInstanceEx(driverhandle.toCPointer<ByteVar>(), driverinstance.toCPointer<ByteVar>(), devicecontext.toCPointer<ByteVar>())
+public actual fun ndisIMInitializeDeviceInstanceEx(driverhandle: COpaquePointer?, driverinstance: COpaquePointer?, devicecontext: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisIMInitializeDeviceInstanceEx(driverhandle?.value?.toCPointer<ByteVar>(), driverinstance?.value?.toCPointer<ByteVar>(), devicecontext?.value?.toCPointer<ByteVar>())
 
-public actual fun NdisInitializeEvent(event: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisInitializeEvent(event.toCPointer<ByteVar>())
+public actual fun ndisInitializeEvent(event: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisInitializeEvent(event?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun NdisInitializeReadWriteLock(lock: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisInitializeReadWriteLock(lock.toCPointer<ByteVar>())
+public actual fun ndisInitializeReadWriteLock(lock: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisInitializeReadWriteLock(lock?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun NdisInitializeString(destination: Long, source: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisInitializeString(destination.toCPointer<ByteVar>(), source.toCPointer<ByteVar>())
+public actual fun ndisInitializeString(destination: COpaquePointer?, source: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisInitializeString(destination?.value?.toCPointer<ByteVar>(), source?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun NdisInitializeTimer(timer: Long, timerfunction: PNDIS_TIMER_FUNCTION, functioncontext: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisInitializeTimer(timer.toCPointer<ByteVar>(), timerfunction.toLong().toCPointer<ByteVar>(), functioncontext.toCPointer<ByteVar>())
+public actual fun ndisInitializeTimer(timer: COpaquePointer?, timerfunction: PndisTimerFunction, functioncontext: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisInitializeTimer(timer?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), functioncontext?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun NdisMAllocateSharedMemory(miniportadapterhandle: Long, length: UInt, cached: Boolean, virtualaddress: Long, physicaladdress: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisMAllocateSharedMemory(miniportadapterhandle.toCPointer<ByteVar>(), length, cached, virtualaddress.toCPointer<ByteVar>(), physicaladdress.toCPointer<ByteVar>())
+public actual fun ndisMAllocateSharedMemory(miniportadapterhandle: COpaquePointer?, length: UInt, cached: Boolean, virtualaddress: COpaquePointer?, physicaladdress: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisMAllocateSharedMemory(miniportadapterhandle?.value?.toCPointer<ByteVar>(), length, cached, virtualaddress?.value?.toCPointer<ByteVar>(), physicaladdress?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun NdisMAllocateSharedMemoryAsync(miniportadapterhandle: Long, length: UInt, cached: Boolean, context: Long): Int =
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisMAllocateSharedMemoryAsync(miniportadapterhandle.toCPointer<ByteVar>(), length, cached, context.toCPointer<ByteVar>())
+public actual fun ndisMAllocateSharedMemoryAsync(miniportadapterhandle: COpaquePointer?, length: UInt, cached: Boolean, context: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisMAllocateSharedMemoryAsync(miniportadapterhandle?.value?.toCPointer<ByteVar>(), length, cached, context?.value?.toCPointer<ByteVar>())
 
-public actual fun NdisMCancelTimer(timer: Long, timercancelled: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisMCancelTimer(timer.toCPointer<ByteVar>(), timercancelled.toCPointer<ByteVar>())
+public actual fun ndisMCancelTimer(timer: COpaquePointer?, timercancelled: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisMCancelTimer(timer?.value?.toCPointer<ByteVar>(), timercancelled?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun NdisMCloseLog(loghandle: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisMCloseLog(loghandle.toCPointer<ByteVar>())
+public actual fun ndisMCloseLog(loghandle: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisMCloseLog(loghandle?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun NdisMCmActivateVc(ndisvchandle: Long, callparameters: Long): Int =
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisMCmActivateVc(ndisvchandle.toCPointer<ByteVar>(), callparameters.toCPointer<ByteVar>())
+public actual fun ndisMCmActivateVc(ndisvchandle: COpaquePointer?, callparameters: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisMCmActivateVc(ndisvchandle?.value?.toCPointer<ByteVar>(), callparameters?.value?.toCPointer<ByteVar>())
 
-public actual fun NdisMCmCreateVc(miniportadapterhandle: Long, ndisafhandle: Long, miniportvccontext: Long, ndisvchandle: Long): Int =
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisMCmCreateVc(miniportadapterhandle.toCPointer<ByteVar>(), ndisafhandle.toCPointer<ByteVar>(), miniportvccontext.toCPointer<ByteVar>(), ndisvchandle.toCPointer<ByteVar>())
+public actual fun ndisMCmCreateVc(miniportadapterhandle: COpaquePointer?, ndisafhandle: COpaquePointer?, miniportvccontext: COpaquePointer?, ndisvchandle: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisMCmCreateVc(miniportadapterhandle?.value?.toCPointer<ByteVar>(), ndisafhandle?.value?.toCPointer<ByteVar>(), miniportvccontext?.value?.toCPointer<ByteVar>(), ndisvchandle?.value?.toCPointer<ByteVar>())
 
-public actual fun NdisMCmDeactivateVc(ndisvchandle: Long): Int =
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisMCmDeactivateVc(ndisvchandle.toCPointer<ByteVar>())
+public actual fun ndisMCmDeactivateVc(ndisvchandle: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisMCmDeactivateVc(ndisvchandle?.value?.toCPointer<ByteVar>())
 
-public actual fun NdisMCmDeleteVc(ndisvchandle: Long): Int =
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisMCmDeleteVc(ndisvchandle.toCPointer<ByteVar>())
+public actual fun ndisMCmDeleteVc(ndisvchandle: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisMCmDeleteVc(ndisvchandle?.value?.toCPointer<ByteVar>())
 
-public actual fun NdisMCmRegisterAddressFamily(miniportadapterhandle: Long, addressfamily: Long, cmcharacteristics: Long, sizeofcmcharacteristics: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisMCmRegisterAddressFamily(miniportadapterhandle.toCPointer<ByteVar>(), addressfamily.toCPointer<ByteVar>(), cmcharacteristics.toCPointer<ByteVar>(), sizeofcmcharacteristics)
+public actual fun ndisMCmRegisterAddressFamily(miniportadapterhandle: COpaquePointer?, addressfamily: COpaquePointer?, cmcharacteristics: COpaquePointer?, sizeofcmcharacteristics: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisMCmRegisterAddressFamily(miniportadapterhandle?.value?.toCPointer<ByteVar>(), addressfamily?.value?.toCPointer<ByteVar>(), cmcharacteristics?.value?.toCPointer<ByteVar>(), sizeofcmcharacteristics)
 
-public actual fun NdisMCoActivateVcComplete(status: Int, ndisvchandle: Long, callparameters: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisMCoActivateVcComplete(status, ndisvchandle.toCPointer<ByteVar>(), callparameters.toCPointer<ByteVar>())
+public actual fun ndisMCoActivateVcComplete(status: Int, ndisvchandle: COpaquePointer?, callparameters: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisMCoActivateVcComplete(status, ndisvchandle?.value?.toCPointer<ByteVar>(), callparameters?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun NdisMCoDeactivateVcComplete(status: Int, ndisvchandle: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisMCoDeactivateVcComplete(status, ndisvchandle.toCPointer<ByteVar>())
+public actual fun ndisMCoDeactivateVcComplete(status: Int, ndisvchandle: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisMCoDeactivateVcComplete(status, ndisvchandle?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun NdisMCreateLog(miniportadapterhandle: Long, size: UInt, loghandle: Long): Int =
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisMCreateLog(miniportadapterhandle.toCPointer<ByteVar>(), size, loghandle.toCPointer<ByteVar>())
+public actual fun ndisMCreateLog(miniportadapterhandle: COpaquePointer?, size: UInt, loghandle: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisMCreateLog(miniportadapterhandle?.value?.toCPointer<ByteVar>(), size, loghandle?.value?.toCPointer<ByteVar>())
 
-public actual fun NdisMDeregisterDmaChannel(miniportdmahandle: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisMDeregisterDmaChannel(miniportdmahandle.toCPointer<ByteVar>())
+public actual fun ndisMDeregisterDmaChannel(miniportdmahandle: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisMDeregisterDmaChannel(miniportdmahandle?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun NdisMDeregisterIoPortRange(miniportadapterhandle: Long, initialport: UInt, numberofports: UInt, portoffset: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisMDeregisterIoPortRange(miniportadapterhandle.toCPointer<ByteVar>(), initialport, numberofports, portoffset.toCPointer<ByteVar>())
+public actual fun ndisMDeregisterIoPortRange(miniportadapterhandle: COpaquePointer?, initialport: UInt, numberofports: UInt, portoffset: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisMDeregisterIoPortRange(miniportadapterhandle?.value?.toCPointer<ByteVar>(), initialport, numberofports, portoffset?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun NdisMFlushLog(loghandle: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisMFlushLog(loghandle.toCPointer<ByteVar>())
+public actual fun ndisMFlushLog(loghandle: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisMFlushLog(loghandle?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun NdisMFreeSharedMemory(miniportadapterhandle: Long, length: UInt, cached: Boolean, virtualaddress: Long, physicaladdress: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisMFreeSharedMemory(miniportadapterhandle.toCPointer<ByteVar>(), length, cached, virtualaddress.toCPointer<ByteVar>(), physicaladdress)
+public actual fun ndisMFreeSharedMemory(miniportadapterhandle: COpaquePointer?, length: UInt, cached: Boolean, virtualaddress: COpaquePointer?, physicaladdress: Long) {
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisMFreeSharedMemory(miniportadapterhandle?.value?.toCPointer<ByteVar>(), length, cached, virtualaddress?.value?.toCPointer<ByteVar>(), physicaladdress)
 }
 
-public actual fun NdisMGetDeviceProperty(miniportadapterhandle: Long, physicaldeviceobject: Long, functionaldeviceobject: Long, nextdeviceobject: Long, allocatedresources: Long, allocatedresourcestranslated: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisMGetDeviceProperty(miniportadapterhandle.toCPointer<ByteVar>(), physicaldeviceobject.toCPointer<ByteVar>(), functionaldeviceobject.toCPointer<ByteVar>(), nextdeviceobject.toCPointer<ByteVar>(), allocatedresources.toCPointer<ByteVar>(), allocatedresourcestranslated.toCPointer<ByteVar>())
+public actual fun ndisMGetDeviceProperty(miniportadapterhandle: COpaquePointer?, physicaldeviceobject: COpaquePointer?, functionaldeviceobject: COpaquePointer?, nextdeviceobject: COpaquePointer?, allocatedresources: COpaquePointer?, allocatedresourcestranslated: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisMGetDeviceProperty(miniportadapterhandle?.value?.toCPointer<ByteVar>(), physicaldeviceobject?.value?.toCPointer<ByteVar>(), functionaldeviceobject?.value?.toCPointer<ByteVar>(), nextdeviceobject?.value?.toCPointer<ByteVar>(), allocatedresources?.value?.toCPointer<ByteVar>(), allocatedresourcestranslated?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun NdisMGetDmaAlignment(miniportadapterhandle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisMGetDmaAlignment(miniportadapterhandle.toCPointer<ByteVar>())
+public actual fun ndisMGetDmaAlignment(miniportadapterhandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisMGetDmaAlignment(miniportadapterhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun NdisMInitializeTimer(timer: Long, miniportadapterhandle: Long, timerfunction: PNDIS_TIMER_FUNCTION, functioncontext: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisMInitializeTimer(timer.toCPointer<ByteVar>(), miniportadapterhandle.toCPointer<ByteVar>(), timerfunction.toLong().toCPointer<ByteVar>(), functioncontext.toCPointer<ByteVar>())
+public actual fun ndisMInitializeTimer(timer: COpaquePointer?, miniportadapterhandle: COpaquePointer?, timerfunction: PndisTimerFunction, functioncontext: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisMInitializeTimer(timer?.value?.toCPointer<ByteVar>(), miniportadapterhandle?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), functioncontext?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun NdisMMapIoSpace(virtualaddress: Long, miniportadapterhandle: Long, physicaladdress: Long, length: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisMMapIoSpace(virtualaddress.toCPointer<ByteVar>(), miniportadapterhandle.toCPointer<ByteVar>(), physicaladdress, length)
+public actual fun ndisMMapIoSpace(virtualaddress: COpaquePointer?, miniportadapterhandle: COpaquePointer?, physicaladdress: Long, length: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisMMapIoSpace(virtualaddress?.value?.toCPointer<ByteVar>(), miniportadapterhandle?.value?.toCPointer<ByteVar>(), physicaladdress, length)
 
-public actual fun NdisMQueryAdapterInstanceName(padapterinstancename: Long, miniporthandle: Long): Int =
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisMQueryAdapterInstanceName(padapterinstancename.toCPointer<ByteVar>(), miniporthandle.toCPointer<ByteVar>())
+public actual fun ndisMQueryAdapterInstanceName(padapterinstancename: COpaquePointer?, miniporthandle: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisMQueryAdapterInstanceName(padapterinstancename?.value?.toCPointer<ByteVar>(), miniporthandle?.value?.toCPointer<ByteVar>())
 
-public actual fun NdisMReadDmaCounter(miniportdmahandle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisMReadDmaCounter(miniportdmahandle.toCPointer<ByteVar>())
+public actual fun ndisMReadDmaCounter(miniportdmahandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisMReadDmaCounter(miniportdmahandle?.value?.toCPointer<ByteVar>())
 
-public actual fun NdisMRegisterDmaChannel(miniportdmahandle: Long, miniportadapterhandle: Long, dmachannel: UInt, dma32bitaddresses: Boolean, dmadescription: Long, maximumlength: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisMRegisterDmaChannel(miniportdmahandle.toCPointer<ByteVar>(), miniportadapterhandle.toCPointer<ByteVar>(), dmachannel, dma32bitaddresses, dmadescription.toCPointer<ByteVar>(), maximumlength)
+public actual fun ndisMRegisterDmaChannel(miniportdmahandle: COpaquePointer?, miniportadapterhandle: COpaquePointer?, dmachannel: UInt, dma32bitaddresses: Boolean, dmadescription: COpaquePointer?, maximumlength: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisMRegisterDmaChannel(miniportdmahandle?.value?.toCPointer<ByteVar>(), miniportadapterhandle?.value?.toCPointer<ByteVar>(), dmachannel, dma32bitaddresses, dmadescription?.value?.toCPointer<ByteVar>(), maximumlength)
 
-public actual fun NdisMRegisterIoPortRange(portoffset: Long, miniportadapterhandle: Long, initialport: UInt, numberofports: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisMRegisterIoPortRange(portoffset.toCPointer<ByteVar>(), miniportadapterhandle.toCPointer<ByteVar>(), initialport, numberofports)
+public actual fun ndisMRegisterIoPortRange(portoffset: COpaquePointer?, miniportadapterhandle: COpaquePointer?, initialport: UInt, numberofports: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisMRegisterIoPortRange(portoffset?.value?.toCPointer<ByteVar>(), miniportadapterhandle?.value?.toCPointer<ByteVar>(), initialport, numberofports)
 
-public actual fun NdisMRemoveMiniport(miniporthandle: Long): Int =
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisMRemoveMiniport(miniporthandle.toCPointer<ByteVar>())
+public actual fun ndisMRemoveMiniport(miniporthandle: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisMRemoveMiniport(miniporthandle?.value?.toCPointer<ByteVar>())
 
-public actual fun NdisMSetPeriodicTimer(timer: Long, millisecondperiod: UInt) {
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisMSetPeriodicTimer(timer.toCPointer<ByteVar>(), millisecondperiod)
+public actual fun ndisMSetPeriodicTimer(timer: COpaquePointer?, millisecondperiod: UInt) {
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisMSetPeriodicTimer(timer?.value?.toCPointer<ByteVar>(), millisecondperiod)
 }
 
-public actual fun NdisMSleep(microsecondstosleep: UInt) {
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisMSleep(microsecondstosleep)
+public actual fun ndisMSleep(microsecondstosleep: UInt) {
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisMSleep(microsecondstosleep)
 }
 
-public actual fun NdisMUnmapIoSpace(miniportadapterhandle: Long, virtualaddress: Long, length: UInt) {
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisMUnmapIoSpace(miniportadapterhandle.toCPointer<ByteVar>(), virtualaddress.toCPointer<ByteVar>(), length)
+public actual fun ndisMUnmapIoSpace(miniportadapterhandle: COpaquePointer?, virtualaddress: COpaquePointer?, length: UInt) {
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisMUnmapIoSpace(miniportadapterhandle?.value?.toCPointer<ByteVar>(), virtualaddress?.value?.toCPointer<ByteVar>(), length)
 }
 
-public actual fun NdisMWriteLogData(loghandle: Long, logbuffer: Long, logbuffersize: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisMWriteLogData(loghandle.toCPointer<ByteVar>(), logbuffer.toCPointer<ByteVar>(), logbuffersize)
+public actual fun ndisMWriteLogData(loghandle: COpaquePointer?, logbuffer: COpaquePointer?, logbuffersize: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisMWriteLogData(loghandle?.value?.toCPointer<ByteVar>(), logbuffer?.value?.toCPointer<ByteVar>(), logbuffersize)
 
-public actual fun NdisMapFile(status: Long, mappedbuffer: Long, filehandle: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisMapFile(status.toCPointer<ByteVar>(), mappedbuffer.toCPointer<ByteVar>(), filehandle.toCPointer<ByteVar>())
+public actual fun ndisMapFile(status: COpaquePointer?, mappedbuffer: COpaquePointer?, filehandle: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisMapFile(status?.value?.toCPointer<ByteVar>(), mappedbuffer?.value?.toCPointer<ByteVar>(), filehandle?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun NdisOpenConfigurationKeyByIndex(status: Long, configurationhandle: Long, index: UInt, keyname: Long, keyhandle: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisOpenConfigurationKeyByIndex(status.toCPointer<ByteVar>(), configurationhandle.toCPointer<ByteVar>(), index, keyname.toCPointer<ByteVar>(), keyhandle.toCPointer<ByteVar>())
+public actual fun ndisOpenConfigurationKeyByIndex(status: COpaquePointer?, configurationhandle: COpaquePointer?, index: UInt, keyname: COpaquePointer?, keyhandle: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisOpenConfigurationKeyByIndex(status?.value?.toCPointer<ByteVar>(), configurationhandle?.value?.toCPointer<ByteVar>(), index, keyname?.value?.toCPointer<ByteVar>(), keyhandle?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun NdisOpenConfigurationKeyByName(status: Long, configurationhandle: Long, subkeyname: Long, subkeyhandle: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisOpenConfigurationKeyByName(status.toCPointer<ByteVar>(), configurationhandle.toCPointer<ByteVar>(), subkeyname.toCPointer<ByteVar>(), subkeyhandle.toCPointer<ByteVar>())
+public actual fun ndisOpenConfigurationKeyByName(status: COpaquePointer?, configurationhandle: COpaquePointer?, subkeyname: COpaquePointer?, subkeyhandle: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisOpenConfigurationKeyByName(status?.value?.toCPointer<ByteVar>(), configurationhandle?.value?.toCPointer<ByteVar>(), subkeyname?.value?.toCPointer<ByteVar>(), subkeyhandle?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun NdisOpenFile(status: Long, filehandle: Long, filelength: Long, filename: Long, highestacceptableaddress: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisOpenFile(status.toCPointer<ByteVar>(), filehandle.toCPointer<ByteVar>(), filelength.toCPointer<ByteVar>(), filename.toCPointer<ByteVar>(), highestacceptableaddress)
+public actual fun ndisOpenFile(status: COpaquePointer?, filehandle: COpaquePointer?, filelength: COpaquePointer?, filename: COpaquePointer?, highestacceptableaddress: Long) {
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisOpenFile(status?.value?.toCPointer<ByteVar>(), filehandle?.value?.toCPointer<ByteVar>(), filelength?.value?.toCPointer<ByteVar>(), filename?.value?.toCPointer<ByteVar>(), highestacceptableaddress)
 }
 
-public actual fun NdisQueryAdapterInstanceName(padapterinstancename: Long, ndisbindinghandle: Long): Int =
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisQueryAdapterInstanceName(padapterinstancename.toCPointer<ByteVar>(), ndisbindinghandle.toCPointer<ByteVar>())
+public actual fun ndisQueryAdapterInstanceName(padapterinstancename: COpaquePointer?, ndisbindinghandle: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisQueryAdapterInstanceName(padapterinstancename?.value?.toCPointer<ByteVar>(), ndisbindinghandle?.value?.toCPointer<ByteVar>())
 
-public actual fun NdisQueryBindInstanceName(padapterinstancename: Long, bindingcontext: Long): Int =
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisQueryBindInstanceName(padapterinstancename.toCPointer<ByteVar>(), bindingcontext.toCPointer<ByteVar>())
+public actual fun ndisQueryBindInstanceName(padapterinstancename: COpaquePointer?, bindingcontext: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisQueryBindInstanceName(padapterinstancename?.value?.toCPointer<ByteVar>(), bindingcontext?.value?.toCPointer<ByteVar>())
 
-public actual fun NdisReEnumerateProtocolBindings(ndisprotocolhandle: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisReEnumerateProtocolBindings(ndisprotocolhandle.toCPointer<ByteVar>())
+public actual fun ndisReEnumerateProtocolBindings(ndisprotocolhandle: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisReEnumerateProtocolBindings(ndisprotocolhandle?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun NdisReadConfiguration(status: Long, parametervalue: Long, configurationhandle: Long, keyword: Long, parametertype: NDIS_PARAMETER_TYPE) {
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisReadConfiguration(status.toCPointer<ByteVar>(), parametervalue.toCPointer<ByteVar>(), configurationhandle.toCPointer<ByteVar>(), keyword.toCPointer<ByteVar>(), parametertype)
+public actual fun ndisReadConfiguration(status: COpaquePointer?, parametervalue: COpaquePointer?, configurationhandle: COpaquePointer?, keyword: COpaquePointer?, parametertype: NdisParameterType) {
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisReadConfiguration(status?.value?.toCPointer<ByteVar>(), parametervalue?.value?.toCPointer<ByteVar>(), configurationhandle?.value?.toCPointer<ByteVar>(), keyword?.value?.toCPointer<ByteVar>(), parametertype)
 }
 
-public actual fun NdisReadNetworkAddress(status: Long, networkaddress: Long, networkaddresslength: Long, configurationhandle: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisReadNetworkAddress(status.toCPointer<ByteVar>(), networkaddress.toCPointer<ByteVar>(), networkaddresslength.toCPointer<ByteVar>(), configurationhandle.toCPointer<ByteVar>())
+public actual fun ndisReadNetworkAddress(status: COpaquePointer?, networkaddress: COpaquePointer?, networkaddresslength: COpaquePointer?, configurationhandle: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisReadNetworkAddress(status?.value?.toCPointer<ByteVar>(), networkaddress?.value?.toCPointer<ByteVar>(), networkaddresslength?.value?.toCPointer<ByteVar>(), configurationhandle?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun NdisRegisterTdiCallBack(registercallback: TDI_REGISTER_CALLBACK, pnphandler: TDI_PNP_HANDLER) {
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisRegisterTdiCallBack(registercallback.toLong().toCPointer<ByteVar>(), pnphandler.toLong().toCPointer<ByteVar>())
+public actual fun ndisRegisterTdiCallBack(registercallback: TdiRegisterCallback, pnphandler: TdiPnpHandler) {
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisRegisterTdiCallBack(0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 }
 
-public actual fun NdisReleaseReadWriteLock(lock: Long, lockstate: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisReleaseReadWriteLock(lock.toCPointer<ByteVar>(), lockstate.toCPointer<ByteVar>())
+public actual fun ndisReleaseReadWriteLock(lock: COpaquePointer?, lockstate: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisReleaseReadWriteLock(lock?.value?.toCPointer<ByteVar>(), lockstate?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun NdisResetEvent(event: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisResetEvent(event.toCPointer<ByteVar>())
+public actual fun ndisResetEvent(event: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisResetEvent(event?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun NdisSetEvent(event: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisSetEvent(event.toCPointer<ByteVar>())
+public actual fun ndisSetEvent(event: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisSetEvent(event?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun NdisSetPeriodicTimer(ndistimer: Long, millisecondsperiod: UInt) {
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisSetPeriodicTimer(ndistimer.toCPointer<ByteVar>(), millisecondsperiod)
+public actual fun ndisSetPeriodicTimer(ndistimer: COpaquePointer?, millisecondsperiod: UInt) {
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisSetPeriodicTimer(ndistimer?.value?.toCPointer<ByteVar>(), millisecondsperiod)
 }
 
-public actual fun NdisSetTimer(timer: Long, millisecondstodelay: UInt) {
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisSetTimer(timer.toCPointer<ByteVar>(), millisecondstodelay)
+public actual fun ndisSetTimer(timer: COpaquePointer?, millisecondstodelay: UInt) {
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisSetTimer(timer?.value?.toCPointer<ByteVar>(), millisecondstodelay)
 }
 
-public actual fun NdisSetTimerEx(ndistimer: Long, millisecondstodelay: UInt, functioncontext: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisSetTimerEx(ndistimer.toCPointer<ByteVar>(), millisecondstodelay, functioncontext.toCPointer<ByteVar>())
+public actual fun ndisSetTimerEx(ndistimer: COpaquePointer?, millisecondstodelay: UInt, functioncontext: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisSetTimerEx(ndistimer?.value?.toCPointer<ByteVar>(), millisecondstodelay, functioncontext?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun NdisSetupDmaTransfer(status: Long, ndisdmahandle: Long, buffer: Long, offset: UInt, length: UInt, writetodevice: Boolean) {
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisSetupDmaTransfer(status.toCPointer<ByteVar>(), ndisdmahandle.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>(), offset, length, writetodevice)
+public actual fun ndisSetupDmaTransfer(status: COpaquePointer?, ndisdmahandle: COpaquePointer?, buffer: COpaquePointer?, offset: UInt, length: UInt, writetodevice: Boolean) {
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisSetupDmaTransfer(status?.value?.toCPointer<ByteVar>(), ndisdmahandle?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), offset, length, writetodevice)
 }
 
-public actual fun NdisSystemProcessorCount(): Byte =
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisSystemProcessorCount()
+public actual fun ndisSystemProcessorCount(): Byte =
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisSystemProcessorCount()
 
-public actual fun NdisUnmapFile(filehandle: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisUnmapFile(filehandle.toCPointer<ByteVar>())
+public actual fun ndisUnmapFile(filehandle: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisUnmapFile(filehandle?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun NdisUpdateSharedMemory(ndisadapterhandle: Long, length: UInt, virtualaddress: Long, physicaladdress: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisUpdateSharedMemory(ndisadapterhandle.toCPointer<ByteVar>(), length, virtualaddress.toCPointer<ByteVar>(), physicaladdress)
+public actual fun ndisUpdateSharedMemory(ndisadapterhandle: COpaquePointer?, length: UInt, virtualaddress: COpaquePointer?, physicaladdress: Long) {
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisUpdateSharedMemory(ndisadapterhandle?.value?.toCPointer<ByteVar>(), length, virtualaddress?.value?.toCPointer<ByteVar>(), physicaladdress)
 }
 
-public actual fun NdisWaitEvent(event: Long, mstowait: UInt): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisWaitEvent(event.toCPointer<ByteVar>(), mstowait)
+public actual fun ndisWaitEvent(event: COpaquePointer?, mstowait: UInt): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisWaitEvent(event?.value?.toCPointer<ByteVar>(), mstowait)
 
-public actual fun NdisWriteConfiguration(status: Long, configurationhandle: Long, keyword: Long, parametervalue: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisWriteConfiguration(status.toCPointer<ByteVar>(), configurationhandle.toCPointer<ByteVar>(), keyword.toCPointer<ByteVar>(), parametervalue.toCPointer<ByteVar>())
+public actual fun ndisWriteConfiguration(status: COpaquePointer?, configurationhandle: COpaquePointer?, keyword: COpaquePointer?, parametervalue: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisWriteConfiguration(status?.value?.toCPointer<ByteVar>(), configurationhandle?.value?.toCPointer<ByteVar>(), keyword?.value?.toCPointer<ByteVar>(), parametervalue?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun NdisWriteErrorLogEntry(ndisadapterhandle: Long, errorcode: UInt, numberoferrorvalues: UInt) {
+public actual fun ndisWriteErrorLogEntry(ndisadapterhandle: COpaquePointer?, errorcode: UInt, numberoferrorvalues: UInt, vararg variadicArgs: Long) {
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisWriteErrorLogEntry(ndisadapterhandle?.value?.toCPointer<ByteVar>(), errorcode, numberoferrorvalues, variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
 }
 
-public actual fun NdisWriteEventLogEntry(loghandle: Long, eventcode: Int, uniqueeventvalue: UInt, numstrings: UShort, stringslist: Long, datasize: UInt, data: Long): Int =
-    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_NdisWriteEventLogEntry(loghandle.toCPointer<ByteVar>(), eventcode, uniqueeventvalue, numstrings, stringslist.toCPointer<ByteVar>(), datasize, data.toCPointer<ByteVar>())
+public actual fun ndisWriteEventLogEntry(loghandle: COpaquePointer?, eventcode: Int, uniqueeventvalue: UInt, numstrings: UShort, stringslist: COpaquePointer?, datasize: UInt, data: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis.cinterop.windowssys_windows_wdk_networkmanagement_ndis_ndisWriteEventLogEntry(loghandle?.value?.toCPointer<ByteVar>(), eventcode, uniqueeventvalue, numstrings, stringslist?.value?.toCPointer<ByteVar>(), datasize, data?.value?.toCPointer<ByteVar>())

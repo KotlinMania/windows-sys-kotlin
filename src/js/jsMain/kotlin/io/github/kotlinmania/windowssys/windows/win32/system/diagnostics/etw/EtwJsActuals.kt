@@ -2,274 +2,275 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw
 
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.WIN32_ERROR
-import io.github.kotlinmania.windowssys.windows.win32.security.PSECURITY_DESCRIPTOR
-import io.github.kotlinmania.windowssys.windows.win32.security.PSID
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Win32Error
+import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
+import io.github.kotlinmania.windowssys.windows.win32.security.Psid
 
 private val _windowsWin32SystemDiagnosticsEtwNapiAddon: dynamic =
-    js("(function() { if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var req = (new Function('t', 'return typeof require === t ? require : null'))('function'); if (!req) return null; var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; for (var d = 0; d < 8; d++) { var c1 = path.resolve(dir, 'build/node-ffi/windows_sys_native.node'); if (fs.existsSync(c1)) return req(c1); var c2 = path.resolve(dir, 'src/js/node-windows_sys/build/Release/windows_sys_native.node'); if (fs.existsSync(c2)) return req(c2); var c3 = path.resolve(dir, 'src/js/node-windows_sys/build/Debug/windows_sys_native.node'); if (fs.existsSync(c3)) return req(c3); var c4 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Release/windows_sys_native.node'); if (fs.existsSync(c4)) return req(c4); var c5 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Debug/windows_sys_native.node'); if (fs.existsSync(c5)) return req(c5); var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } return null; })()")
+    js("(function() { if (typeof globalThis !== 'undefined' && typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys; if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) return null; try { var pkg = req('@kotlinmania/windowssys-native-bindings'); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = pkg; return pkg; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { var loaded = req(c); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = loaded; return loaded; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = null; return null; })()")
 
-public actual fun CloseTrace(tracehandle: PROCESSTRACE_HANDLE): WIN32_ERROR =
-    0u
+public actual fun closeTrace(tracehandle: ProcesstraceHandle): Win32Error =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ControlTraceA(tracehandle: CONTROLTRACE_HANDLE, instancename: PCSTR, properties: Long, controlcode: EVENT_TRACE_CONTROL): WIN32_ERROR =
-    0u
+public actual fun controlTraceA(tracehandle: ControltraceHandle, instancename: Pcstr, properties: COpaquePointer?, controlcode: EventTraceControl): Win32Error =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ControlTraceW(tracehandle: CONTROLTRACE_HANDLE, instancename: PCWSTR, properties: Long, controlcode: EVENT_TRACE_CONTROL): WIN32_ERROR =
-    0u
+public actual fun controlTraceW(tracehandle: ControltraceHandle, instancename: Pcwstr, properties: COpaquePointer?, controlcode: EventTraceControl): Win32Error =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateTraceInstanceId(reghandle: HANDLE, instinfo: Long): WIN32_ERROR =
-    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_CreateTraceInstanceId(reghandle.toString(), instinfo.toString()) as Int).toUInt() else 0u
+public actual fun createTraceInstanceId(reghandle: Handle, instinfo: COpaquePointer?): Win32Error =
+    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_createTraceInstanceId((reghandle?.value ?: 0L).toString(), (instinfo?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CveEventWrite(cveid: PCWSTR, additionaldetails: PCWSTR): Int =
-    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_CveEventWrite(cveid.toString(), additionaldetails.toString()) as Int) else 0
+public actual fun cveEventWrite(cveid: Pcwstr, additionaldetails: Pcwstr): Int =
+    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_cveEventWrite((cveid?.value ?: 0L).toString(), (additionaldetails?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnableTrace(enable: UInt, enableflag: UInt, enablelevel: UInt, controlguid: Long, tracehandle: CONTROLTRACE_HANDLE): WIN32_ERROR =
-    0u
+public actual fun enableTrace(enable: UInt, enableflag: UInt, enablelevel: UInt, controlguid: COpaquePointer?, tracehandle: ControltraceHandle): Win32Error =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnableTraceEx(providerid: Long, sourceid: Long, tracehandle: CONTROLTRACE_HANDLE, isenabled: UInt, level: UByte, matchanykeyword: ULong, matchallkeyword: ULong, enableproperty: UInt, enablefilterdesc: Long): WIN32_ERROR =
-    0u
+public actual fun enableTraceEx(providerid: COpaquePointer?, sourceid: COpaquePointer?, tracehandle: ControltraceHandle, isenabled: UInt, level: UByte, matchanykeyword: ULong, matchallkeyword: ULong, enableproperty: UInt, enablefilterdesc: COpaquePointer?): Win32Error =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnableTraceEx2(tracehandle: CONTROLTRACE_HANDLE, providerid: Long, controlcode: UInt, level: UByte, matchanykeyword: ULong, matchallkeyword: ULong, timeout: UInt, enableparameters: Long): WIN32_ERROR =
-    0u
+public actual fun enableTraceEx2(tracehandle: ControltraceHandle, providerid: COpaquePointer?, controlcode: UInt, level: UByte, matchanykeyword: ULong, matchallkeyword: ULong, timeout: UInt, enableparameters: COpaquePointer?): Win32Error =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumerateTraceGuids(guidpropertiesarray: Long, propertyarraycount: UInt, guidcount: Long): WIN32_ERROR =
-    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_EnumerateTraceGuids(guidpropertiesarray.toString(), propertyarraycount.toInt(), guidcount.toString()) as Int).toUInt() else 0u
+public actual fun enumerateTraceGuids(guidpropertiesarray: COpaquePointer?, propertyarraycount: UInt, guidcount: COpaquePointer?): Win32Error =
+    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_enumerateTraceGuids((guidpropertiesarray?.value ?: 0L).toString(), propertyarraycount.toInt(), (guidcount?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumerateTraceGuidsEx(tracequeryinfoclass: TRACE_QUERY_INFO_CLASS, inbuffer: Long, inbuffersize: UInt, outbuffer: Long, outbuffersize: UInt, returnlength: Long): WIN32_ERROR =
-    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_EnumerateTraceGuidsEx(tracequeryinfoclass, inbuffer.toString(), inbuffersize.toInt(), outbuffer.toString(), outbuffersize.toInt(), returnlength.toString()) as Int).toUInt() else 0u
+public actual fun enumerateTraceGuidsEx(tracequeryinfoclass: TraceQueryInfoClass, inbuffer: COpaquePointer?, inbuffersize: UInt, outbuffer: COpaquePointer?, outbuffersize: UInt, returnlength: COpaquePointer?): Win32Error =
+    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_enumerateTraceGuidsEx(tracequeryinfoclass, (inbuffer?.value ?: 0L).toString(), inbuffersize.toInt(), (outbuffer?.value ?: 0L).toString(), outbuffersize.toInt(), (returnlength?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EventAccessControl(guid: Long, operation: UInt, sid: PSID, rights: UInt, allowordeny: Boolean): UInt =
-    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_EventAccessControl(guid.toString(), operation.toInt(), sid.toString(), rights.toInt(), allowordeny) as Int).toUInt() else 0u
+public actual fun eventAccessControl(guid: COpaquePointer?, operation: UInt, sid: Psid, rights: UInt, allowordeny: Boolean): UInt =
+    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_eventAccessControl((guid?.value ?: 0L).toString(), operation.toInt(), (sid?.value ?: 0L).toString(), rights.toInt(), allowordeny) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EventAccessQuery(guid: Long, buffer: PSECURITY_DESCRIPTOR, buffersize: Long): UInt =
-    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_EventAccessQuery(guid.toString(), buffer.toString(), buffersize.toString()) as Int).toUInt() else 0u
+public actual fun eventAccessQuery(guid: COpaquePointer?, buffer: PsecurityDescriptor, buffersize: COpaquePointer?): UInt =
+    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_eventAccessQuery((guid?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString(), (buffersize?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EventAccessRemove(guid: Long): UInt =
-    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_EventAccessRemove(guid.toString()) as Int).toUInt() else 0u
+public actual fun eventAccessRemove(guid: COpaquePointer?): UInt =
+    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_eventAccessRemove((guid?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EventActivityIdControl(controlcode: UInt, activityid: Long): UInt =
-    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_EventActivityIdControl(controlcode.toInt(), activityid.toString()) as Int).toUInt() else 0u
+public actual fun eventActivityIdControl(controlcode: UInt, activityid: COpaquePointer?): UInt =
+    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_eventActivityIdControl(controlcode.toInt(), (activityid?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EventEnabled(reghandle: REGHANDLE, eventdescriptor: Long): Boolean =
-    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_EventEnabled(reghandle.toString(), eventdescriptor.toString()) as Boolean) else false
+public actual fun eventEnabled(reghandle: Reghandle, eventdescriptor: COpaquePointer?): Boolean =
+    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_eventEnabled(reghandle.toString(), (eventdescriptor?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EventProviderEnabled(reghandle: REGHANDLE, level: UByte, keyword: ULong): Boolean =
-    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_EventProviderEnabled(reghandle.toString(), level.toInt(), keyword.toString()) as Boolean) else false
+public actual fun eventProviderEnabled(reghandle: Reghandle, level: UByte, keyword: ULong): Boolean =
+    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_eventProviderEnabled(reghandle.toString(), level.toInt(), keyword.toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EventRegister(providerid: Long, enablecallback: PENABLECALLBACK, callbackcontext: Long, reghandle: Long): UInt =
-    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_EventRegister(providerid.toString(), enablecallback.toLong().toString(), callbackcontext.toString(), reghandle.toString()) as Int).toUInt() else 0u
+public actual fun eventRegister(providerid: COpaquePointer?, enablecallback: Penablecallback, callbackcontext: COpaquePointer?, reghandle: COpaquePointer?): UInt =
+    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_eventRegister((providerid?.value ?: 0L).toString(), 0L.toString(), (callbackcontext?.value ?: 0L).toString(), (reghandle?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EventSetInformation(reghandle: REGHANDLE, informationclass: EVENT_INFO_CLASS, eventinformation: Long, informationlength: UInt): UInt =
-    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_EventSetInformation(reghandle.toString(), informationclass, eventinformation.toString(), informationlength.toInt()) as Int).toUInt() else 0u
+public actual fun eventSetInformation(reghandle: Reghandle, informationclass: EventInfoClass, eventinformation: COpaquePointer?, informationlength: UInt): UInt =
+    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_eventSetInformation(reghandle.toString(), informationclass, (eventinformation?.value ?: 0L).toString(), informationlength.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EventUnregister(reghandle: REGHANDLE): UInt =
-    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_EventUnregister(reghandle.toString()) as Int).toUInt() else 0u
+public actual fun eventUnregister(reghandle: Reghandle): UInt =
+    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_eventUnregister(reghandle.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EventWrite(reghandle: REGHANDLE, eventdescriptor: Long, userdatacount: UInt, userdata: Long): UInt =
-    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_EventWrite(reghandle.toString(), eventdescriptor.toString(), userdatacount.toInt(), userdata.toString()) as Int).toUInt() else 0u
+public actual fun eventWrite(reghandle: Reghandle, eventdescriptor: COpaquePointer?, userdatacount: UInt, userdata: COpaquePointer?): UInt =
+    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_eventWrite(reghandle.toString(), (eventdescriptor?.value ?: 0L).toString(), userdatacount.toInt(), (userdata?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EventWriteEx(reghandle: REGHANDLE, eventdescriptor: Long, filter: ULong, flags: UInt, activityid: Long, relatedactivityid: Long, userdatacount: UInt, userdata: Long): UInt =
-    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_EventWriteEx(reghandle.toString(), eventdescriptor.toString(), filter.toString(), flags.toInt(), activityid.toString(), relatedactivityid.toString(), userdatacount.toInt(), userdata.toString()) as Int).toUInt() else 0u
+public actual fun eventWriteEx(reghandle: Reghandle, eventdescriptor: COpaquePointer?, filter: ULong, flags: UInt, activityid: COpaquePointer?, relatedactivityid: COpaquePointer?, userdatacount: UInt, userdata: COpaquePointer?): UInt =
+    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_eventWriteEx(reghandle.toString(), (eventdescriptor?.value ?: 0L).toString(), filter.toString(), flags.toInt(), (activityid?.value ?: 0L).toString(), (relatedactivityid?.value ?: 0L).toString(), userdatacount.toInt(), (userdata?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EventWriteString(reghandle: REGHANDLE, level: UByte, keyword: ULong, string: PCWSTR): UInt =
-    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_EventWriteString(reghandle.toString(), level.toInt(), keyword.toString(), string.toString()) as Int).toUInt() else 0u
+public actual fun eventWriteString(reghandle: Reghandle, level: UByte, keyword: ULong, string: Pcwstr): UInt =
+    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_eventWriteString(reghandle.toString(), level.toInt(), keyword.toString(), (string?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EventWriteTransfer(reghandle: REGHANDLE, eventdescriptor: Long, activityid: Long, relatedactivityid: Long, userdatacount: UInt, userdata: Long): UInt =
-    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_EventWriteTransfer(reghandle.toString(), eventdescriptor.toString(), activityid.toString(), relatedactivityid.toString(), userdatacount.toInt(), userdata.toString()) as Int).toUInt() else 0u
+public actual fun eventWriteTransfer(reghandle: Reghandle, eventdescriptor: COpaquePointer?, activityid: COpaquePointer?, relatedactivityid: COpaquePointer?, userdatacount: UInt, userdata: COpaquePointer?): UInt =
+    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_eventWriteTransfer(reghandle.toString(), (eventdescriptor?.value ?: 0L).toString(), (activityid?.value ?: 0L).toString(), (relatedactivityid?.value ?: 0L).toString(), userdatacount.toInt(), (userdata?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FlushTraceA(tracehandle: CONTROLTRACE_HANDLE, instancename: PCSTR, properties: Long): WIN32_ERROR =
-    0u
+public actual fun flushTraceA(tracehandle: ControltraceHandle, instancename: Pcstr, properties: COpaquePointer?): Win32Error =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FlushTraceW(tracehandle: CONTROLTRACE_HANDLE, instancename: PCWSTR, properties: Long): WIN32_ERROR =
-    0u
+public actual fun flushTraceW(tracehandle: ControltraceHandle, instancename: Pcwstr, properties: COpaquePointer?): Win32Error =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetTraceEnableFlags(tracehandle: ULong): UInt =
-    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_GetTraceEnableFlags(tracehandle.toString()) as Int).toUInt() else 0u
+public actual fun getTraceEnableFlags(tracehandle: ULong): UInt =
+    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_getTraceEnableFlags(tracehandle.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetTraceEnableLevel(tracehandle: ULong): UByte =
-    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_GetTraceEnableLevel(tracehandle.toString()) as Int).toUByte() else 0u
+public actual fun getTraceEnableLevel(tracehandle: ULong): UByte =
+    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_getTraceEnableLevel(tracehandle.toString()) as Int).toUByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetTraceLoggerHandle(buffer: Long): ULong =
-    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_GetTraceLoggerHandle(buffer.toString()) as String).toULong() else 0uL
+public actual fun getTraceLoggerHandle(buffer: COpaquePointer?): ULong =
+    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_getTraceLoggerHandle((buffer?.value ?: 0L).toString()) as String).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OpenTraceA(logfile: Long): PROCESSTRACE_HANDLE =
-    PROCESSTRACE_HANDLE()
+public actual fun openTraceA(logfile: COpaquePointer?): ProcesstraceHandle =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OpenTraceFromBufferStream(options: Long, buffercompletioncallback: PETW_BUFFER_COMPLETION_CALLBACK, buffercompletioncontext: Long): ULong =
-    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_OpenTraceFromBufferStream(options.toString(), buffercompletioncallback.toLong().toString(), buffercompletioncontext.toString()) as String).toULong() else 0uL
+public actual fun openTraceFromBufferStream(options: COpaquePointer?, buffercompletioncallback: PetwBufferCompletionCallback, buffercompletioncontext: COpaquePointer?): ULong =
+    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_openTraceFromBufferStream((options?.value ?: 0L).toString(), 0L.toString(), (buffercompletioncontext?.value ?: 0L).toString()) as String).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OpenTraceFromFile(logfilename: PCWSTR, options: Long, logfileheader: Long): ULong =
-    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_OpenTraceFromFile(logfilename.toString(), options.toString(), logfileheader.toString()) as String).toULong() else 0uL
+public actual fun openTraceFromFile(logfilename: Pcwstr, options: COpaquePointer?, logfileheader: COpaquePointer?): ULong =
+    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_openTraceFromFile((logfilename?.value ?: 0L).toString(), (options?.value ?: 0L).toString(), (logfileheader?.value ?: 0L).toString()) as String).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OpenTraceFromRealTimeLogger(loggername: PCWSTR, options: Long, logfileheader: Long): ULong =
-    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_OpenTraceFromRealTimeLogger(loggername.toString(), options.toString(), logfileheader.toString()) as String).toULong() else 0uL
+public actual fun openTraceFromRealTimeLogger(loggername: Pcwstr, options: COpaquePointer?, logfileheader: COpaquePointer?): ULong =
+    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_openTraceFromRealTimeLogger((loggername?.value ?: 0L).toString(), (options?.value ?: 0L).toString(), (logfileheader?.value ?: 0L).toString()) as String).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OpenTraceFromRealTimeLoggerWithAllocationOptions(loggername: PCWSTR, options: Long, allocationsize: ULong, memorypartitionhandle: HANDLE, logfileheader: Long): ULong =
-    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_OpenTraceFromRealTimeLoggerWithAllocationOptions(loggername.toString(), options.toString(), allocationsize.toString(), memorypartitionhandle.toString(), logfileheader.toString()) as String).toULong() else 0uL
+public actual fun openTraceFromRealTimeLoggerWithAllocationOptions(loggername: Pcwstr, options: COpaquePointer?, allocationsize: ULong, memorypartitionhandle: Handle, logfileheader: COpaquePointer?): ULong =
+    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_openTraceFromRealTimeLoggerWithAllocationOptions((loggername?.value ?: 0L).toString(), (options?.value ?: 0L).toString(), allocationsize.toString(), (memorypartitionhandle?.value ?: 0L).toString(), (logfileheader?.value ?: 0L).toString()) as String).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OpenTraceW(logfile: Long): PROCESSTRACE_HANDLE =
-    PROCESSTRACE_HANDLE()
+public actual fun openTraceW(logfile: COpaquePointer?): ProcesstraceHandle =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ProcessTrace(handlearray: Long, handlecount: UInt, starttime: Long, endtime: Long): WIN32_ERROR =
-    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_ProcessTrace(handlearray.toString(), handlecount.toInt(), starttime.toString(), endtime.toString()) as Int).toUInt() else 0u
+public actual fun processTrace(handlearray: COpaquePointer?, handlecount: UInt, starttime: COpaquePointer?, endtime: COpaquePointer?): Win32Error =
+    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_processTrace((handlearray?.value ?: 0L).toString(), handlecount.toInt(), (starttime?.value ?: 0L).toString(), (endtime?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ProcessTraceAddBufferToBufferStream(tracehandle: ULong, buffer: Long, buffersize: UInt): UInt =
-    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_ProcessTraceAddBufferToBufferStream(tracehandle.toString(), buffer.toString(), buffersize.toInt()) as Int).toUInt() else 0u
+public actual fun processTraceAddBufferToBufferStream(tracehandle: ULong, buffer: COpaquePointer?, buffersize: UInt): UInt =
+    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_processTraceAddBufferToBufferStream(tracehandle.toString(), (buffer?.value ?: 0L).toString(), buffersize.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ProcessTraceBufferDecrementReference(buffer: Long): UInt =
-    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_ProcessTraceBufferDecrementReference(buffer.toString()) as Int).toUInt() else 0u
+public actual fun processTraceBufferDecrementReference(buffer: COpaquePointer?): UInt =
+    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_processTraceBufferDecrementReference((buffer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ProcessTraceBufferIncrementReference(tracehandle: ULong, buffer: Long): UInt =
-    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_ProcessTraceBufferIncrementReference(tracehandle.toString(), buffer.toString()) as Int).toUInt() else 0u
+public actual fun processTraceBufferIncrementReference(tracehandle: ULong, buffer: COpaquePointer?): UInt =
+    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_processTraceBufferIncrementReference(tracehandle.toString(), (buffer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun QueryAllTracesA(propertyarray: Long, propertyarraycount: UInt, loggercount: Long): WIN32_ERROR =
-    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_QueryAllTracesA(propertyarray.toString(), propertyarraycount.toInt(), loggercount.toString()) as Int).toUInt() else 0u
+public actual fun queryAllTracesA(propertyarray: COpaquePointer?, propertyarraycount: UInt, loggercount: COpaquePointer?): Win32Error =
+    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_queryAllTracesA((propertyarray?.value ?: 0L).toString(), propertyarraycount.toInt(), (loggercount?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun QueryAllTracesW(propertyarray: Long, propertyarraycount: UInt, loggercount: Long): WIN32_ERROR =
-    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_QueryAllTracesW(propertyarray.toString(), propertyarraycount.toInt(), loggercount.toString()) as Int).toUInt() else 0u
+public actual fun queryAllTracesW(propertyarray: COpaquePointer?, propertyarraycount: UInt, loggercount: COpaquePointer?): Win32Error =
+    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_queryAllTracesW((propertyarray?.value ?: 0L).toString(), propertyarraycount.toInt(), (loggercount?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun QueryTraceA(tracehandle: CONTROLTRACE_HANDLE, instancename: PCSTR, properties: Long): WIN32_ERROR =
-    0u
+public actual fun queryTraceA(tracehandle: ControltraceHandle, instancename: Pcstr, properties: COpaquePointer?): Win32Error =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun QueryTraceProcessingHandle(processinghandle: PROCESSTRACE_HANDLE, informationclass: ETW_PROCESS_HANDLE_INFO_TYPE, inbuffer: Long, inbuffersize: UInt, outbuffer: Long, outbuffersize: UInt, returnlength: Long): WIN32_ERROR =
-    0u
+public actual fun queryTraceProcessingHandle(processinghandle: ProcesstraceHandle, informationclass: EtwProcessHandleInfoType, inbuffer: COpaquePointer?, inbuffersize: UInt, outbuffer: COpaquePointer?, outbuffersize: UInt, returnlength: COpaquePointer?): Win32Error =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun QueryTraceW(tracehandle: CONTROLTRACE_HANDLE, instancename: PCWSTR, properties: Long): WIN32_ERROR =
-    0u
+public actual fun queryTraceW(tracehandle: ControltraceHandle, instancename: Pcwstr, properties: COpaquePointer?): Win32Error =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RegisterTraceGuidsA(requestaddress: WMIDPREQUEST, requestcontext: Long, controlguid: Long, guidcount: UInt, traceguidreg: Long, mofimagepath: PCSTR, mofresourcename: PCSTR, registrationhandle: Long): UInt =
-    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_RegisterTraceGuidsA(requestaddress.toLong().toString(), requestcontext.toString(), controlguid.toString(), guidcount.toInt(), traceguidreg.toString(), mofimagepath.toString(), mofresourcename.toString(), registrationhandle.toString()) as Int).toUInt() else 0u
+public actual fun registerTraceGuidsA(requestaddress: Wmidprequest, requestcontext: COpaquePointer?, controlguid: COpaquePointer?, guidcount: UInt, traceguidreg: COpaquePointer?, mofimagepath: Pcstr, mofresourcename: Pcstr, registrationhandle: COpaquePointer?): UInt =
+    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_registerTraceGuidsA(0L.toString(), (requestcontext?.value ?: 0L).toString(), (controlguid?.value ?: 0L).toString(), guidcount.toInt(), (traceguidreg?.value ?: 0L).toString(), (mofimagepath?.value ?: 0L).toString(), (mofresourcename?.value ?: 0L).toString(), (registrationhandle?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RegisterTraceGuidsW(requestaddress: WMIDPREQUEST, requestcontext: Long, controlguid: Long, guidcount: UInt, traceguidreg: Long, mofimagepath: PCWSTR, mofresourcename: PCWSTR, registrationhandle: Long): UInt =
-    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_RegisterTraceGuidsW(requestaddress.toLong().toString(), requestcontext.toString(), controlguid.toString(), guidcount.toInt(), traceguidreg.toString(), mofimagepath.toString(), mofresourcename.toString(), registrationhandle.toString()) as Int).toUInt() else 0u
+public actual fun registerTraceGuidsW(requestaddress: Wmidprequest, requestcontext: COpaquePointer?, controlguid: COpaquePointer?, guidcount: UInt, traceguidreg: COpaquePointer?, mofimagepath: Pcwstr, mofresourcename: Pcwstr, registrationhandle: COpaquePointer?): UInt =
+    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_registerTraceGuidsW(0L.toString(), (requestcontext?.value ?: 0L).toString(), (controlguid?.value ?: 0L).toString(), guidcount.toInt(), (traceguidreg?.value ?: 0L).toString(), (mofimagepath?.value ?: 0L).toString(), (mofresourcename?.value ?: 0L).toString(), (registrationhandle?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RemoveTraceCallback(pguid: Long): WIN32_ERROR =
-    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_RemoveTraceCallback(pguid.toString()) as Int).toUInt() else 0u
+public actual fun removeTraceCallback(pguid: COpaquePointer?): Win32Error =
+    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_removeTraceCallback((pguid?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetTraceCallback(pguid: Long, eventcallback: PEVENT_CALLBACK): WIN32_ERROR =
-    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_SetTraceCallback(pguid.toString(), eventcallback.toLong().toString()) as Int).toUInt() else 0u
+public actual fun setTraceCallback(pguid: COpaquePointer?, eventcallback: PeventCallback): Win32Error =
+    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_setTraceCallback((pguid?.value ?: 0L).toString(), 0L.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun StartTraceA(tracehandle: Long, instancename: PCSTR, properties: Long): WIN32_ERROR =
-    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_StartTraceA(tracehandle.toString(), instancename.toString(), properties.toString()) as Int).toUInt() else 0u
+public actual fun startTraceA(tracehandle: COpaquePointer?, instancename: Pcstr, properties: COpaquePointer?): Win32Error =
+    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_startTraceA((tracehandle?.value ?: 0L).toString(), (instancename?.value ?: 0L).toString(), (properties?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun StartTraceW(tracehandle: Long, instancename: PCWSTR, properties: Long): WIN32_ERROR =
-    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_StartTraceW(tracehandle.toString(), instancename.toString(), properties.toString()) as Int).toUInt() else 0u
+public actual fun startTraceW(tracehandle: COpaquePointer?, instancename: Pcwstr, properties: COpaquePointer?): Win32Error =
+    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_startTraceW((tracehandle?.value ?: 0L).toString(), (instancename?.value ?: 0L).toString(), (properties?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun StopTraceA(tracehandle: CONTROLTRACE_HANDLE, instancename: PCSTR, properties: Long): WIN32_ERROR =
-    0u
+public actual fun stopTraceA(tracehandle: ControltraceHandle, instancename: Pcstr, properties: COpaquePointer?): Win32Error =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun StopTraceW(tracehandle: CONTROLTRACE_HANDLE, instancename: PCWSTR, properties: Long): WIN32_ERROR =
-    0u
+public actual fun stopTraceW(tracehandle: ControltraceHandle, instancename: Pcwstr, properties: COpaquePointer?): Win32Error =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TdhAggregatePayloadFilters(payloadfiltercount: UInt, payloadfilterptrs: Long, eventmatchallflags: Long, eventfilterdescriptor: Long): UInt =
-    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_TdhAggregatePayloadFilters(payloadfiltercount.toInt(), payloadfilterptrs.toString(), eventmatchallflags.toString(), eventfilterdescriptor.toString()) as Int).toUInt() else 0u
+public actual fun tdhAggregatePayloadFilters(payloadfiltercount: UInt, payloadfilterptrs: COpaquePointer?, eventmatchallflags: COpaquePointer?, eventfilterdescriptor: COpaquePointer?): UInt =
+    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_tdhAggregatePayloadFilters(payloadfiltercount.toInt(), (payloadfilterptrs?.value ?: 0L).toString(), (eventmatchallflags?.value ?: 0L).toString(), (eventfilterdescriptor?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TdhCleanupPayloadEventFilterDescriptor(eventfilterdescriptor: Long): UInt =
-    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_TdhCleanupPayloadEventFilterDescriptor(eventfilterdescriptor.toString()) as Int).toUInt() else 0u
+public actual fun tdhCleanupPayloadEventFilterDescriptor(eventfilterdescriptor: COpaquePointer?): UInt =
+    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_tdhCleanupPayloadEventFilterDescriptor((eventfilterdescriptor?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TdhCloseDecodingHandle(handle: TDH_HANDLE): UInt =
-    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_TdhCloseDecodingHandle(handle.toString()) as Int).toUInt() else 0u
+public actual fun tdhCloseDecodingHandle(handle: TdhHandle): UInt =
+    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_tdhCloseDecodingHandle(handle.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TdhCreatePayloadFilter(providerguid: Long, eventdescriptor: Long, eventmatchany: Boolean, payloadpredicatecount: UInt, payloadpredicates: Long, payloadfilter: Long): UInt =
-    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_TdhCreatePayloadFilter(providerguid.toString(), eventdescriptor.toString(), eventmatchany, payloadpredicatecount.toInt(), payloadpredicates.toString(), payloadfilter.toString()) as Int).toUInt() else 0u
+public actual fun tdhCreatePayloadFilter(providerguid: COpaquePointer?, eventdescriptor: COpaquePointer?, eventmatchany: Boolean, payloadpredicatecount: UInt, payloadpredicates: COpaquePointer?, payloadfilter: COpaquePointer?): UInt =
+    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_tdhCreatePayloadFilter((providerguid?.value ?: 0L).toString(), (eventdescriptor?.value ?: 0L).toString(), eventmatchany, payloadpredicatecount.toInt(), (payloadpredicates?.value ?: 0L).toString(), (payloadfilter?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TdhDeletePayloadFilter(payloadfilter: Long): UInt =
-    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_TdhDeletePayloadFilter(payloadfilter.toString()) as Int).toUInt() else 0u
+public actual fun tdhDeletePayloadFilter(payloadfilter: COpaquePointer?): UInt =
+    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_tdhDeletePayloadFilter((payloadfilter?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TdhEnumerateManifestProviderEvents(providerguid: Long, buffer: Long, buffersize: Long): UInt =
-    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_TdhEnumerateManifestProviderEvents(providerguid.toString(), buffer.toString(), buffersize.toString()) as Int).toUInt() else 0u
+public actual fun tdhEnumerateManifestProviderEvents(providerguid: COpaquePointer?, buffer: COpaquePointer?, buffersize: COpaquePointer?): UInt =
+    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_tdhEnumerateManifestProviderEvents((providerguid?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString(), (buffersize?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TdhEnumerateProviderFieldInformation(pguid: Long, eventfieldtype: EVENT_FIELD_TYPE, pbuffer: Long, pbuffersize: Long): UInt =
-    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_TdhEnumerateProviderFieldInformation(pguid.toString(), eventfieldtype, pbuffer.toString(), pbuffersize.toString()) as Int).toUInt() else 0u
+public actual fun tdhEnumerateProviderFieldInformation(pguid: COpaquePointer?, eventfieldtype: EventFieldType, pbuffer: COpaquePointer?, pbuffersize: COpaquePointer?): UInt =
+    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_tdhEnumerateProviderFieldInformation((pguid?.value ?: 0L).toString(), eventfieldtype, (pbuffer?.value ?: 0L).toString(), (pbuffersize?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TdhEnumerateProviderFilters(guid: Long, tdhcontextcount: UInt, tdhcontext: Long, filtercount: Long, buffer: Long, buffersize: Long): UInt =
-    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_TdhEnumerateProviderFilters(guid.toString(), tdhcontextcount.toInt(), tdhcontext.toString(), filtercount.toString(), buffer.toString(), buffersize.toString()) as Int).toUInt() else 0u
+public actual fun tdhEnumerateProviderFilters(guid: COpaquePointer?, tdhcontextcount: UInt, tdhcontext: COpaquePointer?, filtercount: COpaquePointer?, buffer: COpaquePointer?, buffersize: COpaquePointer?): UInt =
+    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_tdhEnumerateProviderFilters((guid?.value ?: 0L).toString(), tdhcontextcount.toInt(), (tdhcontext?.value ?: 0L).toString(), (filtercount?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString(), (buffersize?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TdhEnumerateProviders(pbuffer: Long, pbuffersize: Long): UInt =
-    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_TdhEnumerateProviders(pbuffer.toString(), pbuffersize.toString()) as Int).toUInt() else 0u
+public actual fun tdhEnumerateProviders(pbuffer: COpaquePointer?, pbuffersize: COpaquePointer?): UInt =
+    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_tdhEnumerateProviders((pbuffer?.value ?: 0L).toString(), (pbuffersize?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TdhEnumerateProvidersForDecodingSource(filter: DECODING_SOURCE, buffer: Long, buffersize: UInt, bufferrequired: Long): UInt =
-    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_TdhEnumerateProvidersForDecodingSource(filter, buffer.toString(), buffersize.toInt(), bufferrequired.toString()) as Int).toUInt() else 0u
+public actual fun tdhEnumerateProvidersForDecodingSource(filter: DecodingSource, buffer: COpaquePointer?, buffersize: UInt, bufferrequired: COpaquePointer?): UInt =
+    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_tdhEnumerateProvidersForDecodingSource(filter, (buffer?.value ?: 0L).toString(), buffersize.toInt(), (bufferrequired?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TdhFormatProperty(eventinfo: Long, mapinfo: Long, pointersize: UInt, propertyintype: UShort, propertyouttype: UShort, propertylength: UShort, userdatalength: UShort, userdata: Long, buffersize: Long, buffer: PWSTR, userdataconsumed: Long): UInt =
-    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_TdhFormatProperty(eventinfo.toString(), mapinfo.toString(), pointersize.toInt(), propertyintype.toInt(), propertyouttype.toInt(), propertylength.toInt(), userdatalength.toInt(), userdata.toString(), buffersize.toString(), buffer.toString(), userdataconsumed.toString()) as Int).toUInt() else 0u
+public actual fun tdhFormatProperty(eventinfo: COpaquePointer?, mapinfo: COpaquePointer?, pointersize: UInt, propertyintype: UShort, propertyouttype: UShort, propertylength: UShort, userdatalength: UShort, userdata: COpaquePointer?, buffersize: COpaquePointer?, buffer: Pwstr, userdataconsumed: COpaquePointer?): UInt =
+    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_tdhFormatProperty((eventinfo?.value ?: 0L).toString(), (mapinfo?.value ?: 0L).toString(), pointersize.toInt(), propertyintype.toInt(), propertyouttype.toInt(), propertylength.toInt(), userdatalength.toInt(), (userdata?.value ?: 0L).toString(), (buffersize?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString(), (userdataconsumed?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TdhGetDecodingParameter(handle: TDH_HANDLE, tdhcontext: Long): UInt =
-    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_TdhGetDecodingParameter(handle.toString(), tdhcontext.toString()) as Int).toUInt() else 0u
+public actual fun tdhGetDecodingParameter(handle: TdhHandle, tdhcontext: COpaquePointer?): UInt =
+    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_tdhGetDecodingParameter(handle.toString(), (tdhcontext?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TdhGetEventInformation(event: Long, tdhcontextcount: UInt, tdhcontext: Long, buffer: Long, buffersize: Long): UInt =
-    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_TdhGetEventInformation(event.toString(), tdhcontextcount.toInt(), tdhcontext.toString(), buffer.toString(), buffersize.toString()) as Int).toUInt() else 0u
+public actual fun tdhGetEventInformation(event: COpaquePointer?, tdhcontextcount: UInt, tdhcontext: COpaquePointer?, buffer: COpaquePointer?, buffersize: COpaquePointer?): UInt =
+    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_tdhGetEventInformation((event?.value ?: 0L).toString(), tdhcontextcount.toInt(), (tdhcontext?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString(), (buffersize?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TdhGetEventMapInformation(pevent: Long, pmapname: PCWSTR, pbuffer: Long, pbuffersize: Long): UInt =
-    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_TdhGetEventMapInformation(pevent.toString(), pmapname.toString(), pbuffer.toString(), pbuffersize.toString()) as Int).toUInt() else 0u
+public actual fun tdhGetEventMapInformation(pevent: COpaquePointer?, pmapname: Pcwstr, pbuffer: COpaquePointer?, pbuffersize: COpaquePointer?): UInt =
+    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_tdhGetEventMapInformation((pevent?.value ?: 0L).toString(), (pmapname?.value ?: 0L).toString(), (pbuffer?.value ?: 0L).toString(), (pbuffersize?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TdhGetManifestEventInformation(providerguid: Long, eventdescriptor: Long, buffer: Long, buffersize: Long): UInt =
-    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_TdhGetManifestEventInformation(providerguid.toString(), eventdescriptor.toString(), buffer.toString(), buffersize.toString()) as Int).toUInt() else 0u
+public actual fun tdhGetManifestEventInformation(providerguid: COpaquePointer?, eventdescriptor: COpaquePointer?, buffer: COpaquePointer?, buffersize: COpaquePointer?): UInt =
+    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_tdhGetManifestEventInformation((providerguid?.value ?: 0L).toString(), (eventdescriptor?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString(), (buffersize?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TdhGetProperty(pevent: Long, tdhcontextcount: UInt, ptdhcontext: Long, propertydatacount: UInt, ppropertydata: Long, buffersize: UInt, pbuffer: Long): UInt =
-    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_TdhGetProperty(pevent.toString(), tdhcontextcount.toInt(), ptdhcontext.toString(), propertydatacount.toInt(), ppropertydata.toString(), buffersize.toInt(), pbuffer.toString()) as Int).toUInt() else 0u
+public actual fun tdhGetProperty(pevent: COpaquePointer?, tdhcontextcount: UInt, ptdhcontext: COpaquePointer?, propertydatacount: UInt, ppropertydata: COpaquePointer?, buffersize: UInt, pbuffer: COpaquePointer?): UInt =
+    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_tdhGetProperty((pevent?.value ?: 0L).toString(), tdhcontextcount.toInt(), (ptdhcontext?.value ?: 0L).toString(), propertydatacount.toInt(), (ppropertydata?.value ?: 0L).toString(), buffersize.toInt(), (pbuffer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TdhGetPropertySize(pevent: Long, tdhcontextcount: UInt, ptdhcontext: Long, propertydatacount: UInt, ppropertydata: Long, ppropertysize: Long): UInt =
-    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_TdhGetPropertySize(pevent.toString(), tdhcontextcount.toInt(), ptdhcontext.toString(), propertydatacount.toInt(), ppropertydata.toString(), ppropertysize.toString()) as Int).toUInt() else 0u
+public actual fun tdhGetPropertySize(pevent: COpaquePointer?, tdhcontextcount: UInt, ptdhcontext: COpaquePointer?, propertydatacount: UInt, ppropertydata: COpaquePointer?, ppropertysize: COpaquePointer?): UInt =
+    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_tdhGetPropertySize((pevent?.value ?: 0L).toString(), tdhcontextcount.toInt(), (ptdhcontext?.value ?: 0L).toString(), propertydatacount.toInt(), (ppropertydata?.value ?: 0L).toString(), (ppropertysize?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TdhGetWppMessage(handle: TDH_HANDLE, eventrecord: Long, buffersize: Long, buffer: Long): UInt =
-    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_TdhGetWppMessage(handle.toString(), eventrecord.toString(), buffersize.toString(), buffer.toString()) as Int).toUInt() else 0u
+public actual fun tdhGetWppMessage(handle: TdhHandle, eventrecord: COpaquePointer?, buffersize: COpaquePointer?, buffer: COpaquePointer?): UInt =
+    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_tdhGetWppMessage(handle.toString(), (eventrecord?.value ?: 0L).toString(), (buffersize?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TdhGetWppProperty(handle: TDH_HANDLE, eventrecord: Long, propertyname: PCWSTR, buffersize: Long, buffer: Long): UInt =
-    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_TdhGetWppProperty(handle.toString(), eventrecord.toString(), propertyname.toString(), buffersize.toString(), buffer.toString()) as Int).toUInt() else 0u
+public actual fun tdhGetWppProperty(handle: TdhHandle, eventrecord: COpaquePointer?, propertyname: Pcwstr, buffersize: COpaquePointer?, buffer: COpaquePointer?): UInt =
+    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_tdhGetWppProperty(handle.toString(), (eventrecord?.value ?: 0L).toString(), (propertyname?.value ?: 0L).toString(), (buffersize?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TdhLoadManifest(manifest: PCWSTR): UInt =
-    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_TdhLoadManifest(manifest.toString()) as Int).toUInt() else 0u
+public actual fun tdhLoadManifest(manifest: Pcwstr): UInt =
+    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_tdhLoadManifest((manifest?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TdhLoadManifestFromBinary(binarypath: PCWSTR): UInt =
-    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_TdhLoadManifestFromBinary(binarypath.toString()) as Int).toUInt() else 0u
+public actual fun tdhLoadManifestFromBinary(binarypath: Pcwstr): UInt =
+    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_tdhLoadManifestFromBinary((binarypath?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TdhLoadManifestFromMemory(pdata: Long, cbdata: UInt): UInt =
-    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_TdhLoadManifestFromMemory(pdata.toString(), cbdata.toInt()) as Int).toUInt() else 0u
+public actual fun tdhLoadManifestFromMemory(pdata: COpaquePointer?, cbdata: UInt): UInt =
+    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_tdhLoadManifestFromMemory((pdata?.value ?: 0L).toString(), cbdata.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TdhOpenDecodingHandle(handle: Long): UInt =
-    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_TdhOpenDecodingHandle(handle.toString()) as Int).toUInt() else 0u
+public actual fun tdhOpenDecodingHandle(handle: COpaquePointer?): UInt =
+    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_tdhOpenDecodingHandle((handle?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TdhQueryProviderFieldInformation(pguid: Long, eventfieldvalue: ULong, eventfieldtype: EVENT_FIELD_TYPE, pbuffer: Long, pbuffersize: Long): UInt =
-    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_TdhQueryProviderFieldInformation(pguid.toString(), eventfieldvalue.toString(), eventfieldtype, pbuffer.toString(), pbuffersize.toString()) as Int).toUInt() else 0u
+public actual fun tdhQueryProviderFieldInformation(pguid: COpaquePointer?, eventfieldvalue: ULong, eventfieldtype: EventFieldType, pbuffer: COpaquePointer?, pbuffersize: COpaquePointer?): UInt =
+    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_tdhQueryProviderFieldInformation((pguid?.value ?: 0L).toString(), eventfieldvalue.toString(), eventfieldtype, (pbuffer?.value ?: 0L).toString(), (pbuffersize?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TdhSetDecodingParameter(handle: TDH_HANDLE, tdhcontext: Long): UInt =
-    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_TdhSetDecodingParameter(handle.toString(), tdhcontext.toString()) as Int).toUInt() else 0u
+public actual fun tdhSetDecodingParameter(handle: TdhHandle, tdhcontext: COpaquePointer?): UInt =
+    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_tdhSetDecodingParameter(handle.toString(), (tdhcontext?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TdhUnloadManifest(manifest: PCWSTR): UInt =
-    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_TdhUnloadManifest(manifest.toString()) as Int).toUInt() else 0u
+public actual fun tdhUnloadManifest(manifest: Pcwstr): UInt =
+    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_tdhUnloadManifest((manifest?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TdhUnloadManifestFromMemory(pdata: Long, cbdata: UInt): UInt =
-    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_TdhUnloadManifestFromMemory(pdata.toString(), cbdata.toInt()) as Int).toUInt() else 0u
+public actual fun tdhUnloadManifestFromMemory(pdata: COpaquePointer?, cbdata: UInt): UInt =
+    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_tdhUnloadManifestFromMemory((pdata?.value ?: 0L).toString(), cbdata.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TraceEvent(tracehandle: ULong, eventtrace: Long): WIN32_ERROR =
-    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_TraceEvent(tracehandle.toString(), eventtrace.toString()) as Int).toUInt() else 0u
+public actual fun traceEvent(tracehandle: ULong, eventtrace: COpaquePointer?): Win32Error =
+    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_traceEvent(tracehandle.toString(), (eventtrace?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TraceEventInstance(tracehandle: ULong, eventtrace: Long, instinfo: Long, parentinstinfo: Long): UInt =
-    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_TraceEventInstance(tracehandle.toString(), eventtrace.toString(), instinfo.toString(), parentinstinfo.toString()) as Int).toUInt() else 0u
+public actual fun traceEventInstance(tracehandle: ULong, eventtrace: COpaquePointer?, instinfo: COpaquePointer?, parentinstinfo: COpaquePointer?): UInt =
+    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_traceEventInstance(tracehandle.toString(), (eventtrace?.value ?: 0L).toString(), (instinfo?.value ?: 0L).toString(), (parentinstinfo?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TraceMessage(loggerhandle: ULong, messageflags: TRACE_MESSAGE_FLAGS, messageguid: Long, messagenumber: UShort): WIN32_ERROR =
-    0u
+public actual fun traceMessage(loggerhandle: ULong, messageflags: TraceMessageFlags, messageguid: COpaquePointer?, messagenumber: UShort, vararg variadicArgs: Long): Win32Error =
+    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_traceMessage(loggerhandle.toString(), messageflags.toInt(), (messageguid?.value ?: 0L).toString(), messagenumber.toInt(), variadicArgs.size.coerceAtMost(4), (if (variadicArgs.size > 0) variadicArgs[0] else 0L).toString(), (if (variadicArgs.size > 1) variadicArgs[1] else 0L).toString(), (if (variadicArgs.size > 2) variadicArgs[2] else 0L).toString(), (if (variadicArgs.size > 3) variadicArgs[3] else 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TraceMessageVa(loggerhandle: ULong, messageflags: TRACE_MESSAGE_FLAGS, messageguid: Long, messagenumber: UShort, messagearglist: Long): WIN32_ERROR =
-    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_TraceMessageVa(loggerhandle.toString(), messageflags.toInt(), messageguid.toString(), messagenumber.toInt(), messagearglist.toString()) as Int).toUInt() else 0u
+public actual fun traceMessageVa(loggerhandle: ULong, messageflags: TraceMessageFlags, messageguid: COpaquePointer?, messagenumber: UShort, messagearglist: COpaquePointer?): Win32Error =
+    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_traceMessageVa(loggerhandle.toString(), messageflags.toInt(), (messageguid?.value ?: 0L).toString(), messagenumber.toInt(), (messagearglist?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TraceQueryInformation(sessionhandle: CONTROLTRACE_HANDLE, informationclass: TRACE_QUERY_INFO_CLASS, traceinformation: Long, informationlength: UInt, returnlength: Long): WIN32_ERROR =
-    0u
+public actual fun traceQueryInformation(sessionhandle: ControltraceHandle, informationclass: TraceQueryInfoClass, traceinformation: COpaquePointer?, informationlength: UInt, returnlength: COpaquePointer?): Win32Error =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TraceSetInformation(sessionhandle: CONTROLTRACE_HANDLE, informationclass: TRACE_QUERY_INFO_CLASS, traceinformation: Long, informationlength: UInt): WIN32_ERROR =
-    0u
+public actual fun traceSetInformation(sessionhandle: ControltraceHandle, informationclass: TraceQueryInfoClass, traceinformation: COpaquePointer?, informationlength: UInt): Win32Error =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun UnregisterTraceGuids(registrationhandle: ULong): UInt =
-    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_UnregisterTraceGuids(registrationhandle.toString()) as Int).toUInt() else 0u
+public actual fun unregisterTraceGuids(registrationhandle: ULong): UInt =
+    if (_windowsWin32SystemDiagnosticsEtwNapiAddon != null) (_windowsWin32SystemDiagnosticsEtwNapiAddon.windowssys_windows_win32_system_diagnostics_etw_unregisterTraceGuids(registrationhandle.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun UpdateTraceA(tracehandle: CONTROLTRACE_HANDLE, instancename: PCSTR, properties: Long): WIN32_ERROR =
-    0u
+public actual fun updateTraceA(tracehandle: ControltraceHandle, instancename: Pcstr, properties: COpaquePointer?): Win32Error =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun UpdateTraceW(tracehandle: CONTROLTRACE_HANDLE, instancename: PCWSTR, properties: Long): WIN32_ERROR =
-    0u
+public actual fun updateTraceW(tracehandle: ControltraceHandle, instancename: Pcwstr, properties: COpaquePointer?): Win32Error =
+    throw UnsupportedOperationException("Native FFI addon is not available")

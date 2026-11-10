@@ -1,110 +1,111 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.libraryloader
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.FARPROC
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HGLOBAL
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HMODULE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HRSRC
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Farproc
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hglobal
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hmodule
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hrsrc
 
-public expect fun AddDllDirectory(newdirectory: PCWSTR): Long
+public expect fun addDllDirectory(newdirectory: Pcwstr): COpaquePointer?
 
-public expect fun BeginUpdateResourceA(pfilename: PCSTR, bdeleteexistingresources: BOOL): HANDLE
+public expect fun beginUpdateResourceA(pfilename: Pcstr, bdeleteexistingresources: Bool): Handle
 
-public expect fun BeginUpdateResourceW(pfilename: PCWSTR, bdeleteexistingresources: BOOL): HANDLE
+public expect fun beginUpdateResourceW(pfilename: Pcwstr, bdeleteexistingresources: Bool): Handle
 
-public expect fun DisableThreadLibraryCalls(hlibmodule: HMODULE): BOOL
+public expect fun disableThreadLibraryCalls(hlibmodule: Hmodule): Bool
 
-public expect fun EndUpdateResourceA(hupdate: HANDLE, fdiscard: BOOL): BOOL
+public expect fun endUpdateResourceA(hupdate: Handle, fdiscard: Bool): Bool
 
-public expect fun EndUpdateResourceW(hupdate: HANDLE, fdiscard: BOOL): BOOL
+public expect fun endUpdateResourceW(hupdate: Handle, fdiscard: Bool): Bool
 
-public expect fun EnumResourceLanguagesA(hmodule: HMODULE, lptype: PCSTR, lpname: PCSTR, lpenumfunc: ENUMRESLANGPROCA, lparam: Long): BOOL
+public expect fun enumResourceLanguagesA(hmodule: Hmodule, lptype: Pcstr, lpname: Pcstr, lpenumfunc: Enumreslangproca, lparam: Long): Bool
 
-public expect fun EnumResourceLanguagesExA(hmodule: HMODULE, lptype: PCSTR, lpname: PCSTR, lpenumfunc: ENUMRESLANGPROCA, lparam: Long, dwflags: UInt, langid: UShort): BOOL
+public expect fun enumResourceLanguagesExA(hmodule: Hmodule, lptype: Pcstr, lpname: Pcstr, lpenumfunc: Enumreslangproca, lparam: Long, dwflags: UInt, langid: UShort): Bool
 
-public expect fun EnumResourceLanguagesExW(hmodule: HMODULE, lptype: PCWSTR, lpname: PCWSTR, lpenumfunc: ENUMRESLANGPROCW, lparam: Long, dwflags: UInt, langid: UShort): BOOL
+public expect fun enumResourceLanguagesExW(hmodule: Hmodule, lptype: Pcwstr, lpname: Pcwstr, lpenumfunc: Enumreslangprocw, lparam: Long, dwflags: UInt, langid: UShort): Bool
 
-public expect fun EnumResourceLanguagesW(hmodule: HMODULE, lptype: PCWSTR, lpname: PCWSTR, lpenumfunc: ENUMRESLANGPROCW, lparam: Long): BOOL
+public expect fun enumResourceLanguagesW(hmodule: Hmodule, lptype: Pcwstr, lpname: Pcwstr, lpenumfunc: Enumreslangprocw, lparam: Long): Bool
 
-public expect fun EnumResourceNamesA(hmodule: HMODULE, lptype: PCSTR, lpenumfunc: ENUMRESNAMEPROCA, lparam: Long): BOOL
+public expect fun enumResourceNamesA(hmodule: Hmodule, lptype: Pcstr, lpenumfunc: Enumresnameproca, lparam: Long): Bool
 
-public expect fun EnumResourceNamesExA(hmodule: HMODULE, lptype: PCSTR, lpenumfunc: ENUMRESNAMEPROCA, lparam: Long, dwflags: UInt, langid: UShort): BOOL
+public expect fun enumResourceNamesExA(hmodule: Hmodule, lptype: Pcstr, lpenumfunc: Enumresnameproca, lparam: Long, dwflags: UInt, langid: UShort): Bool
 
-public expect fun EnumResourceNamesExW(hmodule: HMODULE, lptype: PCWSTR, lpenumfunc: ENUMRESNAMEPROCW, lparam: Long, dwflags: UInt, langid: UShort): BOOL
+public expect fun enumResourceNamesExW(hmodule: Hmodule, lptype: Pcwstr, lpenumfunc: Enumresnameprocw, lparam: Long, dwflags: UInt, langid: UShort): Bool
 
-public expect fun EnumResourceNamesW(hmodule: HMODULE, lptype: PCWSTR, lpenumfunc: ENUMRESNAMEPROCW, lparam: Long): BOOL
+public expect fun enumResourceNamesW(hmodule: Hmodule, lptype: Pcwstr, lpenumfunc: Enumresnameprocw, lparam: Long): Bool
 
-public expect fun EnumResourceTypesA(hmodule: HMODULE, lpenumfunc: ENUMRESTYPEPROCA, lparam: Long): BOOL
+public expect fun enumResourceTypesA(hmodule: Hmodule, lpenumfunc: Enumrestypeproca, lparam: Long): Bool
 
-public expect fun EnumResourceTypesExA(hmodule: HMODULE, lpenumfunc: ENUMRESTYPEPROCA, lparam: Long, dwflags: UInt, langid: UShort): BOOL
+public expect fun enumResourceTypesExA(hmodule: Hmodule, lpenumfunc: Enumrestypeproca, lparam: Long, dwflags: UInt, langid: UShort): Bool
 
-public expect fun EnumResourceTypesExW(hmodule: HMODULE, lpenumfunc: ENUMRESTYPEPROCW, lparam: Long, dwflags: UInt, langid: UShort): BOOL
+public expect fun enumResourceTypesExW(hmodule: Hmodule, lpenumfunc: Enumrestypeprocw, lparam: Long, dwflags: UInt, langid: UShort): Bool
 
-public expect fun EnumResourceTypesW(hmodule: HMODULE, lpenumfunc: ENUMRESTYPEPROCW, lparam: Long): BOOL
+public expect fun enumResourceTypesW(hmodule: Hmodule, lpenumfunc: Enumrestypeprocw, lparam: Long): Bool
 
-public expect fun FindResourceA(hmodule: HMODULE, lpname: PCSTR, lptype: PCSTR): HRSRC
+public expect fun findResourceA(hmodule: Hmodule, lpname: Pcstr, lptype: Pcstr): Hrsrc
 
-public expect fun FindResourceExA(hmodule: HMODULE, lptype: PCSTR, lpname: PCSTR, wlanguage: UShort): HRSRC
+public expect fun findResourceExA(hmodule: Hmodule, lptype: Pcstr, lpname: Pcstr, wlanguage: UShort): Hrsrc
 
-public expect fun FindResourceExW(hmodule: HMODULE, lptype: PCWSTR, lpname: PCWSTR, wlanguage: UShort): HRSRC
+public expect fun findResourceExW(hmodule: Hmodule, lptype: Pcwstr, lpname: Pcwstr, wlanguage: UShort): Hrsrc
 
-public expect fun FindResourceW(hmodule: HMODULE, lpname: PCWSTR, lptype: PCWSTR): HRSRC
+public expect fun findResourceW(hmodule: Hmodule, lpname: Pcwstr, lptype: Pcwstr): Hrsrc
 
-public expect fun FreeLibraryAndExitThread(hlibmodule: HMODULE, dwexitcode: UInt): Nothing
+public expect fun freeLibraryAndExitThread(hlibmodule: Hmodule, dwexitcode: UInt): Nothing
 
-public expect fun FreeResource(hresdata: HGLOBAL): BOOL
+public expect fun freeResource(hresdata: Hglobal): Bool
 
-public expect fun GetDllDirectoryA(nbufferlength: UInt, lpbuffer: PSTR): UInt
+public expect fun getDllDirectoryA(nbufferlength: UInt, lpbuffer: Pstr): UInt
 
-public expect fun GetDllDirectoryW(nbufferlength: UInt, lpbuffer: PWSTR): UInt
+public expect fun getDllDirectoryW(nbufferlength: UInt, lpbuffer: Pwstr): UInt
 
-public expect fun GetModuleFileNameA(hmodule: HMODULE, lpfilename: PSTR, nsize: UInt): UInt
+public expect fun getModuleFileNameA(hmodule: Hmodule, lpfilename: Pstr, nsize: UInt): UInt
 
-public expect fun GetModuleFileNameW(hmodule: HMODULE, lpfilename: PWSTR, nsize: UInt): UInt
+public expect fun getModuleFileNameW(hmodule: Hmodule, lpfilename: Pwstr, nsize: UInt): UInt
 
-public expect fun GetModuleHandleA(lpmodulename: PCSTR): HMODULE
+public expect fun getModuleHandleA(lpmodulename: Pcstr): Hmodule
 
-public expect fun GetModuleHandleExA(dwflags: UInt, lpmodulename: PCSTR, phmodule: Long): BOOL
+public expect fun getModuleHandleExA(dwflags: UInt, lpmodulename: Pcstr, phmodule: COpaquePointer?): Bool
 
-public expect fun GetModuleHandleExW(dwflags: UInt, lpmodulename: PCWSTR, phmodule: Long): BOOL
+public expect fun getModuleHandleExW(dwflags: UInt, lpmodulename: Pcwstr, phmodule: COpaquePointer?): Bool
 
-public expect fun GetModuleHandleW(lpmodulename: PCWSTR): HMODULE
+public expect fun getModuleHandleW(lpmodulename: Pcwstr): Hmodule
 
-public expect fun GetProcAddress(hmodule: HMODULE, lpprocname: PCSTR): FARPROC
+public expect fun getProcAddress(hmodule: Hmodule, lpprocname: Pcstr): Farproc
 
-public expect fun LoadLibraryA(lplibfilename: PCSTR): HMODULE
+public expect fun loadLibraryA(lplibfilename: Pcstr): Hmodule
 
-public expect fun LoadLibraryExA(lplibfilename: PCSTR, hfile: HANDLE, dwflags: LOAD_LIBRARY_FLAGS): HMODULE
+public expect fun loadLibraryExA(lplibfilename: Pcstr, hfile: Handle, dwflags: LoadLibraryFlags): Hmodule
 
-public expect fun LoadLibraryExW(lplibfilename: PCWSTR, hfile: HANDLE, dwflags: LOAD_LIBRARY_FLAGS): HMODULE
+public expect fun loadLibraryExW(lplibfilename: Pcwstr, hfile: Handle, dwflags: LoadLibraryFlags): Hmodule
 
-public expect fun LoadLibraryW(lplibfilename: PCWSTR): HMODULE
+public expect fun loadLibraryW(lplibfilename: Pcwstr): Hmodule
 
-public expect fun LoadModule(lpmodulename: PCSTR, lpparameterblock: Long): UInt
+public expect fun loadModule(lpmodulename: Pcstr, lpparameterblock: COpaquePointer?): UInt
 
-public expect fun LoadPackagedLibrary(lpwlibfilename: PCWSTR, reserved: UInt): HMODULE
+public expect fun loadPackagedLibrary(lpwlibfilename: Pcwstr, reserved: UInt): Hmodule
 
-public expect fun LoadResource(hmodule: HMODULE, hresinfo: HRSRC): HGLOBAL
+public expect fun loadResource(hmodule: Hmodule, hresinfo: Hrsrc): Hglobal
 
-public expect fun LockResource(hresdata: HGLOBAL): Long
+public expect fun lockResource(hresdata: Hglobal): COpaquePointer?
 
-public expect fun QueryOptionalDelayLoadedAPI(hparentmodule: HMODULE, lpdllname: PCSTR, lpprocname: PCSTR, reserved: UInt): BOOL
+public expect fun queryOptionalDelayLoadedAPI(hparentmodule: Hmodule, lpdllname: Pcstr, lpprocname: Pcstr, reserved: UInt): Bool
 
-public expect fun RemoveDllDirectory(cookie: Long): BOOL
+public expect fun removeDllDirectory(cookie: COpaquePointer?): Bool
 
-public expect fun SetDefaultDllDirectories(directoryflags: LOAD_LIBRARY_FLAGS): BOOL
+public expect fun setDefaultDllDirectories(directoryflags: LoadLibraryFlags): Bool
 
-public expect fun SetDllDirectoryA(lppathname: PCSTR): BOOL
+public expect fun setDllDirectoryA(lppathname: Pcstr): Bool
 
-public expect fun SetDllDirectoryW(lppathname: PCWSTR): BOOL
+public expect fun setDllDirectoryW(lppathname: Pcwstr): Bool
 
-public expect fun SizeofResource(hmodule: HMODULE, hresinfo: HRSRC): UInt
+public expect fun sizeofResource(hmodule: Hmodule, hresinfo: Hrsrc): UInt
 
-public expect fun UpdateResourceA(hupdate: HANDLE, lptype: PCSTR, lpname: PCSTR, wlanguage: UShort, lpdata: Long, cb: UInt): BOOL
+public expect fun updateResourceA(hupdate: Handle, lptype: Pcstr, lpname: Pcstr, wlanguage: UShort, lpdata: COpaquePointer?, cb: UInt): Bool
 
-public expect fun UpdateResourceW(hupdate: HANDLE, lptype: PCWSTR, lpname: PCWSTR, wlanguage: UShort, lpdata: Long, cb: UInt): BOOL
+public expect fun updateResourceW(hupdate: Handle, lptype: Pcwstr, lpname: Pcwstr, wlanguage: UShort, lpdata: COpaquePointer?, cb: UInt): Bool

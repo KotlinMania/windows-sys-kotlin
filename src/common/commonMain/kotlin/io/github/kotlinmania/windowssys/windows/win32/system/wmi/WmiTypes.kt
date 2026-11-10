@@ -1,272 +1,274 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.wmi
 
-public typealias CIMTYPE_ENUMERATION = Int
+import io.github.kotlinmania.windowssys.COpaquePointer
 
-public typealias MI_CallbackMode = Int
+public typealias CimtypeEnumeration = Int
 
-public fun interface MI_CancelCallbackFn {
-    public operator fun invoke(reason: MI_CancellationReason, callbackdata: Long)
+public typealias MiCallbackMode = Int
+
+public fun interface MiCancelCallbackFn {
+    public operator fun invoke(reason: MiCancellationReason, callbackdata: COpaquePointer?)
 }
 
-public typealias MI_CancelCallback = MI_CancelCallbackFn?
+public typealias MiCancelCallback = MiCancelCallbackFn?
 
-public typealias MI_CancellationReason = Int
+public typealias MiCancellationReason = Int
 
-public fun interface MI_Deserializer_ClassObjectNeededFn {
-    public operator fun invoke(context: Long, servername: Long, namespacename: Long, classname: Long, requestedclassobject: Long): MI_Result
+public fun interface MiDeserializerClassObjectNeededFn {
+    public operator fun invoke(context: COpaquePointer?, servername: COpaquePointer?, namespacename: COpaquePointer?, classname: COpaquePointer?, requestedclassobject: COpaquePointer?): MiResult
 }
 
-public typealias MI_Deserializer_ClassObjectNeeded = MI_Deserializer_ClassObjectNeededFn?
+public typealias MiDeserializerClassObjectNeeded = MiDeserializerClassObjectNeededFn?
 
-public typealias MI_DestinationOptions_ImpersonationType = Int
+public typealias MiDestinationOptionsImpersonationType = Int
 
-public typealias MI_ErrorCategory = Int
+public typealias MiErrorCategory = Int
 
-public typealias MI_LocaleType = Int
+public typealias MiLocaleType = Int
 
-public fun interface MI_MainFunctionFn {
-    public operator fun invoke(server: Long): Long
+public fun interface MiMainFunctionFn {
+    public operator fun invoke(server: COpaquePointer?): COpaquePointer?
 }
 
-public typealias MI_MainFunction = MI_MainFunctionFn?
+public typealias MiMainFunction = MiMainFunctionFn?
 
-public fun interface MI_MethodDecl_InvokeFn {
-    public operator fun invoke(self_: Long, context: Long, namespace: Long, classname: Long, methodname: Long, instancename: Long, parameters: Long)
+public fun interface MiMethodDeclInvokeFn {
+    public operator fun invoke(self: COpaquePointer?, context: COpaquePointer?, namespace: COpaquePointer?, classname: COpaquePointer?, methodname: COpaquePointer?, instancename: COpaquePointer?, parameters: COpaquePointer?)
 }
 
-public typealias MI_MethodDecl_Invoke = MI_MethodDecl_InvokeFn?
+public typealias MiMethodDeclInvoke = MiMethodDeclInvokeFn?
 
-public fun interface MI_Module_LoadFn {
-    public operator fun invoke(self_: Long, context: Long)
+public fun interface MiModuleLoadFn {
+    public operator fun invoke(self: COpaquePointer?, context: COpaquePointer?)
 }
 
-public typealias MI_Module_Load = MI_Module_LoadFn?
+public typealias MiModuleLoad = MiModuleLoadFn?
 
-public typealias MI_Module_Self = Long
+public typealias MiModuleSelf = Long
 
-public fun interface MI_Module_UnloadFn {
-    public operator fun invoke(self_: Long, context: Long)
+public fun interface MiModuleUnloadFn {
+    public operator fun invoke(self: COpaquePointer?, context: COpaquePointer?)
 }
 
-public typealias MI_Module_Unload = MI_Module_UnloadFn?
+public typealias MiModuleUnload = MiModuleUnloadFn?
 
-public fun interface MI_OperationCallback_ClassFn {
-    public operator fun invoke(operation: Long, callbackcontext: Long, classresult: Long, moreresults: UByte, resultcode: MI_Result, errorstring: Long, errordetails: Long, resultacknowledgement: Long)
+public fun interface MiOperationCallbackClassFn {
+    public operator fun invoke(operation: COpaquePointer?, callbackcontext: COpaquePointer?, classresult: COpaquePointer?, moreresults: UByte, resultcode: MiResult, errorstring: COpaquePointer?, errordetails: COpaquePointer?, resultacknowledgement: Long)
 }
 
-public typealias MI_OperationCallback_Class = MI_OperationCallback_ClassFn?
+public typealias MiOperationCallbackClass = MiOperationCallbackClassFn?
 
-public fun interface MI_OperationCallback_IndicationFn {
-    public operator fun invoke(operation: Long, callbackcontext: Long, instance: Long, bookmark: Long, machineid: Long, moreresults: UByte, resultcode: MI_Result, errorstring: Long, errordetails: Long, resultacknowledgement: Long)
+public fun interface MiOperationCallbackIndicationFn {
+    public operator fun invoke(operation: COpaquePointer?, callbackcontext: COpaquePointer?, instance: COpaquePointer?, bookmark: COpaquePointer?, machineid: COpaquePointer?, moreresults: UByte, resultcode: MiResult, errorstring: COpaquePointer?, errordetails: COpaquePointer?, resultacknowledgement: Long)
 }
 
-public typealias MI_OperationCallback_Indication = MI_OperationCallback_IndicationFn?
+public typealias MiOperationCallbackIndication = MiOperationCallbackIndicationFn?
 
-public fun interface MI_OperationCallback_InstanceFn {
-    public operator fun invoke(operation: Long, callbackcontext: Long, instance: Long, moreresults: UByte, resultcode: MI_Result, errorstring: Long, errordetails: Long, resultacknowledgement: Long)
+public fun interface MiOperationCallbackInstanceFn {
+    public operator fun invoke(operation: COpaquePointer?, callbackcontext: COpaquePointer?, instance: COpaquePointer?, moreresults: UByte, resultcode: MiResult, errorstring: COpaquePointer?, errordetails: COpaquePointer?, resultacknowledgement: Long)
 }
 
-public typealias MI_OperationCallback_Instance = MI_OperationCallback_InstanceFn?
+public typealias MiOperationCallbackInstance = MiOperationCallbackInstanceFn?
 
-public fun interface MI_OperationCallback_PromptUserFn {
-    public operator fun invoke(operation: Long, callbackcontext: Long, message: Long, prompttype: MI_PromptType, promptuserresult: Long)
+public fun interface MiOperationCallbackPromptUserFn {
+    public operator fun invoke(operation: COpaquePointer?, callbackcontext: COpaquePointer?, message: COpaquePointer?, prompttype: MiPromptType, promptuserresult: Long)
 }
 
-public typealias MI_OperationCallback_PromptUser = MI_OperationCallback_PromptUserFn?
+public typealias MiOperationCallbackPromptUser = MiOperationCallbackPromptUserFn?
 
-public typealias MI_OperationCallback_ResponseType = Int
+public typealias MiOperationCallbackResponseType = Int
 
-public fun interface MI_OperationCallback_StreamedParameterFn {
-    public operator fun invoke(operation: Long, callbackcontext: Long, parametername: Long, resulttype: MI_Type, result: Long, resultacknowledgement: Long)
+public fun interface MiOperationCallbackStreamedParameterFn {
+    public operator fun invoke(operation: COpaquePointer?, callbackcontext: COpaquePointer?, parametername: COpaquePointer?, resulttype: MiType, result: COpaquePointer?, resultacknowledgement: Long)
 }
 
-public typealias MI_OperationCallback_StreamedParameter = MI_OperationCallback_StreamedParameterFn?
+public typealias MiOperationCallbackStreamedParameter = MiOperationCallbackStreamedParameterFn?
 
-public fun interface MI_OperationCallback_WriteErrorFn {
-    public operator fun invoke(operation: Long, callbackcontext: Long, instance: Long, writeerrorresult: Long)
+public fun interface MiOperationCallbackWriteErrorFn {
+    public operator fun invoke(operation: COpaquePointer?, callbackcontext: COpaquePointer?, instance: COpaquePointer?, writeerrorresult: Long)
 }
 
-public typealias MI_OperationCallback_WriteError = MI_OperationCallback_WriteErrorFn?
+public typealias MiOperationCallbackWriteError = MiOperationCallbackWriteErrorFn?
 
-public fun interface MI_OperationCallback_WriteMessageFn {
-    public operator fun invoke(operation: Long, callbackcontext: Long, channel: UInt, message: Long)
+public fun interface MiOperationCallbackWriteMessageFn {
+    public operator fun invoke(operation: COpaquePointer?, callbackcontext: COpaquePointer?, channel: UInt, message: COpaquePointer?)
 }
 
-public typealias MI_OperationCallback_WriteMessage = MI_OperationCallback_WriteMessageFn?
+public typealias MiOperationCallbackWriteMessage = MiOperationCallbackWriteMessageFn?
 
-public fun interface MI_OperationCallback_WriteProgressFn {
-    public operator fun invoke(operation: Long, callbackcontext: Long, activity: Long, currentoperation: Long, statusdescription: Long, percentagecomplete: UInt, secondsremaining: UInt)
+public fun interface MiOperationCallbackWriteProgressFn {
+    public operator fun invoke(operation: COpaquePointer?, callbackcontext: COpaquePointer?, activity: COpaquePointer?, currentoperation: COpaquePointer?, statusdescription: COpaquePointer?, percentagecomplete: UInt, secondsremaining: UInt)
 }
 
-public typealias MI_OperationCallback_WriteProgress = MI_OperationCallback_WriteProgressFn?
+public typealias MiOperationCallbackWriteProgress = MiOperationCallbackWriteProgressFn?
 
-public typealias MI_PromptType = Int
+public typealias MiPromptType = Int
 
-public typealias MI_ProviderArchitecture = Int
+public typealias MiProviderArchitecture = Int
 
-public fun interface MI_ProviderFT_AssociatorInstancesFn {
-    public operator fun invoke(self_: Long, context: Long, namespace: Long, classname: Long, instancename: Long, resultclass: Long, role: Long, resultrole: Long, propertyset: Long, keysonly: UByte, filter: Long)
+public fun interface MiProviderFtAssociatorInstancesFn {
+    public operator fun invoke(self: COpaquePointer?, context: COpaquePointer?, namespace: COpaquePointer?, classname: COpaquePointer?, instancename: COpaquePointer?, resultclass: COpaquePointer?, role: COpaquePointer?, resultrole: COpaquePointer?, propertyset: COpaquePointer?, keysonly: UByte, filter: COpaquePointer?)
 }
 
-public typealias MI_ProviderFT_AssociatorInstances = MI_ProviderFT_AssociatorInstancesFn?
+public typealias MiProviderFtAssociatorInstances = MiProviderFtAssociatorInstancesFn?
 
-public fun interface MI_ProviderFT_CreateInstanceFn {
-    public operator fun invoke(self_: Long, context: Long, namespace: Long, classname: Long, newinstance: Long)
+public fun interface MiProviderFtCreateInstanceFn {
+    public operator fun invoke(self: COpaquePointer?, context: COpaquePointer?, namespace: COpaquePointer?, classname: COpaquePointer?, newinstance: COpaquePointer?)
 }
 
-public typealias MI_ProviderFT_CreateInstance = MI_ProviderFT_CreateInstanceFn?
+public typealias MiProviderFtCreateInstance = MiProviderFtCreateInstanceFn?
 
-public fun interface MI_ProviderFT_DeleteInstanceFn {
-    public operator fun invoke(self_: Long, context: Long, namespace: Long, classname: Long, instancename: Long)
+public fun interface MiProviderFtDeleteInstanceFn {
+    public operator fun invoke(self: COpaquePointer?, context: COpaquePointer?, namespace: COpaquePointer?, classname: COpaquePointer?, instancename: COpaquePointer?)
 }
 
-public typealias MI_ProviderFT_DeleteInstance = MI_ProviderFT_DeleteInstanceFn?
+public typealias MiProviderFtDeleteInstance = MiProviderFtDeleteInstanceFn?
 
-public fun interface MI_ProviderFT_DisableIndicationsFn {
-    public operator fun invoke(self_: Long, indicationscontext: Long, namespace: Long, classname: Long)
+public fun interface MiProviderFtDisableIndicationsFn {
+    public operator fun invoke(self: COpaquePointer?, indicationscontext: COpaquePointer?, namespace: COpaquePointer?, classname: COpaquePointer?)
 }
 
-public typealias MI_ProviderFT_DisableIndications = MI_ProviderFT_DisableIndicationsFn?
+public typealias MiProviderFtDisableIndications = MiProviderFtDisableIndicationsFn?
 
-public fun interface MI_ProviderFT_EnableIndicationsFn {
-    public operator fun invoke(self_: Long, indicationscontext: Long, namespace: Long, classname: Long)
+public fun interface MiProviderFtEnableIndicationsFn {
+    public operator fun invoke(self: COpaquePointer?, indicationscontext: COpaquePointer?, namespace: COpaquePointer?, classname: COpaquePointer?)
 }
 
-public typealias MI_ProviderFT_EnableIndications = MI_ProviderFT_EnableIndicationsFn?
+public typealias MiProviderFtEnableIndications = MiProviderFtEnableIndicationsFn?
 
-public fun interface MI_ProviderFT_EnumerateInstancesFn {
-    public operator fun invoke(self_: Long, context: Long, namespace: Long, classname: Long, propertyset: Long, keysonly: UByte, filter: Long)
+public fun interface MiProviderFtEnumerateInstancesFn {
+    public operator fun invoke(self: COpaquePointer?, context: COpaquePointer?, namespace: COpaquePointer?, classname: COpaquePointer?, propertyset: COpaquePointer?, keysonly: UByte, filter: COpaquePointer?)
 }
 
-public typealias MI_ProviderFT_EnumerateInstances = MI_ProviderFT_EnumerateInstancesFn?
+public typealias MiProviderFtEnumerateInstances = MiProviderFtEnumerateInstancesFn?
 
-public fun interface MI_ProviderFT_GetInstanceFn {
-    public operator fun invoke(self_: Long, context: Long, namespace: Long, classname: Long, instancename: Long, propertyset: Long)
+public fun interface MiProviderFtGetInstanceFn {
+    public operator fun invoke(self: COpaquePointer?, context: COpaquePointer?, namespace: COpaquePointer?, classname: COpaquePointer?, instancename: COpaquePointer?, propertyset: COpaquePointer?)
 }
 
-public typealias MI_ProviderFT_GetInstance = MI_ProviderFT_GetInstanceFn?
+public typealias MiProviderFtGetInstance = MiProviderFtGetInstanceFn?
 
-public fun interface MI_ProviderFT_InvokeFn {
-    public operator fun invoke(self_: Long, context: Long, namespace: Long, classname: Long, methodname: Long, instancename: Long, inputparameters: Long)
+public fun interface MiProviderFtInvokeFn {
+    public operator fun invoke(self: COpaquePointer?, context: COpaquePointer?, namespace: COpaquePointer?, classname: COpaquePointer?, methodname: COpaquePointer?, instancename: COpaquePointer?, inputparameters: COpaquePointer?)
 }
 
-public typealias MI_ProviderFT_Invoke = MI_ProviderFT_InvokeFn?
+public typealias MiProviderFtInvoke = MiProviderFtInvokeFn?
 
-public fun interface MI_ProviderFT_LoadFn {
-    public operator fun invoke(self_: Long, selfmodule: Long, context: Long)
+public fun interface MiProviderFtLoadFn {
+    public operator fun invoke(self: COpaquePointer?, selfmodule: COpaquePointer?, context: COpaquePointer?)
 }
 
-public typealias MI_ProviderFT_Load = MI_ProviderFT_LoadFn?
+public typealias MiProviderFtLoad = MiProviderFtLoadFn?
 
-public fun interface MI_ProviderFT_ModifyInstanceFn {
-    public operator fun invoke(self_: Long, context: Long, namespace: Long, classname: Long, modifiedinstance: Long, propertyset: Long)
+public fun interface MiProviderFtModifyInstanceFn {
+    public operator fun invoke(self: COpaquePointer?, context: COpaquePointer?, namespace: COpaquePointer?, classname: COpaquePointer?, modifiedinstance: COpaquePointer?, propertyset: COpaquePointer?)
 }
 
-public typealias MI_ProviderFT_ModifyInstance = MI_ProviderFT_ModifyInstanceFn?
+public typealias MiProviderFtModifyInstance = MiProviderFtModifyInstanceFn?
 
-public fun interface MI_ProviderFT_ReferenceInstancesFn {
-    public operator fun invoke(self_: Long, context: Long, namespace: Long, classname: Long, instancename: Long, role: Long, propertyset: Long, keysonly: UByte, filter: Long)
+public fun interface MiProviderFtReferenceInstancesFn {
+    public operator fun invoke(self: COpaquePointer?, context: COpaquePointer?, namespace: COpaquePointer?, classname: COpaquePointer?, instancename: COpaquePointer?, role: COpaquePointer?, propertyset: COpaquePointer?, keysonly: UByte, filter: COpaquePointer?)
 }
 
-public typealias MI_ProviderFT_ReferenceInstances = MI_ProviderFT_ReferenceInstancesFn?
+public typealias MiProviderFtReferenceInstances = MiProviderFtReferenceInstancesFn?
 
-public fun interface MI_ProviderFT_SubscribeFn {
-    public operator fun invoke(self_: Long, context: Long, namespace: Long, classname: Long, filter: Long, bookmark: Long, subscriptionid: ULong, subscriptionself: Long)
+public fun interface MiProviderFtSubscribeFn {
+    public operator fun invoke(self: COpaquePointer?, context: COpaquePointer?, namespace: COpaquePointer?, classname: COpaquePointer?, filter: COpaquePointer?, bookmark: COpaquePointer?, subscriptionid: ULong, subscriptionself: COpaquePointer?)
 }
 
-public typealias MI_ProviderFT_Subscribe = MI_ProviderFT_SubscribeFn?
+public typealias MiProviderFtSubscribe = MiProviderFtSubscribeFn?
 
-public fun interface MI_ProviderFT_UnloadFn {
-    public operator fun invoke(self_: Long, context: Long)
+public fun interface MiProviderFtUnloadFn {
+    public operator fun invoke(self: COpaquePointer?, context: COpaquePointer?)
 }
 
-public typealias MI_ProviderFT_Unload = MI_ProviderFT_UnloadFn?
+public typealias MiProviderFtUnload = MiProviderFtUnloadFn?
 
-public fun interface MI_ProviderFT_UnsubscribeFn {
-    public operator fun invoke(self_: Long, context: Long, namespace: Long, classname: Long, subscriptionid: ULong, subscriptionself: Long)
+public fun interface MiProviderFtUnsubscribeFn {
+    public operator fun invoke(self: COpaquePointer?, context: COpaquePointer?, namespace: COpaquePointer?, classname: COpaquePointer?, subscriptionid: ULong, subscriptionself: COpaquePointer?)
 }
 
-public typealias MI_ProviderFT_Unsubscribe = MI_ProviderFT_UnsubscribeFn?
+public typealias MiProviderFtUnsubscribe = MiProviderFtUnsubscribeFn?
 
-public typealias MI_Result = Int
+public typealias MiResult = Int
 
-public typealias MI_SubscriptionDeliveryType = Int
+public typealias MiSubscriptionDeliveryType = Int
 
-public typealias MI_Type = Int
+public typealias MiType = Int
 
-public typealias WBEMSTATUS = Int
+public typealias Wbemstatus = Int
 
-public typealias WBEMSTATUS_FORMAT = Int
+public typealias WbemstatusFormat = Int
 
-public typealias WBEM_BACKUP_RESTORE_FLAGS = Int
+public typealias WbemBackupRestoreFlags = Int
 
-public typealias WBEM_BATCH_TYPE = Int
+public typealias WbemBatchType = Int
 
-public typealias WBEM_CHANGE_FLAG_TYPE = Int
+public typealias WbemChangeFlagType = Int
 
-public typealias WBEM_COMPARISON_FLAG = Int
+public typealias WbemComparisonFlag = Int
 
-public typealias WBEM_COMPILER_OPTIONS = Int
+public typealias WbemCompilerOptions = Int
 
-public typealias WBEM_CONDITION_FLAG_TYPE = Int
+public typealias WbemConditionFlagType = Int
 
-public typealias WBEM_CONNECT_OPTIONS = Int
+public typealias WbemConnectOptions = Int
 
-public typealias WBEM_EXTRA_RETURN_CODES = Int
+public typealias WbemExtraReturnCodes = Int
 
-public typealias WBEM_FLAVOR_TYPE = Int
+public typealias WbemFlavorType = Int
 
-public typealias WBEM_GENERIC_FLAG_TYPE = Int
+public typealias WbemGenericFlagType = Int
 
-public typealias WBEM_GENUS_TYPE = Int
+public typealias WbemGenusType = Int
 
-public typealias WBEM_GET_KEY_FLAGS = Int
+public typealias WbemGetKeyFlags = Int
 
-public typealias WBEM_GET_TEXT_FLAGS = Int
+public typealias WbemGetTextFlags = Int
 
-public typealias WBEM_INFORMATION_FLAG_TYPE = Int
+public typealias WbemInformationFlagType = Int
 
-public typealias WBEM_LIMITATION_FLAG_TYPE = Int
+public typealias WbemLimitationFlagType = Int
 
-public typealias WBEM_LIMITS = Int
+public typealias WbemLimits = Int
 
-public typealias WBEM_LOCKING_FLAG_TYPE = Int
+public typealias WbemLockingFlagType = Int
 
-public typealias WBEM_LOGIN_TYPE = Int
+public typealias WbemLoginType = Int
 
-public typealias WBEM_PATH_CREATE_FLAG = Int
+public typealias WbemPathCreateFlag = Int
 
-public typealias WBEM_PATH_STATUS_FLAG = Int
+public typealias WbemPathStatusFlag = Int
 
-public typealias WBEM_PROVIDER_FLAGS = Int
+public typealias WbemProviderFlags = Int
 
-public typealias WBEM_PROVIDER_REQUIREMENTS_TYPE = Int
+public typealias WbemProviderRequirementsType = Int
 
-public typealias WBEM_QUERY_FLAG_TYPE = Int
+public typealias WbemQueryFlagType = Int
 
-public typealias WBEM_REFRESHER_FLAGS = Int
+public typealias WbemRefresherFlags = Int
 
-public typealias WBEM_SECURITY_FLAGS = Int
+public typealias WbemSecurityFlags = Int
 
-public typealias WBEM_SHUTDOWN_FLAGS = Int
+public typealias WbemShutdownFlags = Int
 
-public typealias WBEM_STATUS_TYPE = Int
+public typealias WbemStatusType = Int
 
-public typealias WBEM_TEXT_FLAG_TYPE = Int
+public typealias WbemTextFlagType = Int
 
-public typealias WBEM_UNSECAPP_FLAG_TYPE = Int
+public typealias WbemUnsecappFlagType = Int
 
-public typealias WMIQ_ANALYSIS_TYPE = Int
+public typealias WmiqAnalysisType = Int
 
-public typealias WMIQ_ASSOCQ_FLAGS = Int
+public typealias WmiqAssocqFlags = Int
 
-public typealias WMIQ_LANGUAGE_FEATURES = Int
+public typealias WmiqLanguageFeatures = Int
 
-public typealias WMIQ_RPNF_FEATURE = Int
+public typealias WmiqRpnfFeature = Int
 
-public typealias WMIQ_RPN_TOKEN_FLAGS = Int
+public typealias WmiqRpnTokenFlags = Int
 
-public typealias WMI_OBJ_TEXT = Int
+public typealias WmiObjText = Int
 
 public typealias WbemAuthenticationLevelEnum = Int
 

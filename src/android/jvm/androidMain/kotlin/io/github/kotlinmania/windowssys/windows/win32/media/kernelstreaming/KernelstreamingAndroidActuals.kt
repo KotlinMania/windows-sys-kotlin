@@ -2,8 +2,9 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.media.kernelstreaming
 
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 
 private object WindowsWin32MediaKernelstreamingJniBridge {
     init {
@@ -11,80 +12,80 @@ private object WindowsWin32MediaKernelstreamingJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_media_kernelstreaming_KsCreateAllocator(connectionhandle: Long, allocatorframing: Long, allocatorhandle: Long): Int
+    external fun windowssys_windows_win32_media_kernelstreaming_ksCreateAllocator(connectionhandle: Long, allocatorframing: Long, allocatorhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_media_kernelstreaming_KsCreateAllocator2(connectionhandle: Long, allocatorframing: Long, allocatorhandle: Long): Int
+    external fun windowssys_windows_win32_media_kernelstreaming_ksCreateAllocator2(connectionhandle: Long, allocatorframing: Long, allocatorhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_media_kernelstreaming_KsCreateClock(connectionhandle: Long, clockcreate: Long, clockhandle: Long): Int
+    external fun windowssys_windows_win32_media_kernelstreaming_ksCreateClock(connectionhandle: Long, clockcreate: Long, clockhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_media_kernelstreaming_KsCreateClock2(connectionhandle: Long, clockcreate: Long, clockhandle: Long): Int
+    external fun windowssys_windows_win32_media_kernelstreaming_ksCreateClock2(connectionhandle: Long, clockcreate: Long, clockhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_media_kernelstreaming_KsCreatePin(filterhandle: Long, connect: Long, desiredaccess: Int, connectionhandle: Long): Int
+    external fun windowssys_windows_win32_media_kernelstreaming_ksCreatePin(filterhandle: Long, connect: Long, desiredaccess: Int, connectionhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_media_kernelstreaming_KsCreatePin2(filterhandle: Long, connect: Long, desiredaccess: Int, connectionhandle: Long): Int
+    external fun windowssys_windows_win32_media_kernelstreaming_ksCreatePin2(filterhandle: Long, connect: Long, desiredaccess: Int, connectionhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_media_kernelstreaming_KsCreateTopologyNode(parenthandle: Long, nodecreate: Long, desiredaccess: Int, nodehandle: Long): Int
+    external fun windowssys_windows_win32_media_kernelstreaming_ksCreateTopologyNode(parenthandle: Long, nodecreate: Long, desiredaccess: Int, nodehandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_media_kernelstreaming_KsCreateTopologyNode2(parenthandle: Long, nodecreate: Long, desiredaccess: Int, nodehandle: Long): Int
+    external fun windowssys_windows_win32_media_kernelstreaming_ksCreateTopologyNode2(parenthandle: Long, nodecreate: Long, desiredaccess: Int, nodehandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_media_kernelstreaming_KsGetMediaTypeCount(filterhandle: Long, pinfactoryid: Int, mediatypecount: Long): Int
+    external fun windowssys_windows_win32_media_kernelstreaming_ksGetMediaTypeCount(filterhandle: Long, pinfactoryid: Int, mediatypecount: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_media_kernelstreaming_KsGetMultiplePinFactoryItems(filterhandle: Long, pinfactoryid: Int, propertyid: Int, items: Long): Int
+    external fun windowssys_windows_win32_media_kernelstreaming_ksGetMultiplePinFactoryItems(filterhandle: Long, pinfactoryid: Int, propertyid: Int, items: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_media_kernelstreaming_KsOpenDefaultDevice(category: Long, access: Int, devicehandle: Long): Int
+    external fun windowssys_windows_win32_media_kernelstreaming_ksOpenDefaultDevice(category: Long, access: Int, devicehandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_media_kernelstreaming_KsResolveRequiredAttributes(datarange: Long, attributes: Long): Int
+    external fun windowssys_windows_win32_media_kernelstreaming_ksResolveRequiredAttributes(datarange: Long, attributes: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_media_kernelstreaming_KsSynchronousDeviceControl(handle: Long, iocontrol: Int, inbuffer: Long, inlength: Int, outbuffer: Long, outlength: Int, bytesreturned: Long): Int
+    external fun windowssys_windows_win32_media_kernelstreaming_ksSynchronousDeviceControl(handle: Long, iocontrol: Int, inbuffer: Long, inlength: Int, outbuffer: Long, outlength: Int, bytesreturned: Long): Int
 }
 
-public actual fun KsCreateAllocator(connectionhandle: HANDLE, allocatorframing: Long, allocatorhandle: Long): UInt =
-    WindowsWin32MediaKernelstreamingJniBridge.windowssys_windows_win32_media_kernelstreaming_KsCreateAllocator(connectionhandle, allocatorframing, allocatorhandle).toUInt()
+public actual fun ksCreateAllocator(connectionhandle: Handle, allocatorframing: COpaquePointer?, allocatorhandle: COpaquePointer?): UInt =
+    WindowsWin32MediaKernelstreamingJniBridge.windowssys_windows_win32_media_kernelstreaming_ksCreateAllocator((connectionhandle?.value ?: 0L), (allocatorframing?.value ?: 0L), (allocatorhandle?.value ?: 0L)).toUInt()
 
-public actual fun KsCreateAllocator2(connectionhandle: HANDLE, allocatorframing: Long, allocatorhandle: Long): HRESULT =
-    WindowsWin32MediaKernelstreamingJniBridge.windowssys_windows_win32_media_kernelstreaming_KsCreateAllocator2(connectionhandle, allocatorframing, allocatorhandle)
+public actual fun ksCreateAllocator2(connectionhandle: Handle, allocatorframing: COpaquePointer?, allocatorhandle: COpaquePointer?): Hresult =
+    WindowsWin32MediaKernelstreamingJniBridge.windowssys_windows_win32_media_kernelstreaming_ksCreateAllocator2((connectionhandle?.value ?: 0L), (allocatorframing?.value ?: 0L), (allocatorhandle?.value ?: 0L))
 
-public actual fun KsCreateClock(connectionhandle: HANDLE, clockcreate: Long, clockhandle: Long): UInt =
-    WindowsWin32MediaKernelstreamingJniBridge.windowssys_windows_win32_media_kernelstreaming_KsCreateClock(connectionhandle, clockcreate, clockhandle).toUInt()
+public actual fun ksCreateClock(connectionhandle: Handle, clockcreate: COpaquePointer?, clockhandle: COpaquePointer?): UInt =
+    WindowsWin32MediaKernelstreamingJniBridge.windowssys_windows_win32_media_kernelstreaming_ksCreateClock((connectionhandle?.value ?: 0L), (clockcreate?.value ?: 0L), (clockhandle?.value ?: 0L)).toUInt()
 
-public actual fun KsCreateClock2(connectionhandle: HANDLE, clockcreate: Long, clockhandle: Long): HRESULT =
-    WindowsWin32MediaKernelstreamingJniBridge.windowssys_windows_win32_media_kernelstreaming_KsCreateClock2(connectionhandle, clockcreate, clockhandle)
+public actual fun ksCreateClock2(connectionhandle: Handle, clockcreate: COpaquePointer?, clockhandle: COpaquePointer?): Hresult =
+    WindowsWin32MediaKernelstreamingJniBridge.windowssys_windows_win32_media_kernelstreaming_ksCreateClock2((connectionhandle?.value ?: 0L), (clockcreate?.value ?: 0L), (clockhandle?.value ?: 0L))
 
-public actual fun KsCreatePin(filterhandle: HANDLE, connect: Long, desiredaccess: UInt, connectionhandle: Long): UInt =
-    WindowsWin32MediaKernelstreamingJniBridge.windowssys_windows_win32_media_kernelstreaming_KsCreatePin(filterhandle, connect, desiredaccess.toInt(), connectionhandle).toUInt()
+public actual fun ksCreatePin(filterhandle: Handle, connect: COpaquePointer?, desiredaccess: UInt, connectionhandle: COpaquePointer?): UInt =
+    WindowsWin32MediaKernelstreamingJniBridge.windowssys_windows_win32_media_kernelstreaming_ksCreatePin((filterhandle?.value ?: 0L), (connect?.value ?: 0L), desiredaccess.toInt(), (connectionhandle?.value ?: 0L)).toUInt()
 
-public actual fun KsCreatePin2(filterhandle: HANDLE, connect: Long, desiredaccess: UInt, connectionhandle: Long): HRESULT =
-    WindowsWin32MediaKernelstreamingJniBridge.windowssys_windows_win32_media_kernelstreaming_KsCreatePin2(filterhandle, connect, desiredaccess.toInt(), connectionhandle)
+public actual fun ksCreatePin2(filterhandle: Handle, connect: COpaquePointer?, desiredaccess: UInt, connectionhandle: COpaquePointer?): Hresult =
+    WindowsWin32MediaKernelstreamingJniBridge.windowssys_windows_win32_media_kernelstreaming_ksCreatePin2((filterhandle?.value ?: 0L), (connect?.value ?: 0L), desiredaccess.toInt(), (connectionhandle?.value ?: 0L))
 
-public actual fun KsCreateTopologyNode(parenthandle: HANDLE, nodecreate: Long, desiredaccess: UInt, nodehandle: Long): UInt =
-    WindowsWin32MediaKernelstreamingJniBridge.windowssys_windows_win32_media_kernelstreaming_KsCreateTopologyNode(parenthandle, nodecreate, desiredaccess.toInt(), nodehandle).toUInt()
+public actual fun ksCreateTopologyNode(parenthandle: Handle, nodecreate: COpaquePointer?, desiredaccess: UInt, nodehandle: COpaquePointer?): UInt =
+    WindowsWin32MediaKernelstreamingJniBridge.windowssys_windows_win32_media_kernelstreaming_ksCreateTopologyNode((parenthandle?.value ?: 0L), (nodecreate?.value ?: 0L), desiredaccess.toInt(), (nodehandle?.value ?: 0L)).toUInt()
 
-public actual fun KsCreateTopologyNode2(parenthandle: HANDLE, nodecreate: Long, desiredaccess: UInt, nodehandle: Long): HRESULT =
-    WindowsWin32MediaKernelstreamingJniBridge.windowssys_windows_win32_media_kernelstreaming_KsCreateTopologyNode2(parenthandle, nodecreate, desiredaccess.toInt(), nodehandle)
+public actual fun ksCreateTopologyNode2(parenthandle: Handle, nodecreate: COpaquePointer?, desiredaccess: UInt, nodehandle: COpaquePointer?): Hresult =
+    WindowsWin32MediaKernelstreamingJniBridge.windowssys_windows_win32_media_kernelstreaming_ksCreateTopologyNode2((parenthandle?.value ?: 0L), (nodecreate?.value ?: 0L), desiredaccess.toInt(), (nodehandle?.value ?: 0L))
 
-public actual fun KsGetMediaTypeCount(filterhandle: HANDLE, pinfactoryid: UInt, mediatypecount: Long): HRESULT =
-    WindowsWin32MediaKernelstreamingJniBridge.windowssys_windows_win32_media_kernelstreaming_KsGetMediaTypeCount(filterhandle, pinfactoryid.toInt(), mediatypecount)
+public actual fun ksGetMediaTypeCount(filterhandle: Handle, pinfactoryid: UInt, mediatypecount: COpaquePointer?): Hresult =
+    WindowsWin32MediaKernelstreamingJniBridge.windowssys_windows_win32_media_kernelstreaming_ksGetMediaTypeCount((filterhandle?.value ?: 0L), pinfactoryid.toInt(), (mediatypecount?.value ?: 0L))
 
-public actual fun KsGetMultiplePinFactoryItems(filterhandle: HANDLE, pinfactoryid: UInt, propertyid: UInt, items: Long): HRESULT =
-    WindowsWin32MediaKernelstreamingJniBridge.windowssys_windows_win32_media_kernelstreaming_KsGetMultiplePinFactoryItems(filterhandle, pinfactoryid.toInt(), propertyid.toInt(), items)
+public actual fun ksGetMultiplePinFactoryItems(filterhandle: Handle, pinfactoryid: UInt, propertyid: UInt, items: COpaquePointer?): Hresult =
+    WindowsWin32MediaKernelstreamingJniBridge.windowssys_windows_win32_media_kernelstreaming_ksGetMultiplePinFactoryItems((filterhandle?.value ?: 0L), pinfactoryid.toInt(), propertyid.toInt(), (items?.value ?: 0L))
 
-public actual fun KsOpenDefaultDevice(category: Long, access: UInt, devicehandle: Long): HRESULT =
-    WindowsWin32MediaKernelstreamingJniBridge.windowssys_windows_win32_media_kernelstreaming_KsOpenDefaultDevice(category, access.toInt(), devicehandle)
+public actual fun ksOpenDefaultDevice(category: COpaquePointer?, access: UInt, devicehandle: COpaquePointer?): Hresult =
+    WindowsWin32MediaKernelstreamingJniBridge.windowssys_windows_win32_media_kernelstreaming_ksOpenDefaultDevice((category?.value ?: 0L), access.toInt(), (devicehandle?.value ?: 0L))
 
-public actual fun KsResolveRequiredAttributes(datarange: Long, attributes: Long): HRESULT =
-    WindowsWin32MediaKernelstreamingJniBridge.windowssys_windows_win32_media_kernelstreaming_KsResolveRequiredAttributes(datarange, attributes)
+public actual fun ksResolveRequiredAttributes(datarange: COpaquePointer?, attributes: COpaquePointer?): Hresult =
+    WindowsWin32MediaKernelstreamingJniBridge.windowssys_windows_win32_media_kernelstreaming_ksResolveRequiredAttributes((datarange?.value ?: 0L), (attributes?.value ?: 0L))
 
-public actual fun KsSynchronousDeviceControl(handle: HANDLE, iocontrol: UInt, inbuffer: Long, inlength: UInt, outbuffer: Long, outlength: UInt, bytesreturned: Long): HRESULT =
-    WindowsWin32MediaKernelstreamingJniBridge.windowssys_windows_win32_media_kernelstreaming_KsSynchronousDeviceControl(handle, iocontrol.toInt(), inbuffer, inlength.toInt(), outbuffer, outlength.toInt(), bytesreturned)
+public actual fun ksSynchronousDeviceControl(handle: Handle, iocontrol: UInt, inbuffer: COpaquePointer?, inlength: UInt, outbuffer: COpaquePointer?, outlength: UInt, bytesreturned: COpaquePointer?): Hresult =
+    WindowsWin32MediaKernelstreamingJniBridge.windowssys_windows_win32_media_kernelstreaming_ksSynchronousDeviceControl((handle?.value ?: 0L), iocontrol.toInt(), (inbuffer?.value ?: 0L), inlength.toInt(), (outbuffer?.value ?: 0L), outlength.toInt(), (bytesreturned?.value ?: 0L))

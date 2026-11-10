@@ -1,87 +1,87 @@
 package io.github.kotlinmania.windowssys.windows.win32.devices.alljoyn
 
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.w
 
-public val AJ_IFC_SECURITY_INHERIT: alljoyn_interfacedescription_securitypolicy = 0
+public val AJ_IFC_SECURITY_INHERIT: AlljoynInterfacedescriptionSecuritypolicy = 0
 
-public val AJ_IFC_SECURITY_OFF: alljoyn_interfacedescription_securitypolicy = 2
+public val AJ_IFC_SECURITY_OFF: AlljoynInterfacedescriptionSecuritypolicy = 2
 
-public val AJ_IFC_SECURITY_REQUIRED: alljoyn_interfacedescription_securitypolicy = 1
+public val AJ_IFC_SECURITY_REQUIRED: AlljoynInterfacedescriptionSecuritypolicy = 1
 
-public val ALLJOYN_ARRAY: alljoyn_typeid = 97
+public val ALLJOYN_ARRAY: AlljoynTypeid = 97
 
-public val ALLJOYN_BIG_ENDIAN: UByte = 66u
+public val ALLJOYN_BIG_ENDIAN: UByte = 66u.toUByte()
 
-public val ALLJOYN_BOOLEAN: alljoyn_typeid = 98
+public val ALLJOYN_BOOLEAN: AlljoynTypeid = 98
 
-public val ALLJOYN_BOOLEAN_ARRAY: alljoyn_typeid = 25185
+public val ALLJOYN_BOOLEAN_ARRAY: AlljoynTypeid = 25185
 
-public val ALLJOYN_BYTE: alljoyn_typeid = 121
+public val ALLJOYN_BYTE: AlljoynTypeid = 121
 
-public val ALLJOYN_BYTE_ARRAY: alljoyn_typeid = 31073
+public val ALLJOYN_BYTE_ARRAY: AlljoynTypeid = 31073
 
-public val ALLJOYN_CRED_CERT_CHAIN: UShort = 4u
+public val ALLJOYN_CRED_CERT_CHAIN: UShort = 4u.toUShort()
 
-public val ALLJOYN_CRED_EXPIRATION: UShort = 32u
+public val ALLJOYN_CRED_EXPIRATION: UShort = 32u.toUShort()
 
-public val ALLJOYN_CRED_LOGON_ENTRY: UShort = 16u
+public val ALLJOYN_CRED_LOGON_ENTRY: UShort = 16u.toUShort()
 
-public val ALLJOYN_CRED_NEW_PASSWORD: UShort = 4097u
+public val ALLJOYN_CRED_NEW_PASSWORD: UShort = 4097u.toUShort()
 
-public val ALLJOYN_CRED_ONE_TIME_PWD: UShort = 8193u
+public val ALLJOYN_CRED_ONE_TIME_PWD: UShort = 8193u.toUShort()
 
-public val ALLJOYN_CRED_PASSWORD: UShort = 1u
+public val ALLJOYN_CRED_PASSWORD: UShort = 1u.toUShort()
 
-public val ALLJOYN_CRED_PRIVATE_KEY: UShort = 8u
+public val ALLJOYN_CRED_PRIVATE_KEY: UShort = 8u.toUShort()
 
-public val ALLJOYN_CRED_USER_NAME: UShort = 2u
+public val ALLJOYN_CRED_USER_NAME: UShort = 2u.toUShort()
 
-public val ALLJOYN_DICT_ENTRY: alljoyn_typeid = 101
+public val ALLJOYN_DICT_ENTRY: AlljoynTypeid = 101
 
-public val ALLJOYN_DICT_ENTRY_CLOSE: alljoyn_typeid = 125
+public val ALLJOYN_DICT_ENTRY_CLOSE: AlljoynTypeid = 125
 
-public val ALLJOYN_DICT_ENTRY_OPEN: alljoyn_typeid = 123
+public val ALLJOYN_DICT_ENTRY_OPEN: AlljoynTypeid = 123
 
 public val ALLJOYN_DISCONNECTED: UInt = 4u
 
-public val ALLJOYN_DOUBLE: alljoyn_typeid = 100
+public val ALLJOYN_DOUBLE: AlljoynTypeid = 100
 
-public val ALLJOYN_DOUBLE_ARRAY: alljoyn_typeid = 25697
+public val ALLJOYN_DOUBLE_ARRAY: AlljoynTypeid = 25697
 
-public val ALLJOYN_HANDLE: alljoyn_typeid = 104
+public val ALLJOYN_HANDLE: AlljoynTypeid = 104
 
-public val ALLJOYN_INT16: alljoyn_typeid = 110
+public val ALLJOYN_INT16: AlljoynTypeid = 110
 
-public val ALLJOYN_INT16_ARRAY: alljoyn_typeid = 28257
+public val ALLJOYN_INT16_ARRAY: AlljoynTypeid = 28257
 
-public val ALLJOYN_INT32: alljoyn_typeid = 105
+public val ALLJOYN_INT32: AlljoynTypeid = 105
 
-public val ALLJOYN_INT32_ARRAY: alljoyn_typeid = 26977
+public val ALLJOYN_INT32_ARRAY: AlljoynTypeid = 26977
 
-public val ALLJOYN_INT64: alljoyn_typeid = 120
+public val ALLJOYN_INT64: AlljoynTypeid = 120
 
-public val ALLJOYN_INT64_ARRAY: alljoyn_typeid = 30817
+public val ALLJOYN_INT64_ARRAY: AlljoynTypeid = 30817
 
-public val ALLJOYN_INVALID: alljoyn_typeid = 0
+public val ALLJOYN_INVALID: AlljoynTypeid = 0
 
-public val ALLJOYN_LITTLE_ENDIAN: UByte = 108u
+public val ALLJOYN_LITTLE_ENDIAN: UByte = 108u.toUByte()
 
-public val ALLJOYN_MEMBER_ANNOTATE_DEPRECATED: UByte = 2u
+public val ALLJOYN_MEMBER_ANNOTATE_DEPRECATED: UByte = 2u.toUByte()
 
-public val ALLJOYN_MEMBER_ANNOTATE_GLOBAL_BROADCAST: UByte = 32u
+public val ALLJOYN_MEMBER_ANNOTATE_GLOBAL_BROADCAST: UByte = 32u.toUByte()
 
-public val ALLJOYN_MEMBER_ANNOTATE_NO_REPLY: UByte = 1u
+public val ALLJOYN_MEMBER_ANNOTATE_NO_REPLY: UByte = 1u.toUByte()
 
-public val ALLJOYN_MEMBER_ANNOTATE_SESSIONCAST: UByte = 4u
+public val ALLJOYN_MEMBER_ANNOTATE_SESSIONCAST: UByte = 4u.toUByte()
 
-public val ALLJOYN_MEMBER_ANNOTATE_SESSIONLESS: UByte = 8u
+public val ALLJOYN_MEMBER_ANNOTATE_SESSIONLESS: UByte = 8u.toUByte()
 
-public val ALLJOYN_MEMBER_ANNOTATE_UNICAST: UByte = 16u
+public val ALLJOYN_MEMBER_ANNOTATE_UNICAST: UByte = 16u.toUByte()
 
 public val ALLJOYN_MESSAGE_DEFAULT_TIMEOUT: UInt = 25000u
 
-public val ALLJOYN_MESSAGE_ERROR: alljoyn_messagetype = 3
+public val ALLJOYN_MESSAGE_ERROR: AlljoynMessagetype = 3
 
 public val ALLJOYN_MESSAGE_FLAG_ALLOW_REMOTE_MSG: UInt = 4u
 
@@ -95,23 +95,23 @@ public val ALLJOYN_MESSAGE_FLAG_NO_REPLY_EXPECTED: UInt = 1u
 
 public val ALLJOYN_MESSAGE_FLAG_SESSIONLESS: UInt = 16u
 
-public val ALLJOYN_MESSAGE_INVALID: alljoyn_messagetype = 0
+public val ALLJOYN_MESSAGE_INVALID: AlljoynMessagetype = 0
 
-public val ALLJOYN_MESSAGE_METHOD_CALL: alljoyn_messagetype = 1
+public val ALLJOYN_MESSAGE_METHOD_CALL: AlljoynMessagetype = 1
 
-public val ALLJOYN_MESSAGE_METHOD_RET: alljoyn_messagetype = 2
+public val ALLJOYN_MESSAGE_METHOD_RET: AlljoynMessagetype = 2
 
-public val ALLJOYN_MESSAGE_SIGNAL: alljoyn_messagetype = 4
+public val ALLJOYN_MESSAGE_SIGNAL: AlljoynMessagetype = 4
 
-public val ALLJOYN_NAMED_PIPE_CONNECT_SPEC: PCWSTR = w("npipe:")
+public val ALLJOYN_NAMED_PIPE_CONNECT_SPEC: Pcwstr = w("npipe:")
 
-public val ALLJOYN_OBJECT_PATH: alljoyn_typeid = 111
+public val ALLJOYN_OBJECT_PATH: AlljoynTypeid = 111
 
-public val ALLJOYN_PROP_ACCESS_READ: UByte = 1u
+public val ALLJOYN_PROP_ACCESS_READ: UByte = 1u.toUByte()
 
-public val ALLJOYN_PROP_ACCESS_RW: UByte = 3u
+public val ALLJOYN_PROP_ACCESS_RW: UByte = 3u.toUByte()
 
-public val ALLJOYN_PROP_ACCESS_WRITE: UByte = 2u
+public val ALLJOYN_PROP_ACCESS_WRITE: UByte = 2u.toUByte()
 
 public val ALLJOYN_PROXIMITY_ANY: UInt = 255u
 
@@ -121,27 +121,27 @@ public val ALLJOYN_PROXIMITY_PHYSICAL: UInt = 1u
 
 public val ALLJOYN_READ_READY: UInt = 1u
 
-public val ALLJOYN_SESSIONLOST_INVALID: alljoyn_sessionlostreason = 0
+public val ALLJOYN_SESSIONLOST_INVALID: AlljoynSessionlostreason = 0
 
-public val ALLJOYN_SESSIONLOST_LINK_TIMEOUT: alljoyn_sessionlostreason = 4
+public val ALLJOYN_SESSIONLOST_LINK_TIMEOUT: AlljoynSessionlostreason = 4
 
-public val ALLJOYN_SESSIONLOST_REASON_OTHER: alljoyn_sessionlostreason = 5
+public val ALLJOYN_SESSIONLOST_REASON_OTHER: AlljoynSessionlostreason = 5
 
-public val ALLJOYN_SESSIONLOST_REMOTE_END_CLOSED_ABRUPTLY: alljoyn_sessionlostreason = 2
+public val ALLJOYN_SESSIONLOST_REMOTE_END_CLOSED_ABRUPTLY: AlljoynSessionlostreason = 2
 
-public val ALLJOYN_SESSIONLOST_REMOTE_END_LEFT_SESSION: alljoyn_sessionlostreason = 1
+public val ALLJOYN_SESSIONLOST_REMOTE_END_LEFT_SESSION: AlljoynSessionlostreason = 1
 
-public val ALLJOYN_SESSIONLOST_REMOVED_BY_BINDER: alljoyn_sessionlostreason = 3
+public val ALLJOYN_SESSIONLOST_REMOVED_BY_BINDER: AlljoynSessionlostreason = 3
 
-public val ALLJOYN_SIGNATURE: alljoyn_typeid = 103
+public val ALLJOYN_SIGNATURE: AlljoynTypeid = 103
 
-public val ALLJOYN_STRING: alljoyn_typeid = 115
+public val ALLJOYN_STRING: AlljoynTypeid = 115
 
-public val ALLJOYN_STRUCT: alljoyn_typeid = 114
+public val ALLJOYN_STRUCT: AlljoynTypeid = 114
 
-public val ALLJOYN_STRUCT_CLOSE: alljoyn_typeid = 41
+public val ALLJOYN_STRUCT_CLOSE: AlljoynTypeid = 41
 
-public val ALLJOYN_STRUCT_OPEN: alljoyn_typeid = 40
+public val ALLJOYN_STRUCT_OPEN: AlljoynTypeid = 40
 
 public val ALLJOYN_TRAFFIC_TYPE_MESSAGES: UInt = 1u
 
@@ -149,35 +149,35 @@ public val ALLJOYN_TRAFFIC_TYPE_RAW_RELIABLE: UInt = 4u
 
 public val ALLJOYN_TRAFFIC_TYPE_RAW_UNRELIABLE: UInt = 2u
 
-public val ALLJOYN_UINT16: alljoyn_typeid = 113
+public val ALLJOYN_UINT16: AlljoynTypeid = 113
 
-public val ALLJOYN_UINT16_ARRAY: alljoyn_typeid = 29025
+public val ALLJOYN_UINT16_ARRAY: AlljoynTypeid = 29025
 
-public val ALLJOYN_UINT32: alljoyn_typeid = 117
+public val ALLJOYN_UINT32: AlljoynTypeid = 117
 
-public val ALLJOYN_UINT32_ARRAY: alljoyn_typeid = 30049
+public val ALLJOYN_UINT32_ARRAY: AlljoynTypeid = 30049
 
-public val ALLJOYN_UINT64: alljoyn_typeid = 116
+public val ALLJOYN_UINT64: AlljoynTypeid = 116
 
-public val ALLJOYN_UINT64_ARRAY: alljoyn_typeid = 29793
+public val ALLJOYN_UINT64_ARRAY: AlljoynTypeid = 29793
 
-public val ALLJOYN_VARIANT: alljoyn_typeid = 118
+public val ALLJOYN_VARIANT: AlljoynTypeid = 118
 
-public val ALLJOYN_WILDCARD: alljoyn_typeid = 42
+public val ALLJOYN_WILDCARD: AlljoynTypeid = 42
 
 public val ALLJOYN_WRITE_READY: UInt = 2u
 
-public val ANNOUNCED: alljoyn_about_announceflag = 1
+public val ANNOUNCED: AlljoynAboutAnnounceflag = 1
 
-public val CAPABLE_ECDHE_ECDSA: alljoyn_claimcapability_masks = 4
+public val CAPABLE_ECDHE_ECDSA: AlljoynClaimcapabilityMasks = 4
 
-public val CAPABLE_ECDHE_NULL: alljoyn_claimcapability_masks = 1
+public val CAPABLE_ECDHE_NULL: AlljoynClaimcapabilityMasks = 1
 
-public val CAPABLE_ECDHE_SPEKE: alljoyn_claimcapability_masks = 8
+public val CAPABLE_ECDHE_SPEKE: AlljoynClaimcapabilityMasks = 8
 
-public val CLAIMABLE: alljoyn_applicationstate = 1
+public val CLAIMABLE: AlljoynApplicationstate = 1
 
-public val CLAIMED: alljoyn_applicationstate = 2
+public val CLAIMED: AlljoynApplicationstate = 2
 
 public val ER_ABOUT_ABOUTDATA_MISSING_REQUIRED_FIELD: QStatus = 37157
 
@@ -969,16 +969,16 @@ public val ER_XML_MEMBER_NAME_NOT_UNIQUE: QStatus = 8220
 
 public val ER_XML_OBJECT_PATH_NOT_UNIQUE: QStatus = 8221
 
-public val NEED_UPDATE: alljoyn_applicationstate = 3
+public val NEED_UPDATE: AlljoynApplicationstate = 3
 
-public val NOT_CLAIMABLE: alljoyn_applicationstate = 0
+public val NOT_CLAIMABLE: AlljoynApplicationstate = 0
 
-public val PASSWORD_GENERATED_BY_APPLICATION: alljoyn_claimcapabilityadditionalinfo_masks = 2
+public val PASSWORD_GENERATED_BY_APPLICATION: AlljoynClaimcapabilityadditionalinfoMasks = 2
 
-public val PASSWORD_GENERATED_BY_SECURITY_MANAGER: alljoyn_claimcapabilityadditionalinfo_masks = 1
+public val PASSWORD_GENERATED_BY_SECURITY_MANAGER: AlljoynClaimcapabilityadditionalinfoMasks = 1
 
 public val QCC_FALSE: UInt = 0u
 
 public val QCC_TRUE: UInt = 1u
 
-public val UNANNOUNCED: alljoyn_about_announceflag = 0
+public val UNANNOUNCED: AlljoynAboutAnnounceflag = 0

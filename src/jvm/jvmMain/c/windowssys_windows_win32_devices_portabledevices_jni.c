@@ -18,7 +18,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_portabledevices_WindowsWin32DevicesPortabledevicesJniBridge_windowssys_1windows_1win32_1devices_1portabledevices_1DMProcessConfigXMLFiltered(JNIEnv* km_env, jclass km_clazz, jlong pszxmlin, jlong rgszallowedcspnodes, jint dwnumallowedcspnodes, jlong pbstrxmlout) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_portabledevices_WindowsWin32DevicesPortabledevicesJniBridge_windowssys_1windows_1win32_1devices_1portabledevices_1dMProcessConfigXMLFiltered(JNIEnv* km_env, jclass km_clazz, jlong pszxmlin, jlong rgszallowedcspnodes, jint dwnumallowedcspnodes, jlong pbstrxmlout) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

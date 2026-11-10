@@ -2,13 +2,14 @@
 
 package io.github.kotlinmania.windowssys.windows.wdk.foundation
 
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun NtClose(handle: HANDLE): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.foundation.cinterop.windowssys_windows_wdk_foundation_NtClose(handle.toCPointer<ByteVar>())
+public actual fun ntClose(handle: Handle): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.foundation.cinterop.windowssys_windows_wdk_foundation_ntClose(handle?.value?.toCPointer<ByteVar>())
 
-public actual fun NtQueryObject(handle: HANDLE, objectinformationclass: OBJECT_INFORMATION_CLASS, objectinformation: Long, objectinformationlength: UInt, returnlength: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.foundation.cinterop.windowssys_windows_wdk_foundation_NtQueryObject(handle.toCPointer<ByteVar>(), objectinformationclass, objectinformation.toCPointer<ByteVar>(), objectinformationlength, returnlength.toCPointer<ByteVar>())
+public actual fun ntQueryObject(handle: Handle, objectinformationclass: ObjectInformationClass, objectinformation: COpaquePointer?, objectinformationlength: UInt, returnlength: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.foundation.cinterop.windowssys_windows_wdk_foundation_ntQueryObject(handle?.value?.toCPointer<ByteVar>(), objectinformationclass, objectinformation?.value?.toCPointer<ByteVar>(), objectinformationlength, returnlength?.value?.toCPointer<ByteVar>())

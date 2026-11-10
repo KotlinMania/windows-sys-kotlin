@@ -1,95 +1,95 @@
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.ndis
 
-public typealias IF_ADMINISTRATIVE_STATE = Int
+public typealias IfAdministrativeState = Int
 
-public typealias IF_OPER_STATUS = Int
+public typealias IfOperStatus = Int
 
-public typealias NDIS_802_11_AUTHENTICATION_MODE = Int
+public typealias Ndis80211AuthenticationMode = Int
 
-public typealias NDIS_802_11_MEDIA_STREAM_MODE = Int
+public typealias Ndis80211MediaStreamMode = Int
 
-public typealias NDIS_802_11_NETWORK_INFRASTRUCTURE = Int
+public typealias Ndis80211NetworkInfrastructure = Int
 
-public typealias NDIS_802_11_NETWORK_TYPE = Int
+public typealias Ndis80211NetworkType = Int
 
-public typealias NDIS_802_11_POWER_MODE = Int
+public typealias Ndis80211PowerMode = Int
 
-public typealias NDIS_802_11_PRIVACY_FILTER = Int
+public typealias Ndis80211PrivacyFilter = Int
 
-public typealias NDIS_802_11_RADIO_STATUS = Int
+public typealias Ndis80211RadioStatus = Int
 
-public typealias NDIS_802_11_RELOAD_DEFAULTS = Int
+public typealias Ndis80211ReloadDefaults = Int
 
-public typealias NDIS_802_11_STATUS_TYPE = Int
+public typealias Ndis80211StatusType = Int
 
-public typealias NDIS_802_11_WEP_STATUS = Int
+public typealias Ndis80211WepStatus = Int
 
-public typealias NDIS_802_5_RING_STATE = Int
+public typealias Ndis8025RingState = Int
 
-public typealias NDIS_DEVICE_POWER_STATE = Int
+public typealias NdisDevicePowerState = Int
 
-public typealias NDIS_FDDI_ATTACHMENT_TYPE = Int
+public typealias NdisFddiAttachmentType = Int
 
-public typealias NDIS_FDDI_LCONNECTION_STATE = Int
+public typealias NdisFddiLconnectionState = Int
 
-public typealias NDIS_FDDI_RING_MGT_STATE = Int
+public typealias NdisFddiRingMgtState = Int
 
-public typealias NDIS_HARDWARE_STATUS = Int
+public typealias NdisHardwareStatus = Int
 
-public typealias NDIS_INTERRUPT_MODERATION = Int
+public typealias NdisInterruptModeration = Int
 
-public typealias NDIS_MEDIA_STATE = Int
+public typealias NdisMediaState = Int
 
-public typealias NDIS_MEDIUM = Int
+public typealias NdisMedium = Int
 
-public typealias NDIS_NETWORK_CHANGE_TYPE = Int
+public typealias NdisNetworkChangeType = Int
 
-public typealias NDIS_PHYSICAL_MEDIUM = Int
+public typealias NdisPhysicalMedium = Int
 
-public typealias NDIS_PORT_AUTHORIZATION_STATE = Int
+public typealias NdisPortAuthorizationState = Int
 
-public typealias NDIS_PORT_CONTROL_STATE = Int
+public typealias NdisPortControlState = Int
 
-public typealias NDIS_PORT_TYPE = Int
+public typealias NdisPortType = Int
 
-public typealias NDIS_PROCESSOR_VENDOR = Int
+public typealias NdisProcessorVendor = Int
 
-public typealias NDIS_REQUEST_TYPE = Int
+public typealias NdisRequestType = Int
 
-public typealias NDIS_SUPPORTED_PAUSE_FUNCTIONS = Int
+public typealias NdisSupportedPauseFunctions = Int
 
-public typealias NDIS_WAN_HEADER_FORMAT = Int
+public typealias NdisWanHeaderFormat = Int
 
-public typealias NDIS_WAN_MEDIUM_SUBTYPE = Int
+public typealias NdisWanMediumSubtype = Int
 
-public typealias NDIS_WAN_QUALITY = Int
+public typealias NdisWanQuality = Int
 
-public typealias NDK_RDMA_TECHNOLOGY = Int
+public typealias NdkRdmaTechnology = Int
 
-public typealias NET_IF_ACCESS_TYPE = Int
+public typealias NetIfAccessType = Int
 
-public typealias NET_IF_ADMIN_STATUS = Int
+public typealias NetIfAdminStatus = Int
 
-public typealias NET_IF_COMPARTMENT_ID = UInt
+public typealias NetIfCompartmentId = UInt
 
-public typealias NET_IF_CONNECTION_TYPE = Int
+public typealias NetIfConnectionType = Int
 
-public typealias NET_IF_DIRECTION_TYPE = Int
+public typealias NetIfDirectionType = Int
 
-public typealias NET_IF_MEDIA_CONNECT_STATE = Int
+public typealias NetIfMediaConnectState = Int
 
-public typealias NET_IF_MEDIA_DUPLEX_STATE = Int
+public typealias NetIfMediaDuplexState = Int
 
-public typealias NET_IF_OPER_STATUS = Int
+public typealias NetIfOperStatus = Int
 
-public typealias NET_IF_RCV_ADDRESS_TYPE = Int
+public typealias NetIfRcvAddressType = Int
 
-public typealias OFFLOAD_CONF_ALGO = Int
+public typealias OffloadConfAlgo = Int
 
-public typealias OFFLOAD_INTEGRITY_ALGO = Int
+public typealias OffloadIntegrityAlgo = Int
 
-public typealias OFFLOAD_OPERATION_E = Int
+public typealias OffloadOperationE = Int
 
-public typealias TUNNEL_TYPE = Int
+public typealias TunnelType = Int
 
-public typealias UDP_ENCAP_TYPE = Int
+public typealias UdpEncapType = Int

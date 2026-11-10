@@ -1,12 +1,13 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.useraccesslogging
 
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
 
-public expect fun UalInstrument(data: Long): HRESULT
+public expect fun ualInstrument(data: COpaquePointer?): Hresult
 
-public expect fun UalRegisterProduct(wszproductname: PCWSTR, wszrolename: PCWSTR, wszguid: PCWSTR): HRESULT
+public expect fun ualRegisterProduct(wszproductname: Pcwstr, wszrolename: Pcwstr, wszguid: Pcwstr): Hresult
 
-public expect fun UalStart(data: Long): HRESULT
+public expect fun ualStart(data: COpaquePointer?): Hresult
 
-public expect fun UalStop(data: Long): HRESULT
+public expect fun ualStop(data: COpaquePointer?): Hresult

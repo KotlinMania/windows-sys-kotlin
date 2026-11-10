@@ -1,99 +1,100 @@
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper
 
-import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.NL_NETWORK_CONNECTIVITY_HINT
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.NlNetworkConnectivityHint
 
-public typealias DNS_SERVER_PROPERTY_TYPE = Int
+public typealias DnsServerPropertyType = Int
 
-public typealias GET_ADAPTERS_ADDRESSES_FLAGS = UInt
+public typealias GetAdaptersAddressesFlags = UInt
 
-public typealias GLOBAL_FILTER = Int
+public typealias GlobalFilter = Int
 
-public typealias HIFTIMESTAMPCHANGE = Long
+public typealias Hiftimestampchange = COpaquePointer?
 
-public typealias ICMP4_TYPE = Int
+public typealias Icmp4Type = Int
 
-public typealias ICMP6_TYPE = Int
+public typealias Icmp6Type = Int
 
-public typealias IF_ACCESS_TYPE = Int
+public typealias IfAccessType = Int
 
-public typealias INTERNAL_IF_OPER_STATUS = Int
+public typealias InternalIfOperStatus = Int
 
-public typealias MIB_IF_ENTRY_LEVEL = Int
+public typealias MibIfEntryLevel = Int
 
-public typealias MIB_IF_TABLE_LEVEL = Int
+public typealias MibIfTableLevel = Int
 
-public typealias MIB_IPFORWARD_TYPE = Int
+public typealias MibIpforwardType = Int
 
-public typealias MIB_IPNET_TYPE = Int
+public typealias MibIpnetType = Int
 
-public typealias MIB_IPSTATS_FORWARDING = Int
+public typealias MibIpstatsForwarding = Int
 
-public typealias MIB_NOTIFICATION_TYPE = Int
+public typealias MibNotificationType = Int
 
-public typealias MIB_TCP_STATE = Int
+public typealias MibTcpState = Int
 
-public typealias NET_ADDRESS_FORMAT = Int
+public typealias NetAddressFormat = Int
 
-public typealias PFADDRESSTYPE = Int
+public typealias Pfaddresstype = Int
 
-public typealias PFFORWARD_ACTION = Int
+public typealias PfforwardAction = Int
 
-public typealias PFFRAMETYPE = Int
+public typealias Pfframetype = Int
 
-public fun interface PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACKFn {
-    public operator fun invoke(callercontext: Long)
+public fun interface PinterfaceTimestampConfigChangeCallbackFn {
+    public operator fun invoke(callercontext: COpaquePointer?)
 }
 
-public typealias PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK = PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACKFn?
+public typealias PinterfaceTimestampConfigChangeCallback = PinterfaceTimestampConfigChangeCallbackFn?
 
-public fun interface PIPFORWARD_CHANGE_CALLBACKFn {
-    public operator fun invoke(callercontext: Long, row: Long, notificationtype: MIB_NOTIFICATION_TYPE)
+public fun interface PipforwardChangeCallbackFn {
+    public operator fun invoke(callercontext: COpaquePointer?, row: COpaquePointer?, notificationtype: MibNotificationType)
 }
 
-public typealias PIPFORWARD_CHANGE_CALLBACK = PIPFORWARD_CHANGE_CALLBACKFn?
+public typealias PipforwardChangeCallback = PipforwardChangeCallbackFn?
 
-public fun interface PIPINTERFACE_CHANGE_CALLBACKFn {
-    public operator fun invoke(callercontext: Long, row: Long, notificationtype: MIB_NOTIFICATION_TYPE)
+public fun interface PipinterfaceChangeCallbackFn {
+    public operator fun invoke(callercontext: COpaquePointer?, row: COpaquePointer?, notificationtype: MibNotificationType)
 }
 
-public typealias PIPINTERFACE_CHANGE_CALLBACK = PIPINTERFACE_CHANGE_CALLBACKFn?
+public typealias PipinterfaceChangeCallback = PipinterfaceChangeCallbackFn?
 
-public fun interface PNETWORK_CONNECTIVITY_HINT_CHANGE_CALLBACKFn {
-    public operator fun invoke(callercontext: Long, connectivityhint: NL_NETWORK_CONNECTIVITY_HINT)
+public fun interface PnetworkConnectivityHintChangeCallbackFn {
+    public operator fun invoke(callercontext: COpaquePointer?, connectivityhint: NlNetworkConnectivityHint)
 }
 
-public typealias PNETWORK_CONNECTIVITY_HINT_CHANGE_CALLBACK = PNETWORK_CONNECTIVITY_HINT_CHANGE_CALLBACKFn?
+public typealias PnetworkConnectivityHintChangeCallback = PnetworkConnectivityHintChangeCallbackFn?
 
-public fun interface PSTABLE_UNICAST_IPADDRESS_TABLE_CALLBACKFn {
-    public operator fun invoke(callercontext: Long, addresstable: Long)
+public fun interface PstableUnicastIpaddressTableCallbackFn {
+    public operator fun invoke(callercontext: COpaquePointer?, addresstable: COpaquePointer?)
 }
 
-public typealias PSTABLE_UNICAST_IPADDRESS_TABLE_CALLBACK = PSTABLE_UNICAST_IPADDRESS_TABLE_CALLBACKFn?
+public typealias PstableUnicastIpaddressTableCallback = PstableUnicastIpaddressTableCallbackFn?
 
-public fun interface PTEREDO_PORT_CHANGE_CALLBACKFn {
-    public operator fun invoke(callercontext: Long, port: UShort, notificationtype: MIB_NOTIFICATION_TYPE)
+public fun interface PteredoPortChangeCallbackFn {
+    public operator fun invoke(callercontext: COpaquePointer?, port: UShort, notificationtype: MibNotificationType)
 }
 
-public typealias PTEREDO_PORT_CHANGE_CALLBACK = PTEREDO_PORT_CHANGE_CALLBACKFn?
+public typealias PteredoPortChangeCallback = PteredoPortChangeCallbackFn?
 
-public fun interface PUNICAST_IPADDRESS_CHANGE_CALLBACKFn {
-    public operator fun invoke(callercontext: Long, row: Long, notificationtype: MIB_NOTIFICATION_TYPE)
+public fun interface PunicastIpaddressChangeCallbackFn {
+    public operator fun invoke(callercontext: COpaquePointer?, row: COpaquePointer?, notificationtype: MibNotificationType)
 }
 
-public typealias PUNICAST_IPADDRESS_CHANGE_CALLBACK = PUNICAST_IPADDRESS_CHANGE_CALLBACKFn?
+public typealias PunicastIpaddressChangeCallback = PunicastIpaddressChangeCallbackFn?
 
-public typealias TCPIP_OWNER_MODULE_INFO_CLASS = Int
+public typealias TcpipOwnerModuleInfoClass = Int
 
-public typealias TCP_BOOLEAN_OPTIONAL = Int
+public typealias TcpBooleanOptional = Int
 
-public typealias TCP_CONNECTION_OFFLOAD_STATE = Int
+public typealias TcpConnectionOffloadState = Int
 
-public typealias TCP_ESTATS_TYPE = Int
+public typealias TcpEstatsType = Int
 
-public typealias TCP_RTO_ALGORITHM = Int
+public typealias TcpRtoAlgorithm = Int
 
-public typealias TCP_SOFT_ERROR = Int
+public typealias TcpSoftError = Int
 
-public typealias TCP_TABLE_CLASS = Int
+public typealias TcpTableClass = Int
 
-public typealias UDP_TABLE_CLASS = Int
+public typealias UdpTableClass = Int

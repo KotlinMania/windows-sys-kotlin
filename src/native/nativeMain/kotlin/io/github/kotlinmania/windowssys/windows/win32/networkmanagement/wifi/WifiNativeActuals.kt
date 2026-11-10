@@ -2,195 +2,196 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.security.extensibleauthenticationprotocol.EAP_METHOD_TYPE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.security.extensibleauthenticationprotocol.EapMethodType
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun WFDCancelOpenSession(hsessionhandle: HANDLE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_WFDCancelOpenSession(hsessionhandle.toCPointer<ByteVar>())
+public actual fun wFDCancelOpenSession(hsessionhandle: Handle): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_wFDCancelOpenSession(hsessionhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun WFDCloseHandle(hclienthandle: HANDLE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_WFDCloseHandle(hclienthandle.toCPointer<ByteVar>())
+public actual fun wFDCloseHandle(hclienthandle: Handle): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_wFDCloseHandle(hclienthandle?.value?.toCPointer<ByteVar>())
 
-public actual fun WFDCloseSession(hsessionhandle: HANDLE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_WFDCloseSession(hsessionhandle.toCPointer<ByteVar>())
+public actual fun wFDCloseSession(hsessionhandle: Handle): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_wFDCloseSession(hsessionhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun WFDOpenHandle(dwclientversion: UInt, pdwnegotiatedversion: Long, phclienthandle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_WFDOpenHandle(dwclientversion, pdwnegotiatedversion.toCPointer<ByteVar>(), phclienthandle.toCPointer<ByteVar>())
+public actual fun wFDOpenHandle(dwclientversion: UInt, pdwnegotiatedversion: COpaquePointer?, phclienthandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_wFDOpenHandle(dwclientversion, pdwnegotiatedversion?.value?.toCPointer<ByteVar>(), phclienthandle?.value?.toCPointer<ByteVar>())
 
-public actual fun WFDOpenLegacySession(hclienthandle: HANDLE, plegacymacaddress: Long, phsessionhandle: Long, pguidsessioninterface: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_WFDOpenLegacySession(hclienthandle.toCPointer<ByteVar>(), plegacymacaddress.toCPointer<ByteVar>(), phsessionhandle.toCPointer<ByteVar>(), pguidsessioninterface.toCPointer<ByteVar>())
+public actual fun wFDOpenLegacySession(hclienthandle: Handle, plegacymacaddress: COpaquePointer?, phsessionhandle: COpaquePointer?, pguidsessioninterface: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_wFDOpenLegacySession(hclienthandle?.value?.toCPointer<ByteVar>(), plegacymacaddress?.value?.toCPointer<ByteVar>(), phsessionhandle?.value?.toCPointer<ByteVar>(), pguidsessioninterface?.value?.toCPointer<ByteVar>())
 
-public actual fun WFDStartOpenSession(hclienthandle: HANDLE, pdeviceaddress: Long, pvcontext: Long, pfncallback: WFD_OPEN_SESSION_COMPLETE_CALLBACK, phsessionhandle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_WFDStartOpenSession(hclienthandle.toCPointer<ByteVar>(), pdeviceaddress.toCPointer<ByteVar>(), pvcontext.toCPointer<ByteVar>(), pfncallback.toLong().toCPointer<ByteVar>(), phsessionhandle.toCPointer<ByteVar>())
+public actual fun wFDStartOpenSession(hclienthandle: Handle, pdeviceaddress: COpaquePointer?, pvcontext: COpaquePointer?, pfncallback: WfdOpenSessionCompleteCallback, phsessionhandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_wFDStartOpenSession(hclienthandle?.value?.toCPointer<ByteVar>(), pdeviceaddress?.value?.toCPointer<ByteVar>(), pvcontext?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), phsessionhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun WFDUpdateDeviceVisibility(pdeviceaddress: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_WFDUpdateDeviceVisibility(pdeviceaddress.toCPointer<ByteVar>())
+public actual fun wFDUpdateDeviceVisibility(pdeviceaddress: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_wFDUpdateDeviceVisibility(pdeviceaddress?.value?.toCPointer<ByteVar>())
 
-public actual fun WlanAllocateMemory(dwmemorysize: UInt): Long =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_WlanAllocateMemory(dwmemorysize)?.toLong() ?: 0L
+public actual fun wlanAllocateMemory(dwmemorysize: UInt): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_wlanAllocateMemory(dwmemorysize)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun WlanCloseHandle(hclienthandle: HANDLE, preserved: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_WlanCloseHandle(hclienthandle.toCPointer<ByteVar>(), preserved.toCPointer<ByteVar>())
+public actual fun wlanCloseHandle(hclienthandle: Handle, preserved: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_wlanCloseHandle(hclienthandle?.value?.toCPointer<ByteVar>(), preserved?.value?.toCPointer<ByteVar>())
 
-public actual fun WlanConnect(hclienthandle: HANDLE, pinterfaceguid: Long, pconnectionparameters: Long, preserved: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_WlanConnect(hclienthandle.toCPointer<ByteVar>(), pinterfaceguid.toCPointer<ByteVar>(), pconnectionparameters.toCPointer<ByteVar>(), preserved.toCPointer<ByteVar>())
+public actual fun wlanConnect(hclienthandle: Handle, pinterfaceguid: COpaquePointer?, pconnectionparameters: COpaquePointer?, preserved: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_wlanConnect(hclienthandle?.value?.toCPointer<ByteVar>(), pinterfaceguid?.value?.toCPointer<ByteVar>(), pconnectionparameters?.value?.toCPointer<ByteVar>(), preserved?.value?.toCPointer<ByteVar>())
 
-public actual fun WlanConnect2(hclienthandle: HANDLE, pinterfaceguid: Long, pconnectionparameters: Long, preserved: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_WlanConnect2(hclienthandle.toCPointer<ByteVar>(), pinterfaceguid.toCPointer<ByteVar>(), pconnectionparameters.toCPointer<ByteVar>(), preserved.toCPointer<ByteVar>())
+public actual fun wlanConnect2(hclienthandle: Handle, pinterfaceguid: COpaquePointer?, pconnectionparameters: COpaquePointer?, preserved: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_wlanConnect2(hclienthandle?.value?.toCPointer<ByteVar>(), pinterfaceguid?.value?.toCPointer<ByteVar>(), pconnectionparameters?.value?.toCPointer<ByteVar>(), preserved?.value?.toCPointer<ByteVar>())
 
-public actual fun WlanDeleteProfile(hclienthandle: HANDLE, pinterfaceguid: Long, strprofilename: PCWSTR, preserved: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_WlanDeleteProfile(hclienthandle.toCPointer<ByteVar>(), pinterfaceguid.toCPointer<ByteVar>(), strprofilename.toCPointer<ByteVar>(), preserved.toCPointer<ByteVar>())
+public actual fun wlanDeleteProfile(hclienthandle: Handle, pinterfaceguid: COpaquePointer?, strprofilename: Pcwstr, preserved: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_wlanDeleteProfile(hclienthandle?.value?.toCPointer<ByteVar>(), pinterfaceguid?.value?.toCPointer<ByteVar>(), strprofilename?.value?.toCPointer<ByteVar>(), preserved?.value?.toCPointer<ByteVar>())
 
-public actual fun WlanDeviceServiceCommand(hclienthandle: HANDLE, pinterfaceguid: Long, pdeviceserviceguid: Long, dwopcode: UInt, dwinbuffersize: UInt, pinbuffer: Long, dwoutbuffersize: UInt, poutbuffer: Long, pdwbytesreturned: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_WlanDeviceServiceCommand(hclienthandle.toCPointer<ByteVar>(), pinterfaceguid.toCPointer<ByteVar>(), pdeviceserviceguid.toCPointer<ByteVar>(), dwopcode, dwinbuffersize, pinbuffer.toCPointer<ByteVar>(), dwoutbuffersize, poutbuffer.toCPointer<ByteVar>(), pdwbytesreturned.toCPointer<ByteVar>())
+public actual fun wlanDeviceServiceCommand(hclienthandle: Handle, pinterfaceguid: COpaquePointer?, pdeviceserviceguid: COpaquePointer?, dwopcode: UInt, dwinbuffersize: UInt, pinbuffer: COpaquePointer?, dwoutbuffersize: UInt, poutbuffer: COpaquePointer?, pdwbytesreturned: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_wlanDeviceServiceCommand(hclienthandle?.value?.toCPointer<ByteVar>(), pinterfaceguid?.value?.toCPointer<ByteVar>(), pdeviceserviceguid?.value?.toCPointer<ByteVar>(), dwopcode, dwinbuffersize, pinbuffer?.value?.toCPointer<ByteVar>(), dwoutbuffersize, poutbuffer?.value?.toCPointer<ByteVar>(), pdwbytesreturned?.value?.toCPointer<ByteVar>())
 
-public actual fun WlanDisconnect(hclienthandle: HANDLE, pinterfaceguid: Long, preserved: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_WlanDisconnect(hclienthandle.toCPointer<ByteVar>(), pinterfaceguid.toCPointer<ByteVar>(), preserved.toCPointer<ByteVar>())
+public actual fun wlanDisconnect(hclienthandle: Handle, pinterfaceguid: COpaquePointer?, preserved: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_wlanDisconnect(hclienthandle?.value?.toCPointer<ByteVar>(), pinterfaceguid?.value?.toCPointer<ByteVar>(), preserved?.value?.toCPointer<ByteVar>())
 
-public actual fun WlanEnumInterfaces(hclienthandle: HANDLE, preserved: Long, ppinterfacelist: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_WlanEnumInterfaces(hclienthandle.toCPointer<ByteVar>(), preserved.toCPointer<ByteVar>(), ppinterfacelist.toCPointer<ByteVar>())
+public actual fun wlanEnumInterfaces(hclienthandle: Handle, preserved: COpaquePointer?, ppinterfacelist: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_wlanEnumInterfaces(hclienthandle?.value?.toCPointer<ByteVar>(), preserved?.value?.toCPointer<ByteVar>(), ppinterfacelist?.value?.toCPointer<ByteVar>())
 
-public actual fun WlanExtractPsdIEDataList(hclienthandle: HANDLE, dwiedatasize: UInt, prawiedata: Long, strformat: PCWSTR, preserved: Long, pppsdiedatalist: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_WlanExtractPsdIEDataList(hclienthandle.toCPointer<ByteVar>(), dwiedatasize, prawiedata.toCPointer<ByteVar>(), strformat.toCPointer<ByteVar>(), preserved.toCPointer<ByteVar>(), pppsdiedatalist.toCPointer<ByteVar>())
+public actual fun wlanExtractPsdIEDataList(hclienthandle: Handle, dwiedatasize: UInt, prawiedata: COpaquePointer?, strformat: Pcwstr, preserved: COpaquePointer?, pppsdiedatalist: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_wlanExtractPsdIEDataList(hclienthandle?.value?.toCPointer<ByteVar>(), dwiedatasize, prawiedata?.value?.toCPointer<ByteVar>(), strformat?.value?.toCPointer<ByteVar>(), preserved?.value?.toCPointer<ByteVar>(), pppsdiedatalist?.value?.toCPointer<ByteVar>())
 
-public actual fun WlanFreeMemory(pmemory: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_WlanFreeMemory(pmemory.toCPointer<ByteVar>())
+public actual fun wlanFreeMemory(pmemory: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_wlanFreeMemory(pmemory?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun WlanGetAvailableNetworkList(hclienthandle: HANDLE, pinterfaceguid: Long, dwflags: UInt, preserved: Long, ppavailablenetworklist: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_WlanGetAvailableNetworkList(hclienthandle.toCPointer<ByteVar>(), pinterfaceguid.toCPointer<ByteVar>(), dwflags, preserved.toCPointer<ByteVar>(), ppavailablenetworklist.toCPointer<ByteVar>())
+public actual fun wlanGetAvailableNetworkList(hclienthandle: Handle, pinterfaceguid: COpaquePointer?, dwflags: UInt, preserved: COpaquePointer?, ppavailablenetworklist: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_wlanGetAvailableNetworkList(hclienthandle?.value?.toCPointer<ByteVar>(), pinterfaceguid?.value?.toCPointer<ByteVar>(), dwflags, preserved?.value?.toCPointer<ByteVar>(), ppavailablenetworklist?.value?.toCPointer<ByteVar>())
 
-public actual fun WlanGetAvailableNetworkList2(hclienthandle: HANDLE, pinterfaceguid: Long, dwflags: UInt, preserved: Long, ppavailablenetworklist: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_WlanGetAvailableNetworkList2(hclienthandle.toCPointer<ByteVar>(), pinterfaceguid.toCPointer<ByteVar>(), dwflags, preserved.toCPointer<ByteVar>(), ppavailablenetworklist.toCPointer<ByteVar>())
+public actual fun wlanGetAvailableNetworkList2(hclienthandle: Handle, pinterfaceguid: COpaquePointer?, dwflags: UInt, preserved: COpaquePointer?, ppavailablenetworklist: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_wlanGetAvailableNetworkList2(hclienthandle?.value?.toCPointer<ByteVar>(), pinterfaceguid?.value?.toCPointer<ByteVar>(), dwflags, preserved?.value?.toCPointer<ByteVar>(), ppavailablenetworklist?.value?.toCPointer<ByteVar>())
 
-public actual fun WlanGetFilterList(hclienthandle: HANDLE, wlanfilterlisttype: WLAN_FILTER_LIST_TYPE, preserved: Long, ppnetworklist: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_WlanGetFilterList(hclienthandle.toCPointer<ByteVar>(), wlanfilterlisttype, preserved.toCPointer<ByteVar>(), ppnetworklist.toCPointer<ByteVar>())
+public actual fun wlanGetFilterList(hclienthandle: Handle, wlanfilterlisttype: WlanFilterListType, preserved: COpaquePointer?, ppnetworklist: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_wlanGetFilterList(hclienthandle?.value?.toCPointer<ByteVar>(), wlanfilterlisttype, preserved?.value?.toCPointer<ByteVar>(), ppnetworklist?.value?.toCPointer<ByteVar>())
 
-public actual fun WlanGetInterfaceCapability(hclienthandle: HANDLE, pinterfaceguid: Long, preserved: Long, ppcapability: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_WlanGetInterfaceCapability(hclienthandle.toCPointer<ByteVar>(), pinterfaceguid.toCPointer<ByteVar>(), preserved.toCPointer<ByteVar>(), ppcapability.toCPointer<ByteVar>())
+public actual fun wlanGetInterfaceCapability(hclienthandle: Handle, pinterfaceguid: COpaquePointer?, preserved: COpaquePointer?, ppcapability: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_wlanGetInterfaceCapability(hclienthandle?.value?.toCPointer<ByteVar>(), pinterfaceguid?.value?.toCPointer<ByteVar>(), preserved?.value?.toCPointer<ByteVar>(), ppcapability?.value?.toCPointer<ByteVar>())
 
-public actual fun WlanGetNetworkBssList(hclienthandle: HANDLE, pinterfaceguid: Long, pdot11ssid: Long, dot11bsstype: DOT11_BSS_TYPE, bsecurityenabled: BOOL, preserved: Long, ppwlanbsslist: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_WlanGetNetworkBssList(hclienthandle.toCPointer<ByteVar>(), pinterfaceguid.toCPointer<ByteVar>(), pdot11ssid.toCPointer<ByteVar>(), dot11bsstype, bsecurityenabled, preserved.toCPointer<ByteVar>(), ppwlanbsslist.toCPointer<ByteVar>())
+public actual fun wlanGetNetworkBssList(hclienthandle: Handle, pinterfaceguid: COpaquePointer?, pdot11ssid: COpaquePointer?, dot11bsstype: Dot11BssType, bsecurityenabled: Bool, preserved: COpaquePointer?, ppwlanbsslist: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_wlanGetNetworkBssList(hclienthandle?.value?.toCPointer<ByteVar>(), pinterfaceguid?.value?.toCPointer<ByteVar>(), pdot11ssid?.value?.toCPointer<ByteVar>(), dot11bsstype, bsecurityenabled, preserved?.value?.toCPointer<ByteVar>(), ppwlanbsslist?.value?.toCPointer<ByteVar>())
 
-public actual fun WlanGetProfile(hclienthandle: HANDLE, pinterfaceguid: Long, strprofilename: PCWSTR, preserved: Long, pstrprofilexml: Long, pdwflags: Long, pdwgrantedaccess: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_WlanGetProfile(hclienthandle.toCPointer<ByteVar>(), pinterfaceguid.toCPointer<ByteVar>(), strprofilename.toCPointer<ByteVar>(), preserved.toCPointer<ByteVar>(), pstrprofilexml.toCPointer<ByteVar>(), pdwflags.toCPointer<ByteVar>(), pdwgrantedaccess.toCPointer<ByteVar>())
+public actual fun wlanGetProfile(hclienthandle: Handle, pinterfaceguid: COpaquePointer?, strprofilename: Pcwstr, preserved: COpaquePointer?, pstrprofilexml: COpaquePointer?, pdwflags: COpaquePointer?, pdwgrantedaccess: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_wlanGetProfile(hclienthandle?.value?.toCPointer<ByteVar>(), pinterfaceguid?.value?.toCPointer<ByteVar>(), strprofilename?.value?.toCPointer<ByteVar>(), preserved?.value?.toCPointer<ByteVar>(), pstrprofilexml?.value?.toCPointer<ByteVar>(), pdwflags?.value?.toCPointer<ByteVar>(), pdwgrantedaccess?.value?.toCPointer<ByteVar>())
 
-public actual fun WlanGetProfileCustomUserData(hclienthandle: HANDLE, pinterfaceguid: Long, strprofilename: PCWSTR, preserved: Long, pdwdatasize: Long, ppdata: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_WlanGetProfileCustomUserData(hclienthandle.toCPointer<ByteVar>(), pinterfaceguid.toCPointer<ByteVar>(), strprofilename.toCPointer<ByteVar>(), preserved.toCPointer<ByteVar>(), pdwdatasize.toCPointer<ByteVar>(), ppdata.toCPointer<ByteVar>())
+public actual fun wlanGetProfileCustomUserData(hclienthandle: Handle, pinterfaceguid: COpaquePointer?, strprofilename: Pcwstr, preserved: COpaquePointer?, pdwdatasize: COpaquePointer?, ppdata: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_wlanGetProfileCustomUserData(hclienthandle?.value?.toCPointer<ByteVar>(), pinterfaceguid?.value?.toCPointer<ByteVar>(), strprofilename?.value?.toCPointer<ByteVar>(), preserved?.value?.toCPointer<ByteVar>(), pdwdatasize?.value?.toCPointer<ByteVar>(), ppdata?.value?.toCPointer<ByteVar>())
 
-public actual fun WlanGetProfileList(hclienthandle: HANDLE, pinterfaceguid: Long, preserved: Long, ppprofilelist: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_WlanGetProfileList(hclienthandle.toCPointer<ByteVar>(), pinterfaceguid.toCPointer<ByteVar>(), preserved.toCPointer<ByteVar>(), ppprofilelist.toCPointer<ByteVar>())
+public actual fun wlanGetProfileList(hclienthandle: Handle, pinterfaceguid: COpaquePointer?, preserved: COpaquePointer?, ppprofilelist: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_wlanGetProfileList(hclienthandle?.value?.toCPointer<ByteVar>(), pinterfaceguid?.value?.toCPointer<ByteVar>(), preserved?.value?.toCPointer<ByteVar>(), ppprofilelist?.value?.toCPointer<ByteVar>())
 
-public actual fun WlanGetSecuritySettings(hclienthandle: HANDLE, securableobject: WLAN_SECURABLE_OBJECT, pvaluetype: Long, pstrcurrentsddl: Long, pdwgrantedaccess: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_WlanGetSecuritySettings(hclienthandle.toCPointer<ByteVar>(), securableobject, pvaluetype.toCPointer<ByteVar>(), pstrcurrentsddl.toCPointer<ByteVar>(), pdwgrantedaccess.toCPointer<ByteVar>())
+public actual fun wlanGetSecuritySettings(hclienthandle: Handle, securableobject: WlanSecurableObject, pvaluetype: COpaquePointer?, pstrcurrentsddl: COpaquePointer?, pdwgrantedaccess: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_wlanGetSecuritySettings(hclienthandle?.value?.toCPointer<ByteVar>(), securableobject, pvaluetype?.value?.toCPointer<ByteVar>(), pstrcurrentsddl?.value?.toCPointer<ByteVar>(), pdwgrantedaccess?.value?.toCPointer<ByteVar>())
 
-public actual fun WlanGetSupportedDeviceServices(hclienthandle: HANDLE, pinterfaceguid: Long, ppdevsvcguidlist: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_WlanGetSupportedDeviceServices(hclienthandle.toCPointer<ByteVar>(), pinterfaceguid.toCPointer<ByteVar>(), ppdevsvcguidlist.toCPointer<ByteVar>())
+public actual fun wlanGetSupportedDeviceServices(hclienthandle: Handle, pinterfaceguid: COpaquePointer?, ppdevsvcguidlist: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_wlanGetSupportedDeviceServices(hclienthandle?.value?.toCPointer<ByteVar>(), pinterfaceguid?.value?.toCPointer<ByteVar>(), ppdevsvcguidlist?.value?.toCPointer<ByteVar>())
 
-public actual fun WlanHostedNetworkForceStart(hclienthandle: HANDLE, pfailreason: Long, pvreserved: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_WlanHostedNetworkForceStart(hclienthandle.toCPointer<ByteVar>(), pfailreason.toCPointer<ByteVar>(), pvreserved.toCPointer<ByteVar>())
+public actual fun wlanHostedNetworkForceStart(hclienthandle: Handle, pfailreason: COpaquePointer?, pvreserved: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkForceStart(hclienthandle?.value?.toCPointer<ByteVar>(), pfailreason?.value?.toCPointer<ByteVar>(), pvreserved?.value?.toCPointer<ByteVar>())
 
-public actual fun WlanHostedNetworkForceStop(hclienthandle: HANDLE, pfailreason: Long, pvreserved: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_WlanHostedNetworkForceStop(hclienthandle.toCPointer<ByteVar>(), pfailreason.toCPointer<ByteVar>(), pvreserved.toCPointer<ByteVar>())
+public actual fun wlanHostedNetworkForceStop(hclienthandle: Handle, pfailreason: COpaquePointer?, pvreserved: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkForceStop(hclienthandle?.value?.toCPointer<ByteVar>(), pfailreason?.value?.toCPointer<ByteVar>(), pvreserved?.value?.toCPointer<ByteVar>())
 
-public actual fun WlanHostedNetworkInitSettings(hclienthandle: HANDLE, pfailreason: Long, pvreserved: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_WlanHostedNetworkInitSettings(hclienthandle.toCPointer<ByteVar>(), pfailreason.toCPointer<ByteVar>(), pvreserved.toCPointer<ByteVar>())
+public actual fun wlanHostedNetworkInitSettings(hclienthandle: Handle, pfailreason: COpaquePointer?, pvreserved: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkInitSettings(hclienthandle?.value?.toCPointer<ByteVar>(), pfailreason?.value?.toCPointer<ByteVar>(), pvreserved?.value?.toCPointer<ByteVar>())
 
-public actual fun WlanHostedNetworkQueryProperty(hclienthandle: HANDLE, opcode: WLAN_HOSTED_NETWORK_OPCODE, pdwdatasize: Long, ppvdata: Long, pwlanopcodevaluetype: Long, pvreserved: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_WlanHostedNetworkQueryProperty(hclienthandle.toCPointer<ByteVar>(), opcode, pdwdatasize.toCPointer<ByteVar>(), ppvdata.toCPointer<ByteVar>(), pwlanopcodevaluetype.toCPointer<ByteVar>(), pvreserved.toCPointer<ByteVar>())
+public actual fun wlanHostedNetworkQueryProperty(hclienthandle: Handle, opcode: WlanHostedNetworkOpcode, pdwdatasize: COpaquePointer?, ppvdata: COpaquePointer?, pwlanopcodevaluetype: COpaquePointer?, pvreserved: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkQueryProperty(hclienthandle?.value?.toCPointer<ByteVar>(), opcode, pdwdatasize?.value?.toCPointer<ByteVar>(), ppvdata?.value?.toCPointer<ByteVar>(), pwlanopcodevaluetype?.value?.toCPointer<ByteVar>(), pvreserved?.value?.toCPointer<ByteVar>())
 
-public actual fun WlanHostedNetworkQuerySecondaryKey(hclienthandle: HANDLE, pdwkeylength: Long, ppuckeydata: Long, pbispassphrase: Long, pbpersistent: Long, pfailreason: Long, pvreserved: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_WlanHostedNetworkQuerySecondaryKey(hclienthandle.toCPointer<ByteVar>(), pdwkeylength.toCPointer<ByteVar>(), ppuckeydata.toCPointer<ByteVar>(), pbispassphrase.toCPointer<ByteVar>(), pbpersistent.toCPointer<ByteVar>(), pfailreason.toCPointer<ByteVar>(), pvreserved.toCPointer<ByteVar>())
+public actual fun wlanHostedNetworkQuerySecondaryKey(hclienthandle: Handle, pdwkeylength: COpaquePointer?, ppuckeydata: COpaquePointer?, pbispassphrase: COpaquePointer?, pbpersistent: COpaquePointer?, pfailreason: COpaquePointer?, pvreserved: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkQuerySecondaryKey(hclienthandle?.value?.toCPointer<ByteVar>(), pdwkeylength?.value?.toCPointer<ByteVar>(), ppuckeydata?.value?.toCPointer<ByteVar>(), pbispassphrase?.value?.toCPointer<ByteVar>(), pbpersistent?.value?.toCPointer<ByteVar>(), pfailreason?.value?.toCPointer<ByteVar>(), pvreserved?.value?.toCPointer<ByteVar>())
 
-public actual fun WlanHostedNetworkQueryStatus(hclienthandle: HANDLE, ppwlanhostednetworkstatus: Long, pvreserved: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_WlanHostedNetworkQueryStatus(hclienthandle.toCPointer<ByteVar>(), ppwlanhostednetworkstatus.toCPointer<ByteVar>(), pvreserved.toCPointer<ByteVar>())
+public actual fun wlanHostedNetworkQueryStatus(hclienthandle: Handle, ppwlanhostednetworkstatus: COpaquePointer?, pvreserved: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkQueryStatus(hclienthandle?.value?.toCPointer<ByteVar>(), ppwlanhostednetworkstatus?.value?.toCPointer<ByteVar>(), pvreserved?.value?.toCPointer<ByteVar>())
 
-public actual fun WlanHostedNetworkRefreshSecuritySettings(hclienthandle: HANDLE, pfailreason: Long, pvreserved: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_WlanHostedNetworkRefreshSecuritySettings(hclienthandle.toCPointer<ByteVar>(), pfailreason.toCPointer<ByteVar>(), pvreserved.toCPointer<ByteVar>())
+public actual fun wlanHostedNetworkRefreshSecuritySettings(hclienthandle: Handle, pfailreason: COpaquePointer?, pvreserved: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkRefreshSecuritySettings(hclienthandle?.value?.toCPointer<ByteVar>(), pfailreason?.value?.toCPointer<ByteVar>(), pvreserved?.value?.toCPointer<ByteVar>())
 
-public actual fun WlanHostedNetworkSetProperty(hclienthandle: HANDLE, opcode: WLAN_HOSTED_NETWORK_OPCODE, dwdatasize: UInt, pvdata: Long, pfailreason: Long, pvreserved: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_WlanHostedNetworkSetProperty(hclienthandle.toCPointer<ByteVar>(), opcode, dwdatasize, pvdata.toCPointer<ByteVar>(), pfailreason.toCPointer<ByteVar>(), pvreserved.toCPointer<ByteVar>())
+public actual fun wlanHostedNetworkSetProperty(hclienthandle: Handle, opcode: WlanHostedNetworkOpcode, dwdatasize: UInt, pvdata: COpaquePointer?, pfailreason: COpaquePointer?, pvreserved: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkSetProperty(hclienthandle?.value?.toCPointer<ByteVar>(), opcode, dwdatasize, pvdata?.value?.toCPointer<ByteVar>(), pfailreason?.value?.toCPointer<ByteVar>(), pvreserved?.value?.toCPointer<ByteVar>())
 
-public actual fun WlanHostedNetworkSetSecondaryKey(hclienthandle: HANDLE, dwkeylength: UInt, puckeydata: Long, bispassphrase: BOOL, bpersistent: BOOL, pfailreason: Long, pvreserved: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_WlanHostedNetworkSetSecondaryKey(hclienthandle.toCPointer<ByteVar>(), dwkeylength, puckeydata.toCPointer<ByteVar>(), bispassphrase, bpersistent, pfailreason.toCPointer<ByteVar>(), pvreserved.toCPointer<ByteVar>())
+public actual fun wlanHostedNetworkSetSecondaryKey(hclienthandle: Handle, dwkeylength: UInt, puckeydata: COpaquePointer?, bispassphrase: Bool, bpersistent: Bool, pfailreason: COpaquePointer?, pvreserved: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkSetSecondaryKey(hclienthandle?.value?.toCPointer<ByteVar>(), dwkeylength, puckeydata?.value?.toCPointer<ByteVar>(), bispassphrase, bpersistent, pfailreason?.value?.toCPointer<ByteVar>(), pvreserved?.value?.toCPointer<ByteVar>())
 
-public actual fun WlanHostedNetworkStartUsing(hclienthandle: HANDLE, pfailreason: Long, pvreserved: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_WlanHostedNetworkStartUsing(hclienthandle.toCPointer<ByteVar>(), pfailreason.toCPointer<ByteVar>(), pvreserved.toCPointer<ByteVar>())
+public actual fun wlanHostedNetworkStartUsing(hclienthandle: Handle, pfailreason: COpaquePointer?, pvreserved: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkStartUsing(hclienthandle?.value?.toCPointer<ByteVar>(), pfailreason?.value?.toCPointer<ByteVar>(), pvreserved?.value?.toCPointer<ByteVar>())
 
-public actual fun WlanHostedNetworkStopUsing(hclienthandle: HANDLE, pfailreason: Long, pvreserved: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_WlanHostedNetworkStopUsing(hclienthandle.toCPointer<ByteVar>(), pfailreason.toCPointer<ByteVar>(), pvreserved.toCPointer<ByteVar>())
+public actual fun wlanHostedNetworkStopUsing(hclienthandle: Handle, pfailreason: COpaquePointer?, pvreserved: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkStopUsing(hclienthandle?.value?.toCPointer<ByteVar>(), pfailreason?.value?.toCPointer<ByteVar>(), pvreserved?.value?.toCPointer<ByteVar>())
 
-public actual fun WlanIhvControl(hclienthandle: HANDLE, pinterfaceguid: Long, type: WLAN_IHV_CONTROL_TYPE, dwinbuffersize: UInt, pinbuffer: Long, dwoutbuffersize: UInt, poutbuffer: Long, pdwbytesreturned: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_WlanIhvControl(hclienthandle.toCPointer<ByteVar>(), pinterfaceguid.toCPointer<ByteVar>(), type, dwinbuffersize, pinbuffer.toCPointer<ByteVar>(), dwoutbuffersize, poutbuffer.toCPointer<ByteVar>(), pdwbytesreturned.toCPointer<ByteVar>())
+public actual fun wlanIhvControl(hclienthandle: Handle, pinterfaceguid: COpaquePointer?, type: WlanIhvControlType, dwinbuffersize: UInt, pinbuffer: COpaquePointer?, dwoutbuffersize: UInt, poutbuffer: COpaquePointer?, pdwbytesreturned: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_wlanIhvControl(hclienthandle?.value?.toCPointer<ByteVar>(), pinterfaceguid?.value?.toCPointer<ByteVar>(), type, dwinbuffersize, pinbuffer?.value?.toCPointer<ByteVar>(), dwoutbuffersize, poutbuffer?.value?.toCPointer<ByteVar>(), pdwbytesreturned?.value?.toCPointer<ByteVar>())
 
-public actual fun WlanOpenHandle(dwclientversion: UInt, preserved: Long, pdwnegotiatedversion: Long, phclienthandle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_WlanOpenHandle(dwclientversion, preserved.toCPointer<ByteVar>(), pdwnegotiatedversion.toCPointer<ByteVar>(), phclienthandle.toCPointer<ByteVar>())
+public actual fun wlanOpenHandle(dwclientversion: UInt, preserved: COpaquePointer?, pdwnegotiatedversion: COpaquePointer?, phclienthandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_wlanOpenHandle(dwclientversion, preserved?.value?.toCPointer<ByteVar>(), pdwnegotiatedversion?.value?.toCPointer<ByteVar>(), phclienthandle?.value?.toCPointer<ByteVar>())
 
-public actual fun WlanQueryAutoConfigParameter(hclienthandle: HANDLE, opcode: WLAN_AUTOCONF_OPCODE, preserved: Long, pdwdatasize: Long, ppdata: Long, pwlanopcodevaluetype: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_WlanQueryAutoConfigParameter(hclienthandle.toCPointer<ByteVar>(), opcode, preserved.toCPointer<ByteVar>(), pdwdatasize.toCPointer<ByteVar>(), ppdata.toCPointer<ByteVar>(), pwlanopcodevaluetype.toCPointer<ByteVar>())
+public actual fun wlanQueryAutoConfigParameter(hclienthandle: Handle, opcode: WlanAutoconfOpcode, preserved: COpaquePointer?, pdwdatasize: COpaquePointer?, ppdata: COpaquePointer?, pwlanopcodevaluetype: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_wlanQueryAutoConfigParameter(hclienthandle?.value?.toCPointer<ByteVar>(), opcode, preserved?.value?.toCPointer<ByteVar>(), pdwdatasize?.value?.toCPointer<ByteVar>(), ppdata?.value?.toCPointer<ByteVar>(), pwlanopcodevaluetype?.value?.toCPointer<ByteVar>())
 
-public actual fun WlanQueryInterface(hclienthandle: HANDLE, pinterfaceguid: Long, opcode: WLAN_INTF_OPCODE, preserved: Long, pdwdatasize: Long, ppdata: Long, pwlanopcodevaluetype: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_WlanQueryInterface(hclienthandle.toCPointer<ByteVar>(), pinterfaceguid.toCPointer<ByteVar>(), opcode, preserved.toCPointer<ByteVar>(), pdwdatasize.toCPointer<ByteVar>(), ppdata.toCPointer<ByteVar>(), pwlanopcodevaluetype.toCPointer<ByteVar>())
+public actual fun wlanQueryInterface(hclienthandle: Handle, pinterfaceguid: COpaquePointer?, opcode: WlanIntfOpcode, preserved: COpaquePointer?, pdwdatasize: COpaquePointer?, ppdata: COpaquePointer?, pwlanopcodevaluetype: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_wlanQueryInterface(hclienthandle?.value?.toCPointer<ByteVar>(), pinterfaceguid?.value?.toCPointer<ByteVar>(), opcode, preserved?.value?.toCPointer<ByteVar>(), pdwdatasize?.value?.toCPointer<ByteVar>(), ppdata?.value?.toCPointer<ByteVar>(), pwlanopcodevaluetype?.value?.toCPointer<ByteVar>())
 
-public actual fun WlanReasonCodeToString(dwreasoncode: UInt, dwbuffersize: UInt, pstringbuffer: PCWSTR, preserved: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_WlanReasonCodeToString(dwreasoncode, dwbuffersize, pstringbuffer.toCPointer<ByteVar>(), preserved.toCPointer<ByteVar>())
+public actual fun wlanReasonCodeToString(dwreasoncode: UInt, dwbuffersize: UInt, pstringbuffer: Pcwstr, preserved: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_wlanReasonCodeToString(dwreasoncode, dwbuffersize, pstringbuffer?.value?.toCPointer<ByteVar>(), preserved?.value?.toCPointer<ByteVar>())
 
-public actual fun WlanRegisterDeviceServiceNotification(hclienthandle: HANDLE, pdevsvcguidlist: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_WlanRegisterDeviceServiceNotification(hclienthandle.toCPointer<ByteVar>(), pdevsvcguidlist.toCPointer<ByteVar>())
+public actual fun wlanRegisterDeviceServiceNotification(hclienthandle: Handle, pdevsvcguidlist: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_wlanRegisterDeviceServiceNotification(hclienthandle?.value?.toCPointer<ByteVar>(), pdevsvcguidlist?.value?.toCPointer<ByteVar>())
 
-public actual fun WlanRegisterNotification(hclienthandle: HANDLE, dwnotifsource: WLAN_NOTIFICATION_SOURCES, bignoreduplicate: BOOL, funccallback: WLAN_NOTIFICATION_CALLBACK, pcallbackcontext: Long, preserved: Long, pdwprevnotifsource: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_WlanRegisterNotification(hclienthandle.toCPointer<ByteVar>(), dwnotifsource, bignoreduplicate, funccallback.toLong().toCPointer<ByteVar>(), pcallbackcontext.toCPointer<ByteVar>(), preserved.toCPointer<ByteVar>(), pdwprevnotifsource.toCPointer<ByteVar>())
+public actual fun wlanRegisterNotification(hclienthandle: Handle, dwnotifsource: WlanNotificationSources, bignoreduplicate: Bool, funccallback: WlanNotificationCallback, pcallbackcontext: COpaquePointer?, preserved: COpaquePointer?, pdwprevnotifsource: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_wlanRegisterNotification(hclienthandle?.value?.toCPointer<ByteVar>(), dwnotifsource, bignoreduplicate, 0L.toCPointer<ByteVar>(), pcallbackcontext?.value?.toCPointer<ByteVar>(), preserved?.value?.toCPointer<ByteVar>(), pdwprevnotifsource?.value?.toCPointer<ByteVar>())
 
-public actual fun WlanRegisterVirtualStationNotification(hclienthandle: HANDLE, bregister: BOOL, preserved: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_WlanRegisterVirtualStationNotification(hclienthandle.toCPointer<ByteVar>(), bregister, preserved.toCPointer<ByteVar>())
+public actual fun wlanRegisterVirtualStationNotification(hclienthandle: Handle, bregister: Bool, preserved: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_wlanRegisterVirtualStationNotification(hclienthandle?.value?.toCPointer<ByteVar>(), bregister, preserved?.value?.toCPointer<ByteVar>())
 
-public actual fun WlanRenameProfile(hclienthandle: HANDLE, pinterfaceguid: Long, stroldprofilename: PCWSTR, strnewprofilename: PCWSTR, preserved: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_WlanRenameProfile(hclienthandle.toCPointer<ByteVar>(), pinterfaceguid.toCPointer<ByteVar>(), stroldprofilename.toCPointer<ByteVar>(), strnewprofilename.toCPointer<ByteVar>(), preserved.toCPointer<ByteVar>())
+public actual fun wlanRenameProfile(hclienthandle: Handle, pinterfaceguid: COpaquePointer?, stroldprofilename: Pcwstr, strnewprofilename: Pcwstr, preserved: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_wlanRenameProfile(hclienthandle?.value?.toCPointer<ByteVar>(), pinterfaceguid?.value?.toCPointer<ByteVar>(), stroldprofilename?.value?.toCPointer<ByteVar>(), strnewprofilename?.value?.toCPointer<ByteVar>(), preserved?.value?.toCPointer<ByteVar>())
 
-public actual fun WlanSaveTemporaryProfile(hclienthandle: HANDLE, pinterfaceguid: Long, strprofilename: PCWSTR, stralluserprofilesecurity: PCWSTR, dwflags: UInt, boverwrite: BOOL, preserved: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_WlanSaveTemporaryProfile(hclienthandle.toCPointer<ByteVar>(), pinterfaceguid.toCPointer<ByteVar>(), strprofilename.toCPointer<ByteVar>(), stralluserprofilesecurity.toCPointer<ByteVar>(), dwflags, boverwrite, preserved.toCPointer<ByteVar>())
+public actual fun wlanSaveTemporaryProfile(hclienthandle: Handle, pinterfaceguid: COpaquePointer?, strprofilename: Pcwstr, stralluserprofilesecurity: Pcwstr, dwflags: UInt, boverwrite: Bool, preserved: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_wlanSaveTemporaryProfile(hclienthandle?.value?.toCPointer<ByteVar>(), pinterfaceguid?.value?.toCPointer<ByteVar>(), strprofilename?.value?.toCPointer<ByteVar>(), stralluserprofilesecurity?.value?.toCPointer<ByteVar>(), dwflags, boverwrite, preserved?.value?.toCPointer<ByteVar>())
 
-public actual fun WlanScan(hclienthandle: HANDLE, pinterfaceguid: Long, pdot11ssid: Long, piedata: Long, preserved: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_WlanScan(hclienthandle.toCPointer<ByteVar>(), pinterfaceguid.toCPointer<ByteVar>(), pdot11ssid.toCPointer<ByteVar>(), piedata.toCPointer<ByteVar>(), preserved.toCPointer<ByteVar>())
+public actual fun wlanScan(hclienthandle: Handle, pinterfaceguid: COpaquePointer?, pdot11ssid: COpaquePointer?, piedata: COpaquePointer?, preserved: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_wlanScan(hclienthandle?.value?.toCPointer<ByteVar>(), pinterfaceguid?.value?.toCPointer<ByteVar>(), pdot11ssid?.value?.toCPointer<ByteVar>(), piedata?.value?.toCPointer<ByteVar>(), preserved?.value?.toCPointer<ByteVar>())
 
-public actual fun WlanSetAutoConfigParameter(hclienthandle: HANDLE, opcode: WLAN_AUTOCONF_OPCODE, dwdatasize: UInt, pdata: Long, preserved: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_WlanSetAutoConfigParameter(hclienthandle.toCPointer<ByteVar>(), opcode, dwdatasize, pdata.toCPointer<ByteVar>(), preserved.toCPointer<ByteVar>())
+public actual fun wlanSetAutoConfigParameter(hclienthandle: Handle, opcode: WlanAutoconfOpcode, dwdatasize: UInt, pdata: COpaquePointer?, preserved: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_wlanSetAutoConfigParameter(hclienthandle?.value?.toCPointer<ByteVar>(), opcode, dwdatasize, pdata?.value?.toCPointer<ByteVar>(), preserved?.value?.toCPointer<ByteVar>())
 
-public actual fun WlanSetFilterList(hclienthandle: HANDLE, wlanfilterlisttype: WLAN_FILTER_LIST_TYPE, pnetworklist: Long, preserved: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_WlanSetFilterList(hclienthandle.toCPointer<ByteVar>(), wlanfilterlisttype, pnetworklist.toCPointer<ByteVar>(), preserved.toCPointer<ByteVar>())
+public actual fun wlanSetFilterList(hclienthandle: Handle, wlanfilterlisttype: WlanFilterListType, pnetworklist: COpaquePointer?, preserved: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_wlanSetFilterList(hclienthandle?.value?.toCPointer<ByteVar>(), wlanfilterlisttype, pnetworklist?.value?.toCPointer<ByteVar>(), preserved?.value?.toCPointer<ByteVar>())
 
-public actual fun WlanSetInterface(hclienthandle: HANDLE, pinterfaceguid: Long, opcode: WLAN_INTF_OPCODE, dwdatasize: UInt, pdata: Long, preserved: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_WlanSetInterface(hclienthandle.toCPointer<ByteVar>(), pinterfaceguid.toCPointer<ByteVar>(), opcode, dwdatasize, pdata.toCPointer<ByteVar>(), preserved.toCPointer<ByteVar>())
+public actual fun wlanSetInterface(hclienthandle: Handle, pinterfaceguid: COpaquePointer?, opcode: WlanIntfOpcode, dwdatasize: UInt, pdata: COpaquePointer?, preserved: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_wlanSetInterface(hclienthandle?.value?.toCPointer<ByteVar>(), pinterfaceguid?.value?.toCPointer<ByteVar>(), opcode, dwdatasize, pdata?.value?.toCPointer<ByteVar>(), preserved?.value?.toCPointer<ByteVar>())
 
-public actual fun WlanSetProfile(hclienthandle: HANDLE, pinterfaceguid: Long, dwflags: UInt, strprofilexml: PCWSTR, stralluserprofilesecurity: PCWSTR, boverwrite: BOOL, preserved: Long, pdwreasoncode: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_WlanSetProfile(hclienthandle.toCPointer<ByteVar>(), pinterfaceguid.toCPointer<ByteVar>(), dwflags, strprofilexml.toCPointer<ByteVar>(), stralluserprofilesecurity.toCPointer<ByteVar>(), boverwrite, preserved.toCPointer<ByteVar>(), pdwreasoncode.toCPointer<ByteVar>())
+public actual fun wlanSetProfile(hclienthandle: Handle, pinterfaceguid: COpaquePointer?, dwflags: UInt, strprofilexml: Pcwstr, stralluserprofilesecurity: Pcwstr, boverwrite: Bool, preserved: COpaquePointer?, pdwreasoncode: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_wlanSetProfile(hclienthandle?.value?.toCPointer<ByteVar>(), pinterfaceguid?.value?.toCPointer<ByteVar>(), dwflags, strprofilexml?.value?.toCPointer<ByteVar>(), stralluserprofilesecurity?.value?.toCPointer<ByteVar>(), boverwrite, preserved?.value?.toCPointer<ByteVar>(), pdwreasoncode?.value?.toCPointer<ByteVar>())
 
-public actual fun WlanSetProfileCustomUserData(hclienthandle: HANDLE, pinterfaceguid: Long, strprofilename: PCWSTR, dwdatasize: UInt, pdata: Long, preserved: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_WlanSetProfileCustomUserData(hclienthandle.toCPointer<ByteVar>(), pinterfaceguid.toCPointer<ByteVar>(), strprofilename.toCPointer<ByteVar>(), dwdatasize, pdata.toCPointer<ByteVar>(), preserved.toCPointer<ByteVar>())
+public actual fun wlanSetProfileCustomUserData(hclienthandle: Handle, pinterfaceguid: COpaquePointer?, strprofilename: Pcwstr, dwdatasize: UInt, pdata: COpaquePointer?, preserved: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_wlanSetProfileCustomUserData(hclienthandle?.value?.toCPointer<ByteVar>(), pinterfaceguid?.value?.toCPointer<ByteVar>(), strprofilename?.value?.toCPointer<ByteVar>(), dwdatasize, pdata?.value?.toCPointer<ByteVar>(), preserved?.value?.toCPointer<ByteVar>())
 
-public actual fun WlanSetProfileEapUserData(hclienthandle: HANDLE, pinterfaceguid: Long, strprofilename: PCWSTR, eaptype: EAP_METHOD_TYPE, dwflags: WLAN_SET_EAPHOST_FLAGS, dweapuserdatasize: UInt, pbeapuserdata: Long, preserved: Long): UInt =
+public actual fun wlanSetProfileEapUserData(hclienthandle: Handle, pinterfaceguid: COpaquePointer?, strprofilename: Pcwstr, eaptype: EapMethodType, dwflags: WlanSetEaphostFlags, dweapuserdatasize: UInt, pbeapuserdata: COpaquePointer?, preserved: COpaquePointer?): UInt =
     0u
 
-public actual fun WlanSetProfileEapXmlUserData(hclienthandle: HANDLE, pinterfaceguid: Long, strprofilename: PCWSTR, dwflags: WLAN_SET_EAPHOST_FLAGS, streapxmluserdata: PCWSTR, preserved: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_WlanSetProfileEapXmlUserData(hclienthandle.toCPointer<ByteVar>(), pinterfaceguid.toCPointer<ByteVar>(), strprofilename.toCPointer<ByteVar>(), dwflags, streapxmluserdata.toCPointer<ByteVar>(), preserved.toCPointer<ByteVar>())
+public actual fun wlanSetProfileEapXmlUserData(hclienthandle: Handle, pinterfaceguid: COpaquePointer?, strprofilename: Pcwstr, dwflags: WlanSetEaphostFlags, streapxmluserdata: Pcwstr, preserved: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_wlanSetProfileEapXmlUserData(hclienthandle?.value?.toCPointer<ByteVar>(), pinterfaceguid?.value?.toCPointer<ByteVar>(), strprofilename?.value?.toCPointer<ByteVar>(), dwflags, streapxmluserdata?.value?.toCPointer<ByteVar>(), preserved?.value?.toCPointer<ByteVar>())
 
-public actual fun WlanSetProfileList(hclienthandle: HANDLE, pinterfaceguid: Long, dwitems: UInt, strprofilenames: Long, preserved: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_WlanSetProfileList(hclienthandle.toCPointer<ByteVar>(), pinterfaceguid.toCPointer<ByteVar>(), dwitems, strprofilenames.toCPointer<ByteVar>(), preserved.toCPointer<ByteVar>())
+public actual fun wlanSetProfileList(hclienthandle: Handle, pinterfaceguid: COpaquePointer?, dwitems: UInt, strprofilenames: COpaquePointer?, preserved: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_wlanSetProfileList(hclienthandle?.value?.toCPointer<ByteVar>(), pinterfaceguid?.value?.toCPointer<ByteVar>(), dwitems, strprofilenames?.value?.toCPointer<ByteVar>(), preserved?.value?.toCPointer<ByteVar>())
 
-public actual fun WlanSetProfilePosition(hclienthandle: HANDLE, pinterfaceguid: Long, strprofilename: PCWSTR, dwposition: UInt, preserved: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_WlanSetProfilePosition(hclienthandle.toCPointer<ByteVar>(), pinterfaceguid.toCPointer<ByteVar>(), strprofilename.toCPointer<ByteVar>(), dwposition, preserved.toCPointer<ByteVar>())
+public actual fun wlanSetProfilePosition(hclienthandle: Handle, pinterfaceguid: COpaquePointer?, strprofilename: Pcwstr, dwposition: UInt, preserved: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_wlanSetProfilePosition(hclienthandle?.value?.toCPointer<ByteVar>(), pinterfaceguid?.value?.toCPointer<ByteVar>(), strprofilename?.value?.toCPointer<ByteVar>(), dwposition, preserved?.value?.toCPointer<ByteVar>())
 
-public actual fun WlanSetPsdIEDataList(hclienthandle: HANDLE, strformat: PCWSTR, ppsdiedatalist: Long, preserved: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_WlanSetPsdIEDataList(hclienthandle.toCPointer<ByteVar>(), strformat.toCPointer<ByteVar>(), ppsdiedatalist.toCPointer<ByteVar>(), preserved.toCPointer<ByteVar>())
+public actual fun wlanSetPsdIEDataList(hclienthandle: Handle, strformat: Pcwstr, ppsdiedatalist: COpaquePointer?, preserved: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_wlanSetPsdIEDataList(hclienthandle?.value?.toCPointer<ByteVar>(), strformat?.value?.toCPointer<ByteVar>(), ppsdiedatalist?.value?.toCPointer<ByteVar>(), preserved?.value?.toCPointer<ByteVar>())
 
-public actual fun WlanSetSecuritySettings(hclienthandle: HANDLE, securableobject: WLAN_SECURABLE_OBJECT, strmodifiedsddl: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_WlanSetSecuritySettings(hclienthandle.toCPointer<ByteVar>(), securableobject, strmodifiedsddl.toCPointer<ByteVar>())
+public actual fun wlanSetSecuritySettings(hclienthandle: Handle, securableobject: WlanSecurableObject, strmodifiedsddl: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_wlanSetSecuritySettings(hclienthandle?.value?.toCPointer<ByteVar>(), securableobject, strmodifiedsddl?.value?.toCPointer<ByteVar>())
 
-public actual fun WlanUIEditProfile(dwclientversion: UInt, wstrprofilename: PCWSTR, pinterfaceguid: Long, hwnd: HWND, wlstartpage: WL_DISPLAY_PAGES, preserved: Long, pwlanreasoncode: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_WlanUIEditProfile(dwclientversion, wstrprofilename.toCPointer<ByteVar>(), pinterfaceguid.toCPointer<ByteVar>(), hwnd.toCPointer<ByteVar>(), wlstartpage, preserved.toCPointer<ByteVar>(), pwlanreasoncode.toCPointer<ByteVar>())
+public actual fun wlanUIEditProfile(dwclientversion: UInt, wstrprofilename: Pcwstr, pinterfaceguid: COpaquePointer?, hwnd: Hwnd, wlstartpage: WlDisplayPages, preserved: COpaquePointer?, pwlanreasoncode: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop.windowssys_windows_win32_networkmanagement_wifi_wlanUIEditProfile(dwclientversion, wstrprofilename?.value?.toCPointer<ByteVar>(), pinterfaceguid?.value?.toCPointer<ByteVar>(), hwnd?.value?.toCPointer<ByteVar>(), wlstartpage, preserved?.value?.toCPointer<ByteVar>(), pwlanreasoncode?.value?.toCPointer<ByteVar>())

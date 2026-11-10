@@ -1,155 +1,156 @@
 package io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.GUID
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
 
-public data class WS_XML_INT64_TEXT(public var text: WS_XML_TEXT = WS_XML_TEXT(), public var value: Long = 0L)
+public data class WsXmlInt64Text(public var text: WsXmlText = WsXmlText(), public var value: Long = 0L)
 
-public data class WS_XML_LIST_TEXT(
-    public var text: WS_XML_TEXT = WS_XML_TEXT(),
+public data class WsXmlListText(
+    public var text: WsXmlText = WsXmlText(),
     public var itemCount: UInt = 0u,
-    public var items: Long = 0L,
+    public var items: COpaquePointer? = null,
 )
 
-public data class WS_XML_NODE(public var nodeType: WS_XML_NODE_TYPE = 0)
+public data class WsXmlNode(public var nodeType: WsXmlNodeType = 0)
 
-public data class WS_XML_NODE_POSITION(public var buffer: Long = 0L, public var node: Long = 0L)
+public data class WsXmlNodePosition(public var buffer: Int? = null, public var node: COpaquePointer? = null)
 
-public data class WS_XML_QNAME(public var localName: WS_XML_STRING = WS_XML_STRING(), public var ns: WS_XML_STRING = WS_XML_STRING())
+public data class WsXmlQname(public var localName: WsXmlString = WsXmlString(), public var ns: WsXmlString = WsXmlString())
 
-public data class WS_XML_QNAME_DESCRIPTION(
+public data class WsXmlQnameDescription(
     public var minLocalNameByteCount: UInt = 0u,
     public var maxLocalNameByteCount: UInt = 0u,
     public var minNsByteCount: UInt = 0u,
     public var maxNsByteCount: UInt = 0u,
 )
 
-public data class WS_XML_QNAME_TEXT(
-    public var text: WS_XML_TEXT = WS_XML_TEXT(),
-    public var prefix: Long = 0L,
-    public var localName: Long = 0L,
-    public var ns: Long = 0L,
+public data class WsXmlQnameText(
+    public var text: WsXmlText = WsXmlText(),
+    public var prefix: WsXmlString? = null,
+    public var localName: WsXmlString? = null,
+    public var ns: WsXmlString? = null,
 )
 
-public data class WS_XML_READER_BINARY_ENCODING(
-    public var encoding: WS_XML_READER_ENCODING = WS_XML_READER_ENCODING(),
-    public var staticDictionary: Long = 0L,
-    public var dynamicDictionary: Long = 0L,
+public data class WsXmlReaderBinaryEncoding(
+    public var encoding: WsXmlReaderEncoding = WsXmlReaderEncoding(),
+    public var staticDictionary: WsXmlDictionary? = null,
+    public var dynamicDictionary: WsXmlDictionary? = null,
 )
 
-public data class WS_XML_READER_BUFFER_INPUT(
-    public var input: WS_XML_READER_INPUT = WS_XML_READER_INPUT(),
-    public var encodedData: Long = 0L,
+public data class WsXmlReaderBufferInput(
+    public var input: WsXmlReaderInput = WsXmlReaderInput(),
+    public var encodedData: COpaquePointer? = null,
     public var encodedDataSize: UInt = 0u,
 )
 
-public data class WS_XML_READER_ENCODING(public var encodingType: WS_XML_READER_ENCODING_TYPE = 0)
+public data class WsXmlReaderEncoding(public var encodingType: WsXmlReaderEncodingType = 0)
 
-public data class WS_XML_READER_INPUT(public var inputType: WS_XML_READER_INPUT_TYPE = 0)
+public data class WsXmlReaderInput(public var inputType: WsXmlReaderInputType = 0)
 
-public data class WS_XML_READER_MTOM_ENCODING(
-    public var encoding: WS_XML_READER_ENCODING = WS_XML_READER_ENCODING(),
-    public var textEncoding: Long = 0L,
-    public var readMimeHeader: BOOL = 0,
-    public var startInfo: WS_STRING = WS_STRING(),
-    public var boundary: WS_STRING = WS_STRING(),
-    public var startUri: WS_STRING = WS_STRING(),
+public data class WsXmlReaderMtomEncoding(
+    public var encoding: WsXmlReaderEncoding = WsXmlReaderEncoding(),
+    public var textEncoding: WsXmlReaderEncoding? = null,
+    public var readMimeHeader: Bool = 0,
+    public var startInfo: WsString = WsString(),
+    public var boundary: WsString = WsString(),
+    public var startUri: WsString = WsString(),
 )
 
-public data class WS_XML_READER_PROPERTIES(public var properties: Long = 0L, public var propertyCount: UInt = 0u)
+public data class WsXmlReaderProperties(public var properties: WsXmlReaderProperty? = null, public var propertyCount: UInt = 0u)
 
-public data class WS_XML_READER_PROPERTY(
-    public var id: WS_XML_READER_PROPERTY_ID = 0,
-    public var value: Long = 0L,
+public data class WsXmlReaderProperty(
+    public var id: WsXmlReaderPropertyId = 0,
+    public var value: COpaquePointer? = null,
     public var valueSize: UInt = 0u,
 )
 
-public data class WS_XML_READER_RAW_ENCODING(public var encoding: WS_XML_READER_ENCODING = WS_XML_READER_ENCODING())
+public data class WsXmlReaderRawEncoding(public var encoding: WsXmlReaderEncoding = WsXmlReaderEncoding())
 
-public data class WS_XML_READER_STREAM_INPUT(
-    public var input: WS_XML_READER_INPUT = WS_XML_READER_INPUT(),
-    public var readCallback: WS_READ_CALLBACK = null,
-    public var readCallbackState: Long = 0L,
+public data class WsXmlReaderStreamInput(
+    public var input: WsXmlReaderInput = WsXmlReaderInput(),
+    public var readCallback: WsReadCallback = null,
+    public var readCallbackState: COpaquePointer? = null,
 )
 
-public data class WS_XML_READER_TEXT_ENCODING(public var encoding: WS_XML_READER_ENCODING = WS_XML_READER_ENCODING(), public var charSet: WS_CHARSET = 0)
+public data class WsXmlReaderTextEncoding(public var encoding: WsXmlReaderEncoding = WsXmlReaderEncoding(), public var charSet: WsCharset = 0)
 
-public data class WS_XML_SECURITY_TOKEN_PROPERTY(
-    public var id: WS_XML_SECURITY_TOKEN_PROPERTY_ID = 0,
-    public var value: Long = 0L,
+public data class WsXmlSecurityTokenProperty(
+    public var id: WsXmlSecurityTokenPropertyId = 0,
+    public var value: COpaquePointer? = null,
     public var valueSize: UInt = 0u,
 )
 
-public data class WS_XML_STRING(
+public data class WsXmlString(
     public var length: UInt = 0u,
-    public var bytes: Long = 0L,
-    public var dictionary: Long = 0L,
+    public var bytes: COpaquePointer? = null,
+    public var dictionary: WsXmlDictionary? = null,
     public var id: UInt = 0u,
 )
 
-public data class WS_XML_STRING_DESCRIPTION(public var minByteCount: UInt = 0u, public var maxByteCount: UInt = 0u)
+public data class WsXmlStringDescription(public var minByteCount: UInt = 0u, public var maxByteCount: UInt = 0u)
 
-public data class WS_XML_TEXT(public var textType: WS_XML_TEXT_TYPE = 0)
+public data class WsXmlText(public var textType: WsXmlTextType = 0)
 
-public data class WS_XML_TEXT_NODE(public var node: WS_XML_NODE = WS_XML_NODE(), public var text: Long = 0L)
+public data class WsXmlTextNode(public var node: WsXmlNode = WsXmlNode(), public var text: WsXmlText? = null)
 
-public data class WS_XML_TIMESPAN_TEXT(public var text: WS_XML_TEXT = WS_XML_TEXT(), public var value: WS_TIMESPAN = WS_TIMESPAN())
+public data class WsXmlTimespanText(public var text: WsXmlText = WsXmlText(), public var value: WsTimespan = WsTimespan())
 
-public data class WS_XML_TOKEN_MESSAGE_SECURITY_BINDING(
-    public var binding: WS_SECURITY_BINDING = WS_SECURITY_BINDING(),
-    public var bindingUsage: WS_MESSAGE_SECURITY_USAGE = 0,
-    public var xmlToken: Long = 0L,
+public data class WsXmlTokenMessageSecurityBinding(
+    public var binding: WsSecurityBinding = WsSecurityBinding(),
+    public var bindingUsage: WsMessageSecurityUsage = 0,
+    public var xmlToken: Int? = null,
 )
 
-public data class WS_XML_UINT64_TEXT(public var text: WS_XML_TEXT = WS_XML_TEXT(), public var value: ULong = 0uL)
+public data class WsXmlUint64Text(public var text: WsXmlText = WsXmlText(), public var value: ULong = 0uL)
 
-public data class WS_XML_UNIQUE_ID_TEXT(public var text: WS_XML_TEXT = WS_XML_TEXT(), public var value: GUID = GUID())
+public data class WsXmlUniqueIdText(public var text: WsXmlText = WsXmlText(), public var value: Guid = Guid())
 
-public data class WS_XML_UTF16_TEXT(
-    public var text: WS_XML_TEXT = WS_XML_TEXT(),
-    public var bytes: Long = 0L,
+public data class WsXmlUtf16Text(
+    public var text: WsXmlText = WsXmlText(),
+    public var bytes: COpaquePointer? = null,
     public var byteCount: UInt = 0u,
 )
 
-public data class WS_XML_UTF8_TEXT(public var text: WS_XML_TEXT = WS_XML_TEXT(), public var value: WS_XML_STRING = WS_XML_STRING())
+public data class WsXmlUtf8Text(public var text: WsXmlText = WsXmlText(), public var value: WsXmlString = WsXmlString())
 
-public data class WS_XML_WRITER_BINARY_ENCODING(
-    public var encoding: WS_XML_WRITER_ENCODING = WS_XML_WRITER_ENCODING(),
-    public var staticDictionary: Long = 0L,
-    public var dynamicStringCallback: WS_DYNAMIC_STRING_CALLBACK = null,
-    public var dynamicStringCallbackState: Long = 0L,
+public data class WsXmlWriterBinaryEncoding(
+    public var encoding: WsXmlWriterEncoding = WsXmlWriterEncoding(),
+    public var staticDictionary: WsXmlDictionary? = null,
+    public var dynamicStringCallback: WsDynamicStringCallback = null,
+    public var dynamicStringCallbackState: COpaquePointer? = null,
 )
 
-public data class WS_XML_WRITER_BUFFER_OUTPUT(public var output: WS_XML_WRITER_OUTPUT = WS_XML_WRITER_OUTPUT())
+public data class WsXmlWriterBufferOutput(public var output: WsXmlWriterOutput = WsXmlWriterOutput())
 
-public data class WS_XML_WRITER_ENCODING(public var encodingType: WS_XML_WRITER_ENCODING_TYPE = 0)
+public data class WsXmlWriterEncoding(public var encodingType: WsXmlWriterEncodingType = 0)
 
-public data class WS_XML_WRITER_MTOM_ENCODING(
-    public var encoding: WS_XML_WRITER_ENCODING = WS_XML_WRITER_ENCODING(),
-    public var textEncoding: Long = 0L,
-    public var writeMimeHeader: BOOL = 0,
-    public var boundary: WS_STRING = WS_STRING(),
-    public var startInfo: WS_STRING = WS_STRING(),
-    public var startUri: WS_STRING = WS_STRING(),
+public data class WsXmlWriterMtomEncoding(
+    public var encoding: WsXmlWriterEncoding = WsXmlWriterEncoding(),
+    public var textEncoding: WsXmlWriterEncoding? = null,
+    public var writeMimeHeader: Bool = 0,
+    public var boundary: WsString = WsString(),
+    public var startInfo: WsString = WsString(),
+    public var startUri: WsString = WsString(),
     public var maxInlineByteCount: UInt = 0u,
 )
 
-public data class WS_XML_WRITER_OUTPUT(public var outputType: WS_XML_WRITER_OUTPUT_TYPE = 0)
+public data class WsXmlWriterOutput(public var outputType: WsXmlWriterOutputType = 0)
 
-public data class WS_XML_WRITER_PROPERTIES(public var properties: Long = 0L, public var propertyCount: UInt = 0u)
+public data class WsXmlWriterProperties(public var properties: WsXmlWriterProperty? = null, public var propertyCount: UInt = 0u)
 
-public data class WS_XML_WRITER_PROPERTY(
-    public var id: WS_XML_WRITER_PROPERTY_ID = 0,
-    public var value: Long = 0L,
+public data class WsXmlWriterProperty(
+    public var id: WsXmlWriterPropertyId = 0,
+    public var value: COpaquePointer? = null,
     public var valueSize: UInt = 0u,
 )
 
-public data class WS_XML_WRITER_RAW_ENCODING(public var encoding: WS_XML_WRITER_ENCODING = WS_XML_WRITER_ENCODING())
+public data class WsXmlWriterRawEncoding(public var encoding: WsXmlWriterEncoding = WsXmlWriterEncoding())
 
-public data class WS_XML_WRITER_STREAM_OUTPUT(
-    public var output: WS_XML_WRITER_OUTPUT = WS_XML_WRITER_OUTPUT(),
-    public var writeCallback: WS_WRITE_CALLBACK = null,
-    public var writeCallbackState: Long = 0L,
+public data class WsXmlWriterStreamOutput(
+    public var output: WsXmlWriterOutput = WsXmlWriterOutput(),
+    public var writeCallback: WsWriteCallback = null,
+    public var writeCallbackState: COpaquePointer? = null,
 )
 
-public data class WS_XML_WRITER_TEXT_ENCODING(public var encoding: WS_XML_WRITER_ENCODING = WS_XML_WRITER_ENCODING(), public var charSet: WS_CHARSET = 0)
+public data class WsXmlWriterTextEncoding(public var encoding: WsXmlWriterEncoding = WsXmlWriterEncoding(), public var charSet: WsCharset = 0)

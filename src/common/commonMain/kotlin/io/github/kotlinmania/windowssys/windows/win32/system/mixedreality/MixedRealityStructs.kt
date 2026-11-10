@@ -1,11 +1,11 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.mixedreality
 
-import io.github.kotlinmania.windowssys.core.GUID
+import io.github.kotlinmania.windowssys.core.Guid
 
-public data class PERCEPTION_PAYLOAD_FIELD(
-    public var FieldId: GUID = GUID(),
-    public var OffsetInBytes: UInt = 0u,
-    public var SizeInBytes: UInt = 0u,
+public data class PerceptionPayloadField(
+    public var fieldId: Guid = Guid(),
+    public var offsetInBytes: UInt = 0u,
+    public var sizeInBytes: UInt = 0u,
 )
 
-public data class PERCEPTION_STATE_STREAM_TIMESTAMPS(public var InputTimestampInQpcCounts: Long = 0L, public var AvailableTimestampInQpcCounts: Long = 0L)
+public data class PerceptionStateStreamTimestamps(public var inputTimestampInQpcCounts: Long = 0L, public var availableTimestampInQpcCounts: Long = 0L)

@@ -1,1542 +1,1543 @@
 package io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
-import io.github.kotlinmania.windowssys.windows.win32.system.power.DEVICE_POWER_STATE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
+import io.github.kotlinmania.windowssys.windows.win32.system.power.DevicePowerState
 
-public typealias D3DDDIFORMAT = UInt
+public typealias D3dddiformat = UInt
 
-public typealias D3DDDIGPUVIRTUALADDRESS_RESERVATION_TYPE = Int
+public typealias D3dddigpuvirtualaddressReservationType = Int
 
-public typealias D3DDDIMULTISAMPLE_TYPE = Int
+public typealias D3dddimultisampleType = Int
 
-public typealias D3DDDI_COLOR_SPACE_TYPE = Int
+public typealias D3dddiColorSpaceType = Int
 
-public typealias D3DDDI_DOORBELLSTATUS = Int
+public typealias D3dddiDoorbellstatus = Int
 
-public typealias D3DDDI_DRIVERESCAPETYPE = Int
+public typealias D3dddiDriverescapetype = Int
 
-public typealias D3DDDI_FLIPINTERVAL_TYPE = Int
+public typealias D3dddiFlipintervalType = Int
 
-public typealias D3DDDI_GAMMARAMP_TYPE = Int
+public typealias D3dddiGammarampType = Int
 
-public typealias D3DDDI_HDR_METADATA_TYPE = Int
+public typealias D3dddiHdrMetadataType = Int
 
-public typealias D3DDDI_OFFER_PRIORITY = Int
+public typealias D3dddiOfferPriority = Int
 
-public typealias D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE = Int
+public typealias D3dddiOutputWireColorSpaceType = Int
 
-public typealias D3DDDI_PAGINGQUEUE_PRIORITY = Int
+public typealias D3dddiPagingqueuePriority = Int
 
-public typealias D3DDDI_POOL = Int
+public typealias D3dddiPool = Int
 
-public typealias D3DDDI_QUERYREGISTRY_STATUS = Int
+public typealias D3dddiQueryregistryStatus = Int
 
-public typealias D3DDDI_QUERYREGISTRY_TYPE = Int
+public typealias D3dddiQueryregistryType = Int
 
-public typealias D3DDDI_RECLAIM_RESULT = Int
+public typealias D3dddiReclaimResult = Int
 
-public typealias D3DDDI_ROTATION = Int
+public typealias D3dddiRotation = Int
 
-public typealias D3DDDI_SCANLINEORDERING = Int
+public typealias D3dddiScanlineordering = Int
 
-public typealias D3DDDI_SYNCHRONIZATIONOBJECT_TYPE = Int
+public typealias D3dddiSynchronizationobjectType = Int
 
-public typealias D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_TYPE = Int
+public typealias D3dddiUpdategpuvirtualaddressOperationType = Int
 
-public typealias D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING = Int
+public typealias D3dddiVideoSignalScanlineOrdering = Int
 
-public typealias D3DHAL_DP2OPERATION = Int
+public typealias D3dhalDp2operation = Int
 
-public typealias D3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL = Int
+public typealias D3dkmdtColorspaceTransformStageControl = Int
 
-public typealias D3DKMDT_COLOR_BASIS = Int
+public typealias D3dkmdtColorBasis = Int
 
-public typealias D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY = Int
+public typealias D3dkmdtComputePreemptionGranularity = Int
 
-public typealias D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE = Int
+public typealias D3dkmdtEnumcofuncmodalityPivotType = Int
 
-public typealias D3DKMDT_GDISURFACETYPE = Int
+public typealias D3dkmdtGdisurfacetype = Int
 
-public typealias D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY = Int
+public typealias D3dkmdtGraphicsPreemptionGranularity = Int
 
-public typealias D3DKMDT_GTFCOMPLIANCE = Int
+public typealias D3dkmdtGtfcompliance = Int
 
-public typealias D3DKMDT_MODE_PREFERENCE = Int
+public typealias D3dkmdtModePreference = Int
 
-public typealias D3DKMDT_MODE_PRUNING_REASON = Int
+public typealias D3dkmdtModePruningReason = Int
 
-public typealias D3DKMDT_MONITOR_CAPABILITIES_ORIGIN = Int
+public typealias D3dkmdtMonitorCapabilitiesOrigin = Int
 
-public typealias D3DKMDT_MONITOR_CONNECTIVITY_CHECKS = Int
+public typealias D3dkmdtMonitorConnectivityChecks = Int
 
-public typealias D3DKMDT_MONITOR_DESCRIPTOR_TYPE = Int
+public typealias D3dkmdtMonitorDescriptorType = Int
 
-public typealias D3DKMDT_MONITOR_FREQUENCY_RANGE_CONSTRAINT = Int
+public typealias D3dkmdtMonitorFrequencyRangeConstraint = Int
 
-public typealias D3DKMDT_MONITOR_ORIENTATION = Int
+public typealias D3dkmdtMonitorOrientation = Int
 
-public typealias D3DKMDT_MONITOR_ORIENTATION_AWARENESS = Int
+public typealias D3dkmdtMonitorOrientationAwareness = Int
 
-public typealias D3DKMDT_MONITOR_TIMING_TYPE = Int
+public typealias D3dkmdtMonitorTimingType = Int
 
-public typealias D3DKMDT_PIXEL_VALUE_ACCESS_MODE = Int
+public typealias D3dkmdtPixelValueAccessMode = Int
 
-public typealias D3DKMDT_STANDARDALLOCATION_TYPE = Int
+public typealias D3dkmdtStandardallocationType = Int
 
-public typealias D3DKMDT_TEXT_RENDERING_FORMAT = Int
+public typealias D3dkmdtTextRenderingFormat = Int
 
-public typealias D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = Int
+public typealias D3dkmdtVideoOutputTechnology = Int
 
-public typealias D3DKMDT_VIDEO_SIGNAL_STANDARD = Int
+public typealias D3dkmdtVideoSignalStandard = Int
 
-public typealias D3DKMDT_VIDPN_PRESENT_PATH_CONTENT = Int
+public typealias D3dkmdtVidpnPresentPathContent = Int
 
-public typealias D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE = Int
+public typealias D3dkmdtVidpnPresentPathCopyprotectionType = Int
 
-public typealias D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE = Int
+public typealias D3dkmdtVidpnPresentPathImportance = Int
 
-public typealias D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = Int
+public typealias D3dkmdtVidpnPresentPathRotation = Int
 
-public typealias D3DKMDT_VIDPN_PRESENT_PATH_SCALING = Int
+public typealias D3dkmdtVidpnPresentPathScaling = Int
 
-public typealias D3DKMDT_VIDPN_SOURCE_MODE_TYPE = Int
+public typealias D3dkmdtVidpnSourceModeType = Int
 
-public typealias D3DKMT_ACTIVATE_SPECIFIC_DIAG_TYPE = Int
+public typealias D3dkmtActivateSpecificDiagType = Int
 
-public typealias D3DKMT_ADAPTER_VERIFIER_OPTION_TYPE = Int
+public typealias D3dkmtAdapterVerifierOptionType = Int
 
-public typealias D3DKMT_ALLOCATIONRESIDENCYSTATUS = Int
+public typealias D3dkmtAllocationresidencystatus = Int
 
-public typealias D3DKMT_AUXILIARYPRESENTINFO_TYPE = Int
+public typealias D3dkmtAuxiliarypresentinfoType = Int
 
-public typealias D3DKMT_BRIGHTNESS_INFO_TYPE = Int
+public typealias D3dkmtBrightnessInfoType = Int
 
-public typealias D3DKMT_CANCEL_PRESENTS_OPERATION = Int
+public typealias D3dkmtCancelPresentsOperation = Int
 
-public typealias D3DKMT_CLIENTHINT = Int
+public typealias D3dkmtClienthint = Int
 
-public typealias D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER = Int
+public typealias D3dkmtCrossadapterresourceSupportTier = Int
 
-public typealias D3DKMT_DEFRAG_ESCAPE_OPERATION = Int
+public typealias D3dkmtDefragEscapeOperation = Int
 
-public typealias D3DKMT_DEVICEESCAPE_TYPE = Int
+public typealias D3dkmtDeviceescapeType = Int
 
-public typealias D3DKMT_DEVICEEXECUTION_STATE = Int
+public typealias D3dkmtDeviceexecutionState = Int
 
-public typealias D3DKMT_DEVICESTATE_TYPE = Int
+public typealias D3dkmtDevicestateType = Int
 
-public typealias D3DKMT_DEVICE_ERROR_REASON = Int
+public typealias D3dkmtDeviceErrorReason = Int
 
-public typealias D3DKMT_DMMESCAPETYPE = Int
+public typealias D3dkmtDmmescapetype = Int
 
-public typealias D3DKMT_DRIVERVERSION = Int
+public typealias D3dkmtDriverversion = Int
 
-public typealias D3DKMT_ESCAPETYPE = Int
+public typealias D3dkmtEscapetype = Int
 
-public typealias D3DKMT_ESCAPE_PFN_CONTROL_COMMAND = Int
+public typealias D3dkmtEscapePfnControlCommand = Int
 
-public typealias D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE_TYPE = Int
+public typealias D3dkmtEscapeVirtualRefreshRateType = Int
 
-public typealias D3DKMT_FLIPMODEL_INDEPENDENT_FLIP_STAGE = Int
+public typealias D3dkmtFlipmodelIndependentFlipStage = Int
 
-public typealias D3DKMT_GPU_PREFERENCE_QUERY_STATE = Int
+public typealias D3dkmtGpuPreferenceQueryState = Int
 
-public typealias D3DKMT_GPU_PREFERENCE_QUERY_TYPE = Int
+public typealias D3dkmtGpuPreferenceQueryType = Int
 
-public typealias D3DKMT_MEMORY_SEGMENT_GROUP = Int
+public typealias D3dkmtMemorySegmentGroup = Int
 
-public typealias D3DKMT_MIRACAST_DEVICE_STATUS = Int
+public typealias D3dkmtMiracastDeviceStatus = Int
 
-public typealias D3DKMT_MIRACAST_DISPLAY_DEVICE_STATE = Int
+public typealias D3dkmtMiracastDisplayDeviceState = Int
 
-public typealias D3DKMT_MIRACAST_DRIVER_TYPE = Int
+public typealias D3dkmtMiracastDriverType = Int
 
-public typealias D3DKMT_MULTIPLANE_OVERLAY_BLEND = Int
+public typealias D3dkmtMultiplaneOverlayBlend = Int
 
-public typealias D3DKMT_MULTIPLANE_OVERLAY_FLAGS = Int
+public typealias D3dkmtMultiplaneOverlayFlags = Int
 
-public typealias D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT = Int
+public typealias D3dkmtMultiplaneOverlayStereoFormat = Int
 
-public typealias D3DKMT_MULTIPLANE_OVERLAY_VIDEO_FRAME_FORMAT = Int
+public typealias D3dkmtMultiplaneOverlayVideoFrameFormat = Int
 
-public typealias D3DKMT_MULTIPLANE_OVERLAY_YCbCr_FLAGS = Int
+public typealias D3dkmtMultiplaneOverlayYcbCrFlags = Int
 
-public typealias D3DKMT_OFFER_PRIORITY = Int
+public typealias D3dkmtOfferPriority = Int
 
-public typealias D3DKMT_OUTDUPL_POINTER_SHAPE_TYPE = Int
+public typealias D3dkmtOutduplPointerShapeType = Int
 
-public typealias D3DKMT_OUTPUTDUPL_METADATATYPE = Int
+public typealias D3dkmtOutputduplMetadatatype = Int
 
-public typealias D3DKMT_PNP_KEY_TYPE = Int
+public typealias D3dkmtPnpKeyType = Int
 
-public typealias D3DKMT_PRESENT_MODEL = Int
+public typealias D3dkmtPresentModel = Int
 
-public typealias D3DKMT_PROCESS_VERIFIER_OPTION_TYPE = Int
+public typealias D3dkmtProcessVerifierOptionType = Int
 
-public typealias D3DKMT_PROTECTED_SESSION_STATUS = Int
+public typealias D3dkmtProtectedSessionStatus = Int
 
-public typealias D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = Int
+public typealias D3dkmtQueryresultPreemptionAttemptResult = Int
 
-public typealias D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS = Int
+public typealias D3dkmtQuerystatisticsAllocationPriorityClass = Int
 
-public typealias D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE = Int
+public typealias D3dkmtQuerystatisticsDmaPacketType = Int
 
-public typealias D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE = Int
+public typealias D3dkmtQuerystatisticsQueuePacketType = Int
 
-public typealias D3DKMT_QUERYSTATISTICS_SEGMENT_TYPE = Int
+public typealias D3dkmtQuerystatisticsSegmentType = Int
 
-public typealias D3DKMT_QUERYSTATISTICS_TYPE = Int
+public typealias D3dkmtQuerystatisticsType = Int
 
-public typealias D3DKMT_QUEUEDLIMIT_TYPE = Int
+public typealias D3dkmtQueuedlimitType = Int
 
-public typealias D3DKMT_SCHEDULINGPRIORITYCLASS = Int
+public typealias D3dkmtSchedulingpriorityclass = Int
 
-public typealias D3DKMT_STANDARDALLOCATIONTYPE = Int
+public typealias D3dkmtStandardallocationtype = Int
 
-public typealias D3DKMT_TDRDBGCTRLTYPE = Int
+public typealias D3dkmtTdrdbgctrltype = Int
 
-public typealias D3DKMT_VAD_ESCAPE_COMMAND = Int
+public typealias D3dkmtVadEscapeCommand = Int
 
-public typealias D3DKMT_VERIFIER_OPTION_MODE = Int
+public typealias D3dkmtVerifierOptionMode = Int
 
-public typealias D3DKMT_VIDMMESCAPETYPE = Int
+public typealias D3dkmtVidmmescapetype = Int
 
-public typealias D3DKMT_VIDPNSOURCEOWNER_TYPE = Int
+public typealias D3dkmtVidpnsourceownerType = Int
 
-public typealias D3DKMT_VIDSCHESCAPETYPE = Int
+public typealias D3dkmtVidschescapetype = Int
 
-public typealias D3DNTHAL_DP2OPERATION = Int
+public typealias D3dnthalDp2operation = Int
 
-public typealias D3DVSD_TOKENTYPE = Int
+public typealias D3dvsdTokentype = Int
 
-public typealias DISPLAYID_DETAILED_TIMING_TYPE_I_ASPECT_RATIO = Int
+public typealias DisplayidDetailedTimingTypeIAspectRatio = Int
 
-public typealias DISPLAYID_DETAILED_TIMING_TYPE_I_SCANNING_MODE = Int
+public typealias DisplayidDetailedTimingTypeIScanningMode = Int
 
-public typealias DISPLAYID_DETAILED_TIMING_TYPE_I_STEREO_MODE = Int
+public typealias DisplayidDetailedTimingTypeIStereoMode = Int
 
-public typealias DISPLAYID_DETAILED_TIMING_TYPE_I_SYNC_POLARITY = Int
+public typealias DisplayidDetailedTimingTypeISyncPolarity = Int
 
-public typealias DXGKDT_OPM_DVI_CHARACTERISTICS = Int
+public typealias DxgkdtOpmDviCharacteristics = Int
 
-public typealias DXGKMDT_CERTIFICATE_TYPE = Int
+public typealias DxgkmdtCertificateType = Int
 
-public typealias DXGKMDT_OPM_ACP_PROTECTION_LEVEL = Int
+public typealias DxgkmdtOpmAcpProtectionLevel = Int
 
-public typealias DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION = Int
+public typealias DxgkmdtOpmBusTypeAndImplementation = Int
 
-public typealias DXGKMDT_OPM_CGMSA = Int
+public typealias DxgkmdtOpmCgmsa = Int
 
-public typealias DXGKMDT_OPM_CONNECTOR_TYPE = Int
+public typealias DxgkmdtOpmConnectorType = Int
 
-public typealias DXGKMDT_OPM_DPCP_PROTECTION_LEVEL = Int
+public typealias DxgkmdtOpmDpcpProtectionLevel = Int
 
-public typealias DXGKMDT_OPM_HDCP_FLAG = Int
+public typealias DxgkmdtOpmHdcpFlag = Int
 
-public typealias DXGKMDT_OPM_HDCP_PROTECTION_LEVEL = Int
+public typealias DxgkmdtOpmHdcpProtectionLevel = Int
 
-public typealias DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294 = Int
+public typealias DxgkmdtOpmImageAspectRatioEn300294 = Int
 
-public typealias DXGKMDT_OPM_INTERLEAVE_FORMAT = Int
+public typealias DxgkmdtOpmInterleaveFormat = Int
 
-public typealias DXGKMDT_OPM_OUTPUT_HARDWARE_PROTECTION = Int
+public typealias DxgkmdtOpmOutputHardwareProtection = Int
 
-public typealias DXGKMDT_OPM_PROTECTION_STANDARD = Int
+public typealias DxgkmdtOpmProtectionStandard = Int
 
-public typealias DXGKMDT_OPM_PROTECTION_TYPE = Int
+public typealias DxgkmdtOpmProtectionType = Int
 
-public typealias DXGKMDT_OPM_STATUS = Int
+public typealias DxgkmdtOpmStatus = Int
 
-public typealias DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL = Int
+public typealias DxgkmdtOpmTypeEnforcementHdcpProtectionLevel = Int
 
-public typealias DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS = Int
+public typealias DxgkmdtOpmVideoOutputSemantics = Int
 
-public typealias DXGKMT_MULTIPLANE_OVERLAY_STEREO_FLIP_MODE = Int
+public typealias DxgkmtMultiplaneOverlayStereoFlipMode = Int
 
-public typealias DXGKMT_MULTIPLANE_OVERLAY_STRETCH_QUALITY = Int
+public typealias DxgkmtMultiplaneOverlayStretchQuality = Int
 
-public typealias DXGKMT_POWER_SHARED_TYPE = Int
+public typealias DxgkmtPowerSharedType = Int
 
-public typealias DXGKVGPU_ESCAPE_TYPE = Int
+public typealias DxgkvgpuEscapeType = Int
 
-public typealias DXGK_BACKLIGHT_OPTIMIZATION_LEVEL = Int
+public typealias DxgkBacklightOptimizationLevel = Int
 
-public typealias DXGK_CHILD_DEVICE_HPD_AWARENESS = Int
+public typealias DxgkChildDeviceHpdAwareness = Int
 
-public typealias DXGK_DISPLAY_DESCRIPTOR_TYPE = UByte
+public typealias DxgkDisplayDescriptorType = UByte
 
-public typealias DXGK_DISPLAY_TECHNOLOGY = UByte
+public typealias DxgkDisplayTechnology = UByte
 
-public typealias DXGK_DISPLAY_USAGE = UByte
+public typealias DxgkDisplayUsage = UByte
 
-public typealias DXGK_ENGINE_TYPE = Int
+public typealias DxgkEngineType = Int
 
-public typealias DXGK_GENERAL_ERROR_CODE = Int
+public typealias DxgkGeneralErrorCode = Int
 
-public typealias DXGK_MIRACAST_CHUNK_TYPE = Int
+public typealias DxgkMiracastChunkType = Int
 
-public typealias DXGK_PAGE_FAULT_FLAGS = Int
+public typealias DxgkPageFaultFlags = Int
 
-public typealias DXGK_PTE_PAGE_SIZE = Int
+public typealias DxgkPtePageSize = Int
 
-public typealias DXGK_RENDER_PIPELINE_STAGE = Int
+public typealias DxgkRenderPipelineStage = Int
 
-public typealias KMTQUERYADAPTERINFOTYPE = Int
+public typealias Kmtqueryadapterinfotype = Int
 
-public typealias KMTUMDVERSION = Int
+public typealias Kmtumdversion = Int
 
-public typealias KMT_DISPLAY_UMD_VERSION = Int
+public typealias KmtDisplayUmdVersion = Int
 
-public fun interface LPD3DHAL_CONTEXTDESTROYALLCBFn {
-    public operator fun invoke(param0: Long): UInt
+public fun interface Lpd3dhalContextdestroyallcbFn {
+    public operator fun invoke(param0: COpaquePointer?): UInt
 }
 
-public typealias LPD3DHAL_CONTEXTDESTROYALLCB = LPD3DHAL_CONTEXTDESTROYALLCBFn?
+public typealias Lpd3dhalContextdestroyallcb = Lpd3dhalContextdestroyallcbFn?
 
-public fun interface LPD3DHAL_CONTEXTDESTROYCBFn {
-    public operator fun invoke(param0: Long): UInt
+public fun interface Lpd3dhalContextdestroycbFn {
+    public operator fun invoke(param0: COpaquePointer?): UInt
 }
 
-public typealias LPD3DHAL_CONTEXTDESTROYCB = LPD3DHAL_CONTEXTDESTROYCBFn?
+public typealias Lpd3dhalContextdestroycb = Lpd3dhalContextdestroycbFn?
 
-public fun interface LPD3DHAL_DRAWPRIMITIVESCBFn {
-    public operator fun invoke(param0: Long): UInt
+public fun interface Lpd3dhalDrawprimitivescbFn {
+    public operator fun invoke(param0: COpaquePointer?): UInt
 }
 
-public typealias LPD3DHAL_DRAWPRIMITIVESCB = LPD3DHAL_DRAWPRIMITIVESCBFn?
+public typealias Lpd3dhalDrawprimitivescb = Lpd3dhalDrawprimitivescbFn?
 
-public fun interface LPD3DHAL_SCENECAPTURECBFn {
-    public operator fun invoke(param0: Long): UInt
+public fun interface Lpd3dhalScenecapturecbFn {
+    public operator fun invoke(param0: COpaquePointer?): UInt
 }
 
-public typealias LPD3DHAL_SCENECAPTURECB = LPD3DHAL_SCENECAPTURECBFn?
+public typealias Lpd3dhalScenecapturecb = Lpd3dhalScenecapturecbFn?
 
-public fun interface LPD3DHAL_TEXTUREDESTROYCBFn {
-    public operator fun invoke(param0: Long): UInt
+public fun interface Lpd3dhalTexturedestroycbFn {
+    public operator fun invoke(param0: COpaquePointer?): UInt
 }
 
-public typealias LPD3DHAL_TEXTUREDESTROYCB = LPD3DHAL_TEXTUREDESTROYCBFn?
+public typealias Lpd3dhalTexturedestroycb = Lpd3dhalTexturedestroycbFn?
 
-public fun interface LPD3DHAL_TEXTUREGETSURFCBFn {
-    public operator fun invoke(param0: Long): UInt
+public fun interface Lpd3dhalTexturegetsurfcbFn {
+    public operator fun invoke(param0: COpaquePointer?): UInt
 }
 
-public typealias LPD3DHAL_TEXTUREGETSURFCB = LPD3DHAL_TEXTUREGETSURFCBFn?
+public typealias Lpd3dhalTexturegetsurfcb = Lpd3dhalTexturegetsurfcbFn?
 
-public fun interface LPD3DHAL_TEXTURESWAPCBFn {
-    public operator fun invoke(param0: Long): UInt
+public fun interface Lpd3dhalTextureswapcbFn {
+    public operator fun invoke(param0: COpaquePointer?): UInt
 }
 
-public typealias LPD3DHAL_TEXTURESWAPCB = LPD3DHAL_TEXTURESWAPCBFn?
+public typealias Lpd3dhalTextureswapcb = Lpd3dhalTextureswapcbFn?
 
-public fun interface LPD3DHAL_VALIDATETEXTURESTAGESTATECBFn {
-    public operator fun invoke(param0: Long): UInt
+public fun interface Lpd3dhalValidatetexturestagestatecbFn {
+    public operator fun invoke(param0: COpaquePointer?): UInt
 }
 
-public typealias LPD3DHAL_VALIDATETEXTURESTAGESTATECB = LPD3DHAL_VALIDATETEXTURESTAGESTATECBFn?
+public typealias Lpd3dhalValidatetexturestagestatecb = Lpd3dhalValidatetexturestagestatecbFn?
 
-public fun interface LPD3DNTHAL_CONTEXTDESTROYALLCBFn {
-    public operator fun invoke(param0: Long): UInt
+public fun interface Lpd3dnthalContextdestroyallcbFn {
+    public operator fun invoke(param0: COpaquePointer?): UInt
 }
 
-public typealias LPD3DNTHAL_CONTEXTDESTROYALLCB = LPD3DNTHAL_CONTEXTDESTROYALLCBFn?
+public typealias Lpd3dnthalContextdestroyallcb = Lpd3dnthalContextdestroyallcbFn?
 
-public fun interface LPD3DNTHAL_CONTEXTDESTROYCBFn {
-    public operator fun invoke(param0: Long): UInt
+public fun interface Lpd3dnthalContextdestroycbFn {
+    public operator fun invoke(param0: COpaquePointer?): UInt
 }
 
-public typealias LPD3DNTHAL_CONTEXTDESTROYCB = LPD3DNTHAL_CONTEXTDESTROYCBFn?
+public typealias Lpd3dnthalContextdestroycb = Lpd3dnthalContextdestroycbFn?
 
-public fun interface LPD3DNTHAL_SCENECAPTURECBFn {
-    public operator fun invoke(param0: Long): UInt
+public fun interface Lpd3dnthalScenecapturecbFn {
+    public operator fun invoke(param0: COpaquePointer?): UInt
 }
 
-public typealias LPD3DNTHAL_SCENECAPTURECB = LPD3DNTHAL_SCENECAPTURECBFn?
+public typealias Lpd3dnthalScenecapturecb = Lpd3dnthalScenecapturecbFn?
 
-public fun interface LPD3DNTHAL_TEXTURECREATECBFn {
-    public operator fun invoke(param0: Long): UInt
+public fun interface Lpd3dnthalTexturecreatecbFn {
+    public operator fun invoke(param0: COpaquePointer?): UInt
 }
 
-public typealias LPD3DNTHAL_TEXTURECREATECB = LPD3DNTHAL_TEXTURECREATECBFn?
+public typealias Lpd3dnthalTexturecreatecb = Lpd3dnthalTexturecreatecbFn?
 
-public fun interface LPD3DNTHAL_TEXTUREDESTROYCBFn {
-    public operator fun invoke(param0: Long): UInt
+public fun interface Lpd3dnthalTexturedestroycbFn {
+    public operator fun invoke(param0: COpaquePointer?): UInt
 }
 
-public typealias LPD3DNTHAL_TEXTUREDESTROYCB = LPD3DNTHAL_TEXTUREDESTROYCBFn?
+public typealias Lpd3dnthalTexturedestroycb = Lpd3dnthalTexturedestroycbFn?
 
-public fun interface LPD3DNTHAL_TEXTUREGETSURFCBFn {
-    public operator fun invoke(param0: Long): UInt
+public fun interface Lpd3dnthalTexturegetsurfcbFn {
+    public operator fun invoke(param0: COpaquePointer?): UInt
 }
 
-public typealias LPD3DNTHAL_TEXTUREGETSURFCB = LPD3DNTHAL_TEXTUREGETSURFCBFn?
+public typealias Lpd3dnthalTexturegetsurfcb = Lpd3dnthalTexturegetsurfcbFn?
 
-public fun interface LPD3DNTHAL_TEXTURESWAPCBFn {
-    public operator fun invoke(param0: Long): UInt
+public fun interface Lpd3dnthalTextureswapcbFn {
+    public operator fun invoke(param0: COpaquePointer?): UInt
 }
 
-public typealias LPD3DNTHAL_TEXTURESWAPCB = LPD3DNTHAL_TEXTURESWAPCBFn?
+public typealias Lpd3dnthalTextureswapcb = Lpd3dnthalTextureswapcbFn?
 
-public fun interface LPD3DNTHAL_VALIDATETEXTURESTAGESTATECBFn {
-    public operator fun invoke(param0: Long): UInt
+public fun interface Lpd3dnthalValidatetexturestagestatecbFn {
+    public operator fun invoke(param0: COpaquePointer?): UInt
 }
 
-public typealias LPD3DNTHAL_VALIDATETEXTURESTAGESTATECB = LPD3DNTHAL_VALIDATETEXTURESTAGESTATECBFn?
+public typealias Lpd3dnthalValidatetexturestagestatecb = Lpd3dnthalValidatetexturestagestatecbFn?
 
-public typealias OUTPUTDUPL_CONTEXT_DEBUG_STATUS = Int
+public typealias OutputduplContextDebugStatus = Int
 
-public fun interface PDXGK_FSTATE_NOTIFICATIONFn {
-    public operator fun invoke(graphicsdevicehandle: Long, componentindex: UInt, newfstate: UInt, prenotification: Boolean, privatehandle: Long)
+public fun interface PdxgkFstateNotificationFn {
+    public operator fun invoke(graphicsdevicehandle: COpaquePointer?, componentindex: UInt, newfstate: UInt, prenotification: Boolean, privatehandle: COpaquePointer?)
 }
 
-public typealias PDXGK_FSTATE_NOTIFICATION = PDXGK_FSTATE_NOTIFICATIONFn?
+public typealias PdxgkFstateNotification = PdxgkFstateNotificationFn?
 
-public fun interface PDXGK_GRAPHICSPOWER_UNREGISTERFn {
-    public operator fun invoke(devicehandle: Long, privatehandle: Long): NTSTATUS
+public fun interface PdxgkGraphicspowerUnregisterFn {
+    public operator fun invoke(devicehandle: COpaquePointer?, privatehandle: COpaquePointer?): Ntstatus
 }
 
-public typealias PDXGK_GRAPHICSPOWER_UNREGISTER = PDXGK_GRAPHICSPOWER_UNREGISTERFn?
+public typealias PdxgkGraphicspowerUnregister = PdxgkGraphicspowerUnregisterFn?
 
-public fun interface PDXGK_INITIAL_COMPONENT_STATEFn {
-    public operator fun invoke(graphicsdevicehandle: Long, privatehandle: Long, componentindex: UInt, isblockingtype: Boolean, initialfstate: UInt, componentguid: GUID, powercomponentmappingflag: UInt)
+public fun interface PdxgkInitialComponentStateFn {
+    public operator fun invoke(graphicsdevicehandle: COpaquePointer?, privatehandle: COpaquePointer?, componentindex: UInt, isblockingtype: Boolean, initialfstate: UInt, componentguid: Guid, powercomponentmappingflag: UInt)
 }
 
-public typealias PDXGK_INITIAL_COMPONENT_STATE = PDXGK_INITIAL_COMPONENT_STATEFn?
+public typealias PdxgkInitialComponentState = PdxgkInitialComponentStateFn?
 
-public fun interface PDXGK_POWER_NOTIFICATIONFn {
-    public operator fun invoke(graphicsdevicehandle: Long, newgrfxpowerstate: DEVICE_POWER_STATE, prenotification: Boolean, privatehandle: Long)
+public fun interface PdxgkPowerNotificationFn {
+    public operator fun invoke(graphicsdevicehandle: COpaquePointer?, newgrfxpowerstate: DevicePowerState, prenotification: Boolean, privatehandle: COpaquePointer?)
 }
 
-public typealias PDXGK_POWER_NOTIFICATION = PDXGK_POWER_NOTIFICATIONFn?
+public typealias PdxgkPowerNotification = PdxgkPowerNotificationFn?
 
-public fun interface PDXGK_REMOVAL_NOTIFICATIONFn {
-    public operator fun invoke(graphicsdevicehandle: Long, privatehandle: Long)
+public fun interface PdxgkRemovalNotificationFn {
+    public operator fun invoke(graphicsdevicehandle: COpaquePointer?, privatehandle: COpaquePointer?)
 }
 
-public typealias PDXGK_REMOVAL_NOTIFICATION = PDXGK_REMOVAL_NOTIFICATIONFn?
+public typealias PdxgkRemovalNotification = PdxgkRemovalNotificationFn?
 
-public fun interface PDXGK_SET_SHARED_POWER_COMPONENT_STATEFn {
-    public operator fun invoke(devicehandle: Long, privatehandle: Long, componentindex: UInt, active: Boolean): NTSTATUS
+public fun interface PdxgkSetSharedPowerComponentStateFn {
+    public operator fun invoke(devicehandle: COpaquePointer?, privatehandle: COpaquePointer?, componentindex: UInt, active: Boolean): Ntstatus
 }
 
-public typealias PDXGK_SET_SHARED_POWER_COMPONENT_STATE = PDXGK_SET_SHARED_POWER_COMPONENT_STATEFn?
+public typealias PdxgkSetSharedPowerComponentState = PdxgkSetSharedPowerComponentStateFn?
 
-public fun interface PFND3DKMT_ACQUIREKEYEDMUTEXFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtAcquirekeyedmutexFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_ACQUIREKEYEDMUTEX = PFND3DKMT_ACQUIREKEYEDMUTEXFn?
+public typealias Pfnd3dkmtAcquirekeyedmutex = Pfnd3dkmtAcquirekeyedmutexFn?
 
-public fun interface PFND3DKMT_ACQUIREKEYEDMUTEX2Fn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtAcquirekeyedmutex2Fn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_ACQUIREKEYEDMUTEX2 = PFND3DKMT_ACQUIREKEYEDMUTEX2Fn?
+public typealias Pfnd3dkmtAcquirekeyedmutex2 = Pfnd3dkmtAcquirekeyedmutex2Fn?
 
-public fun interface PFND3DKMT_ADJUSTFULLSCREENGAMMAFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtAdjustfullscreengammaFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_ADJUSTFULLSCREENGAMMA = PFND3DKMT_ADJUSTFULLSCREENGAMMAFn?
+public typealias Pfnd3dkmtAdjustfullscreengamma = Pfnd3dkmtAdjustfullscreengammaFn?
 
-public fun interface PFND3DKMT_BUDGETCHANGENOTIFICATIONCALLBACKFn {
-    public operator fun invoke(param0: Long)
+public fun interface Pfnd3dkmtBudgetchangenotificationcallbackFn {
+    public operator fun invoke(param0: COpaquePointer?)
 }
 
-public typealias PFND3DKMT_BUDGETCHANGENOTIFICATIONCALLBACK = PFND3DKMT_BUDGETCHANGENOTIFICATIONCALLBACKFn?
+public typealias Pfnd3dkmtBudgetchangenotificationcallback = Pfnd3dkmtBudgetchangenotificationcallbackFn?
 
-public fun interface PFND3DKMT_CANCELPRESENTSFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtCancelpresentsFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_CANCELPRESENTS = PFND3DKMT_CANCELPRESENTSFn?
+public typealias Pfnd3dkmtCancelpresents = Pfnd3dkmtCancelpresentsFn?
 
-public fun interface PFND3DKMT_CHANGESURFACEPOINTERFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtChangesurfacepointerFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_CHANGESURFACEPOINTER = PFND3DKMT_CHANGESURFACEPOINTERFn?
+public typealias Pfnd3dkmtChangesurfacepointer = Pfnd3dkmtChangesurfacepointerFn?
 
-public fun interface PFND3DKMT_CHANGEVIDEOMEMORYRESERVATIONFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtChangevideomemoryreservationFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_CHANGEVIDEOMEMORYRESERVATION = PFND3DKMT_CHANGEVIDEOMEMORYRESERVATIONFn?
+public typealias Pfnd3dkmtChangevideomemoryreservation = Pfnd3dkmtChangevideomemoryreservationFn?
 
-public fun interface PFND3DKMT_CHECKEXCLUSIVEOWNERSHIPFn {
+public fun interface Pfnd3dkmtCheckexclusiveownershipFn {
     public operator fun invoke(): Boolean
 }
 
-public typealias PFND3DKMT_CHECKEXCLUSIVEOWNERSHIP = PFND3DKMT_CHECKEXCLUSIVEOWNERSHIPFn?
+public typealias Pfnd3dkmtCheckexclusiveownership = Pfnd3dkmtCheckexclusiveownershipFn?
 
-public fun interface PFND3DKMT_CHECKMONITORPOWERSTATEFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtCheckmonitorpowerstateFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_CHECKMONITORPOWERSTATE = PFND3DKMT_CHECKMONITORPOWERSTATEFn?
+public typealias Pfnd3dkmtCheckmonitorpowerstate = Pfnd3dkmtCheckmonitorpowerstateFn?
 
-public fun interface PFND3DKMT_CHECKMULTIPLANEOVERLAYSUPPORTFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtCheckmultiplaneoverlaysupportFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT = PFND3DKMT_CHECKMULTIPLANEOVERLAYSUPPORTFn?
+public typealias Pfnd3dkmtCheckmultiplaneoverlaysupport = Pfnd3dkmtCheckmultiplaneoverlaysupportFn?
 
-public fun interface PFND3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT2Fn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtCheckmultiplaneoverlaysupport2Fn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT2 = PFND3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT2Fn?
+public typealias Pfnd3dkmtCheckmultiplaneoverlaysupport2 = Pfnd3dkmtCheckmultiplaneoverlaysupport2Fn?
 
-public fun interface PFND3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT3Fn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtCheckmultiplaneoverlaysupport3Fn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT3 = PFND3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT3Fn?
+public typealias Pfnd3dkmtCheckmultiplaneoverlaysupport3 = Pfnd3dkmtCheckmultiplaneoverlaysupport3Fn?
 
-public fun interface PFND3DKMT_CHECKOCCLUSIONFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtCheckocclusionFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_CHECKOCCLUSION = PFND3DKMT_CHECKOCCLUSIONFn?
+public typealias Pfnd3dkmtCheckocclusion = Pfnd3dkmtCheckocclusionFn?
 
-public fun interface PFND3DKMT_CHECKSHAREDRESOURCEACCESSFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtChecksharedresourceaccessFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_CHECKSHAREDRESOURCEACCESS = PFND3DKMT_CHECKSHAREDRESOURCEACCESSFn?
+public typealias Pfnd3dkmtChecksharedresourceaccess = Pfnd3dkmtChecksharedresourceaccessFn?
 
-public fun interface PFND3DKMT_CHECKVIDPNEXCLUSIVEOWNERSHIPFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtCheckvidpnexclusiveownershipFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_CHECKVIDPNEXCLUSIVEOWNERSHIP = PFND3DKMT_CHECKVIDPNEXCLUSIVEOWNERSHIPFn?
+public typealias Pfnd3dkmtCheckvidpnexclusiveownership = Pfnd3dkmtCheckvidpnexclusiveownershipFn?
 
-public fun interface PFND3DKMT_CLOSEADAPTERFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtCloseadapterFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_CLOSEADAPTER = PFND3DKMT_CLOSEADAPTERFn?
+public typealias Pfnd3dkmtCloseadapter = Pfnd3dkmtCloseadapterFn?
 
-public fun interface PFND3DKMT_CONFIGURESHAREDRESOURCEFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtConfiguresharedresourceFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_CONFIGURESHAREDRESOURCE = PFND3DKMT_CONFIGURESHAREDRESOURCEFn?
+public typealias Pfnd3dkmtConfiguresharedresource = Pfnd3dkmtConfiguresharedresourceFn?
 
-public fun interface PFND3DKMT_CONNECTDOORBELLFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtConnectdoorbellFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_CONNECTDOORBELL = PFND3DKMT_CONNECTDOORBELLFn?
+public typealias Pfnd3dkmtConnectdoorbell = Pfnd3dkmtConnectdoorbellFn?
 
-public fun interface PFND3DKMT_CREATEALLOCATIONFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtCreateallocationFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_CREATEALLOCATION = PFND3DKMT_CREATEALLOCATIONFn?
+public typealias Pfnd3dkmtCreateallocation = Pfnd3dkmtCreateallocationFn?
 
-public fun interface PFND3DKMT_CREATEALLOCATION2Fn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtCreateallocation2Fn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_CREATEALLOCATION2 = PFND3DKMT_CREATEALLOCATION2Fn?
+public typealias Pfnd3dkmtCreateallocation2 = Pfnd3dkmtCreateallocation2Fn?
 
-public fun interface PFND3DKMT_CREATECONTEXTFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtCreatecontextFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_CREATECONTEXT = PFND3DKMT_CREATECONTEXTFn?
+public typealias Pfnd3dkmtCreatecontext = Pfnd3dkmtCreatecontextFn?
 
-public fun interface PFND3DKMT_CREATECONTEXTVIRTUALFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtCreatecontextvirtualFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_CREATECONTEXTVIRTUAL = PFND3DKMT_CREATECONTEXTVIRTUALFn?
+public typealias Pfnd3dkmtCreatecontextvirtual = Pfnd3dkmtCreatecontextvirtualFn?
 
-public fun interface PFND3DKMT_CREATEDCFROMMEMORYFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtCreatedcfrommemoryFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_CREATEDCFROMMEMORY = PFND3DKMT_CREATEDCFROMMEMORYFn?
+public typealias Pfnd3dkmtCreatedcfrommemory = Pfnd3dkmtCreatedcfrommemoryFn?
 
-public fun interface PFND3DKMT_CREATEDEVICEFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtCreatedeviceFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_CREATEDEVICE = PFND3DKMT_CREATEDEVICEFn?
+public typealias Pfnd3dkmtCreatedevice = Pfnd3dkmtCreatedeviceFn?
 
-public fun interface PFND3DKMT_CREATEDOORBELLFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtCreatedoorbellFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_CREATEDOORBELL = PFND3DKMT_CREATEDOORBELLFn?
+public typealias Pfnd3dkmtCreatedoorbell = Pfnd3dkmtCreatedoorbellFn?
 
-public fun interface PFND3DKMT_CREATEHWQUEUEFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtCreatehwqueueFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_CREATEHWQUEUE = PFND3DKMT_CREATEHWQUEUEFn?
+public typealias Pfnd3dkmtCreatehwqueue = Pfnd3dkmtCreatehwqueueFn?
 
-public fun interface PFND3DKMT_CREATEKEYEDMUTEXFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtCreatekeyedmutexFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_CREATEKEYEDMUTEX = PFND3DKMT_CREATEKEYEDMUTEXFn?
+public typealias Pfnd3dkmtCreatekeyedmutex = Pfnd3dkmtCreatekeyedmutexFn?
 
-public fun interface PFND3DKMT_CREATEKEYEDMUTEX2Fn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtCreatekeyedmutex2Fn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_CREATEKEYEDMUTEX2 = PFND3DKMT_CREATEKEYEDMUTEX2Fn?
+public typealias Pfnd3dkmtCreatekeyedmutex2 = Pfnd3dkmtCreatekeyedmutex2Fn?
 
-public fun interface PFND3DKMT_CREATENATIVEFENCEFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtCreatenativefenceFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_CREATENATIVEFENCE = PFND3DKMT_CREATENATIVEFENCEFn?
+public typealias Pfnd3dkmtCreatenativefence = Pfnd3dkmtCreatenativefenceFn?
 
-public fun interface PFND3DKMT_CREATEOUTPUTDUPLFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtCreateoutputduplFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_CREATEOUTPUTDUPL = PFND3DKMT_CREATEOUTPUTDUPLFn?
+public typealias Pfnd3dkmtCreateoutputdupl = Pfnd3dkmtCreateoutputduplFn?
 
-public fun interface PFND3DKMT_CREATEOVERLAYFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtCreateoverlayFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_CREATEOVERLAY = PFND3DKMT_CREATEOVERLAYFn?
+public typealias Pfnd3dkmtCreateoverlay = Pfnd3dkmtCreateoverlayFn?
 
-public fun interface PFND3DKMT_CREATEPAGINGQUEUEFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtCreatepagingqueueFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_CREATEPAGINGQUEUE = PFND3DKMT_CREATEPAGINGQUEUEFn?
+public typealias Pfnd3dkmtCreatepagingqueue = Pfnd3dkmtCreatepagingqueueFn?
 
-public fun interface PFND3DKMT_CREATEPROTECTEDSESSIONFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtCreateprotectedsessionFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_CREATEPROTECTEDSESSION = PFND3DKMT_CREATEPROTECTEDSESSIONFn?
+public typealias Pfnd3dkmtCreateprotectedsession = Pfnd3dkmtCreateprotectedsessionFn?
 
-public fun interface PFND3DKMT_CREATESYNCHRONIZATIONOBJECTFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtCreatesynchronizationobjectFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_CREATESYNCHRONIZATIONOBJECT = PFND3DKMT_CREATESYNCHRONIZATIONOBJECTFn?
+public typealias Pfnd3dkmtCreatesynchronizationobject = Pfnd3dkmtCreatesynchronizationobjectFn?
 
-public fun interface PFND3DKMT_CREATESYNCHRONIZATIONOBJECT2Fn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtCreatesynchronizationobject2Fn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_CREATESYNCHRONIZATIONOBJECT2 = PFND3DKMT_CREATESYNCHRONIZATIONOBJECT2Fn?
+public typealias Pfnd3dkmtCreatesynchronizationobject2 = Pfnd3dkmtCreatesynchronizationobject2Fn?
 
-public fun interface PFND3DKMT_DESTROYALLOCATIONFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtDestroyallocationFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_DESTROYALLOCATION = PFND3DKMT_DESTROYALLOCATIONFn?
+public typealias Pfnd3dkmtDestroyallocation = Pfnd3dkmtDestroyallocationFn?
 
-public fun interface PFND3DKMT_DESTROYALLOCATION2Fn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtDestroyallocation2Fn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_DESTROYALLOCATION2 = PFND3DKMT_DESTROYALLOCATION2Fn?
+public typealias Pfnd3dkmtDestroyallocation2 = Pfnd3dkmtDestroyallocation2Fn?
 
-public fun interface PFND3DKMT_DESTROYCONTEXTFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtDestroycontextFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_DESTROYCONTEXT = PFND3DKMT_DESTROYCONTEXTFn?
+public typealias Pfnd3dkmtDestroycontext = Pfnd3dkmtDestroycontextFn?
 
-public fun interface PFND3DKMT_DESTROYDCFROMMEMORYFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtDestroydcfrommemoryFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_DESTROYDCFROMMEMORY = PFND3DKMT_DESTROYDCFROMMEMORYFn?
+public typealias Pfnd3dkmtDestroydcfrommemory = Pfnd3dkmtDestroydcfrommemoryFn?
 
-public fun interface PFND3DKMT_DESTROYDEVICEFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtDestroydeviceFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_DESTROYDEVICE = PFND3DKMT_DESTROYDEVICEFn?
+public typealias Pfnd3dkmtDestroydevice = Pfnd3dkmtDestroydeviceFn?
 
-public fun interface PFND3DKMT_DESTROYDOORBELLFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtDestroydoorbellFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_DESTROYDOORBELL = PFND3DKMT_DESTROYDOORBELLFn?
+public typealias Pfnd3dkmtDestroydoorbell = Pfnd3dkmtDestroydoorbellFn?
 
-public fun interface PFND3DKMT_DESTROYHWQUEUEFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtDestroyhwqueueFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_DESTROYHWQUEUE = PFND3DKMT_DESTROYHWQUEUEFn?
+public typealias Pfnd3dkmtDestroyhwqueue = Pfnd3dkmtDestroyhwqueueFn?
 
-public fun interface PFND3DKMT_DESTROYKEYEDMUTEXFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtDestroykeyedmutexFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_DESTROYKEYEDMUTEX = PFND3DKMT_DESTROYKEYEDMUTEXFn?
+public typealias Pfnd3dkmtDestroykeyedmutex = Pfnd3dkmtDestroykeyedmutexFn?
 
-public fun interface PFND3DKMT_DESTROYOUTPUTDUPLFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtDestroyoutputduplFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_DESTROYOUTPUTDUPL = PFND3DKMT_DESTROYOUTPUTDUPLFn?
+public typealias Pfnd3dkmtDestroyoutputdupl = Pfnd3dkmtDestroyoutputduplFn?
 
-public fun interface PFND3DKMT_DESTROYOVERLAYFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtDestroyoverlayFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_DESTROYOVERLAY = PFND3DKMT_DESTROYOVERLAYFn?
+public typealias Pfnd3dkmtDestroyoverlay = Pfnd3dkmtDestroyoverlayFn?
 
-public fun interface PFND3DKMT_DESTROYPAGINGQUEUEFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtDestroypagingqueueFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_DESTROYPAGINGQUEUE = PFND3DKMT_DESTROYPAGINGQUEUEFn?
+public typealias Pfnd3dkmtDestroypagingqueue = Pfnd3dkmtDestroypagingqueueFn?
 
-public fun interface PFND3DKMT_DESTROYPROTECTEDSESSIONFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtDestroyprotectedsessionFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_DESTROYPROTECTEDSESSION = PFND3DKMT_DESTROYPROTECTEDSESSIONFn?
+public typealias Pfnd3dkmtDestroyprotectedsession = Pfnd3dkmtDestroyprotectedsessionFn?
 
-public fun interface PFND3DKMT_DESTROYSYNCHRONIZATIONOBJECTFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtDestroysynchronizationobjectFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_DESTROYSYNCHRONIZATIONOBJECT = PFND3DKMT_DESTROYSYNCHRONIZATIONOBJECTFn?
+public typealias Pfnd3dkmtDestroysynchronizationobject = Pfnd3dkmtDestroysynchronizationobjectFn?
 
-public fun interface PFND3DKMT_ENUMADAPTERSFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtEnumadaptersFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_ENUMADAPTERS = PFND3DKMT_ENUMADAPTERSFn?
+public typealias Pfnd3dkmtEnumadapters = Pfnd3dkmtEnumadaptersFn?
 
-public fun interface PFND3DKMT_ENUMADAPTERS2Fn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtEnumadapters2Fn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_ENUMADAPTERS2 = PFND3DKMT_ENUMADAPTERS2Fn?
+public typealias Pfnd3dkmtEnumadapters2 = Pfnd3dkmtEnumadapters2Fn?
 
-public fun interface PFND3DKMT_ENUMADAPTERS3Fn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtEnumadapters3Fn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_ENUMADAPTERS3 = PFND3DKMT_ENUMADAPTERS3Fn?
+public typealias Pfnd3dkmtEnumadapters3 = Pfnd3dkmtEnumadapters3Fn?
 
-public fun interface PFND3DKMT_ESCAPEFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtEscapeFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_ESCAPE = PFND3DKMT_ESCAPEFn?
+public typealias Pfnd3dkmtEscape = Pfnd3dkmtEscapeFn?
 
-public fun interface PFND3DKMT_EVICTFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtEvictFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_EVICT = PFND3DKMT_EVICTFn?
+public typealias Pfnd3dkmtEvict = Pfnd3dkmtEvictFn?
 
-public fun interface PFND3DKMT_FLIPOVERLAYFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtFlipoverlayFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_FLIPOVERLAY = PFND3DKMT_FLIPOVERLAYFn?
+public typealias Pfnd3dkmtFlipoverlay = Pfnd3dkmtFlipoverlayFn?
 
-public fun interface PFND3DKMT_FLUSHHEAPTRANSITIONSFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtFlushheaptransitionsFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_FLUSHHEAPTRANSITIONS = PFND3DKMT_FLUSHHEAPTRANSITIONSFn?
+public typealias Pfnd3dkmtFlushheaptransitions = Pfnd3dkmtFlushheaptransitionsFn?
 
-public fun interface PFND3DKMT_FREEGPUVIRTUALADDRESSFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtFreegpuvirtualaddressFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_FREEGPUVIRTUALADDRESS = PFND3DKMT_FREEGPUVIRTUALADDRESSFn?
+public typealias Pfnd3dkmtFreegpuvirtualaddress = Pfnd3dkmtFreegpuvirtualaddressFn?
 
-public fun interface PFND3DKMT_GETALLOCATIONPRIORITYFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtGetallocationpriorityFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_GETALLOCATIONPRIORITY = PFND3DKMT_GETALLOCATIONPRIORITYFn?
+public typealias Pfnd3dkmtGetallocationpriority = Pfnd3dkmtGetallocationpriorityFn?
 
-public fun interface PFND3DKMT_GETCONTEXTINPROCESSSCHEDULINGPRIORITYFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtGetcontextinprocessschedulingpriorityFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_GETCONTEXTINPROCESSSCHEDULINGPRIORITY = PFND3DKMT_GETCONTEXTINPROCESSSCHEDULINGPRIORITYFn?
+public typealias Pfnd3dkmtGetcontextinprocessschedulingpriority = Pfnd3dkmtGetcontextinprocessschedulingpriorityFn?
 
-public fun interface PFND3DKMT_GETCONTEXTSCHEDULINGPRIORITYFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtGetcontextschedulingpriorityFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_GETCONTEXTSCHEDULINGPRIORITY = PFND3DKMT_GETCONTEXTSCHEDULINGPRIORITYFn?
+public typealias Pfnd3dkmtGetcontextschedulingpriority = Pfnd3dkmtGetcontextschedulingpriorityFn?
 
-public fun interface PFND3DKMT_GETDEVICESTATEFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtGetdevicestateFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_GETDEVICESTATE = PFND3DKMT_GETDEVICESTATEFn?
+public typealias Pfnd3dkmtGetdevicestate = Pfnd3dkmtGetdevicestateFn?
 
-public fun interface PFND3DKMT_GETDISPLAYMODELISTFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtGetdisplaymodelistFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_GETDISPLAYMODELIST = PFND3DKMT_GETDISPLAYMODELISTFn?
+public typealias Pfnd3dkmtGetdisplaymodelist = Pfnd3dkmtGetdisplaymodelistFn?
 
-public fun interface PFND3DKMT_GETDWMVERTICALBLANKEVENTFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtGetdwmverticalblankeventFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_GETDWMVERTICALBLANKEVENT = PFND3DKMT_GETDWMVERTICALBLANKEVENTFn?
+public typealias Pfnd3dkmtGetdwmverticalblankevent = Pfnd3dkmtGetdwmverticalblankeventFn?
 
-public fun interface PFND3DKMT_GETMULTIPLANEOVERLAYCAPSFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtGetmultiplaneoverlaycapsFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_GETMULTIPLANEOVERLAYCAPS = PFND3DKMT_GETMULTIPLANEOVERLAYCAPSFn?
+public typealias Pfnd3dkmtGetmultiplaneoverlaycaps = Pfnd3dkmtGetmultiplaneoverlaycapsFn?
 
-public fun interface PFND3DKMT_GETMULTISAMPLEMETHODLISTFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtGetmultisamplemethodlistFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_GETMULTISAMPLEMETHODLIST = PFND3DKMT_GETMULTISAMPLEMETHODLISTFn?
+public typealias Pfnd3dkmtGetmultisamplemethodlist = Pfnd3dkmtGetmultisamplemethodlistFn?
 
-public fun interface PFND3DKMT_GETOVERLAYSTATEFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtGetoverlaystateFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_GETOVERLAYSTATE = PFND3DKMT_GETOVERLAYSTATEFn?
+public typealias Pfnd3dkmtGetoverlaystate = Pfnd3dkmtGetoverlaystateFn?
 
-public fun interface PFND3DKMT_GETPOSTCOMPOSITIONCAPSFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtGetpostcompositioncapsFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_GETPOSTCOMPOSITIONCAPS = PFND3DKMT_GETPOSTCOMPOSITIONCAPSFn?
+public typealias Pfnd3dkmtGetpostcompositioncaps = Pfnd3dkmtGetpostcompositioncapsFn?
 
-public fun interface PFND3DKMT_GETPRESENTHISTORYFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtGetpresenthistoryFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_GETPRESENTHISTORY = PFND3DKMT_GETPRESENTHISTORYFn?
+public typealias Pfnd3dkmtGetpresenthistory = Pfnd3dkmtGetpresenthistoryFn?
 
-public fun interface PFND3DKMT_GETPROCESSDEVICEREMOVALSUPPORTFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtGetprocessdeviceremovalsupportFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_GETPROCESSDEVICEREMOVALSUPPORT = PFND3DKMT_GETPROCESSDEVICEREMOVALSUPPORTFn?
+public typealias Pfnd3dkmtGetprocessdeviceremovalsupport = Pfnd3dkmtGetprocessdeviceremovalsupportFn?
 
-public fun interface PFND3DKMT_GETPROCESSSCHEDULINGPRIORITYCLASSFn {
-    public operator fun invoke(param0: HANDLE, param1: Long): NTSTATUS
+public fun interface Pfnd3dkmtGetprocessschedulingpriorityclassFn {
+    public operator fun invoke(param0: Handle, param1: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_GETPROCESSSCHEDULINGPRIORITYCLASS = PFND3DKMT_GETPROCESSSCHEDULINGPRIORITYCLASSFn?
+public typealias Pfnd3dkmtGetprocessschedulingpriorityclass = Pfnd3dkmtGetprocessschedulingpriorityclassFn?
 
-public fun interface PFND3DKMT_GETRESOURCEPRESENTPRIVATEDRIVERDATAFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtGetresourcepresentprivatedriverdataFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_GETRESOURCEPRESENTPRIVATEDRIVERDATA = PFND3DKMT_GETRESOURCEPRESENTPRIVATEDRIVERDATAFn?
+public typealias Pfnd3dkmtGetresourcepresentprivatedriverdata = Pfnd3dkmtGetresourcepresentprivatedriverdataFn?
 
-public fun interface PFND3DKMT_GETRUNTIMEDATAFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtGetruntimedataFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_GETRUNTIMEDATA = PFND3DKMT_GETRUNTIMEDATAFn?
+public typealias Pfnd3dkmtGetruntimedata = Pfnd3dkmtGetruntimedataFn?
 
-public fun interface PFND3DKMT_GETSCANLINEFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtGetscanlineFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_GETSCANLINE = PFND3DKMT_GETSCANLINEFn?
+public typealias Pfnd3dkmtGetscanline = Pfnd3dkmtGetscanlineFn?
 
-public fun interface PFND3DKMT_GETSHAREDPRIMARYHANDLEFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtGetsharedprimaryhandleFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_GETSHAREDPRIMARYHANDLE = PFND3DKMT_GETSHAREDPRIMARYHANDLEFn?
+public typealias Pfnd3dkmtGetsharedprimaryhandle = Pfnd3dkmtGetsharedprimaryhandleFn?
 
-public fun interface PFND3DKMT_GETSHAREDRESOURCEADAPTERLUIDFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtGetsharedresourceadapterluidFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_GETSHAREDRESOURCEADAPTERLUID = PFND3DKMT_GETSHAREDRESOURCEADAPTERLUIDFn?
+public typealias Pfnd3dkmtGetsharedresourceadapterluid = Pfnd3dkmtGetsharedresourceadapterluidFn?
 
-public fun interface PFND3DKMT_INVALIDATEACTIVEVIDPNFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtInvalidateactivevidpnFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_INVALIDATEACTIVEVIDPN = PFND3DKMT_INVALIDATEACTIVEVIDPNFn?
+public typealias Pfnd3dkmtInvalidateactivevidpn = Pfnd3dkmtInvalidateactivevidpnFn?
 
-public fun interface PFND3DKMT_INVALIDATECACHEFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtInvalidatecacheFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_INVALIDATECACHE = PFND3DKMT_INVALIDATECACHEFn?
+public typealias Pfnd3dkmtInvalidatecache = Pfnd3dkmtInvalidatecacheFn?
 
-public fun interface PFND3DKMT_LOCKFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtLockFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_LOCK = PFND3DKMT_LOCKFn?
+public typealias Pfnd3dkmtLock = Pfnd3dkmtLockFn?
 
-public fun interface PFND3DKMT_LOCK2Fn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtLock2Fn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_LOCK2 = PFND3DKMT_LOCK2Fn?
+public typealias Pfnd3dkmtLock2 = Pfnd3dkmtLock2Fn?
 
-public fun interface PFND3DKMT_MAKERESIDENTFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtMakeresidentFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_MAKERESIDENT = PFND3DKMT_MAKERESIDENTFn?
+public typealias Pfnd3dkmtMakeresident = Pfnd3dkmtMakeresidentFn?
 
-public fun interface PFND3DKMT_MAPGPUVIRTUALADDRESSFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtMapgpuvirtualaddressFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_MAPGPUVIRTUALADDRESS = PFND3DKMT_MAPGPUVIRTUALADDRESSFn?
+public typealias Pfnd3dkmtMapgpuvirtualaddress = Pfnd3dkmtMapgpuvirtualaddressFn?
 
-public fun interface PFND3DKMT_MARKDEVICEASERRORFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtMarkdeviceaserrorFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_MARKDEVICEASERROR = PFND3DKMT_MARKDEVICEASERRORFn?
+public typealias Pfnd3dkmtMarkdeviceaserror = Pfnd3dkmtMarkdeviceaserrorFn?
 
-public fun interface PFND3DKMT_NOTIFYWORKSUBMISSIONFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtNotifyworksubmissionFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_NOTIFYWORKSUBMISSION = PFND3DKMT_NOTIFYWORKSUBMISSIONFn?
+public typealias Pfnd3dkmtNotifyworksubmission = Pfnd3dkmtNotifyworksubmissionFn?
 
-public fun interface PFND3DKMT_OFFERALLOCATIONSFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtOfferallocationsFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_OFFERALLOCATIONS = PFND3DKMT_OFFERALLOCATIONSFn?
+public typealias Pfnd3dkmtOfferallocations = Pfnd3dkmtOfferallocationsFn?
 
-public fun interface PFND3DKMT_OPENADAPTERFROMDEVICENAMEFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtOpenadapterfromdevicenameFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_OPENADAPTERFROMDEVICENAME = PFND3DKMT_OPENADAPTERFROMDEVICENAMEFn?
+public typealias Pfnd3dkmtOpenadapterfromdevicename = Pfnd3dkmtOpenadapterfromdevicenameFn?
 
-public fun interface PFND3DKMT_OPENADAPTERFROMGDIDISPLAYNAMEFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtOpenadapterfromgdidisplaynameFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_OPENADAPTERFROMGDIDISPLAYNAME = PFND3DKMT_OPENADAPTERFROMGDIDISPLAYNAMEFn?
+public typealias Pfnd3dkmtOpenadapterfromgdidisplayname = Pfnd3dkmtOpenadapterfromgdidisplaynameFn?
 
-public fun interface PFND3DKMT_OPENADAPTERFROMHDCFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtOpenadapterfromhdcFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_OPENADAPTERFROMHDC = PFND3DKMT_OPENADAPTERFROMHDCFn?
+public typealias Pfnd3dkmtOpenadapterfromhdc = Pfnd3dkmtOpenadapterfromhdcFn?
 
-public fun interface PFND3DKMT_OPENADAPTERFROMLUIDFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtOpenadapterfromluidFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_OPENADAPTERFROMLUID = PFND3DKMT_OPENADAPTERFROMLUIDFn?
+public typealias Pfnd3dkmtOpenadapterfromluid = Pfnd3dkmtOpenadapterfromluidFn?
 
-public fun interface PFND3DKMT_OPENKEYEDMUTEXFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtOpenkeyedmutexFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_OPENKEYEDMUTEX = PFND3DKMT_OPENKEYEDMUTEXFn?
+public typealias Pfnd3dkmtOpenkeyedmutex = Pfnd3dkmtOpenkeyedmutexFn?
 
-public fun interface PFND3DKMT_OPENKEYEDMUTEX2Fn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtOpenkeyedmutex2Fn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_OPENKEYEDMUTEX2 = PFND3DKMT_OPENKEYEDMUTEX2Fn?
+public typealias Pfnd3dkmtOpenkeyedmutex2 = Pfnd3dkmtOpenkeyedmutex2Fn?
 
-public fun interface PFND3DKMT_OPENKEYEDMUTEXFROMNTHANDLEFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtOpenkeyedmutexfromnthandleFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_OPENKEYEDMUTEXFROMNTHANDLE = PFND3DKMT_OPENKEYEDMUTEXFROMNTHANDLEFn?
+public typealias Pfnd3dkmtOpenkeyedmutexfromnthandle = Pfnd3dkmtOpenkeyedmutexfromnthandleFn?
 
-public fun interface PFND3DKMT_OPENNATIVEFENCEFROMNTHANDLEFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtOpennativefencefromnthandleFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_OPENNATIVEFENCEFROMNTHANDLE = PFND3DKMT_OPENNATIVEFENCEFROMNTHANDLEFn?
+public typealias Pfnd3dkmtOpennativefencefromnthandle = Pfnd3dkmtOpennativefencefromnthandleFn?
 
-public fun interface PFND3DKMT_OPENNTHANDLEFROMNAMEFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtOpennthandlefromnameFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_OPENNTHANDLEFROMNAME = PFND3DKMT_OPENNTHANDLEFROMNAMEFn?
+public typealias Pfnd3dkmtOpennthandlefromname = Pfnd3dkmtOpennthandlefromnameFn?
 
-public fun interface PFND3DKMT_OPENPROTECTEDSESSIONFROMNTHANDLEFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtOpenprotectedsessionfromnthandleFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_OPENPROTECTEDSESSIONFROMNTHANDLE = PFND3DKMT_OPENPROTECTEDSESSIONFROMNTHANDLEFn?
+public typealias Pfnd3dkmtOpenprotectedsessionfromnthandle = Pfnd3dkmtOpenprotectedsessionfromnthandleFn?
 
-public fun interface PFND3DKMT_OPENRESOURCEFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtOpenresourceFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_OPENRESOURCE = PFND3DKMT_OPENRESOURCEFn?
+public typealias Pfnd3dkmtOpenresource = Pfnd3dkmtOpenresourceFn?
 
-public fun interface PFND3DKMT_OPENRESOURCE2Fn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtOpenresource2Fn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_OPENRESOURCE2 = PFND3DKMT_OPENRESOURCE2Fn?
+public typealias Pfnd3dkmtOpenresource2 = Pfnd3dkmtOpenresource2Fn?
 
-public fun interface PFND3DKMT_OPENRESOURCEFROMNTHANDLEFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtOpenresourcefromnthandleFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_OPENRESOURCEFROMNTHANDLE = PFND3DKMT_OPENRESOURCEFROMNTHANDLEFn?
+public typealias Pfnd3dkmtOpenresourcefromnthandle = Pfnd3dkmtOpenresourcefromnthandleFn?
 
-public fun interface PFND3DKMT_OPENSYNCHRONIZATIONOBJECTFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtOpensynchronizationobjectFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_OPENSYNCHRONIZATIONOBJECT = PFND3DKMT_OPENSYNCHRONIZATIONOBJECTFn?
+public typealias Pfnd3dkmtOpensynchronizationobject = Pfnd3dkmtOpensynchronizationobjectFn?
 
-public fun interface PFND3DKMT_OPENSYNCOBJECTFROMNTHANDLEFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtOpensyncobjectfromnthandleFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_OPENSYNCOBJECTFROMNTHANDLE = PFND3DKMT_OPENSYNCOBJECTFROMNTHANDLEFn?
+public typealias Pfnd3dkmtOpensyncobjectfromnthandle = Pfnd3dkmtOpensyncobjectfromnthandleFn?
 
-public fun interface PFND3DKMT_OPENSYNCOBJECTFROMNTHANDLE2Fn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtOpensyncobjectfromnthandle2Fn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_OPENSYNCOBJECTFROMNTHANDLE2 = PFND3DKMT_OPENSYNCOBJECTFROMNTHANDLE2Fn?
+public typealias Pfnd3dkmtOpensyncobjectfromnthandle2 = Pfnd3dkmtOpensyncobjectfromnthandle2Fn?
 
-public fun interface PFND3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAMEFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtOpensyncobjectnthandlefromnameFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME = PFND3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAMEFn?
+public typealias Pfnd3dkmtOpensyncobjectnthandlefromname = Pfnd3dkmtOpensyncobjectnthandlefromnameFn?
 
-public fun interface PFND3DKMT_OUTPUTDUPLGETFRAMEINFOFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtOutputduplgetframeinfoFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_OUTPUTDUPLGETFRAMEINFO = PFND3DKMT_OUTPUTDUPLGETFRAMEINFOFn?
+public typealias Pfnd3dkmtOutputduplgetframeinfo = Pfnd3dkmtOutputduplgetframeinfoFn?
 
-public fun interface PFND3DKMT_OUTPUTDUPLGETMETADATAFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtOutputduplgetmetadataFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_OUTPUTDUPLGETMETADATA = PFND3DKMT_OUTPUTDUPLGETMETADATAFn?
+public typealias Pfnd3dkmtOutputduplgetmetadata = Pfnd3dkmtOutputduplgetmetadataFn?
 
-public fun interface PFND3DKMT_OUTPUTDUPLGETPOINTERSHAPEDATAFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtOutputduplgetpointershapedataFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_OUTPUTDUPLGETPOINTERSHAPEDATA = PFND3DKMT_OUTPUTDUPLGETPOINTERSHAPEDATAFn?
+public typealias Pfnd3dkmtOutputduplgetpointershapedata = Pfnd3dkmtOutputduplgetpointershapedataFn?
 
-public fun interface PFND3DKMT_OUTPUTDUPLPRESENTFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtOutputduplpresentFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_OUTPUTDUPLPRESENT = PFND3DKMT_OUTPUTDUPLPRESENTFn?
+public typealias Pfnd3dkmtOutputduplpresent = Pfnd3dkmtOutputduplpresentFn?
 
-public fun interface PFND3DKMT_OUTPUTDUPLPRESENTTOHWQUEUEFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtOutputduplpresenttohwqueueFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_OUTPUTDUPLPRESENTTOHWQUEUE = PFND3DKMT_OUTPUTDUPLPRESENTTOHWQUEUEFn?
+public typealias Pfnd3dkmtOutputduplpresenttohwqueue = Pfnd3dkmtOutputduplpresenttohwqueueFn?
 
-public fun interface PFND3DKMT_OUTPUTDUPLRELEASEFRAMEFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtOutputduplreleaseframeFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_OUTPUTDUPLRELEASEFRAME = PFND3DKMT_OUTPUTDUPLRELEASEFRAMEFn?
+public typealias Pfnd3dkmtOutputduplreleaseframe = Pfnd3dkmtOutputduplreleaseframeFn?
 
-public fun interface PFND3DKMT_PINDIRECTFLIPRESOURCESFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtPindirectflipresourcesFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_PINDIRECTFLIPRESOURCES = PFND3DKMT_PINDIRECTFLIPRESOURCESFn?
+public typealias Pfnd3dkmtPindirectflipresources = Pfnd3dkmtPindirectflipresourcesFn?
 
-public fun interface PFND3DKMT_POLLDISPLAYCHILDRENFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtPolldisplaychildrenFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_POLLDISPLAYCHILDREN = PFND3DKMT_POLLDISPLAYCHILDRENFn?
+public typealias Pfnd3dkmtPolldisplaychildren = Pfnd3dkmtPolldisplaychildrenFn?
 
-public fun interface PFND3DKMT_PRESENTFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtPresentFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_PRESENT = PFND3DKMT_PRESENTFn?
+public typealias Pfnd3dkmtPresent = Pfnd3dkmtPresentFn?
 
-public fun interface PFND3DKMT_PRESENTMULTIPLANEOVERLAYFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtPresentmultiplaneoverlayFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_PRESENTMULTIPLANEOVERLAY = PFND3DKMT_PRESENTMULTIPLANEOVERLAYFn?
+public typealias Pfnd3dkmtPresentmultiplaneoverlay = Pfnd3dkmtPresentmultiplaneoverlayFn?
 
-public fun interface PFND3DKMT_PRESENTMULTIPLANEOVERLAY2Fn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtPresentmultiplaneoverlay2Fn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_PRESENTMULTIPLANEOVERLAY2 = PFND3DKMT_PRESENTMULTIPLANEOVERLAY2Fn?
+public typealias Pfnd3dkmtPresentmultiplaneoverlay2 = Pfnd3dkmtPresentmultiplaneoverlay2Fn?
 
-public fun interface PFND3DKMT_PRESENTMULTIPLANEOVERLAY3Fn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtPresentmultiplaneoverlay3Fn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_PRESENTMULTIPLANEOVERLAY3 = PFND3DKMT_PRESENTMULTIPLANEOVERLAY3Fn?
+public typealias Pfnd3dkmtPresentmultiplaneoverlay3 = Pfnd3dkmtPresentmultiplaneoverlay3Fn?
 
-public fun interface PFND3DKMT_QUERYADAPTERINFOFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtQueryadapterinfoFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_QUERYADAPTERINFO = PFND3DKMT_QUERYADAPTERINFOFn?
+public typealias Pfnd3dkmtQueryadapterinfo = Pfnd3dkmtQueryadapterinfoFn?
 
-public fun interface PFND3DKMT_QUERYALLOCATIONRESIDENCYFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtQueryallocationresidencyFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_QUERYALLOCATIONRESIDENCY = PFND3DKMT_QUERYALLOCATIONRESIDENCYFn?
+public typealias Pfnd3dkmtQueryallocationresidency = Pfnd3dkmtQueryallocationresidencyFn?
 
-public fun interface PFND3DKMT_QUERYCLOCKCALIBRATIONFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtQueryclockcalibrationFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_QUERYCLOCKCALIBRATION = PFND3DKMT_QUERYCLOCKCALIBRATIONFn?
+public typealias Pfnd3dkmtQueryclockcalibration = Pfnd3dkmtQueryclockcalibrationFn?
 
-public fun interface PFND3DKMT_QUERYFSEBLOCKFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtQueryfseblockFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_QUERYFSEBLOCK = PFND3DKMT_QUERYFSEBLOCKFn?
+public typealias Pfnd3dkmtQueryfseblock = Pfnd3dkmtQueryfseblockFn?
 
-public fun interface PFND3DKMT_QUERYHYBRIDLISTVALUEFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtQueryhybridlistvalueFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_QUERYHYBRIDLISTVALUE = PFND3DKMT_QUERYHYBRIDLISTVALUEFn?
+public typealias Pfnd3dkmtQueryhybridlistvalue = Pfnd3dkmtQueryhybridlistvalueFn?
 
-public fun interface PFND3DKMT_QUERYPROCESSOFFERINFOFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtQueryprocessofferinfoFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_QUERYPROCESSOFFERINFO = PFND3DKMT_QUERYPROCESSOFFERINFOFn?
+public typealias Pfnd3dkmtQueryprocessofferinfo = Pfnd3dkmtQueryprocessofferinfoFn?
 
-public fun interface PFND3DKMT_QUERYPROTECTEDSESSIONINFOFROMNTHANDLEFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtQueryprotectedsessioninfofromnthandleFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_QUERYPROTECTEDSESSIONINFOFROMNTHANDLE = PFND3DKMT_QUERYPROTECTEDSESSIONINFOFROMNTHANDLEFn?
+public typealias Pfnd3dkmtQueryprotectedsessioninfofromnthandle = Pfnd3dkmtQueryprotectedsessioninfofromnthandleFn?
 
-public fun interface PFND3DKMT_QUERYPROTECTEDSESSIONSTATUSFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtQueryprotectedsessionstatusFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_QUERYPROTECTEDSESSIONSTATUS = PFND3DKMT_QUERYPROTECTEDSESSIONSTATUSFn?
+public typealias Pfnd3dkmtQueryprotectedsessionstatus = Pfnd3dkmtQueryprotectedsessionstatusFn?
 
-public fun interface PFND3DKMT_QUERYREMOTEVIDPNSOURCEFROMGDIDISPLAYNAMEFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtQueryremotevidpnsourcefromgdidisplaynameFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_QUERYREMOTEVIDPNSOURCEFROMGDIDISPLAYNAME = PFND3DKMT_QUERYREMOTEVIDPNSOURCEFROMGDIDISPLAYNAMEFn?
+public typealias Pfnd3dkmtQueryremotevidpnsourcefromgdidisplayname = Pfnd3dkmtQueryremotevidpnsourcefromgdidisplaynameFn?
 
-public fun interface PFND3DKMT_QUERYRESOURCEINFOFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtQueryresourceinfoFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_QUERYRESOURCEINFO = PFND3DKMT_QUERYRESOURCEINFOFn?
+public typealias Pfnd3dkmtQueryresourceinfo = Pfnd3dkmtQueryresourceinfoFn?
 
-public fun interface PFND3DKMT_QUERYRESOURCEINFOFROMNTHANDLEFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtQueryresourceinfofromnthandleFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_QUERYRESOURCEINFOFROMNTHANDLE = PFND3DKMT_QUERYRESOURCEINFOFROMNTHANDLEFn?
+public typealias Pfnd3dkmtQueryresourceinfofromnthandle = Pfnd3dkmtQueryresourceinfofromnthandleFn?
 
-public fun interface PFND3DKMT_QUERYSTATISTICSFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtQuerystatisticsFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_QUERYSTATISTICS = PFND3DKMT_QUERYSTATISTICSFn?
+public typealias Pfnd3dkmtQuerystatistics = Pfnd3dkmtQuerystatisticsFn?
 
-public fun interface PFND3DKMT_QUERYVIDEOMEMORYINFOFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtQueryvideomemoryinfoFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_QUERYVIDEOMEMORYINFO = PFND3DKMT_QUERYVIDEOMEMORYINFOFn?
+public typealias Pfnd3dkmtQueryvideomemoryinfo = Pfnd3dkmtQueryvideomemoryinfoFn?
 
-public fun interface PFND3DKMT_QUERYVIDPNEXCLUSIVEOWNERSHIPFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtQueryvidpnexclusiveownershipFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_QUERYVIDPNEXCLUSIVEOWNERSHIP = PFND3DKMT_QUERYVIDPNEXCLUSIVEOWNERSHIPFn?
+public typealias Pfnd3dkmtQueryvidpnexclusiveownership = Pfnd3dkmtQueryvidpnexclusiveownershipFn?
 
-public fun interface PFND3DKMT_RECLAIMALLOCATIONSFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtReclaimallocationsFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_RECLAIMALLOCATIONS = PFND3DKMT_RECLAIMALLOCATIONSFn?
+public typealias Pfnd3dkmtReclaimallocations = Pfnd3dkmtReclaimallocationsFn?
 
-public fun interface PFND3DKMT_RECLAIMALLOCATIONS2Fn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtReclaimallocations2Fn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_RECLAIMALLOCATIONS2 = PFND3DKMT_RECLAIMALLOCATIONS2Fn?
+public typealias Pfnd3dkmtReclaimallocations2 = Pfnd3dkmtReclaimallocations2Fn?
 
-public fun interface PFND3DKMT_REGISTERBUDGETCHANGENOTIFICATIONFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtRegisterbudgetchangenotificationFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_REGISTERBUDGETCHANGENOTIFICATION = PFND3DKMT_REGISTERBUDGETCHANGENOTIFICATIONFn?
+public typealias Pfnd3dkmtRegisterbudgetchangenotification = Pfnd3dkmtRegisterbudgetchangenotificationFn?
 
-public fun interface PFND3DKMT_REGISTERTRIMNOTIFICATIONFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtRegistertrimnotificationFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_REGISTERTRIMNOTIFICATION = PFND3DKMT_REGISTERTRIMNOTIFICATIONFn?
+public typealias Pfnd3dkmtRegistertrimnotification = Pfnd3dkmtRegistertrimnotificationFn?
 
-public fun interface PFND3DKMT_RELEASEKEYEDMUTEXFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtReleasekeyedmutexFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_RELEASEKEYEDMUTEX = PFND3DKMT_RELEASEKEYEDMUTEXFn?
+public typealias Pfnd3dkmtReleasekeyedmutex = Pfnd3dkmtReleasekeyedmutexFn?
 
-public fun interface PFND3DKMT_RELEASEKEYEDMUTEX2Fn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtReleasekeyedmutex2Fn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_RELEASEKEYEDMUTEX2 = PFND3DKMT_RELEASEKEYEDMUTEX2Fn?
+public typealias Pfnd3dkmtReleasekeyedmutex2 = Pfnd3dkmtReleasekeyedmutex2Fn?
 
-public fun interface PFND3DKMT_RELEASEPROCESSVIDPNSOURCEOWNERSFn {
-    public operator fun invoke(param0: HANDLE): NTSTATUS
+public fun interface Pfnd3dkmtReleaseprocessvidpnsourceownersFn {
+    public operator fun invoke(param0: Handle): Ntstatus
 }
 
-public typealias PFND3DKMT_RELEASEPROCESSVIDPNSOURCEOWNERS = PFND3DKMT_RELEASEPROCESSVIDPNSOURCEOWNERSFn?
+public typealias Pfnd3dkmtReleaseprocessvidpnsourceowners = Pfnd3dkmtReleaseprocessvidpnsourceownersFn?
 
-public fun interface PFND3DKMT_RENDERFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtRenderFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_RENDER = PFND3DKMT_RENDERFn?
+public typealias Pfnd3dkmtRender = Pfnd3dkmtRenderFn?
 
-public fun interface PFND3DKMT_RESERVEGPUVIRTUALADDRESSFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtReservegpuvirtualaddressFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_RESERVEGPUVIRTUALADDRESS = PFND3DKMT_RESERVEGPUVIRTUALADDRESSFn?
+public typealias Pfnd3dkmtReservegpuvirtualaddress = Pfnd3dkmtReservegpuvirtualaddressFn?
 
-public fun interface PFND3DKMT_SETALLOCATIONPRIORITYFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtSetallocationpriorityFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_SETALLOCATIONPRIORITY = PFND3DKMT_SETALLOCATIONPRIORITYFn?
+public typealias Pfnd3dkmtSetallocationpriority = Pfnd3dkmtSetallocationpriorityFn?
 
-public fun interface PFND3DKMT_SETCONTEXTINPROCESSSCHEDULINGPRIORITYFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtSetcontextinprocessschedulingpriorityFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_SETCONTEXTINPROCESSSCHEDULINGPRIORITY = PFND3DKMT_SETCONTEXTINPROCESSSCHEDULINGPRIORITYFn?
+public typealias Pfnd3dkmtSetcontextinprocessschedulingpriority = Pfnd3dkmtSetcontextinprocessschedulingpriorityFn?
 
-public fun interface PFND3DKMT_SETCONTEXTSCHEDULINGPRIORITYFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtSetcontextschedulingpriorityFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_SETCONTEXTSCHEDULINGPRIORITY = PFND3DKMT_SETCONTEXTSCHEDULINGPRIORITYFn?
+public typealias Pfnd3dkmtSetcontextschedulingpriority = Pfnd3dkmtSetcontextschedulingpriorityFn?
 
-public fun interface PFND3DKMT_SETDISPLAYMODEFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtSetdisplaymodeFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_SETDISPLAYMODE = PFND3DKMT_SETDISPLAYMODEFn?
+public typealias Pfnd3dkmtSetdisplaymode = Pfnd3dkmtSetdisplaymodeFn?
 
-public fun interface PFND3DKMT_SETDISPLAYPRIVATEDRIVERFORMATFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtSetdisplayprivatedriverformatFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_SETDISPLAYPRIVATEDRIVERFORMAT = PFND3DKMT_SETDISPLAYPRIVATEDRIVERFORMATFn?
+public typealias Pfnd3dkmtSetdisplayprivatedriverformat = Pfnd3dkmtSetdisplayprivatedriverformatFn?
 
-public fun interface PFND3DKMT_SETFSEBLOCKFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtSetfseblockFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_SETFSEBLOCK = PFND3DKMT_SETFSEBLOCKFn?
+public typealias Pfnd3dkmtSetfseblock = Pfnd3dkmtSetfseblockFn?
 
-public fun interface PFND3DKMT_SETGAMMARAMPFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtSetgammarampFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_SETGAMMARAMP = PFND3DKMT_SETGAMMARAMPFn?
+public typealias Pfnd3dkmtSetgammaramp = Pfnd3dkmtSetgammarampFn?
 
-public fun interface PFND3DKMT_SETHWPROTECTIONTEARDOWNRECOVERYFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtSethwprotectionteardownrecoveryFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_SETHWPROTECTIONTEARDOWNRECOVERY = PFND3DKMT_SETHWPROTECTIONTEARDOWNRECOVERYFn?
+public typealias Pfnd3dkmtSethwprotectionteardownrecovery = Pfnd3dkmtSethwprotectionteardownrecoveryFn?
 
-public fun interface PFND3DKMT_SETHYBRIDLISTVVALUEFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtSethybridlistvvalueFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_SETHYBRIDLISTVVALUE = PFND3DKMT_SETHYBRIDLISTVVALUEFn?
+public typealias Pfnd3dkmtSethybridlistvvalue = Pfnd3dkmtSethybridlistvvalueFn?
 
-public fun interface PFND3DKMT_SETPROCESSSCHEDULINGPRIORITYCLASSFn {
-    public operator fun invoke(param0: HANDLE, param1: D3DKMT_SCHEDULINGPRIORITYCLASS): NTSTATUS
+public fun interface Pfnd3dkmtSetprocessschedulingpriorityclassFn {
+    public operator fun invoke(param0: Handle, param1: D3dkmtSchedulingpriorityclass): Ntstatus
 }
 
-public typealias PFND3DKMT_SETPROCESSSCHEDULINGPRIORITYCLASS = PFND3DKMT_SETPROCESSSCHEDULINGPRIORITYCLASSFn?
+public typealias Pfnd3dkmtSetprocessschedulingpriorityclass = Pfnd3dkmtSetprocessschedulingpriorityclassFn?
 
-public fun interface PFND3DKMT_SETQUEUEDLIMITFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtSetqueuedlimitFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_SETQUEUEDLIMIT = PFND3DKMT_SETQUEUEDLIMITFn?
+public typealias Pfnd3dkmtSetqueuedlimit = Pfnd3dkmtSetqueuedlimitFn?
 
-public fun interface PFND3DKMT_SETSTABLEPOWERSTATEFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtSetstablepowerstateFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_SETSTABLEPOWERSTATE = PFND3DKMT_SETSTABLEPOWERSTATEFn?
+public typealias Pfnd3dkmtSetstablepowerstate = Pfnd3dkmtSetstablepowerstateFn?
 
-public fun interface PFND3DKMT_SETSTEREOENABLEDFn {
-    public operator fun invoke(param0: BOOL): NTSTATUS
+public fun interface Pfnd3dkmtSetstereoenabledFn {
+    public operator fun invoke(param0: Bool): Ntstatus
 }
 
-public typealias PFND3DKMT_SETSTEREOENABLED = PFND3DKMT_SETSTEREOENABLEDFn?
+public typealias Pfnd3dkmtSetstereoenabled = Pfnd3dkmtSetstereoenabledFn?
 
-public fun interface PFND3DKMT_SETSYNCREFRESHCOUNTWAITTARGETFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtSetsyncrefreshcountwaittargetFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_SETSYNCREFRESHCOUNTWAITTARGET = PFND3DKMT_SETSYNCREFRESHCOUNTWAITTARGETFn?
+public typealias Pfnd3dkmtSetsyncrefreshcountwaittarget = Pfnd3dkmtSetsyncrefreshcountwaittargetFn?
 
-public fun interface PFND3DKMT_SETVIDPNSOURCEHWPROTECTIONFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtSetvidpnsourcehwprotectionFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_SETVIDPNSOURCEHWPROTECTION = PFND3DKMT_SETVIDPNSOURCEHWPROTECTIONFn?
+public typealias Pfnd3dkmtSetvidpnsourcehwprotection = Pfnd3dkmtSetvidpnsourcehwprotectionFn?
 
-public fun interface PFND3DKMT_SETVIDPNSOURCEOWNERFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtSetvidpnsourceownerFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_SETVIDPNSOURCEOWNER = PFND3DKMT_SETVIDPNSOURCEOWNERFn?
+public typealias Pfnd3dkmtSetvidpnsourceowner = Pfnd3dkmtSetvidpnsourceownerFn?
 
-public fun interface PFND3DKMT_SETVIDPNSOURCEOWNER1Fn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtSetvidpnsourceowner1Fn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_SETVIDPNSOURCEOWNER1 = PFND3DKMT_SETVIDPNSOURCEOWNER1Fn?
+public typealias Pfnd3dkmtSetvidpnsourceowner1 = Pfnd3dkmtSetvidpnsourceowner1Fn?
 
-public fun interface PFND3DKMT_SETVIDPNSOURCEOWNER2Fn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtSetvidpnsourceowner2Fn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_SETVIDPNSOURCEOWNER2 = PFND3DKMT_SETVIDPNSOURCEOWNER2Fn?
+public typealias Pfnd3dkmtSetvidpnsourceowner2 = Pfnd3dkmtSetvidpnsourceowner2Fn?
 
-public fun interface PFND3DKMT_SHAREDPRIMARYLOCKNOTIFICATIONFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtSharedprimarylocknotificationFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_SHAREDPRIMARYLOCKNOTIFICATION = PFND3DKMT_SHAREDPRIMARYLOCKNOTIFICATIONFn?
+public typealias Pfnd3dkmtSharedprimarylocknotification = Pfnd3dkmtSharedprimarylocknotificationFn?
 
-public fun interface PFND3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATIONFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtSharedprimaryunlocknotificationFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATION = PFND3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATIONFn?
+public typealias Pfnd3dkmtSharedprimaryunlocknotification = Pfnd3dkmtSharedprimaryunlocknotificationFn?
 
-public fun interface PFND3DKMT_SHAREOBJECTSFn {
-    public operator fun invoke(cobjects: UInt, hobjects: Long, pobjectattributes: Long, dwdesiredaccess: UInt, phsharednthandle: Long): NTSTATUS
+public fun interface Pfnd3dkmtShareobjectsFn {
+    public operator fun invoke(cobjects: UInt, hobjects: COpaquePointer?, pobjectattributes: COpaquePointer?, dwdesiredaccess: UInt, phsharednthandle: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_SHAREOBJECTS = PFND3DKMT_SHAREOBJECTSFn?
+public typealias Pfnd3dkmtShareobjects = Pfnd3dkmtShareobjectsFn?
 
-public fun interface PFND3DKMT_SIGNALSYNCHRONIZATIONOBJECTFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtSignalsynchronizationobjectFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_SIGNALSYNCHRONIZATIONOBJECT = PFND3DKMT_SIGNALSYNCHRONIZATIONOBJECTFn?
+public typealias Pfnd3dkmtSignalsynchronizationobject = Pfnd3dkmtSignalsynchronizationobjectFn?
 
-public fun interface PFND3DKMT_SIGNALSYNCHRONIZATIONOBJECT2Fn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtSignalsynchronizationobject2Fn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_SIGNALSYNCHRONIZATIONOBJECT2 = PFND3DKMT_SIGNALSYNCHRONIZATIONOBJECT2Fn?
+public typealias Pfnd3dkmtSignalsynchronizationobject2 = Pfnd3dkmtSignalsynchronizationobject2Fn?
 
-public fun interface PFND3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMCPUFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtSignalsynchronizationobjectfromcpuFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMCPU = PFND3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMCPUFn?
+public typealias Pfnd3dkmtSignalsynchronizationobjectfromcpu = Pfnd3dkmtSignalsynchronizationobjectfromcpuFn?
 
-public fun interface PFND3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPUFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtSignalsynchronizationobjectfromgpuFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU = PFND3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPUFn?
+public typealias Pfnd3dkmtSignalsynchronizationobjectfromgpu = Pfnd3dkmtSignalsynchronizationobjectfromgpuFn?
 
-public fun interface PFND3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2Fn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtSignalsynchronizationobjectfromgpu2Fn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2 = PFND3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2Fn?
+public typealias Pfnd3dkmtSignalsynchronizationobjectfromgpu2 = Pfnd3dkmtSignalsynchronizationobjectfromgpu2Fn?
 
-public fun interface PFND3DKMT_SUBMITCOMMANDFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtSubmitcommandFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_SUBMITCOMMAND = PFND3DKMT_SUBMITCOMMANDFn?
+public typealias Pfnd3dkmtSubmitcommand = Pfnd3dkmtSubmitcommandFn?
 
-public fun interface PFND3DKMT_SUBMITCOMMANDTOHWQUEUEFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtSubmitcommandtohwqueueFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_SUBMITCOMMANDTOHWQUEUE = PFND3DKMT_SUBMITCOMMANDTOHWQUEUEFn?
+public typealias Pfnd3dkmtSubmitcommandtohwqueue = Pfnd3dkmtSubmitcommandtohwqueueFn?
 
-public fun interface PFND3DKMT_SUBMITPRESENTBLTTOHWQUEUEFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtSubmitpresentblttohwqueueFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_SUBMITPRESENTBLTTOHWQUEUE = PFND3DKMT_SUBMITPRESENTBLTTOHWQUEUEFn?
+public typealias Pfnd3dkmtSubmitpresentblttohwqueue = Pfnd3dkmtSubmitpresentblttohwqueueFn?
 
-public fun interface PFND3DKMT_SUBMITPRESENTTOHWQUEUEFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtSubmitpresenttohwqueueFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_SUBMITPRESENTTOHWQUEUE = PFND3DKMT_SUBMITPRESENTTOHWQUEUEFn?
+public typealias Pfnd3dkmtSubmitpresenttohwqueue = Pfnd3dkmtSubmitpresenttohwqueueFn?
 
-public fun interface PFND3DKMT_SUBMITSIGNALSYNCOBJECTSTOHWQUEUEFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtSubmitsignalsyncobjectstohwqueueFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_SUBMITSIGNALSYNCOBJECTSTOHWQUEUE = PFND3DKMT_SUBMITSIGNALSYNCOBJECTSTOHWQUEUEFn?
+public typealias Pfnd3dkmtSubmitsignalsyncobjectstohwqueue = Pfnd3dkmtSubmitsignalsyncobjectstohwqueueFn?
 
-public fun interface PFND3DKMT_SUBMITWAITFORSYNCOBJECTSTOHWQUEUEFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtSubmitwaitforsyncobjectstohwqueueFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_SUBMITWAITFORSYNCOBJECTSTOHWQUEUE = PFND3DKMT_SUBMITWAITFORSYNCOBJECTSTOHWQUEUEFn?
+public typealias Pfnd3dkmtSubmitwaitforsyncobjectstohwqueue = Pfnd3dkmtSubmitwaitforsyncobjectstohwqueueFn?
 
-public fun interface PFND3DKMT_TRIMNOTIFICATIONCALLBACKFn {
-    public operator fun invoke(param0: Long)
+public fun interface Pfnd3dkmtTrimnotificationcallbackFn {
+    public operator fun invoke(param0: COpaquePointer?)
 }
 
-public typealias PFND3DKMT_TRIMNOTIFICATIONCALLBACK = PFND3DKMT_TRIMNOTIFICATIONCALLBACKFn?
+public typealias Pfnd3dkmtTrimnotificationcallback = Pfnd3dkmtTrimnotificationcallbackFn?
 
-public fun interface PFND3DKMT_TRIMPROCESSCOMMITMENTFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtTrimprocesscommitmentFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_TRIMPROCESSCOMMITMENT = PFND3DKMT_TRIMPROCESSCOMMITMENTFn?
+public typealias Pfnd3dkmtTrimprocesscommitment = Pfnd3dkmtTrimprocesscommitmentFn?
 
-public fun interface PFND3DKMT_UNLOCKFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtUnlockFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_UNLOCK = PFND3DKMT_UNLOCKFn?
+public typealias Pfnd3dkmtUnlock = Pfnd3dkmtUnlockFn?
 
-public fun interface PFND3DKMT_UNLOCK2Fn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtUnlock2Fn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_UNLOCK2 = PFND3DKMT_UNLOCK2Fn?
+public typealias Pfnd3dkmtUnlock2 = Pfnd3dkmtUnlock2Fn?
 
-public fun interface PFND3DKMT_UNPINDIRECTFLIPRESOURCESFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtUnpindirectflipresourcesFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_UNPINDIRECTFLIPRESOURCES = PFND3DKMT_UNPINDIRECTFLIPRESOURCESFn?
+public typealias Pfnd3dkmtUnpindirectflipresources = Pfnd3dkmtUnpindirectflipresourcesFn?
 
-public fun interface PFND3DKMT_UNREGISTERBUDGETCHANGENOTIFICATIONFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtUnregisterbudgetchangenotificationFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_UNREGISTERBUDGETCHANGENOTIFICATION = PFND3DKMT_UNREGISTERBUDGETCHANGENOTIFICATIONFn?
+public typealias Pfnd3dkmtUnregisterbudgetchangenotification = Pfnd3dkmtUnregisterbudgetchangenotificationFn?
 
-public fun interface PFND3DKMT_UNREGISTERTRIMNOTIFICATIONFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtUnregistertrimnotificationFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_UNREGISTERTRIMNOTIFICATION = PFND3DKMT_UNREGISTERTRIMNOTIFICATIONFn?
+public typealias Pfnd3dkmtUnregistertrimnotification = Pfnd3dkmtUnregistertrimnotificationFn?
 
-public fun interface PFND3DKMT_UPDATEALLOCATIONPROPERTYFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtUpdateallocationpropertyFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_UPDATEALLOCATIONPROPERTY = PFND3DKMT_UPDATEALLOCATIONPROPERTYFn?
+public typealias Pfnd3dkmtUpdateallocationproperty = Pfnd3dkmtUpdateallocationpropertyFn?
 
-public fun interface PFND3DKMT_UPDATEGPUVIRTUALADDRESSFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtUpdategpuvirtualaddressFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_UPDATEGPUVIRTUALADDRESS = PFND3DKMT_UPDATEGPUVIRTUALADDRESSFn?
+public typealias Pfnd3dkmtUpdategpuvirtualaddress = Pfnd3dkmtUpdategpuvirtualaddressFn?
 
-public fun interface PFND3DKMT_UPDATEOVERLAYFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtUpdateoverlayFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_UPDATEOVERLAY = PFND3DKMT_UPDATEOVERLAYFn?
+public typealias Pfnd3dkmtUpdateoverlay = Pfnd3dkmtUpdateoverlayFn?
 
-public fun interface PFND3DKMT_WAITFORIDLEFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtWaitforidleFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_WAITFORIDLE = PFND3DKMT_WAITFORIDLEFn?
+public typealias Pfnd3dkmtWaitforidle = Pfnd3dkmtWaitforidleFn?
 
-public fun interface PFND3DKMT_WAITFORSYNCHRONIZATIONOBJECTFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtWaitforsynchronizationobjectFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_WAITFORSYNCHRONIZATIONOBJECT = PFND3DKMT_WAITFORSYNCHRONIZATIONOBJECTFn?
+public typealias Pfnd3dkmtWaitforsynchronizationobject = Pfnd3dkmtWaitforsynchronizationobjectFn?
 
-public fun interface PFND3DKMT_WAITFORSYNCHRONIZATIONOBJECT2Fn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtWaitforsynchronizationobject2Fn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_WAITFORSYNCHRONIZATIONOBJECT2 = PFND3DKMT_WAITFORSYNCHRONIZATIONOBJECT2Fn?
+public typealias Pfnd3dkmtWaitforsynchronizationobject2 = Pfnd3dkmtWaitforsynchronizationobject2Fn?
 
-public fun interface PFND3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPUFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtWaitforsynchronizationobjectfromcpuFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU = PFND3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPUFn?
+public typealias Pfnd3dkmtWaitforsynchronizationobjectfromcpu = Pfnd3dkmtWaitforsynchronizationobjectfromcpuFn?
 
-public fun interface PFND3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMGPUFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtWaitforsynchronizationobjectfromgpuFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMGPU = PFND3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMGPUFn?
+public typealias Pfnd3dkmtWaitforsynchronizationobjectfromgpu = Pfnd3dkmtWaitforsynchronizationobjectfromgpuFn?
 
-public fun interface PFND3DKMT_WAITFORVERTICALBLANKEVENTFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtWaitforverticalblankeventFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_WAITFORVERTICALBLANKEVENT = PFND3DKMT_WAITFORVERTICALBLANKEVENTFn?
+public typealias Pfnd3dkmtWaitforverticalblankevent = Pfnd3dkmtWaitforverticalblankeventFn?
 
-public fun interface PFND3DKMT_WAITFORVERTICALBLANKEVENT2Fn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface Pfnd3dkmtWaitforverticalblankevent2Fn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PFND3DKMT_WAITFORVERTICALBLANKEVENT2 = PFND3DKMT_WAITFORVERTICALBLANKEVENT2Fn?
+public typealias Pfnd3dkmtWaitforverticalblankevent2 = Pfnd3dkmtWaitforverticalblankevent2Fn?
 
-public fun interface PFND3DNTPARSEUNKNOWNCOMMANDFn {
-    public operator fun invoke(lpvcommands: Long, lplpvreturnedcommand: Long): HRESULT
+public fun interface Pfnd3dntparseunknowncommandFn {
+    public operator fun invoke(lpvcommands: COpaquePointer?, lplpvreturnedcommand: COpaquePointer?): Hresult
 }
 
-public typealias PFND3DNTPARSEUNKNOWNCOMMAND = PFND3DNTPARSEUNKNOWNCOMMANDFn?
+public typealias Pfnd3dntparseunknowncommand = Pfnd3dntparseunknowncommandFn?
 
-public fun interface PFND3DPARSEUNKNOWNCOMMANDFn {
-    public operator fun invoke(lpvcommands: Long, lplpvreturnedcommand: Long): HRESULT
+public fun interface Pfnd3dparseunknowncommandFn {
+    public operator fun invoke(lpvcommands: COpaquePointer?, lplpvreturnedcommand: COpaquePointer?): Hresult
 }
 
-public typealias PFND3DPARSEUNKNOWNCOMMAND = PFND3DPARSEUNKNOWNCOMMANDFn?
+public typealias Pfnd3dparseunknowncommand = Pfnd3dparseunknowncommandFn?

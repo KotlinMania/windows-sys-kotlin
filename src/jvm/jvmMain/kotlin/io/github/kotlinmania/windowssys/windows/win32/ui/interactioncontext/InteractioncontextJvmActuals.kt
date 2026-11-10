@@ -2,7 +2,8 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.ui.interactioncontext
 
-import io.github.kotlinmania.windowssys.core.HRESULT
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Hresult
 
 private object WindowsWin32UiInteractioncontextJniBridge {
     init {
@@ -10,182 +11,182 @@ private object WindowsWin32UiInteractioncontextJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_interactioncontext_AddPointerInteractionContext(interactioncontext: Long, pointerid: Int): Int
+    external fun windowssys_windows_win32_ui_interactioncontext_addPointerInteractionContext(interactioncontext: Long, pointerid: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_interactioncontext_BufferPointerPacketsInteractionContext(interactioncontext: Long, entriescount: Int, pointerinfo: Long): Int
+    external fun windowssys_windows_win32_ui_interactioncontext_bufferPointerPacketsInteractionContext(interactioncontext: Long, entriescount: Int, pointerinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_interactioncontext_CreateInteractionContext(interactioncontext: Long): Int
+    external fun windowssys_windows_win32_ui_interactioncontext_createInteractionContext(interactioncontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_interactioncontext_DestroyInteractionContext(interactioncontext: Long): Int
+    external fun windowssys_windows_win32_ui_interactioncontext_destroyInteractionContext(interactioncontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_interactioncontext_GetCrossSlideParameterInteractionContext(interactioncontext: Long, threshold: Int, distance: Long): Int
+    external fun windowssys_windows_win32_ui_interactioncontext_getCrossSlideParameterInteractionContext(interactioncontext: Long, threshold: Int, distance: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_interactioncontext_GetHoldParameterInteractionContext(interactioncontext: Long, parameter: Int, value: Long): Int
+    external fun windowssys_windows_win32_ui_interactioncontext_getHoldParameterInteractionContext(interactioncontext: Long, parameter: Int, value: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_interactioncontext_GetInertiaParameterInteractionContext(interactioncontext: Long, inertiaparameter: Int, value: Long): Int
+    external fun windowssys_windows_win32_ui_interactioncontext_getInertiaParameterInteractionContext(interactioncontext: Long, inertiaparameter: Int, value: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_interactioncontext_GetInteractionConfigurationInteractionContext(interactioncontext: Long, configurationcount: Int, configuration: Long): Int
+    external fun windowssys_windows_win32_ui_interactioncontext_getInteractionConfigurationInteractionContext(interactioncontext: Long, configurationcount: Int, configuration: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_interactioncontext_GetMouseWheelParameterInteractionContext(interactioncontext: Long, parameter: Int, value: Long): Int
+    external fun windowssys_windows_win32_ui_interactioncontext_getMouseWheelParameterInteractionContext(interactioncontext: Long, parameter: Int, value: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_interactioncontext_GetPropertyInteractionContext(interactioncontext: Long, contextproperty: Int, value: Long): Int
+    external fun windowssys_windows_win32_ui_interactioncontext_getPropertyInteractionContext(interactioncontext: Long, contextproperty: Int, value: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_interactioncontext_GetStateInteractionContext(interactioncontext: Long, pointerinfo: Long, state: Long): Int
+    external fun windowssys_windows_win32_ui_interactioncontext_getStateInteractionContext(interactioncontext: Long, pointerinfo: Long, state: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_interactioncontext_GetTapParameterInteractionContext(interactioncontext: Long, parameter: Int, value: Long): Int
+    external fun windowssys_windows_win32_ui_interactioncontext_getTapParameterInteractionContext(interactioncontext: Long, parameter: Int, value: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_interactioncontext_GetTranslationParameterInteractionContext(interactioncontext: Long, parameter: Int, value: Long): Int
+    external fun windowssys_windows_win32_ui_interactioncontext_getTranslationParameterInteractionContext(interactioncontext: Long, parameter: Int, value: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_interactioncontext_ProcessBufferedPacketsInteractionContext(interactioncontext: Long): Int
+    external fun windowssys_windows_win32_ui_interactioncontext_processBufferedPacketsInteractionContext(interactioncontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_interactioncontext_ProcessInertiaInteractionContext(interactioncontext: Long): Int
+    external fun windowssys_windows_win32_ui_interactioncontext_processInertiaInteractionContext(interactioncontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_interactioncontext_ProcessPointerFramesInteractionContext(interactioncontext: Long, entriescount: Int, pointercount: Int, pointerinfo: Long): Int
+    external fun windowssys_windows_win32_ui_interactioncontext_processPointerFramesInteractionContext(interactioncontext: Long, entriescount: Int, pointercount: Int, pointerinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_interactioncontext_RegisterOutputCallbackInteractionContext(interactioncontext: Long, outputcallback: Long, clientdata: Long): Int
+    external fun windowssys_windows_win32_ui_interactioncontext_registerOutputCallbackInteractionContext(interactioncontext: Long, outputcallback: Long, clientdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_interactioncontext_RegisterOutputCallbackInteractionContext2(interactioncontext: Long, outputcallback: Long, clientdata: Long): Int
+    external fun windowssys_windows_win32_ui_interactioncontext_registerOutputCallbackInteractionContext2(interactioncontext: Long, outputcallback: Long, clientdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_interactioncontext_RemovePointerInteractionContext(interactioncontext: Long, pointerid: Int): Int
+    external fun windowssys_windows_win32_ui_interactioncontext_removePointerInteractionContext(interactioncontext: Long, pointerid: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_interactioncontext_ResetInteractionContext(interactioncontext: Long): Int
+    external fun windowssys_windows_win32_ui_interactioncontext_resetInteractionContext(interactioncontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_interactioncontext_SetCrossSlideParametersInteractionContext(interactioncontext: Long, parametercount: Int, crossslideparameters: Long): Int
+    external fun windowssys_windows_win32_ui_interactioncontext_setCrossSlideParametersInteractionContext(interactioncontext: Long, parametercount: Int, crossslideparameters: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_interactioncontext_SetHoldParameterInteractionContext(interactioncontext: Long, parameter: Int, value: Float): Int
+    external fun windowssys_windows_win32_ui_interactioncontext_setHoldParameterInteractionContext(interactioncontext: Long, parameter: Int, value: Float): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_interactioncontext_SetInertiaParameterInteractionContext(interactioncontext: Long, inertiaparameter: Int, value: Float): Int
+    external fun windowssys_windows_win32_ui_interactioncontext_setInertiaParameterInteractionContext(interactioncontext: Long, inertiaparameter: Int, value: Float): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_interactioncontext_SetInteractionConfigurationInteractionContext(interactioncontext: Long, configurationcount: Int, configuration: Long): Int
+    external fun windowssys_windows_win32_ui_interactioncontext_setInteractionConfigurationInteractionContext(interactioncontext: Long, configurationcount: Int, configuration: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_interactioncontext_SetMouseWheelParameterInteractionContext(interactioncontext: Long, parameter: Int, value: Float): Int
+    external fun windowssys_windows_win32_ui_interactioncontext_setMouseWheelParameterInteractionContext(interactioncontext: Long, parameter: Int, value: Float): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_interactioncontext_SetPivotInteractionContext(interactioncontext: Long, x: Float, y: Float, radius: Float): Int
+    external fun windowssys_windows_win32_ui_interactioncontext_setPivotInteractionContext(interactioncontext: Long, x: Float, y: Float, radius: Float): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_interactioncontext_SetPropertyInteractionContext(interactioncontext: Long, contextproperty: Int, value: Int): Int
+    external fun windowssys_windows_win32_ui_interactioncontext_setPropertyInteractionContext(interactioncontext: Long, contextproperty: Int, value: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_interactioncontext_SetTapParameterInteractionContext(interactioncontext: Long, parameter: Int, value: Float): Int
+    external fun windowssys_windows_win32_ui_interactioncontext_setTapParameterInteractionContext(interactioncontext: Long, parameter: Int, value: Float): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_interactioncontext_SetTranslationParameterInteractionContext(interactioncontext: Long, parameter: Int, value: Float): Int
+    external fun windowssys_windows_win32_ui_interactioncontext_setTranslationParameterInteractionContext(interactioncontext: Long, parameter: Int, value: Float): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_interactioncontext_StopInteractionContext(interactioncontext: Long): Int
+    external fun windowssys_windows_win32_ui_interactioncontext_stopInteractionContext(interactioncontext: Long): Int
 }
 
-public actual fun AddPointerInteractionContext(interactioncontext: HINTERACTIONCONTEXT, pointerid: UInt): HRESULT =
-    WindowsWin32UiInteractioncontextJniBridge.windowssys_windows_win32_ui_interactioncontext_AddPointerInteractionContext(interactioncontext, pointerid.toInt())
+public actual fun addPointerInteractionContext(interactioncontext: Hinteractioncontext, pointerid: UInt): Hresult =
+    WindowsWin32UiInteractioncontextJniBridge.windowssys_windows_win32_ui_interactioncontext_addPointerInteractionContext((interactioncontext?.value ?: 0L), pointerid.toInt())
 
-public actual fun BufferPointerPacketsInteractionContext(interactioncontext: HINTERACTIONCONTEXT, entriescount: UInt, pointerinfo: Long): HRESULT =
-    WindowsWin32UiInteractioncontextJniBridge.windowssys_windows_win32_ui_interactioncontext_BufferPointerPacketsInteractionContext(interactioncontext, entriescount.toInt(), pointerinfo)
+public actual fun bufferPointerPacketsInteractionContext(interactioncontext: Hinteractioncontext, entriescount: UInt, pointerinfo: COpaquePointer?): Hresult =
+    WindowsWin32UiInteractioncontextJniBridge.windowssys_windows_win32_ui_interactioncontext_bufferPointerPacketsInteractionContext((interactioncontext?.value ?: 0L), entriescount.toInt(), (pointerinfo?.value ?: 0L))
 
-public actual fun CreateInteractionContext(interactioncontext: Long): HRESULT =
-    WindowsWin32UiInteractioncontextJniBridge.windowssys_windows_win32_ui_interactioncontext_CreateInteractionContext(interactioncontext)
+public actual fun createInteractionContext(interactioncontext: COpaquePointer?): Hresult =
+    WindowsWin32UiInteractioncontextJniBridge.windowssys_windows_win32_ui_interactioncontext_createInteractionContext((interactioncontext?.value ?: 0L))
 
-public actual fun DestroyInteractionContext(interactioncontext: HINTERACTIONCONTEXT): HRESULT =
-    WindowsWin32UiInteractioncontextJniBridge.windowssys_windows_win32_ui_interactioncontext_DestroyInteractionContext(interactioncontext)
+public actual fun destroyInteractionContext(interactioncontext: Hinteractioncontext): Hresult =
+    WindowsWin32UiInteractioncontextJniBridge.windowssys_windows_win32_ui_interactioncontext_destroyInteractionContext((interactioncontext?.value ?: 0L))
 
-public actual fun GetCrossSlideParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, threshold: CROSS_SLIDE_THRESHOLD, distance: Long): HRESULT =
-    WindowsWin32UiInteractioncontextJniBridge.windowssys_windows_win32_ui_interactioncontext_GetCrossSlideParameterInteractionContext(interactioncontext, threshold, distance)
+public actual fun getCrossSlideParameterInteractionContext(interactioncontext: Hinteractioncontext, threshold: CrossSlideThreshold, distance: COpaquePointer?): Hresult =
+    WindowsWin32UiInteractioncontextJniBridge.windowssys_windows_win32_ui_interactioncontext_getCrossSlideParameterInteractionContext((interactioncontext?.value ?: 0L), threshold, (distance?.value ?: 0L))
 
-public actual fun GetHoldParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parameter: HOLD_PARAMETER, value: Long): HRESULT =
-    WindowsWin32UiInteractioncontextJniBridge.windowssys_windows_win32_ui_interactioncontext_GetHoldParameterInteractionContext(interactioncontext, parameter, value)
+public actual fun getHoldParameterInteractionContext(interactioncontext: Hinteractioncontext, parameter: HoldParameter, value: COpaquePointer?): Hresult =
+    WindowsWin32UiInteractioncontextJniBridge.windowssys_windows_win32_ui_interactioncontext_getHoldParameterInteractionContext((interactioncontext?.value ?: 0L), parameter, (value?.value ?: 0L))
 
-public actual fun GetInertiaParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, inertiaparameter: INERTIA_PARAMETER, value: Long): HRESULT =
-    WindowsWin32UiInteractioncontextJniBridge.windowssys_windows_win32_ui_interactioncontext_GetInertiaParameterInteractionContext(interactioncontext, inertiaparameter, value)
+public actual fun getInertiaParameterInteractionContext(interactioncontext: Hinteractioncontext, inertiaparameter: InertiaParameter, value: COpaquePointer?): Hresult =
+    WindowsWin32UiInteractioncontextJniBridge.windowssys_windows_win32_ui_interactioncontext_getInertiaParameterInteractionContext((interactioncontext?.value ?: 0L), inertiaparameter, (value?.value ?: 0L))
 
-public actual fun GetInteractionConfigurationInteractionContext(interactioncontext: HINTERACTIONCONTEXT, configurationcount: UInt, configuration: Long): HRESULT =
-    WindowsWin32UiInteractioncontextJniBridge.windowssys_windows_win32_ui_interactioncontext_GetInteractionConfigurationInteractionContext(interactioncontext, configurationcount.toInt(), configuration)
+public actual fun getInteractionConfigurationInteractionContext(interactioncontext: Hinteractioncontext, configurationcount: UInt, configuration: COpaquePointer?): Hresult =
+    WindowsWin32UiInteractioncontextJniBridge.windowssys_windows_win32_ui_interactioncontext_getInteractionConfigurationInteractionContext((interactioncontext?.value ?: 0L), configurationcount.toInt(), (configuration?.value ?: 0L))
 
-public actual fun GetMouseWheelParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parameter: MOUSE_WHEEL_PARAMETER, value: Long): HRESULT =
-    WindowsWin32UiInteractioncontextJniBridge.windowssys_windows_win32_ui_interactioncontext_GetMouseWheelParameterInteractionContext(interactioncontext, parameter, value)
+public actual fun getMouseWheelParameterInteractionContext(interactioncontext: Hinteractioncontext, parameter: MouseWheelParameter, value: COpaquePointer?): Hresult =
+    WindowsWin32UiInteractioncontextJniBridge.windowssys_windows_win32_ui_interactioncontext_getMouseWheelParameterInteractionContext((interactioncontext?.value ?: 0L), parameter, (value?.value ?: 0L))
 
-public actual fun GetPropertyInteractionContext(interactioncontext: HINTERACTIONCONTEXT, contextproperty: INTERACTION_CONTEXT_PROPERTY, value: Long): HRESULT =
-    WindowsWin32UiInteractioncontextJniBridge.windowssys_windows_win32_ui_interactioncontext_GetPropertyInteractionContext(interactioncontext, contextproperty, value)
+public actual fun getPropertyInteractionContext(interactioncontext: Hinteractioncontext, contextproperty: InteractionContextProperty, value: COpaquePointer?): Hresult =
+    WindowsWin32UiInteractioncontextJniBridge.windowssys_windows_win32_ui_interactioncontext_getPropertyInteractionContext((interactioncontext?.value ?: 0L), contextproperty, (value?.value ?: 0L))
 
-public actual fun GetStateInteractionContext(interactioncontext: HINTERACTIONCONTEXT, pointerinfo: Long, state: Long): HRESULT =
-    WindowsWin32UiInteractioncontextJniBridge.windowssys_windows_win32_ui_interactioncontext_GetStateInteractionContext(interactioncontext, pointerinfo, state)
+public actual fun getStateInteractionContext(interactioncontext: Hinteractioncontext, pointerinfo: COpaquePointer?, state: COpaquePointer?): Hresult =
+    WindowsWin32UiInteractioncontextJniBridge.windowssys_windows_win32_ui_interactioncontext_getStateInteractionContext((interactioncontext?.value ?: 0L), (pointerinfo?.value ?: 0L), (state?.value ?: 0L))
 
-public actual fun GetTapParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parameter: TAP_PARAMETER, value: Long): HRESULT =
-    WindowsWin32UiInteractioncontextJniBridge.windowssys_windows_win32_ui_interactioncontext_GetTapParameterInteractionContext(interactioncontext, parameter, value)
+public actual fun getTapParameterInteractionContext(interactioncontext: Hinteractioncontext, parameter: TapParameter, value: COpaquePointer?): Hresult =
+    WindowsWin32UiInteractioncontextJniBridge.windowssys_windows_win32_ui_interactioncontext_getTapParameterInteractionContext((interactioncontext?.value ?: 0L), parameter, (value?.value ?: 0L))
 
-public actual fun GetTranslationParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parameter: TRANSLATION_PARAMETER, value: Long): HRESULT =
-    WindowsWin32UiInteractioncontextJniBridge.windowssys_windows_win32_ui_interactioncontext_GetTranslationParameterInteractionContext(interactioncontext, parameter, value)
+public actual fun getTranslationParameterInteractionContext(interactioncontext: Hinteractioncontext, parameter: TranslationParameter, value: COpaquePointer?): Hresult =
+    WindowsWin32UiInteractioncontextJniBridge.windowssys_windows_win32_ui_interactioncontext_getTranslationParameterInteractionContext((interactioncontext?.value ?: 0L), parameter, (value?.value ?: 0L))
 
-public actual fun ProcessBufferedPacketsInteractionContext(interactioncontext: HINTERACTIONCONTEXT): HRESULT =
-    WindowsWin32UiInteractioncontextJniBridge.windowssys_windows_win32_ui_interactioncontext_ProcessBufferedPacketsInteractionContext(interactioncontext)
+public actual fun processBufferedPacketsInteractionContext(interactioncontext: Hinteractioncontext): Hresult =
+    WindowsWin32UiInteractioncontextJniBridge.windowssys_windows_win32_ui_interactioncontext_processBufferedPacketsInteractionContext((interactioncontext?.value ?: 0L))
 
-public actual fun ProcessInertiaInteractionContext(interactioncontext: HINTERACTIONCONTEXT): HRESULT =
-    WindowsWin32UiInteractioncontextJniBridge.windowssys_windows_win32_ui_interactioncontext_ProcessInertiaInteractionContext(interactioncontext)
+public actual fun processInertiaInteractionContext(interactioncontext: Hinteractioncontext): Hresult =
+    WindowsWin32UiInteractioncontextJniBridge.windowssys_windows_win32_ui_interactioncontext_processInertiaInteractionContext((interactioncontext?.value ?: 0L))
 
-public actual fun ProcessPointerFramesInteractionContext(interactioncontext: HINTERACTIONCONTEXT, entriescount: UInt, pointercount: UInt, pointerinfo: Long): HRESULT =
-    WindowsWin32UiInteractioncontextJniBridge.windowssys_windows_win32_ui_interactioncontext_ProcessPointerFramesInteractionContext(interactioncontext, entriescount.toInt(), pointercount.toInt(), pointerinfo)
+public actual fun processPointerFramesInteractionContext(interactioncontext: Hinteractioncontext, entriescount: UInt, pointercount: UInt, pointerinfo: COpaquePointer?): Hresult =
+    WindowsWin32UiInteractioncontextJniBridge.windowssys_windows_win32_ui_interactioncontext_processPointerFramesInteractionContext((interactioncontext?.value ?: 0L), entriescount.toInt(), pointercount.toInt(), (pointerinfo?.value ?: 0L))
 
-public actual fun RegisterOutputCallbackInteractionContext(interactioncontext: HINTERACTIONCONTEXT, outputcallback: INTERACTION_CONTEXT_OUTPUT_CALLBACK, clientdata: Long): HRESULT =
-    WindowsWin32UiInteractioncontextJniBridge.windowssys_windows_win32_ui_interactioncontext_RegisterOutputCallbackInteractionContext(interactioncontext, outputcallback.toLong(), clientdata)
+public actual fun registerOutputCallbackInteractionContext(interactioncontext: Hinteractioncontext, outputcallback: InteractionContextOutputCallback, clientdata: COpaquePointer?): Hresult =
+    WindowsWin32UiInteractioncontextJniBridge.windowssys_windows_win32_ui_interactioncontext_registerOutputCallbackInteractionContext((interactioncontext?.value ?: 0L), 0L, (clientdata?.value ?: 0L))
 
-public actual fun RegisterOutputCallbackInteractionContext2(interactioncontext: HINTERACTIONCONTEXT, outputcallback: INTERACTION_CONTEXT_OUTPUT_CALLBACK2, clientdata: Long): HRESULT =
-    WindowsWin32UiInteractioncontextJniBridge.windowssys_windows_win32_ui_interactioncontext_RegisterOutputCallbackInteractionContext2(interactioncontext, outputcallback.toLong(), clientdata)
+public actual fun registerOutputCallbackInteractionContext2(interactioncontext: Hinteractioncontext, outputcallback: InteractionContextOutputCallback2, clientdata: COpaquePointer?): Hresult =
+    WindowsWin32UiInteractioncontextJniBridge.windowssys_windows_win32_ui_interactioncontext_registerOutputCallbackInteractionContext2((interactioncontext?.value ?: 0L), 0L, (clientdata?.value ?: 0L))
 
-public actual fun RemovePointerInteractionContext(interactioncontext: HINTERACTIONCONTEXT, pointerid: UInt): HRESULT =
-    WindowsWin32UiInteractioncontextJniBridge.windowssys_windows_win32_ui_interactioncontext_RemovePointerInteractionContext(interactioncontext, pointerid.toInt())
+public actual fun removePointerInteractionContext(interactioncontext: Hinteractioncontext, pointerid: UInt): Hresult =
+    WindowsWin32UiInteractioncontextJniBridge.windowssys_windows_win32_ui_interactioncontext_removePointerInteractionContext((interactioncontext?.value ?: 0L), pointerid.toInt())
 
-public actual fun ResetInteractionContext(interactioncontext: HINTERACTIONCONTEXT): HRESULT =
-    WindowsWin32UiInteractioncontextJniBridge.windowssys_windows_win32_ui_interactioncontext_ResetInteractionContext(interactioncontext)
+public actual fun resetInteractionContext(interactioncontext: Hinteractioncontext): Hresult =
+    WindowsWin32UiInteractioncontextJniBridge.windowssys_windows_win32_ui_interactioncontext_resetInteractionContext((interactioncontext?.value ?: 0L))
 
-public actual fun SetCrossSlideParametersInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parametercount: UInt, crossslideparameters: Long): HRESULT =
-    WindowsWin32UiInteractioncontextJniBridge.windowssys_windows_win32_ui_interactioncontext_SetCrossSlideParametersInteractionContext(interactioncontext, parametercount.toInt(), crossslideparameters)
+public actual fun setCrossSlideParametersInteractionContext(interactioncontext: Hinteractioncontext, parametercount: UInt, crossslideparameters: COpaquePointer?): Hresult =
+    WindowsWin32UiInteractioncontextJniBridge.windowssys_windows_win32_ui_interactioncontext_setCrossSlideParametersInteractionContext((interactioncontext?.value ?: 0L), parametercount.toInt(), (crossslideparameters?.value ?: 0L))
 
-public actual fun SetHoldParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parameter: HOLD_PARAMETER, value: Float): HRESULT =
-    WindowsWin32UiInteractioncontextJniBridge.windowssys_windows_win32_ui_interactioncontext_SetHoldParameterInteractionContext(interactioncontext, parameter, value)
+public actual fun setHoldParameterInteractionContext(interactioncontext: Hinteractioncontext, parameter: HoldParameter, value: Float): Hresult =
+    WindowsWin32UiInteractioncontextJniBridge.windowssys_windows_win32_ui_interactioncontext_setHoldParameterInteractionContext((interactioncontext?.value ?: 0L), parameter, value)
 
-public actual fun SetInertiaParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, inertiaparameter: INERTIA_PARAMETER, value: Float): HRESULT =
-    WindowsWin32UiInteractioncontextJniBridge.windowssys_windows_win32_ui_interactioncontext_SetInertiaParameterInteractionContext(interactioncontext, inertiaparameter, value)
+public actual fun setInertiaParameterInteractionContext(interactioncontext: Hinteractioncontext, inertiaparameter: InertiaParameter, value: Float): Hresult =
+    WindowsWin32UiInteractioncontextJniBridge.windowssys_windows_win32_ui_interactioncontext_setInertiaParameterInteractionContext((interactioncontext?.value ?: 0L), inertiaparameter, value)
 
-public actual fun SetInteractionConfigurationInteractionContext(interactioncontext: HINTERACTIONCONTEXT, configurationcount: UInt, configuration: Long): HRESULT =
-    WindowsWin32UiInteractioncontextJniBridge.windowssys_windows_win32_ui_interactioncontext_SetInteractionConfigurationInteractionContext(interactioncontext, configurationcount.toInt(), configuration)
+public actual fun setInteractionConfigurationInteractionContext(interactioncontext: Hinteractioncontext, configurationcount: UInt, configuration: COpaquePointer?): Hresult =
+    WindowsWin32UiInteractioncontextJniBridge.windowssys_windows_win32_ui_interactioncontext_setInteractionConfigurationInteractionContext((interactioncontext?.value ?: 0L), configurationcount.toInt(), (configuration?.value ?: 0L))
 
-public actual fun SetMouseWheelParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parameter: MOUSE_WHEEL_PARAMETER, value: Float): HRESULT =
-    WindowsWin32UiInteractioncontextJniBridge.windowssys_windows_win32_ui_interactioncontext_SetMouseWheelParameterInteractionContext(interactioncontext, parameter, value)
+public actual fun setMouseWheelParameterInteractionContext(interactioncontext: Hinteractioncontext, parameter: MouseWheelParameter, value: Float): Hresult =
+    WindowsWin32UiInteractioncontextJniBridge.windowssys_windows_win32_ui_interactioncontext_setMouseWheelParameterInteractionContext((interactioncontext?.value ?: 0L), parameter, value)
 
-public actual fun SetPivotInteractionContext(interactioncontext: HINTERACTIONCONTEXT, x: Float, y: Float, radius: Float): HRESULT =
-    WindowsWin32UiInteractioncontextJniBridge.windowssys_windows_win32_ui_interactioncontext_SetPivotInteractionContext(interactioncontext, x, y, radius)
+public actual fun setPivotInteractionContext(interactioncontext: Hinteractioncontext, x: Float, y: Float, radius: Float): Hresult =
+    WindowsWin32UiInteractioncontextJniBridge.windowssys_windows_win32_ui_interactioncontext_setPivotInteractionContext((interactioncontext?.value ?: 0L), x, y, radius)
 
-public actual fun SetPropertyInteractionContext(interactioncontext: HINTERACTIONCONTEXT, contextproperty: INTERACTION_CONTEXT_PROPERTY, value: UInt): HRESULT =
-    WindowsWin32UiInteractioncontextJniBridge.windowssys_windows_win32_ui_interactioncontext_SetPropertyInteractionContext(interactioncontext, contextproperty, value.toInt())
+public actual fun setPropertyInteractionContext(interactioncontext: Hinteractioncontext, contextproperty: InteractionContextProperty, value: UInt): Hresult =
+    WindowsWin32UiInteractioncontextJniBridge.windowssys_windows_win32_ui_interactioncontext_setPropertyInteractionContext((interactioncontext?.value ?: 0L), contextproperty, value.toInt())
 
-public actual fun SetTapParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parameter: TAP_PARAMETER, value: Float): HRESULT =
-    WindowsWin32UiInteractioncontextJniBridge.windowssys_windows_win32_ui_interactioncontext_SetTapParameterInteractionContext(interactioncontext, parameter, value)
+public actual fun setTapParameterInteractionContext(interactioncontext: Hinteractioncontext, parameter: TapParameter, value: Float): Hresult =
+    WindowsWin32UiInteractioncontextJniBridge.windowssys_windows_win32_ui_interactioncontext_setTapParameterInteractionContext((interactioncontext?.value ?: 0L), parameter, value)
 
-public actual fun SetTranslationParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parameter: TRANSLATION_PARAMETER, value: Float): HRESULT =
-    WindowsWin32UiInteractioncontextJniBridge.windowssys_windows_win32_ui_interactioncontext_SetTranslationParameterInteractionContext(interactioncontext, parameter, value)
+public actual fun setTranslationParameterInteractionContext(interactioncontext: Hinteractioncontext, parameter: TranslationParameter, value: Float): Hresult =
+    WindowsWin32UiInteractioncontextJniBridge.windowssys_windows_win32_ui_interactioncontext_setTranslationParameterInteractionContext((interactioncontext?.value ?: 0L), parameter, value)
 
-public actual fun StopInteractionContext(interactioncontext: HINTERACTIONCONTEXT): HRESULT =
-    WindowsWin32UiInteractioncontextJniBridge.windowssys_windows_win32_ui_interactioncontext_StopInteractionContext(interactioncontext)
+public actual fun stopInteractionContext(interactioncontext: Hinteractioncontext): Hresult =
+    WindowsWin32UiInteractioncontextJniBridge.windowssys_windows_win32_ui_interactioncontext_stopInteractionContext((interactioncontext?.value ?: 0L))

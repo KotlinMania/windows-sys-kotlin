@@ -1,113 +1,114 @@
 package io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 
-public expect fun WinBioAcquireFocus(): HRESULT
+public expect fun winBioAcquireFocus(): Hresult
 
-public expect fun WinBioAsyncEnumBiometricUnits(frameworkhandle: UInt, factor: UInt): HRESULT
+public expect fun winBioAsyncEnumBiometricUnits(frameworkhandle: UInt, factor: UInt): Hresult
 
-public expect fun WinBioAsyncEnumDatabases(frameworkhandle: UInt, factor: UInt): HRESULT
+public expect fun winBioAsyncEnumDatabases(frameworkhandle: UInt, factor: UInt): Hresult
 
-public expect fun WinBioAsyncEnumServiceProviders(frameworkhandle: UInt, factor: UInt): HRESULT
+public expect fun winBioAsyncEnumServiceProviders(frameworkhandle: UInt, factor: UInt): Hresult
 
-public expect fun WinBioAsyncMonitorFrameworkChanges(frameworkhandle: UInt, changetypes: UInt): HRESULT
+public expect fun winBioAsyncMonitorFrameworkChanges(frameworkhandle: UInt, changetypes: UInt): Hresult
 
-public expect fun WinBioAsyncOpenFramework(notificationmethod: WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow: HWND, messagecode: UInt, callbackroutine: PWINBIO_ASYNC_COMPLETION_CALLBACK, userdata: Long, asynchronousopen: BOOL, frameworkhandle: Long): HRESULT
+public expect fun winBioAsyncOpenFramework(notificationmethod: WinbioAsyncNotificationMethod, targetwindow: Hwnd, messagecode: UInt, callbackroutine: PwinbioAsyncCompletionCallback, userdata: COpaquePointer?, asynchronousopen: Bool, frameworkhandle: COpaquePointer?): Hresult
 
-public expect fun WinBioAsyncOpenSession(factor: UInt, pooltype: WINBIO_POOL, flags: UInt, unitarray: Long, unitcount: ULong, databaseid: Long, notificationmethod: WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow: HWND, messagecode: UInt, callbackroutine: PWINBIO_ASYNC_COMPLETION_CALLBACK, userdata: Long, asynchronousopen: BOOL, sessionhandle: Long): HRESULT
+public expect fun winBioAsyncOpenSession(factor: UInt, pooltype: WinbioPool, flags: UInt, unitarray: COpaquePointer?, unitcount: ULong, databaseid: COpaquePointer?, notificationmethod: WinbioAsyncNotificationMethod, targetwindow: Hwnd, messagecode: UInt, callbackroutine: PwinbioAsyncCompletionCallback, userdata: COpaquePointer?, asynchronousopen: Bool, sessionhandle: COpaquePointer?): Hresult
 
-public expect fun WinBioCancel(sessionhandle: UInt): HRESULT
+public expect fun winBioCancel(sessionhandle: UInt): Hresult
 
-public expect fun WinBioCaptureSample(sessionhandle: UInt, purpose: UByte, flags: UByte, unitid: Long, sample: Long, samplesize: Long, rejectdetail: Long): HRESULT
+public expect fun winBioCaptureSample(sessionhandle: UInt, purpose: UByte, flags: UByte, unitid: COpaquePointer?, sample: COpaquePointer?, samplesize: COpaquePointer?, rejectdetail: COpaquePointer?): Hresult
 
-public expect fun WinBioCaptureSampleWithCallback(sessionhandle: UInt, purpose: UByte, flags: UByte, capturecallback: PWINBIO_CAPTURE_CALLBACK, capturecallbackcontext: Long): HRESULT
+public expect fun winBioCaptureSampleWithCallback(sessionhandle: UInt, purpose: UByte, flags: UByte, capturecallback: PwinbioCaptureCallback, capturecallbackcontext: COpaquePointer?): Hresult
 
-public expect fun WinBioCloseFramework(frameworkhandle: UInt): HRESULT
+public expect fun winBioCloseFramework(frameworkhandle: UInt): Hresult
 
-public expect fun WinBioCloseSession(sessionhandle: UInt): HRESULT
+public expect fun winBioCloseSession(sessionhandle: UInt): Hresult
 
-public expect fun WinBioControlUnit(sessionhandle: UInt, unitid: UInt, component: WINBIO_COMPONENT, controlcode: UInt, sendbuffer: Long, sendbuffersize: ULong, receivebuffer: Long, receivebuffersize: ULong, receivedatasize: Long, operationstatus: Long): HRESULT
+public expect fun winBioControlUnit(sessionhandle: UInt, unitid: UInt, component: WinbioComponent, controlcode: UInt, sendbuffer: COpaquePointer?, sendbuffersize: ULong, receivebuffer: COpaquePointer?, receivebuffersize: ULong, receivedatasize: COpaquePointer?, operationstatus: COpaquePointer?): Hresult
 
-public expect fun WinBioControlUnitPrivileged(sessionhandle: UInt, unitid: UInt, component: WINBIO_COMPONENT, controlcode: UInt, sendbuffer: Long, sendbuffersize: ULong, receivebuffer: Long, receivebuffersize: ULong, receivedatasize: Long, operationstatus: Long): HRESULT
+public expect fun winBioControlUnitPrivileged(sessionhandle: UInt, unitid: UInt, component: WinbioComponent, controlcode: UInt, sendbuffer: COpaquePointer?, sendbuffersize: ULong, receivebuffer: COpaquePointer?, receivebuffersize: ULong, receivedatasize: COpaquePointer?, operationstatus: COpaquePointer?): Hresult
 
-public expect fun WinBioDeleteTemplate(sessionhandle: UInt, unitid: UInt, identity: Long, subfactor: UByte): HRESULT
+public expect fun winBioDeleteTemplate(sessionhandle: UInt, unitid: UInt, identity: COpaquePointer?, subfactor: UByte): Hresult
 
-public expect fun WinBioEnrollBegin(sessionhandle: UInt, subfactor: UByte, unitid: UInt): HRESULT
+public expect fun winBioEnrollBegin(sessionhandle: UInt, subfactor: UByte, unitid: UInt): Hresult
 
-public expect fun WinBioEnrollCapture(sessionhandle: UInt, rejectdetail: Long): HRESULT
+public expect fun winBioEnrollCapture(sessionhandle: UInt, rejectdetail: COpaquePointer?): Hresult
 
-public expect fun WinBioEnrollCaptureWithCallback(sessionhandle: UInt, enrollcallback: PWINBIO_ENROLL_CAPTURE_CALLBACK, enrollcallbackcontext: Long): HRESULT
+public expect fun winBioEnrollCaptureWithCallback(sessionhandle: UInt, enrollcallback: PwinbioEnrollCaptureCallback, enrollcallbackcontext: COpaquePointer?): Hresult
 
-public expect fun WinBioEnrollCommit(sessionhandle: UInt, identity: Long, isnewtemplate: Long): HRESULT
+public expect fun winBioEnrollCommit(sessionhandle: UInt, identity: COpaquePointer?, isnewtemplate: COpaquePointer?): Hresult
 
-public expect fun WinBioEnrollDiscard(sessionhandle: UInt): HRESULT
+public expect fun winBioEnrollDiscard(sessionhandle: UInt): Hresult
 
-public expect fun WinBioEnrollSelect(sessionhandle: UInt, selectorvalue: ULong): HRESULT
+public expect fun winBioEnrollSelect(sessionhandle: UInt, selectorvalue: ULong): Hresult
 
-public expect fun WinBioEnumBiometricUnits(factor: UInt, unitschemaarray: Long, unitcount: Long): HRESULT
+public expect fun winBioEnumBiometricUnits(factor: UInt, unitschemaarray: COpaquePointer?, unitcount: COpaquePointer?): Hresult
 
-public expect fun WinBioEnumDatabases(factor: UInt, storageschemaarray: Long, storagecount: Long): HRESULT
+public expect fun winBioEnumDatabases(factor: UInt, storageschemaarray: COpaquePointer?, storagecount: COpaquePointer?): Hresult
 
-public expect fun WinBioEnumEnrollments(sessionhandle: UInt, unitid: UInt, identity: Long, subfactorarray: Long, subfactorcount: Long): HRESULT
+public expect fun winBioEnumEnrollments(sessionhandle: UInt, unitid: UInt, identity: COpaquePointer?, subfactorarray: COpaquePointer?, subfactorcount: COpaquePointer?): Hresult
 
-public expect fun WinBioEnumServiceProviders(factor: UInt, bspschemaarray: Long, bspcount: Long): HRESULT
+public expect fun winBioEnumServiceProviders(factor: UInt, bspschemaarray: COpaquePointer?, bspcount: COpaquePointer?): Hresult
 
-public expect fun WinBioFree(address: Long): HRESULT
+public expect fun winBioFree(address: COpaquePointer?): Hresult
 
-public expect fun WinBioGetCredentialState(identity: WINBIO_IDENTITY, type: WINBIO_CREDENTIAL_TYPE, credentialstate: Long): HRESULT
+public expect fun winBioGetCredentialState(identity: WinbioIdentity, type: WinbioCredentialType, credentialstate: COpaquePointer?): Hresult
 
-public expect fun WinBioGetDomainLogonSetting(value: Long, source: Long)
+public expect fun winBioGetDomainLogonSetting(value: COpaquePointer?, source: COpaquePointer?)
 
-public expect fun WinBioGetEnabledSetting(value: Long, source: Long)
+public expect fun winBioGetEnabledSetting(value: COpaquePointer?, source: COpaquePointer?)
 
-public expect fun WinBioGetEnrolledFactors(accountowner: Long, enrolledfactors: Long): HRESULT
+public expect fun winBioGetEnrolledFactors(accountowner: COpaquePointer?, enrolledfactors: COpaquePointer?): Hresult
 
-public expect fun WinBioGetLogonSetting(value: Long, source: Long)
+public expect fun winBioGetLogonSetting(value: COpaquePointer?, source: COpaquePointer?)
 
-public expect fun WinBioGetProperty(sessionhandle: UInt, propertytype: UInt, propertyid: UInt, unitid: UInt, identity: Long, subfactor: UByte, propertybuffer: Long, propertybuffersize: Long): HRESULT
+public expect fun winBioGetProperty(sessionhandle: UInt, propertytype: UInt, propertyid: UInt, unitid: UInt, identity: COpaquePointer?, subfactor: UByte, propertybuffer: COpaquePointer?, propertybuffersize: COpaquePointer?): Hresult
 
-public expect fun WinBioIdentify(sessionhandle: UInt, unitid: Long, identity: Long, subfactor: Long, rejectdetail: Long): HRESULT
+public expect fun winBioIdentify(sessionhandle: UInt, unitid: COpaquePointer?, identity: COpaquePointer?, subfactor: COpaquePointer?, rejectdetail: COpaquePointer?): Hresult
 
-public expect fun WinBioIdentifyWithCallback(sessionhandle: UInt, identifycallback: PWINBIO_IDENTIFY_CALLBACK, identifycallbackcontext: Long): HRESULT
+public expect fun winBioIdentifyWithCallback(sessionhandle: UInt, identifycallback: PwinbioIdentifyCallback, identifycallbackcontext: COpaquePointer?): Hresult
 
-public expect fun WinBioImproveBegin(sessionhandle: UInt, unitid: UInt): HRESULT
+public expect fun winBioImproveBegin(sessionhandle: UInt, unitid: UInt): Hresult
 
-public expect fun WinBioImproveEnd(sessionhandle: UInt): HRESULT
+public expect fun winBioImproveEnd(sessionhandle: UInt): Hresult
 
-public expect fun WinBioLocateSensor(sessionhandle: UInt, unitid: Long): HRESULT
+public expect fun winBioLocateSensor(sessionhandle: UInt, unitid: COpaquePointer?): Hresult
 
-public expect fun WinBioLocateSensorWithCallback(sessionhandle: UInt, locatecallback: PWINBIO_LOCATE_SENSOR_CALLBACK, locatecallbackcontext: Long): HRESULT
+public expect fun winBioLocateSensorWithCallback(sessionhandle: UInt, locatecallback: PwinbioLocateSensorCallback, locatecallbackcontext: COpaquePointer?): Hresult
 
-public expect fun WinBioLockUnit(sessionhandle: UInt, unitid: UInt): HRESULT
+public expect fun winBioLockUnit(sessionhandle: UInt, unitid: UInt): Hresult
 
-public expect fun WinBioLogonIdentifiedUser(sessionhandle: UInt): HRESULT
+public expect fun winBioLogonIdentifiedUser(sessionhandle: UInt): Hresult
 
-public expect fun WinBioMonitorPresence(sessionhandle: UInt, unitid: UInt): HRESULT
+public expect fun winBioMonitorPresence(sessionhandle: UInt, unitid: UInt): Hresult
 
-public expect fun WinBioOpenSession(factor: UInt, pooltype: WINBIO_POOL, flags: UInt, unitarray: Long, unitcount: ULong, databaseid: Long, sessionhandle: Long): HRESULT
+public expect fun winBioOpenSession(factor: UInt, pooltype: WinbioPool, flags: UInt, unitarray: COpaquePointer?, unitcount: ULong, databaseid: COpaquePointer?, sessionhandle: COpaquePointer?): Hresult
 
-public expect fun WinBioRegisterEventMonitor(sessionhandle: UInt, eventmask: UInt, eventcallback: PWINBIO_EVENT_CALLBACK, eventcallbackcontext: Long): HRESULT
+public expect fun winBioRegisterEventMonitor(sessionhandle: UInt, eventmask: UInt, eventcallback: PwinbioEventCallback, eventcallbackcontext: COpaquePointer?): Hresult
 
-public expect fun WinBioReleaseFocus(): HRESULT
+public expect fun winBioReleaseFocus(): Hresult
 
-public expect fun WinBioRemoveAllCredentials(): HRESULT
+public expect fun winBioRemoveAllCredentials(): Hresult
 
-public expect fun WinBioRemoveAllDomainCredentials(): HRESULT
+public expect fun winBioRemoveAllDomainCredentials(): Hresult
 
-public expect fun WinBioRemoveCredential(identity: WINBIO_IDENTITY, type: WINBIO_CREDENTIAL_TYPE): HRESULT
+public expect fun winBioRemoveCredential(identity: WinbioIdentity, type: WinbioCredentialType): Hresult
 
-public expect fun WinBioSetCredential(type: WINBIO_CREDENTIAL_TYPE, credential: Long, credentialsize: ULong, format: WINBIO_CREDENTIAL_FORMAT): HRESULT
+public expect fun winBioSetCredential(type: WinbioCredentialType, credential: COpaquePointer?, credentialsize: ULong, format: WinbioCredentialFormat): Hresult
 
-public expect fun WinBioSetProperty(sessionhandle: UInt, propertytype: UInt, propertyid: UInt, unitid: UInt, identity: Long, subfactor: UByte, propertybuffer: Long, propertybuffersize: ULong): HRESULT
+public expect fun winBioSetProperty(sessionhandle: UInt, propertytype: UInt, propertyid: UInt, unitid: UInt, identity: COpaquePointer?, subfactor: UByte, propertybuffer: COpaquePointer?, propertybuffersize: ULong): Hresult
 
-public expect fun WinBioUnlockUnit(sessionhandle: UInt, unitid: UInt): HRESULT
+public expect fun winBioUnlockUnit(sessionhandle: UInt, unitid: UInt): Hresult
 
-public expect fun WinBioUnregisterEventMonitor(sessionhandle: UInt): HRESULT
+public expect fun winBioUnregisterEventMonitor(sessionhandle: UInt): Hresult
 
-public expect fun WinBioVerify(sessionhandle: UInt, identity: Long, subfactor: UByte, unitid: Long, match: Long, rejectdetail: Long): HRESULT
+public expect fun winBioVerify(sessionhandle: UInt, identity: COpaquePointer?, subfactor: UByte, unitid: COpaquePointer?, match: COpaquePointer?, rejectdetail: COpaquePointer?): Hresult
 
-public expect fun WinBioVerifyWithCallback(sessionhandle: UInt, identity: Long, subfactor: UByte, verifycallback: PWINBIO_VERIFY_CALLBACK, verifycallbackcontext: Long): HRESULT
+public expect fun winBioVerifyWithCallback(sessionhandle: UInt, identity: COpaquePointer?, subfactor: UByte, verifycallback: PwinbioVerifyCallback, verifycallbackcontext: COpaquePointer?): Hresult
 
-public expect fun WinBioWait(sessionhandle: UInt): HRESULT
+public expect fun winBioWait(sessionhandle: UInt): Hresult

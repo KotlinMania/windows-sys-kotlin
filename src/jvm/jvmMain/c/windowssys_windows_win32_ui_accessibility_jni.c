@@ -18,7 +18,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1AccSetRunningUtilityState(JNIEnv* km_env, jclass km_clazz, jlong hwndapp, jint dwutilitystatemask, jint dwutilitystate) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1accSetRunningUtilityState(JNIEnv* km_env, jclass km_clazz, jlong hwndapp, jint dwutilitystatemask, jint dwutilitystate) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -38,7 +38,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1AccessibleChildren(JNIEnv* km_env, jclass km_clazz, jlong pacccontainer, jint ichildstart, jint cchildren, jlong rgvarchildren, jlong pcobtained) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1accessibleChildren(JNIEnv* km_env, jclass km_clazz, jlong pacccontainer, jint ichildstart, jint cchildren, jlong rgvarchildren, jlong pcobtained) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -60,7 +60,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1AccessibleObjectFromEvent(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint dwid, jint dwchildid, jlong ppacc, jlong pvarchild) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1accessibleObjectFromEvent(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint dwid, jint dwchildid, jlong ppacc, jlong pvarchild) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -82,7 +82,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1AccessibleObjectFromWindow(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint dwid, jlong riid, jlong ppvobject) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1accessibleObjectFromWindow(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint dwid, jlong riid, jlong ppvobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -103,7 +103,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1CreateStdAccessibleObject(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint idobject, jlong riid, jlong ppvobject) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1createStdAccessibleObject(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint idobject, jlong riid, jlong ppvobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -124,7 +124,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1CreateStdAccessibleProxyA(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong pclassname, jint idobject, jlong riid, jlong ppvobject) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1createStdAccessibleProxyA(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong pclassname, jint idobject, jlong riid, jlong ppvobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -146,7 +146,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1CreateStdAccessibleProxyW(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong pclassname, jint idobject, jlong riid, jlong ppvobject) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1createStdAccessibleProxyW(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong pclassname, jint idobject, jlong riid, jlong ppvobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -168,7 +168,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1DockPattern_1SetDockPosition(JNIEnv* km_env, jclass km_clazz, jlong hobj, jint dockposition) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1dockPatternSetDockPosition(JNIEnv* km_env, jclass km_clazz, jlong hobj, jint dockposition) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -187,7 +187,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1ExpandCollapsePattern_1Collapse(JNIEnv* km_env, jclass km_clazz, jlong hobj) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1expandCollapsePatternCollapse(JNIEnv* km_env, jclass km_clazz, jlong hobj) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -205,7 +205,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1ExpandCollapsePattern_1Expand(JNIEnv* km_env, jclass km_clazz, jlong hobj) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1expandCollapsePatternExpand(JNIEnv* km_env, jclass km_clazz, jlong hobj) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -223,7 +223,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1GetOleaccVersionInfo(JNIEnv* km_env, jclass km_clazz, jlong pver, jlong pbuild) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1getOleaccVersionInfo(JNIEnv* km_env, jclass km_clazz, jlong pver, jlong pbuild) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -240,7 +240,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1GetRoleTextA(JNIEnv* km_env, jclass km_clazz, jint lrole, jlong lpszrole, jint cchrolemax) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1getRoleTextA(JNIEnv* km_env, jclass km_clazz, jint lrole, jlong lpszrole, jint cchrolemax) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -260,7 +260,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1GetRoleTextW(JNIEnv* km_env, jclass km_clazz, jint lrole, jlong lpszrole, jint cchrolemax) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1getRoleTextW(JNIEnv* km_env, jclass km_clazz, jint lrole, jlong lpszrole, jint cchrolemax) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -280,7 +280,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1GetStateTextA(JNIEnv* km_env, jclass km_clazz, jint lstatebit, jlong lpszstate, jint cchstate) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1getStateTextA(JNIEnv* km_env, jclass km_clazz, jint lstatebit, jlong lpszstate, jint cchstate) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -300,7 +300,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1GetStateTextW(JNIEnv* km_env, jclass km_clazz, jint lstatebit, jlong lpszstate, jint cchstate) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1getStateTextW(JNIEnv* km_env, jclass km_clazz, jint lstatebit, jlong lpszstate, jint cchstate) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -320,7 +320,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1GridPattern_1GetItem(JNIEnv* km_env, jclass km_clazz, jlong hobj, jint row, jint column, jlong presult) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1gridPatternGetItem(JNIEnv* km_env, jclass km_clazz, jlong hobj, jint row, jint column, jlong presult) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -341,7 +341,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1InvokePattern_1Invoke(JNIEnv* km_env, jclass km_clazz, jlong hobj) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1invokePatternInvoke(JNIEnv* km_env, jclass km_clazz, jlong hobj) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -359,7 +359,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1IsWinEventHookInstalled(JNIEnv* km_env, jclass km_clazz, jint event) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1isWinEventHookInstalled(JNIEnv* km_env, jclass km_clazz, jint event) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -377,7 +377,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1LegacyIAccessiblePattern_1DoDefaultAction(JNIEnv* km_env, jclass km_clazz, jlong hobj) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1legacyIaccessiblePatternDoDefaultAction(JNIEnv* km_env, jclass km_clazz, jlong hobj) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -395,7 +395,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1LegacyIAccessiblePattern_1GetIAccessible(JNIEnv* km_env, jclass km_clazz, jlong hobj, jlong paccessible) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1legacyIaccessiblePatternGetIaccessible(JNIEnv* km_env, jclass km_clazz, jlong hobj, jlong paccessible) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -414,7 +414,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1LegacyIAccessiblePattern_1Select(JNIEnv* km_env, jclass km_clazz, jlong hobj, jint flagsselect) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1legacyIaccessiblePatternSelect(JNIEnv* km_env, jclass km_clazz, jlong hobj, jint flagsselect) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -433,7 +433,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1LegacyIAccessiblePattern_1SetValue(JNIEnv* km_env, jclass km_clazz, jlong hobj, jlong szvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1legacyIaccessiblePatternSetValue(JNIEnv* km_env, jclass km_clazz, jlong hobj, jlong szvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -452,7 +452,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1LresultFromObject(JNIEnv* km_env, jclass km_clazz, jlong riid, jlong wparam, jlong punk) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1lresultFromObject(JNIEnv* km_env, jclass km_clazz, jlong riid, jlong wparam, jlong punk) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -472,7 +472,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_a
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1MultipleViewPattern_1GetViewName(JNIEnv* km_env, jclass km_clazz, jlong hobj, jint viewid, jlong ppstr) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1multipleViewPatternGetViewName(JNIEnv* km_env, jclass km_clazz, jlong hobj, jint viewid, jlong ppstr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -492,7 +492,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1MultipleViewPattern_1SetCurrentView(JNIEnv* km_env, jclass km_clazz, jlong hobj, jint viewid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1multipleViewPatternSetCurrentView(JNIEnv* km_env, jclass km_clazz, jlong hobj, jint viewid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -511,7 +511,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1NotifyWinEvent(JNIEnv* km_env, jclass km_clazz, jint event, jlong hwnd, jint idobject, jint idchild) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1notifyWinEvent(JNIEnv* km_env, jclass km_clazz, jint event, jlong hwnd, jint idobject, jint idchild) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -530,7 +530,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1ObjectFromLresult(JNIEnv* km_env, jclass km_clazz, jlong lresult, jlong riid, jlong wparam, jlong ppvobject) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1objectFromLresult(JNIEnv* km_env, jclass km_clazz, jlong lresult, jlong riid, jlong wparam, jlong ppvobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -551,7 +551,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1RangeValuePattern_1SetValue(JNIEnv* km_env, jclass km_clazz, jlong hobj, jdouble val) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1rangeValuePatternSetValue(JNIEnv* km_env, jclass km_clazz, jlong hobj, jdouble val) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -570,7 +570,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1RegisterPointerInputTarget(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint pointertype) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1registerPointerInputTarget(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint pointertype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -589,7 +589,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1RegisterPointerInputTargetEx(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint pointertype, jint fobserve) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1registerPointerInputTargetEx(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint pointertype, jint fobserve) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -609,7 +609,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1ScrollItemPattern_1ScrollIntoView(JNIEnv* km_env, jclass km_clazz, jlong hobj) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1scrollItemPatternScrollIntoView(JNIEnv* km_env, jclass km_clazz, jlong hobj) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -627,7 +627,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1ScrollPattern_1Scroll(JNIEnv* km_env, jclass km_clazz, jlong hobj, jint horizontalamount, jint verticalamount) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1scrollPatternScroll(JNIEnv* km_env, jclass km_clazz, jlong hobj, jint horizontalamount, jint verticalamount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -647,7 +647,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1ScrollPattern_1SetScrollPercent(JNIEnv* km_env, jclass km_clazz, jlong hobj, jdouble horizontalpercent, jdouble verticalpercent) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1scrollPatternSetScrollPercent(JNIEnv* km_env, jclass km_clazz, jlong hobj, jdouble horizontalpercent, jdouble verticalpercent) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -667,7 +667,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1SelectionItemPattern_1AddToSelection(JNIEnv* km_env, jclass km_clazz, jlong hobj) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1selectionItemPatternAddToSelection(JNIEnv* km_env, jclass km_clazz, jlong hobj) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -685,7 +685,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1SelectionItemPattern_1RemoveFromSelection(JNIEnv* km_env, jclass km_clazz, jlong hobj) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1selectionItemPatternRemoveFromSelection(JNIEnv* km_env, jclass km_clazz, jlong hobj) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -703,7 +703,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1SelectionItemPattern_1Select(JNIEnv* km_env, jclass km_clazz, jlong hobj) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1selectionItemPatternSelect(JNIEnv* km_env, jclass km_clazz, jlong hobj) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -721,7 +721,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1SetWinEventHook(JNIEnv* km_env, jclass km_clazz, jint eventmin, jint eventmax, jlong hmodwineventproc, jlong pfnwineventproc, jint idprocess, jint idthread, jint dwflags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1setWinEventHook(JNIEnv* km_env, jclass km_clazz, jint eventmin, jint eventmax, jlong hmodwineventproc, jlong pfnwineventproc, jint idprocess, jint idthread, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -745,7 +745,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_a
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1SynchronizedInputPattern_1Cancel(JNIEnv* km_env, jclass km_clazz, jlong hobj) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1synchronizedInputPatternCancel(JNIEnv* km_env, jclass km_clazz, jlong hobj) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -763,7 +763,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1SynchronizedInputPattern_1StartListening(JNIEnv* km_env, jclass km_clazz, jlong hobj, jint inputtype) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1synchronizedInputPatternStartListening(JNIEnv* km_env, jclass km_clazz, jlong hobj, jint inputtype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -782,7 +782,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1TextPattern_1GetSelection(JNIEnv* km_env, jclass km_clazz, jlong hobj, jlong pretval) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1textPatternGetSelection(JNIEnv* km_env, jclass km_clazz, jlong hobj, jlong pretval) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -801,7 +801,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1TextPattern_1GetVisibleRanges(JNIEnv* km_env, jclass km_clazz, jlong hobj, jlong pretval) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1textPatternGetVisibleRanges(JNIEnv* km_env, jclass km_clazz, jlong hobj, jlong pretval) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -820,7 +820,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1TextPattern_1RangeFromChild(JNIEnv* km_env, jclass km_clazz, jlong hobj, jlong hnodechild, jlong pretval) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1textPatternRangeFromChild(JNIEnv* km_env, jclass km_clazz, jlong hobj, jlong hnodechild, jlong pretval) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -840,7 +840,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1TextPattern_1get_1DocumentRange(JNIEnv* km_env, jclass km_clazz, jlong hobj, jlong pretval) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1textPatternGetDocumentRange(JNIEnv* km_env, jclass km_clazz, jlong hobj, jlong pretval) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -859,7 +859,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1TextPattern_1get_1SupportedTextSelection(JNIEnv* km_env, jclass km_clazz, jlong hobj, jlong pretval) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1textPatternGetSupportedTextSelection(JNIEnv* km_env, jclass km_clazz, jlong hobj, jlong pretval) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -878,7 +878,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1TextRange_1AddToSelection(JNIEnv* km_env, jclass km_clazz, jlong hobj) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1textRangeAddToSelection(JNIEnv* km_env, jclass km_clazz, jlong hobj) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -896,7 +896,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1TextRange_1Clone(JNIEnv* km_env, jclass km_clazz, jlong hobj, jlong pretval) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1textRangeClone(JNIEnv* km_env, jclass km_clazz, jlong hobj, jlong pretval) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -915,7 +915,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1TextRange_1Compare(JNIEnv* km_env, jclass km_clazz, jlong hobj, jlong range, jlong pretval) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1textRangeCompare(JNIEnv* km_env, jclass km_clazz, jlong hobj, jlong range, jlong pretval) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -935,7 +935,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1TextRange_1CompareEndpoints(JNIEnv* km_env, jclass km_clazz, jlong hobj, jint endpoint, jlong targetrange, jint targetendpoint, jlong pretval) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1textRangeCompareEndpoints(JNIEnv* km_env, jclass km_clazz, jlong hobj, jint endpoint, jlong targetrange, jint targetendpoint, jlong pretval) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -957,7 +957,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1TextRange_1ExpandToEnclosingUnit(JNIEnv* km_env, jclass km_clazz, jlong hobj, jint unit) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1textRangeExpandToEnclosingUnit(JNIEnv* km_env, jclass km_clazz, jlong hobj, jint unit) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -976,7 +976,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1TextRange_1FindText(JNIEnv* km_env, jclass km_clazz, jlong hobj, jlong text, jint backward, jint ignorecase, jlong pretval) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1textRangeFindText(JNIEnv* km_env, jclass km_clazz, jlong hobj, jlong text, jint backward, jint ignorecase, jlong pretval) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -998,7 +998,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1TextRange_1GetAttributeValue(JNIEnv* km_env, jclass km_clazz, jlong hobj, jint attributeid, jlong pretval) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1textRangeGetAttributeValue(JNIEnv* km_env, jclass km_clazz, jlong hobj, jint attributeid, jlong pretval) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1018,7 +1018,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1TextRange_1GetBoundingRectangles(JNIEnv* km_env, jclass km_clazz, jlong hobj, jlong pretval) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1textRangeGetBoundingRectangles(JNIEnv* km_env, jclass km_clazz, jlong hobj, jlong pretval) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1037,7 +1037,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1TextRange_1GetChildren(JNIEnv* km_env, jclass km_clazz, jlong hobj, jlong pretval) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1textRangeGetChildren(JNIEnv* km_env, jclass km_clazz, jlong hobj, jlong pretval) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1056,7 +1056,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1TextRange_1GetEnclosingElement(JNIEnv* km_env, jclass km_clazz, jlong hobj, jlong pretval) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1textRangeGetEnclosingElement(JNIEnv* km_env, jclass km_clazz, jlong hobj, jlong pretval) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1075,7 +1075,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1TextRange_1GetText(JNIEnv* km_env, jclass km_clazz, jlong hobj, jint maxlength, jlong pretval) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1textRangeGetText(JNIEnv* km_env, jclass km_clazz, jlong hobj, jint maxlength, jlong pretval) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1095,7 +1095,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1TextRange_1Move(JNIEnv* km_env, jclass km_clazz, jlong hobj, jint unit, jint count, jlong pretval) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1textRangeMove(JNIEnv* km_env, jclass km_clazz, jlong hobj, jint unit, jint count, jlong pretval) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1116,7 +1116,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1TextRange_1MoveEndpointByRange(JNIEnv* km_env, jclass km_clazz, jlong hobj, jint endpoint, jlong targetrange, jint targetendpoint) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1textRangeMoveEndpointByRange(JNIEnv* km_env, jclass km_clazz, jlong hobj, jint endpoint, jlong targetrange, jint targetendpoint) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1137,7 +1137,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1TextRange_1MoveEndpointByUnit(JNIEnv* km_env, jclass km_clazz, jlong hobj, jint endpoint, jint unit, jint count, jlong pretval) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1textRangeMoveEndpointByUnit(JNIEnv* km_env, jclass km_clazz, jlong hobj, jint endpoint, jint unit, jint count, jlong pretval) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1159,7 +1159,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1TextRange_1RemoveFromSelection(JNIEnv* km_env, jclass km_clazz, jlong hobj) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1textRangeRemoveFromSelection(JNIEnv* km_env, jclass km_clazz, jlong hobj) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1177,7 +1177,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1TextRange_1ScrollIntoView(JNIEnv* km_env, jclass km_clazz, jlong hobj, jint aligntotop) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1textRangeScrollIntoView(JNIEnv* km_env, jclass km_clazz, jlong hobj, jint aligntotop) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1196,7 +1196,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1TextRange_1Select(JNIEnv* km_env, jclass km_clazz, jlong hobj) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1textRangeSelect(JNIEnv* km_env, jclass km_clazz, jlong hobj) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1214,7 +1214,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1TogglePattern_1Toggle(JNIEnv* km_env, jclass km_clazz, jlong hobj) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1togglePatternToggle(JNIEnv* km_env, jclass km_clazz, jlong hobj) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1232,7 +1232,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1TransformPattern_1Move(JNIEnv* km_env, jclass km_clazz, jlong hobj, jdouble x, jdouble y) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1transformPatternMove(JNIEnv* km_env, jclass km_clazz, jlong hobj, jdouble x, jdouble y) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1252,7 +1252,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1TransformPattern_1Resize(JNIEnv* km_env, jclass km_clazz, jlong hobj, jdouble width, jdouble height) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1transformPatternResize(JNIEnv* km_env, jclass km_clazz, jlong hobj, jdouble width, jdouble height) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1272,7 +1272,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1TransformPattern_1Rotate(JNIEnv* km_env, jclass km_clazz, jlong hobj, jdouble degrees) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1transformPatternRotate(JNIEnv* km_env, jclass km_clazz, jlong hobj, jdouble degrees) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1291,7 +1291,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1UiaAddEvent(JNIEnv* km_env, jclass km_clazz, jlong hnode, jint eventid, jlong pcallback, jint scope, jlong pproperties, jint cproperties, jlong prequest, jlong phevent) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1uiaAddEvent(JNIEnv* km_env, jclass km_clazz, jlong hnode, jint eventid, jlong pcallback, jint scope, jlong pproperties, jint cproperties, jlong prequest, jlong phevent) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1316,7 +1316,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1UiaClientsAreListening(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1uiaClientsAreListening(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1333,7 +1333,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1UiaDisconnectAllProviders(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1uiaDisconnectAllProviders(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1350,7 +1350,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1UiaDisconnectProvider(JNIEnv* km_env, jclass km_clazz, jlong pprovider) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1uiaDisconnectProvider(JNIEnv* km_env, jclass km_clazz, jlong pprovider) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1368,7 +1368,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1UiaEventAddWindow(JNIEnv* km_env, jclass km_clazz, jlong hevent, jlong hwnd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1uiaEventAddWindow(JNIEnv* km_env, jclass km_clazz, jlong hevent, jlong hwnd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1387,7 +1387,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1UiaEventRemoveWindow(JNIEnv* km_env, jclass km_clazz, jlong hevent, jlong hwnd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1uiaEventRemoveWindow(JNIEnv* km_env, jclass km_clazz, jlong hevent, jlong hwnd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1406,7 +1406,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1UiaFind(JNIEnv* km_env, jclass km_clazz, jlong hnode, jlong pparams, jlong prequest, jlong pprequesteddata, jlong ppoffsets, jlong pptreestructures) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1uiaFind(JNIEnv* km_env, jclass km_clazz, jlong hnode, jlong pparams, jlong prequest, jlong pprequesteddata, jlong ppoffsets, jlong pptreestructures) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1429,7 +1429,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1UiaGetErrorDescription(JNIEnv* km_env, jclass km_clazz, jlong pdescription) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1uiaGetErrorDescription(JNIEnv* km_env, jclass km_clazz, jlong pdescription) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1447,7 +1447,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1UiaGetPatternProvider(JNIEnv* km_env, jclass km_clazz, jlong hnode, jint patternid, jlong phobj) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1uiaGetPatternProvider(JNIEnv* km_env, jclass km_clazz, jlong hnode, jint patternid, jlong phobj) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1467,7 +1467,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1UiaGetPropertyValue(JNIEnv* km_env, jclass km_clazz, jlong hnode, jint propertyid, jlong pvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1uiaGetPropertyValue(JNIEnv* km_env, jclass km_clazz, jlong hnode, jint propertyid, jlong pvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1487,7 +1487,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1UiaGetReservedMixedAttributeValue(JNIEnv* km_env, jclass km_clazz, jlong punkmixedattributevalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1uiaGetReservedMixedAttributeValue(JNIEnv* km_env, jclass km_clazz, jlong punkmixedattributevalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1505,7 +1505,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1UiaGetReservedNotSupportedValue(JNIEnv* km_env, jclass km_clazz, jlong punknotsupportedvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1uiaGetReservedNotSupportedValue(JNIEnv* km_env, jclass km_clazz, jlong punknotsupportedvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1523,7 +1523,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1UiaGetRootNode(JNIEnv* km_env, jclass km_clazz, jlong phnode) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1uiaGetRootNode(JNIEnv* km_env, jclass km_clazz, jlong phnode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1541,7 +1541,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1UiaGetRuntimeId(JNIEnv* km_env, jclass km_clazz, jlong hnode, jlong pruntimeid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1uiaGetRuntimeId(JNIEnv* km_env, jclass km_clazz, jlong hnode, jlong pruntimeid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1560,7 +1560,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1UiaGetUpdatedCache(JNIEnv* km_env, jclass km_clazz, jlong hnode, jlong prequest, jint normalizestate, jlong pnormalizecondition, jlong pprequesteddata, jlong pptreestructure) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1uiaGetUpdatedCache(JNIEnv* km_env, jclass km_clazz, jlong hnode, jlong prequest, jint normalizestate, jlong pnormalizecondition, jlong pprequesteddata, jlong pptreestructure) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1583,7 +1583,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1UiaHPatternObjectFromVariant(JNIEnv* km_env, jclass km_clazz, jlong pvar, jlong phobj) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1uiaHPatternObjectFromVariant(JNIEnv* km_env, jclass km_clazz, jlong pvar, jlong phobj) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1602,7 +1602,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1UiaHTextRangeFromVariant(JNIEnv* km_env, jclass km_clazz, jlong pvar, jlong phtextrange) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1uiaHTextRangeFromVariant(JNIEnv* km_env, jclass km_clazz, jlong pvar, jlong phtextrange) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1621,7 +1621,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1UiaHUiaNodeFromVariant(JNIEnv* km_env, jclass km_clazz, jlong pvar, jlong phnode) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1uiaHUiaNodeFromVariant(JNIEnv* km_env, jclass km_clazz, jlong pvar, jlong phnode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1640,7 +1640,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1UiaHasServerSideProvider(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1uiaHasServerSideProvider(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1658,7 +1658,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1UiaHostProviderFromHwnd(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong ppprovider) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1uiaHostProviderFromHwnd(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong ppprovider) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1677,7 +1677,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1UiaIAccessibleFromProvider(JNIEnv* km_env, jclass km_clazz, jlong pprovider, jint dwflags, jlong ppaccessible, jlong pvarchild) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1uiaIAccessibleFromProvider(JNIEnv* km_env, jclass km_clazz, jlong pprovider, jint dwflags, jlong ppaccessible, jlong pvarchild) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1698,7 +1698,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1UiaLookupId(JNIEnv* km_env, jclass km_clazz, jint type, jlong pguid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1uiaLookupId(JNIEnv* km_env, jclass km_clazz, jint type, jlong pguid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1717,7 +1717,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1UiaNavigate(JNIEnv* km_env, jclass km_clazz, jlong hnode, jint direction, jlong pcondition, jlong prequest, jlong pprequesteddata, jlong pptreestructure) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1uiaNavigate(JNIEnv* km_env, jclass km_clazz, jlong hnode, jint direction, jlong pcondition, jlong prequest, jlong pprequesteddata, jlong pptreestructure) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1740,7 +1740,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1UiaNodeFromFocus(JNIEnv* km_env, jclass km_clazz, jlong prequest, jlong pprequesteddata, jlong pptreestructure) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1uiaNodeFromFocus(JNIEnv* km_env, jclass km_clazz, jlong prequest, jlong pprequesteddata, jlong pptreestructure) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1760,7 +1760,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1UiaNodeFromHandle(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong phnode) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1uiaNodeFromHandle(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong phnode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1779,7 +1779,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1UiaNodeFromPoint(JNIEnv* km_env, jclass km_clazz, jdouble x, jdouble y, jlong prequest, jlong pprequesteddata, jlong pptreestructure) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1uiaNodeFromPoint(JNIEnv* km_env, jclass km_clazz, jdouble x, jdouble y, jlong prequest, jlong pprequesteddata, jlong pptreestructure) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1801,7 +1801,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1UiaNodeFromProvider(JNIEnv* km_env, jclass km_clazz, jlong pprovider, jlong phnode) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1uiaNodeFromProvider(JNIEnv* km_env, jclass km_clazz, jlong pprovider, jlong phnode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1820,7 +1820,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1UiaNodeRelease(JNIEnv* km_env, jclass km_clazz, jlong hnode) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1uiaNodeRelease(JNIEnv* km_env, jclass km_clazz, jlong hnode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1838,7 +1838,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1UiaPatternRelease(JNIEnv* km_env, jclass km_clazz, jlong hobj) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1uiaPatternRelease(JNIEnv* km_env, jclass km_clazz, jlong hobj) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1856,7 +1856,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1UiaProviderForNonClient(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint idobject, jint idchild, jlong ppprovider) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1uiaProviderForNonClient(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint idobject, jint idchild, jlong ppprovider) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1877,7 +1877,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1UiaProviderFromIAccessible(JNIEnv* km_env, jclass km_clazz, jlong paccessible, jint idchild, jint dwflags, jlong ppprovider) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1uiaProviderFromIAccessible(JNIEnv* km_env, jclass km_clazz, jlong paccessible, jint idchild, jint dwflags, jlong ppprovider) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1898,7 +1898,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1UiaRaiseActiveTextPositionChangedEvent(JNIEnv* km_env, jclass km_clazz, jlong provider, jlong textrange) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1uiaRaiseActiveTextPositionChangedEvent(JNIEnv* km_env, jclass km_clazz, jlong provider, jlong textrange) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1917,7 +1917,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1UiaRaiseAsyncContentLoadedEvent(JNIEnv* km_env, jclass km_clazz, jlong pprovider, jint asynccontentloadedstate, jdouble percentcomplete) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1uiaRaiseAsyncContentLoadedEvent(JNIEnv* km_env, jclass km_clazz, jlong pprovider, jint asynccontentloadedstate, jdouble percentcomplete) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1937,7 +1937,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1UiaRaiseAutomationEvent(JNIEnv* km_env, jclass km_clazz, jlong pprovider, jint id) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1uiaRaiseAutomationEvent(JNIEnv* km_env, jclass km_clazz, jlong pprovider, jint id) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1956,7 +1956,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1UiaRaiseChangesEvent(JNIEnv* km_env, jclass km_clazz, jlong pprovider, jint eventidcount, jlong puiachanges) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1uiaRaiseChangesEvent(JNIEnv* km_env, jclass km_clazz, jlong pprovider, jint eventidcount, jlong puiachanges) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1976,7 +1976,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1UiaRaiseNotificationEvent(JNIEnv* km_env, jclass km_clazz, jlong provider, jint notificationkind, jint notificationprocessing, jlong displaystring, jlong activityid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1uiaRaiseNotificationEvent(JNIEnv* km_env, jclass km_clazz, jlong provider, jint notificationkind, jint notificationprocessing, jlong displaystring, jlong activityid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1998,7 +1998,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1UiaRaiseStructureChangedEvent(JNIEnv* km_env, jclass km_clazz, jlong pprovider, jint structurechangetype, jlong pruntimeid, jint cruntimeidlen) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1uiaRaiseStructureChangedEvent(JNIEnv* km_env, jclass km_clazz, jlong pprovider, jint structurechangetype, jlong pruntimeid, jint cruntimeidlen) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2019,7 +2019,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1UiaRaiseTextEditTextChangedEvent(JNIEnv* km_env, jclass km_clazz, jlong pprovider, jint texteditchangetype, jlong pchangeddata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1uiaRaiseTextEditTextChangedEvent(JNIEnv* km_env, jclass km_clazz, jlong pprovider, jint texteditchangetype, jlong pchangeddata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2039,7 +2039,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1UiaRegisterProviderCallback(JNIEnv* km_env, jclass km_clazz, jlong pcallback) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1uiaRegisterProviderCallback(JNIEnv* km_env, jclass km_clazz, jlong pcallback) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2055,7 +2055,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1UiaRemoveEvent(JNIEnv* km_env, jclass km_clazz, jlong hevent) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1uiaRemoveEvent(JNIEnv* km_env, jclass km_clazz, jlong hevent) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2073,7 +2073,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1UiaReturnRawElementProvider(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong wparam, jlong lparam, jlong el) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1uiaReturnRawElementProvider(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong wparam, jlong lparam, jlong el) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2094,7 +2094,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_a
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1UiaSetFocus(JNIEnv* km_env, jclass km_clazz, jlong hnode) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1uiaSetFocus(JNIEnv* km_env, jclass km_clazz, jlong hnode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2112,7 +2112,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1UiaTextRangeRelease(JNIEnv* km_env, jclass km_clazz, jlong hobj) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1uiaTextRangeRelease(JNIEnv* km_env, jclass km_clazz, jlong hobj) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2130,7 +2130,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1UnhookWinEvent(JNIEnv* km_env, jclass km_clazz, jlong hwineventhook) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1unhookWinEvent(JNIEnv* km_env, jclass km_clazz, jlong hwineventhook) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2148,7 +2148,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1UnregisterPointerInputTarget(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint pointertype) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1unregisterPointerInputTarget(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint pointertype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2167,7 +2167,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1UnregisterPointerInputTargetEx(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint pointertype) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1unregisterPointerInputTargetEx(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint pointertype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2186,7 +2186,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1ValuePattern_1SetValue(JNIEnv* km_env, jclass km_clazz, jlong hobj, jlong pval) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1valuePatternSetValue(JNIEnv* km_env, jclass km_clazz, jlong hobj, jlong pval) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2205,7 +2205,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1VirtualizedItemPattern_1Realize(JNIEnv* km_env, jclass km_clazz, jlong hobj) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1virtualizedItemPatternRealize(JNIEnv* km_env, jclass km_clazz, jlong hobj) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2223,7 +2223,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1WindowFromAccessibleObject(JNIEnv* km_env, jclass km_clazz, jlong param0, jlong phwnd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1windowFromAccessibleObject(JNIEnv* km_env, jclass km_clazz, jlong param0, jlong phwnd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2242,7 +2242,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1WindowPattern_1Close(JNIEnv* km_env, jclass km_clazz, jlong hobj) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1windowPatternClose(JNIEnv* km_env, jclass km_clazz, jlong hobj) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2260,7 +2260,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1WindowPattern_1SetWindowVisualState(JNIEnv* km_env, jclass km_clazz, jlong hobj, jint state) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1windowPatternSetWindowVisualState(JNIEnv* km_env, jclass km_clazz, jlong hobj, jint state) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2279,7 +2279,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ac
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1WindowPattern_1WaitForInputIdle(JNIEnv* km_env, jclass km_clazz, jlong hobj, jint milliseconds, jlong presult) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssys_1windows_1win32_1ui_1accessibility_1windowPatternWaitForInputIdle(JNIEnv* km_env, jclass km_clazz, jlong hobj, jint milliseconds, jlong presult) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

@@ -1,13 +1,13 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.securitycenter
 
-public typealias SECURITY_PRODUCT_TYPE = Int
+public typealias SecurityProductType = Int
 
-public typealias WSC_SECURITY_PRODUCT_STATE = Int
+public typealias WscSecurityProductState = Int
 
-public typealias WSC_SECURITY_PRODUCT_SUBSTATUS = Int
+public typealias WscSecurityProductSubstatus = Int
 
-public typealias WSC_SECURITY_PROVIDER = Int
+public typealias WscSecurityProvider = Int
 
-public typealias WSC_SECURITY_PROVIDER_HEALTH = Int
+public typealias WscSecurityProviderHealth = Int
 
-public typealias WSC_SECURITY_SIGNATURE_STATUS = Int
+public typealias WscSecuritySignatureStatus = Int

@@ -1,96 +1,98 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.threading
 
-public val ABOVE_NORMAL_PRIORITY_CLASS: PROCESS_CREATION_FLAGS = 32768u
+import io.github.kotlinmania.windowssys.COpaquePointer
 
-public val ALL_PROCESSOR_GROUPS: UShort = 65535u
+public val ABOVE_NORMAL_PRIORITY_CLASS: ProcessCreationFlags = 32768u
 
-public val AVRT_PRIORITY_CRITICAL: AVRT_PRIORITY = 2
+public val ALL_PROCESSOR_GROUPS: UShort = 65535u.toUShort()
 
-public val AVRT_PRIORITY_HIGH: AVRT_PRIORITY = 1
+public val AVRT_PRIORITY_CRITICAL: AvrtPriority = 2
 
-public val AVRT_PRIORITY_LOW: AVRT_PRIORITY = -1
+public val AVRT_PRIORITY_HIGH: AvrtPriority = 1
 
-public val AVRT_PRIORITY_NORMAL: AVRT_PRIORITY = 0
+public val AVRT_PRIORITY_LOW: AvrtPriority = -1
 
-public val AVRT_PRIORITY_VERYLOW: AVRT_PRIORITY = -2
+public val AVRT_PRIORITY_NORMAL: AvrtPriority = 0
 
-public val BELOW_NORMAL_PRIORITY_CLASS: PROCESS_CREATION_FLAGS = 16384u
+public val AVRT_PRIORITY_VERYLOW: AvrtPriority = -2
 
-public val CONDITION_VARIABLE_INIT: CONDITION_VARIABLE = CONDITION_VARIABLE(Ptr = 0L)
+public val BELOW_NORMAL_PRIORITY_CLASS: ProcessCreationFlags = 16384u
+
+public val CONDITION_VARIABLE_INIT: ConditionVariable = ConditionVariable(ptr = null)
 
 public val CONDITION_VARIABLE_LOCKMODE_SHARED: UInt = 1u
 
-public val CREATE_BREAKAWAY_FROM_JOB: PROCESS_CREATION_FLAGS = 16777216u
+public val CREATE_BREAKAWAY_FROM_JOB: ProcessCreationFlags = 16777216u
 
-public val CREATE_DEFAULT_ERROR_MODE: PROCESS_CREATION_FLAGS = 67108864u
+public val CREATE_DEFAULT_ERROR_MODE: ProcessCreationFlags = 67108864u
 
-public val CREATE_EVENT_INITIAL_SET: CREATE_EVENT = 2u
+public val CREATE_EVENT_INITIAL_SET: CreateEvent = 2u
 
-public val CREATE_EVENT_MANUAL_RESET: CREATE_EVENT = 1u
+public val CREATE_EVENT_MANUAL_RESET: CreateEvent = 1u
 
-public val CREATE_FORCEDOS: PROCESS_CREATION_FLAGS = 8192u
+public val CREATE_FORCEDOS: ProcessCreationFlags = 8192u
 
-public val CREATE_IGNORE_SYSTEM_DEFAULT: PROCESS_CREATION_FLAGS = 2147483648u
+public val CREATE_IGNORE_SYSTEM_DEFAULT: ProcessCreationFlags = 2147483648u
 
 public val CREATE_MUTEX_INITIAL_OWNER: UInt = 1u
 
-public val CREATE_NEW_CONSOLE: PROCESS_CREATION_FLAGS = 16u
+public val CREATE_NEW_CONSOLE: ProcessCreationFlags = 16u
 
-public val CREATE_NEW_PROCESS_GROUP: PROCESS_CREATION_FLAGS = 512u
+public val CREATE_NEW_PROCESS_GROUP: ProcessCreationFlags = 512u
 
-public val CREATE_NO_WINDOW: PROCESS_CREATION_FLAGS = 134217728u
+public val CREATE_NO_WINDOW: ProcessCreationFlags = 134217728u
 
-public val CREATE_PRESERVE_CODE_AUTHZ_LEVEL: PROCESS_CREATION_FLAGS = 33554432u
+public val CREATE_PRESERVE_CODE_AUTHZ_LEVEL: ProcessCreationFlags = 33554432u
 
-public val CREATE_PROTECTED_PROCESS: PROCESS_CREATION_FLAGS = 262144u
+public val CREATE_PROTECTED_PROCESS: ProcessCreationFlags = 262144u
 
-public val CREATE_SECURE_PROCESS: PROCESS_CREATION_FLAGS = 4194304u
+public val CREATE_SECURE_PROCESS: ProcessCreationFlags = 4194304u
 
-public val CREATE_SEPARATE_WOW_VDM: PROCESS_CREATION_FLAGS = 2048u
+public val CREATE_SEPARATE_WOW_VDM: ProcessCreationFlags = 2048u
 
-public val CREATE_SHARED_WOW_VDM: PROCESS_CREATION_FLAGS = 4096u
+public val CREATE_SHARED_WOW_VDM: ProcessCreationFlags = 4096u
 
-public val CREATE_SUSPENDED: PROCESS_CREATION_FLAGS = 4u
+public val CREATE_SUSPENDED: ProcessCreationFlags = 4u
 
-public val CREATE_UNICODE_ENVIRONMENT: PROCESS_CREATION_FLAGS = 1024u
+public val CREATE_UNICODE_ENVIRONMENT: ProcessCreationFlags = 1024u
 
 public val CREATE_WAITABLE_TIMER_HIGH_RESOLUTION: UInt = 2u
 
 public val CREATE_WAITABLE_TIMER_MANUAL_RESET: UInt = 1u
 
-public val DEBUG_ONLY_THIS_PROCESS: PROCESS_CREATION_FLAGS = 2u
+public val DEBUG_ONLY_THIS_PROCESS: ProcessCreationFlags = 2u
 
-public val DEBUG_PROCESS: PROCESS_CREATION_FLAGS = 1u
+public val DEBUG_PROCESS: ProcessCreationFlags = 1u
 
-public val DETACHED_PROCESS: PROCESS_CREATION_FLAGS = 8u
+public val DETACHED_PROCESS: ProcessCreationFlags = 8u
 
-public val EVENT_ALL_ACCESS: SYNCHRONIZATION_ACCESS_RIGHTS = 2031619u
+public val EVENT_ALL_ACCESS: SynchronizationAccessRights = 2031619u
 
-public val EVENT_MODIFY_STATE: SYNCHRONIZATION_ACCESS_RIGHTS = 2u
+public val EVENT_MODIFY_STATE: SynchronizationAccessRights = 2u
 
-public val EXTENDED_STARTUPINFO_PRESENT: PROCESS_CREATION_FLAGS = 524288u
+public val EXTENDED_STARTUPINFO_PRESENT: ProcessCreationFlags = 524288u
 
 public val FLS_OUT_OF_INDEXES: UInt = 4294967295u
 
-public val GR_GDIOBJECTS: GET_GUI_RESOURCES_FLAGS = 0u
+public val GR_GDIOBJECTS: GetGuiResourcesFlags = 0u
 
-public val GR_GDIOBJECTS_PEAK: GET_GUI_RESOURCES_FLAGS = 2u
+public val GR_GDIOBJECTS_PEAK: GetGuiResourcesFlags = 2u
 
-public val GR_GLOBAL: GET_GUI_RESOURCES_FLAGS = 4294967294u
+public val GR_GLOBAL: GetGuiResourcesFlags = 4294967294u
 
-public val GR_USEROBJECTS: GET_GUI_RESOURCES_FLAGS = 1u
+public val GR_USEROBJECTS: GetGuiResourcesFlags = 1u
 
-public val GR_USEROBJECTS_PEAK: GET_GUI_RESOURCES_FLAGS = 4u
+public val GR_USEROBJECTS_PEAK: GetGuiResourcesFlags = 4u
 
-public val HIGH_PRIORITY_CLASS: PROCESS_CREATION_FLAGS = 128u
+public val HIGH_PRIORITY_CLASS: ProcessCreationFlags = 128u
 
-public val IDLE_PRIORITY_CLASS: PROCESS_CREATION_FLAGS = 64u
+public val IDLE_PRIORITY_CLASS: ProcessCreationFlags = 64u
 
 public val INFINITE: UInt = 4294967295u
 
-public val INHERIT_CALLER_PRIORITY: PROCESS_CREATION_FLAGS = 131072u
+public val INHERIT_CALLER_PRIORITY: ProcessCreationFlags = 131072u
 
-public val INHERIT_PARENT_AFFINITY: PROCESS_CREATION_FLAGS = 65536u
+public val INHERIT_PARENT_AFFINITY: ProcessCreationFlags = 65536u
 
 public val INIT_ONCE_ASYNC: UInt = 2u
 
@@ -100,127 +102,127 @@ public val INIT_ONCE_CTX_RESERVED_BITS: UInt = 2u
 
 public val INIT_ONCE_INIT_FAILED: UInt = 4u
 
-public val INIT_ONCE_STATIC_INIT: INIT_ONCE = INIT_ONCE(Ptr = 0L)
+public val INIT_ONCE_STATIC_INIT: InitOnce = InitOnce(ptr = null)
 
-public val KernelEnabled: MACHINE_ATTRIBUTES = 2
+public val KERNEL_ENABLED: MachineAttributes = 2
 
-public val LOGON_NETCREDENTIALS_ONLY: CREATE_PROCESS_LOGON_FLAGS = 2u
+public val LOGON_NETCREDENTIALS_ONLY: CreateProcessLogonFlags = 2u
 
-public val LOGON_WITH_PROFILE: CREATE_PROCESS_LOGON_FLAGS = 1u
+public val LOGON_WITH_PROFILE: CreateProcessLogonFlags = 1u
 
-public val MEMORY_PRIORITY_BELOW_NORMAL: MEMORY_PRIORITY = 4u
+public val MEMORY_PRIORITY_BELOW_NORMAL: MemoryPriority = 4u
 
-public val MEMORY_PRIORITY_LOW: MEMORY_PRIORITY = 2u
+public val MEMORY_PRIORITY_LOW: MemoryPriority = 2u
 
-public val MEMORY_PRIORITY_MEDIUM: MEMORY_PRIORITY = 3u
+public val MEMORY_PRIORITY_MEDIUM: MemoryPriority = 3u
 
-public val MEMORY_PRIORITY_NORMAL: MEMORY_PRIORITY = 5u
+public val MEMORY_PRIORITY_NORMAL: MemoryPriority = 5u
 
-public val MEMORY_PRIORITY_VERY_LOW: MEMORY_PRIORITY = 1u
+public val MEMORY_PRIORITY_VERY_LOW: MemoryPriority = 1u
 
-public val MUTEX_ALL_ACCESS: SYNCHRONIZATION_ACCESS_RIGHTS = 2031617u
+public val MUTEX_ALL_ACCESS: SynchronizationAccessRights = 2031617u
 
-public val MUTEX_MODIFY_STATE: SYNCHRONIZATION_ACCESS_RIGHTS = 1u
+public val MUTEX_MODIFY_STATE: SynchronizationAccessRights = 1u
 
-public val MaxProcessMitigationPolicy: PROCESS_MITIGATION_POLICY = 20
+public val MAX_PROCESS_MITIGATION_POLICY: ProcessMitigationPolicy = 20
 
-public val NORMAL_PRIORITY_CLASS: PROCESS_CREATION_FLAGS = 32u
+public val NORMAL_PRIORITY_CLASS: ProcessCreationFlags = 32u
 
-public val PF_3DNOW_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = 7u
+public val PF_3DNOW_INSTRUCTIONS_AVAILABLE: ProcessorFeatureId = 7u
 
-public val PF_ALPHA_BYTE_INSTRUCTIONS: PROCESSOR_FEATURE_ID = 5u
+public val PF_ALPHA_BYTE_INSTRUCTIONS: ProcessorFeatureId = 5u
 
-public val PF_ARM_64BIT_LOADSTORE_ATOMIC: PROCESSOR_FEATURE_ID = 25u
+public val PF_ARM_64BIT_LOADSTORE_ATOMIC: ProcessorFeatureId = 25u
 
-public val PF_ARM_DIVIDE_INSTRUCTION_AVAILABLE: PROCESSOR_FEATURE_ID = 24u
+public val PF_ARM_DIVIDE_INSTRUCTION_AVAILABLE: ProcessorFeatureId = 24u
 
-public val PF_ARM_EXTERNAL_CACHE_AVAILABLE: PROCESSOR_FEATURE_ID = 26u
+public val PF_ARM_EXTERNAL_CACHE_AVAILABLE: ProcessorFeatureId = 26u
 
-public val PF_ARM_FMAC_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = 27u
+public val PF_ARM_FMAC_INSTRUCTIONS_AVAILABLE: ProcessorFeatureId = 27u
 
-public val PF_ARM_NEON_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = 19u
+public val PF_ARM_NEON_INSTRUCTIONS_AVAILABLE: ProcessorFeatureId = 19u
 
-public val PF_ARM_V81_ATOMIC_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = 34u
+public val PF_ARM_V81_ATOMIC_INSTRUCTIONS_AVAILABLE: ProcessorFeatureId = 34u
 
-public val PF_ARM_V82_DP_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = 43u
+public val PF_ARM_V82_DP_INSTRUCTIONS_AVAILABLE: ProcessorFeatureId = 43u
 
-public val PF_ARM_V83_JSCVT_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = 44u
+public val PF_ARM_V83_JSCVT_INSTRUCTIONS_AVAILABLE: ProcessorFeatureId = 44u
 
-public val PF_ARM_V83_LRCPC_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = 45u
+public val PF_ARM_V83_LRCPC_INSTRUCTIONS_AVAILABLE: ProcessorFeatureId = 45u
 
-public val PF_ARM_V8_CRC32_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = 31u
+public val PF_ARM_V8_CRC32_INSTRUCTIONS_AVAILABLE: ProcessorFeatureId = 31u
 
-public val PF_ARM_V8_CRYPTO_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = 30u
+public val PF_ARM_V8_CRYPTO_INSTRUCTIONS_AVAILABLE: ProcessorFeatureId = 30u
 
-public val PF_ARM_V8_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = 29u
+public val PF_ARM_V8_INSTRUCTIONS_AVAILABLE: ProcessorFeatureId = 29u
 
-public val PF_ARM_VFP_32_REGISTERS_AVAILABLE: PROCESSOR_FEATURE_ID = 18u
+public val PF_ARM_VFP_32_REGISTERS_AVAILABLE: ProcessorFeatureId = 18u
 
-public val PF_AVX2_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = 40u
+public val PF_AVX2_INSTRUCTIONS_AVAILABLE: ProcessorFeatureId = 40u
 
-public val PF_AVX512F_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = 41u
+public val PF_AVX512F_INSTRUCTIONS_AVAILABLE: ProcessorFeatureId = 41u
 
-public val PF_AVX_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = 39u
+public val PF_AVX_INSTRUCTIONS_AVAILABLE: ProcessorFeatureId = 39u
 
-public val PF_CHANNELS_ENABLED: PROCESSOR_FEATURE_ID = 16u
+public val PF_CHANNELS_ENABLED: ProcessorFeatureId = 16u
 
-public val PF_COMPARE64_EXCHANGE128: PROCESSOR_FEATURE_ID = 15u
+public val PF_COMPARE64_EXCHANGE128: ProcessorFeatureId = 15u
 
-public val PF_COMPARE_EXCHANGE128: PROCESSOR_FEATURE_ID = 14u
+public val PF_COMPARE_EXCHANGE128: ProcessorFeatureId = 14u
 
-public val PF_COMPARE_EXCHANGE_DOUBLE: PROCESSOR_FEATURE_ID = 2u
+public val PF_COMPARE_EXCHANGE_DOUBLE: ProcessorFeatureId = 2u
 
-public val PF_ERMS_AVAILABLE: PROCESSOR_FEATURE_ID = 42u
+public val PF_ERMS_AVAILABLE: ProcessorFeatureId = 42u
 
-public val PF_FASTFAIL_AVAILABLE: PROCESSOR_FEATURE_ID = 23u
+public val PF_FASTFAIL_AVAILABLE: ProcessorFeatureId = 23u
 
-public val PF_FLOATING_POINT_EMULATED: PROCESSOR_FEATURE_ID = 1u
+public val PF_FLOATING_POINT_EMULATED: ProcessorFeatureId = 1u
 
-public val PF_FLOATING_POINT_PRECISION_ERRATA: PROCESSOR_FEATURE_ID = 0u
+public val PF_FLOATING_POINT_PRECISION_ERRATA: ProcessorFeatureId = 0u
 
-public val PF_MMX_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = 3u
+public val PF_MMX_INSTRUCTIONS_AVAILABLE: ProcessorFeatureId = 3u
 
-public val PF_MONITORX_INSTRUCTION_AVAILABLE: PROCESSOR_FEATURE_ID = 35u
+public val PF_MONITORX_INSTRUCTION_AVAILABLE: ProcessorFeatureId = 35u
 
-public val PF_NX_ENABLED: PROCESSOR_FEATURE_ID = 12u
+public val PF_NX_ENABLED: ProcessorFeatureId = 12u
 
-public val PF_PAE_ENABLED: PROCESSOR_FEATURE_ID = 9u
+public val PF_PAE_ENABLED: ProcessorFeatureId = 9u
 
-public val PF_PPC_MOVEMEM_64BIT_OK: PROCESSOR_FEATURE_ID = 4u
+public val PF_PPC_MOVEMEM_64BIT_OK: ProcessorFeatureId = 4u
 
-public val PF_RDPID_INSTRUCTION_AVAILABLE: PROCESSOR_FEATURE_ID = 33u
+public val PF_RDPID_INSTRUCTION_AVAILABLE: ProcessorFeatureId = 33u
 
-public val PF_RDRAND_INSTRUCTION_AVAILABLE: PROCESSOR_FEATURE_ID = 28u
+public val PF_RDRAND_INSTRUCTION_AVAILABLE: ProcessorFeatureId = 28u
 
-public val PF_RDTSCP_INSTRUCTION_AVAILABLE: PROCESSOR_FEATURE_ID = 32u
+public val PF_RDTSCP_INSTRUCTION_AVAILABLE: ProcessorFeatureId = 32u
 
-public val PF_RDTSC_INSTRUCTION_AVAILABLE: PROCESSOR_FEATURE_ID = 8u
+public val PF_RDTSC_INSTRUCTION_AVAILABLE: ProcessorFeatureId = 8u
 
-public val PF_RDWRFSGSBASE_AVAILABLE: PROCESSOR_FEATURE_ID = 22u
+public val PF_RDWRFSGSBASE_AVAILABLE: ProcessorFeatureId = 22u
 
-public val PF_SECOND_LEVEL_ADDRESS_TRANSLATION: PROCESSOR_FEATURE_ID = 20u
+public val PF_SECOND_LEVEL_ADDRESS_TRANSLATION: ProcessorFeatureId = 20u
 
-public val PF_SSE3_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = 13u
+public val PF_SSE3_INSTRUCTIONS_AVAILABLE: ProcessorFeatureId = 13u
 
-public val PF_SSE4_1_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = 37u
+public val PF_SSE4_1_INSTRUCTIONS_AVAILABLE: ProcessorFeatureId = 37u
 
-public val PF_SSE4_2_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = 38u
+public val PF_SSE4_2_INSTRUCTIONS_AVAILABLE: ProcessorFeatureId = 38u
 
-public val PF_SSE_DAZ_MODE_AVAILABLE: PROCESSOR_FEATURE_ID = 11u
+public val PF_SSE_DAZ_MODE_AVAILABLE: ProcessorFeatureId = 11u
 
-public val PF_SSSE3_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = 36u
+public val PF_SSSE3_INSTRUCTIONS_AVAILABLE: ProcessorFeatureId = 36u
 
-public val PF_VIRT_FIRMWARE_ENABLED: PROCESSOR_FEATURE_ID = 21u
+public val PF_VIRT_FIRMWARE_ENABLED: ProcessorFeatureId = 21u
 
-public val PF_XMMI64_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = 10u
+public val PF_XMMI64_INSTRUCTIONS_AVAILABLE: ProcessorFeatureId = 10u
 
-public val PF_XMMI_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = 6u
+public val PF_XMMI_INSTRUCTIONS_AVAILABLE: ProcessorFeatureId = 6u
 
-public val PF_XSAVE_ENABLED: PROCESSOR_FEATURE_ID = 17u
+public val PF_XSAVE_ENABLED: ProcessorFeatureId = 17u
 
-public val PMETypeFailFastOnCommitFailure: PROCESS_MEMORY_EXHAUSTION_TYPE = 0
+public val PME_TYPE_FAIL_FAST_ON_COMMIT_FAILURE: ProcessMemoryExhaustionType = 0
 
-public val PMETypeMax: PROCESS_MEMORY_EXHAUSTION_TYPE = 1
+public val PME_TYPE_MAX: ProcessMemoryExhaustionType = 1
 
 public val PME_CURRENT_VERSION: UInt = 1u
 
@@ -228,43 +230,43 @@ public val PME_FAILFAST_ON_COMMIT_FAIL_DISABLE: UInt = 0u
 
 public val PME_FAILFAST_ON_COMMIT_FAIL_ENABLE: UInt = 1u
 
-public val POWER_REQUEST_CONTEXT_DETAILED_STRING: POWER_REQUEST_CONTEXT_FLAGS = 2u
+public val POWER_REQUEST_CONTEXT_DETAILED_STRING: PowerRequestContextFlags = 2u
 
-public val POWER_REQUEST_CONTEXT_SIMPLE_STRING: POWER_REQUEST_CONTEXT_FLAGS = 1u
+public val POWER_REQUEST_CONTEXT_SIMPLE_STRING: PowerRequestContextFlags = 1u
 
 public val PRIVATE_NAMESPACE_FLAG_DESTROY: UInt = 1u
 
-public val PROCESS_AFFINITY_DISABLE_AUTO_UPDATE: PROCESS_AFFINITY_AUTO_UPDATE_FLAGS = 0u
+public val PROCESS_AFFINITY_DISABLE_AUTO_UPDATE: ProcessAffinityAutoUpdateFlags = 0u
 
-public val PROCESS_AFFINITY_ENABLE_AUTO_UPDATE: PROCESS_AFFINITY_AUTO_UPDATE_FLAGS = 1u
+public val PROCESS_AFFINITY_ENABLE_AUTO_UPDATE: ProcessAffinityAutoUpdateFlags = 1u
 
-public val PROCESS_ALL_ACCESS: PROCESS_ACCESS_RIGHTS = 2097151u
+public val PROCESS_ALL_ACCESS: ProcessAccessRights = 2097151u
 
-public val PROCESS_CREATE_PROCESS: PROCESS_ACCESS_RIGHTS = 128u
+public val PROCESS_CREATE_PROCESS: ProcessAccessRights = 128u
 
-public val PROCESS_CREATE_THREAD: PROCESS_ACCESS_RIGHTS = 2u
+public val PROCESS_CREATE_THREAD: ProcessAccessRights = 2u
 
-public val PROCESS_DELETE: PROCESS_ACCESS_RIGHTS = 65536u
+public val PROCESS_DELETE: ProcessAccessRights = 65536u
 
-public val PROCESS_DEP_DISABLE_ATL_THUNK_EMULATION: PROCESS_DEP_FLAGS = 2u
+public val PROCESS_DEP_DISABLE_ATL_THUNK_EMULATION: ProcessDepFlags = 2u
 
-public val PROCESS_DEP_ENABLE: PROCESS_DEP_FLAGS = 1u
+public val PROCESS_DEP_ENABLE: ProcessDepFlags = 1u
 
-public val PROCESS_DEP_NONE: PROCESS_DEP_FLAGS = 0u
+public val PROCESS_DEP_NONE: ProcessDepFlags = 0u
 
-public val PROCESS_DUP_HANDLE: PROCESS_ACCESS_RIGHTS = 64u
+public val PROCESS_DUP_HANDLE: ProcessAccessRights = 64u
 
 public val PROCESS_LEAP_SECOND_INFO_FLAG_ENABLE_SIXTY_SECOND: UInt = 1u
 
 public val PROCESS_LEAP_SECOND_INFO_VALID_FLAGS: UInt = 1u
 
-public val PROCESS_MODE_BACKGROUND_BEGIN: PROCESS_CREATION_FLAGS = 1048576u
+public val PROCESS_MODE_BACKGROUND_BEGIN: ProcessCreationFlags = 1048576u
 
-public val PROCESS_MODE_BACKGROUND_END: PROCESS_CREATION_FLAGS = 2097152u
+public val PROCESS_MODE_BACKGROUND_END: ProcessCreationFlags = 2097152u
 
-public val PROCESS_NAME_NATIVE: PROCESS_NAME_FORMAT = 1u
+public val PROCESS_NAME_NATIVE: ProcessNameFormat = 1u
 
-public val PROCESS_NAME_WIN32: PROCESS_NAME_FORMAT = 0u
+public val PROCESS_NAME_WIN32: ProcessNameFormat = 0u
 
 public val PROCESS_POWER_THROTTLING_CURRENT_VERSION: UInt = 1u
 
@@ -272,37 +274,37 @@ public val PROCESS_POWER_THROTTLING_EXECUTION_SPEED: UInt = 1u
 
 public val PROCESS_POWER_THROTTLING_IGNORE_TIMER_RESOLUTION: UInt = 4u
 
-public val PROCESS_QUERY_INFORMATION: PROCESS_ACCESS_RIGHTS = 1024u
+public val PROCESS_QUERY_INFORMATION: ProcessAccessRights = 1024u
 
-public val PROCESS_QUERY_LIMITED_INFORMATION: PROCESS_ACCESS_RIGHTS = 4096u
+public val PROCESS_QUERY_LIMITED_INFORMATION: ProcessAccessRights = 4096u
 
-public val PROCESS_READ_CONTROL: PROCESS_ACCESS_RIGHTS = 131072u
+public val PROCESS_READ_CONTROL: ProcessAccessRights = 131072u
 
-public val PROCESS_SET_INFORMATION: PROCESS_ACCESS_RIGHTS = 512u
+public val PROCESS_SET_INFORMATION: ProcessAccessRights = 512u
 
-public val PROCESS_SET_LIMITED_INFORMATION: PROCESS_ACCESS_RIGHTS = 8192u
+public val PROCESS_SET_LIMITED_INFORMATION: ProcessAccessRights = 8192u
 
-public val PROCESS_SET_QUOTA: PROCESS_ACCESS_RIGHTS = 256u
+public val PROCESS_SET_QUOTA: ProcessAccessRights = 256u
 
-public val PROCESS_SET_SESSIONID: PROCESS_ACCESS_RIGHTS = 4u
+public val PROCESS_SET_SESSIONID: ProcessAccessRights = 4u
 
-public val PROCESS_STANDARD_RIGHTS_REQUIRED: PROCESS_ACCESS_RIGHTS = 983040u
+public val PROCESS_STANDARD_RIGHTS_REQUIRED: ProcessAccessRights = 983040u
 
-public val PROCESS_SUSPEND_RESUME: PROCESS_ACCESS_RIGHTS = 2048u
+public val PROCESS_SUSPEND_RESUME: ProcessAccessRights = 2048u
 
-public val PROCESS_SYNCHRONIZE: PROCESS_ACCESS_RIGHTS = 1048576u
+public val PROCESS_SYNCHRONIZE: ProcessAccessRights = 1048576u
 
-public val PROCESS_TERMINATE: PROCESS_ACCESS_RIGHTS = 1u
+public val PROCESS_TERMINATE: ProcessAccessRights = 1u
 
-public val PROCESS_VM_OPERATION: PROCESS_ACCESS_RIGHTS = 8u
+public val PROCESS_VM_OPERATION: ProcessAccessRights = 8u
 
-public val PROCESS_VM_READ: PROCESS_ACCESS_RIGHTS = 16u
+public val PROCESS_VM_READ: ProcessAccessRights = 16u
 
-public val PROCESS_VM_WRITE: PROCESS_ACCESS_RIGHTS = 32u
+public val PROCESS_VM_WRITE: ProcessAccessRights = 32u
 
-public val PROCESS_WRITE_DAC: PROCESS_ACCESS_RIGHTS = 262144u
+public val PROCESS_WRITE_DAC: ProcessAccessRights = 262144u
 
-public val PROCESS_WRITE_OWNER: PROCESS_ACCESS_RIGHTS = 524288u
+public val PROCESS_WRITE_OWNER: ProcessAccessRights = 524288u
 
 public val PROC_THREAD_ATTRIBUTE_ALL_APPLICATION_PACKAGES_POLICY: UInt = 131087u
 
@@ -344,147 +346,147 @@ public val PROC_THREAD_ATTRIBUTE_UMS_THREAD: UInt = 196614u
 
 public val PROC_THREAD_ATTRIBUTE_WIN32K_FILTER: UInt = 131088u
 
-public val PROFILE_KERNEL: PROCESS_CREATION_FLAGS = 536870912u
+public val PROFILE_KERNEL: ProcessCreationFlags = 536870912u
 
-public val PROFILE_SERVER: PROCESS_CREATION_FLAGS = 1073741824u
+public val PROFILE_SERVER: ProcessCreationFlags = 1073741824u
 
-public val PROFILE_USER: PROCESS_CREATION_FLAGS = 268435456u
+public val PROFILE_USER: ProcessCreationFlags = 268435456u
 
-public val PROTECTION_LEVEL_ANTIMALWARE_LIGHT: PROCESS_PROTECTION_LEVEL = 3u
+public val PROTECTION_LEVEL_ANTIMALWARE_LIGHT: ProcessProtectionLevel = 3u
 
-public val PROTECTION_LEVEL_AUTHENTICODE: PROCESS_PROTECTION_LEVEL = 7u
+public val PROTECTION_LEVEL_AUTHENTICODE: ProcessProtectionLevel = 7u
 
-public val PROTECTION_LEVEL_CODEGEN_LIGHT: PROCESS_PROTECTION_LEVEL = 6u
+public val PROTECTION_LEVEL_CODEGEN_LIGHT: ProcessProtectionLevel = 6u
 
-public val PROTECTION_LEVEL_LSA_LIGHT: PROCESS_PROTECTION_LEVEL = 4u
+public val PROTECTION_LEVEL_LSA_LIGHT: ProcessProtectionLevel = 4u
 
-public val PROTECTION_LEVEL_NONE: PROCESS_PROTECTION_LEVEL = 4294967294u
+public val PROTECTION_LEVEL_NONE: ProcessProtectionLevel = 4294967294u
 
-public val PROTECTION_LEVEL_PPL_APP: PROCESS_PROTECTION_LEVEL = 8u
+public val PROTECTION_LEVEL_PPL_APP: ProcessProtectionLevel = 8u
 
-public val PROTECTION_LEVEL_WINDOWS: PROCESS_PROTECTION_LEVEL = 1u
+public val PROTECTION_LEVEL_WINDOWS: ProcessProtectionLevel = 1u
 
-public val PROTECTION_LEVEL_WINDOWS_LIGHT: PROCESS_PROTECTION_LEVEL = 2u
+public val PROTECTION_LEVEL_WINDOWS_LIGHT: ProcessProtectionLevel = 2u
 
-public val PROTECTION_LEVEL_WINTCB: PROCESS_PROTECTION_LEVEL = 5u
+public val PROTECTION_LEVEL_WINTCB: ProcessProtectionLevel = 5u
 
-public val PROTECTION_LEVEL_WINTCB_LIGHT: PROCESS_PROTECTION_LEVEL = 0u
+public val PROTECTION_LEVEL_WINTCB_LIGHT: ProcessProtectionLevel = 0u
 
-public val ProcThreadAttributeAllApplicationPackagesPolicy: PROC_THREAD_ATTRIBUTE_NUM = 15u
+public val PROC_THREAD_ATTRIBUTE_ALL_APPLICATION_PACKAGES_POLICY1: ProcThreadAttributeNum = 15u
 
-public val ProcThreadAttributeChildProcessPolicy: PROC_THREAD_ATTRIBUTE_NUM = 14u
+public val PROC_THREAD_ATTRIBUTE_CHILD_PROCESS_POLICY1: ProcThreadAttributeNum = 14u
 
-public val ProcThreadAttributeComponentFilter: PROC_THREAD_ATTRIBUTE_NUM = 26u
+public val PROC_THREAD_ATTRIBUTE_COMPONENT_FILTER1: ProcThreadAttributeNum = 26u
 
-public val ProcThreadAttributeDesktopAppPolicy: PROC_THREAD_ATTRIBUTE_NUM = 18u
+public val PROC_THREAD_ATTRIBUTE_DESKTOP_APP_POLICY1: ProcThreadAttributeNum = 18u
 
-public val ProcThreadAttributeEnableOptionalXStateFeatures: PROC_THREAD_ATTRIBUTE_NUM = 27u
+public val PROC_THREAD_ATTRIBUTE_ENABLE_OPTIONAL_X_STATE_FEATURES: ProcThreadAttributeNum = 27u
 
-public val ProcThreadAttributeGroupAffinity: PROC_THREAD_ATTRIBUTE_NUM = 3u
+public val PROC_THREAD_ATTRIBUTE_GROUP_AFFINITY1: ProcThreadAttributeNum = 3u
 
-public val ProcThreadAttributeHandleList: PROC_THREAD_ATTRIBUTE_NUM = 2u
+public val PROC_THREAD_ATTRIBUTE_HANDLE_LIST1: ProcThreadAttributeNum = 2u
 
-public val ProcThreadAttributeIdealProcessor: PROC_THREAD_ATTRIBUTE_NUM = 5u
+public val PROC_THREAD_ATTRIBUTE_IDEAL_PROCESSOR1: ProcThreadAttributeNum = 5u
 
-public val ProcThreadAttributeJobList: PROC_THREAD_ATTRIBUTE_NUM = 13u
+public val PROC_THREAD_ATTRIBUTE_JOB_LIST1: ProcThreadAttributeNum = 13u
 
-public val ProcThreadAttributeMachineType: PROC_THREAD_ATTRIBUTE_NUM = 25u
+public val PROC_THREAD_ATTRIBUTE_MACHINE_TYPE1: ProcThreadAttributeNum = 25u
 
-public val ProcThreadAttributeMitigationAuditPolicy: PROC_THREAD_ATTRIBUTE_NUM = 24u
+public val PROC_THREAD_ATTRIBUTE_MITIGATION_AUDIT_POLICY1: ProcThreadAttributeNum = 24u
 
-public val ProcThreadAttributeMitigationPolicy: PROC_THREAD_ATTRIBUTE_NUM = 7u
+public val PROC_THREAD_ATTRIBUTE_MITIGATION_POLICY1: ProcThreadAttributeNum = 7u
 
-public val ProcThreadAttributeParentProcess: PROC_THREAD_ATTRIBUTE_NUM = 0u
+public val PROC_THREAD_ATTRIBUTE_PARENT_PROCESS1: ProcThreadAttributeNum = 0u
 
-public val ProcThreadAttributePreferredNode: PROC_THREAD_ATTRIBUTE_NUM = 4u
+public val PROC_THREAD_ATTRIBUTE_PREFERRED_NODE1: ProcThreadAttributeNum = 4u
 
-public val ProcThreadAttributeProtectionLevel: PROC_THREAD_ATTRIBUTE_NUM = 11u
+public val PROC_THREAD_ATTRIBUTE_PROTECTION_LEVEL1: ProcThreadAttributeNum = 11u
 
-public val ProcThreadAttributePseudoConsole: PROC_THREAD_ATTRIBUTE_NUM = 22u
+public val PROC_THREAD_ATTRIBUTE_PSEUDO_CONSOLE: ProcThreadAttributeNum = 22u
 
-public val ProcThreadAttributeSafeOpenPromptOriginClaim: PROC_THREAD_ATTRIBUTE_NUM = 17u
+public val PROC_THREAD_ATTRIBUTE_SAFE_OPEN_PROMPT_ORIGIN_CLAIM: ProcThreadAttributeNum = 17u
 
-public val ProcThreadAttributeSecurityCapabilities: PROC_THREAD_ATTRIBUTE_NUM = 9u
+public val PROC_THREAD_ATTRIBUTE_SECURITY_CAPABILITIES1: ProcThreadAttributeNum = 9u
 
-public val ProcThreadAttributeTrustedApp: PROC_THREAD_ATTRIBUTE_NUM = 29u
+public val PROC_THREAD_ATTRIBUTE_TRUSTED_APP: ProcThreadAttributeNum = 29u
 
-public val ProcThreadAttributeUmsThread: PROC_THREAD_ATTRIBUTE_NUM = 6u
+public val PROC_THREAD_ATTRIBUTE_UMS_THREAD1: ProcThreadAttributeNum = 6u
 
-public val ProcThreadAttributeWin32kFilter: PROC_THREAD_ATTRIBUTE_NUM = 16u
+public val PROC_THREAD_ATTRIBUTE_WIN32K_FILTER1: ProcThreadAttributeNum = 16u
 
-public val ProcessASLRPolicy: PROCESS_MITIGATION_POLICY = 1
+public val PROCESS_ASLR_POLICY: ProcessMitigationPolicy = 1
 
-public val ProcessActivationContextTrustPolicy: PROCESS_MITIGATION_POLICY = 19
+public val PROCESS_ACTIVATION_CONTEXT_TRUST_POLICY: ProcessMitigationPolicy = 19
 
-public val ProcessAppMemoryInfo: PROCESS_INFORMATION_CLASS = 2
+public val PROCESS_APP_MEMORY_INFO: ProcessInformationClass = 2
 
-public val ProcessChildProcessPolicy: PROCESS_MITIGATION_POLICY = 13
+public val PROCESS_CHILD_PROCESS_POLICY: ProcessMitigationPolicy = 13
 
-public val ProcessControlFlowGuardPolicy: PROCESS_MITIGATION_POLICY = 7
+public val PROCESS_CONTROL_FLOW_GUARD_POLICY: ProcessMitigationPolicy = 7
 
-public val ProcessDEPPolicy: PROCESS_MITIGATION_POLICY = 0
+public val PROCESS_DEP_POLICY: ProcessMitigationPolicy = 0
 
-public val ProcessDynamicCodePolicy: PROCESS_MITIGATION_POLICY = 2
+public val PROCESS_DYNAMIC_CODE_POLICY: ProcessMitigationPolicy = 2
 
-public val ProcessExtensionPointDisablePolicy: PROCESS_MITIGATION_POLICY = 6
+public val PROCESS_EXTENSION_POINT_DISABLE_POLICY: ProcessMitigationPolicy = 6
 
-public val ProcessFontDisablePolicy: PROCESS_MITIGATION_POLICY = 9
+public val PROCESS_FONT_DISABLE_POLICY: ProcessMitigationPolicy = 9
 
-public val ProcessImageLoadPolicy: PROCESS_MITIGATION_POLICY = 10
+public val PROCESS_IMAGE_LOAD_POLICY: ProcessMitigationPolicy = 10
 
-public val ProcessInPrivateInfo: PROCESS_INFORMATION_CLASS = 3
+public val PROCESS_IN_PRIVATE_INFO: ProcessInformationClass = 3
 
-public val ProcessInformationClassMax: PROCESS_INFORMATION_CLASS = 12
+public val PROCESS_INFORMATION_CLASS_MAX: ProcessInformationClass = 12
 
-public val ProcessLeapSecondInfo: PROCESS_INFORMATION_CLASS = 8
+public val PROCESS_LEAP_SECOND_INFO: ProcessInformationClass = 8
 
-public val ProcessMachineTypeInfo: PROCESS_INFORMATION_CLASS = 9
+public val PROCESS_MACHINE_TYPE_INFO: ProcessInformationClass = 9
 
-public val ProcessMaxOverridePrefetchParameter: PROCESS_INFORMATION_CLASS = 11
+public val PROCESS_MAX_OVERRIDE_PREFETCH_PARAMETER: ProcessInformationClass = 11
 
-public val ProcessMemoryExhaustionInfo: PROCESS_INFORMATION_CLASS = 1
+public val PROCESS_MEMORY_EXHAUSTION_INFO: ProcessInformationClass = 1
 
-public val ProcessMemoryPriority: PROCESS_INFORMATION_CLASS = 0
+public val PROCESS_MEMORY_PRIORITY: ProcessInformationClass = 0
 
-public val ProcessMitigationOptionsMask: PROCESS_MITIGATION_POLICY = 5
+public val PROCESS_MITIGATION_OPTIONS_MASK: ProcessMitigationPolicy = 5
 
-public val ProcessOverrideSubsequentPrefetchParameter: PROCESS_INFORMATION_CLASS = 10
+public val PROCESS_OVERRIDE_SUBSEQUENT_PREFETCH_PARAMETER: ProcessInformationClass = 10
 
-public val ProcessPayloadRestrictionPolicy: PROCESS_MITIGATION_POLICY = 12
+public val PROCESS_PAYLOAD_RESTRICTION_POLICY: ProcessMitigationPolicy = 12
 
-public val ProcessPowerThrottling: PROCESS_INFORMATION_CLASS = 4
+public val PROCESS_POWER_THROTTLING: ProcessInformationClass = 4
 
-public val ProcessProtectionLevelInfo: PROCESS_INFORMATION_CLASS = 7
+public val PROCESS_PROTECTION_LEVEL_INFO: ProcessInformationClass = 7
 
-public val ProcessRedirectionTrustPolicy: PROCESS_MITIGATION_POLICY = 16
+public val PROCESS_REDIRECTION_TRUST_POLICY: ProcessMitigationPolicy = 16
 
-public val ProcessReservedValue1: PROCESS_INFORMATION_CLASS = 5
+public val PROCESS_RESERVED_VALUE1: ProcessInformationClass = 5
 
-public val ProcessSEHOPPolicy: PROCESS_MITIGATION_POLICY = 18
+public val PROCESS_SEHOP_POLICY: ProcessMitigationPolicy = 18
 
-public val ProcessSideChannelIsolationPolicy: PROCESS_MITIGATION_POLICY = 14
+public val PROCESS_SIDE_CHANNEL_ISOLATION_POLICY: ProcessMitigationPolicy = 14
 
-public val ProcessSignaturePolicy: PROCESS_MITIGATION_POLICY = 8
+public val PROCESS_SIGNATURE_POLICY: ProcessMitigationPolicy = 8
 
-public val ProcessStrictHandleCheckPolicy: PROCESS_MITIGATION_POLICY = 3
+public val PROCESS_STRICT_HANDLE_CHECK_POLICY: ProcessMitigationPolicy = 3
 
-public val ProcessSystemCallDisablePolicy: PROCESS_MITIGATION_POLICY = 4
+public val PROCESS_SYSTEM_CALL_DISABLE_POLICY: ProcessMitigationPolicy = 4
 
-public val ProcessSystemCallFilterPolicy: PROCESS_MITIGATION_POLICY = 11
+public val PROCESS_SYSTEM_CALL_FILTER_POLICY: ProcessMitigationPolicy = 11
 
-public val ProcessTelemetryCoverageInfo: PROCESS_INFORMATION_CLASS = 6
+public val PROCESS_TELEMETRY_COVERAGE_INFO: ProcessInformationClass = 6
 
-public val ProcessUserPointerAuthPolicy: PROCESS_MITIGATION_POLICY = 17
+public val PROCESS_USER_POINTER_AUTH_POLICY: ProcessMitigationPolicy = 17
 
-public val ProcessUserShadowStackPolicy: PROCESS_MITIGATION_POLICY = 15
+public val PROCESS_USER_SHADOW_STACK_POLICY: ProcessMitigationPolicy = 15
 
-public val QUEUE_USER_APC_CALLBACK_DATA_CONTEXT: QUEUE_USER_APC_FLAGS = 65536
+public val QUEUE_USER_APC_CALLBACK_DATA_CONTEXT: QueueUserApcFlags = 65536
 
-public val QUEUE_USER_APC_FLAGS_NONE: QUEUE_USER_APC_FLAGS = 0
+public val QUEUE_USER_APC_FLAGS_NONE: QueueUserApcFlags = 0
 
-public val QUEUE_USER_APC_FLAGS_SPECIAL_USER_APC: QUEUE_USER_APC_FLAGS = 1
+public val QUEUE_USER_APC_FLAGS_SPECIAL_USER_APC: QueueUserApcFlags = 1
 
-public val REALTIME_PRIORITY_CLASS: PROCESS_CREATION_FLAGS = 256u
+public val REALTIME_PRIORITY_CLASS: ProcessCreationFlags = 256u
 
 public val RTL_CRITICAL_SECTION_ALL_FLAG_BITS: UInt = 4278190080u
 
@@ -500,47 +502,47 @@ public val RTL_CRITICAL_SECTION_FLAG_RESOURCE_TYPE: UInt = 134217728u
 
 public val RTL_CRITICAL_SECTION_FLAG_STATIC_INIT: UInt = 67108864u
 
-public val RTWQ_MULTITHREADED_WORKQUEUE: RTWQ_WORKQUEUE_TYPE = 2
+public val RTWQ_MULTITHREADED_WORKQUEUE: RtwqWorkqueueType = 2
 
-public val RTWQ_STANDARD_WORKQUEUE: RTWQ_WORKQUEUE_TYPE = 0
+public val RTWQ_STANDARD_WORKQUEUE: RtwqWorkqueueType = 0
 
-public val RTWQ_WINDOW_WORKQUEUE: RTWQ_WORKQUEUE_TYPE = 1
+public val RTWQ_WINDOW_WORKQUEUE: RtwqWorkqueueType = 1
 
-public val SEMAPHORE_ALL_ACCESS: SYNCHRONIZATION_ACCESS_RIGHTS = 2031619u
+public val SEMAPHORE_ALL_ACCESS: SynchronizationAccessRights = 2031619u
 
-public val SEMAPHORE_MODIFY_STATE: SYNCHRONIZATION_ACCESS_RIGHTS = 2u
+public val SEMAPHORE_MODIFY_STATE: SynchronizationAccessRights = 2u
 
-public val SRWLOCK_INIT: SRWLOCK = SRWLOCK(Ptr = 0L)
+public val SRWLOCK_INIT: Srwlock = Srwlock(ptr = null)
 
-public val STACK_SIZE_PARAM_IS_A_RESERVATION: THREAD_CREATION_FLAGS = 65536u
+public val STACK_SIZE_PARAM_IS_A_RESERVATION: ThreadCreationFlags = 65536u
 
-public val STARTF_FORCEOFFFEEDBACK: STARTUPINFOW_FLAGS = 128u
+public val STARTF_FORCEOFFFEEDBACK: StartupinfowFlags = 128u
 
-public val STARTF_FORCEONFEEDBACK: STARTUPINFOW_FLAGS = 64u
+public val STARTF_FORCEONFEEDBACK: StartupinfowFlags = 64u
 
-public val STARTF_PREVENTPINNING: STARTUPINFOW_FLAGS = 8192u
+public val STARTF_PREVENTPINNING: StartupinfowFlags = 8192u
 
-public val STARTF_RUNFULLSCREEN: STARTUPINFOW_FLAGS = 32u
+public val STARTF_RUNFULLSCREEN: StartupinfowFlags = 32u
 
-public val STARTF_TITLEISAPPID: STARTUPINFOW_FLAGS = 4096u
+public val STARTF_TITLEISAPPID: StartupinfowFlags = 4096u
 
-public val STARTF_TITLEISLINKNAME: STARTUPINFOW_FLAGS = 2048u
+public val STARTF_TITLEISLINKNAME: StartupinfowFlags = 2048u
 
-public val STARTF_UNTRUSTEDSOURCE: STARTUPINFOW_FLAGS = 32768u
+public val STARTF_UNTRUSTEDSOURCE: StartupinfowFlags = 32768u
 
-public val STARTF_USECOUNTCHARS: STARTUPINFOW_FLAGS = 8u
+public val STARTF_USECOUNTCHARS: StartupinfowFlags = 8u
 
-public val STARTF_USEFILLATTRIBUTE: STARTUPINFOW_FLAGS = 16u
+public val STARTF_USEFILLATTRIBUTE: StartupinfowFlags = 16u
 
-public val STARTF_USEHOTKEY: STARTUPINFOW_FLAGS = 512u
+public val STARTF_USEHOTKEY: StartupinfowFlags = 512u
 
-public val STARTF_USEPOSITION: STARTUPINFOW_FLAGS = 4u
+public val STARTF_USEPOSITION: StartupinfowFlags = 4u
 
-public val STARTF_USESHOWWINDOW: STARTUPINFOW_FLAGS = 1u
+public val STARTF_USESHOWWINDOW: StartupinfowFlags = 1u
 
-public val STARTF_USESIZE: STARTUPINFOW_FLAGS = 2u
+public val STARTF_USESIZE: StartupinfowFlags = 2u
 
-public val STARTF_USESTDHANDLES: STARTUPINFOW_FLAGS = 256u
+public val STARTF_USESTDHANDLES: StartupinfowFlags = 256u
 
 public val SYNCHRONIZATION_BARRIER_FLAGS_BLOCK_ONLY: UInt = 2u
 
@@ -548,33 +550,33 @@ public val SYNCHRONIZATION_BARRIER_FLAGS_NO_DELETE: UInt = 4u
 
 public val SYNCHRONIZATION_BARRIER_FLAGS_SPIN_ONLY: UInt = 1u
 
-public val SYNCHRONIZATION_DELETE: SYNCHRONIZATION_ACCESS_RIGHTS = 65536u
+public val SYNCHRONIZATION_DELETE: SynchronizationAccessRights = 65536u
 
-public val SYNCHRONIZATION_READ_CONTROL: SYNCHRONIZATION_ACCESS_RIGHTS = 131072u
+public val SYNCHRONIZATION_READ_CONTROL: SynchronizationAccessRights = 131072u
 
-public val SYNCHRONIZATION_SYNCHRONIZE: SYNCHRONIZATION_ACCESS_RIGHTS = 1048576u
+public val SYNCHRONIZATION_SYNCHRONIZE: SynchronizationAccessRights = 1048576u
 
-public val SYNCHRONIZATION_WRITE_DAC: SYNCHRONIZATION_ACCESS_RIGHTS = 262144u
+public val SYNCHRONIZATION_WRITE_DAC: SynchronizationAccessRights = 262144u
 
-public val SYNCHRONIZATION_WRITE_OWNER: SYNCHRONIZATION_ACCESS_RIGHTS = 524288u
+public val SYNCHRONIZATION_WRITE_OWNER: SynchronizationAccessRights = 524288u
 
-public val THREAD_ALL_ACCESS: THREAD_ACCESS_RIGHTS = 2097151u
+public val THREAD_ALL_ACCESS: ThreadAccessRights = 2097151u
 
-public val THREAD_CREATE_RUN_IMMEDIATELY: THREAD_CREATION_FLAGS = 0u
+public val THREAD_CREATE_RUN_IMMEDIATELY: ThreadCreationFlags = 0u
 
-public val THREAD_CREATE_SUSPENDED: THREAD_CREATION_FLAGS = 4u
+public val THREAD_CREATE_SUSPENDED: ThreadCreationFlags = 4u
 
-public val THREAD_DELETE: THREAD_ACCESS_RIGHTS = 65536u
+public val THREAD_DELETE: ThreadAccessRights = 65536u
 
-public val THREAD_DIRECT_IMPERSONATION: THREAD_ACCESS_RIGHTS = 512u
+public val THREAD_DIRECT_IMPERSONATION: ThreadAccessRights = 512u
 
-public val THREAD_GET_CONTEXT: THREAD_ACCESS_RIGHTS = 8u
+public val THREAD_GET_CONTEXT: ThreadAccessRights = 8u
 
-public val THREAD_IMPERSONATE: THREAD_ACCESS_RIGHTS = 256u
+public val THREAD_IMPERSONATE: ThreadAccessRights = 256u
 
-public val THREAD_MODE_BACKGROUND_BEGIN: THREAD_PRIORITY = 65536
+public val THREAD_MODE_BACKGROUND_BEGIN: ThreadPriority = 65536
 
-public val THREAD_MODE_BACKGROUND_END: THREAD_PRIORITY = 131072
+public val THREAD_MODE_BACKGROUND_END: ThreadPriority = 131072
 
 public val THREAD_POWER_THROTTLING_CURRENT_VERSION: UInt = 1u
 
@@ -582,110 +584,110 @@ public val THREAD_POWER_THROTTLING_EXECUTION_SPEED: UInt = 1u
 
 public val THREAD_POWER_THROTTLING_VALID_FLAGS: UInt = 1u
 
-public val THREAD_PRIORITY_ABOVE_NORMAL: THREAD_PRIORITY = 1
+public val THREAD_PRIORITY_ABOVE_NORMAL: ThreadPriority = 1
 
-public val THREAD_PRIORITY_BELOW_NORMAL: THREAD_PRIORITY = -1
+public val THREAD_PRIORITY_BELOW_NORMAL: ThreadPriority = -1
 
-public val THREAD_PRIORITY_HIGHEST: THREAD_PRIORITY = 2
+public val THREAD_PRIORITY_HIGHEST: ThreadPriority = 2
 
-public val THREAD_PRIORITY_IDLE: THREAD_PRIORITY = -15
+public val THREAD_PRIORITY_IDLE: ThreadPriority = -15
 
-public val THREAD_PRIORITY_LOWEST: THREAD_PRIORITY = -2
+public val THREAD_PRIORITY_LOWEST: ThreadPriority = -2
 
-public val THREAD_PRIORITY_MIN: THREAD_PRIORITY = -2
+public val THREAD_PRIORITY_MIN: ThreadPriority = -2
 
-public val THREAD_PRIORITY_NORMAL: THREAD_PRIORITY = 0
+public val THREAD_PRIORITY_NORMAL: ThreadPriority = 0
 
-public val THREAD_PRIORITY_TIME_CRITICAL: THREAD_PRIORITY = 15
+public val THREAD_PRIORITY_TIME_CRITICAL: ThreadPriority = 15
 
-public val THREAD_QUERY_INFORMATION: THREAD_ACCESS_RIGHTS = 64u
+public val THREAD_QUERY_INFORMATION: ThreadAccessRights = 64u
 
-public val THREAD_QUERY_LIMITED_INFORMATION: THREAD_ACCESS_RIGHTS = 2048u
+public val THREAD_QUERY_LIMITED_INFORMATION: ThreadAccessRights = 2048u
 
-public val THREAD_READ_CONTROL: THREAD_ACCESS_RIGHTS = 131072u
+public val THREAD_READ_CONTROL: ThreadAccessRights = 131072u
 
-public val THREAD_RESUME: THREAD_ACCESS_RIGHTS = 4096u
+public val THREAD_RESUME: ThreadAccessRights = 4096u
 
-public val THREAD_SET_CONTEXT: THREAD_ACCESS_RIGHTS = 16u
+public val THREAD_SET_CONTEXT: ThreadAccessRights = 16u
 
-public val THREAD_SET_INFORMATION: THREAD_ACCESS_RIGHTS = 32u
+public val THREAD_SET_INFORMATION: ThreadAccessRights = 32u
 
-public val THREAD_SET_LIMITED_INFORMATION: THREAD_ACCESS_RIGHTS = 1024u
+public val THREAD_SET_LIMITED_INFORMATION: ThreadAccessRights = 1024u
 
-public val THREAD_SET_THREAD_TOKEN: THREAD_ACCESS_RIGHTS = 128u
+public val THREAD_SET_THREAD_TOKEN: ThreadAccessRights = 128u
 
-public val THREAD_STANDARD_RIGHTS_REQUIRED: THREAD_ACCESS_RIGHTS = 983040u
+public val THREAD_STANDARD_RIGHTS_REQUIRED: ThreadAccessRights = 983040u
 
-public val THREAD_SUSPEND_RESUME: THREAD_ACCESS_RIGHTS = 2u
+public val THREAD_SUSPEND_RESUME: ThreadAccessRights = 2u
 
-public val THREAD_SYNCHRONIZE: THREAD_ACCESS_RIGHTS = 1048576u
+public val THREAD_SYNCHRONIZE: ThreadAccessRights = 1048576u
 
-public val THREAD_TERMINATE: THREAD_ACCESS_RIGHTS = 1u
+public val THREAD_TERMINATE: ThreadAccessRights = 1u
 
-public val THREAD_WRITE_DAC: THREAD_ACCESS_RIGHTS = 262144u
+public val THREAD_WRITE_DAC: ThreadAccessRights = 262144u
 
-public val THREAD_WRITE_OWNER: THREAD_ACCESS_RIGHTS = 524288u
+public val THREAD_WRITE_OWNER: ThreadAccessRights = 524288u
 
-public val TIMER_ALL_ACCESS: SYNCHRONIZATION_ACCESS_RIGHTS = 2031619u
+public val TIMER_ALL_ACCESS: SynchronizationAccessRights = 2031619u
 
-public val TIMER_MODIFY_STATE: SYNCHRONIZATION_ACCESS_RIGHTS = 2u
+public val TIMER_MODIFY_STATE: SynchronizationAccessRights = 2u
 
-public val TIMER_QUERY_STATE: SYNCHRONIZATION_ACCESS_RIGHTS = 1u
+public val TIMER_QUERY_STATE: SynchronizationAccessRights = 1u
 
 public val TLS_OUT_OF_INDEXES: UInt = 4294967295u
 
-public val TP_CALLBACK_PRIORITY_COUNT: TP_CALLBACK_PRIORITY = 3
+public val TP_CALLBACK_PRIORITY_COUNT: TpCallbackPriority = 3
 
-public val TP_CALLBACK_PRIORITY_HIGH: TP_CALLBACK_PRIORITY = 0
+public val TP_CALLBACK_PRIORITY_HIGH: TpCallbackPriority = 0
 
-public val TP_CALLBACK_PRIORITY_INVALID: TP_CALLBACK_PRIORITY = 3
+public val TP_CALLBACK_PRIORITY_INVALID: TpCallbackPriority = 3
 
-public val TP_CALLBACK_PRIORITY_LOW: TP_CALLBACK_PRIORITY = 2
+public val TP_CALLBACK_PRIORITY_LOW: TpCallbackPriority = 2
 
-public val TP_CALLBACK_PRIORITY_NORMAL: TP_CALLBACK_PRIORITY = 1
+public val TP_CALLBACK_PRIORITY_NORMAL: TpCallbackPriority = 1
 
-public val ThreadAbsoluteCpuPriority: THREAD_INFORMATION_CLASS = 1
+public val THREAD_ABSOLUTE_CPU_PRIORITY: ThreadInformationClass = 1
 
-public val ThreadDynamicCodePolicy: THREAD_INFORMATION_CLASS = 2
+public val THREAD_DYNAMIC_CODE_POLICY: ThreadInformationClass = 2
 
-public val ThreadInformationClassMax: THREAD_INFORMATION_CLASS = 4
+public val THREAD_INFORMATION_CLASS_MAX: ThreadInformationClass = 4
 
-public val ThreadMemoryPriority: THREAD_INFORMATION_CLASS = 0
+public val THREAD_MEMORY_PRIORITY: ThreadInformationClass = 0
 
-public val ThreadPowerThrottling: THREAD_INFORMATION_CLASS = 3
+public val THREAD_POWER_THROTTLING: ThreadInformationClass = 3
 
-public val UmsThreadAffinity: UMS_THREAD_INFO_CLASS = 3
+public val UMS_THREAD_AFFINITY: UmsThreadInfoClass = 3
 
-public val UmsThreadInvalidInfoClass: UMS_THREAD_INFO_CLASS = 0
+public val UMS_THREAD_INVALID_INFO_CLASS: UmsThreadInfoClass = 0
 
-public val UmsThreadIsSuspended: UMS_THREAD_INFO_CLASS = 5
+public val UMS_THREAD_IS_SUSPENDED: UmsThreadInfoClass = 5
 
-public val UmsThreadIsTerminated: UMS_THREAD_INFO_CLASS = 6
+public val UMS_THREAD_IS_TERMINATED: UmsThreadInfoClass = 6
 
-public val UmsThreadMaxInfoClass: UMS_THREAD_INFO_CLASS = 7
+public val UMS_THREAD_MAX_INFO_CLASS: UmsThreadInfoClass = 7
 
-public val UmsThreadPriority: UMS_THREAD_INFO_CLASS = 2
+public val UMS_THREAD_PRIORITY: UmsThreadInfoClass = 2
 
-public val UmsThreadTeb: UMS_THREAD_INFO_CLASS = 4
+public val UMS_THREAD_TEB: UmsThreadInfoClass = 4
 
-public val UmsThreadUserContext: UMS_THREAD_INFO_CLASS = 1
+public val UMS_THREAD_USER_CONTEXT: UmsThreadInfoClass = 1
 
-public val UserEnabled: MACHINE_ATTRIBUTES = 1
+public val USER_ENABLED: MachineAttributes = 1
 
-public val WT_EXECUTEDEFAULT: WORKER_THREAD_FLAGS = 0u
+public val WT_EXECUTEDEFAULT: WorkerThreadFlags = 0u
 
-public val WT_EXECUTEINIOTHREAD: WORKER_THREAD_FLAGS = 1u
+public val WT_EXECUTEINIOTHREAD: WorkerThreadFlags = 1u
 
-public val WT_EXECUTEINPERSISTENTTHREAD: WORKER_THREAD_FLAGS = 128u
+public val WT_EXECUTEINPERSISTENTTHREAD: WorkerThreadFlags = 128u
 
-public val WT_EXECUTEINTIMERTHREAD: WORKER_THREAD_FLAGS = 32u
+public val WT_EXECUTEINTIMERTHREAD: WorkerThreadFlags = 32u
 
-public val WT_EXECUTEINWAITTHREAD: WORKER_THREAD_FLAGS = 4u
+public val WT_EXECUTEINWAITTHREAD: WorkerThreadFlags = 4u
 
-public val WT_EXECUTELONGFUNCTION: WORKER_THREAD_FLAGS = 16u
+public val WT_EXECUTELONGFUNCTION: WorkerThreadFlags = 16u
 
-public val WT_EXECUTEONLYONCE: WORKER_THREAD_FLAGS = 8u
+public val WT_EXECUTEONLYONCE: WorkerThreadFlags = 8u
 
-public val WT_TRANSFER_IMPERSONATION: WORKER_THREAD_FLAGS = 256u
+public val WT_TRANSFER_IMPERSONATION: WorkerThreadFlags = 256u
 
-public val Wow64Container: MACHINE_ATTRIBUTES = 4
+public val WOW64CONTAINER: MachineAttributes = 4

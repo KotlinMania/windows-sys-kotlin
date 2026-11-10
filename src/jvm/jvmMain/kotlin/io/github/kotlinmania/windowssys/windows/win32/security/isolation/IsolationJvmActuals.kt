@@ -2,12 +2,13 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.security.isolation
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.security.PSID
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.security.Psid
 
 private object WindowsWin32SecurityIsolationJniBridge {
     init {
@@ -15,68 +16,68 @@ private object WindowsWin32SecurityIsolationJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_isolation_CreateAppContainerProfile(pszappcontainername: Long, pszdisplayname: Long, pszdescription: Long, pcapabilities: Long, dwcapabilitycount: Int, ppsidappcontainersid: Long): Int
+    external fun windowssys_windows_win32_security_isolation_createAppContainerProfile(pszappcontainername: Long, pszdisplayname: Long, pszdescription: Long, pcapabilities: Long, dwcapabilitycount: Int, ppsidappcontainersid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_isolation_DeleteAppContainerProfile(pszappcontainername: Long): Int
+    external fun windowssys_windows_win32_security_isolation_deleteAppContainerProfile(pszappcontainername: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_isolation_DeriveAppContainerSidFromAppContainerName(pszappcontainername: Long, ppsidappcontainersid: Long): Int
+    external fun windowssys_windows_win32_security_isolation_deriveAppContainerSidFromAppContainerName(pszappcontainername: Long, ppsidappcontainersid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_isolation_DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName(psidappcontainersid: Long, pszrestrictedappcontainername: Long, ppsidrestrictedappcontainersid: Long): Int
+    external fun windowssys_windows_win32_security_isolation_deriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName(psidappcontainersid: Long, pszrestrictedappcontainername: Long, ppsidrestrictedappcontainersid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_isolation_GetAppContainerFolderPath(pszappcontainersid: Long, ppszpath: Long): Int
+    external fun windowssys_windows_win32_security_isolation_getAppContainerFolderPath(pszappcontainersid: Long, ppszpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_isolation_GetAppContainerNamedObjectPath(token: Long, appcontainersid: Long, objectpathlength: Int, objectpath: Long, returnlength: Long): Int
+    external fun windowssys_windows_win32_security_isolation_getAppContainerNamedObjectPath(token: Long, appcontainersid: Long, objectpathlength: Int, objectpath: Long, returnlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_isolation_GetAppContainerRegistryLocation(desiredaccess: Int, phappcontainerkey: Long): Int
+    external fun windowssys_windows_win32_security_isolation_getAppContainerRegistryLocation(desiredaccess: Int, phappcontainerkey: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_isolation_IsCrossIsolatedEnvironmentClipboardContent(iscrossisolatedenvironmentclipboardcontent: Long): Int
+    external fun windowssys_windows_win32_security_isolation_isCrossIsolatedEnvironmentClipboardContent(iscrossisolatedenvironmentclipboardcontent: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_isolation_IsProcessInIsolatedContainer(isprocessinisolatedcontainer: Long): Int
+    external fun windowssys_windows_win32_security_isolation_isProcessInIsolatedContainer(isprocessinisolatedcontainer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_isolation_IsProcessInIsolatedWindowsEnvironment(isprocessinisolatedwindowsenvironment: Long): Int
+    external fun windowssys_windows_win32_security_isolation_isProcessInIsolatedWindowsEnvironment(isprocessinisolatedwindowsenvironment: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_isolation_IsProcessInWDAGContainer(reserved: Long, isprocessinwdagcontainer: Long): Int
+    external fun windowssys_windows_win32_security_isolation_isProcessInWDAGContainer(reserved: Long, isprocessinwdagcontainer: Long): Int
 }
 
-public actual fun CreateAppContainerProfile(pszappcontainername: PCWSTR, pszdisplayname: PCWSTR, pszdescription: PCWSTR, pcapabilities: Long, dwcapabilitycount: UInt, ppsidappcontainersid: Long): HRESULT =
-    WindowsWin32SecurityIsolationJniBridge.windowssys_windows_win32_security_isolation_CreateAppContainerProfile(pszappcontainername, pszdisplayname, pszdescription, pcapabilities, dwcapabilitycount.toInt(), ppsidappcontainersid)
+public actual fun createAppContainerProfile(pszappcontainername: Pcwstr, pszdisplayname: Pcwstr, pszdescription: Pcwstr, pcapabilities: COpaquePointer?, dwcapabilitycount: UInt, ppsidappcontainersid: COpaquePointer?): Hresult =
+    WindowsWin32SecurityIsolationJniBridge.windowssys_windows_win32_security_isolation_createAppContainerProfile((pszappcontainername?.value ?: 0L), (pszdisplayname?.value ?: 0L), (pszdescription?.value ?: 0L), (pcapabilities?.value ?: 0L), dwcapabilitycount.toInt(), (ppsidappcontainersid?.value ?: 0L))
 
-public actual fun DeleteAppContainerProfile(pszappcontainername: PCWSTR): HRESULT =
-    WindowsWin32SecurityIsolationJniBridge.windowssys_windows_win32_security_isolation_DeleteAppContainerProfile(pszappcontainername)
+public actual fun deleteAppContainerProfile(pszappcontainername: Pcwstr): Hresult =
+    WindowsWin32SecurityIsolationJniBridge.windowssys_windows_win32_security_isolation_deleteAppContainerProfile((pszappcontainername?.value ?: 0L))
 
-public actual fun DeriveAppContainerSidFromAppContainerName(pszappcontainername: PCWSTR, ppsidappcontainersid: Long): HRESULT =
-    WindowsWin32SecurityIsolationJniBridge.windowssys_windows_win32_security_isolation_DeriveAppContainerSidFromAppContainerName(pszappcontainername, ppsidappcontainersid)
+public actual fun deriveAppContainerSidFromAppContainerName(pszappcontainername: Pcwstr, ppsidappcontainersid: COpaquePointer?): Hresult =
+    WindowsWin32SecurityIsolationJniBridge.windowssys_windows_win32_security_isolation_deriveAppContainerSidFromAppContainerName((pszappcontainername?.value ?: 0L), (ppsidappcontainersid?.value ?: 0L))
 
-public actual fun DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName(psidappcontainersid: PSID, pszrestrictedappcontainername: PCWSTR, ppsidrestrictedappcontainersid: Long): HRESULT =
-    WindowsWin32SecurityIsolationJniBridge.windowssys_windows_win32_security_isolation_DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName(psidappcontainersid, pszrestrictedappcontainername, ppsidrestrictedappcontainersid)
+public actual fun deriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName(psidappcontainersid: Psid, pszrestrictedappcontainername: Pcwstr, ppsidrestrictedappcontainersid: COpaquePointer?): Hresult =
+    WindowsWin32SecurityIsolationJniBridge.windowssys_windows_win32_security_isolation_deriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName((psidappcontainersid?.value ?: 0L), (pszrestrictedappcontainername?.value ?: 0L), (ppsidrestrictedappcontainersid?.value ?: 0L))
 
-public actual fun GetAppContainerFolderPath(pszappcontainersid: PCWSTR, ppszpath: Long): HRESULT =
-    WindowsWin32SecurityIsolationJniBridge.windowssys_windows_win32_security_isolation_GetAppContainerFolderPath(pszappcontainersid, ppszpath)
+public actual fun getAppContainerFolderPath(pszappcontainersid: Pcwstr, ppszpath: COpaquePointer?): Hresult =
+    WindowsWin32SecurityIsolationJniBridge.windowssys_windows_win32_security_isolation_getAppContainerFolderPath((pszappcontainersid?.value ?: 0L), (ppszpath?.value ?: 0L))
 
-public actual fun GetAppContainerNamedObjectPath(token: HANDLE, appcontainersid: PSID, objectpathlength: UInt, objectpath: PWSTR, returnlength: Long): BOOL =
-    WindowsWin32SecurityIsolationJniBridge.windowssys_windows_win32_security_isolation_GetAppContainerNamedObjectPath(token, appcontainersid, objectpathlength.toInt(), objectpath, returnlength)
+public actual fun getAppContainerNamedObjectPath(token: Handle, appcontainersid: Psid, objectpathlength: UInt, objectpath: Pwstr, returnlength: COpaquePointer?): Bool =
+    WindowsWin32SecurityIsolationJniBridge.windowssys_windows_win32_security_isolation_getAppContainerNamedObjectPath((token?.value ?: 0L), (appcontainersid?.value ?: 0L), objectpathlength.toInt(), (objectpath?.value ?: 0L), (returnlength?.value ?: 0L))
 
-public actual fun GetAppContainerRegistryLocation(desiredaccess: UInt, phappcontainerkey: Long): HRESULT =
-    WindowsWin32SecurityIsolationJniBridge.windowssys_windows_win32_security_isolation_GetAppContainerRegistryLocation(desiredaccess.toInt(), phappcontainerkey)
+public actual fun getAppContainerRegistryLocation(desiredaccess: UInt, phappcontainerkey: COpaquePointer?): Hresult =
+    WindowsWin32SecurityIsolationJniBridge.windowssys_windows_win32_security_isolation_getAppContainerRegistryLocation(desiredaccess.toInt(), (phappcontainerkey?.value ?: 0L))
 
-public actual fun IsCrossIsolatedEnvironmentClipboardContent(iscrossisolatedenvironmentclipboardcontent: Long): HRESULT =
-    WindowsWin32SecurityIsolationJniBridge.windowssys_windows_win32_security_isolation_IsCrossIsolatedEnvironmentClipboardContent(iscrossisolatedenvironmentclipboardcontent)
+public actual fun isCrossIsolatedEnvironmentClipboardContent(iscrossisolatedenvironmentclipboardcontent: COpaquePointer?): Hresult =
+    WindowsWin32SecurityIsolationJniBridge.windowssys_windows_win32_security_isolation_isCrossIsolatedEnvironmentClipboardContent((iscrossisolatedenvironmentclipboardcontent?.value ?: 0L))
 
-public actual fun IsProcessInIsolatedContainer(isprocessinisolatedcontainer: Long): HRESULT =
-    WindowsWin32SecurityIsolationJniBridge.windowssys_windows_win32_security_isolation_IsProcessInIsolatedContainer(isprocessinisolatedcontainer)
+public actual fun isProcessInIsolatedContainer(isprocessinisolatedcontainer: COpaquePointer?): Hresult =
+    WindowsWin32SecurityIsolationJniBridge.windowssys_windows_win32_security_isolation_isProcessInIsolatedContainer((isprocessinisolatedcontainer?.value ?: 0L))
 
-public actual fun IsProcessInIsolatedWindowsEnvironment(isprocessinisolatedwindowsenvironment: Long): HRESULT =
-    WindowsWin32SecurityIsolationJniBridge.windowssys_windows_win32_security_isolation_IsProcessInIsolatedWindowsEnvironment(isprocessinisolatedwindowsenvironment)
+public actual fun isProcessInIsolatedWindowsEnvironment(isprocessinisolatedwindowsenvironment: COpaquePointer?): Hresult =
+    WindowsWin32SecurityIsolationJniBridge.windowssys_windows_win32_security_isolation_isProcessInIsolatedWindowsEnvironment((isprocessinisolatedwindowsenvironment?.value ?: 0L))
 
-public actual fun IsProcessInWDAGContainer(reserved: Long, isprocessinwdagcontainer: Long): HRESULT =
-    WindowsWin32SecurityIsolationJniBridge.windowssys_windows_win32_security_isolation_IsProcessInWDAGContainer(reserved, isprocessinwdagcontainer)
+public actual fun isProcessInWDAGContainer(reserved: COpaquePointer?, isprocessinwdagcontainer: COpaquePointer?): Hresult =
+    WindowsWin32SecurityIsolationJniBridge.windowssys_windows_win32_security_isolation_isProcessInWDAGContainer((reserved?.value ?: 0L), (isprocessinwdagcontainer?.value ?: 0L))

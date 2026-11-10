@@ -2,82 +2,83 @@
 
 package io.github.kotlinmania.windowssys.windows.wdk.system.offlineregistry
 
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.WIN32_ERROR
-import io.github.kotlinmania.windowssys.windows.win32.security.PSECURITY_DESCRIPTOR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Win32Error
+import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun ORCloseHive(handle: ORHKEY): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.wdk.system.offlineregistry.cinterop.windowssys_windows_wdk_system_offlineregistry_ORCloseHive(handle.toCPointer<ByteVar>())
+public actual fun oRCloseHive(handle: Orhkey): Win32Error =
+    io.github.kotlinmania.windowssys.windows.wdk.system.offlineregistry.cinterop.windowssys_windows_wdk_system_offlineregistry_oRCloseHive(handle?.value?.toCPointer<ByteVar>())
 
-public actual fun ORCloseKey(keyhandle: ORHKEY): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.wdk.system.offlineregistry.cinterop.windowssys_windows_wdk_system_offlineregistry_ORCloseKey(keyhandle.toCPointer<ByteVar>())
+public actual fun oRCloseKey(keyhandle: Orhkey): Win32Error =
+    io.github.kotlinmania.windowssys.windows.wdk.system.offlineregistry.cinterop.windowssys_windows_wdk_system_offlineregistry_oRCloseKey(keyhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun ORCreateHive(horkey: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.wdk.system.offlineregistry.cinterop.windowssys_windows_wdk_system_offlineregistry_ORCreateHive(horkey.toCPointer<ByteVar>())
+public actual fun oRCreateHive(horkey: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.wdk.system.offlineregistry.cinterop.windowssys_windows_wdk_system_offlineregistry_oRCreateHive(horkey?.value?.toCPointer<ByteVar>())
 
-public actual fun ORCreateKey(keyhandle: ORHKEY, lpsubkey: PCWSTR, lpclass: PCWSTR, dwoptions: UInt, psecuritydescriptor: PSECURITY_DESCRIPTOR, phkresult: Long, pdwdisposition: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.wdk.system.offlineregistry.cinterop.windowssys_windows_wdk_system_offlineregistry_ORCreateKey(keyhandle.toCPointer<ByteVar>(), lpsubkey.toCPointer<ByteVar>(), lpclass.toCPointer<ByteVar>(), dwoptions, psecuritydescriptor.toCPointer<ByteVar>(), phkresult.toCPointer<ByteVar>(), pdwdisposition.toCPointer<ByteVar>())
+public actual fun oRCreateKey(keyhandle: Orhkey, lpsubkey: Pcwstr, lpclass: Pcwstr, dwoptions: UInt, psecuritydescriptor: PsecurityDescriptor, phkresult: COpaquePointer?, pdwdisposition: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.wdk.system.offlineregistry.cinterop.windowssys_windows_wdk_system_offlineregistry_oRCreateKey(keyhandle?.value?.toCPointer<ByteVar>(), lpsubkey?.value?.toCPointer<ByteVar>(), lpclass?.value?.toCPointer<ByteVar>(), dwoptions, psecuritydescriptor?.value?.toCPointer<ByteVar>(), phkresult?.value?.toCPointer<ByteVar>(), pdwdisposition?.value?.toCPointer<ByteVar>())
 
-public actual fun ORDeleteKey(handle: ORHKEY, lpsubkey: PCWSTR): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.wdk.system.offlineregistry.cinterop.windowssys_windows_wdk_system_offlineregistry_ORDeleteKey(handle.toCPointer<ByteVar>(), lpsubkey.toCPointer<ByteVar>())
+public actual fun oRDeleteKey(handle: Orhkey, lpsubkey: Pcwstr): Win32Error =
+    io.github.kotlinmania.windowssys.windows.wdk.system.offlineregistry.cinterop.windowssys_windows_wdk_system_offlineregistry_oRDeleteKey(handle?.value?.toCPointer<ByteVar>(), lpsubkey?.value?.toCPointer<ByteVar>())
 
-public actual fun ORDeleteValue(handle: ORHKEY, lpvaluename: PCWSTR): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.wdk.system.offlineregistry.cinterop.windowssys_windows_wdk_system_offlineregistry_ORDeleteValue(handle.toCPointer<ByteVar>(), lpvaluename.toCPointer<ByteVar>())
+public actual fun oRDeleteValue(handle: Orhkey, lpvaluename: Pcwstr): Win32Error =
+    io.github.kotlinmania.windowssys.windows.wdk.system.offlineregistry.cinterop.windowssys_windows_wdk_system_offlineregistry_oRDeleteValue(handle?.value?.toCPointer<ByteVar>(), lpvaluename?.value?.toCPointer<ByteVar>())
 
-public actual fun OREnumKey(handle: ORHKEY, dwindex: UInt, lpname: PWSTR, lpcname: Long, lpclass: PWSTR, lpcclass: Long, lpftlastwritetime: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.wdk.system.offlineregistry.cinterop.windowssys_windows_wdk_system_offlineregistry_OREnumKey(handle.toCPointer<ByteVar>(), dwindex, lpname.toCPointer<ByteVar>(), lpcname.toCPointer<ByteVar>(), lpclass.toCPointer<ByteVar>(), lpcclass.toCPointer<ByteVar>(), lpftlastwritetime.toCPointer<ByteVar>())
+public actual fun oREnumKey(handle: Orhkey, dwindex: UInt, lpname: Pwstr, lpcname: COpaquePointer?, lpclass: Pwstr, lpcclass: COpaquePointer?, lpftlastwritetime: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.wdk.system.offlineregistry.cinterop.windowssys_windows_wdk_system_offlineregistry_oREnumKey(handle?.value?.toCPointer<ByteVar>(), dwindex, lpname?.value?.toCPointer<ByteVar>(), lpcname?.value?.toCPointer<ByteVar>(), lpclass?.value?.toCPointer<ByteVar>(), lpcclass?.value?.toCPointer<ByteVar>(), lpftlastwritetime?.value?.toCPointer<ByteVar>())
 
-public actual fun OREnumValue(handle: ORHKEY, dwindex: UInt, lpvaluename: PWSTR, lpcvaluename: Long, lptype: Long, lpdata: Long, lpcbdata: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.wdk.system.offlineregistry.cinterop.windowssys_windows_wdk_system_offlineregistry_OREnumValue(handle.toCPointer<ByteVar>(), dwindex, lpvaluename.toCPointer<ByteVar>(), lpcvaluename.toCPointer<ByteVar>(), lptype.toCPointer<ByteVar>(), lpdata.toCPointer<ByteVar>(), lpcbdata.toCPointer<ByteVar>())
+public actual fun oREnumValue(handle: Orhkey, dwindex: UInt, lpvaluename: Pwstr, lpcvaluename: COpaquePointer?, lptype: COpaquePointer?, lpdata: COpaquePointer?, lpcbdata: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.wdk.system.offlineregistry.cinterop.windowssys_windows_wdk_system_offlineregistry_oREnumValue(handle?.value?.toCPointer<ByteVar>(), dwindex, lpvaluename?.value?.toCPointer<ByteVar>(), lpcvaluename?.value?.toCPointer<ByteVar>(), lptype?.value?.toCPointer<ByteVar>(), lpdata?.value?.toCPointer<ByteVar>(), lpcbdata?.value?.toCPointer<ByteVar>())
 
-public actual fun ORGetKeySecurity(handle: ORHKEY, securityinformation: UInt, psecuritydescriptor: PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.wdk.system.offlineregistry.cinterop.windowssys_windows_wdk_system_offlineregistry_ORGetKeySecurity(handle.toCPointer<ByteVar>(), securityinformation, psecuritydescriptor.toCPointer<ByteVar>(), lpcbsecuritydescriptor.toCPointer<ByteVar>())
+public actual fun oRGetKeySecurity(handle: Orhkey, securityinformation: UInt, psecuritydescriptor: PsecurityDescriptor, lpcbsecuritydescriptor: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.wdk.system.offlineregistry.cinterop.windowssys_windows_wdk_system_offlineregistry_oRGetKeySecurity(handle?.value?.toCPointer<ByteVar>(), securityinformation, psecuritydescriptor?.value?.toCPointer<ByteVar>(), lpcbsecuritydescriptor?.value?.toCPointer<ByteVar>())
 
-public actual fun ORGetValue(handle: ORHKEY, lpsubkey: PCWSTR, lpvalue: PCWSTR, pdwtype: Long, pvdata: Long, pcbdata: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.wdk.system.offlineregistry.cinterop.windowssys_windows_wdk_system_offlineregistry_ORGetValue(handle.toCPointer<ByteVar>(), lpsubkey.toCPointer<ByteVar>(), lpvalue.toCPointer<ByteVar>(), pdwtype.toCPointer<ByteVar>(), pvdata.toCPointer<ByteVar>(), pcbdata.toCPointer<ByteVar>())
+public actual fun oRGetValue(handle: Orhkey, lpsubkey: Pcwstr, lpvalue: Pcwstr, pdwtype: COpaquePointer?, pvdata: COpaquePointer?, pcbdata: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.wdk.system.offlineregistry.cinterop.windowssys_windows_wdk_system_offlineregistry_oRGetValue(handle?.value?.toCPointer<ByteVar>(), lpsubkey?.value?.toCPointer<ByteVar>(), lpvalue?.value?.toCPointer<ByteVar>(), pdwtype?.value?.toCPointer<ByteVar>(), pvdata?.value?.toCPointer<ByteVar>(), pcbdata?.value?.toCPointer<ByteVar>())
 
-public actual fun ORGetVersion(pdwmajorversion: Long, pdwminorversion: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.wdk.system.offlineregistry.cinterop.windowssys_windows_wdk_system_offlineregistry_ORGetVersion(pdwmajorversion.toCPointer<ByteVar>(), pdwminorversion.toCPointer<ByteVar>())
+public actual fun oRGetVersion(pdwmajorversion: COpaquePointer?, pdwminorversion: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.wdk.system.offlineregistry.cinterop.windowssys_windows_wdk_system_offlineregistry_oRGetVersion(pdwmajorversion?.value?.toCPointer<ByteVar>(), pdwminorversion?.value?.toCPointer<ByteVar>())
 
-public actual fun ORGetVirtualFlags(handle: ORHKEY, pdwflags: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.wdk.system.offlineregistry.cinterop.windowssys_windows_wdk_system_offlineregistry_ORGetVirtualFlags(handle.toCPointer<ByteVar>(), pdwflags.toCPointer<ByteVar>())
+public actual fun oRGetVirtualFlags(handle: Orhkey, pdwflags: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.wdk.system.offlineregistry.cinterop.windowssys_windows_wdk_system_offlineregistry_oRGetVirtualFlags(handle?.value?.toCPointer<ByteVar>(), pdwflags?.value?.toCPointer<ByteVar>())
 
-public actual fun ORMergeHives(hivehandles: Long, hivecount: UInt, phkresult: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.wdk.system.offlineregistry.cinterop.windowssys_windows_wdk_system_offlineregistry_ORMergeHives(hivehandles.toCPointer<ByteVar>(), hivecount, phkresult.toCPointer<ByteVar>())
+public actual fun oRMergeHives(hivehandles: COpaquePointer?, hivecount: UInt, phkresult: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.wdk.system.offlineregistry.cinterop.windowssys_windows_wdk_system_offlineregistry_oRMergeHives(hivehandles?.value?.toCPointer<ByteVar>(), hivecount, phkresult?.value?.toCPointer<ByteVar>())
 
-public actual fun OROpenHive(filepath: PCWSTR, horkey: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.wdk.system.offlineregistry.cinterop.windowssys_windows_wdk_system_offlineregistry_OROpenHive(filepath.toCPointer<ByteVar>(), horkey.toCPointer<ByteVar>())
+public actual fun oROpenHive(filepath: Pcwstr, horkey: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.wdk.system.offlineregistry.cinterop.windowssys_windows_wdk_system_offlineregistry_oROpenHive(filepath?.value?.toCPointer<ByteVar>(), horkey?.value?.toCPointer<ByteVar>())
 
-public actual fun OROpenHiveByHandle(filehandle: HANDLE, horkey: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.wdk.system.offlineregistry.cinterop.windowssys_windows_wdk_system_offlineregistry_OROpenHiveByHandle(filehandle.toCPointer<ByteVar>(), horkey.toCPointer<ByteVar>())
+public actual fun oROpenHiveByHandle(filehandle: Handle, horkey: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.wdk.system.offlineregistry.cinterop.windowssys_windows_wdk_system_offlineregistry_oROpenHiveByHandle(filehandle?.value?.toCPointer<ByteVar>(), horkey?.value?.toCPointer<ByteVar>())
 
-public actual fun OROpenKey(handle: ORHKEY, lpsubkey: PCWSTR, phkresult: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.wdk.system.offlineregistry.cinterop.windowssys_windows_wdk_system_offlineregistry_OROpenKey(handle.toCPointer<ByteVar>(), lpsubkey.toCPointer<ByteVar>(), phkresult.toCPointer<ByteVar>())
+public actual fun oROpenKey(handle: Orhkey, lpsubkey: Pcwstr, phkresult: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.wdk.system.offlineregistry.cinterop.windowssys_windows_wdk_system_offlineregistry_oROpenKey(handle?.value?.toCPointer<ByteVar>(), lpsubkey?.value?.toCPointer<ByteVar>(), phkresult?.value?.toCPointer<ByteVar>())
 
-public actual fun ORQueryInfoKey(handle: ORHKEY, lpclass: PWSTR, lpcclass: Long, lpcsubkeys: Long, lpcmaxsubkeylen: Long, lpcmaxclasslen: Long, lpcvalues: Long, lpcmaxvaluenamelen: Long, lpcmaxvaluelen: Long, lpcbsecuritydescriptor: Long, lpftlastwritetime: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.wdk.system.offlineregistry.cinterop.windowssys_windows_wdk_system_offlineregistry_ORQueryInfoKey(handle.toCPointer<ByteVar>(), lpclass.toCPointer<ByteVar>(), lpcclass.toCPointer<ByteVar>(), lpcsubkeys.toCPointer<ByteVar>(), lpcmaxsubkeylen.toCPointer<ByteVar>(), lpcmaxclasslen.toCPointer<ByteVar>(), lpcvalues.toCPointer<ByteVar>(), lpcmaxvaluenamelen.toCPointer<ByteVar>(), lpcmaxvaluelen.toCPointer<ByteVar>(), lpcbsecuritydescriptor.toCPointer<ByteVar>(), lpftlastwritetime.toCPointer<ByteVar>())
+public actual fun oRQueryInfoKey(handle: Orhkey, lpclass: Pwstr, lpcclass: COpaquePointer?, lpcsubkeys: COpaquePointer?, lpcmaxsubkeylen: COpaquePointer?, lpcmaxclasslen: COpaquePointer?, lpcvalues: COpaquePointer?, lpcmaxvaluenamelen: COpaquePointer?, lpcmaxvaluelen: COpaquePointer?, lpcbsecuritydescriptor: COpaquePointer?, lpftlastwritetime: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.wdk.system.offlineregistry.cinterop.windowssys_windows_wdk_system_offlineregistry_oRQueryInfoKey(handle?.value?.toCPointer<ByteVar>(), lpclass?.value?.toCPointer<ByteVar>(), lpcclass?.value?.toCPointer<ByteVar>(), lpcsubkeys?.value?.toCPointer<ByteVar>(), lpcmaxsubkeylen?.value?.toCPointer<ByteVar>(), lpcmaxclasslen?.value?.toCPointer<ByteVar>(), lpcvalues?.value?.toCPointer<ByteVar>(), lpcmaxvaluenamelen?.value?.toCPointer<ByteVar>(), lpcmaxvaluelen?.value?.toCPointer<ByteVar>(), lpcbsecuritydescriptor?.value?.toCPointer<ByteVar>(), lpftlastwritetime?.value?.toCPointer<ByteVar>())
 
-public actual fun ORRenameKey(handle: ORHKEY, lpnewname: PCWSTR): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.wdk.system.offlineregistry.cinterop.windowssys_windows_wdk_system_offlineregistry_ORRenameKey(handle.toCPointer<ByteVar>(), lpnewname.toCPointer<ByteVar>())
+public actual fun oRRenameKey(handle: Orhkey, lpnewname: Pcwstr): Win32Error =
+    io.github.kotlinmania.windowssys.windows.wdk.system.offlineregistry.cinterop.windowssys_windows_wdk_system_offlineregistry_oRRenameKey(handle?.value?.toCPointer<ByteVar>(), lpnewname?.value?.toCPointer<ByteVar>())
 
-public actual fun ORSaveHive(horkey: ORHKEY, hivepath: PCWSTR, osmajorversion: UInt, osminorversion: UInt): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.wdk.system.offlineregistry.cinterop.windowssys_windows_wdk_system_offlineregistry_ORSaveHive(horkey.toCPointer<ByteVar>(), hivepath.toCPointer<ByteVar>(), osmajorversion, osminorversion)
+public actual fun oRSaveHive(horkey: Orhkey, hivepath: Pcwstr, osmajorversion: UInt, osminorversion: UInt): Win32Error =
+    io.github.kotlinmania.windowssys.windows.wdk.system.offlineregistry.cinterop.windowssys_windows_wdk_system_offlineregistry_oRSaveHive(horkey?.value?.toCPointer<ByteVar>(), hivepath?.value?.toCPointer<ByteVar>(), osmajorversion, osminorversion)
 
-public actual fun ORSetKeySecurity(handle: ORHKEY, securityinformation: UInt, psecuritydescriptor: PSECURITY_DESCRIPTOR): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.wdk.system.offlineregistry.cinterop.windowssys_windows_wdk_system_offlineregistry_ORSetKeySecurity(handle.toCPointer<ByteVar>(), securityinformation, psecuritydescriptor.toCPointer<ByteVar>())
+public actual fun oRSetKeySecurity(handle: Orhkey, securityinformation: UInt, psecuritydescriptor: PsecurityDescriptor): Win32Error =
+    io.github.kotlinmania.windowssys.windows.wdk.system.offlineregistry.cinterop.windowssys_windows_wdk_system_offlineregistry_oRSetKeySecurity(handle?.value?.toCPointer<ByteVar>(), securityinformation, psecuritydescriptor?.value?.toCPointer<ByteVar>())
 
-public actual fun ORSetValue(handle: ORHKEY, lpvaluename: PCWSTR, dwtype: UInt, lpdata: Long, cbdata: UInt): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.wdk.system.offlineregistry.cinterop.windowssys_windows_wdk_system_offlineregistry_ORSetValue(handle.toCPointer<ByteVar>(), lpvaluename.toCPointer<ByteVar>(), dwtype, lpdata.toCPointer<ByteVar>(), cbdata)
+public actual fun oRSetValue(handle: Orhkey, lpvaluename: Pcwstr, dwtype: UInt, lpdata: COpaquePointer?, cbdata: UInt): Win32Error =
+    io.github.kotlinmania.windowssys.windows.wdk.system.offlineregistry.cinterop.windowssys_windows_wdk_system_offlineregistry_oRSetValue(handle?.value?.toCPointer<ByteVar>(), lpvaluename?.value?.toCPointer<ByteVar>(), dwtype, lpdata?.value?.toCPointer<ByteVar>(), cbdata)
 
-public actual fun ORSetVirtualFlags(handle: ORHKEY, dwflags: UInt): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.wdk.system.offlineregistry.cinterop.windowssys_windows_wdk_system_offlineregistry_ORSetVirtualFlags(handle.toCPointer<ByteVar>(), dwflags)
+public actual fun oRSetVirtualFlags(handle: Orhkey, dwflags: UInt): Win32Error =
+    io.github.kotlinmania.windowssys.windows.wdk.system.offlineregistry.cinterop.windowssys_windows_wdk_system_offlineregistry_oRSetVirtualFlags(handle?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun ORShutdown(): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.wdk.system.offlineregistry.cinterop.windowssys_windows_wdk_system_offlineregistry_ORShutdown()
+public actual fun oRShutdown(): Win32Error =
+    io.github.kotlinmania.windowssys.windows.wdk.system.offlineregistry.cinterop.windowssys_windows_wdk_system_offlineregistry_oRShutdown()
 
-public actual fun ORStart(): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.wdk.system.offlineregistry.cinterop.windowssys_windows_wdk_system_offlineregistry_ORStart()
+public actual fun oRStart(): Win32Error =
+    io.github.kotlinmania.windowssys.windows.wdk.system.offlineregistry.cinterop.windowssys_windows_wdk_system_offlineregistry_oRStart()

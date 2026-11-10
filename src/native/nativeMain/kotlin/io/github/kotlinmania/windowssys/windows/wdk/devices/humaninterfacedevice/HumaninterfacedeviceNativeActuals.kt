@@ -2,22 +2,23 @@
 
 package io.github.kotlinmania.windowssys.windows.wdk.devices.humaninterfacedevice
 
-import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun VhfAsyncOperationComplete(vhfoperationhandle: Long, completionstatus: NTSTATUS): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.devices.humaninterfacedevice.cinterop.windowssys_windows_wdk_devices_humaninterfacedevice_VhfAsyncOperationComplete(vhfoperationhandle.toCPointer<ByteVar>(), completionstatus)
+public actual fun vhfAsyncOperationComplete(vhfoperationhandle: COpaquePointer?, completionstatus: Ntstatus): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.devices.humaninterfacedevice.cinterop.windowssys_windows_wdk_devices_humaninterfacedevice_vhfAsyncOperationComplete(vhfoperationhandle?.value?.toCPointer<ByteVar>(), completionstatus)
 
-public actual fun VhfCreate(vhfconfig: Long, vhfhandle: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.devices.humaninterfacedevice.cinterop.windowssys_windows_wdk_devices_humaninterfacedevice_VhfCreate(vhfconfig.toCPointer<ByteVar>(), vhfhandle.toCPointer<ByteVar>())
+public actual fun vhfCreate(vhfconfig: COpaquePointer?, vhfhandle: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.devices.humaninterfacedevice.cinterop.windowssys_windows_wdk_devices_humaninterfacedevice_vhfCreate(vhfconfig?.value?.toCPointer<ByteVar>(), vhfhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun VhfDelete(vhfhandle: Long, wait: Boolean) {
-    io.github.kotlinmania.windowssys.windows.wdk.devices.humaninterfacedevice.cinterop.windowssys_windows_wdk_devices_humaninterfacedevice_VhfDelete(vhfhandle.toCPointer<ByteVar>(), wait)
+public actual fun vhfDelete(vhfhandle: COpaquePointer?, wait: Boolean) {
+    io.github.kotlinmania.windowssys.windows.wdk.devices.humaninterfacedevice.cinterop.windowssys_windows_wdk_devices_humaninterfacedevice_vhfDelete(vhfhandle?.value?.toCPointer<ByteVar>(), wait)
 }
 
-public actual fun VhfReadReportSubmit(vhfhandle: Long, hidtransferpacket: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.devices.humaninterfacedevice.cinterop.windowssys_windows_wdk_devices_humaninterfacedevice_VhfReadReportSubmit(vhfhandle.toCPointer<ByteVar>(), hidtransferpacket.toCPointer<ByteVar>())
+public actual fun vhfReadReportSubmit(vhfhandle: COpaquePointer?, hidtransferpacket: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.devices.humaninterfacedevice.cinterop.windowssys_windows_wdk_devices_humaninterfacedevice_vhfReadReportSubmit(vhfhandle?.value?.toCPointer<ByteVar>(), hidtransferpacket?.value?.toCPointer<ByteVar>())
 
-public actual fun VhfStart(vhfhandle: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.devices.humaninterfacedevice.cinterop.windowssys_windows_wdk_devices_humaninterfacedevice_VhfStart(vhfhandle.toCPointer<ByteVar>())
+public actual fun vhfStart(vhfhandle: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.devices.humaninterfacedevice.cinterop.windowssys_windows_wdk_devices_humaninterfacedevice_vhfStart(vhfhandle?.value?.toCPointer<ByteVar>())

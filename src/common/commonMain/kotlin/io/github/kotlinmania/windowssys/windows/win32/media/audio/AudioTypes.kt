@@ -1,109 +1,110 @@
 package io.github.kotlinmania.windowssys.windows.win32.media.audio
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LRESULT
-import io.github.kotlinmania.windowssys.windows.win32.foundation.WPARAM
-import io.github.kotlinmania.windowssys.windows.win32.media.multimedia.HDRVR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lresult
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Wparam
+import io.github.kotlinmania.windowssys.windows.win32.media.multimedia.Hdrvr
 
-public fun interface ACMDRIVERENUMCBFn {
-    public operator fun invoke(hadid: HACMDRIVERID, dwinstance: ULong, fdwsupport: UInt): BOOL
+public fun interface AcmdriverenumcbFn {
+    public operator fun invoke(hadid: Hacmdriverid, dwinstance: ULong, fdwsupport: UInt): Bool
 }
 
-public typealias ACMDRIVERENUMCB = ACMDRIVERENUMCBFn?
+public typealias Acmdriverenumcb = AcmdriverenumcbFn?
 
-public fun interface ACMFILTERCHOOSEHOOKPROCAFn {
-    public operator fun invoke(hwnd: HWND, umsg: UInt, wparam: WPARAM, lparam: LPARAM): UInt
+public fun interface AcmfilterchoosehookprocaFn {
+    public operator fun invoke(hwnd: Hwnd, umsg: UInt, wparam: Wparam, lparam: Lparam): UInt
 }
 
-public typealias ACMFILTERCHOOSEHOOKPROCA = ACMFILTERCHOOSEHOOKPROCAFn?
+public typealias Acmfilterchoosehookproca = AcmfilterchoosehookprocaFn?
 
-public fun interface ACMFILTERCHOOSEHOOKPROCWFn {
-    public operator fun invoke(hwnd: HWND, umsg: UInt, wparam: WPARAM, lparam: LPARAM): UInt
+public fun interface AcmfilterchoosehookprocwFn {
+    public operator fun invoke(hwnd: Hwnd, umsg: UInt, wparam: Wparam, lparam: Lparam): UInt
 }
 
-public typealias ACMFILTERCHOOSEHOOKPROCW = ACMFILTERCHOOSEHOOKPROCWFn?
+public typealias Acmfilterchoosehookprocw = AcmfilterchoosehookprocwFn?
 
-public fun interface ACMFILTERENUMCBAFn {
-    public operator fun invoke(hadid: HACMDRIVERID, pafd: Long, dwinstance: ULong, fdwsupport: UInt): BOOL
+public fun interface AcmfilterenumcbaFn {
+    public operator fun invoke(hadid: Hacmdriverid, pafd: COpaquePointer?, dwinstance: ULong, fdwsupport: UInt): Bool
 }
 
-public typealias ACMFILTERENUMCBA = ACMFILTERENUMCBAFn?
+public typealias Acmfilterenumcba = AcmfilterenumcbaFn?
 
-public fun interface ACMFILTERENUMCBWFn {
-    public operator fun invoke(hadid: HACMDRIVERID, pafd: Long, dwinstance: ULong, fdwsupport: UInt): BOOL
+public fun interface AcmfilterenumcbwFn {
+    public operator fun invoke(hadid: Hacmdriverid, pafd: COpaquePointer?, dwinstance: ULong, fdwsupport: UInt): Bool
 }
 
-public typealias ACMFILTERENUMCBW = ACMFILTERENUMCBWFn?
+public typealias Acmfilterenumcbw = AcmfilterenumcbwFn?
 
-public fun interface ACMFILTERTAGENUMCBAFn {
-    public operator fun invoke(hadid: HACMDRIVERID, paftd: Long, dwinstance: ULong, fdwsupport: UInt): BOOL
+public fun interface AcmfiltertagenumcbaFn {
+    public operator fun invoke(hadid: Hacmdriverid, paftd: COpaquePointer?, dwinstance: ULong, fdwsupport: UInt): Bool
 }
 
-public typealias ACMFILTERTAGENUMCBA = ACMFILTERTAGENUMCBAFn?
+public typealias Acmfiltertagenumcba = AcmfiltertagenumcbaFn?
 
-public fun interface ACMFILTERTAGENUMCBWFn {
-    public operator fun invoke(hadid: HACMDRIVERID, paftd: Long, dwinstance: ULong, fdwsupport: UInt): BOOL
+public fun interface AcmfiltertagenumcbwFn {
+    public operator fun invoke(hadid: Hacmdriverid, paftd: COpaquePointer?, dwinstance: ULong, fdwsupport: UInt): Bool
 }
 
-public typealias ACMFILTERTAGENUMCBW = ACMFILTERTAGENUMCBWFn?
+public typealias Acmfiltertagenumcbw = AcmfiltertagenumcbwFn?
 
-public fun interface ACMFORMATCHOOSEHOOKPROCAFn {
-    public operator fun invoke(hwnd: HWND, umsg: UInt, wparam: WPARAM, lparam: LPARAM): UInt
+public fun interface AcmformatchoosehookprocaFn {
+    public operator fun invoke(hwnd: Hwnd, umsg: UInt, wparam: Wparam, lparam: Lparam): UInt
 }
 
-public typealias ACMFORMATCHOOSEHOOKPROCA = ACMFORMATCHOOSEHOOKPROCAFn?
+public typealias Acmformatchoosehookproca = AcmformatchoosehookprocaFn?
 
-public fun interface ACMFORMATCHOOSEHOOKPROCWFn {
-    public operator fun invoke(hwnd: HWND, umsg: UInt, wparam: WPARAM, lparam: LPARAM): UInt
+public fun interface AcmformatchoosehookprocwFn {
+    public operator fun invoke(hwnd: Hwnd, umsg: UInt, wparam: Wparam, lparam: Lparam): UInt
 }
 
-public typealias ACMFORMATCHOOSEHOOKPROCW = ACMFORMATCHOOSEHOOKPROCWFn?
+public typealias Acmformatchoosehookprocw = AcmformatchoosehookprocwFn?
 
-public fun interface ACMFORMATENUMCBAFn {
-    public operator fun invoke(hadid: HACMDRIVERID, pafd: Long, dwinstance: ULong, fdwsupport: UInt): BOOL
+public fun interface AcmformatenumcbaFn {
+    public operator fun invoke(hadid: Hacmdriverid, pafd: COpaquePointer?, dwinstance: ULong, fdwsupport: UInt): Bool
 }
 
-public typealias ACMFORMATENUMCBA = ACMFORMATENUMCBAFn?
+public typealias Acmformatenumcba = AcmformatenumcbaFn?
 
-public fun interface ACMFORMATENUMCBWFn {
-    public operator fun invoke(hadid: HACMDRIVERID, pafd: Long, dwinstance: ULong, fdwsupport: UInt): BOOL
+public fun interface AcmformatenumcbwFn {
+    public operator fun invoke(hadid: Hacmdriverid, pafd: COpaquePointer?, dwinstance: ULong, fdwsupport: UInt): Bool
 }
 
-public typealias ACMFORMATENUMCBW = ACMFORMATENUMCBWFn?
+public typealias Acmformatenumcbw = AcmformatenumcbwFn?
 
-public fun interface ACMFORMATTAGENUMCBAFn {
-    public operator fun invoke(hadid: HACMDRIVERID, paftd: Long, dwinstance: ULong, fdwsupport: UInt): BOOL
+public fun interface AcmformattagenumcbaFn {
+    public operator fun invoke(hadid: Hacmdriverid, paftd: COpaquePointer?, dwinstance: ULong, fdwsupport: UInt): Bool
 }
 
-public typealias ACMFORMATTAGENUMCBA = ACMFORMATTAGENUMCBAFn?
+public typealias Acmformattagenumcba = AcmformattagenumcbaFn?
 
-public fun interface ACMFORMATTAGENUMCBWFn {
-    public operator fun invoke(hadid: HACMDRIVERID, paftd: Long, dwinstance: ULong, fdwsupport: UInt): BOOL
+public fun interface AcmformattagenumcbwFn {
+    public operator fun invoke(hadid: Hacmdriverid, paftd: COpaquePointer?, dwinstance: ULong, fdwsupport: UInt): Bool
 }
 
-public typealias ACMFORMATTAGENUMCBW = ACMFORMATTAGENUMCBWFn?
+public typealias Acmformattagenumcbw = AcmformattagenumcbwFn?
 
-public typealias AMBISONICS_CHANNEL_ORDERING = Int
+public typealias AmbisonicsChannelOrdering = Int
 
-public typealias AMBISONICS_NORMALIZATION = Int
+public typealias AmbisonicsNormalization = Int
 
-public typealias AMBISONICS_TYPE = Int
+public typealias AmbisonicsType = Int
 
-public typealias AUDCLNT_SHAREMODE = Int
+public typealias AudclntSharemode = Int
 
-public typealias AUDCLNT_STREAMOPTIONS = Int
+public typealias AudclntStreamoptions = Int
 
-public typealias AUDIOCLIENT_ACTIVATION_TYPE = Int
+public typealias AudioclientActivationType = Int
 
-public typealias AUDIO_DUCKING_OPTIONS = Int
+public typealias AudioDuckingOptions = Int
 
-public typealias AUDIO_EFFECT_STATE = Int
+public typealias AudioEffectState = Int
 
-public typealias AUDIO_STREAM_CATEGORY = Int
+public typealias AudioStreamCategory = Int
 
-public typealias AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE = Int
+public typealias AudioSystemeffectsPropertystoreType = Int
 
 public typealias AudioObjectType = Int
 
@@ -113,7 +114,7 @@ public typealias AudioSessionState = Int
 
 public typealias AudioStateMonitorSoundLevel = Int
 
-public typealias DEVICE_STATE = UInt
+public typealias DeviceState = UInt
 
 public typealias DataFlow = Int
 
@@ -123,67 +124,67 @@ public typealias ERole = Int
 
 public typealias EndpointFormFactor = Int
 
-public typealias HACMDRIVER = Long
+public typealias Hacmdriver = COpaquePointer?
 
-public typealias HACMDRIVERID = Long
+public typealias Hacmdriverid = COpaquePointer?
 
-public typealias HACMOBJ = Long
+public typealias Hacmobj = COpaquePointer?
 
-public typealias HACMSTREAM = Long
+public typealias Hacmstream = COpaquePointer?
 
-public typealias HMIDI = Long
+public typealias Hmidi = COpaquePointer?
 
-public typealias HMIDIIN = Long
+public typealias Hmidiin = COpaquePointer?
 
-public typealias HMIDIOUT = Long
+public typealias Hmidiout = COpaquePointer?
 
-public typealias HMIDISTRM = Long
+public typealias Hmidistrm = COpaquePointer?
 
-public typealias HMIXER = Long
+public typealias Hmixer = COpaquePointer?
 
-public typealias HMIXEROBJ = Long
+public typealias Hmixerobj = COpaquePointer?
 
-public typealias HWAVE = Long
+public typealias Hwave = COpaquePointer?
 
-public typealias HWAVEIN = Long
+public typealias Hwavein = COpaquePointer?
 
-public typealias HWAVEOUT = Long
+public typealias Hwaveout = COpaquePointer?
 
-public fun interface LPACMDRIVERPROCFn {
-    public operator fun invoke(param0: ULong, param1: HACMDRIVERID, param2: UInt, param3: LPARAM, param4: LPARAM): LRESULT
+public fun interface LpacmdriverprocFn {
+    public operator fun invoke(param0: ULong, param1: Hacmdriverid, param2: UInt, param3: Lparam, param4: Lparam): Lresult
 }
 
-public typealias LPACMDRIVERPROC = LPACMDRIVERPROCFn?
+public typealias Lpacmdriverproc = LpacmdriverprocFn?
 
-public fun interface LPMIDICALLBACKFn {
-    public operator fun invoke(hdrvr: HDRVR, umsg: UInt, dwuser: ULong, dw1: ULong, dw2: ULong)
+public fun interface LpmidicallbackFn {
+    public operator fun invoke(hdrvr: Hdrvr, umsg: UInt, dwuser: ULong, dw1: ULong, dw2: ULong)
 }
 
-public typealias LPMIDICALLBACK = LPMIDICALLBACKFn?
+public typealias Lpmidicallback = LpmidicallbackFn?
 
-public fun interface LPWAVECALLBACKFn {
-    public operator fun invoke(hdrvr: HDRVR, umsg: UInt, dwuser: ULong, dw1: ULong, dw2: ULong)
+public fun interface LpwavecallbackFn {
+    public operator fun invoke(hdrvr: Hdrvr, umsg: UInt, dwuser: ULong, dw1: ULong, dw2: ULong)
 }
 
-public typealias LPWAVECALLBACK = LPWAVECALLBACKFn?
+public typealias Lpwavecallback = LpwavecallbackFn?
 
-public typealias MIDI_WAVE_OPEN_TYPE = UInt
+public typealias MidiWaveOpenType = UInt
 
-public typealias MIXERLINE_COMPONENTTYPE = UInt
+public typealias MixerlineComponenttype = UInt
 
 public fun interface PAudioStateMonitorCallbackFn {
-    public operator fun invoke(audiostatemonitor: Long, context: Long)
+    public operator fun invoke(audiostatemonitor: COpaquePointer?, context: COpaquePointer?)
 }
 
 public typealias PAudioStateMonitorCallback = PAudioStateMonitorCallbackFn?
 
-public typealias PROCESS_LOOPBACK_MODE = Int
+public typealias ProcessLoopbackMode = Int
 
 public typealias PartType = Int
 
-public typealias SND_FLAGS = UInt
+public typealias SndFlags = UInt
 
-public typealias SPATIAL_AUDIO_STREAM_OPTIONS = Int
+public typealias SpatialAudioStreamOptions = Int
 
 public typealias SpatialAudioHrtfDirectivityType = Int
 
@@ -195,4 +196,4 @@ public typealias SpatialAudioMetadataCopyMode = Int
 
 public typealias SpatialAudioMetadataWriterOverflowMode = Int
 
-public typealias _AUDCLNT_BUFFERFLAGS = Int
+public typealias AudclntBufferflags = Int

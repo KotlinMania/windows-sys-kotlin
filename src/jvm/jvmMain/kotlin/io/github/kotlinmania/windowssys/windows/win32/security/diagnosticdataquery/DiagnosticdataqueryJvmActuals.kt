@@ -2,8 +2,9 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery
 
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
 
 private object WindowsWin32SecurityDiagnosticdataqueryJniBridge {
     init {
@@ -11,212 +12,212 @@ private object WindowsWin32SecurityDiagnosticdataqueryJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_diagnosticdataquery_DdqCancelDiagnosticRecordOperation(hsession: Long): Int
+    external fun windowssys_windows_win32_security_diagnosticdataquery_ddqCancelDiagnosticRecordOperation(hsession: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_diagnosticdataquery_DdqCloseSession(hsession: Long): Int
+    external fun windowssys_windows_win32_security_diagnosticdataquery_ddqCloseSession(hsession: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_diagnosticdataquery_DdqCreateSession(accesslevel: Int, hsession: Long): Int
+    external fun windowssys_windows_win32_security_diagnosticdataquery_ddqCreateSession(accesslevel: Int, hsession: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_diagnosticdataquery_DdqExtractDiagnosticReport(hsession: Long, reportstoretype: Int, reportkey: Long, destinationpath: Long): Int
+    external fun windowssys_windows_win32_security_diagnosticdataquery_ddqExtractDiagnosticReport(hsession: Long, reportstoretype: Int, reportkey: Long, destinationpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_diagnosticdataquery_DdqFreeDiagnosticRecordLocaleTags(htagdescription: Long): Int
+    external fun windowssys_windows_win32_security_diagnosticdataquery_ddqFreeDiagnosticRecordLocaleTags(htagdescription: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_diagnosticdataquery_DdqFreeDiagnosticRecordPage(hrecord: Long): Int
+    external fun windowssys_windows_win32_security_diagnosticdataquery_ddqFreeDiagnosticRecordPage(hrecord: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_diagnosticdataquery_DdqFreeDiagnosticRecordProducerCategories(hcategorydescription: Long): Int
+    external fun windowssys_windows_win32_security_diagnosticdataquery_ddqFreeDiagnosticRecordProducerCategories(hcategorydescription: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_diagnosticdataquery_DdqFreeDiagnosticRecordProducers(hproducerdescription: Long): Int
+    external fun windowssys_windows_win32_security_diagnosticdataquery_ddqFreeDiagnosticRecordProducers(hproducerdescription: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_diagnosticdataquery_DdqFreeDiagnosticReport(hreport: Long): Int
+    external fun windowssys_windows_win32_security_diagnosticdataquery_ddqFreeDiagnosticReport(hreport: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticDataAccessLevelAllowed(accesslevel: Long): Int
+    external fun windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticDataAccessLevelAllowed(accesslevel: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticRecordAtIndex(hrecord: Long, index: Int, record: Long): Int
+    external fun windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordAtIndex(hrecord: Long, index: Int, record: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticRecordBinaryDistribution(hsession: Long, producernames: Long, producernamecount: Int, topnbinaries: Int, binarystats: Long, statcount: Long): Int
+    external fun windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordBinaryDistribution(hsession: Long, producernames: Long, producernamecount: Int, topnbinaries: Int, binarystats: Long, statcount: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticRecordCategoryAtIndex(hcategorydescription: Long, index: Int, categorydescription: Long): Int
+    external fun windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordCategoryAtIndex(hcategorydescription: Long, index: Int, categorydescription: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticRecordCategoryCount(hcategorydescription: Long, categorydescriptioncount: Long): Int
+    external fun windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordCategoryCount(hcategorydescription: Long, categorydescriptioncount: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticRecordCount(hrecord: Long, recordcount: Long): Int
+    external fun windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordCount(hrecord: Long, recordcount: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticRecordLocaleTagAtIndex(htagdescription: Long, index: Int, tagdescription: Long): Int
+    external fun windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordLocaleTagAtIndex(htagdescription: Long, index: Int, tagdescription: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticRecordLocaleTagCount(htagdescription: Long, tagdescriptioncount: Long): Int
+    external fun windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordLocaleTagCount(htagdescription: Long, tagdescriptioncount: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticRecordLocaleTags(hsession: Long, locale: Long, htagdescription: Long): Int
+    external fun windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordLocaleTags(hsession: Long, locale: Long, htagdescription: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticRecordPage(hsession: Long, searchcriteria: Long, offset: Int, pagerecordcount: Int, baserowid: Long, hrecord: Long): Int
+    external fun windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordPage(hsession: Long, searchcriteria: Long, offset: Int, pagerecordcount: Int, baserowid: Long, hrecord: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticRecordPayload(hsession: Long, rowid: Long, payload: Long): Int
+    external fun windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordPayload(hsession: Long, rowid: Long, payload: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticRecordProducerAtIndex(hproducerdescription: Long, index: Int, producerdescription: Long): Int
+    external fun windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordProducerAtIndex(hproducerdescription: Long, index: Int, producerdescription: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticRecordProducerCategories(hsession: Long, producername: Long, hcategorydescription: Long): Int
+    external fun windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordProducerCategories(hsession: Long, producername: Long, hcategorydescription: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticRecordProducerCount(hproducerdescription: Long, producerdescriptioncount: Long): Int
+    external fun windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordProducerCount(hproducerdescription: Long, producerdescriptioncount: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticRecordProducers(hsession: Long, hproducerdescription: Long): Int
+    external fun windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordProducers(hsession: Long, hproducerdescription: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticRecordStats(hsession: Long, searchcriteria: Long, recordcount: Long, minrowid: Long, maxrowid: Long): Int
+    external fun windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordStats(hsession: Long, searchcriteria: Long, recordcount: Long, minrowid: Long, maxrowid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticRecordSummary(hsession: Long, producernames: Long, producernamecount: Int, generalstats: Long): Int
+    external fun windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordSummary(hsession: Long, producernames: Long, producernamecount: Int, generalstats: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticRecordTagDistribution(hsession: Long, producernames: Long, producernamecount: Int, tagstats: Long, statcount: Long): Int
+    external fun windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordTagDistribution(hsession: Long, producernames: Long, producernamecount: Int, tagstats: Long, statcount: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticReport(hsession: Long, reportstoretype: Int, hreport: Long): Int
+    external fun windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticReport(hsession: Long, reportstoretype: Int, hreport: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticReportAtIndex(hreport: Long, index: Int, report: Long): Int
+    external fun windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticReportAtIndex(hreport: Long, index: Int, report: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticReportCount(hreport: Long, reportcount: Long): Int
+    external fun windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticReportCount(hreport: Long, reportcount: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticReportStoreReportCount(hsession: Long, reportstoretype: Int, reportcount: Long): Int
+    external fun windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticReportStoreReportCount(hsession: Long, reportstoretype: Int, reportcount: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_diagnosticdataquery_DdqGetSessionAccessLevel(hsession: Long, accesslevel: Long): Int
+    external fun windowssys_windows_win32_security_diagnosticdataquery_ddqGetSessionAccessLevel(hsession: Long, accesslevel: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_diagnosticdataquery_DdqGetTranscriptConfiguration(hsession: Long, currentconfig: Long): Int
+    external fun windowssys_windows_win32_security_diagnosticdataquery_ddqGetTranscriptConfiguration(hsession: Long, currentconfig: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_diagnosticdataquery_DdqIsDiagnosticRecordSampledIn(hsession: Long, providergroup: Long, providerid: Long, providername: Long, eventid: Long, eventname: Long, eventversion: Long, eventkeywords: Long, issampledin: Long): Int
+    external fun windowssys_windows_win32_security_diagnosticdataquery_ddqIsDiagnosticRecordSampledIn(hsession: Long, providergroup: Long, providerid: Long, providername: Long, eventid: Long, eventname: Long, eventversion: Long, eventkeywords: Long, issampledin: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_diagnosticdataquery_DdqSetTranscriptConfiguration(hsession: Long, desiredconfig: Long): Int
+    external fun windowssys_windows_win32_security_diagnosticdataquery_ddqSetTranscriptConfiguration(hsession: Long, desiredconfig: Long): Int
 }
 
-public actual fun DdqCancelDiagnosticRecordOperation(hsession: HDIAGNOSTIC_DATA_QUERY_SESSION): HRESULT =
-    WindowsWin32SecurityDiagnosticdataqueryJniBridge.windowssys_windows_win32_security_diagnosticdataquery_DdqCancelDiagnosticRecordOperation(hsession)
+public actual fun ddqCancelDiagnosticRecordOperation(hsession: HdiagnosticDataQuerySession): Hresult =
+    WindowsWin32SecurityDiagnosticdataqueryJniBridge.windowssys_windows_win32_security_diagnosticdataquery_ddqCancelDiagnosticRecordOperation((hsession?.value ?: 0L))
 
-public actual fun DdqCloseSession(hsession: HDIAGNOSTIC_DATA_QUERY_SESSION): HRESULT =
-    WindowsWin32SecurityDiagnosticdataqueryJniBridge.windowssys_windows_win32_security_diagnosticdataquery_DdqCloseSession(hsession)
+public actual fun ddqCloseSession(hsession: HdiagnosticDataQuerySession): Hresult =
+    WindowsWin32SecurityDiagnosticdataqueryJniBridge.windowssys_windows_win32_security_diagnosticdataquery_ddqCloseSession((hsession?.value ?: 0L))
 
-public actual fun DdqCreateSession(accesslevel: DdqAccessLevel, hsession: Long): HRESULT =
-    WindowsWin32SecurityDiagnosticdataqueryJniBridge.windowssys_windows_win32_security_diagnosticdataquery_DdqCreateSession(accesslevel, hsession)
+public actual fun ddqCreateSession(accesslevel: DdqAccessLevel, hsession: COpaquePointer?): Hresult =
+    WindowsWin32SecurityDiagnosticdataqueryJniBridge.windowssys_windows_win32_security_diagnosticdataquery_ddqCreateSession(accesslevel, (hsession?.value ?: 0L))
 
-public actual fun DdqExtractDiagnosticReport(hsession: HDIAGNOSTIC_DATA_QUERY_SESSION, reportstoretype: UInt, reportkey: PCWSTR, destinationpath: PCWSTR): HRESULT =
-    WindowsWin32SecurityDiagnosticdataqueryJniBridge.windowssys_windows_win32_security_diagnosticdataquery_DdqExtractDiagnosticReport(hsession, reportstoretype.toInt(), reportkey, destinationpath)
+public actual fun ddqExtractDiagnosticReport(hsession: HdiagnosticDataQuerySession, reportstoretype: UInt, reportkey: Pcwstr, destinationpath: Pcwstr): Hresult =
+    WindowsWin32SecurityDiagnosticdataqueryJniBridge.windowssys_windows_win32_security_diagnosticdataquery_ddqExtractDiagnosticReport((hsession?.value ?: 0L), reportstoretype.toInt(), (reportkey?.value ?: 0L), (destinationpath?.value ?: 0L))
 
-public actual fun DdqFreeDiagnosticRecordLocaleTags(htagdescription: HDIAGNOSTIC_EVENT_TAG_DESCRIPTION): HRESULT =
-    WindowsWin32SecurityDiagnosticdataqueryJniBridge.windowssys_windows_win32_security_diagnosticdataquery_DdqFreeDiagnosticRecordLocaleTags(htagdescription)
+public actual fun ddqFreeDiagnosticRecordLocaleTags(htagdescription: HdiagnosticEventTagDescription): Hresult =
+    WindowsWin32SecurityDiagnosticdataqueryJniBridge.windowssys_windows_win32_security_diagnosticdataquery_ddqFreeDiagnosticRecordLocaleTags((htagdescription?.value ?: 0L))
 
-public actual fun DdqFreeDiagnosticRecordPage(hrecord: HDIAGNOSTIC_RECORD): HRESULT =
-    WindowsWin32SecurityDiagnosticdataqueryJniBridge.windowssys_windows_win32_security_diagnosticdataquery_DdqFreeDiagnosticRecordPage(hrecord)
+public actual fun ddqFreeDiagnosticRecordPage(hrecord: HdiagnosticRecord): Hresult =
+    WindowsWin32SecurityDiagnosticdataqueryJniBridge.windowssys_windows_win32_security_diagnosticdataquery_ddqFreeDiagnosticRecordPage((hrecord?.value ?: 0L))
 
-public actual fun DdqFreeDiagnosticRecordProducerCategories(hcategorydescription: HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION): HRESULT =
-    WindowsWin32SecurityDiagnosticdataqueryJniBridge.windowssys_windows_win32_security_diagnosticdataquery_DdqFreeDiagnosticRecordProducerCategories(hcategorydescription)
+public actual fun ddqFreeDiagnosticRecordProducerCategories(hcategorydescription: HdiagnosticEventCategoryDescription): Hresult =
+    WindowsWin32SecurityDiagnosticdataqueryJniBridge.windowssys_windows_win32_security_diagnosticdataquery_ddqFreeDiagnosticRecordProducerCategories((hcategorydescription?.value ?: 0L))
 
-public actual fun DdqFreeDiagnosticRecordProducers(hproducerdescription: HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION): HRESULT =
-    WindowsWin32SecurityDiagnosticdataqueryJniBridge.windowssys_windows_win32_security_diagnosticdataquery_DdqFreeDiagnosticRecordProducers(hproducerdescription)
+public actual fun ddqFreeDiagnosticRecordProducers(hproducerdescription: HdiagnosticEventProducerDescription): Hresult =
+    WindowsWin32SecurityDiagnosticdataqueryJniBridge.windowssys_windows_win32_security_diagnosticdataquery_ddqFreeDiagnosticRecordProducers((hproducerdescription?.value ?: 0L))
 
-public actual fun DdqFreeDiagnosticReport(hreport: HDIAGNOSTIC_REPORT): HRESULT =
-    WindowsWin32SecurityDiagnosticdataqueryJniBridge.windowssys_windows_win32_security_diagnosticdataquery_DdqFreeDiagnosticReport(hreport)
+public actual fun ddqFreeDiagnosticReport(hreport: HdiagnosticReport): Hresult =
+    WindowsWin32SecurityDiagnosticdataqueryJniBridge.windowssys_windows_win32_security_diagnosticdataquery_ddqFreeDiagnosticReport((hreport?.value ?: 0L))
 
-public actual fun DdqGetDiagnosticDataAccessLevelAllowed(accesslevel: Long): HRESULT =
-    WindowsWin32SecurityDiagnosticdataqueryJniBridge.windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticDataAccessLevelAllowed(accesslevel)
+public actual fun ddqGetDiagnosticDataAccessLevelAllowed(accesslevel: COpaquePointer?): Hresult =
+    WindowsWin32SecurityDiagnosticdataqueryJniBridge.windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticDataAccessLevelAllowed((accesslevel?.value ?: 0L))
 
-public actual fun DdqGetDiagnosticRecordAtIndex(hrecord: HDIAGNOSTIC_RECORD, index: UInt, record: Long): HRESULT =
-    WindowsWin32SecurityDiagnosticdataqueryJniBridge.windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticRecordAtIndex(hrecord, index.toInt(), record)
+public actual fun ddqGetDiagnosticRecordAtIndex(hrecord: HdiagnosticRecord, index: UInt, record: COpaquePointer?): Hresult =
+    WindowsWin32SecurityDiagnosticdataqueryJniBridge.windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordAtIndex((hrecord?.value ?: 0L), index.toInt(), (record?.value ?: 0L))
 
-public actual fun DdqGetDiagnosticRecordBinaryDistribution(hsession: HDIAGNOSTIC_DATA_QUERY_SESSION, producernames: Long, producernamecount: UInt, topnbinaries: UInt, binarystats: Long, statcount: Long): HRESULT =
-    WindowsWin32SecurityDiagnosticdataqueryJniBridge.windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticRecordBinaryDistribution(hsession, producernames, producernamecount.toInt(), topnbinaries.toInt(), binarystats, statcount)
+public actual fun ddqGetDiagnosticRecordBinaryDistribution(hsession: HdiagnosticDataQuerySession, producernames: COpaquePointer?, producernamecount: UInt, topnbinaries: UInt, binarystats: COpaquePointer?, statcount: COpaquePointer?): Hresult =
+    WindowsWin32SecurityDiagnosticdataqueryJniBridge.windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordBinaryDistribution((hsession?.value ?: 0L), (producernames?.value ?: 0L), producernamecount.toInt(), topnbinaries.toInt(), (binarystats?.value ?: 0L), (statcount?.value ?: 0L))
 
-public actual fun DdqGetDiagnosticRecordCategoryAtIndex(hcategorydescription: HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION, index: UInt, categorydescription: Long): HRESULT =
-    WindowsWin32SecurityDiagnosticdataqueryJniBridge.windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticRecordCategoryAtIndex(hcategorydescription, index.toInt(), categorydescription)
+public actual fun ddqGetDiagnosticRecordCategoryAtIndex(hcategorydescription: HdiagnosticEventCategoryDescription, index: UInt, categorydescription: COpaquePointer?): Hresult =
+    WindowsWin32SecurityDiagnosticdataqueryJniBridge.windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordCategoryAtIndex((hcategorydescription?.value ?: 0L), index.toInt(), (categorydescription?.value ?: 0L))
 
-public actual fun DdqGetDiagnosticRecordCategoryCount(hcategorydescription: HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION, categorydescriptioncount: Long): HRESULT =
-    WindowsWin32SecurityDiagnosticdataqueryJniBridge.windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticRecordCategoryCount(hcategorydescription, categorydescriptioncount)
+public actual fun ddqGetDiagnosticRecordCategoryCount(hcategorydescription: HdiagnosticEventCategoryDescription, categorydescriptioncount: COpaquePointer?): Hresult =
+    WindowsWin32SecurityDiagnosticdataqueryJniBridge.windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordCategoryCount((hcategorydescription?.value ?: 0L), (categorydescriptioncount?.value ?: 0L))
 
-public actual fun DdqGetDiagnosticRecordCount(hrecord: HDIAGNOSTIC_RECORD, recordcount: Long): HRESULT =
-    WindowsWin32SecurityDiagnosticdataqueryJniBridge.windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticRecordCount(hrecord, recordcount)
+public actual fun ddqGetDiagnosticRecordCount(hrecord: HdiagnosticRecord, recordcount: COpaquePointer?): Hresult =
+    WindowsWin32SecurityDiagnosticdataqueryJniBridge.windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordCount((hrecord?.value ?: 0L), (recordcount?.value ?: 0L))
 
-public actual fun DdqGetDiagnosticRecordLocaleTagAtIndex(htagdescription: HDIAGNOSTIC_EVENT_TAG_DESCRIPTION, index: UInt, tagdescription: Long): HRESULT =
-    WindowsWin32SecurityDiagnosticdataqueryJniBridge.windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticRecordLocaleTagAtIndex(htagdescription, index.toInt(), tagdescription)
+public actual fun ddqGetDiagnosticRecordLocaleTagAtIndex(htagdescription: HdiagnosticEventTagDescription, index: UInt, tagdescription: COpaquePointer?): Hresult =
+    WindowsWin32SecurityDiagnosticdataqueryJniBridge.windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordLocaleTagAtIndex((htagdescription?.value ?: 0L), index.toInt(), (tagdescription?.value ?: 0L))
 
-public actual fun DdqGetDiagnosticRecordLocaleTagCount(htagdescription: HDIAGNOSTIC_EVENT_TAG_DESCRIPTION, tagdescriptioncount: Long): HRESULT =
-    WindowsWin32SecurityDiagnosticdataqueryJniBridge.windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticRecordLocaleTagCount(htagdescription, tagdescriptioncount)
+public actual fun ddqGetDiagnosticRecordLocaleTagCount(htagdescription: HdiagnosticEventTagDescription, tagdescriptioncount: COpaquePointer?): Hresult =
+    WindowsWin32SecurityDiagnosticdataqueryJniBridge.windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordLocaleTagCount((htagdescription?.value ?: 0L), (tagdescriptioncount?.value ?: 0L))
 
-public actual fun DdqGetDiagnosticRecordLocaleTags(hsession: HDIAGNOSTIC_DATA_QUERY_SESSION, locale: PCWSTR, htagdescription: Long): HRESULT =
-    WindowsWin32SecurityDiagnosticdataqueryJniBridge.windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticRecordLocaleTags(hsession, locale, htagdescription)
+public actual fun ddqGetDiagnosticRecordLocaleTags(hsession: HdiagnosticDataQuerySession, locale: Pcwstr, htagdescription: COpaquePointer?): Hresult =
+    WindowsWin32SecurityDiagnosticdataqueryJniBridge.windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordLocaleTags((hsession?.value ?: 0L), (locale?.value ?: 0L), (htagdescription?.value ?: 0L))
 
-public actual fun DdqGetDiagnosticRecordPage(hsession: HDIAGNOSTIC_DATA_QUERY_SESSION, searchcriteria: Long, offset: UInt, pagerecordcount: UInt, baserowid: Long, hrecord: Long): HRESULT =
-    WindowsWin32SecurityDiagnosticdataqueryJniBridge.windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticRecordPage(hsession, searchcriteria, offset.toInt(), pagerecordcount.toInt(), baserowid, hrecord)
+public actual fun ddqGetDiagnosticRecordPage(hsession: HdiagnosticDataQuerySession, searchcriteria: COpaquePointer?, offset: UInt, pagerecordcount: UInt, baserowid: Long, hrecord: COpaquePointer?): Hresult =
+    WindowsWin32SecurityDiagnosticdataqueryJniBridge.windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordPage((hsession?.value ?: 0L), (searchcriteria?.value ?: 0L), offset.toInt(), pagerecordcount.toInt(), baserowid, (hrecord?.value ?: 0L))
 
-public actual fun DdqGetDiagnosticRecordPayload(hsession: HDIAGNOSTIC_DATA_QUERY_SESSION, rowid: Long, payload: Long): HRESULT =
-    WindowsWin32SecurityDiagnosticdataqueryJniBridge.windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticRecordPayload(hsession, rowid, payload)
+public actual fun ddqGetDiagnosticRecordPayload(hsession: HdiagnosticDataQuerySession, rowid: Long, payload: COpaquePointer?): Hresult =
+    WindowsWin32SecurityDiagnosticdataqueryJniBridge.windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordPayload((hsession?.value ?: 0L), rowid, (payload?.value ?: 0L))
 
-public actual fun DdqGetDiagnosticRecordProducerAtIndex(hproducerdescription: HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION, index: UInt, producerdescription: Long): HRESULT =
-    WindowsWin32SecurityDiagnosticdataqueryJniBridge.windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticRecordProducerAtIndex(hproducerdescription, index.toInt(), producerdescription)
+public actual fun ddqGetDiagnosticRecordProducerAtIndex(hproducerdescription: HdiagnosticEventProducerDescription, index: UInt, producerdescription: COpaquePointer?): Hresult =
+    WindowsWin32SecurityDiagnosticdataqueryJniBridge.windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordProducerAtIndex((hproducerdescription?.value ?: 0L), index.toInt(), (producerdescription?.value ?: 0L))
 
-public actual fun DdqGetDiagnosticRecordProducerCategories(hsession: HDIAGNOSTIC_DATA_QUERY_SESSION, producername: PCWSTR, hcategorydescription: Long): HRESULT =
-    WindowsWin32SecurityDiagnosticdataqueryJniBridge.windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticRecordProducerCategories(hsession, producername, hcategorydescription)
+public actual fun ddqGetDiagnosticRecordProducerCategories(hsession: HdiagnosticDataQuerySession, producername: Pcwstr, hcategorydescription: COpaquePointer?): Hresult =
+    WindowsWin32SecurityDiagnosticdataqueryJniBridge.windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordProducerCategories((hsession?.value ?: 0L), (producername?.value ?: 0L), (hcategorydescription?.value ?: 0L))
 
-public actual fun DdqGetDiagnosticRecordProducerCount(hproducerdescription: HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION, producerdescriptioncount: Long): HRESULT =
-    WindowsWin32SecurityDiagnosticdataqueryJniBridge.windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticRecordProducerCount(hproducerdescription, producerdescriptioncount)
+public actual fun ddqGetDiagnosticRecordProducerCount(hproducerdescription: HdiagnosticEventProducerDescription, producerdescriptioncount: COpaquePointer?): Hresult =
+    WindowsWin32SecurityDiagnosticdataqueryJniBridge.windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordProducerCount((hproducerdescription?.value ?: 0L), (producerdescriptioncount?.value ?: 0L))
 
-public actual fun DdqGetDiagnosticRecordProducers(hsession: HDIAGNOSTIC_DATA_QUERY_SESSION, hproducerdescription: Long): HRESULT =
-    WindowsWin32SecurityDiagnosticdataqueryJniBridge.windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticRecordProducers(hsession, hproducerdescription)
+public actual fun ddqGetDiagnosticRecordProducers(hsession: HdiagnosticDataQuerySession, hproducerdescription: COpaquePointer?): Hresult =
+    WindowsWin32SecurityDiagnosticdataqueryJniBridge.windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordProducers((hsession?.value ?: 0L), (hproducerdescription?.value ?: 0L))
 
-public actual fun DdqGetDiagnosticRecordStats(hsession: HDIAGNOSTIC_DATA_QUERY_SESSION, searchcriteria: Long, recordcount: Long, minrowid: Long, maxrowid: Long): HRESULT =
-    WindowsWin32SecurityDiagnosticdataqueryJniBridge.windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticRecordStats(hsession, searchcriteria, recordcount, minrowid, maxrowid)
+public actual fun ddqGetDiagnosticRecordStats(hsession: HdiagnosticDataQuerySession, searchcriteria: COpaquePointer?, recordcount: COpaquePointer?, minrowid: COpaquePointer?, maxrowid: COpaquePointer?): Hresult =
+    WindowsWin32SecurityDiagnosticdataqueryJniBridge.windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordStats((hsession?.value ?: 0L), (searchcriteria?.value ?: 0L), (recordcount?.value ?: 0L), (minrowid?.value ?: 0L), (maxrowid?.value ?: 0L))
 
-public actual fun DdqGetDiagnosticRecordSummary(hsession: HDIAGNOSTIC_DATA_QUERY_SESSION, producernames: Long, producernamecount: UInt, generalstats: Long): HRESULT =
-    WindowsWin32SecurityDiagnosticdataqueryJniBridge.windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticRecordSummary(hsession, producernames, producernamecount.toInt(), generalstats)
+public actual fun ddqGetDiagnosticRecordSummary(hsession: HdiagnosticDataQuerySession, producernames: COpaquePointer?, producernamecount: UInt, generalstats: COpaquePointer?): Hresult =
+    WindowsWin32SecurityDiagnosticdataqueryJniBridge.windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordSummary((hsession?.value ?: 0L), (producernames?.value ?: 0L), producernamecount.toInt(), (generalstats?.value ?: 0L))
 
-public actual fun DdqGetDiagnosticRecordTagDistribution(hsession: HDIAGNOSTIC_DATA_QUERY_SESSION, producernames: Long, producernamecount: UInt, tagstats: Long, statcount: Long): HRESULT =
-    WindowsWin32SecurityDiagnosticdataqueryJniBridge.windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticRecordTagDistribution(hsession, producernames, producernamecount.toInt(), tagstats, statcount)
+public actual fun ddqGetDiagnosticRecordTagDistribution(hsession: HdiagnosticDataQuerySession, producernames: COpaquePointer?, producernamecount: UInt, tagstats: COpaquePointer?, statcount: COpaquePointer?): Hresult =
+    WindowsWin32SecurityDiagnosticdataqueryJniBridge.windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordTagDistribution((hsession?.value ?: 0L), (producernames?.value ?: 0L), producernamecount.toInt(), (tagstats?.value ?: 0L), (statcount?.value ?: 0L))
 
-public actual fun DdqGetDiagnosticReport(hsession: HDIAGNOSTIC_DATA_QUERY_SESSION, reportstoretype: UInt, hreport: Long): HRESULT =
-    WindowsWin32SecurityDiagnosticdataqueryJniBridge.windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticReport(hsession, reportstoretype.toInt(), hreport)
+public actual fun ddqGetDiagnosticReport(hsession: HdiagnosticDataQuerySession, reportstoretype: UInt, hreport: COpaquePointer?): Hresult =
+    WindowsWin32SecurityDiagnosticdataqueryJniBridge.windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticReport((hsession?.value ?: 0L), reportstoretype.toInt(), (hreport?.value ?: 0L))
 
-public actual fun DdqGetDiagnosticReportAtIndex(hreport: HDIAGNOSTIC_REPORT, index: UInt, report: Long): HRESULT =
-    WindowsWin32SecurityDiagnosticdataqueryJniBridge.windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticReportAtIndex(hreport, index.toInt(), report)
+public actual fun ddqGetDiagnosticReportAtIndex(hreport: HdiagnosticReport, index: UInt, report: COpaquePointer?): Hresult =
+    WindowsWin32SecurityDiagnosticdataqueryJniBridge.windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticReportAtIndex((hreport?.value ?: 0L), index.toInt(), (report?.value ?: 0L))
 
-public actual fun DdqGetDiagnosticReportCount(hreport: HDIAGNOSTIC_REPORT, reportcount: Long): HRESULT =
-    WindowsWin32SecurityDiagnosticdataqueryJniBridge.windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticReportCount(hreport, reportcount)
+public actual fun ddqGetDiagnosticReportCount(hreport: HdiagnosticReport, reportcount: COpaquePointer?): Hresult =
+    WindowsWin32SecurityDiagnosticdataqueryJniBridge.windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticReportCount((hreport?.value ?: 0L), (reportcount?.value ?: 0L))
 
-public actual fun DdqGetDiagnosticReportStoreReportCount(hsession: HDIAGNOSTIC_DATA_QUERY_SESSION, reportstoretype: UInt, reportcount: Long): HRESULT =
-    WindowsWin32SecurityDiagnosticdataqueryJniBridge.windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticReportStoreReportCount(hsession, reportstoretype.toInt(), reportcount)
+public actual fun ddqGetDiagnosticReportStoreReportCount(hsession: HdiagnosticDataQuerySession, reportstoretype: UInt, reportcount: COpaquePointer?): Hresult =
+    WindowsWin32SecurityDiagnosticdataqueryJniBridge.windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticReportStoreReportCount((hsession?.value ?: 0L), reportstoretype.toInt(), (reportcount?.value ?: 0L))
 
-public actual fun DdqGetSessionAccessLevel(hsession: HDIAGNOSTIC_DATA_QUERY_SESSION, accesslevel: Long): HRESULT =
-    WindowsWin32SecurityDiagnosticdataqueryJniBridge.windowssys_windows_win32_security_diagnosticdataquery_DdqGetSessionAccessLevel(hsession, accesslevel)
+public actual fun ddqGetSessionAccessLevel(hsession: HdiagnosticDataQuerySession, accesslevel: COpaquePointer?): Hresult =
+    WindowsWin32SecurityDiagnosticdataqueryJniBridge.windowssys_windows_win32_security_diagnosticdataquery_ddqGetSessionAccessLevel((hsession?.value ?: 0L), (accesslevel?.value ?: 0L))
 
-public actual fun DdqGetTranscriptConfiguration(hsession: HDIAGNOSTIC_DATA_QUERY_SESSION, currentconfig: Long): HRESULT =
-    WindowsWin32SecurityDiagnosticdataqueryJniBridge.windowssys_windows_win32_security_diagnosticdataquery_DdqGetTranscriptConfiguration(hsession, currentconfig)
+public actual fun ddqGetTranscriptConfiguration(hsession: HdiagnosticDataQuerySession, currentconfig: COpaquePointer?): Hresult =
+    WindowsWin32SecurityDiagnosticdataqueryJniBridge.windowssys_windows_win32_security_diagnosticdataquery_ddqGetTranscriptConfiguration((hsession?.value ?: 0L), (currentconfig?.value ?: 0L))
 
-public actual fun DdqIsDiagnosticRecordSampledIn(hsession: HDIAGNOSTIC_DATA_QUERY_SESSION, providergroup: Long, providerid: Long, providername: PCWSTR, eventid: Long, eventname: PCWSTR, eventversion: Long, eventkeywords: Long, issampledin: Long): HRESULT =
-    WindowsWin32SecurityDiagnosticdataqueryJniBridge.windowssys_windows_win32_security_diagnosticdataquery_DdqIsDiagnosticRecordSampledIn(hsession, providergroup, providerid, providername, eventid, eventname, eventversion, eventkeywords, issampledin)
+public actual fun ddqIsDiagnosticRecordSampledIn(hsession: HdiagnosticDataQuerySession, providergroup: COpaquePointer?, providerid: COpaquePointer?, providername: Pcwstr, eventid: COpaquePointer?, eventname: Pcwstr, eventversion: COpaquePointer?, eventkeywords: COpaquePointer?, issampledin: COpaquePointer?): Hresult =
+    WindowsWin32SecurityDiagnosticdataqueryJniBridge.windowssys_windows_win32_security_diagnosticdataquery_ddqIsDiagnosticRecordSampledIn((hsession?.value ?: 0L), (providergroup?.value ?: 0L), (providerid?.value ?: 0L), (providername?.value ?: 0L), (eventid?.value ?: 0L), (eventname?.value ?: 0L), (eventversion?.value ?: 0L), (eventkeywords?.value ?: 0L), (issampledin?.value ?: 0L))
 
-public actual fun DdqSetTranscriptConfiguration(hsession: HDIAGNOSTIC_DATA_QUERY_SESSION, desiredconfig: Long): HRESULT =
-    WindowsWin32SecurityDiagnosticdataqueryJniBridge.windowssys_windows_win32_security_diagnosticdataquery_DdqSetTranscriptConfiguration(hsession, desiredconfig)
+public actual fun ddqSetTranscriptConfiguration(hsession: HdiagnosticDataQuerySession, desiredconfig: COpaquePointer?): Hresult =
+    WindowsWin32SecurityDiagnosticdataqueryJniBridge.windowssys_windows_win32_security_diagnosticdataquery_ddqSetTranscriptConfiguration((hsession?.value ?: 0L), (desiredconfig?.value ?: 0L))

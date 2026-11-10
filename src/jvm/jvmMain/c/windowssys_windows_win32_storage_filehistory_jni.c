@@ -18,7 +18,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_filehistory_WindowsWin32StorageFilehistoryJniBridge_windowssys_1windows_1win32_1storage_1filehistory_1FhServiceBlockBackup(JNIEnv* km_env, jclass km_clazz, jlong arg_0_pipe) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_filehistory_WindowsWin32StorageFilehistoryJniBridge_windowssys_1windows_1win32_1storage_1filehistory_1fhServiceBlockBackup(JNIEnv* km_env, jclass km_clazz, jlong arg_0_pipe) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -36,7 +36,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_filehistory_WindowsWin32StorageFilehistoryJniBridge_windowssys_1windows_1win32_1storage_1filehistory_1FhServiceClosePipe(JNIEnv* km_env, jclass km_clazz, jlong arg_0_pipe) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_filehistory_WindowsWin32StorageFilehistoryJniBridge_windowssys_1windows_1win32_1storage_1filehistory_1fhServiceClosePipe(JNIEnv* km_env, jclass km_clazz, jlong arg_0_pipe) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -54,7 +54,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_filehistory_WindowsWin32StorageFilehistoryJniBridge_windowssys_1windows_1win32_1storage_1filehistory_1FhServiceOpenPipe(JNIEnv* km_env, jclass km_clazz, jint startserviceifstopped, jlong arg_1_pipe) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_filehistory_WindowsWin32StorageFilehistoryJniBridge_windowssys_1windows_1win32_1storage_1filehistory_1fhServiceOpenPipe(JNIEnv* km_env, jclass km_clazz, jint startserviceifstopped, jlong arg_1_pipe) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -73,7 +73,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_filehistory_WindowsWin32StorageFilehistoryJniBridge_windowssys_1windows_1win32_1storage_1filehistory_1FhServiceReloadConfiguration(JNIEnv* km_env, jclass km_clazz, jlong arg_0_pipe) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_filehistory_WindowsWin32StorageFilehistoryJniBridge_windowssys_1windows_1win32_1storage_1filehistory_1fhServiceReloadConfiguration(JNIEnv* km_env, jclass km_clazz, jlong arg_0_pipe) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -91,7 +91,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_filehistory_WindowsWin32StorageFilehistoryJniBridge_windowssys_1windows_1win32_1storage_1filehistory_1FhServiceStartBackup(JNIEnv* km_env, jclass km_clazz, jlong arg_0_pipe, jint lowpriorityio) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_filehistory_WindowsWin32StorageFilehistoryJniBridge_windowssys_1windows_1win32_1storage_1filehistory_1fhServiceStartBackup(JNIEnv* km_env, jclass km_clazz, jlong arg_0_pipe, jint lowpriorityio) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -110,7 +110,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_filehistory_WindowsWin32StorageFilehistoryJniBridge_windowssys_1windows_1win32_1storage_1filehistory_1FhServiceStopBackup(JNIEnv* km_env, jclass km_clazz, jlong arg_0_pipe, jint stoptracking) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_filehistory_WindowsWin32StorageFilehistoryJniBridge_windowssys_1windows_1win32_1storage_1filehistory_1fhServiceStopBackup(JNIEnv* km_env, jclass km_clazz, jlong arg_0_pipe, jint stoptracking) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -129,7 +129,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_filehistory_WindowsWin32StorageFilehistoryJniBridge_windowssys_1windows_1win32_1storage_1filehistory_1FhServiceUnblockBackup(JNIEnv* km_env, jclass km_clazz, jlong arg_0_pipe) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_filehistory_WindowsWin32StorageFilehistoryJniBridge_windowssys_1windows_1win32_1storage_1filehistory_1fhServiceUnblockBackup(JNIEnv* km_env, jclass km_clazz, jlong arg_0_pipe) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

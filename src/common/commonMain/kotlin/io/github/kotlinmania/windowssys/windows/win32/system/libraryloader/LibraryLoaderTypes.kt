@@ -1,56 +1,57 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.libraryloader
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HMODULE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hmodule
 
-public fun interface ENUMRESLANGPROCAFn {
-    public operator fun invoke(hmodule: HMODULE, lptype: PCSTR, lpname: PCSTR, wlanguage: UShort, lparam: Long): BOOL
+public fun interface EnumreslangprocaFn {
+    public operator fun invoke(hmodule: Hmodule, lptype: Pcstr, lpname: Pcstr, wlanguage: UShort, lparam: Long): Bool
 }
 
-public typealias ENUMRESLANGPROCA = ENUMRESLANGPROCAFn?
+public typealias Enumreslangproca = EnumreslangprocaFn?
 
-public fun interface ENUMRESLANGPROCWFn {
-    public operator fun invoke(hmodule: HMODULE, lptype: PCWSTR, lpname: PCWSTR, wlanguage: UShort, lparam: Long): BOOL
+public fun interface EnumreslangprocwFn {
+    public operator fun invoke(hmodule: Hmodule, lptype: Pcwstr, lpname: Pcwstr, wlanguage: UShort, lparam: Long): Bool
 }
 
-public typealias ENUMRESLANGPROCW = ENUMRESLANGPROCWFn?
+public typealias Enumreslangprocw = EnumreslangprocwFn?
 
-public fun interface ENUMRESNAMEPROCAFn {
-    public operator fun invoke(hmodule: HMODULE, lptype: PCSTR, lpname: PCSTR, lparam: Long): BOOL
+public fun interface EnumresnameprocaFn {
+    public operator fun invoke(hmodule: Hmodule, lptype: Pcstr, lpname: Pcstr, lparam: Long): Bool
 }
 
-public typealias ENUMRESNAMEPROCA = ENUMRESNAMEPROCAFn?
+public typealias Enumresnameproca = EnumresnameprocaFn?
 
-public fun interface ENUMRESNAMEPROCWFn {
-    public operator fun invoke(hmodule: HMODULE, lptype: PCWSTR, lpname: PCWSTR, lparam: Long): BOOL
+public fun interface EnumresnameprocwFn {
+    public operator fun invoke(hmodule: Hmodule, lptype: Pcwstr, lpname: Pcwstr, lparam: Long): Bool
 }
 
-public typealias ENUMRESNAMEPROCW = ENUMRESNAMEPROCWFn?
+public typealias Enumresnameprocw = EnumresnameprocwFn?
 
-public fun interface ENUMRESTYPEPROCAFn {
-    public operator fun invoke(hmodule: HMODULE, lptype: PCSTR, lparam: Long): BOOL
+public fun interface EnumrestypeprocaFn {
+    public operator fun invoke(hmodule: Hmodule, lptype: Pcstr, lparam: Long): Bool
 }
 
-public typealias ENUMRESTYPEPROCA = ENUMRESTYPEPROCAFn?
+public typealias Enumrestypeproca = EnumrestypeprocaFn?
 
-public fun interface ENUMRESTYPEPROCWFn {
-    public operator fun invoke(hmodule: HMODULE, lptype: PCWSTR, lparam: Long): BOOL
+public fun interface EnumrestypeprocwFn {
+    public operator fun invoke(hmodule: Hmodule, lptype: Pcwstr, lparam: Long): Bool
 }
 
-public typealias ENUMRESTYPEPROCW = ENUMRESTYPEPROCWFn?
+public typealias Enumrestypeprocw = EnumrestypeprocwFn?
 
-public typealias LOAD_LIBRARY_FLAGS = UInt
+public typealias LoadLibraryFlags = UInt
 
-public fun interface PGET_MODULE_HANDLE_EXAFn {
-    public operator fun invoke(dwflags: UInt, lpmodulename: PCSTR, phmodule: Long): BOOL
+public fun interface PgetModuleHandleExaFn {
+    public operator fun invoke(dwflags: UInt, lpmodulename: Pcstr, phmodule: COpaquePointer?): Bool
 }
 
-public typealias PGET_MODULE_HANDLE_EXA = PGET_MODULE_HANDLE_EXAFn?
+public typealias PgetModuleHandleExa = PgetModuleHandleExaFn?
 
-public fun interface PGET_MODULE_HANDLE_EXWFn {
-    public operator fun invoke(dwflags: UInt, lpmodulename: PCWSTR, phmodule: Long): BOOL
+public fun interface PgetModuleHandleExwFn {
+    public operator fun invoke(dwflags: UInt, lpmodulename: Pcwstr, phmodule: COpaquePointer?): Bool
 }
 
-public typealias PGET_MODULE_HANDLE_EXW = PGET_MODULE_HANDLE_EXWFn?
+public typealias PgetModuleHandleExw = PgetModuleHandleExwFn?

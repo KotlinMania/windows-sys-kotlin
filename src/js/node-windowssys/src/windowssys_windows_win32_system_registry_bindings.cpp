@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_GetRegistryValueWithFallbackW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_getRegistryValueWithFallbackW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkeyprimary = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwszprimarysubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -87,7 +87,7 @@ static Napi::Value windowssys_windows_win32_system_registry_GetRegistryValueWith
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegCloseKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regCloseKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -105,7 +105,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegCloseKey_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegConnectRegistryA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regConnectRegistryA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpmachinename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -127,7 +127,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegConnectRegistryA_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegConnectRegistryExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regConnectRegistryExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpmachinename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -151,7 +151,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegConnectRegistryEx
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegConnectRegistryExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regConnectRegistryExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpmachinename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -175,7 +175,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegConnectRegistryEx
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegConnectRegistryW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regConnectRegistryW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpmachinename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -197,7 +197,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegConnectRegistryW_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegCopyTreeA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regCopyTreeA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkeysrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -219,7 +219,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegCopyTreeA_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegCopyTreeW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regCopyTreeW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkeysrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -241,7 +241,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegCopyTreeW_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegCreateKeyA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regCreateKeyA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -263,7 +263,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegCreateKeyA_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegCreateKeyExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regCreateKeyExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -297,7 +297,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegCreateKeyExA_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegCreateKeyExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regCreateKeyExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -331,7 +331,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegCreateKeyExW_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegCreateKeyTransactedA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regCreateKeyTransactedA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -369,7 +369,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegCreateKeyTransact
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegCreateKeyTransactedW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regCreateKeyTransactedW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -407,7 +407,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegCreateKeyTransact
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegCreateKeyW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regCreateKeyW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -429,7 +429,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegCreateKeyW_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegDeleteKeyA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regDeleteKeyA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -449,7 +449,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegDeleteKeyA_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegDeleteKeyExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regDeleteKeyExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -473,7 +473,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegDeleteKeyExA_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegDeleteKeyExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regDeleteKeyExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -497,7 +497,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegDeleteKeyExW_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegDeleteKeyTransactedA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regDeleteKeyTransactedA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -525,7 +525,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegDeleteKeyTransact
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegDeleteKeyTransactedW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regDeleteKeyTransactedW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -553,7 +553,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegDeleteKeyTransact
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegDeleteKeyValueA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regDeleteKeyValueA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -575,7 +575,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegDeleteKeyValueA_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegDeleteKeyValueW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regDeleteKeyValueW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -597,7 +597,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegDeleteKeyValueW_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegDeleteKeyW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regDeleteKeyW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -617,7 +617,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegDeleteKeyW_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegDeleteTreeA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regDeleteTreeA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -637,7 +637,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegDeleteTreeA_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegDeleteTreeW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regDeleteTreeW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -657,7 +657,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegDeleteTreeW_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegDeleteValueA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regDeleteValueA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpvaluename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -677,7 +677,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegDeleteValueA_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegDeleteValueW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regDeleteValueW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpvaluename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -697,7 +697,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegDeleteValueW_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegDisablePredefinedCache_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regDisablePredefinedCache_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -713,7 +713,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegDisablePredefined
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegDisablePredefinedCacheEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regDisablePredefinedCacheEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -729,7 +729,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegDisablePredefined
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegDisableReflectionKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regDisableReflectionKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hbase = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -747,7 +747,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegDisableReflection
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegEnableReflectionKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regEnableReflectionKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hbase = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -765,7 +765,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegEnableReflectionK
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegEnumKeyA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regEnumKeyA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -789,7 +789,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegEnumKeyA_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegEnumKeyExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regEnumKeyExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -821,7 +821,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegEnumKeyExA_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegEnumKeyExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regEnumKeyExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -853,7 +853,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegEnumKeyExW_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegEnumKeyW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regEnumKeyW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -877,7 +877,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegEnumKeyW_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegEnumValueA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regEnumValueA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -909,7 +909,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegEnumValueA_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegEnumValueW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regEnumValueW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -941,7 +941,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegEnumValueW_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegFlushKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regFlushKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -959,7 +959,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegFlushKey_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegGetKeySecurity_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regGetKeySecurity_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t securityinformation = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -983,7 +983,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegGetKeySecurity_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegGetValueA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regGetValueA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1013,7 +1013,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegGetValueA_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegGetValueW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regGetValueW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1043,7 +1043,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegGetValueW_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegLoadAppKeyA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regLoadAppKeyA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* phkresult = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1069,7 +1069,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegLoadAppKeyA_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegLoadAppKeyW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regLoadAppKeyW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* phkresult = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1095,7 +1095,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegLoadAppKeyW_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegLoadKeyA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regLoadKeyA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1117,7 +1117,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegLoadKeyA_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegLoadKeyW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regLoadKeyW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1139,7 +1139,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegLoadKeyW_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegLoadMUIStringA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regLoadMUIStringA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszvalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1169,7 +1169,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegLoadMUIStringA_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegLoadMUIStringW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regLoadMUIStringW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszvalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1199,7 +1199,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegLoadMUIStringW_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegNotifyChangeKeyValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regNotifyChangeKeyValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t bwatchsubtree = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1225,7 +1225,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegNotifyChangeKeyVa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegOpenCurrentUser_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regOpenCurrentUser_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t samdesired = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* phkresult = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1245,7 +1245,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegOpenCurrentUser_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegOpenKeyA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regOpenKeyA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1267,7 +1267,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegOpenKeyA_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegOpenKeyExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regOpenKeyExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1293,7 +1293,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegOpenKeyExA_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegOpenKeyExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regOpenKeyExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1319,7 +1319,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegOpenKeyExW_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegOpenKeyTransactedA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regOpenKeyTransactedA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1349,7 +1349,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegOpenKeyTransacted
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegOpenKeyTransactedW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regOpenKeyTransactedW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1379,7 +1379,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegOpenKeyTransacted
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegOpenKeyW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regOpenKeyW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1401,7 +1401,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegOpenKeyW_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegOpenUserClassesRoot_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regOpenUserClassesRoot_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* htoken = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwoptions = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1425,7 +1425,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegOpenUserClassesRo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegOverridePredefKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regOverridePredefKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hnewhkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1445,7 +1445,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegOverridePredefKey
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegQueryInfoKeyA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regQueryInfoKeyA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpclass = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1485,7 +1485,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegQueryInfoKeyA_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegQueryInfoKeyW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regQueryInfoKeyW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpclass = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1525,7 +1525,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegQueryInfoKeyW_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegQueryMultipleValuesA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regQueryMultipleValuesA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* val_list = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1551,7 +1551,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegQueryMultipleValu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegQueryMultipleValuesW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regQueryMultipleValuesW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* val_list = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1577,7 +1577,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegQueryMultipleValu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegQueryReflectionKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regQueryReflectionKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hbase = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* bisreflectiondisabled = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1597,7 +1597,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegQueryReflectionKe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegQueryValueA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regQueryValueA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1621,7 +1621,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegQueryValueA_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegQueryValueExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regQueryValueExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpvaluename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1649,7 +1649,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegQueryValueExA_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegQueryValueExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regQueryValueExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpvaluename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1677,7 +1677,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegQueryValueExW_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegQueryValueW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regQueryValueW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1701,7 +1701,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegQueryValueW_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegRenameKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regRenameKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpsubkeyname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1723,7 +1723,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegRenameKey_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegReplaceKeyA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regReplaceKeyA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1747,7 +1747,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegReplaceKeyA_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegReplaceKeyW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regReplaceKeyW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1771,7 +1771,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegReplaceKeyW_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegRestoreKeyA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regRestoreKeyA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1793,7 +1793,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegRestoreKeyA_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegRestoreKeyW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regRestoreKeyW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1815,7 +1815,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegRestoreKeyW_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegSaveKeyA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regSaveKeyA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1837,7 +1837,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegSaveKeyA_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegSaveKeyExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regSaveKeyExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1861,7 +1861,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegSaveKeyExA_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegSaveKeyExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regSaveKeyExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1885,7 +1885,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegSaveKeyExW_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegSaveKeyW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regSaveKeyW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1907,7 +1907,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegSaveKeyW_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegSetKeySecurity_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regSetKeySecurity_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t securityinformation = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1929,7 +1929,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegSetKeySecurity_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegSetKeyValueA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regSetKeyValueA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1957,7 +1957,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegSetKeyValueA_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegSetKeyValueW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regSetKeyValueW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1985,7 +1985,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegSetKeyValueW_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegSetValueA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regSetValueA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2011,7 +2011,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegSetValueA_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegSetValueExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regSetValueExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpvaluename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2039,7 +2039,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegSetValueExA_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegSetValueExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regSetValueExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpvaluename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2067,7 +2067,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegSetValueExW_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegSetValueW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regSetValueW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2093,7 +2093,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegSetValueW_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegUnLoadKeyA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regUnLoadKeyA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2113,7 +2113,7 @@ static Napi::Value windowssys_windows_win32_system_registry_RegUnLoadKeyA_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_registry_RegUnLoadKeyW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_registry_regUnLoadKeyW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2134,89 +2134,89 @@ static Napi::Value windowssys_windows_win32_system_registry_RegUnLoadKeyW_napi(c
 }
 
 static void register_windows_win32_system_registry_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_system_registry_GetRegistryValueWithFallbackW", Napi::Function::New(env, windowssys_windows_win32_system_registry_GetRegistryValueWithFallbackW_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegCloseKey", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegCloseKey_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegConnectRegistryA", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegConnectRegistryA_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegConnectRegistryExA", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegConnectRegistryExA_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegConnectRegistryExW", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegConnectRegistryExW_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegConnectRegistryW", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegConnectRegistryW_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegCopyTreeA", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegCopyTreeA_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegCopyTreeW", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegCopyTreeW_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegCreateKeyA", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegCreateKeyA_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegCreateKeyExA", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegCreateKeyExA_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegCreateKeyExW", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegCreateKeyExW_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegCreateKeyTransactedA", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegCreateKeyTransactedA_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegCreateKeyTransactedW", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegCreateKeyTransactedW_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegCreateKeyW", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegCreateKeyW_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegDeleteKeyA", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegDeleteKeyA_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegDeleteKeyExA", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegDeleteKeyExA_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegDeleteKeyExW", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegDeleteKeyExW_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegDeleteKeyTransactedA", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegDeleteKeyTransactedA_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegDeleteKeyTransactedW", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegDeleteKeyTransactedW_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegDeleteKeyValueA", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegDeleteKeyValueA_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegDeleteKeyValueW", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegDeleteKeyValueW_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegDeleteKeyW", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegDeleteKeyW_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegDeleteTreeA", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegDeleteTreeA_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegDeleteTreeW", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegDeleteTreeW_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegDeleteValueA", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegDeleteValueA_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegDeleteValueW", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegDeleteValueW_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegDisablePredefinedCache", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegDisablePredefinedCache_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegDisablePredefinedCacheEx", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegDisablePredefinedCacheEx_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegDisableReflectionKey", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegDisableReflectionKey_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegEnableReflectionKey", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegEnableReflectionKey_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegEnumKeyA", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegEnumKeyA_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegEnumKeyExA", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegEnumKeyExA_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegEnumKeyExW", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegEnumKeyExW_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegEnumKeyW", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegEnumKeyW_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegEnumValueA", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegEnumValueA_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegEnumValueW", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegEnumValueW_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegFlushKey", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegFlushKey_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegGetKeySecurity", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegGetKeySecurity_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegGetValueA", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegGetValueA_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegGetValueW", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegGetValueW_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegLoadAppKeyA", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegLoadAppKeyA_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegLoadAppKeyW", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegLoadAppKeyW_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegLoadKeyA", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegLoadKeyA_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegLoadKeyW", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegLoadKeyW_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegLoadMUIStringA", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegLoadMUIStringA_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegLoadMUIStringW", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegLoadMUIStringW_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegNotifyChangeKeyValue", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegNotifyChangeKeyValue_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegOpenCurrentUser", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegOpenCurrentUser_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegOpenKeyA", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegOpenKeyA_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegOpenKeyExA", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegOpenKeyExA_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegOpenKeyExW", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegOpenKeyExW_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegOpenKeyTransactedA", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegOpenKeyTransactedA_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegOpenKeyTransactedW", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegOpenKeyTransactedW_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegOpenKeyW", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegOpenKeyW_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegOpenUserClassesRoot", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegOpenUserClassesRoot_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegOverridePredefKey", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegOverridePredefKey_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegQueryInfoKeyA", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegQueryInfoKeyA_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegQueryInfoKeyW", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegQueryInfoKeyW_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegQueryMultipleValuesA", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegQueryMultipleValuesA_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegQueryMultipleValuesW", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegQueryMultipleValuesW_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegQueryReflectionKey", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegQueryReflectionKey_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegQueryValueA", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegQueryValueA_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegQueryValueExA", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegQueryValueExA_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegQueryValueExW", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegQueryValueExW_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegQueryValueW", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegQueryValueW_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegRenameKey", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegRenameKey_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegReplaceKeyA", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegReplaceKeyA_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegReplaceKeyW", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegReplaceKeyW_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegRestoreKeyA", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegRestoreKeyA_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegRestoreKeyW", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegRestoreKeyW_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegSaveKeyA", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegSaveKeyA_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegSaveKeyExA", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegSaveKeyExA_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegSaveKeyExW", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegSaveKeyExW_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegSaveKeyW", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegSaveKeyW_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegSetKeySecurity", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegSetKeySecurity_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegSetKeyValueA", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegSetKeyValueA_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegSetKeyValueW", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegSetKeyValueW_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegSetValueA", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegSetValueA_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegSetValueExA", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegSetValueExA_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegSetValueExW", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegSetValueExW_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegSetValueW", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegSetValueW_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegUnLoadKeyA", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegUnLoadKeyA_napi));
-    exports.Set("windowssys_windows_win32_system_registry_RegUnLoadKeyW", Napi::Function::New(env, windowssys_windows_win32_system_registry_RegUnLoadKeyW_napi));
+    exports.Set("windowssys_windows_win32_system_registry_getRegistryValueWithFallbackW", Napi::Function::New(env, windowssys_windows_win32_system_registry_getRegistryValueWithFallbackW_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regCloseKey", Napi::Function::New(env, windowssys_windows_win32_system_registry_regCloseKey_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regConnectRegistryA", Napi::Function::New(env, windowssys_windows_win32_system_registry_regConnectRegistryA_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regConnectRegistryExA", Napi::Function::New(env, windowssys_windows_win32_system_registry_regConnectRegistryExA_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regConnectRegistryExW", Napi::Function::New(env, windowssys_windows_win32_system_registry_regConnectRegistryExW_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regConnectRegistryW", Napi::Function::New(env, windowssys_windows_win32_system_registry_regConnectRegistryW_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regCopyTreeA", Napi::Function::New(env, windowssys_windows_win32_system_registry_regCopyTreeA_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regCopyTreeW", Napi::Function::New(env, windowssys_windows_win32_system_registry_regCopyTreeW_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regCreateKeyA", Napi::Function::New(env, windowssys_windows_win32_system_registry_regCreateKeyA_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regCreateKeyExA", Napi::Function::New(env, windowssys_windows_win32_system_registry_regCreateKeyExA_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regCreateKeyExW", Napi::Function::New(env, windowssys_windows_win32_system_registry_regCreateKeyExW_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regCreateKeyTransactedA", Napi::Function::New(env, windowssys_windows_win32_system_registry_regCreateKeyTransactedA_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regCreateKeyTransactedW", Napi::Function::New(env, windowssys_windows_win32_system_registry_regCreateKeyTransactedW_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regCreateKeyW", Napi::Function::New(env, windowssys_windows_win32_system_registry_regCreateKeyW_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regDeleteKeyA", Napi::Function::New(env, windowssys_windows_win32_system_registry_regDeleteKeyA_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regDeleteKeyExA", Napi::Function::New(env, windowssys_windows_win32_system_registry_regDeleteKeyExA_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regDeleteKeyExW", Napi::Function::New(env, windowssys_windows_win32_system_registry_regDeleteKeyExW_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regDeleteKeyTransactedA", Napi::Function::New(env, windowssys_windows_win32_system_registry_regDeleteKeyTransactedA_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regDeleteKeyTransactedW", Napi::Function::New(env, windowssys_windows_win32_system_registry_regDeleteKeyTransactedW_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regDeleteKeyValueA", Napi::Function::New(env, windowssys_windows_win32_system_registry_regDeleteKeyValueA_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regDeleteKeyValueW", Napi::Function::New(env, windowssys_windows_win32_system_registry_regDeleteKeyValueW_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regDeleteKeyW", Napi::Function::New(env, windowssys_windows_win32_system_registry_regDeleteKeyW_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regDeleteTreeA", Napi::Function::New(env, windowssys_windows_win32_system_registry_regDeleteTreeA_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regDeleteTreeW", Napi::Function::New(env, windowssys_windows_win32_system_registry_regDeleteTreeW_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regDeleteValueA", Napi::Function::New(env, windowssys_windows_win32_system_registry_regDeleteValueA_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regDeleteValueW", Napi::Function::New(env, windowssys_windows_win32_system_registry_regDeleteValueW_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regDisablePredefinedCache", Napi::Function::New(env, windowssys_windows_win32_system_registry_regDisablePredefinedCache_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regDisablePredefinedCacheEx", Napi::Function::New(env, windowssys_windows_win32_system_registry_regDisablePredefinedCacheEx_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regDisableReflectionKey", Napi::Function::New(env, windowssys_windows_win32_system_registry_regDisableReflectionKey_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regEnableReflectionKey", Napi::Function::New(env, windowssys_windows_win32_system_registry_regEnableReflectionKey_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regEnumKeyA", Napi::Function::New(env, windowssys_windows_win32_system_registry_regEnumKeyA_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regEnumKeyExA", Napi::Function::New(env, windowssys_windows_win32_system_registry_regEnumKeyExA_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regEnumKeyExW", Napi::Function::New(env, windowssys_windows_win32_system_registry_regEnumKeyExW_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regEnumKeyW", Napi::Function::New(env, windowssys_windows_win32_system_registry_regEnumKeyW_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regEnumValueA", Napi::Function::New(env, windowssys_windows_win32_system_registry_regEnumValueA_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regEnumValueW", Napi::Function::New(env, windowssys_windows_win32_system_registry_regEnumValueW_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regFlushKey", Napi::Function::New(env, windowssys_windows_win32_system_registry_regFlushKey_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regGetKeySecurity", Napi::Function::New(env, windowssys_windows_win32_system_registry_regGetKeySecurity_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regGetValueA", Napi::Function::New(env, windowssys_windows_win32_system_registry_regGetValueA_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regGetValueW", Napi::Function::New(env, windowssys_windows_win32_system_registry_regGetValueW_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regLoadAppKeyA", Napi::Function::New(env, windowssys_windows_win32_system_registry_regLoadAppKeyA_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regLoadAppKeyW", Napi::Function::New(env, windowssys_windows_win32_system_registry_regLoadAppKeyW_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regLoadKeyA", Napi::Function::New(env, windowssys_windows_win32_system_registry_regLoadKeyA_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regLoadKeyW", Napi::Function::New(env, windowssys_windows_win32_system_registry_regLoadKeyW_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regLoadMUIStringA", Napi::Function::New(env, windowssys_windows_win32_system_registry_regLoadMUIStringA_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regLoadMUIStringW", Napi::Function::New(env, windowssys_windows_win32_system_registry_regLoadMUIStringW_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regNotifyChangeKeyValue", Napi::Function::New(env, windowssys_windows_win32_system_registry_regNotifyChangeKeyValue_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regOpenCurrentUser", Napi::Function::New(env, windowssys_windows_win32_system_registry_regOpenCurrentUser_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regOpenKeyA", Napi::Function::New(env, windowssys_windows_win32_system_registry_regOpenKeyA_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regOpenKeyExA", Napi::Function::New(env, windowssys_windows_win32_system_registry_regOpenKeyExA_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regOpenKeyExW", Napi::Function::New(env, windowssys_windows_win32_system_registry_regOpenKeyExW_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regOpenKeyTransactedA", Napi::Function::New(env, windowssys_windows_win32_system_registry_regOpenKeyTransactedA_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regOpenKeyTransactedW", Napi::Function::New(env, windowssys_windows_win32_system_registry_regOpenKeyTransactedW_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regOpenKeyW", Napi::Function::New(env, windowssys_windows_win32_system_registry_regOpenKeyW_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regOpenUserClassesRoot", Napi::Function::New(env, windowssys_windows_win32_system_registry_regOpenUserClassesRoot_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regOverridePredefKey", Napi::Function::New(env, windowssys_windows_win32_system_registry_regOverridePredefKey_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regQueryInfoKeyA", Napi::Function::New(env, windowssys_windows_win32_system_registry_regQueryInfoKeyA_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regQueryInfoKeyW", Napi::Function::New(env, windowssys_windows_win32_system_registry_regQueryInfoKeyW_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regQueryMultipleValuesA", Napi::Function::New(env, windowssys_windows_win32_system_registry_regQueryMultipleValuesA_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regQueryMultipleValuesW", Napi::Function::New(env, windowssys_windows_win32_system_registry_regQueryMultipleValuesW_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regQueryReflectionKey", Napi::Function::New(env, windowssys_windows_win32_system_registry_regQueryReflectionKey_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regQueryValueA", Napi::Function::New(env, windowssys_windows_win32_system_registry_regQueryValueA_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regQueryValueExA", Napi::Function::New(env, windowssys_windows_win32_system_registry_regQueryValueExA_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regQueryValueExW", Napi::Function::New(env, windowssys_windows_win32_system_registry_regQueryValueExW_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regQueryValueW", Napi::Function::New(env, windowssys_windows_win32_system_registry_regQueryValueW_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regRenameKey", Napi::Function::New(env, windowssys_windows_win32_system_registry_regRenameKey_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regReplaceKeyA", Napi::Function::New(env, windowssys_windows_win32_system_registry_regReplaceKeyA_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regReplaceKeyW", Napi::Function::New(env, windowssys_windows_win32_system_registry_regReplaceKeyW_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regRestoreKeyA", Napi::Function::New(env, windowssys_windows_win32_system_registry_regRestoreKeyA_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regRestoreKeyW", Napi::Function::New(env, windowssys_windows_win32_system_registry_regRestoreKeyW_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regSaveKeyA", Napi::Function::New(env, windowssys_windows_win32_system_registry_regSaveKeyA_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regSaveKeyExA", Napi::Function::New(env, windowssys_windows_win32_system_registry_regSaveKeyExA_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regSaveKeyExW", Napi::Function::New(env, windowssys_windows_win32_system_registry_regSaveKeyExW_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regSaveKeyW", Napi::Function::New(env, windowssys_windows_win32_system_registry_regSaveKeyW_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regSetKeySecurity", Napi::Function::New(env, windowssys_windows_win32_system_registry_regSetKeySecurity_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regSetKeyValueA", Napi::Function::New(env, windowssys_windows_win32_system_registry_regSetKeyValueA_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regSetKeyValueW", Napi::Function::New(env, windowssys_windows_win32_system_registry_regSetKeyValueW_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regSetValueA", Napi::Function::New(env, windowssys_windows_win32_system_registry_regSetValueA_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regSetValueExA", Napi::Function::New(env, windowssys_windows_win32_system_registry_regSetValueExA_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regSetValueExW", Napi::Function::New(env, windowssys_windows_win32_system_registry_regSetValueExW_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regSetValueW", Napi::Function::New(env, windowssys_windows_win32_system_registry_regSetValueW_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regUnLoadKeyA", Napi::Function::New(env, windowssys_windows_win32_system_registry_regUnLoadKeyA_napi));
+    exports.Set("windowssys_windows_win32_system_registry_regUnLoadKeyW", Napi::Function::New(env, windowssys_windows_win32_system_registry_regUnLoadKeyW_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_system_registry_napi, nullptr };

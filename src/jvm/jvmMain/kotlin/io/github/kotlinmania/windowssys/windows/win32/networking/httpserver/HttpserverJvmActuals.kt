@@ -2,10 +2,11 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networking.httpserver
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 
 private object WindowsWin32NetworkingHttpserverJniBridge {
     init {
@@ -13,248 +14,248 @@ private object WindowsWin32NetworkingHttpserverJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_httpserver_HttpAddFragmentToCache(requestqueuehandle: Long, urlprefix: Long, datachunk: Long, cachepolicy: Long, overlapped: Long): Int
+    external fun windowssys_windows_win32_networking_httpserver_httpAddFragmentToCache(requestqueuehandle: Long, urlprefix: Long, datachunk: Long, cachepolicy: Long, overlapped: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_httpserver_HttpAddUrl(requestqueuehandle: Long, fullyqualifiedurl: Long, reserved: Long): Int
+    external fun windowssys_windows_win32_networking_httpserver_httpAddUrl(requestqueuehandle: Long, fullyqualifiedurl: Long, reserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_httpserver_HttpAddUrlToUrlGroup(urlgroupid: Long, pfullyqualifiedurl: Long, urlcontext: Long, reserved: Int): Int
+    external fun windowssys_windows_win32_networking_httpserver_httpAddUrlToUrlGroup(urlgroupid: Long, pfullyqualifiedurl: Long, urlcontext: Long, reserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_httpserver_HttpCancelHttpRequest(requestqueuehandle: Long, requestid: Long, overlapped: Long): Int
+    external fun windowssys_windows_win32_networking_httpserver_httpCancelHttpRequest(requestqueuehandle: Long, requestid: Long, overlapped: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_httpserver_HttpCloseRequestQueue(requestqueuehandle: Long): Int
+    external fun windowssys_windows_win32_networking_httpserver_httpCloseRequestQueue(requestqueuehandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_httpserver_HttpCloseServerSession(serversessionid: Long): Int
+    external fun windowssys_windows_win32_networking_httpserver_httpCloseServerSession(serversessionid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_httpserver_HttpCloseUrlGroup(urlgroupid: Long): Int
+    external fun windowssys_windows_win32_networking_httpserver_httpCloseUrlGroup(urlgroupid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_httpserver_HttpCreateHttpHandle(requestqueuehandle: Long, reserved: Int): Int
+    external fun windowssys_windows_win32_networking_httpserver_httpCreateHttpHandle(requestqueuehandle: Long, reserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_httpserver_HttpCreateUrlGroup(serversessionid: Long, purlgroupid: Long, reserved: Int): Int
+    external fun windowssys_windows_win32_networking_httpserver_httpCreateUrlGroup(serversessionid: Long, purlgroupid: Long, reserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_httpserver_HttpDeclarePush(requestqueuehandle: Long, requestid: Long, verb: Int, path: Long, query: Long, headers: Long): Int
+    external fun windowssys_windows_win32_networking_httpserver_httpDeclarePush(requestqueuehandle: Long, requestid: Long, verb: Int, path: Long, query: Long, headers: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_httpserver_HttpDelegateRequestEx(requestqueuehandle: Long, delegatequeuehandle: Long, requestid: Long, delegateurlgroupid: Long, propertyinfosetsize: Int, propertyinfoset: Long): Int
+    external fun windowssys_windows_win32_networking_httpserver_httpDelegateRequestEx(requestqueuehandle: Long, delegatequeuehandle: Long, requestid: Long, delegateurlgroupid: Long, propertyinfosetsize: Int, propertyinfoset: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_httpserver_HttpDeleteServiceConfiguration(servicehandle: Long, configid: Int, pconfiginformation: Long, configinformationlength: Int, poverlapped: Long): Int
+    external fun windowssys_windows_win32_networking_httpserver_httpDeleteServiceConfiguration(servicehandle: Long, configid: Int, pconfiginformation: Long, configinformationlength: Int, poverlapped: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_httpserver_HttpFindUrlGroupId(fullyqualifiedurl: Long, requestqueuehandle: Long, urlgroupid: Long): Int
+    external fun windowssys_windows_win32_networking_httpserver_httpFindUrlGroupId(fullyqualifiedurl: Long, requestqueuehandle: Long, urlgroupid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_httpserver_HttpFlushResponseCache(requestqueuehandle: Long, urlprefix: Long, flags: Int, overlapped: Long): Int
+    external fun windowssys_windows_win32_networking_httpserver_httpFlushResponseCache(requestqueuehandle: Long, urlprefix: Long, flags: Int, overlapped: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_httpserver_HttpIsFeatureSupported(featureid: Int): Int
+    external fun windowssys_windows_win32_networking_httpserver_httpIsFeatureSupported(featureid: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_httpserver_HttpPrepareUrl(reserved: Long, flags: Int, url: Long, preparedurl: Long): Int
+    external fun windowssys_windows_win32_networking_httpserver_httpPrepareUrl(reserved: Long, flags: Int, url: Long, preparedurl: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_httpserver_HttpQueryRequestQueueProperty(requestqueuehandle: Long, property: Int, propertyinformation: Long, propertyinformationlength: Int, reserved1: Int, returnlength: Long, reserved2: Long): Int
+    external fun windowssys_windows_win32_networking_httpserver_httpQueryRequestQueueProperty(requestqueuehandle: Long, property: Int, propertyinformation: Long, propertyinformationlength: Int, reserved1: Int, returnlength: Long, reserved2: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_httpserver_HttpQueryServerSessionProperty(serversessionid: Long, property: Int, propertyinformation: Long, propertyinformationlength: Int, returnlength: Long): Int
+    external fun windowssys_windows_win32_networking_httpserver_httpQueryServerSessionProperty(serversessionid: Long, property: Int, propertyinformation: Long, propertyinformationlength: Int, returnlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_httpserver_HttpQueryServiceConfiguration(servicehandle: Long, configid: Int, pinput: Long, inputlength: Int, poutput: Long, outputlength: Int, preturnlength: Long, poverlapped: Long): Int
+    external fun windowssys_windows_win32_networking_httpserver_httpQueryServiceConfiguration(servicehandle: Long, configid: Int, pinput: Long, inputlength: Int, poutput: Long, outputlength: Int, preturnlength: Long, poverlapped: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_httpserver_HttpQueryUrlGroupProperty(urlgroupid: Long, property: Int, propertyinformation: Long, propertyinformationlength: Int, returnlength: Long): Int
+    external fun windowssys_windows_win32_networking_httpserver_httpQueryUrlGroupProperty(urlgroupid: Long, property: Int, propertyinformation: Long, propertyinformationlength: Int, returnlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_httpserver_HttpReadFragmentFromCache(requestqueuehandle: Long, urlprefix: Long, byterange: Long, buffer: Long, bufferlength: Int, bytesread: Long, overlapped: Long): Int
+    external fun windowssys_windows_win32_networking_httpserver_httpReadFragmentFromCache(requestqueuehandle: Long, urlprefix: Long, byterange: Long, buffer: Long, bufferlength: Int, bytesread: Long, overlapped: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_httpserver_HttpReceiveClientCertificate(requestqueuehandle: Long, connectionid: Long, flags: Int, sslclientcertinfo: Long, sslclientcertinfosize: Int, bytesreceived: Long, overlapped: Long): Int
+    external fun windowssys_windows_win32_networking_httpserver_httpReceiveClientCertificate(requestqueuehandle: Long, connectionid: Long, flags: Int, sslclientcertinfo: Long, sslclientcertinfosize: Int, bytesreceived: Long, overlapped: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_httpserver_HttpReceiveHttpRequest(requestqueuehandle: Long, requestid: Long, flags: Int, requestbuffer: Long, requestbufferlength: Int, bytesreturned: Long, overlapped: Long): Int
+    external fun windowssys_windows_win32_networking_httpserver_httpReceiveHttpRequest(requestqueuehandle: Long, requestid: Long, flags: Int, requestbuffer: Long, requestbufferlength: Int, bytesreturned: Long, overlapped: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_httpserver_HttpReceiveRequestEntityBody(requestqueuehandle: Long, requestid: Long, flags: Int, entitybuffer: Long, entitybufferlength: Int, bytesreturned: Long, overlapped: Long): Int
+    external fun windowssys_windows_win32_networking_httpserver_httpReceiveRequestEntityBody(requestqueuehandle: Long, requestid: Long, flags: Int, entitybuffer: Long, entitybufferlength: Int, bytesreturned: Long, overlapped: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_httpserver_HttpRemoveUrl(requestqueuehandle: Long, fullyqualifiedurl: Long): Int
+    external fun windowssys_windows_win32_networking_httpserver_httpRemoveUrl(requestqueuehandle: Long, fullyqualifiedurl: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_httpserver_HttpRemoveUrlFromUrlGroup(urlgroupid: Long, pfullyqualifiedurl: Long, flags: Int): Int
+    external fun windowssys_windows_win32_networking_httpserver_httpRemoveUrlFromUrlGroup(urlgroupid: Long, pfullyqualifiedurl: Long, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_httpserver_HttpSendHttpResponse(requestqueuehandle: Long, requestid: Long, flags: Int, httpresponse: Long, cachepolicy: Long, bytessent: Long, reserved1: Long, reserved2: Int, overlapped: Long, logdata: Long): Int
+    external fun windowssys_windows_win32_networking_httpserver_httpSendHttpResponse(requestqueuehandle: Long, requestid: Long, flags: Int, httpresponse: Long, cachepolicy: Long, bytessent: Long, reserved1: Long, reserved2: Int, overlapped: Long, logdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_httpserver_HttpSendResponseEntityBody(requestqueuehandle: Long, requestid: Long, flags: Int, entitychunkcount: Short, entitychunks: Long, bytessent: Long, reserved1: Long, reserved2: Int, overlapped: Long, logdata: Long): Int
+    external fun windowssys_windows_win32_networking_httpserver_httpSendResponseEntityBody(requestqueuehandle: Long, requestid: Long, flags: Int, entitychunkcount: Short, entitychunks: Long, bytessent: Long, reserved1: Long, reserved2: Int, overlapped: Long, logdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_httpserver_HttpSetRequestProperty(requestqueuehandle: Long, id: Long, propertyid: Int, input: Long, inputpropertysize: Int, overlapped: Long): Int
+    external fun windowssys_windows_win32_networking_httpserver_httpSetRequestProperty(requestqueuehandle: Long, id: Long, propertyid: Int, input: Long, inputpropertysize: Int, overlapped: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_httpserver_HttpSetRequestQueueProperty(requestqueuehandle: Long, property: Int, propertyinformation: Long, propertyinformationlength: Int, reserved1: Int, reserved2: Long): Int
+    external fun windowssys_windows_win32_networking_httpserver_httpSetRequestQueueProperty(requestqueuehandle: Long, property: Int, propertyinformation: Long, propertyinformationlength: Int, reserved1: Int, reserved2: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_httpserver_HttpSetServerSessionProperty(serversessionid: Long, property: Int, propertyinformation: Long, propertyinformationlength: Int): Int
+    external fun windowssys_windows_win32_networking_httpserver_httpSetServerSessionProperty(serversessionid: Long, property: Int, propertyinformation: Long, propertyinformationlength: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_httpserver_HttpSetServiceConfiguration(servicehandle: Long, configid: Int, pconfiginformation: Long, configinformationlength: Int, poverlapped: Long): Int
+    external fun windowssys_windows_win32_networking_httpserver_httpSetServiceConfiguration(servicehandle: Long, configid: Int, pconfiginformation: Long, configinformationlength: Int, poverlapped: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_httpserver_HttpSetUrlGroupProperty(urlgroupid: Long, property: Int, propertyinformation: Long, propertyinformationlength: Int): Int
+    external fun windowssys_windows_win32_networking_httpserver_httpSetUrlGroupProperty(urlgroupid: Long, property: Int, propertyinformation: Long, propertyinformationlength: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_httpserver_HttpShutdownRequestQueue(requestqueuehandle: Long): Int
+    external fun windowssys_windows_win32_networking_httpserver_httpShutdownRequestQueue(requestqueuehandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_httpserver_HttpTerminate(flags: Int, preserved: Long): Int
+    external fun windowssys_windows_win32_networking_httpserver_httpTerminate(flags: Int, preserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_httpserver_HttpUpdateServiceConfiguration(handle: Long, configid: Int, configinfo: Long, configinfolength: Int, overlapped: Long): Int
+    external fun windowssys_windows_win32_networking_httpserver_httpUpdateServiceConfiguration(handle: Long, configid: Int, configinfo: Long, configinfolength: Int, overlapped: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_httpserver_HttpWaitForDemandStart(requestqueuehandle: Long, overlapped: Long): Int
+    external fun windowssys_windows_win32_networking_httpserver_httpWaitForDemandStart(requestqueuehandle: Long, overlapped: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_httpserver_HttpWaitForDisconnect(requestqueuehandle: Long, connectionid: Long, overlapped: Long): Int
+    external fun windowssys_windows_win32_networking_httpserver_httpWaitForDisconnect(requestqueuehandle: Long, connectionid: Long, overlapped: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_httpserver_HttpWaitForDisconnectEx(requestqueuehandle: Long, connectionid: Long, reserved: Int, overlapped: Long): Int
+    external fun windowssys_windows_win32_networking_httpserver_httpWaitForDisconnectEx(requestqueuehandle: Long, connectionid: Long, reserved: Int, overlapped: Long): Int
 }
 
-public actual fun HttpAddFragmentToCache(requestqueuehandle: HANDLE, urlprefix: PCWSTR, datachunk: Long, cachepolicy: Long, overlapped: Long): UInt =
-    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_HttpAddFragmentToCache(requestqueuehandle, urlprefix, datachunk, cachepolicy, overlapped).toUInt()
+public actual fun httpAddFragmentToCache(requestqueuehandle: Handle, urlprefix: Pcwstr, datachunk: COpaquePointer?, cachepolicy: COpaquePointer?, overlapped: COpaquePointer?): UInt =
+    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_httpAddFragmentToCache((requestqueuehandle?.value ?: 0L), (urlprefix?.value ?: 0L), (datachunk?.value ?: 0L), (cachepolicy?.value ?: 0L), (overlapped?.value ?: 0L)).toUInt()
 
-public actual fun HttpAddUrl(requestqueuehandle: HANDLE, fullyqualifiedurl: PCWSTR, reserved: Long): UInt =
-    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_HttpAddUrl(requestqueuehandle, fullyqualifiedurl, reserved).toUInt()
+public actual fun httpAddUrl(requestqueuehandle: Handle, fullyqualifiedurl: Pcwstr, reserved: COpaquePointer?): UInt =
+    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_httpAddUrl((requestqueuehandle?.value ?: 0L), (fullyqualifiedurl?.value ?: 0L), (reserved?.value ?: 0L)).toUInt()
 
-public actual fun HttpAddUrlToUrlGroup(urlgroupid: ULong, pfullyqualifiedurl: PCWSTR, urlcontext: ULong, reserved: UInt): UInt =
-    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_HttpAddUrlToUrlGroup(urlgroupid.toLong(), pfullyqualifiedurl, urlcontext.toLong(), reserved.toInt()).toUInt()
+public actual fun httpAddUrlToUrlGroup(urlgroupid: ULong, pfullyqualifiedurl: Pcwstr, urlcontext: ULong, reserved: UInt): UInt =
+    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_httpAddUrlToUrlGroup(urlgroupid.toLong(), (pfullyqualifiedurl?.value ?: 0L), urlcontext.toLong(), reserved.toInt()).toUInt()
 
-public actual fun HttpCancelHttpRequest(requestqueuehandle: HANDLE, requestid: ULong, overlapped: Long): UInt =
-    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_HttpCancelHttpRequest(requestqueuehandle, requestid.toLong(), overlapped).toUInt()
+public actual fun httpCancelHttpRequest(requestqueuehandle: Handle, requestid: ULong, overlapped: COpaquePointer?): UInt =
+    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_httpCancelHttpRequest((requestqueuehandle?.value ?: 0L), requestid.toLong(), (overlapped?.value ?: 0L)).toUInt()
 
-public actual fun HttpCloseRequestQueue(requestqueuehandle: HANDLE): UInt =
-    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_HttpCloseRequestQueue(requestqueuehandle).toUInt()
+public actual fun httpCloseRequestQueue(requestqueuehandle: Handle): UInt =
+    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_httpCloseRequestQueue((requestqueuehandle?.value ?: 0L)).toUInt()
 
-public actual fun HttpCloseServerSession(serversessionid: ULong): UInt =
-    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_HttpCloseServerSession(serversessionid.toLong()).toUInt()
+public actual fun httpCloseServerSession(serversessionid: ULong): UInt =
+    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_httpCloseServerSession(serversessionid.toLong()).toUInt()
 
-public actual fun HttpCloseUrlGroup(urlgroupid: ULong): UInt =
-    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_HttpCloseUrlGroup(urlgroupid.toLong()).toUInt()
+public actual fun httpCloseUrlGroup(urlgroupid: ULong): UInt =
+    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_httpCloseUrlGroup(urlgroupid.toLong()).toUInt()
 
-public actual fun HttpCreateHttpHandle(requestqueuehandle: Long, reserved: UInt): UInt =
-    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_HttpCreateHttpHandle(requestqueuehandle, reserved.toInt()).toUInt()
+public actual fun httpCreateHttpHandle(requestqueuehandle: COpaquePointer?, reserved: UInt): UInt =
+    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_httpCreateHttpHandle((requestqueuehandle?.value ?: 0L), reserved.toInt()).toUInt()
 
-public actual fun HttpCreateRequestQueue(version: HTTPAPI_VERSION, name: PCWSTR, securityattributes: Long, flags: UInt, requestqueuehandle: Long): UInt =
+public actual fun httpCreateRequestQueue(version: HttpapiVersion, name: Pcwstr, securityattributes: COpaquePointer?, flags: UInt, requestqueuehandle: COpaquePointer?): UInt =
     0u
 
-public actual fun HttpCreateServerSession(version: HTTPAPI_VERSION, serversessionid: Long, reserved: UInt): UInt =
+public actual fun httpCreateServerSession(version: HttpapiVersion, serversessionid: COpaquePointer?, reserved: UInt): UInt =
     0u
 
-public actual fun HttpCreateUrlGroup(serversessionid: ULong, purlgroupid: Long, reserved: UInt): UInt =
-    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_HttpCreateUrlGroup(serversessionid.toLong(), purlgroupid, reserved.toInt()).toUInt()
+public actual fun httpCreateUrlGroup(serversessionid: ULong, purlgroupid: COpaquePointer?, reserved: UInt): UInt =
+    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_httpCreateUrlGroup(serversessionid.toLong(), (purlgroupid?.value ?: 0L), reserved.toInt()).toUInt()
 
-public actual fun HttpDeclarePush(requestqueuehandle: HANDLE, requestid: ULong, verb: HTTP_VERB, path: PCWSTR, query: PCSTR, headers: Long): UInt =
-    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_HttpDeclarePush(requestqueuehandle, requestid.toLong(), verb, path, query, headers).toUInt()
+public actual fun httpDeclarePush(requestqueuehandle: Handle, requestid: ULong, verb: HttpVerb, path: Pcwstr, query: Pcstr, headers: COpaquePointer?): UInt =
+    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_httpDeclarePush((requestqueuehandle?.value ?: 0L), requestid.toLong(), verb, (path?.value ?: 0L), (query?.value ?: 0L), (headers?.value ?: 0L)).toUInt()
 
-public actual fun HttpDelegateRequestEx(requestqueuehandle: HANDLE, delegatequeuehandle: HANDLE, requestid: ULong, delegateurlgroupid: ULong, propertyinfosetsize: UInt, propertyinfoset: Long): UInt =
-    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_HttpDelegateRequestEx(requestqueuehandle, delegatequeuehandle, requestid.toLong(), delegateurlgroupid.toLong(), propertyinfosetsize.toInt(), propertyinfoset).toUInt()
+public actual fun httpDelegateRequestEx(requestqueuehandle: Handle, delegatequeuehandle: Handle, requestid: ULong, delegateurlgroupid: ULong, propertyinfosetsize: UInt, propertyinfoset: COpaquePointer?): UInt =
+    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_httpDelegateRequestEx((requestqueuehandle?.value ?: 0L), (delegatequeuehandle?.value ?: 0L), requestid.toLong(), delegateurlgroupid.toLong(), propertyinfosetsize.toInt(), (propertyinfoset?.value ?: 0L)).toUInt()
 
-public actual fun HttpDeleteServiceConfiguration(servicehandle: HANDLE, configid: HTTP_SERVICE_CONFIG_ID, pconfiginformation: Long, configinformationlength: UInt, poverlapped: Long): UInt =
-    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_HttpDeleteServiceConfiguration(servicehandle, configid, pconfiginformation, configinformationlength.toInt(), poverlapped).toUInt()
+public actual fun httpDeleteServiceConfiguration(servicehandle: Handle, configid: HttpServiceConfigId, pconfiginformation: COpaquePointer?, configinformationlength: UInt, poverlapped: COpaquePointer?): UInt =
+    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_httpDeleteServiceConfiguration((servicehandle?.value ?: 0L), configid, (pconfiginformation?.value ?: 0L), configinformationlength.toInt(), (poverlapped?.value ?: 0L)).toUInt()
 
-public actual fun HttpFindUrlGroupId(fullyqualifiedurl: PCWSTR, requestqueuehandle: HANDLE, urlgroupid: Long): UInt =
-    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_HttpFindUrlGroupId(fullyqualifiedurl, requestqueuehandle, urlgroupid).toUInt()
+public actual fun httpFindUrlGroupId(fullyqualifiedurl: Pcwstr, requestqueuehandle: Handle, urlgroupid: COpaquePointer?): UInt =
+    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_httpFindUrlGroupId((fullyqualifiedurl?.value ?: 0L), (requestqueuehandle?.value ?: 0L), (urlgroupid?.value ?: 0L)).toUInt()
 
-public actual fun HttpFlushResponseCache(requestqueuehandle: HANDLE, urlprefix: PCWSTR, flags: UInt, overlapped: Long): UInt =
-    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_HttpFlushResponseCache(requestqueuehandle, urlprefix, flags.toInt(), overlapped).toUInt()
+public actual fun httpFlushResponseCache(requestqueuehandle: Handle, urlprefix: Pcwstr, flags: UInt, overlapped: COpaquePointer?): UInt =
+    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_httpFlushResponseCache((requestqueuehandle?.value ?: 0L), (urlprefix?.value ?: 0L), flags.toInt(), (overlapped?.value ?: 0L)).toUInt()
 
-public actual fun HttpGetExtension(version: HTTPAPI_VERSION, extension: UInt, buffer: Long, buffersize: UInt): UInt =
+public actual fun httpGetExtension(version: HttpapiVersion, extension: UInt, buffer: COpaquePointer?, buffersize: UInt): UInt =
     0u
 
-public actual fun HttpInitialize(version: HTTPAPI_VERSION, flags: HTTP_INITIALIZE, preserved: Long): UInt =
+public actual fun httpInitialize(version: HttpapiVersion, flags: HttpInitialize, preserved: COpaquePointer?): UInt =
     0u
 
-public actual fun HttpIsFeatureSupported(featureid: HTTP_FEATURE_ID): BOOL =
-    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_HttpIsFeatureSupported(featureid)
+public actual fun httpIsFeatureSupported(featureid: HttpFeatureId): Bool =
+    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_httpIsFeatureSupported(featureid)
 
-public actual fun HttpPrepareUrl(reserved: Long, flags: UInt, url: PCWSTR, preparedurl: Long): UInt =
-    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_HttpPrepareUrl(reserved, flags.toInt(), url, preparedurl).toUInt()
+public actual fun httpPrepareUrl(reserved: COpaquePointer?, flags: UInt, url: Pcwstr, preparedurl: COpaquePointer?): UInt =
+    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_httpPrepareUrl((reserved?.value ?: 0L), flags.toInt(), (url?.value ?: 0L), (preparedurl?.value ?: 0L)).toUInt()
 
-public actual fun HttpQueryRequestQueueProperty(requestqueuehandle: HANDLE, property: HTTP_SERVER_PROPERTY, propertyinformation: Long, propertyinformationlength: UInt, reserved1: UInt, returnlength: Long, reserved2: Long): UInt =
-    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_HttpQueryRequestQueueProperty(requestqueuehandle, property, propertyinformation, propertyinformationlength.toInt(), reserved1.toInt(), returnlength, reserved2).toUInt()
+public actual fun httpQueryRequestQueueProperty(requestqueuehandle: Handle, property: HttpServerProperty, propertyinformation: COpaquePointer?, propertyinformationlength: UInt, reserved1: UInt, returnlength: COpaquePointer?, reserved2: COpaquePointer?): UInt =
+    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_httpQueryRequestQueueProperty((requestqueuehandle?.value ?: 0L), property, (propertyinformation?.value ?: 0L), propertyinformationlength.toInt(), reserved1.toInt(), (returnlength?.value ?: 0L), (reserved2?.value ?: 0L)).toUInt()
 
-public actual fun HttpQueryServerSessionProperty(serversessionid: ULong, property: HTTP_SERVER_PROPERTY, propertyinformation: Long, propertyinformationlength: UInt, returnlength: Long): UInt =
-    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_HttpQueryServerSessionProperty(serversessionid.toLong(), property, propertyinformation, propertyinformationlength.toInt(), returnlength).toUInt()
+public actual fun httpQueryServerSessionProperty(serversessionid: ULong, property: HttpServerProperty, propertyinformation: COpaquePointer?, propertyinformationlength: UInt, returnlength: COpaquePointer?): UInt =
+    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_httpQueryServerSessionProperty(serversessionid.toLong(), property, (propertyinformation?.value ?: 0L), propertyinformationlength.toInt(), (returnlength?.value ?: 0L)).toUInt()
 
-public actual fun HttpQueryServiceConfiguration(servicehandle: HANDLE, configid: HTTP_SERVICE_CONFIG_ID, pinput: Long, inputlength: UInt, poutput: Long, outputlength: UInt, preturnlength: Long, poverlapped: Long): UInt =
-    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_HttpQueryServiceConfiguration(servicehandle, configid, pinput, inputlength.toInt(), poutput, outputlength.toInt(), preturnlength, poverlapped).toUInt()
+public actual fun httpQueryServiceConfiguration(servicehandle: Handle, configid: HttpServiceConfigId, pinput: COpaquePointer?, inputlength: UInt, poutput: COpaquePointer?, outputlength: UInt, preturnlength: COpaquePointer?, poverlapped: COpaquePointer?): UInt =
+    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_httpQueryServiceConfiguration((servicehandle?.value ?: 0L), configid, (pinput?.value ?: 0L), inputlength.toInt(), (poutput?.value ?: 0L), outputlength.toInt(), (preturnlength?.value ?: 0L), (poverlapped?.value ?: 0L)).toUInt()
 
-public actual fun HttpQueryUrlGroupProperty(urlgroupid: ULong, property: HTTP_SERVER_PROPERTY, propertyinformation: Long, propertyinformationlength: UInt, returnlength: Long): UInt =
-    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_HttpQueryUrlGroupProperty(urlgroupid.toLong(), property, propertyinformation, propertyinformationlength.toInt(), returnlength).toUInt()
+public actual fun httpQueryUrlGroupProperty(urlgroupid: ULong, property: HttpServerProperty, propertyinformation: COpaquePointer?, propertyinformationlength: UInt, returnlength: COpaquePointer?): UInt =
+    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_httpQueryUrlGroupProperty(urlgroupid.toLong(), property, (propertyinformation?.value ?: 0L), propertyinformationlength.toInt(), (returnlength?.value ?: 0L)).toUInt()
 
-public actual fun HttpReadFragmentFromCache(requestqueuehandle: HANDLE, urlprefix: PCWSTR, byterange: Long, buffer: Long, bufferlength: UInt, bytesread: Long, overlapped: Long): UInt =
-    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_HttpReadFragmentFromCache(requestqueuehandle, urlprefix, byterange, buffer, bufferlength.toInt(), bytesread, overlapped).toUInt()
+public actual fun httpReadFragmentFromCache(requestqueuehandle: Handle, urlprefix: Pcwstr, byterange: COpaquePointer?, buffer: COpaquePointer?, bufferlength: UInt, bytesread: COpaquePointer?, overlapped: COpaquePointer?): UInt =
+    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_httpReadFragmentFromCache((requestqueuehandle?.value ?: 0L), (urlprefix?.value ?: 0L), (byterange?.value ?: 0L), (buffer?.value ?: 0L), bufferlength.toInt(), (bytesread?.value ?: 0L), (overlapped?.value ?: 0L)).toUInt()
 
-public actual fun HttpReceiveClientCertificate(requestqueuehandle: HANDLE, connectionid: ULong, flags: UInt, sslclientcertinfo: Long, sslclientcertinfosize: UInt, bytesreceived: Long, overlapped: Long): UInt =
-    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_HttpReceiveClientCertificate(requestqueuehandle, connectionid.toLong(), flags.toInt(), sslclientcertinfo, sslclientcertinfosize.toInt(), bytesreceived, overlapped).toUInt()
+public actual fun httpReceiveClientCertificate(requestqueuehandle: Handle, connectionid: ULong, flags: UInt, sslclientcertinfo: COpaquePointer?, sslclientcertinfosize: UInt, bytesreceived: COpaquePointer?, overlapped: COpaquePointer?): UInt =
+    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_httpReceiveClientCertificate((requestqueuehandle?.value ?: 0L), connectionid.toLong(), flags.toInt(), (sslclientcertinfo?.value ?: 0L), sslclientcertinfosize.toInt(), (bytesreceived?.value ?: 0L), (overlapped?.value ?: 0L)).toUInt()
 
-public actual fun HttpReceiveHttpRequest(requestqueuehandle: HANDLE, requestid: ULong, flags: HTTP_RECEIVE_HTTP_REQUEST_FLAGS, requestbuffer: Long, requestbufferlength: UInt, bytesreturned: Long, overlapped: Long): UInt =
-    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_HttpReceiveHttpRequest(requestqueuehandle, requestid.toLong(), flags.toInt(), requestbuffer, requestbufferlength.toInt(), bytesreturned, overlapped).toUInt()
+public actual fun httpReceiveHttpRequest(requestqueuehandle: Handle, requestid: ULong, flags: HttpReceiveHttpRequestFlags, requestbuffer: COpaquePointer?, requestbufferlength: UInt, bytesreturned: COpaquePointer?, overlapped: COpaquePointer?): UInt =
+    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_httpReceiveHttpRequest((requestqueuehandle?.value ?: 0L), requestid.toLong(), flags.toInt(), (requestbuffer?.value ?: 0L), requestbufferlength.toInt(), (bytesreturned?.value ?: 0L), (overlapped?.value ?: 0L)).toUInt()
 
-public actual fun HttpReceiveRequestEntityBody(requestqueuehandle: HANDLE, requestid: ULong, flags: UInt, entitybuffer: Long, entitybufferlength: UInt, bytesreturned: Long, overlapped: Long): UInt =
-    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_HttpReceiveRequestEntityBody(requestqueuehandle, requestid.toLong(), flags.toInt(), entitybuffer, entitybufferlength.toInt(), bytesreturned, overlapped).toUInt()
+public actual fun httpReceiveRequestEntityBody(requestqueuehandle: Handle, requestid: ULong, flags: UInt, entitybuffer: COpaquePointer?, entitybufferlength: UInt, bytesreturned: COpaquePointer?, overlapped: COpaquePointer?): UInt =
+    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_httpReceiveRequestEntityBody((requestqueuehandle?.value ?: 0L), requestid.toLong(), flags.toInt(), (entitybuffer?.value ?: 0L), entitybufferlength.toInt(), (bytesreturned?.value ?: 0L), (overlapped?.value ?: 0L)).toUInt()
 
-public actual fun HttpRemoveUrl(requestqueuehandle: HANDLE, fullyqualifiedurl: PCWSTR): UInt =
-    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_HttpRemoveUrl(requestqueuehandle, fullyqualifiedurl).toUInt()
+public actual fun httpRemoveUrl(requestqueuehandle: Handle, fullyqualifiedurl: Pcwstr): UInt =
+    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_httpRemoveUrl((requestqueuehandle?.value ?: 0L), (fullyqualifiedurl?.value ?: 0L)).toUInt()
 
-public actual fun HttpRemoveUrlFromUrlGroup(urlgroupid: ULong, pfullyqualifiedurl: PCWSTR, flags: UInt): UInt =
-    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_HttpRemoveUrlFromUrlGroup(urlgroupid.toLong(), pfullyqualifiedurl, flags.toInt()).toUInt()
+public actual fun httpRemoveUrlFromUrlGroup(urlgroupid: ULong, pfullyqualifiedurl: Pcwstr, flags: UInt): UInt =
+    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_httpRemoveUrlFromUrlGroup(urlgroupid.toLong(), (pfullyqualifiedurl?.value ?: 0L), flags.toInt()).toUInt()
 
-public actual fun HttpSendHttpResponse(requestqueuehandle: HANDLE, requestid: ULong, flags: UInt, httpresponse: Long, cachepolicy: Long, bytessent: Long, reserved1: Long, reserved2: UInt, overlapped: Long, logdata: Long): UInt =
-    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_HttpSendHttpResponse(requestqueuehandle, requestid.toLong(), flags.toInt(), httpresponse, cachepolicy, bytessent, reserved1, reserved2.toInt(), overlapped, logdata).toUInt()
+public actual fun httpSendHttpResponse(requestqueuehandle: Handle, requestid: ULong, flags: UInt, httpresponse: COpaquePointer?, cachepolicy: COpaquePointer?, bytessent: COpaquePointer?, reserved1: COpaquePointer?, reserved2: UInt, overlapped: COpaquePointer?, logdata: COpaquePointer?): UInt =
+    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_httpSendHttpResponse((requestqueuehandle?.value ?: 0L), requestid.toLong(), flags.toInt(), (httpresponse?.value ?: 0L), (cachepolicy?.value ?: 0L), (bytessent?.value ?: 0L), (reserved1?.value ?: 0L), reserved2.toInt(), (overlapped?.value ?: 0L), (logdata?.value ?: 0L)).toUInt()
 
-public actual fun HttpSendResponseEntityBody(requestqueuehandle: HANDLE, requestid: ULong, flags: UInt, entitychunkcount: UShort, entitychunks: Long, bytessent: Long, reserved1: Long, reserved2: UInt, overlapped: Long, logdata: Long): UInt =
-    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_HttpSendResponseEntityBody(requestqueuehandle, requestid.toLong(), flags.toInt(), entitychunkcount.toShort(), entitychunks, bytessent, reserved1, reserved2.toInt(), overlapped, logdata).toUInt()
+public actual fun httpSendResponseEntityBody(requestqueuehandle: Handle, requestid: ULong, flags: UInt, entitychunkcount: UShort, entitychunks: COpaquePointer?, bytessent: COpaquePointer?, reserved1: COpaquePointer?, reserved2: UInt, overlapped: COpaquePointer?, logdata: COpaquePointer?): UInt =
+    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_httpSendResponseEntityBody((requestqueuehandle?.value ?: 0L), requestid.toLong(), flags.toInt(), entitychunkcount.toShort(), (entitychunks?.value ?: 0L), (bytessent?.value ?: 0L), (reserved1?.value ?: 0L), reserved2.toInt(), (overlapped?.value ?: 0L), (logdata?.value ?: 0L)).toUInt()
 
-public actual fun HttpSetRequestProperty(requestqueuehandle: HANDLE, id: ULong, propertyid: HTTP_REQUEST_PROPERTY, input: Long, inputpropertysize: UInt, overlapped: Long): UInt =
-    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_HttpSetRequestProperty(requestqueuehandle, id.toLong(), propertyid, input, inputpropertysize.toInt(), overlapped).toUInt()
+public actual fun httpSetRequestProperty(requestqueuehandle: Handle, id: ULong, propertyid: HttpRequestProperty, input: COpaquePointer?, inputpropertysize: UInt, overlapped: COpaquePointer?): UInt =
+    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_httpSetRequestProperty((requestqueuehandle?.value ?: 0L), id.toLong(), propertyid, (input?.value ?: 0L), inputpropertysize.toInt(), (overlapped?.value ?: 0L)).toUInt()
 
-public actual fun HttpSetRequestQueueProperty(requestqueuehandle: HANDLE, property: HTTP_SERVER_PROPERTY, propertyinformation: Long, propertyinformationlength: UInt, reserved1: UInt, reserved2: Long): UInt =
-    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_HttpSetRequestQueueProperty(requestqueuehandle, property, propertyinformation, propertyinformationlength.toInt(), reserved1.toInt(), reserved2).toUInt()
+public actual fun httpSetRequestQueueProperty(requestqueuehandle: Handle, property: HttpServerProperty, propertyinformation: COpaquePointer?, propertyinformationlength: UInt, reserved1: UInt, reserved2: COpaquePointer?): UInt =
+    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_httpSetRequestQueueProperty((requestqueuehandle?.value ?: 0L), property, (propertyinformation?.value ?: 0L), propertyinformationlength.toInt(), reserved1.toInt(), (reserved2?.value ?: 0L)).toUInt()
 
-public actual fun HttpSetServerSessionProperty(serversessionid: ULong, property: HTTP_SERVER_PROPERTY, propertyinformation: Long, propertyinformationlength: UInt): UInt =
-    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_HttpSetServerSessionProperty(serversessionid.toLong(), property, propertyinformation, propertyinformationlength.toInt()).toUInt()
+public actual fun httpSetServerSessionProperty(serversessionid: ULong, property: HttpServerProperty, propertyinformation: COpaquePointer?, propertyinformationlength: UInt): UInt =
+    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_httpSetServerSessionProperty(serversessionid.toLong(), property, (propertyinformation?.value ?: 0L), propertyinformationlength.toInt()).toUInt()
 
-public actual fun HttpSetServiceConfiguration(servicehandle: HANDLE, configid: HTTP_SERVICE_CONFIG_ID, pconfiginformation: Long, configinformationlength: UInt, poverlapped: Long): UInt =
-    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_HttpSetServiceConfiguration(servicehandle, configid, pconfiginformation, configinformationlength.toInt(), poverlapped).toUInt()
+public actual fun httpSetServiceConfiguration(servicehandle: Handle, configid: HttpServiceConfigId, pconfiginformation: COpaquePointer?, configinformationlength: UInt, poverlapped: COpaquePointer?): UInt =
+    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_httpSetServiceConfiguration((servicehandle?.value ?: 0L), configid, (pconfiginformation?.value ?: 0L), configinformationlength.toInt(), (poverlapped?.value ?: 0L)).toUInt()
 
-public actual fun HttpSetUrlGroupProperty(urlgroupid: ULong, property: HTTP_SERVER_PROPERTY, propertyinformation: Long, propertyinformationlength: UInt): UInt =
-    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_HttpSetUrlGroupProperty(urlgroupid.toLong(), property, propertyinformation, propertyinformationlength.toInt()).toUInt()
+public actual fun httpSetUrlGroupProperty(urlgroupid: ULong, property: HttpServerProperty, propertyinformation: COpaquePointer?, propertyinformationlength: UInt): UInt =
+    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_httpSetUrlGroupProperty(urlgroupid.toLong(), property, (propertyinformation?.value ?: 0L), propertyinformationlength.toInt()).toUInt()
 
-public actual fun HttpShutdownRequestQueue(requestqueuehandle: HANDLE): UInt =
-    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_HttpShutdownRequestQueue(requestqueuehandle).toUInt()
+public actual fun httpShutdownRequestQueue(requestqueuehandle: Handle): UInt =
+    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_httpShutdownRequestQueue((requestqueuehandle?.value ?: 0L)).toUInt()
 
-public actual fun HttpTerminate(flags: HTTP_INITIALIZE, preserved: Long): UInt =
-    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_HttpTerminate(flags.toInt(), preserved).toUInt()
+public actual fun httpTerminate(flags: HttpInitialize, preserved: COpaquePointer?): UInt =
+    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_httpTerminate(flags.toInt(), (preserved?.value ?: 0L)).toUInt()
 
-public actual fun HttpUpdateServiceConfiguration(handle: HANDLE, configid: HTTP_SERVICE_CONFIG_ID, configinfo: Long, configinfolength: UInt, overlapped: Long): UInt =
-    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_HttpUpdateServiceConfiguration(handle, configid, configinfo, configinfolength.toInt(), overlapped).toUInt()
+public actual fun httpUpdateServiceConfiguration(handle: Handle, configid: HttpServiceConfigId, configinfo: COpaquePointer?, configinfolength: UInt, overlapped: COpaquePointer?): UInt =
+    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_httpUpdateServiceConfiguration((handle?.value ?: 0L), configid, (configinfo?.value ?: 0L), configinfolength.toInt(), (overlapped?.value ?: 0L)).toUInt()
 
-public actual fun HttpWaitForDemandStart(requestqueuehandle: HANDLE, overlapped: Long): UInt =
-    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_HttpWaitForDemandStart(requestqueuehandle, overlapped).toUInt()
+public actual fun httpWaitForDemandStart(requestqueuehandle: Handle, overlapped: COpaquePointer?): UInt =
+    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_httpWaitForDemandStart((requestqueuehandle?.value ?: 0L), (overlapped?.value ?: 0L)).toUInt()
 
-public actual fun HttpWaitForDisconnect(requestqueuehandle: HANDLE, connectionid: ULong, overlapped: Long): UInt =
-    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_HttpWaitForDisconnect(requestqueuehandle, connectionid.toLong(), overlapped).toUInt()
+public actual fun httpWaitForDisconnect(requestqueuehandle: Handle, connectionid: ULong, overlapped: COpaquePointer?): UInt =
+    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_httpWaitForDisconnect((requestqueuehandle?.value ?: 0L), connectionid.toLong(), (overlapped?.value ?: 0L)).toUInt()
 
-public actual fun HttpWaitForDisconnectEx(requestqueuehandle: HANDLE, connectionid: ULong, reserved: UInt, overlapped: Long): UInt =
-    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_HttpWaitForDisconnectEx(requestqueuehandle, connectionid.toLong(), reserved.toInt(), overlapped).toUInt()
+public actual fun httpWaitForDisconnectEx(requestqueuehandle: Handle, connectionid: ULong, reserved: UInt, overlapped: COpaquePointer?): UInt =
+    WindowsWin32NetworkingHttpserverJniBridge.windowssys_windows_win32_networking_httpserver_httpWaitForDisconnectEx((requestqueuehandle?.value ?: 0L), connectionid.toLong(), reserved.toInt(), (overlapped?.value ?: 0L)).toUInt()

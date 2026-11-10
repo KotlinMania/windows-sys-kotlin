@@ -1,15 +1,15 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage
 
-public typealias PIDMSI_STATUS_VALUE = Int
+public typealias PidmsiStatusValue = Int
 
-public typealias PROPSPEC_KIND = UInt
+public typealias PropspecKind = UInt
 
-public typealias PROPVAR_CHANGE_FLAGS = Int
+public typealias PropvarChangeFlags = Int
 
-public typealias PROPVAR_COMPARE_FLAGS = Int
+public typealias PropvarCompareFlags = Int
 
-public typealias PROPVAR_COMPARE_UNIT = Int
+public typealias PropvarCompareUnit = Int
 
-public typealias STGFMT = UInt
+public typealias Stgfmt = UInt
 
-public typealias STGMOVE = Int
+public typealias Stgmove = Int

@@ -54,25 +54,25 @@ public val PIDMSI_SOURCE: Int = 4
 
 public val PIDMSI_STATUS: Int = 7
 
-public val PIDMSI_STATUS_DRAFT: PIDMSI_STATUS_VALUE = 3
+public val PIDMSI_STATUS_DRAFT: PidmsiStatusValue = 3
 
-public val PIDMSI_STATUS_EDIT: PIDMSI_STATUS_VALUE = 5
+public val PIDMSI_STATUS_EDIT: PidmsiStatusValue = 5
 
-public val PIDMSI_STATUS_FINAL: PIDMSI_STATUS_VALUE = 8
+public val PIDMSI_STATUS_FINAL: PidmsiStatusValue = 8
 
-public val PIDMSI_STATUS_INPROGRESS: PIDMSI_STATUS_VALUE = 4
+public val PIDMSI_STATUS_INPROGRESS: PidmsiStatusValue = 4
 
-public val PIDMSI_STATUS_NEW: PIDMSI_STATUS_VALUE = 1
+public val PIDMSI_STATUS_NEW: PidmsiStatusValue = 1
 
-public val PIDMSI_STATUS_NORMAL: PIDMSI_STATUS_VALUE = 0
+public val PIDMSI_STATUS_NORMAL: PidmsiStatusValue = 0
 
-public val PIDMSI_STATUS_OTHER: PIDMSI_STATUS_VALUE = 32767
+public val PIDMSI_STATUS_OTHER: PidmsiStatusValue = 32767
 
-public val PIDMSI_STATUS_PRELIM: PIDMSI_STATUS_VALUE = 2
+public val PIDMSI_STATUS_PRELIM: PidmsiStatusValue = 2
 
-public val PIDMSI_STATUS_PROOF: PIDMSI_STATUS_VALUE = 7
+public val PIDMSI_STATUS_PROOF: PidmsiStatusValue = 7
 
-public val PIDMSI_STATUS_REVIEW: PIDMSI_STATUS_VALUE = 6
+public val PIDMSI_STATUS_REVIEW: PidmsiStatusValue = 6
 
 public val PIDMSI_SUPPLIER: Int = 3
 
@@ -150,66 +150,66 @@ public val PROPSET_BEHAVIOR_CASE_SENSITIVE: UInt = 1u
 
 public val PRSPEC_INVALID: UInt = 4294967295u
 
-public val PRSPEC_LPWSTR: PROPSPEC_KIND = 0u
+public val PRSPEC_LPWSTR: PropspecKind = 0u
 
-public val PRSPEC_PROPID: PROPSPEC_KIND = 1u
+public val PRSPEC_PROPID: PropspecKind = 1u
 
-public val PVCF_DEFAULT: PROPVAR_COMPARE_FLAGS = 0
+public val PVCF_DEFAULT: PropvarCompareFlags = 0
 
-public val PVCF_DIGITSASNUMBERS_CASESENSITIVE: PROPVAR_COMPARE_FLAGS = 32
+public val PVCF_DIGITSASNUMBERS_CASESENSITIVE: PropvarCompareFlags = 32
 
-public val PVCF_TREATEMPTYASGREATERTHAN: PROPVAR_COMPARE_FLAGS = 1
+public val PVCF_TREATEMPTYASGREATERTHAN: PropvarCompareFlags = 1
 
-public val PVCF_USESTRCMP: PROPVAR_COMPARE_FLAGS = 2
+public val PVCF_USESTRCMP: PropvarCompareFlags = 2
 
-public val PVCF_USESTRCMPC: PROPVAR_COMPARE_FLAGS = 4
+public val PVCF_USESTRCMPC: PropvarCompareFlags = 4
 
-public val PVCF_USESTRCMPI: PROPVAR_COMPARE_FLAGS = 8
+public val PVCF_USESTRCMPI: PropvarCompareFlags = 8
 
-public val PVCF_USESTRCMPIC: PROPVAR_COMPARE_FLAGS = 16
+public val PVCF_USESTRCMPIC: PropvarCompareFlags = 16
 
-public val PVCHF_ALPHABOOL: PROPVAR_CHANGE_FLAGS = 2
+public val PVCHF_ALPHABOOL: PropvarChangeFlags = 2
 
-public val PVCHF_DEFAULT: PROPVAR_CHANGE_FLAGS = 0
+public val PVCHF_DEFAULT: PropvarChangeFlags = 0
 
-public val PVCHF_LOCALBOOL: PROPVAR_CHANGE_FLAGS = 8
+public val PVCHF_LOCALBOOL: PropvarChangeFlags = 8
 
-public val PVCHF_NOHEXSTRING: PROPVAR_CHANGE_FLAGS = 16
+public val PVCHF_NOHEXSTRING: PropvarChangeFlags = 16
 
-public val PVCHF_NOUSEROVERRIDE: PROPVAR_CHANGE_FLAGS = 4
+public val PVCHF_NOUSEROVERRIDE: PropvarChangeFlags = 4
 
-public val PVCHF_NOVALUEPROP: PROPVAR_CHANGE_FLAGS = 1
+public val PVCHF_NOVALUEPROP: PropvarChangeFlags = 1
 
-public val PVCU_DAY: PROPVAR_COMPARE_UNIT = 4
+public val PVCU_DAY: PropvarCompareUnit = 4
 
-public val PVCU_DEFAULT: PROPVAR_COMPARE_UNIT = 0
+public val PVCU_DEFAULT: PropvarCompareUnit = 0
 
-public val PVCU_HOUR: PROPVAR_COMPARE_UNIT = 3
+public val PVCU_HOUR: PropvarCompareUnit = 3
 
-public val PVCU_MINUTE: PROPVAR_COMPARE_UNIT = 2
+public val PVCU_MINUTE: PropvarCompareUnit = 2
 
-public val PVCU_MONTH: PROPVAR_COMPARE_UNIT = 5
+public val PVCU_MONTH: PropvarCompareUnit = 5
 
-public val PVCU_SECOND: PROPVAR_COMPARE_UNIT = 1
+public val PVCU_SECOND: PropvarCompareUnit = 1
 
-public val PVCU_YEAR: PROPVAR_COMPARE_UNIT = 6
+public val PVCU_YEAR: PropvarCompareUnit = 6
 
-public val STGFMT_ANY: STGFMT = 4u
+public val STGFMT_ANY: Stgfmt = 4u
 
-public val STGFMT_DOCFILE: STGFMT = 5u
+public val STGFMT_DOCFILE: Stgfmt = 5u
 
-public val STGFMT_DOCUMENT: STGFMT = 0u
+public val STGFMT_DOCUMENT: Stgfmt = 0u
 
-public val STGFMT_FILE: STGFMT = 3u
+public val STGFMT_FILE: Stgfmt = 3u
 
-public val STGFMT_NATIVE: STGFMT = 1u
+public val STGFMT_NATIVE: Stgfmt = 1u
 
-public val STGFMT_STORAGE: STGFMT = 0u
+public val STGFMT_STORAGE: Stgfmt = 0u
 
-public val STGMOVE_COPY: STGMOVE = 1
+public val STGMOVE_COPY: Stgmove = 1
 
-public val STGMOVE_MOVE: STGMOVE = 0
+public val STGMOVE_MOVE: Stgmove = 0
 
-public val STGMOVE_SHALLOWCOPY: STGMOVE = 2
+public val STGMOVE_SHALLOWCOPY: Stgmove = 2
 
 public val STGOPTIONS_VERSION: UInt = 1u

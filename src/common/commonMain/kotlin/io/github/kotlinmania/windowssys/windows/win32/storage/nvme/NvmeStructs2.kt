@@ -1,1823 +1,1823 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.storage.nvme
 
-import io.github.kotlinmania.windowssys.core.GUID
+import io.github.kotlinmania.windowssys.core.Guid
 
-public data class NVME_ERROR_INJECTION_ENTRY_0_0(public var _bitfield: UByte = 0u)
+public data class NvmeErrorInjectionEntry00(public var bitfield: UByte = 0u)
 
-public data class NVME_EXTENDED_REPORT_ZONE_INFO(
-    public var ZoneCount: ULong = 0uL,
-    public var Reserved: ULongArray = ULongArray(7),
-    public var Desc: List<NVME_ZONE_EXTENDED_REPORT_ZONE_DESC> = List(1) { NVME_ZONE_EXTENDED_REPORT_ZONE_DESC() },
+public data class NvmeExtendedReportZoneInfo(
+    public var zoneCount: ULong = 0uL,
+    public var reserved: ULongArray = ULongArray(7),
+    public var desc: List<NvmeZoneExtendedReportZoneDesc> = List(1) { NvmeZoneExtendedReportZoneDesc() },
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NVME_EXTENDED_REPORT_ZONE_INFO) return false
-        if (this.ZoneCount != other.ZoneCount) return false
-        if (!this.Reserved.contentEquals(other.Reserved)) return false
-        if (this.Desc != other.Desc) return false
+        if (other !is NvmeExtendedReportZoneInfo) return false
+        if (this.zoneCount != other.zoneCount) return false
+        if (!this.reserved.contentEquals(other.reserved)) return false
+        if (this.desc != other.desc) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.ZoneCount.hashCode()
-        result = 31 * result + this.Reserved.contentHashCode()
-        result = 31 * result + this.Desc.hashCode()
+        var result = this.zoneCount.hashCode()
+        result = 31 * result + this.reserved.contentHashCode()
+        result = 31 * result + this.desc.hashCode()
         return result
     }
 }
 
-public data class NVME_FEATURE_HOST_IDENTIFIER_DATA(public var HOSTID: UByteArray = UByteArray(16)) {
+public data class NvmeFeatureHostIdentifierData(public var hostid: UByteArray = UByteArray(16)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NVME_FEATURE_HOST_IDENTIFIER_DATA) return false
-        if (!this.HOSTID.contentEquals(other.HOSTID)) return false
+        if (other !is NvmeFeatureHostIdentifierData) return false
+        if (!this.hostid.contentEquals(other.hostid)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        return this.HOSTID.contentHashCode()
+        return this.hostid.contentHashCode()
     }
 }
 
-public data class NVME_FEATURE_HOST_METADATA_DATA(
-    public var NumberOfMetadataElementDescriptors: UByte = 0u,
-    public var Reserved0: UByte = 0u,
-    public var MetadataElementDescriptors: UByteArray = UByteArray(4094),
+public data class NvmeFeatureHostMetadataData(
+    public var numberOfMetadataElementDescriptors: UByte = 0u,
+    public var reserved0: UByte = 0u,
+    public var metadataElementDescriptors: UByteArray = UByteArray(4094),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NVME_FEATURE_HOST_METADATA_DATA) return false
-        if (this.NumberOfMetadataElementDescriptors != other.NumberOfMetadataElementDescriptors) return false
-        if (this.Reserved0 != other.Reserved0) return false
-        if (!this.MetadataElementDescriptors.contentEquals(other.MetadataElementDescriptors)) return false
+        if (other !is NvmeFeatureHostMetadataData) return false
+        if (this.numberOfMetadataElementDescriptors != other.numberOfMetadataElementDescriptors) return false
+        if (this.reserved0 != other.reserved0) return false
+        if (!this.metadataElementDescriptors.contentEquals(other.metadataElementDescriptors)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.NumberOfMetadataElementDescriptors.hashCode()
-        result = 31 * result + this.Reserved0.hashCode()
-        result = 31 * result + this.MetadataElementDescriptors.contentHashCode()
+        var result = this.numberOfMetadataElementDescriptors.hashCode()
+        result = 31 * result + this.reserved0.hashCode()
+        result = 31 * result + this.metadataElementDescriptors.contentHashCode()
         return result
     }
 }
 
-public data class NVME_FIRMWARE_SLOT_INFO_LOG(
-    public var AFI: NVME_FIRMWARE_SLOT_INFO_LOG_0 = NVME_FIRMWARE_SLOT_INFO_LOG_0(),
-    public var Reserved0: UByteArray = UByteArray(7),
-    public var FRS: ULongArray = ULongArray(7),
-    public var Reserved1: UByteArray = UByteArray(448),
+public data class NvmeFirmwareSlotInfoLog(
+    public var afi: NvmeFirmwareSlotInfoLog0 = NvmeFirmwareSlotInfoLog0(),
+    public var reserved0: UByteArray = UByteArray(7),
+    public var frs: ULongArray = ULongArray(7),
+    public var reserved1: UByteArray = UByteArray(448),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NVME_FIRMWARE_SLOT_INFO_LOG) return false
-        if (this.AFI != other.AFI) return false
-        if (!this.Reserved0.contentEquals(other.Reserved0)) return false
-        if (!this.FRS.contentEquals(other.FRS)) return false
-        if (!this.Reserved1.contentEquals(other.Reserved1)) return false
+        if (other !is NvmeFirmwareSlotInfoLog) return false
+        if (this.afi != other.afi) return false
+        if (!this.reserved0.contentEquals(other.reserved0)) return false
+        if (!this.frs.contentEquals(other.frs)) return false
+        if (!this.reserved1.contentEquals(other.reserved1)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.AFI.hashCode()
-        result = 31 * result + this.Reserved0.contentHashCode()
-        result = 31 * result + this.FRS.contentHashCode()
-        result = 31 * result + this.Reserved1.contentHashCode()
+        var result = this.afi.hashCode()
+        result = 31 * result + this.reserved0.contentHashCode()
+        result = 31 * result + this.frs.contentHashCode()
+        result = 31 * result + this.reserved1.contentHashCode()
         return result
     }
 }
 
-public data class NVME_FIRMWARE_SLOT_INFO_LOG_0(public var _bitfield: UByte = 0u)
+public data class NvmeFirmwareSlotInfoLog0(public var bitfield: UByte = 0u)
 
-public class NVME_HEALTH_INFO_LOG(
-    public var CriticalWarning: NVME_HEALTH_INFO_LOG_0 = NVME_HEALTH_INFO_LOG_0(),
-    public var Temperature: UByteArray = UByteArray(2),
-    public var AvailableSpare: UByte = 0u,
-    public var AvailableSpareThreshold: UByte = 0u,
-    public var PercentageUsed: UByte = 0u,
-    public var Reserved0: UByteArray = UByteArray(26),
-    public var DataUnitRead: UByteArray = UByteArray(16),
-    public var DataUnitWritten: UByteArray = UByteArray(16),
-    public var HostReadCommands: UByteArray = UByteArray(16),
-    public var HostWrittenCommands: UByteArray = UByteArray(16),
-    public var ControllerBusyTime: UByteArray = UByteArray(16),
-    public var PowerCycle: UByteArray = UByteArray(16),
-    public var PowerOnHours: UByteArray = UByteArray(16),
-    public var UnsafeShutdowns: UByteArray = UByteArray(16),
-    public var MediaErrors: UByteArray = UByteArray(16),
-    public var ErrorInfoLogEntryCount: UByteArray = UByteArray(16),
-    public var WarningCompositeTemperatureTime: UInt = 0u,
-    public var CriticalCompositeTemperatureTime: UInt = 0u,
-    public var TemperatureSensor1: UShort = 0u,
-    public var TemperatureSensor2: UShort = 0u,
-    public var TemperatureSensor3: UShort = 0u,
-    public var TemperatureSensor4: UShort = 0u,
-    public var TemperatureSensor5: UShort = 0u,
-    public var TemperatureSensor6: UShort = 0u,
-    public var TemperatureSensor7: UShort = 0u,
-    public var TemperatureSensor8: UShort = 0u,
-    public var Reserved1: UByteArray = UByteArray(296),
+public class NvmeHealthInfoLog(
+    public var criticalWarning: NvmeHealthInfoLog0 = NvmeHealthInfoLog0(),
+    public var temperature: UByteArray = UByteArray(2),
+    public var availableSpare: UByte = 0u,
+    public var availableSpareThreshold: UByte = 0u,
+    public var percentageUsed: UByte = 0u,
+    public var reserved0: UByteArray = UByteArray(26),
+    public var dataUnitRead: UByteArray = UByteArray(16),
+    public var dataUnitWritten: UByteArray = UByteArray(16),
+    public var hostReadCommands: UByteArray = UByteArray(16),
+    public var hostWrittenCommands: UByteArray = UByteArray(16),
+    public var controllerBusyTime: UByteArray = UByteArray(16),
+    public var powerCycle: UByteArray = UByteArray(16),
+    public var powerOnHours: UByteArray = UByteArray(16),
+    public var unsafeShutdowns: UByteArray = UByteArray(16),
+    public var mediaErrors: UByteArray = UByteArray(16),
+    public var errorInfoLogEntryCount: UByteArray = UByteArray(16),
+    public var warningCompositeTemperatureTime: UInt = 0u,
+    public var criticalCompositeTemperatureTime: UInt = 0u,
+    public var temperatureSensor1: UShort = 0u,
+    public var temperatureSensor2: UShort = 0u,
+    public var temperatureSensor3: UShort = 0u,
+    public var temperatureSensor4: UShort = 0u,
+    public var temperatureSensor5: UShort = 0u,
+    public var temperatureSensor6: UShort = 0u,
+    public var temperatureSensor7: UShort = 0u,
+    public var temperatureSensor8: UShort = 0u,
+    public var reserved1: UByteArray = UByteArray(296),
 )
 
-public data class NVME_HEALTH_INFO_LOG_0(public var Anonymous: NVME_HEALTH_INFO_LOG_0_0 = NVME_HEALTH_INFO_LOG_0_0(), public var AsUchar: UByte = 0u)
+public data class NvmeHealthInfoLog0(public var anonymous: NvmeHealthInfoLog00 = NvmeHealthInfoLog00(), public var asUchar: UByte = 0u)
 
-public data class NVME_HEALTH_INFO_LOG_0_0(public var _bitfield: UByte = 0u)
+public data class NvmeHealthInfoLog00(public var bitfield: UByte = 0u)
 
-public data class NVME_HOST_MEMORY_BUFFER_DESCRIPTOR_ENTRY(
-    public var BADD: ULong = 0uL,
-    public var BSIZE: UInt = 0u,
-    public var Reserved: UInt = 0u,
+public data class NvmeHostMemoryBufferDescriptorEntry(
+    public var badd: ULong = 0uL,
+    public var bsize: UInt = 0u,
+    public var reserved: UInt = 0u,
 )
 
-public data class NVME_HOST_METADATA_ELEMENT_DESCRIPTOR(public var _bitfield: UInt = 0u, public var EVAL: UByteArray = UByteArray(1)) {
+public data class NvmeHostMetadataElementDescriptor(public var bitfield: UInt = 0u, public var eval: UByteArray = UByteArray(1)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NVME_HOST_METADATA_ELEMENT_DESCRIPTOR) return false
-        if (this._bitfield != other._bitfield) return false
-        if (!this.EVAL.contentEquals(other.EVAL)) return false
+        if (other !is NvmeHostMetadataElementDescriptor) return false
+        if (this.bitfield != other.bitfield) return false
+        if (!this.eval.contentEquals(other.eval)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this._bitfield.hashCode()
-        result = 31 * result + this.EVAL.contentHashCode()
+        var result = this.bitfield.hashCode()
+        result = 31 * result + this.eval.contentHashCode()
         return result
     }
 }
 
-public class NVME_IDENTIFY_CONTROLLER_DATA {
-    public var VID: UShort = 0u
+public class NvmeIdentifyControllerData {
+    public var vid: UShort = 0u
 
-    public var SSVID: UShort = 0u
+    public var ssvid: UShort = 0u
 
-    public var SN: UByteArray = UByteArray(20)
+    public var sn: UByteArray = UByteArray(20)
 
-    public var MN: UByteArray = UByteArray(40)
+    public var mn: UByteArray = UByteArray(40)
 
-    public var FR: UByteArray = UByteArray(8)
+    public var fr: UByteArray = UByteArray(8)
 
-    public var RAB: UByte = 0u
+    public var rab: UByte = 0u
 
-    public var IEEE: UByteArray = UByteArray(3)
+    public var ieee: UByteArray = UByteArray(3)
 
-    public var CMIC: NVME_IDENTIFY_CONTROLLER_DATA_0 = NVME_IDENTIFY_CONTROLLER_DATA_0()
+    public var cmic: NvmeIdentifyControllerData0 = NvmeIdentifyControllerData0()
 
-    public var MDTS: UByte = 0u
+    public var mdts: UByte = 0u
 
-    public var CNTLID: UShort = 0u
+    public var cntlid: UShort = 0u
 
-    public var VER: UInt = 0u
+    public var ver: UInt = 0u
 
-    public var RTD3R: UInt = 0u
+    public var rtd3r: UInt = 0u
 
-    public var RTD3E: UInt = 0u
+    public var rtd3e: UInt = 0u
 
-    public var OAES: NVME_IDENTIFY_CONTROLLER_DATA_1 = NVME_IDENTIFY_CONTROLLER_DATA_1()
+    public var oaes: NvmeIdentifyControllerData1 = NvmeIdentifyControllerData1()
 
-    public var CTRATT: NVME_IDENTIFY_CONTROLLER_DATA_2 = NVME_IDENTIFY_CONTROLLER_DATA_2()
+    public var ctratt: NvmeIdentifyControllerData2 = NvmeIdentifyControllerData2()
 
-    public var RRLS: NVME_IDENTIFY_CONTROLLER_DATA_3 = NVME_IDENTIFY_CONTROLLER_DATA_3()
+    public var rrls: NvmeIdentifyControllerData3 = NvmeIdentifyControllerData3()
 
-    public var Reserved0: UByteArray = UByteArray(9)
+    public var reserved0: UByteArray = UByteArray(9)
 
-    public var CNTRLTYPE: UByte = 0u
+    public var cntrltype: UByte = 0u
 
-    public var FGUID: UByteArray = UByteArray(16)
+    public var fguid: UByteArray = UByteArray(16)
 
-    public var CRDT1: UShort = 0u
+    public var crdt1: UShort = 0u
 
-    public var CRDT2: UShort = 0u
+    public var crdt2: UShort = 0u
 
-    public var CRDT3: UShort = 0u
+    public var crdt3: UShort = 0u
 
-    public var Reserved0_1: UByteArray = UByteArray(106)
+    public var reserved01: UByteArray = UByteArray(106)
 
-    public var ReservedForManagement: UByteArray = UByteArray(16)
+    public var reservedForManagement: UByteArray = UByteArray(16)
 
-    public var OACS: NVME_IDENTIFY_CONTROLLER_DATA_4 = NVME_IDENTIFY_CONTROLLER_DATA_4()
+    public var oacs: NvmeIdentifyControllerData4 = NvmeIdentifyControllerData4()
 
-    public var ACL: UByte = 0u
+    public var acl: UByte = 0u
 
-    public var AERL: UByte = 0u
+    public var aerl: UByte = 0u
 
-    public var FRMW: NVME_IDENTIFY_CONTROLLER_DATA_5 = NVME_IDENTIFY_CONTROLLER_DATA_5()
+    public var frmw: NvmeIdentifyControllerData5 = NvmeIdentifyControllerData5()
 
-    public var LPA: NVME_IDENTIFY_CONTROLLER_DATA_6 = NVME_IDENTIFY_CONTROLLER_DATA_6()
+    public var lpa: NvmeIdentifyControllerData6 = NvmeIdentifyControllerData6()
 
-    public var ELPE: UByte = 0u
+    public var elpe: UByte = 0u
 
-    public var NPSS: UByte = 0u
+    public var npss: UByte = 0u
 
-    public var AVSCC: NVME_IDENTIFY_CONTROLLER_DATA_7 = NVME_IDENTIFY_CONTROLLER_DATA_7()
+    public var avscc: NvmeIdentifyControllerData7 = NvmeIdentifyControllerData7()
 
-    public var APSTA: NVME_IDENTIFY_CONTROLLER_DATA_8 = NVME_IDENTIFY_CONTROLLER_DATA_8()
+    public var apsta: NvmeIdentifyControllerData8 = NvmeIdentifyControllerData8()
 
-    public var WCTEMP: UShort = 0u
+    public var wctemp: UShort = 0u
 
-    public var CCTEMP: UShort = 0u
+    public var cctemp: UShort = 0u
 
-    public var MTFA: UShort = 0u
+    public var mtfa: UShort = 0u
 
-    public var HMPRE: UInt = 0u
+    public var hmpre: UInt = 0u
 
-    public var HMMIN: UInt = 0u
+    public var hmmin: UInt = 0u
 
-    public var TNVMCAP: UByteArray = UByteArray(16)
+    public var tnvmcap: UByteArray = UByteArray(16)
 
-    public var UNVMCAP: UByteArray = UByteArray(16)
+    public var unvmcap: UByteArray = UByteArray(16)
 
-    public var RPMBS: NVME_IDENTIFY_CONTROLLER_DATA_9 = NVME_IDENTIFY_CONTROLLER_DATA_9()
+    public var rpmbs: NvmeIdentifyControllerData9 = NvmeIdentifyControllerData9()
 
-    public var EDSTT: UShort = 0u
+    public var edstt: UShort = 0u
 
-    public var DSTO: UByte = 0u
+    public var dsto: UByte = 0u
 
-    public var FWUG: UByte = 0u
+    public var fwug: UByte = 0u
 
-    public var KAS: UShort = 0u
+    public var kas: UShort = 0u
 
-    public var HCTMA: NVME_IDENTIFY_CONTROLLER_DATA_10 = NVME_IDENTIFY_CONTROLLER_DATA_10()
+    public var hctma: NvmeIdentifyControllerData10 = NvmeIdentifyControllerData10()
 
-    public var MNTMT: UShort = 0u
+    public var mntmt: UShort = 0u
 
-    public var MXTMT: UShort = 0u
+    public var mxtmt: UShort = 0u
 
-    public var SANICAP: NVME_IDENTIFY_CONTROLLER_DATA_11 = NVME_IDENTIFY_CONTROLLER_DATA_11()
+    public var sanicap: NvmeIdentifyControllerData11 = NvmeIdentifyControllerData11()
 
-    public var HMMINDS: UInt = 0u
+    public var hmminds: UInt = 0u
 
-    public var HMMAXD: UShort = 0u
+    public var hmmaxd: UShort = 0u
 
-    public var NSETIDMAX: UShort = 0u
+    public var nsetidmax: UShort = 0u
 
-    public var ENDGIDMAX: UShort = 0u
+    public var endgidmax: UShort = 0u
 
-    public var ANATT: UByte = 0u
+    public var anatt: UByte = 0u
 
-    public var ANACAP: NVME_IDENTIFY_CONTROLLER_DATA_12 = NVME_IDENTIFY_CONTROLLER_DATA_12()
+    public var anacap: NvmeIdentifyControllerData12 = NvmeIdentifyControllerData12()
 
-    public var ANAGRPMAX: UInt = 0u
+    public var anagrpmax: UInt = 0u
 
-    public var NANAGRPID: UInt = 0u
+    public var nanagrpid: UInt = 0u
 
-    public var PELS: UInt = 0u
+    public var pels: UInt = 0u
 
-    public var Reserved1: UByteArray = UByteArray(156)
+    public var reserved1: UByteArray = UByteArray(156)
 
-    public var SQES: NVME_IDENTIFY_CONTROLLER_DATA_13 = NVME_IDENTIFY_CONTROLLER_DATA_13()
+    public var sqes: NvmeIdentifyControllerData13 = NvmeIdentifyControllerData13()
 
-    public var CQES: NVME_IDENTIFY_CONTROLLER_DATA_14 = NVME_IDENTIFY_CONTROLLER_DATA_14()
+    public var cqes: NvmeIdentifyControllerData14 = NvmeIdentifyControllerData14()
 
-    public var MAXCMD: UShort = 0u
+    public var maxcmd: UShort = 0u
 
-    public var NN: UInt = 0u
+    public var nn: UInt = 0u
 
-    public var ONCS: NVME_IDENTIFY_CONTROLLER_DATA_15 = NVME_IDENTIFY_CONTROLLER_DATA_15()
+    public var oncs: NvmeIdentifyControllerData15 = NvmeIdentifyControllerData15()
 
-    public var FUSES: NVME_IDENTIFY_CONTROLLER_DATA_16 = NVME_IDENTIFY_CONTROLLER_DATA_16()
+    public var fuses: NvmeIdentifyControllerData16 = NvmeIdentifyControllerData16()
 
-    public var FNA: NVME_IDENTIFY_CONTROLLER_DATA_17 = NVME_IDENTIFY_CONTROLLER_DATA_17()
+    public var fna: NvmeIdentifyControllerData17 = NvmeIdentifyControllerData17()
 
-    public var VWC: NVME_IDENTIFY_CONTROLLER_DATA_18 = NVME_IDENTIFY_CONTROLLER_DATA_18()
+    public var vwc: NvmeIdentifyControllerData18 = NvmeIdentifyControllerData18()
 
-    public var AWUN: UShort = 0u
+    public var awun: UShort = 0u
 
-    public var AWUPF: UShort = 0u
+    public var awupf: UShort = 0u
 
-    public var NVSCC: NVME_IDENTIFY_CONTROLLER_DATA_19 = NVME_IDENTIFY_CONTROLLER_DATA_19()
+    public var nvscc: NvmeIdentifyControllerData19 = NvmeIdentifyControllerData19()
 
-    public var NWPC: NVME_IDENTIFY_CONTROLLER_DATA_20 = NVME_IDENTIFY_CONTROLLER_DATA_20()
+    public var nwpc: NvmeIdentifyControllerData20 = NvmeIdentifyControllerData20()
 
-    public var ACWU: UShort = 0u
+    public var acwu: UShort = 0u
 
-    public var Reserved4: UByteArray = UByteArray(2)
+    public var reserved4: UByteArray = UByteArray(2)
 
-    public var SGLS: NVME_IDENTIFY_CONTROLLER_DATA_21 = NVME_IDENTIFY_CONTROLLER_DATA_21()
+    public var sgls: NvmeIdentifyControllerData21 = NvmeIdentifyControllerData21()
 
-    public var MNAN: UInt = 0u
+    public var mnan: UInt = 0u
 
-    public var Reserved6: UByteArray = UByteArray(224)
+    public var reserved6: UByteArray = UByteArray(224)
 
-    public var SUBNQN: UByteArray = UByteArray(256)
+    public var subnqn: UByteArray = UByteArray(256)
 
-    public var Reserved7: UByteArray = UByteArray(768)
+    public var reserved7: UByteArray = UByteArray(768)
 
-    public var Reserved8: UByteArray = UByteArray(256)
+    public var reserved8: UByteArray = UByteArray(256)
 
-    public var PDS: List<NVME_POWER_STATE_DESC> = List(32) { NVME_POWER_STATE_DESC() }
+    public var pds: List<NvmePowerStateDesc> = List(32) { NvmePowerStateDesc() }
 
-    public var VS: UByteArray = UByteArray(1024)
+    public var vs: UByteArray = UByteArray(1024)
 }
 
-public data class NVME_IDENTIFY_CONTROLLER_DATA_12(public var _bitfield: UByte = 0u)
+public data class NvmeIdentifyControllerData12(public var bitfield: UByte = 0u)
 
-public data class NVME_IDENTIFY_CONTROLLER_DATA_8(public var _bitfield: UByte = 0u)
+public data class NvmeIdentifyControllerData8(public var bitfield: UByte = 0u)
 
-public data class NVME_IDENTIFY_CONTROLLER_DATA_7(public var _bitfield: UByte = 0u)
+public data class NvmeIdentifyControllerData7(public var bitfield: UByte = 0u)
 
-public data class NVME_IDENTIFY_CONTROLLER_DATA_0(public var _bitfield: UByte = 0u)
+public data class NvmeIdentifyControllerData0(public var bitfield: UByte = 0u)
 
-public data class NVME_IDENTIFY_CONTROLLER_DATA_14(public var _bitfield: UByte = 0u)
+public data class NvmeIdentifyControllerData14(public var bitfield: UByte = 0u)
 
-public data class NVME_IDENTIFY_CONTROLLER_DATA_2(public var _bitfield: UInt = 0u)
+public data class NvmeIdentifyControllerData2(public var bitfield: UInt = 0u)
 
-public data class NVME_IDENTIFY_CONTROLLER_DATA_17(public var _bitfield: UByte = 0u)
+public data class NvmeIdentifyControllerData17(public var bitfield: UByte = 0u)
 
-public data class NVME_IDENTIFY_CONTROLLER_DATA_5(public var _bitfield: UByte = 0u)
+public data class NvmeIdentifyControllerData5(public var bitfield: UByte = 0u)
 
-public data class NVME_IDENTIFY_CONTROLLER_DATA_16(public var _bitfield: UShort = 0u)
+public data class NvmeIdentifyControllerData16(public var bitfield: UShort = 0u)
 
-public data class NVME_IDENTIFY_CONTROLLER_DATA_10(public var _bitfield: UShort = 0u)
+public data class NvmeIdentifyControllerData10(public var bitfield: UShort = 0u)
 
-public data class NVME_IDENTIFY_CONTROLLER_DATA_6(public var _bitfield: UByte = 0u)
+public data class NvmeIdentifyControllerData6(public var bitfield: UByte = 0u)
 
-public data class NVME_IDENTIFY_CONTROLLER_DATA_19(public var _bitfield: UByte = 0u)
+public data class NvmeIdentifyControllerData19(public var bitfield: UByte = 0u)
 
-public data class NVME_IDENTIFY_CONTROLLER_DATA_20(public var _bitfield: UByte = 0u)
+public data class NvmeIdentifyControllerData20(public var bitfield: UByte = 0u)
 
-public data class NVME_IDENTIFY_CONTROLLER_DATA_4(public var _bitfield: UShort = 0u)
+public data class NvmeIdentifyControllerData4(public var bitfield: UShort = 0u)
 
-public data class NVME_IDENTIFY_CONTROLLER_DATA_1(public var _bitfield: UInt = 0u)
+public data class NvmeIdentifyControllerData1(public var bitfield: UInt = 0u)
 
-public data class NVME_IDENTIFY_CONTROLLER_DATA_15(public var _bitfield: UShort = 0u)
+public data class NvmeIdentifyControllerData15(public var bitfield: UShort = 0u)
 
-public data class NVME_IDENTIFY_CONTROLLER_DATA_9(public var _bitfield: UInt = 0u)
+public data class NvmeIdentifyControllerData9(public var bitfield: UInt = 0u)
 
-public data class NVME_IDENTIFY_CONTROLLER_DATA_3(public var _bitfield: UShort = 0u)
+public data class NvmeIdentifyControllerData3(public var bitfield: UShort = 0u)
 
-public data class NVME_IDENTIFY_CONTROLLER_DATA_11(public var _bitfield: UInt = 0u)
+public data class NvmeIdentifyControllerData11(public var bitfield: UInt = 0u)
 
-public data class NVME_IDENTIFY_CONTROLLER_DATA_21(public var _bitfield: UInt = 0u)
+public data class NvmeIdentifyControllerData21(public var bitfield: UInt = 0u)
 
-public data class NVME_IDENTIFY_CONTROLLER_DATA_13(public var _bitfield: UByte = 0u)
+public data class NvmeIdentifyControllerData13(public var bitfield: UByte = 0u)
 
-public data class NVME_IDENTIFY_CONTROLLER_DATA_18(public var _bitfield: UByte = 0u)
+public data class NvmeIdentifyControllerData18(public var bitfield: UByte = 0u)
 
-public data class NVME_IDENTIFY_IO_COMMAND_SET(public var IOCommandSetVector: ULongArray = ULongArray(512)) {
+public data class NvmeIdentifyIoCommandSet(public var iOCommandSetVector: ULongArray = ULongArray(512)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NVME_IDENTIFY_IO_COMMAND_SET) return false
-        if (!this.IOCommandSetVector.contentEquals(other.IOCommandSetVector)) return false
+        if (other !is NvmeIdentifyIoCommandSet) return false
+        if (!this.iOCommandSetVector.contentEquals(other.iOCommandSetVector)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        return this.IOCommandSetVector.contentHashCode()
+        return this.iOCommandSetVector.contentHashCode()
     }
 }
 
-public class NVME_IDENTIFY_NAMESPACE_DATA(
-    public var NSZE: ULong = 0uL,
-    public var NCAP: ULong = 0uL,
-    public var NUSE: ULong = 0uL,
-    public var NSFEAT: NVME_IDENTIFY_NAMESPACE_DATA_0 = NVME_IDENTIFY_NAMESPACE_DATA_0(),
-    public var NLBAF: UByte = 0u,
-    public var FLBAS: NVME_IDENTIFY_NAMESPACE_DATA_1 = NVME_IDENTIFY_NAMESPACE_DATA_1(),
-    public var MC: NVME_IDENTIFY_NAMESPACE_DATA_2 = NVME_IDENTIFY_NAMESPACE_DATA_2(),
-    public var DPC: NVME_IDENTIFY_NAMESPACE_DATA_3 = NVME_IDENTIFY_NAMESPACE_DATA_3(),
-    public var DPS: NVME_IDENTIFY_NAMESPACE_DATA_4 = NVME_IDENTIFY_NAMESPACE_DATA_4(),
-    public var NMIC: NVME_IDENTIFY_NAMESPACE_DATA_5 = NVME_IDENTIFY_NAMESPACE_DATA_5(),
-    public var RESCAP: NVM_RESERVATION_CAPABILITIES = NVM_RESERVATION_CAPABILITIES(),
-    public var FPI: NVME_IDENTIFY_NAMESPACE_DATA_6 = NVME_IDENTIFY_NAMESPACE_DATA_6(),
-    public var DLFEAT: NVME_IDENTIFY_NAMESPACE_DATA_7 = NVME_IDENTIFY_NAMESPACE_DATA_7(),
-    public var NAWUN: UShort = 0u,
-    public var NAWUPF: UShort = 0u,
-    public var NACWU: UShort = 0u,
-    public var NABSN: UShort = 0u,
-    public var NABO: UShort = 0u,
-    public var NABSPF: UShort = 0u,
-    public var NOIOB: UShort = 0u,
-    public var NVMCAP: UByteArray = UByteArray(16),
-    public var NPWG: UShort = 0u,
-    public var NPWA: UShort = 0u,
-    public var NPDG: UShort = 0u,
-    public var NPDA: UShort = 0u,
-    public var NOWS: UShort = 0u,
-    public var MSSRL: UShort = 0u,
-    public var MCL: UInt = 0u,
-    public var MSRC: UByte = 0u,
-    public var Reserved2: UByteArray = UByteArray(11),
-    public var ANAGRPID: UInt = 0u,
-    public var Reserved3: UByteArray = UByteArray(3),
-    public var NSATTR: NVME_IDENTIFY_NAMESPACE_DATA_8 = NVME_IDENTIFY_NAMESPACE_DATA_8(),
-    public var NVMSETID: UShort = 0u,
-    public var ENDGID: UShort = 0u,
-    public var NGUID: UByteArray = UByteArray(16),
-    public var EUI64: UByteArray = UByteArray(8),
-    public var LBAF: List<NVME_LBA_FORMAT> = List(16) { NVME_LBA_FORMAT() },
-    public var Reserved4: UByteArray = UByteArray(192),
-    public var VS: UByteArray = UByteArray(3712),
+public class NvmeIdentifyNamespaceData(
+    public var nsze: ULong = 0uL,
+    public var ncap: ULong = 0uL,
+    public var nuse: ULong = 0uL,
+    public var nsfeat: NvmeIdentifyNamespaceData0 = NvmeIdentifyNamespaceData0(),
+    public var nlbaf: UByte = 0u,
+    public var flbas: NvmeIdentifyNamespaceData1 = NvmeIdentifyNamespaceData1(),
+    public var mc: NvmeIdentifyNamespaceData2 = NvmeIdentifyNamespaceData2(),
+    public var dpc: NvmeIdentifyNamespaceData3 = NvmeIdentifyNamespaceData3(),
+    public var dps: NvmeIdentifyNamespaceData4 = NvmeIdentifyNamespaceData4(),
+    public var nmic: NvmeIdentifyNamespaceData5 = NvmeIdentifyNamespaceData5(),
+    public var rescap: NvmReservationCapabilities = NvmReservationCapabilities(),
+    public var fpi: NvmeIdentifyNamespaceData6 = NvmeIdentifyNamespaceData6(),
+    public var dlfeat: NvmeIdentifyNamespaceData7 = NvmeIdentifyNamespaceData7(),
+    public var nawun: UShort = 0u,
+    public var nawupf: UShort = 0u,
+    public var nacwu: UShort = 0u,
+    public var nabsn: UShort = 0u,
+    public var nabo: UShort = 0u,
+    public var nabspf: UShort = 0u,
+    public var noiob: UShort = 0u,
+    public var nvmcap: UByteArray = UByteArray(16),
+    public var npwg: UShort = 0u,
+    public var npwa: UShort = 0u,
+    public var npdg: UShort = 0u,
+    public var npda: UShort = 0u,
+    public var nows: UShort = 0u,
+    public var mssrl: UShort = 0u,
+    public var mcl: UInt = 0u,
+    public var msrc: UByte = 0u,
+    public var reserved2: UByteArray = UByteArray(11),
+    public var anagrpid: UInt = 0u,
+    public var reserved3: UByteArray = UByteArray(3),
+    public var nsattr: NvmeIdentifyNamespaceData8 = NvmeIdentifyNamespaceData8(),
+    public var nvmsetid: UShort = 0u,
+    public var endgid: UShort = 0u,
+    public var nguid: UByteArray = UByteArray(16),
+    public var eui64: UByteArray = UByteArray(8),
+    public var lbaf: List<NvmeLbaFormat> = List(16) { NvmeLbaFormat() },
+    public var reserved4: UByteArray = UByteArray(192),
+    public var vs: UByteArray = UByteArray(3712),
 )
 
-public data class NVME_IDENTIFY_NAMESPACE_DATA_7(public var _bitfield: UByte = 0u)
+public data class NvmeIdentifyNamespaceData7(public var bitfield: UByte = 0u)
 
-public data class NVME_IDENTIFY_NAMESPACE_DATA_3(public var _bitfield: UByte = 0u)
+public data class NvmeIdentifyNamespaceData3(public var bitfield: UByte = 0u)
 
-public data class NVME_IDENTIFY_NAMESPACE_DATA_4(public var _bitfield: UByte = 0u)
+public data class NvmeIdentifyNamespaceData4(public var bitfield: UByte = 0u)
 
-public data class NVME_IDENTIFY_NAMESPACE_DATA_1(public var _bitfield: UByte = 0u)
+public data class NvmeIdentifyNamespaceData1(public var bitfield: UByte = 0u)
 
-public data class NVME_IDENTIFY_NAMESPACE_DATA_6(public var _bitfield: UByte = 0u)
+public data class NvmeIdentifyNamespaceData6(public var bitfield: UByte = 0u)
 
-public data class NVME_IDENTIFY_NAMESPACE_DATA_2(public var _bitfield: UByte = 0u)
+public data class NvmeIdentifyNamespaceData2(public var bitfield: UByte = 0u)
 
-public data class NVME_IDENTIFY_NAMESPACE_DATA_5(public var _bitfield: UByte = 0u)
+public data class NvmeIdentifyNamespaceData5(public var bitfield: UByte = 0u)
 
-public data class NVME_IDENTIFY_NAMESPACE_DATA_8(public var _bitfield: UByte = 0u)
+public data class NvmeIdentifyNamespaceData8(public var bitfield: UByte = 0u)
 
-public data class NVME_IDENTIFY_NAMESPACE_DATA_0(public var _bitfield: UByte = 0u)
+public data class NvmeIdentifyNamespaceData0(public var bitfield: UByte = 0u)
 
-public data class NVME_IDENTIFY_NAMESPACE_DESCRIPTOR(
-    public var NIDT: UByte = 0u,
-    public var NIDL: UByte = 0u,
-    public var Reserved: UByteArray = UByteArray(2),
-    public var NID: UByteArray = UByteArray(1),
+public data class NvmeIdentifyNamespaceDescriptor(
+    public var nidt: UByte = 0u,
+    public var nidl: UByte = 0u,
+    public var reserved: UByteArray = UByteArray(2),
+    public var nid: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NVME_IDENTIFY_NAMESPACE_DESCRIPTOR) return false
-        if (this.NIDT != other.NIDT) return false
-        if (this.NIDL != other.NIDL) return false
-        if (!this.Reserved.contentEquals(other.Reserved)) return false
-        if (!this.NID.contentEquals(other.NID)) return false
+        if (other !is NvmeIdentifyNamespaceDescriptor) return false
+        if (this.nidt != other.nidt) return false
+        if (this.nidl != other.nidl) return false
+        if (!this.reserved.contentEquals(other.reserved)) return false
+        if (!this.nid.contentEquals(other.nid)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.NIDT.hashCode()
-        result = 31 * result + this.NIDL.hashCode()
-        result = 31 * result + this.Reserved.contentHashCode()
-        result = 31 * result + this.NID.contentHashCode()
+        var result = this.nidt.hashCode()
+        result = 31 * result + this.nidl.hashCode()
+        result = 31 * result + this.reserved.contentHashCode()
+        result = 31 * result + this.nid.contentHashCode()
         return result
     }
 }
 
-public data class NVME_IDENTIFY_NVM_SPECIFIC_CONTROLLER_IO_COMMAND_SET(
-    public var VSL: UByte = 0u,
-    public var WZSL: UByte = 0u,
-    public var WUSL: UByte = 0u,
-    public var DMRL: UByte = 0u,
-    public var DMRSL: UInt = 0u,
-    public var DMSL: ULong = 0uL,
-    public var Reserved: UByteArray = UByteArray(4080),
+public data class NvmeIdentifyNvmSpecificControllerIoCommandSet(
+    public var vsl: UByte = 0u,
+    public var wzsl: UByte = 0u,
+    public var wusl: UByte = 0u,
+    public var dmrl: UByte = 0u,
+    public var dmrsl: UInt = 0u,
+    public var dmsl: ULong = 0uL,
+    public var reserved: UByteArray = UByteArray(4080),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NVME_IDENTIFY_NVM_SPECIFIC_CONTROLLER_IO_COMMAND_SET) return false
-        if (this.VSL != other.VSL) return false
-        if (this.WZSL != other.WZSL) return false
-        if (this.WUSL != other.WUSL) return false
-        if (this.DMRL != other.DMRL) return false
-        if (this.DMRSL != other.DMRSL) return false
-        if (this.DMSL != other.DMSL) return false
-        if (!this.Reserved.contentEquals(other.Reserved)) return false
+        if (other !is NvmeIdentifyNvmSpecificControllerIoCommandSet) return false
+        if (this.vsl != other.vsl) return false
+        if (this.wzsl != other.wzsl) return false
+        if (this.wusl != other.wusl) return false
+        if (this.dmrl != other.dmrl) return false
+        if (this.dmrsl != other.dmrsl) return false
+        if (this.dmsl != other.dmsl) return false
+        if (!this.reserved.contentEquals(other.reserved)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.VSL.hashCode()
-        result = 31 * result + this.WZSL.hashCode()
-        result = 31 * result + this.WUSL.hashCode()
-        result = 31 * result + this.DMRL.hashCode()
-        result = 31 * result + this.DMRSL.hashCode()
-        result = 31 * result + this.DMSL.hashCode()
-        result = 31 * result + this.Reserved.contentHashCode()
+        var result = this.vsl.hashCode()
+        result = 31 * result + this.wzsl.hashCode()
+        result = 31 * result + this.wusl.hashCode()
+        result = 31 * result + this.dmrl.hashCode()
+        result = 31 * result + this.dmrsl.hashCode()
+        result = 31 * result + this.dmsl.hashCode()
+        result = 31 * result + this.reserved.contentHashCode()
         return result
     }
 }
 
-public data class NVME_IDENTIFY_SPECIFIC_NAMESPACE_IO_COMMAND_SET(
-    public var ZOC: NVME_IDENTIFY_SPECIFIC_NAMESPACE_IO_COMMAND_SET_0 = NVME_IDENTIFY_SPECIFIC_NAMESPACE_IO_COMMAND_SET_0(),
-    public var OZCS: NVME_IDENTIFY_SPECIFIC_NAMESPACE_IO_COMMAND_SET_1 = NVME_IDENTIFY_SPECIFIC_NAMESPACE_IO_COMMAND_SET_1(),
-    public var MAR: UInt = 0u,
-    public var MOR: UInt = 0u,
-    public var RRL: UInt = 0u,
-    public var FRL: UInt = 0u,
-    public var Reserved0: UByteArray = UByteArray(2796),
-    public var LBAEF: List<NVME_LBA_ZONE_FORMAT> = List(16) { NVME_LBA_ZONE_FORMAT() },
-    public var Reserved1: UByteArray = UByteArray(768),
-    public var VS: UByteArray = UByteArray(256),
+public data class NvmeIdentifySpecificNamespaceIoCommandSet(
+    public var zoc: NvmeIdentifySpecificNamespaceIoCommandSet0 = NvmeIdentifySpecificNamespaceIoCommandSet0(),
+    public var ozcs: NvmeIdentifySpecificNamespaceIoCommandSet1 = NvmeIdentifySpecificNamespaceIoCommandSet1(),
+    public var mar: UInt = 0u,
+    public var mor: UInt = 0u,
+    public var rrl: UInt = 0u,
+    public var frl: UInt = 0u,
+    public var reserved0: UByteArray = UByteArray(2796),
+    public var lbaef: List<NvmeLbaZoneFormat> = List(16) { NvmeLbaZoneFormat() },
+    public var reserved1: UByteArray = UByteArray(768),
+    public var vs: UByteArray = UByteArray(256),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NVME_IDENTIFY_SPECIFIC_NAMESPACE_IO_COMMAND_SET) return false
-        if (this.ZOC != other.ZOC) return false
-        if (this.OZCS != other.OZCS) return false
-        if (this.MAR != other.MAR) return false
-        if (this.MOR != other.MOR) return false
-        if (this.RRL != other.RRL) return false
-        if (this.FRL != other.FRL) return false
-        if (!this.Reserved0.contentEquals(other.Reserved0)) return false
-        if (this.LBAEF != other.LBAEF) return false
-        if (!this.Reserved1.contentEquals(other.Reserved1)) return false
-        if (!this.VS.contentEquals(other.VS)) return false
+        if (other !is NvmeIdentifySpecificNamespaceIoCommandSet) return false
+        if (this.zoc != other.zoc) return false
+        if (this.ozcs != other.ozcs) return false
+        if (this.mar != other.mar) return false
+        if (this.mor != other.mor) return false
+        if (this.rrl != other.rrl) return false
+        if (this.frl != other.frl) return false
+        if (!this.reserved0.contentEquals(other.reserved0)) return false
+        if (this.lbaef != other.lbaef) return false
+        if (!this.reserved1.contentEquals(other.reserved1)) return false
+        if (!this.vs.contentEquals(other.vs)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.ZOC.hashCode()
-        result = 31 * result + this.OZCS.hashCode()
-        result = 31 * result + this.MAR.hashCode()
-        result = 31 * result + this.MOR.hashCode()
-        result = 31 * result + this.RRL.hashCode()
-        result = 31 * result + this.FRL.hashCode()
-        result = 31 * result + this.Reserved0.contentHashCode()
-        result = 31 * result + this.LBAEF.hashCode()
-        result = 31 * result + this.Reserved1.contentHashCode()
-        result = 31 * result + this.VS.contentHashCode()
+        var result = this.zoc.hashCode()
+        result = 31 * result + this.ozcs.hashCode()
+        result = 31 * result + this.mar.hashCode()
+        result = 31 * result + this.mor.hashCode()
+        result = 31 * result + this.rrl.hashCode()
+        result = 31 * result + this.frl.hashCode()
+        result = 31 * result + this.reserved0.contentHashCode()
+        result = 31 * result + this.lbaef.hashCode()
+        result = 31 * result + this.reserved1.contentHashCode()
+        result = 31 * result + this.vs.contentHashCode()
         return result
     }
 }
 
-public data class NVME_IDENTIFY_SPECIFIC_NAMESPACE_IO_COMMAND_SET_1(public var _bitfield: UShort = 0u)
+public data class NvmeIdentifySpecificNamespaceIoCommandSet1(public var bitfield: UShort = 0u)
 
-public data class NVME_IDENTIFY_SPECIFIC_NAMESPACE_IO_COMMAND_SET_0(public var _bitfield: UShort = 0u)
+public data class NvmeIdentifySpecificNamespaceIoCommandSet0(public var bitfield: UShort = 0u)
 
-public data class NVME_IDENTIFY_ZNS_SPECIFIC_CONTROLLER_IO_COMMAND_SET(public var ZASL: UByte = 0u, public var Reserved: UByteArray = UByteArray(4095)) {
+public data class NvmeIdentifyZnsSpecificControllerIoCommandSet(public var zasl: UByte = 0u, public var reserved: UByteArray = UByteArray(4095)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NVME_IDENTIFY_ZNS_SPECIFIC_CONTROLLER_IO_COMMAND_SET) return false
-        if (this.ZASL != other.ZASL) return false
-        if (!this.Reserved.contentEquals(other.Reserved)) return false
+        if (other !is NvmeIdentifyZnsSpecificControllerIoCommandSet) return false
+        if (this.zasl != other.zasl) return false
+        if (!this.reserved.contentEquals(other.reserved)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.ZASL.hashCode()
-        result = 31 * result + this.Reserved.contentHashCode()
+        var result = this.zasl.hashCode()
+        result = 31 * result + this.reserved.contentHashCode()
         return result
     }
 }
 
-public data class NVME_LBA_FORMAT(public var Anonymous: NVME_LBA_FORMAT_0 = NVME_LBA_FORMAT_0(), public var AsUlong: UInt = 0u)
+public data class NvmeLbaFormat(public var anonymous: NvmeLbaFormat0 = NvmeLbaFormat0(), public var asUlong: UInt = 0u)
 
-public data class NVME_LBA_FORMAT_0(
-    public var MS: UShort = 0u,
-    public var LBADS: UByte = 0u,
-    public var _bitfield: UByte = 0u,
+public data class NvmeLbaFormat0(
+    public var ms: UShort = 0u,
+    public var lbads: UByte = 0u,
+    public var bitfield: UByte = 0u,
 )
 
-public data class NVME_LBA_RANGE(
-    public var Attributes: NVME_CONTEXT_ATTRIBUTES = NVME_CONTEXT_ATTRIBUTES(),
-    public var LogicalBlockCount: UInt = 0u,
-    public var StartingLBA: ULong = 0uL,
+public data class NvmeLbaRange(
+    public var attributes: NvmeContextAttributes = NvmeContextAttributes(),
+    public var logicalBlockCount: UInt = 0u,
+    public var startingLBA: ULong = 0uL,
 )
 
-public data class NVME_LBA_RANGET_TYPE_ENTRY(
-    public var Type: UByte = 0u,
-    public var Attributes: NVME_LBA_RANGET_TYPE_ENTRY_0 = NVME_LBA_RANGET_TYPE_ENTRY_0(),
-    public var Reserved0: UByteArray = UByteArray(14),
-    public var SLBA: ULong = 0uL,
-    public var NLB: ULong = 0uL,
-    public var GUID: UByteArray = UByteArray(16),
-    public var Reserved1: UByteArray = UByteArray(16),
+public data class NvmeLbaRangetTypeEntry(
+    public var type: UByte = 0u,
+    public var attributes: NvmeLbaRangetTypeEntry0 = NvmeLbaRangetTypeEntry0(),
+    public var reserved0: UByteArray = UByteArray(14),
+    public var slba: ULong = 0uL,
+    public var nlb: ULong = 0uL,
+    public var guid: UByteArray = UByteArray(16),
+    public var reserved1: UByteArray = UByteArray(16),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NVME_LBA_RANGET_TYPE_ENTRY) return false
-        if (this.Type != other.Type) return false
-        if (this.Attributes != other.Attributes) return false
-        if (!this.Reserved0.contentEquals(other.Reserved0)) return false
-        if (this.SLBA != other.SLBA) return false
-        if (this.NLB != other.NLB) return false
-        if (!this.GUID.contentEquals(other.GUID)) return false
-        if (!this.Reserved1.contentEquals(other.Reserved1)) return false
+        if (other !is NvmeLbaRangetTypeEntry) return false
+        if (this.type != other.type) return false
+        if (this.attributes != other.attributes) return false
+        if (!this.reserved0.contentEquals(other.reserved0)) return false
+        if (this.slba != other.slba) return false
+        if (this.nlb != other.nlb) return false
+        if (!this.guid.contentEquals(other.guid)) return false
+        if (!this.reserved1.contentEquals(other.reserved1)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Type.hashCode()
-        result = 31 * result + this.Attributes.hashCode()
-        result = 31 * result + this.Reserved0.contentHashCode()
-        result = 31 * result + this.SLBA.hashCode()
-        result = 31 * result + this.NLB.hashCode()
-        result = 31 * result + this.GUID.contentHashCode()
-        result = 31 * result + this.Reserved1.contentHashCode()
+        var result = this.type.hashCode()
+        result = 31 * result + this.attributes.hashCode()
+        result = 31 * result + this.reserved0.contentHashCode()
+        result = 31 * result + this.slba.hashCode()
+        result = 31 * result + this.nlb.hashCode()
+        result = 31 * result + this.guid.contentHashCode()
+        result = 31 * result + this.reserved1.contentHashCode()
         return result
     }
 }
 
-public data class NVME_LBA_RANGET_TYPE_ENTRY_0(public var _bitfield: UByte = 0u)
+public data class NvmeLbaRangetTypeEntry0(public var bitfield: UByte = 0u)
 
-public data class NVME_LBA_ZONE_FORMAT(
-    public var ZoneSize: ULong = 0uL,
-    public var ZDES: UByte = 0u,
-    public var Reserved: UByteArray = UByteArray(7),
+public data class NvmeLbaZoneFormat(
+    public var zoneSize: ULong = 0uL,
+    public var zdes: UByte = 0u,
+    public var reserved: UByteArray = UByteArray(7),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NVME_LBA_ZONE_FORMAT) return false
-        if (this.ZoneSize != other.ZoneSize) return false
-        if (this.ZDES != other.ZDES) return false
-        if (!this.Reserved.contentEquals(other.Reserved)) return false
+        if (other !is NvmeLbaZoneFormat) return false
+        if (this.zoneSize != other.zoneSize) return false
+        if (this.zdes != other.zdes) return false
+        if (!this.reserved.contentEquals(other.reserved)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.ZoneSize.hashCode()
-        result = 31 * result + this.ZDES.hashCode()
-        result = 31 * result + this.Reserved.contentHashCode()
+        var result = this.zoneSize.hashCode()
+        result = 31 * result + this.zdes.hashCode()
+        result = 31 * result + this.reserved.contentHashCode()
         return result
     }
 }
 
-public data class NVME_NVM_SUBSYSTEM_RESET(public var NSSRC: UInt = 0u)
+public data class NvmeNvmSubsystemReset(public var nssrc: UInt = 0u)
 
-public data class NVME_OCP_DEVICE_CAPABILITIES_LOG(
-    public var PciePorts: UShort = 0u,
-    public var OobMgmtSupport: NVME_OCP_DEVICE_CAPABILITIES_LOG_0 = NVME_OCP_DEVICE_CAPABILITIES_LOG_0(),
-    public var WriteZeroesCommand: NVME_OCP_DEVICE_CAPABILITIES_LOG_1 = NVME_OCP_DEVICE_CAPABILITIES_LOG_1(),
-    public var SanitizeCommand: NVME_OCP_DEVICE_CAPABILITIES_LOG_2 = NVME_OCP_DEVICE_CAPABILITIES_LOG_2(),
-    public var DatasetMgmtCommand: NVME_OCP_DEVICE_CAPABILITIES_LOG_3 = NVME_OCP_DEVICE_CAPABILITIES_LOG_3(),
-    public var WriteUncorrectableCommand: NVME_OCP_DEVICE_CAPABILITIES_LOG_4 = NVME_OCP_DEVICE_CAPABILITIES_LOG_4(),
-    public var FusedCommand: NVME_OCP_DEVICE_CAPABILITIES_LOG_5 = NVME_OCP_DEVICE_CAPABILITIES_LOG_5(),
-    public var MinimumValidDSSDPowerState: UShort = 0u,
-    public var Reserved0: UByte = 0u,
-    public var DssdDescriptors: List<DSSD_POWER_STATE_DESCRIPTOR> = List(127) { DSSD_POWER_STATE_DESCRIPTOR() },
-    public var Reserved1: UByteArray = UByteArray(3934),
-    public var LogPageVersionNumber: UShort = 0u,
-    public var LogPageGUID: GUID = GUID(),
+public data class NvmeOcpDeviceCapabilitiesLog(
+    public var pciePorts: UShort = 0u,
+    public var oobMgmtSupport: NvmeOcpDeviceCapabilitiesLog0 = NvmeOcpDeviceCapabilitiesLog0(),
+    public var writeZeroesCommand: NvmeOcpDeviceCapabilitiesLog1 = NvmeOcpDeviceCapabilitiesLog1(),
+    public var sanitizeCommand: NvmeOcpDeviceCapabilitiesLog2 = NvmeOcpDeviceCapabilitiesLog2(),
+    public var datasetMgmtCommand: NvmeOcpDeviceCapabilitiesLog3 = NvmeOcpDeviceCapabilitiesLog3(),
+    public var writeUncorrectableCommand: NvmeOcpDeviceCapabilitiesLog4 = NvmeOcpDeviceCapabilitiesLog4(),
+    public var fusedCommand: NvmeOcpDeviceCapabilitiesLog5 = NvmeOcpDeviceCapabilitiesLog5(),
+    public var minimumValidDSSDPowerState: UShort = 0u,
+    public var reserved0: UByte = 0u,
+    public var dssdDescriptors: List<DssdPowerStateDescriptor> = List(127) { DssdPowerStateDescriptor() },
+    public var reserved1: UByteArray = UByteArray(3934),
+    public var logPageVersionNumber: UShort = 0u,
+    public var logPageGUID: Guid = Guid(),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NVME_OCP_DEVICE_CAPABILITIES_LOG) return false
-        if (this.PciePorts != other.PciePorts) return false
-        if (this.OobMgmtSupport != other.OobMgmtSupport) return false
-        if (this.WriteZeroesCommand != other.WriteZeroesCommand) return false
-        if (this.SanitizeCommand != other.SanitizeCommand) return false
-        if (this.DatasetMgmtCommand != other.DatasetMgmtCommand) return false
-        if (this.WriteUncorrectableCommand != other.WriteUncorrectableCommand) return false
-        if (this.FusedCommand != other.FusedCommand) return false
-        if (this.MinimumValidDSSDPowerState != other.MinimumValidDSSDPowerState) return false
-        if (this.Reserved0 != other.Reserved0) return false
-        if (this.DssdDescriptors != other.DssdDescriptors) return false
-        if (!this.Reserved1.contentEquals(other.Reserved1)) return false
-        if (this.LogPageVersionNumber != other.LogPageVersionNumber) return false
-        if (this.LogPageGUID != other.LogPageGUID) return false
+        if (other !is NvmeOcpDeviceCapabilitiesLog) return false
+        if (this.pciePorts != other.pciePorts) return false
+        if (this.oobMgmtSupport != other.oobMgmtSupport) return false
+        if (this.writeZeroesCommand != other.writeZeroesCommand) return false
+        if (this.sanitizeCommand != other.sanitizeCommand) return false
+        if (this.datasetMgmtCommand != other.datasetMgmtCommand) return false
+        if (this.writeUncorrectableCommand != other.writeUncorrectableCommand) return false
+        if (this.fusedCommand != other.fusedCommand) return false
+        if (this.minimumValidDSSDPowerState != other.minimumValidDSSDPowerState) return false
+        if (this.reserved0 != other.reserved0) return false
+        if (this.dssdDescriptors != other.dssdDescriptors) return false
+        if (!this.reserved1.contentEquals(other.reserved1)) return false
+        if (this.logPageVersionNumber != other.logPageVersionNumber) return false
+        if (this.logPageGUID != other.logPageGUID) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.PciePorts.hashCode()
-        result = 31 * result + this.OobMgmtSupport.hashCode()
-        result = 31 * result + this.WriteZeroesCommand.hashCode()
-        result = 31 * result + this.SanitizeCommand.hashCode()
-        result = 31 * result + this.DatasetMgmtCommand.hashCode()
-        result = 31 * result + this.WriteUncorrectableCommand.hashCode()
-        result = 31 * result + this.FusedCommand.hashCode()
-        result = 31 * result + this.MinimumValidDSSDPowerState.hashCode()
-        result = 31 * result + this.Reserved0.hashCode()
-        result = 31 * result + this.DssdDescriptors.hashCode()
-        result = 31 * result + this.Reserved1.contentHashCode()
-        result = 31 * result + this.LogPageVersionNumber.hashCode()
-        result = 31 * result + this.LogPageGUID.hashCode()
+        var result = this.pciePorts.hashCode()
+        result = 31 * result + this.oobMgmtSupport.hashCode()
+        result = 31 * result + this.writeZeroesCommand.hashCode()
+        result = 31 * result + this.sanitizeCommand.hashCode()
+        result = 31 * result + this.datasetMgmtCommand.hashCode()
+        result = 31 * result + this.writeUncorrectableCommand.hashCode()
+        result = 31 * result + this.fusedCommand.hashCode()
+        result = 31 * result + this.minimumValidDSSDPowerState.hashCode()
+        result = 31 * result + this.reserved0.hashCode()
+        result = 31 * result + this.dssdDescriptors.hashCode()
+        result = 31 * result + this.reserved1.contentHashCode()
+        result = 31 * result + this.logPageVersionNumber.hashCode()
+        result = 31 * result + this.logPageGUID.hashCode()
         return result
     }
 }
 
-public data class NVME_OCP_DEVICE_CAPABILITIES_LOG_3(public var Anonymous: NVME_OCP_DEVICE_CAPABILITIES_LOG_3_0 = NVME_OCP_DEVICE_CAPABILITIES_LOG_3_0(), public var AsUshort: UShort = 0u)
+public data class NvmeOcpDeviceCapabilitiesLog3(public var anonymous: NvmeOcpDeviceCapabilitiesLog30 = NvmeOcpDeviceCapabilitiesLog30(), public var asUshort: UShort = 0u)
 
-public data class NVME_OCP_DEVICE_CAPABILITIES_LOG_3_0(public var _bitfield: UShort = 0u)
+public data class NvmeOcpDeviceCapabilitiesLog30(public var bitfield: UShort = 0u)
 
-public data class NVME_OCP_DEVICE_CAPABILITIES_LOG_5(public var Anonymous: NVME_OCP_DEVICE_CAPABILITIES_LOG_5_0 = NVME_OCP_DEVICE_CAPABILITIES_LOG_5_0(), public var AsUshort: UShort = 0u)
+public data class NvmeOcpDeviceCapabilitiesLog5(public var anonymous: NvmeOcpDeviceCapabilitiesLog50 = NvmeOcpDeviceCapabilitiesLog50(), public var asUshort: UShort = 0u)
 
-public data class NVME_OCP_DEVICE_CAPABILITIES_LOG_5_0(public var _bitfield: UShort = 0u)
+public data class NvmeOcpDeviceCapabilitiesLog50(public var bitfield: UShort = 0u)
 
-public data class NVME_OCP_DEVICE_CAPABILITIES_LOG_0(public var Anonymous: NVME_OCP_DEVICE_CAPABILITIES_LOG_0_0 = NVME_OCP_DEVICE_CAPABILITIES_LOG_0_0(), public var AsUshort: UShort = 0u)
+public data class NvmeOcpDeviceCapabilitiesLog0(public var anonymous: NvmeOcpDeviceCapabilitiesLog00 = NvmeOcpDeviceCapabilitiesLog00(), public var asUshort: UShort = 0u)
 
-public data class NVME_OCP_DEVICE_CAPABILITIES_LOG_0_0(public var _bitfield: UShort = 0u)
+public data class NvmeOcpDeviceCapabilitiesLog00(public var bitfield: UShort = 0u)
 
-public data class NVME_OCP_DEVICE_CAPABILITIES_LOG_2(public var Anonymous: NVME_OCP_DEVICE_CAPABILITIES_LOG_2_0 = NVME_OCP_DEVICE_CAPABILITIES_LOG_2_0(), public var AsUshort: UShort = 0u)
+public data class NvmeOcpDeviceCapabilitiesLog2(public var anonymous: NvmeOcpDeviceCapabilitiesLog20 = NvmeOcpDeviceCapabilitiesLog20(), public var asUshort: UShort = 0u)
 
-public data class NVME_OCP_DEVICE_CAPABILITIES_LOG_2_0(public var _bitfield: UShort = 0u)
+public data class NvmeOcpDeviceCapabilitiesLog20(public var bitfield: UShort = 0u)
 
-public data class NVME_OCP_DEVICE_CAPABILITIES_LOG_4(public var Anonymous: NVME_OCP_DEVICE_CAPABILITIES_LOG_4_0 = NVME_OCP_DEVICE_CAPABILITIES_LOG_4_0(), public var AsUshort: UShort = 0u)
+public data class NvmeOcpDeviceCapabilitiesLog4(public var anonymous: NvmeOcpDeviceCapabilitiesLog40 = NvmeOcpDeviceCapabilitiesLog40(), public var asUshort: UShort = 0u)
 
-public data class NVME_OCP_DEVICE_CAPABILITIES_LOG_4_0(public var _bitfield: UShort = 0u)
+public data class NvmeOcpDeviceCapabilitiesLog40(public var bitfield: UShort = 0u)
 
-public data class NVME_OCP_DEVICE_CAPABILITIES_LOG_1(public var Anonymous: NVME_OCP_DEVICE_CAPABILITIES_LOG_1_0 = NVME_OCP_DEVICE_CAPABILITIES_LOG_1_0(), public var AsUshort: UShort = 0u)
+public data class NvmeOcpDeviceCapabilitiesLog1(public var anonymous: NvmeOcpDeviceCapabilitiesLog10 = NvmeOcpDeviceCapabilitiesLog10(), public var asUshort: UShort = 0u)
 
-public data class NVME_OCP_DEVICE_CAPABILITIES_LOG_1_0(public var _bitfield: UShort = 0u)
+public data class NvmeOcpDeviceCapabilitiesLog10(public var bitfield: UShort = 0u)
 
-public data class NVME_OCP_DEVICE_ERROR_RECOVERY_LOG_V2(
-    public var PanicResetWaitTime: UShort = 0u,
-    public var PanicResetAction: NVME_WCS_DEVICE_RESET_ACTION = NVME_WCS_DEVICE_RESET_ACTION(),
-    public var DeviceRecoveryAction1: UByte = 0u,
-    public var PanicId: ULong = 0uL,
-    public var DeviceCapabilitiesA: NVME_WCS_DEVICE_CAPABILITIES = NVME_WCS_DEVICE_CAPABILITIES(),
-    public var VendorSpecificRecoveryCode: UByte = 0u,
-    public var Reserved0: UByteArray = UByteArray(3),
-    public var VendorSpecificCommandCDW12: UInt = 0u,
-    public var VendorSpecificCommandCDW13: UInt = 0u,
-    public var VendorSpecificCommandTimeout: UByte = 0u,
-    public var DeviceRecoveryAction2: UByte = 0u,
-    public var DeviceRecoveryAction2Timeout: UByte = 0u,
-    public var Reserved1: UByteArray = UByteArray(463),
-    public var LogPageVersionNumber: UShort = 0u,
-    public var LogPageGUID: GUID = GUID(),
+public data class NvmeOcpDeviceErrorRecoveryLogV2(
+    public var panicResetWaitTime: UShort = 0u,
+    public var panicResetAction: NvmeWcsDeviceResetAction = NvmeWcsDeviceResetAction(),
+    public var deviceRecoveryAction1: UByte = 0u,
+    public var panicId: ULong = 0uL,
+    public var deviceCapabilitiesA: NvmeWcsDeviceCapabilities = NvmeWcsDeviceCapabilities(),
+    public var vendorSpecificRecoveryCode: UByte = 0u,
+    public var reserved0: UByteArray = UByteArray(3),
+    public var vendorSpecificCommandCDW12: UInt = 0u,
+    public var vendorSpecificCommandCDW13: UInt = 0u,
+    public var vendorSpecificCommandTimeout: UByte = 0u,
+    public var deviceRecoveryAction2: UByte = 0u,
+    public var deviceRecoveryAction2Timeout: UByte = 0u,
+    public var reserved1: UByteArray = UByteArray(463),
+    public var logPageVersionNumber: UShort = 0u,
+    public var logPageGUID: Guid = Guid(),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NVME_OCP_DEVICE_ERROR_RECOVERY_LOG_V2) return false
-        if (this.PanicResetWaitTime != other.PanicResetWaitTime) return false
-        if (this.PanicResetAction != other.PanicResetAction) return false
-        if (this.DeviceRecoveryAction1 != other.DeviceRecoveryAction1) return false
-        if (this.PanicId != other.PanicId) return false
-        if (this.DeviceCapabilitiesA != other.DeviceCapabilitiesA) return false
-        if (this.VendorSpecificRecoveryCode != other.VendorSpecificRecoveryCode) return false
-        if (!this.Reserved0.contentEquals(other.Reserved0)) return false
-        if (this.VendorSpecificCommandCDW12 != other.VendorSpecificCommandCDW12) return false
-        if (this.VendorSpecificCommandCDW13 != other.VendorSpecificCommandCDW13) return false
-        if (this.VendorSpecificCommandTimeout != other.VendorSpecificCommandTimeout) return false
-        if (this.DeviceRecoveryAction2 != other.DeviceRecoveryAction2) return false
-        if (this.DeviceRecoveryAction2Timeout != other.DeviceRecoveryAction2Timeout) return false
-        if (!this.Reserved1.contentEquals(other.Reserved1)) return false
-        if (this.LogPageVersionNumber != other.LogPageVersionNumber) return false
-        if (this.LogPageGUID != other.LogPageGUID) return false
+        if (other !is NvmeOcpDeviceErrorRecoveryLogV2) return false
+        if (this.panicResetWaitTime != other.panicResetWaitTime) return false
+        if (this.panicResetAction != other.panicResetAction) return false
+        if (this.deviceRecoveryAction1 != other.deviceRecoveryAction1) return false
+        if (this.panicId != other.panicId) return false
+        if (this.deviceCapabilitiesA != other.deviceCapabilitiesA) return false
+        if (this.vendorSpecificRecoveryCode != other.vendorSpecificRecoveryCode) return false
+        if (!this.reserved0.contentEquals(other.reserved0)) return false
+        if (this.vendorSpecificCommandCDW12 != other.vendorSpecificCommandCDW12) return false
+        if (this.vendorSpecificCommandCDW13 != other.vendorSpecificCommandCDW13) return false
+        if (this.vendorSpecificCommandTimeout != other.vendorSpecificCommandTimeout) return false
+        if (this.deviceRecoveryAction2 != other.deviceRecoveryAction2) return false
+        if (this.deviceRecoveryAction2Timeout != other.deviceRecoveryAction2Timeout) return false
+        if (!this.reserved1.contentEquals(other.reserved1)) return false
+        if (this.logPageVersionNumber != other.logPageVersionNumber) return false
+        if (this.logPageGUID != other.logPageGUID) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.PanicResetWaitTime.hashCode()
-        result = 31 * result + this.PanicResetAction.hashCode()
-        result = 31 * result + this.DeviceRecoveryAction1.hashCode()
-        result = 31 * result + this.PanicId.hashCode()
-        result = 31 * result + this.DeviceCapabilitiesA.hashCode()
-        result = 31 * result + this.VendorSpecificRecoveryCode.hashCode()
-        result = 31 * result + this.Reserved0.contentHashCode()
-        result = 31 * result + this.VendorSpecificCommandCDW12.hashCode()
-        result = 31 * result + this.VendorSpecificCommandCDW13.hashCode()
-        result = 31 * result + this.VendorSpecificCommandTimeout.hashCode()
-        result = 31 * result + this.DeviceRecoveryAction2.hashCode()
-        result = 31 * result + this.DeviceRecoveryAction2Timeout.hashCode()
-        result = 31 * result + this.Reserved1.contentHashCode()
-        result = 31 * result + this.LogPageVersionNumber.hashCode()
-        result = 31 * result + this.LogPageGUID.hashCode()
+        var result = this.panicResetWaitTime.hashCode()
+        result = 31 * result + this.panicResetAction.hashCode()
+        result = 31 * result + this.deviceRecoveryAction1.hashCode()
+        result = 31 * result + this.panicId.hashCode()
+        result = 31 * result + this.deviceCapabilitiesA.hashCode()
+        result = 31 * result + this.vendorSpecificRecoveryCode.hashCode()
+        result = 31 * result + this.reserved0.contentHashCode()
+        result = 31 * result + this.vendorSpecificCommandCDW12.hashCode()
+        result = 31 * result + this.vendorSpecificCommandCDW13.hashCode()
+        result = 31 * result + this.vendorSpecificCommandTimeout.hashCode()
+        result = 31 * result + this.deviceRecoveryAction2.hashCode()
+        result = 31 * result + this.deviceRecoveryAction2Timeout.hashCode()
+        result = 31 * result + this.reserved1.contentHashCode()
+        result = 31 * result + this.logPageVersionNumber.hashCode()
+        result = 31 * result + this.logPageGUID.hashCode()
         return result
     }
 }
 
-public data class NVME_OCP_DEVICE_FIRMWARE_ACTIVATION_HISTORY_LOG(
-    public var LID: UByte = 0u,
-    public var Reserved0: UByteArray = UByteArray(3),
-    public var ValidNumberOfEntries: UInt = 0u,
-    public var Entries: List<FIRMWARE_ACTIVATION_HISTORY_ENTRY> = List(20) { FIRMWARE_ACTIVATION_HISTORY_ENTRY() },
-    public var Reserved1: UByteArray = UByteArray(2790),
-    public var LogPageVersionNumber: UShort = 0u,
-    public var LogPageGUID: GUID = GUID(),
+public data class NvmeOcpDeviceFirmwareActivationHistoryLog(
+    public var lid: UByte = 0u,
+    public var reserved0: UByteArray = UByteArray(3),
+    public var validNumberOfEntries: UInt = 0u,
+    public var entries: List<FirmwareActivationHistoryEntry> = List(20) { FirmwareActivationHistoryEntry() },
+    public var reserved1: UByteArray = UByteArray(2790),
+    public var logPageVersionNumber: UShort = 0u,
+    public var logPageGUID: Guid = Guid(),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NVME_OCP_DEVICE_FIRMWARE_ACTIVATION_HISTORY_LOG) return false
-        if (this.LID != other.LID) return false
-        if (!this.Reserved0.contentEquals(other.Reserved0)) return false
-        if (this.ValidNumberOfEntries != other.ValidNumberOfEntries) return false
-        if (this.Entries != other.Entries) return false
-        if (!this.Reserved1.contentEquals(other.Reserved1)) return false
-        if (this.LogPageVersionNumber != other.LogPageVersionNumber) return false
-        if (this.LogPageGUID != other.LogPageGUID) return false
+        if (other !is NvmeOcpDeviceFirmwareActivationHistoryLog) return false
+        if (this.lid != other.lid) return false
+        if (!this.reserved0.contentEquals(other.reserved0)) return false
+        if (this.validNumberOfEntries != other.validNumberOfEntries) return false
+        if (this.entries != other.entries) return false
+        if (!this.reserved1.contentEquals(other.reserved1)) return false
+        if (this.logPageVersionNumber != other.logPageVersionNumber) return false
+        if (this.logPageGUID != other.logPageGUID) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.LID.hashCode()
-        result = 31 * result + this.Reserved0.contentHashCode()
-        result = 31 * result + this.ValidNumberOfEntries.hashCode()
-        result = 31 * result + this.Entries.hashCode()
-        result = 31 * result + this.Reserved1.contentHashCode()
-        result = 31 * result + this.LogPageVersionNumber.hashCode()
-        result = 31 * result + this.LogPageGUID.hashCode()
+        var result = this.lid.hashCode()
+        result = 31 * result + this.reserved0.contentHashCode()
+        result = 31 * result + this.validNumberOfEntries.hashCode()
+        result = 31 * result + this.entries.hashCode()
+        result = 31 * result + this.reserved1.contentHashCode()
+        result = 31 * result + this.logPageVersionNumber.hashCode()
+        result = 31 * result + this.logPageGUID.hashCode()
         return result
     }
 }
 
-public class NVME_OCP_DEVICE_LATENCY_MONITOR_LOG(
-    public var FeatureStatus: LATENCY_MONITOR_FEATURE_STATUS = LATENCY_MONITOR_FEATURE_STATUS(),
-    public var Reserved0: UByte = 0u,
-    public var ActiveBucketTimer: UShort = 0u,
-    public var ActiveBucketTimerThreshold: UShort = 0u,
-    public var ActiveThresholdA: UByte = 0u,
-    public var ActiveThresholdB: UByte = 0u,
-    public var ActiveThresholdC: UByte = 0u,
-    public var ActiveThresholdD: UByte = 0u,
-    public var ActiveLatencyConfig: ACTIVE_LATENCY_CONFIGURATION = ACTIVE_LATENCY_CONFIGURATION(),
-    public var ActiveLatencyMinimumWindow: UByte = 0u,
-    public var Reserved1: UByteArray = UByteArray(19),
-    public var ActiveBucketCounter0: BUCKET_COUNTER = BUCKET_COUNTER(),
-    public var ActiveBucketCounter1: BUCKET_COUNTER = BUCKET_COUNTER(),
-    public var ActiveBucketCounter2: BUCKET_COUNTER = BUCKET_COUNTER(),
-    public var ActiveBucketCounter3: BUCKET_COUNTER = BUCKET_COUNTER(),
-    public var ActiveLatencyStamp: LATENCY_STAMP = LATENCY_STAMP(),
-    public var ActiveMeasuredLatency: MEASURED_LATENCY = MEASURED_LATENCY(),
-    public var ActiveLatencyStampUnits: LATENCY_STAMP_UNITS = LATENCY_STAMP_UNITS(),
-    public var Reserved2: UByteArray = UByteArray(22),
-    public var StaticBucketCounter0: BUCKET_COUNTER = BUCKET_COUNTER(),
-    public var StaticBucketCounter1: BUCKET_COUNTER = BUCKET_COUNTER(),
-    public var StaticBucketCounter2: BUCKET_COUNTER = BUCKET_COUNTER(),
-    public var StaticBucketCounter3: BUCKET_COUNTER = BUCKET_COUNTER(),
-    public var StaticLatencyStamp: LATENCY_STAMP = LATENCY_STAMP(),
-    public var StaticMeasuredLatency: MEASURED_LATENCY = MEASURED_LATENCY(),
-    public var StaticLatencyStampUnits: LATENCY_STAMP_UNITS = LATENCY_STAMP_UNITS(),
-    public var Reserved3: UByteArray = UByteArray(22),
-    public var DebugLogTriggerEnable: DEBUG_BIT_FIELD = DEBUG_BIT_FIELD(),
-    public var DebugLogMeasuredLatency: UShort = 0u,
-    public var DebugLogLatencyStamp: ULong = 0uL,
-    public var DebugLogPointer: UShort = 0u,
-    public var DebugCounterTriggerSource: DEBUG_BIT_FIELD = DEBUG_BIT_FIELD(),
-    public var DebugLogStampUnits: NVME_OCP_DEVICE_LATENCY_MONITOR_LOG_0 = NVME_OCP_DEVICE_LATENCY_MONITOR_LOG_0(),
-    public var Reserved4: UByteArray = UByteArray(29),
-    public var LogPageVersionNumber: UShort = 0u,
-    public var LogPageGUID: GUID = GUID(),
+public class NvmeOcpDeviceLatencyMonitorLog(
+    public var featureStatus: LatencyMonitorFeatureStatus = LatencyMonitorFeatureStatus(),
+    public var reserved0: UByte = 0u,
+    public var activeBucketTimer: UShort = 0u,
+    public var activeBucketTimerThreshold: UShort = 0u,
+    public var activeThresholdA: UByte = 0u,
+    public var activeThresholdB: UByte = 0u,
+    public var activeThresholdC: UByte = 0u,
+    public var activeThresholdD: UByte = 0u,
+    public var activeLatencyConfig: ActiveLatencyConfiguration = ActiveLatencyConfiguration(),
+    public var activeLatencyMinimumWindow: UByte = 0u,
+    public var reserved1: UByteArray = UByteArray(19),
+    public var activeBucketCounter0: BucketCounter = BucketCounter(),
+    public var activeBucketCounter1: BucketCounter = BucketCounter(),
+    public var activeBucketCounter2: BucketCounter = BucketCounter(),
+    public var activeBucketCounter3: BucketCounter = BucketCounter(),
+    public var activeLatencyStamp: LatencyStamp = LatencyStamp(),
+    public var activeMeasuredLatency: MeasuredLatency = MeasuredLatency(),
+    public var activeLatencyStampUnits: LatencyStampUnits = LatencyStampUnits(),
+    public var reserved2: UByteArray = UByteArray(22),
+    public var staticBucketCounter0: BucketCounter = BucketCounter(),
+    public var staticBucketCounter1: BucketCounter = BucketCounter(),
+    public var staticBucketCounter2: BucketCounter = BucketCounter(),
+    public var staticBucketCounter3: BucketCounter = BucketCounter(),
+    public var staticLatencyStamp: LatencyStamp = LatencyStamp(),
+    public var staticMeasuredLatency: MeasuredLatency = MeasuredLatency(),
+    public var staticLatencyStampUnits: LatencyStampUnits = LatencyStampUnits(),
+    public var reserved3: UByteArray = UByteArray(22),
+    public var debugLogTriggerEnable: DebugBitField = DebugBitField(),
+    public var debugLogMeasuredLatency: UShort = 0u,
+    public var debugLogLatencyStamp: ULong = 0uL,
+    public var debugLogPointer: UShort = 0u,
+    public var debugCounterTriggerSource: DebugBitField = DebugBitField(),
+    public var debugLogStampUnits: NvmeOcpDeviceLatencyMonitorLog0 = NvmeOcpDeviceLatencyMonitorLog0(),
+    public var reserved4: UByteArray = UByteArray(29),
+    public var logPageVersionNumber: UShort = 0u,
+    public var logPageGUID: Guid = Guid(),
 )
 
-public data class NVME_OCP_DEVICE_LATENCY_MONITOR_LOG_0(public var Anonymous: NVME_OCP_DEVICE_LATENCY_MONITOR_LOG_0_0 = NVME_OCP_DEVICE_LATENCY_MONITOR_LOG_0_0(), public var AsUchar: UByte = 0u)
+public data class NvmeOcpDeviceLatencyMonitorLog0(public var anonymous: NvmeOcpDeviceLatencyMonitorLog00 = NvmeOcpDeviceLatencyMonitorLog00(), public var asUchar: UByte = 0u)
 
-public data class NVME_OCP_DEVICE_LATENCY_MONITOR_LOG_0_0(public var _bitfield: UByte = 0u)
+public data class NvmeOcpDeviceLatencyMonitorLog00(public var bitfield: UByte = 0u)
 
-public class NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3(
-    public var MediaUnitsWritten: UByteArray = UByteArray(16),
-    public var MediaUnitsRead: UByteArray = UByteArray(16),
-    public var BadUserNANDBlockCount: NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3_0 = NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3_0(),
-    public var BadSystemNANDBlockCount: NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3_1 = NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3_1(),
-    public var XORRecoveryCount: ULong = 0uL,
-    public var UnrecoverableReadErrorCount: ULong = 0uL,
-    public var SoftECCErrorCount: ULong = 0uL,
-    public var EndToEndCorrectionCounts: NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3_2 = NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3_2(),
-    public var PercentageSystemDataUsed: UByte = 0u,
-    public var RefreshCount: UByteArray = UByteArray(7),
-    public var UserDataEraseCounts: NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3_3 = NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3_3(),
-    public var ThermalThrottling: NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3_4 = NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3_4(),
-    public var DSSDSpecVersion: UByteArray = UByteArray(6),
-    public var PCIeCorrectableErrorCount: ULong = 0uL,
-    public var IncompleteShutdownCount: UInt = 0u,
-    public var Reserved1: UInt = 0u,
-    public var PercentageFreeBlocks: UByte = 0u,
-    public var Reserved2: UByteArray = UByteArray(7),
-    public var CapacitorHealth: UShort = 0u,
-    public var NvmeErrata: UByte = 0u,
-    public var Reserved3: UByteArray = UByteArray(5),
-    public var UnalignedIOCount: ULong = 0uL,
-    public var SecurityVersionNumber: ULong = 0uL,
-    public var NUSE: ULong = 0uL,
-    public var PLPStartCount: UByteArray = UByteArray(16),
-    public var EnduranceEstimate: UByteArray = UByteArray(16),
-    public var PCIeLinkRetrainingCount: ULong = 0uL,
-    public var PowerStateChangeCount: ULong = 0uL,
-    public var Reserved4: UByteArray = UByteArray(286),
-    public var LogPageVersionNumber: UShort = 0u,
-    public var LogPageGUID: GUID = GUID(),
+public class NvmeOcpDeviceSmartInformationLogV3(
+    public var mediaUnitsWritten: UByteArray = UByteArray(16),
+    public var mediaUnitsRead: UByteArray = UByteArray(16),
+    public var badUserNANDBlockCount: NvmeOcpDeviceSmartInformationLogV30 = NvmeOcpDeviceSmartInformationLogV30(),
+    public var badSystemNANDBlockCount: NvmeOcpDeviceSmartInformationLogV31 = NvmeOcpDeviceSmartInformationLogV31(),
+    public var xORRecoveryCount: ULong = 0uL,
+    public var unrecoverableReadErrorCount: ULong = 0uL,
+    public var softECCErrorCount: ULong = 0uL,
+    public var endToEndCorrectionCounts: NvmeOcpDeviceSmartInformationLogV32 = NvmeOcpDeviceSmartInformationLogV32(),
+    public var percentageSystemDataUsed: UByte = 0u,
+    public var refreshCount: UByteArray = UByteArray(7),
+    public var userDataEraseCounts: NvmeOcpDeviceSmartInformationLogV33 = NvmeOcpDeviceSmartInformationLogV33(),
+    public var thermalThrottling: NvmeOcpDeviceSmartInformationLogV34 = NvmeOcpDeviceSmartInformationLogV34(),
+    public var dSSDSpecVersion: UByteArray = UByteArray(6),
+    public var pCIeCorrectableErrorCount: ULong = 0uL,
+    public var incompleteShutdownCount: UInt = 0u,
+    public var reserved1: UInt = 0u,
+    public var percentageFreeBlocks: UByte = 0u,
+    public var reserved2: UByteArray = UByteArray(7),
+    public var capacitorHealth: UShort = 0u,
+    public var nvmeErrata: UByte = 0u,
+    public var reserved3: UByteArray = UByteArray(5),
+    public var unalignedIOCount: ULong = 0uL,
+    public var securityVersionNumber: ULong = 0uL,
+    public var nuse: ULong = 0uL,
+    public var pLPStartCount: UByteArray = UByteArray(16),
+    public var enduranceEstimate: UByteArray = UByteArray(16),
+    public var pCIeLinkRetrainingCount: ULong = 0uL,
+    public var powerStateChangeCount: ULong = 0uL,
+    public var reserved4: UByteArray = UByteArray(286),
+    public var logPageVersionNumber: UShort = 0u,
+    public var logPageGUID: Guid = Guid(),
 )
 
-public data class NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3_1(public var RawCount: UByteArray = UByteArray(6), public var Normalized: UByteArray = UByteArray(2)) {
+public data class NvmeOcpDeviceSmartInformationLogV31(public var rawCount: UByteArray = UByteArray(6), public var normalized: UByteArray = UByteArray(2)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3_1) return false
-        if (!this.RawCount.contentEquals(other.RawCount)) return false
-        if (!this.Normalized.contentEquals(other.Normalized)) return false
+        if (other !is NvmeOcpDeviceSmartInformationLogV31) return false
+        if (!this.rawCount.contentEquals(other.rawCount)) return false
+        if (!this.normalized.contentEquals(other.normalized)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.RawCount.contentHashCode()
-        result = 31 * result + this.Normalized.contentHashCode()
+        var result = this.rawCount.contentHashCode()
+        result = 31 * result + this.normalized.contentHashCode()
         return result
     }
 }
 
-public data class NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3_0(public var RawCount: UByteArray = UByteArray(6), public var Normalized: UByteArray = UByteArray(2)) {
+public data class NvmeOcpDeviceSmartInformationLogV30(public var rawCount: UByteArray = UByteArray(6), public var normalized: UByteArray = UByteArray(2)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3_0) return false
-        if (!this.RawCount.contentEquals(other.RawCount)) return false
-        if (!this.Normalized.contentEquals(other.Normalized)) return false
+        if (other !is NvmeOcpDeviceSmartInformationLogV30) return false
+        if (!this.rawCount.contentEquals(other.rawCount)) return false
+        if (!this.normalized.contentEquals(other.normalized)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.RawCount.contentHashCode()
-        result = 31 * result + this.Normalized.contentHashCode()
+        var result = this.rawCount.contentHashCode()
+        result = 31 * result + this.normalized.contentHashCode()
         return result
     }
 }
 
-public data class NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3_2(public var DetectedCounts: UInt = 0u, public var CorrectedCounts: UInt = 0u)
+public data class NvmeOcpDeviceSmartInformationLogV32(public var detectedCounts: UInt = 0u, public var correctedCounts: UInt = 0u)
 
-public data class NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3_4(public var EventCount: UByte = 0u, public var Status: UByte = 0u)
+public data class NvmeOcpDeviceSmartInformationLogV34(public var eventCount: UByte = 0u, public var status: UByte = 0u)
 
-public data class NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3_3(public var MaximumCount: UInt = 0u, public var MinimumCount: UInt = 0u)
+public data class NvmeOcpDeviceSmartInformationLogV33(public var maximumCount: UInt = 0u, public var minimumCount: UInt = 0u)
 
-public class NVME_OCP_DEVICE_TCG_CONFIGURATION_LOG(
-    public var State: NVME_OCP_DEVICE_TCG_CONFIGURATION_LOG_0 = NVME_OCP_DEVICE_TCG_CONFIGURATION_LOG_0(),
-    public var Reserved0: UByteArray = UByteArray(3),
-    public var LSPActivationCount: UByte = 0u,
-    public var TPRevertCount: UByte = 0u,
-    public var LSPRevertCount: UByte = 0u,
-    public var LOCount: UByte = 0u,
-    public var SUMLOCount: UByte = 0u,
-    public var RPLOCount: UByte = 0u,
-    public var NPLOCount: UByte = 0u,
-    public var RLLOCount: UByte = 0u,
-    public var WLLOCount: UByte = 0u,
-    public var RULOCount: UByte = 0u,
-    public var WULOCount: UByte = 0u,
-    public var Reserved1: UByte = 0u,
-    public var SIDAuthTryCount: UInt = 0u,
-    public var SIDAuthTryLimit: UInt = 0u,
-    public var ResetCount: UInt = 0u,
-    public var ResetLockCount: UInt = 0u,
-    public var Reserved2: UByteArray = UByteArray(462),
-    public var LogPageVersionNumber: UShort = 0u,
-    public var LogPageGUID: GUID = GUID(),
+public class NvmeOcpDeviceTcgConfigurationLog(
+    public var state: NvmeOcpDeviceTcgConfigurationLog0 = NvmeOcpDeviceTcgConfigurationLog0(),
+    public var reserved0: UByteArray = UByteArray(3),
+    public var lSPActivationCount: UByte = 0u,
+    public var tPRevertCount: UByte = 0u,
+    public var lSPRevertCount: UByte = 0u,
+    public var lOCount: UByte = 0u,
+    public var sUMLOCount: UByte = 0u,
+    public var rPLOCount: UByte = 0u,
+    public var nPLOCount: UByte = 0u,
+    public var rLLOCount: UByte = 0u,
+    public var wLLOCount: UByte = 0u,
+    public var rULOCount: UByte = 0u,
+    public var wULOCount: UByte = 0u,
+    public var reserved1: UByte = 0u,
+    public var sIDAuthTryCount: UInt = 0u,
+    public var sIDAuthTryLimit: UInt = 0u,
+    public var resetCount: UInt = 0u,
+    public var resetLockCount: UInt = 0u,
+    public var reserved2: UByteArray = UByteArray(462),
+    public var logPageVersionNumber: UShort = 0u,
+    public var logPageGUID: Guid = Guid(),
 )
 
-public data class NVME_OCP_DEVICE_TCG_CONFIGURATION_LOG_0(public var Anonymous: NVME_OCP_DEVICE_TCG_CONFIGURATION_LOG_0_0 = NVME_OCP_DEVICE_TCG_CONFIGURATION_LOG_0_0(), public var AsUchar: UByte = 0u)
+public data class NvmeOcpDeviceTcgConfigurationLog0(public var anonymous: NvmeOcpDeviceTcgConfigurationLog00 = NvmeOcpDeviceTcgConfigurationLog00(), public var asUchar: UByte = 0u)
 
-public data class NVME_OCP_DEVICE_TCG_CONFIGURATION_LOG_0_0(public var _bitfield: UByte = 0u)
+public data class NvmeOcpDeviceTcgConfigurationLog00(public var bitfield: UByte = 0u)
 
-public data class NVME_OCP_DEVICE_TCG_HISTORY_LOG(
-    public var LID: UByte = 0u,
-    public var Reserved0: UByteArray = UByteArray(3),
-    public var HistoryEntryCount: UInt = 0u,
-    public var HistoryEntries: List<TCG_HISTORY_ENTRY> = List(84) { TCG_HISTORY_ENTRY() },
-    public var Reserved1: UByteArray = UByteArray(38),
-    public var LogPageVersionNumber: UShort = 0u,
-    public var LogPageGUID: GUID = GUID(),
+public data class NvmeOcpDeviceTcgHistoryLog(
+    public var lid: UByte = 0u,
+    public var reserved0: UByteArray = UByteArray(3),
+    public var historyEntryCount: UInt = 0u,
+    public var historyEntries: List<TcgHistoryEntry> = List(84) { TcgHistoryEntry() },
+    public var reserved1: UByteArray = UByteArray(38),
+    public var logPageVersionNumber: UShort = 0u,
+    public var logPageGUID: Guid = Guid(),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NVME_OCP_DEVICE_TCG_HISTORY_LOG) return false
-        if (this.LID != other.LID) return false
-        if (!this.Reserved0.contentEquals(other.Reserved0)) return false
-        if (this.HistoryEntryCount != other.HistoryEntryCount) return false
-        if (this.HistoryEntries != other.HistoryEntries) return false
-        if (!this.Reserved1.contentEquals(other.Reserved1)) return false
-        if (this.LogPageVersionNumber != other.LogPageVersionNumber) return false
-        if (this.LogPageGUID != other.LogPageGUID) return false
+        if (other !is NvmeOcpDeviceTcgHistoryLog) return false
+        if (this.lid != other.lid) return false
+        if (!this.reserved0.contentEquals(other.reserved0)) return false
+        if (this.historyEntryCount != other.historyEntryCount) return false
+        if (this.historyEntries != other.historyEntries) return false
+        if (!this.reserved1.contentEquals(other.reserved1)) return false
+        if (this.logPageVersionNumber != other.logPageVersionNumber) return false
+        if (this.logPageGUID != other.logPageGUID) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.LID.hashCode()
-        result = 31 * result + this.Reserved0.contentHashCode()
-        result = 31 * result + this.HistoryEntryCount.hashCode()
-        result = 31 * result + this.HistoryEntries.hashCode()
-        result = 31 * result + this.Reserved1.contentHashCode()
-        result = 31 * result + this.LogPageVersionNumber.hashCode()
-        result = 31 * result + this.LogPageGUID.hashCode()
+        var result = this.lid.hashCode()
+        result = 31 * result + this.reserved0.contentHashCode()
+        result = 31 * result + this.historyEntryCount.hashCode()
+        result = 31 * result + this.historyEntries.hashCode()
+        result = 31 * result + this.reserved1.contentHashCode()
+        result = 31 * result + this.logPageVersionNumber.hashCode()
+        result = 31 * result + this.logPageGUID.hashCode()
         return result
     }
 }
 
-public data class NVME_OCP_DEVICE_UNSUPPORTED_REQUIREMENTS_LOG(
-    public var UnsupportedCount: UShort = 0u,
-    public var Reserved0: UByteArray = UByteArray(14),
-    public var UnsupportedReqList: List<UNSUPPORTED_REQUIREMENT> = List(253) { UNSUPPORTED_REQUIREMENT() },
-    public var Reserved1: UByteArray = UByteArray(14),
-    public var LogPageVersionNumber: UShort = 0u,
-    public var LogPageGUID: GUID = GUID(),
+public data class NvmeOcpDeviceUnsupportedRequirementsLog(
+    public var unsupportedCount: UShort = 0u,
+    public var reserved0: UByteArray = UByteArray(14),
+    public var unsupportedReqList: List<UnsupportedRequirement> = List(253) { UnsupportedRequirement() },
+    public var reserved1: UByteArray = UByteArray(14),
+    public var logPageVersionNumber: UShort = 0u,
+    public var logPageGUID: Guid = Guid(),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NVME_OCP_DEVICE_UNSUPPORTED_REQUIREMENTS_LOG) return false
-        if (this.UnsupportedCount != other.UnsupportedCount) return false
-        if (!this.Reserved0.contentEquals(other.Reserved0)) return false
-        if (this.UnsupportedReqList != other.UnsupportedReqList) return false
-        if (!this.Reserved1.contentEquals(other.Reserved1)) return false
-        if (this.LogPageVersionNumber != other.LogPageVersionNumber) return false
-        if (this.LogPageGUID != other.LogPageGUID) return false
+        if (other !is NvmeOcpDeviceUnsupportedRequirementsLog) return false
+        if (this.unsupportedCount != other.unsupportedCount) return false
+        if (!this.reserved0.contentEquals(other.reserved0)) return false
+        if (this.unsupportedReqList != other.unsupportedReqList) return false
+        if (!this.reserved1.contentEquals(other.reserved1)) return false
+        if (this.logPageVersionNumber != other.logPageVersionNumber) return false
+        if (this.logPageGUID != other.logPageGUID) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.UnsupportedCount.hashCode()
-        result = 31 * result + this.Reserved0.contentHashCode()
-        result = 31 * result + this.UnsupportedReqList.hashCode()
-        result = 31 * result + this.Reserved1.contentHashCode()
-        result = 31 * result + this.LogPageVersionNumber.hashCode()
-        result = 31 * result + this.LogPageGUID.hashCode()
+        var result = this.unsupportedCount.hashCode()
+        result = 31 * result + this.reserved0.contentHashCode()
+        result = 31 * result + this.unsupportedReqList.hashCode()
+        result = 31 * result + this.reserved1.contentHashCode()
+        result = 31 * result + this.logPageVersionNumber.hashCode()
+        result = 31 * result + this.logPageGUID.hashCode()
         return result
     }
 }
 
-public data class NVME_PERSISTENT_EVENT_LOG_EVENT_HEADER(
-    public var EventType: UByte = 0u,
-    public var EventTypeRevision: UByte = 0u,
-    public var EventHeaderLength: UByte = 0u,
-    public var Reserved0: UByte = 0u,
-    public var ControllerIdentifier: UShort = 0u,
-    public var EventTimestamp: ULong = 0uL,
-    public var Reserved1: UByteArray = UByteArray(6),
-    public var VendorSpecificInformationLength: UShort = 0u,
-    public var EventLength: UShort = 0u,
+public data class NvmePersistentEventLogEventHeader(
+    public var eventType: UByte = 0u,
+    public var eventTypeRevision: UByte = 0u,
+    public var eventHeaderLength: UByte = 0u,
+    public var reserved0: UByte = 0u,
+    public var controllerIdentifier: UShort = 0u,
+    public var eventTimestamp: ULong = 0uL,
+    public var reserved1: UByteArray = UByteArray(6),
+    public var vendorSpecificInformationLength: UShort = 0u,
+    public var eventLength: UShort = 0u,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NVME_PERSISTENT_EVENT_LOG_EVENT_HEADER) return false
-        if (this.EventType != other.EventType) return false
-        if (this.EventTypeRevision != other.EventTypeRevision) return false
-        if (this.EventHeaderLength != other.EventHeaderLength) return false
-        if (this.Reserved0 != other.Reserved0) return false
-        if (this.ControllerIdentifier != other.ControllerIdentifier) return false
-        if (this.EventTimestamp != other.EventTimestamp) return false
-        if (!this.Reserved1.contentEquals(other.Reserved1)) return false
-        if (this.VendorSpecificInformationLength != other.VendorSpecificInformationLength) return false
-        if (this.EventLength != other.EventLength) return false
+        if (other !is NvmePersistentEventLogEventHeader) return false
+        if (this.eventType != other.eventType) return false
+        if (this.eventTypeRevision != other.eventTypeRevision) return false
+        if (this.eventHeaderLength != other.eventHeaderLength) return false
+        if (this.reserved0 != other.reserved0) return false
+        if (this.controllerIdentifier != other.controllerIdentifier) return false
+        if (this.eventTimestamp != other.eventTimestamp) return false
+        if (!this.reserved1.contentEquals(other.reserved1)) return false
+        if (this.vendorSpecificInformationLength != other.vendorSpecificInformationLength) return false
+        if (this.eventLength != other.eventLength) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.EventType.hashCode()
-        result = 31 * result + this.EventTypeRevision.hashCode()
-        result = 31 * result + this.EventHeaderLength.hashCode()
-        result = 31 * result + this.Reserved0.hashCode()
-        result = 31 * result + this.ControllerIdentifier.hashCode()
-        result = 31 * result + this.EventTimestamp.hashCode()
-        result = 31 * result + this.Reserved1.contentHashCode()
-        result = 31 * result + this.VendorSpecificInformationLength.hashCode()
-        result = 31 * result + this.EventLength.hashCode()
+        var result = this.eventType.hashCode()
+        result = 31 * result + this.eventTypeRevision.hashCode()
+        result = 31 * result + this.eventHeaderLength.hashCode()
+        result = 31 * result + this.reserved0.hashCode()
+        result = 31 * result + this.controllerIdentifier.hashCode()
+        result = 31 * result + this.eventTimestamp.hashCode()
+        result = 31 * result + this.reserved1.contentHashCode()
+        result = 31 * result + this.vendorSpecificInformationLength.hashCode()
+        result = 31 * result + this.eventLength.hashCode()
         return result
     }
 }
 
-public class NVME_PERSISTENT_EVENT_LOG_HEADER(
-    public var LogIdentifier: UByte = 0u,
-    public var Reserved0: UByteArray = UByteArray(3),
-    public var TotalNumberOfEvents: UInt = 0u,
-    public var TotalLogLength: ULong = 0uL,
-    public var LogRevision: UByte = 0u,
-    public var Reserved1: UByte = 0u,
-    public var LogHeaderLength: UShort = 0u,
-    public var Timestamp: ULong = 0uL,
-    public var PowerOnHours: UByteArray = UByteArray(16),
-    public var PowerCycleCount: ULong = 0uL,
-    public var PciVendorId: UShort = 0u,
-    public var PciSubsystemVendorId: UShort = 0u,
-    public var SerialNumber: UByteArray = UByteArray(20),
-    public var ModelNumber: UByteArray = UByteArray(40),
-    public var NVMSubsystemNVMeQualifiedName: UByteArray = UByteArray(256),
-    public var Reserved: UByteArray = UByteArray(108),
-    public var SupportedEventsBitmap: UByteArray = UByteArray(32),
+public class NvmePersistentEventLogHeader(
+    public var logIdentifier: UByte = 0u,
+    public var reserved0: UByteArray = UByteArray(3),
+    public var totalNumberOfEvents: UInt = 0u,
+    public var totalLogLength: ULong = 0uL,
+    public var logRevision: UByte = 0u,
+    public var reserved1: UByte = 0u,
+    public var logHeaderLength: UShort = 0u,
+    public var timestamp: ULong = 0uL,
+    public var powerOnHours: UByteArray = UByteArray(16),
+    public var powerCycleCount: ULong = 0uL,
+    public var pciVendorId: UShort = 0u,
+    public var pciSubsystemVendorId: UShort = 0u,
+    public var serialNumber: UByteArray = UByteArray(20),
+    public var modelNumber: UByteArray = UByteArray(40),
+    public var nVMSubsystemNVMeQualifiedName: UByteArray = UByteArray(256),
+    public var reserved: UByteArray = UByteArray(108),
+    public var supportedEventsBitmap: UByteArray = UByteArray(32),
 )
 
-public data class NVME_POWER_STATE_DESC(
-    public var MP: UShort = 0u,
-    public var Reserved0: UByte = 0u,
-    public var _bitfield1: UByte = 0u,
-    public var ENLAT: UInt = 0u,
-    public var EXLAT: UInt = 0u,
-    public var _bitfield2: UByte = 0u,
-    public var _bitfield3: UByte = 0u,
-    public var _bitfield4: UByte = 0u,
-    public var _bitfield5: UByte = 0u,
-    public var IDLP: UShort = 0u,
-    public var _bitfield6: UByte = 0u,
-    public var Reserved7: UByte = 0u,
-    public var ACTP: UShort = 0u,
-    public var _bitfield7: UByte = 0u,
-    public var Reserved9: UByteArray = UByteArray(9),
+public data class NvmePowerStateDesc(
+    public var mp: UShort = 0u,
+    public var reserved0: UByte = 0u,
+    public var bitfield1: UByte = 0u,
+    public var enlat: UInt = 0u,
+    public var exlat: UInt = 0u,
+    public var bitfield2: UByte = 0u,
+    public var bitfield3: UByte = 0u,
+    public var bitfield4: UByte = 0u,
+    public var bitfield5: UByte = 0u,
+    public var idlp: UShort = 0u,
+    public var bitfield6: UByte = 0u,
+    public var reserved7: UByte = 0u,
+    public var actp: UShort = 0u,
+    public var bitfield7: UByte = 0u,
+    public var reserved9: UByteArray = UByteArray(9),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NVME_POWER_STATE_DESC) return false
-        if (this.MP != other.MP) return false
-        if (this.Reserved0 != other.Reserved0) return false
-        if (this._bitfield1 != other._bitfield1) return false
-        if (this.ENLAT != other.ENLAT) return false
-        if (this.EXLAT != other.EXLAT) return false
-        if (this._bitfield2 != other._bitfield2) return false
-        if (this._bitfield3 != other._bitfield3) return false
-        if (this._bitfield4 != other._bitfield4) return false
-        if (this._bitfield5 != other._bitfield5) return false
-        if (this.IDLP != other.IDLP) return false
-        if (this._bitfield6 != other._bitfield6) return false
-        if (this.Reserved7 != other.Reserved7) return false
-        if (this.ACTP != other.ACTP) return false
-        if (this._bitfield7 != other._bitfield7) return false
-        if (!this.Reserved9.contentEquals(other.Reserved9)) return false
+        if (other !is NvmePowerStateDesc) return false
+        if (this.mp != other.mp) return false
+        if (this.reserved0 != other.reserved0) return false
+        if (this.bitfield1 != other.bitfield1) return false
+        if (this.enlat != other.enlat) return false
+        if (this.exlat != other.exlat) return false
+        if (this.bitfield2 != other.bitfield2) return false
+        if (this.bitfield3 != other.bitfield3) return false
+        if (this.bitfield4 != other.bitfield4) return false
+        if (this.bitfield5 != other.bitfield5) return false
+        if (this.idlp != other.idlp) return false
+        if (this.bitfield6 != other.bitfield6) return false
+        if (this.reserved7 != other.reserved7) return false
+        if (this.actp != other.actp) return false
+        if (this.bitfield7 != other.bitfield7) return false
+        if (!this.reserved9.contentEquals(other.reserved9)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.MP.hashCode()
-        result = 31 * result + this.Reserved0.hashCode()
-        result = 31 * result + this._bitfield1.hashCode()
-        result = 31 * result + this.ENLAT.hashCode()
-        result = 31 * result + this.EXLAT.hashCode()
-        result = 31 * result + this._bitfield2.hashCode()
-        result = 31 * result + this._bitfield3.hashCode()
-        result = 31 * result + this._bitfield4.hashCode()
-        result = 31 * result + this._bitfield5.hashCode()
-        result = 31 * result + this.IDLP.hashCode()
-        result = 31 * result + this._bitfield6.hashCode()
-        result = 31 * result + this.Reserved7.hashCode()
-        result = 31 * result + this.ACTP.hashCode()
-        result = 31 * result + this._bitfield7.hashCode()
-        result = 31 * result + this.Reserved9.contentHashCode()
+        var result = this.mp.hashCode()
+        result = 31 * result + this.reserved0.hashCode()
+        result = 31 * result + this.bitfield1.hashCode()
+        result = 31 * result + this.enlat.hashCode()
+        result = 31 * result + this.exlat.hashCode()
+        result = 31 * result + this.bitfield2.hashCode()
+        result = 31 * result + this.bitfield3.hashCode()
+        result = 31 * result + this.bitfield4.hashCode()
+        result = 31 * result + this.bitfield5.hashCode()
+        result = 31 * result + this.idlp.hashCode()
+        result = 31 * result + this.bitfield6.hashCode()
+        result = 31 * result + this.reserved7.hashCode()
+        result = 31 * result + this.actp.hashCode()
+        result = 31 * result + this.bitfield7.hashCode()
+        result = 31 * result + this.reserved9.contentHashCode()
         return result
     }
 }
 
-public data class NVME_PRP_ENTRY(public var Anonymous: NVME_PRP_ENTRY_0 = NVME_PRP_ENTRY_0(), public var AsUlonglong: ULong = 0uL)
+public data class NvmePrpEntry(public var anonymous: NvmePrpEntry0 = NvmePrpEntry0(), public var asUlonglong: ULong = 0uL)
 
-public data class NVME_PRP_ENTRY_0(public var _bitfield: ULong = 0uL)
+public data class NvmePrpEntry0(public var bitfield: ULong = 0uL)
 
-public data class NVME_REGISTERED_CONTROLLER_DATA(
-    public var CNTLID: UShort = 0u,
-    public var RCSTS: NVME_REGISTERED_CONTROLLER_DATA_0 = NVME_REGISTERED_CONTROLLER_DATA_0(),
-    public var Reserved: UByteArray = UByteArray(5),
-    public var HOSTID: UByteArray = UByteArray(8),
-    public var RKEY: ULong = 0uL,
+public data class NvmeRegisteredControllerData(
+    public var cntlid: UShort = 0u,
+    public var rcsts: NvmeRegisteredControllerData0 = NvmeRegisteredControllerData0(),
+    public var reserved: UByteArray = UByteArray(5),
+    public var hostid: UByteArray = UByteArray(8),
+    public var rkey: ULong = 0uL,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NVME_REGISTERED_CONTROLLER_DATA) return false
-        if (this.CNTLID != other.CNTLID) return false
-        if (this.RCSTS != other.RCSTS) return false
-        if (!this.Reserved.contentEquals(other.Reserved)) return false
-        if (!this.HOSTID.contentEquals(other.HOSTID)) return false
-        if (this.RKEY != other.RKEY) return false
+        if (other !is NvmeRegisteredControllerData) return false
+        if (this.cntlid != other.cntlid) return false
+        if (this.rcsts != other.rcsts) return false
+        if (!this.reserved.contentEquals(other.reserved)) return false
+        if (!this.hostid.contentEquals(other.hostid)) return false
+        if (this.rkey != other.rkey) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.CNTLID.hashCode()
-        result = 31 * result + this.RCSTS.hashCode()
-        result = 31 * result + this.Reserved.contentHashCode()
-        result = 31 * result + this.HOSTID.contentHashCode()
-        result = 31 * result + this.RKEY.hashCode()
+        var result = this.cntlid.hashCode()
+        result = 31 * result + this.rcsts.hashCode()
+        result = 31 * result + this.reserved.contentHashCode()
+        result = 31 * result + this.hostid.contentHashCode()
+        result = 31 * result + this.rkey.hashCode()
         return result
     }
 }
 
-public data class NVME_REGISTERED_CONTROLLER_DATA_0(public var _bitfield: UByte = 0u)
+public data class NvmeRegisteredControllerData0(public var bitfield: UByte = 0u)
 
-public data class NVME_REGISTERED_CONTROLLER_EXTENDED_DATA(
-    public var CNTLID: UShort = 0u,
-    public var RCSTS: NVME_REGISTERED_CONTROLLER_EXTENDED_DATA_0 = NVME_REGISTERED_CONTROLLER_EXTENDED_DATA_0(),
-    public var Reserved: UByteArray = UByteArray(5),
-    public var RKEY: ULong = 0uL,
-    public var HOSTID: UByteArray = UByteArray(16),
-    public var Reserved1: UByteArray = UByteArray(32),
+public data class NvmeRegisteredControllerExtendedData(
+    public var cntlid: UShort = 0u,
+    public var rcsts: NvmeRegisteredControllerExtendedData0 = NvmeRegisteredControllerExtendedData0(),
+    public var reserved: UByteArray = UByteArray(5),
+    public var rkey: ULong = 0uL,
+    public var hostid: UByteArray = UByteArray(16),
+    public var reserved1: UByteArray = UByteArray(32),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NVME_REGISTERED_CONTROLLER_EXTENDED_DATA) return false
-        if (this.CNTLID != other.CNTLID) return false
-        if (this.RCSTS != other.RCSTS) return false
-        if (!this.Reserved.contentEquals(other.Reserved)) return false
-        if (this.RKEY != other.RKEY) return false
-        if (!this.HOSTID.contentEquals(other.HOSTID)) return false
-        if (!this.Reserved1.contentEquals(other.Reserved1)) return false
+        if (other !is NvmeRegisteredControllerExtendedData) return false
+        if (this.cntlid != other.cntlid) return false
+        if (this.rcsts != other.rcsts) return false
+        if (!this.reserved.contentEquals(other.reserved)) return false
+        if (this.rkey != other.rkey) return false
+        if (!this.hostid.contentEquals(other.hostid)) return false
+        if (!this.reserved1.contentEquals(other.reserved1)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.CNTLID.hashCode()
-        result = 31 * result + this.RCSTS.hashCode()
-        result = 31 * result + this.Reserved.contentHashCode()
-        result = 31 * result + this.RKEY.hashCode()
-        result = 31 * result + this.HOSTID.contentHashCode()
-        result = 31 * result + this.Reserved1.contentHashCode()
+        var result = this.cntlid.hashCode()
+        result = 31 * result + this.rcsts.hashCode()
+        result = 31 * result + this.reserved.contentHashCode()
+        result = 31 * result + this.rkey.hashCode()
+        result = 31 * result + this.hostid.contentHashCode()
+        result = 31 * result + this.reserved1.contentHashCode()
         return result
     }
 }
 
-public data class NVME_REGISTERED_CONTROLLER_EXTENDED_DATA_0(public var _bitfield: UByte = 0u)
+public data class NvmeRegisteredControllerExtendedData0(public var bitfield: UByte = 0u)
 
-public data class NVME_REPORT_ZONE_INFO(
-    public var ZoneCount: ULong = 0uL,
-    public var Reserved: ULongArray = ULongArray(7),
-    public var ZoneDescriptor: List<NVME_ZONE_DESCRIPTOR> = List(1) { NVME_ZONE_DESCRIPTOR() },
+public data class NvmeReportZoneInfo(
+    public var zoneCount: ULong = 0uL,
+    public var reserved: ULongArray = ULongArray(7),
+    public var zoneDescriptor: List<NvmeZoneDescriptor> = List(1) { NvmeZoneDescriptor() },
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NVME_REPORT_ZONE_INFO) return false
-        if (this.ZoneCount != other.ZoneCount) return false
-        if (!this.Reserved.contentEquals(other.Reserved)) return false
-        if (this.ZoneDescriptor != other.ZoneDescriptor) return false
+        if (other !is NvmeReportZoneInfo) return false
+        if (this.zoneCount != other.zoneCount) return false
+        if (!this.reserved.contentEquals(other.reserved)) return false
+        if (this.zoneDescriptor != other.zoneDescriptor) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.ZoneCount.hashCode()
-        result = 31 * result + this.Reserved.contentHashCode()
-        result = 31 * result + this.ZoneDescriptor.hashCode()
+        var result = this.zoneCount.hashCode()
+        result = 31 * result + this.reserved.contentHashCode()
+        result = 31 * result + this.zoneDescriptor.hashCode()
         return result
     }
 }
 
-public data class NVME_RESERVATION_ACQUIRE_DATA_STRUCTURE(public var CRKEY: ULong = 0uL, public var PRKEY: ULong = 0uL)
+public data class NvmeReservationAcquireDataStructure(public var crkey: ULong = 0uL, public var prkey: ULong = 0uL)
 
-public data class NVME_RESERVATION_NOTIFICATION_LOG(
-    public var LogPageCount: ULong = 0uL,
-    public var LogPageType: UByte = 0u,
-    public var AvailableLogPageCount: UByte = 0u,
-    public var Reserved0: UByteArray = UByteArray(2),
-    public var NameSpaceId: UInt = 0u,
-    public var Reserved1: UByteArray = UByteArray(48),
+public data class NvmeReservationNotificationLog(
+    public var logPageCount: ULong = 0uL,
+    public var logPageType: UByte = 0u,
+    public var availableLogPageCount: UByte = 0u,
+    public var reserved0: UByteArray = UByteArray(2),
+    public var nameSpaceId: UInt = 0u,
+    public var reserved1: UByteArray = UByteArray(48),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NVME_RESERVATION_NOTIFICATION_LOG) return false
-        if (this.LogPageCount != other.LogPageCount) return false
-        if (this.LogPageType != other.LogPageType) return false
-        if (this.AvailableLogPageCount != other.AvailableLogPageCount) return false
-        if (!this.Reserved0.contentEquals(other.Reserved0)) return false
-        if (this.NameSpaceId != other.NameSpaceId) return false
-        if (!this.Reserved1.contentEquals(other.Reserved1)) return false
+        if (other !is NvmeReservationNotificationLog) return false
+        if (this.logPageCount != other.logPageCount) return false
+        if (this.logPageType != other.logPageType) return false
+        if (this.availableLogPageCount != other.availableLogPageCount) return false
+        if (!this.reserved0.contentEquals(other.reserved0)) return false
+        if (this.nameSpaceId != other.nameSpaceId) return false
+        if (!this.reserved1.contentEquals(other.reserved1)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.LogPageCount.hashCode()
-        result = 31 * result + this.LogPageType.hashCode()
-        result = 31 * result + this.AvailableLogPageCount.hashCode()
-        result = 31 * result + this.Reserved0.contentHashCode()
-        result = 31 * result + this.NameSpaceId.hashCode()
-        result = 31 * result + this.Reserved1.contentHashCode()
+        var result = this.logPageCount.hashCode()
+        result = 31 * result + this.logPageType.hashCode()
+        result = 31 * result + this.availableLogPageCount.hashCode()
+        result = 31 * result + this.reserved0.contentHashCode()
+        result = 31 * result + this.nameSpaceId.hashCode()
+        result = 31 * result + this.reserved1.contentHashCode()
         return result
     }
 }
 
-public data class NVME_RESERVATION_REGISTER_DATA_STRUCTURE(public var CRKEY: ULong = 0uL, public var NRKEY: ULong = 0uL)
+public data class NvmeReservationRegisterDataStructure(public var crkey: ULong = 0uL, public var nrkey: ULong = 0uL)
 
-public data class NVME_RESERVATION_RELEASE_DATA_STRUCTURE(public var CRKEY: ULong = 0uL)
+public data class NvmeReservationReleaseDataStructure(public var crkey: ULong = 0uL)
 
-public data class NVME_RESERVATION_REPORT_STATUS_DATA_STRUCTURE(public var Header: NVME_RESERVATION_REPORT_STATUS_HEADER = NVME_RESERVATION_REPORT_STATUS_HEADER(), public var RegisteredControllersData: List<NVME_REGISTERED_CONTROLLER_DATA> = List(1) { NVME_REGISTERED_CONTROLLER_DATA() })
+public data class NvmeReservationReportStatusDataStructure(public var header: NvmeReservationReportStatusHeader = NvmeReservationReportStatusHeader(), public var registeredControllersData: List<NvmeRegisteredControllerData> = List(1) { NvmeRegisteredControllerData() })
 
-public data class NVME_RESERVATION_REPORT_STATUS_EXTENDED_DATA_STRUCTURE(
-    public var Header: NVME_RESERVATION_REPORT_STATUS_HEADER = NVME_RESERVATION_REPORT_STATUS_HEADER(),
-    public var Reserved1: UByteArray = UByteArray(40),
-    public var RegisteredControllersExtendedData: List<NVME_REGISTERED_CONTROLLER_EXTENDED_DATA> = List(1) { NVME_REGISTERED_CONTROLLER_EXTENDED_DATA() },
+public data class NvmeReservationReportStatusExtendedDataStructure(
+    public var header: NvmeReservationReportStatusHeader = NvmeReservationReportStatusHeader(),
+    public var reserved1: UByteArray = UByteArray(40),
+    public var registeredControllersExtendedData: List<NvmeRegisteredControllerExtendedData> = List(1) { NvmeRegisteredControllerExtendedData() },
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NVME_RESERVATION_REPORT_STATUS_EXTENDED_DATA_STRUCTURE) return false
-        if (this.Header != other.Header) return false
-        if (!this.Reserved1.contentEquals(other.Reserved1)) return false
-        if (this.RegisteredControllersExtendedData != other.RegisteredControllersExtendedData) return false
+        if (other !is NvmeReservationReportStatusExtendedDataStructure) return false
+        if (this.header != other.header) return false
+        if (!this.reserved1.contentEquals(other.reserved1)) return false
+        if (this.registeredControllersExtendedData != other.registeredControllersExtendedData) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Header.hashCode()
-        result = 31 * result + this.Reserved1.contentHashCode()
-        result = 31 * result + this.RegisteredControllersExtendedData.hashCode()
+        var result = this.header.hashCode()
+        result = 31 * result + this.reserved1.contentHashCode()
+        result = 31 * result + this.registeredControllersExtendedData.hashCode()
         return result
     }
 }
 
-public data class NVME_RESERVATION_REPORT_STATUS_HEADER(
-    public var GEN: UInt = 0u,
-    public var RTYPE: UByte = 0u,
-    public var REGCTL: UShort = 0u,
-    public var Reserved: UByteArray = UByteArray(2),
-    public var PTPLS: UByte = 0u,
-    public var Reserved1: UByteArray = UByteArray(14),
+public data class NvmeReservationReportStatusHeader(
+    public var gen: UInt = 0u,
+    public var rtype: UByte = 0u,
+    public var regctl: UShort = 0u,
+    public var reserved: UByteArray = UByteArray(2),
+    public var ptpls: UByte = 0u,
+    public var reserved1: UByteArray = UByteArray(14),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NVME_RESERVATION_REPORT_STATUS_HEADER) return false
-        if (this.GEN != other.GEN) return false
-        if (this.RTYPE != other.RTYPE) return false
-        if (this.REGCTL != other.REGCTL) return false
-        if (!this.Reserved.contentEquals(other.Reserved)) return false
-        if (this.PTPLS != other.PTPLS) return false
-        if (!this.Reserved1.contentEquals(other.Reserved1)) return false
+        if (other !is NvmeReservationReportStatusHeader) return false
+        if (this.gen != other.gen) return false
+        if (this.rtype != other.rtype) return false
+        if (this.regctl != other.regctl) return false
+        if (!this.reserved.contentEquals(other.reserved)) return false
+        if (this.ptpls != other.ptpls) return false
+        if (!this.reserved1.contentEquals(other.reserved1)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.GEN.hashCode()
-        result = 31 * result + this.RTYPE.hashCode()
-        result = 31 * result + this.REGCTL.hashCode()
-        result = 31 * result + this.Reserved.contentHashCode()
-        result = 31 * result + this.PTPLS.hashCode()
-        result = 31 * result + this.Reserved1.contentHashCode()
+        var result = this.gen.hashCode()
+        result = 31 * result + this.rtype.hashCode()
+        result = 31 * result + this.regctl.hashCode()
+        result = 31 * result + this.reserved.contentHashCode()
+        result = 31 * result + this.ptpls.hashCode()
+        result = 31 * result + this.reserved1.contentHashCode()
         return result
     }
 }
 
-public data class NVME_SANITIZE_STATUS(public var _bitfield: UShort = 0u)
+public data class NvmeSanitizeStatus(public var bitfield: UShort = 0u)
 
-public data class NVME_SANITIZE_STATUS_LOG(
-    public var SPROG: UShort = 0u,
-    public var SSTAT: NVME_SANITIZE_STATUS = NVME_SANITIZE_STATUS(),
-    public var SCDW10: UInt = 0u,
-    public var EstimatedTimeForOverwrite: UInt = 0u,
-    public var EstimatedTimeForBlockErase: UInt = 0u,
-    public var EstimatedTimeForCryptoErase: UInt = 0u,
-    public var EstimatedTimeForOverwriteWithNoDeallocateMediaModification: UInt = 0u,
-    public var EstimatedTimeForBlockEraseWithNoDeallocateMediaModification: UInt = 0u,
-    public var EstimatedTimeForCryptoEraseWithNoDeallocateMediaModification: UInt = 0u,
-    public var Reserved: UByteArray = UByteArray(480),
+public data class NvmeSanitizeStatusLog(
+    public var sprog: UShort = 0u,
+    public var sstat: NvmeSanitizeStatus = NvmeSanitizeStatus(),
+    public var scdw10: UInt = 0u,
+    public var estimatedTimeForOverwrite: UInt = 0u,
+    public var estimatedTimeForBlockErase: UInt = 0u,
+    public var estimatedTimeForCryptoErase: UInt = 0u,
+    public var estimatedTimeForOverwriteWithNoDeallocateMediaModification: UInt = 0u,
+    public var estimatedTimeForBlockEraseWithNoDeallocateMediaModification: UInt = 0u,
+    public var estimatedTimeForCryptoEraseWithNoDeallocateMediaModification: UInt = 0u,
+    public var reserved: UByteArray = UByteArray(480),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NVME_SANITIZE_STATUS_LOG) return false
-        if (this.SPROG != other.SPROG) return false
-        if (this.SSTAT != other.SSTAT) return false
-        if (this.SCDW10 != other.SCDW10) return false
-        if (this.EstimatedTimeForOverwrite != other.EstimatedTimeForOverwrite) return false
-        if (this.EstimatedTimeForBlockErase != other.EstimatedTimeForBlockErase) return false
-        if (this.EstimatedTimeForCryptoErase != other.EstimatedTimeForCryptoErase) return false
-        if (this.EstimatedTimeForOverwriteWithNoDeallocateMediaModification != other.EstimatedTimeForOverwriteWithNoDeallocateMediaModification) return false
-        if (this.EstimatedTimeForBlockEraseWithNoDeallocateMediaModification != other.EstimatedTimeForBlockEraseWithNoDeallocateMediaModification) return false
-        if (this.EstimatedTimeForCryptoEraseWithNoDeallocateMediaModification != other.EstimatedTimeForCryptoEraseWithNoDeallocateMediaModification) return false
-        if (!this.Reserved.contentEquals(other.Reserved)) return false
+        if (other !is NvmeSanitizeStatusLog) return false
+        if (this.sprog != other.sprog) return false
+        if (this.sstat != other.sstat) return false
+        if (this.scdw10 != other.scdw10) return false
+        if (this.estimatedTimeForOverwrite != other.estimatedTimeForOverwrite) return false
+        if (this.estimatedTimeForBlockErase != other.estimatedTimeForBlockErase) return false
+        if (this.estimatedTimeForCryptoErase != other.estimatedTimeForCryptoErase) return false
+        if (this.estimatedTimeForOverwriteWithNoDeallocateMediaModification != other.estimatedTimeForOverwriteWithNoDeallocateMediaModification) return false
+        if (this.estimatedTimeForBlockEraseWithNoDeallocateMediaModification != other.estimatedTimeForBlockEraseWithNoDeallocateMediaModification) return false
+        if (this.estimatedTimeForCryptoEraseWithNoDeallocateMediaModification != other.estimatedTimeForCryptoEraseWithNoDeallocateMediaModification) return false
+        if (!this.reserved.contentEquals(other.reserved)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.SPROG.hashCode()
-        result = 31 * result + this.SSTAT.hashCode()
-        result = 31 * result + this.SCDW10.hashCode()
-        result = 31 * result + this.EstimatedTimeForOverwrite.hashCode()
-        result = 31 * result + this.EstimatedTimeForBlockErase.hashCode()
-        result = 31 * result + this.EstimatedTimeForCryptoErase.hashCode()
-        result = 31 * result + this.EstimatedTimeForOverwriteWithNoDeallocateMediaModification.hashCode()
-        result = 31 * result + this.EstimatedTimeForBlockEraseWithNoDeallocateMediaModification.hashCode()
-        result = 31 * result + this.EstimatedTimeForCryptoEraseWithNoDeallocateMediaModification.hashCode()
-        result = 31 * result + this.Reserved.contentHashCode()
+        var result = this.sprog.hashCode()
+        result = 31 * result + this.sstat.hashCode()
+        result = 31 * result + this.scdw10.hashCode()
+        result = 31 * result + this.estimatedTimeForOverwrite.hashCode()
+        result = 31 * result + this.estimatedTimeForBlockErase.hashCode()
+        result = 31 * result + this.estimatedTimeForCryptoErase.hashCode()
+        result = 31 * result + this.estimatedTimeForOverwriteWithNoDeallocateMediaModification.hashCode()
+        result = 31 * result + this.estimatedTimeForBlockEraseWithNoDeallocateMediaModification.hashCode()
+        result = 31 * result + this.estimatedTimeForCryptoEraseWithNoDeallocateMediaModification.hashCode()
+        result = 31 * result + this.reserved.contentHashCode()
         return result
     }
 }
 
-public data class NVME_SCSI_NAME_STRING(
-    public var PCIVendorID: ByteArray = ByteArray(4),
-    public var ModelNumber: ByteArray = ByteArray(40),
-    public var NamespaceID: ByteArray = ByteArray(4),
-    public var SerialNumber: ByteArray = ByteArray(20),
+public data class NvmeScsiNameString(
+    public var pCIVendorID: ByteArray = ByteArray(4),
+    public var modelNumber: ByteArray = ByteArray(40),
+    public var namespaceID: ByteArray = ByteArray(4),
+    public var serialNumber: ByteArray = ByteArray(20),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NVME_SCSI_NAME_STRING) return false
-        if (!this.PCIVendorID.contentEquals(other.PCIVendorID)) return false
-        if (!this.ModelNumber.contentEquals(other.ModelNumber)) return false
-        if (!this.NamespaceID.contentEquals(other.NamespaceID)) return false
-        if (!this.SerialNumber.contentEquals(other.SerialNumber)) return false
+        if (other !is NvmeScsiNameString) return false
+        if (!this.pCIVendorID.contentEquals(other.pCIVendorID)) return false
+        if (!this.modelNumber.contentEquals(other.modelNumber)) return false
+        if (!this.namespaceID.contentEquals(other.namespaceID)) return false
+        if (!this.serialNumber.contentEquals(other.serialNumber)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.PCIVendorID.contentHashCode()
-        result = 31 * result + this.ModelNumber.contentHashCode()
-        result = 31 * result + this.NamespaceID.contentHashCode()
-        result = 31 * result + this.SerialNumber.contentHashCode()
+        var result = this.pCIVendorID.contentHashCode()
+        result = 31 * result + this.modelNumber.contentHashCode()
+        result = 31 * result + this.namespaceID.contentHashCode()
+        result = 31 * result + this.serialNumber.contentHashCode()
         return result
     }
 }
 
-public data class NVME_SET_ATTRIBUTES_ENTRY(
-    public var Identifier: UShort = 0u,
-    public var ENDGID: UShort = 0u,
-    public var Reserved1: UInt = 0u,
-    public var Random4KBReadTypical: UInt = 0u,
-    public var OptimalWriteSize: UInt = 0u,
-    public var TotalCapacity: UByteArray = UByteArray(16),
-    public var UnallocatedCapacity: UByteArray = UByteArray(16),
-    public var Reserved2: UByteArray = UByteArray(80),
+public data class NvmeSetAttributesEntry(
+    public var identifier: UShort = 0u,
+    public var endgid: UShort = 0u,
+    public var reserved1: UInt = 0u,
+    public var random4KBReadTypical: UInt = 0u,
+    public var optimalWriteSize: UInt = 0u,
+    public var totalCapacity: UByteArray = UByteArray(16),
+    public var unallocatedCapacity: UByteArray = UByteArray(16),
+    public var reserved2: UByteArray = UByteArray(80),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NVME_SET_ATTRIBUTES_ENTRY) return false
-        if (this.Identifier != other.Identifier) return false
-        if (this.ENDGID != other.ENDGID) return false
-        if (this.Reserved1 != other.Reserved1) return false
-        if (this.Random4KBReadTypical != other.Random4KBReadTypical) return false
-        if (this.OptimalWriteSize != other.OptimalWriteSize) return false
-        if (!this.TotalCapacity.contentEquals(other.TotalCapacity)) return false
-        if (!this.UnallocatedCapacity.contentEquals(other.UnallocatedCapacity)) return false
-        if (!this.Reserved2.contentEquals(other.Reserved2)) return false
+        if (other !is NvmeSetAttributesEntry) return false
+        if (this.identifier != other.identifier) return false
+        if (this.endgid != other.endgid) return false
+        if (this.reserved1 != other.reserved1) return false
+        if (this.random4KBReadTypical != other.random4KBReadTypical) return false
+        if (this.optimalWriteSize != other.optimalWriteSize) return false
+        if (!this.totalCapacity.contentEquals(other.totalCapacity)) return false
+        if (!this.unallocatedCapacity.contentEquals(other.unallocatedCapacity)) return false
+        if (!this.reserved2.contentEquals(other.reserved2)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Identifier.hashCode()
-        result = 31 * result + this.ENDGID.hashCode()
-        result = 31 * result + this.Reserved1.hashCode()
-        result = 31 * result + this.Random4KBReadTypical.hashCode()
-        result = 31 * result + this.OptimalWriteSize.hashCode()
-        result = 31 * result + this.TotalCapacity.contentHashCode()
-        result = 31 * result + this.UnallocatedCapacity.contentHashCode()
-        result = 31 * result + this.Reserved2.contentHashCode()
+        var result = this.identifier.hashCode()
+        result = 31 * result + this.endgid.hashCode()
+        result = 31 * result + this.reserved1.hashCode()
+        result = 31 * result + this.random4KBReadTypical.hashCode()
+        result = 31 * result + this.optimalWriteSize.hashCode()
+        result = 31 * result + this.totalCapacity.contentHashCode()
+        result = 31 * result + this.unallocatedCapacity.contentHashCode()
+        result = 31 * result + this.reserved2.contentHashCode()
         return result
     }
 }
 
-public data class NVME_SUBMISSION_QUEUE_TAIL_DOORBELL(public var Anonymous: NVME_SUBMISSION_QUEUE_TAIL_DOORBELL_0 = NVME_SUBMISSION_QUEUE_TAIL_DOORBELL_0(), public var AsUlong: UInt = 0u)
+public data class NvmeSubmissionQueueTailDoorbell(public var anonymous: NvmeSubmissionQueueTailDoorbell0 = NvmeSubmissionQueueTailDoorbell0(), public var asUlong: UInt = 0u)
 
-public data class NVME_SUBMISSION_QUEUE_TAIL_DOORBELL_0(public var _bitfield: UInt = 0u)
+public data class NvmeSubmissionQueueTailDoorbell0(public var bitfield: UInt = 0u)
 
-public data class NVME_TELEMETRY_CONTROLLER_INITIATED_LOG(
-    public var LogIdentifier: UByte = 0u,
-    public var Reserved0: UByteArray = UByteArray(4),
-    public var OrganizationID: UByteArray = UByteArray(3),
-    public var Area1LastBlock: UShort = 0u,
-    public var Area2LastBlock: UShort = 0u,
-    public var Area3LastBlock: UShort = 0u,
-    public var Reserved1: UByteArray = UByteArray(2),
-    public var Area4LastBlock: UInt = 0u,
-    public var Reserved2: UByteArray = UByteArray(362),
-    public var ControllerInitiatedDataAvailable: UByte = 0u,
-    public var ControllerInitiatedDataGenerationNumber: UByte = 0u,
-    public var ReasonIdentifier: UByteArray = UByteArray(128),
+public data class NvmeTelemetryControllerInitiatedLog(
+    public var logIdentifier: UByte = 0u,
+    public var reserved0: UByteArray = UByteArray(4),
+    public var organizationID: UByteArray = UByteArray(3),
+    public var area1LastBlock: UShort = 0u,
+    public var area2LastBlock: UShort = 0u,
+    public var area3LastBlock: UShort = 0u,
+    public var reserved1: UByteArray = UByteArray(2),
+    public var area4LastBlock: UInt = 0u,
+    public var reserved2: UByteArray = UByteArray(362),
+    public var controllerInitiatedDataAvailable: UByte = 0u,
+    public var controllerInitiatedDataGenerationNumber: UByte = 0u,
+    public var reasonIdentifier: UByteArray = UByteArray(128),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NVME_TELEMETRY_CONTROLLER_INITIATED_LOG) return false
-        if (this.LogIdentifier != other.LogIdentifier) return false
-        if (!this.Reserved0.contentEquals(other.Reserved0)) return false
-        if (!this.OrganizationID.contentEquals(other.OrganizationID)) return false
-        if (this.Area1LastBlock != other.Area1LastBlock) return false
-        if (this.Area2LastBlock != other.Area2LastBlock) return false
-        if (this.Area3LastBlock != other.Area3LastBlock) return false
-        if (!this.Reserved1.contentEquals(other.Reserved1)) return false
-        if (this.Area4LastBlock != other.Area4LastBlock) return false
-        if (!this.Reserved2.contentEquals(other.Reserved2)) return false
-        if (this.ControllerInitiatedDataAvailable != other.ControllerInitiatedDataAvailable) return false
-        if (this.ControllerInitiatedDataGenerationNumber != other.ControllerInitiatedDataGenerationNumber) return false
-        if (!this.ReasonIdentifier.contentEquals(other.ReasonIdentifier)) return false
+        if (other !is NvmeTelemetryControllerInitiatedLog) return false
+        if (this.logIdentifier != other.logIdentifier) return false
+        if (!this.reserved0.contentEquals(other.reserved0)) return false
+        if (!this.organizationID.contentEquals(other.organizationID)) return false
+        if (this.area1LastBlock != other.area1LastBlock) return false
+        if (this.area2LastBlock != other.area2LastBlock) return false
+        if (this.area3LastBlock != other.area3LastBlock) return false
+        if (!this.reserved1.contentEquals(other.reserved1)) return false
+        if (this.area4LastBlock != other.area4LastBlock) return false
+        if (!this.reserved2.contentEquals(other.reserved2)) return false
+        if (this.controllerInitiatedDataAvailable != other.controllerInitiatedDataAvailable) return false
+        if (this.controllerInitiatedDataGenerationNumber != other.controllerInitiatedDataGenerationNumber) return false
+        if (!this.reasonIdentifier.contentEquals(other.reasonIdentifier)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.LogIdentifier.hashCode()
-        result = 31 * result + this.Reserved0.contentHashCode()
-        result = 31 * result + this.OrganizationID.contentHashCode()
-        result = 31 * result + this.Area1LastBlock.hashCode()
-        result = 31 * result + this.Area2LastBlock.hashCode()
-        result = 31 * result + this.Area3LastBlock.hashCode()
-        result = 31 * result + this.Reserved1.contentHashCode()
-        result = 31 * result + this.Area4LastBlock.hashCode()
-        result = 31 * result + this.Reserved2.contentHashCode()
-        result = 31 * result + this.ControllerInitiatedDataAvailable.hashCode()
-        result = 31 * result + this.ControllerInitiatedDataGenerationNumber.hashCode()
-        result = 31 * result + this.ReasonIdentifier.contentHashCode()
+        var result = this.logIdentifier.hashCode()
+        result = 31 * result + this.reserved0.contentHashCode()
+        result = 31 * result + this.organizationID.contentHashCode()
+        result = 31 * result + this.area1LastBlock.hashCode()
+        result = 31 * result + this.area2LastBlock.hashCode()
+        result = 31 * result + this.area3LastBlock.hashCode()
+        result = 31 * result + this.reserved1.contentHashCode()
+        result = 31 * result + this.area4LastBlock.hashCode()
+        result = 31 * result + this.reserved2.contentHashCode()
+        result = 31 * result + this.controllerInitiatedDataAvailable.hashCode()
+        result = 31 * result + this.controllerInitiatedDataGenerationNumber.hashCode()
+        result = 31 * result + this.reasonIdentifier.contentHashCode()
         return result
     }
 }
 
-public data class NVME_TELEMETRY_HOST_INITIATED_LOG(
-    public var LogIdentifier: UByte = 0u,
-    public var Reserved0: UByteArray = UByteArray(4),
-    public var OrganizationID: UByteArray = UByteArray(3),
-    public var Area1LastBlock: UShort = 0u,
-    public var Area2LastBlock: UShort = 0u,
-    public var Area3LastBlock: UShort = 0u,
-    public var Reserved1: UByteArray = UByteArray(2),
-    public var Area4LastBlock: UInt = 0u,
-    public var Reserved2: UByteArray = UByteArray(361),
-    public var HostInitiatedDataGenerationNumber: UByte = 0u,
-    public var ControllerInitiatedDataAvailable: UByte = 0u,
-    public var ControllerInitiatedDataGenerationNumber: UByte = 0u,
-    public var ReasonIdentifier: UByteArray = UByteArray(128),
+public data class NvmeTelemetryHostInitiatedLog(
+    public var logIdentifier: UByte = 0u,
+    public var reserved0: UByteArray = UByteArray(4),
+    public var organizationID: UByteArray = UByteArray(3),
+    public var area1LastBlock: UShort = 0u,
+    public var area2LastBlock: UShort = 0u,
+    public var area3LastBlock: UShort = 0u,
+    public var reserved1: UByteArray = UByteArray(2),
+    public var area4LastBlock: UInt = 0u,
+    public var reserved2: UByteArray = UByteArray(361),
+    public var hostInitiatedDataGenerationNumber: UByte = 0u,
+    public var controllerInitiatedDataAvailable: UByte = 0u,
+    public var controllerInitiatedDataGenerationNumber: UByte = 0u,
+    public var reasonIdentifier: UByteArray = UByteArray(128),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NVME_TELEMETRY_HOST_INITIATED_LOG) return false
-        if (this.LogIdentifier != other.LogIdentifier) return false
-        if (!this.Reserved0.contentEquals(other.Reserved0)) return false
-        if (!this.OrganizationID.contentEquals(other.OrganizationID)) return false
-        if (this.Area1LastBlock != other.Area1LastBlock) return false
-        if (this.Area2LastBlock != other.Area2LastBlock) return false
-        if (this.Area3LastBlock != other.Area3LastBlock) return false
-        if (!this.Reserved1.contentEquals(other.Reserved1)) return false
-        if (this.Area4LastBlock != other.Area4LastBlock) return false
-        if (!this.Reserved2.contentEquals(other.Reserved2)) return false
-        if (this.HostInitiatedDataGenerationNumber != other.HostInitiatedDataGenerationNumber) return false
-        if (this.ControllerInitiatedDataAvailable != other.ControllerInitiatedDataAvailable) return false
-        if (this.ControllerInitiatedDataGenerationNumber != other.ControllerInitiatedDataGenerationNumber) return false
-        if (!this.ReasonIdentifier.contentEquals(other.ReasonIdentifier)) return false
+        if (other !is NvmeTelemetryHostInitiatedLog) return false
+        if (this.logIdentifier != other.logIdentifier) return false
+        if (!this.reserved0.contentEquals(other.reserved0)) return false
+        if (!this.organizationID.contentEquals(other.organizationID)) return false
+        if (this.area1LastBlock != other.area1LastBlock) return false
+        if (this.area2LastBlock != other.area2LastBlock) return false
+        if (this.area3LastBlock != other.area3LastBlock) return false
+        if (!this.reserved1.contentEquals(other.reserved1)) return false
+        if (this.area4LastBlock != other.area4LastBlock) return false
+        if (!this.reserved2.contentEquals(other.reserved2)) return false
+        if (this.hostInitiatedDataGenerationNumber != other.hostInitiatedDataGenerationNumber) return false
+        if (this.controllerInitiatedDataAvailable != other.controllerInitiatedDataAvailable) return false
+        if (this.controllerInitiatedDataGenerationNumber != other.controllerInitiatedDataGenerationNumber) return false
+        if (!this.reasonIdentifier.contentEquals(other.reasonIdentifier)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.LogIdentifier.hashCode()
-        result = 31 * result + this.Reserved0.contentHashCode()
-        result = 31 * result + this.OrganizationID.contentHashCode()
-        result = 31 * result + this.Area1LastBlock.hashCode()
-        result = 31 * result + this.Area2LastBlock.hashCode()
-        result = 31 * result + this.Area3LastBlock.hashCode()
-        result = 31 * result + this.Reserved1.contentHashCode()
-        result = 31 * result + this.Area4LastBlock.hashCode()
-        result = 31 * result + this.Reserved2.contentHashCode()
-        result = 31 * result + this.HostInitiatedDataGenerationNumber.hashCode()
-        result = 31 * result + this.ControllerInitiatedDataAvailable.hashCode()
-        result = 31 * result + this.ControllerInitiatedDataGenerationNumber.hashCode()
-        result = 31 * result + this.ReasonIdentifier.contentHashCode()
+        var result = this.logIdentifier.hashCode()
+        result = 31 * result + this.reserved0.contentHashCode()
+        result = 31 * result + this.organizationID.contentHashCode()
+        result = 31 * result + this.area1LastBlock.hashCode()
+        result = 31 * result + this.area2LastBlock.hashCode()
+        result = 31 * result + this.area3LastBlock.hashCode()
+        result = 31 * result + this.reserved1.contentHashCode()
+        result = 31 * result + this.area4LastBlock.hashCode()
+        result = 31 * result + this.reserved2.contentHashCode()
+        result = 31 * result + this.hostInitiatedDataGenerationNumber.hashCode()
+        result = 31 * result + this.controllerInitiatedDataAvailable.hashCode()
+        result = 31 * result + this.controllerInitiatedDataGenerationNumber.hashCode()
+        result = 31 * result + this.reasonIdentifier.contentHashCode()
         return result
     }
 }
 
-public data class NVME_VERSION(public var Anonymous: NVME_VERSION_0 = NVME_VERSION_0(), public var AsUlong: UInt = 0u)
+public data class NvmeVersion(public var anonymous: NvmeVersion0 = NvmeVersion0(), public var asUlong: UInt = 0u)
 
-public data class NVME_VERSION_0(public var _bitfield: UInt = 0u)
+public data class NvmeVersion0(public var bitfield: UInt = 0u)
 
-public data class NVME_WCS_DEVICE_CAPABILITIES(public var Anonymous: NVME_WCS_DEVICE_CAPABILITIES_0 = NVME_WCS_DEVICE_CAPABILITIES_0())
+public data class NvmeWcsDeviceCapabilities(public var anonymous: NvmeWcsDeviceCapabilities0 = NvmeWcsDeviceCapabilities0())
 
-public data class NVME_WCS_DEVICE_CAPABILITIES_0(public var Anonymous: NVME_WCS_DEVICE_CAPABILITIES_0_0 = NVME_WCS_DEVICE_CAPABILITIES_0_0(), public var AsULONG: UInt = 0u)
+public data class NvmeWcsDeviceCapabilities0(public var anonymous: NvmeWcsDeviceCapabilities00 = NvmeWcsDeviceCapabilities00(), public var asULONG: UInt = 0u)
 
-public data class NVME_WCS_DEVICE_CAPABILITIES_0_0(public var _bitfield: UInt = 0u)
+public data class NvmeWcsDeviceCapabilities00(public var bitfield: UInt = 0u)
 
-public data class NVME_WCS_DEVICE_ERROR_RECOVERY_LOG(
-    public var PanicResetWaitTime: UShort = 0u,
-    public var PanicResetAction: NVME_WCS_DEVICE_RESET_ACTION = NVME_WCS_DEVICE_RESET_ACTION(),
-    public var DriveRecoveryAction: UByte = 0u,
-    public var PanicId: ULong = 0uL,
-    public var DeviceCapabilitiesA: NVME_WCS_DEVICE_CAPABILITIES = NVME_WCS_DEVICE_CAPABILITIES(),
-    public var VendorSpecificRecoveryCode: UByte = 0u,
-    public var Reserved0: UByteArray = UByteArray(3),
-    public var VendorSpecificCommandCDW12: UInt = 0u,
-    public var VendorSpecificCommandCDW13: UInt = 0u,
-    public var Reserved1: UByteArray = UByteArray(466),
-    public var LogPageVersionNumber: UShort = 0u,
-    public var LogPageGUID: GUID = GUID(),
+public data class NvmeWcsDeviceErrorRecoveryLog(
+    public var panicResetWaitTime: UShort = 0u,
+    public var panicResetAction: NvmeWcsDeviceResetAction = NvmeWcsDeviceResetAction(),
+    public var driveRecoveryAction: UByte = 0u,
+    public var panicId: ULong = 0uL,
+    public var deviceCapabilitiesA: NvmeWcsDeviceCapabilities = NvmeWcsDeviceCapabilities(),
+    public var vendorSpecificRecoveryCode: UByte = 0u,
+    public var reserved0: UByteArray = UByteArray(3),
+    public var vendorSpecificCommandCDW12: UInt = 0u,
+    public var vendorSpecificCommandCDW13: UInt = 0u,
+    public var reserved1: UByteArray = UByteArray(466),
+    public var logPageVersionNumber: UShort = 0u,
+    public var logPageGUID: Guid = Guid(),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NVME_WCS_DEVICE_ERROR_RECOVERY_LOG) return false
-        if (this.PanicResetWaitTime != other.PanicResetWaitTime) return false
-        if (this.PanicResetAction != other.PanicResetAction) return false
-        if (this.DriveRecoveryAction != other.DriveRecoveryAction) return false
-        if (this.PanicId != other.PanicId) return false
-        if (this.DeviceCapabilitiesA != other.DeviceCapabilitiesA) return false
-        if (this.VendorSpecificRecoveryCode != other.VendorSpecificRecoveryCode) return false
-        if (!this.Reserved0.contentEquals(other.Reserved0)) return false
-        if (this.VendorSpecificCommandCDW12 != other.VendorSpecificCommandCDW12) return false
-        if (this.VendorSpecificCommandCDW13 != other.VendorSpecificCommandCDW13) return false
-        if (!this.Reserved1.contentEquals(other.Reserved1)) return false
-        if (this.LogPageVersionNumber != other.LogPageVersionNumber) return false
-        if (this.LogPageGUID != other.LogPageGUID) return false
+        if (other !is NvmeWcsDeviceErrorRecoveryLog) return false
+        if (this.panicResetWaitTime != other.panicResetWaitTime) return false
+        if (this.panicResetAction != other.panicResetAction) return false
+        if (this.driveRecoveryAction != other.driveRecoveryAction) return false
+        if (this.panicId != other.panicId) return false
+        if (this.deviceCapabilitiesA != other.deviceCapabilitiesA) return false
+        if (this.vendorSpecificRecoveryCode != other.vendorSpecificRecoveryCode) return false
+        if (!this.reserved0.contentEquals(other.reserved0)) return false
+        if (this.vendorSpecificCommandCDW12 != other.vendorSpecificCommandCDW12) return false
+        if (this.vendorSpecificCommandCDW13 != other.vendorSpecificCommandCDW13) return false
+        if (!this.reserved1.contentEquals(other.reserved1)) return false
+        if (this.logPageVersionNumber != other.logPageVersionNumber) return false
+        if (this.logPageGUID != other.logPageGUID) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.PanicResetWaitTime.hashCode()
-        result = 31 * result + this.PanicResetAction.hashCode()
-        result = 31 * result + this.DriveRecoveryAction.hashCode()
-        result = 31 * result + this.PanicId.hashCode()
-        result = 31 * result + this.DeviceCapabilitiesA.hashCode()
-        result = 31 * result + this.VendorSpecificRecoveryCode.hashCode()
-        result = 31 * result + this.Reserved0.contentHashCode()
-        result = 31 * result + this.VendorSpecificCommandCDW12.hashCode()
-        result = 31 * result + this.VendorSpecificCommandCDW13.hashCode()
-        result = 31 * result + this.Reserved1.contentHashCode()
-        result = 31 * result + this.LogPageVersionNumber.hashCode()
-        result = 31 * result + this.LogPageGUID.hashCode()
+        var result = this.panicResetWaitTime.hashCode()
+        result = 31 * result + this.panicResetAction.hashCode()
+        result = 31 * result + this.driveRecoveryAction.hashCode()
+        result = 31 * result + this.panicId.hashCode()
+        result = 31 * result + this.deviceCapabilitiesA.hashCode()
+        result = 31 * result + this.vendorSpecificRecoveryCode.hashCode()
+        result = 31 * result + this.reserved0.contentHashCode()
+        result = 31 * result + this.vendorSpecificCommandCDW12.hashCode()
+        result = 31 * result + this.vendorSpecificCommandCDW13.hashCode()
+        result = 31 * result + this.reserved1.contentHashCode()
+        result = 31 * result + this.logPageVersionNumber.hashCode()
+        result = 31 * result + this.logPageGUID.hashCode()
         return result
     }
 }
 
-public data class NVME_WCS_DEVICE_RESET_ACTION(public var Anonymous: NVME_WCS_DEVICE_RESET_ACTION_0 = NVME_WCS_DEVICE_RESET_ACTION_0())
+public data class NvmeWcsDeviceResetAction(public var anonymous: NvmeWcsDeviceResetAction0 = NvmeWcsDeviceResetAction0())
 
-public data class NVME_WCS_DEVICE_RESET_ACTION_0(public var Anonymous: NVME_WCS_DEVICE_RESET_ACTION_0_0 = NVME_WCS_DEVICE_RESET_ACTION_0_0(), public var AsUCHAR: UByte = 0u)
+public data class NvmeWcsDeviceResetAction0(public var anonymous: NvmeWcsDeviceResetAction00 = NvmeWcsDeviceResetAction00(), public var asUCHAR: UByte = 0u)
 
-public data class NVME_WCS_DEVICE_RESET_ACTION_0_0(public var _bitfield: UByte = 0u)
+public data class NvmeWcsDeviceResetAction00(public var bitfield: UByte = 0u)
 
-public data class NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG(
-    public var VersionSpecificData: UByteArray = UByteArray(494),
-    public var LogPageVersionNumber: UShort = 0u,
-    public var LogPageGUID: GUID = GUID(),
+public data class NvmeWcsDeviceSmartAttributesLog(
+    public var versionSpecificData: UByteArray = UByteArray(494),
+    public var logPageVersionNumber: UShort = 0u,
+    public var logPageGUID: Guid = Guid(),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG) return false
-        if (!this.VersionSpecificData.contentEquals(other.VersionSpecificData)) return false
-        if (this.LogPageVersionNumber != other.LogPageVersionNumber) return false
-        if (this.LogPageGUID != other.LogPageGUID) return false
+        if (other !is NvmeWcsDeviceSmartAttributesLog) return false
+        if (!this.versionSpecificData.contentEquals(other.versionSpecificData)) return false
+        if (this.logPageVersionNumber != other.logPageVersionNumber) return false
+        if (this.logPageGUID != other.logPageGUID) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.VersionSpecificData.contentHashCode()
-        result = 31 * result + this.LogPageVersionNumber.hashCode()
-        result = 31 * result + this.LogPageGUID.hashCode()
+        var result = this.versionSpecificData.contentHashCode()
+        result = 31 * result + this.logPageVersionNumber.hashCode()
+        result = 31 * result + this.logPageGUID.hashCode()
         return result
     }
 }
 
-public class NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2(
-    public var MediaUnitsWritten: UByteArray = UByteArray(16),
-    public var MediaUnitsRead: UByteArray = UByteArray(16),
-    public var BadUserNANDBlockCount: NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2_0 = NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2_0(),
-    public var BadSystemNANDBlockCount: NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2_1 = NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2_1(),
-    public var XORRecoveryCount: ULong = 0uL,
-    public var UnrecoverableReadErrorCount: ULong = 0uL,
-    public var SoftECCErrorCount: ULong = 0uL,
-    public var EndToEndCorrectionCounts: NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2_2 = NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2_2(),
-    public var PercentageSystemDataUsed: UByte = 0u,
-    public var RefreshCount: UByteArray = UByteArray(7),
-    public var UserDataEraseCounts: NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2_3 = NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2_3(),
-    public var ThermalThrottling: NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2_4 = NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2_4(),
-    public var Reserved0: UByteArray = UByteArray(6),
-    public var PCIeCorrectableErrorCount: ULong = 0uL,
-    public var IncompleteShutdownCount: UInt = 0u,
-    public var Reserved1: UInt = 0u,
-    public var PercentageFreeBlocks: UByte = 0u,
-    public var Reserved2: UByteArray = UByteArray(7),
-    public var CapacitorHealth: UShort = 0u,
-    public var Reserved3: UByteArray = UByteArray(6),
-    public var UnalignedIOCount: ULong = 0uL,
-    public var SecurityVersionNumber: ULong = 0uL,
-    public var NUSE: ULong = 0uL,
-    public var PLPStartCount: UByteArray = UByteArray(16),
-    public var EnduranceEstimate: UByteArray = UByteArray(16),
-    public var Reserved4: UByteArray = UByteArray(302),
-    public var LogPageVersionNumber: UShort = 0u,
-    public var LogPageGUID: GUID = GUID(),
+public class NvmeWcsDeviceSmartAttributesLogV2(
+    public var mediaUnitsWritten: UByteArray = UByteArray(16),
+    public var mediaUnitsRead: UByteArray = UByteArray(16),
+    public var badUserNANDBlockCount: NvmeWcsDeviceSmartAttributesLogV20 = NvmeWcsDeviceSmartAttributesLogV20(),
+    public var badSystemNANDBlockCount: NvmeWcsDeviceSmartAttributesLogV21 = NvmeWcsDeviceSmartAttributesLogV21(),
+    public var xORRecoveryCount: ULong = 0uL,
+    public var unrecoverableReadErrorCount: ULong = 0uL,
+    public var softECCErrorCount: ULong = 0uL,
+    public var endToEndCorrectionCounts: NvmeWcsDeviceSmartAttributesLogV22 = NvmeWcsDeviceSmartAttributesLogV22(),
+    public var percentageSystemDataUsed: UByte = 0u,
+    public var refreshCount: UByteArray = UByteArray(7),
+    public var userDataEraseCounts: NvmeWcsDeviceSmartAttributesLogV23 = NvmeWcsDeviceSmartAttributesLogV23(),
+    public var thermalThrottling: NvmeWcsDeviceSmartAttributesLogV24 = NvmeWcsDeviceSmartAttributesLogV24(),
+    public var reserved0: UByteArray = UByteArray(6),
+    public var pCIeCorrectableErrorCount: ULong = 0uL,
+    public var incompleteShutdownCount: UInt = 0u,
+    public var reserved1: UInt = 0u,
+    public var percentageFreeBlocks: UByte = 0u,
+    public var reserved2: UByteArray = UByteArray(7),
+    public var capacitorHealth: UShort = 0u,
+    public var reserved3: UByteArray = UByteArray(6),
+    public var unalignedIOCount: ULong = 0uL,
+    public var securityVersionNumber: ULong = 0uL,
+    public var nuse: ULong = 0uL,
+    public var pLPStartCount: UByteArray = UByteArray(16),
+    public var enduranceEstimate: UByteArray = UByteArray(16),
+    public var reserved4: UByteArray = UByteArray(302),
+    public var logPageVersionNumber: UShort = 0u,
+    public var logPageGUID: Guid = Guid(),
 )
 
-public data class NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2_1(public var RawCount: UByteArray = UByteArray(6), public var Normalized: UByteArray = UByteArray(2)) {
+public data class NvmeWcsDeviceSmartAttributesLogV21(public var rawCount: UByteArray = UByteArray(6), public var normalized: UByteArray = UByteArray(2)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2_1) return false
-        if (!this.RawCount.contentEquals(other.RawCount)) return false
-        if (!this.Normalized.contentEquals(other.Normalized)) return false
+        if (other !is NvmeWcsDeviceSmartAttributesLogV21) return false
+        if (!this.rawCount.contentEquals(other.rawCount)) return false
+        if (!this.normalized.contentEquals(other.normalized)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.RawCount.contentHashCode()
-        result = 31 * result + this.Normalized.contentHashCode()
+        var result = this.rawCount.contentHashCode()
+        result = 31 * result + this.normalized.contentHashCode()
         return result
     }
 }
 
-public data class NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2_0(public var RawCount: UByteArray = UByteArray(6), public var Normalized: UByteArray = UByteArray(2)) {
+public data class NvmeWcsDeviceSmartAttributesLogV20(public var rawCount: UByteArray = UByteArray(6), public var normalized: UByteArray = UByteArray(2)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2_0) return false
-        if (!this.RawCount.contentEquals(other.RawCount)) return false
-        if (!this.Normalized.contentEquals(other.Normalized)) return false
+        if (other !is NvmeWcsDeviceSmartAttributesLogV20) return false
+        if (!this.rawCount.contentEquals(other.rawCount)) return false
+        if (!this.normalized.contentEquals(other.normalized)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.RawCount.contentHashCode()
-        result = 31 * result + this.Normalized.contentHashCode()
+        var result = this.rawCount.contentHashCode()
+        result = 31 * result + this.normalized.contentHashCode()
         return result
     }
 }
 
-public data class NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2_2(public var DetectedCounts: UInt = 0u, public var CorrectedCounts: UInt = 0u)
+public data class NvmeWcsDeviceSmartAttributesLogV22(public var detectedCounts: UInt = 0u, public var correctedCounts: UInt = 0u)
 
-public data class NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2_4(public var EventCount: UByte = 0u, public var Status: UByte = 0u)
+public data class NvmeWcsDeviceSmartAttributesLogV24(public var eventCount: UByte = 0u, public var status: UByte = 0u)
 
-public data class NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2_3(public var MaximumCount: UInt = 0u, public var MinimumCount: UInt = 0u)
+public data class NvmeWcsDeviceSmartAttributesLogV23(public var maximumCount: UInt = 0u, public var minimumCount: UInt = 0u)
 
-public data class NVME_ZONE_DESCRIPTOR(
-    public var Anonymous1: NVME_ZONE_DESCRIPTOR_0 = NVME_ZONE_DESCRIPTOR_0(),
-    public var Anonymous2: NVME_ZONE_DESCRIPTOR_1 = NVME_ZONE_DESCRIPTOR_1(),
-    public var ZA: NVME_ZONE_DESCRIPTOR_2 = NVME_ZONE_DESCRIPTOR_2(),
-    public var Reserved3: UByteArray = UByteArray(5),
-    public var ZCAP: ULong = 0uL,
-    public var ZSLBA: ULong = 0uL,
-    public var WritePointer: ULong = 0uL,
-    public var Reserved4: UByteArray = UByteArray(32),
+public data class NvmeZoneDescriptor(
+    public var anonymous1: NvmeZoneDescriptor0 = NvmeZoneDescriptor0(),
+    public var anonymous2: NvmeZoneDescriptor1 = NvmeZoneDescriptor1(),
+    public var za: NvmeZoneDescriptor2 = NvmeZoneDescriptor2(),
+    public var reserved3: UByteArray = UByteArray(5),
+    public var zcap: ULong = 0uL,
+    public var zslba: ULong = 0uL,
+    public var writePointer: ULong = 0uL,
+    public var reserved4: UByteArray = UByteArray(32),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NVME_ZONE_DESCRIPTOR) return false
-        if (this.Anonymous1 != other.Anonymous1) return false
-        if (this.Anonymous2 != other.Anonymous2) return false
-        if (this.ZA != other.ZA) return false
-        if (!this.Reserved3.contentEquals(other.Reserved3)) return false
-        if (this.ZCAP != other.ZCAP) return false
-        if (this.ZSLBA != other.ZSLBA) return false
-        if (this.WritePointer != other.WritePointer) return false
-        if (!this.Reserved4.contentEquals(other.Reserved4)) return false
+        if (other !is NvmeZoneDescriptor) return false
+        if (this.anonymous1 != other.anonymous1) return false
+        if (this.anonymous2 != other.anonymous2) return false
+        if (this.za != other.za) return false
+        if (!this.reserved3.contentEquals(other.reserved3)) return false
+        if (this.zcap != other.zcap) return false
+        if (this.zslba != other.zslba) return false
+        if (this.writePointer != other.writePointer) return false
+        if (!this.reserved4.contentEquals(other.reserved4)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Anonymous1.hashCode()
-        result = 31 * result + this.Anonymous2.hashCode()
-        result = 31 * result + this.ZA.hashCode()
-        result = 31 * result + this.Reserved3.contentHashCode()
-        result = 31 * result + this.ZCAP.hashCode()
-        result = 31 * result + this.ZSLBA.hashCode()
-        result = 31 * result + this.WritePointer.hashCode()
-        result = 31 * result + this.Reserved4.contentHashCode()
+        var result = this.anonymous1.hashCode()
+        result = 31 * result + this.anonymous2.hashCode()
+        result = 31 * result + this.za.hashCode()
+        result = 31 * result + this.reserved3.contentHashCode()
+        result = 31 * result + this.zcap.hashCode()
+        result = 31 * result + this.zslba.hashCode()
+        result = 31 * result + this.writePointer.hashCode()
+        result = 31 * result + this.reserved4.contentHashCode()
         return result
     }
 }
 
-public data class NVME_ZONE_DESCRIPTOR_0(public var _bitfield: UByte = 0u)
+public data class NvmeZoneDescriptor0(public var bitfield: UByte = 0u)
 
-public data class NVME_ZONE_DESCRIPTOR_1(public var _bitfield: UByte = 0u)
+public data class NvmeZoneDescriptor1(public var bitfield: UByte = 0u)
 
-public data class NVME_ZONE_DESCRIPTOR_2(public var _bitfield: UByte = 0u)
+public data class NvmeZoneDescriptor2(public var bitfield: UByte = 0u)
 
-public data class NVME_ZONE_DESCRIPTOR_EXTENSION(public var ZoneDescriptorExtensionInfo: UByteArray = UByteArray(64)) {
+public data class NvmeZoneDescriptorExtension(public var zoneDescriptorExtensionInfo: UByteArray = UByteArray(64)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NVME_ZONE_DESCRIPTOR_EXTENSION) return false
-        if (!this.ZoneDescriptorExtensionInfo.contentEquals(other.ZoneDescriptorExtensionInfo)) return false
+        if (other !is NvmeZoneDescriptorExtension) return false
+        if (!this.zoneDescriptorExtensionInfo.contentEquals(other.zoneDescriptorExtensionInfo)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        return this.ZoneDescriptorExtensionInfo.contentHashCode()
+        return this.zoneDescriptorExtensionInfo.contentHashCode()
     }
 }
 
-public data class NVME_ZONE_EXTENDED_REPORT_ZONE_DESC(public var ZoneDescriptor: NVME_ZONE_DESCRIPTOR = NVME_ZONE_DESCRIPTOR(), public var ZoneDescriptorExtension: List<NVME_ZONE_DESCRIPTOR_EXTENSION> = List(1) { NVME_ZONE_DESCRIPTOR_EXTENSION() })
+public data class NvmeZoneExtendedReportZoneDesc(public var zoneDescriptor: NvmeZoneDescriptor = NvmeZoneDescriptor(), public var zoneDescriptorExtension: List<NvmeZoneDescriptorExtension> = List(1) { NvmeZoneDescriptorExtension() })
 
-public data class NVM_RESERVATION_CAPABILITIES(public var Anonymous: NVM_RESERVATION_CAPABILITIES_0 = NVM_RESERVATION_CAPABILITIES_0(), public var AsUchar: UByte = 0u)
+public data class NvmReservationCapabilities(public var anonymous: NvmReservationCapabilities0 = NvmReservationCapabilities0(), public var asUchar: UByte = 0u)
 
-public data class NVM_RESERVATION_CAPABILITIES_0(public var _bitfield: UByte = 0u)
+public data class NvmReservationCapabilities0(public var bitfield: UByte = 0u)
 
-public data class NVM_SET_LIST(
-    public var IdentifierCount: UByte = 0u,
-    public var Reserved: UByteArray = UByteArray(127),
-    public var Entry: List<NVME_SET_ATTRIBUTES_ENTRY> = List(1) { NVME_SET_ATTRIBUTES_ENTRY() },
+public data class NvmSetList(
+    public var identifierCount: UByte = 0u,
+    public var reserved: UByteArray = UByteArray(127),
+    public var entry: List<NvmeSetAttributesEntry> = List(1) { NvmeSetAttributesEntry() },
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NVM_SET_LIST) return false
-        if (this.IdentifierCount != other.IdentifierCount) return false
-        if (!this.Reserved.contentEquals(other.Reserved)) return false
-        if (this.Entry != other.Entry) return false
+        if (other !is NvmSetList) return false
+        if (this.identifierCount != other.identifierCount) return false
+        if (!this.reserved.contentEquals(other.reserved)) return false
+        if (this.entry != other.entry) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.IdentifierCount.hashCode()
-        result = 31 * result + this.Reserved.contentHashCode()
-        result = 31 * result + this.Entry.hashCode()
+        var result = this.identifierCount.hashCode()
+        result = 31 * result + this.reserved.contentHashCode()
+        result = 31 * result + this.entry.hashCode()
         return result
     }
 }
 
-public data class TCG_ACTIVATE_METHOD_SPECIFIC(public var RangeStartLengthPolicy: UByte = 0u)
+public data class TcgActivateMethodSpecific(public var rangeStartLengthPolicy: UByte = 0u)
 
-public data class TCG_ASSIGN_METHOD_SPECIFIC(public var NamespaceId: UInt = 0u)
+public data class TcgAssignMethodSpecific(public var namespaceId: UInt = 0u)
 
-public data class TCG_AUTH_METHOD_SPECIFIC(public var AuthorityId: ULong = 0uL, public var TriesCount: UByte = 0u)
+public data class TcgAuthMethodSpecific(public var authorityId: ULong = 0uL, public var triesCount: UByte = 0u)
 
-public data class TCG_BLOCKSID_METHOD_SPECIFIC(public var ClearEvents: UByte = 0u)
+public data class TcgBlocksidMethodSpecific(public var clearEvents: UByte = 0u)
 
-public data class TCG_HISTORY_ENTRY(
-    public var VersionNumber: UByte = 0u,
-    public var EntryLength: UByte = 0u,
-    public var PowerCycleCount: UShort = 0u,
-    public var TcgCommandCount: UInt = 0u,
-    public var TcgCommandCompletionTS: ULong = 0uL,
-    public var InvokingId: ULong = 0uL,
-    public var MethodId: ULong = 0uL,
-    public var ComId: UShort = 0u,
-    public var ProtocolId: UByte = 0u,
-    public var TcgStatus: UByte = 0u,
-    public var ProcessTime: UShort = 0u,
-    public var CommandSpecific: UByteArray = UByteArray(10),
+public data class TcgHistoryEntry(
+    public var versionNumber: UByte = 0u,
+    public var entryLength: UByte = 0u,
+    public var powerCycleCount: UShort = 0u,
+    public var tcgCommandCount: UInt = 0u,
+    public var tcgCommandCompletionTS: ULong = 0uL,
+    public var invokingId: ULong = 0uL,
+    public var methodId: ULong = 0uL,
+    public var comId: UShort = 0u,
+    public var protocolId: UByte = 0u,
+    public var tcgStatus: UByte = 0u,
+    public var processTime: UShort = 0u,
+    public var commandSpecific: UByteArray = UByteArray(10),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is TCG_HISTORY_ENTRY) return false
-        if (this.VersionNumber != other.VersionNumber) return false
-        if (this.EntryLength != other.EntryLength) return false
-        if (this.PowerCycleCount != other.PowerCycleCount) return false
-        if (this.TcgCommandCount != other.TcgCommandCount) return false
-        if (this.TcgCommandCompletionTS != other.TcgCommandCompletionTS) return false
-        if (this.InvokingId != other.InvokingId) return false
-        if (this.MethodId != other.MethodId) return false
-        if (this.ComId != other.ComId) return false
-        if (this.ProtocolId != other.ProtocolId) return false
-        if (this.TcgStatus != other.TcgStatus) return false
-        if (this.ProcessTime != other.ProcessTime) return false
-        if (!this.CommandSpecific.contentEquals(other.CommandSpecific)) return false
+        if (other !is TcgHistoryEntry) return false
+        if (this.versionNumber != other.versionNumber) return false
+        if (this.entryLength != other.entryLength) return false
+        if (this.powerCycleCount != other.powerCycleCount) return false
+        if (this.tcgCommandCount != other.tcgCommandCount) return false
+        if (this.tcgCommandCompletionTS != other.tcgCommandCompletionTS) return false
+        if (this.invokingId != other.invokingId) return false
+        if (this.methodId != other.methodId) return false
+        if (this.comId != other.comId) return false
+        if (this.protocolId != other.protocolId) return false
+        if (this.tcgStatus != other.tcgStatus) return false
+        if (this.processTime != other.processTime) return false
+        if (!this.commandSpecific.contentEquals(other.commandSpecific)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.VersionNumber.hashCode()
-        result = 31 * result + this.EntryLength.hashCode()
-        result = 31 * result + this.PowerCycleCount.hashCode()
-        result = 31 * result + this.TcgCommandCount.hashCode()
-        result = 31 * result + this.TcgCommandCompletionTS.hashCode()
-        result = 31 * result + this.InvokingId.hashCode()
-        result = 31 * result + this.MethodId.hashCode()
-        result = 31 * result + this.ComId.hashCode()
-        result = 31 * result + this.ProtocolId.hashCode()
-        result = 31 * result + this.TcgStatus.hashCode()
-        result = 31 * result + this.ProcessTime.hashCode()
-        result = 31 * result + this.CommandSpecific.contentHashCode()
+        var result = this.versionNumber.hashCode()
+        result = 31 * result + this.entryLength.hashCode()
+        result = 31 * result + this.powerCycleCount.hashCode()
+        result = 31 * result + this.tcgCommandCount.hashCode()
+        result = 31 * result + this.tcgCommandCompletionTS.hashCode()
+        result = 31 * result + this.invokingId.hashCode()
+        result = 31 * result + this.methodId.hashCode()
+        result = 31 * result + this.comId.hashCode()
+        result = 31 * result + this.protocolId.hashCode()
+        result = 31 * result + this.tcgStatus.hashCode()
+        result = 31 * result + this.processTime.hashCode()
+        result = 31 * result + this.commandSpecific.contentHashCode()
         return result
     }
 }
 
-public data class TCG_REACTIVATE_METHOD_SPECIFIC(public var RangeStartLengthPolicy: UByte = 0u)
+public data class TcgReactivateMethodSpecific(public var rangeStartLengthPolicy: UByte = 0u)
 
-public data class UNSUPPORTED_REQUIREMENT(public var ReqId: UByteArray = UByteArray(16)) {
+public data class UnsupportedRequirement(public var reqId: UByteArray = UByteArray(16)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is UNSUPPORTED_REQUIREMENT) return false
-        if (!this.ReqId.contentEquals(other.ReqId)) return false
+        if (other !is UnsupportedRequirement) return false
+        if (!this.reqId.contentEquals(other.reqId)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        return this.ReqId.contentHashCode()
+        return this.reqId.contentHashCode()
     }
 }

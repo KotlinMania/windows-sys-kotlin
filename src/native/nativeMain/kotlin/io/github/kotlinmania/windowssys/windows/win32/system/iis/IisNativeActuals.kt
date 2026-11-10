@@ -2,18 +2,19 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.iis
 
-import io.github.kotlinmania.windowssys.core.BOOL
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun GetExtensionVersion(pver: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.iis.cinterop.windowssys_windows_win32_system_iis_GetExtensionVersion(pver.toCPointer<ByteVar>())
+public actual fun getExtensionVersion(pver: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.iis.cinterop.windowssys_windows_win32_system_iis_getExtensionVersion(pver?.value?.toCPointer<ByteVar>())
 
-public actual fun GetFilterVersion(pver: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.iis.cinterop.windowssys_windows_win32_system_iis_GetFilterVersion(pver.toCPointer<ByteVar>())
+public actual fun getFilterVersion(pver: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.iis.cinterop.windowssys_windows_win32_system_iis_getFilterVersion(pver?.value?.toCPointer<ByteVar>())
 
-public actual fun HttpExtensionProc(pecb: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.iis.cinterop.windowssys_windows_win32_system_iis_HttpExtensionProc(pecb.toCPointer<ByteVar>())
+public actual fun httpExtensionProc(pecb: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.iis.cinterop.windowssys_windows_win32_system_iis_httpExtensionProc(pecb?.value?.toCPointer<ByteVar>())
 
-public actual fun HttpFilterProc(pfc: Long, notificationtype: UInt, pvnotification: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.iis.cinterop.windowssys_windows_win32_system_iis_HttpFilterProc(pfc.toCPointer<ByteVar>(), notificationtype, pvnotification.toCPointer<ByteVar>())
+public actual fun httpFilterProc(pfc: COpaquePointer?, notificationtype: UInt, pvnotification: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.iis.cinterop.windowssys_windows_win32_system_iis_httpFilterProc(pfc?.value?.toCPointer<ByteVar>(), notificationtype, pvnotification?.value?.toCPointer<ByteVar>())

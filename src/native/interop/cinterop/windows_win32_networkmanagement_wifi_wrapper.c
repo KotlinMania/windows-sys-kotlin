@@ -15,7 +15,7 @@
 #endif
 #endif
 
-uint32_t windowssys_windows_win32_networkmanagement_wifi_WFDCancelOpenSession(void* hsessionhandle) {
+uint32_t windowssys_windows_win32_networkmanagement_wifi_wFDCancelOpenSession(void* hsessionhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -37,7 +37,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wifi_WFDCancelOpenSession(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wifi_WFDCloseHandle(void* hclienthandle) {
+uint32_t windowssys_windows_win32_networkmanagement_wifi_wFDCloseHandle(void* hclienthandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -59,7 +59,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wifi_WFDCloseHandle(void* hc
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wifi_WFDCloseSession(void* hsessionhandle) {
+uint32_t windowssys_windows_win32_networkmanagement_wifi_wFDCloseSession(void* hsessionhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -81,7 +81,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wifi_WFDCloseSession(void* h
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wifi_WFDOpenHandle(uint32_t dwclientversion, void* pdwnegotiatedversion, void* phclienthandle) {
+uint32_t windowssys_windows_win32_networkmanagement_wifi_wFDOpenHandle(uint32_t dwclientversion, void* pdwnegotiatedversion, void* phclienthandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -105,7 +105,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wifi_WFDOpenHandle(uint32_t 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wifi_WFDOpenLegacySession(void* hclienthandle, void* plegacymacaddress, void* phsessionhandle, void* pguidsessioninterface) {
+uint32_t windowssys_windows_win32_networkmanagement_wifi_wFDOpenLegacySession(void* hclienthandle, void* plegacymacaddress, void* phsessionhandle, void* pguidsessioninterface) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -130,7 +130,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wifi_WFDOpenLegacySession(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wifi_WFDStartOpenSession(void* hclienthandle, void* pdeviceaddress, void* pvcontext, void* pfncallback, void* phsessionhandle) {
+uint32_t windowssys_windows_win32_networkmanagement_wifi_wFDStartOpenSession(void* hclienthandle, void* pdeviceaddress, void* pvcontext, void* pfncallback, void* phsessionhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -156,7 +156,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wifi_WFDStartOpenSession(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wifi_WFDUpdateDeviceVisibility(void* pdeviceaddress) {
+uint32_t windowssys_windows_win32_networkmanagement_wifi_wFDUpdateDeviceVisibility(void* pdeviceaddress) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -178,7 +178,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wifi_WFDUpdateDeviceVisibili
 #endif
 }
 
-void* windowssys_windows_win32_networkmanagement_wifi_WlanAllocateMemory(uint32_t dwmemorysize) {
+void* windowssys_windows_win32_networkmanagement_wifi_wlanAllocateMemory(uint32_t dwmemorysize) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -200,7 +200,7 @@ void* windowssys_windows_win32_networkmanagement_wifi_WlanAllocateMemory(uint32_
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanCloseHandle(void* hclienthandle, void* preserved) {
+uint32_t windowssys_windows_win32_networkmanagement_wifi_wlanCloseHandle(void* hclienthandle, void* preserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -223,7 +223,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanCloseHandle(void* h
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanConnect(void* hclienthandle, void* pinterfaceguid, void* pconnectionparameters, void* preserved) {
+uint32_t windowssys_windows_win32_networkmanagement_wifi_wlanConnect(void* hclienthandle, void* pinterfaceguid, void* pconnectionparameters, void* preserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -248,7 +248,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanConnect(void* hclie
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanConnect2(void* hclienthandle, void* pinterfaceguid, void* pconnectionparameters, void* preserved) {
+uint32_t windowssys_windows_win32_networkmanagement_wifi_wlanConnect2(void* hclienthandle, void* pinterfaceguid, void* pconnectionparameters, void* preserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -273,7 +273,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanConnect2(void* hcli
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanDeleteProfile(void* hclienthandle, void* pinterfaceguid, void* strprofilename, void* preserved) {
+uint32_t windowssys_windows_win32_networkmanagement_wifi_wlanDeleteProfile(void* hclienthandle, void* pinterfaceguid, void* strprofilename, void* preserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -298,7 +298,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanDeleteProfile(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanDeviceServiceCommand(void* hclienthandle, void* pinterfaceguid, void* pdeviceserviceguid, uint32_t dwopcode, uint32_t dwinbuffersize, void* pinbuffer, uint32_t dwoutbuffersize, void* poutbuffer, void* pdwbytesreturned) {
+uint32_t windowssys_windows_win32_networkmanagement_wifi_wlanDeviceServiceCommand(void* hclienthandle, void* pinterfaceguid, void* pdeviceserviceguid, uint32_t dwopcode, uint32_t dwinbuffersize, void* pinbuffer, uint32_t dwoutbuffersize, void* poutbuffer, void* pdwbytesreturned) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -328,7 +328,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanDeviceServiceComman
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanDisconnect(void* hclienthandle, void* pinterfaceguid, void* preserved) {
+uint32_t windowssys_windows_win32_networkmanagement_wifi_wlanDisconnect(void* hclienthandle, void* pinterfaceguid, void* preserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -352,7 +352,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanDisconnect(void* hc
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanEnumInterfaces(void* hclienthandle, void* preserved, void* ppinterfacelist) {
+uint32_t windowssys_windows_win32_networkmanagement_wifi_wlanEnumInterfaces(void* hclienthandle, void* preserved, void* ppinterfacelist) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -376,7 +376,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanEnumInterfaces(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanExtractPsdIEDataList(void* hclienthandle, uint32_t dwiedatasize, void* prawiedata, void* strformat, void* preserved, void* pppsdiedatalist) {
+uint32_t windowssys_windows_win32_networkmanagement_wifi_wlanExtractPsdIEDataList(void* hclienthandle, uint32_t dwiedatasize, void* prawiedata, void* strformat, void* preserved, void* pppsdiedatalist) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -403,7 +403,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanExtractPsdIEDataLis
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_wifi_WlanFreeMemory(void* pmemory) {
+void windowssys_windows_win32_networkmanagement_wifi_wlanFreeMemory(void* pmemory) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -424,7 +424,7 @@ void windowssys_windows_win32_networkmanagement_wifi_WlanFreeMemory(void* pmemor
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanGetAvailableNetworkList(void* hclienthandle, void* pinterfaceguid, uint32_t dwflags, void* preserved, void* ppavailablenetworklist) {
+uint32_t windowssys_windows_win32_networkmanagement_wifi_wlanGetAvailableNetworkList(void* hclienthandle, void* pinterfaceguid, uint32_t dwflags, void* preserved, void* ppavailablenetworklist) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -450,7 +450,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanGetAvailableNetwork
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanGetAvailableNetworkList2(void* hclienthandle, void* pinterfaceguid, uint32_t dwflags, void* preserved, void* ppavailablenetworklist) {
+uint32_t windowssys_windows_win32_networkmanagement_wifi_wlanGetAvailableNetworkList2(void* hclienthandle, void* pinterfaceguid, uint32_t dwflags, void* preserved, void* ppavailablenetworklist) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -476,7 +476,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanGetAvailableNetwork
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanGetFilterList(void* hclienthandle, int32_t wlanfilterlisttype, void* preserved, void* ppnetworklist) {
+uint32_t windowssys_windows_win32_networkmanagement_wifi_wlanGetFilterList(void* hclienthandle, int32_t wlanfilterlisttype, void* preserved, void* ppnetworklist) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -501,7 +501,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanGetFilterList(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanGetInterfaceCapability(void* hclienthandle, void* pinterfaceguid, void* preserved, void* ppcapability) {
+uint32_t windowssys_windows_win32_networkmanagement_wifi_wlanGetInterfaceCapability(void* hclienthandle, void* pinterfaceguid, void* preserved, void* ppcapability) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -526,7 +526,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanGetInterfaceCapabil
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanGetNetworkBssList(void* hclienthandle, void* pinterfaceguid, void* pdot11ssid, int32_t dot11bsstype, int32_t bsecurityenabled, void* preserved, void* ppwlanbsslist) {
+uint32_t windowssys_windows_win32_networkmanagement_wifi_wlanGetNetworkBssList(void* hclienthandle, void* pinterfaceguid, void* pdot11ssid, int32_t dot11bsstype, int32_t bsecurityenabled, void* preserved, void* ppwlanbsslist) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -554,7 +554,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanGetNetworkBssList(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanGetProfile(void* hclienthandle, void* pinterfaceguid, void* strprofilename, void* preserved, void* pstrprofilexml, void* pdwflags, void* pdwgrantedaccess) {
+uint32_t windowssys_windows_win32_networkmanagement_wifi_wlanGetProfile(void* hclienthandle, void* pinterfaceguid, void* strprofilename, void* preserved, void* pstrprofilexml, void* pdwflags, void* pdwgrantedaccess) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -582,7 +582,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanGetProfile(void* hc
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanGetProfileCustomUserData(void* hclienthandle, void* pinterfaceguid, void* strprofilename, void* preserved, void* pdwdatasize, void* ppdata) {
+uint32_t windowssys_windows_win32_networkmanagement_wifi_wlanGetProfileCustomUserData(void* hclienthandle, void* pinterfaceguid, void* strprofilename, void* preserved, void* pdwdatasize, void* ppdata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -609,7 +609,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanGetProfileCustomUse
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanGetProfileList(void* hclienthandle, void* pinterfaceguid, void* preserved, void* ppprofilelist) {
+uint32_t windowssys_windows_win32_networkmanagement_wifi_wlanGetProfileList(void* hclienthandle, void* pinterfaceguid, void* preserved, void* ppprofilelist) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -634,7 +634,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanGetProfileList(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanGetSecuritySettings(void* hclienthandle, int32_t securableobject, void* pvaluetype, void* pstrcurrentsddl, void* pdwgrantedaccess) {
+uint32_t windowssys_windows_win32_networkmanagement_wifi_wlanGetSecuritySettings(void* hclienthandle, int32_t securableobject, void* pvaluetype, void* pstrcurrentsddl, void* pdwgrantedaccess) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -660,7 +660,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanGetSecuritySettings
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanGetSupportedDeviceServices(void* hclienthandle, void* pinterfaceguid, void* ppdevsvcguidlist) {
+uint32_t windowssys_windows_win32_networkmanagement_wifi_wlanGetSupportedDeviceServices(void* hclienthandle, void* pinterfaceguid, void* ppdevsvcguidlist) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -684,7 +684,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanGetSupportedDeviceS
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanHostedNetworkForceStart(void* hclienthandle, void* pfailreason, void* pvreserved) {
+uint32_t windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkForceStart(void* hclienthandle, void* pfailreason, void* pvreserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -708,7 +708,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanHostedNetworkForceS
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanHostedNetworkForceStop(void* hclienthandle, void* pfailreason, void* pvreserved) {
+uint32_t windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkForceStop(void* hclienthandle, void* pfailreason, void* pvreserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -732,7 +732,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanHostedNetworkForceS
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanHostedNetworkInitSettings(void* hclienthandle, void* pfailreason, void* pvreserved) {
+uint32_t windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkInitSettings(void* hclienthandle, void* pfailreason, void* pvreserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -756,7 +756,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanHostedNetworkInitSe
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanHostedNetworkQueryProperty(void* hclienthandle, int32_t opcode, void* pdwdatasize, void* ppvdata, void* pwlanopcodevaluetype, void* pvreserved) {
+uint32_t windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkQueryProperty(void* hclienthandle, int32_t opcode, void* pdwdatasize, void* ppvdata, void* pwlanopcodevaluetype, void* pvreserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -783,7 +783,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanHostedNetworkQueryP
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanHostedNetworkQuerySecondaryKey(void* hclienthandle, void* pdwkeylength, void* ppuckeydata, void* pbispassphrase, void* pbpersistent, void* pfailreason, void* pvreserved) {
+uint32_t windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkQuerySecondaryKey(void* hclienthandle, void* pdwkeylength, void* ppuckeydata, void* pbispassphrase, void* pbpersistent, void* pfailreason, void* pvreserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -811,7 +811,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanHostedNetworkQueryS
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanHostedNetworkQueryStatus(void* hclienthandle, void* ppwlanhostednetworkstatus, void* pvreserved) {
+uint32_t windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkQueryStatus(void* hclienthandle, void* ppwlanhostednetworkstatus, void* pvreserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -835,7 +835,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanHostedNetworkQueryS
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanHostedNetworkRefreshSecuritySettings(void* hclienthandle, void* pfailreason, void* pvreserved) {
+uint32_t windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkRefreshSecuritySettings(void* hclienthandle, void* pfailreason, void* pvreserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -859,7 +859,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanHostedNetworkRefres
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanHostedNetworkSetProperty(void* hclienthandle, int32_t opcode, uint32_t dwdatasize, void* pvdata, void* pfailreason, void* pvreserved) {
+uint32_t windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkSetProperty(void* hclienthandle, int32_t opcode, uint32_t dwdatasize, void* pvdata, void* pfailreason, void* pvreserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -886,7 +886,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanHostedNetworkSetPro
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanHostedNetworkSetSecondaryKey(void* hclienthandle, uint32_t dwkeylength, void* puckeydata, int32_t bispassphrase, int32_t bpersistent, void* pfailreason, void* pvreserved) {
+uint32_t windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkSetSecondaryKey(void* hclienthandle, uint32_t dwkeylength, void* puckeydata, int32_t bispassphrase, int32_t bpersistent, void* pfailreason, void* pvreserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, int32_t, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -914,7 +914,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanHostedNetworkSetSec
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanHostedNetworkStartUsing(void* hclienthandle, void* pfailreason, void* pvreserved) {
+uint32_t windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkStartUsing(void* hclienthandle, void* pfailreason, void* pvreserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -938,7 +938,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanHostedNetworkStartU
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanHostedNetworkStopUsing(void* hclienthandle, void* pfailreason, void* pvreserved) {
+uint32_t windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkStopUsing(void* hclienthandle, void* pfailreason, void* pvreserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -962,7 +962,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanHostedNetworkStopUs
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanIhvControl(void* hclienthandle, void* pinterfaceguid, int32_t type, uint32_t dwinbuffersize, void* pinbuffer, uint32_t dwoutbuffersize, void* poutbuffer, void* pdwbytesreturned) {
+uint32_t windowssys_windows_win32_networkmanagement_wifi_wlanIhvControl(void* hclienthandle, void* pinterfaceguid, int32_t type, uint32_t dwinbuffersize, void* pinbuffer, uint32_t dwoutbuffersize, void* poutbuffer, void* pdwbytesreturned) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -991,7 +991,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanIhvControl(void* hc
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanOpenHandle(uint32_t dwclientversion, void* preserved, void* pdwnegotiatedversion, void* phclienthandle) {
+uint32_t windowssys_windows_win32_networkmanagement_wifi_wlanOpenHandle(uint32_t dwclientversion, void* preserved, void* pdwnegotiatedversion, void* phclienthandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1016,7 +1016,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanOpenHandle(uint32_t
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanQueryAutoConfigParameter(void* hclienthandle, int32_t opcode, void* preserved, void* pdwdatasize, void* ppdata, void* pwlanopcodevaluetype) {
+uint32_t windowssys_windows_win32_networkmanagement_wifi_wlanQueryAutoConfigParameter(void* hclienthandle, int32_t opcode, void* preserved, void* pdwdatasize, void* ppdata, void* pwlanopcodevaluetype) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1043,7 +1043,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanQueryAutoConfigPara
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanQueryInterface(void* hclienthandle, void* pinterfaceguid, int32_t opcode, void* preserved, void* pdwdatasize, void* ppdata, void* pwlanopcodevaluetype) {
+uint32_t windowssys_windows_win32_networkmanagement_wifi_wlanQueryInterface(void* hclienthandle, void* pinterfaceguid, int32_t opcode, void* preserved, void* pdwdatasize, void* ppdata, void* pwlanopcodevaluetype) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1071,7 +1071,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanQueryInterface(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanReasonCodeToString(uint32_t dwreasoncode, uint32_t dwbuffersize, void* pstringbuffer, void* preserved) {
+uint32_t windowssys_windows_win32_networkmanagement_wifi_wlanReasonCodeToString(uint32_t dwreasoncode, uint32_t dwbuffersize, void* pstringbuffer, void* preserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1096,7 +1096,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanReasonCodeToString(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanRegisterDeviceServiceNotification(void* hclienthandle, void* pdevsvcguidlist) {
+uint32_t windowssys_windows_win32_networkmanagement_wifi_wlanRegisterDeviceServiceNotification(void* hclienthandle, void* pdevsvcguidlist) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1119,7 +1119,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanRegisterDeviceServi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanRegisterNotification(void* hclienthandle, uint32_t dwnotifsource, int32_t bignoreduplicate, void* funccallback, void* pcallbackcontext, void* preserved, void* pdwprevnotifsource) {
+uint32_t windowssys_windows_win32_networkmanagement_wifi_wlanRegisterNotification(void* hclienthandle, uint32_t dwnotifsource, int32_t bignoreduplicate, void* funccallback, void* pcallbackcontext, void* preserved, void* pdwprevnotifsource) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1147,7 +1147,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanRegisterNotificatio
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanRegisterVirtualStationNotification(void* hclienthandle, int32_t bregister, void* preserved) {
+uint32_t windowssys_windows_win32_networkmanagement_wifi_wlanRegisterVirtualStationNotification(void* hclienthandle, int32_t bregister, void* preserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1171,7 +1171,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanRegisterVirtualStat
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanRenameProfile(void* hclienthandle, void* pinterfaceguid, void* stroldprofilename, void* strnewprofilename, void* preserved) {
+uint32_t windowssys_windows_win32_networkmanagement_wifi_wlanRenameProfile(void* hclienthandle, void* pinterfaceguid, void* stroldprofilename, void* strnewprofilename, void* preserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1197,7 +1197,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanRenameProfile(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanSaveTemporaryProfile(void* hclienthandle, void* pinterfaceguid, void* strprofilename, void* stralluserprofilesecurity, uint32_t dwflags, int32_t boverwrite, void* preserved) {
+uint32_t windowssys_windows_win32_networkmanagement_wifi_wlanSaveTemporaryProfile(void* hclienthandle, void* pinterfaceguid, void* strprofilename, void* stralluserprofilesecurity, uint32_t dwflags, int32_t boverwrite, void* preserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1225,7 +1225,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanSaveTemporaryProfil
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanScan(void* hclienthandle, void* pinterfaceguid, void* pdot11ssid, void* piedata, void* preserved) {
+uint32_t windowssys_windows_win32_networkmanagement_wifi_wlanScan(void* hclienthandle, void* pinterfaceguid, void* pdot11ssid, void* piedata, void* preserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1251,7 +1251,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanScan(void* hclienth
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanSetAutoConfigParameter(void* hclienthandle, int32_t opcode, uint32_t dwdatasize, void* pdata, void* preserved) {
+uint32_t windowssys_windows_win32_networkmanagement_wifi_wlanSetAutoConfigParameter(void* hclienthandle, int32_t opcode, uint32_t dwdatasize, void* pdata, void* preserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1277,7 +1277,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanSetAutoConfigParame
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanSetFilterList(void* hclienthandle, int32_t wlanfilterlisttype, void* pnetworklist, void* preserved) {
+uint32_t windowssys_windows_win32_networkmanagement_wifi_wlanSetFilterList(void* hclienthandle, int32_t wlanfilterlisttype, void* pnetworklist, void* preserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1302,7 +1302,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanSetFilterList(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanSetInterface(void* hclienthandle, void* pinterfaceguid, int32_t opcode, uint32_t dwdatasize, void* pdata, void* preserved) {
+uint32_t windowssys_windows_win32_networkmanagement_wifi_wlanSetInterface(void* hclienthandle, void* pinterfaceguid, int32_t opcode, uint32_t dwdatasize, void* pdata, void* preserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1329,7 +1329,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanSetInterface(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanSetProfile(void* hclienthandle, void* pinterfaceguid, uint32_t dwflags, void* strprofilexml, void* stralluserprofilesecurity, int32_t boverwrite, void* preserved, void* pdwreasoncode) {
+uint32_t windowssys_windows_win32_networkmanagement_wifi_wlanSetProfile(void* hclienthandle, void* pinterfaceguid, uint32_t dwflags, void* strprofilexml, void* stralluserprofilesecurity, int32_t boverwrite, void* preserved, void* pdwreasoncode) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1358,7 +1358,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanSetProfile(void* hc
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanSetProfileCustomUserData(void* hclienthandle, void* pinterfaceguid, void* strprofilename, uint32_t dwdatasize, void* pdata, void* preserved) {
+uint32_t windowssys_windows_win32_networkmanagement_wifi_wlanSetProfileCustomUserData(void* hclienthandle, void* pinterfaceguid, void* strprofilename, uint32_t dwdatasize, void* pdata, void* preserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1385,7 +1385,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanSetProfileCustomUse
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanSetProfileEapXmlUserData(void* hclienthandle, void* pinterfaceguid, void* strprofilename, uint32_t dwflags, void* streapxmluserdata, void* preserved) {
+uint32_t windowssys_windows_win32_networkmanagement_wifi_wlanSetProfileEapXmlUserData(void* hclienthandle, void* pinterfaceguid, void* strprofilename, uint32_t dwflags, void* streapxmluserdata, void* preserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1412,7 +1412,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanSetProfileEapXmlUse
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanSetProfileList(void* hclienthandle, void* pinterfaceguid, uint32_t dwitems, void* strprofilenames, void* preserved) {
+uint32_t windowssys_windows_win32_networkmanagement_wifi_wlanSetProfileList(void* hclienthandle, void* pinterfaceguid, uint32_t dwitems, void* strprofilenames, void* preserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1438,7 +1438,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanSetProfileList(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanSetProfilePosition(void* hclienthandle, void* pinterfaceguid, void* strprofilename, uint32_t dwposition, void* preserved) {
+uint32_t windowssys_windows_win32_networkmanagement_wifi_wlanSetProfilePosition(void* hclienthandle, void* pinterfaceguid, void* strprofilename, uint32_t dwposition, void* preserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1464,7 +1464,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanSetProfilePosition(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanSetPsdIEDataList(void* hclienthandle, void* strformat, void* ppsdiedatalist, void* preserved) {
+uint32_t windowssys_windows_win32_networkmanagement_wifi_wlanSetPsdIEDataList(void* hclienthandle, void* strformat, void* ppsdiedatalist, void* preserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1489,7 +1489,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanSetPsdIEDataList(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanSetSecuritySettings(void* hclienthandle, int32_t securableobject, void* strmodifiedsddl) {
+uint32_t windowssys_windows_win32_networkmanagement_wifi_wlanSetSecuritySettings(void* hclienthandle, int32_t securableobject, void* strmodifiedsddl) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1513,7 +1513,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanSetSecuritySettings
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wifi_WlanUIEditProfile(uint32_t dwclientversion, void* wstrprofilename, void* pinterfaceguid, void* hwnd, int32_t wlstartpage, void* preserved, void* pwlanreasoncode) {
+uint32_t windowssys_windows_win32_networkmanagement_wifi_wlanUIEditProfile(uint32_t dwclientversion, void* wstrprofilename, void* pinterfaceguid, void* hwnd, int32_t wlstartpage, void* preserved, void* pwlanreasoncode) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;

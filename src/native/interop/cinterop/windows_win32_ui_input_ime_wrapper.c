@@ -15,7 +15,7 @@
 #endif
 #endif
 
-void* windowssys_windows_win32_ui_input_ime_ImmAssociateContext(void* param0, void* param1) {
+void* windowssys_windows_win32_ui_input_ime_immAssociateContext(void* param0, void* param1) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -38,7 +38,7 @@ void* windowssys_windows_win32_ui_input_ime_ImmAssociateContext(void* param0, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_ime_ImmAssociateContextEx(void* param0, void* param1, uint32_t param2) {
+int32_t windowssys_windows_win32_ui_input_ime_immAssociateContextEx(void* param0, void* param1, uint32_t param2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -62,7 +62,7 @@ int32_t windowssys_windows_win32_ui_input_ime_ImmAssociateContextEx(void* param0
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_ime_ImmConfigureIMEA(void* param0, void* param1, uint32_t param2, void* param3) {
+int32_t windowssys_windows_win32_ui_input_ime_immConfigureIMEA(void* param0, void* param1, uint32_t param2, void* param3) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -87,7 +87,7 @@ int32_t windowssys_windows_win32_ui_input_ime_ImmConfigureIMEA(void* param0, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_ime_ImmConfigureIMEW(void* param0, void* param1, uint32_t param2, void* param3) {
+int32_t windowssys_windows_win32_ui_input_ime_immConfigureIMEW(void* param0, void* param1, uint32_t param2, void* param3) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -112,7 +112,7 @@ int32_t windowssys_windows_win32_ui_input_ime_ImmConfigureIMEW(void* param0, voi
 #endif
 }
 
-void* windowssys_windows_win32_ui_input_ime_ImmCreateContext(void) {
+void* windowssys_windows_win32_ui_input_ime_immCreateContext(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -133,7 +133,7 @@ void* windowssys_windows_win32_ui_input_ime_ImmCreateContext(void) {
 #endif
 }
 
-void* windowssys_windows_win32_ui_input_ime_ImmCreateIMCC(uint32_t param0) {
+void* windowssys_windows_win32_ui_input_ime_immCreateIMCC(uint32_t param0) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -155,7 +155,7 @@ void* windowssys_windows_win32_ui_input_ime_ImmCreateIMCC(uint32_t param0) {
 #endif
 }
 
-void* windowssys_windows_win32_ui_input_ime_ImmCreateSoftKeyboard(uint32_t param0, void* param1, int32_t param2, int32_t param3) {
+void* windowssys_windows_win32_ui_input_ime_immCreateSoftKeyboard(uint32_t param0, void* param1, int32_t param2, int32_t param3) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t, void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -180,7 +180,7 @@ void* windowssys_windows_win32_ui_input_ime_ImmCreateSoftKeyboard(uint32_t param
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_ime_ImmDestroyContext(void* param0) {
+int32_t windowssys_windows_win32_ui_input_ime_immDestroyContext(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -202,7 +202,7 @@ int32_t windowssys_windows_win32_ui_input_ime_ImmDestroyContext(void* param0) {
 #endif
 }
 
-void* windowssys_windows_win32_ui_input_ime_ImmDestroyIMCC(void* param0) {
+void* windowssys_windows_win32_ui_input_ime_immDestroyIMCC(void* param0) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -224,7 +224,7 @@ void* windowssys_windows_win32_ui_input_ime_ImmDestroyIMCC(void* param0) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_ime_ImmDestroySoftKeyboard(void* param0) {
+int32_t windowssys_windows_win32_ui_input_ime_immDestroySoftKeyboard(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -246,7 +246,7 @@ int32_t windowssys_windows_win32_ui_input_ime_ImmDestroySoftKeyboard(void* param
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_ime_ImmDisableIME(uint32_t param0) {
+int32_t windowssys_windows_win32_ui_input_ime_immDisableIME(uint32_t param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -268,7 +268,7 @@ int32_t windowssys_windows_win32_ui_input_ime_ImmDisableIME(uint32_t param0) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_ime_ImmDisableLegacyIME(void) {
+int32_t windowssys_windows_win32_ui_input_ime_immDisableLegacyIME(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -289,7 +289,7 @@ int32_t windowssys_windows_win32_ui_input_ime_ImmDisableLegacyIME(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_ime_ImmDisableTextFrameService(uint32_t idthread) {
+int32_t windowssys_windows_win32_ui_input_ime_immDisableTextFrameService(uint32_t idthread) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -311,7 +311,7 @@ int32_t windowssys_windows_win32_ui_input_ime_ImmDisableTextFrameService(uint32_
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_ime_ImmEnumInputContext(uint32_t idthread, void* lpfn, int64_t lparam) {
+int32_t windowssys_windows_win32_ui_input_ime_immEnumInputContext(uint32_t idthread, void* lpfn, int64_t lparam) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -335,7 +335,7 @@ int32_t windowssys_windows_win32_ui_input_ime_ImmEnumInputContext(uint32_t idthr
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_input_ime_ImmEnumRegisterWordA(void* param0, void* param1, void* lpszreading, uint32_t param3, void* lpszregister, void* param5) {
+uint32_t windowssys_windows_win32_ui_input_ime_immEnumRegisterWordA(void* param0, void* param1, void* lpszreading, uint32_t param3, void* lpszregister, void* param5) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -362,7 +362,7 @@ uint32_t windowssys_windows_win32_ui_input_ime_ImmEnumRegisterWordA(void* param0
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_input_ime_ImmEnumRegisterWordW(void* param0, void* param1, void* lpszreading, uint32_t param3, void* lpszregister, void* param5) {
+uint32_t windowssys_windows_win32_ui_input_ime_immEnumRegisterWordW(void* param0, void* param1, void* lpszreading, uint32_t param3, void* lpszregister, void* param5) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -389,7 +389,7 @@ uint32_t windowssys_windows_win32_ui_input_ime_ImmEnumRegisterWordW(void* param0
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_input_ime_ImmEscapeA(void* param0, void* param1, uint32_t param2, void* param3) {
+int64_t windowssys_windows_win32_ui_input_ime_immEscapeA(void* param0, void* param1, uint32_t param2, void* param3) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -414,7 +414,7 @@ int64_t windowssys_windows_win32_ui_input_ime_ImmEscapeA(void* param0, void* par
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_input_ime_ImmEscapeW(void* param0, void* param1, uint32_t param2, void* param3) {
+int64_t windowssys_windows_win32_ui_input_ime_immEscapeW(void* param0, void* param1, uint32_t param2, void* param3) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -439,7 +439,7 @@ int64_t windowssys_windows_win32_ui_input_ime_ImmEscapeW(void* param0, void* par
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_ime_ImmGenerateMessage(void* param0) {
+int32_t windowssys_windows_win32_ui_input_ime_immGenerateMessage(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -461,7 +461,7 @@ int32_t windowssys_windows_win32_ui_input_ime_ImmGenerateMessage(void* param0) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_input_ime_ImmGetCandidateListA(void* param0, uint32_t deindex, void* lpcandlist, uint32_t dwbuflen) {
+uint32_t windowssys_windows_win32_ui_input_ime_immGetCandidateListA(void* param0, uint32_t deindex, void* lpcandlist, uint32_t dwbuflen) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -486,7 +486,7 @@ uint32_t windowssys_windows_win32_ui_input_ime_ImmGetCandidateListA(void* param0
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_input_ime_ImmGetCandidateListCountA(void* param0, void* lpdwlistcount) {
+uint32_t windowssys_windows_win32_ui_input_ime_immGetCandidateListCountA(void* param0, void* lpdwlistcount) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -509,7 +509,7 @@ uint32_t windowssys_windows_win32_ui_input_ime_ImmGetCandidateListCountA(void* p
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_input_ime_ImmGetCandidateListCountW(void* param0, void* lpdwlistcount) {
+uint32_t windowssys_windows_win32_ui_input_ime_immGetCandidateListCountW(void* param0, void* lpdwlistcount) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -532,7 +532,7 @@ uint32_t windowssys_windows_win32_ui_input_ime_ImmGetCandidateListCountW(void* p
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_input_ime_ImmGetCandidateListW(void* param0, uint32_t deindex, void* lpcandlist, uint32_t dwbuflen) {
+uint32_t windowssys_windows_win32_ui_input_ime_immGetCandidateListW(void* param0, uint32_t deindex, void* lpcandlist, uint32_t dwbuflen) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -557,7 +557,7 @@ uint32_t windowssys_windows_win32_ui_input_ime_ImmGetCandidateListW(void* param0
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_ime_ImmGetCandidateWindow(void* param0, uint32_t param1, void* lpcandidate) {
+int32_t windowssys_windows_win32_ui_input_ime_immGetCandidateWindow(void* param0, uint32_t param1, void* lpcandidate) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -581,7 +581,7 @@ int32_t windowssys_windows_win32_ui_input_ime_ImmGetCandidateWindow(void* param0
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_ime_ImmGetCompositionFontA(void* param0, void* lplf) {
+int32_t windowssys_windows_win32_ui_input_ime_immGetCompositionFontA(void* param0, void* lplf) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -604,7 +604,7 @@ int32_t windowssys_windows_win32_ui_input_ime_ImmGetCompositionFontA(void* param
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_ime_ImmGetCompositionFontW(void* param0, void* lplf) {
+int32_t windowssys_windows_win32_ui_input_ime_immGetCompositionFontW(void* param0, void* lplf) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -627,7 +627,7 @@ int32_t windowssys_windows_win32_ui_input_ime_ImmGetCompositionFontW(void* param
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_ime_ImmGetCompositionStringA(void* param0, uint32_t param1, void* lpbuf, uint32_t dwbuflen) {
+int32_t windowssys_windows_win32_ui_input_ime_immGetCompositionStringA(void* param0, uint32_t param1, void* lpbuf, uint32_t dwbuflen) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -652,7 +652,7 @@ int32_t windowssys_windows_win32_ui_input_ime_ImmGetCompositionStringA(void* par
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_ime_ImmGetCompositionStringW(void* param0, uint32_t param1, void* lpbuf, uint32_t dwbuflen) {
+int32_t windowssys_windows_win32_ui_input_ime_immGetCompositionStringW(void* param0, uint32_t param1, void* lpbuf, uint32_t dwbuflen) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -677,7 +677,7 @@ int32_t windowssys_windows_win32_ui_input_ime_ImmGetCompositionStringW(void* par
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_ime_ImmGetCompositionWindow(void* param0, void* lpcompform) {
+int32_t windowssys_windows_win32_ui_input_ime_immGetCompositionWindow(void* param0, void* lpcompform) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -700,7 +700,7 @@ int32_t windowssys_windows_win32_ui_input_ime_ImmGetCompositionWindow(void* para
 #endif
 }
 
-void* windowssys_windows_win32_ui_input_ime_ImmGetContext(void* param0) {
+void* windowssys_windows_win32_ui_input_ime_immGetContext(void* param0) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -722,7 +722,7 @@ void* windowssys_windows_win32_ui_input_ime_ImmGetContext(void* param0) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_input_ime_ImmGetConversionListA(void* param0, void* param1, void* lpsrc, void* lpdst, uint32_t dwbuflen, uint32_t uflag) {
+uint32_t windowssys_windows_win32_ui_input_ime_immGetConversionListA(void* param0, void* param1, void* lpsrc, void* lpdst, uint32_t dwbuflen, uint32_t uflag) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -749,7 +749,7 @@ uint32_t windowssys_windows_win32_ui_input_ime_ImmGetConversionListA(void* param
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_input_ime_ImmGetConversionListW(void* param0, void* param1, void* lpsrc, void* lpdst, uint32_t dwbuflen, uint32_t uflag) {
+uint32_t windowssys_windows_win32_ui_input_ime_immGetConversionListW(void* param0, void* param1, void* lpsrc, void* lpdst, uint32_t dwbuflen, uint32_t uflag) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -776,7 +776,7 @@ uint32_t windowssys_windows_win32_ui_input_ime_ImmGetConversionListW(void* param
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_ime_ImmGetConversionStatus(void* param0, void* lpfdwconversion, void* lpfdwsentence) {
+int32_t windowssys_windows_win32_ui_input_ime_immGetConversionStatus(void* param0, void* lpfdwconversion, void* lpfdwsentence) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -800,7 +800,7 @@ int32_t windowssys_windows_win32_ui_input_ime_ImmGetConversionStatus(void* param
 #endif
 }
 
-void* windowssys_windows_win32_ui_input_ime_ImmGetDefaultIMEWnd(void* param0) {
+void* windowssys_windows_win32_ui_input_ime_immGetDefaultIMEWnd(void* param0) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -822,7 +822,7 @@ void* windowssys_windows_win32_ui_input_ime_ImmGetDefaultIMEWnd(void* param0) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_input_ime_ImmGetDescriptionA(void* param0, void* lpszdescription, uint32_t ubuflen) {
+uint32_t windowssys_windows_win32_ui_input_ime_immGetDescriptionA(void* param0, void* lpszdescription, uint32_t ubuflen) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -846,7 +846,7 @@ uint32_t windowssys_windows_win32_ui_input_ime_ImmGetDescriptionA(void* param0, 
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_input_ime_ImmGetDescriptionW(void* param0, void* lpszdescription, uint32_t ubuflen) {
+uint32_t windowssys_windows_win32_ui_input_ime_immGetDescriptionW(void* param0, void* lpszdescription, uint32_t ubuflen) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -870,7 +870,7 @@ uint32_t windowssys_windows_win32_ui_input_ime_ImmGetDescriptionW(void* param0, 
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_input_ime_ImmGetGuideLineA(void* param0, uint32_t dwindex, void* lpbuf, uint32_t dwbuflen) {
+uint32_t windowssys_windows_win32_ui_input_ime_immGetGuideLineA(void* param0, uint32_t dwindex, void* lpbuf, uint32_t dwbuflen) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -895,7 +895,7 @@ uint32_t windowssys_windows_win32_ui_input_ime_ImmGetGuideLineA(void* param0, ui
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_input_ime_ImmGetGuideLineW(void* param0, uint32_t dwindex, void* lpbuf, uint32_t dwbuflen) {
+uint32_t windowssys_windows_win32_ui_input_ime_immGetGuideLineW(void* param0, uint32_t dwindex, void* lpbuf, uint32_t dwbuflen) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -920,7 +920,7 @@ uint32_t windowssys_windows_win32_ui_input_ime_ImmGetGuideLineW(void* param0, ui
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_ime_ImmGetHotKey(uint32_t param0, void* lpumodifiers, void* lpuvkey, void* phkl) {
+int32_t windowssys_windows_win32_ui_input_ime_immGetHotKey(uint32_t param0, void* lpumodifiers, void* lpuvkey, void* phkl) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -945,7 +945,7 @@ int32_t windowssys_windows_win32_ui_input_ime_ImmGetHotKey(uint32_t param0, void
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_input_ime_ImmGetIMCCLockCount(void* param0) {
+uint32_t windowssys_windows_win32_ui_input_ime_immGetIMCCLockCount(void* param0) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -967,7 +967,7 @@ uint32_t windowssys_windows_win32_ui_input_ime_ImmGetIMCCLockCount(void* param0)
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_input_ime_ImmGetIMCCSize(void* param0) {
+uint32_t windowssys_windows_win32_ui_input_ime_immGetIMCCSize(void* param0) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -989,7 +989,7 @@ uint32_t windowssys_windows_win32_ui_input_ime_ImmGetIMCCSize(void* param0) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_input_ime_ImmGetIMCLockCount(void* param0) {
+uint32_t windowssys_windows_win32_ui_input_ime_immGetIMCLockCount(void* param0) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1011,7 +1011,7 @@ uint32_t windowssys_windows_win32_ui_input_ime_ImmGetIMCLockCount(void* param0) 
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_input_ime_ImmGetIMEFileNameA(void* param0, void* lpszfilename, uint32_t ubuflen) {
+uint32_t windowssys_windows_win32_ui_input_ime_immGetIMEFileNameA(void* param0, void* lpszfilename, uint32_t ubuflen) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1035,7 +1035,7 @@ uint32_t windowssys_windows_win32_ui_input_ime_ImmGetIMEFileNameA(void* param0, 
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_input_ime_ImmGetIMEFileNameW(void* param0, void* lpszfilename, uint32_t ubuflen) {
+uint32_t windowssys_windows_win32_ui_input_ime_immGetIMEFileNameW(void* param0, void* lpszfilename, uint32_t ubuflen) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1059,7 +1059,7 @@ uint32_t windowssys_windows_win32_ui_input_ime_ImmGetIMEFileNameW(void* param0, 
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_input_ime_ImmGetImeMenuItemsA(void* param0, uint32_t param1, uint32_t param2, void* lpimeparentmenu, void* lpimemenu, uint32_t dwsize) {
+uint32_t windowssys_windows_win32_ui_input_ime_immGetImeMenuItemsA(void* param0, uint32_t param1, uint32_t param2, void* lpimeparentmenu, void* lpimemenu, uint32_t dwsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1086,7 +1086,7 @@ uint32_t windowssys_windows_win32_ui_input_ime_ImmGetImeMenuItemsA(void* param0,
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_input_ime_ImmGetImeMenuItemsW(void* param0, uint32_t param1, uint32_t param2, void* lpimeparentmenu, void* lpimemenu, uint32_t dwsize) {
+uint32_t windowssys_windows_win32_ui_input_ime_immGetImeMenuItemsW(void* param0, uint32_t param1, uint32_t param2, void* lpimeparentmenu, void* lpimemenu, uint32_t dwsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1113,7 +1113,7 @@ uint32_t windowssys_windows_win32_ui_input_ime_ImmGetImeMenuItemsW(void* param0,
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_ime_ImmGetOpenStatus(void* param0) {
+int32_t windowssys_windows_win32_ui_input_ime_immGetOpenStatus(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1135,7 +1135,7 @@ int32_t windowssys_windows_win32_ui_input_ime_ImmGetOpenStatus(void* param0) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_input_ime_ImmGetProperty(void* param0, uint32_t param1) {
+uint32_t windowssys_windows_win32_ui_input_ime_immGetProperty(void* param0, uint32_t param1) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1158,7 +1158,7 @@ uint32_t windowssys_windows_win32_ui_input_ime_ImmGetProperty(void* param0, uint
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_input_ime_ImmGetRegisterWordStyleA(void* param0, uint32_t nitem, void* lpstylebuf) {
+uint32_t windowssys_windows_win32_ui_input_ime_immGetRegisterWordStyleA(void* param0, uint32_t nitem, void* lpstylebuf) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1182,7 +1182,7 @@ uint32_t windowssys_windows_win32_ui_input_ime_ImmGetRegisterWordStyleA(void* pa
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_input_ime_ImmGetRegisterWordStyleW(void* param0, uint32_t nitem, void* lpstylebuf) {
+uint32_t windowssys_windows_win32_ui_input_ime_immGetRegisterWordStyleW(void* param0, uint32_t nitem, void* lpstylebuf) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1206,7 +1206,7 @@ uint32_t windowssys_windows_win32_ui_input_ime_ImmGetRegisterWordStyleW(void* pa
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_ime_ImmGetStatusWindowPos(void* param0, void* lpptpos) {
+int32_t windowssys_windows_win32_ui_input_ime_immGetStatusWindowPos(void* param0, void* lpptpos) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1229,7 +1229,7 @@ int32_t windowssys_windows_win32_ui_input_ime_ImmGetStatusWindowPos(void* param0
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_input_ime_ImmGetVirtualKey(void* param0) {
+uint32_t windowssys_windows_win32_ui_input_ime_immGetVirtualKey(void* param0) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1251,7 +1251,7 @@ uint32_t windowssys_windows_win32_ui_input_ime_ImmGetVirtualKey(void* param0) {
 #endif
 }
 
-void* windowssys_windows_win32_ui_input_ime_ImmInstallIMEA(void* lpszimefilename, void* lpszlayouttext) {
+void* windowssys_windows_win32_ui_input_ime_immInstallIMEA(void* lpszimefilename, void* lpszlayouttext) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1274,7 +1274,7 @@ void* windowssys_windows_win32_ui_input_ime_ImmInstallIMEA(void* lpszimefilename
 #endif
 }
 
-void* windowssys_windows_win32_ui_input_ime_ImmInstallIMEW(void* lpszimefilename, void* lpszlayouttext) {
+void* windowssys_windows_win32_ui_input_ime_immInstallIMEW(void* lpszimefilename, void* lpszlayouttext) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1297,7 +1297,7 @@ void* windowssys_windows_win32_ui_input_ime_ImmInstallIMEW(void* lpszimefilename
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_ime_ImmIsIME(void* param0) {
+int32_t windowssys_windows_win32_ui_input_ime_immIsIME(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1319,7 +1319,7 @@ int32_t windowssys_windows_win32_ui_input_ime_ImmIsIME(void* param0) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_ime_ImmIsUIMessageA(void* param0, uint32_t param1, uint64_t param2, int64_t param3) {
+int32_t windowssys_windows_win32_ui_input_ime_immIsUIMessageA(void* param0, uint32_t param1, uint64_t param2, int64_t param3) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1344,7 +1344,7 @@ int32_t windowssys_windows_win32_ui_input_ime_ImmIsUIMessageA(void* param0, uint
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_ime_ImmIsUIMessageW(void* param0, uint32_t param1, uint64_t param2, int64_t param3) {
+int32_t windowssys_windows_win32_ui_input_ime_immIsUIMessageW(void* param0, uint32_t param1, uint64_t param2, int64_t param3) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1369,7 +1369,7 @@ int32_t windowssys_windows_win32_ui_input_ime_ImmIsUIMessageW(void* param0, uint
 #endif
 }
 
-void* windowssys_windows_win32_ui_input_ime_ImmLockIMC(void* param0) {
+void* windowssys_windows_win32_ui_input_ime_immLockIMC(void* param0) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1391,7 +1391,7 @@ void* windowssys_windows_win32_ui_input_ime_ImmLockIMC(void* param0) {
 #endif
 }
 
-void* windowssys_windows_win32_ui_input_ime_ImmLockIMCC(void* param0) {
+void* windowssys_windows_win32_ui_input_ime_immLockIMCC(void* param0) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1413,7 +1413,7 @@ void* windowssys_windows_win32_ui_input_ime_ImmLockIMCC(void* param0) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_ime_ImmNotifyIME(void* param0, uint32_t dwaction, uint32_t dwindex, uint32_t dwvalue) {
+int32_t windowssys_windows_win32_ui_input_ime_immNotifyIME(void* param0, uint32_t dwaction, uint32_t dwindex, uint32_t dwvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1438,7 +1438,7 @@ int32_t windowssys_windows_win32_ui_input_ime_ImmNotifyIME(void* param0, uint32_
 #endif
 }
 
-void* windowssys_windows_win32_ui_input_ime_ImmReSizeIMCC(void* param0, uint32_t param1) {
+void* windowssys_windows_win32_ui_input_ime_immReSizeIMCC(void* param0, uint32_t param1) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1461,7 +1461,7 @@ void* windowssys_windows_win32_ui_input_ime_ImmReSizeIMCC(void* param0, uint32_t
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_ime_ImmRegisterWordA(void* param0, void* lpszreading, uint32_t param2, void* lpszregister) {
+int32_t windowssys_windows_win32_ui_input_ime_immRegisterWordA(void* param0, void* lpszreading, uint32_t param2, void* lpszregister) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1486,7 +1486,7 @@ int32_t windowssys_windows_win32_ui_input_ime_ImmRegisterWordA(void* param0, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_ime_ImmRegisterWordW(void* param0, void* lpszreading, uint32_t param2, void* lpszregister) {
+int32_t windowssys_windows_win32_ui_input_ime_immRegisterWordW(void* param0, void* lpszreading, uint32_t param2, void* lpszregister) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1511,7 +1511,7 @@ int32_t windowssys_windows_win32_ui_input_ime_ImmRegisterWordW(void* param0, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_ime_ImmReleaseContext(void* param0, void* param1) {
+int32_t windowssys_windows_win32_ui_input_ime_immReleaseContext(void* param0, void* param1) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1534,7 +1534,7 @@ int32_t windowssys_windows_win32_ui_input_ime_ImmReleaseContext(void* param0, vo
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_input_ime_ImmRequestMessageA(void* param0, uint64_t param1, int64_t param2) {
+int64_t windowssys_windows_win32_ui_input_ime_immRequestMessageA(void* param0, uint64_t param1, int64_t param2) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, uint64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1558,7 +1558,7 @@ int64_t windowssys_windows_win32_ui_input_ime_ImmRequestMessageA(void* param0, u
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_input_ime_ImmRequestMessageW(void* param0, uint64_t param1, int64_t param2) {
+int64_t windowssys_windows_win32_ui_input_ime_immRequestMessageW(void* param0, uint64_t param1, int64_t param2) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, uint64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1582,7 +1582,7 @@ int64_t windowssys_windows_win32_ui_input_ime_ImmRequestMessageW(void* param0, u
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_ime_ImmSetCandidateWindow(void* param0, void* lpcandidate) {
+int32_t windowssys_windows_win32_ui_input_ime_immSetCandidateWindow(void* param0, void* lpcandidate) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1605,7 +1605,7 @@ int32_t windowssys_windows_win32_ui_input_ime_ImmSetCandidateWindow(void* param0
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_ime_ImmSetCompositionFontA(void* param0, void* lplf) {
+int32_t windowssys_windows_win32_ui_input_ime_immSetCompositionFontA(void* param0, void* lplf) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1628,7 +1628,7 @@ int32_t windowssys_windows_win32_ui_input_ime_ImmSetCompositionFontA(void* param
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_ime_ImmSetCompositionFontW(void* param0, void* lplf) {
+int32_t windowssys_windows_win32_ui_input_ime_immSetCompositionFontW(void* param0, void* lplf) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1651,7 +1651,7 @@ int32_t windowssys_windows_win32_ui_input_ime_ImmSetCompositionFontW(void* param
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_ime_ImmSetCompositionStringA(void* param0, uint32_t dwindex, void* lpcomp, uint32_t dwcomplen, void* lpread, uint32_t dwreadlen) {
+int32_t windowssys_windows_win32_ui_input_ime_immSetCompositionStringA(void* param0, uint32_t dwindex, void* lpcomp, uint32_t dwcomplen, void* lpread, uint32_t dwreadlen) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1678,7 +1678,7 @@ int32_t windowssys_windows_win32_ui_input_ime_ImmSetCompositionStringA(void* par
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_ime_ImmSetCompositionStringW(void* param0, uint32_t dwindex, void* lpcomp, uint32_t dwcomplen, void* lpread, uint32_t dwreadlen) {
+int32_t windowssys_windows_win32_ui_input_ime_immSetCompositionStringW(void* param0, uint32_t dwindex, void* lpcomp, uint32_t dwcomplen, void* lpread, uint32_t dwreadlen) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1705,7 +1705,7 @@ int32_t windowssys_windows_win32_ui_input_ime_ImmSetCompositionStringW(void* par
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_ime_ImmSetCompositionWindow(void* param0, void* lpcompform) {
+int32_t windowssys_windows_win32_ui_input_ime_immSetCompositionWindow(void* param0, void* lpcompform) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1728,7 +1728,7 @@ int32_t windowssys_windows_win32_ui_input_ime_ImmSetCompositionWindow(void* para
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_ime_ImmSetConversionStatus(void* param0, uint32_t param1, uint32_t param2) {
+int32_t windowssys_windows_win32_ui_input_ime_immSetConversionStatus(void* param0, uint32_t param1, uint32_t param2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1752,7 +1752,7 @@ int32_t windowssys_windows_win32_ui_input_ime_ImmSetConversionStatus(void* param
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_ime_ImmSetHotKey(uint32_t param0, uint32_t param1, uint32_t param2, void* param3) {
+int32_t windowssys_windows_win32_ui_input_ime_immSetHotKey(uint32_t param0, uint32_t param1, uint32_t param2, void* param3) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1777,7 +1777,7 @@ int32_t windowssys_windows_win32_ui_input_ime_ImmSetHotKey(uint32_t param0, uint
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_ime_ImmSetOpenStatus(void* param0, int32_t param1) {
+int32_t windowssys_windows_win32_ui_input_ime_immSetOpenStatus(void* param0, int32_t param1) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1800,7 +1800,7 @@ int32_t windowssys_windows_win32_ui_input_ime_ImmSetOpenStatus(void* param0, int
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_ime_ImmSetStatusWindowPos(void* param0, void* lpptpos) {
+int32_t windowssys_windows_win32_ui_input_ime_immSetStatusWindowPos(void* param0, void* lpptpos) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1823,7 +1823,7 @@ int32_t windowssys_windows_win32_ui_input_ime_ImmSetStatusWindowPos(void* param0
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_ime_ImmShowSoftKeyboard(void* param0, int32_t param1) {
+int32_t windowssys_windows_win32_ui_input_ime_immShowSoftKeyboard(void* param0, int32_t param1) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1846,7 +1846,7 @@ int32_t windowssys_windows_win32_ui_input_ime_ImmShowSoftKeyboard(void* param0, 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_ime_ImmSimulateHotKey(void* param0, uint32_t param1) {
+int32_t windowssys_windows_win32_ui_input_ime_immSimulateHotKey(void* param0, uint32_t param1) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1869,7 +1869,7 @@ int32_t windowssys_windows_win32_ui_input_ime_ImmSimulateHotKey(void* param0, ui
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_ime_ImmUnlockIMC(void* param0) {
+int32_t windowssys_windows_win32_ui_input_ime_immUnlockIMC(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1891,7 +1891,7 @@ int32_t windowssys_windows_win32_ui_input_ime_ImmUnlockIMC(void* param0) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_ime_ImmUnlockIMCC(void* param0) {
+int32_t windowssys_windows_win32_ui_input_ime_immUnlockIMCC(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1913,7 +1913,7 @@ int32_t windowssys_windows_win32_ui_input_ime_ImmUnlockIMCC(void* param0) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_ime_ImmUnregisterWordA(void* param0, void* lpszreading, uint32_t param2, void* lpszunregister) {
+int32_t windowssys_windows_win32_ui_input_ime_immUnregisterWordA(void* param0, void* lpszreading, uint32_t param2, void* lpszunregister) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1938,7 +1938,7 @@ int32_t windowssys_windows_win32_ui_input_ime_ImmUnregisterWordA(void* param0, v
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_ime_ImmUnregisterWordW(void* param0, void* lpszreading, uint32_t param2, void* lpszunregister) {
+int32_t windowssys_windows_win32_ui_input_ime_immUnregisterWordW(void* param0, void* lpszreading, uint32_t param2, void* lpszunregister) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;

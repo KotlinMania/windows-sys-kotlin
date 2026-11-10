@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_media_kernelstreaming_KsCreateAllocator_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_kernelstreaming_ksCreateAllocator_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* connectionhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* allocatorframing = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -73,7 +73,7 @@ static Napi::Value windowssys_windows_win32_media_kernelstreaming_KsCreateAlloca
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_kernelstreaming_KsCreateAllocator2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_kernelstreaming_ksCreateAllocator2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* connectionhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* allocatorframing = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -95,7 +95,7 @@ static Napi::Value windowssys_windows_win32_media_kernelstreaming_KsCreateAlloca
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_kernelstreaming_KsCreateClock_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_kernelstreaming_ksCreateClock_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* connectionhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* clockcreate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -117,7 +117,7 @@ static Napi::Value windowssys_windows_win32_media_kernelstreaming_KsCreateClock_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_kernelstreaming_KsCreateClock2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_kernelstreaming_ksCreateClock2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* connectionhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* clockcreate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -139,7 +139,7 @@ static Napi::Value windowssys_windows_win32_media_kernelstreaming_KsCreateClock2
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_kernelstreaming_KsCreatePin_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_kernelstreaming_ksCreatePin_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filterhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* arg_1_connect = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -163,7 +163,7 @@ static Napi::Value windowssys_windows_win32_media_kernelstreaming_KsCreatePin_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_kernelstreaming_KsCreatePin2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_kernelstreaming_ksCreatePin2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filterhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* arg_1_connect = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -187,7 +187,7 @@ static Napi::Value windowssys_windows_win32_media_kernelstreaming_KsCreatePin2_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_kernelstreaming_KsCreateTopologyNode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_kernelstreaming_ksCreateTopologyNode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* parenthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* nodecreate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -211,7 +211,7 @@ static Napi::Value windowssys_windows_win32_media_kernelstreaming_KsCreateTopolo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_kernelstreaming_KsCreateTopologyNode2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_kernelstreaming_ksCreateTopologyNode2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* parenthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* nodecreate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -235,7 +235,7 @@ static Napi::Value windowssys_windows_win32_media_kernelstreaming_KsCreateTopolo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_kernelstreaming_KsGetMediaTypeCount_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_kernelstreaming_ksGetMediaTypeCount_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filterhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t pinfactoryid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -257,7 +257,7 @@ static Napi::Value windowssys_windows_win32_media_kernelstreaming_KsGetMediaType
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_kernelstreaming_KsGetMultiplePinFactoryItems_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_kernelstreaming_ksGetMultiplePinFactoryItems_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filterhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t pinfactoryid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -281,7 +281,7 @@ static Napi::Value windowssys_windows_win32_media_kernelstreaming_KsGetMultipleP
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_kernelstreaming_KsOpenDefaultDevice_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_kernelstreaming_ksOpenDefaultDevice_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* category = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t access = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -303,7 +303,7 @@ static Napi::Value windowssys_windows_win32_media_kernelstreaming_KsOpenDefaultD
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_kernelstreaming_KsResolveRequiredAttributes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_kernelstreaming_ksResolveRequiredAttributes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* datarange = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* attributes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -323,7 +323,7 @@ static Napi::Value windowssys_windows_win32_media_kernelstreaming_KsResolveRequi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_kernelstreaming_KsSynchronousDeviceControl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_kernelstreaming_ksSynchronousDeviceControl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* handle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t iocontrol = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -354,19 +354,19 @@ static Napi::Value windowssys_windows_win32_media_kernelstreaming_KsSynchronousD
 }
 
 static void register_windows_win32_media_kernelstreaming_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_media_kernelstreaming_KsCreateAllocator", Napi::Function::New(env, windowssys_windows_win32_media_kernelstreaming_KsCreateAllocator_napi));
-    exports.Set("windowssys_windows_win32_media_kernelstreaming_KsCreateAllocator2", Napi::Function::New(env, windowssys_windows_win32_media_kernelstreaming_KsCreateAllocator2_napi));
-    exports.Set("windowssys_windows_win32_media_kernelstreaming_KsCreateClock", Napi::Function::New(env, windowssys_windows_win32_media_kernelstreaming_KsCreateClock_napi));
-    exports.Set("windowssys_windows_win32_media_kernelstreaming_KsCreateClock2", Napi::Function::New(env, windowssys_windows_win32_media_kernelstreaming_KsCreateClock2_napi));
-    exports.Set("windowssys_windows_win32_media_kernelstreaming_KsCreatePin", Napi::Function::New(env, windowssys_windows_win32_media_kernelstreaming_KsCreatePin_napi));
-    exports.Set("windowssys_windows_win32_media_kernelstreaming_KsCreatePin2", Napi::Function::New(env, windowssys_windows_win32_media_kernelstreaming_KsCreatePin2_napi));
-    exports.Set("windowssys_windows_win32_media_kernelstreaming_KsCreateTopologyNode", Napi::Function::New(env, windowssys_windows_win32_media_kernelstreaming_KsCreateTopologyNode_napi));
-    exports.Set("windowssys_windows_win32_media_kernelstreaming_KsCreateTopologyNode2", Napi::Function::New(env, windowssys_windows_win32_media_kernelstreaming_KsCreateTopologyNode2_napi));
-    exports.Set("windowssys_windows_win32_media_kernelstreaming_KsGetMediaTypeCount", Napi::Function::New(env, windowssys_windows_win32_media_kernelstreaming_KsGetMediaTypeCount_napi));
-    exports.Set("windowssys_windows_win32_media_kernelstreaming_KsGetMultiplePinFactoryItems", Napi::Function::New(env, windowssys_windows_win32_media_kernelstreaming_KsGetMultiplePinFactoryItems_napi));
-    exports.Set("windowssys_windows_win32_media_kernelstreaming_KsOpenDefaultDevice", Napi::Function::New(env, windowssys_windows_win32_media_kernelstreaming_KsOpenDefaultDevice_napi));
-    exports.Set("windowssys_windows_win32_media_kernelstreaming_KsResolveRequiredAttributes", Napi::Function::New(env, windowssys_windows_win32_media_kernelstreaming_KsResolveRequiredAttributes_napi));
-    exports.Set("windowssys_windows_win32_media_kernelstreaming_KsSynchronousDeviceControl", Napi::Function::New(env, windowssys_windows_win32_media_kernelstreaming_KsSynchronousDeviceControl_napi));
+    exports.Set("windowssys_windows_win32_media_kernelstreaming_ksCreateAllocator", Napi::Function::New(env, windowssys_windows_win32_media_kernelstreaming_ksCreateAllocator_napi));
+    exports.Set("windowssys_windows_win32_media_kernelstreaming_ksCreateAllocator2", Napi::Function::New(env, windowssys_windows_win32_media_kernelstreaming_ksCreateAllocator2_napi));
+    exports.Set("windowssys_windows_win32_media_kernelstreaming_ksCreateClock", Napi::Function::New(env, windowssys_windows_win32_media_kernelstreaming_ksCreateClock_napi));
+    exports.Set("windowssys_windows_win32_media_kernelstreaming_ksCreateClock2", Napi::Function::New(env, windowssys_windows_win32_media_kernelstreaming_ksCreateClock2_napi));
+    exports.Set("windowssys_windows_win32_media_kernelstreaming_ksCreatePin", Napi::Function::New(env, windowssys_windows_win32_media_kernelstreaming_ksCreatePin_napi));
+    exports.Set("windowssys_windows_win32_media_kernelstreaming_ksCreatePin2", Napi::Function::New(env, windowssys_windows_win32_media_kernelstreaming_ksCreatePin2_napi));
+    exports.Set("windowssys_windows_win32_media_kernelstreaming_ksCreateTopologyNode", Napi::Function::New(env, windowssys_windows_win32_media_kernelstreaming_ksCreateTopologyNode_napi));
+    exports.Set("windowssys_windows_win32_media_kernelstreaming_ksCreateTopologyNode2", Napi::Function::New(env, windowssys_windows_win32_media_kernelstreaming_ksCreateTopologyNode2_napi));
+    exports.Set("windowssys_windows_win32_media_kernelstreaming_ksGetMediaTypeCount", Napi::Function::New(env, windowssys_windows_win32_media_kernelstreaming_ksGetMediaTypeCount_napi));
+    exports.Set("windowssys_windows_win32_media_kernelstreaming_ksGetMultiplePinFactoryItems", Napi::Function::New(env, windowssys_windows_win32_media_kernelstreaming_ksGetMultiplePinFactoryItems_napi));
+    exports.Set("windowssys_windows_win32_media_kernelstreaming_ksOpenDefaultDevice", Napi::Function::New(env, windowssys_windows_win32_media_kernelstreaming_ksOpenDefaultDevice_napi));
+    exports.Set("windowssys_windows_win32_media_kernelstreaming_ksResolveRequiredAttributes", Napi::Function::New(env, windowssys_windows_win32_media_kernelstreaming_ksResolveRequiredAttributes_napi));
+    exports.Set("windowssys_windows_win32_media_kernelstreaming_ksSynchronousDeviceControl", Napi::Function::New(env, windowssys_windows_win32_media_kernelstreaming_ksSynchronousDeviceControl_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_media_kernelstreaming_napi, nullptr };

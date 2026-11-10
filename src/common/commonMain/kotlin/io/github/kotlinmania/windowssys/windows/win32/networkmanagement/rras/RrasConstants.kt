@@ -1,15 +1,15 @@
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.rras
 
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.s
 import io.github.kotlinmania.windowssys.core.w
 
 public val ALLOW_NO_AUTH: UInt = 1u
 
-public val ALL_SOURCES: MGM_ENUM_TYPES = 1
+public val ALL_SOURCES: MgmEnumTypes = 1
 
-public val ANY_SOURCE: MGM_ENUM_TYPES = 0
+public val ANY_SOURCE: MgmEnumTypes = 0
 
 public val ATADDRESSLEN: UInt = 32u
 
@@ -567,39 +567,39 @@ public val ERROR_WRONG_TUNNEL_TYPE: UInt = 795u
 
 public val ERROR_X25_DIAGNOSTIC: UInt = 707u
 
-public val ET_None: UInt = 0u
+public val ET_NONE: UInt = 0u
 
-public val ET_Optional: UInt = 3u
+public val ET_OPTIONAL: UInt = 3u
 
-public val ET_Require: UInt = 1u
+public val ET_REQUIRE: UInt = 1u
 
-public val ET_RequireMax: UInt = 2u
+public val ET_REQUIRE_MAX: UInt = 2u
 
-public val IKEV2_ID_PAYLOAD_TYPE_DER_ASN1_DN: IKEV2_ID_PAYLOAD_TYPE = 9
+public val IKEV2_ID_PAYLOAD_TYPE_DER_ASN1_DN: Ikev2IdPayloadType = 9
 
-public val IKEV2_ID_PAYLOAD_TYPE_DER_ASN1_GN: IKEV2_ID_PAYLOAD_TYPE = 10
+public val IKEV2_ID_PAYLOAD_TYPE_DER_ASN1_GN: Ikev2IdPayloadType = 10
 
-public val IKEV2_ID_PAYLOAD_TYPE_FQDN: IKEV2_ID_PAYLOAD_TYPE = 2
+public val IKEV2_ID_PAYLOAD_TYPE_FQDN: Ikev2IdPayloadType = 2
 
-public val IKEV2_ID_PAYLOAD_TYPE_ID_IPV6_ADDR: IKEV2_ID_PAYLOAD_TYPE = 5
+public val IKEV2_ID_PAYLOAD_TYPE_ID_IPV6_ADDR: Ikev2IdPayloadType = 5
 
-public val IKEV2_ID_PAYLOAD_TYPE_INVALID: IKEV2_ID_PAYLOAD_TYPE = 0
+public val IKEV2_ID_PAYLOAD_TYPE_INVALID: Ikev2IdPayloadType = 0
 
-public val IKEV2_ID_PAYLOAD_TYPE_IPV4_ADDR: IKEV2_ID_PAYLOAD_TYPE = 1
+public val IKEV2_ID_PAYLOAD_TYPE_IPV4_ADDR: Ikev2IdPayloadType = 1
 
-public val IKEV2_ID_PAYLOAD_TYPE_KEY_ID: IKEV2_ID_PAYLOAD_TYPE = 11
+public val IKEV2_ID_PAYLOAD_TYPE_KEY_ID: Ikev2IdPayloadType = 11
 
-public val IKEV2_ID_PAYLOAD_TYPE_MAX: IKEV2_ID_PAYLOAD_TYPE = 12
+public val IKEV2_ID_PAYLOAD_TYPE_MAX: Ikev2IdPayloadType = 12
 
-public val IKEV2_ID_PAYLOAD_TYPE_RESERVED1: IKEV2_ID_PAYLOAD_TYPE = 4
+public val IKEV2_ID_PAYLOAD_TYPE_RESERVED1: Ikev2IdPayloadType = 4
 
-public val IKEV2_ID_PAYLOAD_TYPE_RESERVED2: IKEV2_ID_PAYLOAD_TYPE = 6
+public val IKEV2_ID_PAYLOAD_TYPE_RESERVED2: Ikev2IdPayloadType = 6
 
-public val IKEV2_ID_PAYLOAD_TYPE_RESERVED3: IKEV2_ID_PAYLOAD_TYPE = 7
+public val IKEV2_ID_PAYLOAD_TYPE_RESERVED3: Ikev2IdPayloadType = 7
 
-public val IKEV2_ID_PAYLOAD_TYPE_RESERVED4: IKEV2_ID_PAYLOAD_TYPE = 8
+public val IKEV2_ID_PAYLOAD_TYPE_RESERVED4: Ikev2IdPayloadType = 8
 
-public val IKEV2_ID_PAYLOAD_TYPE_RFC822_ADDR: IKEV2_ID_PAYLOAD_TYPE = 3
+public val IKEV2_ID_PAYLOAD_TYPE_RFC822_ADDR: Ikev2IdPayloadType = 3
 
 public val IPADDRESSLEN: UInt = 15u
 
@@ -679,17 +679,17 @@ public val MPRAPI_MPR_SERVER_SET_CONFIG_OBJECT_REVISION_4: UInt = 4u
 
 public val MPRAPI_MPR_SERVER_SET_CONFIG_OBJECT_REVISION_5: UInt = 5u
 
-public val MPRAPI_OBJECT_TYPE_AUTH_VALIDATION_OBJECT: MPRAPI_OBJECT_TYPE = 4
+public val MPRAPI_OBJECT_TYPE_AUTH_VALIDATION_OBJECT: MprapiObjectType = 4
 
-public val MPRAPI_OBJECT_TYPE_IF_CUSTOM_CONFIG_OBJECT: MPRAPI_OBJECT_TYPE = 6
+public val MPRAPI_OBJECT_TYPE_IF_CUSTOM_CONFIG_OBJECT: MprapiObjectType = 6
 
-public val MPRAPI_OBJECT_TYPE_MPR_SERVER_OBJECT: MPRAPI_OBJECT_TYPE = 2
+public val MPRAPI_OBJECT_TYPE_MPR_SERVER_OBJECT: MprapiObjectType = 2
 
-public val MPRAPI_OBJECT_TYPE_MPR_SERVER_SET_CONFIG_OBJECT: MPRAPI_OBJECT_TYPE = 3
+public val MPRAPI_OBJECT_TYPE_MPR_SERVER_SET_CONFIG_OBJECT: MprapiObjectType = 3
 
-public val MPRAPI_OBJECT_TYPE_RAS_CONNECTION_OBJECT: MPRAPI_OBJECT_TYPE = 1
+public val MPRAPI_OBJECT_TYPE_RAS_CONNECTION_OBJECT: MprapiObjectType = 1
 
-public val MPRAPI_OBJECT_TYPE_UPDATE_CONNECTION_OBJECT: MPRAPI_OBJECT_TYPE = 5
+public val MPRAPI_OBJECT_TYPE_UPDATE_CONNECTION_OBJECT: MprapiObjectType = 5
 
 public val MPRAPI_PPP_PROJECTION_INFO_TYPE: UInt = 1u
 
@@ -707,111 +707,111 @@ public val MPRAPI_SET_CONFIG_PROTOCOL_FOR_PPTP: UInt = 1u
 
 public val MPRAPI_SET_CONFIG_PROTOCOL_FOR_SSTP: UInt = 4u
 
-public val MPRDM_DialAll: MPR_INTERFACE_DIAL_MODE = 1u
+public val MPRDM_DIAL_ALL: MprInterfaceDialMode = 1u
 
-public val MPRDM_DialAsNeeded: MPR_INTERFACE_DIAL_MODE = 2u
+public val MPRDM_DIAL_AS_NEEDED: MprInterfaceDialMode = 2u
 
-public val MPRDM_DialFirst: MPR_INTERFACE_DIAL_MODE = 0u
+public val MPRDM_DIAL_FIRST: MprInterfaceDialMode = 0u
 
-public val MPRDT_Atm: PCWSTR = w("ATM")
+public val MPRDT_ATM: Pcwstr = w("ATM")
 
-public val MPRDT_FrameRelay: PCWSTR = w("FRAMERELAY")
+public val MPRDT_FRAME_RELAY: Pcwstr = w("FRAMERELAY")
 
-public val MPRDT_Generic: PCWSTR = w("GENERIC")
+public val MPRDT_GENERIC: Pcwstr = w("GENERIC")
 
-public val MPRDT_Irda: PCWSTR = w("IRDA")
+public val MPRDT_IRDA: Pcwstr = w("IRDA")
 
-public val MPRDT_Isdn: PCWSTR = w("isdn")
+public val MPRDT_ISDN: Pcwstr = w("isdn")
 
-public val MPRDT_Modem: PCWSTR = w("modem")
+public val MPRDT_MODEM: Pcwstr = w("modem")
 
-public val MPRDT_Pad: PCWSTR = w("pad")
+public val MPRDT_PAD: Pcwstr = w("pad")
 
-public val MPRDT_Parallel: PCWSTR = w("PARALLEL")
+public val MPRDT_PARALLEL: Pcwstr = w("PARALLEL")
 
-public val MPRDT_SW56: PCWSTR = w("SW56")
+public val MPRDT_SW56: Pcwstr = w("SW56")
 
-public val MPRDT_Serial: PCWSTR = w("SERIAL")
+public val MPRDT_SERIAL: Pcwstr = w("SERIAL")
 
-public val MPRDT_Sonet: PCWSTR = w("SONET")
+public val MPRDT_SONET: Pcwstr = w("SONET")
 
-public val MPRDT_Vpn: PCWSTR = w("vpn")
+public val MPRDT_VPN: Pcwstr = w("vpn")
 
-public val MPRDT_X25: PCWSTR = w("x25")
+public val MPRDT_X25: Pcwstr = w("x25")
 
-public val MPRET_Direct: UInt = 3u
+public val MPRET_DIRECT: UInt = 3u
 
-public val MPRET_Phone: UInt = 1u
+public val MPRET_PHONE: UInt = 1u
 
-public val MPRET_Vpn: UInt = 2u
+public val MPRET_VPN: UInt = 2u
 
-public val MPRIDS_Disabled: UInt = 4294967295u
+public val MPRIDS_DISABLED: UInt = 4294967295u
 
-public val MPRIDS_UseGlobalValue: UInt = 0u
+public val MPRIDS_USE_GLOBAL_VALUE: UInt = 0u
 
-public val MPRIO_DisableLcpExtensions: UInt = 32u
+public val MPRIO_DISABLE_LCP_EXTENSIONS: UInt = 32u
 
-public val MPRIO_IpHeaderCompression: UInt = 8u
+public val MPRIO_IP_HEADER_COMPRESSION: UInt = 8u
 
-public val MPRIO_IpSecPreSharedKey: UInt = 2147483648u
+public val MPRIO_IP_SEC_PRE_SHARED_KEY: UInt = 2147483648u
 
-public val MPRIO_NetworkLogon: UInt = 8192u
+public val MPRIO_NETWORK_LOGON: UInt = 8192u
 
-public val MPRIO_PromoteAlternates: UInt = 32768u
+public val MPRIO_PROMOTE_ALTERNATES: UInt = 32768u
 
-public val MPRIO_RemoteDefaultGateway: UInt = 16u
+public val MPRIO_REMOTE_DEFAULT_GATEWAY: UInt = 16u
 
-public val MPRIO_RequireCHAP: UInt = 134217728u
+public val MPRIO_REQUIRE_CHAP: UInt = 134217728u
 
-public val MPRIO_RequireDataEncryption: UInt = 4096u
+public val MPRIO_REQUIRE_DATA_ENCRYPTION: UInt = 4096u
 
-public val MPRIO_RequireEAP: UInt = 131072u
+public val MPRIO_REQUIRE_EAP: UInt = 131072u
 
-public val MPRIO_RequireEncryptedPw: UInt = 1024u
+public val MPRIO_REQUIRE_ENCRYPTED_PW: UInt = 1024u
 
-public val MPRIO_RequireMachineCertificates: UInt = 16777216u
+public val MPRIO_REQUIRE_MACHINE_CERTIFICATES: UInt = 16777216u
 
-public val MPRIO_RequireMsCHAP: UInt = 268435456u
+public val MPRIO_REQUIRE_MS_CHAP: UInt = 268435456u
 
-public val MPRIO_RequireMsCHAP2: UInt = 536870912u
+public val MPRIO_REQUIRE_MS_CHAP2: UInt = 536870912u
 
-public val MPRIO_RequireMsEncryptedPw: UInt = 2048u
+public val MPRIO_REQUIRE_MS_ENCRYPTED_PW: UInt = 2048u
 
-public val MPRIO_RequirePAP: UInt = 262144u
+public val MPRIO_REQUIRE_PAP: UInt = 262144u
 
-public val MPRIO_RequireSPAP: UInt = 524288u
+public val MPRIO_REQUIRE_SPAP: UInt = 524288u
 
-public val MPRIO_SecureLocalFiles: UInt = 65536u
+public val MPRIO_SECURE_LOCAL_FILES: UInt = 65536u
 
-public val MPRIO_SharedPhoneNumbers: UInt = 8388608u
+public val MPRIO_SHARED_PHONE_NUMBERS: UInt = 8388608u
 
-public val MPRIO_SpecificIpAddr: UInt = 2u
+public val MPRIO_SPECIFIC_IP_ADDR: UInt = 2u
 
-public val MPRIO_SpecificNameServers: UInt = 4u
+public val MPRIO_SPECIFIC_NAME_SERVERS: UInt = 4u
 
-public val MPRIO_SwCompression: UInt = 512u
+public val MPRIO_SW_COMPRESSION: UInt = 512u
 
-public val MPRIO_UsePreSharedKeyForIkev2Initiator: UInt = 33554432u
+public val MPRIO_USE_PRE_SHARED_KEY_FOR_IKEV2INITIATOR: UInt = 33554432u
 
-public val MPRIO_UsePreSharedKeyForIkev2Responder: UInt = 67108864u
+public val MPRIO_USE_PRE_SHARED_KEY_FOR_IKEV2RESPONDER: UInt = 67108864u
 
-public val MPRNP_Ip: UInt = 4u
+public val MPRNP_IP: UInt = 4u
 
-public val MPRNP_Ipv6: UInt = 8u
+public val MPRNP_IPV6: UInt = 8u
 
-public val MPRNP_Ipx: UInt = 2u
+public val MPRNP_IPX: UInt = 2u
 
 public val MPR_ENABLE_RAS_ON_DEVICE: UInt = 1u
 
 public val MPR_ENABLE_ROUTING_ON_DEVICE: UInt = 2u
 
-public val MPR_ET_None: MPR_ET = 0u
+public val MPR_ET_NONE: MprEt = 0u
 
-public val MPR_ET_Optional: MPR_ET = 3u
+public val MPR_ET_OPTIONAL: MprEt = 3u
 
-public val MPR_ET_Require: MPR_ET = 1u
+public val MPR_ET_REQUIRE: MprEt = 1u
 
-public val MPR_ET_RequireMax: MPR_ET = 2u
+public val MPR_ET_REQUIRE_MAX: MprEt = 2u
 
 public val MPR_INTERFACE_ADMIN_DISABLED: UInt = 2u
 
@@ -827,47 +827,47 @@ public val MPR_INTERFACE_OUT_OF_RESOURCES: UInt = 1u
 
 public val MPR_INTERFACE_SERVICE_PAUSED: UInt = 8u
 
-public val MPR_MaxAreaCode: UInt = 10u
+public val MPR_MAX_AREA_CODE: UInt = 10u
 
-public val MPR_MaxCallbackNumber: UInt = 128u
+public val MPR_MAX_CALLBACK_NUMBER: UInt = 128u
 
-public val MPR_MaxDeviceName: UInt = 128u
+public val MPR_MAX_DEVICE_NAME: UInt = 128u
 
-public val MPR_MaxDeviceType: UInt = 16u
+public val MPR_MAX_DEVICE_TYPE: UInt = 16u
 
-public val MPR_MaxEntryName: UInt = 256u
+public val MPR_MAX_ENTRY_NAME: UInt = 256u
 
-public val MPR_MaxFacilities: UInt = 200u
+public val MPR_MAX_FACILITIES: UInt = 200u
 
-public val MPR_MaxIpAddress: UInt = 15u
+public val MPR_MAX_IP_ADDRESS: UInt = 15u
 
-public val MPR_MaxIpxAddress: UInt = 21u
+public val MPR_MAX_IPX_ADDRESS: UInt = 21u
 
-public val MPR_MaxPadType: UInt = 32u
+public val MPR_MAX_PAD_TYPE: UInt = 32u
 
-public val MPR_MaxPhoneNumber: UInt = 128u
+public val MPR_MAX_PHONE_NUMBER: UInt = 128u
 
-public val MPR_MaxUserData: UInt = 200u
+public val MPR_MAX_USER_DATA: UInt = 200u
 
-public val MPR_MaxX25Address: UInt = 200u
+public val MPR_MAX_X25ADDRESS: UInt = 200u
 
-public val MPR_VPN_TS_IPv4_ADDR_RANGE: MPR_VPN_TS_TYPE = 7
+public val MPR_VPN_TS_I_PV4_ADDR_RANGE: MprVpnTsType = 7
 
-public val MPR_VPN_TS_IPv6_ADDR_RANGE: MPR_VPN_TS_TYPE = 8
+public val MPR_VPN_TS_I_PV6_ADDR_RANGE: MprVpnTsType = 8
 
-public val MPR_VS_Default: MPR_VS = 0u
+public val MPR_VS_DEFAULT: MprVs = 0u
 
-public val MPR_VS_Ikev2First: UInt = 8u
+public val MPR_VS_IKEV2FIRST: UInt = 8u
 
-public val MPR_VS_Ikev2Only: UInt = 7u
+public val MPR_VS_IKEV2ONLY: UInt = 7u
 
-public val MPR_VS_L2tpFirst: MPR_VS = 4u
+public val MPR_VS_L2TP_FIRST: MprVs = 4u
 
-public val MPR_VS_L2tpOnly: MPR_VS = 3u
+public val MPR_VS_L2TP_ONLY: MprVs = 3u
 
-public val MPR_VS_PptpFirst: MPR_VS = 2u
+public val MPR_VS_PPTP_FIRST: MprVs = 2u
 
-public val MPR_VS_PptpOnly: MPR_VS = 1u
+public val MPR_VS_PPTP_ONLY: MprVs = 1u
 
 public val PENDING: UInt = 600u
 
@@ -905,17 +905,17 @@ public val PPP_LCP_AES_192: UInt = 256u
 
 public val PPP_LCP_AES_256: UInt = 128u
 
-public val PPP_LCP_CHAP: PPP_LCP = 49699u
+public val PPP_LCP_CHAP: PppLcp = 49699u
 
-public val PPP_LCP_CHAP_MD5: PPP_LCP_INFO_AUTH_DATA = 5u
+public val PPP_LCP_CHAP_MD5: PppLcpInfoAuthData = 5u
 
-public val PPP_LCP_CHAP_MS: PPP_LCP_INFO_AUTH_DATA = 128u
+public val PPP_LCP_CHAP_MS: PppLcpInfoAuthData = 128u
 
-public val PPP_LCP_CHAP_MSV2: PPP_LCP_INFO_AUTH_DATA = 129u
+public val PPP_LCP_CHAP_MSV2: PppLcpInfoAuthData = 129u
 
 public val PPP_LCP_DES_56: UInt = 16u
 
-public val PPP_LCP_EAP: PPP_LCP = 49703u
+public val PPP_LCP_EAP: PppLcp = 49703u
 
 public val PPP_LCP_GCM_AES_128: UInt = 512u
 
@@ -925,37 +925,37 @@ public val PPP_LCP_GCM_AES_256: UInt = 2048u
 
 public val PPP_LCP_MULTILINK_FRAMING: UInt = 1u
 
-public val PPP_LCP_PAP: PPP_LCP = 49187u
+public val PPP_LCP_PAP: PppLcp = 49187u
 
 public val PPP_LCP_PFC: UInt = 2u
 
-public val PPP_LCP_SPAP: PPP_LCP = 49191u
+public val PPP_LCP_SPAP: PppLcp = 49191u
 
 public val PPP_LCP_SSHF: UInt = 8u
 
-public val PROJECTION_INFO_TYPE_IKEv2: RASPROJECTION_INFO_TYPE = 2
+public val PROJECTION_INFO_TYPE_IK_EV2: RasprojectionInfoType = 2
 
-public val PROJECTION_INFO_TYPE_PPP: RASPROJECTION_INFO_TYPE = 1
+public val PROJECTION_INFO_TYPE_PPP: RasprojectionInfoType = 1
 
-public val RASADFLG_PositionDlg: UInt = 1u
+public val RASADFLG_POSITION_DLG: UInt = 1u
 
-public val RASADP_ConnectionQueryTimeout: UInt = 4u
+public val RASADP_CONNECTION_QUERY_TIMEOUT: UInt = 4u
 
-public val RASADP_DisableConnectionQuery: UInt = 0u
+public val RASADP_DISABLE_CONNECTION_QUERY: UInt = 0u
 
-public val RASADP_FailedConnectionTimeout: UInt = 3u
+public val RASADP_FAILED_CONNECTION_TIMEOUT: UInt = 3u
 
-public val RASADP_LoginSessionDisable: UInt = 1u
+public val RASADP_LOGIN_SESSION_DISABLE: UInt = 1u
 
-public val RASADP_SavedAddressesLimit: UInt = 2u
+public val RASADP_SAVED_ADDRESSES_LIMIT: UInt = 2u
 
-public val RASAPIVERSION_500: RASAPIVERSION = 1
+public val RASAPIVERSION_500: Rasapiversion = 1
 
-public val RASAPIVERSION_501: RASAPIVERSION = 2
+public val RASAPIVERSION_501: Rasapiversion = 2
 
-public val RASAPIVERSION_600: RASAPIVERSION = 3
+public val RASAPIVERSION_600: Rasapiversion = 3
 
-public val RASAPIVERSION_601: RASAPIVERSION = 4
+public val RASAPIVERSION_601: Rasapiversion = 4
 
 public val RASBASE: UInt = 600u
 
@@ -965,375 +965,375 @@ public val RASCCPCA_MPPC: UInt = 6u
 
 public val RASCCPCA_STAC: UInt = 5u
 
-public val RASCCPO_Compression: UInt = 1u
+public val RASCCPO_COMPRESSION: UInt = 1u
 
-public val RASCCPO_Encryption128bit: UInt = 64u
+public val RASCCPO_ENCRYPTION128BIT: UInt = 64u
 
-public val RASCCPO_Encryption40bit: UInt = 32u
+public val RASCCPO_ENCRYPTION40BIT: UInt = 32u
 
-public val RASCCPO_Encryption56bit: UInt = 16u
+public val RASCCPO_ENCRYPTION56BIT: UInt = 16u
 
-public val RASCCPO_HistoryLess: UInt = 2u
+public val RASCCPO_HISTORY_LESS: UInt = 2u
 
-public val RASCF_AllUsers: UInt = 1u
+public val RASCF_ALL_USERS: UInt = 1u
 
-public val RASCF_GlobalCreds: UInt = 2u
+public val RASCF_GLOBAL_CREDS: UInt = 2u
 
-public val RASCF_OwnerKnown: UInt = 4u
+public val RASCF_OWNER_KNOWN: UInt = 4u
 
-public val RASCF_OwnerMatch: UInt = 8u
+public val RASCF_OWNER_MATCH: UInt = 8u
 
-public val RASCM_DDMPreSharedKey: UInt = 64u
+public val RASCM_DDM_PRE_SHARED_KEY: UInt = 64u
 
-public val RASCM_DefaultCreds: UInt = 8u
+public val RASCM_DEFAULT_CREDS: UInt = 8u
 
-public val RASCM_Domain: UInt = 4u
+public val RASCM_DOMAIN: UInt = 4u
 
-public val RASCM_Password: UInt = 2u
+public val RASCM_PASSWORD: UInt = 2u
 
-public val RASCM_PreSharedKey: UInt = 16u
+public val RASCM_PRE_SHARED_KEY: UInt = 16u
 
-public val RASCM_ServerPreSharedKey: UInt = 32u
+public val RASCM_SERVER_PRE_SHARED_KEY: UInt = 32u
 
-public val RASCM_UserName: UInt = 1u
+public val RASCM_USER_NAME: UInt = 1u
 
-public val RASCN_BandwidthAdded: UInt = 4u
+public val RASCN_BANDWIDTH_ADDED: UInt = 4u
 
-public val RASCN_BandwidthRemoved: UInt = 8u
+public val RASCN_BANDWIDTH_REMOVED: UInt = 8u
 
-public val RASCN_Connection: UInt = 1u
+public val RASCN_CONNECTION: UInt = 1u
 
-public val RASCN_Disconnection: UInt = 2u
+public val RASCN_DISCONNECTION: UInt = 2u
 
-public val RASCN_Dormant: UInt = 16u
+public val RASCN_DORMANT: UInt = 16u
 
-public val RASCN_EPDGPacketArrival: UInt = 64u
+public val RASCN_EPDG_PACKET_ARRIVAL: UInt = 64u
 
-public val RASCN_ReConnection: UInt = 32u
+public val RASCN_RE_CONNECTION: UInt = 32u
 
 public val RASCSS_DONE: UInt = 8192u
 
-public val RASCSS_Dormant: RASCONNSUBSTATE = 1
+public val RASCSS_DORMANT: Rasconnsubstate = 1
 
-public val RASCSS_None: RASCONNSUBSTATE = 0
+public val RASCSS_NONE: Rasconnsubstate = 0
 
-public val RASCSS_Reconnected: RASCONNSUBSTATE = 8192
+public val RASCSS_RECONNECTED: Rasconnsubstate = 8192
 
-public val RASCSS_Reconnecting: RASCONNSUBSTATE = 2
+public val RASCSS_RECONNECTING: Rasconnsubstate = 2
 
-public val RASCS_AllDevicesConnected: RASCONNSTATE = 4
+public val RASCS_ALL_DEVICES_CONNECTED: Rasconnstate = 4
 
-public val RASCS_ApplySettings: RASCONNSTATE = 24
+public val RASCS_APPLY_SETTINGS: Rasconnstate = 24
 
-public val RASCS_AuthAck: RASCONNSTATE = 12
+public val RASCS_AUTH_ACK: Rasconnstate = 12
 
-public val RASCS_AuthCallback: RASCONNSTATE = 8
+public val RASCS_AUTH_CALLBACK: Rasconnstate = 8
 
-public val RASCS_AuthChangePassword: RASCONNSTATE = 9
+public val RASCS_AUTH_CHANGE_PASSWORD: Rasconnstate = 9
 
-public val RASCS_AuthLinkSpeed: RASCONNSTATE = 11
+public val RASCS_AUTH_LINK_SPEED: Rasconnstate = 11
 
-public val RASCS_AuthNotify: RASCONNSTATE = 6
+public val RASCS_AUTH_NOTIFY: Rasconnstate = 6
 
-public val RASCS_AuthProject: RASCONNSTATE = 10
+public val RASCS_AUTH_PROJECT: Rasconnstate = 10
 
-public val RASCS_AuthRetry: RASCONNSTATE = 7
+public val RASCS_AUTH_RETRY: Rasconnstate = 7
 
-public val RASCS_Authenticate: RASCONNSTATE = 5
+public val RASCS_AUTHENTICATE: Rasconnstate = 5
 
-public val RASCS_Authenticated: RASCONNSTATE = 14
+public val RASCS_AUTHENTICATED: Rasconnstate = 14
 
-public val RASCS_CallbackComplete: RASCONNSTATE = 20
+public val RASCS_CALLBACK_COMPLETE: Rasconnstate = 20
 
-public val RASCS_CallbackSetByCaller: RASCONNSTATE = 4098
+public val RASCS_CALLBACK_SET_BY_CALLER: Rasconnstate = 4098
 
-public val RASCS_ConnectDevice: RASCONNSTATE = 2
+public val RASCS_CONNECT_DEVICE: Rasconnstate = 2
 
-public val RASCS_Connected: RASCONNSTATE = 8192
+public val RASCS_CONNECTED: Rasconnstate = 8192
 
 public val RASCS_DONE: UInt = 8192u
 
-public val RASCS_DeviceConnected: RASCONNSTATE = 3
+public val RASCS_DEVICE_CONNECTED: Rasconnstate = 3
 
-public val RASCS_Disconnected: RASCONNSTATE = 8193
+public val RASCS_DISCONNECTED: Rasconnstate = 8193
 
-public val RASCS_Interactive: RASCONNSTATE = 4096
+public val RASCS_INTERACTIVE: Rasconnstate = 4096
 
-public val RASCS_InvokeEapUI: RASCONNSTATE = 4100
+public val RASCS_INVOKE_EAP_UI: Rasconnstate = 4100
 
-public val RASCS_LogonNetwork: RASCONNSTATE = 21
+public val RASCS_LOGON_NETWORK: Rasconnstate = 21
 
-public val RASCS_OpenPort: RASCONNSTATE = 0
+public val RASCS_OPEN_PORT: Rasconnstate = 0
 
 public val RASCS_PAUSED: UInt = 4096u
 
-public val RASCS_PasswordExpired: RASCONNSTATE = 4099
+public val RASCS_PASSWORD_EXPIRED: Rasconnstate = 4099
 
-public val RASCS_PortOpened: RASCONNSTATE = 1
+public val RASCS_PORT_OPENED: Rasconnstate = 1
 
-public val RASCS_PrepareForCallback: RASCONNSTATE = 15
+public val RASCS_PREPARE_FOR_CALLBACK: Rasconnstate = 15
 
-public val RASCS_Projected: RASCONNSTATE = 18
+public val RASCS_PROJECTED: Rasconnstate = 18
 
-public val RASCS_ReAuthenticate: RASCONNSTATE = 13
+public val RASCS_RE_AUTHENTICATE: Rasconnstate = 13
 
-public val RASCS_RetryAuthentication: RASCONNSTATE = 4097
+public val RASCS_RETRY_AUTHENTICATION: Rasconnstate = 4097
 
-public val RASCS_StartAuthentication: RASCONNSTATE = 19
+public val RASCS_START_AUTHENTICATION: Rasconnstate = 19
 
-public val RASCS_SubEntryConnected: RASCONNSTATE = 22
+public val RASCS_SUB_ENTRY_CONNECTED: Rasconnstate = 22
 
-public val RASCS_SubEntryDisconnected: RASCONNSTATE = 23
+public val RASCS_SUB_ENTRY_DISCONNECTED: Rasconnstate = 23
 
-public val RASCS_WaitForCallback: RASCONNSTATE = 17
+public val RASCS_WAIT_FOR_CALLBACK: Rasconnstate = 17
 
-public val RASCS_WaitForModemReset: RASCONNSTATE = 16
+public val RASCS_WAIT_FOR_MODEM_RESET: Rasconnstate = 16
 
-public val RASDDFLAG_AoacRedial: UInt = 4u
+public val RASDDFLAG_AOAC_REDIAL: UInt = 4u
 
-public val RASDDFLAG_LinkFailure: UInt = 2147483648u
+public val RASDDFLAG_LINK_FAILURE: UInt = 2147483648u
 
-public val RASDDFLAG_NoPrompt: UInt = 2u
+public val RASDDFLAG_NO_PROMPT: UInt = 2u
 
-public val RASDDFLAG_PositionDlg: UInt = 1u
+public val RASDDFLAG_POSITION_DLG: UInt = 1u
 
-public val RASDIALEVENT: PCSTR = s("RasDialEvent")
+public val RASDIALEVENT: Pcstr = s("RasDialEvent")
 
-public val RASDT_Atm: PCWSTR = w("ATM")
+public val RASDT_ATM: Pcwstr = w("ATM")
 
-public val RASDT_FrameRelay: PCWSTR = w("FRAMERELAY")
+public val RASDT_FRAME_RELAY: Pcwstr = w("FRAMERELAY")
 
-public val RASDT_Generic: PCWSTR = w("GENERIC")
+public val RASDT_GENERIC: Pcwstr = w("GENERIC")
 
-public val RASDT_Irda: PCWSTR = w("IRDA")
+public val RASDT_IRDA: Pcwstr = w("IRDA")
 
-public val RASDT_Isdn: PCWSTR = w("isdn")
+public val RASDT_ISDN: Pcwstr = w("isdn")
 
-public val RASDT_Modem: PCWSTR = w("modem")
+public val RASDT_MODEM: Pcwstr = w("modem")
 
-public val RASDT_PPPoE: PCWSTR = w("PPPoE")
+public val RASDT_PP_PO_E: Pcwstr = w("PPPoE")
 
-public val RASDT_Pad: PCWSTR = w("pad")
+public val RASDT_PAD: Pcwstr = w("pad")
 
-public val RASDT_Parallel: PCWSTR = w("PARALLEL")
+public val RASDT_PARALLEL: Pcwstr = w("PARALLEL")
 
-public val RASDT_SW56: PCWSTR = w("SW56")
+public val RASDT_SW56: Pcwstr = w("SW56")
 
-public val RASDT_Serial: PCWSTR = w("SERIAL")
+public val RASDT_SERIAL: Pcwstr = w("SERIAL")
 
-public val RASDT_Sonet: PCWSTR = w("SONET")
+public val RASDT_SONET: Pcwstr = w("SONET")
 
-public val RASDT_Vpn: PCWSTR = w("vpn")
+public val RASDT_VPN: Pcwstr = w("vpn")
 
-public val RASDT_X25: PCWSTR = w("x25")
+public val RASDT_X25: Pcwstr = w("x25")
 
-public val RASEAPF_Logon: UInt = 4u
+public val RASEAPF_LOGON: UInt = 4u
 
-public val RASEAPF_NonInteractive: UInt = 2u
+public val RASEAPF_NON_INTERACTIVE: UInt = 2u
 
-public val RASEAPF_Preview: UInt = 8u
+public val RASEAPF_PREVIEW: UInt = 8u
 
-public val RASEDFLAG_CloneEntry: UInt = 4u
+public val RASEDFLAG_CLONE_ENTRY: UInt = 4u
 
-public val RASEDFLAG_IncomingConnection: UInt = 1024u
+public val RASEDFLAG_INCOMING_CONNECTION: UInt = 1024u
 
-public val RASEDFLAG_InternetEntry: UInt = 256u
+public val RASEDFLAG_INTERNET_ENTRY: UInt = 256u
 
 public val RASEDFLAG_NAT: UInt = 512u
 
-public val RASEDFLAG_NewBroadbandEntry: UInt = 128u
+public val RASEDFLAG_NEW_BROADBAND_ENTRY: UInt = 128u
 
-public val RASEDFLAG_NewDirectEntry: UInt = 64u
+public val RASEDFLAG_NEW_DIRECT_ENTRY: UInt = 64u
 
-public val RASEDFLAG_NewEntry: UInt = 2u
+public val RASEDFLAG_NEW_ENTRY: UInt = 2u
 
-public val RASEDFLAG_NewPhoneEntry: UInt = 16u
+public val RASEDFLAG_NEW_PHONE_ENTRY: UInt = 16u
 
-public val RASEDFLAG_NewTunnelEntry: UInt = 32u
+public val RASEDFLAG_NEW_TUNNEL_ENTRY: UInt = 32u
 
-public val RASEDFLAG_NoRename: UInt = 8u
+public val RASEDFLAG_NO_RENAME: UInt = 8u
 
-public val RASEDFLAG_PositionDlg: UInt = 1u
+public val RASEDFLAG_POSITION_DLG: UInt = 1u
 
-public val RASEDFLAG_ShellOwned: UInt = 1073741824u
+public val RASEDFLAG_SHELL_OWNED: UInt = 1073741824u
 
-public val RASEDM_DialAll: RASENTRY_DIAL_MODE = 1u
+public val RASEDM_DIAL_ALL: RasentryDialMode = 1u
 
-public val RASEDM_DialAsNeeded: RASENTRY_DIAL_MODE = 2u
+public val RASEDM_DIAL_AS_NEEDED: RasentryDialMode = 2u
 
-public val RASEO2_AuthTypeIsOtp: UInt = 268435456u
+public val RASEO2_AUTH_TYPE_IS_OTP: UInt = 268435456u
 
-public val RASEO2_AutoTriggerCapable: UInt = 67108864u
+public val RASEO2_AUTO_TRIGGER_CAPABLE: UInt = 67108864u
 
-public val RASEO2_CacheCredentials: UInt = 33554432u
+public val RASEO2_CACHE_CREDENTIALS: UInt = 33554432u
 
-public val RASEO2_DisableClassBasedStaticRoute: UInt = 524288u
+public val RASEO2_DISABLE_CLASS_BASED_STATIC_ROUTE: UInt = 524288u
 
-public val RASEO2_DisableIKENameEkuCheck: UInt = 262144u
+public val RASEO2_DISABLE_IKE_NAME_EKU_CHECK: UInt = 262144u
 
-public val RASEO2_DisableMobility: UInt = 2097152u
+public val RASEO2_DISABLE_MOBILITY: UInt = 2097152u
 
-public val RASEO2_DisableNbtOverIP: UInt = 64u
+public val RASEO2_DISABLE_NBT_OVER_IP: UInt = 64u
 
-public val RASEO2_DontNegotiateMultilink: UInt = 4u
+public val RASEO2_DONT_NEGOTIATE_MULTILINK: UInt = 4u
 
-public val RASEO2_DontUseRasCredentials: UInt = 8u
+public val RASEO2_DONT_USE_RAS_CREDENTIALS: UInt = 8u
 
-public val RASEO2_IPv4ExplicitMetric: UInt = 65536u
+public val RASEO2_I_PV4EXPLICIT_METRIC: UInt = 65536u
 
-public val RASEO2_IPv6ExplicitMetric: UInt = 131072u
+public val RASEO2_I_PV6EXPLICIT_METRIC: UInt = 131072u
 
-public val RASEO2_IPv6RemoteDefaultGateway: UInt = 8192u
+public val RASEO2_I_PV6REMOTE_DEFAULT_GATEWAY: UInt = 8192u
 
-public val RASEO2_IPv6SpecificNameServers: UInt = 4096u
+public val RASEO2_I_PV6SPECIFIC_NAME_SERVERS: UInt = 4096u
 
-public val RASEO2_Internet: UInt = 32u
+public val RASEO2_INTERNET: UInt = 32u
 
-public val RASEO2_IsAlwaysOn: UInt = 536870912u
+public val RASEO2_IS_ALWAYS_ON: UInt = 536870912u
 
-public val RASEO2_IsPrivateNetwork: UInt = 1073741824u
+public val RASEO2_IS_PRIVATE_NETWORK: UInt = 1073741824u
 
-public val RASEO2_IsThirdPartyProfile: UInt = 134217728u
+public val RASEO2_IS_THIRD_PARTY_PROFILE: UInt = 134217728u
 
-public val RASEO2_PlumbIKEv2TSAsRoutes: UInt = 2147483648u
+public val RASEO2_PLUMB_IK_EV2TS_AS_ROUTES: UInt = 2147483648u
 
-public val RASEO2_ReconnectIfDropped: UInt = 256u
+public val RASEO2_RECONNECT_IF_DROPPED: UInt = 256u
 
-public val RASEO2_RegisterIpWithDNS: UInt = 16384u
+public val RASEO2_REGISTER_IP_WITH_DNS: UInt = 16384u
 
-public val RASEO2_RequireMachineCertificates: UInt = 4194304u
+public val RASEO2_REQUIRE_MACHINE_CERTIFICATES: UInt = 4194304u
 
-public val RASEO2_SecureClientForMSNet: UInt = 2u
+public val RASEO2_SECURE_CLIENT_FOR_MS_NET: UInt = 2u
 
-public val RASEO2_SecureFileAndPrint: UInt = 1u
+public val RASEO2_SECURE_FILE_AND_PRINT: UInt = 1u
 
-public val RASEO2_SecureRoutingCompartment: UInt = 1024u
+public val RASEO2_SECURE_ROUTING_COMPARTMENT: UInt = 1024u
 
-public val RASEO2_SharePhoneNumbers: UInt = 512u
+public val RASEO2_SHARE_PHONE_NUMBERS: UInt = 512u
 
-public val RASEO2_SpecificIPv6Addr: UInt = 1048576u
+public val RASEO2_SPECIFIC_I_PV6ADDR: UInt = 1048576u
 
-public val RASEO2_UseDNSSuffixForRegistration: UInt = 32768u
+public val RASEO2_USE_DNS_SUFFIX_FOR_REGISTRATION: UInt = 32768u
 
-public val RASEO2_UseGlobalDeviceSettings: UInt = 128u
+public val RASEO2_USE_GLOBAL_DEVICE_SETTINGS: UInt = 128u
 
-public val RASEO2_UsePreSharedKey: UInt = 16u
+public val RASEO2_USE_PRE_SHARED_KEY: UInt = 16u
 
-public val RASEO2_UsePreSharedKeyForIkev2Initiator: UInt = 8388608u
+public val RASEO2_USE_PRE_SHARED_KEY_FOR_IKEV2INITIATOR: UInt = 8388608u
 
-public val RASEO2_UsePreSharedKeyForIkev2Responder: UInt = 16777216u
+public val RASEO2_USE_PRE_SHARED_KEY_FOR_IKEV2RESPONDER: UInt = 16777216u
 
-public val RASEO2_UseTypicalSettings: UInt = 2048u
+public val RASEO2_USE_TYPICAL_SETTINGS: UInt = 2048u
 
-public val RASEO_Custom: UInt = 1048576u
+public val RASEO_CUSTOM: UInt = 1048576u
 
-public val RASEO_CustomScript: UInt = 2147483648u
+public val RASEO_CUSTOM_SCRIPT: UInt = 2147483648u
 
-public val RASEO_DisableLcpExtensions: UInt = 32u
+public val RASEO_DISABLE_LCP_EXTENSIONS: UInt = 32u
 
-public val RASEO_IpHeaderCompression: UInt = 8u
+public val RASEO_IP_HEADER_COMPRESSION: UInt = 8u
 
-public val RASEO_ModemLights: UInt = 256u
+public val RASEO_MODEM_LIGHTS: UInt = 256u
 
-public val RASEO_NetworkLogon: UInt = 8192u
+public val RASEO_NETWORK_LOGON: UInt = 8192u
 
-public val RASEO_PreviewDomain: UInt = 33554432u
+public val RASEO_PREVIEW_DOMAIN: UInt = 33554432u
 
-public val RASEO_PreviewPhoneNumber: UInt = 2097152u
+public val RASEO_PREVIEW_PHONE_NUMBER: UInt = 2097152u
 
-public val RASEO_PreviewUserPw: UInt = 16777216u
+public val RASEO_PREVIEW_USER_PW: UInt = 16777216u
 
-public val RASEO_PromoteAlternates: UInt = 32768u
+public val RASEO_PROMOTE_ALTERNATES: UInt = 32768u
 
-public val RASEO_RemoteDefaultGateway: UInt = 16u
+public val RASEO_REMOTE_DEFAULT_GATEWAY: UInt = 16u
 
-public val RASEO_RequireCHAP: UInt = 134217728u
+public val RASEO_REQUIRE_CHAP: UInt = 134217728u
 
-public val RASEO_RequireDataEncryption: UInt = 4096u
+public val RASEO_REQUIRE_DATA_ENCRYPTION: UInt = 4096u
 
-public val RASEO_RequireEAP: UInt = 131072u
+public val RASEO_REQUIRE_EAP: UInt = 131072u
 
-public val RASEO_RequireEncryptedPw: UInt = 1024u
+public val RASEO_REQUIRE_ENCRYPTED_PW: UInt = 1024u
 
-public val RASEO_RequireMsCHAP: UInt = 268435456u
+public val RASEO_REQUIRE_MS_CHAP: UInt = 268435456u
 
-public val RASEO_RequireMsCHAP2: UInt = 536870912u
+public val RASEO_REQUIRE_MS_CHAP2: UInt = 536870912u
 
-public val RASEO_RequireMsEncryptedPw: UInt = 2048u
+public val RASEO_REQUIRE_MS_ENCRYPTED_PW: UInt = 2048u
 
-public val RASEO_RequirePAP: UInt = 262144u
+public val RASEO_REQUIRE_PAP: UInt = 262144u
 
-public val RASEO_RequireSPAP: UInt = 524288u
+public val RASEO_REQUIRE_SPAP: UInt = 524288u
 
-public val RASEO_RequireW95MSCHAP: UInt = 1073741824u
+public val RASEO_REQUIRE_W95MSCHAP: UInt = 1073741824u
 
-public val RASEO_SecureLocalFiles: UInt = 65536u
+public val RASEO_SECURE_LOCAL_FILES: UInt = 65536u
 
-public val RASEO_SharedPhoneNumbers: UInt = 8388608u
+public val RASEO_SHARED_PHONE_NUMBERS: UInt = 8388608u
 
-public val RASEO_ShowDialingProgress: UInt = 67108864u
+public val RASEO_SHOW_DIALING_PROGRESS: UInt = 67108864u
 
-public val RASEO_SpecificIpAddr: UInt = 2u
+public val RASEO_SPECIFIC_IP_ADDR: UInt = 2u
 
-public val RASEO_SpecificNameServers: UInt = 4u
+public val RASEO_SPECIFIC_NAME_SERVERS: UInt = 4u
 
-public val RASEO_SwCompression: UInt = 512u
+public val RASEO_SW_COMPRESSION: UInt = 512u
 
-public val RASEO_TerminalAfterDial: UInt = 128u
+public val RASEO_TERMINAL_AFTER_DIAL: UInt = 128u
 
-public val RASEO_TerminalBeforeDial: UInt = 64u
+public val RASEO_TERMINAL_BEFORE_DIAL: UInt = 64u
 
-public val RASEO_UseCountryAndAreaCodes: UInt = 1u
+public val RASEO_USE_COUNTRY_AND_AREA_CODES: UInt = 1u
 
-public val RASEO_UseLogonCredentials: UInt = 16384u
+public val RASEO_USE_LOGON_CREDENTIALS: UInt = 16384u
 
-public val RASET_Broadband: UInt = 5u
+public val RASET_BROADBAND: UInt = 5u
 
-public val RASET_Direct: UInt = 3u
+public val RASET_DIRECT: UInt = 3u
 
-public val RASET_Internet: UInt = 4u
+public val RASET_INTERNET: UInt = 4u
 
-public val RASET_Phone: UInt = 1u
+public val RASET_PHONE: UInt = 1u
 
-public val RASET_Vpn: UInt = 2u
+public val RASET_VPN: UInt = 2u
 
-public val RASFP_Ppp: UInt = 1u
+public val RASFP_PPP: UInt = 1u
 
-public val RASFP_Ras: UInt = 4u
+public val RASFP_RAS: UInt = 4u
 
-public val RASFP_Slip: UInt = 2u
+public val RASFP_SLIP: UInt = 2u
 
-public val RASIDS_Disabled: UInt = 4294967295u
+public val RASIDS_DISABLED: UInt = 4294967295u
 
-public val RASIDS_UseGlobalValue: UInt = 0u
+public val RASIDS_USE_GLOBAL_VALUE: UInt = 0u
 
-public val RASIKEv2_AUTH_EAP: UInt = 2u
+public val RASIK_EV2_AUTH_EAP: UInt = 2u
 
-public val RASIKEv2_AUTH_MACHINECERTIFICATES: UInt = 1u
+public val RASIK_EV2_AUTH_MACHINECERTIFICATES: UInt = 1u
 
-public val RASIKEv2_AUTH_PSK: UInt = 3u
+public val RASIK_EV2_AUTH_PSK: UInt = 3u
 
-public val RASIKEv2_FLAGS_BEHIND_NAT: RASIKEV_PROJECTION_INFO_FLAGS = 2u
+public val RASIK_EV2_FLAGS_BEHIND_NAT: RasikevProjectionInfoFlags = 2u
 
-public val RASIKEv2_FLAGS_MOBIKESUPPORTED: RASIKEV_PROJECTION_INFO_FLAGS = 1u
+public val RASIK_EV2_FLAGS_MOBIKESUPPORTED: RasikevProjectionInfoFlags = 1u
 
-public val RASIKEv2_FLAGS_SERVERBEHIND_NAT: RASIKEV_PROJECTION_INFO_FLAGS = 4u
+public val RASIK_EV2_FLAGS_SERVERBEHIND_NAT: RasikevProjectionInfoFlags = 4u
 
 public val RASIPO_VJ: UInt = 1u
 
-public val RASLCPAD_CHAP_MD5: RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA = 5u
+public val RASLCPAD_CHAP_MD5: RaspppProjectionInfoServerAuthData = 5u
 
-public val RASLCPAD_CHAP_MS: RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA = 128u
+public val RASLCPAD_CHAP_MS: RaspppProjectionInfoServerAuthData = 128u
 
-public val RASLCPAD_CHAP_MSV2: RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA = 129u
+public val RASLCPAD_CHAP_MSV2: RaspppProjectionInfoServerAuthData = 129u
 
-public val RASLCPAP_CHAP: RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL = 49699u
+public val RASLCPAP_CHAP: RaspppProjectionInfoServerAuthProtocol = 49699u
 
-public val RASLCPAP_EAP: RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL = 49703u
+public val RASLCPAP_EAP: RaspppProjectionInfoServerAuthProtocol = 49703u
 
-public val RASLCPAP_PAP: RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL = 49187u
+public val RASLCPAP_PAP: RaspppProjectionInfoServerAuthProtocol = 49187u
 
-public val RASLCPAP_SPAP: RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL = 49191u
+public val RASLCPAP_SPAP: RaspppProjectionInfoServerAuthProtocol = 49191u
 
 public val RASLCPO_3_DES: UInt = 16u
 
@@ -1357,215 +1357,215 @@ public val RASLCPO_PFC: UInt = 1u
 
 public val RASLCPO_SSHF: UInt = 4u
 
-public val RASNAP_ProbationTime: UInt = 1u
+public val RASNAP_PROBATION_TIME: UInt = 1u
 
-public val RASNOUSER_SmartCard: UInt = 1u
+public val RASNOUSER_SMART_CARD: UInt = 1u
 
-public val RASNP_Ip: UInt = 4u
+public val RASNP_IP: UInt = 4u
 
-public val RASNP_Ipv6: UInt = 8u
+public val RASNP_IPV6: UInt = 8u
 
-public val RASNP_Ipx: UInt = 2u
+public val RASNP_IPX: UInt = 2u
 
-public val RASNP_NetBEUI: UInt = 1u
+public val RASNP_NET_BEUI: UInt = 1u
 
-public val RASPBDEVENT_AddEntry: UInt = 1u
+public val RASPBDEVENT_ADD_ENTRY: UInt = 1u
 
-public val RASPBDEVENT_DialEntry: UInt = 4u
+public val RASPBDEVENT_DIAL_ENTRY: UInt = 4u
 
-public val RASPBDEVENT_EditEntry: UInt = 2u
+public val RASPBDEVENT_EDIT_ENTRY: UInt = 2u
 
-public val RASPBDEVENT_EditGlobals: UInt = 5u
+public val RASPBDEVENT_EDIT_GLOBALS: UInt = 5u
 
-public val RASPBDEVENT_NoUser: UInt = 6u
+public val RASPBDEVENT_NO_USER: UInt = 6u
 
-public val RASPBDEVENT_NoUserEdit: UInt = 7u
+public val RASPBDEVENT_NO_USER_EDIT: UInt = 7u
 
-public val RASPBDEVENT_RemoveEntry: UInt = 3u
+public val RASPBDEVENT_REMOVE_ENTRY: UInt = 3u
 
-public val RASPBDFLAG_ForceCloseOnDial: UInt = 2u
+public val RASPBDFLAG_FORCE_CLOSE_ON_DIAL: UInt = 2u
 
-public val RASPBDFLAG_NoUser: UInt = 16u
+public val RASPBDFLAG_NO_USER: UInt = 16u
 
-public val RASPBDFLAG_PositionDlg: UInt = 1u
+public val RASPBDFLAG_POSITION_DLG: UInt = 1u
 
-public val RASPBDFLAG_UpdateDefaults: UInt = 2147483648u
+public val RASPBDFLAG_UPDATE_DEFAULTS: UInt = 2147483648u
 
-public val RASPRIV2_DialinPolicy: UInt = 1u
+public val RASPRIV2_DIALIN_POLICY: UInt = 1u
 
-public val RASPRIV_AdminSetCallback: UInt = 2u
+public val RASPRIV_ADMIN_SET_CALLBACK: UInt = 2u
 
-public val RASPRIV_CallerSetCallback: UInt = 4u
+public val RASPRIV_CALLER_SET_CALLBACK: UInt = 4u
 
-public val RASPRIV_DialinPrivilege: UInt = 8u
+public val RASPRIV_DIALIN_PRIVILEGE: UInt = 8u
 
-public val RASPRIV_NoCallback: UInt = 1u
+public val RASPRIV_NO_CALLBACK: UInt = 1u
 
-public val RASP_Amb: RASPROJECTION = 65536
+public val RASP_AMB: Rasprojection = 65536
 
-public val RASP_PppCcp: RASPROJECTION = 33021
+public val RASP_PPP_CCP: Rasprojection = 33021
 
-public val RASP_PppIp: RASPROJECTION = 32801
+public val RASP_PPP_IP: Rasprojection = 32801
 
-public val RASP_PppIpv6: RASPROJECTION = 32855
+public val RASP_PPP_IPV6: Rasprojection = 32855
 
-public val RASP_PppIpx: RASPROJECTION = 32811
+public val RASP_PPP_IPX: Rasprojection = 32811
 
-public val RASP_PppLcp: RASPROJECTION = 49185
+public val RASP_PPP_LCP: Rasprojection = 49185
 
-public val RASP_PppNbf: RASPROJECTION = 32831
+public val RASP_PPP_NBF: Rasprojection = 32831
 
-public val RASTUNNELENDPOINT_IPv4: UInt = 1u
+public val RASTUNNELENDPOINT_I_PV4: UInt = 1u
 
-public val RASTUNNELENDPOINT_IPv6: UInt = 2u
+public val RASTUNNELENDPOINT_I_PV6: UInt = 2u
 
 public val RASTUNNELENDPOINT_UNKNOWN: UInt = 0u
 
-public val RAS_FLAGS_ARAP_CONNECTION: RAS_FLAGS = 16u
+public val RAS_FLAGS_ARAP_CONNECTION: RasFlags = 16u
 
-public val RAS_FLAGS_DORMANT: RAS_FLAGS = 32u
+public val RAS_FLAGS_DORMANT: RasFlags = 32u
 
-public val RAS_FLAGS_IKEV2_CONNECTION: RAS_FLAGS = 16u
+public val RAS_FLAGS_IKEV2_CONNECTION: RasFlags = 16u
 
-public val RAS_FLAGS_MESSENGER_PRESENT: RAS_FLAGS = 2u
+public val RAS_FLAGS_MESSENGER_PRESENT: RasFlags = 2u
 
-public val RAS_FLAGS_PPP_CONNECTION: RAS_FLAGS = 1u
+public val RAS_FLAGS_PPP_CONNECTION: RasFlags = 1u
 
-public val RAS_FLAGS_QUARANTINE_PRESENT: RAS_FLAGS = 8u
+public val RAS_FLAGS_QUARANTINE_PRESENT: RasFlags = 8u
 
 public val RAS_FLAGS_RAS_CONNECTION: UInt = 4u
 
-public val RAS_HARDWARE_FAILURE: RAS_HARDWARE_CONDITION = 1
+public val RAS_HARDWARE_FAILURE: RasHardwareCondition = 1
 
-public val RAS_HARDWARE_OPERATIONAL: RAS_HARDWARE_CONDITION = 0
+public val RAS_HARDWARE_OPERATIONAL: RasHardwareCondition = 0
 
-public val RAS_MaxAreaCode: UInt = 10u
+public val RAS_MAX_AREA_CODE: UInt = 10u
 
-public val RAS_MaxCallbackNumber: UInt = 128u
+public val RAS_MAX_CALLBACK_NUMBER: UInt = 128u
 
-public val RAS_MaxDeviceName: UInt = 128u
+public val RAS_MAX_DEVICE_NAME: UInt = 128u
 
-public val RAS_MaxDeviceType: UInt = 16u
+public val RAS_MAX_DEVICE_TYPE: UInt = 16u
 
-public val RAS_MaxDnsSuffix: UInt = 256u
+public val RAS_MAX_DNS_SUFFIX: UInt = 256u
 
-public val RAS_MaxEntryName: UInt = 256u
+public val RAS_MAX_ENTRY_NAME: UInt = 256u
 
-public val RAS_MaxFacilities: UInt = 200u
+public val RAS_MAX_FACILITIES: UInt = 200u
 
-public val RAS_MaxIDSize: UInt = 256u
+public val RAS_MAX_ID_SIZE: UInt = 256u
 
-public val RAS_MaxIpAddress: UInt = 15u
+public val RAS_MAX_IP_ADDRESS: UInt = 15u
 
-public val RAS_MaxIpxAddress: UInt = 21u
+public val RAS_MAX_IPX_ADDRESS: UInt = 21u
 
-public val RAS_MaxPadType: UInt = 32u
+public val RAS_MAX_PAD_TYPE: UInt = 32u
 
-public val RAS_MaxPhoneNumber: UInt = 128u
+public val RAS_MAX_PHONE_NUMBER: UInt = 128u
 
-public val RAS_MaxReplyMessage: UInt = 1024u
+public val RAS_MAX_REPLY_MESSAGE: UInt = 1024u
 
-public val RAS_MaxUserData: UInt = 200u
+public val RAS_MAX_USER_DATA: UInt = 200u
 
-public val RAS_MaxX25Address: UInt = 200u
+public val RAS_MAX_X25ADDRESS: UInt = 200u
 
-public val RAS_PORT_AUTHENTICATED: RAS_PORT_CONDITION = 5
+public val RAS_PORT_AUTHENTICATED: RasPortCondition = 5
 
-public val RAS_PORT_AUTHENTICATING: RAS_PORT_CONDITION = 4
+public val RAS_PORT_AUTHENTICATING: RasPortCondition = 4
 
-public val RAS_PORT_CALLING_BACK: RAS_PORT_CONDITION = 2
+public val RAS_PORT_CALLING_BACK: RasPortCondition = 2
 
-public val RAS_PORT_DISCONNECTED: RAS_PORT_CONDITION = 1
+public val RAS_PORT_DISCONNECTED: RasPortCondition = 1
 
-public val RAS_PORT_INITIALIZING: RAS_PORT_CONDITION = 6
+public val RAS_PORT_INITIALIZING: RasPortCondition = 6
 
-public val RAS_PORT_LISTENING: RAS_PORT_CONDITION = 3
+public val RAS_PORT_LISTENING: RasPortCondition = 3
 
-public val RAS_PORT_NON_OPERATIONAL: RAS_PORT_CONDITION = 0
+public val RAS_PORT_NON_OPERATIONAL: RasPortCondition = 0
 
-public val RAS_QUAR_STATE_NORMAL: RAS_QUARANTINE_STATE = 0
+public val RAS_QUAR_STATE_NORMAL: RasQuarantineState = 0
 
-public val RAS_QUAR_STATE_NOT_CAPABLE: RAS_QUARANTINE_STATE = 3
+public val RAS_QUAR_STATE_NOT_CAPABLE: RasQuarantineState = 3
 
-public val RAS_QUAR_STATE_PROBATION: RAS_QUARANTINE_STATE = 2
+public val RAS_QUAR_STATE_PROBATION: RasQuarantineState = 2
 
-public val RAS_QUAR_STATE_QUARANTINE: RAS_QUARANTINE_STATE = 1
+public val RAS_QUAR_STATE_QUARANTINE: RasQuarantineState = 1
 
-public val RCD_AllUsers: UInt = 1u
+public val RCD_ALL_USERS: UInt = 1u
 
-public val RCD_Eap: UInt = 2u
+public val RCD_EAP: UInt = 2u
 
-public val RCD_Logon: UInt = 4u
+public val RCD_LOGON: UInt = 4u
 
-public val RCD_SingleUser: UInt = 0u
+public val RCD_SINGLE_USER: UInt = 0u
 
-public val RDEOPT_CustomDial: UInt = 4096u
+public val RDEOPT_CUSTOM_DIAL: UInt = 4096u
 
-public val RDEOPT_DisableConnectedUI: UInt = 64u
+public val RDEOPT_DISABLE_CONNECTED_UI: UInt = 64u
 
-public val RDEOPT_DisableReconnect: UInt = 256u
+public val RDEOPT_DISABLE_RECONNECT: UInt = 256u
 
-public val RDEOPT_DisableReconnectUI: UInt = 128u
+public val RDEOPT_DISABLE_RECONNECT_UI: UInt = 128u
 
-public val RDEOPT_EapInfoCryptInCapable: UInt = 32768u
+public val RDEOPT_EAP_INFO_CRYPT_IN_CAPABLE: UInt = 32768u
 
-public val RDEOPT_IgnoreModemSpeaker: UInt = 4u
+public val RDEOPT_IGNORE_MODEM_SPEAKER: UInt = 4u
 
-public val RDEOPT_IgnoreSoftwareCompression: UInt = 16u
+public val RDEOPT_IGNORE_SOFTWARE_COMPRESSION: UInt = 16u
 
-public val RDEOPT_InvokeAutoTriggerCredentialUI: UInt = 16384u
+public val RDEOPT_INVOKE_AUTO_TRIGGER_CREDENTIAL_UI: UInt = 16384u
 
-public val RDEOPT_NoUser: UInt = 512u
+public val RDEOPT_NO_USER: UInt = 512u
 
-public val RDEOPT_PauseOnScript: UInt = 1024u
+public val RDEOPT_PAUSE_ON_SCRIPT: UInt = 1024u
 
-public val RDEOPT_PausedStates: UInt = 2u
+public val RDEOPT_PAUSED_STATES: UInt = 2u
 
-public val RDEOPT_Router: UInt = 2048u
+public val RDEOPT_ROUTER: UInt = 2048u
 
-public val RDEOPT_SetModemSpeaker: UInt = 8u
+public val RDEOPT_SET_MODEM_SPEAKER: UInt = 8u
 
-public val RDEOPT_SetSoftwareCompression: UInt = 32u
+public val RDEOPT_SET_SOFTWARE_COMPRESSION: UInt = 32u
 
-public val RDEOPT_UseCustomScripting: UInt = 8192u
+public val RDEOPT_USE_CUSTOM_SCRIPTING: UInt = 8192u
 
-public val RDEOPT_UsePrefixSuffix: UInt = 1u
+public val RDEOPT_USE_PREFIX_SUFFIX: UInt = 1u
 
-public val REN_AllUsers: UInt = 1u
+public val REN_ALL_USERS: UInt = 1u
 
-public val REN_User: UInt = 0u
+public val REN_USER: UInt = 0u
 
-public val ROUTER_IF_STATE_CONNECTED: ROUTER_CONNECTION_STATE = 3
+public val ROUTER_IF_STATE_CONNECTED: RouterConnectionState = 3
 
-public val ROUTER_IF_STATE_CONNECTING: ROUTER_CONNECTION_STATE = 2
+public val ROUTER_IF_STATE_CONNECTING: RouterConnectionState = 2
 
-public val ROUTER_IF_STATE_DISCONNECTED: ROUTER_CONNECTION_STATE = 1
+public val ROUTER_IF_STATE_DISCONNECTED: RouterConnectionState = 1
 
-public val ROUTER_IF_STATE_UNREACHABLE: ROUTER_CONNECTION_STATE = 0
+public val ROUTER_IF_STATE_UNREACHABLE: RouterConnectionState = 0
 
-public val ROUTER_IF_TYPE_CLIENT: ROUTER_INTERFACE_TYPE = 0
+public val ROUTER_IF_TYPE_CLIENT: RouterInterfaceType = 0
 
-public val ROUTER_IF_TYPE_DEDICATED: ROUTER_INTERFACE_TYPE = 3
+public val ROUTER_IF_TYPE_DEDICATED: RouterInterfaceType = 3
 
-public val ROUTER_IF_TYPE_DIALOUT: ROUTER_INTERFACE_TYPE = 7
+public val ROUTER_IF_TYPE_DIALOUT: RouterInterfaceType = 7
 
-public val ROUTER_IF_TYPE_FULL_ROUTER: ROUTER_INTERFACE_TYPE = 2
+public val ROUTER_IF_TYPE_FULL_ROUTER: RouterInterfaceType = 2
 
-public val ROUTER_IF_TYPE_HOME_ROUTER: ROUTER_INTERFACE_TYPE = 1
+public val ROUTER_IF_TYPE_HOME_ROUTER: RouterInterfaceType = 1
 
-public val ROUTER_IF_TYPE_INTERNAL: ROUTER_INTERFACE_TYPE = 4
+public val ROUTER_IF_TYPE_INTERNAL: RouterInterfaceType = 4
 
-public val ROUTER_IF_TYPE_LOOPBACK: ROUTER_INTERFACE_TYPE = 5
+public val ROUTER_IF_TYPE_LOOPBACK: RouterInterfaceType = 5
 
-public val ROUTER_IF_TYPE_MAX: ROUTER_INTERFACE_TYPE = 8
+public val ROUTER_IF_TYPE_MAX: RouterInterfaceType = 8
 
-public val ROUTER_IF_TYPE_TUNNEL1: ROUTER_INTERFACE_TYPE = 6
+public val ROUTER_IF_TYPE_TUNNEL1: RouterInterfaceType = 6
 
-public val RRAS_SERVICE_NAME: PCWSTR = w("RemoteAccess")
+public val RRAS_SERVICE_NAME: Pcwstr = w("RemoteAccess")
 
 public val RTM_BLOCK_METHODS: UInt = 1u
 
-public val RTM_CHANGE_NOTIFICATION: RTM_EVENT_TYPE = 3
+public val RTM_CHANGE_NOTIFICATION: RtmEventType = 3
 
 public val RTM_CHANGE_TYPE_ALL: UInt = 1u
 
@@ -1579,9 +1579,9 @@ public val RTM_DEST_FLAG_FWD_ENGIN_ADD: UInt = 2u
 
 public val RTM_DEST_FLAG_NATURAL_NET: UInt = 1u
 
-public val RTM_ENTITY_DEREGISTERED: RTM_EVENT_TYPE = 1
+public val RTM_ENTITY_DEREGISTERED: RtmEventType = 1
 
-public val RTM_ENTITY_REGISTERED: RTM_EVENT_TYPE = 0
+public val RTM_ENTITY_REGISTERED: RtmEventType = 0
 
 public val RTM_ENUM_ALL_DESTS: UInt = 0u
 
@@ -1637,7 +1637,7 @@ public val RTM_ROUTE_CHANGE_FIRST: UInt = 1u
 
 public val RTM_ROUTE_CHANGE_NEW: UInt = 2u
 
-public val RTM_ROUTE_EXPIRED: RTM_EVENT_TYPE = 2
+public val RTM_ROUTE_EXPIRED: RtmEventType = 2
 
 public val RTM_ROUTE_FLAGS_BLACKHOLE: UInt = 2u
 
@@ -1691,39 +1691,39 @@ public val RTM_VIEW_MASK_SIZE: UInt = 32u
 
 public val RTM_VIEW_MASK_UCAST: UInt = 1u
 
-public val SECURITYMSG_ERROR: SECURITY_MESSAGE_MSG_ID = 3u
+public val SECURITYMSG_ERROR: SecurityMessageMsgId = 3u
 
-public val SECURITYMSG_FAILURE: SECURITY_MESSAGE_MSG_ID = 2u
+public val SECURITYMSG_FAILURE: SecurityMessageMsgId = 2u
 
-public val SECURITYMSG_SUCCESS: SECURITY_MESSAGE_MSG_ID = 1u
+public val SECURITYMSG_SUCCESS: SecurityMessageMsgId = 1u
 
-public val VS_Default: UInt = 0u
+public val VS_DEFAULT: UInt = 0u
 
-public val VS_GREOnly: UInt = 9u
+public val VS_GRE_ONLY: UInt = 9u
 
-public val VS_Ikev2First: UInt = 8u
+public val VS_IKEV2FIRST: UInt = 8u
 
-public val VS_Ikev2Only: UInt = 7u
+public val VS_IKEV2ONLY: UInt = 7u
 
-public val VS_Ikev2Sstp: UInt = 14u
+public val VS_IKEV2SSTP: UInt = 14u
 
-public val VS_L2tpFirst: UInt = 4u
+public val VS_L2TP_FIRST: UInt = 4u
 
-public val VS_L2tpOnly: UInt = 3u
+public val VS_L2TP_ONLY: UInt = 3u
 
-public val VS_L2tpSstp: UInt = 13u
+public val VS_L2TP_SSTP: UInt = 13u
 
-public val VS_PptpFirst: UInt = 2u
+public val VS_PPTP_FIRST: UInt = 2u
 
-public val VS_PptpOnly: UInt = 1u
+public val VS_PPTP_ONLY: UInt = 1u
 
-public val VS_PptpSstp: UInt = 12u
+public val VS_PPTP_SSTP: UInt = 12u
 
-public val VS_ProtocolList: UInt = 15u
+public val VS_PROTOCOL_LIST: UInt = 15u
 
-public val VS_SstpFirst: UInt = 6u
+public val VS_SSTP_FIRST: UInt = 6u
 
-public val VS_SstpOnly: UInt = 5u
+public val VS_SSTP_ONLY: UInt = 5u
 
 public val WARNING_MSG_ALIAS_NOT_ADDED: UInt = 644u
 

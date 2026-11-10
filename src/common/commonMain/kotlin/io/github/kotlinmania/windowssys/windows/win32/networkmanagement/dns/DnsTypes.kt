@@ -1,67 +1,69 @@
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dns
 
-public typealias DNS_CHARSET = Int
+import io.github.kotlinmania.windowssys.COpaquePointer
 
-public typealias DNS_CONFIG_TYPE = Int
+public typealias DnsCharset = Int
 
-public typealias DNS_CONNECTION_POLICY_TAG = Int
+public typealias DnsConfigType = Int
 
-public typealias DNS_CONNECTION_PROXY_INFO_SWITCH = Int
+public typealias DnsConnectionPolicyTag = Int
 
-public typealias DNS_CONNECTION_PROXY_TYPE = Int
+public typealias DnsConnectionProxyInfoSwitch = Int
 
-public typealias DNS_FREE_TYPE = Int
+public typealias DnsConnectionProxyType = Int
 
-public typealias DNS_NAME_FORMAT = Int
+public typealias DnsFreeType = Int
 
-public fun interface DNS_PROXY_COMPLETION_ROUTINEFn {
-    public operator fun invoke(completioncontext: Long, status: Int)
+public typealias DnsNameFormat = Int
+
+public fun interface DnsProxyCompletionRoutineFn {
+    public operator fun invoke(completioncontext: COpaquePointer?, status: Int)
 }
 
-public typealias DNS_PROXY_COMPLETION_ROUTINE = DNS_PROXY_COMPLETION_ROUTINEFn?
+public typealias DnsProxyCompletionRoutine = DnsProxyCompletionRoutineFn?
 
-public typealias DNS_PROXY_INFORMATION_TYPE = Int
+public typealias DnsProxyInformationType = Int
 
-public typealias DNS_QUERY_OPTIONS = UInt
+public typealias DnsQueryOptions = UInt
 
-public fun interface DNS_QUERY_RAW_COMPLETION_ROUTINEFn {
-    public operator fun invoke(querycontext: Long, queryresults: Long)
+public fun interface DnsQueryRawCompletionRoutineFn {
+    public operator fun invoke(querycontext: COpaquePointer?, queryresults: COpaquePointer?)
 }
 
-public typealias DNS_QUERY_RAW_COMPLETION_ROUTINE = DNS_QUERY_RAW_COMPLETION_ROUTINEFn?
+public typealias DnsQueryRawCompletionRoutine = DnsQueryRawCompletionRoutineFn?
 
-public typealias DNS_SECTION = Int
+public typealias DnsSection = Int
 
-public typealias DNS_SVCB_PARAM_TYPE = Int
+public typealias DnsSvcbParamType = Int
 
-public typealias DNS_TYPE = UShort
+public typealias DnsType = UShort
 
-public fun interface PDNS_QUERY_COMPLETION_ROUTINEFn {
-    public operator fun invoke(pquerycontext: Long, pqueryresults: Long)
+public fun interface PdnsQueryCompletionRoutineFn {
+    public operator fun invoke(pquerycontext: COpaquePointer?, pqueryresults: COpaquePointer?)
 }
 
-public typealias PDNS_QUERY_COMPLETION_ROUTINE = PDNS_QUERY_COMPLETION_ROUTINEFn?
+public typealias PdnsQueryCompletionRoutine = PdnsQueryCompletionRoutineFn?
 
-public fun interface PDNS_SERVICE_BROWSE_CALLBACKFn {
-    public operator fun invoke(status: UInt, pquerycontext: Long, pdnsrecord: Long)
+public fun interface PdnsServiceBrowseCallbackFn {
+    public operator fun invoke(status: UInt, pquerycontext: COpaquePointer?, pdnsrecord: COpaquePointer?)
 }
 
-public typealias PDNS_SERVICE_BROWSE_CALLBACK = PDNS_SERVICE_BROWSE_CALLBACKFn?
+public typealias PdnsServiceBrowseCallback = PdnsServiceBrowseCallbackFn?
 
-public fun interface PDNS_SERVICE_REGISTER_COMPLETEFn {
-    public operator fun invoke(status: UInt, pquerycontext: Long, pinstance: Long)
+public fun interface PdnsServiceRegisterCompleteFn {
+    public operator fun invoke(status: UInt, pquerycontext: COpaquePointer?, pinstance: COpaquePointer?)
 }
 
-public typealias PDNS_SERVICE_REGISTER_COMPLETE = PDNS_SERVICE_REGISTER_COMPLETEFn?
+public typealias PdnsServiceRegisterComplete = PdnsServiceRegisterCompleteFn?
 
-public fun interface PDNS_SERVICE_RESOLVE_COMPLETEFn {
-    public operator fun invoke(status: UInt, pquerycontext: Long, pinstance: Long)
+public fun interface PdnsServiceResolveCompleteFn {
+    public operator fun invoke(status: UInt, pquerycontext: COpaquePointer?, pinstance: COpaquePointer?)
 }
 
-public typealias PDNS_SERVICE_RESOLVE_COMPLETE = PDNS_SERVICE_RESOLVE_COMPLETEFn?
+public typealias PdnsServiceResolveComplete = PdnsServiceResolveCompleteFn?
 
-public fun interface PMDNS_QUERY_CALLBACKFn {
-    public operator fun invoke(pquerycontext: Long, pqueryhandle: Long, pqueryresults: Long)
+public fun interface PmdnsQueryCallbackFn {
+    public operator fun invoke(pquerycontext: COpaquePointer?, pqueryhandle: COpaquePointer?, pqueryresults: COpaquePointer?)
 }
 
-public typealias PMDNS_QUERY_CALLBACK = PMDNS_QUERY_CALLBACKFn?
+public typealias PmdnsQueryCallback = PmdnsQueryCallbackFn?

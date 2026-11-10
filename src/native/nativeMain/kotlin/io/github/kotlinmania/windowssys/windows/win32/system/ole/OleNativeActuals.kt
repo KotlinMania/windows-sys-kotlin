@@ -2,1381 +2,1382 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.ole
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.BSTR
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HGLOBAL
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.VARIANT_BOOL
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HDC
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HPALETTE
-import io.github.kotlinmania.windowssys.windows.win32.system.com.CALLCONV
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Bstr
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hglobal
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.VariantBool
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hdc
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hpalette
 import io.github.kotlinmania.windowssys.windows.win32.system.com.CY
-import io.github.kotlinmania.windowssys.windows.win32.system.com.SYSKIND
-import io.github.kotlinmania.windowssys.windows.win32.system.memory.GLOBAL_ALLOC_FLAGS
-import io.github.kotlinmania.windowssys.windows.win32.system.variant.VARENUM
-import io.github.kotlinmania.windowssys.windows.win32.system.variant.VARIANT
-import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.HACCEL
-import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.HCURSOR
-import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.HICON
-import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.HMENU
+import io.github.kotlinmania.windowssys.windows.win32.system.com.Callconv
+import io.github.kotlinmania.windowssys.windows.win32.system.com.Syskind
+import io.github.kotlinmania.windowssys.windows.win32.system.memory.GlobalAllocFlags
+import io.github.kotlinmania.windowssys.windows.win32.system.variant.Varenum
+import io.github.kotlinmania.windowssys.windows.win32.system.variant.Variant
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Haccel
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Hcursor
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Hicon
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Hmenu
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun BstrFromVector(psa: Long, pbstr: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_BstrFromVector(psa.toCPointer<ByteVar>(), pbstr.toCPointer<ByteVar>())
+public actual fun bstrFromVector(psa: COpaquePointer?, pbstr: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_bstrFromVector(psa?.value?.toCPointer<ByteVar>(), pbstr?.value?.toCPointer<ByteVar>())
 
-public actual fun ClearCustData(pcustdata: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_ClearCustData(pcustdata.toCPointer<ByteVar>())
+public actual fun clearCustData(pcustdata: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_clearCustData(pcustdata?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun CreateDispTypeInfo(pidata: Long, lcid: UInt, pptinfo: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_CreateDispTypeInfo(pidata.toCPointer<ByteVar>(), lcid, pptinfo.toCPointer<ByteVar>())
+public actual fun createDispTypeInfo(pidata: COpaquePointer?, lcid: UInt, pptinfo: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_createDispTypeInfo(pidata?.value?.toCPointer<ByteVar>(), lcid, pptinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun CreateErrorInfo(pperrinfo: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_CreateErrorInfo(pperrinfo.toCPointer<ByteVar>())
+public actual fun createErrorInfo(pperrinfo: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_createErrorInfo(pperrinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun CreateOleAdviseHolder(ppoaholder: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_CreateOleAdviseHolder(ppoaholder.toCPointer<ByteVar>())
+public actual fun createOleAdviseHolder(ppoaholder: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_createOleAdviseHolder(ppoaholder?.value?.toCPointer<ByteVar>())
 
-public actual fun CreateStdDispatch(punkouter: Long, pvthis: Long, ptinfo: Long, ppunkstddisp: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_CreateStdDispatch(punkouter.toCPointer<ByteVar>(), pvthis.toCPointer<ByteVar>(), ptinfo.toCPointer<ByteVar>(), ppunkstddisp.toCPointer<ByteVar>())
+public actual fun createStdDispatch(punkouter: COpaquePointer?, pvthis: COpaquePointer?, ptinfo: COpaquePointer?, ppunkstddisp: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_createStdDispatch(punkouter?.value?.toCPointer<ByteVar>(), pvthis?.value?.toCPointer<ByteVar>(), ptinfo?.value?.toCPointer<ByteVar>(), ppunkstddisp?.value?.toCPointer<ByteVar>())
 
-public actual fun CreateTypeLib(syskind: SYSKIND, szfile: PCWSTR, ppctlib: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_CreateTypeLib(syskind, szfile.toCPointer<ByteVar>(), ppctlib.toCPointer<ByteVar>())
+public actual fun createTypeLib(syskind: Syskind, szfile: Pcwstr, ppctlib: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_createTypeLib(syskind, szfile?.value?.toCPointer<ByteVar>(), ppctlib?.value?.toCPointer<ByteVar>())
 
-public actual fun CreateTypeLib2(syskind: SYSKIND, szfile: PCWSTR, ppctlib: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_CreateTypeLib2(syskind, szfile.toCPointer<ByteVar>(), ppctlib.toCPointer<ByteVar>())
+public actual fun createTypeLib2(syskind: Syskind, szfile: Pcwstr, ppctlib: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_createTypeLib2(syskind, szfile?.value?.toCPointer<ByteVar>(), ppctlib?.value?.toCPointer<ByteVar>())
 
-public actual fun DispCallFunc(pvinstance: Long, ovft: ULong, cc: CALLCONV, vtreturn: VARENUM, cactuals: UInt, prgvt: Long, prgpvarg: Long, pvargresult: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_DispCallFunc(pvinstance.toCPointer<ByteVar>(), ovft, cc, vtreturn, cactuals, prgvt.toCPointer<ByteVar>(), prgpvarg.toCPointer<ByteVar>(), pvargresult.toCPointer<ByteVar>())
+public actual fun dispCallFunc(pvinstance: COpaquePointer?, ovft: ULong, cc: Callconv, vtreturn: Varenum, cactuals: UInt, prgvt: COpaquePointer?, prgpvarg: COpaquePointer?, pvargresult: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_dispCallFunc(pvinstance?.value?.toCPointer<ByteVar>(), ovft, cc, vtreturn, cactuals, prgvt?.value?.toCPointer<ByteVar>(), prgpvarg?.value?.toCPointer<ByteVar>(), pvargresult?.value?.toCPointer<ByteVar>())
 
-public actual fun DispGetIDsOfNames(ptinfo: Long, rgsznames: Long, cnames: UInt, rgdispid: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_DispGetIDsOfNames(ptinfo.toCPointer<ByteVar>(), rgsznames.toCPointer<ByteVar>(), cnames, rgdispid.toCPointer<ByteVar>())
+public actual fun dispGetIDsOfNames(ptinfo: COpaquePointer?, rgsznames: COpaquePointer?, cnames: UInt, rgdispid: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_dispGetIDsOfNames(ptinfo?.value?.toCPointer<ByteVar>(), rgsznames?.value?.toCPointer<ByteVar>(), cnames, rgdispid?.value?.toCPointer<ByteVar>())
 
-public actual fun DispGetParam(pdispparams: Long, position: UInt, vttarg: VARENUM, pvarresult: Long, puargerr: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_DispGetParam(pdispparams.toCPointer<ByteVar>(), position, vttarg, pvarresult.toCPointer<ByteVar>(), puargerr.toCPointer<ByteVar>())
+public actual fun dispGetParam(pdispparams: COpaquePointer?, position: UInt, vttarg: Varenum, pvarresult: COpaquePointer?, puargerr: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_dispGetParam(pdispparams?.value?.toCPointer<ByteVar>(), position, vttarg, pvarresult?.value?.toCPointer<ByteVar>(), puargerr?.value?.toCPointer<ByteVar>())
 
-public actual fun DispInvoke(_this: Long, ptinfo: Long, dispidmember: Int, wflags: UShort, pparams: Long, pvarresult: Long, pexcepinfo: Long, puargerr: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_DispInvoke(_this.toCPointer<ByteVar>(), ptinfo.toCPointer<ByteVar>(), dispidmember, wflags, pparams.toCPointer<ByteVar>(), pvarresult.toCPointer<ByteVar>(), pexcepinfo.toCPointer<ByteVar>(), puargerr.toCPointer<ByteVar>())
+public actual fun dispInvoke(thisRef: COpaquePointer?, ptinfo: COpaquePointer?, dispidmember: Int, wflags: UShort, pparams: COpaquePointer?, pvarresult: COpaquePointer?, pexcepinfo: COpaquePointer?, puargerr: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_dispInvoke(thisRef?.value?.toCPointer<ByteVar>(), ptinfo?.value?.toCPointer<ByteVar>(), dispidmember, wflags, pparams?.value?.toCPointer<ByteVar>(), pvarresult?.value?.toCPointer<ByteVar>(), pexcepinfo?.value?.toCPointer<ByteVar>(), puargerr?.value?.toCPointer<ByteVar>())
 
-public actual fun DoDragDrop(pdataobj: Long, pdropsource: Long, dwokeffects: DROPEFFECT, pdweffect: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_DoDragDrop(pdataobj.toCPointer<ByteVar>(), pdropsource.toCPointer<ByteVar>(), dwokeffects, pdweffect.toCPointer<ByteVar>())
+public actual fun doDragDrop(pdataobj: COpaquePointer?, pdropsource: COpaquePointer?, dwokeffects: Dropeffect, pdweffect: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_doDragDrop(pdataobj?.value?.toCPointer<ByteVar>(), pdropsource?.value?.toCPointer<ByteVar>(), dwokeffects, pdweffect?.value?.toCPointer<ByteVar>())
 
-public actual fun GetActiveObject(rclsid: Long, pvreserved: Long, ppunk: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_GetActiveObject(rclsid.toCPointer<ByteVar>(), pvreserved.toCPointer<ByteVar>(), ppunk.toCPointer<ByteVar>())
+public actual fun getActiveObject(rclsid: COpaquePointer?, pvreserved: COpaquePointer?, ppunk: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_getActiveObject(rclsid?.value?.toCPointer<ByteVar>(), pvreserved?.value?.toCPointer<ByteVar>(), ppunk?.value?.toCPointer<ByteVar>())
 
-public actual fun GetAltMonthNames(lcid: UInt, prgp: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_GetAltMonthNames(lcid, prgp.toCPointer<ByteVar>())
+public actual fun getAltMonthNames(lcid: UInt, prgp: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_getAltMonthNames(lcid, prgp?.value?.toCPointer<ByteVar>())
 
-public actual fun GetRecordInfoFromGuids(rguidtypelib: Long, uvermajor: UInt, uverminor: UInt, lcid: UInt, rguidtypeinfo: Long, pprecinfo: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_GetRecordInfoFromGuids(rguidtypelib.toCPointer<ByteVar>(), uvermajor, uverminor, lcid, rguidtypeinfo.toCPointer<ByteVar>(), pprecinfo.toCPointer<ByteVar>())
+public actual fun getRecordInfoFromGuids(rguidtypelib: COpaquePointer?, uvermajor: UInt, uverminor: UInt, lcid: UInt, rguidtypeinfo: COpaquePointer?, pprecinfo: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_getRecordInfoFromGuids(rguidtypelib?.value?.toCPointer<ByteVar>(), uvermajor, uverminor, lcid, rguidtypeinfo?.value?.toCPointer<ByteVar>(), pprecinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun GetRecordInfoFromTypeInfo(ptypeinfo: Long, pprecinfo: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_GetRecordInfoFromTypeInfo(ptypeinfo.toCPointer<ByteVar>(), pprecinfo.toCPointer<ByteVar>())
+public actual fun getRecordInfoFromTypeInfo(ptypeinfo: COpaquePointer?, pprecinfo: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_getRecordInfoFromTypeInfo(ptypeinfo?.value?.toCPointer<ByteVar>(), pprecinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun HRGN_UserFree(param0: Long, param1: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_HRGN_UserFree(param0.toCPointer<ByteVar>(), param1.toCPointer<ByteVar>())
+public actual fun hrgnUserFree(param0: COpaquePointer?, param1: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_hrgnUserFree(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun HRGN_UserFree64(param0: Long, param1: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_HRGN_UserFree64(param0.toCPointer<ByteVar>(), param1.toCPointer<ByteVar>())
+public actual fun hrgnUserFree64(param0: COpaquePointer?, param1: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_hrgnUserFree64(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun HRGN_UserMarshal(param0: Long, param1: Long, param2: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_HRGN_UserMarshal(param0.toCPointer<ByteVar>(), param1.toCPointer<ByteVar>(), param2.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun hrgnUserMarshal(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_hrgnUserMarshal(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun HRGN_UserMarshal64(param0: Long, param1: Long, param2: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_HRGN_UserMarshal64(param0.toCPointer<ByteVar>(), param1.toCPointer<ByteVar>(), param2.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun hrgnUserMarshal64(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_hrgnUserMarshal64(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun HRGN_UserSize(param0: Long, param1: UInt, param2: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_HRGN_UserSize(param0.toCPointer<ByteVar>(), param1, param2.toCPointer<ByteVar>())
+public actual fun hrgnUserSize(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_hrgnUserSize(param0?.value?.toCPointer<ByteVar>(), param1, param2?.value?.toCPointer<ByteVar>())
 
-public actual fun HRGN_UserSize64(param0: Long, param1: UInt, param2: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_HRGN_UserSize64(param0.toCPointer<ByteVar>(), param1, param2.toCPointer<ByteVar>())
+public actual fun hrgnUserSize64(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_hrgnUserSize64(param0?.value?.toCPointer<ByteVar>(), param1, param2?.value?.toCPointer<ByteVar>())
 
-public actual fun HRGN_UserUnmarshal(param0: Long, param1: Long, param2: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_HRGN_UserUnmarshal(param0.toCPointer<ByteVar>(), param1.toCPointer<ByteVar>(), param2.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun hrgnUserUnmarshal(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_hrgnUserUnmarshal(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun HRGN_UserUnmarshal64(param0: Long, param1: Long, param2: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_HRGN_UserUnmarshal64(param0.toCPointer<ByteVar>(), param1.toCPointer<ByteVar>(), param2.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun hrgnUserUnmarshal64(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_hrgnUserUnmarshal64(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun IsAccelerator(haccel: HACCEL, caccelentries: Int, lpmsg: Long, lpwcmd: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_IsAccelerator(haccel.toCPointer<ByteVar>(), caccelentries, lpmsg.toCPointer<ByteVar>(), lpwcmd.toCPointer<ByteVar>())
+public actual fun isAccelerator(haccel: Haccel, caccelentries: Int, lpmsg: COpaquePointer?, lpwcmd: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_isAccelerator(haccel?.value?.toCPointer<ByteVar>(), caccelentries, lpmsg?.value?.toCPointer<ByteVar>(), lpwcmd?.value?.toCPointer<ByteVar>())
 
-public actual fun LHashValOfNameSys(syskind: SYSKIND, lcid: UInt, szname: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_LHashValOfNameSys(syskind, lcid, szname.toCPointer<ByteVar>())
+public actual fun lHashValOfNameSys(syskind: Syskind, lcid: UInt, szname: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_lHashValOfNameSys(syskind, lcid, szname?.value?.toCPointer<ByteVar>())
 
-public actual fun LHashValOfNameSysA(syskind: SYSKIND, lcid: UInt, szname: PCSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_LHashValOfNameSysA(syskind, lcid, szname.toCPointer<ByteVar>())
+public actual fun lHashValOfNameSysA(syskind: Syskind, lcid: UInt, szname: Pcstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_lHashValOfNameSysA(syskind, lcid, szname?.value?.toCPointer<ByteVar>())
 
-public actual fun LoadRegTypeLib(rguid: Long, wvermajor: UShort, wverminor: UShort, lcid: UInt, pptlib: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_LoadRegTypeLib(rguid.toCPointer<ByteVar>(), wvermajor, wverminor, lcid, pptlib.toCPointer<ByteVar>())
+public actual fun loadRegTypeLib(rguid: COpaquePointer?, wvermajor: UShort, wverminor: UShort, lcid: UInt, pptlib: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_loadRegTypeLib(rguid?.value?.toCPointer<ByteVar>(), wvermajor, wverminor, lcid, pptlib?.value?.toCPointer<ByteVar>())
 
-public actual fun LoadTypeLib(szfile: PCWSTR, pptlib: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_LoadTypeLib(szfile.toCPointer<ByteVar>(), pptlib.toCPointer<ByteVar>())
+public actual fun loadTypeLib(szfile: Pcwstr, pptlib: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_loadTypeLib(szfile?.value?.toCPointer<ByteVar>(), pptlib?.value?.toCPointer<ByteVar>())
 
-public actual fun LoadTypeLibEx(szfile: PCWSTR, regkind: REGKIND, pptlib: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_LoadTypeLibEx(szfile.toCPointer<ByteVar>(), regkind, pptlib.toCPointer<ByteVar>())
+public actual fun loadTypeLibEx(szfile: Pcwstr, regkind: Regkind, pptlib: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_loadTypeLibEx(szfile?.value?.toCPointer<ByteVar>(), regkind, pptlib?.value?.toCPointer<ByteVar>())
 
-public actual fun OaBuildVersion(): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OaBuildVersion()
+public actual fun oaBuildVersion(): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oaBuildVersion()
 
-public actual fun OaEnablePerUserTLibRegistration() {
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OaEnablePerUserTLibRegistration()
+public actual fun oaEnablePerUserTLibRegistration() {
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oaEnablePerUserTLibRegistration()
 }
 
-public actual fun OleBuildVersion(): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleBuildVersion()
+public actual fun oleBuildVersion(): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleBuildVersion()
 
-public actual fun OleConvertOLESTREAMToIStorage2(lpolestream: Long, pstg: Long, ptd: Long, opt: UInt, pvcallbackcontext: Long, pqueryconvertolelinkcallback: OLESTREAMQUERYCONVERTOLELINKCALLBACK): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleConvertOLESTREAMToIStorage2(lpolestream.toCPointer<ByteVar>(), pstg.toCPointer<ByteVar>(), ptd.toCPointer<ByteVar>(), opt, pvcallbackcontext.toCPointer<ByteVar>(), pqueryconvertolelinkcallback.toLong().toCPointer<ByteVar>())
+public actual fun oleConvertOLESTREAMToIStorage2(lpolestream: COpaquePointer?, pstg: COpaquePointer?, ptd: COpaquePointer?, opt: UInt, pvcallbackcontext: COpaquePointer?, pqueryconvertolelinkcallback: Olestreamqueryconvertolelinkcallback): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleConvertOLESTREAMToIStorage2(lpolestream?.value?.toCPointer<ByteVar>(), pstg?.value?.toCPointer<ByteVar>(), ptd?.value?.toCPointer<ByteVar>(), opt, pvcallbackcontext?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 
-public actual fun OleConvertOLESTREAMToIStorageEx2(polestm: Long, pstg: Long, pcfformat: Long, plwwidth: Long, plheight: Long, pdwsize: Long, pmedium: Long, opt: UInt, pvcallbackcontext: Long, pqueryconvertolelinkcallback: OLESTREAMQUERYCONVERTOLELINKCALLBACK): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleConvertOLESTREAMToIStorageEx2(polestm.toCPointer<ByteVar>(), pstg.toCPointer<ByteVar>(), pcfformat.toCPointer<ByteVar>(), plwwidth.toCPointer<ByteVar>(), plheight.toCPointer<ByteVar>(), pdwsize.toCPointer<ByteVar>(), pmedium.toCPointer<ByteVar>(), opt, pvcallbackcontext.toCPointer<ByteVar>(), pqueryconvertolelinkcallback.toLong().toCPointer<ByteVar>())
+public actual fun oleConvertOLESTREAMToIStorageEx2(polestm: COpaquePointer?, pstg: COpaquePointer?, pcfformat: COpaquePointer?, plwwidth: COpaquePointer?, plheight: COpaquePointer?, pdwsize: COpaquePointer?, pmedium: COpaquePointer?, opt: UInt, pvcallbackcontext: COpaquePointer?, pqueryconvertolelinkcallback: Olestreamqueryconvertolelinkcallback): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleConvertOLESTREAMToIStorageEx2(polestm?.value?.toCPointer<ByteVar>(), pstg?.value?.toCPointer<ByteVar>(), pcfformat?.value?.toCPointer<ByteVar>(), plwwidth?.value?.toCPointer<ByteVar>(), plheight?.value?.toCPointer<ByteVar>(), pdwsize?.value?.toCPointer<ByteVar>(), pmedium?.value?.toCPointer<ByteVar>(), opt, pvcallbackcontext?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 
-public actual fun OleCreate(rclsid: Long, riid: Long, renderopt: UInt, pformatetc: Long, pclientsite: Long, pstg: Long, ppvobj: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleCreate(rclsid.toCPointer<ByteVar>(), riid.toCPointer<ByteVar>(), renderopt, pformatetc.toCPointer<ByteVar>(), pclientsite.toCPointer<ByteVar>(), pstg.toCPointer<ByteVar>(), ppvobj.toCPointer<ByteVar>())
+public actual fun oleCreate(rclsid: COpaquePointer?, riid: COpaquePointer?, renderopt: UInt, pformatetc: COpaquePointer?, pclientsite: COpaquePointer?, pstg: COpaquePointer?, ppvobj: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleCreate(rclsid?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), renderopt, pformatetc?.value?.toCPointer<ByteVar>(), pclientsite?.value?.toCPointer<ByteVar>(), pstg?.value?.toCPointer<ByteVar>(), ppvobj?.value?.toCPointer<ByteVar>())
 
-public actual fun OleCreateDefaultHandler(clsid: Long, punkouter: Long, riid: Long, lplpobj: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleCreateDefaultHandler(clsid.toCPointer<ByteVar>(), punkouter.toCPointer<ByteVar>(), riid.toCPointer<ByteVar>(), lplpobj.toCPointer<ByteVar>())
+public actual fun oleCreateDefaultHandler(clsid: COpaquePointer?, punkouter: COpaquePointer?, riid: COpaquePointer?, lplpobj: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleCreateDefaultHandler(clsid?.value?.toCPointer<ByteVar>(), punkouter?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), lplpobj?.value?.toCPointer<ByteVar>())
 
-public actual fun OleCreateEmbeddingHelper(clsid: Long, punkouter: Long, flags: EMBDHLP_FLAGS, pcf: Long, riid: Long, lplpobj: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleCreateEmbeddingHelper(clsid.toCPointer<ByteVar>(), punkouter.toCPointer<ByteVar>(), flags, pcf.toCPointer<ByteVar>(), riid.toCPointer<ByteVar>(), lplpobj.toCPointer<ByteVar>())
+public actual fun oleCreateEmbeddingHelper(clsid: COpaquePointer?, punkouter: COpaquePointer?, flags: EmbdhlpFlags, pcf: COpaquePointer?, riid: COpaquePointer?, lplpobj: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleCreateEmbeddingHelper(clsid?.value?.toCPointer<ByteVar>(), punkouter?.value?.toCPointer<ByteVar>(), flags, pcf?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), lplpobj?.value?.toCPointer<ByteVar>())
 
-public actual fun OleCreateEx(rclsid: Long, riid: Long, dwflags: OLECREATE, renderopt: UInt, cformats: UInt, rgadvf: Long, rgformatetc: Long, lpadvisesink: Long, rgdwconnection: Long, pclientsite: Long, pstg: Long, ppvobj: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleCreateEx(rclsid.toCPointer<ByteVar>(), riid.toCPointer<ByteVar>(), dwflags, renderopt, cformats, rgadvf.toCPointer<ByteVar>(), rgformatetc.toCPointer<ByteVar>(), lpadvisesink.toCPointer<ByteVar>(), rgdwconnection.toCPointer<ByteVar>(), pclientsite.toCPointer<ByteVar>(), pstg.toCPointer<ByteVar>(), ppvobj.toCPointer<ByteVar>())
+public actual fun oleCreateEx(rclsid: COpaquePointer?, riid: COpaquePointer?, dwflags: Olecreate, renderopt: UInt, cformats: UInt, rgadvf: COpaquePointer?, rgformatetc: COpaquePointer?, lpadvisesink: COpaquePointer?, rgdwconnection: COpaquePointer?, pclientsite: COpaquePointer?, pstg: COpaquePointer?, ppvobj: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleCreateEx(rclsid?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), dwflags, renderopt, cformats, rgadvf?.value?.toCPointer<ByteVar>(), rgformatetc?.value?.toCPointer<ByteVar>(), lpadvisesink?.value?.toCPointer<ByteVar>(), rgdwconnection?.value?.toCPointer<ByteVar>(), pclientsite?.value?.toCPointer<ByteVar>(), pstg?.value?.toCPointer<ByteVar>(), ppvobj?.value?.toCPointer<ByteVar>())
 
-public actual fun OleCreateFontIndirect(lpfontdesc: Long, riid: Long, lplpvobj: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleCreateFontIndirect(lpfontdesc.toCPointer<ByteVar>(), riid.toCPointer<ByteVar>(), lplpvobj.toCPointer<ByteVar>())
+public actual fun oleCreateFontIndirect(lpfontdesc: COpaquePointer?, riid: COpaquePointer?, lplpvobj: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleCreateFontIndirect(lpfontdesc?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), lplpvobj?.value?.toCPointer<ByteVar>())
 
-public actual fun OleCreateFromData(psrcdataobj: Long, riid: Long, renderopt: UInt, pformatetc: Long, pclientsite: Long, pstg: Long, ppvobj: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleCreateFromData(psrcdataobj.toCPointer<ByteVar>(), riid.toCPointer<ByteVar>(), renderopt, pformatetc.toCPointer<ByteVar>(), pclientsite.toCPointer<ByteVar>(), pstg.toCPointer<ByteVar>(), ppvobj.toCPointer<ByteVar>())
+public actual fun oleCreateFromData(psrcdataobj: COpaquePointer?, riid: COpaquePointer?, renderopt: UInt, pformatetc: COpaquePointer?, pclientsite: COpaquePointer?, pstg: COpaquePointer?, ppvobj: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleCreateFromData(psrcdataobj?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), renderopt, pformatetc?.value?.toCPointer<ByteVar>(), pclientsite?.value?.toCPointer<ByteVar>(), pstg?.value?.toCPointer<ByteVar>(), ppvobj?.value?.toCPointer<ByteVar>())
 
-public actual fun OleCreateFromDataEx(psrcdataobj: Long, riid: Long, dwflags: OLECREATE, renderopt: UInt, cformats: UInt, rgadvf: Long, rgformatetc: Long, lpadvisesink: Long, rgdwconnection: Long, pclientsite: Long, pstg: Long, ppvobj: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleCreateFromDataEx(psrcdataobj.toCPointer<ByteVar>(), riid.toCPointer<ByteVar>(), dwflags, renderopt, cformats, rgadvf.toCPointer<ByteVar>(), rgformatetc.toCPointer<ByteVar>(), lpadvisesink.toCPointer<ByteVar>(), rgdwconnection.toCPointer<ByteVar>(), pclientsite.toCPointer<ByteVar>(), pstg.toCPointer<ByteVar>(), ppvobj.toCPointer<ByteVar>())
+public actual fun oleCreateFromDataEx(psrcdataobj: COpaquePointer?, riid: COpaquePointer?, dwflags: Olecreate, renderopt: UInt, cformats: UInt, rgadvf: COpaquePointer?, rgformatetc: COpaquePointer?, lpadvisesink: COpaquePointer?, rgdwconnection: COpaquePointer?, pclientsite: COpaquePointer?, pstg: COpaquePointer?, ppvobj: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleCreateFromDataEx(psrcdataobj?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), dwflags, renderopt, cformats, rgadvf?.value?.toCPointer<ByteVar>(), rgformatetc?.value?.toCPointer<ByteVar>(), lpadvisesink?.value?.toCPointer<ByteVar>(), rgdwconnection?.value?.toCPointer<ByteVar>(), pclientsite?.value?.toCPointer<ByteVar>(), pstg?.value?.toCPointer<ByteVar>(), ppvobj?.value?.toCPointer<ByteVar>())
 
-public actual fun OleCreateFromFile(rclsid: Long, lpszfilename: PCWSTR, riid: Long, renderopt: UInt, lpformatetc: Long, pclientsite: Long, pstg: Long, ppvobj: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleCreateFromFile(rclsid.toCPointer<ByteVar>(), lpszfilename.toCPointer<ByteVar>(), riid.toCPointer<ByteVar>(), renderopt, lpformatetc.toCPointer<ByteVar>(), pclientsite.toCPointer<ByteVar>(), pstg.toCPointer<ByteVar>(), ppvobj.toCPointer<ByteVar>())
+public actual fun oleCreateFromFile(rclsid: COpaquePointer?, lpszfilename: Pcwstr, riid: COpaquePointer?, renderopt: UInt, lpformatetc: COpaquePointer?, pclientsite: COpaquePointer?, pstg: COpaquePointer?, ppvobj: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleCreateFromFile(rclsid?.value?.toCPointer<ByteVar>(), lpszfilename?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), renderopt, lpformatetc?.value?.toCPointer<ByteVar>(), pclientsite?.value?.toCPointer<ByteVar>(), pstg?.value?.toCPointer<ByteVar>(), ppvobj?.value?.toCPointer<ByteVar>())
 
-public actual fun OleCreateFromFileEx(rclsid: Long, lpszfilename: PCWSTR, riid: Long, dwflags: OLECREATE, renderopt: UInt, cformats: UInt, rgadvf: Long, rgformatetc: Long, lpadvisesink: Long, rgdwconnection: Long, pclientsite: Long, pstg: Long, ppvobj: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleCreateFromFileEx(rclsid.toCPointer<ByteVar>(), lpszfilename.toCPointer<ByteVar>(), riid.toCPointer<ByteVar>(), dwflags, renderopt, cformats, rgadvf.toCPointer<ByteVar>(), rgformatetc.toCPointer<ByteVar>(), lpadvisesink.toCPointer<ByteVar>(), rgdwconnection.toCPointer<ByteVar>(), pclientsite.toCPointer<ByteVar>(), pstg.toCPointer<ByteVar>(), ppvobj.toCPointer<ByteVar>())
+public actual fun oleCreateFromFileEx(rclsid: COpaquePointer?, lpszfilename: Pcwstr, riid: COpaquePointer?, dwflags: Olecreate, renderopt: UInt, cformats: UInt, rgadvf: COpaquePointer?, rgformatetc: COpaquePointer?, lpadvisesink: COpaquePointer?, rgdwconnection: COpaquePointer?, pclientsite: COpaquePointer?, pstg: COpaquePointer?, ppvobj: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleCreateFromFileEx(rclsid?.value?.toCPointer<ByteVar>(), lpszfilename?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), dwflags, renderopt, cformats, rgadvf?.value?.toCPointer<ByteVar>(), rgformatetc?.value?.toCPointer<ByteVar>(), lpadvisesink?.value?.toCPointer<ByteVar>(), rgdwconnection?.value?.toCPointer<ByteVar>(), pclientsite?.value?.toCPointer<ByteVar>(), pstg?.value?.toCPointer<ByteVar>(), ppvobj?.value?.toCPointer<ByteVar>())
 
-public actual fun OleCreateLink(pmklinksrc: Long, riid: Long, renderopt: UInt, lpformatetc: Long, pclientsite: Long, pstg: Long, ppvobj: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleCreateLink(pmklinksrc.toCPointer<ByteVar>(), riid.toCPointer<ByteVar>(), renderopt, lpformatetc.toCPointer<ByteVar>(), pclientsite.toCPointer<ByteVar>(), pstg.toCPointer<ByteVar>(), ppvobj.toCPointer<ByteVar>())
+public actual fun oleCreateLink(pmklinksrc: COpaquePointer?, riid: COpaquePointer?, renderopt: UInt, lpformatetc: COpaquePointer?, pclientsite: COpaquePointer?, pstg: COpaquePointer?, ppvobj: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleCreateLink(pmklinksrc?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), renderopt, lpformatetc?.value?.toCPointer<ByteVar>(), pclientsite?.value?.toCPointer<ByteVar>(), pstg?.value?.toCPointer<ByteVar>(), ppvobj?.value?.toCPointer<ByteVar>())
 
-public actual fun OleCreateLinkEx(pmklinksrc: Long, riid: Long, dwflags: OLECREATE, renderopt: UInt, cformats: UInt, rgadvf: Long, rgformatetc: Long, lpadvisesink: Long, rgdwconnection: Long, pclientsite: Long, pstg: Long, ppvobj: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleCreateLinkEx(pmklinksrc.toCPointer<ByteVar>(), riid.toCPointer<ByteVar>(), dwflags, renderopt, cformats, rgadvf.toCPointer<ByteVar>(), rgformatetc.toCPointer<ByteVar>(), lpadvisesink.toCPointer<ByteVar>(), rgdwconnection.toCPointer<ByteVar>(), pclientsite.toCPointer<ByteVar>(), pstg.toCPointer<ByteVar>(), ppvobj.toCPointer<ByteVar>())
+public actual fun oleCreateLinkEx(pmklinksrc: COpaquePointer?, riid: COpaquePointer?, dwflags: Olecreate, renderopt: UInt, cformats: UInt, rgadvf: COpaquePointer?, rgformatetc: COpaquePointer?, lpadvisesink: COpaquePointer?, rgdwconnection: COpaquePointer?, pclientsite: COpaquePointer?, pstg: COpaquePointer?, ppvobj: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleCreateLinkEx(pmklinksrc?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), dwflags, renderopt, cformats, rgadvf?.value?.toCPointer<ByteVar>(), rgformatetc?.value?.toCPointer<ByteVar>(), lpadvisesink?.value?.toCPointer<ByteVar>(), rgdwconnection?.value?.toCPointer<ByteVar>(), pclientsite?.value?.toCPointer<ByteVar>(), pstg?.value?.toCPointer<ByteVar>(), ppvobj?.value?.toCPointer<ByteVar>())
 
-public actual fun OleCreateLinkFromData(psrcdataobj: Long, riid: Long, renderopt: UInt, pformatetc: Long, pclientsite: Long, pstg: Long, ppvobj: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleCreateLinkFromData(psrcdataobj.toCPointer<ByteVar>(), riid.toCPointer<ByteVar>(), renderopt, pformatetc.toCPointer<ByteVar>(), pclientsite.toCPointer<ByteVar>(), pstg.toCPointer<ByteVar>(), ppvobj.toCPointer<ByteVar>())
+public actual fun oleCreateLinkFromData(psrcdataobj: COpaquePointer?, riid: COpaquePointer?, renderopt: UInt, pformatetc: COpaquePointer?, pclientsite: COpaquePointer?, pstg: COpaquePointer?, ppvobj: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleCreateLinkFromData(psrcdataobj?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), renderopt, pformatetc?.value?.toCPointer<ByteVar>(), pclientsite?.value?.toCPointer<ByteVar>(), pstg?.value?.toCPointer<ByteVar>(), ppvobj?.value?.toCPointer<ByteVar>())
 
-public actual fun OleCreateLinkFromDataEx(psrcdataobj: Long, riid: Long, dwflags: OLECREATE, renderopt: UInt, cformats: UInt, rgadvf: Long, rgformatetc: Long, lpadvisesink: Long, rgdwconnection: Long, pclientsite: Long, pstg: Long, ppvobj: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleCreateLinkFromDataEx(psrcdataobj.toCPointer<ByteVar>(), riid.toCPointer<ByteVar>(), dwflags, renderopt, cformats, rgadvf.toCPointer<ByteVar>(), rgformatetc.toCPointer<ByteVar>(), lpadvisesink.toCPointer<ByteVar>(), rgdwconnection.toCPointer<ByteVar>(), pclientsite.toCPointer<ByteVar>(), pstg.toCPointer<ByteVar>(), ppvobj.toCPointer<ByteVar>())
+public actual fun oleCreateLinkFromDataEx(psrcdataobj: COpaquePointer?, riid: COpaquePointer?, dwflags: Olecreate, renderopt: UInt, cformats: UInt, rgadvf: COpaquePointer?, rgformatetc: COpaquePointer?, lpadvisesink: COpaquePointer?, rgdwconnection: COpaquePointer?, pclientsite: COpaquePointer?, pstg: COpaquePointer?, ppvobj: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleCreateLinkFromDataEx(psrcdataobj?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), dwflags, renderopt, cformats, rgadvf?.value?.toCPointer<ByteVar>(), rgformatetc?.value?.toCPointer<ByteVar>(), lpadvisesink?.value?.toCPointer<ByteVar>(), rgdwconnection?.value?.toCPointer<ByteVar>(), pclientsite?.value?.toCPointer<ByteVar>(), pstg?.value?.toCPointer<ByteVar>(), ppvobj?.value?.toCPointer<ByteVar>())
 
-public actual fun OleCreateLinkToFile(lpszfilename: PCWSTR, riid: Long, renderopt: UInt, lpformatetc: Long, pclientsite: Long, pstg: Long, ppvobj: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleCreateLinkToFile(lpszfilename.toCPointer<ByteVar>(), riid.toCPointer<ByteVar>(), renderopt, lpformatetc.toCPointer<ByteVar>(), pclientsite.toCPointer<ByteVar>(), pstg.toCPointer<ByteVar>(), ppvobj.toCPointer<ByteVar>())
+public actual fun oleCreateLinkToFile(lpszfilename: Pcwstr, riid: COpaquePointer?, renderopt: UInt, lpformatetc: COpaquePointer?, pclientsite: COpaquePointer?, pstg: COpaquePointer?, ppvobj: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleCreateLinkToFile(lpszfilename?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), renderopt, lpformatetc?.value?.toCPointer<ByteVar>(), pclientsite?.value?.toCPointer<ByteVar>(), pstg?.value?.toCPointer<ByteVar>(), ppvobj?.value?.toCPointer<ByteVar>())
 
-public actual fun OleCreateLinkToFileEx(lpszfilename: PCWSTR, riid: Long, dwflags: OLECREATE, renderopt: UInt, cformats: UInt, rgadvf: Long, rgformatetc: Long, lpadvisesink: Long, rgdwconnection: Long, pclientsite: Long, pstg: Long, ppvobj: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleCreateLinkToFileEx(lpszfilename.toCPointer<ByteVar>(), riid.toCPointer<ByteVar>(), dwflags, renderopt, cformats, rgadvf.toCPointer<ByteVar>(), rgformatetc.toCPointer<ByteVar>(), lpadvisesink.toCPointer<ByteVar>(), rgdwconnection.toCPointer<ByteVar>(), pclientsite.toCPointer<ByteVar>(), pstg.toCPointer<ByteVar>(), ppvobj.toCPointer<ByteVar>())
+public actual fun oleCreateLinkToFileEx(lpszfilename: Pcwstr, riid: COpaquePointer?, dwflags: Olecreate, renderopt: UInt, cformats: UInt, rgadvf: COpaquePointer?, rgformatetc: COpaquePointer?, lpadvisesink: COpaquePointer?, rgdwconnection: COpaquePointer?, pclientsite: COpaquePointer?, pstg: COpaquePointer?, ppvobj: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleCreateLinkToFileEx(lpszfilename?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), dwflags, renderopt, cformats, rgadvf?.value?.toCPointer<ByteVar>(), rgformatetc?.value?.toCPointer<ByteVar>(), lpadvisesink?.value?.toCPointer<ByteVar>(), rgdwconnection?.value?.toCPointer<ByteVar>(), pclientsite?.value?.toCPointer<ByteVar>(), pstg?.value?.toCPointer<ByteVar>(), ppvobj?.value?.toCPointer<ByteVar>())
 
-public actual fun OleCreateMenuDescriptor(hmenucombined: HMENU, lpmenuwidths: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleCreateMenuDescriptor(hmenucombined.toCPointer<ByteVar>(), lpmenuwidths.toCPointer<ByteVar>())
+public actual fun oleCreateMenuDescriptor(hmenucombined: Hmenu, lpmenuwidths: COpaquePointer?): Long =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleCreateMenuDescriptor(hmenucombined?.value?.toCPointer<ByteVar>(), lpmenuwidths?.value?.toCPointer<ByteVar>())
 
-public actual fun OleCreatePictureIndirect(lppictdesc: Long, riid: Long, fown: BOOL, lplpvobj: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleCreatePictureIndirect(lppictdesc.toCPointer<ByteVar>(), riid.toCPointer<ByteVar>(), fown, lplpvobj.toCPointer<ByteVar>())
+public actual fun oleCreatePictureIndirect(lppictdesc: COpaquePointer?, riid: COpaquePointer?, fown: Bool, lplpvobj: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleCreatePictureIndirect(lppictdesc?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), fown, lplpvobj?.value?.toCPointer<ByteVar>())
 
-public actual fun OleCreatePropertyFrame(hwndowner: HWND, x: UInt, y: UInt, lpszcaption: PCWSTR, cobjects: UInt, ppunk: Long, cpages: UInt, ppageclsid: Long, lcid: UInt, dwreserved: UInt, pvreserved: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleCreatePropertyFrame(hwndowner.toCPointer<ByteVar>(), x, y, lpszcaption.toCPointer<ByteVar>(), cobjects, ppunk.toCPointer<ByteVar>(), cpages, ppageclsid.toCPointer<ByteVar>(), lcid, dwreserved, pvreserved.toCPointer<ByteVar>())
+public actual fun oleCreatePropertyFrame(hwndowner: Hwnd, x: UInt, y: UInt, lpszcaption: Pcwstr, cobjects: UInt, ppunk: COpaquePointer?, cpages: UInt, ppageclsid: COpaquePointer?, lcid: UInt, dwreserved: UInt, pvreserved: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleCreatePropertyFrame(hwndowner?.value?.toCPointer<ByteVar>(), x, y, lpszcaption?.value?.toCPointer<ByteVar>(), cobjects, ppunk?.value?.toCPointer<ByteVar>(), cpages, ppageclsid?.value?.toCPointer<ByteVar>(), lcid, dwreserved, pvreserved?.value?.toCPointer<ByteVar>())
 
-public actual fun OleCreatePropertyFrameIndirect(lpparams: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleCreatePropertyFrameIndirect(lpparams.toCPointer<ByteVar>())
+public actual fun oleCreatePropertyFrameIndirect(lpparams: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleCreatePropertyFrameIndirect(lpparams?.value?.toCPointer<ByteVar>())
 
-public actual fun OleCreateStaticFromData(psrcdataobj: Long, iid: Long, renderopt: UInt, pformatetc: Long, pclientsite: Long, pstg: Long, ppvobj: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleCreateStaticFromData(psrcdataobj.toCPointer<ByteVar>(), iid.toCPointer<ByteVar>(), renderopt, pformatetc.toCPointer<ByteVar>(), pclientsite.toCPointer<ByteVar>(), pstg.toCPointer<ByteVar>(), ppvobj.toCPointer<ByteVar>())
+public actual fun oleCreateStaticFromData(psrcdataobj: COpaquePointer?, iid: COpaquePointer?, renderopt: UInt, pformatetc: COpaquePointer?, pclientsite: COpaquePointer?, pstg: COpaquePointer?, ppvobj: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleCreateStaticFromData(psrcdataobj?.value?.toCPointer<ByteVar>(), iid?.value?.toCPointer<ByteVar>(), renderopt, pformatetc?.value?.toCPointer<ByteVar>(), pclientsite?.value?.toCPointer<ByteVar>(), pstg?.value?.toCPointer<ByteVar>(), ppvobj?.value?.toCPointer<ByteVar>())
 
-public actual fun OleDestroyMenuDescriptor(holemenu: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleDestroyMenuDescriptor(holemenu)
+public actual fun oleDestroyMenuDescriptor(holemenu: Long): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleDestroyMenuDescriptor(holemenu)
 
-public actual fun OleDoAutoConvert(pstg: Long, pclsidnew: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleDoAutoConvert(pstg.toCPointer<ByteVar>(), pclsidnew.toCPointer<ByteVar>())
+public actual fun oleDoAutoConvert(pstg: COpaquePointer?, pclsidnew: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleDoAutoConvert(pstg?.value?.toCPointer<ByteVar>(), pclsidnew?.value?.toCPointer<ByteVar>())
 
-public actual fun OleDraw(punknown: Long, dwaspect: UInt, hdcdraw: HDC, lprcbounds: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleDraw(punknown.toCPointer<ByteVar>(), dwaspect, hdcdraw.toCPointer<ByteVar>(), lprcbounds.toCPointer<ByteVar>())
+public actual fun oleDraw(punknown: COpaquePointer?, dwaspect: UInt, hdcdraw: Hdc, lprcbounds: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleDraw(punknown?.value?.toCPointer<ByteVar>(), dwaspect, hdcdraw?.value?.toCPointer<ByteVar>(), lprcbounds?.value?.toCPointer<ByteVar>())
 
-public actual fun OleDuplicateData(hsrc: HANDLE, cfformat: CLIPBOARD_FORMAT, uiflags: GLOBAL_ALLOC_FLAGS): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleDuplicateData(hsrc.toCPointer<ByteVar>(), cfformat, uiflags)?.toLong() ?: 0L
+public actual fun oleDuplicateData(hsrc: Handle, cfformat: ClipboardFormat, uiflags: GlobalAllocFlags): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleDuplicateData(hsrc?.value?.toCPointer<ByteVar>(), cfformat, uiflags)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun OleFlushClipboard(): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleFlushClipboard()
+public actual fun oleFlushClipboard(): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleFlushClipboard()
 
-public actual fun OleGetAutoConvert(clsidold: Long, pclsidnew: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleGetAutoConvert(clsidold.toCPointer<ByteVar>(), pclsidnew.toCPointer<ByteVar>())
+public actual fun oleGetAutoConvert(clsidold: COpaquePointer?, pclsidnew: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleGetAutoConvert(clsidold?.value?.toCPointer<ByteVar>(), pclsidnew?.value?.toCPointer<ByteVar>())
 
-public actual fun OleGetClipboard(ppdataobj: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleGetClipboard(ppdataobj.toCPointer<ByteVar>())
+public actual fun oleGetClipboard(ppdataobj: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleGetClipboard(ppdataobj?.value?.toCPointer<ByteVar>())
 
-public actual fun OleGetClipboardWithEnterpriseInfo(dataobject: Long, dataenterpriseid: Long, sourcedescription: Long, targetdescription: Long, datadescription: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleGetClipboardWithEnterpriseInfo(dataobject.toCPointer<ByteVar>(), dataenterpriseid.toCPointer<ByteVar>(), sourcedescription.toCPointer<ByteVar>(), targetdescription.toCPointer<ByteVar>(), datadescription.toCPointer<ByteVar>())
+public actual fun oleGetClipboardWithEnterpriseInfo(dataobject: COpaquePointer?, dataenterpriseid: COpaquePointer?, sourcedescription: COpaquePointer?, targetdescription: COpaquePointer?, datadescription: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleGetClipboardWithEnterpriseInfo(dataobject?.value?.toCPointer<ByteVar>(), dataenterpriseid?.value?.toCPointer<ByteVar>(), sourcedescription?.value?.toCPointer<ByteVar>(), targetdescription?.value?.toCPointer<ByteVar>(), datadescription?.value?.toCPointer<ByteVar>())
 
-public actual fun OleGetIconOfClass(rclsid: Long, lpszlabel: PCWSTR, fusetypeaslabel: BOOL): HGLOBAL =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleGetIconOfClass(rclsid.toCPointer<ByteVar>(), lpszlabel.toCPointer<ByteVar>(), fusetypeaslabel)?.toLong() ?: 0L
+public actual fun oleGetIconOfClass(rclsid: COpaquePointer?, lpszlabel: Pcwstr, fusetypeaslabel: Bool): Hglobal =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleGetIconOfClass(rclsid?.value?.toCPointer<ByteVar>(), lpszlabel?.value?.toCPointer<ByteVar>(), fusetypeaslabel)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun OleGetIconOfFile(lpszpath: PCWSTR, fusefileaslabel: BOOL): HGLOBAL =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleGetIconOfFile(lpszpath.toCPointer<ByteVar>(), fusefileaslabel)?.toLong() ?: 0L
+public actual fun oleGetIconOfFile(lpszpath: Pcwstr, fusefileaslabel: Bool): Hglobal =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleGetIconOfFile(lpszpath?.value?.toCPointer<ByteVar>(), fusefileaslabel)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun OleIconToCursor(hinstexe: HINSTANCE, hicon: HICON): HCURSOR =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleIconToCursor(hinstexe.toCPointer<ByteVar>(), hicon.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun oleIconToCursor(hinstexe: Hinstance, hicon: Hicon): Hcursor =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleIconToCursor(hinstexe?.value?.toCPointer<ByteVar>(), hicon?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun OleInitialize(pvreserved: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleInitialize(pvreserved.toCPointer<ByteVar>())
+public actual fun oleInitialize(pvreserved: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleInitialize(pvreserved?.value?.toCPointer<ByteVar>())
 
-public actual fun OleIsCurrentClipboard(pdataobj: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleIsCurrentClipboard(pdataobj.toCPointer<ByteVar>())
+public actual fun oleIsCurrentClipboard(pdataobj: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleIsCurrentClipboard(pdataobj?.value?.toCPointer<ByteVar>())
 
-public actual fun OleIsRunning(pobject: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleIsRunning(pobject.toCPointer<ByteVar>())
+public actual fun oleIsRunning(pobject: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleIsRunning(pobject?.value?.toCPointer<ByteVar>())
 
-public actual fun OleLoad(pstg: Long, riid: Long, pclientsite: Long, ppvobj: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleLoad(pstg.toCPointer<ByteVar>(), riid.toCPointer<ByteVar>(), pclientsite.toCPointer<ByteVar>(), ppvobj.toCPointer<ByteVar>())
+public actual fun oleLoad(pstg: COpaquePointer?, riid: COpaquePointer?, pclientsite: COpaquePointer?, ppvobj: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleLoad(pstg?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), pclientsite?.value?.toCPointer<ByteVar>(), ppvobj?.value?.toCPointer<ByteVar>())
 
-public actual fun OleLoadFromStream(pstm: Long, iidinterface: Long, ppvobj: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleLoadFromStream(pstm.toCPointer<ByteVar>(), iidinterface.toCPointer<ByteVar>(), ppvobj.toCPointer<ByteVar>())
+public actual fun oleLoadFromStream(pstm: COpaquePointer?, iidinterface: COpaquePointer?, ppvobj: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleLoadFromStream(pstm?.value?.toCPointer<ByteVar>(), iidinterface?.value?.toCPointer<ByteVar>(), ppvobj?.value?.toCPointer<ByteVar>())
 
-public actual fun OleLoadPicture(lpstream: Long, lsize: Int, frunmode: BOOL, riid: Long, lplpvobj: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleLoadPicture(lpstream.toCPointer<ByteVar>(), lsize, frunmode, riid.toCPointer<ByteVar>(), lplpvobj.toCPointer<ByteVar>())
+public actual fun oleLoadPicture(lpstream: COpaquePointer?, lsize: Int, frunmode: Bool, riid: COpaquePointer?, lplpvobj: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleLoadPicture(lpstream?.value?.toCPointer<ByteVar>(), lsize, frunmode, riid?.value?.toCPointer<ByteVar>(), lplpvobj?.value?.toCPointer<ByteVar>())
 
-public actual fun OleLoadPictureEx(lpstream: Long, lsize: Int, frunmode: BOOL, riid: Long, xsizedesired: UInt, ysizedesired: UInt, dwflags: LOAD_PICTURE_FLAGS, lplpvobj: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleLoadPictureEx(lpstream.toCPointer<ByteVar>(), lsize, frunmode, riid.toCPointer<ByteVar>(), xsizedesired, ysizedesired, dwflags, lplpvobj.toCPointer<ByteVar>())
+public actual fun oleLoadPictureEx(lpstream: COpaquePointer?, lsize: Int, frunmode: Bool, riid: COpaquePointer?, xsizedesired: UInt, ysizedesired: UInt, dwflags: LoadPictureFlags, lplpvobj: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleLoadPictureEx(lpstream?.value?.toCPointer<ByteVar>(), lsize, frunmode, riid?.value?.toCPointer<ByteVar>(), xsizedesired, ysizedesired, dwflags, lplpvobj?.value?.toCPointer<ByteVar>())
 
-public actual fun OleLoadPictureFile(varfilename: VARIANT, lplpdisppicture: Long): HRESULT =
+public actual fun oleLoadPictureFile(varfilename: Variant, lplpdisppicture: COpaquePointer?): Hresult =
     0
 
-public actual fun OleLoadPictureFileEx(varfilename: VARIANT, xsizedesired: UInt, ysizedesired: UInt, dwflags: LOAD_PICTURE_FLAGS, lplpdisppicture: Long): HRESULT =
+public actual fun oleLoadPictureFileEx(varfilename: Variant, xsizedesired: UInt, ysizedesired: UInt, dwflags: LoadPictureFlags, lplpdisppicture: COpaquePointer?): Hresult =
     0
 
-public actual fun OleLoadPicturePath(szurlorpath: PCWSTR, punkcaller: Long, dwreserved: UInt, clrreserved: UInt, riid: Long, ppvret: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleLoadPicturePath(szurlorpath.toCPointer<ByteVar>(), punkcaller.toCPointer<ByteVar>(), dwreserved, clrreserved, riid.toCPointer<ByteVar>(), ppvret.toCPointer<ByteVar>())
+public actual fun oleLoadPicturePath(szurlorpath: Pcwstr, punkcaller: COpaquePointer?, dwreserved: UInt, clrreserved: UInt, riid: COpaquePointer?, ppvret: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleLoadPicturePath(szurlorpath?.value?.toCPointer<ByteVar>(), punkcaller?.value?.toCPointer<ByteVar>(), dwreserved, clrreserved, riid?.value?.toCPointer<ByteVar>(), ppvret?.value?.toCPointer<ByteVar>())
 
-public actual fun OleLockRunning(punknown: Long, flock: BOOL, flastunlockcloses: BOOL): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleLockRunning(punknown.toCPointer<ByteVar>(), flock, flastunlockcloses)
+public actual fun oleLockRunning(punknown: COpaquePointer?, flock: Bool, flastunlockcloses: Bool): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleLockRunning(punknown?.value?.toCPointer<ByteVar>(), flock, flastunlockcloses)
 
-public actual fun OleMetafilePictFromIconAndLabel(hicon: HICON, lpszlabel: PCWSTR, lpszsourcefile: PCWSTR, iiconindex: UInt): HGLOBAL =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleMetafilePictFromIconAndLabel(hicon.toCPointer<ByteVar>(), lpszlabel.toCPointer<ByteVar>(), lpszsourcefile.toCPointer<ByteVar>(), iiconindex)?.toLong() ?: 0L
+public actual fun oleMetafilePictFromIconAndLabel(hicon: Hicon, lpszlabel: Pcwstr, lpszsourcefile: Pcwstr, iiconindex: UInt): Hglobal =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleMetafilePictFromIconAndLabel(hicon?.value?.toCPointer<ByteVar>(), lpszlabel?.value?.toCPointer<ByteVar>(), lpszsourcefile?.value?.toCPointer<ByteVar>(), iiconindex)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun OleNoteObjectVisible(punknown: Long, fvisible: BOOL): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleNoteObjectVisible(punknown.toCPointer<ByteVar>(), fvisible)
+public actual fun oleNoteObjectVisible(punknown: COpaquePointer?, fvisible: Bool): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleNoteObjectVisible(punknown?.value?.toCPointer<ByteVar>(), fvisible)
 
-public actual fun OleQueryCreateFromData(psrcdataobject: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleQueryCreateFromData(psrcdataobject.toCPointer<ByteVar>())
+public actual fun oleQueryCreateFromData(psrcdataobject: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleQueryCreateFromData(psrcdataobject?.value?.toCPointer<ByteVar>())
 
-public actual fun OleQueryLinkFromData(psrcdataobject: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleQueryLinkFromData(psrcdataobject.toCPointer<ByteVar>())
+public actual fun oleQueryLinkFromData(psrcdataobject: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleQueryLinkFromData(psrcdataobject?.value?.toCPointer<ByteVar>())
 
-public actual fun OleRegEnumFormatEtc(clsid: Long, dwdirection: UInt, ppenum: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleRegEnumFormatEtc(clsid.toCPointer<ByteVar>(), dwdirection, ppenum.toCPointer<ByteVar>())
+public actual fun oleRegEnumFormatEtc(clsid: COpaquePointer?, dwdirection: UInt, ppenum: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleRegEnumFormatEtc(clsid?.value?.toCPointer<ByteVar>(), dwdirection, ppenum?.value?.toCPointer<ByteVar>())
 
-public actual fun OleRegEnumVerbs(clsid: Long, ppenum: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleRegEnumVerbs(clsid.toCPointer<ByteVar>(), ppenum.toCPointer<ByteVar>())
+public actual fun oleRegEnumVerbs(clsid: COpaquePointer?, ppenum: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleRegEnumVerbs(clsid?.value?.toCPointer<ByteVar>(), ppenum?.value?.toCPointer<ByteVar>())
 
-public actual fun OleRegGetMiscStatus(clsid: Long, dwaspect: UInt, pdwstatus: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleRegGetMiscStatus(clsid.toCPointer<ByteVar>(), dwaspect, pdwstatus.toCPointer<ByteVar>())
+public actual fun oleRegGetMiscStatus(clsid: COpaquePointer?, dwaspect: UInt, pdwstatus: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleRegGetMiscStatus(clsid?.value?.toCPointer<ByteVar>(), dwaspect, pdwstatus?.value?.toCPointer<ByteVar>())
 
-public actual fun OleRegGetUserType(clsid: Long, dwformoftype: UInt, pszusertype: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleRegGetUserType(clsid.toCPointer<ByteVar>(), dwformoftype, pszusertype.toCPointer<ByteVar>())
+public actual fun oleRegGetUserType(clsid: COpaquePointer?, dwformoftype: UInt, pszusertype: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleRegGetUserType(clsid?.value?.toCPointer<ByteVar>(), dwformoftype, pszusertype?.value?.toCPointer<ByteVar>())
 
-public actual fun OleRun(punknown: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleRun(punknown.toCPointer<ByteVar>())
+public actual fun oleRun(punknown: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleRun(punknown?.value?.toCPointer<ByteVar>())
 
-public actual fun OleSave(pps: Long, pstg: Long, fsameasload: BOOL): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleSave(pps.toCPointer<ByteVar>(), pstg.toCPointer<ByteVar>(), fsameasload)
+public actual fun oleSave(pps: COpaquePointer?, pstg: COpaquePointer?, fsameasload: Bool): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleSave(pps?.value?.toCPointer<ByteVar>(), pstg?.value?.toCPointer<ByteVar>(), fsameasload)
 
-public actual fun OleSavePictureFile(lpdisppicture: Long, bstrfilename: BSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleSavePictureFile(lpdisppicture.toCPointer<ByteVar>(), bstrfilename.toCPointer<ByteVar>())
+public actual fun oleSavePictureFile(lpdisppicture: COpaquePointer?, bstrfilename: Bstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleSavePictureFile(lpdisppicture?.value?.toCPointer<ByteVar>(), bstrfilename?.value?.toCPointer<ByteVar>())
 
-public actual fun OleSaveToStream(ppstm: Long, pstm: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleSaveToStream(ppstm.toCPointer<ByteVar>(), pstm.toCPointer<ByteVar>())
+public actual fun oleSaveToStream(ppstm: COpaquePointer?, pstm: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleSaveToStream(ppstm?.value?.toCPointer<ByteVar>(), pstm?.value?.toCPointer<ByteVar>())
 
-public actual fun OleSetAutoConvert(clsidold: Long, clsidnew: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleSetAutoConvert(clsidold.toCPointer<ByteVar>(), clsidnew.toCPointer<ByteVar>())
+public actual fun oleSetAutoConvert(clsidold: COpaquePointer?, clsidnew: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleSetAutoConvert(clsidold?.value?.toCPointer<ByteVar>(), clsidnew?.value?.toCPointer<ByteVar>())
 
-public actual fun OleSetClipboard(pdataobj: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleSetClipboard(pdataobj.toCPointer<ByteVar>())
+public actual fun oleSetClipboard(pdataobj: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleSetClipboard(pdataobj?.value?.toCPointer<ByteVar>())
 
-public actual fun OleSetContainedObject(punknown: Long, fcontained: BOOL): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleSetContainedObject(punknown.toCPointer<ByteVar>(), fcontained)
+public actual fun oleSetContainedObject(punknown: COpaquePointer?, fcontained: Bool): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleSetContainedObject(punknown?.value?.toCPointer<ByteVar>(), fcontained)
 
-public actual fun OleSetMenuDescriptor(holemenu: Long, hwndframe: HWND, hwndactiveobject: HWND, lpframe: Long, lpactiveobj: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleSetMenuDescriptor(holemenu, hwndframe.toCPointer<ByteVar>(), hwndactiveobject.toCPointer<ByteVar>(), lpframe.toCPointer<ByteVar>(), lpactiveobj.toCPointer<ByteVar>())
+public actual fun oleSetMenuDescriptor(holemenu: Long, hwndframe: Hwnd, hwndactiveobject: Hwnd, lpframe: COpaquePointer?, lpactiveobj: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleSetMenuDescriptor(holemenu, hwndframe?.value?.toCPointer<ByteVar>(), hwndactiveobject?.value?.toCPointer<ByteVar>(), lpframe?.value?.toCPointer<ByteVar>(), lpactiveobj?.value?.toCPointer<ByteVar>())
 
-public actual fun OleTranslateAccelerator(lpframe: Long, lpframeinfo: Long, lpmsg: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleTranslateAccelerator(lpframe.toCPointer<ByteVar>(), lpframeinfo.toCPointer<ByteVar>(), lpmsg.toCPointer<ByteVar>())
+public actual fun oleTranslateAccelerator(lpframe: COpaquePointer?, lpframeinfo: COpaquePointer?, lpmsg: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleTranslateAccelerator(lpframe?.value?.toCPointer<ByteVar>(), lpframeinfo?.value?.toCPointer<ByteVar>(), lpmsg?.value?.toCPointer<ByteVar>())
 
-public actual fun OleTranslateColor(clr: UInt, hpal: HPALETTE, lpcolorref: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleTranslateColor(clr, hpal.toCPointer<ByteVar>(), lpcolorref.toCPointer<ByteVar>())
+public actual fun oleTranslateColor(clr: UInt, hpal: Hpalette, lpcolorref: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleTranslateColor(clr, hpal?.value?.toCPointer<ByteVar>(), lpcolorref?.value?.toCPointer<ByteVar>())
 
-public actual fun OleUIAddVerbMenuA(lpoleobj: Long, lpszshorttype: PCSTR, hmenu: HMENU, upos: UInt, uidverbmin: UInt, uidverbmax: UInt, baddconvert: BOOL, idconvert: UInt, lphmenu: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleUIAddVerbMenuA(lpoleobj.toCPointer<ByteVar>(), lpszshorttype.toCPointer<ByteVar>(), hmenu.toCPointer<ByteVar>(), upos, uidverbmin, uidverbmax, baddconvert, idconvert, lphmenu.toCPointer<ByteVar>())
+public actual fun oleUIAddVerbMenuA(lpoleobj: COpaquePointer?, lpszshorttype: Pcstr, hmenu: Hmenu, upos: UInt, uidverbmin: UInt, uidverbmax: UInt, baddconvert: Bool, idconvert: UInt, lphmenu: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleUIAddVerbMenuA(lpoleobj?.value?.toCPointer<ByteVar>(), lpszshorttype?.value?.toCPointer<ByteVar>(), hmenu?.value?.toCPointer<ByteVar>(), upos, uidverbmin, uidverbmax, baddconvert, idconvert, lphmenu?.value?.toCPointer<ByteVar>())
 
-public actual fun OleUIAddVerbMenuW(lpoleobj: Long, lpszshorttype: PCWSTR, hmenu: HMENU, upos: UInt, uidverbmin: UInt, uidverbmax: UInt, baddconvert: BOOL, idconvert: UInt, lphmenu: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleUIAddVerbMenuW(lpoleobj.toCPointer<ByteVar>(), lpszshorttype.toCPointer<ByteVar>(), hmenu.toCPointer<ByteVar>(), upos, uidverbmin, uidverbmax, baddconvert, idconvert, lphmenu.toCPointer<ByteVar>())
+public actual fun oleUIAddVerbMenuW(lpoleobj: COpaquePointer?, lpszshorttype: Pcwstr, hmenu: Hmenu, upos: UInt, uidverbmin: UInt, uidverbmax: UInt, baddconvert: Bool, idconvert: UInt, lphmenu: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleUIAddVerbMenuW(lpoleobj?.value?.toCPointer<ByteVar>(), lpszshorttype?.value?.toCPointer<ByteVar>(), hmenu?.value?.toCPointer<ByteVar>(), upos, uidverbmin, uidverbmax, baddconvert, idconvert, lphmenu?.value?.toCPointer<ByteVar>())
 
-public actual fun OleUIBusyA(param0: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleUIBusyA(param0.toCPointer<ByteVar>())
+public actual fun oleUIBusyA(param0: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleUIBusyA(param0?.value?.toCPointer<ByteVar>())
 
-public actual fun OleUIBusyW(param0: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleUIBusyW(param0.toCPointer<ByteVar>())
+public actual fun oleUIBusyW(param0: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleUIBusyW(param0?.value?.toCPointer<ByteVar>())
 
-public actual fun OleUICanConvertOrActivateAs(rclsid: Long, fislinkedobject: BOOL, wformat: UShort): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleUICanConvertOrActivateAs(rclsid.toCPointer<ByteVar>(), fislinkedobject, wformat)
+public actual fun oleUICanConvertOrActivateAs(rclsid: COpaquePointer?, fislinkedobject: Bool, wformat: UShort): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleUICanConvertOrActivateAs(rclsid?.value?.toCPointer<ByteVar>(), fislinkedobject, wformat)
 
-public actual fun OleUIChangeIconA(param0: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleUIChangeIconA(param0.toCPointer<ByteVar>())
+public actual fun oleUIChangeIconA(param0: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleUIChangeIconA(param0?.value?.toCPointer<ByteVar>())
 
-public actual fun OleUIChangeIconW(param0: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleUIChangeIconW(param0.toCPointer<ByteVar>())
+public actual fun oleUIChangeIconW(param0: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleUIChangeIconW(param0?.value?.toCPointer<ByteVar>())
 
-public actual fun OleUIChangeSourceA(param0: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleUIChangeSourceA(param0.toCPointer<ByteVar>())
+public actual fun oleUIChangeSourceA(param0: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleUIChangeSourceA(param0?.value?.toCPointer<ByteVar>())
 
-public actual fun OleUIChangeSourceW(param0: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleUIChangeSourceW(param0.toCPointer<ByteVar>())
+public actual fun oleUIChangeSourceW(param0: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleUIChangeSourceW(param0?.value?.toCPointer<ByteVar>())
 
-public actual fun OleUIConvertA(param0: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleUIConvertA(param0.toCPointer<ByteVar>())
+public actual fun oleUIConvertA(param0: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleUIConvertA(param0?.value?.toCPointer<ByteVar>())
 
-public actual fun OleUIConvertW(param0: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleUIConvertW(param0.toCPointer<ByteVar>())
+public actual fun oleUIConvertW(param0: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleUIConvertW(param0?.value?.toCPointer<ByteVar>())
 
-public actual fun OleUIEditLinksA(param0: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleUIEditLinksA(param0.toCPointer<ByteVar>())
+public actual fun oleUIEditLinksA(param0: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleUIEditLinksA(param0?.value?.toCPointer<ByteVar>())
 
-public actual fun OleUIEditLinksW(param0: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleUIEditLinksW(param0.toCPointer<ByteVar>())
+public actual fun oleUIEditLinksW(param0: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleUIEditLinksW(param0?.value?.toCPointer<ByteVar>())
 
-public actual fun OleUIInsertObjectA(param0: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleUIInsertObjectA(param0.toCPointer<ByteVar>())
+public actual fun oleUIInsertObjectA(param0: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleUIInsertObjectA(param0?.value?.toCPointer<ByteVar>())
 
-public actual fun OleUIInsertObjectW(param0: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleUIInsertObjectW(param0.toCPointer<ByteVar>())
+public actual fun oleUIInsertObjectW(param0: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleUIInsertObjectW(param0?.value?.toCPointer<ByteVar>())
 
-public actual fun OleUIObjectPropertiesA(param0: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleUIObjectPropertiesA(param0.toCPointer<ByteVar>())
+public actual fun oleUIObjectPropertiesA(param0: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleUIObjectPropertiesA(param0?.value?.toCPointer<ByteVar>())
 
-public actual fun OleUIObjectPropertiesW(param0: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleUIObjectPropertiesW(param0.toCPointer<ByteVar>())
+public actual fun oleUIObjectPropertiesW(param0: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleUIObjectPropertiesW(param0?.value?.toCPointer<ByteVar>())
 
-public actual fun OleUIPasteSpecialA(param0: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleUIPasteSpecialA(param0.toCPointer<ByteVar>())
+public actual fun oleUIPasteSpecialA(param0: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleUIPasteSpecialA(param0?.value?.toCPointer<ByteVar>())
 
-public actual fun OleUIPasteSpecialW(param0: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleUIPasteSpecialW(param0.toCPointer<ByteVar>())
+public actual fun oleUIPasteSpecialW(param0: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleUIPasteSpecialW(param0?.value?.toCPointer<ByteVar>())
 
-public actual fun OleUIPromptUserA(ntemplate: Int, hwndparent: HWND): Int =
-    0
+public actual fun oleUIPromptUserA(ntemplate: Int, hwndparent: Hwnd, vararg variadicArgs: Long): Int =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleUIPromptUserA(ntemplate, hwndparent?.value?.toCPointer<ByteVar>(), variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
 
-public actual fun OleUIPromptUserW(ntemplate: Int, hwndparent: HWND): Int =
-    0
+public actual fun oleUIPromptUserW(ntemplate: Int, hwndparent: Hwnd, vararg variadicArgs: Long): Int =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleUIPromptUserW(ntemplate, hwndparent?.value?.toCPointer<ByteVar>(), variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
 
-public actual fun OleUIUpdateLinksA(lpoleuilinkcntr: Long, hwndparent: HWND, lpsztitle: PCSTR, clinks: Int): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleUIUpdateLinksA(lpoleuilinkcntr.toCPointer<ByteVar>(), hwndparent.toCPointer<ByteVar>(), lpsztitle.toCPointer<ByteVar>(), clinks)
+public actual fun oleUIUpdateLinksA(lpoleuilinkcntr: COpaquePointer?, hwndparent: Hwnd, lpsztitle: Pcstr, clinks: Int): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleUIUpdateLinksA(lpoleuilinkcntr?.value?.toCPointer<ByteVar>(), hwndparent?.value?.toCPointer<ByteVar>(), lpsztitle?.value?.toCPointer<ByteVar>(), clinks)
 
-public actual fun OleUIUpdateLinksW(lpoleuilinkcntr: Long, hwndparent: HWND, lpsztitle: PCWSTR, clinks: Int): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleUIUpdateLinksW(lpoleuilinkcntr.toCPointer<ByteVar>(), hwndparent.toCPointer<ByteVar>(), lpsztitle.toCPointer<ByteVar>(), clinks)
+public actual fun oleUIUpdateLinksW(lpoleuilinkcntr: COpaquePointer?, hwndparent: Hwnd, lpsztitle: Pcwstr, clinks: Int): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleUIUpdateLinksW(lpoleuilinkcntr?.value?.toCPointer<ByteVar>(), hwndparent?.value?.toCPointer<ByteVar>(), lpsztitle?.value?.toCPointer<ByteVar>(), clinks)
 
-public actual fun OleUninitialize() {
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_OleUninitialize()
+public actual fun oleUninitialize() {
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_oleUninitialize()
 }
 
-public actual fun QueryPathOfRegTypeLib(guid: Long, wmaj: UShort, wmin: UShort, lcid: UInt, lpbstrpathname: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_QueryPathOfRegTypeLib(guid.toCPointer<ByteVar>(), wmaj, wmin, lcid, lpbstrpathname.toCPointer<ByteVar>())
+public actual fun queryPathOfRegTypeLib(guid: COpaquePointer?, wmaj: UShort, wmin: UShort, lcid: UInt, lpbstrpathname: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_queryPathOfRegTypeLib(guid?.value?.toCPointer<ByteVar>(), wmaj, wmin, lcid, lpbstrpathname?.value?.toCPointer<ByteVar>())
 
-public actual fun RegisterActiveObject(punk: Long, rclsid: Long, dwflags: ACTIVEOBJECT_FLAGS, pdwregister: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_RegisterActiveObject(punk.toCPointer<ByteVar>(), rclsid.toCPointer<ByteVar>(), dwflags, pdwregister.toCPointer<ByteVar>())
+public actual fun registerActiveObject(punk: COpaquePointer?, rclsid: COpaquePointer?, dwflags: ActiveobjectFlags, pdwregister: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_registerActiveObject(punk?.value?.toCPointer<ByteVar>(), rclsid?.value?.toCPointer<ByteVar>(), dwflags, pdwregister?.value?.toCPointer<ByteVar>())
 
-public actual fun RegisterDragDrop(hwnd: HWND, pdroptarget: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_RegisterDragDrop(hwnd.toCPointer<ByteVar>(), pdroptarget.toCPointer<ByteVar>())
+public actual fun registerDragDrop(hwnd: Hwnd, pdroptarget: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_registerDragDrop(hwnd?.value?.toCPointer<ByteVar>(), pdroptarget?.value?.toCPointer<ByteVar>())
 
-public actual fun RegisterTypeLib(ptlib: Long, szfullpath: PCWSTR, szhelpdir: PCWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_RegisterTypeLib(ptlib.toCPointer<ByteVar>(), szfullpath.toCPointer<ByteVar>(), szhelpdir.toCPointer<ByteVar>())
+public actual fun registerTypeLib(ptlib: COpaquePointer?, szfullpath: Pcwstr, szhelpdir: Pcwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_registerTypeLib(ptlib?.value?.toCPointer<ByteVar>(), szfullpath?.value?.toCPointer<ByteVar>(), szhelpdir?.value?.toCPointer<ByteVar>())
 
-public actual fun RegisterTypeLibForUser(ptlib: Long, szfullpath: PCWSTR, szhelpdir: PCWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_RegisterTypeLibForUser(ptlib.toCPointer<ByteVar>(), szfullpath.toCPointer<ByteVar>(), szhelpdir.toCPointer<ByteVar>())
+public actual fun registerTypeLibForUser(ptlib: COpaquePointer?, szfullpath: Pcwstr, szhelpdir: Pcwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_registerTypeLibForUser(ptlib?.value?.toCPointer<ByteVar>(), szfullpath?.value?.toCPointer<ByteVar>(), szhelpdir?.value?.toCPointer<ByteVar>())
 
-public actual fun ReleaseStgMedium(param0: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_ReleaseStgMedium(param0.toCPointer<ByteVar>())
+public actual fun releaseStgMedium(param0: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_releaseStgMedium(param0?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun RevokeActiveObject(dwregister: UInt, pvreserved: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_RevokeActiveObject(dwregister, pvreserved.toCPointer<ByteVar>())
+public actual fun revokeActiveObject(dwregister: UInt, pvreserved: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_revokeActiveObject(dwregister, pvreserved?.value?.toCPointer<ByteVar>())
 
-public actual fun RevokeDragDrop(hwnd: HWND): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_RevokeDragDrop(hwnd.toCPointer<ByteVar>())
+public actual fun revokeDragDrop(hwnd: Hwnd): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_revokeDragDrop(hwnd?.value?.toCPointer<ByteVar>())
 
-public actual fun SafeArrayAccessData(psa: Long, ppvdata: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_SafeArrayAccessData(psa.toCPointer<ByteVar>(), ppvdata.toCPointer<ByteVar>())
+public actual fun safeArrayAccessData(psa: COpaquePointer?, ppvdata: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_safeArrayAccessData(psa?.value?.toCPointer<ByteVar>(), ppvdata?.value?.toCPointer<ByteVar>())
 
-public actual fun SafeArrayAddRef(psa: Long, ppdatatorelease: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_SafeArrayAddRef(psa.toCPointer<ByteVar>(), ppdatatorelease.toCPointer<ByteVar>())
+public actual fun safeArrayAddRef(psa: COpaquePointer?, ppdatatorelease: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_safeArrayAddRef(psa?.value?.toCPointer<ByteVar>(), ppdatatorelease?.value?.toCPointer<ByteVar>())
 
-public actual fun SafeArrayAllocData(psa: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_SafeArrayAllocData(psa.toCPointer<ByteVar>())
+public actual fun safeArrayAllocData(psa: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_safeArrayAllocData(psa?.value?.toCPointer<ByteVar>())
 
-public actual fun SafeArrayAllocDescriptor(cdims: UInt, ppsaout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_SafeArrayAllocDescriptor(cdims, ppsaout.toCPointer<ByteVar>())
+public actual fun safeArrayAllocDescriptor(cdims: UInt, ppsaout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_safeArrayAllocDescriptor(cdims, ppsaout?.value?.toCPointer<ByteVar>())
 
-public actual fun SafeArrayAllocDescriptorEx(vt: VARENUM, cdims: UInt, ppsaout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_SafeArrayAllocDescriptorEx(vt, cdims, ppsaout.toCPointer<ByteVar>())
+public actual fun safeArrayAllocDescriptorEx(vt: Varenum, cdims: UInt, ppsaout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_safeArrayAllocDescriptorEx(vt, cdims, ppsaout?.value?.toCPointer<ByteVar>())
 
-public actual fun SafeArrayCopy(psa: Long, ppsaout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_SafeArrayCopy(psa.toCPointer<ByteVar>(), ppsaout.toCPointer<ByteVar>())
+public actual fun safeArrayCopy(psa: COpaquePointer?, ppsaout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_safeArrayCopy(psa?.value?.toCPointer<ByteVar>(), ppsaout?.value?.toCPointer<ByteVar>())
 
-public actual fun SafeArrayCopyData(psasource: Long, psatarget: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_SafeArrayCopyData(psasource.toCPointer<ByteVar>(), psatarget.toCPointer<ByteVar>())
+public actual fun safeArrayCopyData(psasource: COpaquePointer?, psatarget: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_safeArrayCopyData(psasource?.value?.toCPointer<ByteVar>(), psatarget?.value?.toCPointer<ByteVar>())
 
-public actual fun SafeArrayCreate(vt: VARENUM, cdims: UInt, rgsabound: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_SafeArrayCreate(vt, cdims, rgsabound.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun safeArrayCreate(vt: Varenum, cdims: UInt, rgsabound: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_safeArrayCreate(vt, cdims, rgsabound?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun SafeArrayCreateEx(vt: VARENUM, cdims: UInt, rgsabound: Long, pvextra: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_SafeArrayCreateEx(vt, cdims, rgsabound.toCPointer<ByteVar>(), pvextra.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun safeArrayCreateEx(vt: Varenum, cdims: UInt, rgsabound: COpaquePointer?, pvextra: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_safeArrayCreateEx(vt, cdims, rgsabound?.value?.toCPointer<ByteVar>(), pvextra?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun SafeArrayCreateVector(vt: VARENUM, llbound: Int, celements: UInt): Long =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_SafeArrayCreateVector(vt, llbound, celements)?.toLong() ?: 0L
+public actual fun safeArrayCreateVector(vt: Varenum, llbound: Int, celements: UInt): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_safeArrayCreateVector(vt, llbound, celements)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun SafeArrayCreateVectorEx(vt: VARENUM, llbound: Int, celements: UInt, pvextra: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_SafeArrayCreateVectorEx(vt, llbound, celements, pvextra.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun safeArrayCreateVectorEx(vt: Varenum, llbound: Int, celements: UInt, pvextra: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_safeArrayCreateVectorEx(vt, llbound, celements, pvextra?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun SafeArrayDestroy(psa: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_SafeArrayDestroy(psa.toCPointer<ByteVar>())
+public actual fun safeArrayDestroy(psa: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_safeArrayDestroy(psa?.value?.toCPointer<ByteVar>())
 
-public actual fun SafeArrayDestroyData(psa: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_SafeArrayDestroyData(psa.toCPointer<ByteVar>())
+public actual fun safeArrayDestroyData(psa: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_safeArrayDestroyData(psa?.value?.toCPointer<ByteVar>())
 
-public actual fun SafeArrayDestroyDescriptor(psa: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_SafeArrayDestroyDescriptor(psa.toCPointer<ByteVar>())
+public actual fun safeArrayDestroyDescriptor(psa: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_safeArrayDestroyDescriptor(psa?.value?.toCPointer<ByteVar>())
 
-public actual fun SafeArrayGetDim(psa: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_SafeArrayGetDim(psa.toCPointer<ByteVar>())
+public actual fun safeArrayGetDim(psa: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_safeArrayGetDim(psa?.value?.toCPointer<ByteVar>())
 
-public actual fun SafeArrayGetElement(psa: Long, rgindices: Long, pv: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_SafeArrayGetElement(psa.toCPointer<ByteVar>(), rgindices.toCPointer<ByteVar>(), pv.toCPointer<ByteVar>())
+public actual fun safeArrayGetElement(psa: COpaquePointer?, rgindices: COpaquePointer?, pv: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_safeArrayGetElement(psa?.value?.toCPointer<ByteVar>(), rgindices?.value?.toCPointer<ByteVar>(), pv?.value?.toCPointer<ByteVar>())
 
-public actual fun SafeArrayGetElemsize(psa: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_SafeArrayGetElemsize(psa.toCPointer<ByteVar>())
+public actual fun safeArrayGetElemsize(psa: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_safeArrayGetElemsize(psa?.value?.toCPointer<ByteVar>())
 
-public actual fun SafeArrayGetIID(psa: Long, pguid: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_SafeArrayGetIID(psa.toCPointer<ByteVar>(), pguid.toCPointer<ByteVar>())
+public actual fun safeArrayGetIID(psa: COpaquePointer?, pguid: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_safeArrayGetIID(psa?.value?.toCPointer<ByteVar>(), pguid?.value?.toCPointer<ByteVar>())
 
-public actual fun SafeArrayGetLBound(psa: Long, ndim: UInt, pllbound: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_SafeArrayGetLBound(psa.toCPointer<ByteVar>(), ndim, pllbound.toCPointer<ByteVar>())
+public actual fun safeArrayGetLBound(psa: COpaquePointer?, ndim: UInt, pllbound: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_safeArrayGetLBound(psa?.value?.toCPointer<ByteVar>(), ndim, pllbound?.value?.toCPointer<ByteVar>())
 
-public actual fun SafeArrayGetRecordInfo(psa: Long, prinfo: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_SafeArrayGetRecordInfo(psa.toCPointer<ByteVar>(), prinfo.toCPointer<ByteVar>())
+public actual fun safeArrayGetRecordInfo(psa: COpaquePointer?, prinfo: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_safeArrayGetRecordInfo(psa?.value?.toCPointer<ByteVar>(), prinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun SafeArrayGetUBound(psa: Long, ndim: UInt, plubound: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_SafeArrayGetUBound(psa.toCPointer<ByteVar>(), ndim, plubound.toCPointer<ByteVar>())
+public actual fun safeArrayGetUBound(psa: COpaquePointer?, ndim: UInt, plubound: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_safeArrayGetUBound(psa?.value?.toCPointer<ByteVar>(), ndim, plubound?.value?.toCPointer<ByteVar>())
 
-public actual fun SafeArrayGetVartype(psa: Long, pvt: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_SafeArrayGetVartype(psa.toCPointer<ByteVar>(), pvt.toCPointer<ByteVar>())
+public actual fun safeArrayGetVartype(psa: COpaquePointer?, pvt: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_safeArrayGetVartype(psa?.value?.toCPointer<ByteVar>(), pvt?.value?.toCPointer<ByteVar>())
 
-public actual fun SafeArrayLock(psa: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_SafeArrayLock(psa.toCPointer<ByteVar>())
+public actual fun safeArrayLock(psa: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_safeArrayLock(psa?.value?.toCPointer<ByteVar>())
 
-public actual fun SafeArrayPtrOfIndex(psa: Long, rgindices: Long, ppvdata: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_SafeArrayPtrOfIndex(psa.toCPointer<ByteVar>(), rgindices.toCPointer<ByteVar>(), ppvdata.toCPointer<ByteVar>())
+public actual fun safeArrayPtrOfIndex(psa: COpaquePointer?, rgindices: COpaquePointer?, ppvdata: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_safeArrayPtrOfIndex(psa?.value?.toCPointer<ByteVar>(), rgindices?.value?.toCPointer<ByteVar>(), ppvdata?.value?.toCPointer<ByteVar>())
 
-public actual fun SafeArrayPutElement(psa: Long, rgindices: Long, pv: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_SafeArrayPutElement(psa.toCPointer<ByteVar>(), rgindices.toCPointer<ByteVar>(), pv.toCPointer<ByteVar>())
+public actual fun safeArrayPutElement(psa: COpaquePointer?, rgindices: COpaquePointer?, pv: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_safeArrayPutElement(psa?.value?.toCPointer<ByteVar>(), rgindices?.value?.toCPointer<ByteVar>(), pv?.value?.toCPointer<ByteVar>())
 
-public actual fun SafeArrayRedim(psa: Long, psaboundnew: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_SafeArrayRedim(psa.toCPointer<ByteVar>(), psaboundnew.toCPointer<ByteVar>())
+public actual fun safeArrayRedim(psa: COpaquePointer?, psaboundnew: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_safeArrayRedim(psa?.value?.toCPointer<ByteVar>(), psaboundnew?.value?.toCPointer<ByteVar>())
 
-public actual fun SafeArrayReleaseData(pdata: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_SafeArrayReleaseData(pdata.toCPointer<ByteVar>())
+public actual fun safeArrayReleaseData(pdata: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_safeArrayReleaseData(pdata?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun SafeArrayReleaseDescriptor(psa: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_SafeArrayReleaseDescriptor(psa.toCPointer<ByteVar>())
+public actual fun safeArrayReleaseDescriptor(psa: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_safeArrayReleaseDescriptor(psa?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun SafeArraySetIID(psa: Long, guid: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_SafeArraySetIID(psa.toCPointer<ByteVar>(), guid.toCPointer<ByteVar>())
+public actual fun safeArraySetIID(psa: COpaquePointer?, guid: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_safeArraySetIID(psa?.value?.toCPointer<ByteVar>(), guid?.value?.toCPointer<ByteVar>())
 
-public actual fun SafeArraySetRecordInfo(psa: Long, prinfo: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_SafeArraySetRecordInfo(psa.toCPointer<ByteVar>(), prinfo.toCPointer<ByteVar>())
+public actual fun safeArraySetRecordInfo(psa: COpaquePointer?, prinfo: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_safeArraySetRecordInfo(psa?.value?.toCPointer<ByteVar>(), prinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun SafeArrayUnaccessData(psa: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_SafeArrayUnaccessData(psa.toCPointer<ByteVar>())
+public actual fun safeArrayUnaccessData(psa: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_safeArrayUnaccessData(psa?.value?.toCPointer<ByteVar>())
 
-public actual fun SafeArrayUnlock(psa: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_SafeArrayUnlock(psa.toCPointer<ByteVar>())
+public actual fun safeArrayUnlock(psa: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_safeArrayUnlock(psa?.value?.toCPointer<ByteVar>())
 
-public actual fun UnRegisterTypeLib(libid: Long, wvermajor: UShort, wverminor: UShort, lcid: UInt, syskind: SYSKIND): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_UnRegisterTypeLib(libid.toCPointer<ByteVar>(), wvermajor, wverminor, lcid, syskind)
+public actual fun unRegisterTypeLib(libid: COpaquePointer?, wvermajor: UShort, wverminor: UShort, lcid: UInt, syskind: Syskind): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_unRegisterTypeLib(libid?.value?.toCPointer<ByteVar>(), wvermajor, wverminor, lcid, syskind)
 
-public actual fun UnRegisterTypeLibForUser(libid: Long, wmajorvernum: UShort, wminorvernum: UShort, lcid: UInt, syskind: SYSKIND): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_UnRegisterTypeLibForUser(libid.toCPointer<ByteVar>(), wmajorvernum, wminorvernum, lcid, syskind)
+public actual fun unRegisterTypeLibForUser(libid: COpaquePointer?, wmajorvernum: UShort, wminorvernum: UShort, lcid: UInt, syskind: Syskind): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_unRegisterTypeLibForUser(libid?.value?.toCPointer<ByteVar>(), wmajorvernum, wminorvernum, lcid, syskind)
 
-public actual fun VarAbs(pvarin: Long, pvarresult: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarAbs(pvarin.toCPointer<ByteVar>(), pvarresult.toCPointer<ByteVar>())
+public actual fun varAbs(pvarin: COpaquePointer?, pvarresult: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varAbs(pvarin?.value?.toCPointer<ByteVar>(), pvarresult?.value?.toCPointer<ByteVar>())
 
-public actual fun VarAdd(pvarleft: Long, pvarright: Long, pvarresult: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarAdd(pvarleft.toCPointer<ByteVar>(), pvarright.toCPointer<ByteVar>(), pvarresult.toCPointer<ByteVar>())
+public actual fun varAdd(pvarleft: COpaquePointer?, pvarright: COpaquePointer?, pvarresult: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varAdd(pvarleft?.value?.toCPointer<ByteVar>(), pvarright?.value?.toCPointer<ByteVar>(), pvarresult?.value?.toCPointer<ByteVar>())
 
-public actual fun VarAnd(pvarleft: Long, pvarright: Long, pvarresult: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarAnd(pvarleft.toCPointer<ByteVar>(), pvarright.toCPointer<ByteVar>(), pvarresult.toCPointer<ByteVar>())
+public actual fun varAnd(pvarleft: COpaquePointer?, pvarright: COpaquePointer?, pvarresult: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varAnd(pvarleft?.value?.toCPointer<ByteVar>(), pvarright?.value?.toCPointer<ByteVar>(), pvarresult?.value?.toCPointer<ByteVar>())
 
-public actual fun VarBoolFromCy(cyin: CY, pboolout: Long): HRESULT =
+public actual fun varBoolFromCy(cyin: CY, pboolout: COpaquePointer?): Hresult =
     0
 
-public actual fun VarBoolFromDate(datein: Double, pboolout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarBoolFromDate(datein, pboolout.toCPointer<ByteVar>())
+public actual fun varBoolFromDate(datein: Double, pboolout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varBoolFromDate(datein, pboolout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarBoolFromDec(pdecin: Long, pboolout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarBoolFromDec(pdecin.toCPointer<ByteVar>(), pboolout.toCPointer<ByteVar>())
+public actual fun varBoolFromDec(pdecin: COpaquePointer?, pboolout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varBoolFromDec(pdecin?.value?.toCPointer<ByteVar>(), pboolout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarBoolFromDisp(pdispin: Long, lcid: UInt, pboolout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarBoolFromDisp(pdispin.toCPointer<ByteVar>(), lcid, pboolout.toCPointer<ByteVar>())
+public actual fun varBoolFromDisp(pdispin: COpaquePointer?, lcid: UInt, pboolout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varBoolFromDisp(pdispin?.value?.toCPointer<ByteVar>(), lcid, pboolout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarBoolFromI1(cin: Byte, pboolout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarBoolFromI1(cin, pboolout.toCPointer<ByteVar>())
+public actual fun varBoolFromI1(cin: Byte, pboolout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varBoolFromI1(cin, pboolout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarBoolFromI2(sin: Short, pboolout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarBoolFromI2(sin, pboolout.toCPointer<ByteVar>())
+public actual fun varBoolFromI2(sin: Short, pboolout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varBoolFromI2(sin, pboolout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarBoolFromI4(lin: Int, pboolout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarBoolFromI4(lin, pboolout.toCPointer<ByteVar>())
+public actual fun varBoolFromI4(lin: Int, pboolout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varBoolFromI4(lin, pboolout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarBoolFromI8(i64in: Long, pboolout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarBoolFromI8(i64in, pboolout.toCPointer<ByteVar>())
+public actual fun varBoolFromI8(i64in: Long, pboolout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varBoolFromI8(i64in, pboolout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarBoolFromR4(fltin: Float, pboolout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarBoolFromR4(fltin, pboolout.toCPointer<ByteVar>())
+public actual fun varBoolFromR4(fltin: Float, pboolout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varBoolFromR4(fltin, pboolout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarBoolFromR8(dblin: Double, pboolout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarBoolFromR8(dblin, pboolout.toCPointer<ByteVar>())
+public actual fun varBoolFromR8(dblin: Double, pboolout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varBoolFromR8(dblin, pboolout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarBoolFromStr(strin: PCWSTR, lcid: UInt, dwflags: UInt, pboolout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarBoolFromStr(strin.toCPointer<ByteVar>(), lcid, dwflags, pboolout.toCPointer<ByteVar>())
+public actual fun varBoolFromStr(strin: Pcwstr, lcid: UInt, dwflags: UInt, pboolout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varBoolFromStr(strin?.value?.toCPointer<ByteVar>(), lcid, dwflags, pboolout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarBoolFromUI1(bin: UByte, pboolout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarBoolFromUI1(bin, pboolout.toCPointer<ByteVar>())
+public actual fun varBoolFromUI1(bin: UByte, pboolout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varBoolFromUI1(bin, pboolout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarBoolFromUI2(uiin: UShort, pboolout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarBoolFromUI2(uiin, pboolout.toCPointer<ByteVar>())
+public actual fun varBoolFromUI2(uiin: UShort, pboolout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varBoolFromUI2(uiin, pboolout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarBoolFromUI4(ulin: UInt, pboolout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarBoolFromUI4(ulin, pboolout.toCPointer<ByteVar>())
+public actual fun varBoolFromUI4(ulin: UInt, pboolout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varBoolFromUI4(ulin, pboolout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarBoolFromUI8(i64in: ULong, pboolout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarBoolFromUI8(i64in, pboolout.toCPointer<ByteVar>())
+public actual fun varBoolFromUI8(i64in: ULong, pboolout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varBoolFromUI8(i64in, pboolout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarBstrCat(bstrleft: BSTR, bstrright: BSTR, pbstrresult: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarBstrCat(bstrleft.toCPointer<ByteVar>(), bstrright.toCPointer<ByteVar>(), pbstrresult.toCPointer<ByteVar>())
+public actual fun varBstrCat(bstrleft: Bstr, bstrright: Bstr, pbstrresult: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varBstrCat(bstrleft?.value?.toCPointer<ByteVar>(), bstrright?.value?.toCPointer<ByteVar>(), pbstrresult?.value?.toCPointer<ByteVar>())
 
-public actual fun VarBstrCmp(bstrleft: BSTR, bstrright: BSTR, lcid: UInt, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarBstrCmp(bstrleft.toCPointer<ByteVar>(), bstrright.toCPointer<ByteVar>(), lcid, dwflags)
+public actual fun varBstrCmp(bstrleft: Bstr, bstrright: Bstr, lcid: UInt, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varBstrCmp(bstrleft?.value?.toCPointer<ByteVar>(), bstrright?.value?.toCPointer<ByteVar>(), lcid, dwflags)
 
-public actual fun VarBstrFromBool(boolin: VARIANT_BOOL, lcid: UInt, dwflags: UInt, pbstrout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarBstrFromBool(boolin, lcid, dwflags, pbstrout.toCPointer<ByteVar>())
+public actual fun varBstrFromBool(boolin: VariantBool, lcid: UInt, dwflags: UInt, pbstrout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varBstrFromBool(boolin, lcid, dwflags, pbstrout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarBstrFromCy(cyin: CY, lcid: UInt, dwflags: UInt, pbstrout: Long): HRESULT =
+public actual fun varBstrFromCy(cyin: CY, lcid: UInt, dwflags: UInt, pbstrout: COpaquePointer?): Hresult =
     0
 
-public actual fun VarBstrFromDate(datein: Double, lcid: UInt, dwflags: UInt, pbstrout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarBstrFromDate(datein, lcid, dwflags, pbstrout.toCPointer<ByteVar>())
+public actual fun varBstrFromDate(datein: Double, lcid: UInt, dwflags: UInt, pbstrout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varBstrFromDate(datein, lcid, dwflags, pbstrout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarBstrFromDec(pdecin: Long, lcid: UInt, dwflags: UInt, pbstrout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarBstrFromDec(pdecin.toCPointer<ByteVar>(), lcid, dwflags, pbstrout.toCPointer<ByteVar>())
+public actual fun varBstrFromDec(pdecin: COpaquePointer?, lcid: UInt, dwflags: UInt, pbstrout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varBstrFromDec(pdecin?.value?.toCPointer<ByteVar>(), lcid, dwflags, pbstrout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarBstrFromDisp(pdispin: Long, lcid: UInt, dwflags: UInt, pbstrout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarBstrFromDisp(pdispin.toCPointer<ByteVar>(), lcid, dwflags, pbstrout.toCPointer<ByteVar>())
+public actual fun varBstrFromDisp(pdispin: COpaquePointer?, lcid: UInt, dwflags: UInt, pbstrout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varBstrFromDisp(pdispin?.value?.toCPointer<ByteVar>(), lcid, dwflags, pbstrout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarBstrFromI1(cin: Byte, lcid: UInt, dwflags: UInt, pbstrout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarBstrFromI1(cin, lcid, dwflags, pbstrout.toCPointer<ByteVar>())
+public actual fun varBstrFromI1(cin: Byte, lcid: UInt, dwflags: UInt, pbstrout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varBstrFromI1(cin, lcid, dwflags, pbstrout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarBstrFromI2(ival: Short, lcid: UInt, dwflags: UInt, pbstrout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarBstrFromI2(ival, lcid, dwflags, pbstrout.toCPointer<ByteVar>())
+public actual fun varBstrFromI2(ival: Short, lcid: UInt, dwflags: UInt, pbstrout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varBstrFromI2(ival, lcid, dwflags, pbstrout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarBstrFromI4(lin: Int, lcid: UInt, dwflags: UInt, pbstrout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarBstrFromI4(lin, lcid, dwflags, pbstrout.toCPointer<ByteVar>())
+public actual fun varBstrFromI4(lin: Int, lcid: UInt, dwflags: UInt, pbstrout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varBstrFromI4(lin, lcid, dwflags, pbstrout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarBstrFromI8(i64in: Long, lcid: UInt, dwflags: UInt, pbstrout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarBstrFromI8(i64in, lcid, dwflags, pbstrout.toCPointer<ByteVar>())
+public actual fun varBstrFromI8(i64in: Long, lcid: UInt, dwflags: UInt, pbstrout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varBstrFromI8(i64in, lcid, dwflags, pbstrout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarBstrFromR4(fltin: Float, lcid: UInt, dwflags: UInt, pbstrout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarBstrFromR4(fltin, lcid, dwflags, pbstrout.toCPointer<ByteVar>())
+public actual fun varBstrFromR4(fltin: Float, lcid: UInt, dwflags: UInt, pbstrout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varBstrFromR4(fltin, lcid, dwflags, pbstrout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarBstrFromR8(dblin: Double, lcid: UInt, dwflags: UInt, pbstrout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarBstrFromR8(dblin, lcid, dwflags, pbstrout.toCPointer<ByteVar>())
+public actual fun varBstrFromR8(dblin: Double, lcid: UInt, dwflags: UInt, pbstrout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varBstrFromR8(dblin, lcid, dwflags, pbstrout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarBstrFromUI1(bval: UByte, lcid: UInt, dwflags: UInt, pbstrout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarBstrFromUI1(bval, lcid, dwflags, pbstrout.toCPointer<ByteVar>())
+public actual fun varBstrFromUI1(bval: UByte, lcid: UInt, dwflags: UInt, pbstrout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varBstrFromUI1(bval, lcid, dwflags, pbstrout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarBstrFromUI2(uiin: UShort, lcid: UInt, dwflags: UInt, pbstrout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarBstrFromUI2(uiin, lcid, dwflags, pbstrout.toCPointer<ByteVar>())
+public actual fun varBstrFromUI2(uiin: UShort, lcid: UInt, dwflags: UInt, pbstrout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varBstrFromUI2(uiin, lcid, dwflags, pbstrout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarBstrFromUI4(ulin: UInt, lcid: UInt, dwflags: UInt, pbstrout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarBstrFromUI4(ulin, lcid, dwflags, pbstrout.toCPointer<ByteVar>())
+public actual fun varBstrFromUI4(ulin: UInt, lcid: UInt, dwflags: UInt, pbstrout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varBstrFromUI4(ulin, lcid, dwflags, pbstrout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarBstrFromUI8(ui64in: ULong, lcid: UInt, dwflags: UInt, pbstrout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarBstrFromUI8(ui64in, lcid, dwflags, pbstrout.toCPointer<ByteVar>())
+public actual fun varBstrFromUI8(ui64in: ULong, lcid: UInt, dwflags: UInt, pbstrout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varBstrFromUI8(ui64in, lcid, dwflags, pbstrout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarCat(pvarleft: Long, pvarright: Long, pvarresult: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarCat(pvarleft.toCPointer<ByteVar>(), pvarright.toCPointer<ByteVar>(), pvarresult.toCPointer<ByteVar>())
+public actual fun varCat(pvarleft: COpaquePointer?, pvarright: COpaquePointer?, pvarresult: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varCat(pvarleft?.value?.toCPointer<ByteVar>(), pvarright?.value?.toCPointer<ByteVar>(), pvarresult?.value?.toCPointer<ByteVar>())
 
-public actual fun VarCmp(pvarleft: Long, pvarright: Long, lcid: UInt, dwflags: UInt): VARCMP =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarCmp(pvarleft.toCPointer<ByteVar>(), pvarright.toCPointer<ByteVar>(), lcid, dwflags)
+public actual fun varCmp(pvarleft: COpaquePointer?, pvarright: COpaquePointer?, lcid: UInt, dwflags: UInt): Varcmp =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varCmp(pvarleft?.value?.toCPointer<ByteVar>(), pvarright?.value?.toCPointer<ByteVar>(), lcid, dwflags)
 
-public actual fun VarCyAbs(cyin: CY, pcyresult: Long): HRESULT =
+public actual fun varCyAbs(cyin: CY, pcyresult: COpaquePointer?): Hresult =
     0
 
-public actual fun VarCyAdd(cyleft: CY, cyright: CY, pcyresult: Long): HRESULT =
+public actual fun varCyAdd(cyleft: CY, cyright: CY, pcyresult: COpaquePointer?): Hresult =
     0
 
-public actual fun VarCyCmp(cyleft: CY, cyright: CY): VARCMP =
+public actual fun varCyCmp(cyleft: CY, cyright: CY): Varcmp =
     0u
 
-public actual fun VarCyCmpR8(cyleft: CY, dblright: Double): VARCMP =
+public actual fun varCyCmpR8(cyleft: CY, dblright: Double): Varcmp =
     0u
 
-public actual fun VarCyFix(cyin: CY, pcyresult: Long): HRESULT =
+public actual fun varCyFix(cyin: CY, pcyresult: COpaquePointer?): Hresult =
     0
 
-public actual fun VarCyFromBool(boolin: VARIANT_BOOL, pcyout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarCyFromBool(boolin, pcyout.toCPointer<ByteVar>())
+public actual fun varCyFromBool(boolin: VariantBool, pcyout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varCyFromBool(boolin, pcyout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarCyFromDate(datein: Double, pcyout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarCyFromDate(datein, pcyout.toCPointer<ByteVar>())
+public actual fun varCyFromDate(datein: Double, pcyout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varCyFromDate(datein, pcyout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarCyFromDec(pdecin: Long, pcyout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarCyFromDec(pdecin.toCPointer<ByteVar>(), pcyout.toCPointer<ByteVar>())
+public actual fun varCyFromDec(pdecin: COpaquePointer?, pcyout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varCyFromDec(pdecin?.value?.toCPointer<ByteVar>(), pcyout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarCyFromDisp(pdispin: Long, lcid: UInt, pcyout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarCyFromDisp(pdispin.toCPointer<ByteVar>(), lcid, pcyout.toCPointer<ByteVar>())
+public actual fun varCyFromDisp(pdispin: COpaquePointer?, lcid: UInt, pcyout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varCyFromDisp(pdispin?.value?.toCPointer<ByteVar>(), lcid, pcyout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarCyFromI1(cin: Byte, pcyout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarCyFromI1(cin, pcyout.toCPointer<ByteVar>())
+public actual fun varCyFromI1(cin: Byte, pcyout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varCyFromI1(cin, pcyout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarCyFromI2(sin: Short, pcyout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarCyFromI2(sin, pcyout.toCPointer<ByteVar>())
+public actual fun varCyFromI2(sin: Short, pcyout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varCyFromI2(sin, pcyout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarCyFromI4(lin: Int, pcyout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarCyFromI4(lin, pcyout.toCPointer<ByteVar>())
+public actual fun varCyFromI4(lin: Int, pcyout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varCyFromI4(lin, pcyout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarCyFromI8(i64in: Long, pcyout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarCyFromI8(i64in, pcyout.toCPointer<ByteVar>())
+public actual fun varCyFromI8(i64in: Long, pcyout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varCyFromI8(i64in, pcyout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarCyFromR4(fltin: Float, pcyout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarCyFromR4(fltin, pcyout.toCPointer<ByteVar>())
+public actual fun varCyFromR4(fltin: Float, pcyout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varCyFromR4(fltin, pcyout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarCyFromR8(dblin: Double, pcyout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarCyFromR8(dblin, pcyout.toCPointer<ByteVar>())
+public actual fun varCyFromR8(dblin: Double, pcyout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varCyFromR8(dblin, pcyout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarCyFromStr(strin: PCWSTR, lcid: UInt, dwflags: UInt, pcyout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarCyFromStr(strin.toCPointer<ByteVar>(), lcid, dwflags, pcyout.toCPointer<ByteVar>())
+public actual fun varCyFromStr(strin: Pcwstr, lcid: UInt, dwflags: UInt, pcyout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varCyFromStr(strin?.value?.toCPointer<ByteVar>(), lcid, dwflags, pcyout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarCyFromUI1(bin: UByte, pcyout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarCyFromUI1(bin, pcyout.toCPointer<ByteVar>())
+public actual fun varCyFromUI1(bin: UByte, pcyout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varCyFromUI1(bin, pcyout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarCyFromUI2(uiin: UShort, pcyout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarCyFromUI2(uiin, pcyout.toCPointer<ByteVar>())
+public actual fun varCyFromUI2(uiin: UShort, pcyout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varCyFromUI2(uiin, pcyout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarCyFromUI4(ulin: UInt, pcyout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarCyFromUI4(ulin, pcyout.toCPointer<ByteVar>())
+public actual fun varCyFromUI4(ulin: UInt, pcyout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varCyFromUI4(ulin, pcyout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarCyFromUI8(ui64in: ULong, pcyout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarCyFromUI8(ui64in, pcyout.toCPointer<ByteVar>())
+public actual fun varCyFromUI8(ui64in: ULong, pcyout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varCyFromUI8(ui64in, pcyout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarCyInt(cyin: CY, pcyresult: Long): HRESULT =
+public actual fun varCyInt(cyin: CY, pcyresult: COpaquePointer?): Hresult =
     0
 
-public actual fun VarCyMul(cyleft: CY, cyright: CY, pcyresult: Long): HRESULT =
+public actual fun varCyMul(cyleft: CY, cyright: CY, pcyresult: COpaquePointer?): Hresult =
     0
 
-public actual fun VarCyMulI4(cyleft: CY, lright: Int, pcyresult: Long): HRESULT =
+public actual fun varCyMulI4(cyleft: CY, lright: Int, pcyresult: COpaquePointer?): Hresult =
     0
 
-public actual fun VarCyMulI8(cyleft: CY, lright: Long, pcyresult: Long): HRESULT =
+public actual fun varCyMulI8(cyleft: CY, lright: Long, pcyresult: COpaquePointer?): Hresult =
     0
 
-public actual fun VarCyNeg(cyin: CY, pcyresult: Long): HRESULT =
+public actual fun varCyNeg(cyin: CY, pcyresult: COpaquePointer?): Hresult =
     0
 
-public actual fun VarCyRound(cyin: CY, cdecimals: Int, pcyresult: Long): HRESULT =
+public actual fun varCyRound(cyin: CY, cdecimals: Int, pcyresult: COpaquePointer?): Hresult =
     0
 
-public actual fun VarCySub(cyleft: CY, cyright: CY, pcyresult: Long): HRESULT =
+public actual fun varCySub(cyleft: CY, cyright: CY, pcyresult: COpaquePointer?): Hresult =
     0
 
-public actual fun VarDateFromBool(boolin: VARIANT_BOOL, pdateout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarDateFromBool(boolin, pdateout.toCPointer<ByteVar>())
+public actual fun varDateFromBool(boolin: VariantBool, pdateout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varDateFromBool(boolin, pdateout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarDateFromCy(cyin: CY, pdateout: Long): HRESULT =
+public actual fun varDateFromCy(cyin: CY, pdateout: COpaquePointer?): Hresult =
     0
 
-public actual fun VarDateFromDec(pdecin: Long, pdateout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarDateFromDec(pdecin.toCPointer<ByteVar>(), pdateout.toCPointer<ByteVar>())
+public actual fun varDateFromDec(pdecin: COpaquePointer?, pdateout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varDateFromDec(pdecin?.value?.toCPointer<ByteVar>(), pdateout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarDateFromDisp(pdispin: Long, lcid: UInt, pdateout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarDateFromDisp(pdispin.toCPointer<ByteVar>(), lcid, pdateout.toCPointer<ByteVar>())
+public actual fun varDateFromDisp(pdispin: COpaquePointer?, lcid: UInt, pdateout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varDateFromDisp(pdispin?.value?.toCPointer<ByteVar>(), lcid, pdateout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarDateFromI1(cin: Byte, pdateout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarDateFromI1(cin, pdateout.toCPointer<ByteVar>())
+public actual fun varDateFromI1(cin: Byte, pdateout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varDateFromI1(cin, pdateout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarDateFromI2(sin: Short, pdateout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarDateFromI2(sin, pdateout.toCPointer<ByteVar>())
+public actual fun varDateFromI2(sin: Short, pdateout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varDateFromI2(sin, pdateout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarDateFromI4(lin: Int, pdateout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarDateFromI4(lin, pdateout.toCPointer<ByteVar>())
+public actual fun varDateFromI4(lin: Int, pdateout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varDateFromI4(lin, pdateout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarDateFromI8(i64in: Long, pdateout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarDateFromI8(i64in, pdateout.toCPointer<ByteVar>())
+public actual fun varDateFromI8(i64in: Long, pdateout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varDateFromI8(i64in, pdateout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarDateFromR4(fltin: Float, pdateout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarDateFromR4(fltin, pdateout.toCPointer<ByteVar>())
+public actual fun varDateFromR4(fltin: Float, pdateout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varDateFromR4(fltin, pdateout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarDateFromR8(dblin: Double, pdateout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarDateFromR8(dblin, pdateout.toCPointer<ByteVar>())
+public actual fun varDateFromR8(dblin: Double, pdateout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varDateFromR8(dblin, pdateout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarDateFromStr(strin: PCWSTR, lcid: UInt, dwflags: UInt, pdateout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarDateFromStr(strin.toCPointer<ByteVar>(), lcid, dwflags, pdateout.toCPointer<ByteVar>())
+public actual fun varDateFromStr(strin: Pcwstr, lcid: UInt, dwflags: UInt, pdateout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varDateFromStr(strin?.value?.toCPointer<ByteVar>(), lcid, dwflags, pdateout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarDateFromUI1(bin: UByte, pdateout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarDateFromUI1(bin, pdateout.toCPointer<ByteVar>())
+public actual fun varDateFromUI1(bin: UByte, pdateout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varDateFromUI1(bin, pdateout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarDateFromUI2(uiin: UShort, pdateout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarDateFromUI2(uiin, pdateout.toCPointer<ByteVar>())
+public actual fun varDateFromUI2(uiin: UShort, pdateout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varDateFromUI2(uiin, pdateout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarDateFromUI4(ulin: UInt, pdateout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarDateFromUI4(ulin, pdateout.toCPointer<ByteVar>())
+public actual fun varDateFromUI4(ulin: UInt, pdateout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varDateFromUI4(ulin, pdateout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarDateFromUI8(ui64in: ULong, pdateout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarDateFromUI8(ui64in, pdateout.toCPointer<ByteVar>())
+public actual fun varDateFromUI8(ui64in: ULong, pdateout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varDateFromUI8(ui64in, pdateout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarDateFromUdate(pudatein: Long, dwflags: UInt, pdateout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarDateFromUdate(pudatein.toCPointer<ByteVar>(), dwflags, pdateout.toCPointer<ByteVar>())
+public actual fun varDateFromUdate(pudatein: COpaquePointer?, dwflags: UInt, pdateout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varDateFromUdate(pudatein?.value?.toCPointer<ByteVar>(), dwflags, pdateout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarDateFromUdateEx(pudatein: Long, lcid: UInt, dwflags: UInt, pdateout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarDateFromUdateEx(pudatein.toCPointer<ByteVar>(), lcid, dwflags, pdateout.toCPointer<ByteVar>())
+public actual fun varDateFromUdateEx(pudatein: COpaquePointer?, lcid: UInt, dwflags: UInt, pdateout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varDateFromUdateEx(pudatein?.value?.toCPointer<ByteVar>(), lcid, dwflags, pdateout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarDecAbs(pdecin: Long, pdecresult: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarDecAbs(pdecin.toCPointer<ByteVar>(), pdecresult.toCPointer<ByteVar>())
+public actual fun varDecAbs(pdecin: COpaquePointer?, pdecresult: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varDecAbs(pdecin?.value?.toCPointer<ByteVar>(), pdecresult?.value?.toCPointer<ByteVar>())
 
-public actual fun VarDecAdd(pdecleft: Long, pdecright: Long, pdecresult: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarDecAdd(pdecleft.toCPointer<ByteVar>(), pdecright.toCPointer<ByteVar>(), pdecresult.toCPointer<ByteVar>())
+public actual fun varDecAdd(pdecleft: COpaquePointer?, pdecright: COpaquePointer?, pdecresult: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varDecAdd(pdecleft?.value?.toCPointer<ByteVar>(), pdecright?.value?.toCPointer<ByteVar>(), pdecresult?.value?.toCPointer<ByteVar>())
 
-public actual fun VarDecCmp(pdecleft: Long, pdecright: Long): VARCMP =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarDecCmp(pdecleft.toCPointer<ByteVar>(), pdecright.toCPointer<ByteVar>())
+public actual fun varDecCmp(pdecleft: COpaquePointer?, pdecright: COpaquePointer?): Varcmp =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varDecCmp(pdecleft?.value?.toCPointer<ByteVar>(), pdecright?.value?.toCPointer<ByteVar>())
 
-public actual fun VarDecCmpR8(pdecleft: Long, dblright: Double): VARCMP =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarDecCmpR8(pdecleft.toCPointer<ByteVar>(), dblright)
+public actual fun varDecCmpR8(pdecleft: COpaquePointer?, dblright: Double): Varcmp =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varDecCmpR8(pdecleft?.value?.toCPointer<ByteVar>(), dblright)
 
-public actual fun VarDecDiv(pdecleft: Long, pdecright: Long, pdecresult: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarDecDiv(pdecleft.toCPointer<ByteVar>(), pdecright.toCPointer<ByteVar>(), pdecresult.toCPointer<ByteVar>())
+public actual fun varDecDiv(pdecleft: COpaquePointer?, pdecright: COpaquePointer?, pdecresult: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varDecDiv(pdecleft?.value?.toCPointer<ByteVar>(), pdecright?.value?.toCPointer<ByteVar>(), pdecresult?.value?.toCPointer<ByteVar>())
 
-public actual fun VarDecFix(pdecin: Long, pdecresult: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarDecFix(pdecin.toCPointer<ByteVar>(), pdecresult.toCPointer<ByteVar>())
+public actual fun varDecFix(pdecin: COpaquePointer?, pdecresult: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varDecFix(pdecin?.value?.toCPointer<ByteVar>(), pdecresult?.value?.toCPointer<ByteVar>())
 
-public actual fun VarDecFromBool(boolin: VARIANT_BOOL, pdecout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarDecFromBool(boolin, pdecout.toCPointer<ByteVar>())
+public actual fun varDecFromBool(boolin: VariantBool, pdecout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varDecFromBool(boolin, pdecout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarDecFromCy(cyin: CY, pdecout: Long): HRESULT =
+public actual fun varDecFromCy(cyin: CY, pdecout: COpaquePointer?): Hresult =
     0
 
-public actual fun VarDecFromDate(datein: Double, pdecout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarDecFromDate(datein, pdecout.toCPointer<ByteVar>())
+public actual fun varDecFromDate(datein: Double, pdecout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varDecFromDate(datein, pdecout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarDecFromDisp(pdispin: Long, lcid: UInt, pdecout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarDecFromDisp(pdispin.toCPointer<ByteVar>(), lcid, pdecout.toCPointer<ByteVar>())
+public actual fun varDecFromDisp(pdispin: COpaquePointer?, lcid: UInt, pdecout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varDecFromDisp(pdispin?.value?.toCPointer<ByteVar>(), lcid, pdecout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarDecFromI1(cin: Byte, pdecout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarDecFromI1(cin, pdecout.toCPointer<ByteVar>())
+public actual fun varDecFromI1(cin: Byte, pdecout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varDecFromI1(cin, pdecout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarDecFromI2(uiin: Short, pdecout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarDecFromI2(uiin, pdecout.toCPointer<ByteVar>())
+public actual fun varDecFromI2(uiin: Short, pdecout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varDecFromI2(uiin, pdecout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarDecFromI4(lin: Int, pdecout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarDecFromI4(lin, pdecout.toCPointer<ByteVar>())
+public actual fun varDecFromI4(lin: Int, pdecout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varDecFromI4(lin, pdecout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarDecFromI8(i64in: Long, pdecout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarDecFromI8(i64in, pdecout.toCPointer<ByteVar>())
+public actual fun varDecFromI8(i64in: Long, pdecout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varDecFromI8(i64in, pdecout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarDecFromR4(fltin: Float, pdecout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarDecFromR4(fltin, pdecout.toCPointer<ByteVar>())
+public actual fun varDecFromR4(fltin: Float, pdecout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varDecFromR4(fltin, pdecout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarDecFromR8(dblin: Double, pdecout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarDecFromR8(dblin, pdecout.toCPointer<ByteVar>())
+public actual fun varDecFromR8(dblin: Double, pdecout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varDecFromR8(dblin, pdecout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarDecFromStr(strin: PCWSTR, lcid: UInt, dwflags: UInt, pdecout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarDecFromStr(strin.toCPointer<ByteVar>(), lcid, dwflags, pdecout.toCPointer<ByteVar>())
+public actual fun varDecFromStr(strin: Pcwstr, lcid: UInt, dwflags: UInt, pdecout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varDecFromStr(strin?.value?.toCPointer<ByteVar>(), lcid, dwflags, pdecout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarDecFromUI1(bin: UByte, pdecout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarDecFromUI1(bin, pdecout.toCPointer<ByteVar>())
+public actual fun varDecFromUI1(bin: UByte, pdecout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varDecFromUI1(bin, pdecout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarDecFromUI2(uiin: UShort, pdecout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarDecFromUI2(uiin, pdecout.toCPointer<ByteVar>())
+public actual fun varDecFromUI2(uiin: UShort, pdecout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varDecFromUI2(uiin, pdecout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarDecFromUI4(ulin: UInt, pdecout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarDecFromUI4(ulin, pdecout.toCPointer<ByteVar>())
+public actual fun varDecFromUI4(ulin: UInt, pdecout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varDecFromUI4(ulin, pdecout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarDecFromUI8(ui64in: ULong, pdecout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarDecFromUI8(ui64in, pdecout.toCPointer<ByteVar>())
+public actual fun varDecFromUI8(ui64in: ULong, pdecout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varDecFromUI8(ui64in, pdecout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarDecInt(pdecin: Long, pdecresult: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarDecInt(pdecin.toCPointer<ByteVar>(), pdecresult.toCPointer<ByteVar>())
+public actual fun varDecInt(pdecin: COpaquePointer?, pdecresult: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varDecInt(pdecin?.value?.toCPointer<ByteVar>(), pdecresult?.value?.toCPointer<ByteVar>())
 
-public actual fun VarDecMul(pdecleft: Long, pdecright: Long, pdecresult: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarDecMul(pdecleft.toCPointer<ByteVar>(), pdecright.toCPointer<ByteVar>(), pdecresult.toCPointer<ByteVar>())
+public actual fun varDecMul(pdecleft: COpaquePointer?, pdecright: COpaquePointer?, pdecresult: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varDecMul(pdecleft?.value?.toCPointer<ByteVar>(), pdecright?.value?.toCPointer<ByteVar>(), pdecresult?.value?.toCPointer<ByteVar>())
 
-public actual fun VarDecNeg(pdecin: Long, pdecresult: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarDecNeg(pdecin.toCPointer<ByteVar>(), pdecresult.toCPointer<ByteVar>())
+public actual fun varDecNeg(pdecin: COpaquePointer?, pdecresult: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varDecNeg(pdecin?.value?.toCPointer<ByteVar>(), pdecresult?.value?.toCPointer<ByteVar>())
 
-public actual fun VarDecRound(pdecin: Long, cdecimals: Int, pdecresult: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarDecRound(pdecin.toCPointer<ByteVar>(), cdecimals, pdecresult.toCPointer<ByteVar>())
+public actual fun varDecRound(pdecin: COpaquePointer?, cdecimals: Int, pdecresult: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varDecRound(pdecin?.value?.toCPointer<ByteVar>(), cdecimals, pdecresult?.value?.toCPointer<ByteVar>())
 
-public actual fun VarDecSub(pdecleft: Long, pdecright: Long, pdecresult: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarDecSub(pdecleft.toCPointer<ByteVar>(), pdecright.toCPointer<ByteVar>(), pdecresult.toCPointer<ByteVar>())
+public actual fun varDecSub(pdecleft: COpaquePointer?, pdecright: COpaquePointer?, pdecresult: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varDecSub(pdecleft?.value?.toCPointer<ByteVar>(), pdecright?.value?.toCPointer<ByteVar>(), pdecresult?.value?.toCPointer<ByteVar>())
 
-public actual fun VarDiv(pvarleft: Long, pvarright: Long, pvarresult: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarDiv(pvarleft.toCPointer<ByteVar>(), pvarright.toCPointer<ByteVar>(), pvarresult.toCPointer<ByteVar>())
+public actual fun varDiv(pvarleft: COpaquePointer?, pvarright: COpaquePointer?, pvarresult: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varDiv(pvarleft?.value?.toCPointer<ByteVar>(), pvarright?.value?.toCPointer<ByteVar>(), pvarresult?.value?.toCPointer<ByteVar>())
 
-public actual fun VarEqv(pvarleft: Long, pvarright: Long, pvarresult: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarEqv(pvarleft.toCPointer<ByteVar>(), pvarright.toCPointer<ByteVar>(), pvarresult.toCPointer<ByteVar>())
+public actual fun varEqv(pvarleft: COpaquePointer?, pvarright: COpaquePointer?, pvarresult: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varEqv(pvarleft?.value?.toCPointer<ByteVar>(), pvarright?.value?.toCPointer<ByteVar>(), pvarresult?.value?.toCPointer<ByteVar>())
 
-public actual fun VarFix(pvarin: Long, pvarresult: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarFix(pvarin.toCPointer<ByteVar>(), pvarresult.toCPointer<ByteVar>())
+public actual fun varFix(pvarin: COpaquePointer?, pvarresult: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varFix(pvarin?.value?.toCPointer<ByteVar>(), pvarresult?.value?.toCPointer<ByteVar>())
 
-public actual fun VarFormat(pvarin: Long, pstrformat: PCWSTR, ifirstday: VARFORMAT_FIRST_DAY, ifirstweek: VARFORMAT_FIRST_WEEK, dwflags: UInt, pbstrout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarFormat(pvarin.toCPointer<ByteVar>(), pstrformat.toCPointer<ByteVar>(), ifirstday, ifirstweek, dwflags, pbstrout.toCPointer<ByteVar>())
+public actual fun varFormat(pvarin: COpaquePointer?, pstrformat: Pcwstr, ifirstday: VarformatFirstDay, ifirstweek: VarformatFirstWeek, dwflags: UInt, pbstrout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varFormat(pvarin?.value?.toCPointer<ByteVar>(), pstrformat?.value?.toCPointer<ByteVar>(), ifirstday, ifirstweek, dwflags, pbstrout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarFormatCurrency(pvarin: Long, inumdig: Int, iinclead: Int, iuseparens: Int, igroup: Int, dwflags: UInt, pbstrout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarFormatCurrency(pvarin.toCPointer<ByteVar>(), inumdig, iinclead, iuseparens, igroup, dwflags, pbstrout.toCPointer<ByteVar>())
+public actual fun varFormatCurrency(pvarin: COpaquePointer?, inumdig: Int, iinclead: Int, iuseparens: Int, igroup: Int, dwflags: UInt, pbstrout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varFormatCurrency(pvarin?.value?.toCPointer<ByteVar>(), inumdig, iinclead, iuseparens, igroup, dwflags, pbstrout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarFormatDateTime(pvarin: Long, inamedformat: VARFORMAT_NAMED_FORMAT, dwflags: UInt, pbstrout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarFormatDateTime(pvarin.toCPointer<ByteVar>(), inamedformat, dwflags, pbstrout.toCPointer<ByteVar>())
+public actual fun varFormatDateTime(pvarin: COpaquePointer?, inamedformat: VarformatNamedFormat, dwflags: UInt, pbstrout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varFormatDateTime(pvarin?.value?.toCPointer<ByteVar>(), inamedformat, dwflags, pbstrout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarFormatFromTokens(pvarin: Long, pstrformat: PCWSTR, pbtokcur: Long, dwflags: UInt, pbstrout: Long, lcid: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarFormatFromTokens(pvarin.toCPointer<ByteVar>(), pstrformat.toCPointer<ByteVar>(), pbtokcur.toCPointer<ByteVar>(), dwflags, pbstrout.toCPointer<ByteVar>(), lcid)
+public actual fun varFormatFromTokens(pvarin: COpaquePointer?, pstrformat: Pcwstr, pbtokcur: COpaquePointer?, dwflags: UInt, pbstrout: COpaquePointer?, lcid: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varFormatFromTokens(pvarin?.value?.toCPointer<ByteVar>(), pstrformat?.value?.toCPointer<ByteVar>(), pbtokcur?.value?.toCPointer<ByteVar>(), dwflags, pbstrout?.value?.toCPointer<ByteVar>(), lcid)
 
-public actual fun VarFormatNumber(pvarin: Long, inumdig: Int, iinclead: VARFORMAT_LEADING_DIGIT, iuseparens: VARFORMAT_PARENTHESES, igroup: VARFORMAT_GROUP, dwflags: UInt, pbstrout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarFormatNumber(pvarin.toCPointer<ByteVar>(), inumdig, iinclead, iuseparens, igroup, dwflags, pbstrout.toCPointer<ByteVar>())
+public actual fun varFormatNumber(pvarin: COpaquePointer?, inumdig: Int, iinclead: VarformatLeadingDigit, iuseparens: VarformatParentheses, igroup: VarformatGroup, dwflags: UInt, pbstrout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varFormatNumber(pvarin?.value?.toCPointer<ByteVar>(), inumdig, iinclead, iuseparens, igroup, dwflags, pbstrout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarFormatPercent(pvarin: Long, inumdig: Int, iinclead: VARFORMAT_LEADING_DIGIT, iuseparens: VARFORMAT_PARENTHESES, igroup: VARFORMAT_GROUP, dwflags: UInt, pbstrout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarFormatPercent(pvarin.toCPointer<ByteVar>(), inumdig, iinclead, iuseparens, igroup, dwflags, pbstrout.toCPointer<ByteVar>())
+public actual fun varFormatPercent(pvarin: COpaquePointer?, inumdig: Int, iinclead: VarformatLeadingDigit, iuseparens: VarformatParentheses, igroup: VarformatGroup, dwflags: UInt, pbstrout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varFormatPercent(pvarin?.value?.toCPointer<ByteVar>(), inumdig, iinclead, iuseparens, igroup, dwflags, pbstrout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarI1FromBool(boolin: VARIANT_BOOL, pcout: PSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarI1FromBool(boolin, pcout.toCPointer<ByteVar>())
+public actual fun varI1FromBool(boolin: VariantBool, pcout: Pstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varI1FromBool(boolin, pcout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarI1FromCy(cyin: CY, pcout: PSTR): HRESULT =
+public actual fun varI1FromCy(cyin: CY, pcout: Pstr): Hresult =
     0
 
-public actual fun VarI1FromDate(datein: Double, pcout: PSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarI1FromDate(datein, pcout.toCPointer<ByteVar>())
+public actual fun varI1FromDate(datein: Double, pcout: Pstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varI1FromDate(datein, pcout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarI1FromDec(pdecin: Long, pcout: PSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarI1FromDec(pdecin.toCPointer<ByteVar>(), pcout.toCPointer<ByteVar>())
+public actual fun varI1FromDec(pdecin: COpaquePointer?, pcout: Pstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varI1FromDec(pdecin?.value?.toCPointer<ByteVar>(), pcout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarI1FromDisp(pdispin: Long, lcid: UInt, pcout: PSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarI1FromDisp(pdispin.toCPointer<ByteVar>(), lcid, pcout.toCPointer<ByteVar>())
+public actual fun varI1FromDisp(pdispin: COpaquePointer?, lcid: UInt, pcout: Pstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varI1FromDisp(pdispin?.value?.toCPointer<ByteVar>(), lcid, pcout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarI1FromI2(uiin: Short, pcout: PSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarI1FromI2(uiin, pcout.toCPointer<ByteVar>())
+public actual fun varI1FromI2(uiin: Short, pcout: Pstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varI1FromI2(uiin, pcout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarI1FromI4(lin: Int, pcout: PSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarI1FromI4(lin, pcout.toCPointer<ByteVar>())
+public actual fun varI1FromI4(lin: Int, pcout: Pstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varI1FromI4(lin, pcout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarI1FromI8(i64in: Long, pcout: PSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarI1FromI8(i64in, pcout.toCPointer<ByteVar>())
+public actual fun varI1FromI8(i64in: Long, pcout: Pstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varI1FromI8(i64in, pcout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarI1FromR4(fltin: Float, pcout: PSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarI1FromR4(fltin, pcout.toCPointer<ByteVar>())
+public actual fun varI1FromR4(fltin: Float, pcout: Pstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varI1FromR4(fltin, pcout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarI1FromR8(dblin: Double, pcout: PSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarI1FromR8(dblin, pcout.toCPointer<ByteVar>())
+public actual fun varI1FromR8(dblin: Double, pcout: Pstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varI1FromR8(dblin, pcout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarI1FromStr(strin: PCWSTR, lcid: UInt, dwflags: UInt, pcout: PSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarI1FromStr(strin.toCPointer<ByteVar>(), lcid, dwflags, pcout.toCPointer<ByteVar>())
+public actual fun varI1FromStr(strin: Pcwstr, lcid: UInt, dwflags: UInt, pcout: Pstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varI1FromStr(strin?.value?.toCPointer<ByteVar>(), lcid, dwflags, pcout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarI1FromUI1(bin: UByte, pcout: PSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarI1FromUI1(bin, pcout.toCPointer<ByteVar>())
+public actual fun varI1FromUI1(bin: UByte, pcout: Pstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varI1FromUI1(bin, pcout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarI1FromUI2(uiin: UShort, pcout: PSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarI1FromUI2(uiin, pcout.toCPointer<ByteVar>())
+public actual fun varI1FromUI2(uiin: UShort, pcout: Pstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varI1FromUI2(uiin, pcout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarI1FromUI4(ulin: UInt, pcout: PSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarI1FromUI4(ulin, pcout.toCPointer<ByteVar>())
+public actual fun varI1FromUI4(ulin: UInt, pcout: Pstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varI1FromUI4(ulin, pcout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarI1FromUI8(i64in: ULong, pcout: PSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarI1FromUI8(i64in, pcout.toCPointer<ByteVar>())
+public actual fun varI1FromUI8(i64in: ULong, pcout: Pstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varI1FromUI8(i64in, pcout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarI2FromBool(boolin: VARIANT_BOOL, psout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarI2FromBool(boolin, psout.toCPointer<ByteVar>())
+public actual fun varI2FromBool(boolin: VariantBool, psout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varI2FromBool(boolin, psout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarI2FromCy(cyin: CY, psout: Long): HRESULT =
+public actual fun varI2FromCy(cyin: CY, psout: COpaquePointer?): Hresult =
     0
 
-public actual fun VarI2FromDate(datein: Double, psout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarI2FromDate(datein, psout.toCPointer<ByteVar>())
+public actual fun varI2FromDate(datein: Double, psout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varI2FromDate(datein, psout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarI2FromDec(pdecin: Long, psout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarI2FromDec(pdecin.toCPointer<ByteVar>(), psout.toCPointer<ByteVar>())
+public actual fun varI2FromDec(pdecin: COpaquePointer?, psout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varI2FromDec(pdecin?.value?.toCPointer<ByteVar>(), psout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarI2FromDisp(pdispin: Long, lcid: UInt, psout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarI2FromDisp(pdispin.toCPointer<ByteVar>(), lcid, psout.toCPointer<ByteVar>())
+public actual fun varI2FromDisp(pdispin: COpaquePointer?, lcid: UInt, psout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varI2FromDisp(pdispin?.value?.toCPointer<ByteVar>(), lcid, psout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarI2FromI1(cin: Byte, psout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarI2FromI1(cin, psout.toCPointer<ByteVar>())
+public actual fun varI2FromI1(cin: Byte, psout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varI2FromI1(cin, psout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarI2FromI4(lin: Int, psout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarI2FromI4(lin, psout.toCPointer<ByteVar>())
+public actual fun varI2FromI4(lin: Int, psout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varI2FromI4(lin, psout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarI2FromI8(i64in: Long, psout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarI2FromI8(i64in, psout.toCPointer<ByteVar>())
+public actual fun varI2FromI8(i64in: Long, psout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varI2FromI8(i64in, psout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarI2FromR4(fltin: Float, psout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarI2FromR4(fltin, psout.toCPointer<ByteVar>())
+public actual fun varI2FromR4(fltin: Float, psout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varI2FromR4(fltin, psout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarI2FromR8(dblin: Double, psout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarI2FromR8(dblin, psout.toCPointer<ByteVar>())
+public actual fun varI2FromR8(dblin: Double, psout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varI2FromR8(dblin, psout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarI2FromStr(strin: PCWSTR, lcid: UInt, dwflags: UInt, psout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarI2FromStr(strin.toCPointer<ByteVar>(), lcid, dwflags, psout.toCPointer<ByteVar>())
+public actual fun varI2FromStr(strin: Pcwstr, lcid: UInt, dwflags: UInt, psout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varI2FromStr(strin?.value?.toCPointer<ByteVar>(), lcid, dwflags, psout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarI2FromUI1(bin: UByte, psout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarI2FromUI1(bin, psout.toCPointer<ByteVar>())
+public actual fun varI2FromUI1(bin: UByte, psout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varI2FromUI1(bin, psout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarI2FromUI2(uiin: UShort, psout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarI2FromUI2(uiin, psout.toCPointer<ByteVar>())
+public actual fun varI2FromUI2(uiin: UShort, psout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varI2FromUI2(uiin, psout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarI2FromUI4(ulin: UInt, psout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarI2FromUI4(ulin, psout.toCPointer<ByteVar>())
+public actual fun varI2FromUI4(ulin: UInt, psout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varI2FromUI4(ulin, psout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarI2FromUI8(ui64in: ULong, psout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarI2FromUI8(ui64in, psout.toCPointer<ByteVar>())
+public actual fun varI2FromUI8(ui64in: ULong, psout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varI2FromUI8(ui64in, psout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarI4FromBool(boolin: VARIANT_BOOL, plout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarI4FromBool(boolin, plout.toCPointer<ByteVar>())
+public actual fun varI4FromBool(boolin: VariantBool, plout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varI4FromBool(boolin, plout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarI4FromCy(cyin: CY, plout: Long): HRESULT =
+public actual fun varI4FromCy(cyin: CY, plout: COpaquePointer?): Hresult =
     0
 
-public actual fun VarI4FromDate(datein: Double, plout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarI4FromDate(datein, plout.toCPointer<ByteVar>())
+public actual fun varI4FromDate(datein: Double, plout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varI4FromDate(datein, plout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarI4FromDec(pdecin: Long, plout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarI4FromDec(pdecin.toCPointer<ByteVar>(), plout.toCPointer<ByteVar>())
+public actual fun varI4FromDec(pdecin: COpaquePointer?, plout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varI4FromDec(pdecin?.value?.toCPointer<ByteVar>(), plout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarI4FromDisp(pdispin: Long, lcid: UInt, plout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarI4FromDisp(pdispin.toCPointer<ByteVar>(), lcid, plout.toCPointer<ByteVar>())
+public actual fun varI4FromDisp(pdispin: COpaquePointer?, lcid: UInt, plout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varI4FromDisp(pdispin?.value?.toCPointer<ByteVar>(), lcid, plout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarI4FromI1(cin: Byte, plout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarI4FromI1(cin, plout.toCPointer<ByteVar>())
+public actual fun varI4FromI1(cin: Byte, plout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varI4FromI1(cin, plout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarI4FromI2(sin: Short, plout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarI4FromI2(sin, plout.toCPointer<ByteVar>())
+public actual fun varI4FromI2(sin: Short, plout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varI4FromI2(sin, plout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarI4FromI8(i64in: Long, plout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarI4FromI8(i64in, plout.toCPointer<ByteVar>())
+public actual fun varI4FromI8(i64in: Long, plout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varI4FromI8(i64in, plout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarI4FromR4(fltin: Float, plout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarI4FromR4(fltin, plout.toCPointer<ByteVar>())
+public actual fun varI4FromR4(fltin: Float, plout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varI4FromR4(fltin, plout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarI4FromR8(dblin: Double, plout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarI4FromR8(dblin, plout.toCPointer<ByteVar>())
+public actual fun varI4FromR8(dblin: Double, plout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varI4FromR8(dblin, plout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarI4FromStr(strin: PCWSTR, lcid: UInt, dwflags: UInt, plout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarI4FromStr(strin.toCPointer<ByteVar>(), lcid, dwflags, plout.toCPointer<ByteVar>())
+public actual fun varI4FromStr(strin: Pcwstr, lcid: UInt, dwflags: UInt, plout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varI4FromStr(strin?.value?.toCPointer<ByteVar>(), lcid, dwflags, plout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarI4FromUI1(bin: UByte, plout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarI4FromUI1(bin, plout.toCPointer<ByteVar>())
+public actual fun varI4FromUI1(bin: UByte, plout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varI4FromUI1(bin, plout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarI4FromUI2(uiin: UShort, plout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarI4FromUI2(uiin, plout.toCPointer<ByteVar>())
+public actual fun varI4FromUI2(uiin: UShort, plout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varI4FromUI2(uiin, plout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarI4FromUI4(ulin: UInt, plout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarI4FromUI4(ulin, plout.toCPointer<ByteVar>())
+public actual fun varI4FromUI4(ulin: UInt, plout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varI4FromUI4(ulin, plout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarI4FromUI8(ui64in: ULong, plout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarI4FromUI8(ui64in, plout.toCPointer<ByteVar>())
+public actual fun varI4FromUI8(ui64in: ULong, plout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varI4FromUI8(ui64in, plout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarI8FromBool(boolin: VARIANT_BOOL, pi64out: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarI8FromBool(boolin, pi64out.toCPointer<ByteVar>())
+public actual fun varI8FromBool(boolin: VariantBool, pi64out: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varI8FromBool(boolin, pi64out?.value?.toCPointer<ByteVar>())
 
-public actual fun VarI8FromCy(cyin: CY, pi64out: Long): HRESULT =
+public actual fun varI8FromCy(cyin: CY, pi64out: COpaquePointer?): Hresult =
     0
 
-public actual fun VarI8FromDate(datein: Double, pi64out: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarI8FromDate(datein, pi64out.toCPointer<ByteVar>())
+public actual fun varI8FromDate(datein: Double, pi64out: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varI8FromDate(datein, pi64out?.value?.toCPointer<ByteVar>())
 
-public actual fun VarI8FromDec(pdecin: Long, pi64out: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarI8FromDec(pdecin.toCPointer<ByteVar>(), pi64out.toCPointer<ByteVar>())
+public actual fun varI8FromDec(pdecin: COpaquePointer?, pi64out: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varI8FromDec(pdecin?.value?.toCPointer<ByteVar>(), pi64out?.value?.toCPointer<ByteVar>())
 
-public actual fun VarI8FromDisp(pdispin: Long, lcid: UInt, pi64out: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarI8FromDisp(pdispin.toCPointer<ByteVar>(), lcid, pi64out.toCPointer<ByteVar>())
+public actual fun varI8FromDisp(pdispin: COpaquePointer?, lcid: UInt, pi64out: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varI8FromDisp(pdispin?.value?.toCPointer<ByteVar>(), lcid, pi64out?.value?.toCPointer<ByteVar>())
 
-public actual fun VarI8FromI1(cin: Byte, pi64out: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarI8FromI1(cin, pi64out.toCPointer<ByteVar>())
+public actual fun varI8FromI1(cin: Byte, pi64out: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varI8FromI1(cin, pi64out?.value?.toCPointer<ByteVar>())
 
-public actual fun VarI8FromI2(sin: Short, pi64out: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarI8FromI2(sin, pi64out.toCPointer<ByteVar>())
+public actual fun varI8FromI2(sin: Short, pi64out: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varI8FromI2(sin, pi64out?.value?.toCPointer<ByteVar>())
 
-public actual fun VarI8FromR4(fltin: Float, pi64out: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarI8FromR4(fltin, pi64out.toCPointer<ByteVar>())
+public actual fun varI8FromR4(fltin: Float, pi64out: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varI8FromR4(fltin, pi64out?.value?.toCPointer<ByteVar>())
 
-public actual fun VarI8FromR8(dblin: Double, pi64out: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarI8FromR8(dblin, pi64out.toCPointer<ByteVar>())
+public actual fun varI8FromR8(dblin: Double, pi64out: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varI8FromR8(dblin, pi64out?.value?.toCPointer<ByteVar>())
 
-public actual fun VarI8FromStr(strin: PCWSTR, lcid: UInt, dwflags: UInt, pi64out: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarI8FromStr(strin.toCPointer<ByteVar>(), lcid, dwflags, pi64out.toCPointer<ByteVar>())
+public actual fun varI8FromStr(strin: Pcwstr, lcid: UInt, dwflags: UInt, pi64out: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varI8FromStr(strin?.value?.toCPointer<ByteVar>(), lcid, dwflags, pi64out?.value?.toCPointer<ByteVar>())
 
-public actual fun VarI8FromUI1(bin: UByte, pi64out: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarI8FromUI1(bin, pi64out.toCPointer<ByteVar>())
+public actual fun varI8FromUI1(bin: UByte, pi64out: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varI8FromUI1(bin, pi64out?.value?.toCPointer<ByteVar>())
 
-public actual fun VarI8FromUI2(uiin: UShort, pi64out: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarI8FromUI2(uiin, pi64out.toCPointer<ByteVar>())
+public actual fun varI8FromUI2(uiin: UShort, pi64out: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varI8FromUI2(uiin, pi64out?.value?.toCPointer<ByteVar>())
 
-public actual fun VarI8FromUI4(ulin: UInt, pi64out: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarI8FromUI4(ulin, pi64out.toCPointer<ByteVar>())
+public actual fun varI8FromUI4(ulin: UInt, pi64out: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varI8FromUI4(ulin, pi64out?.value?.toCPointer<ByteVar>())
 
-public actual fun VarI8FromUI8(ui64in: ULong, pi64out: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarI8FromUI8(ui64in, pi64out.toCPointer<ByteVar>())
+public actual fun varI8FromUI8(ui64in: ULong, pi64out: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varI8FromUI8(ui64in, pi64out?.value?.toCPointer<ByteVar>())
 
-public actual fun VarIdiv(pvarleft: Long, pvarright: Long, pvarresult: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarIdiv(pvarleft.toCPointer<ByteVar>(), pvarright.toCPointer<ByteVar>(), pvarresult.toCPointer<ByteVar>())
+public actual fun varIdiv(pvarleft: COpaquePointer?, pvarright: COpaquePointer?, pvarresult: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varIdiv(pvarleft?.value?.toCPointer<ByteVar>(), pvarright?.value?.toCPointer<ByteVar>(), pvarresult?.value?.toCPointer<ByteVar>())
 
-public actual fun VarImp(pvarleft: Long, pvarright: Long, pvarresult: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarImp(pvarleft.toCPointer<ByteVar>(), pvarright.toCPointer<ByteVar>(), pvarresult.toCPointer<ByteVar>())
+public actual fun varImp(pvarleft: COpaquePointer?, pvarright: COpaquePointer?, pvarresult: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varImp(pvarleft?.value?.toCPointer<ByteVar>(), pvarright?.value?.toCPointer<ByteVar>(), pvarresult?.value?.toCPointer<ByteVar>())
 
-public actual fun VarInt(pvarin: Long, pvarresult: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarInt(pvarin.toCPointer<ByteVar>(), pvarresult.toCPointer<ByteVar>())
+public actual fun varInt(pvarin: COpaquePointer?, pvarresult: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varInt(pvarin?.value?.toCPointer<ByteVar>(), pvarresult?.value?.toCPointer<ByteVar>())
 
-public actual fun VarMod(pvarleft: Long, pvarright: Long, pvarresult: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarMod(pvarleft.toCPointer<ByteVar>(), pvarright.toCPointer<ByteVar>(), pvarresult.toCPointer<ByteVar>())
+public actual fun varMod(pvarleft: COpaquePointer?, pvarright: COpaquePointer?, pvarresult: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varMod(pvarleft?.value?.toCPointer<ByteVar>(), pvarright?.value?.toCPointer<ByteVar>(), pvarresult?.value?.toCPointer<ByteVar>())
 
-public actual fun VarMonthName(imonth: Int, fabbrev: Int, dwflags: UInt, pbstrout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarMonthName(imonth, fabbrev, dwflags, pbstrout.toCPointer<ByteVar>())
+public actual fun varMonthName(imonth: Int, fabbrev: Int, dwflags: UInt, pbstrout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varMonthName(imonth, fabbrev, dwflags, pbstrout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarMul(pvarleft: Long, pvarright: Long, pvarresult: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarMul(pvarleft.toCPointer<ByteVar>(), pvarright.toCPointer<ByteVar>(), pvarresult.toCPointer<ByteVar>())
+public actual fun varMul(pvarleft: COpaquePointer?, pvarright: COpaquePointer?, pvarresult: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varMul(pvarleft?.value?.toCPointer<ByteVar>(), pvarright?.value?.toCPointer<ByteVar>(), pvarresult?.value?.toCPointer<ByteVar>())
 
-public actual fun VarNeg(pvarin: Long, pvarresult: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarNeg(pvarin.toCPointer<ByteVar>(), pvarresult.toCPointer<ByteVar>())
+public actual fun varNeg(pvarin: COpaquePointer?, pvarresult: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varNeg(pvarin?.value?.toCPointer<ByteVar>(), pvarresult?.value?.toCPointer<ByteVar>())
 
-public actual fun VarNot(pvarin: Long, pvarresult: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarNot(pvarin.toCPointer<ByteVar>(), pvarresult.toCPointer<ByteVar>())
+public actual fun varNot(pvarin: COpaquePointer?, pvarresult: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varNot(pvarin?.value?.toCPointer<ByteVar>(), pvarresult?.value?.toCPointer<ByteVar>())
 
-public actual fun VarNumFromParseNum(pnumprs: Long, rgbdig: Long, dwvtbits: UInt, pvar: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarNumFromParseNum(pnumprs.toCPointer<ByteVar>(), rgbdig.toCPointer<ByteVar>(), dwvtbits, pvar.toCPointer<ByteVar>())
+public actual fun varNumFromParseNum(pnumprs: COpaquePointer?, rgbdig: COpaquePointer?, dwvtbits: UInt, pvar: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varNumFromParseNum(pnumprs?.value?.toCPointer<ByteVar>(), rgbdig?.value?.toCPointer<ByteVar>(), dwvtbits, pvar?.value?.toCPointer<ByteVar>())
 
-public actual fun VarOr(pvarleft: Long, pvarright: Long, pvarresult: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarOr(pvarleft.toCPointer<ByteVar>(), pvarright.toCPointer<ByteVar>(), pvarresult.toCPointer<ByteVar>())
+public actual fun varOr(pvarleft: COpaquePointer?, pvarright: COpaquePointer?, pvarresult: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varOr(pvarleft?.value?.toCPointer<ByteVar>(), pvarright?.value?.toCPointer<ByteVar>(), pvarresult?.value?.toCPointer<ByteVar>())
 
-public actual fun VarParseNumFromStr(strin: PCWSTR, lcid: UInt, dwflags: UInt, pnumprs: Long, rgbdig: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarParseNumFromStr(strin.toCPointer<ByteVar>(), lcid, dwflags, pnumprs.toCPointer<ByteVar>(), rgbdig.toCPointer<ByteVar>())
+public actual fun varParseNumFromStr(strin: Pcwstr, lcid: UInt, dwflags: UInt, pnumprs: COpaquePointer?, rgbdig: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varParseNumFromStr(strin?.value?.toCPointer<ByteVar>(), lcid, dwflags, pnumprs?.value?.toCPointer<ByteVar>(), rgbdig?.value?.toCPointer<ByteVar>())
 
-public actual fun VarPow(pvarleft: Long, pvarright: Long, pvarresult: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarPow(pvarleft.toCPointer<ByteVar>(), pvarright.toCPointer<ByteVar>(), pvarresult.toCPointer<ByteVar>())
+public actual fun varPow(pvarleft: COpaquePointer?, pvarright: COpaquePointer?, pvarresult: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varPow(pvarleft?.value?.toCPointer<ByteVar>(), pvarright?.value?.toCPointer<ByteVar>(), pvarresult?.value?.toCPointer<ByteVar>())
 
-public actual fun VarR4CmpR8(fltleft: Float, dblright: Double): VARCMP =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarR4CmpR8(fltleft, dblright)
+public actual fun varR4CmpR8(fltleft: Float, dblright: Double): Varcmp =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varR4CmpR8(fltleft, dblright)
 
-public actual fun VarR4FromBool(boolin: VARIANT_BOOL, pfltout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarR4FromBool(boolin, pfltout.toCPointer<ByteVar>())
+public actual fun varR4FromBool(boolin: VariantBool, pfltout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varR4FromBool(boolin, pfltout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarR4FromCy(cyin: CY, pfltout: Long): HRESULT =
+public actual fun varR4FromCy(cyin: CY, pfltout: COpaquePointer?): Hresult =
     0
 
-public actual fun VarR4FromDate(datein: Double, pfltout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarR4FromDate(datein, pfltout.toCPointer<ByteVar>())
+public actual fun varR4FromDate(datein: Double, pfltout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varR4FromDate(datein, pfltout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarR4FromDec(pdecin: Long, pfltout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarR4FromDec(pdecin.toCPointer<ByteVar>(), pfltout.toCPointer<ByteVar>())
+public actual fun varR4FromDec(pdecin: COpaquePointer?, pfltout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varR4FromDec(pdecin?.value?.toCPointer<ByteVar>(), pfltout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarR4FromDisp(pdispin: Long, lcid: UInt, pfltout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarR4FromDisp(pdispin.toCPointer<ByteVar>(), lcid, pfltout.toCPointer<ByteVar>())
+public actual fun varR4FromDisp(pdispin: COpaquePointer?, lcid: UInt, pfltout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varR4FromDisp(pdispin?.value?.toCPointer<ByteVar>(), lcid, pfltout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarR4FromI1(cin: Byte, pfltout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarR4FromI1(cin, pfltout.toCPointer<ByteVar>())
+public actual fun varR4FromI1(cin: Byte, pfltout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varR4FromI1(cin, pfltout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarR4FromI2(sin: Short, pfltout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarR4FromI2(sin, pfltout.toCPointer<ByteVar>())
+public actual fun varR4FromI2(sin: Short, pfltout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varR4FromI2(sin, pfltout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarR4FromI4(lin: Int, pfltout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarR4FromI4(lin, pfltout.toCPointer<ByteVar>())
+public actual fun varR4FromI4(lin: Int, pfltout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varR4FromI4(lin, pfltout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarR4FromI8(i64in: Long, pfltout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarR4FromI8(i64in, pfltout.toCPointer<ByteVar>())
+public actual fun varR4FromI8(i64in: Long, pfltout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varR4FromI8(i64in, pfltout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarR4FromR8(dblin: Double, pfltout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarR4FromR8(dblin, pfltout.toCPointer<ByteVar>())
+public actual fun varR4FromR8(dblin: Double, pfltout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varR4FromR8(dblin, pfltout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarR4FromStr(strin: PCWSTR, lcid: UInt, dwflags: UInt, pfltout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarR4FromStr(strin.toCPointer<ByteVar>(), lcid, dwflags, pfltout.toCPointer<ByteVar>())
+public actual fun varR4FromStr(strin: Pcwstr, lcid: UInt, dwflags: UInt, pfltout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varR4FromStr(strin?.value?.toCPointer<ByteVar>(), lcid, dwflags, pfltout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarR4FromUI1(bin: UByte, pfltout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarR4FromUI1(bin, pfltout.toCPointer<ByteVar>())
+public actual fun varR4FromUI1(bin: UByte, pfltout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varR4FromUI1(bin, pfltout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarR4FromUI2(uiin: UShort, pfltout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarR4FromUI2(uiin, pfltout.toCPointer<ByteVar>())
+public actual fun varR4FromUI2(uiin: UShort, pfltout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varR4FromUI2(uiin, pfltout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarR4FromUI4(ulin: UInt, pfltout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarR4FromUI4(ulin, pfltout.toCPointer<ByteVar>())
+public actual fun varR4FromUI4(ulin: UInt, pfltout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varR4FromUI4(ulin, pfltout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarR4FromUI8(ui64in: ULong, pfltout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarR4FromUI8(ui64in, pfltout.toCPointer<ByteVar>())
+public actual fun varR4FromUI8(ui64in: ULong, pfltout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varR4FromUI8(ui64in, pfltout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarR8FromBool(boolin: VARIANT_BOOL, pdblout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarR8FromBool(boolin, pdblout.toCPointer<ByteVar>())
+public actual fun varR8FromBool(boolin: VariantBool, pdblout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varR8FromBool(boolin, pdblout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarR8FromCy(cyin: CY, pdblout: Long): HRESULT =
+public actual fun varR8FromCy(cyin: CY, pdblout: COpaquePointer?): Hresult =
     0
 
-public actual fun VarR8FromDate(datein: Double, pdblout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarR8FromDate(datein, pdblout.toCPointer<ByteVar>())
+public actual fun varR8FromDate(datein: Double, pdblout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varR8FromDate(datein, pdblout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarR8FromDec(pdecin: Long, pdblout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarR8FromDec(pdecin.toCPointer<ByteVar>(), pdblout.toCPointer<ByteVar>())
+public actual fun varR8FromDec(pdecin: COpaquePointer?, pdblout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varR8FromDec(pdecin?.value?.toCPointer<ByteVar>(), pdblout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarR8FromDisp(pdispin: Long, lcid: UInt, pdblout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarR8FromDisp(pdispin.toCPointer<ByteVar>(), lcid, pdblout.toCPointer<ByteVar>())
+public actual fun varR8FromDisp(pdispin: COpaquePointer?, lcid: UInt, pdblout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varR8FromDisp(pdispin?.value?.toCPointer<ByteVar>(), lcid, pdblout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarR8FromI1(cin: Byte, pdblout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarR8FromI1(cin, pdblout.toCPointer<ByteVar>())
+public actual fun varR8FromI1(cin: Byte, pdblout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varR8FromI1(cin, pdblout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarR8FromI2(sin: Short, pdblout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarR8FromI2(sin, pdblout.toCPointer<ByteVar>())
+public actual fun varR8FromI2(sin: Short, pdblout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varR8FromI2(sin, pdblout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarR8FromI4(lin: Int, pdblout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarR8FromI4(lin, pdblout.toCPointer<ByteVar>())
+public actual fun varR8FromI4(lin: Int, pdblout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varR8FromI4(lin, pdblout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarR8FromI8(i64in: Long, pdblout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarR8FromI8(i64in, pdblout.toCPointer<ByteVar>())
+public actual fun varR8FromI8(i64in: Long, pdblout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varR8FromI8(i64in, pdblout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarR8FromR4(fltin: Float, pdblout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarR8FromR4(fltin, pdblout.toCPointer<ByteVar>())
+public actual fun varR8FromR4(fltin: Float, pdblout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varR8FromR4(fltin, pdblout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarR8FromStr(strin: PCWSTR, lcid: UInt, dwflags: UInt, pdblout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarR8FromStr(strin.toCPointer<ByteVar>(), lcid, dwflags, pdblout.toCPointer<ByteVar>())
+public actual fun varR8FromStr(strin: Pcwstr, lcid: UInt, dwflags: UInt, pdblout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varR8FromStr(strin?.value?.toCPointer<ByteVar>(), lcid, dwflags, pdblout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarR8FromUI1(bin: UByte, pdblout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarR8FromUI1(bin, pdblout.toCPointer<ByteVar>())
+public actual fun varR8FromUI1(bin: UByte, pdblout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varR8FromUI1(bin, pdblout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarR8FromUI2(uiin: UShort, pdblout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarR8FromUI2(uiin, pdblout.toCPointer<ByteVar>())
+public actual fun varR8FromUI2(uiin: UShort, pdblout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varR8FromUI2(uiin, pdblout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarR8FromUI4(ulin: UInt, pdblout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarR8FromUI4(ulin, pdblout.toCPointer<ByteVar>())
+public actual fun varR8FromUI4(ulin: UInt, pdblout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varR8FromUI4(ulin, pdblout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarR8FromUI8(ui64in: ULong, pdblout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarR8FromUI8(ui64in, pdblout.toCPointer<ByteVar>())
+public actual fun varR8FromUI8(ui64in: ULong, pdblout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varR8FromUI8(ui64in, pdblout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarR8Pow(dblleft: Double, dblright: Double, pdblresult: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarR8Pow(dblleft, dblright, pdblresult.toCPointer<ByteVar>())
+public actual fun varR8Pow(dblleft: Double, dblright: Double, pdblresult: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varR8Pow(dblleft, dblright, pdblresult?.value?.toCPointer<ByteVar>())
 
-public actual fun VarR8Round(dblin: Double, cdecimals: Int, pdblresult: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarR8Round(dblin, cdecimals, pdblresult.toCPointer<ByteVar>())
+public actual fun varR8Round(dblin: Double, cdecimals: Int, pdblresult: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varR8Round(dblin, cdecimals, pdblresult?.value?.toCPointer<ByteVar>())
 
-public actual fun VarRound(pvarin: Long, cdecimals: Int, pvarresult: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarRound(pvarin.toCPointer<ByteVar>(), cdecimals, pvarresult.toCPointer<ByteVar>())
+public actual fun varRound(pvarin: COpaquePointer?, cdecimals: Int, pvarresult: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varRound(pvarin?.value?.toCPointer<ByteVar>(), cdecimals, pvarresult?.value?.toCPointer<ByteVar>())
 
-public actual fun VarSub(pvarleft: Long, pvarright: Long, pvarresult: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarSub(pvarleft.toCPointer<ByteVar>(), pvarright.toCPointer<ByteVar>(), pvarresult.toCPointer<ByteVar>())
+public actual fun varSub(pvarleft: COpaquePointer?, pvarright: COpaquePointer?, pvarresult: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varSub(pvarleft?.value?.toCPointer<ByteVar>(), pvarright?.value?.toCPointer<ByteVar>(), pvarresult?.value?.toCPointer<ByteVar>())
 
-public actual fun VarTokenizeFormatString(pstrformat: PCWSTR, rgbtok: Long, cbtok: Int, ifirstday: VARFORMAT_FIRST_DAY, ifirstweek: VARFORMAT_FIRST_WEEK, lcid: UInt, pcbactual: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarTokenizeFormatString(pstrformat.toCPointer<ByteVar>(), rgbtok.toCPointer<ByteVar>(), cbtok, ifirstday, ifirstweek, lcid, pcbactual.toCPointer<ByteVar>())
+public actual fun varTokenizeFormatString(pstrformat: Pcwstr, rgbtok: COpaquePointer?, cbtok: Int, ifirstday: VarformatFirstDay, ifirstweek: VarformatFirstWeek, lcid: UInt, pcbactual: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varTokenizeFormatString(pstrformat?.value?.toCPointer<ByteVar>(), rgbtok?.value?.toCPointer<ByteVar>(), cbtok, ifirstday, ifirstweek, lcid, pcbactual?.value?.toCPointer<ByteVar>())
 
-public actual fun VarUI1FromBool(boolin: VARIANT_BOOL, pbout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarUI1FromBool(boolin, pbout.toCPointer<ByteVar>())
+public actual fun varUI1FromBool(boolin: VariantBool, pbout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varUI1FromBool(boolin, pbout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarUI1FromCy(cyin: CY, pbout: Long): HRESULT =
+public actual fun varUI1FromCy(cyin: CY, pbout: COpaquePointer?): Hresult =
     0
 
-public actual fun VarUI1FromDate(datein: Double, pbout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarUI1FromDate(datein, pbout.toCPointer<ByteVar>())
+public actual fun varUI1FromDate(datein: Double, pbout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varUI1FromDate(datein, pbout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarUI1FromDec(pdecin: Long, pbout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarUI1FromDec(pdecin.toCPointer<ByteVar>(), pbout.toCPointer<ByteVar>())
+public actual fun varUI1FromDec(pdecin: COpaquePointer?, pbout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varUI1FromDec(pdecin?.value?.toCPointer<ByteVar>(), pbout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarUI1FromDisp(pdispin: Long, lcid: UInt, pbout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarUI1FromDisp(pdispin.toCPointer<ByteVar>(), lcid, pbout.toCPointer<ByteVar>())
+public actual fun varUI1FromDisp(pdispin: COpaquePointer?, lcid: UInt, pbout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varUI1FromDisp(pdispin?.value?.toCPointer<ByteVar>(), lcid, pbout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarUI1FromI1(cin: Byte, pbout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarUI1FromI1(cin, pbout.toCPointer<ByteVar>())
+public actual fun varUI1FromI1(cin: Byte, pbout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varUI1FromI1(cin, pbout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarUI1FromI2(sin: Short, pbout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarUI1FromI2(sin, pbout.toCPointer<ByteVar>())
+public actual fun varUI1FromI2(sin: Short, pbout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varUI1FromI2(sin, pbout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarUI1FromI4(lin: Int, pbout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarUI1FromI4(lin, pbout.toCPointer<ByteVar>())
+public actual fun varUI1FromI4(lin: Int, pbout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varUI1FromI4(lin, pbout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarUI1FromI8(i64in: Long, pbout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarUI1FromI8(i64in, pbout.toCPointer<ByteVar>())
+public actual fun varUI1FromI8(i64in: Long, pbout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varUI1FromI8(i64in, pbout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarUI1FromR4(fltin: Float, pbout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarUI1FromR4(fltin, pbout.toCPointer<ByteVar>())
+public actual fun varUI1FromR4(fltin: Float, pbout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varUI1FromR4(fltin, pbout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarUI1FromR8(dblin: Double, pbout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarUI1FromR8(dblin, pbout.toCPointer<ByteVar>())
+public actual fun varUI1FromR8(dblin: Double, pbout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varUI1FromR8(dblin, pbout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarUI1FromStr(strin: PCWSTR, lcid: UInt, dwflags: UInt, pbout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarUI1FromStr(strin.toCPointer<ByteVar>(), lcid, dwflags, pbout.toCPointer<ByteVar>())
+public actual fun varUI1FromStr(strin: Pcwstr, lcid: UInt, dwflags: UInt, pbout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varUI1FromStr(strin?.value?.toCPointer<ByteVar>(), lcid, dwflags, pbout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarUI1FromUI2(uiin: UShort, pbout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarUI1FromUI2(uiin, pbout.toCPointer<ByteVar>())
+public actual fun varUI1FromUI2(uiin: UShort, pbout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varUI1FromUI2(uiin, pbout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarUI1FromUI4(ulin: UInt, pbout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarUI1FromUI4(ulin, pbout.toCPointer<ByteVar>())
+public actual fun varUI1FromUI4(ulin: UInt, pbout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varUI1FromUI4(ulin, pbout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarUI1FromUI8(ui64in: ULong, pbout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarUI1FromUI8(ui64in, pbout.toCPointer<ByteVar>())
+public actual fun varUI1FromUI8(ui64in: ULong, pbout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varUI1FromUI8(ui64in, pbout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarUI2FromBool(boolin: VARIANT_BOOL, puiout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarUI2FromBool(boolin, puiout.toCPointer<ByteVar>())
+public actual fun varUI2FromBool(boolin: VariantBool, puiout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varUI2FromBool(boolin, puiout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarUI2FromCy(cyin: CY, puiout: Long): HRESULT =
+public actual fun varUI2FromCy(cyin: CY, puiout: COpaquePointer?): Hresult =
     0
 
-public actual fun VarUI2FromDate(datein: Double, puiout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarUI2FromDate(datein, puiout.toCPointer<ByteVar>())
+public actual fun varUI2FromDate(datein: Double, puiout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varUI2FromDate(datein, puiout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarUI2FromDec(pdecin: Long, puiout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarUI2FromDec(pdecin.toCPointer<ByteVar>(), puiout.toCPointer<ByteVar>())
+public actual fun varUI2FromDec(pdecin: COpaquePointer?, puiout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varUI2FromDec(pdecin?.value?.toCPointer<ByteVar>(), puiout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarUI2FromDisp(pdispin: Long, lcid: UInt, puiout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarUI2FromDisp(pdispin.toCPointer<ByteVar>(), lcid, puiout.toCPointer<ByteVar>())
+public actual fun varUI2FromDisp(pdispin: COpaquePointer?, lcid: UInt, puiout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varUI2FromDisp(pdispin?.value?.toCPointer<ByteVar>(), lcid, puiout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarUI2FromI1(cin: Byte, puiout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarUI2FromI1(cin, puiout.toCPointer<ByteVar>())
+public actual fun varUI2FromI1(cin: Byte, puiout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varUI2FromI1(cin, puiout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarUI2FromI2(uiin: Short, puiout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarUI2FromI2(uiin, puiout.toCPointer<ByteVar>())
+public actual fun varUI2FromI2(uiin: Short, puiout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varUI2FromI2(uiin, puiout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarUI2FromI4(lin: Int, puiout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarUI2FromI4(lin, puiout.toCPointer<ByteVar>())
+public actual fun varUI2FromI4(lin: Int, puiout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varUI2FromI4(lin, puiout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarUI2FromI8(i64in: Long, puiout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarUI2FromI8(i64in, puiout.toCPointer<ByteVar>())
+public actual fun varUI2FromI8(i64in: Long, puiout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varUI2FromI8(i64in, puiout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarUI2FromR4(fltin: Float, puiout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarUI2FromR4(fltin, puiout.toCPointer<ByteVar>())
+public actual fun varUI2FromR4(fltin: Float, puiout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varUI2FromR4(fltin, puiout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarUI2FromR8(dblin: Double, puiout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarUI2FromR8(dblin, puiout.toCPointer<ByteVar>())
+public actual fun varUI2FromR8(dblin: Double, puiout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varUI2FromR8(dblin, puiout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarUI2FromStr(strin: PCWSTR, lcid: UInt, dwflags: UInt, puiout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarUI2FromStr(strin.toCPointer<ByteVar>(), lcid, dwflags, puiout.toCPointer<ByteVar>())
+public actual fun varUI2FromStr(strin: Pcwstr, lcid: UInt, dwflags: UInt, puiout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varUI2FromStr(strin?.value?.toCPointer<ByteVar>(), lcid, dwflags, puiout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarUI2FromUI1(bin: UByte, puiout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarUI2FromUI1(bin, puiout.toCPointer<ByteVar>())
+public actual fun varUI2FromUI1(bin: UByte, puiout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varUI2FromUI1(bin, puiout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarUI2FromUI4(ulin: UInt, puiout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarUI2FromUI4(ulin, puiout.toCPointer<ByteVar>())
+public actual fun varUI2FromUI4(ulin: UInt, puiout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varUI2FromUI4(ulin, puiout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarUI2FromUI8(i64in: ULong, puiout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarUI2FromUI8(i64in, puiout.toCPointer<ByteVar>())
+public actual fun varUI2FromUI8(i64in: ULong, puiout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varUI2FromUI8(i64in, puiout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarUI4FromBool(boolin: VARIANT_BOOL, pulout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarUI4FromBool(boolin, pulout.toCPointer<ByteVar>())
+public actual fun varUI4FromBool(boolin: VariantBool, pulout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varUI4FromBool(boolin, pulout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarUI4FromCy(cyin: CY, pulout: Long): HRESULT =
+public actual fun varUI4FromCy(cyin: CY, pulout: COpaquePointer?): Hresult =
     0
 
-public actual fun VarUI4FromDate(datein: Double, pulout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarUI4FromDate(datein, pulout.toCPointer<ByteVar>())
+public actual fun varUI4FromDate(datein: Double, pulout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varUI4FromDate(datein, pulout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarUI4FromDec(pdecin: Long, pulout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarUI4FromDec(pdecin.toCPointer<ByteVar>(), pulout.toCPointer<ByteVar>())
+public actual fun varUI4FromDec(pdecin: COpaquePointer?, pulout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varUI4FromDec(pdecin?.value?.toCPointer<ByteVar>(), pulout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarUI4FromDisp(pdispin: Long, lcid: UInt, pulout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarUI4FromDisp(pdispin.toCPointer<ByteVar>(), lcid, pulout.toCPointer<ByteVar>())
+public actual fun varUI4FromDisp(pdispin: COpaquePointer?, lcid: UInt, pulout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varUI4FromDisp(pdispin?.value?.toCPointer<ByteVar>(), lcid, pulout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarUI4FromI1(cin: Byte, pulout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarUI4FromI1(cin, pulout.toCPointer<ByteVar>())
+public actual fun varUI4FromI1(cin: Byte, pulout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varUI4FromI1(cin, pulout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarUI4FromI2(uiin: Short, pulout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarUI4FromI2(uiin, pulout.toCPointer<ByteVar>())
+public actual fun varUI4FromI2(uiin: Short, pulout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varUI4FromI2(uiin, pulout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarUI4FromI4(lin: Int, pulout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarUI4FromI4(lin, pulout.toCPointer<ByteVar>())
+public actual fun varUI4FromI4(lin: Int, pulout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varUI4FromI4(lin, pulout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarUI4FromI8(i64in: Long, plout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarUI4FromI8(i64in, plout.toCPointer<ByteVar>())
+public actual fun varUI4FromI8(i64in: Long, plout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varUI4FromI8(i64in, plout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarUI4FromR4(fltin: Float, pulout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarUI4FromR4(fltin, pulout.toCPointer<ByteVar>())
+public actual fun varUI4FromR4(fltin: Float, pulout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varUI4FromR4(fltin, pulout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarUI4FromR8(dblin: Double, pulout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarUI4FromR8(dblin, pulout.toCPointer<ByteVar>())
+public actual fun varUI4FromR8(dblin: Double, pulout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varUI4FromR8(dblin, pulout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarUI4FromStr(strin: PCWSTR, lcid: UInt, dwflags: UInt, pulout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarUI4FromStr(strin.toCPointer<ByteVar>(), lcid, dwflags, pulout.toCPointer<ByteVar>())
+public actual fun varUI4FromStr(strin: Pcwstr, lcid: UInt, dwflags: UInt, pulout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varUI4FromStr(strin?.value?.toCPointer<ByteVar>(), lcid, dwflags, pulout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarUI4FromUI1(bin: UByte, pulout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarUI4FromUI1(bin, pulout.toCPointer<ByteVar>())
+public actual fun varUI4FromUI1(bin: UByte, pulout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varUI4FromUI1(bin, pulout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarUI4FromUI2(uiin: UShort, pulout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarUI4FromUI2(uiin, pulout.toCPointer<ByteVar>())
+public actual fun varUI4FromUI2(uiin: UShort, pulout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varUI4FromUI2(uiin, pulout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarUI4FromUI8(ui64in: ULong, plout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarUI4FromUI8(ui64in, plout.toCPointer<ByteVar>())
+public actual fun varUI4FromUI8(ui64in: ULong, plout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varUI4FromUI8(ui64in, plout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarUI8FromBool(boolin: VARIANT_BOOL, pi64out: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarUI8FromBool(boolin, pi64out.toCPointer<ByteVar>())
+public actual fun varUI8FromBool(boolin: VariantBool, pi64out: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varUI8FromBool(boolin, pi64out?.value?.toCPointer<ByteVar>())
 
-public actual fun VarUI8FromCy(cyin: CY, pi64out: Long): HRESULT =
+public actual fun varUI8FromCy(cyin: CY, pi64out: COpaquePointer?): Hresult =
     0
 
-public actual fun VarUI8FromDate(datein: Double, pi64out: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarUI8FromDate(datein, pi64out.toCPointer<ByteVar>())
+public actual fun varUI8FromDate(datein: Double, pi64out: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varUI8FromDate(datein, pi64out?.value?.toCPointer<ByteVar>())
 
-public actual fun VarUI8FromDec(pdecin: Long, pi64out: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarUI8FromDec(pdecin.toCPointer<ByteVar>(), pi64out.toCPointer<ByteVar>())
+public actual fun varUI8FromDec(pdecin: COpaquePointer?, pi64out: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varUI8FromDec(pdecin?.value?.toCPointer<ByteVar>(), pi64out?.value?.toCPointer<ByteVar>())
 
-public actual fun VarUI8FromDisp(pdispin: Long, lcid: UInt, pi64out: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarUI8FromDisp(pdispin.toCPointer<ByteVar>(), lcid, pi64out.toCPointer<ByteVar>())
+public actual fun varUI8FromDisp(pdispin: COpaquePointer?, lcid: UInt, pi64out: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varUI8FromDisp(pdispin?.value?.toCPointer<ByteVar>(), lcid, pi64out?.value?.toCPointer<ByteVar>())
 
-public actual fun VarUI8FromI1(cin: Byte, pi64out: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarUI8FromI1(cin, pi64out.toCPointer<ByteVar>())
+public actual fun varUI8FromI1(cin: Byte, pi64out: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varUI8FromI1(cin, pi64out?.value?.toCPointer<ByteVar>())
 
-public actual fun VarUI8FromI2(sin: Short, pi64out: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarUI8FromI2(sin, pi64out.toCPointer<ByteVar>())
+public actual fun varUI8FromI2(sin: Short, pi64out: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varUI8FromI2(sin, pi64out?.value?.toCPointer<ByteVar>())
 
-public actual fun VarUI8FromI8(ui64in: Long, pi64out: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarUI8FromI8(ui64in, pi64out.toCPointer<ByteVar>())
+public actual fun varUI8FromI8(ui64in: Long, pi64out: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varUI8FromI8(ui64in, pi64out?.value?.toCPointer<ByteVar>())
 
-public actual fun VarUI8FromR4(fltin: Float, pi64out: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarUI8FromR4(fltin, pi64out.toCPointer<ByteVar>())
+public actual fun varUI8FromR4(fltin: Float, pi64out: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varUI8FromR4(fltin, pi64out?.value?.toCPointer<ByteVar>())
 
-public actual fun VarUI8FromR8(dblin: Double, pi64out: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarUI8FromR8(dblin, pi64out.toCPointer<ByteVar>())
+public actual fun varUI8FromR8(dblin: Double, pi64out: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varUI8FromR8(dblin, pi64out?.value?.toCPointer<ByteVar>())
 
-public actual fun VarUI8FromStr(strin: PCWSTR, lcid: UInt, dwflags: UInt, pi64out: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarUI8FromStr(strin.toCPointer<ByteVar>(), lcid, dwflags, pi64out.toCPointer<ByteVar>())
+public actual fun varUI8FromStr(strin: Pcwstr, lcid: UInt, dwflags: UInt, pi64out: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varUI8FromStr(strin?.value?.toCPointer<ByteVar>(), lcid, dwflags, pi64out?.value?.toCPointer<ByteVar>())
 
-public actual fun VarUI8FromUI1(bin: UByte, pi64out: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarUI8FromUI1(bin, pi64out.toCPointer<ByteVar>())
+public actual fun varUI8FromUI1(bin: UByte, pi64out: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varUI8FromUI1(bin, pi64out?.value?.toCPointer<ByteVar>())
 
-public actual fun VarUI8FromUI2(uiin: UShort, pi64out: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarUI8FromUI2(uiin, pi64out.toCPointer<ByteVar>())
+public actual fun varUI8FromUI2(uiin: UShort, pi64out: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varUI8FromUI2(uiin, pi64out?.value?.toCPointer<ByteVar>())
 
-public actual fun VarUI8FromUI4(ulin: UInt, pi64out: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarUI8FromUI4(ulin, pi64out.toCPointer<ByteVar>())
+public actual fun varUI8FromUI4(ulin: UInt, pi64out: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varUI8FromUI4(ulin, pi64out?.value?.toCPointer<ByteVar>())
 
-public actual fun VarUdateFromDate(datein: Double, dwflags: UInt, pudateout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarUdateFromDate(datein, dwflags, pudateout.toCPointer<ByteVar>())
+public actual fun varUdateFromDate(datein: Double, dwflags: UInt, pudateout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varUdateFromDate(datein, dwflags, pudateout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarWeekdayName(iweekday: Int, fabbrev: Int, ifirstday: Int, dwflags: UInt, pbstrout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarWeekdayName(iweekday, fabbrev, ifirstday, dwflags, pbstrout.toCPointer<ByteVar>())
+public actual fun varWeekdayName(iweekday: Int, fabbrev: Int, ifirstday: Int, dwflags: UInt, pbstrout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varWeekdayName(iweekday, fabbrev, ifirstday, dwflags, pbstrout?.value?.toCPointer<ByteVar>())
 
-public actual fun VarXor(pvarleft: Long, pvarright: Long, pvarresult: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VarXor(pvarleft.toCPointer<ByteVar>(), pvarright.toCPointer<ByteVar>(), pvarresult.toCPointer<ByteVar>())
+public actual fun varXor(pvarleft: COpaquePointer?, pvarright: COpaquePointer?, pvarresult: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_varXor(pvarleft?.value?.toCPointer<ByteVar>(), pvarright?.value?.toCPointer<ByteVar>(), pvarresult?.value?.toCPointer<ByteVar>())
 
-public actual fun VectorFromBstr(bstr: BSTR, ppsa: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_VectorFromBstr(bstr.toCPointer<ByteVar>(), ppsa.toCPointer<ByteVar>())
+public actual fun vectorFromBstr(bstr: Bstr, ppsa: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssys_windows_win32_system_ole_vectorFromBstr(bstr?.value?.toCPointer<ByteVar>(), ppsa?.value?.toCPointer<ByteVar>())

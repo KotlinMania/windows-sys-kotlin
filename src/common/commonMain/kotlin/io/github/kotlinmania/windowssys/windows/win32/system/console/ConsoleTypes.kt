@@ -1,19 +1,19 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.console
 
-import io.github.kotlinmania.windowssys.core.BOOL
+import io.github.kotlinmania.windowssys.core.Bool
 
-public typealias CONSOLECONTROL = Int
+public typealias Consolecontrol = Int
 
-public typealias CONSOLE_CHARACTER_ATTRIBUTES = UShort
+public typealias ConsoleCharacterAttributes = UShort
 
-public typealias CONSOLE_MODE = UInt
+public typealias ConsoleMode = UInt
 
-public typealias HPCON = Long
+public typealias Hpcon = Long
 
-public fun interface PHANDLER_ROUTINEFn {
-    public operator fun invoke(ctrltype: UInt): BOOL
+public fun interface PhandlerRoutineFn {
+    public operator fun invoke(ctrltype: UInt): Bool
 }
 
-public typealias PHANDLER_ROUTINE = PHANDLER_ROUTINEFn?
+public typealias PhandlerRoutine = PhandlerRoutineFn?
 
-public typealias STD_HANDLE = UInt
+public typealias StdHandle = UInt

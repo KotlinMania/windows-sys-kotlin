@@ -2,173 +2,174 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.processstatus
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HMODULE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hmodule
 
 private val _windowsWin32SystemProcessstatusNapiAddon: dynamic =
-    js("(function() { if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var req = (new Function('t', 'return typeof require === t ? require : null'))('function'); if (!req) return null; var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; for (var d = 0; d < 8; d++) { var c1 = path.resolve(dir, 'build/node-ffi/windows_sys_native.node'); if (fs.existsSync(c1)) return req(c1); var c2 = path.resolve(dir, 'src/js/node-windows_sys/build/Release/windows_sys_native.node'); if (fs.existsSync(c2)) return req(c2); var c3 = path.resolve(dir, 'src/js/node-windows_sys/build/Debug/windows_sys_native.node'); if (fs.existsSync(c3)) return req(c3); var c4 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Release/windows_sys_native.node'); if (fs.existsSync(c4)) return req(c4); var c5 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Debug/windows_sys_native.node'); if (fs.existsSync(c5)) return req(c5); var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } return null; })()")
+    js("(function() { if (typeof globalThis !== 'undefined' && typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys; if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) return null; try { var pkg = req('@kotlinmania/windowssys-native-bindings'); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = pkg; return pkg; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { var loaded = req(c); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = loaded; return loaded; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = null; return null; })()")
 
-public actual fun EmptyWorkingSet(hprocess: HANDLE): BOOL =
-    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_EmptyWorkingSet(hprocess.toString()) as Int) else 0
+public actual fun emptyWorkingSet(hprocess: Handle): Bool =
+    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_emptyWorkingSet((hprocess?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumDeviceDrivers(lpimagebase: Long, cb: UInt, lpcbneeded: Long): BOOL =
-    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_EnumDeviceDrivers(lpimagebase.toString(), cb.toInt(), lpcbneeded.toString()) as Int) else 0
+public actual fun enumDeviceDrivers(lpimagebase: COpaquePointer?, cb: UInt, lpcbneeded: COpaquePointer?): Bool =
+    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_enumDeviceDrivers((lpimagebase?.value ?: 0L).toString(), cb.toInt(), (lpcbneeded?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumPageFilesA(pcallbackroutine: PENUM_PAGE_FILE_CALLBACKA, pcontext: Long): BOOL =
-    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_EnumPageFilesA(pcallbackroutine.toLong().toString(), pcontext.toString()) as Int) else 0
+public actual fun enumPageFilesA(pcallbackroutine: PenumPageFileCallbacka, pcontext: COpaquePointer?): Bool =
+    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_enumPageFilesA(0L.toString(), (pcontext?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumPageFilesW(pcallbackroutine: PENUM_PAGE_FILE_CALLBACKW, pcontext: Long): BOOL =
-    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_EnumPageFilesW(pcallbackroutine.toLong().toString(), pcontext.toString()) as Int) else 0
+public actual fun enumPageFilesW(pcallbackroutine: PenumPageFileCallbackw, pcontext: COpaquePointer?): Bool =
+    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_enumPageFilesW(0L.toString(), (pcontext?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumProcessModules(hprocess: HANDLE, lphmodule: Long, cb: UInt, lpcbneeded: Long): BOOL =
-    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_EnumProcessModules(hprocess.toString(), lphmodule.toString(), cb.toInt(), lpcbneeded.toString()) as Int) else 0
+public actual fun enumProcessModules(hprocess: Handle, lphmodule: COpaquePointer?, cb: UInt, lpcbneeded: COpaquePointer?): Bool =
+    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_enumProcessModules((hprocess?.value ?: 0L).toString(), (lphmodule?.value ?: 0L).toString(), cb.toInt(), (lpcbneeded?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumProcessModulesEx(hprocess: HANDLE, lphmodule: Long, cb: UInt, lpcbneeded: Long, dwfilterflag: ENUM_PROCESS_MODULES_EX_FLAGS): BOOL =
-    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_EnumProcessModulesEx(hprocess.toString(), lphmodule.toString(), cb.toInt(), lpcbneeded.toString(), dwfilterflag.toInt()) as Int) else 0
+public actual fun enumProcessModulesEx(hprocess: Handle, lphmodule: COpaquePointer?, cb: UInt, lpcbneeded: COpaquePointer?, dwfilterflag: EnumProcessModulesExFlags): Bool =
+    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_enumProcessModulesEx((hprocess?.value ?: 0L).toString(), (lphmodule?.value ?: 0L).toString(), cb.toInt(), (lpcbneeded?.value ?: 0L).toString(), dwfilterflag.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumProcesses(lpidprocess: Long, cb: UInt, lpcbneeded: Long): BOOL =
-    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_EnumProcesses(lpidprocess.toString(), cb.toInt(), lpcbneeded.toString()) as Int) else 0
+public actual fun enumProcesses(lpidprocess: COpaquePointer?, cb: UInt, lpcbneeded: COpaquePointer?): Bool =
+    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_enumProcesses((lpidprocess?.value ?: 0L).toString(), cb.toInt(), (lpcbneeded?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetDeviceDriverBaseNameA(imagebase: Long, lpfilename: PSTR, nsize: UInt): UInt =
-    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_GetDeviceDriverBaseNameA(imagebase.toString(), lpfilename.toString(), nsize.toInt()) as Int).toUInt() else 0u
+public actual fun getDeviceDriverBaseNameA(imagebase: COpaquePointer?, lpfilename: Pstr, nsize: UInt): UInt =
+    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_getDeviceDriverBaseNameA((imagebase?.value ?: 0L).toString(), (lpfilename?.value ?: 0L).toString(), nsize.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetDeviceDriverBaseNameW(imagebase: Long, lpbasename: PWSTR, nsize: UInt): UInt =
-    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_GetDeviceDriverBaseNameW(imagebase.toString(), lpbasename.toString(), nsize.toInt()) as Int).toUInt() else 0u
+public actual fun getDeviceDriverBaseNameW(imagebase: COpaquePointer?, lpbasename: Pwstr, nsize: UInt): UInt =
+    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_getDeviceDriverBaseNameW((imagebase?.value ?: 0L).toString(), (lpbasename?.value ?: 0L).toString(), nsize.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetDeviceDriverFileNameA(imagebase: Long, lpfilename: PSTR, nsize: UInt): UInt =
-    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_GetDeviceDriverFileNameA(imagebase.toString(), lpfilename.toString(), nsize.toInt()) as Int).toUInt() else 0u
+public actual fun getDeviceDriverFileNameA(imagebase: COpaquePointer?, lpfilename: Pstr, nsize: UInt): UInt =
+    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_getDeviceDriverFileNameA((imagebase?.value ?: 0L).toString(), (lpfilename?.value ?: 0L).toString(), nsize.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetDeviceDriverFileNameW(imagebase: Long, lpfilename: PWSTR, nsize: UInt): UInt =
-    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_GetDeviceDriverFileNameW(imagebase.toString(), lpfilename.toString(), nsize.toInt()) as Int).toUInt() else 0u
+public actual fun getDeviceDriverFileNameW(imagebase: COpaquePointer?, lpfilename: Pwstr, nsize: UInt): UInt =
+    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_getDeviceDriverFileNameW((imagebase?.value ?: 0L).toString(), (lpfilename?.value ?: 0L).toString(), nsize.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetMappedFileNameA(hprocess: HANDLE, lpv: Long, lpfilename: PSTR, nsize: UInt): UInt =
-    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_GetMappedFileNameA(hprocess.toString(), lpv.toString(), lpfilename.toString(), nsize.toInt()) as Int).toUInt() else 0u
+public actual fun getMappedFileNameA(hprocess: Handle, lpv: COpaquePointer?, lpfilename: Pstr, nsize: UInt): UInt =
+    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_getMappedFileNameA((hprocess?.value ?: 0L).toString(), (lpv?.value ?: 0L).toString(), (lpfilename?.value ?: 0L).toString(), nsize.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetMappedFileNameW(hprocess: HANDLE, lpv: Long, lpfilename: PWSTR, nsize: UInt): UInt =
-    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_GetMappedFileNameW(hprocess.toString(), lpv.toString(), lpfilename.toString(), nsize.toInt()) as Int).toUInt() else 0u
+public actual fun getMappedFileNameW(hprocess: Handle, lpv: COpaquePointer?, lpfilename: Pwstr, nsize: UInt): UInt =
+    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_getMappedFileNameW((hprocess?.value ?: 0L).toString(), (lpv?.value ?: 0L).toString(), (lpfilename?.value ?: 0L).toString(), nsize.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetModuleBaseNameA(hprocess: HANDLE, hmodule: HMODULE, lpbasename: PSTR, nsize: UInt): UInt =
-    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_GetModuleBaseNameA(hprocess.toString(), hmodule.toString(), lpbasename.toString(), nsize.toInt()) as Int).toUInt() else 0u
+public actual fun getModuleBaseNameA(hprocess: Handle, hmodule: Hmodule, lpbasename: Pstr, nsize: UInt): UInt =
+    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_getModuleBaseNameA((hprocess?.value ?: 0L).toString(), (hmodule?.value ?: 0L).toString(), (lpbasename?.value ?: 0L).toString(), nsize.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetModuleBaseNameW(hprocess: HANDLE, hmodule: HMODULE, lpbasename: PWSTR, nsize: UInt): UInt =
-    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_GetModuleBaseNameW(hprocess.toString(), hmodule.toString(), lpbasename.toString(), nsize.toInt()) as Int).toUInt() else 0u
+public actual fun getModuleBaseNameW(hprocess: Handle, hmodule: Hmodule, lpbasename: Pwstr, nsize: UInt): UInt =
+    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_getModuleBaseNameW((hprocess?.value ?: 0L).toString(), (hmodule?.value ?: 0L).toString(), (lpbasename?.value ?: 0L).toString(), nsize.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetModuleFileNameExA(hprocess: HANDLE, hmodule: HMODULE, lpfilename: PSTR, nsize: UInt): UInt =
-    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_GetModuleFileNameExA(hprocess.toString(), hmodule.toString(), lpfilename.toString(), nsize.toInt()) as Int).toUInt() else 0u
+public actual fun getModuleFileNameExA(hprocess: Handle, hmodule: Hmodule, lpfilename: Pstr, nsize: UInt): UInt =
+    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_getModuleFileNameExA((hprocess?.value ?: 0L).toString(), (hmodule?.value ?: 0L).toString(), (lpfilename?.value ?: 0L).toString(), nsize.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetModuleFileNameExW(hprocess: HANDLE, hmodule: HMODULE, lpfilename: PWSTR, nsize: UInt): UInt =
-    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_GetModuleFileNameExW(hprocess.toString(), hmodule.toString(), lpfilename.toString(), nsize.toInt()) as Int).toUInt() else 0u
+public actual fun getModuleFileNameExW(hprocess: Handle, hmodule: Hmodule, lpfilename: Pwstr, nsize: UInt): UInt =
+    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_getModuleFileNameExW((hprocess?.value ?: 0L).toString(), (hmodule?.value ?: 0L).toString(), (lpfilename?.value ?: 0L).toString(), nsize.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetModuleInformation(hprocess: HANDLE, hmodule: HMODULE, lpmodinfo: Long, cb: UInt): BOOL =
-    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_GetModuleInformation(hprocess.toString(), hmodule.toString(), lpmodinfo.toString(), cb.toInt()) as Int) else 0
+public actual fun getModuleInformation(hprocess: Handle, hmodule: Hmodule, lpmodinfo: COpaquePointer?, cb: UInt): Bool =
+    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_getModuleInformation((hprocess?.value ?: 0L).toString(), (hmodule?.value ?: 0L).toString(), (lpmodinfo?.value ?: 0L).toString(), cb.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetPerformanceInfo(pperformanceinformation: Long, cb: UInt): BOOL =
-    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_GetPerformanceInfo(pperformanceinformation.toString(), cb.toInt()) as Int) else 0
+public actual fun getPerformanceInfo(pperformanceinformation: COpaquePointer?, cb: UInt): Bool =
+    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_getPerformanceInfo((pperformanceinformation?.value ?: 0L).toString(), cb.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetProcessImageFileNameA(hprocess: HANDLE, lpimagefilename: PSTR, nsize: UInt): UInt =
-    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_GetProcessImageFileNameA(hprocess.toString(), lpimagefilename.toString(), nsize.toInt()) as Int).toUInt() else 0u
+public actual fun getProcessImageFileNameA(hprocess: Handle, lpimagefilename: Pstr, nsize: UInt): UInt =
+    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_getProcessImageFileNameA((hprocess?.value ?: 0L).toString(), (lpimagefilename?.value ?: 0L).toString(), nsize.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetProcessImageFileNameW(hprocess: HANDLE, lpimagefilename: PWSTR, nsize: UInt): UInt =
-    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_GetProcessImageFileNameW(hprocess.toString(), lpimagefilename.toString(), nsize.toInt()) as Int).toUInt() else 0u
+public actual fun getProcessImageFileNameW(hprocess: Handle, lpimagefilename: Pwstr, nsize: UInt): UInt =
+    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_getProcessImageFileNameW((hprocess?.value ?: 0L).toString(), (lpimagefilename?.value ?: 0L).toString(), nsize.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetProcessMemoryInfo(process: HANDLE, ppsmemcounters: Long, cb: UInt): BOOL =
-    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_GetProcessMemoryInfo(process.toString(), ppsmemcounters.toString(), cb.toInt()) as Int) else 0
+public actual fun getProcessMemoryInfo(process: Handle, ppsmemcounters: COpaquePointer?, cb: UInt): Bool =
+    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_getProcessMemoryInfo((process?.value ?: 0L).toString(), (ppsmemcounters?.value ?: 0L).toString(), cb.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetWsChanges(hprocess: HANDLE, lpwatchinfo: Long, cb: UInt): BOOL =
-    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_GetWsChanges(hprocess.toString(), lpwatchinfo.toString(), cb.toInt()) as Int) else 0
+public actual fun getWsChanges(hprocess: Handle, lpwatchinfo: COpaquePointer?, cb: UInt): Bool =
+    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_getWsChanges((hprocess?.value ?: 0L).toString(), (lpwatchinfo?.value ?: 0L).toString(), cb.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetWsChangesEx(hprocess: HANDLE, lpwatchinfoex: Long, cb: Long): BOOL =
-    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_GetWsChangesEx(hprocess.toString(), lpwatchinfoex.toString(), cb.toString()) as Int) else 0
+public actual fun getWsChangesEx(hprocess: Handle, lpwatchinfoex: COpaquePointer?, cb: COpaquePointer?): Bool =
+    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_getWsChangesEx((hprocess?.value ?: 0L).toString(), (lpwatchinfoex?.value ?: 0L).toString(), (cb?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InitializeProcessForWsWatch(hprocess: HANDLE): BOOL =
-    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_InitializeProcessForWsWatch(hprocess.toString()) as Int) else 0
+public actual fun initializeProcessForWsWatch(hprocess: Handle): Bool =
+    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_initializeProcessForWsWatch((hprocess?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun K32EmptyWorkingSet(hprocess: HANDLE): BOOL =
-    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_K32EmptyWorkingSet(hprocess.toString()) as Int) else 0
+public actual fun k32EmptyWorkingSet(hprocess: Handle): Bool =
+    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_k32EmptyWorkingSet((hprocess?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun K32EnumDeviceDrivers(lpimagebase: Long, cb: UInt, lpcbneeded: Long): BOOL =
-    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_K32EnumDeviceDrivers(lpimagebase.toString(), cb.toInt(), lpcbneeded.toString()) as Int) else 0
+public actual fun k32EnumDeviceDrivers(lpimagebase: COpaquePointer?, cb: UInt, lpcbneeded: COpaquePointer?): Bool =
+    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_k32EnumDeviceDrivers((lpimagebase?.value ?: 0L).toString(), cb.toInt(), (lpcbneeded?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun K32EnumPageFilesA(pcallbackroutine: PENUM_PAGE_FILE_CALLBACKA, pcontext: Long): BOOL =
-    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_K32EnumPageFilesA(pcallbackroutine.toLong().toString(), pcontext.toString()) as Int) else 0
+public actual fun k32EnumPageFilesA(pcallbackroutine: PenumPageFileCallbacka, pcontext: COpaquePointer?): Bool =
+    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_k32EnumPageFilesA(0L.toString(), (pcontext?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun K32EnumPageFilesW(pcallbackroutine: PENUM_PAGE_FILE_CALLBACKW, pcontext: Long): BOOL =
-    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_K32EnumPageFilesW(pcallbackroutine.toLong().toString(), pcontext.toString()) as Int) else 0
+public actual fun k32EnumPageFilesW(pcallbackroutine: PenumPageFileCallbackw, pcontext: COpaquePointer?): Bool =
+    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_k32EnumPageFilesW(0L.toString(), (pcontext?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun K32EnumProcessModules(hprocess: HANDLE, lphmodule: Long, cb: UInt, lpcbneeded: Long): BOOL =
-    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_K32EnumProcessModules(hprocess.toString(), lphmodule.toString(), cb.toInt(), lpcbneeded.toString()) as Int) else 0
+public actual fun k32EnumProcessModules(hprocess: Handle, lphmodule: COpaquePointer?, cb: UInt, lpcbneeded: COpaquePointer?): Bool =
+    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_k32EnumProcessModules((hprocess?.value ?: 0L).toString(), (lphmodule?.value ?: 0L).toString(), cb.toInt(), (lpcbneeded?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun K32EnumProcessModulesEx(hprocess: HANDLE, lphmodule: Long, cb: UInt, lpcbneeded: Long, dwfilterflag: UInt): BOOL =
-    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_K32EnumProcessModulesEx(hprocess.toString(), lphmodule.toString(), cb.toInt(), lpcbneeded.toString(), dwfilterflag.toInt()) as Int) else 0
+public actual fun k32EnumProcessModulesEx(hprocess: Handle, lphmodule: COpaquePointer?, cb: UInt, lpcbneeded: COpaquePointer?, dwfilterflag: UInt): Bool =
+    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_k32EnumProcessModulesEx((hprocess?.value ?: 0L).toString(), (lphmodule?.value ?: 0L).toString(), cb.toInt(), (lpcbneeded?.value ?: 0L).toString(), dwfilterflag.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun K32EnumProcesses(lpidprocess: Long, cb: UInt, lpcbneeded: Long): BOOL =
-    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_K32EnumProcesses(lpidprocess.toString(), cb.toInt(), lpcbneeded.toString()) as Int) else 0
+public actual fun k32EnumProcesses(lpidprocess: COpaquePointer?, cb: UInt, lpcbneeded: COpaquePointer?): Bool =
+    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_k32EnumProcesses((lpidprocess?.value ?: 0L).toString(), cb.toInt(), (lpcbneeded?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun K32GetDeviceDriverBaseNameA(imagebase: Long, lpfilename: PSTR, nsize: UInt): UInt =
-    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_K32GetDeviceDriverBaseNameA(imagebase.toString(), lpfilename.toString(), nsize.toInt()) as Int).toUInt() else 0u
+public actual fun k32GetDeviceDriverBaseNameA(imagebase: COpaquePointer?, lpfilename: Pstr, nsize: UInt): UInt =
+    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_k32GetDeviceDriverBaseNameA((imagebase?.value ?: 0L).toString(), (lpfilename?.value ?: 0L).toString(), nsize.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun K32GetDeviceDriverBaseNameW(imagebase: Long, lpbasename: PWSTR, nsize: UInt): UInt =
-    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_K32GetDeviceDriverBaseNameW(imagebase.toString(), lpbasename.toString(), nsize.toInt()) as Int).toUInt() else 0u
+public actual fun k32GetDeviceDriverBaseNameW(imagebase: COpaquePointer?, lpbasename: Pwstr, nsize: UInt): UInt =
+    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_k32GetDeviceDriverBaseNameW((imagebase?.value ?: 0L).toString(), (lpbasename?.value ?: 0L).toString(), nsize.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun K32GetDeviceDriverFileNameA(imagebase: Long, lpfilename: PSTR, nsize: UInt): UInt =
-    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_K32GetDeviceDriverFileNameA(imagebase.toString(), lpfilename.toString(), nsize.toInt()) as Int).toUInt() else 0u
+public actual fun k32GetDeviceDriverFileNameA(imagebase: COpaquePointer?, lpfilename: Pstr, nsize: UInt): UInt =
+    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_k32GetDeviceDriverFileNameA((imagebase?.value ?: 0L).toString(), (lpfilename?.value ?: 0L).toString(), nsize.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun K32GetDeviceDriverFileNameW(imagebase: Long, lpfilename: PWSTR, nsize: UInt): UInt =
-    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_K32GetDeviceDriverFileNameW(imagebase.toString(), lpfilename.toString(), nsize.toInt()) as Int).toUInt() else 0u
+public actual fun k32GetDeviceDriverFileNameW(imagebase: COpaquePointer?, lpfilename: Pwstr, nsize: UInt): UInt =
+    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_k32GetDeviceDriverFileNameW((imagebase?.value ?: 0L).toString(), (lpfilename?.value ?: 0L).toString(), nsize.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun K32GetMappedFileNameA(hprocess: HANDLE, lpv: Long, lpfilename: PSTR, nsize: UInt): UInt =
-    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_K32GetMappedFileNameA(hprocess.toString(), lpv.toString(), lpfilename.toString(), nsize.toInt()) as Int).toUInt() else 0u
+public actual fun k32GetMappedFileNameA(hprocess: Handle, lpv: COpaquePointer?, lpfilename: Pstr, nsize: UInt): UInt =
+    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_k32GetMappedFileNameA((hprocess?.value ?: 0L).toString(), (lpv?.value ?: 0L).toString(), (lpfilename?.value ?: 0L).toString(), nsize.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun K32GetMappedFileNameW(hprocess: HANDLE, lpv: Long, lpfilename: PWSTR, nsize: UInt): UInt =
-    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_K32GetMappedFileNameW(hprocess.toString(), lpv.toString(), lpfilename.toString(), nsize.toInt()) as Int).toUInt() else 0u
+public actual fun k32GetMappedFileNameW(hprocess: Handle, lpv: COpaquePointer?, lpfilename: Pwstr, nsize: UInt): UInt =
+    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_k32GetMappedFileNameW((hprocess?.value ?: 0L).toString(), (lpv?.value ?: 0L).toString(), (lpfilename?.value ?: 0L).toString(), nsize.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun K32GetModuleBaseNameA(hprocess: HANDLE, hmodule: HMODULE, lpbasename: PSTR, nsize: UInt): UInt =
-    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_K32GetModuleBaseNameA(hprocess.toString(), hmodule.toString(), lpbasename.toString(), nsize.toInt()) as Int).toUInt() else 0u
+public actual fun k32GetModuleBaseNameA(hprocess: Handle, hmodule: Hmodule, lpbasename: Pstr, nsize: UInt): UInt =
+    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_k32GetModuleBaseNameA((hprocess?.value ?: 0L).toString(), (hmodule?.value ?: 0L).toString(), (lpbasename?.value ?: 0L).toString(), nsize.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun K32GetModuleBaseNameW(hprocess: HANDLE, hmodule: HMODULE, lpbasename: PWSTR, nsize: UInt): UInt =
-    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_K32GetModuleBaseNameW(hprocess.toString(), hmodule.toString(), lpbasename.toString(), nsize.toInt()) as Int).toUInt() else 0u
+public actual fun k32GetModuleBaseNameW(hprocess: Handle, hmodule: Hmodule, lpbasename: Pwstr, nsize: UInt): UInt =
+    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_k32GetModuleBaseNameW((hprocess?.value ?: 0L).toString(), (hmodule?.value ?: 0L).toString(), (lpbasename?.value ?: 0L).toString(), nsize.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun K32GetModuleFileNameExA(hprocess: HANDLE, hmodule: HMODULE, lpfilename: PSTR, nsize: UInt): UInt =
-    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_K32GetModuleFileNameExA(hprocess.toString(), hmodule.toString(), lpfilename.toString(), nsize.toInt()) as Int).toUInt() else 0u
+public actual fun k32GetModuleFileNameExA(hprocess: Handle, hmodule: Hmodule, lpfilename: Pstr, nsize: UInt): UInt =
+    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_k32GetModuleFileNameExA((hprocess?.value ?: 0L).toString(), (hmodule?.value ?: 0L).toString(), (lpfilename?.value ?: 0L).toString(), nsize.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun K32GetModuleFileNameExW(hprocess: HANDLE, hmodule: HMODULE, lpfilename: PWSTR, nsize: UInt): UInt =
-    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_K32GetModuleFileNameExW(hprocess.toString(), hmodule.toString(), lpfilename.toString(), nsize.toInt()) as Int).toUInt() else 0u
+public actual fun k32GetModuleFileNameExW(hprocess: Handle, hmodule: Hmodule, lpfilename: Pwstr, nsize: UInt): UInt =
+    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_k32GetModuleFileNameExW((hprocess?.value ?: 0L).toString(), (hmodule?.value ?: 0L).toString(), (lpfilename?.value ?: 0L).toString(), nsize.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun K32GetModuleInformation(hprocess: HANDLE, hmodule: HMODULE, lpmodinfo: Long, cb: UInt): BOOL =
-    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_K32GetModuleInformation(hprocess.toString(), hmodule.toString(), lpmodinfo.toString(), cb.toInt()) as Int) else 0
+public actual fun k32GetModuleInformation(hprocess: Handle, hmodule: Hmodule, lpmodinfo: COpaquePointer?, cb: UInt): Bool =
+    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_k32GetModuleInformation((hprocess?.value ?: 0L).toString(), (hmodule?.value ?: 0L).toString(), (lpmodinfo?.value ?: 0L).toString(), cb.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun K32GetPerformanceInfo(pperformanceinformation: Long, cb: UInt): BOOL =
-    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_K32GetPerformanceInfo(pperformanceinformation.toString(), cb.toInt()) as Int) else 0
+public actual fun k32GetPerformanceInfo(pperformanceinformation: COpaquePointer?, cb: UInt): Bool =
+    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_k32GetPerformanceInfo((pperformanceinformation?.value ?: 0L).toString(), cb.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun K32GetProcessImageFileNameA(hprocess: HANDLE, lpimagefilename: PSTR, nsize: UInt): UInt =
-    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_K32GetProcessImageFileNameA(hprocess.toString(), lpimagefilename.toString(), nsize.toInt()) as Int).toUInt() else 0u
+public actual fun k32GetProcessImageFileNameA(hprocess: Handle, lpimagefilename: Pstr, nsize: UInt): UInt =
+    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_k32GetProcessImageFileNameA((hprocess?.value ?: 0L).toString(), (lpimagefilename?.value ?: 0L).toString(), nsize.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun K32GetProcessImageFileNameW(hprocess: HANDLE, lpimagefilename: PWSTR, nsize: UInt): UInt =
-    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_K32GetProcessImageFileNameW(hprocess.toString(), lpimagefilename.toString(), nsize.toInt()) as Int).toUInt() else 0u
+public actual fun k32GetProcessImageFileNameW(hprocess: Handle, lpimagefilename: Pwstr, nsize: UInt): UInt =
+    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_k32GetProcessImageFileNameW((hprocess?.value ?: 0L).toString(), (lpimagefilename?.value ?: 0L).toString(), nsize.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun K32GetProcessMemoryInfo(process: HANDLE, ppsmemcounters: Long, cb: UInt): BOOL =
-    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_K32GetProcessMemoryInfo(process.toString(), ppsmemcounters.toString(), cb.toInt()) as Int) else 0
+public actual fun k32GetProcessMemoryInfo(process: Handle, ppsmemcounters: COpaquePointer?, cb: UInt): Bool =
+    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_k32GetProcessMemoryInfo((process?.value ?: 0L).toString(), (ppsmemcounters?.value ?: 0L).toString(), cb.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun K32GetWsChanges(hprocess: HANDLE, lpwatchinfo: Long, cb: UInt): BOOL =
-    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_K32GetWsChanges(hprocess.toString(), lpwatchinfo.toString(), cb.toInt()) as Int) else 0
+public actual fun k32GetWsChanges(hprocess: Handle, lpwatchinfo: COpaquePointer?, cb: UInt): Bool =
+    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_k32GetWsChanges((hprocess?.value ?: 0L).toString(), (lpwatchinfo?.value ?: 0L).toString(), cb.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun K32GetWsChangesEx(hprocess: HANDLE, lpwatchinfoex: Long, cb: Long): BOOL =
-    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_K32GetWsChangesEx(hprocess.toString(), lpwatchinfoex.toString(), cb.toString()) as Int) else 0
+public actual fun k32GetWsChangesEx(hprocess: Handle, lpwatchinfoex: COpaquePointer?, cb: COpaquePointer?): Bool =
+    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_k32GetWsChangesEx((hprocess?.value ?: 0L).toString(), (lpwatchinfoex?.value ?: 0L).toString(), (cb?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun K32InitializeProcessForWsWatch(hprocess: HANDLE): BOOL =
-    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_K32InitializeProcessForWsWatch(hprocess.toString()) as Int) else 0
+public actual fun k32InitializeProcessForWsWatch(hprocess: Handle): Bool =
+    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_k32InitializeProcessForWsWatch((hprocess?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun K32QueryWorkingSet(hprocess: HANDLE, pv: Long, cb: UInt): BOOL =
-    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_K32QueryWorkingSet(hprocess.toString(), pv.toString(), cb.toInt()) as Int) else 0
+public actual fun k32QueryWorkingSet(hprocess: Handle, pv: COpaquePointer?, cb: UInt): Bool =
+    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_k32QueryWorkingSet((hprocess?.value ?: 0L).toString(), (pv?.value ?: 0L).toString(), cb.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun K32QueryWorkingSetEx(hprocess: HANDLE, pv: Long, cb: UInt): BOOL =
-    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_K32QueryWorkingSetEx(hprocess.toString(), pv.toString(), cb.toInt()) as Int) else 0
+public actual fun k32QueryWorkingSetEx(hprocess: Handle, pv: COpaquePointer?, cb: UInt): Bool =
+    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_k32QueryWorkingSetEx((hprocess?.value ?: 0L).toString(), (pv?.value ?: 0L).toString(), cb.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun QueryWorkingSet(hprocess: HANDLE, pv: Long, cb: UInt): BOOL =
-    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_QueryWorkingSet(hprocess.toString(), pv.toString(), cb.toInt()) as Int) else 0
+public actual fun queryWorkingSet(hprocess: Handle, pv: COpaquePointer?, cb: UInt): Bool =
+    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_queryWorkingSet((hprocess?.value ?: 0L).toString(), (pv?.value ?: 0L).toString(), cb.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun QueryWorkingSetEx(hprocess: HANDLE, pv: Long, cb: UInt): BOOL =
-    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_QueryWorkingSetEx(hprocess.toString(), pv.toString(), cb.toInt()) as Int) else 0
+public actual fun queryWorkingSetEx(hprocess: Handle, pv: COpaquePointer?, cb: UInt): Bool =
+    if (_windowsWin32SystemProcessstatusNapiAddon != null) (_windowsWin32SystemProcessstatusNapiAddon.windowssys_windows_win32_system_processstatus_queryWorkingSetEx((hprocess?.value ?: 0L).toString(), (pv?.value ?: 0L).toString(), cb.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")

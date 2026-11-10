@@ -2,10 +2,11 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.deploymentservices
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 
 private object WindowsWin32SystemDeploymentservicesJniBridge {
     init {
@@ -13,558 +14,567 @@ private object WindowsWin32SystemDeploymentservicesJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_PxeAsyncRecvDone(hclientrequest: Long, action: Int): Int
+    external fun windowssys_windows_win32_system_deploymentservices_pxeAsyncRecvDone(hclientrequest: Long, action: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_PxeDhcpAppendOption(preplypacket: Long, umaxreplypacketlen: Int, pureplypacketlen: Long, boption: Byte, boptionlen: Byte, pvalue: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_pxeDhcpAppendOption(preplypacket: Long, umaxreplypacketlen: Int, pureplypacketlen: Long, boption: Byte, boptionlen: Byte, pvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_PxeDhcpAppendOptionRaw(preplypacket: Long, umaxreplypacketlen: Int, pureplypacketlen: Long, ubufferlen: Short, pbuffer: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_pxeDhcpAppendOptionRaw(preplypacket: Long, umaxreplypacketlen: Int, pureplypacketlen: Long, ubufferlen: Short, pbuffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_PxeDhcpGetOptionValue(ppacket: Long, upacketlen: Int, uinstance: Int, boption: Byte, pboptionlen: Long, ppoptionvalue: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_pxeDhcpGetOptionValue(ppacket: Long, upacketlen: Int, uinstance: Int, boption: Byte, pboptionlen: Long, ppoptionvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_PxeDhcpGetVendorOptionValue(ppacket: Long, upacketlen: Int, boption: Byte, uinstance: Int, pboptionlen: Long, ppoptionvalue: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_pxeDhcpGetVendorOptionValue(ppacket: Long, upacketlen: Int, boption: Byte, uinstance: Int, pboptionlen: Long, ppoptionvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_PxeDhcpInitialize(precvpacket: Long, urecvpacketlen: Int, preplypacket: Long, umaxreplypacketlen: Int, pureplypacketlen: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_pxeDhcpInitialize(precvpacket: Long, urecvpacketlen: Int, preplypacket: Long, umaxreplypacketlen: Int, pureplypacketlen: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_PxeDhcpIsValid(ppacket: Long, upacketlen: Int, brequestpacket: Int, pbpxeoptionpresent: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_pxeDhcpIsValid(ppacket: Long, upacketlen: Int, brequestpacket: Int, pbpxeoptionpresent: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_PxeDhcpv6AppendOption(preply: Long, cbreply: Int, pcbreplyused: Long, woptiontype: Short, cboption: Short, poption: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_pxeDhcpv6AppendOption(preply: Long, cbreply: Int, pcbreplyused: Long, woptiontype: Short, cboption: Short, poption: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_PxeDhcpv6AppendOptionRaw(preply: Long, cbreply: Int, pcbreplyused: Long, cbbuffer: Short, pbuffer: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_pxeDhcpv6AppendOptionRaw(preply: Long, cbreply: Int, pcbreplyused: Long, cbbuffer: Short, pbuffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_PxeDhcpv6CreateRelayRepl(prelaymessages: Long, nrelaymessages: Int, pinnerpacket: Long, cbinnerpacket: Int, preplybuffer: Long, cbreplybuffer: Int, pcbreplybuffer: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_pxeDhcpv6CreateRelayRepl(prelaymessages: Long, nrelaymessages: Int, pinnerpacket: Long, cbinnerpacket: Int, preplybuffer: Long, cbreplybuffer: Int, pcbreplybuffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_PxeDhcpv6GetOptionValue(ppacket: Long, upacketlen: Int, uinstance: Int, woption: Short, pwoptionlen: Long, ppoptionvalue: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_pxeDhcpv6GetOptionValue(ppacket: Long, upacketlen: Int, uinstance: Int, woption: Short, pwoptionlen: Long, ppoptionvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_PxeDhcpv6GetVendorOptionValue(ppacket: Long, upacketlen: Int, dwenterprisenumber: Int, woption: Short, uinstance: Int, pwoptionlen: Long, ppoptionvalue: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_pxeDhcpv6GetVendorOptionValue(ppacket: Long, upacketlen: Int, dwenterprisenumber: Int, woption: Short, uinstance: Int, pwoptionlen: Long, ppoptionvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_PxeDhcpv6Initialize(prequest: Long, cbrequest: Int, preply: Long, cbreply: Int, pcbreplyused: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_pxeDhcpv6Initialize(prequest: Long, cbrequest: Int, preply: Long, cbreply: Int, pcbreplyused: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_PxeDhcpv6IsValid(ppacket: Long, upacketlen: Int, brequestpacket: Int, pbpxeoptionpresent: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_pxeDhcpv6IsValid(ppacket: Long, upacketlen: Int, brequestpacket: Int, pbpxeoptionpresent: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_PxeDhcpv6ParseRelayForw(prelayforwpacket: Long, urelayforwpacketlen: Int, prelaymessages: Long, nrelaymessages: Int, pnrelaymessages: Long, ppinnerpacket: Long, pcbinnerpacket: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_pxeDhcpv6ParseRelayForw(prelayforwpacket: Long, urelayforwpacketlen: Int, prelaymessages: Long, nrelaymessages: Int, pnrelaymessages: Long, ppinnerpacket: Long, pcbinnerpacket: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_PxeGetServerInfo(uinfotype: Int, pbuffer: Long, ubufferlen: Int): Int
+    external fun windowssys_windows_win32_system_deploymentservices_pxeGetServerInfo(uinfotype: Int, pbuffer: Long, ubufferlen: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_PxeGetServerInfoEx(uinfotype: Int, pbuffer: Long, ubufferlen: Int, pubufferused: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_pxeGetServerInfoEx(uinfotype: Int, pbuffer: Long, ubufferlen: Int, pubufferused: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_PxePacketAllocate(hprovider: Long, hclientrequest: Long, usize: Int): Long
+    external fun windowssys_windows_win32_system_deploymentservices_pxePacketAllocate(hprovider: Long, hclientrequest: Long, usize: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_PxePacketFree(hprovider: Long, hclientrequest: Long, ppacket: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_pxePacketFree(hprovider: Long, hclientrequest: Long, ppacket: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_PxeProviderEnumClose(henum: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_pxeProviderEnumClose(henum: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_PxeProviderEnumFirst(phenum: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_pxeProviderEnumFirst(phenum: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_PxeProviderEnumNext(henum: Long, ppprovider: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_pxeProviderEnumNext(henum: Long, ppprovider: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_PxeProviderFreeInfo(pprovider: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_pxeProviderFreeInfo(pprovider: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_PxeProviderQueryIndex(pszprovidername: Long, puindex: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_pxeProviderQueryIndex(pszprovidername: Long, puindex: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_PxeProviderRegister(pszprovidername: Long, pszmodulepath: Long, index: Int, biscritical: Int, phproviderkey: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_pxeProviderRegister(pszprovidername: Long, pszmodulepath: Long, index: Int, biscritical: Int, phproviderkey: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_PxeProviderSetAttribute(hprovider: Long, attribute: Int, pparameterbuffer: Long, uparamlen: Int): Int
+    external fun windowssys_windows_win32_system_deploymentservices_pxeProviderSetAttribute(hprovider: Long, attribute: Int, pparameterbuffer: Long, uparamlen: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_PxeProviderUnRegister(pszprovidername: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_pxeProviderUnRegister(pszprovidername: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_PxeRegisterCallback(hprovider: Long, callbacktype: Int, pcallbackfunction: Long, pcontext: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_pxeRegisterCallback(hprovider: Long, callbacktype: Int, pcallbackfunction: Long, pcontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_PxeSendReply(hclientrequest: Long, ppacket: Long, upacketlen: Int, paddress: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_pxeSendReply(hclientrequest: Long, ppacket: Long, upacketlen: Int, paddress: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_PxeTraceV(hprovider: Long, severity: Int, pszformat: Long, params: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_pxeTrace(hprovider: Long, severity: Int, pszformat: Long, km_vac: Int, km_va0: Long, km_va1: Long, km_va2: Long, km_va3: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_WdsBpAddOption(hhandle: Long, uoption: Int, uvaluelen: Int, pvalue: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_pxeTraceV(hprovider: Long, severity: Int, pszformat: Long, params: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_WdsBpCloseHandle(hhandle: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_wdsBpAddOption(hhandle: Long, uoption: Int, uvaluelen: Int, pvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_WdsBpGetOptionBuffer(hhandle: Long, ubufferlen: Int, pbuffer: Long, pubytes: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_wdsBpCloseHandle(hhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_WdsBpInitialize(bpackettype: Byte, phhandle: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_wdsBpGetOptionBuffer(hhandle: Long, ubufferlen: Int, pbuffer: Long, pubytes: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_WdsBpParseInitialize(ppacket: Long, upacketlen: Int, pbpackettype: Long, phhandle: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_wdsBpInitialize(bpackettype: Byte, phhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_WdsBpParseInitializev6(ppacket: Long, upacketlen: Int, pbpackettype: Long, phhandle: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_wdsBpParseInitialize(ppacket: Long, upacketlen: Int, pbpackettype: Long, phhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_WdsBpQueryOption(hhandle: Long, uoption: Int, uvaluelen: Int, pvalue: Long, pubytes: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_wdsBpParseInitializev6(ppacket: Long, upacketlen: Int, pbpackettype: Long, phhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_WdsCliAuthorizeSession(hsession: Long, pcred: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_wdsBpQueryOption(hhandle: Long, uoption: Int, uvaluelen: Int, pvalue: Long, pubytes: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_WdsCliCancelTransfer(htransfer: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_wdsCliAuthorizeSession(hsession: Long, pcred: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_WdsCliClose(handle: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_wdsCliCancelTransfer(htransfer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_WdsCliCreateSession(pwszserver: Long, pcred: Long, phsession: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_wdsCliClose(handle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_WdsCliFindFirstImage(hsession: Long, phfindhandle: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_wdsCliCreateSession(pwszserver: Long, pcred: Long, phsession: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_WdsCliFindNextImage(handle: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_wdsCliFindFirstImage(hsession: Long, phfindhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_WdsCliFreeStringArray(ppwszarray: Long, ulcount: Int): Int
+    external fun windowssys_windows_win32_system_deploymentservices_wdsCliFindNextImage(handle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_WdsCliGetDriverQueryXml(pwszwindirpath: Long, ppwszdriverquery: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_wdsCliFreeStringArray(ppwszarray: Long, ulcount: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_WdsCliGetEnumerationFlags(handle: Long, pdwflags: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_wdsCliGetDriverQueryXml(pwszwindirpath: Long, ppwszdriverquery: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_WdsCliGetImageArchitecture(hifh: Long, pdwvalue: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_wdsCliGetEnumerationFlags(handle: Long, pdwflags: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_WdsCliGetImageDescription(hifh: Long, ppwszvalue: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_wdsCliGetImageArchitecture(hifh: Long, pdwvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_WdsCliGetImageFiles(hifh: Long, pppwszfiles: Long, pdwcount: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_wdsCliGetImageDescription(hifh: Long, ppwszvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_WdsCliGetImageGroup(hifh: Long, ppwszvalue: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_wdsCliGetImageFiles(hifh: Long, pppwszfiles: Long, pdwcount: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_WdsCliGetImageHalName(hifh: Long, ppwszvalue: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_wdsCliGetImageGroup(hifh: Long, ppwszvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_WdsCliGetImageHandleFromFindHandle(findhandle: Long, phimagehandle: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_wdsCliGetImageHalName(hifh: Long, ppwszvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_WdsCliGetImageHandleFromTransferHandle(htransfer: Long, phimagehandle: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_wdsCliGetImageHandleFromFindHandle(findhandle: Long, phimagehandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_WdsCliGetImageIndex(hifh: Long, pdwvalue: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_wdsCliGetImageHandleFromTransferHandle(htransfer: Long, phimagehandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_WdsCliGetImageLanguage(hifh: Long, ppwszvalue: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_wdsCliGetImageIndex(hifh: Long, pdwvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_WdsCliGetImageLanguages(hifh: Long, pppszvalues: Long, pdwnumvalues: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_wdsCliGetImageLanguage(hifh: Long, ppwszvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_WdsCliGetImageLastModifiedTime(hifh: Long, ppsystimevalue: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_wdsCliGetImageLanguages(hifh: Long, pppszvalues: Long, pdwnumvalues: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_WdsCliGetImageName(hifh: Long, ppwszvalue: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_wdsCliGetImageLastModifiedTime(hifh: Long, ppsystimevalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_WdsCliGetImageNamespace(hifh: Long, ppwszvalue: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_wdsCliGetImageName(hifh: Long, ppwszvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_WdsCliGetImageParameter(hifh: Long, paramtype: Int, presponse: Long, uresponselen: Int): Int
+    external fun windowssys_windows_win32_system_deploymentservices_wdsCliGetImageNamespace(hifh: Long, ppwszvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_WdsCliGetImagePath(hifh: Long, ppwszvalue: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_wdsCliGetImageParameter(hifh: Long, paramtype: Int, presponse: Long, uresponselen: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_WdsCliGetImageSize(hifh: Long, pullvalue: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_wdsCliGetImagePath(hifh: Long, ppwszvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_WdsCliGetImageType(hifh: Long, pimagetype: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_wdsCliGetImageSize(hifh: Long, pullvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_WdsCliGetImageVersion(hifh: Long, ppwszvalue: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_wdsCliGetImageType(hifh: Long, pimagetype: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_WdsCliGetTransferSize(hifh: Long, pullvalue: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_wdsCliGetImageVersion(hifh: Long, ppwszvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_WdsCliInitializeLog(hsession: Long, ulclientarchitecture: Int, pwszclientid: Long, pwszclientaddress: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_wdsCliGetTransferSize(hifh: Long, pullvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_WdsCliObtainDriverPackages(himage: Long, ppwszservername: Long, pppwszdriverpackages: Long, pulcount: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_wdsCliInitializeLog(hsession: Long, ulclientarchitecture: Int, pwszclientid: Long, pwszclientaddress: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_WdsCliObtainDriverPackagesEx(hsession: Long, pwszmachineinfo: Long, ppwszservername: Long, pppwszdriverpackages: Long, pulcount: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_wdsCliLog(hsession: Long, ulloglevel: Int, ulmessagecode: Int, km_vac: Int, km_va0: Long, km_va1: Long, km_va2: Long, km_va3: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_WdsCliRegisterTrace(pfn: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_wdsCliObtainDriverPackages(himage: Long, ppwszservername: Long, pppwszdriverpackages: Long, pulcount: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_WdsCliSetTransferBufferSize(ulsizeinbytes: Int)
+    external fun windowssys_windows_win32_system_deploymentservices_wdsCliObtainDriverPackagesEx(hsession: Long, pwszmachineinfo: Long, ppwszservername: Long, pppwszdriverpackages: Long, pulcount: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_WdsCliTransferFile(pwszserver: Long, pwsznamespace: Long, pwszremotefilepath: Long, pwszlocalfilepath: Long, dwflags: Int, dwreserved: Int, pfnwdsclicallback: Long, pvuserdata: Long, phtransfer: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_wdsCliRegisterTrace(pfn: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_WdsCliTransferImage(himage: Long, pwszlocalpath: Long, dwflags: Int, dwreserved: Int, pfnwdsclicallback: Long, pvuserdata: Long, phtransfer: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_wdsCliSetTransferBufferSize(ulsizeinbytes: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_WdsCliWaitForTransfer(htransfer: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_wdsCliTransferFile(pwszserver: Long, pwsznamespace: Long, pwszremotefilepath: Long, pwszlocalfilepath: Long, dwflags: Int, dwreserved: Int, pfnwdsclicallback: Long, pvuserdata: Long, phtransfer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_WdsTransportClientAddRefBuffer(pvbuffer: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_wdsCliTransferImage(himage: Long, pwszlocalpath: Long, dwflags: Int, dwreserved: Int, pfnwdsclicallback: Long, pvuserdata: Long, phtransfer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_WdsTransportClientCancelSession(hsessionkey: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_wdsCliWaitForTransfer(htransfer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_WdsTransportClientCancelSessionEx(hsessionkey: Long, dwerrorcode: Int): Int
+    external fun windowssys_windows_win32_system_deploymentservices_wdsTransportClientAddRefBuffer(pvbuffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_WdsTransportClientCloseSession(hsessionkey: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_wdsTransportClientCancelSession(hsessionkey: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_WdsTransportClientCompleteReceive(hsessionkey: Long, ulsize: Int, pulloffset: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_wdsTransportClientCancelSessionEx(hsessionkey: Long, dwerrorcode: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_WdsTransportClientInitialize(): Int
+    external fun windowssys_windows_win32_system_deploymentservices_wdsTransportClientCloseSession(hsessionkey: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_WdsTransportClientInitializeSession(psessionrequest: Long, pcallerdata: Long, hsessionkey: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_wdsTransportClientCompleteReceive(hsessionkey: Long, ulsize: Int, pulloffset: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_WdsTransportClientQueryStatus(hsessionkey: Long, pustatus: Long, puerrorcode: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_wdsTransportClientInitialize(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_WdsTransportClientRegisterCallback(hsessionkey: Long, callbackid: Int, pfncallback: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_wdsTransportClientInitializeSession(psessionrequest: Long, pcallerdata: Long, hsessionkey: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_WdsTransportClientReleaseBuffer(pvbuffer: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_wdsTransportClientQueryStatus(hsessionkey: Long, pustatus: Long, puerrorcode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_WdsTransportClientShutdown(): Int
+    external fun windowssys_windows_win32_system_deploymentservices_wdsTransportClientRegisterCallback(hsessionkey: Long, callbackid: Int, pfncallback: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_WdsTransportClientStartSession(hsessionkey: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_wdsTransportClientReleaseBuffer(pvbuffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_WdsTransportClientWaitForCompletion(hsessionkey: Long, utimeout: Int): Int
+    external fun windowssys_windows_win32_system_deploymentservices_wdsTransportClientShutdown(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_WdsTransportServerAllocateBuffer(hprovider: Long, ulbuffersize: Int): Long
+    external fun windowssys_windows_win32_system_deploymentservices_wdsTransportClientStartSession(hsessionkey: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_WdsTransportServerCompleteRead(hprovider: Long, ulbytesread: Int, pvuserdata: Long, hreadresult: Int): Int
+    external fun windowssys_windows_win32_system_deploymentservices_wdsTransportClientWaitForCompletion(hsessionkey: Long, utimeout: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_WdsTransportServerFreeBuffer(hprovider: Long, pvbuffer: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_wdsTransportServerAllocateBuffer(hprovider: Long, ulbuffersize: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_WdsTransportServerRegisterCallback(hprovider: Long, callbackid: Int, pfncallback: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_wdsTransportServerCompleteRead(hprovider: Long, ulbytesread: Int, pvuserdata: Long, hreadresult: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_deploymentservices_WdsTransportServerTraceV(hprovider: Long, severity: Int, pwszformat: Long, params: Long): Int
+    external fun windowssys_windows_win32_system_deploymentservices_wdsTransportServerFreeBuffer(hprovider: Long, pvbuffer: Long): Int
+
+    @JvmStatic
+    external fun windowssys_windows_win32_system_deploymentservices_wdsTransportServerRegisterCallback(hprovider: Long, callbackid: Int, pfncallback: Long): Int
+
+    @JvmStatic
+    external fun windowssys_windows_win32_system_deploymentservices_wdsTransportServerTrace(hprovider: Long, severity: Int, pwszformat: Long, km_vac: Int, km_va0: Long, km_va1: Long, km_va2: Long, km_va3: Long): Int
+
+    @JvmStatic
+    external fun windowssys_windows_win32_system_deploymentservices_wdsTransportServerTraceV(hprovider: Long, severity: Int, pwszformat: Long, params: Long): Int
 }
 
-public actual fun PxeAsyncRecvDone(hclientrequest: HANDLE, action: UInt): UInt =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_PxeAsyncRecvDone(hclientrequest, action.toInt()).toUInt()
+public actual fun pxeAsyncRecvDone(hclientrequest: Handle, action: UInt): UInt =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_pxeAsyncRecvDone((hclientrequest?.value ?: 0L), action.toInt()).toUInt()
 
-public actual fun PxeDhcpAppendOption(preplypacket: Long, umaxreplypacketlen: UInt, pureplypacketlen: Long, boption: UByte, boptionlen: UByte, pvalue: Long): UInt =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_PxeDhcpAppendOption(preplypacket, umaxreplypacketlen.toInt(), pureplypacketlen, boption.toByte(), boptionlen.toByte(), pvalue).toUInt()
+public actual fun pxeDhcpAppendOption(preplypacket: COpaquePointer?, umaxreplypacketlen: UInt, pureplypacketlen: COpaquePointer?, boption: UByte, boptionlen: UByte, pvalue: COpaquePointer?): UInt =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_pxeDhcpAppendOption((preplypacket?.value ?: 0L), umaxreplypacketlen.toInt(), (pureplypacketlen?.value ?: 0L), boption.toByte(), boptionlen.toByte(), (pvalue?.value ?: 0L)).toUInt()
 
-public actual fun PxeDhcpAppendOptionRaw(preplypacket: Long, umaxreplypacketlen: UInt, pureplypacketlen: Long, ubufferlen: UShort, pbuffer: Long): UInt =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_PxeDhcpAppendOptionRaw(preplypacket, umaxreplypacketlen.toInt(), pureplypacketlen, ubufferlen.toShort(), pbuffer).toUInt()
+public actual fun pxeDhcpAppendOptionRaw(preplypacket: COpaquePointer?, umaxreplypacketlen: UInt, pureplypacketlen: COpaquePointer?, ubufferlen: UShort, pbuffer: COpaquePointer?): UInt =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_pxeDhcpAppendOptionRaw((preplypacket?.value ?: 0L), umaxreplypacketlen.toInt(), (pureplypacketlen?.value ?: 0L), ubufferlen.toShort(), (pbuffer?.value ?: 0L)).toUInt()
 
-public actual fun PxeDhcpGetOptionValue(ppacket: Long, upacketlen: UInt, uinstance: UInt, boption: UByte, pboptionlen: Long, ppoptionvalue: Long): UInt =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_PxeDhcpGetOptionValue(ppacket, upacketlen.toInt(), uinstance.toInt(), boption.toByte(), pboptionlen, ppoptionvalue).toUInt()
+public actual fun pxeDhcpGetOptionValue(ppacket: COpaquePointer?, upacketlen: UInt, uinstance: UInt, boption: UByte, pboptionlen: COpaquePointer?, ppoptionvalue: COpaquePointer?): UInt =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_pxeDhcpGetOptionValue((ppacket?.value ?: 0L), upacketlen.toInt(), uinstance.toInt(), boption.toByte(), (pboptionlen?.value ?: 0L), (ppoptionvalue?.value ?: 0L)).toUInt()
 
-public actual fun PxeDhcpGetVendorOptionValue(ppacket: Long, upacketlen: UInt, boption: UByte, uinstance: UInt, pboptionlen: Long, ppoptionvalue: Long): UInt =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_PxeDhcpGetVendorOptionValue(ppacket, upacketlen.toInt(), boption.toByte(), uinstance.toInt(), pboptionlen, ppoptionvalue).toUInt()
+public actual fun pxeDhcpGetVendorOptionValue(ppacket: COpaquePointer?, upacketlen: UInt, boption: UByte, uinstance: UInt, pboptionlen: COpaquePointer?, ppoptionvalue: COpaquePointer?): UInt =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_pxeDhcpGetVendorOptionValue((ppacket?.value ?: 0L), upacketlen.toInt(), boption.toByte(), uinstance.toInt(), (pboptionlen?.value ?: 0L), (ppoptionvalue?.value ?: 0L)).toUInt()
 
-public actual fun PxeDhcpInitialize(precvpacket: Long, urecvpacketlen: UInt, preplypacket: Long, umaxreplypacketlen: UInt, pureplypacketlen: Long): UInt =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_PxeDhcpInitialize(precvpacket, urecvpacketlen.toInt(), preplypacket, umaxreplypacketlen.toInt(), pureplypacketlen).toUInt()
+public actual fun pxeDhcpInitialize(precvpacket: COpaquePointer?, urecvpacketlen: UInt, preplypacket: COpaquePointer?, umaxreplypacketlen: UInt, pureplypacketlen: COpaquePointer?): UInt =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_pxeDhcpInitialize((precvpacket?.value ?: 0L), urecvpacketlen.toInt(), (preplypacket?.value ?: 0L), umaxreplypacketlen.toInt(), (pureplypacketlen?.value ?: 0L)).toUInt()
 
-public actual fun PxeDhcpIsValid(ppacket: Long, upacketlen: UInt, brequestpacket: BOOL, pbpxeoptionpresent: Long): UInt =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_PxeDhcpIsValid(ppacket, upacketlen.toInt(), brequestpacket, pbpxeoptionpresent).toUInt()
+public actual fun pxeDhcpIsValid(ppacket: COpaquePointer?, upacketlen: UInt, brequestpacket: Bool, pbpxeoptionpresent: COpaquePointer?): UInt =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_pxeDhcpIsValid((ppacket?.value ?: 0L), upacketlen.toInt(), brequestpacket, (pbpxeoptionpresent?.value ?: 0L)).toUInt()
 
-public actual fun PxeDhcpv6AppendOption(preply: Long, cbreply: UInt, pcbreplyused: Long, woptiontype: UShort, cboption: UShort, poption: Long): UInt =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_PxeDhcpv6AppendOption(preply, cbreply.toInt(), pcbreplyused, woptiontype.toShort(), cboption.toShort(), poption).toUInt()
+public actual fun pxeDhcpv6AppendOption(preply: COpaquePointer?, cbreply: UInt, pcbreplyused: COpaquePointer?, woptiontype: UShort, cboption: UShort, poption: COpaquePointer?): UInt =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_pxeDhcpv6AppendOption((preply?.value ?: 0L), cbreply.toInt(), (pcbreplyused?.value ?: 0L), woptiontype.toShort(), cboption.toShort(), (poption?.value ?: 0L)).toUInt()
 
-public actual fun PxeDhcpv6AppendOptionRaw(preply: Long, cbreply: UInt, pcbreplyused: Long, cbbuffer: UShort, pbuffer: Long): UInt =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_PxeDhcpv6AppendOptionRaw(preply, cbreply.toInt(), pcbreplyused, cbbuffer.toShort(), pbuffer).toUInt()
+public actual fun pxeDhcpv6AppendOptionRaw(preply: COpaquePointer?, cbreply: UInt, pcbreplyused: COpaquePointer?, cbbuffer: UShort, pbuffer: COpaquePointer?): UInt =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_pxeDhcpv6AppendOptionRaw((preply?.value ?: 0L), cbreply.toInt(), (pcbreplyused?.value ?: 0L), cbbuffer.toShort(), (pbuffer?.value ?: 0L)).toUInt()
 
-public actual fun PxeDhcpv6CreateRelayRepl(prelaymessages: Long, nrelaymessages: UInt, pinnerpacket: Long, cbinnerpacket: UInt, preplybuffer: Long, cbreplybuffer: UInt, pcbreplybuffer: Long): UInt =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_PxeDhcpv6CreateRelayRepl(prelaymessages, nrelaymessages.toInt(), pinnerpacket, cbinnerpacket.toInt(), preplybuffer, cbreplybuffer.toInt(), pcbreplybuffer).toUInt()
+public actual fun pxeDhcpv6CreateRelayRepl(prelaymessages: COpaquePointer?, nrelaymessages: UInt, pinnerpacket: COpaquePointer?, cbinnerpacket: UInt, preplybuffer: COpaquePointer?, cbreplybuffer: UInt, pcbreplybuffer: COpaquePointer?): UInt =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_pxeDhcpv6CreateRelayRepl((prelaymessages?.value ?: 0L), nrelaymessages.toInt(), (pinnerpacket?.value ?: 0L), cbinnerpacket.toInt(), (preplybuffer?.value ?: 0L), cbreplybuffer.toInt(), (pcbreplybuffer?.value ?: 0L)).toUInt()
 
-public actual fun PxeDhcpv6GetOptionValue(ppacket: Long, upacketlen: UInt, uinstance: UInt, woption: UShort, pwoptionlen: Long, ppoptionvalue: Long): UInt =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_PxeDhcpv6GetOptionValue(ppacket, upacketlen.toInt(), uinstance.toInt(), woption.toShort(), pwoptionlen, ppoptionvalue).toUInt()
+public actual fun pxeDhcpv6GetOptionValue(ppacket: COpaquePointer?, upacketlen: UInt, uinstance: UInt, woption: UShort, pwoptionlen: COpaquePointer?, ppoptionvalue: COpaquePointer?): UInt =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_pxeDhcpv6GetOptionValue((ppacket?.value ?: 0L), upacketlen.toInt(), uinstance.toInt(), woption.toShort(), (pwoptionlen?.value ?: 0L), (ppoptionvalue?.value ?: 0L)).toUInt()
 
-public actual fun PxeDhcpv6GetVendorOptionValue(ppacket: Long, upacketlen: UInt, dwenterprisenumber: UInt, woption: UShort, uinstance: UInt, pwoptionlen: Long, ppoptionvalue: Long): UInt =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_PxeDhcpv6GetVendorOptionValue(ppacket, upacketlen.toInt(), dwenterprisenumber.toInt(), woption.toShort(), uinstance.toInt(), pwoptionlen, ppoptionvalue).toUInt()
+public actual fun pxeDhcpv6GetVendorOptionValue(ppacket: COpaquePointer?, upacketlen: UInt, dwenterprisenumber: UInt, woption: UShort, uinstance: UInt, pwoptionlen: COpaquePointer?, ppoptionvalue: COpaquePointer?): UInt =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_pxeDhcpv6GetVendorOptionValue((ppacket?.value ?: 0L), upacketlen.toInt(), dwenterprisenumber.toInt(), woption.toShort(), uinstance.toInt(), (pwoptionlen?.value ?: 0L), (ppoptionvalue?.value ?: 0L)).toUInt()
 
-public actual fun PxeDhcpv6Initialize(prequest: Long, cbrequest: UInt, preply: Long, cbreply: UInt, pcbreplyused: Long): UInt =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_PxeDhcpv6Initialize(prequest, cbrequest.toInt(), preply, cbreply.toInt(), pcbreplyused).toUInt()
+public actual fun pxeDhcpv6Initialize(prequest: COpaquePointer?, cbrequest: UInt, preply: COpaquePointer?, cbreply: UInt, pcbreplyused: COpaquePointer?): UInt =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_pxeDhcpv6Initialize((prequest?.value ?: 0L), cbrequest.toInt(), (preply?.value ?: 0L), cbreply.toInt(), (pcbreplyused?.value ?: 0L)).toUInt()
 
-public actual fun PxeDhcpv6IsValid(ppacket: Long, upacketlen: UInt, brequestpacket: BOOL, pbpxeoptionpresent: Long): UInt =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_PxeDhcpv6IsValid(ppacket, upacketlen.toInt(), brequestpacket, pbpxeoptionpresent).toUInt()
+public actual fun pxeDhcpv6IsValid(ppacket: COpaquePointer?, upacketlen: UInt, brequestpacket: Bool, pbpxeoptionpresent: COpaquePointer?): UInt =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_pxeDhcpv6IsValid((ppacket?.value ?: 0L), upacketlen.toInt(), brequestpacket, (pbpxeoptionpresent?.value ?: 0L)).toUInt()
 
-public actual fun PxeDhcpv6ParseRelayForw(prelayforwpacket: Long, urelayforwpacketlen: UInt, prelaymessages: Long, nrelaymessages: UInt, pnrelaymessages: Long, ppinnerpacket: Long, pcbinnerpacket: Long): UInt =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_PxeDhcpv6ParseRelayForw(prelayforwpacket, urelayforwpacketlen.toInt(), prelaymessages, nrelaymessages.toInt(), pnrelaymessages, ppinnerpacket, pcbinnerpacket).toUInt()
+public actual fun pxeDhcpv6ParseRelayForw(prelayforwpacket: COpaquePointer?, urelayforwpacketlen: UInt, prelaymessages: COpaquePointer?, nrelaymessages: UInt, pnrelaymessages: COpaquePointer?, ppinnerpacket: COpaquePointer?, pcbinnerpacket: COpaquePointer?): UInt =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_pxeDhcpv6ParseRelayForw((prelayforwpacket?.value ?: 0L), urelayforwpacketlen.toInt(), (prelaymessages?.value ?: 0L), nrelaymessages.toInt(), (pnrelaymessages?.value ?: 0L), (ppinnerpacket?.value ?: 0L), (pcbinnerpacket?.value ?: 0L)).toUInt()
 
-public actual fun PxeGetServerInfo(uinfotype: UInt, pbuffer: Long, ubufferlen: UInt): UInt =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_PxeGetServerInfo(uinfotype.toInt(), pbuffer, ubufferlen.toInt()).toUInt()
+public actual fun pxeGetServerInfo(uinfotype: UInt, pbuffer: COpaquePointer?, ubufferlen: UInt): UInt =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_pxeGetServerInfo(uinfotype.toInt(), (pbuffer?.value ?: 0L), ubufferlen.toInt()).toUInt()
 
-public actual fun PxeGetServerInfoEx(uinfotype: UInt, pbuffer: Long, ubufferlen: UInt, pubufferused: Long): UInt =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_PxeGetServerInfoEx(uinfotype.toInt(), pbuffer, ubufferlen.toInt(), pubufferused).toUInt()
+public actual fun pxeGetServerInfoEx(uinfotype: UInt, pbuffer: COpaquePointer?, ubufferlen: UInt, pubufferused: COpaquePointer?): UInt =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_pxeGetServerInfoEx(uinfotype.toInt(), (pbuffer?.value ?: 0L), ubufferlen.toInt(), (pubufferused?.value ?: 0L)).toUInt()
 
-public actual fun PxePacketAllocate(hprovider: HANDLE, hclientrequest: HANDLE, usize: UInt): Long =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_PxePacketAllocate(hprovider, hclientrequest, usize.toInt())
+public actual fun pxePacketAllocate(hprovider: Handle, hclientrequest: Handle, usize: UInt): COpaquePointer? =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_pxePacketAllocate((hprovider?.value ?: 0L), (hclientrequest?.value ?: 0L), usize.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun PxePacketFree(hprovider: HANDLE, hclientrequest: HANDLE, ppacket: Long): UInt =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_PxePacketFree(hprovider, hclientrequest, ppacket).toUInt()
+public actual fun pxePacketFree(hprovider: Handle, hclientrequest: Handle, ppacket: COpaquePointer?): UInt =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_pxePacketFree((hprovider?.value ?: 0L), (hclientrequest?.value ?: 0L), (ppacket?.value ?: 0L)).toUInt()
 
-public actual fun PxeProviderEnumClose(henum: HANDLE): UInt =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_PxeProviderEnumClose(henum).toUInt()
+public actual fun pxeProviderEnumClose(henum: Handle): UInt =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_pxeProviderEnumClose((henum?.value ?: 0L)).toUInt()
 
-public actual fun PxeProviderEnumFirst(phenum: Long): UInt =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_PxeProviderEnumFirst(phenum).toUInt()
+public actual fun pxeProviderEnumFirst(phenum: COpaquePointer?): UInt =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_pxeProviderEnumFirst((phenum?.value ?: 0L)).toUInt()
 
-public actual fun PxeProviderEnumNext(henum: HANDLE, ppprovider: Long): UInt =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_PxeProviderEnumNext(henum, ppprovider).toUInt()
+public actual fun pxeProviderEnumNext(henum: Handle, ppprovider: COpaquePointer?): UInt =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_pxeProviderEnumNext((henum?.value ?: 0L), (ppprovider?.value ?: 0L)).toUInt()
 
-public actual fun PxeProviderFreeInfo(pprovider: Long): UInt =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_PxeProviderFreeInfo(pprovider).toUInt()
+public actual fun pxeProviderFreeInfo(pprovider: COpaquePointer?): UInt =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_pxeProviderFreeInfo((pprovider?.value ?: 0L)).toUInt()
 
-public actual fun PxeProviderQueryIndex(pszprovidername: PCWSTR, puindex: Long): UInt =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_PxeProviderQueryIndex(pszprovidername, puindex).toUInt()
+public actual fun pxeProviderQueryIndex(pszprovidername: Pcwstr, puindex: COpaquePointer?): UInt =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_pxeProviderQueryIndex((pszprovidername?.value ?: 0L), (puindex?.value ?: 0L)).toUInt()
 
-public actual fun PxeProviderRegister(pszprovidername: PCWSTR, pszmodulepath: PCWSTR, index: UInt, biscritical: BOOL, phproviderkey: Long): UInt =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_PxeProviderRegister(pszprovidername, pszmodulepath, index.toInt(), biscritical, phproviderkey).toUInt()
+public actual fun pxeProviderRegister(pszprovidername: Pcwstr, pszmodulepath: Pcwstr, index: UInt, biscritical: Bool, phproviderkey: COpaquePointer?): UInt =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_pxeProviderRegister((pszprovidername?.value ?: 0L), (pszmodulepath?.value ?: 0L), index.toInt(), biscritical, (phproviderkey?.value ?: 0L)).toUInt()
 
-public actual fun PxeProviderSetAttribute(hprovider: HANDLE, attribute: UInt, pparameterbuffer: Long, uparamlen: UInt): UInt =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_PxeProviderSetAttribute(hprovider, attribute.toInt(), pparameterbuffer, uparamlen.toInt()).toUInt()
+public actual fun pxeProviderSetAttribute(hprovider: Handle, attribute: UInt, pparameterbuffer: COpaquePointer?, uparamlen: UInt): UInt =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_pxeProviderSetAttribute((hprovider?.value ?: 0L), attribute.toInt(), (pparameterbuffer?.value ?: 0L), uparamlen.toInt()).toUInt()
 
-public actual fun PxeProviderUnRegister(pszprovidername: PCWSTR): UInt =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_PxeProviderUnRegister(pszprovidername).toUInt()
+public actual fun pxeProviderUnRegister(pszprovidername: Pcwstr): UInt =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_pxeProviderUnRegister((pszprovidername?.value ?: 0L)).toUInt()
 
-public actual fun PxeRegisterCallback(hprovider: HANDLE, callbacktype: UInt, pcallbackfunction: Long, pcontext: Long): UInt =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_PxeRegisterCallback(hprovider, callbacktype.toInt(), pcallbackfunction, pcontext).toUInt()
+public actual fun pxeRegisterCallback(hprovider: Handle, callbacktype: UInt, pcallbackfunction: COpaquePointer?, pcontext: COpaquePointer?): UInt =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_pxeRegisterCallback((hprovider?.value ?: 0L), callbacktype.toInt(), (pcallbackfunction?.value ?: 0L), (pcontext?.value ?: 0L)).toUInt()
 
-public actual fun PxeSendReply(hclientrequest: HANDLE, ppacket: Long, upacketlen: UInt, paddress: Long): UInt =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_PxeSendReply(hclientrequest, ppacket, upacketlen.toInt(), paddress).toUInt()
+public actual fun pxeSendReply(hclientrequest: Handle, ppacket: COpaquePointer?, upacketlen: UInt, paddress: COpaquePointer?): UInt =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_pxeSendReply((hclientrequest?.value ?: 0L), (ppacket?.value ?: 0L), upacketlen.toInt(), (paddress?.value ?: 0L)).toUInt()
 
-public actual fun PxeTrace(hprovider: HANDLE, severity: UInt, pszformat: PCWSTR): UInt =
-    0u
+public actual fun pxeTrace(hprovider: Handle, severity: UInt, pszformat: Pcwstr, vararg variadicArgs: Long): UInt =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_pxeTrace((hprovider?.value ?: 0L), severity.toInt(), (pszformat?.value ?: 0L), variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L).toUInt()
 
-public actual fun PxeTraceV(hprovider: HANDLE, severity: UInt, pszformat: PCWSTR, params: Long): UInt =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_PxeTraceV(hprovider, severity.toInt(), pszformat, params).toUInt()
+public actual fun pxeTraceV(hprovider: Handle, severity: UInt, pszformat: Pcwstr, params: COpaquePointer?): UInt =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_pxeTraceV((hprovider?.value ?: 0L), severity.toInt(), (pszformat?.value ?: 0L), (params?.value ?: 0L)).toUInt()
 
-public actual fun WdsBpAddOption(hhandle: HANDLE, uoption: UInt, uvaluelen: UInt, pvalue: Long): UInt =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_WdsBpAddOption(hhandle, uoption.toInt(), uvaluelen.toInt(), pvalue).toUInt()
+public actual fun wdsBpAddOption(hhandle: Handle, uoption: UInt, uvaluelen: UInt, pvalue: COpaquePointer?): UInt =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_wdsBpAddOption((hhandle?.value ?: 0L), uoption.toInt(), uvaluelen.toInt(), (pvalue?.value ?: 0L)).toUInt()
 
-public actual fun WdsBpCloseHandle(hhandle: HANDLE): UInt =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_WdsBpCloseHandle(hhandle).toUInt()
+public actual fun wdsBpCloseHandle(hhandle: Handle): UInt =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_wdsBpCloseHandle((hhandle?.value ?: 0L)).toUInt()
 
-public actual fun WdsBpGetOptionBuffer(hhandle: HANDLE, ubufferlen: UInt, pbuffer: Long, pubytes: Long): UInt =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_WdsBpGetOptionBuffer(hhandle, ubufferlen.toInt(), pbuffer, pubytes).toUInt()
+public actual fun wdsBpGetOptionBuffer(hhandle: Handle, ubufferlen: UInt, pbuffer: COpaquePointer?, pubytes: COpaquePointer?): UInt =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_wdsBpGetOptionBuffer((hhandle?.value ?: 0L), ubufferlen.toInt(), (pbuffer?.value ?: 0L), (pubytes?.value ?: 0L)).toUInt()
 
-public actual fun WdsBpInitialize(bpackettype: UByte, phhandle: Long): UInt =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_WdsBpInitialize(bpackettype.toByte(), phhandle).toUInt()
+public actual fun wdsBpInitialize(bpackettype: UByte, phhandle: COpaquePointer?): UInt =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_wdsBpInitialize(bpackettype.toByte(), (phhandle?.value ?: 0L)).toUInt()
 
-public actual fun WdsBpParseInitialize(ppacket: Long, upacketlen: UInt, pbpackettype: Long, phhandle: Long): UInt =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_WdsBpParseInitialize(ppacket, upacketlen.toInt(), pbpackettype, phhandle).toUInt()
+public actual fun wdsBpParseInitialize(ppacket: COpaquePointer?, upacketlen: UInt, pbpackettype: COpaquePointer?, phhandle: COpaquePointer?): UInt =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_wdsBpParseInitialize((ppacket?.value ?: 0L), upacketlen.toInt(), (pbpackettype?.value ?: 0L), (phhandle?.value ?: 0L)).toUInt()
 
-public actual fun WdsBpParseInitializev6(ppacket: Long, upacketlen: UInt, pbpackettype: Long, phhandle: Long): UInt =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_WdsBpParseInitializev6(ppacket, upacketlen.toInt(), pbpackettype, phhandle).toUInt()
+public actual fun wdsBpParseInitializev6(ppacket: COpaquePointer?, upacketlen: UInt, pbpackettype: COpaquePointer?, phhandle: COpaquePointer?): UInt =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_wdsBpParseInitializev6((ppacket?.value ?: 0L), upacketlen.toInt(), (pbpackettype?.value ?: 0L), (phhandle?.value ?: 0L)).toUInt()
 
-public actual fun WdsBpQueryOption(hhandle: HANDLE, uoption: UInt, uvaluelen: UInt, pvalue: Long, pubytes: Long): UInt =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_WdsBpQueryOption(hhandle, uoption.toInt(), uvaluelen.toInt(), pvalue, pubytes).toUInt()
+public actual fun wdsBpQueryOption(hhandle: Handle, uoption: UInt, uvaluelen: UInt, pvalue: COpaquePointer?, pubytes: COpaquePointer?): UInt =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_wdsBpQueryOption((hhandle?.value ?: 0L), uoption.toInt(), uvaluelen.toInt(), (pvalue?.value ?: 0L), (pubytes?.value ?: 0L)).toUInt()
 
-public actual fun WdsCliAuthorizeSession(hsession: HANDLE, pcred: Long): HRESULT =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_WdsCliAuthorizeSession(hsession, pcred)
+public actual fun wdsCliAuthorizeSession(hsession: Handle, pcred: COpaquePointer?): Hresult =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_wdsCliAuthorizeSession((hsession?.value ?: 0L), (pcred?.value ?: 0L))
 
-public actual fun WdsCliCancelTransfer(htransfer: HANDLE): HRESULT =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_WdsCliCancelTransfer(htransfer)
+public actual fun wdsCliCancelTransfer(htransfer: Handle): Hresult =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_wdsCliCancelTransfer((htransfer?.value ?: 0L))
 
-public actual fun WdsCliClose(handle: HANDLE): HRESULT =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_WdsCliClose(handle)
+public actual fun wdsCliClose(handle: Handle): Hresult =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_wdsCliClose((handle?.value ?: 0L))
 
-public actual fun WdsCliCreateSession(pwszserver: PCWSTR, pcred: Long, phsession: Long): HRESULT =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_WdsCliCreateSession(pwszserver, pcred, phsession)
+public actual fun wdsCliCreateSession(pwszserver: Pcwstr, pcred: COpaquePointer?, phsession: COpaquePointer?): Hresult =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_wdsCliCreateSession((pwszserver?.value ?: 0L), (pcred?.value ?: 0L), (phsession?.value ?: 0L))
 
-public actual fun WdsCliFindFirstImage(hsession: HANDLE, phfindhandle: Long): HRESULT =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_WdsCliFindFirstImage(hsession, phfindhandle)
+public actual fun wdsCliFindFirstImage(hsession: Handle, phfindhandle: COpaquePointer?): Hresult =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_wdsCliFindFirstImage((hsession?.value ?: 0L), (phfindhandle?.value ?: 0L))
 
-public actual fun WdsCliFindNextImage(handle: HANDLE): HRESULT =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_WdsCliFindNextImage(handle)
+public actual fun wdsCliFindNextImage(handle: Handle): Hresult =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_wdsCliFindNextImage((handle?.value ?: 0L))
 
-public actual fun WdsCliFreeStringArray(ppwszarray: Long, ulcount: UInt): HRESULT =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_WdsCliFreeStringArray(ppwszarray, ulcount.toInt())
+public actual fun wdsCliFreeStringArray(ppwszarray: COpaquePointer?, ulcount: UInt): Hresult =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_wdsCliFreeStringArray((ppwszarray?.value ?: 0L), ulcount.toInt())
 
-public actual fun WdsCliGetDriverQueryXml(pwszwindirpath: PCWSTR, ppwszdriverquery: Long): HRESULT =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_WdsCliGetDriverQueryXml(pwszwindirpath, ppwszdriverquery)
+public actual fun wdsCliGetDriverQueryXml(pwszwindirpath: Pcwstr, ppwszdriverquery: COpaquePointer?): Hresult =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_wdsCliGetDriverQueryXml((pwszwindirpath?.value ?: 0L), (ppwszdriverquery?.value ?: 0L))
 
-public actual fun WdsCliGetEnumerationFlags(handle: HANDLE, pdwflags: Long): HRESULT =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_WdsCliGetEnumerationFlags(handle, pdwflags)
+public actual fun wdsCliGetEnumerationFlags(handle: Handle, pdwflags: COpaquePointer?): Hresult =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_wdsCliGetEnumerationFlags((handle?.value ?: 0L), (pdwflags?.value ?: 0L))
 
-public actual fun WdsCliGetImageArchitecture(hifh: HANDLE, pdwvalue: Long): HRESULT =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_WdsCliGetImageArchitecture(hifh, pdwvalue)
+public actual fun wdsCliGetImageArchitecture(hifh: Handle, pdwvalue: COpaquePointer?): Hresult =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_wdsCliGetImageArchitecture((hifh?.value ?: 0L), (pdwvalue?.value ?: 0L))
 
-public actual fun WdsCliGetImageDescription(hifh: HANDLE, ppwszvalue: Long): HRESULT =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_WdsCliGetImageDescription(hifh, ppwszvalue)
+public actual fun wdsCliGetImageDescription(hifh: Handle, ppwszvalue: COpaquePointer?): Hresult =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_wdsCliGetImageDescription((hifh?.value ?: 0L), (ppwszvalue?.value ?: 0L))
 
-public actual fun WdsCliGetImageFiles(hifh: HANDLE, pppwszfiles: Long, pdwcount: Long): HRESULT =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_WdsCliGetImageFiles(hifh, pppwszfiles, pdwcount)
+public actual fun wdsCliGetImageFiles(hifh: Handle, pppwszfiles: COpaquePointer?, pdwcount: COpaquePointer?): Hresult =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_wdsCliGetImageFiles((hifh?.value ?: 0L), (pppwszfiles?.value ?: 0L), (pdwcount?.value ?: 0L))
 
-public actual fun WdsCliGetImageGroup(hifh: HANDLE, ppwszvalue: Long): HRESULT =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_WdsCliGetImageGroup(hifh, ppwszvalue)
+public actual fun wdsCliGetImageGroup(hifh: Handle, ppwszvalue: COpaquePointer?): Hresult =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_wdsCliGetImageGroup((hifh?.value ?: 0L), (ppwszvalue?.value ?: 0L))
 
-public actual fun WdsCliGetImageHalName(hifh: HANDLE, ppwszvalue: Long): HRESULT =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_WdsCliGetImageHalName(hifh, ppwszvalue)
+public actual fun wdsCliGetImageHalName(hifh: Handle, ppwszvalue: COpaquePointer?): Hresult =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_wdsCliGetImageHalName((hifh?.value ?: 0L), (ppwszvalue?.value ?: 0L))
 
-public actual fun WdsCliGetImageHandleFromFindHandle(findhandle: HANDLE, phimagehandle: Long): HRESULT =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_WdsCliGetImageHandleFromFindHandle(findhandle, phimagehandle)
+public actual fun wdsCliGetImageHandleFromFindHandle(findhandle: Handle, phimagehandle: COpaquePointer?): Hresult =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_wdsCliGetImageHandleFromFindHandle((findhandle?.value ?: 0L), (phimagehandle?.value ?: 0L))
 
-public actual fun WdsCliGetImageHandleFromTransferHandle(htransfer: HANDLE, phimagehandle: Long): HRESULT =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_WdsCliGetImageHandleFromTransferHandle(htransfer, phimagehandle)
+public actual fun wdsCliGetImageHandleFromTransferHandle(htransfer: Handle, phimagehandle: COpaquePointer?): Hresult =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_wdsCliGetImageHandleFromTransferHandle((htransfer?.value ?: 0L), (phimagehandle?.value ?: 0L))
 
-public actual fun WdsCliGetImageIndex(hifh: HANDLE, pdwvalue: Long): HRESULT =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_WdsCliGetImageIndex(hifh, pdwvalue)
+public actual fun wdsCliGetImageIndex(hifh: Handle, pdwvalue: COpaquePointer?): Hresult =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_wdsCliGetImageIndex((hifh?.value ?: 0L), (pdwvalue?.value ?: 0L))
 
-public actual fun WdsCliGetImageLanguage(hifh: HANDLE, ppwszvalue: Long): HRESULT =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_WdsCliGetImageLanguage(hifh, ppwszvalue)
+public actual fun wdsCliGetImageLanguage(hifh: Handle, ppwszvalue: COpaquePointer?): Hresult =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_wdsCliGetImageLanguage((hifh?.value ?: 0L), (ppwszvalue?.value ?: 0L))
 
-public actual fun WdsCliGetImageLanguages(hifh: HANDLE, pppszvalues: Long, pdwnumvalues: Long): HRESULT =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_WdsCliGetImageLanguages(hifh, pppszvalues, pdwnumvalues)
+public actual fun wdsCliGetImageLanguages(hifh: Handle, pppszvalues: COpaquePointer?, pdwnumvalues: COpaquePointer?): Hresult =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_wdsCliGetImageLanguages((hifh?.value ?: 0L), (pppszvalues?.value ?: 0L), (pdwnumvalues?.value ?: 0L))
 
-public actual fun WdsCliGetImageLastModifiedTime(hifh: HANDLE, ppsystimevalue: Long): HRESULT =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_WdsCliGetImageLastModifiedTime(hifh, ppsystimevalue)
+public actual fun wdsCliGetImageLastModifiedTime(hifh: Handle, ppsystimevalue: COpaquePointer?): Hresult =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_wdsCliGetImageLastModifiedTime((hifh?.value ?: 0L), (ppsystimevalue?.value ?: 0L))
 
-public actual fun WdsCliGetImageName(hifh: HANDLE, ppwszvalue: Long): HRESULT =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_WdsCliGetImageName(hifh, ppwszvalue)
+public actual fun wdsCliGetImageName(hifh: Handle, ppwszvalue: COpaquePointer?): Hresult =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_wdsCliGetImageName((hifh?.value ?: 0L), (ppwszvalue?.value ?: 0L))
 
-public actual fun WdsCliGetImageNamespace(hifh: HANDLE, ppwszvalue: Long): HRESULT =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_WdsCliGetImageNamespace(hifh, ppwszvalue)
+public actual fun wdsCliGetImageNamespace(hifh: Handle, ppwszvalue: COpaquePointer?): Hresult =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_wdsCliGetImageNamespace((hifh?.value ?: 0L), (ppwszvalue?.value ?: 0L))
 
-public actual fun WdsCliGetImageParameter(hifh: HANDLE, paramtype: WDS_CLI_IMAGE_PARAM_TYPE, presponse: Long, uresponselen: UInt): HRESULT =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_WdsCliGetImageParameter(hifh, paramtype, presponse, uresponselen.toInt())
+public actual fun wdsCliGetImageParameter(hifh: Handle, paramtype: WdsCliImageParamType, presponse: COpaquePointer?, uresponselen: UInt): Hresult =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_wdsCliGetImageParameter((hifh?.value ?: 0L), paramtype, (presponse?.value ?: 0L), uresponselen.toInt())
 
-public actual fun WdsCliGetImagePath(hifh: HANDLE, ppwszvalue: Long): HRESULT =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_WdsCliGetImagePath(hifh, ppwszvalue)
+public actual fun wdsCliGetImagePath(hifh: Handle, ppwszvalue: COpaquePointer?): Hresult =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_wdsCliGetImagePath((hifh?.value ?: 0L), (ppwszvalue?.value ?: 0L))
 
-public actual fun WdsCliGetImageSize(hifh: HANDLE, pullvalue: Long): HRESULT =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_WdsCliGetImageSize(hifh, pullvalue)
+public actual fun wdsCliGetImageSize(hifh: Handle, pullvalue: COpaquePointer?): Hresult =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_wdsCliGetImageSize((hifh?.value ?: 0L), (pullvalue?.value ?: 0L))
 
-public actual fun WdsCliGetImageType(hifh: HANDLE, pimagetype: Long): HRESULT =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_WdsCliGetImageType(hifh, pimagetype)
+public actual fun wdsCliGetImageType(hifh: Handle, pimagetype: COpaquePointer?): Hresult =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_wdsCliGetImageType((hifh?.value ?: 0L), (pimagetype?.value ?: 0L))
 
-public actual fun WdsCliGetImageVersion(hifh: HANDLE, ppwszvalue: Long): HRESULT =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_WdsCliGetImageVersion(hifh, ppwszvalue)
+public actual fun wdsCliGetImageVersion(hifh: Handle, ppwszvalue: COpaquePointer?): Hresult =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_wdsCliGetImageVersion((hifh?.value ?: 0L), (ppwszvalue?.value ?: 0L))
 
-public actual fun WdsCliGetTransferSize(hifh: HANDLE, pullvalue: Long): HRESULT =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_WdsCliGetTransferSize(hifh, pullvalue)
+public actual fun wdsCliGetTransferSize(hifh: Handle, pullvalue: COpaquePointer?): Hresult =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_wdsCliGetTransferSize((hifh?.value ?: 0L), (pullvalue?.value ?: 0L))
 
-public actual fun WdsCliInitializeLog(hsession: HANDLE, ulclientarchitecture: CPU_ARCHITECTURE, pwszclientid: PCWSTR, pwszclientaddress: PCWSTR): HRESULT =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_WdsCliInitializeLog(hsession, ulclientarchitecture.toInt(), pwszclientid, pwszclientaddress)
+public actual fun wdsCliInitializeLog(hsession: Handle, ulclientarchitecture: CpuArchitecture, pwszclientid: Pcwstr, pwszclientaddress: Pcwstr): Hresult =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_wdsCliInitializeLog((hsession?.value ?: 0L), ulclientarchitecture.toInt(), (pwszclientid?.value ?: 0L), (pwszclientaddress?.value ?: 0L))
 
-public actual fun WdsCliLog(hsession: HANDLE, ulloglevel: UInt, ulmessagecode: UInt): HRESULT =
-    0
+public actual fun wdsCliLog(hsession: Handle, ulloglevel: UInt, ulmessagecode: UInt, vararg variadicArgs: Long): Hresult =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_wdsCliLog((hsession?.value ?: 0L), ulloglevel.toInt(), ulmessagecode.toInt(), variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
 
-public actual fun WdsCliObtainDriverPackages(himage: HANDLE, ppwszservername: Long, pppwszdriverpackages: Long, pulcount: Long): HRESULT =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_WdsCliObtainDriverPackages(himage, ppwszservername, pppwszdriverpackages, pulcount)
+public actual fun wdsCliObtainDriverPackages(himage: Handle, ppwszservername: COpaquePointer?, pppwszdriverpackages: COpaquePointer?, pulcount: COpaquePointer?): Hresult =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_wdsCliObtainDriverPackages((himage?.value ?: 0L), (ppwszservername?.value ?: 0L), (pppwszdriverpackages?.value ?: 0L), (pulcount?.value ?: 0L))
 
-public actual fun WdsCliObtainDriverPackagesEx(hsession: HANDLE, pwszmachineinfo: PCWSTR, ppwszservername: Long, pppwszdriverpackages: Long, pulcount: Long): HRESULT =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_WdsCliObtainDriverPackagesEx(hsession, pwszmachineinfo, ppwszservername, pppwszdriverpackages, pulcount)
+public actual fun wdsCliObtainDriverPackagesEx(hsession: Handle, pwszmachineinfo: Pcwstr, ppwszservername: COpaquePointer?, pppwszdriverpackages: COpaquePointer?, pulcount: COpaquePointer?): Hresult =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_wdsCliObtainDriverPackagesEx((hsession?.value ?: 0L), (pwszmachineinfo?.value ?: 0L), (ppwszservername?.value ?: 0L), (pppwszdriverpackages?.value ?: 0L), (pulcount?.value ?: 0L))
 
-public actual fun WdsCliRegisterTrace(pfn: PFN_WdsCliTraceFunction): HRESULT =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_WdsCliRegisterTrace(pfn.toLong())
+public actual fun wdsCliRegisterTrace(pfn: PfnWdsCliTraceFunction): Hresult =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_wdsCliRegisterTrace(0L)
 
-public actual fun WdsCliSetTransferBufferSize(ulsizeinbytes: UInt) {
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_WdsCliSetTransferBufferSize(ulsizeinbytes.toInt())
+public actual fun wdsCliSetTransferBufferSize(ulsizeinbytes: UInt) {
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_wdsCliSetTransferBufferSize(ulsizeinbytes.toInt())
 }
 
-public actual fun WdsCliTransferFile(pwszserver: PCWSTR, pwsznamespace: PCWSTR, pwszremotefilepath: PCWSTR, pwszlocalfilepath: PCWSTR, dwflags: UInt, dwreserved: UInt, pfnwdsclicallback: PFN_WdsCliCallback, pvuserdata: Long, phtransfer: Long): HRESULT =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_WdsCliTransferFile(pwszserver, pwsznamespace, pwszremotefilepath, pwszlocalfilepath, dwflags.toInt(), dwreserved.toInt(), pfnwdsclicallback.toLong(), pvuserdata, phtransfer)
+public actual fun wdsCliTransferFile(pwszserver: Pcwstr, pwsznamespace: Pcwstr, pwszremotefilepath: Pcwstr, pwszlocalfilepath: Pcwstr, dwflags: UInt, dwreserved: UInt, pfnwdsclicallback: PfnWdsCliCallback, pvuserdata: COpaquePointer?, phtransfer: COpaquePointer?): Hresult =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_wdsCliTransferFile((pwszserver?.value ?: 0L), (pwsznamespace?.value ?: 0L), (pwszremotefilepath?.value ?: 0L), (pwszlocalfilepath?.value ?: 0L), dwflags.toInt(), dwreserved.toInt(), 0L, (pvuserdata?.value ?: 0L), (phtransfer?.value ?: 0L))
 
-public actual fun WdsCliTransferImage(himage: HANDLE, pwszlocalpath: PCWSTR, dwflags: UInt, dwreserved: UInt, pfnwdsclicallback: PFN_WdsCliCallback, pvuserdata: Long, phtransfer: Long): HRESULT =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_WdsCliTransferImage(himage, pwszlocalpath, dwflags.toInt(), dwreserved.toInt(), pfnwdsclicallback.toLong(), pvuserdata, phtransfer)
+public actual fun wdsCliTransferImage(himage: Handle, pwszlocalpath: Pcwstr, dwflags: UInt, dwreserved: UInt, pfnwdsclicallback: PfnWdsCliCallback, pvuserdata: COpaquePointer?, phtransfer: COpaquePointer?): Hresult =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_wdsCliTransferImage((himage?.value ?: 0L), (pwszlocalpath?.value ?: 0L), dwflags.toInt(), dwreserved.toInt(), 0L, (pvuserdata?.value ?: 0L), (phtransfer?.value ?: 0L))
 
-public actual fun WdsCliWaitForTransfer(htransfer: HANDLE): HRESULT =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_WdsCliWaitForTransfer(htransfer)
+public actual fun wdsCliWaitForTransfer(htransfer: Handle): Hresult =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_wdsCliWaitForTransfer((htransfer?.value ?: 0L))
 
-public actual fun WdsTransportClientAddRefBuffer(pvbuffer: Long): UInt =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_WdsTransportClientAddRefBuffer(pvbuffer).toUInt()
+public actual fun wdsTransportClientAddRefBuffer(pvbuffer: COpaquePointer?): UInt =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_wdsTransportClientAddRefBuffer((pvbuffer?.value ?: 0L)).toUInt()
 
-public actual fun WdsTransportClientCancelSession(hsessionkey: HANDLE): UInt =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_WdsTransportClientCancelSession(hsessionkey).toUInt()
+public actual fun wdsTransportClientCancelSession(hsessionkey: Handle): UInt =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_wdsTransportClientCancelSession((hsessionkey?.value ?: 0L)).toUInt()
 
-public actual fun WdsTransportClientCancelSessionEx(hsessionkey: HANDLE, dwerrorcode: UInt): UInt =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_WdsTransportClientCancelSessionEx(hsessionkey, dwerrorcode.toInt()).toUInt()
+public actual fun wdsTransportClientCancelSessionEx(hsessionkey: Handle, dwerrorcode: UInt): UInt =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_wdsTransportClientCancelSessionEx((hsessionkey?.value ?: 0L), dwerrorcode.toInt()).toUInt()
 
-public actual fun WdsTransportClientCloseSession(hsessionkey: HANDLE): UInt =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_WdsTransportClientCloseSession(hsessionkey).toUInt()
+public actual fun wdsTransportClientCloseSession(hsessionkey: Handle): UInt =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_wdsTransportClientCloseSession((hsessionkey?.value ?: 0L)).toUInt()
 
-public actual fun WdsTransportClientCompleteReceive(hsessionkey: HANDLE, ulsize: UInt, pulloffset: Long): UInt =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_WdsTransportClientCompleteReceive(hsessionkey, ulsize.toInt(), pulloffset).toUInt()
+public actual fun wdsTransportClientCompleteReceive(hsessionkey: Handle, ulsize: UInt, pulloffset: COpaquePointer?): UInt =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_wdsTransportClientCompleteReceive((hsessionkey?.value ?: 0L), ulsize.toInt(), (pulloffset?.value ?: 0L)).toUInt()
 
-public actual fun WdsTransportClientInitialize(): UInt =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_WdsTransportClientInitialize().toUInt()
+public actual fun wdsTransportClientInitialize(): UInt =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_wdsTransportClientInitialize().toUInt()
 
-public actual fun WdsTransportClientInitializeSession(psessionrequest: Long, pcallerdata: Long, hsessionkey: Long): UInt =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_WdsTransportClientInitializeSession(psessionrequest, pcallerdata, hsessionkey).toUInt()
+public actual fun wdsTransportClientInitializeSession(psessionrequest: COpaquePointer?, pcallerdata: COpaquePointer?, hsessionkey: COpaquePointer?): UInt =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_wdsTransportClientInitializeSession((psessionrequest?.value ?: 0L), (pcallerdata?.value ?: 0L), (hsessionkey?.value ?: 0L)).toUInt()
 
-public actual fun WdsTransportClientQueryStatus(hsessionkey: HANDLE, pustatus: Long, puerrorcode: Long): UInt =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_WdsTransportClientQueryStatus(hsessionkey, pustatus, puerrorcode).toUInt()
+public actual fun wdsTransportClientQueryStatus(hsessionkey: Handle, pustatus: COpaquePointer?, puerrorcode: COpaquePointer?): UInt =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_wdsTransportClientQueryStatus((hsessionkey?.value ?: 0L), (pustatus?.value ?: 0L), (puerrorcode?.value ?: 0L)).toUInt()
 
-public actual fun WdsTransportClientRegisterCallback(hsessionkey: HANDLE, callbackid: TRANSPORTCLIENT_CALLBACK_ID, pfncallback: Long): UInt =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_WdsTransportClientRegisterCallback(hsessionkey, callbackid, pfncallback).toUInt()
+public actual fun wdsTransportClientRegisterCallback(hsessionkey: Handle, callbackid: TransportclientCallbackId, pfncallback: COpaquePointer?): UInt =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_wdsTransportClientRegisterCallback((hsessionkey?.value ?: 0L), callbackid, (pfncallback?.value ?: 0L)).toUInt()
 
-public actual fun WdsTransportClientReleaseBuffer(pvbuffer: Long): UInt =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_WdsTransportClientReleaseBuffer(pvbuffer).toUInt()
+public actual fun wdsTransportClientReleaseBuffer(pvbuffer: COpaquePointer?): UInt =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_wdsTransportClientReleaseBuffer((pvbuffer?.value ?: 0L)).toUInt()
 
-public actual fun WdsTransportClientShutdown(): UInt =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_WdsTransportClientShutdown().toUInt()
+public actual fun wdsTransportClientShutdown(): UInt =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_wdsTransportClientShutdown().toUInt()
 
-public actual fun WdsTransportClientStartSession(hsessionkey: HANDLE): UInt =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_WdsTransportClientStartSession(hsessionkey).toUInt()
+public actual fun wdsTransportClientStartSession(hsessionkey: Handle): UInt =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_wdsTransportClientStartSession((hsessionkey?.value ?: 0L)).toUInt()
 
-public actual fun WdsTransportClientWaitForCompletion(hsessionkey: HANDLE, utimeout: UInt): UInt =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_WdsTransportClientWaitForCompletion(hsessionkey, utimeout.toInt()).toUInt()
+public actual fun wdsTransportClientWaitForCompletion(hsessionkey: Handle, utimeout: UInt): UInt =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_wdsTransportClientWaitForCompletion((hsessionkey?.value ?: 0L), utimeout.toInt()).toUInt()
 
-public actual fun WdsTransportServerAllocateBuffer(hprovider: HANDLE, ulbuffersize: UInt): Long =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_WdsTransportServerAllocateBuffer(hprovider, ulbuffersize.toInt())
+public actual fun wdsTransportServerAllocateBuffer(hprovider: Handle, ulbuffersize: UInt): COpaquePointer? =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_wdsTransportServerAllocateBuffer((hprovider?.value ?: 0L), ulbuffersize.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun WdsTransportServerCompleteRead(hprovider: HANDLE, ulbytesread: UInt, pvuserdata: Long, hreadresult: HRESULT): HRESULT =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_WdsTransportServerCompleteRead(hprovider, ulbytesread.toInt(), pvuserdata, hreadresult)
+public actual fun wdsTransportServerCompleteRead(hprovider: Handle, ulbytesread: UInt, pvuserdata: COpaquePointer?, hreadresult: Hresult): Hresult =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_wdsTransportServerCompleteRead((hprovider?.value ?: 0L), ulbytesread.toInt(), (pvuserdata?.value ?: 0L), hreadresult)
 
-public actual fun WdsTransportServerFreeBuffer(hprovider: HANDLE, pvbuffer: Long): HRESULT =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_WdsTransportServerFreeBuffer(hprovider, pvbuffer)
+public actual fun wdsTransportServerFreeBuffer(hprovider: Handle, pvbuffer: COpaquePointer?): Hresult =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_wdsTransportServerFreeBuffer((hprovider?.value ?: 0L), (pvbuffer?.value ?: 0L))
 
-public actual fun WdsTransportServerRegisterCallback(hprovider: HANDLE, callbackid: TRANSPORTPROVIDER_CALLBACK_ID, pfncallback: Long): HRESULT =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_WdsTransportServerRegisterCallback(hprovider, callbackid, pfncallback)
+public actual fun wdsTransportServerRegisterCallback(hprovider: Handle, callbackid: TransportproviderCallbackId, pfncallback: COpaquePointer?): Hresult =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_wdsTransportServerRegisterCallback((hprovider?.value ?: 0L), callbackid, (pfncallback?.value ?: 0L))
 
-public actual fun WdsTransportServerTrace(hprovider: HANDLE, severity: UInt, pwszformat: PCWSTR): HRESULT =
-    0
+public actual fun wdsTransportServerTrace(hprovider: Handle, severity: UInt, pwszformat: Pcwstr, vararg variadicArgs: Long): Hresult =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_wdsTransportServerTrace((hprovider?.value ?: 0L), severity.toInt(), (pwszformat?.value ?: 0L), variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
 
-public actual fun WdsTransportServerTraceV(hprovider: HANDLE, severity: UInt, pwszformat: PCWSTR, params: Long): HRESULT =
-    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_WdsTransportServerTraceV(hprovider, severity.toInt(), pwszformat, params)
+public actual fun wdsTransportServerTraceV(hprovider: Handle, severity: UInt, pwszformat: Pcwstr, params: COpaquePointer?): Hresult =
+    WindowsWin32SystemDeploymentservicesJniBridge.windowssys_windows_win32_system_deploymentservices_wdsTransportServerTraceV((hprovider?.value ?: 0L), severity.toInt(), (pwszformat?.value ?: 0L), (params?.value ?: 0L))

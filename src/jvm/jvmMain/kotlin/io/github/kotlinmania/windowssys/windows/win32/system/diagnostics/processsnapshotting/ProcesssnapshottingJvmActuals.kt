@@ -2,7 +2,8 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.processsnapshotting
 
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 
 private object WindowsWin32SystemDiagnosticsProcesssnapshottingJniBridge {
     init {
@@ -10,62 +11,62 @@ private object WindowsWin32SystemDiagnosticsProcesssnapshottingJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_processsnapshotting_PssCaptureSnapshot(processhandle: Long, captureflags: Int, threadcontextflags: Int, snapshothandle: Long): Int
+    external fun windowssys_windows_win32_system_diagnostics_processsnapshotting_pssCaptureSnapshot(processhandle: Long, captureflags: Int, threadcontextflags: Int, snapshothandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_processsnapshotting_PssDuplicateSnapshot(sourceprocesshandle: Long, snapshothandle: Long, targetprocesshandle: Long, targetsnapshothandle: Long, flags: Int): Int
+    external fun windowssys_windows_win32_system_diagnostics_processsnapshotting_pssDuplicateSnapshot(sourceprocesshandle: Long, snapshothandle: Long, targetprocesshandle: Long, targetsnapshothandle: Long, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_processsnapshotting_PssFreeSnapshot(processhandle: Long, snapshothandle: Long): Int
+    external fun windowssys_windows_win32_system_diagnostics_processsnapshotting_pssFreeSnapshot(processhandle: Long, snapshothandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_processsnapshotting_PssQuerySnapshot(snapshothandle: Long, informationclass: Int, buffer: Long, bufferlength: Int): Int
+    external fun windowssys_windows_win32_system_diagnostics_processsnapshotting_pssQuerySnapshot(snapshothandle: Long, informationclass: Int, buffer: Long, bufferlength: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_processsnapshotting_PssWalkMarkerCreate(allocator: Long, walkmarkerhandle: Long): Int
+    external fun windowssys_windows_win32_system_diagnostics_processsnapshotting_pssWalkMarkerCreate(allocator: Long, walkmarkerhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_processsnapshotting_PssWalkMarkerFree(walkmarkerhandle: Long): Int
+    external fun windowssys_windows_win32_system_diagnostics_processsnapshotting_pssWalkMarkerFree(walkmarkerhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_processsnapshotting_PssWalkMarkerGetPosition(walkmarkerhandle: Long, position: Long): Int
+    external fun windowssys_windows_win32_system_diagnostics_processsnapshotting_pssWalkMarkerGetPosition(walkmarkerhandle: Long, position: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_processsnapshotting_PssWalkMarkerSeekToBeginning(walkmarkerhandle: Long): Int
+    external fun windowssys_windows_win32_system_diagnostics_processsnapshotting_pssWalkMarkerSeekToBeginning(walkmarkerhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_processsnapshotting_PssWalkMarkerSetPosition(walkmarkerhandle: Long, position: Long): Int
+    external fun windowssys_windows_win32_system_diagnostics_processsnapshotting_pssWalkMarkerSetPosition(walkmarkerhandle: Long, position: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_processsnapshotting_PssWalkSnapshot(snapshothandle: Long, informationclass: Int, walkmarkerhandle: Long, buffer: Long, bufferlength: Int): Int
+    external fun windowssys_windows_win32_system_diagnostics_processsnapshotting_pssWalkSnapshot(snapshothandle: Long, informationclass: Int, walkmarkerhandle: Long, buffer: Long, bufferlength: Int): Int
 }
 
-public actual fun PssCaptureSnapshot(processhandle: HANDLE, captureflags: PSS_CAPTURE_FLAGS, threadcontextflags: UInt, snapshothandle: Long): UInt =
-    WindowsWin32SystemDiagnosticsProcesssnapshottingJniBridge.windowssys_windows_win32_system_diagnostics_processsnapshotting_PssCaptureSnapshot(processhandle, captureflags.toInt(), threadcontextflags.toInt(), snapshothandle).toUInt()
+public actual fun pssCaptureSnapshot(processhandle: Handle, captureflags: PssCaptureFlags, threadcontextflags: UInt, snapshothandle: COpaquePointer?): UInt =
+    WindowsWin32SystemDiagnosticsProcesssnapshottingJniBridge.windowssys_windows_win32_system_diagnostics_processsnapshotting_pssCaptureSnapshot((processhandle?.value ?: 0L), captureflags.toInt(), threadcontextflags.toInt(), (snapshothandle?.value ?: 0L)).toUInt()
 
-public actual fun PssDuplicateSnapshot(sourceprocesshandle: HANDLE, snapshothandle: HPSS, targetprocesshandle: HANDLE, targetsnapshothandle: Long, flags: PSS_DUPLICATE_FLAGS): UInt =
-    WindowsWin32SystemDiagnosticsProcesssnapshottingJniBridge.windowssys_windows_win32_system_diagnostics_processsnapshotting_PssDuplicateSnapshot(sourceprocesshandle, snapshothandle, targetprocesshandle, targetsnapshothandle, flags).toUInt()
+public actual fun pssDuplicateSnapshot(sourceprocesshandle: Handle, snapshothandle: Hpss, targetprocesshandle: Handle, targetsnapshothandle: COpaquePointer?, flags: PssDuplicateFlags): UInt =
+    WindowsWin32SystemDiagnosticsProcesssnapshottingJniBridge.windowssys_windows_win32_system_diagnostics_processsnapshotting_pssDuplicateSnapshot((sourceprocesshandle?.value ?: 0L), (snapshothandle?.value ?: 0L), (targetprocesshandle?.value ?: 0L), (targetsnapshothandle?.value ?: 0L), flags).toUInt()
 
-public actual fun PssFreeSnapshot(processhandle: HANDLE, snapshothandle: HPSS): UInt =
-    WindowsWin32SystemDiagnosticsProcesssnapshottingJniBridge.windowssys_windows_win32_system_diagnostics_processsnapshotting_PssFreeSnapshot(processhandle, snapshothandle).toUInt()
+public actual fun pssFreeSnapshot(processhandle: Handle, snapshothandle: Hpss): UInt =
+    WindowsWin32SystemDiagnosticsProcesssnapshottingJniBridge.windowssys_windows_win32_system_diagnostics_processsnapshotting_pssFreeSnapshot((processhandle?.value ?: 0L), (snapshothandle?.value ?: 0L)).toUInt()
 
-public actual fun PssQuerySnapshot(snapshothandle: HPSS, informationclass: PSS_QUERY_INFORMATION_CLASS, buffer: Long, bufferlength: UInt): UInt =
-    WindowsWin32SystemDiagnosticsProcesssnapshottingJniBridge.windowssys_windows_win32_system_diagnostics_processsnapshotting_PssQuerySnapshot(snapshothandle, informationclass, buffer, bufferlength.toInt()).toUInt()
+public actual fun pssQuerySnapshot(snapshothandle: Hpss, informationclass: PssQueryInformationClass, buffer: COpaquePointer?, bufferlength: UInt): UInt =
+    WindowsWin32SystemDiagnosticsProcesssnapshottingJniBridge.windowssys_windows_win32_system_diagnostics_processsnapshotting_pssQuerySnapshot((snapshothandle?.value ?: 0L), informationclass, (buffer?.value ?: 0L), bufferlength.toInt()).toUInt()
 
-public actual fun PssWalkMarkerCreate(allocator: Long, walkmarkerhandle: Long): UInt =
-    WindowsWin32SystemDiagnosticsProcesssnapshottingJniBridge.windowssys_windows_win32_system_diagnostics_processsnapshotting_PssWalkMarkerCreate(allocator, walkmarkerhandle).toUInt()
+public actual fun pssWalkMarkerCreate(allocator: COpaquePointer?, walkmarkerhandle: COpaquePointer?): UInt =
+    WindowsWin32SystemDiagnosticsProcesssnapshottingJniBridge.windowssys_windows_win32_system_diagnostics_processsnapshotting_pssWalkMarkerCreate((allocator?.value ?: 0L), (walkmarkerhandle?.value ?: 0L)).toUInt()
 
-public actual fun PssWalkMarkerFree(walkmarkerhandle: HPSSWALK): UInt =
-    WindowsWin32SystemDiagnosticsProcesssnapshottingJniBridge.windowssys_windows_win32_system_diagnostics_processsnapshotting_PssWalkMarkerFree(walkmarkerhandle).toUInt()
+public actual fun pssWalkMarkerFree(walkmarkerhandle: Hpsswalk): UInt =
+    WindowsWin32SystemDiagnosticsProcesssnapshottingJniBridge.windowssys_windows_win32_system_diagnostics_processsnapshotting_pssWalkMarkerFree((walkmarkerhandle?.value ?: 0L)).toUInt()
 
-public actual fun PssWalkMarkerGetPosition(walkmarkerhandle: HPSSWALK, position: Long): UInt =
-    WindowsWin32SystemDiagnosticsProcesssnapshottingJniBridge.windowssys_windows_win32_system_diagnostics_processsnapshotting_PssWalkMarkerGetPosition(walkmarkerhandle, position).toUInt()
+public actual fun pssWalkMarkerGetPosition(walkmarkerhandle: Hpsswalk, position: COpaquePointer?): UInt =
+    WindowsWin32SystemDiagnosticsProcesssnapshottingJniBridge.windowssys_windows_win32_system_diagnostics_processsnapshotting_pssWalkMarkerGetPosition((walkmarkerhandle?.value ?: 0L), (position?.value ?: 0L)).toUInt()
 
-public actual fun PssWalkMarkerSeekToBeginning(walkmarkerhandle: HPSSWALK): UInt =
-    WindowsWin32SystemDiagnosticsProcesssnapshottingJniBridge.windowssys_windows_win32_system_diagnostics_processsnapshotting_PssWalkMarkerSeekToBeginning(walkmarkerhandle).toUInt()
+public actual fun pssWalkMarkerSeekToBeginning(walkmarkerhandle: Hpsswalk): UInt =
+    WindowsWin32SystemDiagnosticsProcesssnapshottingJniBridge.windowssys_windows_win32_system_diagnostics_processsnapshotting_pssWalkMarkerSeekToBeginning((walkmarkerhandle?.value ?: 0L)).toUInt()
 
-public actual fun PssWalkMarkerSetPosition(walkmarkerhandle: HPSSWALK, position: ULong): UInt =
-    WindowsWin32SystemDiagnosticsProcesssnapshottingJniBridge.windowssys_windows_win32_system_diagnostics_processsnapshotting_PssWalkMarkerSetPosition(walkmarkerhandle, position.toLong()).toUInt()
+public actual fun pssWalkMarkerSetPosition(walkmarkerhandle: Hpsswalk, position: ULong): UInt =
+    WindowsWin32SystemDiagnosticsProcesssnapshottingJniBridge.windowssys_windows_win32_system_diagnostics_processsnapshotting_pssWalkMarkerSetPosition((walkmarkerhandle?.value ?: 0L), position.toLong()).toUInt()
 
-public actual fun PssWalkSnapshot(snapshothandle: HPSS, informationclass: PSS_WALK_INFORMATION_CLASS, walkmarkerhandle: HPSSWALK, buffer: Long, bufferlength: UInt): UInt =
-    WindowsWin32SystemDiagnosticsProcesssnapshottingJniBridge.windowssys_windows_win32_system_diagnostics_processsnapshotting_PssWalkSnapshot(snapshothandle, informationclass, walkmarkerhandle, buffer, bufferlength.toInt()).toUInt()
+public actual fun pssWalkSnapshot(snapshothandle: Hpss, informationclass: PssWalkInformationClass, walkmarkerhandle: Hpsswalk, buffer: COpaquePointer?, bufferlength: UInt): UInt =
+    WindowsWin32SystemDiagnosticsProcesssnapshottingJniBridge.windowssys_windows_win32_system_diagnostics_processsnapshotting_pssWalkSnapshot((snapshothandle?.value ?: 0L), informationclass, (walkmarkerhandle?.value ?: 0L), (buffer?.value ?: 0L), bufferlength.toInt()).toUInt()

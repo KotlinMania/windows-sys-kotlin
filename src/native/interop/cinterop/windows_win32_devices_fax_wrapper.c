@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_devices_fax_CanSendToFaxRecipient(void) {
+int32_t windowssys_windows_win32_devices_fax_canSendToFaxRecipient(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -36,7 +36,7 @@ int32_t windowssys_windows_win32_devices_fax_CanSendToFaxRecipient(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_fax_FaxAbort(void* faxhandle, uint32_t jobid) {
+int32_t windowssys_windows_win32_devices_fax_faxAbort(void* faxhandle, uint32_t jobid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -59,7 +59,7 @@ int32_t windowssys_windows_win32_devices_fax_FaxAbort(void* faxhandle, uint32_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_fax_FaxAccessCheck(void* faxhandle, uint32_t accessmask) {
+int32_t windowssys_windows_win32_devices_fax_faxAccessCheck(void* faxhandle, uint32_t accessmask) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -82,7 +82,7 @@ int32_t windowssys_windows_win32_devices_fax_FaxAccessCheck(void* faxhandle, uin
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_fax_FaxClose(void* faxhandle) {
+int32_t windowssys_windows_win32_devices_fax_faxClose(void* faxhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -104,7 +104,7 @@ int32_t windowssys_windows_win32_devices_fax_FaxClose(void* faxhandle) {
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_fax_FaxCompleteJobParamsA(void* jobparams, void* coverpageinfo) {
+int32_t windowssys_windows_win32_devices_fax_faxCompleteJobParamsA(void* jobparams, void* coverpageinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -127,7 +127,7 @@ int32_t windowssys_windows_win32_devices_fax_FaxCompleteJobParamsA(void* jobpara
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_fax_FaxCompleteJobParamsW(void* jobparams, void* coverpageinfo) {
+int32_t windowssys_windows_win32_devices_fax_faxCompleteJobParamsW(void* jobparams, void* coverpageinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -150,7 +150,7 @@ int32_t windowssys_windows_win32_devices_fax_FaxCompleteJobParamsW(void* jobpara
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_fax_FaxConnectFaxServerA(void* machinename, void* faxhandle) {
+int32_t windowssys_windows_win32_devices_fax_faxConnectFaxServerA(void* machinename, void* faxhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -173,7 +173,7 @@ int32_t windowssys_windows_win32_devices_fax_FaxConnectFaxServerA(void* machinen
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_fax_FaxConnectFaxServerW(void* machinename, void* faxhandle) {
+int32_t windowssys_windows_win32_devices_fax_faxConnectFaxServerW(void* machinename, void* faxhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -196,7 +196,7 @@ int32_t windowssys_windows_win32_devices_fax_FaxConnectFaxServerW(void* machinen
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_fax_FaxEnableRoutingMethodA(void* faxporthandle, void* routingguid, int32_t enabled) {
+int32_t windowssys_windows_win32_devices_fax_faxEnableRoutingMethodA(void* faxporthandle, void* routingguid, int32_t enabled) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -220,7 +220,7 @@ int32_t windowssys_windows_win32_devices_fax_FaxEnableRoutingMethodA(void* faxpo
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_fax_FaxEnableRoutingMethodW(void* faxporthandle, void* routingguid, int32_t enabled) {
+int32_t windowssys_windows_win32_devices_fax_faxEnableRoutingMethodW(void* faxporthandle, void* routingguid, int32_t enabled) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -244,7 +244,7 @@ int32_t windowssys_windows_win32_devices_fax_FaxEnableRoutingMethodW(void* faxpo
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_fax_FaxEnumGlobalRoutingInfoA(void* faxhandle, void* routinginfo, void* methodsreturned) {
+int32_t windowssys_windows_win32_devices_fax_faxEnumGlobalRoutingInfoA(void* faxhandle, void* routinginfo, void* methodsreturned) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -268,7 +268,7 @@ int32_t windowssys_windows_win32_devices_fax_FaxEnumGlobalRoutingInfoA(void* fax
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_fax_FaxEnumGlobalRoutingInfoW(void* faxhandle, void* routinginfo, void* methodsreturned) {
+int32_t windowssys_windows_win32_devices_fax_faxEnumGlobalRoutingInfoW(void* faxhandle, void* routinginfo, void* methodsreturned) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -292,7 +292,7 @@ int32_t windowssys_windows_win32_devices_fax_FaxEnumGlobalRoutingInfoW(void* fax
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_fax_FaxEnumJobsA(void* faxhandle, void* jobentry, void* jobsreturned) {
+int32_t windowssys_windows_win32_devices_fax_faxEnumJobsA(void* faxhandle, void* jobentry, void* jobsreturned) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -316,7 +316,7 @@ int32_t windowssys_windows_win32_devices_fax_FaxEnumJobsA(void* faxhandle, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_fax_FaxEnumJobsW(void* faxhandle, void* jobentry, void* jobsreturned) {
+int32_t windowssys_windows_win32_devices_fax_faxEnumJobsW(void* faxhandle, void* jobentry, void* jobsreturned) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -340,7 +340,7 @@ int32_t windowssys_windows_win32_devices_fax_FaxEnumJobsW(void* faxhandle, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_fax_FaxEnumPortsA(void* faxhandle, void* portinfo, void* portsreturned) {
+int32_t windowssys_windows_win32_devices_fax_faxEnumPortsA(void* faxhandle, void* portinfo, void* portsreturned) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -364,7 +364,7 @@ int32_t windowssys_windows_win32_devices_fax_FaxEnumPortsA(void* faxhandle, void
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_fax_FaxEnumPortsW(void* faxhandle, void* portinfo, void* portsreturned) {
+int32_t windowssys_windows_win32_devices_fax_faxEnumPortsW(void* faxhandle, void* portinfo, void* portsreturned) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -388,7 +388,7 @@ int32_t windowssys_windows_win32_devices_fax_FaxEnumPortsW(void* faxhandle, void
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_fax_FaxEnumRoutingMethodsA(void* faxporthandle, void* routingmethod, void* methodsreturned) {
+int32_t windowssys_windows_win32_devices_fax_faxEnumRoutingMethodsA(void* faxporthandle, void* routingmethod, void* methodsreturned) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -412,7 +412,7 @@ int32_t windowssys_windows_win32_devices_fax_FaxEnumRoutingMethodsA(void* faxpor
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_fax_FaxEnumRoutingMethodsW(void* faxporthandle, void* routingmethod, void* methodsreturned) {
+int32_t windowssys_windows_win32_devices_fax_faxEnumRoutingMethodsW(void* faxporthandle, void* routingmethod, void* methodsreturned) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -436,7 +436,7 @@ int32_t windowssys_windows_win32_devices_fax_FaxEnumRoutingMethodsW(void* faxpor
 #endif
 }
 
-void windowssys_windows_win32_devices_fax_FaxFreeBuffer(void* buffer) {
+void windowssys_windows_win32_devices_fax_faxFreeBuffer(void* buffer) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -457,7 +457,7 @@ void windowssys_windows_win32_devices_fax_FaxFreeBuffer(void* buffer) {
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_fax_FaxGetConfigurationA(void* faxhandle, void* faxconfig) {
+int32_t windowssys_windows_win32_devices_fax_faxGetConfigurationA(void* faxhandle, void* faxconfig) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -480,7 +480,7 @@ int32_t windowssys_windows_win32_devices_fax_FaxGetConfigurationA(void* faxhandl
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_fax_FaxGetConfigurationW(void* faxhandle, void* faxconfig) {
+int32_t windowssys_windows_win32_devices_fax_faxGetConfigurationW(void* faxhandle, void* faxconfig) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -503,7 +503,7 @@ int32_t windowssys_windows_win32_devices_fax_FaxGetConfigurationW(void* faxhandl
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_fax_FaxGetDeviceStatusA(void* faxporthandle, void* devicestatus) {
+int32_t windowssys_windows_win32_devices_fax_faxGetDeviceStatusA(void* faxporthandle, void* devicestatus) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -526,7 +526,7 @@ int32_t windowssys_windows_win32_devices_fax_FaxGetDeviceStatusA(void* faxportha
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_fax_FaxGetDeviceStatusW(void* faxporthandle, void* devicestatus) {
+int32_t windowssys_windows_win32_devices_fax_faxGetDeviceStatusW(void* faxporthandle, void* devicestatus) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -549,7 +549,7 @@ int32_t windowssys_windows_win32_devices_fax_FaxGetDeviceStatusW(void* faxportha
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_fax_FaxGetJobA(void* faxhandle, uint32_t jobid, void* jobentry) {
+int32_t windowssys_windows_win32_devices_fax_faxGetJobA(void* faxhandle, uint32_t jobid, void* jobentry) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -573,7 +573,7 @@ int32_t windowssys_windows_win32_devices_fax_FaxGetJobA(void* faxhandle, uint32_
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_fax_FaxGetJobW(void* faxhandle, uint32_t jobid, void* jobentry) {
+int32_t windowssys_windows_win32_devices_fax_faxGetJobW(void* faxhandle, uint32_t jobid, void* jobentry) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -597,7 +597,7 @@ int32_t windowssys_windows_win32_devices_fax_FaxGetJobW(void* faxhandle, uint32_
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_fax_FaxGetLoggingCategoriesA(void* faxhandle, void* categories, void* numbercategories) {
+int32_t windowssys_windows_win32_devices_fax_faxGetLoggingCategoriesA(void* faxhandle, void* categories, void* numbercategories) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -621,7 +621,7 @@ int32_t windowssys_windows_win32_devices_fax_FaxGetLoggingCategoriesA(void* faxh
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_fax_FaxGetLoggingCategoriesW(void* faxhandle, void* categories, void* numbercategories) {
+int32_t windowssys_windows_win32_devices_fax_faxGetLoggingCategoriesW(void* faxhandle, void* categories, void* numbercategories) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -645,7 +645,7 @@ int32_t windowssys_windows_win32_devices_fax_FaxGetLoggingCategoriesW(void* faxh
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_fax_FaxGetPageData(void* faxhandle, uint32_t jobid, void* buffer, void* buffersize, void* imagewidth, void* imageheight) {
+int32_t windowssys_windows_win32_devices_fax_faxGetPageData(void* faxhandle, uint32_t jobid, void* buffer, void* buffersize, void* imagewidth, void* imageheight) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -672,7 +672,7 @@ int32_t windowssys_windows_win32_devices_fax_FaxGetPageData(void* faxhandle, uin
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_fax_FaxGetPortA(void* faxporthandle, void* portinfo) {
+int32_t windowssys_windows_win32_devices_fax_faxGetPortA(void* faxporthandle, void* portinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -695,7 +695,7 @@ int32_t windowssys_windows_win32_devices_fax_FaxGetPortA(void* faxporthandle, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_fax_FaxGetPortW(void* faxporthandle, void* portinfo) {
+int32_t windowssys_windows_win32_devices_fax_faxGetPortW(void* faxporthandle, void* portinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -718,7 +718,7 @@ int32_t windowssys_windows_win32_devices_fax_FaxGetPortW(void* faxporthandle, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_fax_FaxGetRoutingInfoA(void* faxporthandle, void* routingguid, void* routinginfobuffer, void* routinginfobuffersize) {
+int32_t windowssys_windows_win32_devices_fax_faxGetRoutingInfoA(void* faxporthandle, void* routingguid, void* routinginfobuffer, void* routinginfobuffersize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -743,7 +743,7 @@ int32_t windowssys_windows_win32_devices_fax_FaxGetRoutingInfoA(void* faxporthan
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_fax_FaxGetRoutingInfoW(void* faxporthandle, void* routingguid, void* routinginfobuffer, void* routinginfobuffersize) {
+int32_t windowssys_windows_win32_devices_fax_faxGetRoutingInfoW(void* faxporthandle, void* routingguid, void* routinginfobuffer, void* routinginfobuffersize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -768,7 +768,7 @@ int32_t windowssys_windows_win32_devices_fax_FaxGetRoutingInfoW(void* faxporthan
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_fax_FaxInitializeEventQueue(void* faxhandle, void* completionport, uint64_t completionkey, void* hwnd, uint32_t messagestart) {
+int32_t windowssys_windows_win32_devices_fax_faxInitializeEventQueue(void* faxhandle, void* completionport, uint64_t completionkey, void* hwnd, uint32_t messagestart) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -794,7 +794,7 @@ int32_t windowssys_windows_win32_devices_fax_FaxInitializeEventQueue(void* faxha
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_fax_FaxOpenPort(void* faxhandle, uint32_t deviceid, uint32_t flags, void* faxporthandle) {
+int32_t windowssys_windows_win32_devices_fax_faxOpenPort(void* faxhandle, uint32_t deviceid, uint32_t flags, void* faxporthandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -819,7 +819,7 @@ int32_t windowssys_windows_win32_devices_fax_FaxOpenPort(void* faxhandle, uint32
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_fax_FaxPrintCoverPageA(void* faxcontextinfo, void* coverpageinfo) {
+int32_t windowssys_windows_win32_devices_fax_faxPrintCoverPageA(void* faxcontextinfo, void* coverpageinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -842,7 +842,7 @@ int32_t windowssys_windows_win32_devices_fax_FaxPrintCoverPageA(void* faxcontext
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_fax_FaxPrintCoverPageW(void* faxcontextinfo, void* coverpageinfo) {
+int32_t windowssys_windows_win32_devices_fax_faxPrintCoverPageW(void* faxcontextinfo, void* coverpageinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -865,7 +865,7 @@ int32_t windowssys_windows_win32_devices_fax_FaxPrintCoverPageW(void* faxcontext
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_fax_FaxRegisterRoutingExtensionW(void* faxhandle, void* extensionname, void* friendlyname, void* imagename, void* callback, void* context) {
+int32_t windowssys_windows_win32_devices_fax_faxRegisterRoutingExtensionW(void* faxhandle, void* extensionname, void* friendlyname, void* imagename, void* callback, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -892,7 +892,7 @@ int32_t windowssys_windows_win32_devices_fax_FaxRegisterRoutingExtensionW(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_fax_FaxRegisterServiceProviderW(void* deviceprovider, void* friendlyname, void* imagename, void* tspname) {
+int32_t windowssys_windows_win32_devices_fax_faxRegisterServiceProviderW(void* deviceprovider, void* friendlyname, void* imagename, void* tspname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -917,7 +917,7 @@ int32_t windowssys_windows_win32_devices_fax_FaxRegisterServiceProviderW(void* d
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_fax_FaxSendDocumentA(void* faxhandle, void* filename, void* jobparams, void* coverpageinfo, void* faxjobid) {
+int32_t windowssys_windows_win32_devices_fax_faxSendDocumentA(void* faxhandle, void* filename, void* jobparams, void* coverpageinfo, void* faxjobid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -943,7 +943,7 @@ int32_t windowssys_windows_win32_devices_fax_FaxSendDocumentA(void* faxhandle, v
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_fax_FaxSendDocumentForBroadcastA(void* faxhandle, void* filename, void* faxjobid, void* faxrecipientcallback, void* context) {
+int32_t windowssys_windows_win32_devices_fax_faxSendDocumentForBroadcastA(void* faxhandle, void* filename, void* faxjobid, void* faxrecipientcallback, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -969,7 +969,7 @@ int32_t windowssys_windows_win32_devices_fax_FaxSendDocumentForBroadcastA(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_fax_FaxSendDocumentForBroadcastW(void* faxhandle, void* filename, void* faxjobid, void* faxrecipientcallback, void* context) {
+int32_t windowssys_windows_win32_devices_fax_faxSendDocumentForBroadcastW(void* faxhandle, void* filename, void* faxjobid, void* faxrecipientcallback, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -995,7 +995,7 @@ int32_t windowssys_windows_win32_devices_fax_FaxSendDocumentForBroadcastW(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_fax_FaxSendDocumentW(void* faxhandle, void* filename, void* jobparams, void* coverpageinfo, void* faxjobid) {
+int32_t windowssys_windows_win32_devices_fax_faxSendDocumentW(void* faxhandle, void* filename, void* jobparams, void* coverpageinfo, void* faxjobid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1021,7 +1021,7 @@ int32_t windowssys_windows_win32_devices_fax_FaxSendDocumentW(void* faxhandle, v
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_fax_FaxSetConfigurationA(void* faxhandle, void* faxconfig) {
+int32_t windowssys_windows_win32_devices_fax_faxSetConfigurationA(void* faxhandle, void* faxconfig) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1044,7 +1044,7 @@ int32_t windowssys_windows_win32_devices_fax_FaxSetConfigurationA(void* faxhandl
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_fax_FaxSetConfigurationW(void* faxhandle, void* faxconfig) {
+int32_t windowssys_windows_win32_devices_fax_faxSetConfigurationW(void* faxhandle, void* faxconfig) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1067,7 +1067,7 @@ int32_t windowssys_windows_win32_devices_fax_FaxSetConfigurationW(void* faxhandl
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_fax_FaxSetGlobalRoutingInfoA(void* faxhandle, void* routinginfo) {
+int32_t windowssys_windows_win32_devices_fax_faxSetGlobalRoutingInfoA(void* faxhandle, void* routinginfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1090,7 +1090,7 @@ int32_t windowssys_windows_win32_devices_fax_FaxSetGlobalRoutingInfoA(void* faxh
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_fax_FaxSetGlobalRoutingInfoW(void* faxhandle, void* routinginfo) {
+int32_t windowssys_windows_win32_devices_fax_faxSetGlobalRoutingInfoW(void* faxhandle, void* routinginfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1113,7 +1113,7 @@ int32_t windowssys_windows_win32_devices_fax_FaxSetGlobalRoutingInfoW(void* faxh
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_fax_FaxSetJobA(void* faxhandle, uint32_t jobid, uint32_t command, void* jobentry) {
+int32_t windowssys_windows_win32_devices_fax_faxSetJobA(void* faxhandle, uint32_t jobid, uint32_t command, void* jobentry) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1138,7 +1138,7 @@ int32_t windowssys_windows_win32_devices_fax_FaxSetJobA(void* faxhandle, uint32_
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_fax_FaxSetJobW(void* faxhandle, uint32_t jobid, uint32_t command, void* jobentry) {
+int32_t windowssys_windows_win32_devices_fax_faxSetJobW(void* faxhandle, uint32_t jobid, uint32_t command, void* jobentry) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1163,7 +1163,7 @@ int32_t windowssys_windows_win32_devices_fax_FaxSetJobW(void* faxhandle, uint32_
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_fax_FaxSetLoggingCategoriesA(void* faxhandle, void* categories, uint32_t numbercategories) {
+int32_t windowssys_windows_win32_devices_fax_faxSetLoggingCategoriesA(void* faxhandle, void* categories, uint32_t numbercategories) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1187,7 +1187,7 @@ int32_t windowssys_windows_win32_devices_fax_FaxSetLoggingCategoriesA(void* faxh
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_fax_FaxSetLoggingCategoriesW(void* faxhandle, void* categories, uint32_t numbercategories) {
+int32_t windowssys_windows_win32_devices_fax_faxSetLoggingCategoriesW(void* faxhandle, void* categories, uint32_t numbercategories) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1211,7 +1211,7 @@ int32_t windowssys_windows_win32_devices_fax_FaxSetLoggingCategoriesW(void* faxh
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_fax_FaxSetPortA(void* faxporthandle, void* portinfo) {
+int32_t windowssys_windows_win32_devices_fax_faxSetPortA(void* faxporthandle, void* portinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1234,7 +1234,7 @@ int32_t windowssys_windows_win32_devices_fax_FaxSetPortA(void* faxporthandle, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_fax_FaxSetPortW(void* faxporthandle, void* portinfo) {
+int32_t windowssys_windows_win32_devices_fax_faxSetPortW(void* faxporthandle, void* portinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1257,7 +1257,7 @@ int32_t windowssys_windows_win32_devices_fax_FaxSetPortW(void* faxporthandle, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_fax_FaxSetRoutingInfoA(void* faxporthandle, void* routingguid, void* routinginfobuffer, uint32_t routinginfobuffersize) {
+int32_t windowssys_windows_win32_devices_fax_faxSetRoutingInfoA(void* faxporthandle, void* routingguid, void* routinginfobuffer, uint32_t routinginfobuffersize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1282,7 +1282,7 @@ int32_t windowssys_windows_win32_devices_fax_FaxSetRoutingInfoA(void* faxporthan
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_fax_FaxSetRoutingInfoW(void* faxporthandle, void* routingguid, void* routinginfobuffer, uint32_t routinginfobuffersize) {
+int32_t windowssys_windows_win32_devices_fax_faxSetRoutingInfoW(void* faxporthandle, void* routingguid, void* routinginfobuffer, uint32_t routinginfobuffersize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1307,7 +1307,7 @@ int32_t windowssys_windows_win32_devices_fax_FaxSetRoutingInfoW(void* faxporthan
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_fax_FaxStartPrintJobA(void* printername, void* printinfo, void* faxjobid, void* faxcontextinfo) {
+int32_t windowssys_windows_win32_devices_fax_faxStartPrintJobA(void* printername, void* printinfo, void* faxjobid, void* faxcontextinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1332,7 +1332,7 @@ int32_t windowssys_windows_win32_devices_fax_FaxStartPrintJobA(void* printername
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_fax_FaxStartPrintJobW(void* printername, void* printinfo, void* faxjobid, void* faxcontextinfo) {
+int32_t windowssys_windows_win32_devices_fax_faxStartPrintJobW(void* printername, void* printinfo, void* faxjobid, void* faxcontextinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1357,7 +1357,7 @@ int32_t windowssys_windows_win32_devices_fax_FaxStartPrintJobW(void* printername
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_fax_FaxUnregisterServiceProviderW(void* deviceprovider) {
+int32_t windowssys_windows_win32_devices_fax_faxUnregisterServiceProviderW(void* deviceprovider) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1379,7 +1379,7 @@ int32_t windowssys_windows_win32_devices_fax_FaxUnregisterServiceProviderW(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_fax_SendToFaxRecipient(int32_t sndmode, void* lpfilename) {
+uint32_t windowssys_windows_win32_devices_fax_sendToFaxRecipient(int32_t sndmode, void* lpfilename) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1402,7 +1402,7 @@ uint32_t windowssys_windows_win32_devices_fax_SendToFaxRecipient(int32_t sndmode
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_fax_StiCreateInstanceW(void* hinst, uint32_t dwver, void* ppsti, void* punkouter) {
+int32_t windowssys_windows_win32_devices_fax_stiCreateInstanceW(void* hinst, uint32_t dwver, void* ppsti, void* punkouter) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;

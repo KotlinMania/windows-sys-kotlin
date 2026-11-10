@@ -9,27 +9,27 @@
 extern "C" {
 #endif
 
-int32_t windowssys_windows_win32_ui_controls_dialogs_ChooseColorA(void* param0);
-int32_t windowssys_windows_win32_ui_controls_dialogs_ChooseColorW(void* param0);
-int32_t windowssys_windows_win32_ui_controls_dialogs_ChooseFontA(void* param0);
-int32_t windowssys_windows_win32_ui_controls_dialogs_ChooseFontW(void* param0);
-uint32_t windowssys_windows_win32_ui_controls_dialogs_CommDlgExtendedError(void);
-void* windowssys_windows_win32_ui_controls_dialogs_FindTextA(void* param0);
-void* windowssys_windows_win32_ui_controls_dialogs_FindTextW(void* param0);
-int16_t windowssys_windows_win32_ui_controls_dialogs_GetFileTitleA(void* param0, void* buf, uint16_t cchsize);
-int16_t windowssys_windows_win32_ui_controls_dialogs_GetFileTitleW(void* param0, void* buf, uint16_t cchsize);
-int32_t windowssys_windows_win32_ui_controls_dialogs_GetOpenFileNameA(void* param0);
-int32_t windowssys_windows_win32_ui_controls_dialogs_GetOpenFileNameW(void* param0);
-int32_t windowssys_windows_win32_ui_controls_dialogs_GetSaveFileNameA(void* param0);
-int32_t windowssys_windows_win32_ui_controls_dialogs_GetSaveFileNameW(void* param0);
-int32_t windowssys_windows_win32_ui_controls_dialogs_PageSetupDlgA(void* param0);
-int32_t windowssys_windows_win32_ui_controls_dialogs_PageSetupDlgW(void* param0);
-int32_t windowssys_windows_win32_ui_controls_dialogs_PrintDlgA(void* ppd);
-int32_t windowssys_windows_win32_ui_controls_dialogs_PrintDlgExA(void* ppd);
-int32_t windowssys_windows_win32_ui_controls_dialogs_PrintDlgExW(void* ppd);
-int32_t windowssys_windows_win32_ui_controls_dialogs_PrintDlgW(void* ppd);
-void* windowssys_windows_win32_ui_controls_dialogs_ReplaceTextA(void* param0);
-void* windowssys_windows_win32_ui_controls_dialogs_ReplaceTextW(void* param0);
+int32_t windowssys_windows_win32_ui_controls_dialogs_chooseColorA(void* param0);
+int32_t windowssys_windows_win32_ui_controls_dialogs_chooseColorW(void* param0);
+int32_t windowssys_windows_win32_ui_controls_dialogs_chooseFontA(void* param0);
+int32_t windowssys_windows_win32_ui_controls_dialogs_chooseFontW(void* param0);
+uint32_t windowssys_windows_win32_ui_controls_dialogs_commDlgExtendedError(void);
+void* windowssys_windows_win32_ui_controls_dialogs_findTextA(void* param0);
+void* windowssys_windows_win32_ui_controls_dialogs_findTextW(void* param0);
+int16_t windowssys_windows_win32_ui_controls_dialogs_getFileTitleA(void* param0, void* buf, uint16_t cchsize);
+int16_t windowssys_windows_win32_ui_controls_dialogs_getFileTitleW(void* param0, void* buf, uint16_t cchsize);
+int32_t windowssys_windows_win32_ui_controls_dialogs_getOpenFileNameA(void* param0);
+int32_t windowssys_windows_win32_ui_controls_dialogs_getOpenFileNameW(void* param0);
+int32_t windowssys_windows_win32_ui_controls_dialogs_getSaveFileNameA(void* param0);
+int32_t windowssys_windows_win32_ui_controls_dialogs_getSaveFileNameW(void* param0);
+int32_t windowssys_windows_win32_ui_controls_dialogs_pageSetupDlgA(void* param0);
+int32_t windowssys_windows_win32_ui_controls_dialogs_pageSetupDlgW(void* param0);
+int32_t windowssys_windows_win32_ui_controls_dialogs_printDlgA(void* ppd);
+int32_t windowssys_windows_win32_ui_controls_dialogs_printDlgExA(void* ppd);
+int32_t windowssys_windows_win32_ui_controls_dialogs_printDlgExW(void* ppd);
+int32_t windowssys_windows_win32_ui_controls_dialogs_printDlgW(void* ppd);
+void* windowssys_windows_win32_ui_controls_dialogs_replaceTextA(void* param0);
+void* windowssys_windows_win32_ui_controls_dialogs_replaceTextW(void* param0);
 
 #ifdef __cplusplus
 }

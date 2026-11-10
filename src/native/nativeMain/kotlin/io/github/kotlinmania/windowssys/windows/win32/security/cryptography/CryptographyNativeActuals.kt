@@ -2,1432 +2,1433 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.security.cryptography
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HMODULE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
-import io.github.kotlinmania.windowssys.windows.win32.security.NCRYPT_DESCRIPTOR_HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.security.NCRYPT_STREAM_HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.security.OBJECT_SECURITY_INFORMATION
-import io.github.kotlinmania.windowssys.windows.win32.security.PSID
-import io.github.kotlinmania.windowssys.windows.win32.system.registry.REG_VALUE_TYPE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hmodule
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
+import io.github.kotlinmania.windowssys.windows.win32.security.NcryptDescriptorHandle
+import io.github.kotlinmania.windowssys.windows.win32.security.NcryptStreamHandle
+import io.github.kotlinmania.windowssys.windows.win32.security.ObjectSecurityInformation
+import io.github.kotlinmania.windowssys.windows.win32.security.Psid
+import io.github.kotlinmania.windowssys.windows.win32.system.registry.RegValueType
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun BCryptAddContextFunction(dwtable: BCRYPT_TABLE, pszcontext: PCWSTR, dwinterface: BCRYPT_INTERFACE, pszfunction: PCWSTR, dwposition: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_BCryptAddContextFunction(dwtable, pszcontext.toCPointer<ByteVar>(), dwinterface, pszfunction.toCPointer<ByteVar>(), dwposition)
+public actual fun bCryptAddContextFunction(dwtable: BcryptTable, pszcontext: Pcwstr, dwinterface: BcryptInterface, pszfunction: Pcwstr, dwposition: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_bCryptAddContextFunction(dwtable, pszcontext?.value?.toCPointer<ByteVar>(), dwinterface, pszfunction?.value?.toCPointer<ByteVar>(), dwposition)
 
-public actual fun BCryptAddContextFunctionProvider(dwtable: UInt, pszcontext: PCWSTR, dwinterface: UInt, pszfunction: PCWSTR, pszprovider: PCWSTR, dwposition: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_BCryptAddContextFunctionProvider(dwtable, pszcontext.toCPointer<ByteVar>(), dwinterface, pszfunction.toCPointer<ByteVar>(), pszprovider.toCPointer<ByteVar>(), dwposition)
+public actual fun bCryptAddContextFunctionProvider(dwtable: UInt, pszcontext: Pcwstr, dwinterface: UInt, pszfunction: Pcwstr, pszprovider: Pcwstr, dwposition: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_bCryptAddContextFunctionProvider(dwtable, pszcontext?.value?.toCPointer<ByteVar>(), dwinterface, pszfunction?.value?.toCPointer<ByteVar>(), pszprovider?.value?.toCPointer<ByteVar>(), dwposition)
 
-public actual fun BCryptCloseAlgorithmProvider(halgorithm: BCRYPT_ALG_HANDLE, dwflags: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_BCryptCloseAlgorithmProvider(halgorithm.toCPointer<ByteVar>(), dwflags)
+public actual fun bCryptCloseAlgorithmProvider(halgorithm: BcryptAlgHandle, dwflags: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_bCryptCloseAlgorithmProvider(halgorithm?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun BCryptConfigureContext(dwtable: BCRYPT_TABLE, pszcontext: PCWSTR, pconfig: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_BCryptConfigureContext(dwtable, pszcontext.toCPointer<ByteVar>(), pconfig.toCPointer<ByteVar>())
+public actual fun bCryptConfigureContext(dwtable: BcryptTable, pszcontext: Pcwstr, pconfig: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_bCryptConfigureContext(dwtable, pszcontext?.value?.toCPointer<ByteVar>(), pconfig?.value?.toCPointer<ByteVar>())
 
-public actual fun BCryptConfigureContextFunction(dwtable: BCRYPT_TABLE, pszcontext: PCWSTR, dwinterface: BCRYPT_INTERFACE, pszfunction: PCWSTR, pconfig: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_BCryptConfigureContextFunction(dwtable, pszcontext.toCPointer<ByteVar>(), dwinterface, pszfunction.toCPointer<ByteVar>(), pconfig.toCPointer<ByteVar>())
+public actual fun bCryptConfigureContextFunction(dwtable: BcryptTable, pszcontext: Pcwstr, dwinterface: BcryptInterface, pszfunction: Pcwstr, pconfig: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_bCryptConfigureContextFunction(dwtable, pszcontext?.value?.toCPointer<ByteVar>(), dwinterface, pszfunction?.value?.toCPointer<ByteVar>(), pconfig?.value?.toCPointer<ByteVar>())
 
-public actual fun BCryptCreateContext(dwtable: BCRYPT_TABLE, pszcontext: PCWSTR, pconfig: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_BCryptCreateContext(dwtable, pszcontext.toCPointer<ByteVar>(), pconfig.toCPointer<ByteVar>())
+public actual fun bCryptCreateContext(dwtable: BcryptTable, pszcontext: Pcwstr, pconfig: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_bCryptCreateContext(dwtable, pszcontext?.value?.toCPointer<ByteVar>(), pconfig?.value?.toCPointer<ByteVar>())
 
-public actual fun BCryptCreateHash(halgorithm: BCRYPT_ALG_HANDLE, phhash: Long, pbhashobject: Long, cbhashobject: UInt, pbsecret: Long, cbsecret: UInt, dwflags: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_BCryptCreateHash(halgorithm.toCPointer<ByteVar>(), phhash.toCPointer<ByteVar>(), pbhashobject.toCPointer<ByteVar>(), cbhashobject, pbsecret.toCPointer<ByteVar>(), cbsecret, dwflags)
+public actual fun bCryptCreateHash(halgorithm: BcryptAlgHandle, phhash: COpaquePointer?, pbhashobject: COpaquePointer?, cbhashobject: UInt, pbsecret: COpaquePointer?, cbsecret: UInt, dwflags: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_bCryptCreateHash(halgorithm?.value?.toCPointer<ByteVar>(), phhash?.value?.toCPointer<ByteVar>(), pbhashobject?.value?.toCPointer<ByteVar>(), cbhashobject, pbsecret?.value?.toCPointer<ByteVar>(), cbsecret, dwflags)
 
-public actual fun BCryptCreateMultiHash(halgorithm: BCRYPT_ALG_HANDLE, phhash: Long, nhashes: UInt, pbhashobject: Long, cbhashobject: UInt, pbsecret: Long, cbsecret: UInt, dwflags: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_BCryptCreateMultiHash(halgorithm.toCPointer<ByteVar>(), phhash.toCPointer<ByteVar>(), nhashes, pbhashobject.toCPointer<ByteVar>(), cbhashobject, pbsecret.toCPointer<ByteVar>(), cbsecret, dwflags)
+public actual fun bCryptCreateMultiHash(halgorithm: BcryptAlgHandle, phhash: COpaquePointer?, nhashes: UInt, pbhashobject: COpaquePointer?, cbhashobject: UInt, pbsecret: COpaquePointer?, cbsecret: UInt, dwflags: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_bCryptCreateMultiHash(halgorithm?.value?.toCPointer<ByteVar>(), phhash?.value?.toCPointer<ByteVar>(), nhashes, pbhashobject?.value?.toCPointer<ByteVar>(), cbhashobject, pbsecret?.value?.toCPointer<ByteVar>(), cbsecret, dwflags)
 
-public actual fun BCryptDecrypt(hkey: BCRYPT_KEY_HANDLE, pbinput: Long, cbinput: UInt, ppaddinginfo: Long, pbiv: Long, cbiv: UInt, pboutput: Long, cboutput: UInt, pcbresult: Long, dwflags: BCRYPT_FLAGS): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_BCryptDecrypt(hkey.toCPointer<ByteVar>(), pbinput.toCPointer<ByteVar>(), cbinput, ppaddinginfo.toCPointer<ByteVar>(), pbiv.toCPointer<ByteVar>(), cbiv, pboutput.toCPointer<ByteVar>(), cboutput, pcbresult.toCPointer<ByteVar>(), dwflags)
+public actual fun bCryptDecrypt(hkey: BcryptKeyHandle, pbinput: COpaquePointer?, cbinput: UInt, ppaddinginfo: COpaquePointer?, pbiv: COpaquePointer?, cbiv: UInt, pboutput: COpaquePointer?, cboutput: UInt, pcbresult: COpaquePointer?, dwflags: BcryptFlags): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_bCryptDecrypt(hkey?.value?.toCPointer<ByteVar>(), pbinput?.value?.toCPointer<ByteVar>(), cbinput, ppaddinginfo?.value?.toCPointer<ByteVar>(), pbiv?.value?.toCPointer<ByteVar>(), cbiv, pboutput?.value?.toCPointer<ByteVar>(), cboutput, pcbresult?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun BCryptDeleteContext(dwtable: BCRYPT_TABLE, pszcontext: PCWSTR): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_BCryptDeleteContext(dwtable, pszcontext.toCPointer<ByteVar>())
+public actual fun bCryptDeleteContext(dwtable: BcryptTable, pszcontext: Pcwstr): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_bCryptDeleteContext(dwtable, pszcontext?.value?.toCPointer<ByteVar>())
 
-public actual fun BCryptDeriveKey(hsharedsecret: BCRYPT_SECRET_HANDLE, pwszkdf: PCWSTR, pparameterlist: Long, pbderivedkey: Long, cbderivedkey: UInt, pcbresult: Long, dwflags: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_BCryptDeriveKey(hsharedsecret.toCPointer<ByteVar>(), pwszkdf.toCPointer<ByteVar>(), pparameterlist.toCPointer<ByteVar>(), pbderivedkey.toCPointer<ByteVar>(), cbderivedkey, pcbresult.toCPointer<ByteVar>(), dwflags)
+public actual fun bCryptDeriveKey(hsharedsecret: BcryptSecretHandle, pwszkdf: Pcwstr, pparameterlist: COpaquePointer?, pbderivedkey: COpaquePointer?, cbderivedkey: UInt, pcbresult: COpaquePointer?, dwflags: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_bCryptDeriveKey(hsharedsecret?.value?.toCPointer<ByteVar>(), pwszkdf?.value?.toCPointer<ByteVar>(), pparameterlist?.value?.toCPointer<ByteVar>(), pbderivedkey?.value?.toCPointer<ByteVar>(), cbderivedkey, pcbresult?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun BCryptDeriveKeyCapi(hhash: BCRYPT_HASH_HANDLE, htargetalg: BCRYPT_ALG_HANDLE, pbderivedkey: Long, cbderivedkey: UInt, dwflags: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_BCryptDeriveKeyCapi(hhash.toCPointer<ByteVar>(), htargetalg.toCPointer<ByteVar>(), pbderivedkey.toCPointer<ByteVar>(), cbderivedkey, dwflags)
+public actual fun bCryptDeriveKeyCapi(hhash: BcryptHashHandle, htargetalg: BcryptAlgHandle, pbderivedkey: COpaquePointer?, cbderivedkey: UInt, dwflags: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_bCryptDeriveKeyCapi(hhash?.value?.toCPointer<ByteVar>(), htargetalg?.value?.toCPointer<ByteVar>(), pbderivedkey?.value?.toCPointer<ByteVar>(), cbderivedkey, dwflags)
 
-public actual fun BCryptDeriveKeyPBKDF2(hprf: BCRYPT_ALG_HANDLE, pbpassword: Long, cbpassword: UInt, pbsalt: Long, cbsalt: UInt, citerations: ULong, pbderivedkey: Long, cbderivedkey: UInt, dwflags: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_BCryptDeriveKeyPBKDF2(hprf.toCPointer<ByteVar>(), pbpassword.toCPointer<ByteVar>(), cbpassword, pbsalt.toCPointer<ByteVar>(), cbsalt, citerations, pbderivedkey.toCPointer<ByteVar>(), cbderivedkey, dwflags)
+public actual fun bCryptDeriveKeyPBKDF2(hprf: BcryptAlgHandle, pbpassword: COpaquePointer?, cbpassword: UInt, pbsalt: COpaquePointer?, cbsalt: UInt, citerations: ULong, pbderivedkey: COpaquePointer?, cbderivedkey: UInt, dwflags: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_bCryptDeriveKeyPBKDF2(hprf?.value?.toCPointer<ByteVar>(), pbpassword?.value?.toCPointer<ByteVar>(), cbpassword, pbsalt?.value?.toCPointer<ByteVar>(), cbsalt, citerations, pbderivedkey?.value?.toCPointer<ByteVar>(), cbderivedkey, dwflags)
 
-public actual fun BCryptDestroyHash(hhash: BCRYPT_HASH_HANDLE): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_BCryptDestroyHash(hhash.toCPointer<ByteVar>())
+public actual fun bCryptDestroyHash(hhash: BcryptHashHandle): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_bCryptDestroyHash(hhash?.value?.toCPointer<ByteVar>())
 
-public actual fun BCryptDestroyKey(hkey: BCRYPT_KEY_HANDLE): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_BCryptDestroyKey(hkey.toCPointer<ByteVar>())
+public actual fun bCryptDestroyKey(hkey: BcryptKeyHandle): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_bCryptDestroyKey(hkey?.value?.toCPointer<ByteVar>())
 
-public actual fun BCryptDestroySecret(hsecret: BCRYPT_SECRET_HANDLE): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_BCryptDestroySecret(hsecret.toCPointer<ByteVar>())
+public actual fun bCryptDestroySecret(hsecret: BcryptSecretHandle): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_bCryptDestroySecret(hsecret?.value?.toCPointer<ByteVar>())
 
-public actual fun BCryptDuplicateHash(hhash: BCRYPT_HASH_HANDLE, phnewhash: Long, pbhashobject: Long, cbhashobject: UInt, dwflags: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_BCryptDuplicateHash(hhash.toCPointer<ByteVar>(), phnewhash.toCPointer<ByteVar>(), pbhashobject.toCPointer<ByteVar>(), cbhashobject, dwflags)
+public actual fun bCryptDuplicateHash(hhash: BcryptHashHandle, phnewhash: COpaquePointer?, pbhashobject: COpaquePointer?, cbhashobject: UInt, dwflags: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_bCryptDuplicateHash(hhash?.value?.toCPointer<ByteVar>(), phnewhash?.value?.toCPointer<ByteVar>(), pbhashobject?.value?.toCPointer<ByteVar>(), cbhashobject, dwflags)
 
-public actual fun BCryptDuplicateKey(hkey: BCRYPT_KEY_HANDLE, phnewkey: Long, pbkeyobject: Long, cbkeyobject: UInt, dwflags: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_BCryptDuplicateKey(hkey.toCPointer<ByteVar>(), phnewkey.toCPointer<ByteVar>(), pbkeyobject.toCPointer<ByteVar>(), cbkeyobject, dwflags)
+public actual fun bCryptDuplicateKey(hkey: BcryptKeyHandle, phnewkey: COpaquePointer?, pbkeyobject: COpaquePointer?, cbkeyobject: UInt, dwflags: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_bCryptDuplicateKey(hkey?.value?.toCPointer<ByteVar>(), phnewkey?.value?.toCPointer<ByteVar>(), pbkeyobject?.value?.toCPointer<ByteVar>(), cbkeyobject, dwflags)
 
-public actual fun BCryptEncrypt(hkey: BCRYPT_KEY_HANDLE, pbinput: Long, cbinput: UInt, ppaddinginfo: Long, pbiv: Long, cbiv: UInt, pboutput: Long, cboutput: UInt, pcbresult: Long, dwflags: BCRYPT_FLAGS): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_BCryptEncrypt(hkey.toCPointer<ByteVar>(), pbinput.toCPointer<ByteVar>(), cbinput, ppaddinginfo.toCPointer<ByteVar>(), pbiv.toCPointer<ByteVar>(), cbiv, pboutput.toCPointer<ByteVar>(), cboutput, pcbresult.toCPointer<ByteVar>(), dwflags)
+public actual fun bCryptEncrypt(hkey: BcryptKeyHandle, pbinput: COpaquePointer?, cbinput: UInt, ppaddinginfo: COpaquePointer?, pbiv: COpaquePointer?, cbiv: UInt, pboutput: COpaquePointer?, cboutput: UInt, pcbresult: COpaquePointer?, dwflags: BcryptFlags): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_bCryptEncrypt(hkey?.value?.toCPointer<ByteVar>(), pbinput?.value?.toCPointer<ByteVar>(), cbinput, ppaddinginfo?.value?.toCPointer<ByteVar>(), pbiv?.value?.toCPointer<ByteVar>(), cbiv, pboutput?.value?.toCPointer<ByteVar>(), cboutput, pcbresult?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun BCryptEnumAlgorithms(dwalgoperations: BCRYPT_OPERATION, palgcount: Long, ppalglist: Long, dwflags: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_BCryptEnumAlgorithms(dwalgoperations, palgcount.toCPointer<ByteVar>(), ppalglist.toCPointer<ByteVar>(), dwflags)
+public actual fun bCryptEnumAlgorithms(dwalgoperations: BcryptOperation, palgcount: COpaquePointer?, ppalglist: COpaquePointer?, dwflags: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_bCryptEnumAlgorithms(dwalgoperations, palgcount?.value?.toCPointer<ByteVar>(), ppalglist?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun BCryptEnumContextFunctionProviders(dwtable: BCRYPT_TABLE, pszcontext: PCWSTR, dwinterface: BCRYPT_INTERFACE, pszfunction: PCWSTR, pcbbuffer: Long, ppbuffer: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_BCryptEnumContextFunctionProviders(dwtable, pszcontext.toCPointer<ByteVar>(), dwinterface, pszfunction.toCPointer<ByteVar>(), pcbbuffer.toCPointer<ByteVar>(), ppbuffer.toCPointer<ByteVar>())
+public actual fun bCryptEnumContextFunctionProviders(dwtable: BcryptTable, pszcontext: Pcwstr, dwinterface: BcryptInterface, pszfunction: Pcwstr, pcbbuffer: COpaquePointer?, ppbuffer: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_bCryptEnumContextFunctionProviders(dwtable, pszcontext?.value?.toCPointer<ByteVar>(), dwinterface, pszfunction?.value?.toCPointer<ByteVar>(), pcbbuffer?.value?.toCPointer<ByteVar>(), ppbuffer?.value?.toCPointer<ByteVar>())
 
-public actual fun BCryptEnumContextFunctions(dwtable: BCRYPT_TABLE, pszcontext: PCWSTR, dwinterface: BCRYPT_INTERFACE, pcbbuffer: Long, ppbuffer: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_BCryptEnumContextFunctions(dwtable, pszcontext.toCPointer<ByteVar>(), dwinterface, pcbbuffer.toCPointer<ByteVar>(), ppbuffer.toCPointer<ByteVar>())
+public actual fun bCryptEnumContextFunctions(dwtable: BcryptTable, pszcontext: Pcwstr, dwinterface: BcryptInterface, pcbbuffer: COpaquePointer?, ppbuffer: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_bCryptEnumContextFunctions(dwtable, pszcontext?.value?.toCPointer<ByteVar>(), dwinterface, pcbbuffer?.value?.toCPointer<ByteVar>(), ppbuffer?.value?.toCPointer<ByteVar>())
 
-public actual fun BCryptEnumContexts(dwtable: BCRYPT_TABLE, pcbbuffer: Long, ppbuffer: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_BCryptEnumContexts(dwtable, pcbbuffer.toCPointer<ByteVar>(), ppbuffer.toCPointer<ByteVar>())
+public actual fun bCryptEnumContexts(dwtable: BcryptTable, pcbbuffer: COpaquePointer?, ppbuffer: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_bCryptEnumContexts(dwtable, pcbbuffer?.value?.toCPointer<ByteVar>(), ppbuffer?.value?.toCPointer<ByteVar>())
 
-public actual fun BCryptEnumProviders(pszalgid: PCWSTR, pimplcount: Long, ppimpllist: Long, dwflags: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_BCryptEnumProviders(pszalgid.toCPointer<ByteVar>(), pimplcount.toCPointer<ByteVar>(), ppimpllist.toCPointer<ByteVar>(), dwflags)
+public actual fun bCryptEnumProviders(pszalgid: Pcwstr, pimplcount: COpaquePointer?, ppimpllist: COpaquePointer?, dwflags: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_bCryptEnumProviders(pszalgid?.value?.toCPointer<ByteVar>(), pimplcount?.value?.toCPointer<ByteVar>(), ppimpllist?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun BCryptEnumRegisteredProviders(pcbbuffer: Long, ppbuffer: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_BCryptEnumRegisteredProviders(pcbbuffer.toCPointer<ByteVar>(), ppbuffer.toCPointer<ByteVar>())
+public actual fun bCryptEnumRegisteredProviders(pcbbuffer: COpaquePointer?, ppbuffer: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_bCryptEnumRegisteredProviders(pcbbuffer?.value?.toCPointer<ByteVar>(), ppbuffer?.value?.toCPointer<ByteVar>())
 
-public actual fun BCryptExportKey(hkey: BCRYPT_KEY_HANDLE, hexportkey: BCRYPT_KEY_HANDLE, pszblobtype: PCWSTR, pboutput: Long, cboutput: UInt, pcbresult: Long, dwflags: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_BCryptExportKey(hkey.toCPointer<ByteVar>(), hexportkey.toCPointer<ByteVar>(), pszblobtype.toCPointer<ByteVar>(), pboutput.toCPointer<ByteVar>(), cboutput, pcbresult.toCPointer<ByteVar>(), dwflags)
+public actual fun bCryptExportKey(hkey: BcryptKeyHandle, hexportkey: BcryptKeyHandle, pszblobtype: Pcwstr, pboutput: COpaquePointer?, cboutput: UInt, pcbresult: COpaquePointer?, dwflags: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_bCryptExportKey(hkey?.value?.toCPointer<ByteVar>(), hexportkey?.value?.toCPointer<ByteVar>(), pszblobtype?.value?.toCPointer<ByteVar>(), pboutput?.value?.toCPointer<ByteVar>(), cboutput, pcbresult?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun BCryptFinalizeKeyPair(hkey: BCRYPT_KEY_HANDLE, dwflags: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_BCryptFinalizeKeyPair(hkey.toCPointer<ByteVar>(), dwflags)
+public actual fun bCryptFinalizeKeyPair(hkey: BcryptKeyHandle, dwflags: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_bCryptFinalizeKeyPair(hkey?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun BCryptFinishHash(hhash: BCRYPT_HASH_HANDLE, pboutput: Long, cboutput: UInt, dwflags: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_BCryptFinishHash(hhash.toCPointer<ByteVar>(), pboutput.toCPointer<ByteVar>(), cboutput, dwflags)
+public actual fun bCryptFinishHash(hhash: BcryptHashHandle, pboutput: COpaquePointer?, cboutput: UInt, dwflags: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_bCryptFinishHash(hhash?.value?.toCPointer<ByteVar>(), pboutput?.value?.toCPointer<ByteVar>(), cboutput, dwflags)
 
-public actual fun BCryptFreeBuffer(pvbuffer: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_BCryptFreeBuffer(pvbuffer.toCPointer<ByteVar>())
+public actual fun bCryptFreeBuffer(pvbuffer: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_bCryptFreeBuffer(pvbuffer?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun BCryptGenRandom(halgorithm: BCRYPT_ALG_HANDLE, pbbuffer: Long, cbbuffer: UInt, dwflags: BCRYPTGENRANDOM_FLAGS): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_BCryptGenRandom(halgorithm.toCPointer<ByteVar>(), pbbuffer.toCPointer<ByteVar>(), cbbuffer, dwflags)
+public actual fun bCryptGenRandom(halgorithm: BcryptAlgHandle, pbbuffer: COpaquePointer?, cbbuffer: UInt, dwflags: BcryptgenrandomFlags): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_bCryptGenRandom(halgorithm?.value?.toCPointer<ByteVar>(), pbbuffer?.value?.toCPointer<ByteVar>(), cbbuffer, dwflags)
 
-public actual fun BCryptGenerateKeyPair(halgorithm: BCRYPT_ALG_HANDLE, phkey: Long, dwlength: UInt, dwflags: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_BCryptGenerateKeyPair(halgorithm.toCPointer<ByteVar>(), phkey.toCPointer<ByteVar>(), dwlength, dwflags)
+public actual fun bCryptGenerateKeyPair(halgorithm: BcryptAlgHandle, phkey: COpaquePointer?, dwlength: UInt, dwflags: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_bCryptGenerateKeyPair(halgorithm?.value?.toCPointer<ByteVar>(), phkey?.value?.toCPointer<ByteVar>(), dwlength, dwflags)
 
-public actual fun BCryptGenerateSymmetricKey(halgorithm: BCRYPT_ALG_HANDLE, phkey: Long, pbkeyobject: Long, cbkeyobject: UInt, pbsecret: Long, cbsecret: UInt, dwflags: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_BCryptGenerateSymmetricKey(halgorithm.toCPointer<ByteVar>(), phkey.toCPointer<ByteVar>(), pbkeyobject.toCPointer<ByteVar>(), cbkeyobject, pbsecret.toCPointer<ByteVar>(), cbsecret, dwflags)
+public actual fun bCryptGenerateSymmetricKey(halgorithm: BcryptAlgHandle, phkey: COpaquePointer?, pbkeyobject: COpaquePointer?, cbkeyobject: UInt, pbsecret: COpaquePointer?, cbsecret: UInt, dwflags: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_bCryptGenerateSymmetricKey(halgorithm?.value?.toCPointer<ByteVar>(), phkey?.value?.toCPointer<ByteVar>(), pbkeyobject?.value?.toCPointer<ByteVar>(), cbkeyobject, pbsecret?.value?.toCPointer<ByteVar>(), cbsecret, dwflags)
 
-public actual fun BCryptGetFipsAlgorithmMode(pfenabled: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_BCryptGetFipsAlgorithmMode(pfenabled.toCPointer<ByteVar>())
+public actual fun bCryptGetFipsAlgorithmMode(pfenabled: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_bCryptGetFipsAlgorithmMode(pfenabled?.value?.toCPointer<ByteVar>())
 
-public actual fun BCryptGetProperty(hobject: BCRYPT_HANDLE, pszproperty: PCWSTR, pboutput: Long, cboutput: UInt, pcbresult: Long, dwflags: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_BCryptGetProperty(hobject.toCPointer<ByteVar>(), pszproperty.toCPointer<ByteVar>(), pboutput.toCPointer<ByteVar>(), cboutput, pcbresult.toCPointer<ByteVar>(), dwflags)
+public actual fun bCryptGetProperty(hobject: BcryptHandle, pszproperty: Pcwstr, pboutput: COpaquePointer?, cboutput: UInt, pcbresult: COpaquePointer?, dwflags: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_bCryptGetProperty(hobject?.value?.toCPointer<ByteVar>(), pszproperty?.value?.toCPointer<ByteVar>(), pboutput?.value?.toCPointer<ByteVar>(), cboutput, pcbresult?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun BCryptHash(halgorithm: BCRYPT_ALG_HANDLE, pbsecret: Long, cbsecret: UInt, pbinput: Long, cbinput: UInt, pboutput: Long, cboutput: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_BCryptHash(halgorithm.toCPointer<ByteVar>(), pbsecret.toCPointer<ByteVar>(), cbsecret, pbinput.toCPointer<ByteVar>(), cbinput, pboutput.toCPointer<ByteVar>(), cboutput)
+public actual fun bCryptHash(halgorithm: BcryptAlgHandle, pbsecret: COpaquePointer?, cbsecret: UInt, pbinput: COpaquePointer?, cbinput: UInt, pboutput: COpaquePointer?, cboutput: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_bCryptHash(halgorithm?.value?.toCPointer<ByteVar>(), pbsecret?.value?.toCPointer<ByteVar>(), cbsecret, pbinput?.value?.toCPointer<ByteVar>(), cbinput, pboutput?.value?.toCPointer<ByteVar>(), cboutput)
 
-public actual fun BCryptHashData(hhash: BCRYPT_HASH_HANDLE, pbinput: Long, cbinput: UInt, dwflags: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_BCryptHashData(hhash.toCPointer<ByteVar>(), pbinput.toCPointer<ByteVar>(), cbinput, dwflags)
+public actual fun bCryptHashData(hhash: BcryptHashHandle, pbinput: COpaquePointer?, cbinput: UInt, dwflags: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_bCryptHashData(hhash?.value?.toCPointer<ByteVar>(), pbinput?.value?.toCPointer<ByteVar>(), cbinput, dwflags)
 
-public actual fun BCryptImportKey(halgorithm: BCRYPT_ALG_HANDLE, himportkey: BCRYPT_KEY_HANDLE, pszblobtype: PCWSTR, phkey: Long, pbkeyobject: Long, cbkeyobject: UInt, pbinput: Long, cbinput: UInt, dwflags: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_BCryptImportKey(halgorithm.toCPointer<ByteVar>(), himportkey.toCPointer<ByteVar>(), pszblobtype.toCPointer<ByteVar>(), phkey.toCPointer<ByteVar>(), pbkeyobject.toCPointer<ByteVar>(), cbkeyobject, pbinput.toCPointer<ByteVar>(), cbinput, dwflags)
+public actual fun bCryptImportKey(halgorithm: BcryptAlgHandle, himportkey: BcryptKeyHandle, pszblobtype: Pcwstr, phkey: COpaquePointer?, pbkeyobject: COpaquePointer?, cbkeyobject: UInt, pbinput: COpaquePointer?, cbinput: UInt, dwflags: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_bCryptImportKey(halgorithm?.value?.toCPointer<ByteVar>(), himportkey?.value?.toCPointer<ByteVar>(), pszblobtype?.value?.toCPointer<ByteVar>(), phkey?.value?.toCPointer<ByteVar>(), pbkeyobject?.value?.toCPointer<ByteVar>(), cbkeyobject, pbinput?.value?.toCPointer<ByteVar>(), cbinput, dwflags)
 
-public actual fun BCryptImportKeyPair(halgorithm: BCRYPT_ALG_HANDLE, himportkey: BCRYPT_KEY_HANDLE, pszblobtype: PCWSTR, phkey: Long, pbinput: Long, cbinput: UInt, dwflags: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_BCryptImportKeyPair(halgorithm.toCPointer<ByteVar>(), himportkey.toCPointer<ByteVar>(), pszblobtype.toCPointer<ByteVar>(), phkey.toCPointer<ByteVar>(), pbinput.toCPointer<ByteVar>(), cbinput, dwflags)
+public actual fun bCryptImportKeyPair(halgorithm: BcryptAlgHandle, himportkey: BcryptKeyHandle, pszblobtype: Pcwstr, phkey: COpaquePointer?, pbinput: COpaquePointer?, cbinput: UInt, dwflags: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_bCryptImportKeyPair(halgorithm?.value?.toCPointer<ByteVar>(), himportkey?.value?.toCPointer<ByteVar>(), pszblobtype?.value?.toCPointer<ByteVar>(), phkey?.value?.toCPointer<ByteVar>(), pbinput?.value?.toCPointer<ByteVar>(), cbinput, dwflags)
 
-public actual fun BCryptKeyDerivation(hkey: BCRYPT_KEY_HANDLE, pparameterlist: Long, pbderivedkey: Long, cbderivedkey: UInt, pcbresult: Long, dwflags: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_BCryptKeyDerivation(hkey.toCPointer<ByteVar>(), pparameterlist.toCPointer<ByteVar>(), pbderivedkey.toCPointer<ByteVar>(), cbderivedkey, pcbresult.toCPointer<ByteVar>(), dwflags)
+public actual fun bCryptKeyDerivation(hkey: BcryptKeyHandle, pparameterlist: COpaquePointer?, pbderivedkey: COpaquePointer?, cbderivedkey: UInt, pcbresult: COpaquePointer?, dwflags: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_bCryptKeyDerivation(hkey?.value?.toCPointer<ByteVar>(), pparameterlist?.value?.toCPointer<ByteVar>(), pbderivedkey?.value?.toCPointer<ByteVar>(), cbderivedkey, pcbresult?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun BCryptOpenAlgorithmProvider(phalgorithm: Long, pszalgid: PCWSTR, pszimplementation: PCWSTR, dwflags: BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_BCryptOpenAlgorithmProvider(phalgorithm.toCPointer<ByteVar>(), pszalgid.toCPointer<ByteVar>(), pszimplementation.toCPointer<ByteVar>(), dwflags)
+public actual fun bCryptOpenAlgorithmProvider(phalgorithm: COpaquePointer?, pszalgid: Pcwstr, pszimplementation: Pcwstr, dwflags: BcryptOpenAlgorithmProviderFlags): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_bCryptOpenAlgorithmProvider(phalgorithm?.value?.toCPointer<ByteVar>(), pszalgid?.value?.toCPointer<ByteVar>(), pszimplementation?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun BCryptProcessMultiOperations(hobject: BCRYPT_HANDLE, operationtype: BCRYPT_MULTI_OPERATION_TYPE, poperations: Long, cboperations: UInt, dwflags: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_BCryptProcessMultiOperations(hobject.toCPointer<ByteVar>(), operationtype, poperations.toCPointer<ByteVar>(), cboperations, dwflags)
+public actual fun bCryptProcessMultiOperations(hobject: BcryptHandle, operationtype: BcryptMultiOperationType, poperations: COpaquePointer?, cboperations: UInt, dwflags: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_bCryptProcessMultiOperations(hobject?.value?.toCPointer<ByteVar>(), operationtype, poperations?.value?.toCPointer<ByteVar>(), cboperations, dwflags)
 
-public actual fun BCryptQueryContextConfiguration(dwtable: BCRYPT_TABLE, pszcontext: PCWSTR, pcbbuffer: Long, ppbuffer: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_BCryptQueryContextConfiguration(dwtable, pszcontext.toCPointer<ByteVar>(), pcbbuffer.toCPointer<ByteVar>(), ppbuffer.toCPointer<ByteVar>())
+public actual fun bCryptQueryContextConfiguration(dwtable: BcryptTable, pszcontext: Pcwstr, pcbbuffer: COpaquePointer?, ppbuffer: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_bCryptQueryContextConfiguration(dwtable, pszcontext?.value?.toCPointer<ByteVar>(), pcbbuffer?.value?.toCPointer<ByteVar>(), ppbuffer?.value?.toCPointer<ByteVar>())
 
-public actual fun BCryptQueryContextFunctionConfiguration(dwtable: BCRYPT_TABLE, pszcontext: PCWSTR, dwinterface: BCRYPT_INTERFACE, pszfunction: PCWSTR, pcbbuffer: Long, ppbuffer: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_BCryptQueryContextFunctionConfiguration(dwtable, pszcontext.toCPointer<ByteVar>(), dwinterface, pszfunction.toCPointer<ByteVar>(), pcbbuffer.toCPointer<ByteVar>(), ppbuffer.toCPointer<ByteVar>())
+public actual fun bCryptQueryContextFunctionConfiguration(dwtable: BcryptTable, pszcontext: Pcwstr, dwinterface: BcryptInterface, pszfunction: Pcwstr, pcbbuffer: COpaquePointer?, ppbuffer: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_bCryptQueryContextFunctionConfiguration(dwtable, pszcontext?.value?.toCPointer<ByteVar>(), dwinterface, pszfunction?.value?.toCPointer<ByteVar>(), pcbbuffer?.value?.toCPointer<ByteVar>(), ppbuffer?.value?.toCPointer<ByteVar>())
 
-public actual fun BCryptQueryContextFunctionProperty(dwtable: BCRYPT_TABLE, pszcontext: PCWSTR, dwinterface: BCRYPT_INTERFACE, pszfunction: PCWSTR, pszproperty: PCWSTR, pcbvalue: Long, ppbvalue: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_BCryptQueryContextFunctionProperty(dwtable, pszcontext.toCPointer<ByteVar>(), dwinterface, pszfunction.toCPointer<ByteVar>(), pszproperty.toCPointer<ByteVar>(), pcbvalue.toCPointer<ByteVar>(), ppbvalue.toCPointer<ByteVar>())
+public actual fun bCryptQueryContextFunctionProperty(dwtable: BcryptTable, pszcontext: Pcwstr, dwinterface: BcryptInterface, pszfunction: Pcwstr, pszproperty: Pcwstr, pcbvalue: COpaquePointer?, ppbvalue: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_bCryptQueryContextFunctionProperty(dwtable, pszcontext?.value?.toCPointer<ByteVar>(), dwinterface, pszfunction?.value?.toCPointer<ByteVar>(), pszproperty?.value?.toCPointer<ByteVar>(), pcbvalue?.value?.toCPointer<ByteVar>(), ppbvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun BCryptQueryProviderRegistration(pszprovider: PCWSTR, dwmode: BCRYPT_QUERY_PROVIDER_MODE, dwinterface: BCRYPT_INTERFACE, pcbbuffer: Long, ppbuffer: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_BCryptQueryProviderRegistration(pszprovider.toCPointer<ByteVar>(), dwmode, dwinterface, pcbbuffer.toCPointer<ByteVar>(), ppbuffer.toCPointer<ByteVar>())
+public actual fun bCryptQueryProviderRegistration(pszprovider: Pcwstr, dwmode: BcryptQueryProviderMode, dwinterface: BcryptInterface, pcbbuffer: COpaquePointer?, ppbuffer: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_bCryptQueryProviderRegistration(pszprovider?.value?.toCPointer<ByteVar>(), dwmode, dwinterface, pcbbuffer?.value?.toCPointer<ByteVar>(), ppbuffer?.value?.toCPointer<ByteVar>())
 
-public actual fun BCryptRegisterConfigChangeNotify(phevent: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_BCryptRegisterConfigChangeNotify(phevent.toCPointer<ByteVar>())
+public actual fun bCryptRegisterConfigChangeNotify(phevent: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_bCryptRegisterConfigChangeNotify(phevent?.value?.toCPointer<ByteVar>())
 
-public actual fun BCryptRegisterProvider(pszprovider: PCWSTR, dwflags: UInt, preg: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_BCryptRegisterProvider(pszprovider.toCPointer<ByteVar>(), dwflags, preg.toCPointer<ByteVar>())
+public actual fun bCryptRegisterProvider(pszprovider: Pcwstr, dwflags: UInt, preg: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_bCryptRegisterProvider(pszprovider?.value?.toCPointer<ByteVar>(), dwflags, preg?.value?.toCPointer<ByteVar>())
 
-public actual fun BCryptRemoveContextFunction(dwtable: BCRYPT_TABLE, pszcontext: PCWSTR, dwinterface: BCRYPT_INTERFACE, pszfunction: PCWSTR): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_BCryptRemoveContextFunction(dwtable, pszcontext.toCPointer<ByteVar>(), dwinterface, pszfunction.toCPointer<ByteVar>())
+public actual fun bCryptRemoveContextFunction(dwtable: BcryptTable, pszcontext: Pcwstr, dwinterface: BcryptInterface, pszfunction: Pcwstr): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_bCryptRemoveContextFunction(dwtable, pszcontext?.value?.toCPointer<ByteVar>(), dwinterface, pszfunction?.value?.toCPointer<ByteVar>())
 
-public actual fun BCryptRemoveContextFunctionProvider(dwtable: UInt, pszcontext: PCWSTR, dwinterface: UInt, pszfunction: PCWSTR, pszprovider: PCWSTR): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_BCryptRemoveContextFunctionProvider(dwtable, pszcontext.toCPointer<ByteVar>(), dwinterface, pszfunction.toCPointer<ByteVar>(), pszprovider.toCPointer<ByteVar>())
+public actual fun bCryptRemoveContextFunctionProvider(dwtable: UInt, pszcontext: Pcwstr, dwinterface: UInt, pszfunction: Pcwstr, pszprovider: Pcwstr): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_bCryptRemoveContextFunctionProvider(dwtable, pszcontext?.value?.toCPointer<ByteVar>(), dwinterface, pszfunction?.value?.toCPointer<ByteVar>(), pszprovider?.value?.toCPointer<ByteVar>())
 
-public actual fun BCryptResolveProviders(pszcontext: PCWSTR, dwinterface: UInt, pszfunction: PCWSTR, pszprovider: PCWSTR, dwmode: BCRYPT_QUERY_PROVIDER_MODE, dwflags: BCRYPT_RESOLVE_PROVIDERS_FLAGS, pcbbuffer: Long, ppbuffer: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_BCryptResolveProviders(pszcontext.toCPointer<ByteVar>(), dwinterface, pszfunction.toCPointer<ByteVar>(), pszprovider.toCPointer<ByteVar>(), dwmode, dwflags, pcbbuffer.toCPointer<ByteVar>(), ppbuffer.toCPointer<ByteVar>())
+public actual fun bCryptResolveProviders(pszcontext: Pcwstr, dwinterface: UInt, pszfunction: Pcwstr, pszprovider: Pcwstr, dwmode: BcryptQueryProviderMode, dwflags: BcryptResolveProvidersFlags, pcbbuffer: COpaquePointer?, ppbuffer: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_bCryptResolveProviders(pszcontext?.value?.toCPointer<ByteVar>(), dwinterface, pszfunction?.value?.toCPointer<ByteVar>(), pszprovider?.value?.toCPointer<ByteVar>(), dwmode, dwflags, pcbbuffer?.value?.toCPointer<ByteVar>(), ppbuffer?.value?.toCPointer<ByteVar>())
 
-public actual fun BCryptSecretAgreement(hprivkey: BCRYPT_KEY_HANDLE, hpubkey: BCRYPT_KEY_HANDLE, phagreedsecret: Long, dwflags: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_BCryptSecretAgreement(hprivkey.toCPointer<ByteVar>(), hpubkey.toCPointer<ByteVar>(), phagreedsecret.toCPointer<ByteVar>(), dwflags)
+public actual fun bCryptSecretAgreement(hprivkey: BcryptKeyHandle, hpubkey: BcryptKeyHandle, phagreedsecret: COpaquePointer?, dwflags: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_bCryptSecretAgreement(hprivkey?.value?.toCPointer<ByteVar>(), hpubkey?.value?.toCPointer<ByteVar>(), phagreedsecret?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun BCryptSetContextFunctionProperty(dwtable: BCRYPT_TABLE, pszcontext: PCWSTR, dwinterface: BCRYPT_INTERFACE, pszfunction: PCWSTR, pszproperty: PCWSTR, cbvalue: UInt, pbvalue: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_BCryptSetContextFunctionProperty(dwtable, pszcontext.toCPointer<ByteVar>(), dwinterface, pszfunction.toCPointer<ByteVar>(), pszproperty.toCPointer<ByteVar>(), cbvalue, pbvalue.toCPointer<ByteVar>())
+public actual fun bCryptSetContextFunctionProperty(dwtable: BcryptTable, pszcontext: Pcwstr, dwinterface: BcryptInterface, pszfunction: Pcwstr, pszproperty: Pcwstr, cbvalue: UInt, pbvalue: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_bCryptSetContextFunctionProperty(dwtable, pszcontext?.value?.toCPointer<ByteVar>(), dwinterface, pszfunction?.value?.toCPointer<ByteVar>(), pszproperty?.value?.toCPointer<ByteVar>(), cbvalue, pbvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun BCryptSetProperty(hobject: BCRYPT_HANDLE, pszproperty: PCWSTR, pbinput: Long, cbinput: UInt, dwflags: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_BCryptSetProperty(hobject.toCPointer<ByteVar>(), pszproperty.toCPointer<ByteVar>(), pbinput.toCPointer<ByteVar>(), cbinput, dwflags)
+public actual fun bCryptSetProperty(hobject: BcryptHandle, pszproperty: Pcwstr, pbinput: COpaquePointer?, cbinput: UInt, dwflags: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_bCryptSetProperty(hobject?.value?.toCPointer<ByteVar>(), pszproperty?.value?.toCPointer<ByteVar>(), pbinput?.value?.toCPointer<ByteVar>(), cbinput, dwflags)
 
-public actual fun BCryptSignHash(hkey: BCRYPT_KEY_HANDLE, ppaddinginfo: Long, pbinput: Long, cbinput: UInt, pboutput: Long, cboutput: UInt, pcbresult: Long, dwflags: BCRYPT_FLAGS): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_BCryptSignHash(hkey.toCPointer<ByteVar>(), ppaddinginfo.toCPointer<ByteVar>(), pbinput.toCPointer<ByteVar>(), cbinput, pboutput.toCPointer<ByteVar>(), cboutput, pcbresult.toCPointer<ByteVar>(), dwflags)
+public actual fun bCryptSignHash(hkey: BcryptKeyHandle, ppaddinginfo: COpaquePointer?, pbinput: COpaquePointer?, cbinput: UInt, pboutput: COpaquePointer?, cboutput: UInt, pcbresult: COpaquePointer?, dwflags: BcryptFlags): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_bCryptSignHash(hkey?.value?.toCPointer<ByteVar>(), ppaddinginfo?.value?.toCPointer<ByteVar>(), pbinput?.value?.toCPointer<ByteVar>(), cbinput, pboutput?.value?.toCPointer<ByteVar>(), cboutput, pcbresult?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun BCryptUnregisterConfigChangeNotify(hevent: HANDLE): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_BCryptUnregisterConfigChangeNotify(hevent.toCPointer<ByteVar>())
+public actual fun bCryptUnregisterConfigChangeNotify(hevent: Handle): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_bCryptUnregisterConfigChangeNotify(hevent?.value?.toCPointer<ByteVar>())
 
-public actual fun BCryptUnregisterProvider(pszprovider: PCWSTR): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_BCryptUnregisterProvider(pszprovider.toCPointer<ByteVar>())
+public actual fun bCryptUnregisterProvider(pszprovider: Pcwstr): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_bCryptUnregisterProvider(pszprovider?.value?.toCPointer<ByteVar>())
 
-public actual fun BCryptVerifySignature(hkey: BCRYPT_KEY_HANDLE, ppaddinginfo: Long, pbhash: Long, cbhash: UInt, pbsignature: Long, cbsignature: UInt, dwflags: BCRYPT_FLAGS): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_BCryptVerifySignature(hkey.toCPointer<ByteVar>(), ppaddinginfo.toCPointer<ByteVar>(), pbhash.toCPointer<ByteVar>(), cbhash, pbsignature.toCPointer<ByteVar>(), cbsignature, dwflags)
+public actual fun bCryptVerifySignature(hkey: BcryptKeyHandle, ppaddinginfo: COpaquePointer?, pbhash: COpaquePointer?, cbhash: UInt, pbsignature: COpaquePointer?, cbsignature: UInt, dwflags: BcryptFlags): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_bCryptVerifySignature(hkey?.value?.toCPointer<ByteVar>(), ppaddinginfo?.value?.toCPointer<ByteVar>(), pbhash?.value?.toCPointer<ByteVar>(), cbhash, pbsignature?.value?.toCPointer<ByteVar>(), cbsignature, dwflags)
 
-public actual fun CertAddCRLContextToStore(hcertstore: HCERTSTORE, pcrlcontext: Long, dwadddisposition: UInt, ppstorecontext: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertAddCRLContextToStore(hcertstore.toCPointer<ByteVar>(), pcrlcontext.toCPointer<ByteVar>(), dwadddisposition, ppstorecontext.toCPointer<ByteVar>())
+public actual fun certAddCRLContextToStore(hcertstore: Hcertstore, pcrlcontext: COpaquePointer?, dwadddisposition: UInt, ppstorecontext: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certAddCRLContextToStore(hcertstore?.value?.toCPointer<ByteVar>(), pcrlcontext?.value?.toCPointer<ByteVar>(), dwadddisposition, ppstorecontext?.value?.toCPointer<ByteVar>())
 
-public actual fun CertAddCRLLinkToStore(hcertstore: HCERTSTORE, pcrlcontext: Long, dwadddisposition: UInt, ppstorecontext: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertAddCRLLinkToStore(hcertstore.toCPointer<ByteVar>(), pcrlcontext.toCPointer<ByteVar>(), dwadddisposition, ppstorecontext.toCPointer<ByteVar>())
+public actual fun certAddCRLLinkToStore(hcertstore: Hcertstore, pcrlcontext: COpaquePointer?, dwadddisposition: UInt, ppstorecontext: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certAddCRLLinkToStore(hcertstore?.value?.toCPointer<ByteVar>(), pcrlcontext?.value?.toCPointer<ByteVar>(), dwadddisposition, ppstorecontext?.value?.toCPointer<ByteVar>())
 
-public actual fun CertAddCTLContextToStore(hcertstore: HCERTSTORE, pctlcontext: Long, dwadddisposition: UInt, ppstorecontext: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertAddCTLContextToStore(hcertstore.toCPointer<ByteVar>(), pctlcontext.toCPointer<ByteVar>(), dwadddisposition, ppstorecontext.toCPointer<ByteVar>())
+public actual fun certAddCTLContextToStore(hcertstore: Hcertstore, pctlcontext: COpaquePointer?, dwadddisposition: UInt, ppstorecontext: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certAddCTLContextToStore(hcertstore?.value?.toCPointer<ByteVar>(), pctlcontext?.value?.toCPointer<ByteVar>(), dwadddisposition, ppstorecontext?.value?.toCPointer<ByteVar>())
 
-public actual fun CertAddCTLLinkToStore(hcertstore: HCERTSTORE, pctlcontext: Long, dwadddisposition: UInt, ppstorecontext: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertAddCTLLinkToStore(hcertstore.toCPointer<ByteVar>(), pctlcontext.toCPointer<ByteVar>(), dwadddisposition, ppstorecontext.toCPointer<ByteVar>())
+public actual fun certAddCTLLinkToStore(hcertstore: Hcertstore, pctlcontext: COpaquePointer?, dwadddisposition: UInt, ppstorecontext: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certAddCTLLinkToStore(hcertstore?.value?.toCPointer<ByteVar>(), pctlcontext?.value?.toCPointer<ByteVar>(), dwadddisposition, ppstorecontext?.value?.toCPointer<ByteVar>())
 
-public actual fun CertAddCertificateContextToStore(hcertstore: HCERTSTORE, pcertcontext: Long, dwadddisposition: UInt, ppstorecontext: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertAddCertificateContextToStore(hcertstore.toCPointer<ByteVar>(), pcertcontext.toCPointer<ByteVar>(), dwadddisposition, ppstorecontext.toCPointer<ByteVar>())
+public actual fun certAddCertificateContextToStore(hcertstore: Hcertstore, pcertcontext: COpaquePointer?, dwadddisposition: UInt, ppstorecontext: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certAddCertificateContextToStore(hcertstore?.value?.toCPointer<ByteVar>(), pcertcontext?.value?.toCPointer<ByteVar>(), dwadddisposition, ppstorecontext?.value?.toCPointer<ByteVar>())
 
-public actual fun CertAddCertificateLinkToStore(hcertstore: HCERTSTORE, pcertcontext: Long, dwadddisposition: UInt, ppstorecontext: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertAddCertificateLinkToStore(hcertstore.toCPointer<ByteVar>(), pcertcontext.toCPointer<ByteVar>(), dwadddisposition, ppstorecontext.toCPointer<ByteVar>())
+public actual fun certAddCertificateLinkToStore(hcertstore: Hcertstore, pcertcontext: COpaquePointer?, dwadddisposition: UInt, ppstorecontext: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certAddCertificateLinkToStore(hcertstore?.value?.toCPointer<ByteVar>(), pcertcontext?.value?.toCPointer<ByteVar>(), dwadddisposition, ppstorecontext?.value?.toCPointer<ByteVar>())
 
-public actual fun CertAddEncodedCRLToStore(hcertstore: HCERTSTORE, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pbcrlencoded: Long, cbcrlencoded: UInt, dwadddisposition: UInt, ppcrlcontext: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertAddEncodedCRLToStore(hcertstore.toCPointer<ByteVar>(), dwcertencodingtype, pbcrlencoded.toCPointer<ByteVar>(), cbcrlencoded, dwadddisposition, ppcrlcontext.toCPointer<ByteVar>())
+public actual fun certAddEncodedCRLToStore(hcertstore: Hcertstore, dwcertencodingtype: CertQueryEncodingType, pbcrlencoded: COpaquePointer?, cbcrlencoded: UInt, dwadddisposition: UInt, ppcrlcontext: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certAddEncodedCRLToStore(hcertstore?.value?.toCPointer<ByteVar>(), dwcertencodingtype, pbcrlencoded?.value?.toCPointer<ByteVar>(), cbcrlencoded, dwadddisposition, ppcrlcontext?.value?.toCPointer<ByteVar>())
 
-public actual fun CertAddEncodedCTLToStore(hcertstore: HCERTSTORE, dwmsgandcertencodingtype: CERT_QUERY_ENCODING_TYPE, pbctlencoded: Long, cbctlencoded: UInt, dwadddisposition: UInt, ppctlcontext: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertAddEncodedCTLToStore(hcertstore.toCPointer<ByteVar>(), dwmsgandcertencodingtype, pbctlencoded.toCPointer<ByteVar>(), cbctlencoded, dwadddisposition, ppctlcontext.toCPointer<ByteVar>())
+public actual fun certAddEncodedCTLToStore(hcertstore: Hcertstore, dwmsgandcertencodingtype: CertQueryEncodingType, pbctlencoded: COpaquePointer?, cbctlencoded: UInt, dwadddisposition: UInt, ppctlcontext: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certAddEncodedCTLToStore(hcertstore?.value?.toCPointer<ByteVar>(), dwmsgandcertencodingtype, pbctlencoded?.value?.toCPointer<ByteVar>(), cbctlencoded, dwadddisposition, ppctlcontext?.value?.toCPointer<ByteVar>())
 
-public actual fun CertAddEncodedCertificateToStore(hcertstore: HCERTSTORE, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pbcertencoded: Long, cbcertencoded: UInt, dwadddisposition: UInt, ppcertcontext: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertAddEncodedCertificateToStore(hcertstore.toCPointer<ByteVar>(), dwcertencodingtype, pbcertencoded.toCPointer<ByteVar>(), cbcertencoded, dwadddisposition, ppcertcontext.toCPointer<ByteVar>())
+public actual fun certAddEncodedCertificateToStore(hcertstore: Hcertstore, dwcertencodingtype: CertQueryEncodingType, pbcertencoded: COpaquePointer?, cbcertencoded: UInt, dwadddisposition: UInt, ppcertcontext: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certAddEncodedCertificateToStore(hcertstore?.value?.toCPointer<ByteVar>(), dwcertencodingtype, pbcertencoded?.value?.toCPointer<ByteVar>(), cbcertencoded, dwadddisposition, ppcertcontext?.value?.toCPointer<ByteVar>())
 
-public actual fun CertAddEncodedCertificateToSystemStoreA(szcertstorename: PCSTR, pbcertencoded: Long, cbcertencoded: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertAddEncodedCertificateToSystemStoreA(szcertstorename.toCPointer<ByteVar>(), pbcertencoded.toCPointer<ByteVar>(), cbcertencoded)
+public actual fun certAddEncodedCertificateToSystemStoreA(szcertstorename: Pcstr, pbcertencoded: COpaquePointer?, cbcertencoded: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certAddEncodedCertificateToSystemStoreA(szcertstorename?.value?.toCPointer<ByteVar>(), pbcertencoded?.value?.toCPointer<ByteVar>(), cbcertencoded)
 
-public actual fun CertAddEncodedCertificateToSystemStoreW(szcertstorename: PCWSTR, pbcertencoded: Long, cbcertencoded: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertAddEncodedCertificateToSystemStoreW(szcertstorename.toCPointer<ByteVar>(), pbcertencoded.toCPointer<ByteVar>(), cbcertencoded)
+public actual fun certAddEncodedCertificateToSystemStoreW(szcertstorename: Pcwstr, pbcertencoded: COpaquePointer?, cbcertencoded: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certAddEncodedCertificateToSystemStoreW(szcertstorename?.value?.toCPointer<ByteVar>(), pbcertencoded?.value?.toCPointer<ByteVar>(), cbcertencoded)
 
-public actual fun CertAddEnhancedKeyUsageIdentifier(pcertcontext: Long, pszusageidentifier: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertAddEnhancedKeyUsageIdentifier(pcertcontext.toCPointer<ByteVar>(), pszusageidentifier.toCPointer<ByteVar>())
+public actual fun certAddEnhancedKeyUsageIdentifier(pcertcontext: COpaquePointer?, pszusageidentifier: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certAddEnhancedKeyUsageIdentifier(pcertcontext?.value?.toCPointer<ByteVar>(), pszusageidentifier?.value?.toCPointer<ByteVar>())
 
-public actual fun CertAddRefServerOcspResponse(hserverocspresponse: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertAddRefServerOcspResponse(hserverocspresponse.toCPointer<ByteVar>())
+public actual fun certAddRefServerOcspResponse(hserverocspresponse: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certAddRefServerOcspResponse(hserverocspresponse?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun CertAddRefServerOcspResponseContext(pserverocspresponsecontext: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertAddRefServerOcspResponseContext(pserverocspresponsecontext.toCPointer<ByteVar>())
+public actual fun certAddRefServerOcspResponseContext(pserverocspresponsecontext: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certAddRefServerOcspResponseContext(pserverocspresponsecontext?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun CertAddSerializedElementToStore(hcertstore: HCERTSTORE, pbelement: Long, cbelement: UInt, dwadddisposition: UInt, dwflags: UInt, dwcontexttypeflags: UInt, pdwcontexttype: Long, ppvcontext: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertAddSerializedElementToStore(hcertstore.toCPointer<ByteVar>(), pbelement.toCPointer<ByteVar>(), cbelement, dwadddisposition, dwflags, dwcontexttypeflags, pdwcontexttype.toCPointer<ByteVar>(), ppvcontext.toCPointer<ByteVar>())
+public actual fun certAddSerializedElementToStore(hcertstore: Hcertstore, pbelement: COpaquePointer?, cbelement: UInt, dwadddisposition: UInt, dwflags: UInt, dwcontexttypeflags: UInt, pdwcontexttype: COpaquePointer?, ppvcontext: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certAddSerializedElementToStore(hcertstore?.value?.toCPointer<ByteVar>(), pbelement?.value?.toCPointer<ByteVar>(), cbelement, dwadddisposition, dwflags, dwcontexttypeflags, pdwcontexttype?.value?.toCPointer<ByteVar>(), ppvcontext?.value?.toCPointer<ByteVar>())
 
-public actual fun CertAddStoreToCollection(hcollectionstore: HCERTSTORE, hsiblingstore: HCERTSTORE, dwupdateflags: UInt, dwpriority: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertAddStoreToCollection(hcollectionstore.toCPointer<ByteVar>(), hsiblingstore.toCPointer<ByteVar>(), dwupdateflags, dwpriority)
+public actual fun certAddStoreToCollection(hcollectionstore: Hcertstore, hsiblingstore: Hcertstore, dwupdateflags: UInt, dwpriority: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certAddStoreToCollection(hcollectionstore?.value?.toCPointer<ByteVar>(), hsiblingstore?.value?.toCPointer<ByteVar>(), dwupdateflags, dwpriority)
 
-public actual fun CertAlgIdToOID(dwalgid: UInt): PCSTR =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertAlgIdToOID(dwalgid)?.toLong() ?: 0L
+public actual fun certAlgIdToOID(dwalgid: UInt): Pcstr =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certAlgIdToOID(dwalgid)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CertCloseServerOcspResponse(hserverocspresponse: Long, dwflags: UInt) {
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertCloseServerOcspResponse(hserverocspresponse.toCPointer<ByteVar>(), dwflags)
+public actual fun certCloseServerOcspResponse(hserverocspresponse: COpaquePointer?, dwflags: UInt) {
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certCloseServerOcspResponse(hserverocspresponse?.value?.toCPointer<ByteVar>(), dwflags)
 }
 
-public actual fun CertCloseStore(hcertstore: HCERTSTORE, dwflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertCloseStore(hcertstore.toCPointer<ByteVar>(), dwflags)
+public actual fun certCloseStore(hcertstore: Hcertstore, dwflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certCloseStore(hcertstore?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun CertCompareCertificate(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pcertid1: Long, pcertid2: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertCompareCertificate(dwcertencodingtype, pcertid1.toCPointer<ByteVar>(), pcertid2.toCPointer<ByteVar>())
+public actual fun certCompareCertificate(dwcertencodingtype: CertQueryEncodingType, pcertid1: COpaquePointer?, pcertid2: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certCompareCertificate(dwcertencodingtype, pcertid1?.value?.toCPointer<ByteVar>(), pcertid2?.value?.toCPointer<ByteVar>())
 
-public actual fun CertCompareCertificateName(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pcertname1: Long, pcertname2: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertCompareCertificateName(dwcertencodingtype, pcertname1.toCPointer<ByteVar>(), pcertname2.toCPointer<ByteVar>())
+public actual fun certCompareCertificateName(dwcertencodingtype: CertQueryEncodingType, pcertname1: COpaquePointer?, pcertname2: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certCompareCertificateName(dwcertencodingtype, pcertname1?.value?.toCPointer<ByteVar>(), pcertname2?.value?.toCPointer<ByteVar>())
 
-public actual fun CertCompareIntegerBlob(pint1: Long, pint2: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertCompareIntegerBlob(pint1.toCPointer<ByteVar>(), pint2.toCPointer<ByteVar>())
+public actual fun certCompareIntegerBlob(pint1: COpaquePointer?, pint2: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certCompareIntegerBlob(pint1?.value?.toCPointer<ByteVar>(), pint2?.value?.toCPointer<ByteVar>())
 
-public actual fun CertComparePublicKeyInfo(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, ppublickey1: Long, ppublickey2: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertComparePublicKeyInfo(dwcertencodingtype, ppublickey1.toCPointer<ByteVar>(), ppublickey2.toCPointer<ByteVar>())
+public actual fun certComparePublicKeyInfo(dwcertencodingtype: CertQueryEncodingType, ppublickey1: COpaquePointer?, ppublickey2: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certComparePublicKeyInfo(dwcertencodingtype, ppublickey1?.value?.toCPointer<ByteVar>(), ppublickey2?.value?.toCPointer<ByteVar>())
 
-public actual fun CertControlStore(hcertstore: HCERTSTORE, dwflags: CERT_CONTROL_STORE_FLAGS, dwctrltype: UInt, pvctrlpara: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertControlStore(hcertstore.toCPointer<ByteVar>(), dwflags, dwctrltype, pvctrlpara.toCPointer<ByteVar>())
+public actual fun certControlStore(hcertstore: Hcertstore, dwflags: CertControlStoreFlags, dwctrltype: UInt, pvctrlpara: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certControlStore(hcertstore?.value?.toCPointer<ByteVar>(), dwflags, dwctrltype, pvctrlpara?.value?.toCPointer<ByteVar>())
 
-public actual fun CertCreateCRLContext(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pbcrlencoded: Long, cbcrlencoded: UInt): Long =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertCreateCRLContext(dwcertencodingtype, pbcrlencoded.toCPointer<ByteVar>(), cbcrlencoded)?.toLong() ?: 0L
+public actual fun certCreateCRLContext(dwcertencodingtype: CertQueryEncodingType, pbcrlencoded: COpaquePointer?, cbcrlencoded: UInt): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certCreateCRLContext(dwcertencodingtype, pbcrlencoded?.value?.toCPointer<ByteVar>(), cbcrlencoded)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CertCreateCTLContext(dwmsgandcertencodingtype: UInt, pbctlencoded: Long, cbctlencoded: UInt): Long =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertCreateCTLContext(dwmsgandcertencodingtype, pbctlencoded.toCPointer<ByteVar>(), cbctlencoded)?.toLong() ?: 0L
+public actual fun certCreateCTLContext(dwmsgandcertencodingtype: UInt, pbctlencoded: COpaquePointer?, cbctlencoded: UInt): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certCreateCTLContext(dwmsgandcertencodingtype, pbctlencoded?.value?.toCPointer<ByteVar>(), cbctlencoded)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CertCreateCTLEntryFromCertificateContextProperties(pcertcontext: Long, coptattr: UInt, rgoptattr: Long, dwflags: UInt, pvreserved: Long, pctlentry: Long, pcbctlentry: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertCreateCTLEntryFromCertificateContextProperties(pcertcontext.toCPointer<ByteVar>(), coptattr, rgoptattr.toCPointer<ByteVar>(), dwflags, pvreserved.toCPointer<ByteVar>(), pctlentry.toCPointer<ByteVar>(), pcbctlentry.toCPointer<ByteVar>())
+public actual fun certCreateCTLEntryFromCertificateContextProperties(pcertcontext: COpaquePointer?, coptattr: UInt, rgoptattr: COpaquePointer?, dwflags: UInt, pvreserved: COpaquePointer?, pctlentry: COpaquePointer?, pcbctlentry: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certCreateCTLEntryFromCertificateContextProperties(pcertcontext?.value?.toCPointer<ByteVar>(), coptattr, rgoptattr?.value?.toCPointer<ByteVar>(), dwflags, pvreserved?.value?.toCPointer<ByteVar>(), pctlentry?.value?.toCPointer<ByteVar>(), pcbctlentry?.value?.toCPointer<ByteVar>())
 
-public actual fun CertCreateCertificateChainEngine(pconfig: Long, phchainengine: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertCreateCertificateChainEngine(pconfig.toCPointer<ByteVar>(), phchainengine.toCPointer<ByteVar>())
+public actual fun certCreateCertificateChainEngine(pconfig: COpaquePointer?, phchainengine: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certCreateCertificateChainEngine(pconfig?.value?.toCPointer<ByteVar>(), phchainengine?.value?.toCPointer<ByteVar>())
 
-public actual fun CertCreateCertificateContext(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pbcertencoded: Long, cbcertencoded: UInt): Long =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertCreateCertificateContext(dwcertencodingtype, pbcertencoded.toCPointer<ByteVar>(), cbcertencoded)?.toLong() ?: 0L
+public actual fun certCreateCertificateContext(dwcertencodingtype: CertQueryEncodingType, pbcertencoded: COpaquePointer?, cbcertencoded: UInt): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certCreateCertificateContext(dwcertencodingtype, pbcertencoded?.value?.toCPointer<ByteVar>(), cbcertencoded)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CertCreateContext(dwcontexttype: UInt, dwencodingtype: UInt, pbencoded: Long, cbencoded: UInt, dwflags: UInt, pcreatepara: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertCreateContext(dwcontexttype, dwencodingtype, pbencoded.toCPointer<ByteVar>(), cbencoded, dwflags, pcreatepara.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun certCreateContext(dwcontexttype: UInt, dwencodingtype: UInt, pbencoded: COpaquePointer?, cbencoded: UInt, dwflags: UInt, pcreatepara: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certCreateContext(dwcontexttype, dwencodingtype, pbencoded?.value?.toCPointer<ByteVar>(), cbencoded, dwflags, pcreatepara?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CertCreateSelfSignCertificate(hcryptprovorncryptkey: HCRYPTPROV_OR_NCRYPT_KEY_HANDLE, psubjectissuerblob: Long, dwflags: CERT_CREATE_SELFSIGN_FLAGS, pkeyprovinfo: Long, psignaturealgorithm: Long, pstarttime: Long, pendtime: Long, pextensions: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertCreateSelfSignCertificate(hcryptprovorncryptkey, psubjectissuerblob.toCPointer<ByteVar>(), dwflags, pkeyprovinfo.toCPointer<ByteVar>(), psignaturealgorithm.toCPointer<ByteVar>(), pstarttime.toCPointer<ByteVar>(), pendtime.toCPointer<ByteVar>(), pextensions.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun certCreateSelfSignCertificate(hcryptprovorncryptkey: HcryptprovOrNcryptKeyHandle, psubjectissuerblob: COpaquePointer?, dwflags: CertCreateSelfsignFlags, pkeyprovinfo: COpaquePointer?, psignaturealgorithm: COpaquePointer?, pstarttime: COpaquePointer?, pendtime: COpaquePointer?, pextensions: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certCreateSelfSignCertificate(hcryptprovorncryptkey, psubjectissuerblob?.value?.toCPointer<ByteVar>(), dwflags, pkeyprovinfo?.value?.toCPointer<ByteVar>(), psignaturealgorithm?.value?.toCPointer<ByteVar>(), pstarttime?.value?.toCPointer<ByteVar>(), pendtime?.value?.toCPointer<ByteVar>(), pextensions?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CertDeleteCRLFromStore(pcrlcontext: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertDeleteCRLFromStore(pcrlcontext.toCPointer<ByteVar>())
+public actual fun certDeleteCRLFromStore(pcrlcontext: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certDeleteCRLFromStore(pcrlcontext?.value?.toCPointer<ByteVar>())
 
-public actual fun CertDeleteCTLFromStore(pctlcontext: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertDeleteCTLFromStore(pctlcontext.toCPointer<ByteVar>())
+public actual fun certDeleteCTLFromStore(pctlcontext: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certDeleteCTLFromStore(pctlcontext?.value?.toCPointer<ByteVar>())
 
-public actual fun CertDeleteCertificateFromStore(pcertcontext: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertDeleteCertificateFromStore(pcertcontext.toCPointer<ByteVar>())
+public actual fun certDeleteCertificateFromStore(pcertcontext: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certDeleteCertificateFromStore(pcertcontext?.value?.toCPointer<ByteVar>())
 
-public actual fun CertDuplicateCRLContext(pcrlcontext: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertDuplicateCRLContext(pcrlcontext.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun certDuplicateCRLContext(pcrlcontext: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certDuplicateCRLContext(pcrlcontext?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CertDuplicateCTLContext(pctlcontext: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertDuplicateCTLContext(pctlcontext.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun certDuplicateCTLContext(pctlcontext: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certDuplicateCTLContext(pctlcontext?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CertDuplicateCertificateChain(pchaincontext: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertDuplicateCertificateChain(pchaincontext.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun certDuplicateCertificateChain(pchaincontext: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certDuplicateCertificateChain(pchaincontext?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CertDuplicateCertificateContext(pcertcontext: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertDuplicateCertificateContext(pcertcontext.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun certDuplicateCertificateContext(pcertcontext: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certDuplicateCertificateContext(pcertcontext?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CertDuplicateStore(hcertstore: HCERTSTORE): HCERTSTORE =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertDuplicateStore(hcertstore.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun certDuplicateStore(hcertstore: Hcertstore): Hcertstore =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certDuplicateStore(hcertstore?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CertEnumCRLContextProperties(pcrlcontext: Long, dwpropid: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertEnumCRLContextProperties(pcrlcontext.toCPointer<ByteVar>(), dwpropid)
+public actual fun certEnumCRLContextProperties(pcrlcontext: COpaquePointer?, dwpropid: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certEnumCRLContextProperties(pcrlcontext?.value?.toCPointer<ByteVar>(), dwpropid)
 
-public actual fun CertEnumCRLsInStore(hcertstore: HCERTSTORE, pprevcrlcontext: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertEnumCRLsInStore(hcertstore.toCPointer<ByteVar>(), pprevcrlcontext.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun certEnumCRLsInStore(hcertstore: Hcertstore, pprevcrlcontext: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certEnumCRLsInStore(hcertstore?.value?.toCPointer<ByteVar>(), pprevcrlcontext?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CertEnumCTLContextProperties(pctlcontext: Long, dwpropid: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertEnumCTLContextProperties(pctlcontext.toCPointer<ByteVar>(), dwpropid)
+public actual fun certEnumCTLContextProperties(pctlcontext: COpaquePointer?, dwpropid: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certEnumCTLContextProperties(pctlcontext?.value?.toCPointer<ByteVar>(), dwpropid)
 
-public actual fun CertEnumCTLsInStore(hcertstore: HCERTSTORE, pprevctlcontext: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertEnumCTLsInStore(hcertstore.toCPointer<ByteVar>(), pprevctlcontext.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun certEnumCTLsInStore(hcertstore: Hcertstore, pprevctlcontext: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certEnumCTLsInStore(hcertstore?.value?.toCPointer<ByteVar>(), pprevctlcontext?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CertEnumCertificateContextProperties(pcertcontext: Long, dwpropid: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertEnumCertificateContextProperties(pcertcontext.toCPointer<ByteVar>(), dwpropid)
+public actual fun certEnumCertificateContextProperties(pcertcontext: COpaquePointer?, dwpropid: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certEnumCertificateContextProperties(pcertcontext?.value?.toCPointer<ByteVar>(), dwpropid)
 
-public actual fun CertEnumCertificatesInStore(hcertstore: HCERTSTORE, pprevcertcontext: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertEnumCertificatesInStore(hcertstore.toCPointer<ByteVar>(), pprevcertcontext.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun certEnumCertificatesInStore(hcertstore: Hcertstore, pprevcertcontext: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certEnumCertificatesInStore(hcertstore?.value?.toCPointer<ByteVar>(), pprevcertcontext?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CertEnumPhysicalStore(pvsystemstore: Long, dwflags: UInt, pvarg: Long, pfnenum: PFN_CERT_ENUM_PHYSICAL_STORE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertEnumPhysicalStore(pvsystemstore.toCPointer<ByteVar>(), dwflags, pvarg.toCPointer<ByteVar>(), pfnenum.toLong().toCPointer<ByteVar>())
+public actual fun certEnumPhysicalStore(pvsystemstore: COpaquePointer?, dwflags: UInt, pvarg: COpaquePointer?, pfnenum: PfnCertEnumPhysicalStore): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certEnumPhysicalStore(pvsystemstore?.value?.toCPointer<ByteVar>(), dwflags, pvarg?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 
-public actual fun CertEnumSubjectInSortedCTL(pctlcontext: Long, ppvnextsubject: Long, psubjectidentifier: Long, pencodedattributes: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertEnumSubjectInSortedCTL(pctlcontext.toCPointer<ByteVar>(), ppvnextsubject.toCPointer<ByteVar>(), psubjectidentifier.toCPointer<ByteVar>(), pencodedattributes.toCPointer<ByteVar>())
+public actual fun certEnumSubjectInSortedCTL(pctlcontext: COpaquePointer?, ppvnextsubject: COpaquePointer?, psubjectidentifier: COpaquePointer?, pencodedattributes: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certEnumSubjectInSortedCTL(pctlcontext?.value?.toCPointer<ByteVar>(), ppvnextsubject?.value?.toCPointer<ByteVar>(), psubjectidentifier?.value?.toCPointer<ByteVar>(), pencodedattributes?.value?.toCPointer<ByteVar>())
 
-public actual fun CertEnumSystemStore(dwflags: UInt, pvsystemstorelocationpara: Long, pvarg: Long, pfnenum: PFN_CERT_ENUM_SYSTEM_STORE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertEnumSystemStore(dwflags, pvsystemstorelocationpara.toCPointer<ByteVar>(), pvarg.toCPointer<ByteVar>(), pfnenum.toLong().toCPointer<ByteVar>())
+public actual fun certEnumSystemStore(dwflags: UInt, pvsystemstorelocationpara: COpaquePointer?, pvarg: COpaquePointer?, pfnenum: PfnCertEnumSystemStore): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certEnumSystemStore(dwflags, pvsystemstorelocationpara?.value?.toCPointer<ByteVar>(), pvarg?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 
-public actual fun CertEnumSystemStoreLocation(dwflags: UInt, pvarg: Long, pfnenum: PFN_CERT_ENUM_SYSTEM_STORE_LOCATION): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertEnumSystemStoreLocation(dwflags, pvarg.toCPointer<ByteVar>(), pfnenum.toLong().toCPointer<ByteVar>())
+public actual fun certEnumSystemStoreLocation(dwflags: UInt, pvarg: COpaquePointer?, pfnenum: PfnCertEnumSystemStoreLocation): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certEnumSystemStoreLocation(dwflags, pvarg?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 
-public actual fun CertFindAttribute(pszobjid: PCSTR, cattr: UInt, rgattr: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertFindAttribute(pszobjid.toCPointer<ByteVar>(), cattr, rgattr.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun certFindAttribute(pszobjid: Pcstr, cattr: UInt, rgattr: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certFindAttribute(pszobjid?.value?.toCPointer<ByteVar>(), cattr, rgattr?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CertFindCRLInStore(hcertstore: HCERTSTORE, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, dwfindflags: UInt, dwfindtype: UInt, pvfindpara: Long, pprevcrlcontext: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertFindCRLInStore(hcertstore.toCPointer<ByteVar>(), dwcertencodingtype, dwfindflags, dwfindtype, pvfindpara.toCPointer<ByteVar>(), pprevcrlcontext.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun certFindCRLInStore(hcertstore: Hcertstore, dwcertencodingtype: CertQueryEncodingType, dwfindflags: UInt, dwfindtype: UInt, pvfindpara: COpaquePointer?, pprevcrlcontext: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certFindCRLInStore(hcertstore?.value?.toCPointer<ByteVar>(), dwcertencodingtype, dwfindflags, dwfindtype, pvfindpara?.value?.toCPointer<ByteVar>(), pprevcrlcontext?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CertFindCTLInStore(hcertstore: HCERTSTORE, dwmsgandcertencodingtype: UInt, dwfindflags: UInt, dwfindtype: CERT_FIND_TYPE, pvfindpara: Long, pprevctlcontext: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertFindCTLInStore(hcertstore.toCPointer<ByteVar>(), dwmsgandcertencodingtype, dwfindflags, dwfindtype, pvfindpara.toCPointer<ByteVar>(), pprevctlcontext.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun certFindCTLInStore(hcertstore: Hcertstore, dwmsgandcertencodingtype: UInt, dwfindflags: UInt, dwfindtype: CertFindType, pvfindpara: COpaquePointer?, pprevctlcontext: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certFindCTLInStore(hcertstore?.value?.toCPointer<ByteVar>(), dwmsgandcertencodingtype, dwfindflags, dwfindtype, pvfindpara?.value?.toCPointer<ByteVar>(), pprevctlcontext?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CertFindCertificateInCRL(pcert: Long, pcrlcontext: Long, dwflags: UInt, pvreserved: Long, ppcrlentry: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertFindCertificateInCRL(pcert.toCPointer<ByteVar>(), pcrlcontext.toCPointer<ByteVar>(), dwflags, pvreserved.toCPointer<ByteVar>(), ppcrlentry.toCPointer<ByteVar>())
+public actual fun certFindCertificateInCRL(pcert: COpaquePointer?, pcrlcontext: COpaquePointer?, dwflags: UInt, pvreserved: COpaquePointer?, ppcrlentry: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certFindCertificateInCRL(pcert?.value?.toCPointer<ByteVar>(), pcrlcontext?.value?.toCPointer<ByteVar>(), dwflags, pvreserved?.value?.toCPointer<ByteVar>(), ppcrlentry?.value?.toCPointer<ByteVar>())
 
-public actual fun CertFindCertificateInStore(hcertstore: HCERTSTORE, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, dwfindflags: UInt, dwfindtype: CERT_FIND_FLAGS, pvfindpara: Long, pprevcertcontext: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertFindCertificateInStore(hcertstore.toCPointer<ByteVar>(), dwcertencodingtype, dwfindflags, dwfindtype, pvfindpara.toCPointer<ByteVar>(), pprevcertcontext.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun certFindCertificateInStore(hcertstore: Hcertstore, dwcertencodingtype: CertQueryEncodingType, dwfindflags: UInt, dwfindtype: CertFindFlags, pvfindpara: COpaquePointer?, pprevcertcontext: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certFindCertificateInStore(hcertstore?.value?.toCPointer<ByteVar>(), dwcertencodingtype, dwfindflags, dwfindtype, pvfindpara?.value?.toCPointer<ByteVar>(), pprevcertcontext?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CertFindChainInStore(hcertstore: HCERTSTORE, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, dwfindflags: CERT_FIND_CHAIN_IN_STORE_FLAGS, dwfindtype: UInt, pvfindpara: Long, pprevchaincontext: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertFindChainInStore(hcertstore.toCPointer<ByteVar>(), dwcertencodingtype, dwfindflags, dwfindtype, pvfindpara.toCPointer<ByteVar>(), pprevchaincontext.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun certFindChainInStore(hcertstore: Hcertstore, dwcertencodingtype: CertQueryEncodingType, dwfindflags: CertFindChainInStoreFlags, dwfindtype: UInt, pvfindpara: COpaquePointer?, pprevchaincontext: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certFindChainInStore(hcertstore?.value?.toCPointer<ByteVar>(), dwcertencodingtype, dwfindflags, dwfindtype, pvfindpara?.value?.toCPointer<ByteVar>(), pprevchaincontext?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CertFindExtension(pszobjid: PCSTR, cextensions: UInt, rgextensions: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertFindExtension(pszobjid.toCPointer<ByteVar>(), cextensions, rgextensions.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun certFindExtension(pszobjid: Pcstr, cextensions: UInt, rgextensions: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certFindExtension(pszobjid?.value?.toCPointer<ByteVar>(), cextensions, rgextensions?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CertFindRDNAttr(pszobjid: PCSTR, pname: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertFindRDNAttr(pszobjid.toCPointer<ByteVar>(), pname.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun certFindRDNAttr(pszobjid: Pcstr, pname: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certFindRDNAttr(pszobjid?.value?.toCPointer<ByteVar>(), pname?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CertFindSubjectInCTL(dwencodingtype: UInt, dwsubjecttype: UInt, pvsubject: Long, pctlcontext: Long, dwflags: UInt): Long =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertFindSubjectInCTL(dwencodingtype, dwsubjecttype, pvsubject.toCPointer<ByteVar>(), pctlcontext.toCPointer<ByteVar>(), dwflags)?.toLong() ?: 0L
+public actual fun certFindSubjectInCTL(dwencodingtype: UInt, dwsubjecttype: UInt, pvsubject: COpaquePointer?, pctlcontext: COpaquePointer?, dwflags: UInt): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certFindSubjectInCTL(dwencodingtype, dwsubjecttype, pvsubject?.value?.toCPointer<ByteVar>(), pctlcontext?.value?.toCPointer<ByteVar>(), dwflags)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CertFindSubjectInSortedCTL(psubjectidentifier: Long, pctlcontext: Long, dwflags: UInt, pvreserved: Long, pencodedattributes: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertFindSubjectInSortedCTL(psubjectidentifier.toCPointer<ByteVar>(), pctlcontext.toCPointer<ByteVar>(), dwflags, pvreserved.toCPointer<ByteVar>(), pencodedattributes.toCPointer<ByteVar>())
+public actual fun certFindSubjectInSortedCTL(psubjectidentifier: COpaquePointer?, pctlcontext: COpaquePointer?, dwflags: UInt, pvreserved: COpaquePointer?, pencodedattributes: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certFindSubjectInSortedCTL(psubjectidentifier?.value?.toCPointer<ByteVar>(), pctlcontext?.value?.toCPointer<ByteVar>(), dwflags, pvreserved?.value?.toCPointer<ByteVar>(), pencodedattributes?.value?.toCPointer<ByteVar>())
 
-public actual fun CertFreeCRLContext(pcrlcontext: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertFreeCRLContext(pcrlcontext.toCPointer<ByteVar>())
+public actual fun certFreeCRLContext(pcrlcontext: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certFreeCRLContext(pcrlcontext?.value?.toCPointer<ByteVar>())
 
-public actual fun CertFreeCTLContext(pctlcontext: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertFreeCTLContext(pctlcontext.toCPointer<ByteVar>())
+public actual fun certFreeCTLContext(pctlcontext: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certFreeCTLContext(pctlcontext?.value?.toCPointer<ByteVar>())
 
-public actual fun CertFreeCertificateChain(pchaincontext: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertFreeCertificateChain(pchaincontext.toCPointer<ByteVar>())
+public actual fun certFreeCertificateChain(pchaincontext: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certFreeCertificateChain(pchaincontext?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun CertFreeCertificateChainEngine(hchainengine: HCERTCHAINENGINE) {
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertFreeCertificateChainEngine(hchainengine.toCPointer<ByteVar>())
+public actual fun certFreeCertificateChainEngine(hchainengine: Hcertchainengine) {
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certFreeCertificateChainEngine(hchainengine?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun CertFreeCertificateChainList(prgpselection: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertFreeCertificateChainList(prgpselection.toCPointer<ByteVar>())
+public actual fun certFreeCertificateChainList(prgpselection: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certFreeCertificateChainList(prgpselection?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun CertFreeCertificateContext(pcertcontext: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertFreeCertificateContext(pcertcontext.toCPointer<ByteVar>())
+public actual fun certFreeCertificateContext(pcertcontext: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certFreeCertificateContext(pcertcontext?.value?.toCPointer<ByteVar>())
 
-public actual fun CertFreeServerOcspResponseContext(pserverocspresponsecontext: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertFreeServerOcspResponseContext(pserverocspresponsecontext.toCPointer<ByteVar>())
+public actual fun certFreeServerOcspResponseContext(pserverocspresponsecontext: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certFreeServerOcspResponseContext(pserverocspresponsecontext?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun CertGetCRLContextProperty(pcrlcontext: Long, dwpropid: UInt, pvdata: Long, pcbdata: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertGetCRLContextProperty(pcrlcontext.toCPointer<ByteVar>(), dwpropid, pvdata.toCPointer<ByteVar>(), pcbdata.toCPointer<ByteVar>())
+public actual fun certGetCRLContextProperty(pcrlcontext: COpaquePointer?, dwpropid: UInt, pvdata: COpaquePointer?, pcbdata: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certGetCRLContextProperty(pcrlcontext?.value?.toCPointer<ByteVar>(), dwpropid, pvdata?.value?.toCPointer<ByteVar>(), pcbdata?.value?.toCPointer<ByteVar>())
 
-public actual fun CertGetCRLFromStore(hcertstore: HCERTSTORE, pissuercontext: Long, pprevcrlcontext: Long, pdwflags: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertGetCRLFromStore(hcertstore.toCPointer<ByteVar>(), pissuercontext.toCPointer<ByteVar>(), pprevcrlcontext.toCPointer<ByteVar>(), pdwflags.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun certGetCRLFromStore(hcertstore: Hcertstore, pissuercontext: COpaquePointer?, pprevcrlcontext: COpaquePointer?, pdwflags: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certGetCRLFromStore(hcertstore?.value?.toCPointer<ByteVar>(), pissuercontext?.value?.toCPointer<ByteVar>(), pprevcrlcontext?.value?.toCPointer<ByteVar>(), pdwflags?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CertGetCTLContextProperty(pctlcontext: Long, dwpropid: UInt, pvdata: Long, pcbdata: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertGetCTLContextProperty(pctlcontext.toCPointer<ByteVar>(), dwpropid, pvdata.toCPointer<ByteVar>(), pcbdata.toCPointer<ByteVar>())
+public actual fun certGetCTLContextProperty(pctlcontext: COpaquePointer?, dwpropid: UInt, pvdata: COpaquePointer?, pcbdata: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certGetCTLContextProperty(pctlcontext?.value?.toCPointer<ByteVar>(), dwpropid, pvdata?.value?.toCPointer<ByteVar>(), pcbdata?.value?.toCPointer<ByteVar>())
 
-public actual fun CertGetCertificateChain(hchainengine: HCERTCHAINENGINE, pcertcontext: Long, ptime: Long, hadditionalstore: HCERTSTORE, pchainpara: Long, dwflags: UInt, pvreserved: Long, ppchaincontext: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertGetCertificateChain(hchainengine.toCPointer<ByteVar>(), pcertcontext.toCPointer<ByteVar>(), ptime.toCPointer<ByteVar>(), hadditionalstore.toCPointer<ByteVar>(), pchainpara.toCPointer<ByteVar>(), dwflags, pvreserved.toCPointer<ByteVar>(), ppchaincontext.toCPointer<ByteVar>())
+public actual fun certGetCertificateChain(hchainengine: Hcertchainengine, pcertcontext: COpaquePointer?, ptime: COpaquePointer?, hadditionalstore: Hcertstore, pchainpara: COpaquePointer?, dwflags: UInt, pvreserved: COpaquePointer?, ppchaincontext: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certGetCertificateChain(hchainengine?.value?.toCPointer<ByteVar>(), pcertcontext?.value?.toCPointer<ByteVar>(), ptime?.value?.toCPointer<ByteVar>(), hadditionalstore?.value?.toCPointer<ByteVar>(), pchainpara?.value?.toCPointer<ByteVar>(), dwflags, pvreserved?.value?.toCPointer<ByteVar>(), ppchaincontext?.value?.toCPointer<ByteVar>())
 
-public actual fun CertGetCertificateContextProperty(pcertcontext: Long, dwpropid: UInt, pvdata: Long, pcbdata: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertGetCertificateContextProperty(pcertcontext.toCPointer<ByteVar>(), dwpropid, pvdata.toCPointer<ByteVar>(), pcbdata.toCPointer<ByteVar>())
+public actual fun certGetCertificateContextProperty(pcertcontext: COpaquePointer?, dwpropid: UInt, pvdata: COpaquePointer?, pcbdata: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certGetCertificateContextProperty(pcertcontext?.value?.toCPointer<ByteVar>(), dwpropid, pvdata?.value?.toCPointer<ByteVar>(), pcbdata?.value?.toCPointer<ByteVar>())
 
-public actual fun CertGetEnhancedKeyUsage(pcertcontext: Long, dwflags: UInt, pusage: Long, pcbusage: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertGetEnhancedKeyUsage(pcertcontext.toCPointer<ByteVar>(), dwflags, pusage.toCPointer<ByteVar>(), pcbusage.toCPointer<ByteVar>())
+public actual fun certGetEnhancedKeyUsage(pcertcontext: COpaquePointer?, dwflags: UInt, pusage: COpaquePointer?, pcbusage: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certGetEnhancedKeyUsage(pcertcontext?.value?.toCPointer<ByteVar>(), dwflags, pusage?.value?.toCPointer<ByteVar>(), pcbusage?.value?.toCPointer<ByteVar>())
 
-public actual fun CertGetIntendedKeyUsage(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pcertinfo: Long, pbkeyusage: Long, cbkeyusage: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertGetIntendedKeyUsage(dwcertencodingtype, pcertinfo.toCPointer<ByteVar>(), pbkeyusage.toCPointer<ByteVar>(), cbkeyusage)
+public actual fun certGetIntendedKeyUsage(dwcertencodingtype: CertQueryEncodingType, pcertinfo: COpaquePointer?, pbkeyusage: COpaquePointer?, cbkeyusage: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certGetIntendedKeyUsage(dwcertencodingtype, pcertinfo?.value?.toCPointer<ByteVar>(), pbkeyusage?.value?.toCPointer<ByteVar>(), cbkeyusage)
 
-public actual fun CertGetIssuerCertificateFromStore(hcertstore: HCERTSTORE, psubjectcontext: Long, pprevissuercontext: Long, pdwflags: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertGetIssuerCertificateFromStore(hcertstore.toCPointer<ByteVar>(), psubjectcontext.toCPointer<ByteVar>(), pprevissuercontext.toCPointer<ByteVar>(), pdwflags.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun certGetIssuerCertificateFromStore(hcertstore: Hcertstore, psubjectcontext: COpaquePointer?, pprevissuercontext: COpaquePointer?, pdwflags: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certGetIssuerCertificateFromStore(hcertstore?.value?.toCPointer<ByteVar>(), psubjectcontext?.value?.toCPointer<ByteVar>(), pprevissuercontext?.value?.toCPointer<ByteVar>(), pdwflags?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CertGetNameStringA(pcertcontext: Long, dwtype: UInt, dwflags: UInt, pvtypepara: Long, psznamestring: PSTR, cchnamestring: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertGetNameStringA(pcertcontext.toCPointer<ByteVar>(), dwtype, dwflags, pvtypepara.toCPointer<ByteVar>(), psznamestring.toCPointer<ByteVar>(), cchnamestring)
+public actual fun certGetNameStringA(pcertcontext: COpaquePointer?, dwtype: UInt, dwflags: UInt, pvtypepara: COpaquePointer?, psznamestring: Pstr, cchnamestring: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certGetNameStringA(pcertcontext?.value?.toCPointer<ByteVar>(), dwtype, dwflags, pvtypepara?.value?.toCPointer<ByteVar>(), psznamestring?.value?.toCPointer<ByteVar>(), cchnamestring)
 
-public actual fun CertGetNameStringW(pcertcontext: Long, dwtype: UInt, dwflags: UInt, pvtypepara: Long, psznamestring: PWSTR, cchnamestring: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertGetNameStringW(pcertcontext.toCPointer<ByteVar>(), dwtype, dwflags, pvtypepara.toCPointer<ByteVar>(), psznamestring.toCPointer<ByteVar>(), cchnamestring)
+public actual fun certGetNameStringW(pcertcontext: COpaquePointer?, dwtype: UInt, dwflags: UInt, pvtypepara: COpaquePointer?, psznamestring: Pwstr, cchnamestring: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certGetNameStringW(pcertcontext?.value?.toCPointer<ByteVar>(), dwtype, dwflags, pvtypepara?.value?.toCPointer<ByteVar>(), psznamestring?.value?.toCPointer<ByteVar>(), cchnamestring)
 
-public actual fun CertGetPublicKeyLength(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, ppublickey: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertGetPublicKeyLength(dwcertencodingtype, ppublickey.toCPointer<ByteVar>())
+public actual fun certGetPublicKeyLength(dwcertencodingtype: CertQueryEncodingType, ppublickey: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certGetPublicKeyLength(dwcertencodingtype, ppublickey?.value?.toCPointer<ByteVar>())
 
-public actual fun CertGetServerOcspResponseContext(hserverocspresponse: Long, dwflags: UInt, pvreserved: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertGetServerOcspResponseContext(hserverocspresponse.toCPointer<ByteVar>(), dwflags, pvreserved.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun certGetServerOcspResponseContext(hserverocspresponse: COpaquePointer?, dwflags: UInt, pvreserved: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certGetServerOcspResponseContext(hserverocspresponse?.value?.toCPointer<ByteVar>(), dwflags, pvreserved?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CertGetStoreProperty(hcertstore: HCERTSTORE, dwpropid: UInt, pvdata: Long, pcbdata: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertGetStoreProperty(hcertstore.toCPointer<ByteVar>(), dwpropid, pvdata.toCPointer<ByteVar>(), pcbdata.toCPointer<ByteVar>())
+public actual fun certGetStoreProperty(hcertstore: Hcertstore, dwpropid: UInt, pvdata: COpaquePointer?, pcbdata: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certGetStoreProperty(hcertstore?.value?.toCPointer<ByteVar>(), dwpropid, pvdata?.value?.toCPointer<ByteVar>(), pcbdata?.value?.toCPointer<ByteVar>())
 
-public actual fun CertGetSubjectCertificateFromStore(hcertstore: HCERTSTORE, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pcertid: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertGetSubjectCertificateFromStore(hcertstore.toCPointer<ByteVar>(), dwcertencodingtype, pcertid.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun certGetSubjectCertificateFromStore(hcertstore: Hcertstore, dwcertencodingtype: CertQueryEncodingType, pcertid: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certGetSubjectCertificateFromStore(hcertstore?.value?.toCPointer<ByteVar>(), dwcertencodingtype, pcertid?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CertGetValidUsages(ccerts: UInt, rghcerts: Long, cnumoids: Long, rghoids: Long, pcboids: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertGetValidUsages(ccerts, rghcerts.toCPointer<ByteVar>(), cnumoids.toCPointer<ByteVar>(), rghoids.toCPointer<ByteVar>(), pcboids.toCPointer<ByteVar>())
+public actual fun certGetValidUsages(ccerts: UInt, rghcerts: COpaquePointer?, cnumoids: COpaquePointer?, rghoids: COpaquePointer?, pcboids: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certGetValidUsages(ccerts, rghcerts?.value?.toCPointer<ByteVar>(), cnumoids?.value?.toCPointer<ByteVar>(), rghoids?.value?.toCPointer<ByteVar>(), pcboids?.value?.toCPointer<ByteVar>())
 
-public actual fun CertIsRDNAttrsInCertificateName(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, dwflags: UInt, pcertname: Long, prdn: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertIsRDNAttrsInCertificateName(dwcertencodingtype, dwflags, pcertname.toCPointer<ByteVar>(), prdn.toCPointer<ByteVar>())
+public actual fun certIsRDNAttrsInCertificateName(dwcertencodingtype: CertQueryEncodingType, dwflags: UInt, pcertname: COpaquePointer?, prdn: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certIsRDNAttrsInCertificateName(dwcertencodingtype, dwflags, pcertname?.value?.toCPointer<ByteVar>(), prdn?.value?.toCPointer<ByteVar>())
 
-public actual fun CertIsStrongHashToSign(pstrongsignpara: Long, pwszcnghashalgid: PCWSTR, psigningcert: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertIsStrongHashToSign(pstrongsignpara.toCPointer<ByteVar>(), pwszcnghashalgid.toCPointer<ByteVar>(), psigningcert.toCPointer<ByteVar>())
+public actual fun certIsStrongHashToSign(pstrongsignpara: COpaquePointer?, pwszcnghashalgid: Pcwstr, psigningcert: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certIsStrongHashToSign(pstrongsignpara?.value?.toCPointer<ByteVar>(), pwszcnghashalgid?.value?.toCPointer<ByteVar>(), psigningcert?.value?.toCPointer<ByteVar>())
 
-public actual fun CertIsValidCRLForCertificate(pcert: Long, pcrl: Long, dwflags: UInt, pvreserved: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertIsValidCRLForCertificate(pcert.toCPointer<ByteVar>(), pcrl.toCPointer<ByteVar>(), dwflags, pvreserved.toCPointer<ByteVar>())
+public actual fun certIsValidCRLForCertificate(pcert: COpaquePointer?, pcrl: COpaquePointer?, dwflags: UInt, pvreserved: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certIsValidCRLForCertificate(pcert?.value?.toCPointer<ByteVar>(), pcrl?.value?.toCPointer<ByteVar>(), dwflags, pvreserved?.value?.toCPointer<ByteVar>())
 
-public actual fun CertIsWeakHash(dwhashusetype: UInt, pwszcnghashalgid: PCWSTR, dwchainflags: UInt, psignerchaincontext: Long, ptimestamp: Long, pwszfilename: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertIsWeakHash(dwhashusetype, pwszcnghashalgid.toCPointer<ByteVar>(), dwchainflags, psignerchaincontext.toCPointer<ByteVar>(), ptimestamp.toCPointer<ByteVar>(), pwszfilename.toCPointer<ByteVar>())
+public actual fun certIsWeakHash(dwhashusetype: UInt, pwszcnghashalgid: Pcwstr, dwchainflags: UInt, psignerchaincontext: COpaquePointer?, ptimestamp: COpaquePointer?, pwszfilename: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certIsWeakHash(dwhashusetype, pwszcnghashalgid?.value?.toCPointer<ByteVar>(), dwchainflags, psignerchaincontext?.value?.toCPointer<ByteVar>(), ptimestamp?.value?.toCPointer<ByteVar>(), pwszfilename?.value?.toCPointer<ByteVar>())
 
-public actual fun CertNameToStrA(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pname: Long, dwstrtype: CERT_STRING_TYPE, psz: PSTR, csz: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertNameToStrA(dwcertencodingtype, pname.toCPointer<ByteVar>(), dwstrtype, psz.toCPointer<ByteVar>(), csz)
+public actual fun certNameToStrA(dwcertencodingtype: CertQueryEncodingType, pname: COpaquePointer?, dwstrtype: CertStringType, psz: Pstr, csz: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certNameToStrA(dwcertencodingtype, pname?.value?.toCPointer<ByteVar>(), dwstrtype, psz?.value?.toCPointer<ByteVar>(), csz)
 
-public actual fun CertNameToStrW(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pname: Long, dwstrtype: CERT_STRING_TYPE, psz: PWSTR, csz: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertNameToStrW(dwcertencodingtype, pname.toCPointer<ByteVar>(), dwstrtype, psz.toCPointer<ByteVar>(), csz)
+public actual fun certNameToStrW(dwcertencodingtype: CertQueryEncodingType, pname: COpaquePointer?, dwstrtype: CertStringType, psz: Pwstr, csz: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certNameToStrW(dwcertencodingtype, pname?.value?.toCPointer<ByteVar>(), dwstrtype, psz?.value?.toCPointer<ByteVar>(), csz)
 
-public actual fun CertOIDToAlgId(pszobjid: PCSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertOIDToAlgId(pszobjid.toCPointer<ByteVar>())
+public actual fun certOIDToAlgId(pszobjid: Pcstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certOIDToAlgId(pszobjid?.value?.toCPointer<ByteVar>())
 
-public actual fun CertOpenServerOcspResponse(pchaincontext: Long, dwflags: UInt, popenpara: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertOpenServerOcspResponse(pchaincontext.toCPointer<ByteVar>(), dwflags, popenpara.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun certOpenServerOcspResponse(pchaincontext: COpaquePointer?, dwflags: UInt, popenpara: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certOpenServerOcspResponse(pchaincontext?.value?.toCPointer<ByteVar>(), dwflags, popenpara?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CertOpenStore(lpszstoreprovider: PCSTR, dwencodingtype: CERT_QUERY_ENCODING_TYPE, hcryptprov: HCRYPTPROV_LEGACY, dwflags: CERT_OPEN_STORE_FLAGS, pvpara: Long): HCERTSTORE =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertOpenStore(lpszstoreprovider.toCPointer<ByteVar>(), dwencodingtype, hcryptprov, dwflags, pvpara.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun certOpenStore(lpszstoreprovider: Pcstr, dwencodingtype: CertQueryEncodingType, hcryptprov: HcryptprovLegacy, dwflags: CertOpenStoreFlags, pvpara: COpaquePointer?): Hcertstore =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certOpenStore(lpszstoreprovider?.value?.toCPointer<ByteVar>(), dwencodingtype, hcryptprov, dwflags, pvpara?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CertOpenSystemStoreA(hprov: HCRYPTPROV_LEGACY, szsubsystemprotocol: PCSTR): HCERTSTORE =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertOpenSystemStoreA(hprov, szsubsystemprotocol.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun certOpenSystemStoreA(hprov: HcryptprovLegacy, szsubsystemprotocol: Pcstr): Hcertstore =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certOpenSystemStoreA(hprov, szsubsystemprotocol?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CertOpenSystemStoreW(hprov: HCRYPTPROV_LEGACY, szsubsystemprotocol: PCWSTR): HCERTSTORE =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertOpenSystemStoreW(hprov, szsubsystemprotocol.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun certOpenSystemStoreW(hprov: HcryptprovLegacy, szsubsystemprotocol: Pcwstr): Hcertstore =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certOpenSystemStoreW(hprov, szsubsystemprotocol?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CertRDNValueToStrA(dwvaluetype: UInt, pvalue: Long, psz: PSTR, csz: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertRDNValueToStrA(dwvaluetype, pvalue.toCPointer<ByteVar>(), psz.toCPointer<ByteVar>(), csz)
+public actual fun certRDNValueToStrA(dwvaluetype: UInt, pvalue: COpaquePointer?, psz: Pstr, csz: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certRDNValueToStrA(dwvaluetype, pvalue?.value?.toCPointer<ByteVar>(), psz?.value?.toCPointer<ByteVar>(), csz)
 
-public actual fun CertRDNValueToStrW(dwvaluetype: UInt, pvalue: Long, psz: PWSTR, csz: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertRDNValueToStrW(dwvaluetype, pvalue.toCPointer<ByteVar>(), psz.toCPointer<ByteVar>(), csz)
+public actual fun certRDNValueToStrW(dwvaluetype: UInt, pvalue: COpaquePointer?, psz: Pwstr, csz: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certRDNValueToStrW(dwvaluetype, pvalue?.value?.toCPointer<ByteVar>(), psz?.value?.toCPointer<ByteVar>(), csz)
 
-public actual fun CertRegisterPhysicalStore(pvsystemstore: Long, dwflags: UInt, pwszstorename: PCWSTR, pstoreinfo: Long, pvreserved: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertRegisterPhysicalStore(pvsystemstore.toCPointer<ByteVar>(), dwflags, pwszstorename.toCPointer<ByteVar>(), pstoreinfo.toCPointer<ByteVar>(), pvreserved.toCPointer<ByteVar>())
+public actual fun certRegisterPhysicalStore(pvsystemstore: COpaquePointer?, dwflags: UInt, pwszstorename: Pcwstr, pstoreinfo: COpaquePointer?, pvreserved: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certRegisterPhysicalStore(pvsystemstore?.value?.toCPointer<ByteVar>(), dwflags, pwszstorename?.value?.toCPointer<ByteVar>(), pstoreinfo?.value?.toCPointer<ByteVar>(), pvreserved?.value?.toCPointer<ByteVar>())
 
-public actual fun CertRegisterSystemStore(pvsystemstore: Long, dwflags: UInt, pstoreinfo: Long, pvreserved: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertRegisterSystemStore(pvsystemstore.toCPointer<ByteVar>(), dwflags, pstoreinfo.toCPointer<ByteVar>(), pvreserved.toCPointer<ByteVar>())
+public actual fun certRegisterSystemStore(pvsystemstore: COpaquePointer?, dwflags: UInt, pstoreinfo: COpaquePointer?, pvreserved: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certRegisterSystemStore(pvsystemstore?.value?.toCPointer<ByteVar>(), dwflags, pstoreinfo?.value?.toCPointer<ByteVar>(), pvreserved?.value?.toCPointer<ByteVar>())
 
-public actual fun CertRemoveEnhancedKeyUsageIdentifier(pcertcontext: Long, pszusageidentifier: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertRemoveEnhancedKeyUsageIdentifier(pcertcontext.toCPointer<ByteVar>(), pszusageidentifier.toCPointer<ByteVar>())
+public actual fun certRemoveEnhancedKeyUsageIdentifier(pcertcontext: COpaquePointer?, pszusageidentifier: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certRemoveEnhancedKeyUsageIdentifier(pcertcontext?.value?.toCPointer<ByteVar>(), pszusageidentifier?.value?.toCPointer<ByteVar>())
 
-public actual fun CertRemoveStoreFromCollection(hcollectionstore: HCERTSTORE, hsiblingstore: HCERTSTORE) {
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertRemoveStoreFromCollection(hcollectionstore.toCPointer<ByteVar>(), hsiblingstore.toCPointer<ByteVar>())
+public actual fun certRemoveStoreFromCollection(hcollectionstore: Hcertstore, hsiblingstore: Hcertstore) {
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certRemoveStoreFromCollection(hcollectionstore?.value?.toCPointer<ByteVar>(), hsiblingstore?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun CertResyncCertificateChainEngine(hchainengine: HCERTCHAINENGINE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertResyncCertificateChainEngine(hchainengine.toCPointer<ByteVar>())
+public actual fun certResyncCertificateChainEngine(hchainengine: Hcertchainengine): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certResyncCertificateChainEngine(hchainengine?.value?.toCPointer<ByteVar>())
 
-public actual fun CertRetrieveLogoOrBiometricInfo(pcertcontext: Long, lpszlogoorbiometrictype: PCSTR, dwretrievalflags: UInt, dwtimeout: UInt, dwflags: UInt, pvreserved: Long, ppbdata: Long, pcbdata: Long, ppwszmimetype: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertRetrieveLogoOrBiometricInfo(pcertcontext.toCPointer<ByteVar>(), lpszlogoorbiometrictype.toCPointer<ByteVar>(), dwretrievalflags, dwtimeout, dwflags, pvreserved.toCPointer<ByteVar>(), ppbdata.toCPointer<ByteVar>(), pcbdata.toCPointer<ByteVar>(), ppwszmimetype.toCPointer<ByteVar>())
+public actual fun certRetrieveLogoOrBiometricInfo(pcertcontext: COpaquePointer?, lpszlogoorbiometrictype: Pcstr, dwretrievalflags: UInt, dwtimeout: UInt, dwflags: UInt, pvreserved: COpaquePointer?, ppbdata: COpaquePointer?, pcbdata: COpaquePointer?, ppwszmimetype: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certRetrieveLogoOrBiometricInfo(pcertcontext?.value?.toCPointer<ByteVar>(), lpszlogoorbiometrictype?.value?.toCPointer<ByteVar>(), dwretrievalflags, dwtimeout, dwflags, pvreserved?.value?.toCPointer<ByteVar>(), ppbdata?.value?.toCPointer<ByteVar>(), pcbdata?.value?.toCPointer<ByteVar>(), ppwszmimetype?.value?.toCPointer<ByteVar>())
 
-public actual fun CertSaveStore(hcertstore: HCERTSTORE, dwencodingtype: CERT_QUERY_ENCODING_TYPE, dwsaveas: CERT_STORE_SAVE_AS, dwsaveto: CERT_STORE_SAVE_TO, pvsavetopara: Long, dwflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertSaveStore(hcertstore.toCPointer<ByteVar>(), dwencodingtype, dwsaveas, dwsaveto, pvsavetopara.toCPointer<ByteVar>(), dwflags)
+public actual fun certSaveStore(hcertstore: Hcertstore, dwencodingtype: CertQueryEncodingType, dwsaveas: CertStoreSaveAs, dwsaveto: CertStoreSaveTo, pvsavetopara: COpaquePointer?, dwflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certSaveStore(hcertstore?.value?.toCPointer<ByteVar>(), dwencodingtype, dwsaveas, dwsaveto, pvsavetopara?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun CertSelectCertificateChains(pselectioncontext: Long, dwflags: UInt, pchainparameters: Long, ccriteria: UInt, rgpcriteria: Long, hstore: HCERTSTORE, pcselection: Long, pprgpselection: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertSelectCertificateChains(pselectioncontext.toCPointer<ByteVar>(), dwflags, pchainparameters.toCPointer<ByteVar>(), ccriteria, rgpcriteria.toCPointer<ByteVar>(), hstore.toCPointer<ByteVar>(), pcselection.toCPointer<ByteVar>(), pprgpselection.toCPointer<ByteVar>())
+public actual fun certSelectCertificateChains(pselectioncontext: COpaquePointer?, dwflags: UInt, pchainparameters: COpaquePointer?, ccriteria: UInt, rgpcriteria: COpaquePointer?, hstore: Hcertstore, pcselection: COpaquePointer?, pprgpselection: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certSelectCertificateChains(pselectioncontext?.value?.toCPointer<ByteVar>(), dwflags, pchainparameters?.value?.toCPointer<ByteVar>(), ccriteria, rgpcriteria?.value?.toCPointer<ByteVar>(), hstore?.value?.toCPointer<ByteVar>(), pcselection?.value?.toCPointer<ByteVar>(), pprgpselection?.value?.toCPointer<ByteVar>())
 
-public actual fun CertSerializeCRLStoreElement(pcrlcontext: Long, dwflags: UInt, pbelement: Long, pcbelement: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertSerializeCRLStoreElement(pcrlcontext.toCPointer<ByteVar>(), dwflags, pbelement.toCPointer<ByteVar>(), pcbelement.toCPointer<ByteVar>())
+public actual fun certSerializeCRLStoreElement(pcrlcontext: COpaquePointer?, dwflags: UInt, pbelement: COpaquePointer?, pcbelement: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certSerializeCRLStoreElement(pcrlcontext?.value?.toCPointer<ByteVar>(), dwflags, pbelement?.value?.toCPointer<ByteVar>(), pcbelement?.value?.toCPointer<ByteVar>())
 
-public actual fun CertSerializeCTLStoreElement(pctlcontext: Long, dwflags: UInt, pbelement: Long, pcbelement: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertSerializeCTLStoreElement(pctlcontext.toCPointer<ByteVar>(), dwflags, pbelement.toCPointer<ByteVar>(), pcbelement.toCPointer<ByteVar>())
+public actual fun certSerializeCTLStoreElement(pctlcontext: COpaquePointer?, dwflags: UInt, pbelement: COpaquePointer?, pcbelement: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certSerializeCTLStoreElement(pctlcontext?.value?.toCPointer<ByteVar>(), dwflags, pbelement?.value?.toCPointer<ByteVar>(), pcbelement?.value?.toCPointer<ByteVar>())
 
-public actual fun CertSerializeCertificateStoreElement(pcertcontext: Long, dwflags: UInt, pbelement: Long, pcbelement: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertSerializeCertificateStoreElement(pcertcontext.toCPointer<ByteVar>(), dwflags, pbelement.toCPointer<ByteVar>(), pcbelement.toCPointer<ByteVar>())
+public actual fun certSerializeCertificateStoreElement(pcertcontext: COpaquePointer?, dwflags: UInt, pbelement: COpaquePointer?, pcbelement: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certSerializeCertificateStoreElement(pcertcontext?.value?.toCPointer<ByteVar>(), dwflags, pbelement?.value?.toCPointer<ByteVar>(), pcbelement?.value?.toCPointer<ByteVar>())
 
-public actual fun CertSetCRLContextProperty(pcrlcontext: Long, dwpropid: UInt, dwflags: UInt, pvdata: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertSetCRLContextProperty(pcrlcontext.toCPointer<ByteVar>(), dwpropid, dwflags, pvdata.toCPointer<ByteVar>())
+public actual fun certSetCRLContextProperty(pcrlcontext: COpaquePointer?, dwpropid: UInt, dwflags: UInt, pvdata: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certSetCRLContextProperty(pcrlcontext?.value?.toCPointer<ByteVar>(), dwpropid, dwflags, pvdata?.value?.toCPointer<ByteVar>())
 
-public actual fun CertSetCTLContextProperty(pctlcontext: Long, dwpropid: UInt, dwflags: UInt, pvdata: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertSetCTLContextProperty(pctlcontext.toCPointer<ByteVar>(), dwpropid, dwflags, pvdata.toCPointer<ByteVar>())
+public actual fun certSetCTLContextProperty(pctlcontext: COpaquePointer?, dwpropid: UInt, dwflags: UInt, pvdata: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certSetCTLContextProperty(pctlcontext?.value?.toCPointer<ByteVar>(), dwpropid, dwflags, pvdata?.value?.toCPointer<ByteVar>())
 
-public actual fun CertSetCertificateContextPropertiesFromCTLEntry(pcertcontext: Long, pctlentry: Long, dwflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertSetCertificateContextPropertiesFromCTLEntry(pcertcontext.toCPointer<ByteVar>(), pctlentry.toCPointer<ByteVar>(), dwflags)
+public actual fun certSetCertificateContextPropertiesFromCTLEntry(pcertcontext: COpaquePointer?, pctlentry: COpaquePointer?, dwflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certSetCertificateContextPropertiesFromCTLEntry(pcertcontext?.value?.toCPointer<ByteVar>(), pctlentry?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun CertSetCertificateContextProperty(pcertcontext: Long, dwpropid: UInt, dwflags: UInt, pvdata: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertSetCertificateContextProperty(pcertcontext.toCPointer<ByteVar>(), dwpropid, dwflags, pvdata.toCPointer<ByteVar>())
+public actual fun certSetCertificateContextProperty(pcertcontext: COpaquePointer?, dwpropid: UInt, dwflags: UInt, pvdata: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certSetCertificateContextProperty(pcertcontext?.value?.toCPointer<ByteVar>(), dwpropid, dwflags, pvdata?.value?.toCPointer<ByteVar>())
 
-public actual fun CertSetEnhancedKeyUsage(pcertcontext: Long, pusage: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertSetEnhancedKeyUsage(pcertcontext.toCPointer<ByteVar>(), pusage.toCPointer<ByteVar>())
+public actual fun certSetEnhancedKeyUsage(pcertcontext: COpaquePointer?, pusage: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certSetEnhancedKeyUsage(pcertcontext?.value?.toCPointer<ByteVar>(), pusage?.value?.toCPointer<ByteVar>())
 
-public actual fun CertSetStoreProperty(hcertstore: HCERTSTORE, dwpropid: UInt, dwflags: UInt, pvdata: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertSetStoreProperty(hcertstore.toCPointer<ByteVar>(), dwpropid, dwflags, pvdata.toCPointer<ByteVar>())
+public actual fun certSetStoreProperty(hcertstore: Hcertstore, dwpropid: UInt, dwflags: UInt, pvdata: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certSetStoreProperty(hcertstore?.value?.toCPointer<ByteVar>(), dwpropid, dwflags, pvdata?.value?.toCPointer<ByteVar>())
 
-public actual fun CertStrToNameA(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pszx500: PCSTR, dwstrtype: CERT_STRING_TYPE, pvreserved: Long, pbencoded: Long, pcbencoded: Long, ppszerror: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertStrToNameA(dwcertencodingtype, pszx500.toCPointer<ByteVar>(), dwstrtype, pvreserved.toCPointer<ByteVar>(), pbencoded.toCPointer<ByteVar>(), pcbencoded.toCPointer<ByteVar>(), ppszerror.toCPointer<ByteVar>())
+public actual fun certStrToNameA(dwcertencodingtype: CertQueryEncodingType, pszx500: Pcstr, dwstrtype: CertStringType, pvreserved: COpaquePointer?, pbencoded: COpaquePointer?, pcbencoded: COpaquePointer?, ppszerror: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certStrToNameA(dwcertencodingtype, pszx500?.value?.toCPointer<ByteVar>(), dwstrtype, pvreserved?.value?.toCPointer<ByteVar>(), pbencoded?.value?.toCPointer<ByteVar>(), pcbencoded?.value?.toCPointer<ByteVar>(), ppszerror?.value?.toCPointer<ByteVar>())
 
-public actual fun CertStrToNameW(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pszx500: PCWSTR, dwstrtype: CERT_STRING_TYPE, pvreserved: Long, pbencoded: Long, pcbencoded: Long, ppszerror: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertStrToNameW(dwcertencodingtype, pszx500.toCPointer<ByteVar>(), dwstrtype, pvreserved.toCPointer<ByteVar>(), pbencoded.toCPointer<ByteVar>(), pcbencoded.toCPointer<ByteVar>(), ppszerror.toCPointer<ByteVar>())
+public actual fun certStrToNameW(dwcertencodingtype: CertQueryEncodingType, pszx500: Pcwstr, dwstrtype: CertStringType, pvreserved: COpaquePointer?, pbencoded: COpaquePointer?, pcbencoded: COpaquePointer?, ppszerror: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certStrToNameW(dwcertencodingtype, pszx500?.value?.toCPointer<ByteVar>(), dwstrtype, pvreserved?.value?.toCPointer<ByteVar>(), pbencoded?.value?.toCPointer<ByteVar>(), pcbencoded?.value?.toCPointer<ByteVar>(), ppszerror?.value?.toCPointer<ByteVar>())
 
-public actual fun CertUnregisterPhysicalStore(pvsystemstore: Long, dwflags: UInt, pwszstorename: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertUnregisterPhysicalStore(pvsystemstore.toCPointer<ByteVar>(), dwflags, pwszstorename.toCPointer<ByteVar>())
+public actual fun certUnregisterPhysicalStore(pvsystemstore: COpaquePointer?, dwflags: UInt, pwszstorename: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certUnregisterPhysicalStore(pvsystemstore?.value?.toCPointer<ByteVar>(), dwflags, pwszstorename?.value?.toCPointer<ByteVar>())
 
-public actual fun CertUnregisterSystemStore(pvsystemstore: Long, dwflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertUnregisterSystemStore(pvsystemstore.toCPointer<ByteVar>(), dwflags)
+public actual fun certUnregisterSystemStore(pvsystemstore: COpaquePointer?, dwflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certUnregisterSystemStore(pvsystemstore?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun CertVerifyCRLRevocation(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pcertid: Long, ccrlinfo: UInt, rgpcrlinfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertVerifyCRLRevocation(dwcertencodingtype, pcertid.toCPointer<ByteVar>(), ccrlinfo, rgpcrlinfo.toCPointer<ByteVar>())
+public actual fun certVerifyCRLRevocation(dwcertencodingtype: CertQueryEncodingType, pcertid: COpaquePointer?, ccrlinfo: UInt, rgpcrlinfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certVerifyCRLRevocation(dwcertencodingtype, pcertid?.value?.toCPointer<ByteVar>(), ccrlinfo, rgpcrlinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun CertVerifyCRLTimeValidity(ptimetoverify: Long, pcrlinfo: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertVerifyCRLTimeValidity(ptimetoverify.toCPointer<ByteVar>(), pcrlinfo.toCPointer<ByteVar>())
+public actual fun certVerifyCRLTimeValidity(ptimetoverify: COpaquePointer?, pcrlinfo: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certVerifyCRLTimeValidity(ptimetoverify?.value?.toCPointer<ByteVar>(), pcrlinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun CertVerifyCTLUsage(dwencodingtype: UInt, dwsubjecttype: UInt, pvsubject: Long, psubjectusage: Long, dwflags: UInt, pverifyusagepara: Long, pverifyusagestatus: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertVerifyCTLUsage(dwencodingtype, dwsubjecttype, pvsubject.toCPointer<ByteVar>(), psubjectusage.toCPointer<ByteVar>(), dwflags, pverifyusagepara.toCPointer<ByteVar>(), pverifyusagestatus.toCPointer<ByteVar>())
+public actual fun certVerifyCTLUsage(dwencodingtype: UInt, dwsubjecttype: UInt, pvsubject: COpaquePointer?, psubjectusage: COpaquePointer?, dwflags: UInt, pverifyusagepara: COpaquePointer?, pverifyusagestatus: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certVerifyCTLUsage(dwencodingtype, dwsubjecttype, pvsubject?.value?.toCPointer<ByteVar>(), psubjectusage?.value?.toCPointer<ByteVar>(), dwflags, pverifyusagepara?.value?.toCPointer<ByteVar>(), pverifyusagestatus?.value?.toCPointer<ByteVar>())
 
-public actual fun CertVerifyCertificateChainPolicy(pszpolicyoid: PCSTR, pchaincontext: Long, ppolicypara: Long, ppolicystatus: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertVerifyCertificateChainPolicy(pszpolicyoid.toCPointer<ByteVar>(), pchaincontext.toCPointer<ByteVar>(), ppolicypara.toCPointer<ByteVar>(), ppolicystatus.toCPointer<ByteVar>())
+public actual fun certVerifyCertificateChainPolicy(pszpolicyoid: Pcstr, pchaincontext: COpaquePointer?, ppolicypara: COpaquePointer?, ppolicystatus: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certVerifyCertificateChainPolicy(pszpolicyoid?.value?.toCPointer<ByteVar>(), pchaincontext?.value?.toCPointer<ByteVar>(), ppolicypara?.value?.toCPointer<ByteVar>(), ppolicystatus?.value?.toCPointer<ByteVar>())
 
-public actual fun CertVerifyRevocation(dwencodingtype: UInt, dwrevtype: UInt, ccontext: UInt, rgpvcontext: Long, dwflags: UInt, prevpara: Long, prevstatus: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertVerifyRevocation(dwencodingtype, dwrevtype, ccontext, rgpvcontext.toCPointer<ByteVar>(), dwflags, prevpara.toCPointer<ByteVar>(), prevstatus.toCPointer<ByteVar>())
+public actual fun certVerifyRevocation(dwencodingtype: UInt, dwrevtype: UInt, ccontext: UInt, rgpvcontext: COpaquePointer?, dwflags: UInt, prevpara: COpaquePointer?, prevstatus: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certVerifyRevocation(dwencodingtype, dwrevtype, ccontext, rgpvcontext?.value?.toCPointer<ByteVar>(), dwflags, prevpara?.value?.toCPointer<ByteVar>(), prevstatus?.value?.toCPointer<ByteVar>())
 
-public actual fun CertVerifySubjectCertificateContext(psubject: Long, pissuer: Long, pdwflags: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertVerifySubjectCertificateContext(psubject.toCPointer<ByteVar>(), pissuer.toCPointer<ByteVar>(), pdwflags.toCPointer<ByteVar>())
+public actual fun certVerifySubjectCertificateContext(psubject: COpaquePointer?, pissuer: COpaquePointer?, pdwflags: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certVerifySubjectCertificateContext(psubject?.value?.toCPointer<ByteVar>(), pissuer?.value?.toCPointer<ByteVar>(), pdwflags?.value?.toCPointer<ByteVar>())
 
-public actual fun CertVerifyTimeValidity(ptimetoverify: Long, pcertinfo: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertVerifyTimeValidity(ptimetoverify.toCPointer<ByteVar>(), pcertinfo.toCPointer<ByteVar>())
+public actual fun certVerifyTimeValidity(ptimetoverify: COpaquePointer?, pcertinfo: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certVerifyTimeValidity(ptimetoverify?.value?.toCPointer<ByteVar>(), pcertinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun CertVerifyValidityNesting(psubjectinfo: Long, pissuerinfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CertVerifyValidityNesting(psubjectinfo.toCPointer<ByteVar>(), pissuerinfo.toCPointer<ByteVar>())
+public actual fun certVerifyValidityNesting(psubjectinfo: COpaquePointer?, pissuerinfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_certVerifyValidityNesting(psubjectinfo?.value?.toCPointer<ByteVar>(), pissuerinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun CloseCryptoHandle(hcrypto: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CloseCryptoHandle(hcrypto.toCPointer<ByteVar>())
+public actual fun closeCryptoHandle(hcrypto: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_closeCryptoHandle(hcrypto?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptAcquireCertificatePrivateKey(pcert: Long, dwflags: CRYPT_ACQUIRE_FLAGS, pvparameters: Long, phcryptprovorncryptkey: Long, pdwkeyspec: Long, pfcallerfreeprovorncryptkey: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptAcquireCertificatePrivateKey(pcert.toCPointer<ByteVar>(), dwflags, pvparameters.toCPointer<ByteVar>(), phcryptprovorncryptkey.toCPointer<ByteVar>(), pdwkeyspec.toCPointer<ByteVar>(), pfcallerfreeprovorncryptkey.toCPointer<ByteVar>())
+public actual fun cryptAcquireCertificatePrivateKey(pcert: COpaquePointer?, dwflags: CryptAcquireFlags, pvparameters: COpaquePointer?, phcryptprovorncryptkey: COpaquePointer?, pdwkeyspec: COpaquePointer?, pfcallerfreeprovorncryptkey: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptAcquireCertificatePrivateKey(pcert?.value?.toCPointer<ByteVar>(), dwflags, pvparameters?.value?.toCPointer<ByteVar>(), phcryptprovorncryptkey?.value?.toCPointer<ByteVar>(), pdwkeyspec?.value?.toCPointer<ByteVar>(), pfcallerfreeprovorncryptkey?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptAcquireContextA(phprov: Long, szcontainer: PCSTR, szprovider: PCSTR, dwprovtype: UInt, dwflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptAcquireContextA(phprov.toCPointer<ByteVar>(), szcontainer.toCPointer<ByteVar>(), szprovider.toCPointer<ByteVar>(), dwprovtype, dwflags)
+public actual fun cryptAcquireContextA(phprov: COpaquePointer?, szcontainer: Pcstr, szprovider: Pcstr, dwprovtype: UInt, dwflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptAcquireContextA(phprov?.value?.toCPointer<ByteVar>(), szcontainer?.value?.toCPointer<ByteVar>(), szprovider?.value?.toCPointer<ByteVar>(), dwprovtype, dwflags)
 
-public actual fun CryptAcquireContextW(phprov: Long, szcontainer: PCWSTR, szprovider: PCWSTR, dwprovtype: UInt, dwflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptAcquireContextW(phprov.toCPointer<ByteVar>(), szcontainer.toCPointer<ByteVar>(), szprovider.toCPointer<ByteVar>(), dwprovtype, dwflags)
+public actual fun cryptAcquireContextW(phprov: COpaquePointer?, szcontainer: Pcwstr, szprovider: Pcwstr, dwprovtype: UInt, dwflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptAcquireContextW(phprov?.value?.toCPointer<ByteVar>(), szcontainer?.value?.toCPointer<ByteVar>(), szprovider?.value?.toCPointer<ByteVar>(), dwprovtype, dwflags)
 
-public actual fun CryptBinaryToStringA(pbbinary: Long, cbbinary: UInt, dwflags: CRYPT_STRING, pszstring: PSTR, pcchstring: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptBinaryToStringA(pbbinary.toCPointer<ByteVar>(), cbbinary, dwflags, pszstring.toCPointer<ByteVar>(), pcchstring.toCPointer<ByteVar>())
+public actual fun cryptBinaryToStringA(pbbinary: COpaquePointer?, cbbinary: UInt, dwflags: CryptString, pszstring: Pstr, pcchstring: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptBinaryToStringA(pbbinary?.value?.toCPointer<ByteVar>(), cbbinary, dwflags, pszstring?.value?.toCPointer<ByteVar>(), pcchstring?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptBinaryToStringW(pbbinary: Long, cbbinary: UInt, dwflags: CRYPT_STRING, pszstring: PWSTR, pcchstring: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptBinaryToStringW(pbbinary.toCPointer<ByteVar>(), cbbinary, dwflags, pszstring.toCPointer<ByteVar>(), pcchstring.toCPointer<ByteVar>())
+public actual fun cryptBinaryToStringW(pbbinary: COpaquePointer?, cbbinary: UInt, dwflags: CryptString, pszstring: Pwstr, pcchstring: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptBinaryToStringW(pbbinary?.value?.toCPointer<ByteVar>(), cbbinary, dwflags, pszstring?.value?.toCPointer<ByteVar>(), pcchstring?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptCloseAsyncHandle(hasync: HCRYPTASYNC): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptCloseAsyncHandle(hasync)
+public actual fun cryptCloseAsyncHandle(hasync: Hcryptasync): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptCloseAsyncHandle(hasync)
 
-public actual fun CryptContextAddRef(hprov: ULong, pdwreserved: Long, dwflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptContextAddRef(hprov, pdwreserved.toCPointer<ByteVar>(), dwflags)
+public actual fun cryptContextAddRef(hprov: ULong, pdwreserved: COpaquePointer?, dwflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptContextAddRef(hprov, pdwreserved?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun CryptCreateAsyncHandle(dwflags: UInt, phasync: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptCreateAsyncHandle(dwflags, phasync.toCPointer<ByteVar>())
+public actual fun cryptCreateAsyncHandle(dwflags: UInt, phasync: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptCreateAsyncHandle(dwflags, phasync?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptCreateHash(hprov: ULong, algid: ALG_ID, hkey: ULong, dwflags: UInt, phhash: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptCreateHash(hprov, algid, hkey, dwflags, phhash.toCPointer<ByteVar>())
+public actual fun cryptCreateHash(hprov: ULong, algid: AlgId, hkey: ULong, dwflags: UInt, phhash: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptCreateHash(hprov, algid, hkey, dwflags, phhash?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptCreateKeyIdentifierFromCSP(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pszpubkeyoid: PCSTR, ppubkeystruc: Long, cbpubkeystruc: UInt, dwflags: UInt, pvreserved: Long, pbhash: Long, pcbhash: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptCreateKeyIdentifierFromCSP(dwcertencodingtype, pszpubkeyoid.toCPointer<ByteVar>(), ppubkeystruc.toCPointer<ByteVar>(), cbpubkeystruc, dwflags, pvreserved.toCPointer<ByteVar>(), pbhash.toCPointer<ByteVar>(), pcbhash.toCPointer<ByteVar>())
+public actual fun cryptCreateKeyIdentifierFromCSP(dwcertencodingtype: CertQueryEncodingType, pszpubkeyoid: Pcstr, ppubkeystruc: COpaquePointer?, cbpubkeystruc: UInt, dwflags: UInt, pvreserved: COpaquePointer?, pbhash: COpaquePointer?, pcbhash: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptCreateKeyIdentifierFromCSP(dwcertencodingtype, pszpubkeyoid?.value?.toCPointer<ByteVar>(), ppubkeystruc?.value?.toCPointer<ByteVar>(), cbpubkeystruc, dwflags, pvreserved?.value?.toCPointer<ByteVar>(), pbhash?.value?.toCPointer<ByteVar>(), pcbhash?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptDecodeMessage(dwmsgtypeflags: UInt, pdecryptpara: Long, pverifypara: Long, dwsignerindex: UInt, pbencodedblob: Long, cbencodedblob: UInt, dwprevinnercontenttype: UInt, pdwmsgtype: Long, pdwinnercontenttype: Long, pbdecoded: Long, pcbdecoded: Long, ppxchgcert: Long, ppsignercert: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptDecodeMessage(dwmsgtypeflags, pdecryptpara.toCPointer<ByteVar>(), pverifypara.toCPointer<ByteVar>(), dwsignerindex, pbencodedblob.toCPointer<ByteVar>(), cbencodedblob, dwprevinnercontenttype, pdwmsgtype.toCPointer<ByteVar>(), pdwinnercontenttype.toCPointer<ByteVar>(), pbdecoded.toCPointer<ByteVar>(), pcbdecoded.toCPointer<ByteVar>(), ppxchgcert.toCPointer<ByteVar>(), ppsignercert.toCPointer<ByteVar>())
+public actual fun cryptDecodeMessage(dwmsgtypeflags: UInt, pdecryptpara: COpaquePointer?, pverifypara: COpaquePointer?, dwsignerindex: UInt, pbencodedblob: COpaquePointer?, cbencodedblob: UInt, dwprevinnercontenttype: UInt, pdwmsgtype: COpaquePointer?, pdwinnercontenttype: COpaquePointer?, pbdecoded: COpaquePointer?, pcbdecoded: COpaquePointer?, ppxchgcert: COpaquePointer?, ppsignercert: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptDecodeMessage(dwmsgtypeflags, pdecryptpara?.value?.toCPointer<ByteVar>(), pverifypara?.value?.toCPointer<ByteVar>(), dwsignerindex, pbencodedblob?.value?.toCPointer<ByteVar>(), cbencodedblob, dwprevinnercontenttype, pdwmsgtype?.value?.toCPointer<ByteVar>(), pdwinnercontenttype?.value?.toCPointer<ByteVar>(), pbdecoded?.value?.toCPointer<ByteVar>(), pcbdecoded?.value?.toCPointer<ByteVar>(), ppxchgcert?.value?.toCPointer<ByteVar>(), ppsignercert?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptDecodeObject(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, lpszstructtype: PCSTR, pbencoded: Long, cbencoded: UInt, dwflags: UInt, pvstructinfo: Long, pcbstructinfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptDecodeObject(dwcertencodingtype, lpszstructtype.toCPointer<ByteVar>(), pbencoded.toCPointer<ByteVar>(), cbencoded, dwflags, pvstructinfo.toCPointer<ByteVar>(), pcbstructinfo.toCPointer<ByteVar>())
+public actual fun cryptDecodeObject(dwcertencodingtype: CertQueryEncodingType, lpszstructtype: Pcstr, pbencoded: COpaquePointer?, cbencoded: UInt, dwflags: UInt, pvstructinfo: COpaquePointer?, pcbstructinfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptDecodeObject(dwcertencodingtype, lpszstructtype?.value?.toCPointer<ByteVar>(), pbencoded?.value?.toCPointer<ByteVar>(), cbencoded, dwflags, pvstructinfo?.value?.toCPointer<ByteVar>(), pcbstructinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptDecodeObjectEx(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, lpszstructtype: PCSTR, pbencoded: Long, cbencoded: UInt, dwflags: UInt, pdecodepara: Long, pvstructinfo: Long, pcbstructinfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptDecodeObjectEx(dwcertencodingtype, lpszstructtype.toCPointer<ByteVar>(), pbencoded.toCPointer<ByteVar>(), cbencoded, dwflags, pdecodepara.toCPointer<ByteVar>(), pvstructinfo.toCPointer<ByteVar>(), pcbstructinfo.toCPointer<ByteVar>())
+public actual fun cryptDecodeObjectEx(dwcertencodingtype: CertQueryEncodingType, lpszstructtype: Pcstr, pbencoded: COpaquePointer?, cbencoded: UInt, dwflags: UInt, pdecodepara: COpaquePointer?, pvstructinfo: COpaquePointer?, pcbstructinfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptDecodeObjectEx(dwcertencodingtype, lpszstructtype?.value?.toCPointer<ByteVar>(), pbencoded?.value?.toCPointer<ByteVar>(), cbencoded, dwflags, pdecodepara?.value?.toCPointer<ByteVar>(), pvstructinfo?.value?.toCPointer<ByteVar>(), pcbstructinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptDecrypt(hkey: ULong, hhash: ULong, final: BOOL, dwflags: UInt, pbdata: Long, pdwdatalen: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptDecrypt(hkey, hhash, final, dwflags, pbdata.toCPointer<ByteVar>(), pdwdatalen.toCPointer<ByteVar>())
+public actual fun cryptDecrypt(hkey: ULong, hhash: ULong, final: Bool, dwflags: UInt, pbdata: COpaquePointer?, pdwdatalen: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptDecrypt(hkey, hhash, final, dwflags, pbdata?.value?.toCPointer<ByteVar>(), pdwdatalen?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptDecryptAndVerifyMessageSignature(pdecryptpara: Long, pverifypara: Long, dwsignerindex: UInt, pbencryptedblob: Long, cbencryptedblob: UInt, pbdecrypted: Long, pcbdecrypted: Long, ppxchgcert: Long, ppsignercert: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptDecryptAndVerifyMessageSignature(pdecryptpara.toCPointer<ByteVar>(), pverifypara.toCPointer<ByteVar>(), dwsignerindex, pbencryptedblob.toCPointer<ByteVar>(), cbencryptedblob, pbdecrypted.toCPointer<ByteVar>(), pcbdecrypted.toCPointer<ByteVar>(), ppxchgcert.toCPointer<ByteVar>(), ppsignercert.toCPointer<ByteVar>())
+public actual fun cryptDecryptAndVerifyMessageSignature(pdecryptpara: COpaquePointer?, pverifypara: COpaquePointer?, dwsignerindex: UInt, pbencryptedblob: COpaquePointer?, cbencryptedblob: UInt, pbdecrypted: COpaquePointer?, pcbdecrypted: COpaquePointer?, ppxchgcert: COpaquePointer?, ppsignercert: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptDecryptAndVerifyMessageSignature(pdecryptpara?.value?.toCPointer<ByteVar>(), pverifypara?.value?.toCPointer<ByteVar>(), dwsignerindex, pbencryptedblob?.value?.toCPointer<ByteVar>(), cbencryptedblob, pbdecrypted?.value?.toCPointer<ByteVar>(), pcbdecrypted?.value?.toCPointer<ByteVar>(), ppxchgcert?.value?.toCPointer<ByteVar>(), ppsignercert?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptDecryptMessage(pdecryptpara: Long, pbencryptedblob: Long, cbencryptedblob: UInt, pbdecrypted: Long, pcbdecrypted: Long, ppxchgcert: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptDecryptMessage(pdecryptpara.toCPointer<ByteVar>(), pbencryptedblob.toCPointer<ByteVar>(), cbencryptedblob, pbdecrypted.toCPointer<ByteVar>(), pcbdecrypted.toCPointer<ByteVar>(), ppxchgcert.toCPointer<ByteVar>())
+public actual fun cryptDecryptMessage(pdecryptpara: COpaquePointer?, pbencryptedblob: COpaquePointer?, cbencryptedblob: UInt, pbdecrypted: COpaquePointer?, pcbdecrypted: COpaquePointer?, ppxchgcert: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptDecryptMessage(pdecryptpara?.value?.toCPointer<ByteVar>(), pbencryptedblob?.value?.toCPointer<ByteVar>(), cbencryptedblob, pbdecrypted?.value?.toCPointer<ByteVar>(), pcbdecrypted?.value?.toCPointer<ByteVar>(), ppxchgcert?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptDeriveKey(hprov: ULong, algid: ALG_ID, hbasedata: ULong, dwflags: UInt, phkey: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptDeriveKey(hprov, algid, hbasedata, dwflags, phkey.toCPointer<ByteVar>())
+public actual fun cryptDeriveKey(hprov: ULong, algid: AlgId, hbasedata: ULong, dwflags: UInt, phkey: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptDeriveKey(hprov, algid, hbasedata, dwflags, phkey?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptDestroyHash(hhash: ULong): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptDestroyHash(hhash)
+public actual fun cryptDestroyHash(hhash: ULong): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptDestroyHash(hhash)
 
-public actual fun CryptDestroyKey(hkey: ULong): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptDestroyKey(hkey)
+public actual fun cryptDestroyKey(hkey: ULong): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptDestroyKey(hkey)
 
-public actual fun CryptDuplicateHash(hhash: ULong, pdwreserved: Long, dwflags: UInt, phhash: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptDuplicateHash(hhash, pdwreserved.toCPointer<ByteVar>(), dwflags, phhash.toCPointer<ByteVar>())
+public actual fun cryptDuplicateHash(hhash: ULong, pdwreserved: COpaquePointer?, dwflags: UInt, phhash: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptDuplicateHash(hhash, pdwreserved?.value?.toCPointer<ByteVar>(), dwflags, phhash?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptDuplicateKey(hkey: ULong, pdwreserved: Long, dwflags: UInt, phkey: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptDuplicateKey(hkey, pdwreserved.toCPointer<ByteVar>(), dwflags, phkey.toCPointer<ByteVar>())
+public actual fun cryptDuplicateKey(hkey: ULong, pdwreserved: COpaquePointer?, dwflags: UInt, phkey: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptDuplicateKey(hkey, pdwreserved?.value?.toCPointer<ByteVar>(), dwflags, phkey?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptEncodeObject(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, lpszstructtype: PCSTR, pvstructinfo: Long, pbencoded: Long, pcbencoded: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptEncodeObject(dwcertencodingtype, lpszstructtype.toCPointer<ByteVar>(), pvstructinfo.toCPointer<ByteVar>(), pbencoded.toCPointer<ByteVar>(), pcbencoded.toCPointer<ByteVar>())
+public actual fun cryptEncodeObject(dwcertencodingtype: CertQueryEncodingType, lpszstructtype: Pcstr, pvstructinfo: COpaquePointer?, pbencoded: COpaquePointer?, pcbencoded: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptEncodeObject(dwcertencodingtype, lpszstructtype?.value?.toCPointer<ByteVar>(), pvstructinfo?.value?.toCPointer<ByteVar>(), pbencoded?.value?.toCPointer<ByteVar>(), pcbencoded?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptEncodeObjectEx(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, lpszstructtype: PCSTR, pvstructinfo: Long, dwflags: CRYPT_ENCODE_OBJECT_FLAGS, pencodepara: Long, pvencoded: Long, pcbencoded: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptEncodeObjectEx(dwcertencodingtype, lpszstructtype.toCPointer<ByteVar>(), pvstructinfo.toCPointer<ByteVar>(), dwflags, pencodepara.toCPointer<ByteVar>(), pvencoded.toCPointer<ByteVar>(), pcbencoded.toCPointer<ByteVar>())
+public actual fun cryptEncodeObjectEx(dwcertencodingtype: CertQueryEncodingType, lpszstructtype: Pcstr, pvstructinfo: COpaquePointer?, dwflags: CryptEncodeObjectFlags, pencodepara: COpaquePointer?, pvencoded: COpaquePointer?, pcbencoded: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptEncodeObjectEx(dwcertencodingtype, lpszstructtype?.value?.toCPointer<ByteVar>(), pvstructinfo?.value?.toCPointer<ByteVar>(), dwflags, pencodepara?.value?.toCPointer<ByteVar>(), pvencoded?.value?.toCPointer<ByteVar>(), pcbencoded?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptEncrypt(hkey: ULong, hhash: ULong, final: BOOL, dwflags: UInt, pbdata: Long, pdwdatalen: Long, dwbuflen: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptEncrypt(hkey, hhash, final, dwflags, pbdata.toCPointer<ByteVar>(), pdwdatalen.toCPointer<ByteVar>(), dwbuflen)
+public actual fun cryptEncrypt(hkey: ULong, hhash: ULong, final: Bool, dwflags: UInt, pbdata: COpaquePointer?, pdwdatalen: COpaquePointer?, dwbuflen: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptEncrypt(hkey, hhash, final, dwflags, pbdata?.value?.toCPointer<ByteVar>(), pdwdatalen?.value?.toCPointer<ByteVar>(), dwbuflen)
 
-public actual fun CryptEncryptMessage(pencryptpara: Long, crecipientcert: UInt, rgprecipientcert: Long, pbtobeencrypted: Long, cbtobeencrypted: UInt, pbencryptedblob: Long, pcbencryptedblob: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptEncryptMessage(pencryptpara.toCPointer<ByteVar>(), crecipientcert, rgprecipientcert.toCPointer<ByteVar>(), pbtobeencrypted.toCPointer<ByteVar>(), cbtobeencrypted, pbencryptedblob.toCPointer<ByteVar>(), pcbencryptedblob.toCPointer<ByteVar>())
+public actual fun cryptEncryptMessage(pencryptpara: COpaquePointer?, crecipientcert: UInt, rgprecipientcert: COpaquePointer?, pbtobeencrypted: COpaquePointer?, cbtobeencrypted: UInt, pbencryptedblob: COpaquePointer?, pcbencryptedblob: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptEncryptMessage(pencryptpara?.value?.toCPointer<ByteVar>(), crecipientcert, rgprecipientcert?.value?.toCPointer<ByteVar>(), pbtobeencrypted?.value?.toCPointer<ByteVar>(), cbtobeencrypted, pbencryptedblob?.value?.toCPointer<ByteVar>(), pcbencryptedblob?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptEnumKeyIdentifierProperties(pkeyidentifier: Long, dwpropid: UInt, dwflags: UInt, pwszcomputername: PCWSTR, pvreserved: Long, pvarg: Long, pfnenum: PFN_CRYPT_ENUM_KEYID_PROP): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptEnumKeyIdentifierProperties(pkeyidentifier.toCPointer<ByteVar>(), dwpropid, dwflags, pwszcomputername.toCPointer<ByteVar>(), pvreserved.toCPointer<ByteVar>(), pvarg.toCPointer<ByteVar>(), pfnenum.toLong().toCPointer<ByteVar>())
+public actual fun cryptEnumKeyIdentifierProperties(pkeyidentifier: COpaquePointer?, dwpropid: UInt, dwflags: UInt, pwszcomputername: Pcwstr, pvreserved: COpaquePointer?, pvarg: COpaquePointer?, pfnenum: PfnCryptEnumKeyidProp): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptEnumKeyIdentifierProperties(pkeyidentifier?.value?.toCPointer<ByteVar>(), dwpropid, dwflags, pwszcomputername?.value?.toCPointer<ByteVar>(), pvreserved?.value?.toCPointer<ByteVar>(), pvarg?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 
-public actual fun CryptEnumOIDFunction(dwencodingtype: UInt, pszfuncname: PCSTR, pszoid: PCSTR, dwflags: UInt, pvarg: Long, pfnenumoidfunc: PFN_CRYPT_ENUM_OID_FUNC): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptEnumOIDFunction(dwencodingtype, pszfuncname.toCPointer<ByteVar>(), pszoid.toCPointer<ByteVar>(), dwflags, pvarg.toCPointer<ByteVar>(), pfnenumoidfunc.toLong().toCPointer<ByteVar>())
+public actual fun cryptEnumOIDFunction(dwencodingtype: UInt, pszfuncname: Pcstr, pszoid: Pcstr, dwflags: UInt, pvarg: COpaquePointer?, pfnenumoidfunc: PfnCryptEnumOidFunc): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptEnumOIDFunction(dwencodingtype, pszfuncname?.value?.toCPointer<ByteVar>(), pszoid?.value?.toCPointer<ByteVar>(), dwflags, pvarg?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 
-public actual fun CryptEnumOIDInfo(dwgroupid: UInt, dwflags: UInt, pvarg: Long, pfnenumoidinfo: PFN_CRYPT_ENUM_OID_INFO): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptEnumOIDInfo(dwgroupid, dwflags, pvarg.toCPointer<ByteVar>(), pfnenumoidinfo.toLong().toCPointer<ByteVar>())
+public actual fun cryptEnumOIDInfo(dwgroupid: UInt, dwflags: UInt, pvarg: COpaquePointer?, pfnenumoidinfo: PfnCryptEnumOidInfo): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptEnumOIDInfo(dwgroupid, dwflags, pvarg?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 
-public actual fun CryptEnumProviderTypesA(dwindex: UInt, pdwreserved: Long, dwflags: UInt, pdwprovtype: Long, sztypename: PSTR, pcbtypename: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptEnumProviderTypesA(dwindex, pdwreserved.toCPointer<ByteVar>(), dwflags, pdwprovtype.toCPointer<ByteVar>(), sztypename.toCPointer<ByteVar>(), pcbtypename.toCPointer<ByteVar>())
+public actual fun cryptEnumProviderTypesA(dwindex: UInt, pdwreserved: COpaquePointer?, dwflags: UInt, pdwprovtype: COpaquePointer?, sztypename: Pstr, pcbtypename: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptEnumProviderTypesA(dwindex, pdwreserved?.value?.toCPointer<ByteVar>(), dwflags, pdwprovtype?.value?.toCPointer<ByteVar>(), sztypename?.value?.toCPointer<ByteVar>(), pcbtypename?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptEnumProviderTypesW(dwindex: UInt, pdwreserved: Long, dwflags: UInt, pdwprovtype: Long, sztypename: PWSTR, pcbtypename: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptEnumProviderTypesW(dwindex, pdwreserved.toCPointer<ByteVar>(), dwflags, pdwprovtype.toCPointer<ByteVar>(), sztypename.toCPointer<ByteVar>(), pcbtypename.toCPointer<ByteVar>())
+public actual fun cryptEnumProviderTypesW(dwindex: UInt, pdwreserved: COpaquePointer?, dwflags: UInt, pdwprovtype: COpaquePointer?, sztypename: Pwstr, pcbtypename: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptEnumProviderTypesW(dwindex, pdwreserved?.value?.toCPointer<ByteVar>(), dwflags, pdwprovtype?.value?.toCPointer<ByteVar>(), sztypename?.value?.toCPointer<ByteVar>(), pcbtypename?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptEnumProvidersA(dwindex: UInt, pdwreserved: Long, dwflags: UInt, pdwprovtype: Long, szprovname: PSTR, pcbprovname: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptEnumProvidersA(dwindex, pdwreserved.toCPointer<ByteVar>(), dwflags, pdwprovtype.toCPointer<ByteVar>(), szprovname.toCPointer<ByteVar>(), pcbprovname.toCPointer<ByteVar>())
+public actual fun cryptEnumProvidersA(dwindex: UInt, pdwreserved: COpaquePointer?, dwflags: UInt, pdwprovtype: COpaquePointer?, szprovname: Pstr, pcbprovname: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptEnumProvidersA(dwindex, pdwreserved?.value?.toCPointer<ByteVar>(), dwflags, pdwprovtype?.value?.toCPointer<ByteVar>(), szprovname?.value?.toCPointer<ByteVar>(), pcbprovname?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptEnumProvidersW(dwindex: UInt, pdwreserved: Long, dwflags: UInt, pdwprovtype: Long, szprovname: PWSTR, pcbprovname: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptEnumProvidersW(dwindex, pdwreserved.toCPointer<ByteVar>(), dwflags, pdwprovtype.toCPointer<ByteVar>(), szprovname.toCPointer<ByteVar>(), pcbprovname.toCPointer<ByteVar>())
+public actual fun cryptEnumProvidersW(dwindex: UInt, pdwreserved: COpaquePointer?, dwflags: UInt, pdwprovtype: COpaquePointer?, szprovname: Pwstr, pcbprovname: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptEnumProvidersW(dwindex, pdwreserved?.value?.toCPointer<ByteVar>(), dwflags, pdwprovtype?.value?.toCPointer<ByteVar>(), szprovname?.value?.toCPointer<ByteVar>(), pcbprovname?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptExportKey(hkey: ULong, hexpkey: ULong, dwblobtype: UInt, dwflags: CRYPT_KEY_FLAGS, pbdata: Long, pdwdatalen: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptExportKey(hkey, hexpkey, dwblobtype, dwflags, pbdata.toCPointer<ByteVar>(), pdwdatalen.toCPointer<ByteVar>())
+public actual fun cryptExportKey(hkey: ULong, hexpkey: ULong, dwblobtype: UInt, dwflags: CryptKeyFlags, pbdata: COpaquePointer?, pdwdatalen: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptExportKey(hkey, hexpkey, dwblobtype, dwflags, pbdata?.value?.toCPointer<ByteVar>(), pdwdatalen?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptExportPKCS8(hcryptprov: ULong, dwkeyspec: UInt, pszprivatekeyobjid: PCSTR, dwflags: UInt, pvauxinfo: Long, pbprivatekeyblob: Long, pcbprivatekeyblob: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptExportPKCS8(hcryptprov, dwkeyspec, pszprivatekeyobjid.toCPointer<ByteVar>(), dwflags, pvauxinfo.toCPointer<ByteVar>(), pbprivatekeyblob.toCPointer<ByteVar>(), pcbprivatekeyblob.toCPointer<ByteVar>())
+public actual fun cryptExportPKCS8(hcryptprov: ULong, dwkeyspec: UInt, pszprivatekeyobjid: Pcstr, dwflags: UInt, pvauxinfo: COpaquePointer?, pbprivatekeyblob: COpaquePointer?, pcbprivatekeyblob: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptExportPKCS8(hcryptprov, dwkeyspec, pszprivatekeyobjid?.value?.toCPointer<ByteVar>(), dwflags, pvauxinfo?.value?.toCPointer<ByteVar>(), pbprivatekeyblob?.value?.toCPointer<ByteVar>(), pcbprivatekeyblob?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptExportPublicKeyInfo(hcryptprovorncryptkey: HCRYPTPROV_OR_NCRYPT_KEY_HANDLE, dwkeyspec: UInt, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pinfo: Long, pcbinfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptExportPublicKeyInfo(hcryptprovorncryptkey, dwkeyspec, dwcertencodingtype, pinfo.toCPointer<ByteVar>(), pcbinfo.toCPointer<ByteVar>())
+public actual fun cryptExportPublicKeyInfo(hcryptprovorncryptkey: HcryptprovOrNcryptKeyHandle, dwkeyspec: UInt, dwcertencodingtype: CertQueryEncodingType, pinfo: COpaquePointer?, pcbinfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptExportPublicKeyInfo(hcryptprovorncryptkey, dwkeyspec, dwcertencodingtype, pinfo?.value?.toCPointer<ByteVar>(), pcbinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptExportPublicKeyInfoEx(hcryptprovorncryptkey: HCRYPTPROV_OR_NCRYPT_KEY_HANDLE, dwkeyspec: UInt, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pszpublickeyobjid: PCSTR, dwflags: UInt, pvauxinfo: Long, pinfo: Long, pcbinfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptExportPublicKeyInfoEx(hcryptprovorncryptkey, dwkeyspec, dwcertencodingtype, pszpublickeyobjid.toCPointer<ByteVar>(), dwflags, pvauxinfo.toCPointer<ByteVar>(), pinfo.toCPointer<ByteVar>(), pcbinfo.toCPointer<ByteVar>())
+public actual fun cryptExportPublicKeyInfoEx(hcryptprovorncryptkey: HcryptprovOrNcryptKeyHandle, dwkeyspec: UInt, dwcertencodingtype: CertQueryEncodingType, pszpublickeyobjid: Pcstr, dwflags: UInt, pvauxinfo: COpaquePointer?, pinfo: COpaquePointer?, pcbinfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptExportPublicKeyInfoEx(hcryptprovorncryptkey, dwkeyspec, dwcertencodingtype, pszpublickeyobjid?.value?.toCPointer<ByteVar>(), dwflags, pvauxinfo?.value?.toCPointer<ByteVar>(), pinfo?.value?.toCPointer<ByteVar>(), pcbinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptExportPublicKeyInfoFromBCryptKeyHandle(hbcryptkey: BCRYPT_KEY_HANDLE, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pszpublickeyobjid: PCSTR, dwflags: UInt, pvauxinfo: Long, pinfo: Long, pcbinfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptExportPublicKeyInfoFromBCryptKeyHandle(hbcryptkey.toCPointer<ByteVar>(), dwcertencodingtype, pszpublickeyobjid.toCPointer<ByteVar>(), dwflags, pvauxinfo.toCPointer<ByteVar>(), pinfo.toCPointer<ByteVar>(), pcbinfo.toCPointer<ByteVar>())
+public actual fun cryptExportPublicKeyInfoFromBCryptKeyHandle(hbcryptkey: BcryptKeyHandle, dwcertencodingtype: CertQueryEncodingType, pszpublickeyobjid: Pcstr, dwflags: UInt, pvauxinfo: COpaquePointer?, pinfo: COpaquePointer?, pcbinfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptExportPublicKeyInfoFromBCryptKeyHandle(hbcryptkey?.value?.toCPointer<ByteVar>(), dwcertencodingtype, pszpublickeyobjid?.value?.toCPointer<ByteVar>(), dwflags, pvauxinfo?.value?.toCPointer<ByteVar>(), pinfo?.value?.toCPointer<ByteVar>(), pcbinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptFindCertificateKeyProvInfo(pcert: Long, dwflags: CRYPT_FIND_FLAGS, pvreserved: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptFindCertificateKeyProvInfo(pcert.toCPointer<ByteVar>(), dwflags, pvreserved.toCPointer<ByteVar>())
+public actual fun cryptFindCertificateKeyProvInfo(pcert: COpaquePointer?, dwflags: CryptFindFlags, pvreserved: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptFindCertificateKeyProvInfo(pcert?.value?.toCPointer<ByteVar>(), dwflags, pvreserved?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptFindLocalizedName(pwszcryptname: PCWSTR): PCWSTR =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptFindLocalizedName(pwszcryptname.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun cryptFindLocalizedName(pwszcryptname: Pcwstr): Pcwstr =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptFindLocalizedName(pwszcryptname?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CryptFindOIDInfo(dwkeytype: UInt, pvkey: Long, dwgroupid: UInt): Long =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptFindOIDInfo(dwkeytype, pvkey.toCPointer<ByteVar>(), dwgroupid)?.toLong() ?: 0L
+public actual fun cryptFindOIDInfo(dwkeytype: UInt, pvkey: COpaquePointer?, dwgroupid: UInt): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptFindOIDInfo(dwkeytype, pvkey?.value?.toCPointer<ByteVar>(), dwgroupid)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CryptFormatObject(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, dwformattype: UInt, dwformatstrtype: UInt, pformatstruct: Long, lpszstructtype: PCSTR, pbencoded: Long, cbencoded: UInt, pbformat: Long, pcbformat: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptFormatObject(dwcertencodingtype, dwformattype, dwformatstrtype, pformatstruct.toCPointer<ByteVar>(), lpszstructtype.toCPointer<ByteVar>(), pbencoded.toCPointer<ByteVar>(), cbencoded, pbformat.toCPointer<ByteVar>(), pcbformat.toCPointer<ByteVar>())
+public actual fun cryptFormatObject(dwcertencodingtype: CertQueryEncodingType, dwformattype: UInt, dwformatstrtype: UInt, pformatstruct: COpaquePointer?, lpszstructtype: Pcstr, pbencoded: COpaquePointer?, cbencoded: UInt, pbformat: COpaquePointer?, pcbformat: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptFormatObject(dwcertencodingtype, dwformattype, dwformatstrtype, pformatstruct?.value?.toCPointer<ByteVar>(), lpszstructtype?.value?.toCPointer<ByteVar>(), pbencoded?.value?.toCPointer<ByteVar>(), cbencoded, pbformat?.value?.toCPointer<ByteVar>(), pcbformat?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptFreeOIDFunctionAddress(hfuncaddr: Long, dwflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptFreeOIDFunctionAddress(hfuncaddr.toCPointer<ByteVar>(), dwflags)
+public actual fun cryptFreeOIDFunctionAddress(hfuncaddr: COpaquePointer?, dwflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptFreeOIDFunctionAddress(hfuncaddr?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun CryptGenKey(hprov: ULong, algid: ALG_ID, dwflags: CRYPT_KEY_FLAGS, phkey: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptGenKey(hprov, algid, dwflags, phkey.toCPointer<ByteVar>())
+public actual fun cryptGenKey(hprov: ULong, algid: AlgId, dwflags: CryptKeyFlags, phkey: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptGenKey(hprov, algid, dwflags, phkey?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptGenRandom(hprov: ULong, dwlen: UInt, pbbuffer: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptGenRandom(hprov, dwlen, pbbuffer.toCPointer<ByteVar>())
+public actual fun cryptGenRandom(hprov: ULong, dwlen: UInt, pbbuffer: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptGenRandom(hprov, dwlen, pbbuffer?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptGetAsyncParam(hasync: HCRYPTASYNC, pszparamoid: PCSTR, ppvparam: Long, ppfnfree: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptGetAsyncParam(hasync, pszparamoid.toCPointer<ByteVar>(), ppvparam.toCPointer<ByteVar>(), ppfnfree.toCPointer<ByteVar>())
+public actual fun cryptGetAsyncParam(hasync: Hcryptasync, pszparamoid: Pcstr, ppvparam: COpaquePointer?, ppfnfree: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptGetAsyncParam(hasync, pszparamoid?.value?.toCPointer<ByteVar>(), ppvparam?.value?.toCPointer<ByteVar>(), ppfnfree?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptGetDefaultOIDDllList(hfuncset: Long, dwencodingtype: UInt, pwszdlllist: PWSTR, pcchdlllist: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptGetDefaultOIDDllList(hfuncset.toCPointer<ByteVar>(), dwencodingtype, pwszdlllist.toCPointer<ByteVar>(), pcchdlllist.toCPointer<ByteVar>())
+public actual fun cryptGetDefaultOIDDllList(hfuncset: COpaquePointer?, dwencodingtype: UInt, pwszdlllist: Pwstr, pcchdlllist: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptGetDefaultOIDDllList(hfuncset?.value?.toCPointer<ByteVar>(), dwencodingtype, pwszdlllist?.value?.toCPointer<ByteVar>(), pcchdlllist?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptGetDefaultOIDFunctionAddress(hfuncset: Long, dwencodingtype: UInt, pwszdll: PCWSTR, dwflags: UInt, ppvfuncaddr: Long, phfuncaddr: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptGetDefaultOIDFunctionAddress(hfuncset.toCPointer<ByteVar>(), dwencodingtype, pwszdll.toCPointer<ByteVar>(), dwflags, ppvfuncaddr.toCPointer<ByteVar>(), phfuncaddr.toCPointer<ByteVar>())
+public actual fun cryptGetDefaultOIDFunctionAddress(hfuncset: COpaquePointer?, dwencodingtype: UInt, pwszdll: Pcwstr, dwflags: UInt, ppvfuncaddr: COpaquePointer?, phfuncaddr: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptGetDefaultOIDFunctionAddress(hfuncset?.value?.toCPointer<ByteVar>(), dwencodingtype, pwszdll?.value?.toCPointer<ByteVar>(), dwflags, ppvfuncaddr?.value?.toCPointer<ByteVar>(), phfuncaddr?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptGetDefaultProviderA(dwprovtype: UInt, pdwreserved: Long, dwflags: UInt, pszprovname: PSTR, pcbprovname: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptGetDefaultProviderA(dwprovtype, pdwreserved.toCPointer<ByteVar>(), dwflags, pszprovname.toCPointer<ByteVar>(), pcbprovname.toCPointer<ByteVar>())
+public actual fun cryptGetDefaultProviderA(dwprovtype: UInt, pdwreserved: COpaquePointer?, dwflags: UInt, pszprovname: Pstr, pcbprovname: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptGetDefaultProviderA(dwprovtype, pdwreserved?.value?.toCPointer<ByteVar>(), dwflags, pszprovname?.value?.toCPointer<ByteVar>(), pcbprovname?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptGetDefaultProviderW(dwprovtype: UInt, pdwreserved: Long, dwflags: UInt, pszprovname: PWSTR, pcbprovname: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptGetDefaultProviderW(dwprovtype, pdwreserved.toCPointer<ByteVar>(), dwflags, pszprovname.toCPointer<ByteVar>(), pcbprovname.toCPointer<ByteVar>())
+public actual fun cryptGetDefaultProviderW(dwprovtype: UInt, pdwreserved: COpaquePointer?, dwflags: UInt, pszprovname: Pwstr, pcbprovname: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptGetDefaultProviderW(dwprovtype, pdwreserved?.value?.toCPointer<ByteVar>(), dwflags, pszprovname?.value?.toCPointer<ByteVar>(), pcbprovname?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptGetHashParam(hhash: ULong, dwparam: UInt, pbdata: Long, pdwdatalen: Long, dwflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptGetHashParam(hhash, dwparam, pbdata.toCPointer<ByteVar>(), pdwdatalen.toCPointer<ByteVar>(), dwflags)
+public actual fun cryptGetHashParam(hhash: ULong, dwparam: UInt, pbdata: COpaquePointer?, pdwdatalen: COpaquePointer?, dwflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptGetHashParam(hhash, dwparam, pbdata?.value?.toCPointer<ByteVar>(), pdwdatalen?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun CryptGetKeyIdentifierProperty(pkeyidentifier: Long, dwpropid: UInt, dwflags: UInt, pwszcomputername: PCWSTR, pvreserved: Long, pvdata: Long, pcbdata: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptGetKeyIdentifierProperty(pkeyidentifier.toCPointer<ByteVar>(), dwpropid, dwflags, pwszcomputername.toCPointer<ByteVar>(), pvreserved.toCPointer<ByteVar>(), pvdata.toCPointer<ByteVar>(), pcbdata.toCPointer<ByteVar>())
+public actual fun cryptGetKeyIdentifierProperty(pkeyidentifier: COpaquePointer?, dwpropid: UInt, dwflags: UInt, pwszcomputername: Pcwstr, pvreserved: COpaquePointer?, pvdata: COpaquePointer?, pcbdata: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptGetKeyIdentifierProperty(pkeyidentifier?.value?.toCPointer<ByteVar>(), dwpropid, dwflags, pwszcomputername?.value?.toCPointer<ByteVar>(), pvreserved?.value?.toCPointer<ByteVar>(), pvdata?.value?.toCPointer<ByteVar>(), pcbdata?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptGetKeyParam(hkey: ULong, dwparam: CRYPT_KEY_PARAM_ID, pbdata: Long, pdwdatalen: Long, dwflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptGetKeyParam(hkey, dwparam, pbdata.toCPointer<ByteVar>(), pdwdatalen.toCPointer<ByteVar>(), dwflags)
+public actual fun cryptGetKeyParam(hkey: ULong, dwparam: CryptKeyParamId, pbdata: COpaquePointer?, pdwdatalen: COpaquePointer?, dwflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptGetKeyParam(hkey, dwparam, pbdata?.value?.toCPointer<ByteVar>(), pdwdatalen?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun CryptGetMessageCertificates(dwmsgandcertencodingtype: UInt, hcryptprov: HCRYPTPROV_LEGACY, dwflags: UInt, pbsignedblob: Long, cbsignedblob: UInt): HCERTSTORE =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptGetMessageCertificates(dwmsgandcertencodingtype, hcryptprov, dwflags, pbsignedblob.toCPointer<ByteVar>(), cbsignedblob)?.toLong() ?: 0L
+public actual fun cryptGetMessageCertificates(dwmsgandcertencodingtype: UInt, hcryptprov: HcryptprovLegacy, dwflags: UInt, pbsignedblob: COpaquePointer?, cbsignedblob: UInt): Hcertstore =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptGetMessageCertificates(dwmsgandcertencodingtype, hcryptprov, dwflags, pbsignedblob?.value?.toCPointer<ByteVar>(), cbsignedblob)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CryptGetMessageSignerCount(dwmsgencodingtype: UInt, pbsignedblob: Long, cbsignedblob: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptGetMessageSignerCount(dwmsgencodingtype, pbsignedblob.toCPointer<ByteVar>(), cbsignedblob)
+public actual fun cryptGetMessageSignerCount(dwmsgencodingtype: UInt, pbsignedblob: COpaquePointer?, cbsignedblob: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptGetMessageSignerCount(dwmsgencodingtype, pbsignedblob?.value?.toCPointer<ByteVar>(), cbsignedblob)
 
-public actual fun CryptGetOIDFunctionAddress(hfuncset: Long, dwencodingtype: UInt, pszoid: PCSTR, dwflags: UInt, ppvfuncaddr: Long, phfuncaddr: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptGetOIDFunctionAddress(hfuncset.toCPointer<ByteVar>(), dwencodingtype, pszoid.toCPointer<ByteVar>(), dwflags, ppvfuncaddr.toCPointer<ByteVar>(), phfuncaddr.toCPointer<ByteVar>())
+public actual fun cryptGetOIDFunctionAddress(hfuncset: COpaquePointer?, dwencodingtype: UInt, pszoid: Pcstr, dwflags: UInt, ppvfuncaddr: COpaquePointer?, phfuncaddr: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptGetOIDFunctionAddress(hfuncset?.value?.toCPointer<ByteVar>(), dwencodingtype, pszoid?.value?.toCPointer<ByteVar>(), dwflags, ppvfuncaddr?.value?.toCPointer<ByteVar>(), phfuncaddr?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptGetOIDFunctionValue(dwencodingtype: UInt, pszfuncname: PCSTR, pszoid: PCSTR, pwszvaluename: PCWSTR, pdwvaluetype: Long, pbvaluedata: Long, pcbvaluedata: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptGetOIDFunctionValue(dwencodingtype, pszfuncname.toCPointer<ByteVar>(), pszoid.toCPointer<ByteVar>(), pwszvaluename.toCPointer<ByteVar>(), pdwvaluetype.toCPointer<ByteVar>(), pbvaluedata.toCPointer<ByteVar>(), pcbvaluedata.toCPointer<ByteVar>())
+public actual fun cryptGetOIDFunctionValue(dwencodingtype: UInt, pszfuncname: Pcstr, pszoid: Pcstr, pwszvaluename: Pcwstr, pdwvaluetype: COpaquePointer?, pbvaluedata: COpaquePointer?, pcbvaluedata: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptGetOIDFunctionValue(dwencodingtype, pszfuncname?.value?.toCPointer<ByteVar>(), pszoid?.value?.toCPointer<ByteVar>(), pwszvaluename?.value?.toCPointer<ByteVar>(), pdwvaluetype?.value?.toCPointer<ByteVar>(), pbvaluedata?.value?.toCPointer<ByteVar>(), pcbvaluedata?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptGetObjectUrl(pszurloid: PCSTR, pvpara: Long, dwflags: CRYPT_GET_URL_FLAGS, purlarray: Long, pcburlarray: Long, purlinfo: Long, pcburlinfo: Long, pvreserved: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptGetObjectUrl(pszurloid.toCPointer<ByteVar>(), pvpara.toCPointer<ByteVar>(), dwflags, purlarray.toCPointer<ByteVar>(), pcburlarray.toCPointer<ByteVar>(), purlinfo.toCPointer<ByteVar>(), pcburlinfo.toCPointer<ByteVar>(), pvreserved.toCPointer<ByteVar>())
+public actual fun cryptGetObjectUrl(pszurloid: Pcstr, pvpara: COpaquePointer?, dwflags: CryptGetUrlFlags, purlarray: COpaquePointer?, pcburlarray: COpaquePointer?, purlinfo: COpaquePointer?, pcburlinfo: COpaquePointer?, pvreserved: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptGetObjectUrl(pszurloid?.value?.toCPointer<ByteVar>(), pvpara?.value?.toCPointer<ByteVar>(), dwflags, purlarray?.value?.toCPointer<ByteVar>(), pcburlarray?.value?.toCPointer<ByteVar>(), purlinfo?.value?.toCPointer<ByteVar>(), pcburlinfo?.value?.toCPointer<ByteVar>(), pvreserved?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptGetProvParam(hprov: ULong, dwparam: UInt, pbdata: Long, pdwdatalen: Long, dwflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptGetProvParam(hprov, dwparam, pbdata.toCPointer<ByteVar>(), pdwdatalen.toCPointer<ByteVar>(), dwflags)
+public actual fun cryptGetProvParam(hprov: ULong, dwparam: UInt, pbdata: COpaquePointer?, pdwdatalen: COpaquePointer?, dwflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptGetProvParam(hprov, dwparam, pbdata?.value?.toCPointer<ByteVar>(), pdwdatalen?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun CryptGetUserKey(hprov: ULong, dwkeyspec: UInt, phuserkey: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptGetUserKey(hprov, dwkeyspec, phuserkey.toCPointer<ByteVar>())
+public actual fun cryptGetUserKey(hprov: ULong, dwkeyspec: UInt, phuserkey: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptGetUserKey(hprov, dwkeyspec, phuserkey?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptHashCertificate(hcryptprov: HCRYPTPROV_LEGACY, algid: ALG_ID, dwflags: UInt, pbencoded: Long, cbencoded: UInt, pbcomputedhash: Long, pcbcomputedhash: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptHashCertificate(hcryptprov, algid, dwflags, pbencoded.toCPointer<ByteVar>(), cbencoded, pbcomputedhash.toCPointer<ByteVar>(), pcbcomputedhash.toCPointer<ByteVar>())
+public actual fun cryptHashCertificate(hcryptprov: HcryptprovLegacy, algid: AlgId, dwflags: UInt, pbencoded: COpaquePointer?, cbencoded: UInt, pbcomputedhash: COpaquePointer?, pcbcomputedhash: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptHashCertificate(hcryptprov, algid, dwflags, pbencoded?.value?.toCPointer<ByteVar>(), cbencoded, pbcomputedhash?.value?.toCPointer<ByteVar>(), pcbcomputedhash?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptHashCertificate2(pwszcnghashalgid: PCWSTR, dwflags: UInt, pvreserved: Long, pbencoded: Long, cbencoded: UInt, pbcomputedhash: Long, pcbcomputedhash: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptHashCertificate2(pwszcnghashalgid.toCPointer<ByteVar>(), dwflags, pvreserved.toCPointer<ByteVar>(), pbencoded.toCPointer<ByteVar>(), cbencoded, pbcomputedhash.toCPointer<ByteVar>(), pcbcomputedhash.toCPointer<ByteVar>())
+public actual fun cryptHashCertificate2(pwszcnghashalgid: Pcwstr, dwflags: UInt, pvreserved: COpaquePointer?, pbencoded: COpaquePointer?, cbencoded: UInt, pbcomputedhash: COpaquePointer?, pcbcomputedhash: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptHashCertificate2(pwszcnghashalgid?.value?.toCPointer<ByteVar>(), dwflags, pvreserved?.value?.toCPointer<ByteVar>(), pbencoded?.value?.toCPointer<ByteVar>(), cbencoded, pbcomputedhash?.value?.toCPointer<ByteVar>(), pcbcomputedhash?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptHashData(hhash: ULong, pbdata: Long, dwdatalen: UInt, dwflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptHashData(hhash, pbdata.toCPointer<ByteVar>(), dwdatalen, dwflags)
+public actual fun cryptHashData(hhash: ULong, pbdata: COpaquePointer?, dwdatalen: UInt, dwflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptHashData(hhash, pbdata?.value?.toCPointer<ByteVar>(), dwdatalen, dwflags)
 
-public actual fun CryptHashMessage(phashpara: Long, fdetachedhash: BOOL, ctobehashed: UInt, rgpbtobehashed: Long, rgcbtobehashed: Long, pbhashedblob: Long, pcbhashedblob: Long, pbcomputedhash: Long, pcbcomputedhash: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptHashMessage(phashpara.toCPointer<ByteVar>(), fdetachedhash, ctobehashed, rgpbtobehashed.toCPointer<ByteVar>(), rgcbtobehashed.toCPointer<ByteVar>(), pbhashedblob.toCPointer<ByteVar>(), pcbhashedblob.toCPointer<ByteVar>(), pbcomputedhash.toCPointer<ByteVar>(), pcbcomputedhash.toCPointer<ByteVar>())
+public actual fun cryptHashMessage(phashpara: COpaquePointer?, fdetachedhash: Bool, ctobehashed: UInt, rgpbtobehashed: COpaquePointer?, rgcbtobehashed: COpaquePointer?, pbhashedblob: COpaquePointer?, pcbhashedblob: COpaquePointer?, pbcomputedhash: COpaquePointer?, pcbcomputedhash: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptHashMessage(phashpara?.value?.toCPointer<ByteVar>(), fdetachedhash, ctobehashed, rgpbtobehashed?.value?.toCPointer<ByteVar>(), rgcbtobehashed?.value?.toCPointer<ByteVar>(), pbhashedblob?.value?.toCPointer<ByteVar>(), pcbhashedblob?.value?.toCPointer<ByteVar>(), pbcomputedhash?.value?.toCPointer<ByteVar>(), pcbcomputedhash?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptHashPublicKeyInfo(hcryptprov: HCRYPTPROV_LEGACY, algid: ALG_ID, dwflags: UInt, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pinfo: Long, pbcomputedhash: Long, pcbcomputedhash: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptHashPublicKeyInfo(hcryptprov, algid, dwflags, dwcertencodingtype, pinfo.toCPointer<ByteVar>(), pbcomputedhash.toCPointer<ByteVar>(), pcbcomputedhash.toCPointer<ByteVar>())
+public actual fun cryptHashPublicKeyInfo(hcryptprov: HcryptprovLegacy, algid: AlgId, dwflags: UInt, dwcertencodingtype: CertQueryEncodingType, pinfo: COpaquePointer?, pbcomputedhash: COpaquePointer?, pcbcomputedhash: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptHashPublicKeyInfo(hcryptprov, algid, dwflags, dwcertencodingtype, pinfo?.value?.toCPointer<ByteVar>(), pbcomputedhash?.value?.toCPointer<ByteVar>(), pcbcomputedhash?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptHashSessionKey(hhash: ULong, hkey: ULong, dwflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptHashSessionKey(hhash, hkey, dwflags)
+public actual fun cryptHashSessionKey(hhash: ULong, hkey: ULong, dwflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptHashSessionKey(hhash, hkey, dwflags)
 
-public actual fun CryptHashToBeSigned(hcryptprov: HCRYPTPROV_LEGACY, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pbencoded: Long, cbencoded: UInt, pbcomputedhash: Long, pcbcomputedhash: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptHashToBeSigned(hcryptprov, dwcertencodingtype, pbencoded.toCPointer<ByteVar>(), cbencoded, pbcomputedhash.toCPointer<ByteVar>(), pcbcomputedhash.toCPointer<ByteVar>())
+public actual fun cryptHashToBeSigned(hcryptprov: HcryptprovLegacy, dwcertencodingtype: CertQueryEncodingType, pbencoded: COpaquePointer?, cbencoded: UInt, pbcomputedhash: COpaquePointer?, pcbcomputedhash: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptHashToBeSigned(hcryptprov, dwcertencodingtype, pbencoded?.value?.toCPointer<ByteVar>(), cbencoded, pbcomputedhash?.value?.toCPointer<ByteVar>(), pcbcomputedhash?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptImportKey(hprov: ULong, pbdata: Long, dwdatalen: UInt, hpubkey: ULong, dwflags: CRYPT_KEY_FLAGS, phkey: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptImportKey(hprov, pbdata.toCPointer<ByteVar>(), dwdatalen, hpubkey, dwflags, phkey.toCPointer<ByteVar>())
+public actual fun cryptImportKey(hprov: ULong, pbdata: COpaquePointer?, dwdatalen: UInt, hpubkey: ULong, dwflags: CryptKeyFlags, phkey: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptImportKey(hprov, pbdata?.value?.toCPointer<ByteVar>(), dwdatalen, hpubkey, dwflags, phkey?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptImportPKCS8(sprivatekeyandparams: CRYPT_PKCS8_IMPORT_PARAMS, dwflags: CRYPT_KEY_FLAGS, phcryptprov: Long, pvauxinfo: Long): BOOL =
+public actual fun cryptImportPKCS8(sprivatekeyandparams: CryptPkcs8ImportParams, dwflags: CryptKeyFlags, phcryptprov: COpaquePointer?, pvauxinfo: COpaquePointer?): Bool =
     0
 
-public actual fun CryptImportPublicKeyInfo(hcryptprov: ULong, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pinfo: Long, phkey: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptImportPublicKeyInfo(hcryptprov, dwcertencodingtype, pinfo.toCPointer<ByteVar>(), phkey.toCPointer<ByteVar>())
+public actual fun cryptImportPublicKeyInfo(hcryptprov: ULong, dwcertencodingtype: CertQueryEncodingType, pinfo: COpaquePointer?, phkey: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptImportPublicKeyInfo(hcryptprov, dwcertencodingtype, pinfo?.value?.toCPointer<ByteVar>(), phkey?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptImportPublicKeyInfoEx(hcryptprov: ULong, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pinfo: Long, aikeyalg: ALG_ID, dwflags: UInt, pvauxinfo: Long, phkey: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptImportPublicKeyInfoEx(hcryptprov, dwcertencodingtype, pinfo.toCPointer<ByteVar>(), aikeyalg, dwflags, pvauxinfo.toCPointer<ByteVar>(), phkey.toCPointer<ByteVar>())
+public actual fun cryptImportPublicKeyInfoEx(hcryptprov: ULong, dwcertencodingtype: CertQueryEncodingType, pinfo: COpaquePointer?, aikeyalg: AlgId, dwflags: UInt, pvauxinfo: COpaquePointer?, phkey: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptImportPublicKeyInfoEx(hcryptprov, dwcertencodingtype, pinfo?.value?.toCPointer<ByteVar>(), aikeyalg, dwflags, pvauxinfo?.value?.toCPointer<ByteVar>(), phkey?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptImportPublicKeyInfoEx2(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pinfo: Long, dwflags: CRYPT_IMPORT_PUBLIC_KEY_FLAGS, pvauxinfo: Long, phkey: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptImportPublicKeyInfoEx2(dwcertencodingtype, pinfo.toCPointer<ByteVar>(), dwflags, pvauxinfo.toCPointer<ByteVar>(), phkey.toCPointer<ByteVar>())
+public actual fun cryptImportPublicKeyInfoEx2(dwcertencodingtype: CertQueryEncodingType, pinfo: COpaquePointer?, dwflags: CryptImportPublicKeyFlags, pvauxinfo: COpaquePointer?, phkey: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptImportPublicKeyInfoEx2(dwcertencodingtype, pinfo?.value?.toCPointer<ByteVar>(), dwflags, pvauxinfo?.value?.toCPointer<ByteVar>(), phkey?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptInitOIDFunctionSet(pszfuncname: PCSTR, dwflags: UInt): Long =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptInitOIDFunctionSet(pszfuncname.toCPointer<ByteVar>(), dwflags)?.toLong() ?: 0L
+public actual fun cryptInitOIDFunctionSet(pszfuncname: Pcstr, dwflags: UInt): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptInitOIDFunctionSet(pszfuncname?.value?.toCPointer<ByteVar>(), dwflags)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CryptInstallCancelRetrieval(pfncancel: PFN_CRYPT_CANCEL_RETRIEVAL, pvarg: Long, dwflags: UInt, pvreserved: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptInstallCancelRetrieval(pfncancel.toLong().toCPointer<ByteVar>(), pvarg.toCPointer<ByteVar>(), dwflags, pvreserved.toCPointer<ByteVar>())
+public actual fun cryptInstallCancelRetrieval(pfncancel: PfnCryptCancelRetrieval, pvarg: COpaquePointer?, dwflags: UInt, pvreserved: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptInstallCancelRetrieval(0L.toCPointer<ByteVar>(), pvarg?.value?.toCPointer<ByteVar>(), dwflags, pvreserved?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptInstallDefaultContext(hcryptprov: ULong, dwdefaulttype: CRYPT_DEFAULT_CONTEXT_TYPE, pvdefaultpara: Long, dwflags: CRYPT_DEFAULT_CONTEXT_FLAGS, pvreserved: Long, phdefaultcontext: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptInstallDefaultContext(hcryptprov, dwdefaulttype, pvdefaultpara.toCPointer<ByteVar>(), dwflags, pvreserved.toCPointer<ByteVar>(), phdefaultcontext.toCPointer<ByteVar>())
+public actual fun cryptInstallDefaultContext(hcryptprov: ULong, dwdefaulttype: CryptDefaultContextType, pvdefaultpara: COpaquePointer?, dwflags: CryptDefaultContextFlags, pvreserved: COpaquePointer?, phdefaultcontext: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptInstallDefaultContext(hcryptprov, dwdefaulttype, pvdefaultpara?.value?.toCPointer<ByteVar>(), dwflags, pvreserved?.value?.toCPointer<ByteVar>(), phdefaultcontext?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptInstallOIDFunctionAddress(hmodule: HMODULE, dwencodingtype: UInt, pszfuncname: PCSTR, cfuncentry: UInt, rgfuncentry: Long, dwflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptInstallOIDFunctionAddress(hmodule.toCPointer<ByteVar>(), dwencodingtype, pszfuncname.toCPointer<ByteVar>(), cfuncentry, rgfuncentry.toCPointer<ByteVar>(), dwflags)
+public actual fun cryptInstallOIDFunctionAddress(hmodule: Hmodule, dwencodingtype: UInt, pszfuncname: Pcstr, cfuncentry: UInt, rgfuncentry: COpaquePointer?, dwflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptInstallOIDFunctionAddress(hmodule?.value?.toCPointer<ByteVar>(), dwencodingtype, pszfuncname?.value?.toCPointer<ByteVar>(), cfuncentry, rgfuncentry?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun CryptMemAlloc(cbsize: UInt): Long =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptMemAlloc(cbsize)?.toLong() ?: 0L
+public actual fun cryptMemAlloc(cbsize: UInt): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptMemAlloc(cbsize)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CryptMemFree(pv: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptMemFree(pv.toCPointer<ByteVar>())
+public actual fun cryptMemFree(pv: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptMemFree(pv?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun CryptMemRealloc(pv: Long, cbsize: UInt): Long =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptMemRealloc(pv.toCPointer<ByteVar>(), cbsize)?.toLong() ?: 0L
+public actual fun cryptMemRealloc(pv: COpaquePointer?, cbsize: UInt): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptMemRealloc(pv?.value?.toCPointer<ByteVar>(), cbsize)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CryptMsgCalculateEncodedLength(dwmsgencodingtype: UInt, dwflags: UInt, dwmsgtype: UInt, pvmsgencodeinfo: Long, pszinnercontentobjid: PCSTR, cbdata: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptMsgCalculateEncodedLength(dwmsgencodingtype, dwflags, dwmsgtype, pvmsgencodeinfo.toCPointer<ByteVar>(), pszinnercontentobjid.toCPointer<ByteVar>(), cbdata)
+public actual fun cryptMsgCalculateEncodedLength(dwmsgencodingtype: UInt, dwflags: UInt, dwmsgtype: UInt, pvmsgencodeinfo: COpaquePointer?, pszinnercontentobjid: Pcstr, cbdata: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptMsgCalculateEncodedLength(dwmsgencodingtype, dwflags, dwmsgtype, pvmsgencodeinfo?.value?.toCPointer<ByteVar>(), pszinnercontentobjid?.value?.toCPointer<ByteVar>(), cbdata)
 
-public actual fun CryptMsgClose(hcryptmsg: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptMsgClose(hcryptmsg.toCPointer<ByteVar>())
+public actual fun cryptMsgClose(hcryptmsg: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptMsgClose(hcryptmsg?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptMsgControl(hcryptmsg: Long, dwflags: UInt, dwctrltype: UInt, pvctrlpara: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptMsgControl(hcryptmsg.toCPointer<ByteVar>(), dwflags, dwctrltype, pvctrlpara.toCPointer<ByteVar>())
+public actual fun cryptMsgControl(hcryptmsg: COpaquePointer?, dwflags: UInt, dwctrltype: UInt, pvctrlpara: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptMsgControl(hcryptmsg?.value?.toCPointer<ByteVar>(), dwflags, dwctrltype, pvctrlpara?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptMsgCountersign(hcryptmsg: Long, dwindex: UInt, ccountersigners: UInt, rgcountersigners: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptMsgCountersign(hcryptmsg.toCPointer<ByteVar>(), dwindex, ccountersigners, rgcountersigners.toCPointer<ByteVar>())
+public actual fun cryptMsgCountersign(hcryptmsg: COpaquePointer?, dwindex: UInt, ccountersigners: UInt, rgcountersigners: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptMsgCountersign(hcryptmsg?.value?.toCPointer<ByteVar>(), dwindex, ccountersigners, rgcountersigners?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptMsgCountersignEncoded(dwencodingtype: UInt, pbsignerinfo: Long, cbsignerinfo: UInt, ccountersigners: UInt, rgcountersigners: Long, pbcountersignature: Long, pcbcountersignature: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptMsgCountersignEncoded(dwencodingtype, pbsignerinfo.toCPointer<ByteVar>(), cbsignerinfo, ccountersigners, rgcountersigners.toCPointer<ByteVar>(), pbcountersignature.toCPointer<ByteVar>(), pcbcountersignature.toCPointer<ByteVar>())
+public actual fun cryptMsgCountersignEncoded(dwencodingtype: UInt, pbsignerinfo: COpaquePointer?, cbsignerinfo: UInt, ccountersigners: UInt, rgcountersigners: COpaquePointer?, pbcountersignature: COpaquePointer?, pcbcountersignature: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptMsgCountersignEncoded(dwencodingtype, pbsignerinfo?.value?.toCPointer<ByteVar>(), cbsignerinfo, ccountersigners, rgcountersigners?.value?.toCPointer<ByteVar>(), pbcountersignature?.value?.toCPointer<ByteVar>(), pcbcountersignature?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptMsgDuplicate(hcryptmsg: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptMsgDuplicate(hcryptmsg.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun cryptMsgDuplicate(hcryptmsg: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptMsgDuplicate(hcryptmsg?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CryptMsgEncodeAndSignCTL(dwmsgencodingtype: UInt, pctlinfo: Long, psigninfo: Long, dwflags: UInt, pbencoded: Long, pcbencoded: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptMsgEncodeAndSignCTL(dwmsgencodingtype, pctlinfo.toCPointer<ByteVar>(), psigninfo.toCPointer<ByteVar>(), dwflags, pbencoded.toCPointer<ByteVar>(), pcbencoded.toCPointer<ByteVar>())
+public actual fun cryptMsgEncodeAndSignCTL(dwmsgencodingtype: UInt, pctlinfo: COpaquePointer?, psigninfo: COpaquePointer?, dwflags: UInt, pbencoded: COpaquePointer?, pcbencoded: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptMsgEncodeAndSignCTL(dwmsgencodingtype, pctlinfo?.value?.toCPointer<ByteVar>(), psigninfo?.value?.toCPointer<ByteVar>(), dwflags, pbencoded?.value?.toCPointer<ByteVar>(), pcbencoded?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptMsgGetAndVerifySigner(hcryptmsg: Long, csignerstore: UInt, rghsignerstore: Long, dwflags: UInt, ppsigner: Long, pdwsignerindex: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptMsgGetAndVerifySigner(hcryptmsg.toCPointer<ByteVar>(), csignerstore, rghsignerstore.toCPointer<ByteVar>(), dwflags, ppsigner.toCPointer<ByteVar>(), pdwsignerindex.toCPointer<ByteVar>())
+public actual fun cryptMsgGetAndVerifySigner(hcryptmsg: COpaquePointer?, csignerstore: UInt, rghsignerstore: COpaquePointer?, dwflags: UInt, ppsigner: COpaquePointer?, pdwsignerindex: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptMsgGetAndVerifySigner(hcryptmsg?.value?.toCPointer<ByteVar>(), csignerstore, rghsignerstore?.value?.toCPointer<ByteVar>(), dwflags, ppsigner?.value?.toCPointer<ByteVar>(), pdwsignerindex?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptMsgGetParam(hcryptmsg: Long, dwparamtype: UInt, dwindex: UInt, pvdata: Long, pcbdata: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptMsgGetParam(hcryptmsg.toCPointer<ByteVar>(), dwparamtype, dwindex, pvdata.toCPointer<ByteVar>(), pcbdata.toCPointer<ByteVar>())
+public actual fun cryptMsgGetParam(hcryptmsg: COpaquePointer?, dwparamtype: UInt, dwindex: UInt, pvdata: COpaquePointer?, pcbdata: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptMsgGetParam(hcryptmsg?.value?.toCPointer<ByteVar>(), dwparamtype, dwindex, pvdata?.value?.toCPointer<ByteVar>(), pcbdata?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptMsgOpenToDecode(dwmsgencodingtype: UInt, dwflags: UInt, dwmsgtype: UInt, hcryptprov: HCRYPTPROV_LEGACY, precipientinfo: Long, pstreaminfo: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptMsgOpenToDecode(dwmsgencodingtype, dwflags, dwmsgtype, hcryptprov, precipientinfo.toCPointer<ByteVar>(), pstreaminfo.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun cryptMsgOpenToDecode(dwmsgencodingtype: UInt, dwflags: UInt, dwmsgtype: UInt, hcryptprov: HcryptprovLegacy, precipientinfo: COpaquePointer?, pstreaminfo: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptMsgOpenToDecode(dwmsgencodingtype, dwflags, dwmsgtype, hcryptprov, precipientinfo?.value?.toCPointer<ByteVar>(), pstreaminfo?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CryptMsgOpenToEncode(dwmsgencodingtype: UInt, dwflags: UInt, dwmsgtype: CRYPT_MSG_TYPE, pvmsgencodeinfo: Long, pszinnercontentobjid: PCSTR, pstreaminfo: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptMsgOpenToEncode(dwmsgencodingtype, dwflags, dwmsgtype, pvmsgencodeinfo.toCPointer<ByteVar>(), pszinnercontentobjid.toCPointer<ByteVar>(), pstreaminfo.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun cryptMsgOpenToEncode(dwmsgencodingtype: UInt, dwflags: UInt, dwmsgtype: CryptMsgType, pvmsgencodeinfo: COpaquePointer?, pszinnercontentobjid: Pcstr, pstreaminfo: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptMsgOpenToEncode(dwmsgencodingtype, dwflags, dwmsgtype, pvmsgencodeinfo?.value?.toCPointer<ByteVar>(), pszinnercontentobjid?.value?.toCPointer<ByteVar>(), pstreaminfo?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CryptMsgSignCTL(dwmsgencodingtype: UInt, pbctlcontent: Long, cbctlcontent: UInt, psigninfo: Long, dwflags: UInt, pbencoded: Long, pcbencoded: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptMsgSignCTL(dwmsgencodingtype, pbctlcontent.toCPointer<ByteVar>(), cbctlcontent, psigninfo.toCPointer<ByteVar>(), dwflags, pbencoded.toCPointer<ByteVar>(), pcbencoded.toCPointer<ByteVar>())
+public actual fun cryptMsgSignCTL(dwmsgencodingtype: UInt, pbctlcontent: COpaquePointer?, cbctlcontent: UInt, psigninfo: COpaquePointer?, dwflags: UInt, pbencoded: COpaquePointer?, pcbencoded: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptMsgSignCTL(dwmsgencodingtype, pbctlcontent?.value?.toCPointer<ByteVar>(), cbctlcontent, psigninfo?.value?.toCPointer<ByteVar>(), dwflags, pbencoded?.value?.toCPointer<ByteVar>(), pcbencoded?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptMsgUpdate(hcryptmsg: Long, pbdata: Long, cbdata: UInt, ffinal: BOOL): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptMsgUpdate(hcryptmsg.toCPointer<ByteVar>(), pbdata.toCPointer<ByteVar>(), cbdata, ffinal)
+public actual fun cryptMsgUpdate(hcryptmsg: COpaquePointer?, pbdata: COpaquePointer?, cbdata: UInt, ffinal: Bool): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptMsgUpdate(hcryptmsg?.value?.toCPointer<ByteVar>(), pbdata?.value?.toCPointer<ByteVar>(), cbdata, ffinal)
 
-public actual fun CryptMsgVerifyCountersignatureEncoded(hcryptprov: HCRYPTPROV_LEGACY, dwencodingtype: UInt, pbsignerinfo: Long, cbsignerinfo: UInt, pbsignerinfocountersignature: Long, cbsignerinfocountersignature: UInt, pcicountersigner: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptMsgVerifyCountersignatureEncoded(hcryptprov, dwencodingtype, pbsignerinfo.toCPointer<ByteVar>(), cbsignerinfo, pbsignerinfocountersignature.toCPointer<ByteVar>(), cbsignerinfocountersignature, pcicountersigner.toCPointer<ByteVar>())
+public actual fun cryptMsgVerifyCountersignatureEncoded(hcryptprov: HcryptprovLegacy, dwencodingtype: UInt, pbsignerinfo: COpaquePointer?, cbsignerinfo: UInt, pbsignerinfocountersignature: COpaquePointer?, cbsignerinfocountersignature: UInt, pcicountersigner: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptMsgVerifyCountersignatureEncoded(hcryptprov, dwencodingtype, pbsignerinfo?.value?.toCPointer<ByteVar>(), cbsignerinfo, pbsignerinfocountersignature?.value?.toCPointer<ByteVar>(), cbsignerinfocountersignature, pcicountersigner?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptMsgVerifyCountersignatureEncodedEx(hcryptprov: HCRYPTPROV_LEGACY, dwencodingtype: UInt, pbsignerinfo: Long, cbsignerinfo: UInt, pbsignerinfocountersignature: Long, cbsignerinfocountersignature: UInt, dwsignertype: UInt, pvsigner: Long, dwflags: UInt, pvextra: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptMsgVerifyCountersignatureEncodedEx(hcryptprov, dwencodingtype, pbsignerinfo.toCPointer<ByteVar>(), cbsignerinfo, pbsignerinfocountersignature.toCPointer<ByteVar>(), cbsignerinfocountersignature, dwsignertype, pvsigner.toCPointer<ByteVar>(), dwflags, pvextra.toCPointer<ByteVar>())
+public actual fun cryptMsgVerifyCountersignatureEncodedEx(hcryptprov: HcryptprovLegacy, dwencodingtype: UInt, pbsignerinfo: COpaquePointer?, cbsignerinfo: UInt, pbsignerinfocountersignature: COpaquePointer?, cbsignerinfocountersignature: UInt, dwsignertype: UInt, pvsigner: COpaquePointer?, dwflags: UInt, pvextra: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptMsgVerifyCountersignatureEncodedEx(hcryptprov, dwencodingtype, pbsignerinfo?.value?.toCPointer<ByteVar>(), cbsignerinfo, pbsignerinfocountersignature?.value?.toCPointer<ByteVar>(), cbsignerinfocountersignature, dwsignertype, pvsigner?.value?.toCPointer<ByteVar>(), dwflags, pvextra?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptProtectData(pdatain: Long, szdatadescr: PCWSTR, poptionalentropy: Long, pvreserved: Long, ppromptstruct: Long, dwflags: UInt, pdataout: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptProtectData(pdatain.toCPointer<ByteVar>(), szdatadescr.toCPointer<ByteVar>(), poptionalentropy.toCPointer<ByteVar>(), pvreserved.toCPointer<ByteVar>(), ppromptstruct.toCPointer<ByteVar>(), dwflags, pdataout.toCPointer<ByteVar>())
+public actual fun cryptProtectData(pdatain: COpaquePointer?, szdatadescr: Pcwstr, poptionalentropy: COpaquePointer?, pvreserved: COpaquePointer?, ppromptstruct: COpaquePointer?, dwflags: UInt, pdataout: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptProtectData(pdatain?.value?.toCPointer<ByteVar>(), szdatadescr?.value?.toCPointer<ByteVar>(), poptionalentropy?.value?.toCPointer<ByteVar>(), pvreserved?.value?.toCPointer<ByteVar>(), ppromptstruct?.value?.toCPointer<ByteVar>(), dwflags, pdataout?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptProtectMemory(pdatain: Long, cbdatain: UInt, dwflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptProtectMemory(pdatain.toCPointer<ByteVar>(), cbdatain, dwflags)
+public actual fun cryptProtectMemory(pdatain: COpaquePointer?, cbdatain: UInt, dwflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptProtectMemory(pdatain?.value?.toCPointer<ByteVar>(), cbdatain, dwflags)
 
-public actual fun CryptQueryObject(dwobjecttype: CERT_QUERY_OBJECT_TYPE, pvobject: Long, dwexpectedcontenttypeflags: CERT_QUERY_CONTENT_TYPE_FLAGS, dwexpectedformattypeflags: CERT_QUERY_FORMAT_TYPE_FLAGS, dwflags: UInt, pdwmsgandcertencodingtype: Long, pdwcontenttype: Long, pdwformattype: Long, phcertstore: Long, phmsg: Long, ppvcontext: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptQueryObject(dwobjecttype, pvobject.toCPointer<ByteVar>(), dwexpectedcontenttypeflags, dwexpectedformattypeflags, dwflags, pdwmsgandcertencodingtype.toCPointer<ByteVar>(), pdwcontenttype.toCPointer<ByteVar>(), pdwformattype.toCPointer<ByteVar>(), phcertstore.toCPointer<ByteVar>(), phmsg.toCPointer<ByteVar>(), ppvcontext.toCPointer<ByteVar>())
+public actual fun cryptQueryObject(dwobjecttype: CertQueryObjectType, pvobject: COpaquePointer?, dwexpectedcontenttypeflags: CertQueryContentTypeFlags, dwexpectedformattypeflags: CertQueryFormatTypeFlags, dwflags: UInt, pdwmsgandcertencodingtype: COpaquePointer?, pdwcontenttype: COpaquePointer?, pdwformattype: COpaquePointer?, phcertstore: COpaquePointer?, phmsg: COpaquePointer?, ppvcontext: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptQueryObject(dwobjecttype, pvobject?.value?.toCPointer<ByteVar>(), dwexpectedcontenttypeflags, dwexpectedformattypeflags, dwflags, pdwmsgandcertencodingtype?.value?.toCPointer<ByteVar>(), pdwcontenttype?.value?.toCPointer<ByteVar>(), pdwformattype?.value?.toCPointer<ByteVar>(), phcertstore?.value?.toCPointer<ByteVar>(), phmsg?.value?.toCPointer<ByteVar>(), ppvcontext?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptRegisterDefaultOIDFunction(dwencodingtype: UInt, pszfuncname: PCSTR, dwindex: UInt, pwszdll: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptRegisterDefaultOIDFunction(dwencodingtype, pszfuncname.toCPointer<ByteVar>(), dwindex, pwszdll.toCPointer<ByteVar>())
+public actual fun cryptRegisterDefaultOIDFunction(dwencodingtype: UInt, pszfuncname: Pcstr, dwindex: UInt, pwszdll: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptRegisterDefaultOIDFunction(dwencodingtype, pszfuncname?.value?.toCPointer<ByteVar>(), dwindex, pwszdll?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptRegisterOIDFunction(dwencodingtype: UInt, pszfuncname: PCSTR, pszoid: PCSTR, pwszdll: PCWSTR, pszoverridefuncname: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptRegisterOIDFunction(dwencodingtype, pszfuncname.toCPointer<ByteVar>(), pszoid.toCPointer<ByteVar>(), pwszdll.toCPointer<ByteVar>(), pszoverridefuncname.toCPointer<ByteVar>())
+public actual fun cryptRegisterOIDFunction(dwencodingtype: UInt, pszfuncname: Pcstr, pszoid: Pcstr, pwszdll: Pcwstr, pszoverridefuncname: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptRegisterOIDFunction(dwencodingtype, pszfuncname?.value?.toCPointer<ByteVar>(), pszoid?.value?.toCPointer<ByteVar>(), pwszdll?.value?.toCPointer<ByteVar>(), pszoverridefuncname?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptRegisterOIDInfo(pinfo: Long, dwflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptRegisterOIDInfo(pinfo.toCPointer<ByteVar>(), dwflags)
+public actual fun cryptRegisterOIDInfo(pinfo: COpaquePointer?, dwflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptRegisterOIDInfo(pinfo?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun CryptReleaseContext(hprov: ULong, dwflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptReleaseContext(hprov, dwflags)
+public actual fun cryptReleaseContext(hprov: ULong, dwflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptReleaseContext(hprov, dwflags)
 
-public actual fun CryptRetrieveObjectByUrlA(pszurl: PCSTR, pszobjectoid: PCSTR, dwretrievalflags: UInt, dwtimeout: UInt, ppvobject: Long, hasyncretrieve: HCRYPTASYNC, pcredentials: Long, pvverify: Long, pauxinfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptRetrieveObjectByUrlA(pszurl.toCPointer<ByteVar>(), pszobjectoid.toCPointer<ByteVar>(), dwretrievalflags, dwtimeout, ppvobject.toCPointer<ByteVar>(), hasyncretrieve, pcredentials.toCPointer<ByteVar>(), pvverify.toCPointer<ByteVar>(), pauxinfo.toCPointer<ByteVar>())
+public actual fun cryptRetrieveObjectByUrlA(pszurl: Pcstr, pszobjectoid: Pcstr, dwretrievalflags: UInt, dwtimeout: UInt, ppvobject: COpaquePointer?, hasyncretrieve: Hcryptasync, pcredentials: COpaquePointer?, pvverify: COpaquePointer?, pauxinfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptRetrieveObjectByUrlA(pszurl?.value?.toCPointer<ByteVar>(), pszobjectoid?.value?.toCPointer<ByteVar>(), dwretrievalflags, dwtimeout, ppvobject?.value?.toCPointer<ByteVar>(), hasyncretrieve, pcredentials?.value?.toCPointer<ByteVar>(), pvverify?.value?.toCPointer<ByteVar>(), pauxinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptRetrieveObjectByUrlW(pszurl: PCWSTR, pszobjectoid: PCSTR, dwretrievalflags: UInt, dwtimeout: UInt, ppvobject: Long, hasyncretrieve: HCRYPTASYNC, pcredentials: Long, pvverify: Long, pauxinfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptRetrieveObjectByUrlW(pszurl.toCPointer<ByteVar>(), pszobjectoid.toCPointer<ByteVar>(), dwretrievalflags, dwtimeout, ppvobject.toCPointer<ByteVar>(), hasyncretrieve, pcredentials.toCPointer<ByteVar>(), pvverify.toCPointer<ByteVar>(), pauxinfo.toCPointer<ByteVar>())
+public actual fun cryptRetrieveObjectByUrlW(pszurl: Pcwstr, pszobjectoid: Pcstr, dwretrievalflags: UInt, dwtimeout: UInt, ppvobject: COpaquePointer?, hasyncretrieve: Hcryptasync, pcredentials: COpaquePointer?, pvverify: COpaquePointer?, pauxinfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptRetrieveObjectByUrlW(pszurl?.value?.toCPointer<ByteVar>(), pszobjectoid?.value?.toCPointer<ByteVar>(), dwretrievalflags, dwtimeout, ppvobject?.value?.toCPointer<ByteVar>(), hasyncretrieve, pcredentials?.value?.toCPointer<ByteVar>(), pvverify?.value?.toCPointer<ByteVar>(), pauxinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptRetrieveTimeStamp(wszurl: PCWSTR, dwretrievalflags: UInt, dwtimeout: UInt, pszhashid: PCSTR, ppara: Long, pbdata: Long, cbdata: UInt, pptscontext: Long, pptssigner: Long, phstore: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptRetrieveTimeStamp(wszurl.toCPointer<ByteVar>(), dwretrievalflags, dwtimeout, pszhashid.toCPointer<ByteVar>(), ppara.toCPointer<ByteVar>(), pbdata.toCPointer<ByteVar>(), cbdata, pptscontext.toCPointer<ByteVar>(), pptssigner.toCPointer<ByteVar>(), phstore.toCPointer<ByteVar>())
+public actual fun cryptRetrieveTimeStamp(wszurl: Pcwstr, dwretrievalflags: UInt, dwtimeout: UInt, pszhashid: Pcstr, ppara: COpaquePointer?, pbdata: COpaquePointer?, cbdata: UInt, pptscontext: COpaquePointer?, pptssigner: COpaquePointer?, phstore: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptRetrieveTimeStamp(wszurl?.value?.toCPointer<ByteVar>(), dwretrievalflags, dwtimeout, pszhashid?.value?.toCPointer<ByteVar>(), ppara?.value?.toCPointer<ByteVar>(), pbdata?.value?.toCPointer<ByteVar>(), cbdata, pptscontext?.value?.toCPointer<ByteVar>(), pptssigner?.value?.toCPointer<ByteVar>(), phstore?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptSetAsyncParam(hasync: HCRYPTASYNC, pszparamoid: PCSTR, pvparam: Long, pfnfree: PFN_CRYPT_ASYNC_PARAM_FREE_FUNC): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptSetAsyncParam(hasync, pszparamoid.toCPointer<ByteVar>(), pvparam.toCPointer<ByteVar>(), pfnfree.toLong().toCPointer<ByteVar>())
+public actual fun cryptSetAsyncParam(hasync: Hcryptasync, pszparamoid: Pcstr, pvparam: COpaquePointer?, pfnfree: PfnCryptAsyncParamFreeFunc): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptSetAsyncParam(hasync, pszparamoid?.value?.toCPointer<ByteVar>(), pvparam?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 
-public actual fun CryptSetHashParam(hhash: ULong, dwparam: CRYPT_SET_HASH_PARAM, pbdata: Long, dwflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptSetHashParam(hhash, dwparam, pbdata.toCPointer<ByteVar>(), dwflags)
+public actual fun cryptSetHashParam(hhash: ULong, dwparam: CryptSetHashParam, pbdata: COpaquePointer?, dwflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptSetHashParam(hhash, dwparam, pbdata?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun CryptSetKeyIdentifierProperty(pkeyidentifier: Long, dwpropid: UInt, dwflags: UInt, pwszcomputername: PCWSTR, pvreserved: Long, pvdata: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptSetKeyIdentifierProperty(pkeyidentifier.toCPointer<ByteVar>(), dwpropid, dwflags, pwszcomputername.toCPointer<ByteVar>(), pvreserved.toCPointer<ByteVar>(), pvdata.toCPointer<ByteVar>())
+public actual fun cryptSetKeyIdentifierProperty(pkeyidentifier: COpaquePointer?, dwpropid: UInt, dwflags: UInt, pwszcomputername: Pcwstr, pvreserved: COpaquePointer?, pvdata: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptSetKeyIdentifierProperty(pkeyidentifier?.value?.toCPointer<ByteVar>(), dwpropid, dwflags, pwszcomputername?.value?.toCPointer<ByteVar>(), pvreserved?.value?.toCPointer<ByteVar>(), pvdata?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptSetKeyParam(hkey: ULong, dwparam: CRYPT_KEY_PARAM_ID, pbdata: Long, dwflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptSetKeyParam(hkey, dwparam, pbdata.toCPointer<ByteVar>(), dwflags)
+public actual fun cryptSetKeyParam(hkey: ULong, dwparam: CryptKeyParamId, pbdata: COpaquePointer?, dwflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptSetKeyParam(hkey, dwparam, pbdata?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun CryptSetOIDFunctionValue(dwencodingtype: UInt, pszfuncname: PCSTR, pszoid: PCSTR, pwszvaluename: PCWSTR, dwvaluetype: REG_VALUE_TYPE, pbvaluedata: Long, cbvaluedata: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptSetOIDFunctionValue(dwencodingtype, pszfuncname.toCPointer<ByteVar>(), pszoid.toCPointer<ByteVar>(), pwszvaluename.toCPointer<ByteVar>(), dwvaluetype, pbvaluedata.toCPointer<ByteVar>(), cbvaluedata)
+public actual fun cryptSetOIDFunctionValue(dwencodingtype: UInt, pszfuncname: Pcstr, pszoid: Pcstr, pwszvaluename: Pcwstr, dwvaluetype: RegValueType, pbvaluedata: COpaquePointer?, cbvaluedata: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptSetOIDFunctionValue(dwencodingtype, pszfuncname?.value?.toCPointer<ByteVar>(), pszoid?.value?.toCPointer<ByteVar>(), pwszvaluename?.value?.toCPointer<ByteVar>(), dwvaluetype, pbvaluedata?.value?.toCPointer<ByteVar>(), cbvaluedata)
 
-public actual fun CryptSetProvParam(hprov: ULong, dwparam: CRYPT_SET_PROV_PARAM_ID, pbdata: Long, dwflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptSetProvParam(hprov, dwparam, pbdata.toCPointer<ByteVar>(), dwflags)
+public actual fun cryptSetProvParam(hprov: ULong, dwparam: CryptSetProvParamId, pbdata: COpaquePointer?, dwflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptSetProvParam(hprov, dwparam, pbdata?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun CryptSetProviderA(pszprovname: PCSTR, dwprovtype: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptSetProviderA(pszprovname.toCPointer<ByteVar>(), dwprovtype)
+public actual fun cryptSetProviderA(pszprovname: Pcstr, dwprovtype: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptSetProviderA(pszprovname?.value?.toCPointer<ByteVar>(), dwprovtype)
 
-public actual fun CryptSetProviderExA(pszprovname: PCSTR, dwprovtype: UInt, pdwreserved: Long, dwflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptSetProviderExA(pszprovname.toCPointer<ByteVar>(), dwprovtype, pdwreserved.toCPointer<ByteVar>(), dwflags)
+public actual fun cryptSetProviderExA(pszprovname: Pcstr, dwprovtype: UInt, pdwreserved: COpaquePointer?, dwflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptSetProviderExA(pszprovname?.value?.toCPointer<ByteVar>(), dwprovtype, pdwreserved?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun CryptSetProviderExW(pszprovname: PCWSTR, dwprovtype: UInt, pdwreserved: Long, dwflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptSetProviderExW(pszprovname.toCPointer<ByteVar>(), dwprovtype, pdwreserved.toCPointer<ByteVar>(), dwflags)
+public actual fun cryptSetProviderExW(pszprovname: Pcwstr, dwprovtype: UInt, pdwreserved: COpaquePointer?, dwflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptSetProviderExW(pszprovname?.value?.toCPointer<ByteVar>(), dwprovtype, pdwreserved?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun CryptSetProviderW(pszprovname: PCWSTR, dwprovtype: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptSetProviderW(pszprovname.toCPointer<ByteVar>(), dwprovtype)
+public actual fun cryptSetProviderW(pszprovname: Pcwstr, dwprovtype: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptSetProviderW(pszprovname?.value?.toCPointer<ByteVar>(), dwprovtype)
 
-public actual fun CryptSignAndEncodeCertificate(hcryptprovorncryptkey: HCRYPTPROV_OR_NCRYPT_KEY_HANDLE, dwkeyspec: CERT_KEY_SPEC, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, lpszstructtype: PCSTR, pvstructinfo: Long, psignaturealgorithm: Long, pvhashauxinfo: Long, pbencoded: Long, pcbencoded: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptSignAndEncodeCertificate(hcryptprovorncryptkey, dwkeyspec, dwcertencodingtype, lpszstructtype.toCPointer<ByteVar>(), pvstructinfo.toCPointer<ByteVar>(), psignaturealgorithm.toCPointer<ByteVar>(), pvhashauxinfo.toCPointer<ByteVar>(), pbencoded.toCPointer<ByteVar>(), pcbencoded.toCPointer<ByteVar>())
+public actual fun cryptSignAndEncodeCertificate(hcryptprovorncryptkey: HcryptprovOrNcryptKeyHandle, dwkeyspec: CertKeySpec, dwcertencodingtype: CertQueryEncodingType, lpszstructtype: Pcstr, pvstructinfo: COpaquePointer?, psignaturealgorithm: COpaquePointer?, pvhashauxinfo: COpaquePointer?, pbencoded: COpaquePointer?, pcbencoded: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptSignAndEncodeCertificate(hcryptprovorncryptkey, dwkeyspec, dwcertencodingtype, lpszstructtype?.value?.toCPointer<ByteVar>(), pvstructinfo?.value?.toCPointer<ByteVar>(), psignaturealgorithm?.value?.toCPointer<ByteVar>(), pvhashauxinfo?.value?.toCPointer<ByteVar>(), pbencoded?.value?.toCPointer<ByteVar>(), pcbencoded?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptSignAndEncryptMessage(psignpara: Long, pencryptpara: Long, crecipientcert: UInt, rgprecipientcert: Long, pbtobesignedandencrypted: Long, cbtobesignedandencrypted: UInt, pbsignedandencryptedblob: Long, pcbsignedandencryptedblob: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptSignAndEncryptMessage(psignpara.toCPointer<ByteVar>(), pencryptpara.toCPointer<ByteVar>(), crecipientcert, rgprecipientcert.toCPointer<ByteVar>(), pbtobesignedandencrypted.toCPointer<ByteVar>(), cbtobesignedandencrypted, pbsignedandencryptedblob.toCPointer<ByteVar>(), pcbsignedandencryptedblob.toCPointer<ByteVar>())
+public actual fun cryptSignAndEncryptMessage(psignpara: COpaquePointer?, pencryptpara: COpaquePointer?, crecipientcert: UInt, rgprecipientcert: COpaquePointer?, pbtobesignedandencrypted: COpaquePointer?, cbtobesignedandencrypted: UInt, pbsignedandencryptedblob: COpaquePointer?, pcbsignedandencryptedblob: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptSignAndEncryptMessage(psignpara?.value?.toCPointer<ByteVar>(), pencryptpara?.value?.toCPointer<ByteVar>(), crecipientcert, rgprecipientcert?.value?.toCPointer<ByteVar>(), pbtobesignedandencrypted?.value?.toCPointer<ByteVar>(), cbtobesignedandencrypted, pbsignedandencryptedblob?.value?.toCPointer<ByteVar>(), pcbsignedandencryptedblob?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptSignCertificate(hcryptprovorncryptkey: HCRYPTPROV_OR_NCRYPT_KEY_HANDLE, dwkeyspec: UInt, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pbencodedtobesigned: Long, cbencodedtobesigned: UInt, psignaturealgorithm: Long, pvhashauxinfo: Long, pbsignature: Long, pcbsignature: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptSignCertificate(hcryptprovorncryptkey, dwkeyspec, dwcertencodingtype, pbencodedtobesigned.toCPointer<ByteVar>(), cbencodedtobesigned, psignaturealgorithm.toCPointer<ByteVar>(), pvhashauxinfo.toCPointer<ByteVar>(), pbsignature.toCPointer<ByteVar>(), pcbsignature.toCPointer<ByteVar>())
+public actual fun cryptSignCertificate(hcryptprovorncryptkey: HcryptprovOrNcryptKeyHandle, dwkeyspec: UInt, dwcertencodingtype: CertQueryEncodingType, pbencodedtobesigned: COpaquePointer?, cbencodedtobesigned: UInt, psignaturealgorithm: COpaquePointer?, pvhashauxinfo: COpaquePointer?, pbsignature: COpaquePointer?, pcbsignature: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptSignCertificate(hcryptprovorncryptkey, dwkeyspec, dwcertencodingtype, pbencodedtobesigned?.value?.toCPointer<ByteVar>(), cbencodedtobesigned, psignaturealgorithm?.value?.toCPointer<ByteVar>(), pvhashauxinfo?.value?.toCPointer<ByteVar>(), pbsignature?.value?.toCPointer<ByteVar>(), pcbsignature?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptSignHashA(hhash: ULong, dwkeyspec: UInt, szdescription: PCSTR, dwflags: UInt, pbsignature: Long, pdwsiglen: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptSignHashA(hhash, dwkeyspec, szdescription.toCPointer<ByteVar>(), dwflags, pbsignature.toCPointer<ByteVar>(), pdwsiglen.toCPointer<ByteVar>())
+public actual fun cryptSignHashA(hhash: ULong, dwkeyspec: UInt, szdescription: Pcstr, dwflags: UInt, pbsignature: COpaquePointer?, pdwsiglen: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptSignHashA(hhash, dwkeyspec, szdescription?.value?.toCPointer<ByteVar>(), dwflags, pbsignature?.value?.toCPointer<ByteVar>(), pdwsiglen?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptSignHashW(hhash: ULong, dwkeyspec: UInt, szdescription: PCWSTR, dwflags: UInt, pbsignature: Long, pdwsiglen: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptSignHashW(hhash, dwkeyspec, szdescription.toCPointer<ByteVar>(), dwflags, pbsignature.toCPointer<ByteVar>(), pdwsiglen.toCPointer<ByteVar>())
+public actual fun cryptSignHashW(hhash: ULong, dwkeyspec: UInt, szdescription: Pcwstr, dwflags: UInt, pbsignature: COpaquePointer?, pdwsiglen: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptSignHashW(hhash, dwkeyspec, szdescription?.value?.toCPointer<ByteVar>(), dwflags, pbsignature?.value?.toCPointer<ByteVar>(), pdwsiglen?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptSignMessage(psignpara: Long, fdetachedsignature: BOOL, ctobesigned: UInt, rgpbtobesigned: Long, rgcbtobesigned: Long, pbsignedblob: Long, pcbsignedblob: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptSignMessage(psignpara.toCPointer<ByteVar>(), fdetachedsignature, ctobesigned, rgpbtobesigned.toCPointer<ByteVar>(), rgcbtobesigned.toCPointer<ByteVar>(), pbsignedblob.toCPointer<ByteVar>(), pcbsignedblob.toCPointer<ByteVar>())
+public actual fun cryptSignMessage(psignpara: COpaquePointer?, fdetachedsignature: Bool, ctobesigned: UInt, rgpbtobesigned: COpaquePointer?, rgcbtobesigned: COpaquePointer?, pbsignedblob: COpaquePointer?, pcbsignedblob: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptSignMessage(psignpara?.value?.toCPointer<ByteVar>(), fdetachedsignature, ctobesigned, rgpbtobesigned?.value?.toCPointer<ByteVar>(), rgcbtobesigned?.value?.toCPointer<ByteVar>(), pbsignedblob?.value?.toCPointer<ByteVar>(), pcbsignedblob?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptSignMessageWithKey(psignpara: Long, pbtobesigned: Long, cbtobesigned: UInt, pbsignedblob: Long, pcbsignedblob: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptSignMessageWithKey(psignpara.toCPointer<ByteVar>(), pbtobesigned.toCPointer<ByteVar>(), cbtobesigned, pbsignedblob.toCPointer<ByteVar>(), pcbsignedblob.toCPointer<ByteVar>())
+public actual fun cryptSignMessageWithKey(psignpara: COpaquePointer?, pbtobesigned: COpaquePointer?, cbtobesigned: UInt, pbsignedblob: COpaquePointer?, pcbsignedblob: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptSignMessageWithKey(psignpara?.value?.toCPointer<ByteVar>(), pbtobesigned?.value?.toCPointer<ByteVar>(), cbtobesigned, pbsignedblob?.value?.toCPointer<ByteVar>(), pcbsignedblob?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptStringToBinaryA(pszstring: PCSTR, cchstring: UInt, dwflags: CRYPT_STRING, pbbinary: Long, pcbbinary: Long, pdwskip: Long, pdwflags: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptStringToBinaryA(pszstring.toCPointer<ByteVar>(), cchstring, dwflags, pbbinary.toCPointer<ByteVar>(), pcbbinary.toCPointer<ByteVar>(), pdwskip.toCPointer<ByteVar>(), pdwflags.toCPointer<ByteVar>())
+public actual fun cryptStringToBinaryA(pszstring: Pcstr, cchstring: UInt, dwflags: CryptString, pbbinary: COpaquePointer?, pcbbinary: COpaquePointer?, pdwskip: COpaquePointer?, pdwflags: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptStringToBinaryA(pszstring?.value?.toCPointer<ByteVar>(), cchstring, dwflags, pbbinary?.value?.toCPointer<ByteVar>(), pcbbinary?.value?.toCPointer<ByteVar>(), pdwskip?.value?.toCPointer<ByteVar>(), pdwflags?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptStringToBinaryW(pszstring: PCWSTR, cchstring: UInt, dwflags: CRYPT_STRING, pbbinary: Long, pcbbinary: Long, pdwskip: Long, pdwflags: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptStringToBinaryW(pszstring.toCPointer<ByteVar>(), cchstring, dwflags, pbbinary.toCPointer<ByteVar>(), pcbbinary.toCPointer<ByteVar>(), pdwskip.toCPointer<ByteVar>(), pdwflags.toCPointer<ByteVar>())
+public actual fun cryptStringToBinaryW(pszstring: Pcwstr, cchstring: UInt, dwflags: CryptString, pbbinary: COpaquePointer?, pcbbinary: COpaquePointer?, pdwskip: COpaquePointer?, pdwflags: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptStringToBinaryW(pszstring?.value?.toCPointer<ByteVar>(), cchstring, dwflags, pbbinary?.value?.toCPointer<ByteVar>(), pcbbinary?.value?.toCPointer<ByteVar>(), pdwskip?.value?.toCPointer<ByteVar>(), pdwflags?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptUninstallCancelRetrieval(dwflags: UInt, pvreserved: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptUninstallCancelRetrieval(dwflags, pvreserved.toCPointer<ByteVar>())
+public actual fun cryptUninstallCancelRetrieval(dwflags: UInt, pvreserved: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptUninstallCancelRetrieval(dwflags, pvreserved?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptUninstallDefaultContext(hdefaultcontext: Long, dwflags: UInt, pvreserved: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptUninstallDefaultContext(hdefaultcontext.toCPointer<ByteVar>(), dwflags, pvreserved.toCPointer<ByteVar>())
+public actual fun cryptUninstallDefaultContext(hdefaultcontext: COpaquePointer?, dwflags: UInt, pvreserved: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptUninstallDefaultContext(hdefaultcontext?.value?.toCPointer<ByteVar>(), dwflags, pvreserved?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptUnprotectData(pdatain: Long, ppszdatadescr: Long, poptionalentropy: Long, pvreserved: Long, ppromptstruct: Long, dwflags: UInt, pdataout: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptUnprotectData(pdatain.toCPointer<ByteVar>(), ppszdatadescr.toCPointer<ByteVar>(), poptionalentropy.toCPointer<ByteVar>(), pvreserved.toCPointer<ByteVar>(), ppromptstruct.toCPointer<ByteVar>(), dwflags, pdataout.toCPointer<ByteVar>())
+public actual fun cryptUnprotectData(pdatain: COpaquePointer?, ppszdatadescr: COpaquePointer?, poptionalentropy: COpaquePointer?, pvreserved: COpaquePointer?, ppromptstruct: COpaquePointer?, dwflags: UInt, pdataout: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptUnprotectData(pdatain?.value?.toCPointer<ByteVar>(), ppszdatadescr?.value?.toCPointer<ByteVar>(), poptionalentropy?.value?.toCPointer<ByteVar>(), pvreserved?.value?.toCPointer<ByteVar>(), ppromptstruct?.value?.toCPointer<ByteVar>(), dwflags, pdataout?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptUnprotectMemory(pdatain: Long, cbdatain: UInt, dwflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptUnprotectMemory(pdatain.toCPointer<ByteVar>(), cbdatain, dwflags)
+public actual fun cryptUnprotectMemory(pdatain: COpaquePointer?, cbdatain: UInt, dwflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptUnprotectMemory(pdatain?.value?.toCPointer<ByteVar>(), cbdatain, dwflags)
 
-public actual fun CryptUnregisterDefaultOIDFunction(dwencodingtype: UInt, pszfuncname: PCSTR, pwszdll: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptUnregisterDefaultOIDFunction(dwencodingtype, pszfuncname.toCPointer<ByteVar>(), pwszdll.toCPointer<ByteVar>())
+public actual fun cryptUnregisterDefaultOIDFunction(dwencodingtype: UInt, pszfuncname: Pcstr, pwszdll: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptUnregisterDefaultOIDFunction(dwencodingtype, pszfuncname?.value?.toCPointer<ByteVar>(), pwszdll?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptUnregisterOIDFunction(dwencodingtype: UInt, pszfuncname: PCSTR, pszoid: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptUnregisterOIDFunction(dwencodingtype, pszfuncname.toCPointer<ByteVar>(), pszoid.toCPointer<ByteVar>())
+public actual fun cryptUnregisterOIDFunction(dwencodingtype: UInt, pszfuncname: Pcstr, pszoid: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptUnregisterOIDFunction(dwencodingtype, pszfuncname?.value?.toCPointer<ByteVar>(), pszoid?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptUnregisterOIDInfo(pinfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptUnregisterOIDInfo(pinfo.toCPointer<ByteVar>())
+public actual fun cryptUnregisterOIDInfo(pinfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptUnregisterOIDInfo(pinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptUpdateProtectedState(poldsid: PSID, pwszoldpassword: PCWSTR, dwflags: UInt, pdwsuccesscount: Long, pdwfailurecount: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptUpdateProtectedState(poldsid.toCPointer<ByteVar>(), pwszoldpassword.toCPointer<ByteVar>(), dwflags, pdwsuccesscount.toCPointer<ByteVar>(), pdwfailurecount.toCPointer<ByteVar>())
+public actual fun cryptUpdateProtectedState(poldsid: Psid, pwszoldpassword: Pcwstr, dwflags: UInt, pdwsuccesscount: COpaquePointer?, pdwfailurecount: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptUpdateProtectedState(poldsid?.value?.toCPointer<ByteVar>(), pwszoldpassword?.value?.toCPointer<ByteVar>(), dwflags, pdwsuccesscount?.value?.toCPointer<ByteVar>(), pdwfailurecount?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptVerifyCertificateSignature(hcryptprov: HCRYPTPROV_LEGACY, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pbencoded: Long, cbencoded: UInt, ppublickey: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptVerifyCertificateSignature(hcryptprov, dwcertencodingtype, pbencoded.toCPointer<ByteVar>(), cbencoded, ppublickey.toCPointer<ByteVar>())
+public actual fun cryptVerifyCertificateSignature(hcryptprov: HcryptprovLegacy, dwcertencodingtype: CertQueryEncodingType, pbencoded: COpaquePointer?, cbencoded: UInt, ppublickey: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptVerifyCertificateSignature(hcryptprov, dwcertencodingtype, pbencoded?.value?.toCPointer<ByteVar>(), cbencoded, ppublickey?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptVerifyCertificateSignatureEx(hcryptprov: HCRYPTPROV_LEGACY, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, dwsubjecttype: UInt, pvsubject: Long, dwissuertype: UInt, pvissuer: Long, dwflags: CRYPT_VERIFY_CERT_FLAGS, pvextra: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptVerifyCertificateSignatureEx(hcryptprov, dwcertencodingtype, dwsubjecttype, pvsubject.toCPointer<ByteVar>(), dwissuertype, pvissuer.toCPointer<ByteVar>(), dwflags, pvextra.toCPointer<ByteVar>())
+public actual fun cryptVerifyCertificateSignatureEx(hcryptprov: HcryptprovLegacy, dwcertencodingtype: CertQueryEncodingType, dwsubjecttype: UInt, pvsubject: COpaquePointer?, dwissuertype: UInt, pvissuer: COpaquePointer?, dwflags: CryptVerifyCertFlags, pvextra: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptVerifyCertificateSignatureEx(hcryptprov, dwcertencodingtype, dwsubjecttype, pvsubject?.value?.toCPointer<ByteVar>(), dwissuertype, pvissuer?.value?.toCPointer<ByteVar>(), dwflags, pvextra?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptVerifyDetachedMessageHash(phashpara: Long, pbdetachedhashblob: Long, cbdetachedhashblob: UInt, ctobehashed: UInt, rgpbtobehashed: Long, rgcbtobehashed: Long, pbcomputedhash: Long, pcbcomputedhash: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptVerifyDetachedMessageHash(phashpara.toCPointer<ByteVar>(), pbdetachedhashblob.toCPointer<ByteVar>(), cbdetachedhashblob, ctobehashed, rgpbtobehashed.toCPointer<ByteVar>(), rgcbtobehashed.toCPointer<ByteVar>(), pbcomputedhash.toCPointer<ByteVar>(), pcbcomputedhash.toCPointer<ByteVar>())
+public actual fun cryptVerifyDetachedMessageHash(phashpara: COpaquePointer?, pbdetachedhashblob: COpaquePointer?, cbdetachedhashblob: UInt, ctobehashed: UInt, rgpbtobehashed: COpaquePointer?, rgcbtobehashed: COpaquePointer?, pbcomputedhash: COpaquePointer?, pcbcomputedhash: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptVerifyDetachedMessageHash(phashpara?.value?.toCPointer<ByteVar>(), pbdetachedhashblob?.value?.toCPointer<ByteVar>(), cbdetachedhashblob, ctobehashed, rgpbtobehashed?.value?.toCPointer<ByteVar>(), rgcbtobehashed?.value?.toCPointer<ByteVar>(), pbcomputedhash?.value?.toCPointer<ByteVar>(), pcbcomputedhash?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptVerifyDetachedMessageSignature(pverifypara: Long, dwsignerindex: UInt, pbdetachedsignblob: Long, cbdetachedsignblob: UInt, ctobesigned: UInt, rgpbtobesigned: Long, rgcbtobesigned: Long, ppsignercert: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptVerifyDetachedMessageSignature(pverifypara.toCPointer<ByteVar>(), dwsignerindex, pbdetachedsignblob.toCPointer<ByteVar>(), cbdetachedsignblob, ctobesigned, rgpbtobesigned.toCPointer<ByteVar>(), rgcbtobesigned.toCPointer<ByteVar>(), ppsignercert.toCPointer<ByteVar>())
+public actual fun cryptVerifyDetachedMessageSignature(pverifypara: COpaquePointer?, dwsignerindex: UInt, pbdetachedsignblob: COpaquePointer?, cbdetachedsignblob: UInt, ctobesigned: UInt, rgpbtobesigned: COpaquePointer?, rgcbtobesigned: COpaquePointer?, ppsignercert: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptVerifyDetachedMessageSignature(pverifypara?.value?.toCPointer<ByteVar>(), dwsignerindex, pbdetachedsignblob?.value?.toCPointer<ByteVar>(), cbdetachedsignblob, ctobesigned, rgpbtobesigned?.value?.toCPointer<ByteVar>(), rgcbtobesigned?.value?.toCPointer<ByteVar>(), ppsignercert?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptVerifyMessageHash(phashpara: Long, pbhashedblob: Long, cbhashedblob: UInt, pbtobehashed: Long, pcbtobehashed: Long, pbcomputedhash: Long, pcbcomputedhash: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptVerifyMessageHash(phashpara.toCPointer<ByteVar>(), pbhashedblob.toCPointer<ByteVar>(), cbhashedblob, pbtobehashed.toCPointer<ByteVar>(), pcbtobehashed.toCPointer<ByteVar>(), pbcomputedhash.toCPointer<ByteVar>(), pcbcomputedhash.toCPointer<ByteVar>())
+public actual fun cryptVerifyMessageHash(phashpara: COpaquePointer?, pbhashedblob: COpaquePointer?, cbhashedblob: UInt, pbtobehashed: COpaquePointer?, pcbtobehashed: COpaquePointer?, pbcomputedhash: COpaquePointer?, pcbcomputedhash: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptVerifyMessageHash(phashpara?.value?.toCPointer<ByteVar>(), pbhashedblob?.value?.toCPointer<ByteVar>(), cbhashedblob, pbtobehashed?.value?.toCPointer<ByteVar>(), pcbtobehashed?.value?.toCPointer<ByteVar>(), pbcomputedhash?.value?.toCPointer<ByteVar>(), pcbcomputedhash?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptVerifyMessageSignature(pverifypara: Long, dwsignerindex: UInt, pbsignedblob: Long, cbsignedblob: UInt, pbdecoded: Long, pcbdecoded: Long, ppsignercert: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptVerifyMessageSignature(pverifypara.toCPointer<ByteVar>(), dwsignerindex, pbsignedblob.toCPointer<ByteVar>(), cbsignedblob, pbdecoded.toCPointer<ByteVar>(), pcbdecoded.toCPointer<ByteVar>(), ppsignercert.toCPointer<ByteVar>())
+public actual fun cryptVerifyMessageSignature(pverifypara: COpaquePointer?, dwsignerindex: UInt, pbsignedblob: COpaquePointer?, cbsignedblob: UInt, pbdecoded: COpaquePointer?, pcbdecoded: COpaquePointer?, ppsignercert: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptVerifyMessageSignature(pverifypara?.value?.toCPointer<ByteVar>(), dwsignerindex, pbsignedblob?.value?.toCPointer<ByteVar>(), cbsignedblob, pbdecoded?.value?.toCPointer<ByteVar>(), pcbdecoded?.value?.toCPointer<ByteVar>(), ppsignercert?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptVerifyMessageSignatureWithKey(pverifypara: Long, ppublickeyinfo: Long, pbsignedblob: Long, cbsignedblob: UInt, pbdecoded: Long, pcbdecoded: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptVerifyMessageSignatureWithKey(pverifypara.toCPointer<ByteVar>(), ppublickeyinfo.toCPointer<ByteVar>(), pbsignedblob.toCPointer<ByteVar>(), cbsignedblob, pbdecoded.toCPointer<ByteVar>(), pcbdecoded.toCPointer<ByteVar>())
+public actual fun cryptVerifyMessageSignatureWithKey(pverifypara: COpaquePointer?, ppublickeyinfo: COpaquePointer?, pbsignedblob: COpaquePointer?, cbsignedblob: UInt, pbdecoded: COpaquePointer?, pcbdecoded: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptVerifyMessageSignatureWithKey(pverifypara?.value?.toCPointer<ByteVar>(), ppublickeyinfo?.value?.toCPointer<ByteVar>(), pbsignedblob?.value?.toCPointer<ByteVar>(), cbsignedblob, pbdecoded?.value?.toCPointer<ByteVar>(), pcbdecoded?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptVerifySignatureA(hhash: ULong, pbsignature: Long, dwsiglen: UInt, hpubkey: ULong, szdescription: PCSTR, dwflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptVerifySignatureA(hhash, pbsignature.toCPointer<ByteVar>(), dwsiglen, hpubkey, szdescription.toCPointer<ByteVar>(), dwflags)
+public actual fun cryptVerifySignatureA(hhash: ULong, pbsignature: COpaquePointer?, dwsiglen: UInt, hpubkey: ULong, szdescription: Pcstr, dwflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptVerifySignatureA(hhash, pbsignature?.value?.toCPointer<ByteVar>(), dwsiglen, hpubkey, szdescription?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun CryptVerifySignatureW(hhash: ULong, pbsignature: Long, dwsiglen: UInt, hpubkey: ULong, szdescription: PCWSTR, dwflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptVerifySignatureW(hhash, pbsignature.toCPointer<ByteVar>(), dwsiglen, hpubkey, szdescription.toCPointer<ByteVar>(), dwflags)
+public actual fun cryptVerifySignatureW(hhash: ULong, pbsignature: COpaquePointer?, dwsiglen: UInt, hpubkey: ULong, szdescription: Pcwstr, dwflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptVerifySignatureW(hhash, pbsignature?.value?.toCPointer<ByteVar>(), dwsiglen, hpubkey, szdescription?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun CryptVerifyTimeStampSignature(pbtscontentinfo: Long, cbtscontentinfo: UInt, pbdata: Long, cbdata: UInt, hadditionalstore: HCERTSTORE, pptscontext: Long, pptssigner: Long, phstore: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptVerifyTimeStampSignature(pbtscontentinfo.toCPointer<ByteVar>(), cbtscontentinfo, pbdata.toCPointer<ByteVar>(), cbdata, hadditionalstore.toCPointer<ByteVar>(), pptscontext.toCPointer<ByteVar>(), pptssigner.toCPointer<ByteVar>(), phstore.toCPointer<ByteVar>())
+public actual fun cryptVerifyTimeStampSignature(pbtscontentinfo: COpaquePointer?, cbtscontentinfo: UInt, pbdata: COpaquePointer?, cbdata: UInt, hadditionalstore: Hcertstore, pptscontext: COpaquePointer?, pptssigner: COpaquePointer?, phstore: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptVerifyTimeStampSignature(pbtscontentinfo?.value?.toCPointer<ByteVar>(), cbtscontentinfo, pbdata?.value?.toCPointer<ByteVar>(), cbdata, hadditionalstore?.value?.toCPointer<ByteVar>(), pptscontext?.value?.toCPointer<ByteVar>(), pptssigner?.value?.toCPointer<ByteVar>(), phstore?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptXmlAddObject(hsignatureorobject: Long, dwflags: UInt, rgproperty: Long, cproperty: UInt, pencoded: Long, ppobject: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptXmlAddObject(hsignatureorobject.toCPointer<ByteVar>(), dwflags, rgproperty.toCPointer<ByteVar>(), cproperty, pencoded.toCPointer<ByteVar>(), ppobject.toCPointer<ByteVar>())
+public actual fun cryptXmlAddObject(hsignatureorobject: COpaquePointer?, dwflags: UInt, rgproperty: COpaquePointer?, cproperty: UInt, pencoded: COpaquePointer?, ppobject: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptXmlAddObject(hsignatureorobject?.value?.toCPointer<ByteVar>(), dwflags, rgproperty?.value?.toCPointer<ByteVar>(), cproperty, pencoded?.value?.toCPointer<ByteVar>(), ppobject?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptXmlClose(hcryptxml: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptXmlClose(hcryptxml.toCPointer<ByteVar>())
+public actual fun cryptXmlClose(hcryptxml: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptXmlClose(hcryptxml?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptXmlCreateReference(hcryptxml: Long, dwflags: UInt, wszid: PCWSTR, wszuri: PCWSTR, wsztype: PCWSTR, pdigestmethod: Long, ctransform: UInt, rgtransform: Long, phreference: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptXmlCreateReference(hcryptxml.toCPointer<ByteVar>(), dwflags, wszid.toCPointer<ByteVar>(), wszuri.toCPointer<ByteVar>(), wsztype.toCPointer<ByteVar>(), pdigestmethod.toCPointer<ByteVar>(), ctransform, rgtransform.toCPointer<ByteVar>(), phreference.toCPointer<ByteVar>())
+public actual fun cryptXmlCreateReference(hcryptxml: COpaquePointer?, dwflags: UInt, wszid: Pcwstr, wszuri: Pcwstr, wsztype: Pcwstr, pdigestmethod: COpaquePointer?, ctransform: UInt, rgtransform: COpaquePointer?, phreference: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptXmlCreateReference(hcryptxml?.value?.toCPointer<ByteVar>(), dwflags, wszid?.value?.toCPointer<ByteVar>(), wszuri?.value?.toCPointer<ByteVar>(), wsztype?.value?.toCPointer<ByteVar>(), pdigestmethod?.value?.toCPointer<ByteVar>(), ctransform, rgtransform?.value?.toCPointer<ByteVar>(), phreference?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptXmlDigestReference(hreference: Long, dwflags: UInt, pdataproviderin: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptXmlDigestReference(hreference.toCPointer<ByteVar>(), dwflags, pdataproviderin.toCPointer<ByteVar>())
+public actual fun cryptXmlDigestReference(hreference: COpaquePointer?, dwflags: UInt, pdataproviderin: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptXmlDigestReference(hreference?.value?.toCPointer<ByteVar>(), dwflags, pdataproviderin?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptXmlEncode(hcryptxml: Long, dwcharset: CRYPT_XML_CHARSET, rgproperty: Long, cproperty: UInt, pvcallbackstate: Long, pfnwrite: PFN_CRYPT_XML_WRITE_CALLBACK): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptXmlEncode(hcryptxml.toCPointer<ByteVar>(), dwcharset, rgproperty.toCPointer<ByteVar>(), cproperty, pvcallbackstate.toCPointer<ByteVar>(), pfnwrite.toLong().toCPointer<ByteVar>())
+public actual fun cryptXmlEncode(hcryptxml: COpaquePointer?, dwcharset: CryptXmlCharset, rgproperty: COpaquePointer?, cproperty: UInt, pvcallbackstate: COpaquePointer?, pfnwrite: PfnCryptXmlWriteCallback): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptXmlEncode(hcryptxml?.value?.toCPointer<ByteVar>(), dwcharset, rgproperty?.value?.toCPointer<ByteVar>(), cproperty, pvcallbackstate?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 
-public actual fun CryptXmlEnumAlgorithmInfo(dwgroupid: UInt, dwflags: UInt, pvarg: Long, pfnenumalginfo: PFN_CRYPT_XML_ENUM_ALG_INFO): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptXmlEnumAlgorithmInfo(dwgroupid, dwflags, pvarg.toCPointer<ByteVar>(), pfnenumalginfo.toLong().toCPointer<ByteVar>())
+public actual fun cryptXmlEnumAlgorithmInfo(dwgroupid: UInt, dwflags: UInt, pvarg: COpaquePointer?, pfnenumalginfo: PfnCryptXmlEnumAlgInfo): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptXmlEnumAlgorithmInfo(dwgroupid, dwflags, pvarg?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 
-public actual fun CryptXmlFindAlgorithmInfo(dwfindbytype: UInt, pvfindby: Long, dwgroupid: UInt, dwflags: UInt): Long =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptXmlFindAlgorithmInfo(dwfindbytype, pvfindby.toCPointer<ByteVar>(), dwgroupid, dwflags)?.toLong() ?: 0L
+public actual fun cryptXmlFindAlgorithmInfo(dwfindbytype: UInt, pvfindby: COpaquePointer?, dwgroupid: UInt, dwflags: UInt): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptXmlFindAlgorithmInfo(dwfindbytype, pvfindby?.value?.toCPointer<ByteVar>(), dwgroupid, dwflags)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CryptXmlGetAlgorithmInfo(pxmlalgorithm: Long, dwflags: CRYPT_XML_FLAGS, ppalginfo: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptXmlGetAlgorithmInfo(pxmlalgorithm.toCPointer<ByteVar>(), dwflags, ppalginfo.toCPointer<ByteVar>())
+public actual fun cryptXmlGetAlgorithmInfo(pxmlalgorithm: COpaquePointer?, dwflags: CryptXmlFlags, ppalginfo: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptXmlGetAlgorithmInfo(pxmlalgorithm?.value?.toCPointer<ByteVar>(), dwflags, ppalginfo?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptXmlGetDocContext(hcryptxml: Long, ppstruct: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptXmlGetDocContext(hcryptxml.toCPointer<ByteVar>(), ppstruct.toCPointer<ByteVar>())
+public actual fun cryptXmlGetDocContext(hcryptxml: COpaquePointer?, ppstruct: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptXmlGetDocContext(hcryptxml?.value?.toCPointer<ByteVar>(), ppstruct?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptXmlGetReference(hcryptxml: Long, ppstruct: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptXmlGetReference(hcryptxml.toCPointer<ByteVar>(), ppstruct.toCPointer<ByteVar>())
+public actual fun cryptXmlGetReference(hcryptxml: COpaquePointer?, ppstruct: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptXmlGetReference(hcryptxml?.value?.toCPointer<ByteVar>(), ppstruct?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptXmlGetSignature(hcryptxml: Long, ppstruct: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptXmlGetSignature(hcryptxml.toCPointer<ByteVar>(), ppstruct.toCPointer<ByteVar>())
+public actual fun cryptXmlGetSignature(hcryptxml: COpaquePointer?, ppstruct: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptXmlGetSignature(hcryptxml?.value?.toCPointer<ByteVar>(), ppstruct?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptXmlGetStatus(hcryptxml: Long, pstatus: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptXmlGetStatus(hcryptxml.toCPointer<ByteVar>(), pstatus.toCPointer<ByteVar>())
+public actual fun cryptXmlGetStatus(hcryptxml: COpaquePointer?, pstatus: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptXmlGetStatus(hcryptxml?.value?.toCPointer<ByteVar>(), pstatus?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptXmlGetTransforms(ppconfig: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptXmlGetTransforms(ppconfig.toCPointer<ByteVar>())
+public actual fun cryptXmlGetTransforms(ppconfig: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptXmlGetTransforms(ppconfig?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptXmlImportPublicKey(dwflags: CRYPT_XML_FLAGS, pkeyvalue: Long, phkey: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptXmlImportPublicKey(dwflags, pkeyvalue.toCPointer<ByteVar>(), phkey.toCPointer<ByteVar>())
+public actual fun cryptXmlImportPublicKey(dwflags: CryptXmlFlags, pkeyvalue: COpaquePointer?, phkey: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptXmlImportPublicKey(dwflags, pkeyvalue?.value?.toCPointer<ByteVar>(), phkey?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptXmlOpenToDecode(pconfig: Long, dwflags: CRYPT_XML_FLAGS, rgproperty: Long, cproperty: UInt, pencoded: Long, phcryptxml: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptXmlOpenToDecode(pconfig.toCPointer<ByteVar>(), dwflags, rgproperty.toCPointer<ByteVar>(), cproperty, pencoded.toCPointer<ByteVar>(), phcryptxml.toCPointer<ByteVar>())
+public actual fun cryptXmlOpenToDecode(pconfig: COpaquePointer?, dwflags: CryptXmlFlags, rgproperty: COpaquePointer?, cproperty: UInt, pencoded: COpaquePointer?, phcryptxml: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptXmlOpenToDecode(pconfig?.value?.toCPointer<ByteVar>(), dwflags, rgproperty?.value?.toCPointer<ByteVar>(), cproperty, pencoded?.value?.toCPointer<ByteVar>(), phcryptxml?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptXmlOpenToEncode(pconfig: Long, dwflags: CRYPT_XML_FLAGS, wszid: PCWSTR, rgproperty: Long, cproperty: UInt, pencoded: Long, phsignature: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptXmlOpenToEncode(pconfig.toCPointer<ByteVar>(), dwflags, wszid.toCPointer<ByteVar>(), rgproperty.toCPointer<ByteVar>(), cproperty, pencoded.toCPointer<ByteVar>(), phsignature.toCPointer<ByteVar>())
+public actual fun cryptXmlOpenToEncode(pconfig: COpaquePointer?, dwflags: CryptXmlFlags, wszid: Pcwstr, rgproperty: COpaquePointer?, cproperty: UInt, pencoded: COpaquePointer?, phsignature: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptXmlOpenToEncode(pconfig?.value?.toCPointer<ByteVar>(), dwflags, wszid?.value?.toCPointer<ByteVar>(), rgproperty?.value?.toCPointer<ByteVar>(), cproperty, pencoded?.value?.toCPointer<ByteVar>(), phsignature?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptXmlSetHMACSecret(hsignature: Long, pbsecret: Long, cbsecret: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptXmlSetHMACSecret(hsignature.toCPointer<ByteVar>(), pbsecret.toCPointer<ByteVar>(), cbsecret)
+public actual fun cryptXmlSetHMACSecret(hsignature: COpaquePointer?, pbsecret: COpaquePointer?, cbsecret: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptXmlSetHMACSecret(hsignature?.value?.toCPointer<ByteVar>(), pbsecret?.value?.toCPointer<ByteVar>(), cbsecret)
 
-public actual fun CryptXmlSign(hsignature: Long, hkey: HCRYPTPROV_OR_NCRYPT_KEY_HANDLE, dwkeyspec: CERT_KEY_SPEC, dwflags: CRYPT_XML_FLAGS, dwkeyinfospec: CRYPT_XML_KEYINFO_SPEC, pvkeyinfospec: Long, psignaturemethod: Long, pcanonicalization: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptXmlSign(hsignature.toCPointer<ByteVar>(), hkey, dwkeyspec, dwflags, dwkeyinfospec, pvkeyinfospec.toCPointer<ByteVar>(), psignaturemethod.toCPointer<ByteVar>(), pcanonicalization.toCPointer<ByteVar>())
+public actual fun cryptXmlSign(hsignature: COpaquePointer?, hkey: HcryptprovOrNcryptKeyHandle, dwkeyspec: CertKeySpec, dwflags: CryptXmlFlags, dwkeyinfospec: CryptXmlKeyinfoSpec, pvkeyinfospec: COpaquePointer?, psignaturemethod: COpaquePointer?, pcanonicalization: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptXmlSign(hsignature?.value?.toCPointer<ByteVar>(), hkey, dwkeyspec, dwflags, dwkeyinfospec, pvkeyinfospec?.value?.toCPointer<ByteVar>(), psignaturemethod?.value?.toCPointer<ByteVar>(), pcanonicalization?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptXmlVerifySignature(hsignature: Long, hkey: BCRYPT_KEY_HANDLE, dwflags: CRYPT_XML_FLAGS): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_CryptXmlVerifySignature(hsignature.toCPointer<ByteVar>(), hkey.toCPointer<ByteVar>(), dwflags)
+public actual fun cryptXmlVerifySignature(hsignature: COpaquePointer?, hkey: BcryptKeyHandle, dwflags: CryptXmlFlags): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_cryptXmlVerifySignature(hsignature?.value?.toCPointer<ByteVar>(), hkey?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun Decrypt(hcrypto: Long, foaep: BOOL, cbindata: UInt, pindata: Long, pcboutdata: Long, ppoutdata: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_Decrypt(hcrypto.toCPointer<ByteVar>(), foaep, cbindata, pindata.toCPointer<ByteVar>(), pcboutdata.toCPointer<ByteVar>(), ppoutdata.toCPointer<ByteVar>())
+public actual fun decrypt(hcrypto: COpaquePointer?, foaep: Bool, cbindata: UInt, pindata: COpaquePointer?, pcboutdata: COpaquePointer?, ppoutdata: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_decrypt(hcrypto?.value?.toCPointer<ByteVar>(), foaep, cbindata, pindata?.value?.toCPointer<ByteVar>(), pcboutdata?.value?.toCPointer<ByteVar>(), ppoutdata?.value?.toCPointer<ByteVar>())
 
-public actual fun Encrypt(hcrypto: Long, foaep: BOOL, cbindata: UInt, pindata: Long, pcboutdata: Long, ppoutdata: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_Encrypt(hcrypto.toCPointer<ByteVar>(), foaep, cbindata, pindata.toCPointer<ByteVar>(), pcboutdata.toCPointer<ByteVar>(), ppoutdata.toCPointer<ByteVar>())
+public actual fun encrypt(hcrypto: COpaquePointer?, foaep: Bool, cbindata: UInt, pindata: COpaquePointer?, pcboutdata: COpaquePointer?, ppoutdata: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_encrypt(hcrypto?.value?.toCPointer<ByteVar>(), foaep, cbindata, pindata?.value?.toCPointer<ByteVar>(), pcboutdata?.value?.toCPointer<ByteVar>(), ppoutdata?.value?.toCPointer<ByteVar>())
 
-public actual fun FindCertsByIssuer(pcertchains: Long, pcbcertchains: Long, pccertchains: Long, pbencodedissuername: Long, cbencodedissuername: UInt, pwszpurpose: PCWSTR, dwkeyspec: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_FindCertsByIssuer(pcertchains.toCPointer<ByteVar>(), pcbcertchains.toCPointer<ByteVar>(), pccertchains.toCPointer<ByteVar>(), pbencodedissuername.toCPointer<ByteVar>(), cbencodedissuername, pwszpurpose.toCPointer<ByteVar>(), dwkeyspec)
+public actual fun findCertsByIssuer(pcertchains: COpaquePointer?, pcbcertchains: COpaquePointer?, pccertchains: COpaquePointer?, pbencodedissuername: COpaquePointer?, cbencodedissuername: UInt, pwszpurpose: Pcwstr, dwkeyspec: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_findCertsByIssuer(pcertchains?.value?.toCPointer<ByteVar>(), pcbcertchains?.value?.toCPointer<ByteVar>(), pccertchains?.value?.toCPointer<ByteVar>(), pbencodedissuername?.value?.toCPointer<ByteVar>(), cbencodedissuername, pwszpurpose?.value?.toCPointer<ByteVar>(), dwkeyspec)
 
-public actual fun FreeToken(pallocmemory: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_FreeToken(pallocmemory.toCPointer<ByteVar>())
+public actual fun freeToken(pallocmemory: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_freeToken(pallocmemory?.value?.toCPointer<ByteVar>())
 
-public actual fun GenerateDerivedKey(hcrypto: Long, cblabel: UInt, plabel: Long, cbnonce: UInt, pnonce: Long, derivedkeylength: UInt, offset: UInt, algid: PCWSTR, pcbkey: Long, ppkey: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_GenerateDerivedKey(hcrypto.toCPointer<ByteVar>(), cblabel, plabel.toCPointer<ByteVar>(), cbnonce, pnonce.toCPointer<ByteVar>(), derivedkeylength, offset, algid.toCPointer<ByteVar>(), pcbkey.toCPointer<ByteVar>(), ppkey.toCPointer<ByteVar>())
+public actual fun generateDerivedKey(hcrypto: COpaquePointer?, cblabel: UInt, plabel: COpaquePointer?, cbnonce: UInt, pnonce: COpaquePointer?, derivedkeylength: UInt, offset: UInt, algid: Pcwstr, pcbkey: COpaquePointer?, ppkey: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_generateDerivedKey(hcrypto?.value?.toCPointer<ByteVar>(), cblabel, plabel?.value?.toCPointer<ByteVar>(), cbnonce, pnonce?.value?.toCPointer<ByteVar>(), derivedkeylength, offset, algid?.value?.toCPointer<ByteVar>(), pcbkey?.value?.toCPointer<ByteVar>(), ppkey?.value?.toCPointer<ByteVar>())
 
-public actual fun GetAsymmetricEncryptionInterface(pszprovidername: PCWSTR, pszalgid: PCWSTR, ppfunctiontable: Long, dwflags: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_GetAsymmetricEncryptionInterface(pszprovidername.toCPointer<ByteVar>(), pszalgid.toCPointer<ByteVar>(), ppfunctiontable.toCPointer<ByteVar>(), dwflags)
+public actual fun getAsymmetricEncryptionInterface(pszprovidername: Pcwstr, pszalgid: Pcwstr, ppfunctiontable: COpaquePointer?, dwflags: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_getAsymmetricEncryptionInterface(pszprovidername?.value?.toCPointer<ByteVar>(), pszalgid?.value?.toCPointer<ByteVar>(), ppfunctiontable?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun GetBrowserToken(dwparamtype: UInt, pparam: Long, pcbtoken: Long, pptoken: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_GetBrowserToken(dwparamtype, pparam.toCPointer<ByteVar>(), pcbtoken.toCPointer<ByteVar>(), pptoken.toCPointer<ByteVar>())
+public actual fun getBrowserToken(dwparamtype: UInt, pparam: COpaquePointer?, pcbtoken: COpaquePointer?, pptoken: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_getBrowserToken(dwparamtype, pparam?.value?.toCPointer<ByteVar>(), pcbtoken?.value?.toCPointer<ByteVar>(), pptoken?.value?.toCPointer<ByteVar>())
 
-public actual fun GetCipherInterface(pszprovidername: PCWSTR, pszalgid: PCWSTR, ppfunctiontable: Long, dwflags: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_GetCipherInterface(pszprovidername.toCPointer<ByteVar>(), pszalgid.toCPointer<ByteVar>(), ppfunctiontable.toCPointer<ByteVar>(), dwflags)
+public actual fun getCipherInterface(pszprovidername: Pcwstr, pszalgid: Pcwstr, ppfunctiontable: COpaquePointer?, dwflags: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_getCipherInterface(pszprovidername?.value?.toCPointer<ByteVar>(), pszalgid?.value?.toCPointer<ByteVar>(), ppfunctiontable?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun GetCryptoTransform(hsymmetriccrypto: Long, mode: UInt, padding: PaddingMode, feedbacksize: UInt, direction: Direction, cbiv: UInt, piv: Long, pphtransform: Long): HRESULT =
+public actual fun getCryptoTransform(hsymmetriccrypto: COpaquePointer?, mode: UInt, padding: PaddingMode, feedbacksize: UInt, direction: Direction, cbiv: UInt, piv: COpaquePointer?, pphtransform: COpaquePointer?): Hresult =
     0
 
-public actual fun GetHashInterface(pszprovidername: PCWSTR, pszalgid: PCWSTR, ppfunctiontable: Long, dwflags: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_GetHashInterface(pszprovidername.toCPointer<ByteVar>(), pszalgid.toCPointer<ByteVar>(), ppfunctiontable.toCPointer<ByteVar>(), dwflags)
+public actual fun getHashInterface(pszprovidername: Pcwstr, pszalgid: Pcwstr, ppfunctiontable: COpaquePointer?, dwflags: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_getHashInterface(pszprovidername?.value?.toCPointer<ByteVar>(), pszalgid?.value?.toCPointer<ByteVar>(), ppfunctiontable?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun GetKeyDerivationInterface(pszprovidername: PCWSTR, pszalgid: PCWSTR, ppfunctiontable: Long, dwflags: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_GetKeyDerivationInterface(pszprovidername.toCPointer<ByteVar>(), pszalgid.toCPointer<ByteVar>(), ppfunctiontable.toCPointer<ByteVar>(), dwflags)
+public actual fun getKeyDerivationInterface(pszprovidername: Pcwstr, pszalgid: Pcwstr, ppfunctiontable: COpaquePointer?, dwflags: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_getKeyDerivationInterface(pszprovidername?.value?.toCPointer<ByteVar>(), pszalgid?.value?.toCPointer<ByteVar>(), ppfunctiontable?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun GetKeyStorageInterface(pszprovidername: PCWSTR, ppfunctiontable: Long, dwflags: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_GetKeyStorageInterface(pszprovidername.toCPointer<ByteVar>(), ppfunctiontable.toCPointer<ByteVar>(), dwflags)
+public actual fun getKeyStorageInterface(pszprovidername: Pcwstr, ppfunctiontable: COpaquePointer?, dwflags: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_getKeyStorageInterface(pszprovidername?.value?.toCPointer<ByteVar>(), ppfunctiontable?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun GetKeyedHash(hsymmetriccrypto: Long, pphhash: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_GetKeyedHash(hsymmetriccrypto.toCPointer<ByteVar>(), pphhash.toCPointer<ByteVar>())
+public actual fun getKeyedHash(hsymmetriccrypto: COpaquePointer?, pphhash: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_getKeyedHash(hsymmetriccrypto?.value?.toCPointer<ByteVar>(), pphhash?.value?.toCPointer<ByteVar>())
 
-public actual fun GetRngInterface(pszprovidername: PCWSTR, ppfunctiontable: Long, dwflags: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_GetRngInterface(pszprovidername.toCPointer<ByteVar>(), ppfunctiontable.toCPointer<ByteVar>(), dwflags)
+public actual fun getRngInterface(pszprovidername: Pcwstr, ppfunctiontable: COpaquePointer?, dwflags: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_getRngInterface(pszprovidername?.value?.toCPointer<ByteVar>(), ppfunctiontable?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun GetSChannelInterface(pszprovidername: PCWSTR, ppfunctiontable: Long, dwflags: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_GetSChannelInterface(pszprovidername.toCPointer<ByteVar>(), ppfunctiontable.toCPointer<ByteVar>(), dwflags)
+public actual fun getSChannelInterface(pszprovidername: Pcwstr, ppfunctiontable: COpaquePointer?, dwflags: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_getSChannelInterface(pszprovidername?.value?.toCPointer<ByteVar>(), ppfunctiontable?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun GetSecretAgreementInterface(pszprovidername: PCWSTR, pszalgid: PCWSTR, ppfunctiontable: Long, dwflags: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_GetSecretAgreementInterface(pszprovidername.toCPointer<ByteVar>(), pszalgid.toCPointer<ByteVar>(), ppfunctiontable.toCPointer<ByteVar>(), dwflags)
+public actual fun getSecretAgreementInterface(pszprovidername: Pcwstr, pszalgid: Pcwstr, ppfunctiontable: COpaquePointer?, dwflags: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_getSecretAgreementInterface(pszprovidername?.value?.toCPointer<ByteVar>(), pszalgid?.value?.toCPointer<ByteVar>(), ppfunctiontable?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun GetSignatureInterface(pszprovidername: PCWSTR, pszalgid: PCWSTR, ppfunctiontable: Long, dwflags: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_GetSignatureInterface(pszprovidername.toCPointer<ByteVar>(), pszalgid.toCPointer<ByteVar>(), ppfunctiontable.toCPointer<ByteVar>(), dwflags)
+public actual fun getSignatureInterface(pszprovidername: Pcwstr, pszalgid: Pcwstr, ppfunctiontable: COpaquePointer?, dwflags: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_getSignatureInterface(pszprovidername?.value?.toCPointer<ByteVar>(), pszalgid?.value?.toCPointer<ByteVar>(), ppfunctiontable?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun GetToken(cpolicychain: UInt, ppolicychain: Long, securitytoken: Long, phprooftokencrypto: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_GetToken(cpolicychain, ppolicychain.toCPointer<ByteVar>(), securitytoken.toCPointer<ByteVar>(), phprooftokencrypto.toCPointer<ByteVar>())
+public actual fun getToken(cpolicychain: UInt, ppolicychain: COpaquePointer?, securitytoken: COpaquePointer?, phprooftokencrypto: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_getToken(cpolicychain, ppolicychain?.value?.toCPointer<ByteVar>(), securitytoken?.value?.toCPointer<ByteVar>(), phprooftokencrypto?.value?.toCPointer<ByteVar>())
 
-public actual fun HashCore(hcrypto: Long, cbindata: UInt, pindata: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_HashCore(hcrypto.toCPointer<ByteVar>(), cbindata, pindata.toCPointer<ByteVar>())
+public actual fun hashCore(hcrypto: COpaquePointer?, cbindata: UInt, pindata: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_hashCore(hcrypto?.value?.toCPointer<ByteVar>(), cbindata, pindata?.value?.toCPointer<ByteVar>())
 
-public actual fun HashFinal(hcrypto: Long, cbindata: UInt, pindata: Long, pcboutdata: Long, ppoutdata: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_HashFinal(hcrypto.toCPointer<ByteVar>(), cbindata, pindata.toCPointer<ByteVar>(), pcboutdata.toCPointer<ByteVar>(), ppoutdata.toCPointer<ByteVar>())
+public actual fun hashFinal(hcrypto: COpaquePointer?, cbindata: UInt, pindata: COpaquePointer?, pcboutdata: COpaquePointer?, ppoutdata: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_hashFinal(hcrypto?.value?.toCPointer<ByteVar>(), cbindata, pindata?.value?.toCPointer<ByteVar>(), pcboutdata?.value?.toCPointer<ByteVar>(), ppoutdata?.value?.toCPointer<ByteVar>())
 
-public actual fun ImportInformationCard(filename: PCWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_ImportInformationCard(filename.toCPointer<ByteVar>())
+public actual fun importInformationCard(filename: Pcwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_importInformationCard(filename?.value?.toCPointer<ByteVar>())
 
-public actual fun ManageCardSpace(): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_ManageCardSpace()
+public actual fun manageCardSpace(): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_manageCardSpace()
 
-public actual fun NCryptCloseProtectionDescriptor(hdescriptor: NCRYPT_DESCRIPTOR_HANDLE): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_NCryptCloseProtectionDescriptor(hdescriptor.toCPointer<ByteVar>())
+public actual fun nCryptCloseProtectionDescriptor(hdescriptor: NcryptDescriptorHandle): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_nCryptCloseProtectionDescriptor(hdescriptor?.value?.toCPointer<ByteVar>())
 
-public actual fun NCryptCreateClaim(hsubjectkey: NCRYPT_KEY_HANDLE, hauthoritykey: NCRYPT_KEY_HANDLE, dwclaimtype: UInt, pparameterlist: Long, pbclaimblob: Long, cbclaimblob: UInt, pcbresult: Long, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_NCryptCreateClaim(hsubjectkey, hauthoritykey, dwclaimtype, pparameterlist.toCPointer<ByteVar>(), pbclaimblob.toCPointer<ByteVar>(), cbclaimblob, pcbresult.toCPointer<ByteVar>(), dwflags)
+public actual fun nCryptCreateClaim(hsubjectkey: NcryptKeyHandle, hauthoritykey: NcryptKeyHandle, dwclaimtype: UInt, pparameterlist: COpaquePointer?, pbclaimblob: COpaquePointer?, cbclaimblob: UInt, pcbresult: COpaquePointer?, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_nCryptCreateClaim(hsubjectkey, hauthoritykey, dwclaimtype, pparameterlist?.value?.toCPointer<ByteVar>(), pbclaimblob?.value?.toCPointer<ByteVar>(), cbclaimblob, pcbresult?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun NCryptCreatePersistedKey(hprovider: NCRYPT_PROV_HANDLE, phkey: Long, pszalgid: PCWSTR, pszkeyname: PCWSTR, dwlegacykeyspec: CERT_KEY_SPEC, dwflags: NCRYPT_FLAGS): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_NCryptCreatePersistedKey(hprovider, phkey.toCPointer<ByteVar>(), pszalgid.toCPointer<ByteVar>(), pszkeyname.toCPointer<ByteVar>(), dwlegacykeyspec, dwflags)
+public actual fun nCryptCreatePersistedKey(hprovider: NcryptProvHandle, phkey: COpaquePointer?, pszalgid: Pcwstr, pszkeyname: Pcwstr, dwlegacykeyspec: CertKeySpec, dwflags: NcryptFlags): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_nCryptCreatePersistedKey(hprovider, phkey?.value?.toCPointer<ByteVar>(), pszalgid?.value?.toCPointer<ByteVar>(), pszkeyname?.value?.toCPointer<ByteVar>(), dwlegacykeyspec, dwflags)
 
-public actual fun NCryptCreateProtectionDescriptor(pwszdescriptorstring: PCWSTR, dwflags: UInt, phdescriptor: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_NCryptCreateProtectionDescriptor(pwszdescriptorstring.toCPointer<ByteVar>(), dwflags, phdescriptor.toCPointer<ByteVar>())
+public actual fun nCryptCreateProtectionDescriptor(pwszdescriptorstring: Pcwstr, dwflags: UInt, phdescriptor: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_nCryptCreateProtectionDescriptor(pwszdescriptorstring?.value?.toCPointer<ByteVar>(), dwflags, phdescriptor?.value?.toCPointer<ByteVar>())
 
-public actual fun NCryptDecrypt(hkey: NCRYPT_KEY_HANDLE, pbinput: Long, cbinput: UInt, ppaddinginfo: Long, pboutput: Long, cboutput: UInt, pcbresult: Long, dwflags: NCRYPT_FLAGS): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_NCryptDecrypt(hkey, pbinput.toCPointer<ByteVar>(), cbinput, ppaddinginfo.toCPointer<ByteVar>(), pboutput.toCPointer<ByteVar>(), cboutput, pcbresult.toCPointer<ByteVar>(), dwflags)
+public actual fun nCryptDecrypt(hkey: NcryptKeyHandle, pbinput: COpaquePointer?, cbinput: UInt, ppaddinginfo: COpaquePointer?, pboutput: COpaquePointer?, cboutput: UInt, pcbresult: COpaquePointer?, dwflags: NcryptFlags): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_nCryptDecrypt(hkey, pbinput?.value?.toCPointer<ByteVar>(), cbinput, ppaddinginfo?.value?.toCPointer<ByteVar>(), pboutput?.value?.toCPointer<ByteVar>(), cboutput, pcbresult?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun NCryptDeleteKey(hkey: NCRYPT_KEY_HANDLE, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_NCryptDeleteKey(hkey, dwflags)
+public actual fun nCryptDeleteKey(hkey: NcryptKeyHandle, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_nCryptDeleteKey(hkey, dwflags)
 
-public actual fun NCryptDeriveKey(hsharedsecret: NCRYPT_SECRET_HANDLE, pwszkdf: PCWSTR, pparameterlist: Long, pbderivedkey: Long, cbderivedkey: UInt, pcbresult: Long, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_NCryptDeriveKey(hsharedsecret, pwszkdf.toCPointer<ByteVar>(), pparameterlist.toCPointer<ByteVar>(), pbderivedkey.toCPointer<ByteVar>(), cbderivedkey, pcbresult.toCPointer<ByteVar>(), dwflags)
+public actual fun nCryptDeriveKey(hsharedsecret: NcryptSecretHandle, pwszkdf: Pcwstr, pparameterlist: COpaquePointer?, pbderivedkey: COpaquePointer?, cbderivedkey: UInt, pcbresult: COpaquePointer?, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_nCryptDeriveKey(hsharedsecret, pwszkdf?.value?.toCPointer<ByteVar>(), pparameterlist?.value?.toCPointer<ByteVar>(), pbderivedkey?.value?.toCPointer<ByteVar>(), cbderivedkey, pcbresult?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun NCryptEncrypt(hkey: NCRYPT_KEY_HANDLE, pbinput: Long, cbinput: UInt, ppaddinginfo: Long, pboutput: Long, cboutput: UInt, pcbresult: Long, dwflags: NCRYPT_FLAGS): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_NCryptEncrypt(hkey, pbinput.toCPointer<ByteVar>(), cbinput, ppaddinginfo.toCPointer<ByteVar>(), pboutput.toCPointer<ByteVar>(), cboutput, pcbresult.toCPointer<ByteVar>(), dwflags)
+public actual fun nCryptEncrypt(hkey: NcryptKeyHandle, pbinput: COpaquePointer?, cbinput: UInt, ppaddinginfo: COpaquePointer?, pboutput: COpaquePointer?, cboutput: UInt, pcbresult: COpaquePointer?, dwflags: NcryptFlags): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_nCryptEncrypt(hkey, pbinput?.value?.toCPointer<ByteVar>(), cbinput, ppaddinginfo?.value?.toCPointer<ByteVar>(), pboutput?.value?.toCPointer<ByteVar>(), cboutput, pcbresult?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun NCryptEnumAlgorithms(hprovider: NCRYPT_PROV_HANDLE, dwalgoperations: NCRYPT_OPERATION, pdwalgcount: Long, ppalglist: Long, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_NCryptEnumAlgorithms(hprovider, dwalgoperations, pdwalgcount.toCPointer<ByteVar>(), ppalglist.toCPointer<ByteVar>(), dwflags)
+public actual fun nCryptEnumAlgorithms(hprovider: NcryptProvHandle, dwalgoperations: NcryptOperation, pdwalgcount: COpaquePointer?, ppalglist: COpaquePointer?, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_nCryptEnumAlgorithms(hprovider, dwalgoperations, pdwalgcount?.value?.toCPointer<ByteVar>(), ppalglist?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun NCryptEnumKeys(hprovider: NCRYPT_PROV_HANDLE, pszscope: PCWSTR, ppkeyname: Long, ppenumstate: Long, dwflags: NCRYPT_FLAGS): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_NCryptEnumKeys(hprovider, pszscope.toCPointer<ByteVar>(), ppkeyname.toCPointer<ByteVar>(), ppenumstate.toCPointer<ByteVar>(), dwflags)
+public actual fun nCryptEnumKeys(hprovider: NcryptProvHandle, pszscope: Pcwstr, ppkeyname: COpaquePointer?, ppenumstate: COpaquePointer?, dwflags: NcryptFlags): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_nCryptEnumKeys(hprovider, pszscope?.value?.toCPointer<ByteVar>(), ppkeyname?.value?.toCPointer<ByteVar>(), ppenumstate?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun NCryptEnumStorageProviders(pdwprovidercount: Long, ppproviderlist: Long, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_NCryptEnumStorageProviders(pdwprovidercount.toCPointer<ByteVar>(), ppproviderlist.toCPointer<ByteVar>(), dwflags)
+public actual fun nCryptEnumStorageProviders(pdwprovidercount: COpaquePointer?, ppproviderlist: COpaquePointer?, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_nCryptEnumStorageProviders(pdwprovidercount?.value?.toCPointer<ByteVar>(), ppproviderlist?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun NCryptExportKey(hkey: NCRYPT_KEY_HANDLE, hexportkey: NCRYPT_KEY_HANDLE, pszblobtype: PCWSTR, pparameterlist: Long, pboutput: Long, cboutput: UInt, pcbresult: Long, dwflags: NCRYPT_FLAGS): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_NCryptExportKey(hkey, hexportkey, pszblobtype.toCPointer<ByteVar>(), pparameterlist.toCPointer<ByteVar>(), pboutput.toCPointer<ByteVar>(), cboutput, pcbresult.toCPointer<ByteVar>(), dwflags)
+public actual fun nCryptExportKey(hkey: NcryptKeyHandle, hexportkey: NcryptKeyHandle, pszblobtype: Pcwstr, pparameterlist: COpaquePointer?, pboutput: COpaquePointer?, cboutput: UInt, pcbresult: COpaquePointer?, dwflags: NcryptFlags): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_nCryptExportKey(hkey, hexportkey, pszblobtype?.value?.toCPointer<ByteVar>(), pparameterlist?.value?.toCPointer<ByteVar>(), pboutput?.value?.toCPointer<ByteVar>(), cboutput, pcbresult?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun NCryptFinalizeKey(hkey: NCRYPT_KEY_HANDLE, dwflags: NCRYPT_FLAGS): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_NCryptFinalizeKey(hkey, dwflags)
+public actual fun nCryptFinalizeKey(hkey: NcryptKeyHandle, dwflags: NcryptFlags): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_nCryptFinalizeKey(hkey, dwflags)
 
-public actual fun NCryptFreeBuffer(pvinput: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_NCryptFreeBuffer(pvinput.toCPointer<ByteVar>())
+public actual fun nCryptFreeBuffer(pvinput: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_nCryptFreeBuffer(pvinput?.value?.toCPointer<ByteVar>())
 
-public actual fun NCryptFreeObject(hobject: NCRYPT_HANDLE): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_NCryptFreeObject(hobject)
+public actual fun nCryptFreeObject(hobject: NcryptHandle): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_nCryptFreeObject(hobject)
 
-public actual fun NCryptGetProperty(hobject: NCRYPT_HANDLE, pszproperty: PCWSTR, pboutput: Long, cboutput: UInt, pcbresult: Long, dwflags: OBJECT_SECURITY_INFORMATION): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_NCryptGetProperty(hobject, pszproperty.toCPointer<ByteVar>(), pboutput.toCPointer<ByteVar>(), cboutput, pcbresult.toCPointer<ByteVar>(), dwflags)
+public actual fun nCryptGetProperty(hobject: NcryptHandle, pszproperty: Pcwstr, pboutput: COpaquePointer?, cboutput: UInt, pcbresult: COpaquePointer?, dwflags: ObjectSecurityInformation): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_nCryptGetProperty(hobject, pszproperty?.value?.toCPointer<ByteVar>(), pboutput?.value?.toCPointer<ByteVar>(), cboutput, pcbresult?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun NCryptGetProtectionDescriptorInfo(hdescriptor: NCRYPT_DESCRIPTOR_HANDLE, pmempara: Long, dwinfotype: UInt, ppvinfo: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_NCryptGetProtectionDescriptorInfo(hdescriptor.toCPointer<ByteVar>(), pmempara.toCPointer<ByteVar>(), dwinfotype, ppvinfo.toCPointer<ByteVar>())
+public actual fun nCryptGetProtectionDescriptorInfo(hdescriptor: NcryptDescriptorHandle, pmempara: COpaquePointer?, dwinfotype: UInt, ppvinfo: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_nCryptGetProtectionDescriptorInfo(hdescriptor?.value?.toCPointer<ByteVar>(), pmempara?.value?.toCPointer<ByteVar>(), dwinfotype, ppvinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun NCryptImportKey(hprovider: NCRYPT_PROV_HANDLE, himportkey: NCRYPT_KEY_HANDLE, pszblobtype: PCWSTR, pparameterlist: Long, phkey: Long, pbdata: Long, cbdata: UInt, dwflags: NCRYPT_FLAGS): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_NCryptImportKey(hprovider, himportkey, pszblobtype.toCPointer<ByteVar>(), pparameterlist.toCPointer<ByteVar>(), phkey.toCPointer<ByteVar>(), pbdata.toCPointer<ByteVar>(), cbdata, dwflags)
+public actual fun nCryptImportKey(hprovider: NcryptProvHandle, himportkey: NcryptKeyHandle, pszblobtype: Pcwstr, pparameterlist: COpaquePointer?, phkey: COpaquePointer?, pbdata: COpaquePointer?, cbdata: UInt, dwflags: NcryptFlags): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_nCryptImportKey(hprovider, himportkey, pszblobtype?.value?.toCPointer<ByteVar>(), pparameterlist?.value?.toCPointer<ByteVar>(), phkey?.value?.toCPointer<ByteVar>(), pbdata?.value?.toCPointer<ByteVar>(), cbdata, dwflags)
 
-public actual fun NCryptIsAlgSupported(hprovider: NCRYPT_PROV_HANDLE, pszalgid: PCWSTR, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_NCryptIsAlgSupported(hprovider, pszalgid.toCPointer<ByteVar>(), dwflags)
+public actual fun nCryptIsAlgSupported(hprovider: NcryptProvHandle, pszalgid: Pcwstr, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_nCryptIsAlgSupported(hprovider, pszalgid?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun NCryptIsKeyHandle(hkey: NCRYPT_KEY_HANDLE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_NCryptIsKeyHandle(hkey)
+public actual fun nCryptIsKeyHandle(hkey: NcryptKeyHandle): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_nCryptIsKeyHandle(hkey)
 
-public actual fun NCryptKeyDerivation(hkey: NCRYPT_KEY_HANDLE, pparameterlist: Long, pbderivedkey: Long, cbderivedkey: UInt, pcbresult: Long, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_NCryptKeyDerivation(hkey, pparameterlist.toCPointer<ByteVar>(), pbderivedkey.toCPointer<ByteVar>(), cbderivedkey, pcbresult.toCPointer<ByteVar>(), dwflags)
+public actual fun nCryptKeyDerivation(hkey: NcryptKeyHandle, pparameterlist: COpaquePointer?, pbderivedkey: COpaquePointer?, cbderivedkey: UInt, pcbresult: COpaquePointer?, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_nCryptKeyDerivation(hkey, pparameterlist?.value?.toCPointer<ByteVar>(), pbderivedkey?.value?.toCPointer<ByteVar>(), cbderivedkey, pcbresult?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun NCryptNotifyChangeKey(hprovider: NCRYPT_PROV_HANDLE, phevent: Long, dwflags: NCRYPT_FLAGS): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_NCryptNotifyChangeKey(hprovider, phevent.toCPointer<ByteVar>(), dwflags)
+public actual fun nCryptNotifyChangeKey(hprovider: NcryptProvHandle, phevent: COpaquePointer?, dwflags: NcryptFlags): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_nCryptNotifyChangeKey(hprovider, phevent?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun NCryptOpenKey(hprovider: NCRYPT_PROV_HANDLE, phkey: Long, pszkeyname: PCWSTR, dwlegacykeyspec: CERT_KEY_SPEC, dwflags: NCRYPT_FLAGS): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_NCryptOpenKey(hprovider, phkey.toCPointer<ByteVar>(), pszkeyname.toCPointer<ByteVar>(), dwlegacykeyspec, dwflags)
+public actual fun nCryptOpenKey(hprovider: NcryptProvHandle, phkey: COpaquePointer?, pszkeyname: Pcwstr, dwlegacykeyspec: CertKeySpec, dwflags: NcryptFlags): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_nCryptOpenKey(hprovider, phkey?.value?.toCPointer<ByteVar>(), pszkeyname?.value?.toCPointer<ByteVar>(), dwlegacykeyspec, dwflags)
 
-public actual fun NCryptOpenStorageProvider(phprovider: Long, pszprovidername: PCWSTR, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_NCryptOpenStorageProvider(phprovider.toCPointer<ByteVar>(), pszprovidername.toCPointer<ByteVar>(), dwflags)
+public actual fun nCryptOpenStorageProvider(phprovider: COpaquePointer?, pszprovidername: Pcwstr, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_nCryptOpenStorageProvider(phprovider?.value?.toCPointer<ByteVar>(), pszprovidername?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun NCryptProtectSecret(hdescriptor: NCRYPT_DESCRIPTOR_HANDLE, dwflags: UInt, pbdata: Long, cbdata: UInt, pmempara: Long, hwnd: HWND, ppbprotectedblob: Long, pcbprotectedblob: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_NCryptProtectSecret(hdescriptor.toCPointer<ByteVar>(), dwflags, pbdata.toCPointer<ByteVar>(), cbdata, pmempara.toCPointer<ByteVar>(), hwnd.toCPointer<ByteVar>(), ppbprotectedblob.toCPointer<ByteVar>(), pcbprotectedblob.toCPointer<ByteVar>())
+public actual fun nCryptProtectSecret(hdescriptor: NcryptDescriptorHandle, dwflags: UInt, pbdata: COpaquePointer?, cbdata: UInt, pmempara: COpaquePointer?, hwnd: Hwnd, ppbprotectedblob: COpaquePointer?, pcbprotectedblob: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_nCryptProtectSecret(hdescriptor?.value?.toCPointer<ByteVar>(), dwflags, pbdata?.value?.toCPointer<ByteVar>(), cbdata, pmempara?.value?.toCPointer<ByteVar>(), hwnd?.value?.toCPointer<ByteVar>(), ppbprotectedblob?.value?.toCPointer<ByteVar>(), pcbprotectedblob?.value?.toCPointer<ByteVar>())
 
-public actual fun NCryptQueryProtectionDescriptorName(pwszname: PCWSTR, pwszdescriptorstring: PWSTR, pcdescriptorstring: Long, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_NCryptQueryProtectionDescriptorName(pwszname.toCPointer<ByteVar>(), pwszdescriptorstring.toCPointer<ByteVar>(), pcdescriptorstring.toCPointer<ByteVar>(), dwflags)
+public actual fun nCryptQueryProtectionDescriptorName(pwszname: Pcwstr, pwszdescriptorstring: Pwstr, pcdescriptorstring: COpaquePointer?, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_nCryptQueryProtectionDescriptorName(pwszname?.value?.toCPointer<ByteVar>(), pwszdescriptorstring?.value?.toCPointer<ByteVar>(), pcdescriptorstring?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun NCryptRegisterProtectionDescriptorName(pwszname: PCWSTR, pwszdescriptorstring: PCWSTR, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_NCryptRegisterProtectionDescriptorName(pwszname.toCPointer<ByteVar>(), pwszdescriptorstring.toCPointer<ByteVar>(), dwflags)
+public actual fun nCryptRegisterProtectionDescriptorName(pwszname: Pcwstr, pwszdescriptorstring: Pcwstr, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_nCryptRegisterProtectionDescriptorName(pwszname?.value?.toCPointer<ByteVar>(), pwszdescriptorstring?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun NCryptSecretAgreement(hprivkey: NCRYPT_KEY_HANDLE, hpubkey: NCRYPT_KEY_HANDLE, phagreedsecret: Long, dwflags: NCRYPT_FLAGS): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_NCryptSecretAgreement(hprivkey, hpubkey, phagreedsecret.toCPointer<ByteVar>(), dwflags)
+public actual fun nCryptSecretAgreement(hprivkey: NcryptKeyHandle, hpubkey: NcryptKeyHandle, phagreedsecret: COpaquePointer?, dwflags: NcryptFlags): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_nCryptSecretAgreement(hprivkey, hpubkey, phagreedsecret?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun NCryptSetProperty(hobject: NCRYPT_HANDLE, pszproperty: PCWSTR, pbinput: Long, cbinput: UInt, dwflags: NCRYPT_FLAGS): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_NCryptSetProperty(hobject, pszproperty.toCPointer<ByteVar>(), pbinput.toCPointer<ByteVar>(), cbinput, dwflags)
+public actual fun nCryptSetProperty(hobject: NcryptHandle, pszproperty: Pcwstr, pbinput: COpaquePointer?, cbinput: UInt, dwflags: NcryptFlags): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_nCryptSetProperty(hobject, pszproperty?.value?.toCPointer<ByteVar>(), pbinput?.value?.toCPointer<ByteVar>(), cbinput, dwflags)
 
-public actual fun NCryptSignHash(hkey: NCRYPT_KEY_HANDLE, ppaddinginfo: Long, pbhashvalue: Long, cbhashvalue: UInt, pbsignature: Long, cbsignature: UInt, pcbresult: Long, dwflags: NCRYPT_FLAGS): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_NCryptSignHash(hkey, ppaddinginfo.toCPointer<ByteVar>(), pbhashvalue.toCPointer<ByteVar>(), cbhashvalue, pbsignature.toCPointer<ByteVar>(), cbsignature, pcbresult.toCPointer<ByteVar>(), dwflags)
+public actual fun nCryptSignHash(hkey: NcryptKeyHandle, ppaddinginfo: COpaquePointer?, pbhashvalue: COpaquePointer?, cbhashvalue: UInt, pbsignature: COpaquePointer?, cbsignature: UInt, pcbresult: COpaquePointer?, dwflags: NcryptFlags): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_nCryptSignHash(hkey, ppaddinginfo?.value?.toCPointer<ByteVar>(), pbhashvalue?.value?.toCPointer<ByteVar>(), cbhashvalue, pbsignature?.value?.toCPointer<ByteVar>(), cbsignature, pcbresult?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun NCryptStreamClose(hstream: NCRYPT_STREAM_HANDLE): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_NCryptStreamClose(hstream.toCPointer<ByteVar>())
+public actual fun nCryptStreamClose(hstream: NcryptStreamHandle): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_nCryptStreamClose(hstream?.value?.toCPointer<ByteVar>())
 
-public actual fun NCryptStreamOpenToProtect(hdescriptor: NCRYPT_DESCRIPTOR_HANDLE, dwflags: UInt, hwnd: HWND, pstreaminfo: Long, phstream: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_NCryptStreamOpenToProtect(hdescriptor.toCPointer<ByteVar>(), dwflags, hwnd.toCPointer<ByteVar>(), pstreaminfo.toCPointer<ByteVar>(), phstream.toCPointer<ByteVar>())
+public actual fun nCryptStreamOpenToProtect(hdescriptor: NcryptDescriptorHandle, dwflags: UInt, hwnd: Hwnd, pstreaminfo: COpaquePointer?, phstream: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_nCryptStreamOpenToProtect(hdescriptor?.value?.toCPointer<ByteVar>(), dwflags, hwnd?.value?.toCPointer<ByteVar>(), pstreaminfo?.value?.toCPointer<ByteVar>(), phstream?.value?.toCPointer<ByteVar>())
 
-public actual fun NCryptStreamOpenToUnprotect(pstreaminfo: Long, dwflags: UInt, hwnd: HWND, phstream: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_NCryptStreamOpenToUnprotect(pstreaminfo.toCPointer<ByteVar>(), dwflags, hwnd.toCPointer<ByteVar>(), phstream.toCPointer<ByteVar>())
+public actual fun nCryptStreamOpenToUnprotect(pstreaminfo: COpaquePointer?, dwflags: UInt, hwnd: Hwnd, phstream: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_nCryptStreamOpenToUnprotect(pstreaminfo?.value?.toCPointer<ByteVar>(), dwflags, hwnd?.value?.toCPointer<ByteVar>(), phstream?.value?.toCPointer<ByteVar>())
 
-public actual fun NCryptStreamOpenToUnprotectEx(pstreaminfo: Long, dwflags: UInt, hwnd: HWND, phstream: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_NCryptStreamOpenToUnprotectEx(pstreaminfo.toCPointer<ByteVar>(), dwflags, hwnd.toCPointer<ByteVar>(), phstream.toCPointer<ByteVar>())
+public actual fun nCryptStreamOpenToUnprotectEx(pstreaminfo: COpaquePointer?, dwflags: UInt, hwnd: Hwnd, phstream: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_nCryptStreamOpenToUnprotectEx(pstreaminfo?.value?.toCPointer<ByteVar>(), dwflags, hwnd?.value?.toCPointer<ByteVar>(), phstream?.value?.toCPointer<ByteVar>())
 
-public actual fun NCryptStreamUpdate(hstream: NCRYPT_STREAM_HANDLE, pbdata: Long, cbdata: ULong, ffinal: BOOL): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_NCryptStreamUpdate(hstream.toCPointer<ByteVar>(), pbdata.toCPointer<ByteVar>(), cbdata, ffinal)
+public actual fun nCryptStreamUpdate(hstream: NcryptStreamHandle, pbdata: COpaquePointer?, cbdata: ULong, ffinal: Bool): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_nCryptStreamUpdate(hstream?.value?.toCPointer<ByteVar>(), pbdata?.value?.toCPointer<ByteVar>(), cbdata, ffinal)
 
-public actual fun NCryptTranslateHandle(phprovider: Long, phkey: Long, hlegacyprov: ULong, hlegacykey: ULong, dwlegacykeyspec: CERT_KEY_SPEC, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_NCryptTranslateHandle(phprovider.toCPointer<ByteVar>(), phkey.toCPointer<ByteVar>(), hlegacyprov, hlegacykey, dwlegacykeyspec, dwflags)
+public actual fun nCryptTranslateHandle(phprovider: COpaquePointer?, phkey: COpaquePointer?, hlegacyprov: ULong, hlegacykey: ULong, dwlegacykeyspec: CertKeySpec, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_nCryptTranslateHandle(phprovider?.value?.toCPointer<ByteVar>(), phkey?.value?.toCPointer<ByteVar>(), hlegacyprov, hlegacykey, dwlegacykeyspec, dwflags)
 
-public actual fun NCryptUnprotectSecret(phdescriptor: Long, dwflags: NCRYPT_FLAGS, pbprotectedblob: Long, cbprotectedblob: UInt, pmempara: Long, hwnd: HWND, ppbdata: Long, pcbdata: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_NCryptUnprotectSecret(phdescriptor.toCPointer<ByteVar>(), dwflags, pbprotectedblob.toCPointer<ByteVar>(), cbprotectedblob, pmempara.toCPointer<ByteVar>(), hwnd.toCPointer<ByteVar>(), ppbdata.toCPointer<ByteVar>(), pcbdata.toCPointer<ByteVar>())
+public actual fun nCryptUnprotectSecret(phdescriptor: COpaquePointer?, dwflags: NcryptFlags, pbprotectedblob: COpaquePointer?, cbprotectedblob: UInt, pmempara: COpaquePointer?, hwnd: Hwnd, ppbdata: COpaquePointer?, pcbdata: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_nCryptUnprotectSecret(phdescriptor?.value?.toCPointer<ByteVar>(), dwflags, pbprotectedblob?.value?.toCPointer<ByteVar>(), cbprotectedblob, pmempara?.value?.toCPointer<ByteVar>(), hwnd?.value?.toCPointer<ByteVar>(), ppbdata?.value?.toCPointer<ByteVar>(), pcbdata?.value?.toCPointer<ByteVar>())
 
-public actual fun NCryptVerifyClaim(hsubjectkey: NCRYPT_KEY_HANDLE, hauthoritykey: NCRYPT_KEY_HANDLE, dwclaimtype: UInt, pparameterlist: Long, pbclaimblob: Long, cbclaimblob: UInt, poutput: Long, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_NCryptVerifyClaim(hsubjectkey, hauthoritykey, dwclaimtype, pparameterlist.toCPointer<ByteVar>(), pbclaimblob.toCPointer<ByteVar>(), cbclaimblob, poutput.toCPointer<ByteVar>(), dwflags)
+public actual fun nCryptVerifyClaim(hsubjectkey: NcryptKeyHandle, hauthoritykey: NcryptKeyHandle, dwclaimtype: UInt, pparameterlist: COpaquePointer?, pbclaimblob: COpaquePointer?, cbclaimblob: UInt, poutput: COpaquePointer?, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_nCryptVerifyClaim(hsubjectkey, hauthoritykey, dwclaimtype, pparameterlist?.value?.toCPointer<ByteVar>(), pbclaimblob?.value?.toCPointer<ByteVar>(), cbclaimblob, poutput?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun NCryptVerifySignature(hkey: NCRYPT_KEY_HANDLE, ppaddinginfo: Long, pbhashvalue: Long, cbhashvalue: UInt, pbsignature: Long, cbsignature: UInt, dwflags: NCRYPT_FLAGS): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_NCryptVerifySignature(hkey, ppaddinginfo.toCPointer<ByteVar>(), pbhashvalue.toCPointer<ByteVar>(), cbhashvalue, pbsignature.toCPointer<ByteVar>(), cbsignature, dwflags)
+public actual fun nCryptVerifySignature(hkey: NcryptKeyHandle, ppaddinginfo: COpaquePointer?, pbhashvalue: COpaquePointer?, cbhashvalue: UInt, pbsignature: COpaquePointer?, cbsignature: UInt, dwflags: NcryptFlags): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_nCryptVerifySignature(hkey, ppaddinginfo?.value?.toCPointer<ByteVar>(), pbhashvalue?.value?.toCPointer<ByteVar>(), cbhashvalue, pbsignature?.value?.toCPointer<ByteVar>(), cbsignature, dwflags)
 
-public actual fun PFXExportCertStore(hstore: HCERTSTORE, ppfx: Long, szpassword: PCWSTR, dwflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_PFXExportCertStore(hstore.toCPointer<ByteVar>(), ppfx.toCPointer<ByteVar>(), szpassword.toCPointer<ByteVar>(), dwflags)
+public actual fun pFXExportCertStore(hstore: Hcertstore, ppfx: COpaquePointer?, szpassword: Pcwstr, dwflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_pFXExportCertStore(hstore?.value?.toCPointer<ByteVar>(), ppfx?.value?.toCPointer<ByteVar>(), szpassword?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun PFXExportCertStoreEx(hstore: HCERTSTORE, ppfx: Long, szpassword: PCWSTR, pvpara: Long, dwflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_PFXExportCertStoreEx(hstore.toCPointer<ByteVar>(), ppfx.toCPointer<ByteVar>(), szpassword.toCPointer<ByteVar>(), pvpara.toCPointer<ByteVar>(), dwflags)
+public actual fun pFXExportCertStoreEx(hstore: Hcertstore, ppfx: COpaquePointer?, szpassword: Pcwstr, pvpara: COpaquePointer?, dwflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_pFXExportCertStoreEx(hstore?.value?.toCPointer<ByteVar>(), ppfx?.value?.toCPointer<ByteVar>(), szpassword?.value?.toCPointer<ByteVar>(), pvpara?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun PFXImportCertStore(ppfx: Long, szpassword: PCWSTR, dwflags: CRYPT_KEY_FLAGS): HCERTSTORE =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_PFXImportCertStore(ppfx.toCPointer<ByteVar>(), szpassword.toCPointer<ByteVar>(), dwflags)?.toLong() ?: 0L
+public actual fun pFXImportCertStore(ppfx: COpaquePointer?, szpassword: Pcwstr, dwflags: CryptKeyFlags): Hcertstore =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_pFXImportCertStore(ppfx?.value?.toCPointer<ByteVar>(), szpassword?.value?.toCPointer<ByteVar>(), dwflags)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun PFXIsPFXBlob(ppfx: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_PFXIsPFXBlob(ppfx.toCPointer<ByteVar>())
+public actual fun pFXIsPFXBlob(ppfx: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_pFXIsPFXBlob(ppfx?.value?.toCPointer<ByteVar>())
 
-public actual fun PFXVerifyPassword(ppfx: Long, szpassword: PCWSTR, dwflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_PFXVerifyPassword(ppfx.toCPointer<ByteVar>(), szpassword.toCPointer<ByteVar>(), dwflags)
+public actual fun pFXVerifyPassword(ppfx: COpaquePointer?, szpassword: Pcwstr, dwflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_pFXVerifyPassword(ppfx?.value?.toCPointer<ByteVar>(), szpassword?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun ProcessPrng(pbdata: Long, cbdata: ULong): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_ProcessPrng(pbdata.toCPointer<ByteVar>(), cbdata)
+public actual fun processPrng(pbdata: COpaquePointer?, cbdata: ULong): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_processPrng(pbdata?.value?.toCPointer<ByteVar>(), cbdata)
 
-public actual fun SignError(): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_SignError()
+public actual fun signError(): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_signError()
 
-public actual fun SignHash(hcrypto: Long, cbhash: UInt, phash: Long, hashalgoid: PCWSTR, pcbsig: Long, ppsig: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_SignHash(hcrypto.toCPointer<ByteVar>(), cbhash, phash.toCPointer<ByteVar>(), hashalgoid.toCPointer<ByteVar>(), pcbsig.toCPointer<ByteVar>(), ppsig.toCPointer<ByteVar>())
+public actual fun signHash(hcrypto: COpaquePointer?, cbhash: UInt, phash: COpaquePointer?, hashalgoid: Pcwstr, pcbsig: COpaquePointer?, ppsig: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_signHash(hcrypto?.value?.toCPointer<ByteVar>(), cbhash, phash?.value?.toCPointer<ByteVar>(), hashalgoid?.value?.toCPointer<ByteVar>(), pcbsig?.value?.toCPointer<ByteVar>(), ppsig?.value?.toCPointer<ByteVar>())
 
-public actual fun SignerFreeSignerContext(psignercontext: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_SignerFreeSignerContext(psignercontext.toCPointer<ByteVar>())
+public actual fun signerFreeSignerContext(psignercontext: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_signerFreeSignerContext(psignercontext?.value?.toCPointer<ByteVar>())
 
-public actual fun SignerSign(psubjectinfo: Long, psignercert: Long, psignatureinfo: Long, pproviderinfo: Long, pwszhttptimestamp: PCWSTR, psrequest: Long, psipdata: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_SignerSign(psubjectinfo.toCPointer<ByteVar>(), psignercert.toCPointer<ByteVar>(), psignatureinfo.toCPointer<ByteVar>(), pproviderinfo.toCPointer<ByteVar>(), pwszhttptimestamp.toCPointer<ByteVar>(), psrequest.toCPointer<ByteVar>(), psipdata.toCPointer<ByteVar>())
+public actual fun signerSign(psubjectinfo: COpaquePointer?, psignercert: COpaquePointer?, psignatureinfo: COpaquePointer?, pproviderinfo: COpaquePointer?, pwszhttptimestamp: Pcwstr, psrequest: COpaquePointer?, psipdata: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_signerSign(psubjectinfo?.value?.toCPointer<ByteVar>(), psignercert?.value?.toCPointer<ByteVar>(), psignatureinfo?.value?.toCPointer<ByteVar>(), pproviderinfo?.value?.toCPointer<ByteVar>(), pwszhttptimestamp?.value?.toCPointer<ByteVar>(), psrequest?.value?.toCPointer<ByteVar>(), psipdata?.value?.toCPointer<ByteVar>())
 
-public actual fun SignerSignEx(dwflags: SIGNER_SIGN_FLAGS, psubjectinfo: Long, psignercert: Long, psignatureinfo: Long, pproviderinfo: Long, pwszhttptimestamp: PCWSTR, psrequest: Long, psipdata: Long, ppsignercontext: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_SignerSignEx(dwflags, psubjectinfo.toCPointer<ByteVar>(), psignercert.toCPointer<ByteVar>(), psignatureinfo.toCPointer<ByteVar>(), pproviderinfo.toCPointer<ByteVar>(), pwszhttptimestamp.toCPointer<ByteVar>(), psrequest.toCPointer<ByteVar>(), psipdata.toCPointer<ByteVar>(), ppsignercontext.toCPointer<ByteVar>())
+public actual fun signerSignEx(dwflags: SignerSignFlags, psubjectinfo: COpaquePointer?, psignercert: COpaquePointer?, psignatureinfo: COpaquePointer?, pproviderinfo: COpaquePointer?, pwszhttptimestamp: Pcwstr, psrequest: COpaquePointer?, psipdata: COpaquePointer?, ppsignercontext: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_signerSignEx(dwflags, psubjectinfo?.value?.toCPointer<ByteVar>(), psignercert?.value?.toCPointer<ByteVar>(), psignatureinfo?.value?.toCPointer<ByteVar>(), pproviderinfo?.value?.toCPointer<ByteVar>(), pwszhttptimestamp?.value?.toCPointer<ByteVar>(), psrequest?.value?.toCPointer<ByteVar>(), psipdata?.value?.toCPointer<ByteVar>(), ppsignercontext?.value?.toCPointer<ByteVar>())
 
-public actual fun SignerSignEx2(dwflags: SIGNER_SIGN_FLAGS, psubjectinfo: Long, psignercert: Long, psignatureinfo: Long, pproviderinfo: Long, dwtimestampflags: SIGNER_TIMESTAMP_FLAGS, psztimestampalgorithmoid: PCSTR, pwszhttptimestamp: PCWSTR, psrequest: Long, psipdata: Long, ppsignercontext: Long, pcryptopolicy: Long, preserved: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_SignerSignEx2(dwflags, psubjectinfo.toCPointer<ByteVar>(), psignercert.toCPointer<ByteVar>(), psignatureinfo.toCPointer<ByteVar>(), pproviderinfo.toCPointer<ByteVar>(), dwtimestampflags, psztimestampalgorithmoid.toCPointer<ByteVar>(), pwszhttptimestamp.toCPointer<ByteVar>(), psrequest.toCPointer<ByteVar>(), psipdata.toCPointer<ByteVar>(), ppsignercontext.toCPointer<ByteVar>(), pcryptopolicy.toCPointer<ByteVar>(), preserved.toCPointer<ByteVar>())
+public actual fun signerSignEx2(dwflags: SignerSignFlags, psubjectinfo: COpaquePointer?, psignercert: COpaquePointer?, psignatureinfo: COpaquePointer?, pproviderinfo: COpaquePointer?, dwtimestampflags: SignerTimestampFlags, psztimestampalgorithmoid: Pcstr, pwszhttptimestamp: Pcwstr, psrequest: COpaquePointer?, psipdata: COpaquePointer?, ppsignercontext: COpaquePointer?, pcryptopolicy: COpaquePointer?, preserved: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_signerSignEx2(dwflags, psubjectinfo?.value?.toCPointer<ByteVar>(), psignercert?.value?.toCPointer<ByteVar>(), psignatureinfo?.value?.toCPointer<ByteVar>(), pproviderinfo?.value?.toCPointer<ByteVar>(), dwtimestampflags, psztimestampalgorithmoid?.value?.toCPointer<ByteVar>(), pwszhttptimestamp?.value?.toCPointer<ByteVar>(), psrequest?.value?.toCPointer<ByteVar>(), psipdata?.value?.toCPointer<ByteVar>(), ppsignercontext?.value?.toCPointer<ByteVar>(), pcryptopolicy?.value?.toCPointer<ByteVar>(), preserved?.value?.toCPointer<ByteVar>())
 
-public actual fun SignerSignEx3(dwflags: SIGNER_SIGN_FLAGS, psubjectinfo: Long, psignercert: Long, psignatureinfo: Long, pproviderinfo: Long, dwtimestampflags: SIGNER_TIMESTAMP_FLAGS, psztimestampalgorithmoid: PCSTR, pwszhttptimestamp: PCWSTR, psrequest: Long, psipdata: Long, ppsignercontext: Long, pcryptopolicy: Long, pdigestsigninfo: Long, preserved: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_SignerSignEx3(dwflags, psubjectinfo.toCPointer<ByteVar>(), psignercert.toCPointer<ByteVar>(), psignatureinfo.toCPointer<ByteVar>(), pproviderinfo.toCPointer<ByteVar>(), dwtimestampflags, psztimestampalgorithmoid.toCPointer<ByteVar>(), pwszhttptimestamp.toCPointer<ByteVar>(), psrequest.toCPointer<ByteVar>(), psipdata.toCPointer<ByteVar>(), ppsignercontext.toCPointer<ByteVar>(), pcryptopolicy.toCPointer<ByteVar>(), pdigestsigninfo.toCPointer<ByteVar>(), preserved.toCPointer<ByteVar>())
+public actual fun signerSignEx3(dwflags: SignerSignFlags, psubjectinfo: COpaquePointer?, psignercert: COpaquePointer?, psignatureinfo: COpaquePointer?, pproviderinfo: COpaquePointer?, dwtimestampflags: SignerTimestampFlags, psztimestampalgorithmoid: Pcstr, pwszhttptimestamp: Pcwstr, psrequest: COpaquePointer?, psipdata: COpaquePointer?, ppsignercontext: COpaquePointer?, pcryptopolicy: COpaquePointer?, pdigestsigninfo: COpaquePointer?, preserved: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_signerSignEx3(dwflags, psubjectinfo?.value?.toCPointer<ByteVar>(), psignercert?.value?.toCPointer<ByteVar>(), psignatureinfo?.value?.toCPointer<ByteVar>(), pproviderinfo?.value?.toCPointer<ByteVar>(), dwtimestampflags, psztimestampalgorithmoid?.value?.toCPointer<ByteVar>(), pwszhttptimestamp?.value?.toCPointer<ByteVar>(), psrequest?.value?.toCPointer<ByteVar>(), psipdata?.value?.toCPointer<ByteVar>(), ppsignercontext?.value?.toCPointer<ByteVar>(), pcryptopolicy?.value?.toCPointer<ByteVar>(), pdigestsigninfo?.value?.toCPointer<ByteVar>(), preserved?.value?.toCPointer<ByteVar>())
 
-public actual fun SignerTimeStamp(psubjectinfo: Long, pwszhttptimestamp: PCWSTR, psrequest: Long, psipdata: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_SignerTimeStamp(psubjectinfo.toCPointer<ByteVar>(), pwszhttptimestamp.toCPointer<ByteVar>(), psrequest.toCPointer<ByteVar>(), psipdata.toCPointer<ByteVar>())
+public actual fun signerTimeStamp(psubjectinfo: COpaquePointer?, pwszhttptimestamp: Pcwstr, psrequest: COpaquePointer?, psipdata: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_signerTimeStamp(psubjectinfo?.value?.toCPointer<ByteVar>(), pwszhttptimestamp?.value?.toCPointer<ByteVar>(), psrequest?.value?.toCPointer<ByteVar>(), psipdata?.value?.toCPointer<ByteVar>())
 
-public actual fun SignerTimeStampEx(dwflags: UInt, psubjectinfo: Long, pwszhttptimestamp: PCWSTR, psrequest: Long, psipdata: Long, ppsignercontext: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_SignerTimeStampEx(dwflags, psubjectinfo.toCPointer<ByteVar>(), pwszhttptimestamp.toCPointer<ByteVar>(), psrequest.toCPointer<ByteVar>(), psipdata.toCPointer<ByteVar>(), ppsignercontext.toCPointer<ByteVar>())
+public actual fun signerTimeStampEx(dwflags: UInt, psubjectinfo: COpaquePointer?, pwszhttptimestamp: Pcwstr, psrequest: COpaquePointer?, psipdata: COpaquePointer?, ppsignercontext: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_signerTimeStampEx(dwflags, psubjectinfo?.value?.toCPointer<ByteVar>(), pwszhttptimestamp?.value?.toCPointer<ByteVar>(), psrequest?.value?.toCPointer<ByteVar>(), psipdata?.value?.toCPointer<ByteVar>(), ppsignercontext?.value?.toCPointer<ByteVar>())
 
-public actual fun SignerTimeStampEx2(dwflags: SIGNER_TIMESTAMP_FLAGS, psubjectinfo: Long, pwszhttptimestamp: PCWSTR, dwalgid: ALG_ID, psrequest: Long, psipdata: Long, ppsignercontext: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_SignerTimeStampEx2(dwflags, psubjectinfo.toCPointer<ByteVar>(), pwszhttptimestamp.toCPointer<ByteVar>(), dwalgid, psrequest.toCPointer<ByteVar>(), psipdata.toCPointer<ByteVar>(), ppsignercontext.toCPointer<ByteVar>())
+public actual fun signerTimeStampEx2(dwflags: SignerTimestampFlags, psubjectinfo: COpaquePointer?, pwszhttptimestamp: Pcwstr, dwalgid: AlgId, psrequest: COpaquePointer?, psipdata: COpaquePointer?, ppsignercontext: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_signerTimeStampEx2(dwflags, psubjectinfo?.value?.toCPointer<ByteVar>(), pwszhttptimestamp?.value?.toCPointer<ByteVar>(), dwalgid, psrequest?.value?.toCPointer<ByteVar>(), psipdata?.value?.toCPointer<ByteVar>(), ppsignercontext?.value?.toCPointer<ByteVar>())
 
-public actual fun SignerTimeStampEx3(dwflags: SIGNER_TIMESTAMP_FLAGS, dwindex: UInt, psubjectinfo: Long, pwszhttptimestamp: PCWSTR, pszalgorithmoid: PCWSTR, psrequest: Long, psipdata: Long, ppsignercontext: Long, pcryptopolicy: Long, preserved: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_SignerTimeStampEx3(dwflags, dwindex, psubjectinfo.toCPointer<ByteVar>(), pwszhttptimestamp.toCPointer<ByteVar>(), pszalgorithmoid.toCPointer<ByteVar>(), psrequest.toCPointer<ByteVar>(), psipdata.toCPointer<ByteVar>(), ppsignercontext.toCPointer<ByteVar>(), pcryptopolicy.toCPointer<ByteVar>(), preserved.toCPointer<ByteVar>())
+public actual fun signerTimeStampEx3(dwflags: SignerTimestampFlags, dwindex: UInt, psubjectinfo: COpaquePointer?, pwszhttptimestamp: Pcwstr, pszalgorithmoid: Pcwstr, psrequest: COpaquePointer?, psipdata: COpaquePointer?, ppsignercontext: COpaquePointer?, pcryptopolicy: COpaquePointer?, preserved: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_signerTimeStampEx3(dwflags, dwindex, psubjectinfo?.value?.toCPointer<ByteVar>(), pwszhttptimestamp?.value?.toCPointer<ByteVar>(), pszalgorithmoid?.value?.toCPointer<ByteVar>(), psrequest?.value?.toCPointer<ByteVar>(), psipdata?.value?.toCPointer<ByteVar>(), ppsignercontext?.value?.toCPointer<ByteVar>(), pcryptopolicy?.value?.toCPointer<ByteVar>(), preserved?.value?.toCPointer<ByteVar>())
 
-public actual fun SslChangeNotify(hevent: HANDLE, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_SslChangeNotify(hevent.toCPointer<ByteVar>(), dwflags)
+public actual fun sslChangeNotify(hevent: Handle, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_sslChangeNotify(hevent?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun SslComputeClientAuthHash(hsslprovider: NCRYPT_PROV_HANDLE, hmasterkey: NCRYPT_KEY_HANDLE, hhandshakehash: NCRYPT_HASH_HANDLE, pszalgid: PCWSTR, pboutput: Long, cboutput: UInt, pcbresult: Long, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_SslComputeClientAuthHash(hsslprovider, hmasterkey, hhandshakehash, pszalgid.toCPointer<ByteVar>(), pboutput.toCPointer<ByteVar>(), cboutput, pcbresult.toCPointer<ByteVar>(), dwflags)
+public actual fun sslComputeClientAuthHash(hsslprovider: NcryptProvHandle, hmasterkey: NcryptKeyHandle, hhandshakehash: NcryptHashHandle, pszalgid: Pcwstr, pboutput: COpaquePointer?, cboutput: UInt, pcbresult: COpaquePointer?, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_sslComputeClientAuthHash(hsslprovider, hmasterkey, hhandshakehash, pszalgid?.value?.toCPointer<ByteVar>(), pboutput?.value?.toCPointer<ByteVar>(), cboutput, pcbresult?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun SslComputeEapKeyBlock(hsslprovider: NCRYPT_PROV_HANDLE, hmasterkey: NCRYPT_KEY_HANDLE, pbrandoms: Long, cbrandoms: UInt, pboutput: Long, cboutput: UInt, pcbresult: Long, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_SslComputeEapKeyBlock(hsslprovider, hmasterkey, pbrandoms.toCPointer<ByteVar>(), cbrandoms, pboutput.toCPointer<ByteVar>(), cboutput, pcbresult.toCPointer<ByteVar>(), dwflags)
+public actual fun sslComputeEapKeyBlock(hsslprovider: NcryptProvHandle, hmasterkey: NcryptKeyHandle, pbrandoms: COpaquePointer?, cbrandoms: UInt, pboutput: COpaquePointer?, cboutput: UInt, pcbresult: COpaquePointer?, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_sslComputeEapKeyBlock(hsslprovider, hmasterkey, pbrandoms?.value?.toCPointer<ByteVar>(), cbrandoms, pboutput?.value?.toCPointer<ByteVar>(), cboutput, pcbresult?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun SslComputeFinishedHash(hsslprovider: NCRYPT_PROV_HANDLE, hmasterkey: NCRYPT_KEY_HANDLE, hhandshakehash: NCRYPT_HASH_HANDLE, pboutput: Long, cboutput: UInt, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_SslComputeFinishedHash(hsslprovider, hmasterkey, hhandshakehash, pboutput.toCPointer<ByteVar>(), cboutput, dwflags)
+public actual fun sslComputeFinishedHash(hsslprovider: NcryptProvHandle, hmasterkey: NcryptKeyHandle, hhandshakehash: NcryptHashHandle, pboutput: COpaquePointer?, cboutput: UInt, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_sslComputeFinishedHash(hsslprovider, hmasterkey, hhandshakehash, pboutput?.value?.toCPointer<ByteVar>(), cboutput, dwflags)
 
-public actual fun SslComputeSessionHash(hsslprovider: NCRYPT_PROV_HANDLE, hhandshakehash: NCRYPT_HASH_HANDLE, dwprotocol: UInt, pboutput: Long, cboutput: UInt, pcbresult: Long, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_SslComputeSessionHash(hsslprovider, hhandshakehash, dwprotocol, pboutput.toCPointer<ByteVar>(), cboutput, pcbresult.toCPointer<ByteVar>(), dwflags)
+public actual fun sslComputeSessionHash(hsslprovider: NcryptProvHandle, hhandshakehash: NcryptHashHandle, dwprotocol: UInt, pboutput: COpaquePointer?, cboutput: UInt, pcbresult: COpaquePointer?, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_sslComputeSessionHash(hsslprovider, hhandshakehash, dwprotocol, pboutput?.value?.toCPointer<ByteVar>(), cboutput, pcbresult?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun SslCreateClientAuthHash(hsslprovider: NCRYPT_PROV_HANDLE, phhandshakehash: Long, dwprotocol: UInt, dwciphersuite: UInt, pszhashalgid: PCWSTR, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_SslCreateClientAuthHash(hsslprovider, phhandshakehash.toCPointer<ByteVar>(), dwprotocol, dwciphersuite, pszhashalgid.toCPointer<ByteVar>(), dwflags)
+public actual fun sslCreateClientAuthHash(hsslprovider: NcryptProvHandle, phhandshakehash: COpaquePointer?, dwprotocol: UInt, dwciphersuite: UInt, pszhashalgid: Pcwstr, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_sslCreateClientAuthHash(hsslprovider, phhandshakehash?.value?.toCPointer<ByteVar>(), dwprotocol, dwciphersuite, pszhashalgid?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun SslCreateEphemeralKey(hsslprovider: NCRYPT_PROV_HANDLE, phephemeralkey: Long, dwprotocol: UInt, dwciphersuite: UInt, dwkeytype: UInt, dwkeybitlen: UInt, pbparams: Long, cbparams: UInt, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_SslCreateEphemeralKey(hsslprovider, phephemeralkey.toCPointer<ByteVar>(), dwprotocol, dwciphersuite, dwkeytype, dwkeybitlen, pbparams.toCPointer<ByteVar>(), cbparams, dwflags)
+public actual fun sslCreateEphemeralKey(hsslprovider: NcryptProvHandle, phephemeralkey: COpaquePointer?, dwprotocol: UInt, dwciphersuite: UInt, dwkeytype: UInt, dwkeybitlen: UInt, pbparams: COpaquePointer?, cbparams: UInt, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_sslCreateEphemeralKey(hsslprovider, phephemeralkey?.value?.toCPointer<ByteVar>(), dwprotocol, dwciphersuite, dwkeytype, dwkeybitlen, pbparams?.value?.toCPointer<ByteVar>(), cbparams, dwflags)
 
-public actual fun SslCreateHandshakeHash(hsslprovider: NCRYPT_PROV_HANDLE, phhandshakehash: Long, dwprotocol: UInt, dwciphersuite: UInt, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_SslCreateHandshakeHash(hsslprovider, phhandshakehash.toCPointer<ByteVar>(), dwprotocol, dwciphersuite, dwflags)
+public actual fun sslCreateHandshakeHash(hsslprovider: NcryptProvHandle, phhandshakehash: COpaquePointer?, dwprotocol: UInt, dwciphersuite: UInt, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_sslCreateHandshakeHash(hsslprovider, phhandshakehash?.value?.toCPointer<ByteVar>(), dwprotocol, dwciphersuite, dwflags)
 
-public actual fun SslDecrementProviderReferenceCount(hsslprovider: NCRYPT_PROV_HANDLE): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_SslDecrementProviderReferenceCount(hsslprovider)
+public actual fun sslDecrementProviderReferenceCount(hsslprovider: NcryptProvHandle): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_sslDecrementProviderReferenceCount(hsslprovider)
 
-public actual fun SslDecryptPacket(hsslprovider: NCRYPT_PROV_HANDLE, hkey: NCRYPT_KEY_HANDLE, pbinput: Long, cbinput: UInt, pboutput: Long, cboutput: UInt, pcbresult: Long, sequencenumber: ULong, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_SslDecryptPacket(hsslprovider, hkey, pbinput.toCPointer<ByteVar>(), cbinput, pboutput.toCPointer<ByteVar>(), cboutput, pcbresult.toCPointer<ByteVar>(), sequencenumber, dwflags)
+public actual fun sslDecryptPacket(hsslprovider: NcryptProvHandle, hkey: NcryptKeyHandle, pbinput: COpaquePointer?, cbinput: UInt, pboutput: COpaquePointer?, cboutput: UInt, pcbresult: COpaquePointer?, sequencenumber: ULong, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_sslDecryptPacket(hsslprovider, hkey, pbinput?.value?.toCPointer<ByteVar>(), cbinput, pboutput?.value?.toCPointer<ByteVar>(), cboutput, pcbresult?.value?.toCPointer<ByteVar>(), sequencenumber, dwflags)
 
-public actual fun SslDuplicateTranscriptHash(hsslprovider: NCRYPT_PROV_HANDLE, htranscripthash: NCRYPT_HASH_HANDLE, phtranscripthash: Long, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_SslDuplicateTranscriptHash(hsslprovider, htranscripthash, phtranscripthash.toCPointer<ByteVar>(), dwflags)
+public actual fun sslDuplicateTranscriptHash(hsslprovider: NcryptProvHandle, htranscripthash: NcryptHashHandle, phtranscripthash: COpaquePointer?, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_sslDuplicateTranscriptHash(hsslprovider, htranscripthash, phtranscripthash?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun SslEncryptPacket(hsslprovider: NCRYPT_PROV_HANDLE, hkey: NCRYPT_KEY_HANDLE, pbinput: Long, cbinput: UInt, pboutput: Long, cboutput: UInt, pcbresult: Long, sequencenumber: ULong, dwcontenttype: UInt, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_SslEncryptPacket(hsslprovider, hkey, pbinput.toCPointer<ByteVar>(), cbinput, pboutput.toCPointer<ByteVar>(), cboutput, pcbresult.toCPointer<ByteVar>(), sequencenumber, dwcontenttype, dwflags)
+public actual fun sslEncryptPacket(hsslprovider: NcryptProvHandle, hkey: NcryptKeyHandle, pbinput: COpaquePointer?, cbinput: UInt, pboutput: COpaquePointer?, cboutput: UInt, pcbresult: COpaquePointer?, sequencenumber: ULong, dwcontenttype: UInt, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_sslEncryptPacket(hsslprovider, hkey, pbinput?.value?.toCPointer<ByteVar>(), cbinput, pboutput?.value?.toCPointer<ByteVar>(), cboutput, pcbresult?.value?.toCPointer<ByteVar>(), sequencenumber, dwcontenttype, dwflags)
 
-public actual fun SslEnumCipherSuites(hsslprovider: NCRYPT_PROV_HANDLE, hprivatekey: NCRYPT_KEY_HANDLE, ppciphersuite: Long, ppenumstate: Long, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_SslEnumCipherSuites(hsslprovider, hprivatekey, ppciphersuite.toCPointer<ByteVar>(), ppenumstate.toCPointer<ByteVar>(), dwflags)
+public actual fun sslEnumCipherSuites(hsslprovider: NcryptProvHandle, hprivatekey: NcryptKeyHandle, ppciphersuite: COpaquePointer?, ppenumstate: COpaquePointer?, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_sslEnumCipherSuites(hsslprovider, hprivatekey, ppciphersuite?.value?.toCPointer<ByteVar>(), ppenumstate?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun SslEnumCipherSuitesEx(hsslprovider: NCRYPT_PROV_HANDLE, hprivatekey: NCRYPT_KEY_HANDLE, ppciphersuite: Long, ppenumstate: Long, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_SslEnumCipherSuitesEx(hsslprovider, hprivatekey, ppciphersuite.toCPointer<ByteVar>(), ppenumstate.toCPointer<ByteVar>(), dwflags)
+public actual fun sslEnumCipherSuitesEx(hsslprovider: NcryptProvHandle, hprivatekey: NcryptKeyHandle, ppciphersuite: COpaquePointer?, ppenumstate: COpaquePointer?, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_sslEnumCipherSuitesEx(hsslprovider, hprivatekey, ppciphersuite?.value?.toCPointer<ByteVar>(), ppenumstate?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun SslEnumEccCurves(hsslprovider: NCRYPT_PROV_HANDLE, pecccurvecount: Long, ppecccurve: Long, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_SslEnumEccCurves(hsslprovider, pecccurvecount.toCPointer<ByteVar>(), ppecccurve.toCPointer<ByteVar>(), dwflags)
+public actual fun sslEnumEccCurves(hsslprovider: NcryptProvHandle, pecccurvecount: COpaquePointer?, ppecccurve: COpaquePointer?, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_sslEnumEccCurves(hsslprovider, pecccurvecount?.value?.toCPointer<ByteVar>(), ppecccurve?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun SslEnumProtocolProviders(pdwprovidercount: Long, ppproviderlist: Long, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_SslEnumProtocolProviders(pdwprovidercount.toCPointer<ByteVar>(), ppproviderlist.toCPointer<ByteVar>(), dwflags)
+public actual fun sslEnumProtocolProviders(pdwprovidercount: COpaquePointer?, ppproviderlist: COpaquePointer?, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_sslEnumProtocolProviders(pdwprovidercount?.value?.toCPointer<ByteVar>(), ppproviderlist?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun SslExpandBinderKey(hsslprovider: NCRYPT_PROV_HANDLE, hearlykey: NCRYPT_KEY_HANDLE, phbinderkey: Long, pparameterlist: Long, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_SslExpandBinderKey(hsslprovider, hearlykey, phbinderkey.toCPointer<ByteVar>(), pparameterlist.toCPointer<ByteVar>(), dwflags)
+public actual fun sslExpandBinderKey(hsslprovider: NcryptProvHandle, hearlykey: NcryptKeyHandle, phbinderkey: COpaquePointer?, pparameterlist: COpaquePointer?, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_sslExpandBinderKey(hsslprovider, hearlykey, phbinderkey?.value?.toCPointer<ByteVar>(), pparameterlist?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun SslExpandExporterMasterKey(hsslprovider: NCRYPT_PROV_HANDLE, hbasekey: NCRYPT_KEY_HANDLE, hhashvalue: NCRYPT_HASH_HANDLE, phexportermasterkey: Long, pparameterlist: Long, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_SslExpandExporterMasterKey(hsslprovider, hbasekey, hhashvalue, phexportermasterkey.toCPointer<ByteVar>(), pparameterlist.toCPointer<ByteVar>(), dwflags)
+public actual fun sslExpandExporterMasterKey(hsslprovider: NcryptProvHandle, hbasekey: NcryptKeyHandle, hhashvalue: NcryptHashHandle, phexportermasterkey: COpaquePointer?, pparameterlist: COpaquePointer?, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_sslExpandExporterMasterKey(hsslprovider, hbasekey, hhashvalue, phexportermasterkey?.value?.toCPointer<ByteVar>(), pparameterlist?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun SslExpandPreSharedKey(hsslprovider: NCRYPT_PROV_HANDLE, hresumptionmasterkey: NCRYPT_KEY_HANDLE, pbticketnonce: Long, cbticketnonce: UInt, phpresharedkey: Long, pparameterlist: Long, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_SslExpandPreSharedKey(hsslprovider, hresumptionmasterkey, pbticketnonce.toCPointer<ByteVar>(), cbticketnonce, phpresharedkey.toCPointer<ByteVar>(), pparameterlist.toCPointer<ByteVar>(), dwflags)
+public actual fun sslExpandPreSharedKey(hsslprovider: NcryptProvHandle, hresumptionmasterkey: NcryptKeyHandle, pbticketnonce: COpaquePointer?, cbticketnonce: UInt, phpresharedkey: COpaquePointer?, pparameterlist: COpaquePointer?, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_sslExpandPreSharedKey(hsslprovider, hresumptionmasterkey, pbticketnonce?.value?.toCPointer<ByteVar>(), cbticketnonce, phpresharedkey?.value?.toCPointer<ByteVar>(), pparameterlist?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun SslExpandResumptionMasterKey(hsslprovider: NCRYPT_PROV_HANDLE, hmasterkey: NCRYPT_KEY_HANDLE, hhashvalue: NCRYPT_HASH_HANDLE, phresumptionmasterkey: Long, pparameterlist: Long, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_SslExpandResumptionMasterKey(hsslprovider, hmasterkey, hhashvalue, phresumptionmasterkey.toCPointer<ByteVar>(), pparameterlist.toCPointer<ByteVar>(), dwflags)
+public actual fun sslExpandResumptionMasterKey(hsslprovider: NcryptProvHandle, hmasterkey: NcryptKeyHandle, hhashvalue: NcryptHashHandle, phresumptionmasterkey: COpaquePointer?, pparameterlist: COpaquePointer?, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_sslExpandResumptionMasterKey(hsslprovider, hmasterkey, hhashvalue, phresumptionmasterkey?.value?.toCPointer<ByteVar>(), pparameterlist?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun SslExpandTrafficKeys(hsslprovider: NCRYPT_PROV_HANDLE, hbasekey: NCRYPT_KEY_HANDLE, hhashvalue: NCRYPT_HASH_HANDLE, phclienttraffickey: Long, phservertraffickey: Long, pparameterlist: Long, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_SslExpandTrafficKeys(hsslprovider, hbasekey, hhashvalue, phclienttraffickey.toCPointer<ByteVar>(), phservertraffickey.toCPointer<ByteVar>(), pparameterlist.toCPointer<ByteVar>(), dwflags)
+public actual fun sslExpandTrafficKeys(hsslprovider: NcryptProvHandle, hbasekey: NcryptKeyHandle, hhashvalue: NcryptHashHandle, phclienttraffickey: COpaquePointer?, phservertraffickey: COpaquePointer?, pparameterlist: COpaquePointer?, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_sslExpandTrafficKeys(hsslprovider, hbasekey, hhashvalue, phclienttraffickey?.value?.toCPointer<ByteVar>(), phservertraffickey?.value?.toCPointer<ByteVar>(), pparameterlist?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun SslExpandWriteKey(hsslprovider: NCRYPT_PROV_HANDLE, hbasetraffickey: NCRYPT_KEY_HANDLE, phwritekey: Long, pparameterlist: Long, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_SslExpandWriteKey(hsslprovider, hbasetraffickey, phwritekey.toCPointer<ByteVar>(), pparameterlist.toCPointer<ByteVar>(), dwflags)
+public actual fun sslExpandWriteKey(hsslprovider: NcryptProvHandle, hbasetraffickey: NcryptKeyHandle, phwritekey: COpaquePointer?, pparameterlist: COpaquePointer?, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_sslExpandWriteKey(hsslprovider, hbasetraffickey, phwritekey?.value?.toCPointer<ByteVar>(), pparameterlist?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun SslExportKey(hsslprovider: NCRYPT_PROV_HANDLE, hkey: NCRYPT_KEY_HANDLE, pszblobtype: PCWSTR, pboutput: Long, cboutput: UInt, pcbresult: Long, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_SslExportKey(hsslprovider, hkey, pszblobtype.toCPointer<ByteVar>(), pboutput.toCPointer<ByteVar>(), cboutput, pcbresult.toCPointer<ByteVar>(), dwflags)
+public actual fun sslExportKey(hsslprovider: NcryptProvHandle, hkey: NcryptKeyHandle, pszblobtype: Pcwstr, pboutput: COpaquePointer?, cboutput: UInt, pcbresult: COpaquePointer?, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_sslExportKey(hsslprovider, hkey, pszblobtype?.value?.toCPointer<ByteVar>(), pboutput?.value?.toCPointer<ByteVar>(), cboutput, pcbresult?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun SslExportKeyingMaterial(hsslprovider: NCRYPT_PROV_HANDLE, hmasterkey: NCRYPT_KEY_HANDLE, slabel: PCSTR, pbrandoms: Long, cbrandoms: UInt, pbcontextvalue: Long, cbcontextvalue: UShort, pboutput: Long, cboutput: UInt, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_SslExportKeyingMaterial(hsslprovider, hmasterkey, slabel.toCPointer<ByteVar>(), pbrandoms.toCPointer<ByteVar>(), cbrandoms, pbcontextvalue.toCPointer<ByteVar>(), cbcontextvalue, pboutput.toCPointer<ByteVar>(), cboutput, dwflags)
+public actual fun sslExportKeyingMaterial(hsslprovider: NcryptProvHandle, hmasterkey: NcryptKeyHandle, slabel: Pcstr, pbrandoms: COpaquePointer?, cbrandoms: UInt, pbcontextvalue: COpaquePointer?, cbcontextvalue: UShort, pboutput: COpaquePointer?, cboutput: UInt, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_sslExportKeyingMaterial(hsslprovider, hmasterkey, slabel?.value?.toCPointer<ByteVar>(), pbrandoms?.value?.toCPointer<ByteVar>(), cbrandoms, pbcontextvalue?.value?.toCPointer<ByteVar>(), cbcontextvalue, pboutput?.value?.toCPointer<ByteVar>(), cboutput, dwflags)
 
-public actual fun SslExtractEarlyKey(hsslprovider: NCRYPT_PROV_HANDLE, hpresharedkey: NCRYPT_KEY_HANDLE, phearlykey: Long, dwprotocol: UInt, dwciphersuite: UInt, pparameterlist: Long, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_SslExtractEarlyKey(hsslprovider, hpresharedkey, phearlykey.toCPointer<ByteVar>(), dwprotocol, dwciphersuite, pparameterlist.toCPointer<ByteVar>(), dwflags)
+public actual fun sslExtractEarlyKey(hsslprovider: NcryptProvHandle, hpresharedkey: NcryptKeyHandle, phearlykey: COpaquePointer?, dwprotocol: UInt, dwciphersuite: UInt, pparameterlist: COpaquePointer?, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_sslExtractEarlyKey(hsslprovider, hpresharedkey, phearlykey?.value?.toCPointer<ByteVar>(), dwprotocol, dwciphersuite, pparameterlist?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun SslExtractHandshakeKey(hsslprovider: NCRYPT_PROV_HANDLE, hprivatekey: NCRYPT_KEY_HANDLE, hpublickey: NCRYPT_KEY_HANDLE, hearlykey: NCRYPT_KEY_HANDLE, phhandshakekey: Long, pparameterlist: Long, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_SslExtractHandshakeKey(hsslprovider, hprivatekey, hpublickey, hearlykey, phhandshakekey.toCPointer<ByteVar>(), pparameterlist.toCPointer<ByteVar>(), dwflags)
+public actual fun sslExtractHandshakeKey(hsslprovider: NcryptProvHandle, hprivatekey: NcryptKeyHandle, hpublickey: NcryptKeyHandle, hearlykey: NcryptKeyHandle, phhandshakekey: COpaquePointer?, pparameterlist: COpaquePointer?, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_sslExtractHandshakeKey(hsslprovider, hprivatekey, hpublickey, hearlykey, phhandshakekey?.value?.toCPointer<ByteVar>(), pparameterlist?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun SslExtractMasterKey(hsslprovider: NCRYPT_PROV_HANDLE, hhandshakekey: NCRYPT_KEY_HANDLE, phmasterkey: Long, pparameterlist: Long, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_SslExtractMasterKey(hsslprovider, hhandshakekey, phmasterkey.toCPointer<ByteVar>(), pparameterlist.toCPointer<ByteVar>(), dwflags)
+public actual fun sslExtractMasterKey(hsslprovider: NcryptProvHandle, hhandshakekey: NcryptKeyHandle, phmasterkey: COpaquePointer?, pparameterlist: COpaquePointer?, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_sslExtractMasterKey(hsslprovider, hhandshakekey, phmasterkey?.value?.toCPointer<ByteVar>(), pparameterlist?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun SslFreeBuffer(pvinput: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_SslFreeBuffer(pvinput.toCPointer<ByteVar>())
+public actual fun sslFreeBuffer(pvinput: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_sslFreeBuffer(pvinput?.value?.toCPointer<ByteVar>())
 
-public actual fun SslFreeObject(hobject: NCRYPT_HANDLE, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_SslFreeObject(hobject, dwflags)
+public actual fun sslFreeObject(hobject: NcryptHandle, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_sslFreeObject(hobject, dwflags)
 
-public actual fun SslGenerateMasterKey(hsslprovider: NCRYPT_PROV_HANDLE, hprivatekey: NCRYPT_KEY_HANDLE, hpublickey: NCRYPT_KEY_HANDLE, phmasterkey: Long, dwprotocol: UInt, dwciphersuite: UInt, pparameterlist: Long, pboutput: Long, cboutput: UInt, pcbresult: Long, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_SslGenerateMasterKey(hsslprovider, hprivatekey, hpublickey, phmasterkey.toCPointer<ByteVar>(), dwprotocol, dwciphersuite, pparameterlist.toCPointer<ByteVar>(), pboutput.toCPointer<ByteVar>(), cboutput, pcbresult.toCPointer<ByteVar>(), dwflags)
+public actual fun sslGenerateMasterKey(hsslprovider: NcryptProvHandle, hprivatekey: NcryptKeyHandle, hpublickey: NcryptKeyHandle, phmasterkey: COpaquePointer?, dwprotocol: UInt, dwciphersuite: UInt, pparameterlist: COpaquePointer?, pboutput: COpaquePointer?, cboutput: UInt, pcbresult: COpaquePointer?, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_sslGenerateMasterKey(hsslprovider, hprivatekey, hpublickey, phmasterkey?.value?.toCPointer<ByteVar>(), dwprotocol, dwciphersuite, pparameterlist?.value?.toCPointer<ByteVar>(), pboutput?.value?.toCPointer<ByteVar>(), cboutput, pcbresult?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun SslGeneratePreMasterKey(hsslprovider: NCRYPT_PROV_HANDLE, hpublickey: NCRYPT_KEY_HANDLE, phpremasterkey: Long, dwprotocol: UInt, dwciphersuite: UInt, pparameterlist: Long, pboutput: Long, cboutput: UInt, pcbresult: Long, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_SslGeneratePreMasterKey(hsslprovider, hpublickey, phpremasterkey.toCPointer<ByteVar>(), dwprotocol, dwciphersuite, pparameterlist.toCPointer<ByteVar>(), pboutput.toCPointer<ByteVar>(), cboutput, pcbresult.toCPointer<ByteVar>(), dwflags)
+public actual fun sslGeneratePreMasterKey(hsslprovider: NcryptProvHandle, hpublickey: NcryptKeyHandle, phpremasterkey: COpaquePointer?, dwprotocol: UInt, dwciphersuite: UInt, pparameterlist: COpaquePointer?, pboutput: COpaquePointer?, cboutput: UInt, pcbresult: COpaquePointer?, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_sslGeneratePreMasterKey(hsslprovider, hpublickey, phpremasterkey?.value?.toCPointer<ByteVar>(), dwprotocol, dwciphersuite, pparameterlist?.value?.toCPointer<ByteVar>(), pboutput?.value?.toCPointer<ByteVar>(), cboutput, pcbresult?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun SslGenerateSessionKeys(hsslprovider: NCRYPT_PROV_HANDLE, hmasterkey: NCRYPT_KEY_HANDLE, phreadkey: Long, phwritekey: Long, pparameterlist: Long, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_SslGenerateSessionKeys(hsslprovider, hmasterkey, phreadkey.toCPointer<ByteVar>(), phwritekey.toCPointer<ByteVar>(), pparameterlist.toCPointer<ByteVar>(), dwflags)
+public actual fun sslGenerateSessionKeys(hsslprovider: NcryptProvHandle, hmasterkey: NcryptKeyHandle, phreadkey: COpaquePointer?, phwritekey: COpaquePointer?, pparameterlist: COpaquePointer?, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_sslGenerateSessionKeys(hsslprovider, hmasterkey, phreadkey?.value?.toCPointer<ByteVar>(), phwritekey?.value?.toCPointer<ByteVar>(), pparameterlist?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun SslGetCipherSuitePRFHashAlgorithm(hsslprovider: NCRYPT_PROV_HANDLE, dwprotocol: UInt, dwciphersuite: UInt, dwkeytype: UInt, szprfhash: PWSTR, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_SslGetCipherSuitePRFHashAlgorithm(hsslprovider, dwprotocol, dwciphersuite, dwkeytype, szprfhash.toCPointer<ByteVar>(), dwflags)
+public actual fun sslGetCipherSuitePRFHashAlgorithm(hsslprovider: NcryptProvHandle, dwprotocol: UInt, dwciphersuite: UInt, dwkeytype: UInt, szprfhash: Pwstr, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_sslGetCipherSuitePRFHashAlgorithm(hsslprovider, dwprotocol, dwciphersuite, dwkeytype, szprfhash?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun SslGetKeyProperty(hkey: NCRYPT_KEY_HANDLE, pszproperty: PCWSTR, ppboutput: Long, pcboutput: Long, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_SslGetKeyProperty(hkey, pszproperty.toCPointer<ByteVar>(), ppboutput.toCPointer<ByteVar>(), pcboutput.toCPointer<ByteVar>(), dwflags)
+public actual fun sslGetKeyProperty(hkey: NcryptKeyHandle, pszproperty: Pcwstr, ppboutput: COpaquePointer?, pcboutput: COpaquePointer?, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_sslGetKeyProperty(hkey, pszproperty?.value?.toCPointer<ByteVar>(), ppboutput?.value?.toCPointer<ByteVar>(), pcboutput?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun SslGetProviderProperty(hsslprovider: NCRYPT_PROV_HANDLE, pszproperty: PCWSTR, ppboutput: Long, pcboutput: Long, ppenumstate: Long, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_SslGetProviderProperty(hsslprovider, pszproperty.toCPointer<ByteVar>(), ppboutput.toCPointer<ByteVar>(), pcboutput.toCPointer<ByteVar>(), ppenumstate.toCPointer<ByteVar>(), dwflags)
+public actual fun sslGetProviderProperty(hsslprovider: NcryptProvHandle, pszproperty: Pcwstr, ppboutput: COpaquePointer?, pcboutput: COpaquePointer?, ppenumstate: COpaquePointer?, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_sslGetProviderProperty(hsslprovider, pszproperty?.value?.toCPointer<ByteVar>(), ppboutput?.value?.toCPointer<ByteVar>(), pcboutput?.value?.toCPointer<ByteVar>(), ppenumstate?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun SslHashHandshake(hsslprovider: NCRYPT_PROV_HANDLE, hhandshakehash: NCRYPT_HASH_HANDLE, pbinput: Long, cbinput: UInt, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_SslHashHandshake(hsslprovider, hhandshakehash, pbinput.toCPointer<ByteVar>(), cbinput, dwflags)
+public actual fun sslHashHandshake(hsslprovider: NcryptProvHandle, hhandshakehash: NcryptHashHandle, pbinput: COpaquePointer?, cbinput: UInt, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_sslHashHandshake(hsslprovider, hhandshakehash, pbinput?.value?.toCPointer<ByteVar>(), cbinput, dwflags)
 
-public actual fun SslImportKey(hsslprovider: NCRYPT_PROV_HANDLE, phkey: Long, pszblobtype: PCWSTR, pbkeyblob: Long, cbkeyblob: UInt, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_SslImportKey(hsslprovider, phkey.toCPointer<ByteVar>(), pszblobtype.toCPointer<ByteVar>(), pbkeyblob.toCPointer<ByteVar>(), cbkeyblob, dwflags)
+public actual fun sslImportKey(hsslprovider: NcryptProvHandle, phkey: COpaquePointer?, pszblobtype: Pcwstr, pbkeyblob: COpaquePointer?, cbkeyblob: UInt, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_sslImportKey(hsslprovider, phkey?.value?.toCPointer<ByteVar>(), pszblobtype?.value?.toCPointer<ByteVar>(), pbkeyblob?.value?.toCPointer<ByteVar>(), cbkeyblob, dwflags)
 
-public actual fun SslImportMasterKey(hsslprovider: NCRYPT_PROV_HANDLE, hprivatekey: NCRYPT_KEY_HANDLE, phmasterkey: Long, dwprotocol: UInt, dwciphersuite: UInt, pparameterlist: Long, pbencryptedkey: Long, cbencryptedkey: UInt, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_SslImportMasterKey(hsslprovider, hprivatekey, phmasterkey.toCPointer<ByteVar>(), dwprotocol, dwciphersuite, pparameterlist.toCPointer<ByteVar>(), pbencryptedkey.toCPointer<ByteVar>(), cbencryptedkey, dwflags)
+public actual fun sslImportMasterKey(hsslprovider: NcryptProvHandle, hprivatekey: NcryptKeyHandle, phmasterkey: COpaquePointer?, dwprotocol: UInt, dwciphersuite: UInt, pparameterlist: COpaquePointer?, pbencryptedkey: COpaquePointer?, cbencryptedkey: UInt, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_sslImportMasterKey(hsslprovider, hprivatekey, phmasterkey?.value?.toCPointer<ByteVar>(), dwprotocol, dwciphersuite, pparameterlist?.value?.toCPointer<ByteVar>(), pbencryptedkey?.value?.toCPointer<ByteVar>(), cbencryptedkey, dwflags)
 
-public actual fun SslIncrementProviderReferenceCount(hsslprovider: NCRYPT_PROV_HANDLE): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_SslIncrementProviderReferenceCount(hsslprovider)
+public actual fun sslIncrementProviderReferenceCount(hsslprovider: NcryptProvHandle): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_sslIncrementProviderReferenceCount(hsslprovider)
 
-public actual fun SslLookupCipherLengths(hsslprovider: NCRYPT_PROV_HANDLE, dwprotocol: UInt, dwciphersuite: UInt, dwkeytype: UInt, pcipherlengths: Long, cbcipherlengths: UInt, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_SslLookupCipherLengths(hsslprovider, dwprotocol, dwciphersuite, dwkeytype, pcipherlengths.toCPointer<ByteVar>(), cbcipherlengths, dwflags)
+public actual fun sslLookupCipherLengths(hsslprovider: NcryptProvHandle, dwprotocol: UInt, dwciphersuite: UInt, dwkeytype: UInt, pcipherlengths: COpaquePointer?, cbcipherlengths: UInt, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_sslLookupCipherLengths(hsslprovider, dwprotocol, dwciphersuite, dwkeytype, pcipherlengths?.value?.toCPointer<ByteVar>(), cbcipherlengths, dwflags)
 
-public actual fun SslLookupCipherSuiteInfo(hsslprovider: NCRYPT_PROV_HANDLE, dwprotocol: UInt, dwciphersuite: UInt, dwkeytype: UInt, pciphersuite: Long, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_SslLookupCipherSuiteInfo(hsslprovider, dwprotocol, dwciphersuite, dwkeytype, pciphersuite.toCPointer<ByteVar>(), dwflags)
+public actual fun sslLookupCipherSuiteInfo(hsslprovider: NcryptProvHandle, dwprotocol: UInt, dwciphersuite: UInt, dwkeytype: UInt, pciphersuite: COpaquePointer?, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_sslLookupCipherSuiteInfo(hsslprovider, dwprotocol, dwciphersuite, dwkeytype, pciphersuite?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun SslOpenPrivateKey(hsslprovider: NCRYPT_PROV_HANDLE, phprivatekey: Long, pcertcontext: Long, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_SslOpenPrivateKey(hsslprovider, phprivatekey.toCPointer<ByteVar>(), pcertcontext.toCPointer<ByteVar>(), dwflags)
+public actual fun sslOpenPrivateKey(hsslprovider: NcryptProvHandle, phprivatekey: COpaquePointer?, pcertcontext: COpaquePointer?, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_sslOpenPrivateKey(hsslprovider, phprivatekey?.value?.toCPointer<ByteVar>(), pcertcontext?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun SslOpenProvider(phsslprovider: Long, pszprovidername: PCWSTR, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_SslOpenProvider(phsslprovider.toCPointer<ByteVar>(), pszprovidername.toCPointer<ByteVar>(), dwflags)
+public actual fun sslOpenProvider(phsslprovider: COpaquePointer?, pszprovidername: Pcwstr, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_sslOpenProvider(phsslprovider?.value?.toCPointer<ByteVar>(), pszprovidername?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun SslSignHash(hsslprovider: NCRYPT_PROV_HANDLE, hprivatekey: NCRYPT_KEY_HANDLE, pbhashvalue: Long, cbhashvalue: UInt, pbsignature: Long, cbsignature: UInt, pcbresult: Long, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_SslSignHash(hsslprovider, hprivatekey, pbhashvalue.toCPointer<ByteVar>(), cbhashvalue, pbsignature.toCPointer<ByteVar>(), cbsignature, pcbresult.toCPointer<ByteVar>(), dwflags)
+public actual fun sslSignHash(hsslprovider: NcryptProvHandle, hprivatekey: NcryptKeyHandle, pbhashvalue: COpaquePointer?, cbhashvalue: UInt, pbsignature: COpaquePointer?, cbsignature: UInt, pcbresult: COpaquePointer?, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_sslSignHash(hsslprovider, hprivatekey, pbhashvalue?.value?.toCPointer<ByteVar>(), cbhashvalue, pbsignature?.value?.toCPointer<ByteVar>(), cbsignature, pcbresult?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun SslVerifySignature(hsslprovider: NCRYPT_PROV_HANDLE, hpublickey: NCRYPT_KEY_HANDLE, pbhashvalue: Long, cbhashvalue: UInt, pbsignature: Long, cbsignature: UInt, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_SslVerifySignature(hsslprovider, hpublickey, pbhashvalue.toCPointer<ByteVar>(), cbhashvalue, pbsignature.toCPointer<ByteVar>(), cbsignature, dwflags)
+public actual fun sslVerifySignature(hsslprovider: NcryptProvHandle, hpublickey: NcryptKeyHandle, pbhashvalue: COpaquePointer?, cbhashvalue: UInt, pbsignature: COpaquePointer?, cbsignature: UInt, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_sslVerifySignature(hsslprovider, hpublickey, pbhashvalue?.value?.toCPointer<ByteVar>(), cbhashvalue, pbsignature?.value?.toCPointer<ByteVar>(), cbsignature, dwflags)
 
-public actual fun SystemPrng(pbrandomdata: Long, cbrandomdata: ULong): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_SystemPrng(pbrandomdata.toCPointer<ByteVar>(), cbrandomdata)
+public actual fun systemPrng(pbrandomdata: COpaquePointer?, cbrandomdata: ULong): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_systemPrng(pbrandomdata?.value?.toCPointer<ByteVar>(), cbrandomdata)
 
-public actual fun TransformBlock(hcrypto: Long, cbindata: UInt, pindata: Long, pcboutdata: Long, ppoutdata: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_TransformBlock(hcrypto.toCPointer<ByteVar>(), cbindata, pindata.toCPointer<ByteVar>(), pcboutdata.toCPointer<ByteVar>(), ppoutdata.toCPointer<ByteVar>())
+public actual fun transformBlock(hcrypto: COpaquePointer?, cbindata: UInt, pindata: COpaquePointer?, pcboutdata: COpaquePointer?, ppoutdata: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_transformBlock(hcrypto?.value?.toCPointer<ByteVar>(), cbindata, pindata?.value?.toCPointer<ByteVar>(), pcboutdata?.value?.toCPointer<ByteVar>(), ppoutdata?.value?.toCPointer<ByteVar>())
 
-public actual fun TransformFinalBlock(hcrypto: Long, cbindata: UInt, pindata: Long, pcboutdata: Long, ppoutdata: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_TransformFinalBlock(hcrypto.toCPointer<ByteVar>(), cbindata, pindata.toCPointer<ByteVar>(), pcboutdata.toCPointer<ByteVar>(), ppoutdata.toCPointer<ByteVar>())
+public actual fun transformFinalBlock(hcrypto: COpaquePointer?, cbindata: UInt, pindata: COpaquePointer?, pcboutdata: COpaquePointer?, ppoutdata: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_transformFinalBlock(hcrypto?.value?.toCPointer<ByteVar>(), cbindata, pindata?.value?.toCPointer<ByteVar>(), pcboutdata?.value?.toCPointer<ByteVar>(), ppoutdata?.value?.toCPointer<ByteVar>())
 
-public actual fun VerifyHash(hcrypto: Long, cbhash: UInt, phash: Long, hashalgoid: PCWSTR, cbsig: UInt, psig: Long, pfverified: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_VerifyHash(hcrypto.toCPointer<ByteVar>(), cbhash, phash.toCPointer<ByteVar>(), hashalgoid.toCPointer<ByteVar>(), cbsig, psig.toCPointer<ByteVar>(), pfverified.toCPointer<ByteVar>())
+public actual fun verifyHash(hcrypto: COpaquePointer?, cbhash: UInt, phash: COpaquePointer?, hashalgoid: Pcwstr, cbsig: UInt, psig: COpaquePointer?, pfverified: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cinterop.windowssys_windows_win32_security_cryptography_verifyHash(hcrypto?.value?.toCPointer<ByteVar>(), cbhash, phash?.value?.toCPointer<ByteVar>(), hashalgoid?.value?.toCPointer<ByteVar>(), cbsig, psig?.value?.toCPointer<ByteVar>(), pfverified?.value?.toCPointer<ByteVar>())

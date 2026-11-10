@@ -18,7 +18,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_touch_WindowsWin32UiInputTouchJniBridge_windowssys_1windows_1win32_1ui_1input_1touch_1CloseGestureInfoHandle(JNIEnv* km_env, jclass km_clazz, jlong hgestureinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_touch_WindowsWin32UiInputTouchJniBridge_windowssys_1windows_1win32_1ui_1input_1touch_1closeGestureInfoHandle(JNIEnv* km_env, jclass km_clazz, jlong hgestureinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -36,7 +36,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_touch_WindowsWin32UiInputTouchJniBridge_windowssys_1windows_1win32_1ui_1input_1touch_1CloseTouchInputHandle(JNIEnv* km_env, jclass km_clazz, jlong htouchinput) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_touch_WindowsWin32UiInputTouchJniBridge_windowssys_1windows_1win32_1ui_1input_1touch_1closeTouchInputHandle(JNIEnv* km_env, jclass km_clazz, jlong htouchinput) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -54,7 +54,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_touch_WindowsWin32UiInputTouchJniBridge_windowssys_1windows_1win32_1ui_1input_1touch_1GetGestureConfig(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint dwreserved, jint dwflags, jlong pcids, jlong pgestureconfig, jint cbsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_touch_WindowsWin32UiInputTouchJniBridge_windowssys_1windows_1win32_1ui_1input_1touch_1getGestureConfig(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint dwreserved, jint dwflags, jlong pcids, jlong pgestureconfig, jint cbsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -77,7 +77,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_touch_WindowsWin32UiInputTouchJniBridge_windowssys_1windows_1win32_1ui_1input_1touch_1GetGestureExtraArgs(JNIEnv* km_env, jclass km_clazz, jlong hgestureinfo, jint cbextraargs, jlong pextraargs) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_touch_WindowsWin32UiInputTouchJniBridge_windowssys_1windows_1win32_1ui_1input_1touch_1getGestureExtraArgs(JNIEnv* km_env, jclass km_clazz, jlong hgestureinfo, jint cbextraargs, jlong pextraargs) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -97,7 +97,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_touch_WindowsWin32UiInputTouchJniBridge_windowssys_1windows_1win32_1ui_1input_1touch_1GetGestureInfo(JNIEnv* km_env, jclass km_clazz, jlong hgestureinfo, jlong pgestureinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_touch_WindowsWin32UiInputTouchJniBridge_windowssys_1windows_1win32_1ui_1input_1touch_1getGestureInfo(JNIEnv* km_env, jclass km_clazz, jlong hgestureinfo, jlong pgestureinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -116,7 +116,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_touch_WindowsWin32UiInputTouchJniBridge_windowssys_1windows_1win32_1ui_1input_1touch_1GetTouchInputInfo(JNIEnv* km_env, jclass km_clazz, jlong htouchinput, jint cinputs, jlong pinputs, jint cbsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_touch_WindowsWin32UiInputTouchJniBridge_windowssys_1windows_1win32_1ui_1input_1touch_1getTouchInputInfo(JNIEnv* km_env, jclass km_clazz, jlong htouchinput, jint cinputs, jlong pinputs, jint cbsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -137,7 +137,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_touch_WindowsWin32UiInputTouchJniBridge_windowssys_1windows_1win32_1ui_1input_1touch_1IsTouchWindow(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong pulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_touch_WindowsWin32UiInputTouchJniBridge_windowssys_1windows_1win32_1ui_1input_1touch_1isTouchWindow(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong pulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -156,7 +156,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_touch_WindowsWin32UiInputTouchJniBridge_windowssys_1windows_1win32_1ui_1input_1touch_1RegisterTouchWindow(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_touch_WindowsWin32UiInputTouchJniBridge_windowssys_1windows_1win32_1ui_1input_1touch_1registerTouchWindow(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -175,7 +175,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_touch_WindowsWin32UiInputTouchJniBridge_windowssys_1windows_1win32_1ui_1input_1touch_1SetGestureConfig(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint dwreserved, jint cids, jlong pgestureconfig, jint cbsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_touch_WindowsWin32UiInputTouchJniBridge_windowssys_1windows_1win32_1ui_1input_1touch_1setGestureConfig(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint dwreserved, jint cids, jlong pgestureconfig, jint cbsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -197,7 +197,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_touch_WindowsWin32UiInputTouchJniBridge_windowssys_1windows_1win32_1ui_1input_1touch_1UnregisterTouchWindow(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_touch_WindowsWin32UiInputTouchJniBridge_windowssys_1windows_1win32_1ui_1input_1touch_1unregisterTouchWindow(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

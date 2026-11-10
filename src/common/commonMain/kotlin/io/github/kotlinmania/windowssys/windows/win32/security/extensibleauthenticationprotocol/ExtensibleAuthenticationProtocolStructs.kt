@@ -1,180 +1,181 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.security.extensibleauthenticationprotocol
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.NCRYPT_KEY_HANDLE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.NcryptKeyHandle
 
-public data class EAPHOST_AUTH_INFO(
-    public var status: EAPHOST_AUTH_STATUS = 0,
+public data class EaphostAuthInfo(
+    public var status: EaphostAuthStatus = 0,
     public var dwErrorCode: UInt = 0u,
     public var dwReasonCode: UInt = 0u,
 )
 
-public data class EAPHOST_IDENTITY_UI_PARAMS(
-    public var eapMethodType: EAP_METHOD_TYPE = EAP_METHOD_TYPE(),
+public data class EaphostIdentityUiParams(
+    public var eapMethodType: EapMethodType = EapMethodType(),
     public var dwFlags: UInt = 0u,
     public var dwSizeofConnectionData: UInt = 0u,
-    public var pConnectionData: Long = 0L,
+    public var pConnectionData: COpaquePointer? = null,
     public var dwSizeofUserData: UInt = 0u,
-    public var pUserData: Long = 0L,
+    public var pUserData: COpaquePointer? = null,
     public var dwSizeofUserDataOut: UInt = 0u,
-    public var pUserDataOut: Long = 0L,
-    public var pwszIdentity: PWSTR = 0L,
+    public var pUserDataOut: COpaquePointer? = null,
+    public var pwszIdentity: Pwstr = null,
     public var dwError: UInt = 0u,
-    public var pEapError: Long = 0L,
+    public var pEapError: EapError? = null,
 )
 
-public data class EAPHOST_INTERACTIVE_UI_PARAMS(
+public data class EaphostInteractiveUiParams(
     public var dwSizeofContextData: UInt = 0u,
-    public var pContextData: Long = 0L,
+    public var pContextData: COpaquePointer? = null,
     public var dwSizeofInteractiveUIData: UInt = 0u,
-    public var pInteractiveUIData: Long = 0L,
+    public var pInteractiveUIData: COpaquePointer? = null,
     public var dwError: UInt = 0u,
-    public var pEapError: Long = 0L,
+    public var pEapError: EapError? = null,
 )
 
-public data class EAP_ATTRIBUTE(
-    public var eaType: EAP_ATTRIBUTE_TYPE = 0,
+public data class EapAttribute(
+    public var eaType: EapAttributeType = 0,
     public var dwLength: UInt = 0u,
-    public var pValue: Long = 0L,
+    public var pValue: COpaquePointer? = null,
 )
 
-public data class EAP_ATTRIBUTES(public var dwNumberOfAttributes: UInt = 0u, public var pAttribs: Long = 0L)
+public data class EapAttributes(public var dwNumberOfAttributes: UInt = 0u, public var pAttribs: EapAttribute? = null)
 
-public data class EAP_AUTHENTICATOR_METHOD_ROUTINES(
+public data class EapAuthenticatorMethodRoutines(
     public var dwSizeInBytes: UInt = 0u,
-    public var pEapType: Long = 0L,
-    public var EapMethodAuthenticatorInitialize: Long = 0L,
-    public var EapMethodAuthenticatorBeginSession: Long = 0L,
-    public var EapMethodAuthenticatorUpdateInnerMethodParams: Long = 0L,
-    public var EapMethodAuthenticatorReceivePacket: Long = 0L,
-    public var EapMethodAuthenticatorSendPacket: Long = 0L,
-    public var EapMethodAuthenticatorGetAttributes: Long = 0L,
-    public var EapMethodAuthenticatorSetAttributes: Long = 0L,
-    public var EapMethodAuthenticatorGetResult: Long = 0L,
-    public var EapMethodAuthenticatorEndSession: Long = 0L,
-    public var EapMethodAuthenticatorShutdown: Long = 0L,
+    public var pEapType: EapMethodType? = null,
+    public var eapMethodAuthenticatorInitialize: Int = 0,
+    public var eapMethodAuthenticatorBeginSession: Int = 0,
+    public var eapMethodAuthenticatorUpdateInnerMethodParams: Int = 0,
+    public var eapMethodAuthenticatorReceivePacket: Int = 0,
+    public var eapMethodAuthenticatorSendPacket: Int = 0,
+    public var eapMethodAuthenticatorGetAttributes: Int = 0,
+    public var eapMethodAuthenticatorSetAttributes: Int = 0,
+    public var eapMethodAuthenticatorGetResult: Int = 0,
+    public var eapMethodAuthenticatorEndSession: Int = 0,
+    public var eapMethodAuthenticatorShutdown: Int = 0,
 )
 
-public data class EAP_CONFIG_INPUT_FIELD_ARRAY(
+public data class EapConfigInputFieldArray(
     public var dwVersion: UInt = 0u,
     public var dwNumberOfFields: UInt = 0u,
-    public var pFields: Long = 0L,
+    public var pFields: EapConfigInputFieldData? = null,
 )
 
-public data class EAP_CONFIG_INPUT_FIELD_DATA(
+public data class EapConfigInputFieldData(
     public var dwSize: UInt = 0u,
-    public var Type: EAP_CONFIG_INPUT_FIELD_TYPE = 0,
+    public var type: EapConfigInputFieldType = 0,
     public var dwFlagProps: UInt = 0u,
-    public var pwszLabel: PWSTR = 0L,
-    public var pwszData: PWSTR = 0L,
+    public var pwszLabel: Pwstr = null,
+    public var pwszData: Pwstr = null,
     public var dwMinDataLength: UInt = 0u,
     public var dwMaxDataLength: UInt = 0u,
 )
 
-public data class EAP_CRED_EXPIRY_REQ(public var curCreds: EAP_CONFIG_INPUT_FIELD_ARRAY = EAP_CONFIG_INPUT_FIELD_ARRAY(), public var newCreds: EAP_CONFIG_INPUT_FIELD_ARRAY = EAP_CONFIG_INPUT_FIELD_ARRAY())
+public data class EapCredExpiryReq(public var curCreds: EapConfigInputFieldArray = EapConfigInputFieldArray(), public var newCreds: EapConfigInputFieldArray = EapConfigInputFieldArray())
 
-public data class EAP_ERROR(
+public data class EapError(
     public var dwWinError: UInt = 0u,
-    public var type: EAP_METHOD_TYPE = EAP_METHOD_TYPE(),
+    public var type: EapMethodType = EapMethodType(),
     public var dwReasonCode: UInt = 0u,
-    public var rootCauseGuid: GUID = GUID(),
-    public var repairGuid: GUID = GUID(),
-    public var helpLinkGuid: GUID = GUID(),
-    public var pRootCauseString: PWSTR = 0L,
-    public var pRepairString: PWSTR = 0L,
+    public var rootCauseGuid: Guid = Guid(),
+    public var repairGuid: Guid = Guid(),
+    public var helpLinkGuid: Guid = Guid(),
+    public var pRootCauseString: Pwstr = null,
+    public var pRepairString: Pwstr = null,
 )
 
-public data class EAP_INTERACTIVE_UI_DATA(
+public data class EapInteractiveUiData(
     public var dwVersion: UInt = 0u,
     public var dwSize: UInt = 0u,
-    public var dwDataType: EAP_INTERACTIVE_UI_DATA_TYPE = 0,
+    public var dwDataType: EapInteractiveUiDataType = 0,
     public var cbUiData: UInt = 0u,
-    public var pbUiData: EAP_UI_DATA_FORMAT = EAP_UI_DATA_FORMAT(),
+    public var pbUiData: EapUiDataFormat = EapUiDataFormat(),
 )
 
-public data class EAP_METHOD_AUTHENTICATOR_RESULT(
-    public var fIsSuccess: BOOL = 0,
+public data class EapMethodAuthenticatorResult(
+    public var fIsSuccess: Bool = 0,
     public var dwFailureReason: UInt = 0u,
-    public var pAuthAttribs: Long = 0L,
+    public var pAuthAttribs: EapAttributes? = null,
 )
 
-public data class EAP_METHOD_INFO(
-    public var eaptype: EAP_METHOD_TYPE = EAP_METHOD_TYPE(),
-    public var pwszAuthorName: PWSTR = 0L,
-    public var pwszFriendlyName: PWSTR = 0L,
+public data class EapMethodInfo(
+    public var eaptype: EapMethodType = EapMethodType(),
+    public var pwszAuthorName: Pwstr = null,
+    public var pwszFriendlyName: Pwstr = null,
     public var eapProperties: UInt = 0u,
-    public var pInnerMethodInfo: Long = 0L,
+    public var pInnerMethodInfo: EapMethodInfo? = null,
 )
 
-public data class EAP_METHOD_INFO_ARRAY(public var dwNumberOfMethods: UInt = 0u, public var pEapMethods: Long = 0L)
+public data class EapMethodInfoArray(public var dwNumberOfMethods: UInt = 0u, public var pEapMethods: EapMethodInfo? = null)
 
-public data class EAP_METHOD_INFO_ARRAY_EX(public var dwNumberOfMethods: UInt = 0u, public var pEapMethods: Long = 0L)
+public data class EapMethodInfoArrayEx(public var dwNumberOfMethods: UInt = 0u, public var pEapMethods: EapMethodInfoEx? = null)
 
-public data class EAP_METHOD_INFO_EX(
-    public var eaptype: EAP_METHOD_TYPE = EAP_METHOD_TYPE(),
-    public var pwszAuthorName: PWSTR = 0L,
-    public var pwszFriendlyName: PWSTR = 0L,
+public data class EapMethodInfoEx(
+    public var eaptype: EapMethodType = EapMethodType(),
+    public var pwszAuthorName: Pwstr = null,
+    public var pwszFriendlyName: Pwstr = null,
     public var eapProperties: UInt = 0u,
-    public var pInnerMethodInfoArray: Long = 0L,
+    public var pInnerMethodInfoArray: EapMethodInfoArrayEx? = null,
 )
 
-public data class EAP_METHOD_PROPERTY(
-    public var eapMethodPropertyType: EAP_METHOD_PROPERTY_TYPE = 0,
-    public var eapMethodPropertyValueType: EAP_METHOD_PROPERTY_VALUE_TYPE = 0,
-    public var eapMethodPropertyValue: EAP_METHOD_PROPERTY_VALUE = EAP_METHOD_PROPERTY_VALUE(),
+public data class EapMethodProperty(
+    public var eapMethodPropertyType: EapMethodPropertyType = 0,
+    public var eapMethodPropertyValueType: EapMethodPropertyValueType = 0,
+    public var eapMethodPropertyValue: EapMethodPropertyValue = EapMethodPropertyValue(),
 )
 
-public data class EAP_METHOD_PROPERTY_ARRAY(public var dwNumberOfProperties: UInt = 0u, public var pMethodProperty: Long = 0L)
+public data class EapMethodPropertyArray(public var dwNumberOfProperties: UInt = 0u, public var pMethodProperty: EapMethodProperty? = null)
 
-public data class EAP_METHOD_PROPERTY_VALUE(
-    public var empvBool: EAP_METHOD_PROPERTY_VALUE_BOOL = EAP_METHOD_PROPERTY_VALUE_BOOL(),
-    public var empvDword: EAP_METHOD_PROPERTY_VALUE_DWORD = EAP_METHOD_PROPERTY_VALUE_DWORD(),
-    public var empvString: EAP_METHOD_PROPERTY_VALUE_STRING = EAP_METHOD_PROPERTY_VALUE_STRING(),
+public data class EapMethodPropertyValue(
+    public var empvBool: EapMethodPropertyValueBool = EapMethodPropertyValueBool(),
+    public var empvDword: EapMethodPropertyValueDword = EapMethodPropertyValueDword(),
+    public var empvString: EapMethodPropertyValueString = EapMethodPropertyValueString(),
 )
 
-public data class EAP_METHOD_PROPERTY_VALUE_BOOL(public var length: UInt = 0u, public var value: BOOL = 0)
+public data class EapMethodPropertyValueBool(public var length: UInt = 0u, public var value: Bool = 0)
 
-public data class EAP_METHOD_PROPERTY_VALUE_DWORD(public var length: UInt = 0u, public var value: UInt = 0u)
+public data class EapMethodPropertyValueDword(public var length: UInt = 0u, public var value: UInt = 0u)
 
-public data class EAP_METHOD_PROPERTY_VALUE_STRING(public var length: UInt = 0u, public var value: Long = 0L)
+public data class EapMethodPropertyValueString(public var length: UInt = 0u, public var value: COpaquePointer? = null)
 
-public data class EAP_METHOD_TYPE(public var eapType: EAP_TYPE = EAP_TYPE(), public var dwAuthorId: UInt = 0u)
+public data class EapMethodType(public var eapType: EapType = EapType(), public var dwAuthorId: UInt = 0u)
 
-public data class EAP_PEER_METHOD_ROUTINES(
+public data class EapPeerMethodRoutines(
     public var dwVersion: UInt = 0u,
-    public var pEapType: Long = 0L,
-    public var EapPeerInitialize: Long = 0L,
-    public var EapPeerGetIdentity: Long = 0L,
-    public var EapPeerBeginSession: Long = 0L,
-    public var EapPeerSetCredentials: Long = 0L,
-    public var EapPeerProcessRequestPacket: Long = 0L,
-    public var EapPeerGetResponsePacket: Long = 0L,
-    public var EapPeerGetResult: Long = 0L,
-    public var EapPeerGetUIContext: Long = 0L,
-    public var EapPeerSetUIContext: Long = 0L,
-    public var EapPeerGetResponseAttributes: Long = 0L,
-    public var EapPeerSetResponseAttributes: Long = 0L,
-    public var EapPeerEndSession: Long = 0L,
-    public var EapPeerShutdown: Long = 0L,
+    public var pEapType: EapType? = null,
+    public var eapPeerInitialize: Int = 0,
+    public var eapPeerGetIdentity: Int = 0,
+    public var eapPeerBeginSession: Int = 0,
+    public var eapPeerSetCredentials: Int = 0,
+    public var eapPeerProcessRequestPacket: Int = 0,
+    public var eapPeerGetResponsePacket: Int = 0,
+    public var eapPeerGetResult: Int = 0,
+    public var eapPeerGetUIContext: Int = 0,
+    public var eapPeerSetUIContext: Int = 0,
+    public var eapPeerGetResponseAttributes: Int = 0,
+    public var eapPeerSetResponseAttributes: Int = 0,
+    public var eapPeerEndSession: Int = 0,
+    public var eapPeerShutdown: Int = 0,
 )
 
-public data class EAP_TYPE(
+public data class EapType(
     public var type: UByte = 0u,
     public var dwVendorId: UInt = 0u,
     public var dwVendorType: UInt = 0u,
 )
 
-public data class EAP_UI_DATA_FORMAT(
-    public var credData: Long = 0L,
-    public var credExpiryData: Long = 0L,
-    public var credLogonData: Long = 0L,
+public data class EapUiDataFormat(
+    public var credData: EapConfigInputFieldArray? = null,
+    public var credExpiryData: EapCredExpiryReq? = null,
+    public var credLogonData: EapConfigInputFieldArray? = null,
 )
 
-public data class EapCertificateCredential(public var certHash: UByteArray = UByteArray(20), public var password: PWSTR = 0L) {
+public data class EapCertificateCredential(public var certHash: UByteArray = UByteArray(20), public var password: Pwstr = null) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is EapCertificateCredential) return false
@@ -193,98 +194,98 @@ public data class EapCertificateCredential(public var certHash: UByteArray = UBy
 public data class EapCredential(public var credType: EapCredentialType = 0, public var credData: EapCredentialTypeData = EapCredentialTypeData())
 
 public data class EapCredentialTypeData(
-    public var username_password: EapUsernamePasswordCredential = EapUsernamePasswordCredential(),
+    public var usernamePassword: EapUsernamePasswordCredential = EapUsernamePasswordCredential(),
     public var certificate: EapCertificateCredential = EapCertificateCredential(),
     public var sim: EapSimCredential = EapSimCredential(),
 )
 
 public data class EapHostPeerMethodResult(
-    public var fIsSuccess: BOOL = 0,
+    public var fIsSuccess: Bool = 0,
     public var dwFailureReasonCode: UInt = 0u,
-    public var fSaveConnectionData: BOOL = 0,
+    public var fSaveConnectionData: Bool = 0,
     public var dwSizeofConnectionData: UInt = 0u,
-    public var pConnectionData: Long = 0L,
-    public var fSaveUserData: BOOL = 0,
+    public var pConnectionData: COpaquePointer? = null,
+    public var fSaveUserData: Bool = 0,
     public var dwSizeofUserData: UInt = 0u,
-    public var pUserData: Long = 0L,
-    public var pAttribArray: Long = 0L,
-    public var isolationState: ISOLATION_STATE = 0,
-    public var pEapMethodInfo: Long = 0L,
-    public var pEapError: Long = 0L,
+    public var pUserData: COpaquePointer? = null,
+    public var pAttribArray: EapAttributes? = null,
+    public var isolationState: IsolationState = 0,
+    public var pEapMethodInfo: EapMethodInfo? = null,
+    public var pEapError: EapError? = null,
 )
 
 public data class EapPacket(
-    public var Code: UByte = 0u,
-    public var Id: UByte = 0u,
-    public var Length: UByteArray = UByteArray(2),
-    public var Data: UByteArray = UByteArray(1),
+    public var code: UByte = 0u,
+    public var id: UByte = 0u,
+    public var length: UByteArray = UByteArray(2),
+    public var data: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is EapPacket) return false
-        if (this.Code != other.Code) return false
-        if (this.Id != other.Id) return false
-        if (!this.Length.contentEquals(other.Length)) return false
-        if (!this.Data.contentEquals(other.Data)) return false
+        if (this.code != other.code) return false
+        if (this.id != other.id) return false
+        if (!this.length.contentEquals(other.length)) return false
+        if (!this.data.contentEquals(other.data)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Code.hashCode()
-        result = 31 * result + this.Id.hashCode()
-        result = 31 * result + this.Length.contentHashCode()
-        result = 31 * result + this.Data.contentHashCode()
+        var result = this.code.hashCode()
+        result = 31 * result + this.id.hashCode()
+        result = 31 * result + this.length.contentHashCode()
+        result = 31 * result + this.data.contentHashCode()
         return result
     }
 }
 
-public data class EapPeerMethodOutput(public var action: EapPeerMethodResponseAction = 0, public var fAllowNotifications: BOOL = 0)
+public data class EapPeerMethodOutput(public var action: EapPeerMethodResponseAction = 0, public var fAllowNotifications: Bool = 0)
 
 public data class EapPeerMethodResult(
-    public var fIsSuccess: BOOL = 0,
+    public var fIsSuccess: Bool = 0,
     public var dwFailureReasonCode: UInt = 0u,
-    public var fSaveConnectionData: BOOL = 0,
+    public var fSaveConnectionData: Bool = 0,
     public var dwSizeofConnectionData: UInt = 0u,
-    public var pConnectionData: Long = 0L,
-    public var fSaveUserData: BOOL = 0,
+    public var pConnectionData: COpaquePointer? = null,
+    public var fSaveUserData: Bool = 0,
     public var dwSizeofUserData: UInt = 0u,
-    public var pUserData: Long = 0L,
-    public var pAttribArray: Long = 0L,
-    public var pEapError: Long = 0L,
-    public var pNgcKerbTicket: Long = 0L,
-    public var fSaveToCredMan: BOOL = 0,
+    public var pUserData: COpaquePointer? = null,
+    public var pAttribArray: EapAttributes? = null,
+    public var pEapError: EapError? = null,
+    public var pNgcKerbTicket: NgcTicketContext? = null,
+    public var fSaveToCredMan: Bool = 0,
 )
 
-public data class EapSimCredential(public var iccID: PWSTR = 0L)
+public data class EapSimCredential(public var iccID: Pwstr = null)
 
-public data class EapUsernamePasswordCredential(public var username: PWSTR = 0L, public var password: PWSTR = 0L)
+public data class EapUsernamePasswordCredential(public var username: Pwstr = null, public var password: Pwstr = null)
 
-public data class LEGACY_IDENTITY_UI_PARAMS(
+public data class LegacyIdentityUiParams(
     public var eapType: UInt = 0u,
     public var dwFlags: UInt = 0u,
     public var dwSizeofConnectionData: UInt = 0u,
-    public var pConnectionData: Long = 0L,
+    public var pConnectionData: COpaquePointer? = null,
     public var dwSizeofUserData: UInt = 0u,
-    public var pUserData: Long = 0L,
+    public var pUserData: COpaquePointer? = null,
     public var dwSizeofUserDataOut: UInt = 0u,
-    public var pUserDataOut: Long = 0L,
-    public var pwszIdentity: PWSTR = 0L,
+    public var pUserDataOut: COpaquePointer? = null,
+    public var pwszIdentity: Pwstr = null,
     public var dwError: UInt = 0u,
 )
 
-public data class LEGACY_INTERACTIVE_UI_PARAMS(
+public data class LegacyInteractiveUiParams(
     public var eapType: UInt = 0u,
     public var dwSizeofContextData: UInt = 0u,
-    public var pContextData: Long = 0L,
+    public var pContextData: COpaquePointer? = null,
     public var dwSizeofInteractiveUIData: UInt = 0u,
-    public var pInteractiveUIData: Long = 0L,
+    public var pInteractiveUIData: COpaquePointer? = null,
     public var dwError: UInt = 0u,
 )
 
 public data class NgcTicketContext(
     public var wszTicket: UShortArray = UShortArray(45),
-    public var hKey: NCRYPT_KEY_HANDLE = 0uL,
-    public var hImpersonateToken: HANDLE = 0L,
+    public var hKey: NcryptKeyHandle = 0uL,
+    public var hImpersonateToken: Handle = null,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -303,84 +304,84 @@ public data class NgcTicketContext(
     }
 }
 
-public data class PPP_EAP_INFO(
+public data class PppEapInfo(
     public var dwSizeInBytes: UInt = 0u,
     public var dwEapTypeId: UInt = 0u,
-    public var RasEapInitialize: Long = 0L,
-    public var RasEapBegin: Long = 0L,
-    public var RasEapEnd: Long = 0L,
-    public var RasEapMakeMessage: Long = 0L,
+    public var rasEapInitialize: Int = 0,
+    public var rasEapBegin: Int = 0,
+    public var rasEapEnd: Int = 0,
+    public var rasEapMakeMessage: Int = 0,
 )
 
-public class PPP_EAP_INPUT(
+public class PppEapInput(
     public var dwSizeInBytes: UInt = 0u,
     public var fFlags: UInt = 0u,
-    public var fAuthenticator: BOOL = 0,
-    public var pwszIdentity: PWSTR = 0L,
-    public var pwszPassword: PWSTR = 0L,
+    public var fAuthenticator: Bool = 0,
+    public var pwszIdentity: Pwstr = null,
+    public var pwszPassword: Pwstr = null,
     public var bInitialId: UByte = 0u,
-    public var pUserAttributes: Long = 0L,
-    public var fAuthenticationComplete: BOOL = 0,
+    public var pUserAttributes: RasAuthAttribute? = null,
+    public var fAuthenticationComplete: Bool = 0,
     public var dwAuthResultCode: UInt = 0u,
-    public var hTokenImpersonateUser: HANDLE = 0L,
-    public var fSuccessPacketReceived: BOOL = 0,
-    public var fDataReceivedFromInteractiveUI: BOOL = 0,
-    public var pDataFromInteractiveUI: Long = 0L,
+    public var hTokenImpersonateUser: Handle = null,
+    public var fSuccessPacketReceived: Bool = 0,
+    public var fDataReceivedFromInteractiveUI: Bool = 0,
+    public var pDataFromInteractiveUI: COpaquePointer? = null,
     public var dwSizeOfDataFromInteractiveUI: UInt = 0u,
-    public var pConnectionData: Long = 0L,
+    public var pConnectionData: COpaquePointer? = null,
     public var dwSizeOfConnectionData: UInt = 0u,
-    public var pUserData: Long = 0L,
+    public var pUserData: COpaquePointer? = null,
     public var dwSizeOfUserData: UInt = 0u,
-    public var hReserved: HANDLE = 0L,
-    public var guidConnectionId: GUID = GUID(),
-    public var isVpn: BOOL = 0,
+    public var hReserved: Handle = null,
+    public var guidConnectionId: Guid = Guid(),
+    public var isVpn: Bool = 0,
 )
 
-public data class PPP_EAP_OUTPUT(
+public data class PppEapOutput(
     public var dwSizeInBytes: UInt = 0u,
-    public var Action: PPP_EAP_ACTION = 0,
+    public var action: PppEapAction = 0,
     public var dwAuthResultCode: UInt = 0u,
-    public var pUserAttributes: Long = 0L,
-    public var fInvokeInteractiveUI: BOOL = 0,
-    public var pUIContextData: Long = 0L,
+    public var pUserAttributes: RasAuthAttribute? = null,
+    public var fInvokeInteractiveUI: Bool = 0,
+    public var pUIContextData: COpaquePointer? = null,
     public var dwSizeOfUIContextData: UInt = 0u,
-    public var fSaveConnectionData: BOOL = 0,
-    public var pConnectionData: Long = 0L,
+    public var fSaveConnectionData: Bool = 0,
+    public var pConnectionData: COpaquePointer? = null,
     public var dwSizeOfConnectionData: UInt = 0u,
-    public var fSaveUserData: BOOL = 0,
-    public var pUserData: Long = 0L,
+    public var fSaveUserData: Bool = 0,
+    public var pUserData: COpaquePointer? = null,
     public var dwSizeOfUserData: UInt = 0u,
-    public var pNgcKerbTicket: Long = 0L,
-    public var fSaveToCredMan: BOOL = 0,
+    public var pNgcKerbTicket: NgcTicketContext? = null,
+    public var fSaveToCredMan: Bool = 0,
 )
 
-public data class PPP_EAP_PACKET(
-    public var Code: UByte = 0u,
-    public var Id: UByte = 0u,
-    public var Length: UByteArray = UByteArray(2),
-    public var Data: UByteArray = UByteArray(1),
+public data class PppEapPacket(
+    public var code: UByte = 0u,
+    public var id: UByte = 0u,
+    public var length: UByteArray = UByteArray(2),
+    public var data: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is PPP_EAP_PACKET) return false
-        if (this.Code != other.Code) return false
-        if (this.Id != other.Id) return false
-        if (!this.Length.contentEquals(other.Length)) return false
-        if (!this.Data.contentEquals(other.Data)) return false
+        if (other !is PppEapPacket) return false
+        if (this.code != other.code) return false
+        if (this.id != other.id) return false
+        if (!this.length.contentEquals(other.length)) return false
+        if (!this.data.contentEquals(other.data)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Code.hashCode()
-        result = 31 * result + this.Id.hashCode()
-        result = 31 * result + this.Length.contentHashCode()
-        result = 31 * result + this.Data.contentHashCode()
+        var result = this.code.hashCode()
+        result = 31 * result + this.id.hashCode()
+        result = 31 * result + this.length.contentHashCode()
+        result = 31 * result + this.data.contentHashCode()
         return result
     }
 }
 
-public data class RAS_AUTH_ATTRIBUTE(
-    public var raaType: RAS_AUTH_ATTRIBUTE_TYPE = 0,
+public data class RasAuthAttribute(
+    public var raaType: RasAuthAttributeType = 0,
     public var dwLength: UInt = 0u,
-    public var Value: Long = 0L,
+    public var value: COpaquePointer? = null,
 )

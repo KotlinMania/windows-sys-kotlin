@@ -1,7 +1,7 @@
 package io.github.kotlinmania.windowssys.windows.win32.devices.properties
 
-public typealias DEVPROPSTORE = Int
+public typealias Devpropstore = Int
 
-public typealias DEVPROPTYPE = UInt
+public typealias Devproptype = UInt
 
-public typealias DEVPROP_BOOLEAN = UByte
+public typealias DevpropBoolean = UByte

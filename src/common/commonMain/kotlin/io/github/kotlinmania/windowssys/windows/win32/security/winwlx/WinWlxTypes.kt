@@ -1,178 +1,179 @@
 package io.github.kotlinmania.windowssys.windows.win32.security.winwlx
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
-import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.DLGPROC
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Dlgproc
 
-public fun interface PFNMSGECALLBACKFn {
-    public operator fun invoke(bverbose: BOOL, lpmessage: PCWSTR): UInt
+public fun interface PfnmsgecallbackFn {
+    public operator fun invoke(bverbose: Bool, lpmessage: Pcwstr): UInt
 }
 
-public typealias PFNMSGECALLBACK = PFNMSGECALLBACKFn?
+public typealias Pfnmsgecallback = PfnmsgecallbackFn?
 
-public fun interface PWLX_ASSIGN_SHELL_PROTECTIONFn {
-    public operator fun invoke(hwlx: HANDLE, htoken: HANDLE, hprocess: HANDLE, hthread: HANDLE): Int
+public fun interface PwlxAssignShellProtectionFn {
+    public operator fun invoke(hwlx: Handle, htoken: Handle, hprocess: Handle, hthread: Handle): Int
 }
 
-public typealias PWLX_ASSIGN_SHELL_PROTECTION = PWLX_ASSIGN_SHELL_PROTECTIONFn?
+public typealias PwlxAssignShellProtection = PwlxAssignShellProtectionFn?
 
-public fun interface PWLX_CHANGE_PASSWORD_NOTIFYFn {
-    public operator fun invoke(hwlx: HANDLE, pmprinfo: Long, dwchangeinfo: UInt): Int
+public fun interface PwlxChangePasswordNotifyFn {
+    public operator fun invoke(hwlx: Handle, pmprinfo: COpaquePointer?, dwchangeinfo: UInt): Int
 }
 
-public typealias PWLX_CHANGE_PASSWORD_NOTIFY = PWLX_CHANGE_PASSWORD_NOTIFYFn?
+public typealias PwlxChangePasswordNotify = PwlxChangePasswordNotifyFn?
 
-public fun interface PWLX_CHANGE_PASSWORD_NOTIFY_EXFn {
-    public operator fun invoke(hwlx: HANDLE, pmprinfo: Long, dwchangeinfo: UInt, providername: PCWSTR, reserved: Long): Int
+public fun interface PwlxChangePasswordNotifyExFn {
+    public operator fun invoke(hwlx: Handle, pmprinfo: COpaquePointer?, dwchangeinfo: UInt, providername: Pcwstr, reserved: COpaquePointer?): Int
 }
 
-public typealias PWLX_CHANGE_PASSWORD_NOTIFY_EX = PWLX_CHANGE_PASSWORD_NOTIFY_EXFn?
+public typealias PwlxChangePasswordNotifyEx = PwlxChangePasswordNotifyExFn?
 
-public fun interface PWLX_CLOSE_USER_DESKTOPFn {
-    public operator fun invoke(hwlx: HANDLE, pdesktop: Long, htoken: HANDLE): BOOL
+public fun interface PwlxCloseUserDesktopFn {
+    public operator fun invoke(hwlx: Handle, pdesktop: COpaquePointer?, htoken: Handle): Bool
 }
 
-public typealias PWLX_CLOSE_USER_DESKTOP = PWLX_CLOSE_USER_DESKTOPFn?
+public typealias PwlxCloseUserDesktop = PwlxCloseUserDesktopFn?
 
-public fun interface PWLX_CREATE_USER_DESKTOPFn {
-    public operator fun invoke(hwlx: HANDLE, htoken: HANDLE, flags: UInt, pszdesktopname: PCWSTR, ppdesktop: Long): BOOL
+public fun interface PwlxCreateUserDesktopFn {
+    public operator fun invoke(hwlx: Handle, htoken: Handle, flags: UInt, pszdesktopname: Pcwstr, ppdesktop: COpaquePointer?): Bool
 }
 
-public typealias PWLX_CREATE_USER_DESKTOP = PWLX_CREATE_USER_DESKTOPFn?
+public typealias PwlxCreateUserDesktop = PwlxCreateUserDesktopFn?
 
-public fun interface PWLX_DIALOG_BOXFn {
-    public operator fun invoke(hwlx: HANDLE, hinst: HANDLE, lpsztemplate: PCWSTR, hwndowner: HWND, dlgprc: DLGPROC): Int
+public fun interface PwlxDialogBoxFn {
+    public operator fun invoke(hwlx: Handle, hinst: Handle, lpsztemplate: Pcwstr, hwndowner: Hwnd, dlgprc: Dlgproc): Int
 }
 
-public typealias PWLX_DIALOG_BOX = PWLX_DIALOG_BOXFn?
+public typealias PwlxDialogBox = PwlxDialogBoxFn?
 
-public fun interface PWLX_DIALOG_BOX_INDIRECTFn {
-    public operator fun invoke(hwlx: HANDLE, hinst: HANDLE, hdialogtemplate: Long, hwndowner: HWND, dlgprc: DLGPROC): Int
+public fun interface PwlxDialogBoxIndirectFn {
+    public operator fun invoke(hwlx: Handle, hinst: Handle, hdialogtemplate: COpaquePointer?, hwndowner: Hwnd, dlgprc: Dlgproc): Int
 }
 
-public typealias PWLX_DIALOG_BOX_INDIRECT = PWLX_DIALOG_BOX_INDIRECTFn?
+public typealias PwlxDialogBoxIndirect = PwlxDialogBoxIndirectFn?
 
-public fun interface PWLX_DIALOG_BOX_INDIRECT_PARAMFn {
-    public operator fun invoke(hwlx: HANDLE, hinst: HANDLE, hdialogtemplate: Long, hwndowner: HWND, dlgprc: DLGPROC, dwinitparam: LPARAM): Int
+public fun interface PwlxDialogBoxIndirectParamFn {
+    public operator fun invoke(hwlx: Handle, hinst: Handle, hdialogtemplate: COpaquePointer?, hwndowner: Hwnd, dlgprc: Dlgproc, dwinitparam: Lparam): Int
 }
 
-public typealias PWLX_DIALOG_BOX_INDIRECT_PARAM = PWLX_DIALOG_BOX_INDIRECT_PARAMFn?
+public typealias PwlxDialogBoxIndirectParam = PwlxDialogBoxIndirectParamFn?
 
-public fun interface PWLX_DIALOG_BOX_PARAMFn {
-    public operator fun invoke(hwlx: HANDLE, hinst: HANDLE, lpsztemplate: PCWSTR, hwndowner: HWND, dlgprc: DLGPROC, dwinitparam: LPARAM): Int
+public fun interface PwlxDialogBoxParamFn {
+    public operator fun invoke(hwlx: Handle, hinst: Handle, lpsztemplate: Pcwstr, hwndowner: Hwnd, dlgprc: Dlgproc, dwinitparam: Lparam): Int
 }
 
-public typealias PWLX_DIALOG_BOX_PARAM = PWLX_DIALOG_BOX_PARAMFn?
+public typealias PwlxDialogBoxParam = PwlxDialogBoxParamFn?
 
-public fun interface PWLX_DISCONNECTFn {
-    public operator fun invoke(): BOOL
+public fun interface PwlxDisconnectFn {
+    public operator fun invoke(): Bool
 }
 
-public typealias PWLX_DISCONNECT = PWLX_DISCONNECTFn?
+public typealias PwlxDisconnect = PwlxDisconnectFn?
 
-public fun interface PWLX_GET_OPTIONFn {
-    public operator fun invoke(hwlx: HANDLE, option: UInt, value: Long): BOOL
+public fun interface PwlxGetOptionFn {
+    public operator fun invoke(hwlx: Handle, option: UInt, value: COpaquePointer?): Bool
 }
 
-public typealias PWLX_GET_OPTION = PWLX_GET_OPTIONFn?
+public typealias PwlxGetOption = PwlxGetOptionFn?
 
-public fun interface PWLX_GET_SOURCE_DESKTOPFn {
-    public operator fun invoke(hwlx: HANDLE, ppdesktop: Long): BOOL
+public fun interface PwlxGetSourceDesktopFn {
+    public operator fun invoke(hwlx: Handle, ppdesktop: COpaquePointer?): Bool
 }
 
-public typealias PWLX_GET_SOURCE_DESKTOP = PWLX_GET_SOURCE_DESKTOPFn?
+public typealias PwlxGetSourceDesktop = PwlxGetSourceDesktopFn?
 
-public fun interface PWLX_MESSAGE_BOXFn {
-    public operator fun invoke(hwlx: HANDLE, hwndowner: HWND, lpsztext: PCWSTR, lpsztitle: PCWSTR, fustyle: UInt): Int
+public fun interface PwlxMessageBoxFn {
+    public operator fun invoke(hwlx: Handle, hwndowner: Hwnd, lpsztext: Pcwstr, lpsztitle: Pcwstr, fustyle: UInt): Int
 }
 
-public typealias PWLX_MESSAGE_BOX = PWLX_MESSAGE_BOXFn?
+public typealias PwlxMessageBox = PwlxMessageBoxFn?
 
-public fun interface PWLX_QUERY_CLIENT_CREDENTIALSFn {
-    public operator fun invoke(pcred: Long): BOOL
+public fun interface PwlxQueryClientCredentialsFn {
+    public operator fun invoke(pcred: COpaquePointer?): Bool
 }
 
-public typealias PWLX_QUERY_CLIENT_CREDENTIALS = PWLX_QUERY_CLIENT_CREDENTIALSFn?
+public typealias PwlxQueryClientCredentials = PwlxQueryClientCredentialsFn?
 
-public fun interface PWLX_QUERY_CONSOLESWITCH_CREDENTIALSFn {
-    public operator fun invoke(pcred: Long): UInt
+public fun interface PwlxQueryConsoleswitchCredentialsFn {
+    public operator fun invoke(pcred: COpaquePointer?): UInt
 }
 
-public typealias PWLX_QUERY_CONSOLESWITCH_CREDENTIALS = PWLX_QUERY_CONSOLESWITCH_CREDENTIALSFn?
+public typealias PwlxQueryConsoleswitchCredentials = PwlxQueryConsoleswitchCredentialsFn?
 
-public fun interface PWLX_QUERY_IC_CREDENTIALSFn {
-    public operator fun invoke(pcred: Long): BOOL
+public fun interface PwlxQueryIcCredentialsFn {
+    public operator fun invoke(pcred: COpaquePointer?): Bool
 }
 
-public typealias PWLX_QUERY_IC_CREDENTIALS = PWLX_QUERY_IC_CREDENTIALSFn?
+public typealias PwlxQueryIcCredentials = PwlxQueryIcCredentialsFn?
 
-public fun interface PWLX_QUERY_TERMINAL_SERVICES_DATAFn {
-    public operator fun invoke(hwlx: HANDLE, ptsdata: Long, username: PCWSTR, domain: PCWSTR): UInt
+public fun interface PwlxQueryTerminalServicesDataFn {
+    public operator fun invoke(hwlx: Handle, ptsdata: COpaquePointer?, username: Pcwstr, domain: Pcwstr): UInt
 }
 
-public typealias PWLX_QUERY_TERMINAL_SERVICES_DATA = PWLX_QUERY_TERMINAL_SERVICES_DATAFn?
+public typealias PwlxQueryTerminalServicesData = PwlxQueryTerminalServicesDataFn?
 
-public fun interface PWLX_QUERY_TS_LOGON_CREDENTIALSFn {
-    public operator fun invoke(pcred: Long): BOOL
+public fun interface PwlxQueryTsLogonCredentialsFn {
+    public operator fun invoke(pcred: COpaquePointer?): Bool
 }
 
-public typealias PWLX_QUERY_TS_LOGON_CREDENTIALS = PWLX_QUERY_TS_LOGON_CREDENTIALSFn?
+public typealias PwlxQueryTsLogonCredentials = PwlxQueryTsLogonCredentialsFn?
 
-public fun interface PWLX_SAS_NOTIFYFn {
-    public operator fun invoke(hwlx: HANDLE, dwsastype: UInt)
+public fun interface PwlxSasNotifyFn {
+    public operator fun invoke(hwlx: Handle, dwsastype: UInt)
 }
 
-public typealias PWLX_SAS_NOTIFY = PWLX_SAS_NOTIFYFn?
+public typealias PwlxSasNotify = PwlxSasNotifyFn?
 
-public fun interface PWLX_SET_CONTEXT_POINTERFn {
-    public operator fun invoke(hwlx: HANDLE, pwlxcontext: Long)
+public fun interface PwlxSetContextPointerFn {
+    public operator fun invoke(hwlx: Handle, pwlxcontext: COpaquePointer?)
 }
 
-public typealias PWLX_SET_CONTEXT_POINTER = PWLX_SET_CONTEXT_POINTERFn?
+public typealias PwlxSetContextPointer = PwlxSetContextPointerFn?
 
-public fun interface PWLX_SET_OPTIONFn {
-    public operator fun invoke(hwlx: HANDLE, option: UInt, value: ULong, oldvalue: Long): BOOL
+public fun interface PwlxSetOptionFn {
+    public operator fun invoke(hwlx: Handle, option: UInt, value: ULong, oldvalue: COpaquePointer?): Bool
 }
 
-public typealias PWLX_SET_OPTION = PWLX_SET_OPTIONFn?
+public typealias PwlxSetOption = PwlxSetOptionFn?
 
-public fun interface PWLX_SET_RETURN_DESKTOPFn {
-    public operator fun invoke(hwlx: HANDLE, pdesktop: Long): BOOL
+public fun interface PwlxSetReturnDesktopFn {
+    public operator fun invoke(hwlx: Handle, pdesktop: COpaquePointer?): Bool
 }
 
-public typealias PWLX_SET_RETURN_DESKTOP = PWLX_SET_RETURN_DESKTOPFn?
+public typealias PwlxSetReturnDesktop = PwlxSetReturnDesktopFn?
 
-public fun interface PWLX_SET_TIMEOUTFn {
-    public operator fun invoke(hwlx: HANDLE, timeout: UInt): BOOL
+public fun interface PwlxSetTimeoutFn {
+    public operator fun invoke(hwlx: Handle, timeout: UInt): Bool
 }
 
-public typealias PWLX_SET_TIMEOUT = PWLX_SET_TIMEOUTFn?
+public typealias PwlxSetTimeout = PwlxSetTimeoutFn?
 
-public fun interface PWLX_SWITCH_DESKTOP_TO_USERFn {
-    public operator fun invoke(hwlx: HANDLE): Int
+public fun interface PwlxSwitchDesktopToUserFn {
+    public operator fun invoke(hwlx: Handle): Int
 }
 
-public typealias PWLX_SWITCH_DESKTOP_TO_USER = PWLX_SWITCH_DESKTOP_TO_USERFn?
+public typealias PwlxSwitchDesktopToUser = PwlxSwitchDesktopToUserFn?
 
-public fun interface PWLX_SWITCH_DESKTOP_TO_WINLOGONFn {
-    public operator fun invoke(hwlx: HANDLE): Int
+public fun interface PwlxSwitchDesktopToWinlogonFn {
+    public operator fun invoke(hwlx: Handle): Int
 }
 
-public typealias PWLX_SWITCH_DESKTOP_TO_WINLOGON = PWLX_SWITCH_DESKTOP_TO_WINLOGONFn?
+public typealias PwlxSwitchDesktopToWinlogon = PwlxSwitchDesktopToWinlogonFn?
 
-public fun interface PWLX_USE_CTRL_ALT_DELFn {
-    public operator fun invoke(hwlx: HANDLE)
+public fun interface PwlxUseCtrlAltDelFn {
+    public operator fun invoke(hwlx: Handle)
 }
 
-public typealias PWLX_USE_CTRL_ALT_DEL = PWLX_USE_CTRL_ALT_DELFn?
+public typealias PwlxUseCtrlAltDel = PwlxUseCtrlAltDelFn?
 
-public fun interface PWLX_WIN31_MIGRATEFn {
-    public operator fun invoke(hwlx: HANDLE)
+public fun interface PwlxWin31MigrateFn {
+    public operator fun invoke(hwlx: Handle)
 }
 
-public typealias PWLX_WIN31_MIGRATE = PWLX_WIN31_MIGRATEFn?
+public typealias PwlxWin31Migrate = PwlxWin31MigrateFn?
 
-public typealias WLX_SHUTDOWN_TYPE = UInt
+public typealias WlxShutdownType = UInt

@@ -1,116 +1,117 @@
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
 
-public typealias DRT_ADDRESS_FLAGS = Int
+public typealias DrtAddressFlags = Int
 
-public fun interface DRT_BOOTSTRAP_RESOLVE_CALLBACKFn {
-    public operator fun invoke(hr: HRESULT, pvcontext: Long, paddresses: Long, ffatalerror: BOOL)
+public fun interface DrtBootstrapResolveCallbackFn {
+    public operator fun invoke(hr: Hresult, pvcontext: COpaquePointer?, paddresses: COpaquePointer?, ffatalerror: Bool)
 }
 
-public typealias DRT_BOOTSTRAP_RESOLVE_CALLBACK = DRT_BOOTSTRAP_RESOLVE_CALLBACKFn?
+public typealias DrtBootstrapResolveCallback = DrtBootstrapResolveCallbackFn?
 
-public typealias DRT_EVENT_TYPE = Int
+public typealias DrtEventType = Int
 
-public typealias DRT_LEAFSET_KEY_CHANGE_TYPE = Int
+public typealias DrtLeafsetKeyChangeType = Int
 
-public typealias DRT_MATCH_TYPE = Int
+public typealias DrtMatchType = Int
 
-public typealias DRT_REGISTRATION_STATE = Int
+public typealias DrtRegistrationState = Int
 
-public typealias DRT_SCOPE = Int
+public typealias DrtScope = Int
 
-public typealias DRT_SECURITY_MODE = Int
+public typealias DrtSecurityMode = Int
 
-public typealias DRT_STATUS = Int
+public typealias DrtStatus = Int
 
-public typealias PEERDIST_CLIENT_INFO_BY_HANDLE_CLASS = Int
+public typealias PeerdistClientInfoByHandleClass = Int
 
-public typealias PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_VALUE = UInt
+public typealias PeerdistRetrievalOptionsContentinfoVersionValue = UInt
 
-public typealias PEERDIST_STATUS = Int
+public typealias PeerdistStatus = Int
 
-public typealias PEER_APPLICATION_REGISTRATION_TYPE = Int
+public typealias PeerApplicationRegistrationType = Int
 
-public typealias PEER_CHANGE_TYPE = Int
+public typealias PeerChangeType = Int
 
-public typealias PEER_COLLAB_EVENT_TYPE = Int
+public typealias PeerCollabEventType = Int
 
-public typealias PEER_CONNECTION_FLAGS = Int
+public typealias PeerConnectionFlags = Int
 
-public typealias PEER_CONNECTION_STATUS = Int
+public typealias PeerConnectionStatus = Int
 
-public typealias PEER_GRAPH_EVENT_TYPE = Int
+public typealias PeerGraphEventType = Int
 
-public typealias PEER_GRAPH_PROPERTY_FLAGS = Int
+public typealias PeerGraphPropertyFlags = Int
 
-public typealias PEER_GRAPH_SCOPE = Int
+public typealias PeerGraphScope = Int
 
-public typealias PEER_GRAPH_STATUS_FLAGS = Int
+public typealias PeerGraphStatusFlags = Int
 
-public typealias PEER_GROUP_AUTHENTICATION_SCHEME = Int
+public typealias PeerGroupAuthenticationScheme = Int
 
-public typealias PEER_GROUP_EVENT_TYPE = Int
+public typealias PeerGroupEventType = Int
 
-public typealias PEER_GROUP_ISSUE_CREDENTIAL_FLAGS = Int
+public typealias PeerGroupIssueCredentialFlags = Int
 
-public typealias PEER_GROUP_PROPERTY_FLAGS = Int
+public typealias PeerGroupPropertyFlags = Int
 
-public typealias PEER_GROUP_STATUS = Int
+public typealias PeerGroupStatus = Int
 
-public typealias PEER_INVITATION_RESPONSE_TYPE = Int
+public typealias PeerInvitationResponseType = Int
 
-public typealias PEER_MEMBER_CHANGE_TYPE = Int
+public typealias PeerMemberChangeType = Int
 
-public typealias PEER_MEMBER_FLAGS = Int
+public typealias PeerMemberFlags = Int
 
-public typealias PEER_NODE_CHANGE_TYPE = Int
+public typealias PeerNodeChangeType = Int
 
-public typealias PEER_PRESENCE_STATUS = Int
+public typealias PeerPresenceStatus = Int
 
-public typealias PEER_PUBLICATION_SCOPE = Int
+public typealias PeerPublicationScope = Int
 
-public typealias PEER_RECORD_CHANGE_TYPE = Int
+public typealias PeerRecordChangeType = Int
 
-public typealias PEER_RECORD_FLAGS = Int
+public typealias PeerRecordFlags = Int
 
-public typealias PEER_SIGNIN_FLAGS = Int
+public typealias PeerSigninFlags = Int
 
-public typealias PEER_WATCH_PERMISSION = Int
+public typealias PeerWatchPermission = Int
 
-public fun interface PFNPEER_FREE_SECURITY_DATAFn {
-    public operator fun invoke(hgraph: Long, pvcontext: Long, psecuritydata: Long): HRESULT
+public fun interface PfnpeerFreeSecurityDataFn {
+    public operator fun invoke(hgraph: COpaquePointer?, pvcontext: COpaquePointer?, psecuritydata: COpaquePointer?): Hresult
 }
 
-public typealias PFNPEER_FREE_SECURITY_DATA = PFNPEER_FREE_SECURITY_DATAFn?
+public typealias PfnpeerFreeSecurityData = PfnpeerFreeSecurityDataFn?
 
-public fun interface PFNPEER_ON_PASSWORD_AUTH_FAILEDFn {
-    public operator fun invoke(hgraph: Long, pvcontext: Long): HRESULT
+public fun interface PfnpeerOnPasswordAuthFailedFn {
+    public operator fun invoke(hgraph: COpaquePointer?, pvcontext: COpaquePointer?): Hresult
 }
 
-public typealias PFNPEER_ON_PASSWORD_AUTH_FAILED = PFNPEER_ON_PASSWORD_AUTH_FAILEDFn?
+public typealias PfnpeerOnPasswordAuthFailed = PfnpeerOnPasswordAuthFailedFn?
 
-public fun interface PFNPEER_SECURE_RECORDFn {
-    public operator fun invoke(hgraph: Long, pvcontext: Long, precord: Long, changetype: PEER_RECORD_CHANGE_TYPE, ppsecuritydata: Long): HRESULT
+public fun interface PfnpeerSecureRecordFn {
+    public operator fun invoke(hgraph: COpaquePointer?, pvcontext: COpaquePointer?, precord: COpaquePointer?, changetype: PeerRecordChangeType, ppsecuritydata: COpaquePointer?): Hresult
 }
 
-public typealias PFNPEER_SECURE_RECORD = PFNPEER_SECURE_RECORDFn?
+public typealias PfnpeerSecureRecord = PfnpeerSecureRecordFn?
 
-public fun interface PFNPEER_VALIDATE_RECORDFn {
-    public operator fun invoke(hgraph: Long, pvcontext: Long, precord: Long, changetype: PEER_RECORD_CHANGE_TYPE): HRESULT
+public fun interface PfnpeerValidateRecordFn {
+    public operator fun invoke(hgraph: COpaquePointer?, pvcontext: COpaquePointer?, precord: COpaquePointer?, changetype: PeerRecordChangeType): Hresult
 }
 
-public typealias PFNPEER_VALIDATE_RECORD = PFNPEER_VALIDATE_RECORDFn?
+public typealias PfnpeerValidateRecord = PfnpeerValidateRecordFn?
 
-public typealias PNRP_CLOUD_FLAGS = Int
+public typealias PnrpCloudFlags = Int
 
-public typealias PNRP_CLOUD_STATE = Int
+public typealias PnrpCloudState = Int
 
-public typealias PNRP_EXTENDED_PAYLOAD_TYPE = Int
+public typealias PnrpExtendedPayloadType = Int
 
-public typealias PNRP_REGISTERED_ID_STATE = Int
+public typealias PnrpRegisteredIdState = Int
 
-public typealias PNRP_RESOLVE_CRITERIA = Int
+public typealias PnrpResolveCriteria = Int
 
-public typealias PNRP_SCOPE = Int
+public typealias PnrpScope = Int

@@ -15,7 +15,7 @@
 #endif
 #endif
 
-uint32_t windowssys_windows_win32_system_registry_GetRegistryValueWithFallbackW(void* hkeyprimary, void* pwszprimarysubkey, void* hkeyfallback, void* pwszfallbacksubkey, void* pwszvalue, uint32_t dwflags, void* pdwtype, void* pvdata, uint32_t cbdatain, void* pcbdataout) {
+uint32_t windowssys_windows_win32_system_registry_getRegistryValueWithFallbackW(void* hkeyprimary, void* pwszprimarysubkey, void* hkeyfallback, void* pwszfallbacksubkey, void* pwszvalue, uint32_t dwflags, void* pdwtype, void* pvdata, uint32_t cbdatain, void* pcbdataout) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -46,7 +46,7 @@ uint32_t windowssys_windows_win32_system_registry_GetRegistryValueWithFallbackW(
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegCloseKey(void* hkey) {
+uint32_t windowssys_windows_win32_system_registry_regCloseKey(void* hkey) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -68,7 +68,7 @@ uint32_t windowssys_windows_win32_system_registry_RegCloseKey(void* hkey) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegConnectRegistryA(void* lpmachinename, void* hkey, void* phkresult) {
+uint32_t windowssys_windows_win32_system_registry_regConnectRegistryA(void* lpmachinename, void* hkey, void* phkresult) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -92,7 +92,7 @@ uint32_t windowssys_windows_win32_system_registry_RegConnectRegistryA(void* lpma
 #endif
 }
 
-int32_t windowssys_windows_win32_system_registry_RegConnectRegistryExA(void* lpmachinename, void* hkey, uint32_t flags, void* phkresult) {
+int32_t windowssys_windows_win32_system_registry_regConnectRegistryExA(void* lpmachinename, void* hkey, uint32_t flags, void* phkresult) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -117,7 +117,7 @@ int32_t windowssys_windows_win32_system_registry_RegConnectRegistryExA(void* lpm
 #endif
 }
 
-int32_t windowssys_windows_win32_system_registry_RegConnectRegistryExW(void* lpmachinename, void* hkey, uint32_t flags, void* phkresult) {
+int32_t windowssys_windows_win32_system_registry_regConnectRegistryExW(void* lpmachinename, void* hkey, uint32_t flags, void* phkresult) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -142,7 +142,7 @@ int32_t windowssys_windows_win32_system_registry_RegConnectRegistryExW(void* lpm
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegConnectRegistryW(void* lpmachinename, void* hkey, void* phkresult) {
+uint32_t windowssys_windows_win32_system_registry_regConnectRegistryW(void* lpmachinename, void* hkey, void* phkresult) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -166,7 +166,7 @@ uint32_t windowssys_windows_win32_system_registry_RegConnectRegistryW(void* lpma
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegCopyTreeA(void* hkeysrc, void* lpsubkey, void* hkeydest) {
+uint32_t windowssys_windows_win32_system_registry_regCopyTreeA(void* hkeysrc, void* lpsubkey, void* hkeydest) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -190,7 +190,7 @@ uint32_t windowssys_windows_win32_system_registry_RegCopyTreeA(void* hkeysrc, vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegCopyTreeW(void* hkeysrc, void* lpsubkey, void* hkeydest) {
+uint32_t windowssys_windows_win32_system_registry_regCopyTreeW(void* hkeysrc, void* lpsubkey, void* hkeydest) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -214,7 +214,7 @@ uint32_t windowssys_windows_win32_system_registry_RegCopyTreeW(void* hkeysrc, vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegCreateKeyA(void* hkey, void* lpsubkey, void* phkresult) {
+uint32_t windowssys_windows_win32_system_registry_regCreateKeyA(void* hkey, void* lpsubkey, void* phkresult) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -238,7 +238,7 @@ uint32_t windowssys_windows_win32_system_registry_RegCreateKeyA(void* hkey, void
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegCreateKeyExA(void* hkey, void* lpsubkey, uint32_t reserved, void* lpclass, uint32_t dwoptions, uint32_t samdesired, void* lpsecurityattributes, void* phkresult, void* lpdwdisposition) {
+uint32_t windowssys_windows_win32_system_registry_regCreateKeyExA(void* hkey, void* lpsubkey, uint32_t reserved, void* lpclass, uint32_t dwoptions, uint32_t samdesired, void* lpsecurityattributes, void* phkresult, void* lpdwdisposition) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -268,7 +268,7 @@ uint32_t windowssys_windows_win32_system_registry_RegCreateKeyExA(void* hkey, vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegCreateKeyExW(void* hkey, void* lpsubkey, uint32_t reserved, void* lpclass, uint32_t dwoptions, uint32_t samdesired, void* lpsecurityattributes, void* phkresult, void* lpdwdisposition) {
+uint32_t windowssys_windows_win32_system_registry_regCreateKeyExW(void* hkey, void* lpsubkey, uint32_t reserved, void* lpclass, uint32_t dwoptions, uint32_t samdesired, void* lpsecurityattributes, void* phkresult, void* lpdwdisposition) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -298,7 +298,7 @@ uint32_t windowssys_windows_win32_system_registry_RegCreateKeyExW(void* hkey, vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegCreateKeyTransactedA(void* hkey, void* lpsubkey, uint32_t reserved, void* lpclass, uint32_t dwoptions, uint32_t samdesired, void* lpsecurityattributes, void* phkresult, void* lpdwdisposition, void* htransaction, void* pextendedparemeter) {
+uint32_t windowssys_windows_win32_system_registry_regCreateKeyTransactedA(void* hkey, void* lpsubkey, uint32_t reserved, void* lpclass, uint32_t dwoptions, uint32_t samdesired, void* lpsecurityattributes, void* phkresult, void* lpdwdisposition, void* htransaction, void* pextendedparemeter) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t, uint32_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -330,7 +330,7 @@ uint32_t windowssys_windows_win32_system_registry_RegCreateKeyTransactedA(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegCreateKeyTransactedW(void* hkey, void* lpsubkey, uint32_t reserved, void* lpclass, uint32_t dwoptions, uint32_t samdesired, void* lpsecurityattributes, void* phkresult, void* lpdwdisposition, void* htransaction, void* pextendedparemeter) {
+uint32_t windowssys_windows_win32_system_registry_regCreateKeyTransactedW(void* hkey, void* lpsubkey, uint32_t reserved, void* lpclass, uint32_t dwoptions, uint32_t samdesired, void* lpsecurityattributes, void* phkresult, void* lpdwdisposition, void* htransaction, void* pextendedparemeter) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t, uint32_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -362,7 +362,7 @@ uint32_t windowssys_windows_win32_system_registry_RegCreateKeyTransactedW(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegCreateKeyW(void* hkey, void* lpsubkey, void* phkresult) {
+uint32_t windowssys_windows_win32_system_registry_regCreateKeyW(void* hkey, void* lpsubkey, void* phkresult) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -386,7 +386,7 @@ uint32_t windowssys_windows_win32_system_registry_RegCreateKeyW(void* hkey, void
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegDeleteKeyA(void* hkey, void* lpsubkey) {
+uint32_t windowssys_windows_win32_system_registry_regDeleteKeyA(void* hkey, void* lpsubkey) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -409,7 +409,7 @@ uint32_t windowssys_windows_win32_system_registry_RegDeleteKeyA(void* hkey, void
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegDeleteKeyExA(void* hkey, void* lpsubkey, uint32_t samdesired, uint32_t reserved) {
+uint32_t windowssys_windows_win32_system_registry_regDeleteKeyExA(void* hkey, void* lpsubkey, uint32_t samdesired, uint32_t reserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -434,7 +434,7 @@ uint32_t windowssys_windows_win32_system_registry_RegDeleteKeyExA(void* hkey, vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegDeleteKeyExW(void* hkey, void* lpsubkey, uint32_t samdesired, uint32_t reserved) {
+uint32_t windowssys_windows_win32_system_registry_regDeleteKeyExW(void* hkey, void* lpsubkey, uint32_t samdesired, uint32_t reserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -459,7 +459,7 @@ uint32_t windowssys_windows_win32_system_registry_RegDeleteKeyExW(void* hkey, vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegDeleteKeyTransactedA(void* hkey, void* lpsubkey, uint32_t samdesired, uint32_t reserved, void* htransaction, void* pextendedparameter) {
+uint32_t windowssys_windows_win32_system_registry_regDeleteKeyTransactedA(void* hkey, void* lpsubkey, uint32_t samdesired, uint32_t reserved, void* htransaction, void* pextendedparameter) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -486,7 +486,7 @@ uint32_t windowssys_windows_win32_system_registry_RegDeleteKeyTransactedA(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegDeleteKeyTransactedW(void* hkey, void* lpsubkey, uint32_t samdesired, uint32_t reserved, void* htransaction, void* pextendedparameter) {
+uint32_t windowssys_windows_win32_system_registry_regDeleteKeyTransactedW(void* hkey, void* lpsubkey, uint32_t samdesired, uint32_t reserved, void* htransaction, void* pextendedparameter) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -513,7 +513,7 @@ uint32_t windowssys_windows_win32_system_registry_RegDeleteKeyTransactedW(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegDeleteKeyValueA(void* hkey, void* lpsubkey, void* lpvaluename) {
+uint32_t windowssys_windows_win32_system_registry_regDeleteKeyValueA(void* hkey, void* lpsubkey, void* lpvaluename) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -537,7 +537,7 @@ uint32_t windowssys_windows_win32_system_registry_RegDeleteKeyValueA(void* hkey,
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegDeleteKeyValueW(void* hkey, void* lpsubkey, void* lpvaluename) {
+uint32_t windowssys_windows_win32_system_registry_regDeleteKeyValueW(void* hkey, void* lpsubkey, void* lpvaluename) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -561,7 +561,7 @@ uint32_t windowssys_windows_win32_system_registry_RegDeleteKeyValueW(void* hkey,
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegDeleteKeyW(void* hkey, void* lpsubkey) {
+uint32_t windowssys_windows_win32_system_registry_regDeleteKeyW(void* hkey, void* lpsubkey) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -584,7 +584,7 @@ uint32_t windowssys_windows_win32_system_registry_RegDeleteKeyW(void* hkey, void
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegDeleteTreeA(void* hkey, void* lpsubkey) {
+uint32_t windowssys_windows_win32_system_registry_regDeleteTreeA(void* hkey, void* lpsubkey) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -607,7 +607,7 @@ uint32_t windowssys_windows_win32_system_registry_RegDeleteTreeA(void* hkey, voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegDeleteTreeW(void* hkey, void* lpsubkey) {
+uint32_t windowssys_windows_win32_system_registry_regDeleteTreeW(void* hkey, void* lpsubkey) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -630,7 +630,7 @@ uint32_t windowssys_windows_win32_system_registry_RegDeleteTreeW(void* hkey, voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegDeleteValueA(void* hkey, void* lpvaluename) {
+uint32_t windowssys_windows_win32_system_registry_regDeleteValueA(void* hkey, void* lpvaluename) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -653,7 +653,7 @@ uint32_t windowssys_windows_win32_system_registry_RegDeleteValueA(void* hkey, vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegDeleteValueW(void* hkey, void* lpvaluename) {
+uint32_t windowssys_windows_win32_system_registry_regDeleteValueW(void* hkey, void* lpvaluename) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -676,7 +676,7 @@ uint32_t windowssys_windows_win32_system_registry_RegDeleteValueW(void* hkey, vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegDisablePredefinedCache(void) {
+uint32_t windowssys_windows_win32_system_registry_regDisablePredefinedCache(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -697,7 +697,7 @@ uint32_t windowssys_windows_win32_system_registry_RegDisablePredefinedCache(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegDisablePredefinedCacheEx(void) {
+uint32_t windowssys_windows_win32_system_registry_regDisablePredefinedCacheEx(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -718,7 +718,7 @@ uint32_t windowssys_windows_win32_system_registry_RegDisablePredefinedCacheEx(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegDisableReflectionKey(void* hbase) {
+uint32_t windowssys_windows_win32_system_registry_regDisableReflectionKey(void* hbase) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -740,7 +740,7 @@ uint32_t windowssys_windows_win32_system_registry_RegDisableReflectionKey(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegEnableReflectionKey(void* hbase) {
+uint32_t windowssys_windows_win32_system_registry_regEnableReflectionKey(void* hbase) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -762,7 +762,7 @@ uint32_t windowssys_windows_win32_system_registry_RegEnableReflectionKey(void* h
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegEnumKeyA(void* hkey, uint32_t dwindex, void* lpname, uint32_t cchname) {
+uint32_t windowssys_windows_win32_system_registry_regEnumKeyA(void* hkey, uint32_t dwindex, void* lpname, uint32_t cchname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -787,7 +787,7 @@ uint32_t windowssys_windows_win32_system_registry_RegEnumKeyA(void* hkey, uint32
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegEnumKeyExA(void* hkey, uint32_t dwindex, void* lpname, void* lpcchname, void* lpreserved, void* lpclass, void* lpcchclass, void* lpftlastwritetime) {
+uint32_t windowssys_windows_win32_system_registry_regEnumKeyExA(void* hkey, uint32_t dwindex, void* lpname, void* lpcchname, void* lpreserved, void* lpclass, void* lpcchclass, void* lpftlastwritetime) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -816,7 +816,7 @@ uint32_t windowssys_windows_win32_system_registry_RegEnumKeyExA(void* hkey, uint
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegEnumKeyExW(void* hkey, uint32_t dwindex, void* lpname, void* lpcchname, void* lpreserved, void* lpclass, void* lpcchclass, void* lpftlastwritetime) {
+uint32_t windowssys_windows_win32_system_registry_regEnumKeyExW(void* hkey, uint32_t dwindex, void* lpname, void* lpcchname, void* lpreserved, void* lpclass, void* lpcchclass, void* lpftlastwritetime) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -845,7 +845,7 @@ uint32_t windowssys_windows_win32_system_registry_RegEnumKeyExW(void* hkey, uint
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegEnumKeyW(void* hkey, uint32_t dwindex, void* lpname, uint32_t cchname) {
+uint32_t windowssys_windows_win32_system_registry_regEnumKeyW(void* hkey, uint32_t dwindex, void* lpname, uint32_t cchname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -870,7 +870,7 @@ uint32_t windowssys_windows_win32_system_registry_RegEnumKeyW(void* hkey, uint32
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegEnumValueA(void* hkey, uint32_t dwindex, void* lpvaluename, void* lpcchvaluename, void* lpreserved, void* lptype, void* lpdata, void* lpcbdata) {
+uint32_t windowssys_windows_win32_system_registry_regEnumValueA(void* hkey, uint32_t dwindex, void* lpvaluename, void* lpcchvaluename, void* lpreserved, void* lptype, void* lpdata, void* lpcbdata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -899,7 +899,7 @@ uint32_t windowssys_windows_win32_system_registry_RegEnumValueA(void* hkey, uint
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegEnumValueW(void* hkey, uint32_t dwindex, void* lpvaluename, void* lpcchvaluename, void* lpreserved, void* lptype, void* lpdata, void* lpcbdata) {
+uint32_t windowssys_windows_win32_system_registry_regEnumValueW(void* hkey, uint32_t dwindex, void* lpvaluename, void* lpcchvaluename, void* lpreserved, void* lptype, void* lpdata, void* lpcbdata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -928,7 +928,7 @@ uint32_t windowssys_windows_win32_system_registry_RegEnumValueW(void* hkey, uint
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegFlushKey(void* hkey) {
+uint32_t windowssys_windows_win32_system_registry_regFlushKey(void* hkey) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -950,7 +950,7 @@ uint32_t windowssys_windows_win32_system_registry_RegFlushKey(void* hkey) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegGetKeySecurity(void* hkey, uint32_t securityinformation, void* psecuritydescriptor, void* lpcbsecuritydescriptor) {
+uint32_t windowssys_windows_win32_system_registry_regGetKeySecurity(void* hkey, uint32_t securityinformation, void* psecuritydescriptor, void* lpcbsecuritydescriptor) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -975,7 +975,7 @@ uint32_t windowssys_windows_win32_system_registry_RegGetKeySecurity(void* hkey, 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegGetValueA(void* hkey, void* lpsubkey, void* lpvalue, uint32_t dwflags, void* pdwtype, void* pvdata, void* pcbdata) {
+uint32_t windowssys_windows_win32_system_registry_regGetValueA(void* hkey, void* lpsubkey, void* lpvalue, uint32_t dwflags, void* pdwtype, void* pvdata, void* pcbdata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1003,7 +1003,7 @@ uint32_t windowssys_windows_win32_system_registry_RegGetValueA(void* hkey, void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegGetValueW(void* hkey, void* lpsubkey, void* lpvalue, uint32_t dwflags, void* pdwtype, void* pvdata, void* pcbdata) {
+uint32_t windowssys_windows_win32_system_registry_regGetValueW(void* hkey, void* lpsubkey, void* lpvalue, uint32_t dwflags, void* pdwtype, void* pvdata, void* pcbdata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1031,7 +1031,7 @@ uint32_t windowssys_windows_win32_system_registry_RegGetValueW(void* hkey, void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegLoadAppKeyA(void* lpfile, void* phkresult, uint32_t samdesired, uint32_t dwoptions, uint32_t reserved) {
+uint32_t windowssys_windows_win32_system_registry_regLoadAppKeyA(void* lpfile, void* phkresult, uint32_t samdesired, uint32_t dwoptions, uint32_t reserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1057,7 +1057,7 @@ uint32_t windowssys_windows_win32_system_registry_RegLoadAppKeyA(void* lpfile, v
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegLoadAppKeyW(void* lpfile, void* phkresult, uint32_t samdesired, uint32_t dwoptions, uint32_t reserved) {
+uint32_t windowssys_windows_win32_system_registry_regLoadAppKeyW(void* lpfile, void* phkresult, uint32_t samdesired, uint32_t dwoptions, uint32_t reserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1083,7 +1083,7 @@ uint32_t windowssys_windows_win32_system_registry_RegLoadAppKeyW(void* lpfile, v
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegLoadKeyA(void* hkey, void* lpsubkey, void* lpfile) {
+uint32_t windowssys_windows_win32_system_registry_regLoadKeyA(void* hkey, void* lpsubkey, void* lpfile) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1107,7 +1107,7 @@ uint32_t windowssys_windows_win32_system_registry_RegLoadKeyA(void* hkey, void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegLoadKeyW(void* hkey, void* lpsubkey, void* lpfile) {
+uint32_t windowssys_windows_win32_system_registry_regLoadKeyW(void* hkey, void* lpsubkey, void* lpfile) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1131,7 +1131,7 @@ uint32_t windowssys_windows_win32_system_registry_RegLoadKeyW(void* hkey, void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegLoadMUIStringA(void* hkey, void* pszvalue, void* pszoutbuf, uint32_t cboutbuf, void* pcbdata, uint32_t flags, void* pszdirectory) {
+uint32_t windowssys_windows_win32_system_registry_regLoadMUIStringA(void* hkey, void* pszvalue, void* pszoutbuf, uint32_t cboutbuf, void* pcbdata, uint32_t flags, void* pszdirectory) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1159,7 +1159,7 @@ uint32_t windowssys_windows_win32_system_registry_RegLoadMUIStringA(void* hkey, 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegLoadMUIStringW(void* hkey, void* pszvalue, void* pszoutbuf, uint32_t cboutbuf, void* pcbdata, uint32_t flags, void* pszdirectory) {
+uint32_t windowssys_windows_win32_system_registry_regLoadMUIStringW(void* hkey, void* pszvalue, void* pszoutbuf, uint32_t cboutbuf, void* pcbdata, uint32_t flags, void* pszdirectory) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1187,7 +1187,7 @@ uint32_t windowssys_windows_win32_system_registry_RegLoadMUIStringW(void* hkey, 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegNotifyChangeKeyValue(void* hkey, int32_t bwatchsubtree, uint32_t dwnotifyfilter, void* hevent, int32_t fasynchronous) {
+uint32_t windowssys_windows_win32_system_registry_regNotifyChangeKeyValue(void* hkey, int32_t bwatchsubtree, uint32_t dwnotifyfilter, void* hevent, int32_t fasynchronous) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, uint32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1213,7 +1213,7 @@ uint32_t windowssys_windows_win32_system_registry_RegNotifyChangeKeyValue(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegOpenCurrentUser(uint32_t samdesired, void* phkresult) {
+uint32_t windowssys_windows_win32_system_registry_regOpenCurrentUser(uint32_t samdesired, void* phkresult) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1236,7 +1236,7 @@ uint32_t windowssys_windows_win32_system_registry_RegOpenCurrentUser(uint32_t sa
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegOpenKeyA(void* hkey, void* lpsubkey, void* phkresult) {
+uint32_t windowssys_windows_win32_system_registry_regOpenKeyA(void* hkey, void* lpsubkey, void* phkresult) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1260,7 +1260,7 @@ uint32_t windowssys_windows_win32_system_registry_RegOpenKeyA(void* hkey, void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegOpenKeyExA(void* hkey, void* lpsubkey, uint32_t uloptions, uint32_t samdesired, void* phkresult) {
+uint32_t windowssys_windows_win32_system_registry_regOpenKeyExA(void* hkey, void* lpsubkey, uint32_t uloptions, uint32_t samdesired, void* phkresult) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1286,7 +1286,7 @@ uint32_t windowssys_windows_win32_system_registry_RegOpenKeyExA(void* hkey, void
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegOpenKeyExW(void* hkey, void* lpsubkey, uint32_t uloptions, uint32_t samdesired, void* phkresult) {
+uint32_t windowssys_windows_win32_system_registry_regOpenKeyExW(void* hkey, void* lpsubkey, uint32_t uloptions, uint32_t samdesired, void* phkresult) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1312,7 +1312,7 @@ uint32_t windowssys_windows_win32_system_registry_RegOpenKeyExW(void* hkey, void
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegOpenKeyTransactedA(void* hkey, void* lpsubkey, uint32_t uloptions, uint32_t samdesired, void* phkresult, void* htransaction, void* pextendedparemeter) {
+uint32_t windowssys_windows_win32_system_registry_regOpenKeyTransactedA(void* hkey, void* lpsubkey, uint32_t uloptions, uint32_t samdesired, void* phkresult, void* htransaction, void* pextendedparemeter) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1340,7 +1340,7 @@ uint32_t windowssys_windows_win32_system_registry_RegOpenKeyTransactedA(void* hk
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegOpenKeyTransactedW(void* hkey, void* lpsubkey, uint32_t uloptions, uint32_t samdesired, void* phkresult, void* htransaction, void* pextendedparemeter) {
+uint32_t windowssys_windows_win32_system_registry_regOpenKeyTransactedW(void* hkey, void* lpsubkey, uint32_t uloptions, uint32_t samdesired, void* phkresult, void* htransaction, void* pextendedparemeter) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1368,7 +1368,7 @@ uint32_t windowssys_windows_win32_system_registry_RegOpenKeyTransactedW(void* hk
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegOpenKeyW(void* hkey, void* lpsubkey, void* phkresult) {
+uint32_t windowssys_windows_win32_system_registry_regOpenKeyW(void* hkey, void* lpsubkey, void* phkresult) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1392,7 +1392,7 @@ uint32_t windowssys_windows_win32_system_registry_RegOpenKeyW(void* hkey, void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegOpenUserClassesRoot(void* htoken, uint32_t dwoptions, uint32_t samdesired, void* phkresult) {
+uint32_t windowssys_windows_win32_system_registry_regOpenUserClassesRoot(void* htoken, uint32_t dwoptions, uint32_t samdesired, void* phkresult) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1417,7 +1417,7 @@ uint32_t windowssys_windows_win32_system_registry_RegOpenUserClassesRoot(void* h
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegOverridePredefKey(void* hkey, void* hnewhkey) {
+uint32_t windowssys_windows_win32_system_registry_regOverridePredefKey(void* hkey, void* hnewhkey) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1440,7 +1440,7 @@ uint32_t windowssys_windows_win32_system_registry_RegOverridePredefKey(void* hke
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegQueryInfoKeyA(void* hkey, void* lpclass, void* lpcchclass, void* lpreserved, void* lpcsubkeys, void* lpcbmaxsubkeylen, void* lpcbmaxclasslen, void* lpcvalues, void* lpcbmaxvaluenamelen, void* lpcbmaxvaluelen, void* lpcbsecuritydescriptor, void* lpftlastwritetime) {
+uint32_t windowssys_windows_win32_system_registry_regQueryInfoKeyA(void* hkey, void* lpclass, void* lpcchclass, void* lpreserved, void* lpcsubkeys, void* lpcbmaxsubkeylen, void* lpcbmaxclasslen, void* lpcvalues, void* lpcbmaxvaluenamelen, void* lpcbmaxvaluelen, void* lpcbsecuritydescriptor, void* lpftlastwritetime) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1473,7 +1473,7 @@ uint32_t windowssys_windows_win32_system_registry_RegQueryInfoKeyA(void* hkey, v
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegQueryInfoKeyW(void* hkey, void* lpclass, void* lpcchclass, void* lpreserved, void* lpcsubkeys, void* lpcbmaxsubkeylen, void* lpcbmaxclasslen, void* lpcvalues, void* lpcbmaxvaluenamelen, void* lpcbmaxvaluelen, void* lpcbsecuritydescriptor, void* lpftlastwritetime) {
+uint32_t windowssys_windows_win32_system_registry_regQueryInfoKeyW(void* hkey, void* lpclass, void* lpcchclass, void* lpreserved, void* lpcsubkeys, void* lpcbmaxsubkeylen, void* lpcbmaxclasslen, void* lpcvalues, void* lpcbmaxvaluenamelen, void* lpcbmaxvaluelen, void* lpcbsecuritydescriptor, void* lpftlastwritetime) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1506,7 +1506,7 @@ uint32_t windowssys_windows_win32_system_registry_RegQueryInfoKeyW(void* hkey, v
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegQueryMultipleValuesA(void* hkey, void* val_list, uint32_t num_vals, void* lpvaluebuf, void* ldwtotsize) {
+uint32_t windowssys_windows_win32_system_registry_regQueryMultipleValuesA(void* hkey, void* val_list, uint32_t num_vals, void* lpvaluebuf, void* ldwtotsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1532,7 +1532,7 @@ uint32_t windowssys_windows_win32_system_registry_RegQueryMultipleValuesA(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegQueryMultipleValuesW(void* hkey, void* val_list, uint32_t num_vals, void* lpvaluebuf, void* ldwtotsize) {
+uint32_t windowssys_windows_win32_system_registry_regQueryMultipleValuesW(void* hkey, void* val_list, uint32_t num_vals, void* lpvaluebuf, void* ldwtotsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1558,7 +1558,7 @@ uint32_t windowssys_windows_win32_system_registry_RegQueryMultipleValuesW(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegQueryReflectionKey(void* hbase, void* bisreflectiondisabled) {
+uint32_t windowssys_windows_win32_system_registry_regQueryReflectionKey(void* hbase, void* bisreflectiondisabled) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1581,7 +1581,7 @@ uint32_t windowssys_windows_win32_system_registry_RegQueryReflectionKey(void* hb
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegQueryValueA(void* hkey, void* lpsubkey, void* lpdata, void* lpcbdata) {
+uint32_t windowssys_windows_win32_system_registry_regQueryValueA(void* hkey, void* lpsubkey, void* lpdata, void* lpcbdata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1606,7 +1606,7 @@ uint32_t windowssys_windows_win32_system_registry_RegQueryValueA(void* hkey, voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegQueryValueExA(void* hkey, void* lpvaluename, void* lpreserved, void* lptype, void* lpdata, void* lpcbdata) {
+uint32_t windowssys_windows_win32_system_registry_regQueryValueExA(void* hkey, void* lpvaluename, void* lpreserved, void* lptype, void* lpdata, void* lpcbdata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1633,7 +1633,7 @@ uint32_t windowssys_windows_win32_system_registry_RegQueryValueExA(void* hkey, v
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegQueryValueExW(void* hkey, void* lpvaluename, void* lpreserved, void* lptype, void* lpdata, void* lpcbdata) {
+uint32_t windowssys_windows_win32_system_registry_regQueryValueExW(void* hkey, void* lpvaluename, void* lpreserved, void* lptype, void* lpdata, void* lpcbdata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1660,7 +1660,7 @@ uint32_t windowssys_windows_win32_system_registry_RegQueryValueExW(void* hkey, v
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegQueryValueW(void* hkey, void* lpsubkey, void* lpdata, void* lpcbdata) {
+uint32_t windowssys_windows_win32_system_registry_regQueryValueW(void* hkey, void* lpsubkey, void* lpdata, void* lpcbdata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1685,7 +1685,7 @@ uint32_t windowssys_windows_win32_system_registry_RegQueryValueW(void* hkey, voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegRenameKey(void* hkey, void* lpsubkeyname, void* lpnewkeyname) {
+uint32_t windowssys_windows_win32_system_registry_regRenameKey(void* hkey, void* lpsubkeyname, void* lpnewkeyname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1709,7 +1709,7 @@ uint32_t windowssys_windows_win32_system_registry_RegRenameKey(void* hkey, void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegReplaceKeyA(void* hkey, void* lpsubkey, void* lpnewfile, void* lpoldfile) {
+uint32_t windowssys_windows_win32_system_registry_regReplaceKeyA(void* hkey, void* lpsubkey, void* lpnewfile, void* lpoldfile) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1734,7 +1734,7 @@ uint32_t windowssys_windows_win32_system_registry_RegReplaceKeyA(void* hkey, voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegReplaceKeyW(void* hkey, void* lpsubkey, void* lpnewfile, void* lpoldfile) {
+uint32_t windowssys_windows_win32_system_registry_regReplaceKeyW(void* hkey, void* lpsubkey, void* lpnewfile, void* lpoldfile) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1759,7 +1759,7 @@ uint32_t windowssys_windows_win32_system_registry_RegReplaceKeyW(void* hkey, voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegRestoreKeyA(void* hkey, void* lpfile, uint32_t dwflags) {
+uint32_t windowssys_windows_win32_system_registry_regRestoreKeyA(void* hkey, void* lpfile, uint32_t dwflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1783,7 +1783,7 @@ uint32_t windowssys_windows_win32_system_registry_RegRestoreKeyA(void* hkey, voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegRestoreKeyW(void* hkey, void* lpfile, uint32_t dwflags) {
+uint32_t windowssys_windows_win32_system_registry_regRestoreKeyW(void* hkey, void* lpfile, uint32_t dwflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1807,7 +1807,7 @@ uint32_t windowssys_windows_win32_system_registry_RegRestoreKeyW(void* hkey, voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegSaveKeyA(void* hkey, void* lpfile, void* lpsecurityattributes) {
+uint32_t windowssys_windows_win32_system_registry_regSaveKeyA(void* hkey, void* lpfile, void* lpsecurityattributes) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1831,7 +1831,7 @@ uint32_t windowssys_windows_win32_system_registry_RegSaveKeyA(void* hkey, void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegSaveKeyExA(void* hkey, void* lpfile, void* lpsecurityattributes, uint32_t flags) {
+uint32_t windowssys_windows_win32_system_registry_regSaveKeyExA(void* hkey, void* lpfile, void* lpsecurityattributes, uint32_t flags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1856,7 +1856,7 @@ uint32_t windowssys_windows_win32_system_registry_RegSaveKeyExA(void* hkey, void
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegSaveKeyExW(void* hkey, void* lpfile, void* lpsecurityattributes, uint32_t flags) {
+uint32_t windowssys_windows_win32_system_registry_regSaveKeyExW(void* hkey, void* lpfile, void* lpsecurityattributes, uint32_t flags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1881,7 +1881,7 @@ uint32_t windowssys_windows_win32_system_registry_RegSaveKeyExW(void* hkey, void
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegSaveKeyW(void* hkey, void* lpfile, void* lpsecurityattributes) {
+uint32_t windowssys_windows_win32_system_registry_regSaveKeyW(void* hkey, void* lpfile, void* lpsecurityattributes) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1905,7 +1905,7 @@ uint32_t windowssys_windows_win32_system_registry_RegSaveKeyW(void* hkey, void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegSetKeySecurity(void* hkey, uint32_t securityinformation, void* psecuritydescriptor) {
+uint32_t windowssys_windows_win32_system_registry_regSetKeySecurity(void* hkey, uint32_t securityinformation, void* psecuritydescriptor) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1929,7 +1929,7 @@ uint32_t windowssys_windows_win32_system_registry_RegSetKeySecurity(void* hkey, 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegSetKeyValueA(void* hkey, void* lpsubkey, void* lpvaluename, uint32_t dwtype, void* lpdata, uint32_t cbdata) {
+uint32_t windowssys_windows_win32_system_registry_regSetKeyValueA(void* hkey, void* lpsubkey, void* lpvaluename, uint32_t dwtype, void* lpdata, uint32_t cbdata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1956,7 +1956,7 @@ uint32_t windowssys_windows_win32_system_registry_RegSetKeyValueA(void* hkey, vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegSetKeyValueW(void* hkey, void* lpsubkey, void* lpvaluename, uint32_t dwtype, void* lpdata, uint32_t cbdata) {
+uint32_t windowssys_windows_win32_system_registry_regSetKeyValueW(void* hkey, void* lpsubkey, void* lpvaluename, uint32_t dwtype, void* lpdata, uint32_t cbdata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1983,7 +1983,7 @@ uint32_t windowssys_windows_win32_system_registry_RegSetKeyValueW(void* hkey, vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegSetValueA(void* hkey, void* lpsubkey, uint32_t dwtype, void* lpdata, uint32_t cbdata) {
+uint32_t windowssys_windows_win32_system_registry_regSetValueA(void* hkey, void* lpsubkey, uint32_t dwtype, void* lpdata, uint32_t cbdata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2009,7 +2009,7 @@ uint32_t windowssys_windows_win32_system_registry_RegSetValueA(void* hkey, void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegSetValueExA(void* hkey, void* lpvaluename, uint32_t reserved, uint32_t dwtype, void* lpdata, uint32_t cbdata) {
+uint32_t windowssys_windows_win32_system_registry_regSetValueExA(void* hkey, void* lpvaluename, uint32_t reserved, uint32_t dwtype, void* lpdata, uint32_t cbdata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2036,7 +2036,7 @@ uint32_t windowssys_windows_win32_system_registry_RegSetValueExA(void* hkey, voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegSetValueExW(void* hkey, void* lpvaluename, uint32_t reserved, uint32_t dwtype, void* lpdata, uint32_t cbdata) {
+uint32_t windowssys_windows_win32_system_registry_regSetValueExW(void* hkey, void* lpvaluename, uint32_t reserved, uint32_t dwtype, void* lpdata, uint32_t cbdata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2063,7 +2063,7 @@ uint32_t windowssys_windows_win32_system_registry_RegSetValueExW(void* hkey, voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegSetValueW(void* hkey, void* lpsubkey, uint32_t dwtype, void* lpdata, uint32_t cbdata) {
+uint32_t windowssys_windows_win32_system_registry_regSetValueW(void* hkey, void* lpsubkey, uint32_t dwtype, void* lpdata, uint32_t cbdata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2089,7 +2089,7 @@ uint32_t windowssys_windows_win32_system_registry_RegSetValueW(void* hkey, void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegUnLoadKeyA(void* hkey, void* lpsubkey) {
+uint32_t windowssys_windows_win32_system_registry_regUnLoadKeyA(void* hkey, void* lpsubkey) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2112,7 +2112,7 @@ uint32_t windowssys_windows_win32_system_registry_RegUnLoadKeyA(void* hkey, void
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_registry_RegUnLoadKeyW(void* hkey, void* lpsubkey) {
+uint32_t windowssys_windows_win32_system_registry_regUnLoadKeyW(void* hkey, void* lpsubkey) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;

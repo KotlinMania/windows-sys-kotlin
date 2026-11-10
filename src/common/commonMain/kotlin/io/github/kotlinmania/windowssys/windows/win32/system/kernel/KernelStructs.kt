@@ -1,149 +1,136 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.system.kernel
 
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pstr
 
-public data class CSTRING(
-    public var Length: UShort = 0u,
-    public var MaximumLength: UShort = 0u,
-    public var Buffer: PCSTR = 0L,
+public data class Cstring(
+    public var length: UShort = 0u,
+    public var maximumLength: UShort = 0u,
+    public var buffer: Pcstr = null,
 )
 
-public data class EXCEPTION_REGISTRATION_RECORD(public var Next: Long = 0L, public var Handler: EXCEPTION_ROUTINE = null)
+public data class ExceptionRegistrationRecord(public var next: ExceptionRegistrationRecord? = null, public var handler: ExceptionRoutine = null)
 
-public data class FLOATING_SAVE_AREA(
-    public var ControlWord: UInt = 0u,
-    public var StatusWord: UInt = 0u,
-    public var TagWord: UInt = 0u,
-    public var ErrorOffset: UInt = 0u,
-    public var ErrorSelector: UInt = 0u,
-    public var DataOffset: UInt = 0u,
-    public var DataSelector: UInt = 0u,
-    public var RegisterArea: UByteArray = UByteArray(80),
-    public var Cr0NpxState: UInt = 0u,
+public data class FloatingSaveArea(
+    public var controlWord: UInt = 0u,
+    public var statusWord: UInt = 0u,
+    public var tagWord: UInt = 0u,
+    public var errorOffset: UInt = 0u,
+    public var errorSelector: UInt = 0u,
+    public var dataOffset: UInt = 0u,
+    public var dataSelector: UInt = 0u,
+    public var registerArea: UByteArray = UByteArray(80),
+    public var cr0NpxState: UInt = 0u,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is FLOATING_SAVE_AREA) return false
-        if (this.ControlWord != other.ControlWord) return false
-        if (this.StatusWord != other.StatusWord) return false
-        if (this.TagWord != other.TagWord) return false
-        if (this.ErrorOffset != other.ErrorOffset) return false
-        if (this.ErrorSelector != other.ErrorSelector) return false
-        if (this.DataOffset != other.DataOffset) return false
-        if (this.DataSelector != other.DataSelector) return false
-        if (!this.RegisterArea.contentEquals(other.RegisterArea)) return false
-        if (this.Cr0NpxState != other.Cr0NpxState) return false
+        if (other !is FloatingSaveArea) return false
+        if (this.controlWord != other.controlWord) return false
+        if (this.statusWord != other.statusWord) return false
+        if (this.tagWord != other.tagWord) return false
+        if (this.errorOffset != other.errorOffset) return false
+        if (this.errorSelector != other.errorSelector) return false
+        if (this.dataOffset != other.dataOffset) return false
+        if (this.dataSelector != other.dataSelector) return false
+        if (!this.registerArea.contentEquals(other.registerArea)) return false
+        if (this.cr0NpxState != other.cr0NpxState) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.ControlWord.hashCode()
-        result = 31 * result + this.StatusWord.hashCode()
-        result = 31 * result + this.TagWord.hashCode()
-        result = 31 * result + this.ErrorOffset.hashCode()
-        result = 31 * result + this.ErrorSelector.hashCode()
-        result = 31 * result + this.DataOffset.hashCode()
-        result = 31 * result + this.DataSelector.hashCode()
-        result = 31 * result + this.RegisterArea.contentHashCode()
-        result = 31 * result + this.Cr0NpxState.hashCode()
+        var result = this.controlWord.hashCode()
+        result = 31 * result + this.statusWord.hashCode()
+        result = 31 * result + this.tagWord.hashCode()
+        result = 31 * result + this.errorOffset.hashCode()
+        result = 31 * result + this.errorSelector.hashCode()
+        result = 31 * result + this.dataOffset.hashCode()
+        result = 31 * result + this.dataSelector.hashCode()
+        result = 31 * result + this.registerArea.contentHashCode()
+        result = 31 * result + this.cr0NpxState.hashCode()
         return result
     }
 }
 
-public data class LIST_ENTRY(public var Flink: Long = 0L, public var Blink: Long = 0L)
+public data class ListEntry(public var flink: ListEntry? = null, public var blink: ListEntry? = null)
 
-public data class LIST_ENTRY32(public var Flink: UInt = 0u, public var Blink: UInt = 0u)
+public data class ListEntry32(public var flink: UInt = 0u, public var blink: UInt = 0u)
 
-public data class LIST_ENTRY64(public var Flink: ULong = 0uL, public var Blink: ULong = 0uL)
+public data class ListEntry64(public var flink: ULong = 0uL, public var blink: ULong = 0uL)
 
-public data class NT_TIB(
-    public var ExceptionList: Long = 0L,
-    public var StackBase: Long = 0L,
-    public var StackLimit: Long = 0L,
-    public var SubSystemTib: Long = 0L,
-    public var Anonymous: NT_TIB_0 = NT_TIB_0(),
-    public var ArbitraryUserPointer: Long = 0L,
-    public var Self_: Long = 0L,
+public data class NtTib(
+    public var exceptionList: ExceptionRegistrationRecord? = null,
+    public var stackBase: COpaquePointer? = null,
+    public var stackLimit: COpaquePointer? = null,
+    public var subSystemTib: COpaquePointer? = null,
+    public var anonymous: NtTib0 = NtTib0(),
+    public var arbitraryUserPointer: COpaquePointer? = null,
+    public var self: NtTib? = null,
 )
 
-public data class NT_TIB_0(public var FiberData: Long = 0L, public var Version: UInt = 0u)
+public data class NtTib0(public var fiberData: COpaquePointer? = null, public var version: UInt = 0u)
 
-public data class OBJECTID(public var Lineage: GUID = GUID(), public var Uniquifier: UInt = 0u)
+public data class Objectid(public var lineage: Guid = Guid(), public var uniquifier: UInt = 0u)
 
-public data class PROCESSOR_NUMBER(
-    public var Group: UShort = 0u,
-    public var Number: UByte = 0u,
-    public var Reserved: UByte = 0u,
+public data class ProcessorNumber(
+    public var group: UShort = 0u,
+    public var number: UByte = 0u,
+    public var reserved: UByte = 0u,
 )
 
-public data class QUAD(public var Anonymous: QUAD_0 = QUAD_0())
+public data class Quad(public var anonymous: Quad0 = Quad0())
 
-public data class QUAD_0(public var UseThisFieldToCopy: Long = 0L, public var DoNotUseThisField: Double = 0.0)
+public data class Quad0(public var useThisFieldToCopy: Long = 0L, public var doNotUseThisField: Double = 0.0)
 
-public data class RTL_BALANCED_NODE(public var Anonymous1: RTL_BALANCED_NODE_0 = RTL_BALANCED_NODE_0(), public var Anonymous2: RTL_BALANCED_NODE_1 = RTL_BALANCED_NODE_1())
+public data class RtlBalancedNode(public var anonymous1: RtlBalancedNode0 = RtlBalancedNode0(), public var anonymous2: RtlBalancedNode1 = RtlBalancedNode1())
 
-public data class RTL_BALANCED_NODE_0(public var Children: LongArray = LongArray(2), public var Anonymous: RTL_BALANCED_NODE_0_0 = RTL_BALANCED_NODE_0_0()) {
+public data class RtlBalancedNode0(public var children: List<RtlBalancedNode> = List(2) { RtlBalancedNode() }, public var anonymous: RtlBalancedNode00 = RtlBalancedNode00())
+
+public data class RtlBalancedNode00(public var left: RtlBalancedNode? = null, public var right: RtlBalancedNode? = null)
+
+public data class RtlBalancedNode1(public var bitfield: UByte = 0u, public var parentValue: Int = 0)
+
+public data class SingleListEntry(public var next: SingleListEntry? = null)
+
+public data class SingleListEntry32(public var next: UInt = 0u)
+
+public data class SlistEntry(public var next: SlistEntry? = null)
+
+public data class SlistHeader(public var anonymous: SlistHeader0 = SlistHeader0(), public var headerX64: SlistHeader1 = SlistHeader1())
+
+public data class SlistHeader0(public var alignment: ULong = 0uL, public var region: ULong = 0uL)
+
+public data class SlistHeader1(public var bitfield1: ULong = 0uL, public var bitfield2: ULong = 0uL)
+
+public data class String(
+    public var length: UShort = 0u,
+    public var maximumLength: UShort = 0u,
+    public var buffer: Pstr = null,
+)
+
+public data class String32(
+    public var length: UShort = 0u,
+    public var maximumLength: UShort = 0u,
+    public var buffer: UInt = 0u,
+)
+
+public data class String64(
+    public var length: UShort = 0u,
+    public var maximumLength: UShort = 0u,
+    public var buffer: ULong = 0uL,
+)
+
+public data class WnfStateName(public var data: UIntArray = UIntArray(2)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is RTL_BALANCED_NODE_0) return false
-        if (!this.Children.contentEquals(other.Children)) return false
-        if (this.Anonymous != other.Anonymous) return false
+        if (other !is WnfStateName) return false
+        if (!this.data.contentEquals(other.data)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Children.contentHashCode()
-        result = 31 * result + this.Anonymous.hashCode()
-        return result
-    }
-}
-
-public data class RTL_BALANCED_NODE_0_0(public var Left: Long = 0L, public var Right: Long = 0L)
-
-public data class RTL_BALANCED_NODE_1(public var _bitfield: UByte = 0u, public var ParentValue: ULong = 0uL)
-
-public data class SINGLE_LIST_ENTRY(public var Next: Long = 0L)
-
-public data class SINGLE_LIST_ENTRY32(public var Next: UInt = 0u)
-
-public data class SLIST_ENTRY(public var Next: Long = 0L)
-
-public data class SLIST_HEADER(public var Anonymous: SLIST_HEADER_0 = SLIST_HEADER_0(), public var HeaderX64: SLIST_HEADER_1 = SLIST_HEADER_1())
-
-public data class SLIST_HEADER_0(public var Alignment: ULong = 0uL, public var Region: ULong = 0uL)
-
-public data class SLIST_HEADER_1(public var _bitfield1: ULong = 0uL, public var _bitfield2: ULong = 0uL)
-
-public data class STRING(
-    public var Length: UShort = 0u,
-    public var MaximumLength: UShort = 0u,
-    public var Buffer: PSTR = 0L,
-)
-
-public data class STRING32(
-    public var Length: UShort = 0u,
-    public var MaximumLength: UShort = 0u,
-    public var Buffer: UInt = 0u,
-)
-
-public data class STRING64(
-    public var Length: UShort = 0u,
-    public var MaximumLength: UShort = 0u,
-    public var Buffer: ULong = 0uL,
-)
-
-public data class WNF_STATE_NAME(public var Data: UIntArray = UIntArray(2)) {
-    override fun equals(other: Any?): Boolean {
-        if (this === other) return true
-        if (other !is WNF_STATE_NAME) return false
-        if (!this.Data.contentEquals(other.Data)) return false
-        return true
-    }
-
-    override fun hashCode(): Int {
-        return this.Data.contentHashCode()
+        return this.data.contentHashCode()
     }
 }

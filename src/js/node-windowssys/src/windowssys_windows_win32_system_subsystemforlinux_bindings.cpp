@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_system_subsystemforlinux_WslConfigureDistribution_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_subsystemforlinux_wslConfigureDistribution_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* distributionname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t defaultuid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -73,7 +73,7 @@ static Napi::Value windowssys_windows_win32_system_subsystemforlinux_WslConfigur
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_subsystemforlinux_WslGetDistributionConfiguration_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_subsystemforlinux_wslGetDistributionConfiguration_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* distributionname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* distributionversion = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -101,7 +101,7 @@ static Napi::Value windowssys_windows_win32_system_subsystemforlinux_WslGetDistr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_subsystemforlinux_WslIsDistributionRegistered_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_subsystemforlinux_wslIsDistributionRegistered_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* distributionname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -119,7 +119,7 @@ static Napi::Value windowssys_windows_win32_system_subsystemforlinux_WslIsDistri
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_subsystemforlinux_WslLaunch_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_subsystemforlinux_wslLaunch_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* distributionname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* command = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -149,7 +149,7 @@ static Napi::Value windowssys_windows_win32_system_subsystemforlinux_WslLaunch_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_subsystemforlinux_WslLaunchInteractive_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_subsystemforlinux_wslLaunchInteractive_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* distributionname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* command = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -173,7 +173,7 @@ static Napi::Value windowssys_windows_win32_system_subsystemforlinux_WslLaunchIn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_subsystemforlinux_WslRegisterDistribution_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_subsystemforlinux_wslRegisterDistribution_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* distributionname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* targzfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -193,7 +193,7 @@ static Napi::Value windowssys_windows_win32_system_subsystemforlinux_WslRegister
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_subsystemforlinux_WslUnregisterDistribution_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_subsystemforlinux_wslUnregisterDistribution_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* distributionname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -212,13 +212,13 @@ static Napi::Value windowssys_windows_win32_system_subsystemforlinux_WslUnregist
 }
 
 static void register_windows_win32_system_subsystemforlinux_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_system_subsystemforlinux_WslConfigureDistribution", Napi::Function::New(env, windowssys_windows_win32_system_subsystemforlinux_WslConfigureDistribution_napi));
-    exports.Set("windowssys_windows_win32_system_subsystemforlinux_WslGetDistributionConfiguration", Napi::Function::New(env, windowssys_windows_win32_system_subsystemforlinux_WslGetDistributionConfiguration_napi));
-    exports.Set("windowssys_windows_win32_system_subsystemforlinux_WslIsDistributionRegistered", Napi::Function::New(env, windowssys_windows_win32_system_subsystemforlinux_WslIsDistributionRegistered_napi));
-    exports.Set("windowssys_windows_win32_system_subsystemforlinux_WslLaunch", Napi::Function::New(env, windowssys_windows_win32_system_subsystemforlinux_WslLaunch_napi));
-    exports.Set("windowssys_windows_win32_system_subsystemforlinux_WslLaunchInteractive", Napi::Function::New(env, windowssys_windows_win32_system_subsystemforlinux_WslLaunchInteractive_napi));
-    exports.Set("windowssys_windows_win32_system_subsystemforlinux_WslRegisterDistribution", Napi::Function::New(env, windowssys_windows_win32_system_subsystemforlinux_WslRegisterDistribution_napi));
-    exports.Set("windowssys_windows_win32_system_subsystemforlinux_WslUnregisterDistribution", Napi::Function::New(env, windowssys_windows_win32_system_subsystemforlinux_WslUnregisterDistribution_napi));
+    exports.Set("windowssys_windows_win32_system_subsystemforlinux_wslConfigureDistribution", Napi::Function::New(env, windowssys_windows_win32_system_subsystemforlinux_wslConfigureDistribution_napi));
+    exports.Set("windowssys_windows_win32_system_subsystemforlinux_wslGetDistributionConfiguration", Napi::Function::New(env, windowssys_windows_win32_system_subsystemforlinux_wslGetDistributionConfiguration_napi));
+    exports.Set("windowssys_windows_win32_system_subsystemforlinux_wslIsDistributionRegistered", Napi::Function::New(env, windowssys_windows_win32_system_subsystemforlinux_wslIsDistributionRegistered_napi));
+    exports.Set("windowssys_windows_win32_system_subsystemforlinux_wslLaunch", Napi::Function::New(env, windowssys_windows_win32_system_subsystemforlinux_wslLaunch_napi));
+    exports.Set("windowssys_windows_win32_system_subsystemforlinux_wslLaunchInteractive", Napi::Function::New(env, windowssys_windows_win32_system_subsystemforlinux_wslLaunchInteractive_napi));
+    exports.Set("windowssys_windows_win32_system_subsystemforlinux_wslRegisterDistribution", Napi::Function::New(env, windowssys_windows_win32_system_subsystemforlinux_wslRegisterDistribution_napi));
+    exports.Set("windowssys_windows_win32_system_subsystemforlinux_wslUnregisterDistribution", Napi::Function::New(env, windowssys_windows_win32_system_subsystemforlinux_wslUnregisterDistribution_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_system_subsystemforlinux_napi, nullptr };

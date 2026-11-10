@@ -18,7 +18,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1AddIPAddress(JNIEnv* km_env, jclass km_clazz, jint address, jint ipmask, jint ifindex, jlong ntecontext, jlong nteinstance) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1addIPAddress(JNIEnv* km_env, jclass km_clazz, jint address, jint ipmask, jint ifindex, jlong ntecontext, jlong nteinstance) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -40,7 +40,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1CancelIPChangeNotify(JNIEnv* km_env, jclass km_clazz, jlong notifyoverlapped) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1cancelIPChangeNotify(JNIEnv* km_env, jclass km_clazz, jlong notifyoverlapped) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -58,7 +58,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1CancelIfTimestampConfigChange(JNIEnv* km_env, jclass km_clazz, jlong notificationhandle) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1cancelIfTimestampConfigChange(JNIEnv* km_env, jclass km_clazz, jlong notificationhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -74,7 +74,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1CancelMibChangeNotify2(JNIEnv* km_env, jclass km_clazz, jlong notificationhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1cancelMibChangeNotify2(JNIEnv* km_env, jclass km_clazz, jlong notificationhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -92,7 +92,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1CaptureInterfaceHardwareCrossTimestamp(JNIEnv* km_env, jclass km_clazz, jlong interfaceluid, jlong crosstimestamp) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1captureInterfaceHardwareCrossTimestamp(JNIEnv* km_env, jclass km_clazz, jlong interfaceluid, jlong crosstimestamp) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -111,7 +111,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1ConvertCompartmentGuidToId(JNIEnv* km_env, jclass km_clazz, jlong compartmentguid, jlong compartmentid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1convertCompartmentGuidToId(JNIEnv* km_env, jclass km_clazz, jlong compartmentguid, jlong compartmentid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -130,7 +130,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1ConvertCompartmentIdToGuid(JNIEnv* km_env, jclass km_clazz, jint compartmentid, jlong compartmentguid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1convertCompartmentIdToGuid(JNIEnv* km_env, jclass km_clazz, jint compartmentid, jlong compartmentguid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -149,7 +149,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1ConvertInterfaceAliasToLuid(JNIEnv* km_env, jclass km_clazz, jlong interfacealias, jlong interfaceluid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1convertInterfaceAliasToLuid(JNIEnv* km_env, jclass km_clazz, jlong interfacealias, jlong interfaceluid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -168,7 +168,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1ConvertInterfaceGuidToLuid(JNIEnv* km_env, jclass km_clazz, jlong interfaceguid, jlong interfaceluid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1convertInterfaceGuidToLuid(JNIEnv* km_env, jclass km_clazz, jlong interfaceguid, jlong interfaceluid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -187,7 +187,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1ConvertInterfaceIndexToLuid(JNIEnv* km_env, jclass km_clazz, jint interfaceindex, jlong interfaceluid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1convertInterfaceIndexToLuid(JNIEnv* km_env, jclass km_clazz, jint interfaceindex, jlong interfaceluid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -206,7 +206,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1ConvertInterfaceLuidToAlias(JNIEnv* km_env, jclass km_clazz, jlong interfaceluid, jlong interfacealias, jlong length) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1convertInterfaceLuidToAlias(JNIEnv* km_env, jclass km_clazz, jlong interfaceluid, jlong interfacealias, jlong length) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -226,7 +226,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1ConvertInterfaceLuidToGuid(JNIEnv* km_env, jclass km_clazz, jlong interfaceluid, jlong interfaceguid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1convertInterfaceLuidToGuid(JNIEnv* km_env, jclass km_clazz, jlong interfaceluid, jlong interfaceguid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -245,7 +245,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1ConvertInterfaceLuidToIndex(JNIEnv* km_env, jclass km_clazz, jlong interfaceluid, jlong interfaceindex) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1convertInterfaceLuidToIndex(JNIEnv* km_env, jclass km_clazz, jlong interfaceluid, jlong interfaceindex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -264,7 +264,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1ConvertInterfaceLuidToNameA(JNIEnv* km_env, jclass km_clazz, jlong interfaceluid, jlong interfacename, jlong length) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1convertInterfaceLuidToNameA(JNIEnv* km_env, jclass km_clazz, jlong interfaceluid, jlong interfacename, jlong length) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -284,7 +284,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1ConvertInterfaceLuidToNameW(JNIEnv* km_env, jclass km_clazz, jlong interfaceluid, jlong interfacename, jlong length) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1convertInterfaceLuidToNameW(JNIEnv* km_env, jclass km_clazz, jlong interfaceluid, jlong interfacename, jlong length) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -304,7 +304,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1ConvertInterfaceNameToLuidA(JNIEnv* km_env, jclass km_clazz, jlong interfacename, jlong interfaceluid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1convertInterfaceNameToLuidA(JNIEnv* km_env, jclass km_clazz, jlong interfacename, jlong interfaceluid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -323,7 +323,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1ConvertInterfaceNameToLuidW(JNIEnv* km_env, jclass km_clazz, jlong interfacename, jlong interfaceluid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1convertInterfaceNameToLuidW(JNIEnv* km_env, jclass km_clazz, jlong interfacename, jlong interfaceluid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -342,7 +342,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1ConvertIpv4MaskToLength(JNIEnv* km_env, jclass km_clazz, jint mask, jlong masklength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1convertIpv4MaskToLength(JNIEnv* km_env, jclass km_clazz, jint mask, jlong masklength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -361,7 +361,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1ConvertLengthToIpv4Mask(JNIEnv* km_env, jclass km_clazz, jint masklength, jlong mask) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1convertLengthToIpv4Mask(JNIEnv* km_env, jclass km_clazz, jint masklength, jlong mask) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -380,7 +380,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1CreateAnycastIpAddressEntry(JNIEnv* km_env, jclass km_clazz, jlong row) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1createAnycastIpAddressEntry(JNIEnv* km_env, jclass km_clazz, jlong row) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -398,7 +398,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1CreateIpForwardEntry(JNIEnv* km_env, jclass km_clazz, jlong proute) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1createIpForwardEntry(JNIEnv* km_env, jclass km_clazz, jlong proute) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -416,7 +416,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1CreateIpForwardEntry2(JNIEnv* km_env, jclass km_clazz, jlong row) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1createIpForwardEntry2(JNIEnv* km_env, jclass km_clazz, jlong row) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -434,7 +434,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1CreateIpNetEntry(JNIEnv* km_env, jclass km_clazz, jlong parpentry) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1createIpNetEntry(JNIEnv* km_env, jclass km_clazz, jlong parpentry) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -452,7 +452,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1CreateIpNetEntry2(JNIEnv* km_env, jclass km_clazz, jlong row) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1createIpNetEntry2(JNIEnv* km_env, jclass km_clazz, jlong row) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -470,7 +470,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1CreatePersistentTcpPortReservation(JNIEnv* km_env, jclass km_clazz, jshort startport, jshort numberofports, jlong token) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1createPersistentTcpPortReservation(JNIEnv* km_env, jclass km_clazz, jshort startport, jshort numberofports, jlong token) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -490,7 +490,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1CreatePersistentUdpPortReservation(JNIEnv* km_env, jclass km_clazz, jshort startport, jshort numberofports, jlong token) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1createPersistentUdpPortReservation(JNIEnv* km_env, jclass km_clazz, jshort startport, jshort numberofports, jlong token) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -510,7 +510,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1CreateProxyArpEntry(JNIEnv* km_env, jclass km_clazz, jint dwaddress, jint dwmask, jint dwifindex) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1createProxyArpEntry(JNIEnv* km_env, jclass km_clazz, jint dwaddress, jint dwmask, jint dwifindex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -530,7 +530,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1CreateSortedAddressPairs(JNIEnv* km_env, jclass km_clazz, jlong sourceaddresslist, jint sourceaddresscount, jlong destinationaddresslist, jint destinationaddresscount, jint addresssortoptions, jlong sortedaddresspairlist, jlong sortedaddresspaircount) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1createSortedAddressPairs(JNIEnv* km_env, jclass km_clazz, jlong sourceaddresslist, jint sourceaddresscount, jlong destinationaddresslist, jint destinationaddresscount, jint addresssortoptions, jlong sortedaddresspairlist, jlong sortedaddresspaircount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -554,7 +554,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1CreateUnicastIpAddressEntry(JNIEnv* km_env, jclass km_clazz, jlong row) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1createUnicastIpAddressEntry(JNIEnv* km_env, jclass km_clazz, jlong row) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -572,7 +572,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1DeleteAnycastIpAddressEntry(JNIEnv* km_env, jclass km_clazz, jlong row) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1deleteAnycastIpAddressEntry(JNIEnv* km_env, jclass km_clazz, jlong row) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -590,7 +590,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1DeleteIPAddress(JNIEnv* km_env, jclass km_clazz, jint ntecontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1deleteIPAddress(JNIEnv* km_env, jclass km_clazz, jint ntecontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -608,7 +608,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1DeleteIpForwardEntry(JNIEnv* km_env, jclass km_clazz, jlong proute) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1deleteIpForwardEntry(JNIEnv* km_env, jclass km_clazz, jlong proute) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -626,7 +626,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1DeleteIpForwardEntry2(JNIEnv* km_env, jclass km_clazz, jlong row) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1deleteIpForwardEntry2(JNIEnv* km_env, jclass km_clazz, jlong row) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -644,7 +644,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1DeleteIpNetEntry(JNIEnv* km_env, jclass km_clazz, jlong parpentry) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1deleteIpNetEntry(JNIEnv* km_env, jclass km_clazz, jlong parpentry) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -662,7 +662,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1DeleteIpNetEntry2(JNIEnv* km_env, jclass km_clazz, jlong row) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1deleteIpNetEntry2(JNIEnv* km_env, jclass km_clazz, jlong row) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -680,7 +680,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1DeletePersistentTcpPortReservation(JNIEnv* km_env, jclass km_clazz, jshort startport, jshort numberofports) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1deletePersistentTcpPortReservation(JNIEnv* km_env, jclass km_clazz, jshort startport, jshort numberofports) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -699,7 +699,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1DeletePersistentUdpPortReservation(JNIEnv* km_env, jclass km_clazz, jshort startport, jshort numberofports) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1deletePersistentUdpPortReservation(JNIEnv* km_env, jclass km_clazz, jshort startport, jshort numberofports) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -718,7 +718,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1DeleteProxyArpEntry(JNIEnv* km_env, jclass km_clazz, jint dwaddress, jint dwmask, jint dwifindex) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1deleteProxyArpEntry(JNIEnv* km_env, jclass km_clazz, jint dwaddress, jint dwmask, jint dwifindex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -738,7 +738,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1DeleteUnicastIpAddressEntry(JNIEnv* km_env, jclass km_clazz, jlong row) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1deleteUnicastIpAddressEntry(JNIEnv* km_env, jclass km_clazz, jlong row) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -756,7 +756,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1DisableMediaSense(JNIEnv* km_env, jclass km_clazz, jlong phandle, jlong poverlapped) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1disableMediaSense(JNIEnv* km_env, jclass km_clazz, jlong phandle, jlong poverlapped) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -775,7 +775,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1EnableRouter(JNIEnv* km_env, jclass km_clazz, jlong phandle, jlong poverlapped) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1enableRouter(JNIEnv* km_env, jclass km_clazz, jlong phandle, jlong poverlapped) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -794,7 +794,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1FlushIpNetTable(JNIEnv* km_env, jclass km_clazz, jint dwifindex) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1flushIpNetTable(JNIEnv* km_env, jclass km_clazz, jint dwifindex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -812,7 +812,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1FlushIpNetTable2(JNIEnv* km_env, jclass km_clazz, jshort family, jint interfaceindex) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1flushIpNetTable2(JNIEnv* km_env, jclass km_clazz, jshort family, jint interfaceindex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -831,7 +831,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1FlushIpPathTable(JNIEnv* km_env, jclass km_clazz, jshort family) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1flushIpPathTable(JNIEnv* km_env, jclass km_clazz, jshort family) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -849,7 +849,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1FreeDnsSettings(JNIEnv* km_env, jclass km_clazz, jlong settings) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1freeDnsSettings(JNIEnv* km_env, jclass km_clazz, jlong settings) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -865,7 +865,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1FreeInterfaceDnsSettings(JNIEnv* km_env, jclass km_clazz, jlong settings) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1freeInterfaceDnsSettings(JNIEnv* km_env, jclass km_clazz, jlong settings) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -881,7 +881,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1FreeMibTable(JNIEnv* km_env, jclass km_clazz, jlong memory) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1freeMibTable(JNIEnv* km_env, jclass km_clazz, jlong memory) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -897,7 +897,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetAdapterIndex(JNIEnv* km_env, jclass km_clazz, jlong adaptername, jlong ifindex) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getAdapterIndex(JNIEnv* km_env, jclass km_clazz, jlong adaptername, jlong ifindex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -916,7 +916,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetAdapterOrderMap(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getAdapterOrderMap(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -933,7 +933,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetAdaptersAddresses(JNIEnv* km_env, jclass km_clazz, jint family, jint flags, jlong reserved, jlong adapteraddresses, jlong sizepointer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getAdaptersAddresses(JNIEnv* km_env, jclass km_clazz, jint family, jint flags, jlong reserved, jlong adapteraddresses, jlong sizepointer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -955,7 +955,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetAdaptersInfo(JNIEnv* km_env, jclass km_clazz, jlong adapterinfo, jlong sizepointer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getAdaptersInfo(JNIEnv* km_env, jclass km_clazz, jlong adapterinfo, jlong sizepointer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -974,7 +974,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetAnycastIpAddressEntry(JNIEnv* km_env, jclass km_clazz, jlong row) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getAnycastIpAddressEntry(JNIEnv* km_env, jclass km_clazz, jlong row) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -992,7 +992,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetAnycastIpAddressTable(JNIEnv* km_env, jclass km_clazz, jshort family, jlong table) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getAnycastIpAddressTable(JNIEnv* km_env, jclass km_clazz, jshort family, jlong table) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1011,7 +1011,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetBestInterface(JNIEnv* km_env, jclass km_clazz, jint dwdestaddr, jlong pdwbestifindex) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getBestInterface(JNIEnv* km_env, jclass km_clazz, jint dwdestaddr, jlong pdwbestifindex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1030,7 +1030,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetBestInterfaceEx(JNIEnv* km_env, jclass km_clazz, jlong pdestaddr, jlong pdwbestifindex) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getBestInterfaceEx(JNIEnv* km_env, jclass km_clazz, jlong pdestaddr, jlong pdwbestifindex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1049,7 +1049,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetBestRoute(JNIEnv* km_env, jclass km_clazz, jint dwdestaddr, jint dwsourceaddr, jlong pbestroute) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getBestRoute(JNIEnv* km_env, jclass km_clazz, jint dwdestaddr, jint dwsourceaddr, jlong pbestroute) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1069,7 +1069,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetBestRoute2(JNIEnv* km_env, jclass km_clazz, jlong interfaceluid, jint interfaceindex, jlong sourceaddress, jlong destinationaddress, jint addresssortoptions, jlong bestroute, jlong bestsourceaddress) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getBestRoute2(JNIEnv* km_env, jclass km_clazz, jlong interfaceluid, jint interfaceindex, jlong sourceaddress, jlong destinationaddress, jint addresssortoptions, jlong bestroute, jlong bestsourceaddress) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1093,7 +1093,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetCurrentThreadCompartmentId(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getCurrentThreadCompartmentId(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1110,7 +1110,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetCurrentThreadCompartmentScope(JNIEnv* km_env, jclass km_clazz, jlong compartmentscope, jlong compartmentid) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getCurrentThreadCompartmentScope(JNIEnv* km_env, jclass km_clazz, jlong compartmentscope, jlong compartmentid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1127,7 +1127,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetDefaultCompartmentId(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getDefaultCompartmentId(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1144,7 +1144,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetDnsSettings(JNIEnv* km_env, jclass km_clazz, jlong settings) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getDnsSettings(JNIEnv* km_env, jclass km_clazz, jlong settings) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1162,7 +1162,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetExtendedTcpTable(JNIEnv* km_env, jclass km_clazz, jlong ptcptable, jlong pdwsize, jint border, jint ulaf, jint tableclass, jint reserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getExtendedTcpTable(JNIEnv* km_env, jclass km_clazz, jlong ptcptable, jlong pdwsize, jint border, jint ulaf, jint tableclass, jint reserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1185,7 +1185,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetExtendedUdpTable(JNIEnv* km_env, jclass km_clazz, jlong pudptable, jlong pdwsize, jint border, jint ulaf, jint tableclass, jint reserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getExtendedUdpTable(JNIEnv* km_env, jclass km_clazz, jlong pudptable, jlong pdwsize, jint border, jint ulaf, jint tableclass, jint reserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1208,7 +1208,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetFriendlyIfIndex(JNIEnv* km_env, jclass km_clazz, jint ifindex) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getFriendlyIfIndex(JNIEnv* km_env, jclass km_clazz, jint ifindex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1226,7 +1226,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetIcmpStatistics(JNIEnv* km_env, jclass km_clazz, jlong statistics) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getIcmpStatistics(JNIEnv* km_env, jclass km_clazz, jlong statistics) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1244,7 +1244,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetIcmpStatisticsEx(JNIEnv* km_env, jclass km_clazz, jlong statistics, jint family) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getIcmpStatisticsEx(JNIEnv* km_env, jclass km_clazz, jlong statistics, jint family) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1263,7 +1263,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetIfEntry(JNIEnv* km_env, jclass km_clazz, jlong pifrow) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getIfEntry(JNIEnv* km_env, jclass km_clazz, jlong pifrow) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1281,7 +1281,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetIfEntry2(JNIEnv* km_env, jclass km_clazz, jlong row) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getIfEntry2(JNIEnv* km_env, jclass km_clazz, jlong row) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1299,7 +1299,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetIfEntry2Ex(JNIEnv* km_env, jclass km_clazz, jint level, jlong row) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getIfEntry2Ex(JNIEnv* km_env, jclass km_clazz, jint level, jlong row) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1318,7 +1318,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetIfStackTable(JNIEnv* km_env, jclass km_clazz, jlong table) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getIfStackTable(JNIEnv* km_env, jclass km_clazz, jlong table) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1336,7 +1336,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetIfTable(JNIEnv* km_env, jclass km_clazz, jlong piftable, jlong pdwsize, jint border) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getIfTable(JNIEnv* km_env, jclass km_clazz, jlong piftable, jlong pdwsize, jint border) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1356,7 +1356,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetIfTable2(JNIEnv* km_env, jclass km_clazz, jlong table) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getIfTable2(JNIEnv* km_env, jclass km_clazz, jlong table) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1374,7 +1374,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetIfTable2Ex(JNIEnv* km_env, jclass km_clazz, jint level, jlong table) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getIfTable2Ex(JNIEnv* km_env, jclass km_clazz, jint level, jlong table) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1393,7 +1393,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetInterfaceActiveTimestampCapabilities(JNIEnv* km_env, jclass km_clazz, jlong interfaceluid, jlong timestampcapabilites) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getInterfaceActiveTimestampCapabilities(JNIEnv* km_env, jclass km_clazz, jlong interfaceluid, jlong timestampcapabilites) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1412,7 +1412,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetInterfaceCurrentTimestampCapabilities(JNIEnv* km_env, jclass km_clazz, jlong interfaceluid, jlong timestampcapabilites) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getInterfaceCurrentTimestampCapabilities(JNIEnv* km_env, jclass km_clazz, jlong interfaceluid, jlong timestampcapabilites) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1431,7 +1431,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetInterfaceHardwareTimestampCapabilities(JNIEnv* km_env, jclass km_clazz, jlong interfaceluid, jlong timestampcapabilites) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getInterfaceHardwareTimestampCapabilities(JNIEnv* km_env, jclass km_clazz, jlong interfaceluid, jlong timestampcapabilites) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1450,7 +1450,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetInterfaceInfo(JNIEnv* km_env, jclass km_clazz, jlong piftable, jlong dwoutbuflen) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getInterfaceInfo(JNIEnv* km_env, jclass km_clazz, jlong piftable, jlong dwoutbuflen) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1469,7 +1469,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetInterfaceSupportedTimestampCapabilities(JNIEnv* km_env, jclass km_clazz, jlong interfaceluid, jlong timestampcapabilites) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getInterfaceSupportedTimestampCapabilities(JNIEnv* km_env, jclass km_clazz, jlong interfaceluid, jlong timestampcapabilites) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1488,7 +1488,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetInvertedIfStackTable(JNIEnv* km_env, jclass km_clazz, jlong table) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getInvertedIfStackTable(JNIEnv* km_env, jclass km_clazz, jlong table) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1506,7 +1506,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetIpAddrTable(JNIEnv* km_env, jclass km_clazz, jlong pipaddrtable, jlong pdwsize, jint border) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getIpAddrTable(JNIEnv* km_env, jclass km_clazz, jlong pipaddrtable, jlong pdwsize, jint border) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1526,7 +1526,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetIpErrorString(JNIEnv* km_env, jclass km_clazz, jint errorcode, jlong buffer, jlong size) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getIpErrorString(JNIEnv* km_env, jclass km_clazz, jint errorcode, jlong buffer, jlong size) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1546,7 +1546,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetIpForwardEntry2(JNIEnv* km_env, jclass km_clazz, jlong row) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getIpForwardEntry2(JNIEnv* km_env, jclass km_clazz, jlong row) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1564,7 +1564,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetIpForwardTable(JNIEnv* km_env, jclass km_clazz, jlong pipforwardtable, jlong pdwsize, jint border) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getIpForwardTable(JNIEnv* km_env, jclass km_clazz, jlong pipforwardtable, jlong pdwsize, jint border) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1584,7 +1584,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetIpForwardTable2(JNIEnv* km_env, jclass km_clazz, jshort family, jlong table) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getIpForwardTable2(JNIEnv* km_env, jclass km_clazz, jshort family, jlong table) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1603,7 +1603,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetIpInterfaceEntry(JNIEnv* km_env, jclass km_clazz, jlong row) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getIpInterfaceEntry(JNIEnv* km_env, jclass km_clazz, jlong row) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1621,7 +1621,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetIpInterfaceTable(JNIEnv* km_env, jclass km_clazz, jshort family, jlong table) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getIpInterfaceTable(JNIEnv* km_env, jclass km_clazz, jshort family, jlong table) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1640,7 +1640,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetIpNetEntry2(JNIEnv* km_env, jclass km_clazz, jlong row) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getIpNetEntry2(JNIEnv* km_env, jclass km_clazz, jlong row) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1658,7 +1658,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetIpNetTable(JNIEnv* km_env, jclass km_clazz, jlong ipnettable, jlong sizepointer, jint order) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getIpNetTable(JNIEnv* km_env, jclass km_clazz, jlong ipnettable, jlong sizepointer, jint order) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1678,7 +1678,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetIpNetTable2(JNIEnv* km_env, jclass km_clazz, jshort family, jlong table) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getIpNetTable2(JNIEnv* km_env, jclass km_clazz, jshort family, jlong table) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1697,7 +1697,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetIpNetworkConnectionBandwidthEstimates(JNIEnv* km_env, jclass km_clazz, jint interfaceindex, jshort addressfamily, jlong bandwidthestimates) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getIpNetworkConnectionBandwidthEstimates(JNIEnv* km_env, jclass km_clazz, jint interfaceindex, jshort addressfamily, jlong bandwidthestimates) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1717,7 +1717,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetIpPathEntry(JNIEnv* km_env, jclass km_clazz, jlong row) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getIpPathEntry(JNIEnv* km_env, jclass km_clazz, jlong row) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1735,7 +1735,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetIpPathTable(JNIEnv* km_env, jclass km_clazz, jshort family, jlong table) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getIpPathTable(JNIEnv* km_env, jclass km_clazz, jshort family, jlong table) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1754,7 +1754,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetIpStatistics(JNIEnv* km_env, jclass km_clazz, jlong statistics) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getIpStatistics(JNIEnv* km_env, jclass km_clazz, jlong statistics) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1772,7 +1772,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetIpStatisticsEx(JNIEnv* km_env, jclass km_clazz, jlong statistics, jint family) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getIpStatisticsEx(JNIEnv* km_env, jclass km_clazz, jlong statistics, jint family) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1791,7 +1791,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetJobCompartmentId(JNIEnv* km_env, jclass km_clazz, jlong jobhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getJobCompartmentId(JNIEnv* km_env, jclass km_clazz, jlong jobhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1809,7 +1809,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetMulticastIpAddressEntry(JNIEnv* km_env, jclass km_clazz, jlong row) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getMulticastIpAddressEntry(JNIEnv* km_env, jclass km_clazz, jlong row) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1827,7 +1827,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetMulticastIpAddressTable(JNIEnv* km_env, jclass km_clazz, jshort family, jlong table) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getMulticastIpAddressTable(JNIEnv* km_env, jclass km_clazz, jshort family, jlong table) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1846,7 +1846,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetNetworkConnectivityHint(JNIEnv* km_env, jclass km_clazz, jlong connectivityhint) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getNetworkConnectivityHint(JNIEnv* km_env, jclass km_clazz, jlong connectivityhint) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1864,7 +1864,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetNetworkConnectivityHintForInterface(JNIEnv* km_env, jclass km_clazz, jint interfaceindex, jlong connectivityhint) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getNetworkConnectivityHintForInterface(JNIEnv* km_env, jclass km_clazz, jint interfaceindex, jlong connectivityhint) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1883,7 +1883,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetNetworkInformation(JNIEnv* km_env, jclass km_clazz, jlong networkguid, jlong compartmentid, jlong siteid, jlong networkname, jint length) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getNetworkInformation(JNIEnv* km_env, jclass km_clazz, jlong networkguid, jlong compartmentid, jlong siteid, jlong networkname, jint length) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1905,7 +1905,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetNetworkParams(JNIEnv* km_env, jclass km_clazz, jlong pfixedinfo, jlong poutbuflen) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getNetworkParams(JNIEnv* km_env, jclass km_clazz, jlong pfixedinfo, jlong poutbuflen) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1924,7 +1924,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetNumberOfInterfaces(JNIEnv* km_env, jclass km_clazz, jlong pdwnumif) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getNumberOfInterfaces(JNIEnv* km_env, jclass km_clazz, jlong pdwnumif) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1942,7 +1942,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetOwnerModuleFromPidAndInfo(JNIEnv* km_env, jclass km_clazz, jint ulpid, jlong pinfo, jint arg_2_class, jlong pbuffer, jlong pdwsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getOwnerModuleFromPidAndInfo(JNIEnv* km_env, jclass km_clazz, jint ulpid, jlong pinfo, jint arg_2_class, jlong pbuffer, jlong pdwsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1964,7 +1964,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetOwnerModuleFromTcp6Entry(JNIEnv* km_env, jclass km_clazz, jlong ptcpentry, jint arg_1_class, jlong pbuffer, jlong pdwsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getOwnerModuleFromTcp6Entry(JNIEnv* km_env, jclass km_clazz, jlong ptcpentry, jint arg_1_class, jlong pbuffer, jlong pdwsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1985,7 +1985,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetOwnerModuleFromTcpEntry(JNIEnv* km_env, jclass km_clazz, jlong ptcpentry, jint arg_1_class, jlong pbuffer, jlong pdwsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getOwnerModuleFromTcpEntry(JNIEnv* km_env, jclass km_clazz, jlong ptcpentry, jint arg_1_class, jlong pbuffer, jlong pdwsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2006,7 +2006,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetOwnerModuleFromUdp6Entry(JNIEnv* km_env, jclass km_clazz, jlong pudpentry, jint arg_1_class, jlong pbuffer, jlong pdwsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getOwnerModuleFromUdp6Entry(JNIEnv* km_env, jclass km_clazz, jlong pudpentry, jint arg_1_class, jlong pbuffer, jlong pdwsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2027,7 +2027,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetOwnerModuleFromUdpEntry(JNIEnv* km_env, jclass km_clazz, jlong pudpentry, jint arg_1_class, jlong pbuffer, jlong pdwsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getOwnerModuleFromUdpEntry(JNIEnv* km_env, jclass km_clazz, jlong pudpentry, jint arg_1_class, jlong pbuffer, jlong pdwsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2048,7 +2048,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetPerAdapterInfo(JNIEnv* km_env, jclass km_clazz, jint ifindex, jlong pperadapterinfo, jlong poutbuflen) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getPerAdapterInfo(JNIEnv* km_env, jclass km_clazz, jint ifindex, jlong pperadapterinfo, jlong poutbuflen) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2068,7 +2068,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetPerTcp6ConnectionEStats(JNIEnv* km_env, jclass km_clazz, jlong row, jint estatstype, jlong rw, jint rwversion, jint rwsize, jlong ros, jint rosversion, jint rossize, jlong rod, jint rodversion, jint rodsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getPerTcp6ConnectionEStats(JNIEnv* km_env, jclass km_clazz, jlong row, jint estatstype, jlong rw, jint rwversion, jint rwsize, jlong ros, jint rosversion, jint rossize, jlong rod, jint rodversion, jint rodsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2096,7 +2096,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetPerTcpConnectionEStats(JNIEnv* km_env, jclass km_clazz, jlong row, jint estatstype, jlong rw, jint rwversion, jint rwsize, jlong ros, jint rosversion, jint rossize, jlong rod, jint rodversion, jint rodsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getPerTcpConnectionEStats(JNIEnv* km_env, jclass km_clazz, jlong row, jint estatstype, jlong rw, jint rwversion, jint rwsize, jlong ros, jint rosversion, jint rossize, jlong rod, jint rodversion, jint rodsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2124,7 +2124,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetRTTAndHopCount(JNIEnv* km_env, jclass km_clazz, jint destipaddress, jlong hopcount, jint maxhops, jlong rtt) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getRTTAndHopCount(JNIEnv* km_env, jclass km_clazz, jint destipaddress, jlong hopcount, jint maxhops, jlong rtt) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2145,7 +2145,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetSessionCompartmentId(JNIEnv* km_env, jclass km_clazz, jint sessionid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getSessionCompartmentId(JNIEnv* km_env, jclass km_clazz, jint sessionid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2163,7 +2163,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetTcp6Table(JNIEnv* km_env, jclass km_clazz, jlong tcptable, jlong sizepointer, jint order) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getTcp6Table(JNIEnv* km_env, jclass km_clazz, jlong tcptable, jlong sizepointer, jint order) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2183,7 +2183,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetTcp6Table2(JNIEnv* km_env, jclass km_clazz, jlong tcptable, jlong sizepointer, jint order) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getTcp6Table2(JNIEnv* km_env, jclass km_clazz, jlong tcptable, jlong sizepointer, jint order) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2203,7 +2203,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetTcpStatistics(JNIEnv* km_env, jclass km_clazz, jlong statistics) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getTcpStatistics(JNIEnv* km_env, jclass km_clazz, jlong statistics) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2221,7 +2221,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetTcpStatisticsEx(JNIEnv* km_env, jclass km_clazz, jlong statistics, jint family) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getTcpStatisticsEx(JNIEnv* km_env, jclass km_clazz, jlong statistics, jint family) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2240,7 +2240,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetTcpStatisticsEx2(JNIEnv* km_env, jclass km_clazz, jlong statistics, jint family) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getTcpStatisticsEx2(JNIEnv* km_env, jclass km_clazz, jlong statistics, jint family) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2259,7 +2259,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetTcpTable(JNIEnv* km_env, jclass km_clazz, jlong tcptable, jlong sizepointer, jint order) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getTcpTable(JNIEnv* km_env, jclass km_clazz, jlong tcptable, jlong sizepointer, jint order) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2279,7 +2279,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetTcpTable2(JNIEnv* km_env, jclass km_clazz, jlong tcptable, jlong sizepointer, jint order) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getTcpTable2(JNIEnv* km_env, jclass km_clazz, jlong tcptable, jlong sizepointer, jint order) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2299,7 +2299,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetTeredoPort(JNIEnv* km_env, jclass km_clazz, jlong port) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getTeredoPort(JNIEnv* km_env, jclass km_clazz, jlong port) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2317,7 +2317,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetUdp6Table(JNIEnv* km_env, jclass km_clazz, jlong udp6table, jlong sizepointer, jint order) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getUdp6Table(JNIEnv* km_env, jclass km_clazz, jlong udp6table, jlong sizepointer, jint order) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2337,7 +2337,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetUdpStatistics(JNIEnv* km_env, jclass km_clazz, jlong stats) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getUdpStatistics(JNIEnv* km_env, jclass km_clazz, jlong stats) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2355,7 +2355,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetUdpStatisticsEx(JNIEnv* km_env, jclass km_clazz, jlong statistics, jint family) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getUdpStatisticsEx(JNIEnv* km_env, jclass km_clazz, jlong statistics, jint family) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2374,7 +2374,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetUdpStatisticsEx2(JNIEnv* km_env, jclass km_clazz, jlong statistics, jint family) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getUdpStatisticsEx2(JNIEnv* km_env, jclass km_clazz, jlong statistics, jint family) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2393,7 +2393,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetUdpTable(JNIEnv* km_env, jclass km_clazz, jlong udptable, jlong sizepointer, jint order) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getUdpTable(JNIEnv* km_env, jclass km_clazz, jlong udptable, jlong sizepointer, jint order) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2413,7 +2413,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetUniDirectionalAdapterInfo(JNIEnv* km_env, jclass km_clazz, jlong pipifinfo, jlong dwoutbuflen) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getUniDirectionalAdapterInfo(JNIEnv* km_env, jclass km_clazz, jlong pipifinfo, jlong dwoutbuflen) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2432,7 +2432,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetUnicastIpAddressEntry(JNIEnv* km_env, jclass km_clazz, jlong row) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getUnicastIpAddressEntry(JNIEnv* km_env, jclass km_clazz, jlong row) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2450,7 +2450,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1GetUnicastIpAddressTable(JNIEnv* km_env, jclass km_clazz, jshort family, jlong table) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1getUnicastIpAddressTable(JNIEnv* km_env, jclass km_clazz, jshort family, jlong table) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2469,7 +2469,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1Icmp6CreateFile(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1icmp6CreateFile(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2486,7 +2486,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1Icmp6ParseReplies(JNIEnv* km_env, jclass km_clazz, jlong replybuffer, jint replysize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1icmp6ParseReplies(JNIEnv* km_env, jclass km_clazz, jlong replybuffer, jint replysize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2505,7 +2505,36 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1IcmpCloseHandle(JNIEnv* km_env, jclass km_clazz, jlong icmphandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1icmp6SendEcho2(JNIEnv* km_env, jclass km_clazz, jlong icmphandle, jlong event, jlong apcroutine, jlong apccontext, jlong sourceaddress, jlong destinationaddress, jlong requestdata, jshort requestsize, jlong requestoptions, jlong replybuffer, jint replysize, jint timeout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*, uint16_t, void*, void*, uint32_t, uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("iphlpapi.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "Icmp6SendEcho2");
+    }
+    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)icmphandle, (void*)(uintptr_t)event, (void*)(uintptr_t)apcroutine, (void*)(uintptr_t)apccontext, (void*)(uintptr_t)sourceaddress, (void*)(uintptr_t)destinationaddress, (void*)(uintptr_t)requestdata, (uint16_t)requestsize, (void*)(uintptr_t)requestoptions, (void*)(uintptr_t)replybuffer, (uint32_t)replysize, (uint32_t)timeout) : 0;
+#else
+    (void)icmphandle;
+    (void)event;
+    (void)apcroutine;
+    (void)apccontext;
+    (void)sourceaddress;
+    (void)destinationaddress;
+    (void)requestdata;
+    (void)requestsize;
+    (void)requestoptions;
+    (void)replybuffer;
+    (void)replysize;
+    (void)timeout;
+    uint32_t km_res = 0;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1icmpCloseHandle(JNIEnv* km_env, jclass km_clazz, jlong icmphandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2523,7 +2552,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1IcmpCreateFile(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1icmpCreateFile(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2540,7 +2569,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1IcmpParseReplies(JNIEnv* km_env, jclass km_clazz, jlong replybuffer, jint replysize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1icmpParseReplies(JNIEnv* km_env, jclass km_clazz, jlong replybuffer, jint replysize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2559,7 +2588,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1IcmpSendEcho(JNIEnv* km_env, jclass km_clazz, jlong icmphandle, jint destinationaddress, jlong requestdata, jshort requestsize, jlong requestoptions, jlong replybuffer, jint replysize, jint timeout) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1icmpSendEcho(JNIEnv* km_env, jclass km_clazz, jlong icmphandle, jint destinationaddress, jlong requestdata, jshort requestsize, jlong requestoptions, jlong replybuffer, jint replysize, jint timeout) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2584,7 +2613,64 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1InitializeIpForwardEntry(JNIEnv* km_env, jclass km_clazz, jlong row) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1icmpSendEcho2(JNIEnv* km_env, jclass km_clazz, jlong icmphandle, jlong event, jlong apcroutine, jlong apccontext, jint destinationaddress, jlong requestdata, jshort requestsize, jlong requestoptions, jlong replybuffer, jint replysize, jint timeout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, void*, uint16_t, void*, void*, uint32_t, uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("iphlpapi.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "IcmpSendEcho2");
+    }
+    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)icmphandle, (void*)(uintptr_t)event, (void*)(uintptr_t)apcroutine, (void*)(uintptr_t)apccontext, (uint32_t)destinationaddress, (void*)(uintptr_t)requestdata, (uint16_t)requestsize, (void*)(uintptr_t)requestoptions, (void*)(uintptr_t)replybuffer, (uint32_t)replysize, (uint32_t)timeout) : 0;
+#else
+    (void)icmphandle;
+    (void)event;
+    (void)apcroutine;
+    (void)apccontext;
+    (void)destinationaddress;
+    (void)requestdata;
+    (void)requestsize;
+    (void)requestoptions;
+    (void)replybuffer;
+    (void)replysize;
+    (void)timeout;
+    uint32_t km_res = 0;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1icmpSendEcho2Ex(JNIEnv* km_env, jclass km_clazz, jlong icmphandle, jlong event, jlong apcroutine, jlong apccontext, jint sourceaddress, jint destinationaddress, jlong requestdata, jshort requestsize, jlong requestoptions, jlong replybuffer, jint replysize, jint timeout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, uint32_t, void*, uint16_t, void*, void*, uint32_t, uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("iphlpapi.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "IcmpSendEcho2Ex");
+    }
+    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)icmphandle, (void*)(uintptr_t)event, (void*)(uintptr_t)apcroutine, (void*)(uintptr_t)apccontext, (uint32_t)sourceaddress, (uint32_t)destinationaddress, (void*)(uintptr_t)requestdata, (uint16_t)requestsize, (void*)(uintptr_t)requestoptions, (void*)(uintptr_t)replybuffer, (uint32_t)replysize, (uint32_t)timeout) : 0;
+#else
+    (void)icmphandle;
+    (void)event;
+    (void)apcroutine;
+    (void)apccontext;
+    (void)sourceaddress;
+    (void)destinationaddress;
+    (void)requestdata;
+    (void)requestsize;
+    (void)requestoptions;
+    (void)replybuffer;
+    (void)replysize;
+    (void)timeout;
+    uint32_t km_res = 0;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1initializeIpForwardEntry(JNIEnv* km_env, jclass km_clazz, jlong row) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2600,7 +2686,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1InitializeIpInterfaceEntry(JNIEnv* km_env, jclass km_clazz, jlong row) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1initializeIpInterfaceEntry(JNIEnv* km_env, jclass km_clazz, jlong row) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2616,7 +2702,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1InitializeUnicastIpAddressEntry(JNIEnv* km_env, jclass km_clazz, jlong row) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1initializeUnicastIpAddressEntry(JNIEnv* km_env, jclass km_clazz, jlong row) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2632,7 +2718,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1IpReleaseAddress(JNIEnv* km_env, jclass km_clazz, jlong adapterinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1ipReleaseAddress(JNIEnv* km_env, jclass km_clazz, jlong adapterinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2650,7 +2736,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1IpRenewAddress(JNIEnv* km_env, jclass km_clazz, jlong adapterinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1ipRenewAddress(JNIEnv* km_env, jclass km_clazz, jlong adapterinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2668,7 +2754,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1LookupPersistentTcpPortReservation(JNIEnv* km_env, jclass km_clazz, jshort startport, jshort numberofports, jlong token) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1lookupPersistentTcpPortReservation(JNIEnv* km_env, jclass km_clazz, jshort startport, jshort numberofports, jlong token) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2688,7 +2774,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1LookupPersistentUdpPortReservation(JNIEnv* km_env, jclass km_clazz, jshort startport, jshort numberofports, jlong token) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1lookupPersistentUdpPortReservation(JNIEnv* km_env, jclass km_clazz, jshort startport, jshort numberofports, jlong token) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2708,7 +2794,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1NhpAllocateAndGetInterfaceInfoFromStack(JNIEnv* km_env, jclass km_clazz, jlong pptable, jlong pdwcount, jint border, jlong hheap, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1nhpAllocateAndGetInterfaceInfoFromStack(JNIEnv* km_env, jclass km_clazz, jlong pptable, jlong pdwcount, jint border, jlong hheap, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2730,7 +2816,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1NotifyAddrChange(JNIEnv* km_env, jclass km_clazz, jlong handle, jlong overlapped) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1notifyAddrChange(JNIEnv* km_env, jclass km_clazz, jlong handle, jlong overlapped) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2749,7 +2835,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1NotifyIfTimestampConfigChange(JNIEnv* km_env, jclass km_clazz, jlong callercontext, jlong callback, jlong notificationhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1notifyIfTimestampConfigChange(JNIEnv* km_env, jclass km_clazz, jlong callercontext, jlong callback, jlong notificationhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2769,7 +2855,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1NotifyIpInterfaceChange(JNIEnv* km_env, jclass km_clazz, jshort family, jlong callback, jlong callercontext, jboolean initialnotification, jlong notificationhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1notifyIpInterfaceChange(JNIEnv* km_env, jclass km_clazz, jshort family, jlong callback, jlong callercontext, jboolean initialnotification, jlong notificationhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2791,7 +2877,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1NotifyNetworkConnectivityHintChange(JNIEnv* km_env, jclass km_clazz, jlong callback, jlong callercontext, jboolean initialnotification, jlong notificationhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1notifyNetworkConnectivityHintChange(JNIEnv* km_env, jclass km_clazz, jlong callback, jlong callercontext, jboolean initialnotification, jlong notificationhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2812,7 +2898,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1NotifyRouteChange(JNIEnv* km_env, jclass km_clazz, jlong handle, jlong overlapped) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1notifyRouteChange(JNIEnv* km_env, jclass km_clazz, jlong handle, jlong overlapped) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2831,7 +2917,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1NotifyRouteChange2(JNIEnv* km_env, jclass km_clazz, jshort addressfamily, jlong callback, jlong callercontext, jboolean initialnotification, jlong notificationhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1notifyRouteChange2(JNIEnv* km_env, jclass km_clazz, jshort addressfamily, jlong callback, jlong callercontext, jboolean initialnotification, jlong notificationhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2853,7 +2939,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1NotifyStableUnicastIpAddressTable(JNIEnv* km_env, jclass km_clazz, jshort family, jlong table, jlong callercallback, jlong callercontext, jlong notificationhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1notifyStableUnicastIpAddressTable(JNIEnv* km_env, jclass km_clazz, jshort family, jlong table, jlong callercallback, jlong callercontext, jlong notificationhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2875,7 +2961,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1NotifyTeredoPortChange(JNIEnv* km_env, jclass km_clazz, jlong callback, jlong callercontext, jboolean initialnotification, jlong notificationhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1notifyTeredoPortChange(JNIEnv* km_env, jclass km_clazz, jlong callback, jlong callercontext, jboolean initialnotification, jlong notificationhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2896,7 +2982,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1NotifyUnicastIpAddressChange(JNIEnv* km_env, jclass km_clazz, jshort family, jlong callback, jlong callercontext, jboolean initialnotification, jlong notificationhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1notifyUnicastIpAddressChange(JNIEnv* km_env, jclass km_clazz, jshort family, jlong callback, jlong callercontext, jboolean initialnotification, jlong notificationhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2918,7 +3004,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1ParseNetworkString(JNIEnv* km_env, jclass km_clazz, jlong networkstring, jint types, jlong addressinfo, jlong portnumber, jlong prefixlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1parseNetworkString(JNIEnv* km_env, jclass km_clazz, jlong networkstring, jint types, jlong addressinfo, jlong portnumber, jlong prefixlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2940,7 +3026,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1PfAddFiltersToInterface(JNIEnv* km_env, jclass km_clazz, jlong ih, jint cinfilters, jlong pfiltin, jint coutfilters, jlong pfiltout, jlong pfhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1pfAddFiltersToInterface(JNIEnv* km_env, jclass km_clazz, jlong ih, jint cinfilters, jlong pfiltin, jint coutfilters, jlong pfiltout, jlong pfhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2963,7 +3049,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1PfAddGlobalFilterToInterface(JNIEnv* km_env, jclass km_clazz, jlong pinterface, jint gffilter) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1pfAddGlobalFilterToInterface(JNIEnv* km_env, jclass km_clazz, jlong pinterface, jint gffilter) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2982,7 +3068,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1PfBindInterfaceToIPAddress(JNIEnv* km_env, jclass km_clazz, jlong pinterface, jint pfattype, jlong ipaddress) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1pfBindInterfaceToIPAddress(JNIEnv* km_env, jclass km_clazz, jlong pinterface, jint pfattype, jlong ipaddress) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3002,7 +3088,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1PfBindInterfaceToIndex(JNIEnv* km_env, jclass km_clazz, jlong pinterface, jint dwindex, jint pfatlinktype, jlong linkipaddress) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1pfBindInterfaceToIndex(JNIEnv* km_env, jclass km_clazz, jlong pinterface, jint dwindex, jint pfatlinktype, jlong linkipaddress) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3023,7 +3109,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1PfCreateInterface(JNIEnv* km_env, jclass km_clazz, jint dwname, jint inaction, jint outaction, jint buselog, jint bmustbeunique, jlong ppinterface) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1pfCreateInterface(JNIEnv* km_env, jclass km_clazz, jint dwname, jint inaction, jint outaction, jint buselog, jint bmustbeunique, jlong ppinterface) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3046,7 +3132,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1PfDeleteInterface(JNIEnv* km_env, jclass km_clazz, jlong pinterface) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1pfDeleteInterface(JNIEnv* km_env, jclass km_clazz, jlong pinterface) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3064,7 +3150,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1PfDeleteLog(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1pfDeleteLog(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3081,7 +3167,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1PfGetInterfaceStatistics(JNIEnv* km_env, jclass km_clazz, jlong pinterface, jlong ppfstats, jlong pdwbuffersize, jint fresetcounters) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1pfGetInterfaceStatistics(JNIEnv* km_env, jclass km_clazz, jlong pinterface, jlong ppfstats, jlong pdwbuffersize, jint fresetcounters) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3102,7 +3188,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1PfMakeLog(JNIEnv* km_env, jclass km_clazz, jlong hevent) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1pfMakeLog(JNIEnv* km_env, jclass km_clazz, jlong hevent) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3120,7 +3206,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1PfRebindFilters(JNIEnv* km_env, jclass km_clazz, jlong pinterface, jlong platebindinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1pfRebindFilters(JNIEnv* km_env, jclass km_clazz, jlong pinterface, jlong platebindinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3139,7 +3225,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1PfRemoveFilterHandles(JNIEnv* km_env, jclass km_clazz, jlong pinterface, jint cfilters, jlong pvhandles) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1pfRemoveFilterHandles(JNIEnv* km_env, jclass km_clazz, jlong pinterface, jint cfilters, jlong pvhandles) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3159,7 +3245,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1PfRemoveFiltersFromInterface(JNIEnv* km_env, jclass km_clazz, jlong ih, jint cinfilters, jlong pfiltin, jint coutfilters, jlong pfiltout) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1pfRemoveFiltersFromInterface(JNIEnv* km_env, jclass km_clazz, jlong ih, jint cinfilters, jlong pfiltin, jint coutfilters, jlong pfiltout) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3181,7 +3267,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1PfRemoveGlobalFilterFromInterface(JNIEnv* km_env, jclass km_clazz, jlong pinterface, jint gffilter) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1pfRemoveGlobalFilterFromInterface(JNIEnv* km_env, jclass km_clazz, jlong pinterface, jint gffilter) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3200,7 +3286,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1PfSetLogBuffer(JNIEnv* km_env, jclass km_clazz, jlong pbbuffer, jint dwsize, jint dwthreshold, jint dwentries, jlong pdwloggedentries, jlong pdwlostentries, jlong pdwsizeused) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1pfSetLogBuffer(JNIEnv* km_env, jclass km_clazz, jlong pbbuffer, jint dwsize, jint dwthreshold, jint dwentries, jlong pdwloggedentries, jlong pdwlostentries, jlong pdwsizeused) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3224,7 +3310,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1PfTestPacket(JNIEnv* km_env, jclass km_clazz, jlong pininterface, jlong poutinterface, jint cbytes, jlong pbpacket, jlong ppaction) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1pfTestPacket(JNIEnv* km_env, jclass km_clazz, jlong pininterface, jlong poutinterface, jint cbytes, jlong pbpacket, jlong ppaction) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3246,7 +3332,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1PfUnBindInterface(JNIEnv* km_env, jclass km_clazz, jlong pinterface) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1pfUnBindInterface(JNIEnv* km_env, jclass km_clazz, jlong pinterface) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3264,7 +3350,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1RegisterInterfaceTimestampConfigChange(JNIEnv* km_env, jclass km_clazz, jlong callback, jlong callercontext, jlong notificationhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1registerInterfaceTimestampConfigChange(JNIEnv* km_env, jclass km_clazz, jlong callback, jlong callercontext, jlong notificationhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3284,7 +3370,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1ResolveIpNetEntry2(JNIEnv* km_env, jclass km_clazz, jlong row, jlong sourceaddress) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1resolveIpNetEntry2(JNIEnv* km_env, jclass km_clazz, jlong row, jlong sourceaddress) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3303,7 +3389,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1ResolveNeighbor(JNIEnv* km_env, jclass km_clazz, jlong networkaddress, jlong physicaladdress, jlong physicaladdresslength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1resolveNeighbor(JNIEnv* km_env, jclass km_clazz, jlong networkaddress, jlong physicaladdress, jlong physicaladdresslength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3323,7 +3409,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1RestoreMediaSense(JNIEnv* km_env, jclass km_clazz, jlong poverlapped, jlong lpdwenablecount) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1restoreMediaSense(JNIEnv* km_env, jclass km_clazz, jlong poverlapped, jlong lpdwenablecount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3342,7 +3428,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1SendARP(JNIEnv* km_env, jclass km_clazz, jint destip, jint srcip, jlong pmacaddr, jlong phyaddrlen) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1sendARP(JNIEnv* km_env, jclass km_clazz, jint destip, jint srcip, jlong pmacaddr, jlong phyaddrlen) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3363,7 +3449,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1SetCurrentThreadCompartmentId(JNIEnv* km_env, jclass km_clazz, jint compartmentid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1setCurrentThreadCompartmentId(JNIEnv* km_env, jclass km_clazz, jint compartmentid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3381,7 +3467,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1SetCurrentThreadCompartmentScope(JNIEnv* km_env, jclass km_clazz, jint compartmentscope) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1setCurrentThreadCompartmentScope(JNIEnv* km_env, jclass km_clazz, jint compartmentscope) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3399,7 +3485,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1SetDnsSettings(JNIEnv* km_env, jclass km_clazz, jlong settings) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1setDnsSettings(JNIEnv* km_env, jclass km_clazz, jlong settings) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3417,7 +3503,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1SetIfEntry(JNIEnv* km_env, jclass km_clazz, jlong pifrow) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1setIfEntry(JNIEnv* km_env, jclass km_clazz, jlong pifrow) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3435,7 +3521,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1SetIpForwardEntry(JNIEnv* km_env, jclass km_clazz, jlong proute) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1setIpForwardEntry(JNIEnv* km_env, jclass km_clazz, jlong proute) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3453,7 +3539,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1SetIpForwardEntry2(JNIEnv* km_env, jclass km_clazz, jlong route) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1setIpForwardEntry2(JNIEnv* km_env, jclass km_clazz, jlong route) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3471,7 +3557,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1SetIpInterfaceEntry(JNIEnv* km_env, jclass km_clazz, jlong row) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1setIpInterfaceEntry(JNIEnv* km_env, jclass km_clazz, jlong row) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3489,7 +3575,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1SetIpNetEntry(JNIEnv* km_env, jclass km_clazz, jlong parpentry) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1setIpNetEntry(JNIEnv* km_env, jclass km_clazz, jlong parpentry) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3507,7 +3593,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1SetIpNetEntry2(JNIEnv* km_env, jclass km_clazz, jlong row) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1setIpNetEntry2(JNIEnv* km_env, jclass km_clazz, jlong row) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3525,7 +3611,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1SetIpStatistics(JNIEnv* km_env, jclass km_clazz, jlong pipstats) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1setIpStatistics(JNIEnv* km_env, jclass km_clazz, jlong pipstats) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3543,7 +3629,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1SetIpStatisticsEx(JNIEnv* km_env, jclass km_clazz, jlong statistics, jint family) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1setIpStatisticsEx(JNIEnv* km_env, jclass km_clazz, jlong statistics, jint family) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3562,7 +3648,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1SetIpTTL(JNIEnv* km_env, jclass km_clazz, jint nttl) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1setIpTTL(JNIEnv* km_env, jclass km_clazz, jint nttl) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3580,7 +3666,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1SetJobCompartmentId(JNIEnv* km_env, jclass km_clazz, jlong jobhandle, jint compartmentid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1setJobCompartmentId(JNIEnv* km_env, jclass km_clazz, jlong jobhandle, jint compartmentid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3599,7 +3685,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1SetNetworkInformation(JNIEnv* km_env, jclass km_clazz, jlong networkguid, jint compartmentid, jlong networkname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1setNetworkInformation(JNIEnv* km_env, jclass km_clazz, jlong networkguid, jint compartmentid, jlong networkname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3619,7 +3705,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1SetPerTcp6ConnectionEStats(JNIEnv* km_env, jclass km_clazz, jlong row, jint estatstype, jlong rw, jint rwversion, jint rwsize, jint offset) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1setPerTcp6ConnectionEStats(JNIEnv* km_env, jclass km_clazz, jlong row, jint estatstype, jlong rw, jint rwversion, jint rwsize, jint offset) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3642,7 +3728,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1SetPerTcpConnectionEStats(JNIEnv* km_env, jclass km_clazz, jlong row, jint estatstype, jlong rw, jint rwversion, jint rwsize, jint offset) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1setPerTcpConnectionEStats(JNIEnv* km_env, jclass km_clazz, jlong row, jint estatstype, jlong rw, jint rwversion, jint rwsize, jint offset) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3665,7 +3751,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1SetSessionCompartmentId(JNIEnv* km_env, jclass km_clazz, jint sessionid, jint compartmentid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1setSessionCompartmentId(JNIEnv* km_env, jclass km_clazz, jint sessionid, jint compartmentid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3684,7 +3770,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1SetTcpEntry(JNIEnv* km_env, jclass km_clazz, jlong ptcprow) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1setTcpEntry(JNIEnv* km_env, jclass km_clazz, jlong ptcprow) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3702,7 +3788,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1SetUnicastIpAddressEntry(JNIEnv* km_env, jclass km_clazz, jlong row) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1setUnicastIpAddressEntry(JNIEnv* km_env, jclass km_clazz, jlong row) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3720,7 +3806,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1UnenableRouter(JNIEnv* km_env, jclass km_clazz, jlong poverlapped, jlong lpdwenablecount) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1unenableRouter(JNIEnv* km_env, jclass km_clazz, jlong poverlapped, jlong lpdwenablecount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3739,7 +3825,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1UnregisterInterfaceTimestampConfigChange(JNIEnv* km_env, jclass km_clazz, jlong notificationhandle) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1unregisterInterfaceTimestampConfigChange(JNIEnv* km_env, jclass km_clazz, jlong notificationhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3755,7 +3841,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1if_1indextoname(JNIEnv* km_env, jclass km_clazz, jint interfaceindex, jlong interfacename) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1ifIndextoname(JNIEnv* km_env, jclass km_clazz, jint interfaceindex, jlong interfacename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3774,7 +3860,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1if_1nametoindex(JNIEnv* km_env, jclass km_clazz, jlong interfacename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_iphelper_WindowsWin32NetworkmanagementIphelperJniBridge_windowssys_1windows_1win32_1networkmanagement_1iphelper_1ifNametoindex(JNIEnv* km_env, jclass km_clazz, jlong interfacename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

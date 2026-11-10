@@ -18,7 +18,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_directoryservices_WindowsWin32SecurityDirectoryservicesJniBridge_windowssys_1windows_1win32_1security_1directoryservices_1DSCreateSecurityPage(JNIEnv* km_env, jclass km_clazz, jlong pwszobjectpath, jlong pwszobjectclass, jint dwflags, jlong phpage, jlong pfnreadsd, jlong pfnwritesd, jlong lpcontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_directoryservices_WindowsWin32SecurityDirectoryservicesJniBridge_windowssys_1windows_1win32_1security_1directoryservices_1dSCreateSecurityPage(JNIEnv* km_env, jclass km_clazz, jlong pwszobjectpath, jlong pwszobjectclass, jint dwflags, jlong phpage, jlong pfnreadsd, jlong pfnwritesd, jlong lpcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -42,7 +42,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_directoryservices_WindowsWin32SecurityDirectoryservicesJniBridge_windowssys_1windows_1win32_1security_1directoryservices_1DSEditSecurity(JNIEnv* km_env, jclass km_clazz, jlong hwndowner, jlong pwszobjectpath, jlong pwszobjectclass, jint dwflags, jlong pwszcaption, jlong pfnreadsd, jlong pfnwritesd, jlong lpcontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_directoryservices_WindowsWin32SecurityDirectoryservicesJniBridge_windowssys_1windows_1win32_1security_1directoryservices_1dSEditSecurity(JNIEnv* km_env, jclass km_clazz, jlong hwndowner, jlong pwszobjectpath, jlong pwszobjectclass, jint dwflags, jlong pwszcaption, jlong pfnreadsd, jlong pfnwritesd, jlong lpcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

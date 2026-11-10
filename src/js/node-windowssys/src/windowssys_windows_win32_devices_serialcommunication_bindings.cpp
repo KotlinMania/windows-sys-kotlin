@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_devices_serialcommunication_ComDBClaimNextFreePort_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_serialcommunication_comDBClaimNextFreePort_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hcomdb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* comnumber = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -71,7 +71,7 @@ static Napi::Value windowssys_windows_win32_devices_serialcommunication_ComDBCla
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_serialcommunication_ComDBClaimPort_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_serialcommunication_comDBClaimPort_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hcomdb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t comnumber = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -95,7 +95,7 @@ static Napi::Value windowssys_windows_win32_devices_serialcommunication_ComDBCla
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_serialcommunication_ComDBClose_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_serialcommunication_comDBClose_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hcomdb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -113,7 +113,7 @@ static Napi::Value windowssys_windows_win32_devices_serialcommunication_ComDBClo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_serialcommunication_ComDBGetCurrentPortUsage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_serialcommunication_comDBGetCurrentPortUsage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hcomdb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -139,7 +139,7 @@ static Napi::Value windowssys_windows_win32_devices_serialcommunication_ComDBGet
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_serialcommunication_ComDBOpen_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_serialcommunication_comDBOpen_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* phcomdb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -157,7 +157,7 @@ static Napi::Value windowssys_windows_win32_devices_serialcommunication_ComDBOpe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_serialcommunication_ComDBReleasePort_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_serialcommunication_comDBReleasePort_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hcomdb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t comnumber = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -177,7 +177,7 @@ static Napi::Value windowssys_windows_win32_devices_serialcommunication_ComDBRel
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_serialcommunication_ComDBResizeDatabase_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_serialcommunication_comDBResizeDatabase_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hcomdb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t newsize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -198,13 +198,13 @@ static Napi::Value windowssys_windows_win32_devices_serialcommunication_ComDBRes
 }
 
 static void register_windows_win32_devices_serialcommunication_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_devices_serialcommunication_ComDBClaimNextFreePort", Napi::Function::New(env, windowssys_windows_win32_devices_serialcommunication_ComDBClaimNextFreePort_napi));
-    exports.Set("windowssys_windows_win32_devices_serialcommunication_ComDBClaimPort", Napi::Function::New(env, windowssys_windows_win32_devices_serialcommunication_ComDBClaimPort_napi));
-    exports.Set("windowssys_windows_win32_devices_serialcommunication_ComDBClose", Napi::Function::New(env, windowssys_windows_win32_devices_serialcommunication_ComDBClose_napi));
-    exports.Set("windowssys_windows_win32_devices_serialcommunication_ComDBGetCurrentPortUsage", Napi::Function::New(env, windowssys_windows_win32_devices_serialcommunication_ComDBGetCurrentPortUsage_napi));
-    exports.Set("windowssys_windows_win32_devices_serialcommunication_ComDBOpen", Napi::Function::New(env, windowssys_windows_win32_devices_serialcommunication_ComDBOpen_napi));
-    exports.Set("windowssys_windows_win32_devices_serialcommunication_ComDBReleasePort", Napi::Function::New(env, windowssys_windows_win32_devices_serialcommunication_ComDBReleasePort_napi));
-    exports.Set("windowssys_windows_win32_devices_serialcommunication_ComDBResizeDatabase", Napi::Function::New(env, windowssys_windows_win32_devices_serialcommunication_ComDBResizeDatabase_napi));
+    exports.Set("windowssys_windows_win32_devices_serialcommunication_comDBClaimNextFreePort", Napi::Function::New(env, windowssys_windows_win32_devices_serialcommunication_comDBClaimNextFreePort_napi));
+    exports.Set("windowssys_windows_win32_devices_serialcommunication_comDBClaimPort", Napi::Function::New(env, windowssys_windows_win32_devices_serialcommunication_comDBClaimPort_napi));
+    exports.Set("windowssys_windows_win32_devices_serialcommunication_comDBClose", Napi::Function::New(env, windowssys_windows_win32_devices_serialcommunication_comDBClose_napi));
+    exports.Set("windowssys_windows_win32_devices_serialcommunication_comDBGetCurrentPortUsage", Napi::Function::New(env, windowssys_windows_win32_devices_serialcommunication_comDBGetCurrentPortUsage_napi));
+    exports.Set("windowssys_windows_win32_devices_serialcommunication_comDBOpen", Napi::Function::New(env, windowssys_windows_win32_devices_serialcommunication_comDBOpen_napi));
+    exports.Set("windowssys_windows_win32_devices_serialcommunication_comDBReleasePort", Napi::Function::New(env, windowssys_windows_win32_devices_serialcommunication_comDBReleasePort_napi));
+    exports.Set("windowssys_windows_win32_devices_serialcommunication_comDBResizeDatabase", Napi::Function::New(env, windowssys_windows_win32_devices_serialcommunication_comDBResizeDatabase_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_devices_serialcommunication_napi, nullptr };

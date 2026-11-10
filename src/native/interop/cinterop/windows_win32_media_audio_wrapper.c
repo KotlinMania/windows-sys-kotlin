@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_media_audio_ActivateAudioInterfaceAsync(void* deviceinterfacepath, void* riid, void* activationparams, void* completionhandler, void* activationoperation) {
+int32_t windowssys_windows_win32_media_audio_activateAudioInterfaceAsync(void* deviceinterfacepath, void* riid, void* activationparams, void* completionhandler, void* activationoperation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -41,7 +41,7 @@ int32_t windowssys_windows_win32_media_audio_ActivateAudioInterfaceAsync(void* d
 #endif
 }
 
-int32_t windowssys_windows_win32_media_audio_CoRegisterMessageFilter(void* lpmessagefilter, void* lplpmessagefilter) {
+int32_t windowssys_windows_win32_media_audio_coRegisterMessageFilter(void* lpmessagefilter, void* lplpmessagefilter) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -64,7 +64,7 @@ int32_t windowssys_windows_win32_media_audio_CoRegisterMessageFilter(void* lpmes
 #endif
 }
 
-int32_t windowssys_windows_win32_media_audio_CreateCaptureAudioStateMonitor(void* audiostatemonitor) {
+int32_t windowssys_windows_win32_media_audio_createCaptureAudioStateMonitor(void* audiostatemonitor) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -86,7 +86,7 @@ int32_t windowssys_windows_win32_media_audio_CreateCaptureAudioStateMonitor(void
 #endif
 }
 
-int32_t windowssys_windows_win32_media_audio_CreateCaptureAudioStateMonitorForCategory(int32_t category, void* audiostatemonitor) {
+int32_t windowssys_windows_win32_media_audio_createCaptureAudioStateMonitorForCategory(int32_t category, void* audiostatemonitor) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -109,7 +109,7 @@ int32_t windowssys_windows_win32_media_audio_CreateCaptureAudioStateMonitorForCa
 #endif
 }
 
-int32_t windowssys_windows_win32_media_audio_CreateCaptureAudioStateMonitorForCategoryAndDeviceId(int32_t category, void* deviceid, void* audiostatemonitor) {
+int32_t windowssys_windows_win32_media_audio_createCaptureAudioStateMonitorForCategoryAndDeviceId(int32_t category, void* deviceid, void* audiostatemonitor) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -133,7 +133,7 @@ int32_t windowssys_windows_win32_media_audio_CreateCaptureAudioStateMonitorForCa
 #endif
 }
 
-int32_t windowssys_windows_win32_media_audio_CreateCaptureAudioStateMonitorForCategoryAndDeviceRole(int32_t category, int32_t role, void* audiostatemonitor) {
+int32_t windowssys_windows_win32_media_audio_createCaptureAudioStateMonitorForCategoryAndDeviceRole(int32_t category, int32_t role, void* audiostatemonitor) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -157,7 +157,7 @@ int32_t windowssys_windows_win32_media_audio_CreateCaptureAudioStateMonitorForCa
 #endif
 }
 
-int32_t windowssys_windows_win32_media_audio_CreateRenderAudioStateMonitor(void* audiostatemonitor) {
+int32_t windowssys_windows_win32_media_audio_createRenderAudioStateMonitor(void* audiostatemonitor) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -179,7 +179,7 @@ int32_t windowssys_windows_win32_media_audio_CreateRenderAudioStateMonitor(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_media_audio_CreateRenderAudioStateMonitorForCategory(int32_t category, void* audiostatemonitor) {
+int32_t windowssys_windows_win32_media_audio_createRenderAudioStateMonitorForCategory(int32_t category, void* audiostatemonitor) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -202,7 +202,7 @@ int32_t windowssys_windows_win32_media_audio_CreateRenderAudioStateMonitorForCat
 #endif
 }
 
-int32_t windowssys_windows_win32_media_audio_CreateRenderAudioStateMonitorForCategoryAndDeviceId(int32_t category, void* deviceid, void* audiostatemonitor) {
+int32_t windowssys_windows_win32_media_audio_createRenderAudioStateMonitorForCategoryAndDeviceId(int32_t category, void* deviceid, void* audiostatemonitor) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -226,7 +226,7 @@ int32_t windowssys_windows_win32_media_audio_CreateRenderAudioStateMonitorForCat
 #endif
 }
 
-int32_t windowssys_windows_win32_media_audio_CreateRenderAudioStateMonitorForCategoryAndDeviceRole(int32_t category, int32_t role, void* audiostatemonitor) {
+int32_t windowssys_windows_win32_media_audio_createRenderAudioStateMonitorForCategoryAndDeviceRole(int32_t category, int32_t role, void* audiostatemonitor) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -250,7 +250,7 @@ int32_t windowssys_windows_win32_media_audio_CreateRenderAudioStateMonitorForCat
 #endif
 }
 
-int32_t windowssys_windows_win32_media_audio_PlaySoundA(void* pszsound, void* hmod, uint32_t fdwsound) {
+int32_t windowssys_windows_win32_media_audio_playSoundA(void* pszsound, void* hmod, uint32_t fdwsound) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -274,7 +274,7 @@ int32_t windowssys_windows_win32_media_audio_PlaySoundA(void* pszsound, void* hm
 #endif
 }
 
-int32_t windowssys_windows_win32_media_audio_PlaySoundW(void* pszsound, void* hmod, uint32_t fdwsound) {
+int32_t windowssys_windows_win32_media_audio_playSoundW(void* pszsound, void* hmod, uint32_t fdwsound) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;

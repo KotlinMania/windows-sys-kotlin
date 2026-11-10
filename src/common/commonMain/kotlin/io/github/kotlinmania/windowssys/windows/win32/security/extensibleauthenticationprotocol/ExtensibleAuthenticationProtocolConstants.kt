@@ -1,55 +1,55 @@
 package io.github.kotlinmania.windowssys.windows.win32.security.extensibleauthenticationprotocol
 
 import io.github.kotlinmania.windowssys.U128
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.w
 
 public val CERTIFICATE_HASH_LENGTH: UInt = 20u
 
-public val EAPACTION_Authenticate: PPP_EAP_ACTION = 1
+public val EAPACTION_AUTHENTICATE: PppEapAction = 1
 
-public val EAPACTION_Done: PPP_EAP_ACTION = 2
+public val EAPACTION_DONE: PppEapAction = 2
 
-public val EAPACTION_IndicateIdentity: PPP_EAP_ACTION = 8
+public val EAPACTION_INDICATE_IDENTITY: PppEapAction = 8
 
-public val EAPACTION_IndicateTLV: PPP_EAP_ACTION = 7
+public val EAPACTION_INDICATE_TLV: PppEapAction = 7
 
-public val EAPACTION_NoAction: PPP_EAP_ACTION = 0
+public val EAPACTION_NO_ACTION: PppEapAction = 0
 
-public val EAPACTION_Send: PPP_EAP_ACTION = 4
+public val EAPACTION_SEND: PppEapAction = 4
 
-public val EAPACTION_SendAndDone: PPP_EAP_ACTION = 3
+public val EAPACTION_SEND_AND_DONE: PppEapAction = 3
 
-public val EAPACTION_SendWithTimeout: PPP_EAP_ACTION = 5
+public val EAPACTION_SEND_WITH_TIMEOUT: PppEapAction = 5
 
-public val EAPACTION_SendWithTimeoutInteractive: PPP_EAP_ACTION = 6
+public val EAPACTION_SEND_WITH_TIMEOUT_INTERACTIVE: PppEapAction = 6
 
-public val EAPCODE_Failure: UInt = 4u
+public val EAPCODE_FAILURE: UInt = 4u
 
-public val EAPCODE_Request: UInt = 1u
+public val EAPCODE_REQUEST: UInt = 1u
 
-public val EAPCODE_Response: UInt = 2u
+public val EAPCODE_RESPONSE: UInt = 2u
 
-public val EAPCODE_Success: UInt = 3u
+public val EAPCODE_SUCCESS: UInt = 3u
 
 public val EAPHOST_METHOD_API_VERSION: UInt = 1u
 
 public val EAPHOST_PEER_API_VERSION: UInt = 1u
 
-public val EAP_AUTHENTICATOR_SEND_TIMEOUT_BASIC: EAP_AUTHENTICATOR_SEND_TIMEOUT = 1
+public val EAP_AUTHENTICATOR_SEND_TIMEOUT_BASIC: EapAuthenticatorSendTimeout = 1
 
-public val EAP_AUTHENTICATOR_SEND_TIMEOUT_INTERACTIVE: EAP_AUTHENTICATOR_SEND_TIMEOUT = 2
+public val EAP_AUTHENTICATOR_SEND_TIMEOUT_INTERACTIVE: EapAuthenticatorSendTimeout = 2
 
-public val EAP_AUTHENTICATOR_SEND_TIMEOUT_NONE: EAP_AUTHENTICATOR_SEND_TIMEOUT = 0
+public val EAP_AUTHENTICATOR_SEND_TIMEOUT_NONE: EapAuthenticatorSendTimeout = 0
 
-public val EAP_AUTHENTICATOR_VALUENAME_CONFIGUI: PCWSTR = w("AuthenticatorConfigUIPath")
+public val EAP_AUTHENTICATOR_VALUENAME_CONFIGUI: Pcwstr = w("AuthenticatorConfigUIPath")
 
-public val EAP_AUTHENTICATOR_VALUENAME_DLL_PATH: PCWSTR = w("AuthenticatorDllPath")
+public val EAP_AUTHENTICATOR_VALUENAME_DLL_PATH: Pcwstr = w("AuthenticatorDllPath")
 
-public val EAP_AUTHENTICATOR_VALUENAME_FRIENDLY_NAME: PCWSTR = w("AuthenticatorFriendlyName")
+public val EAP_AUTHENTICATOR_VALUENAME_FRIENDLY_NAME: Pcwstr = w("AuthenticatorFriendlyName")
 
-public val EAP_AUTHENTICATOR_VALUENAME_PROPERTIES: PCWSTR = w("Properties")
+public val EAP_AUTHENTICATOR_VALUENAME_PROPERTIES: Pcwstr = w("Properties")
 
 public val EAP_CERTIFICATE_CREDENTIAL: EapCredentialType = 3
 
@@ -169,23 +169,23 @@ public val EAP_FLAG_PRE_LOGON: UInt = 131072u
 
 public val EAP_FLAG_RESUME_FROM_HIBERNATE: UInt = 512u
 
-public val EAP_FLAG_Reserved1: UInt = 1u
+public val EAP_FLAG_RESERVED1: UInt = 1u
 
-public val EAP_FLAG_Reserved2: UInt = 16u
+public val EAP_FLAG_RESERVED2: UInt = 16u
 
-public val EAP_FLAG_Reserved3: UInt = 128u
+public val EAP_FLAG_RESERVED3: UInt = 128u
 
-public val EAP_FLAG_Reserved4: UInt = 256u
+public val EAP_FLAG_RESERVED4: UInt = 256u
 
-public val EAP_FLAG_Reserved5: UInt = 1024u
+public val EAP_FLAG_RESERVED5: UInt = 1024u
 
-public val EAP_FLAG_Reserved6: UInt = 2048u
+public val EAP_FLAG_RESERVED6: UInt = 2048u
 
-public val EAP_FLAG_Reserved7: UInt = 16384u
+public val EAP_FLAG_RESERVED7: UInt = 16384u
 
-public val EAP_FLAG_Reserved8: UInt = 1048576u
+public val EAP_FLAG_RESERVED8: UInt = 1048576u
 
-public val EAP_FLAG_Reserved9: UInt = 4194304u
+public val EAP_FLAG_RESERVED9: UInt = 4194304u
 
 public val EAP_FLAG_SERVER_VALIDATION_REQUIRED: UInt = 33554432u
 
@@ -215,17 +215,17 @@ public val EAP_I_USER_LAST: Int = 1078067711
 
 public val EAP_METHOD_AUTHENTICATOR_CONFIG_IS_IDENTITY_PRIVACY: UInt = 1u
 
-public val EAP_METHOD_AUTHENTICATOR_RESPONSE_AUTHENTICATE: EAP_METHOD_AUTHENTICATOR_RESPONSE_ACTION = 4
+public val EAP_METHOD_AUTHENTICATOR_RESPONSE_AUTHENTICATE: EapMethodAuthenticatorResponseAction = 4
 
-public val EAP_METHOD_AUTHENTICATOR_RESPONSE_DISCARD: EAP_METHOD_AUTHENTICATOR_RESPONSE_ACTION = 0
+public val EAP_METHOD_AUTHENTICATOR_RESPONSE_DISCARD: EapMethodAuthenticatorResponseAction = 0
 
-public val EAP_METHOD_AUTHENTICATOR_RESPONSE_HANDLE_IDENTITY: EAP_METHOD_AUTHENTICATOR_RESPONSE_ACTION = 5
+public val EAP_METHOD_AUTHENTICATOR_RESPONSE_HANDLE_IDENTITY: EapMethodAuthenticatorResponseAction = 5
 
-public val EAP_METHOD_AUTHENTICATOR_RESPONSE_RESPOND: EAP_METHOD_AUTHENTICATOR_RESPONSE_ACTION = 3
+public val EAP_METHOD_AUTHENTICATOR_RESPONSE_RESPOND: EapMethodAuthenticatorResponseAction = 3
 
-public val EAP_METHOD_AUTHENTICATOR_RESPONSE_RESULT: EAP_METHOD_AUTHENTICATOR_RESPONSE_ACTION = 2
+public val EAP_METHOD_AUTHENTICATOR_RESPONSE_RESULT: EapMethodAuthenticatorResponseAction = 2
 
-public val EAP_METHOD_AUTHENTICATOR_RESPONSE_SEND: EAP_METHOD_AUTHENTICATOR_RESPONSE_ACTION = 1
+public val EAP_METHOD_AUTHENTICATOR_RESPONSE_SEND: EapMethodAuthenticatorResponseAction = 1
 
 public val EAP_METHOD_INVALID_PACKET: UInt = 2151809047u
 
@@ -233,25 +233,25 @@ public val EAP_PEER_FLAG_GUEST_ACCESS: UInt = 64u
 
 public val EAP_PEER_FLAG_HEALTH_STATE_CHANGE: UInt = 32768u
 
-public val EAP_PEER_VALUENAME_CONFIGUI: PCWSTR = w("PeerConfigUIPath")
+public val EAP_PEER_VALUENAME_CONFIGUI: Pcwstr = w("PeerConfigUIPath")
 
-public val EAP_PEER_VALUENAME_DLL_PATH: PCWSTR = w("PeerDllPath")
+public val EAP_PEER_VALUENAME_DLL_PATH: Pcwstr = w("PeerDllPath")
 
-public val EAP_PEER_VALUENAME_FRIENDLY_NAME: PCWSTR = w("PeerFriendlyName")
+public val EAP_PEER_VALUENAME_FRIENDLY_NAME: Pcwstr = w("PeerFriendlyName")
 
-public val EAP_PEER_VALUENAME_IDENTITY: PCWSTR = w("PeerIdentityPath")
+public val EAP_PEER_VALUENAME_IDENTITY: Pcwstr = w("PeerIdentityPath")
 
-public val EAP_PEER_VALUENAME_INTERACTIVEUI: PCWSTR = w("PeerInteractiveUIPath")
+public val EAP_PEER_VALUENAME_INTERACTIVEUI: Pcwstr = w("PeerInteractiveUIPath")
 
-public val EAP_PEER_VALUENAME_INVOKE_NAMEDLG: PCWSTR = w("PeerInvokeUsernameDialog")
+public val EAP_PEER_VALUENAME_INVOKE_NAMEDLG: Pcwstr = w("PeerInvokeUsernameDialog")
 
-public val EAP_PEER_VALUENAME_INVOKE_PWDDLG: PCWSTR = w("PeerInvokePasswordDialog")
+public val EAP_PEER_VALUENAME_INVOKE_PWDDLG: Pcwstr = w("PeerInvokePasswordDialog")
 
-public val EAP_PEER_VALUENAME_PROPERTIES: PCWSTR = w("Properties")
+public val EAP_PEER_VALUENAME_PROPERTIES: Pcwstr = w("Properties")
 
-public val EAP_PEER_VALUENAME_REQUIRE_CONFIGUI: PCWSTR = w("PeerRequireConfigUI")
+public val EAP_PEER_VALUENAME_REQUIRE_CONFIGUI: Pcwstr = w("PeerRequireConfigUI")
 
-public val EAP_REGISTRY_LOCATION: PCWSTR = w("System\\CurrentControlSet\\Services\\EapHost\\Methods")
+public val EAP_REGISTRY_LOCATION: Pcwstr = w("System\\CurrentControlSet\\Services\\EapHost\\Methods")
 
 public val EAP_SIM_CREDENTIAL: EapCredentialType = 4
 
@@ -265,229 +265,229 @@ public val EAP_UI_INPUT_FIELD_PROPS_READ_ONLY: UInt = 4u
 
 public val EAP_USERNAME_PASSWORD_CREDENTIAL: EapCredentialType = 1
 
-public val EAP_VALUENAME_PROPERTIES: PCWSTR = w("Properties")
+public val EAP_VALUENAME_PROPERTIES: Pcwstr = w("Properties")
 
 public val EAP_WINLOGON_CREDENTIAL: EapCredentialType = 2
 
-public val EapCodeFailure: EapCode = 4
+public val EAP_CODE_FAILURE: EapCode = 4
 
-public val EapCodeMaximum: EapCode = 4
+public val EAP_CODE_MAXIMUM: EapCode = 4
 
-public val EapCodeMinimum: EapCode = 1
+public val EAP_CODE_MINIMUM: EapCode = 1
 
-public val EapCodeRequest: EapCode = 1
+public val EAP_CODE_REQUEST: EapCode = 1
 
-public val EapCodeResponse: EapCode = 2
+public val EAP_CODE_RESPONSE: EapCode = 2
 
-public val EapCodeSuccess: EapCode = 3
+public val EAP_CODE_SUCCESS: EapCode = 3
 
-public val EapConfigInputEdit: EAP_CONFIG_INPUT_FIELD_TYPE = 6
+public val EAP_CONFIG_INPUT_EDIT: EapConfigInputFieldType = 6
 
-public val EapConfigInputNetworkPassword: EAP_CONFIG_INPUT_FIELD_TYPE = 3
+public val EAP_CONFIG_INPUT_NETWORK_PASSWORD: EapConfigInputFieldType = 3
 
-public val EapConfigInputNetworkUsername: EAP_CONFIG_INPUT_FIELD_TYPE = 2
+public val EAP_CONFIG_INPUT_NETWORK_USERNAME: EapConfigInputFieldType = 2
 
-public val EapConfigInputPSK: EAP_CONFIG_INPUT_FIELD_TYPE = 5
+public val EAP_CONFIG_INPUT_PSK: EapConfigInputFieldType = 5
 
-public val EapConfigInputPassword: EAP_CONFIG_INPUT_FIELD_TYPE = 1
+public val EAP_CONFIG_INPUT_PASSWORD: EapConfigInputFieldType = 1
 
-public val EapConfigInputPin: EAP_CONFIG_INPUT_FIELD_TYPE = 4
+public val EAP_CONFIG_INPUT_PIN: EapConfigInputFieldType = 4
 
-public val EapConfigInputUsername: EAP_CONFIG_INPUT_FIELD_TYPE = 0
+public val EAP_CONFIG_INPUT_USERNAME: EapConfigInputFieldType = 0
 
-public val EapConfigSmartCardError: EAP_CONFIG_INPUT_FIELD_TYPE = 8
+public val EAP_CONFIG_SMART_CARD_ERROR: EapConfigInputFieldType = 8
 
-public val EapConfigSmartCardUsername: EAP_CONFIG_INPUT_FIELD_TYPE = 7
+public val EAP_CONFIG_SMART_CARD_USERNAME: EapConfigInputFieldType = 7
 
-public val EapCredExpiryReq: EAP_INTERACTIVE_UI_DATA_TYPE = 2
+public val EAP_CRED_EXPIRY_REQ: EapInteractiveUiDataType = 2
 
-public val EapCredExpiryResp: EAP_INTERACTIVE_UI_DATA_TYPE = 3
+public val EAP_CRED_EXPIRY_RESP: EapInteractiveUiDataType = 3
 
-public val EapCredLogonReq: EAP_INTERACTIVE_UI_DATA_TYPE = 4
+public val EAP_CRED_LOGON_REQ: EapInteractiveUiDataType = 4
 
-public val EapCredLogonResp: EAP_INTERACTIVE_UI_DATA_TYPE = 5
+public val EAP_CRED_LOGON_RESP: EapInteractiveUiDataType = 5
 
-public val EapCredReq: EAP_INTERACTIVE_UI_DATA_TYPE = 0
+public val EAP_CRED_REQ: EapInteractiveUiDataType = 0
 
-public val EapCredResp: EAP_INTERACTIVE_UI_DATA_TYPE = 1
+public val EAP_CRED_RESP: EapInteractiveUiDataType = 1
 
-public val EapHostAuthFailed: EAPHOST_AUTH_STATUS = 6
+public val EAP_HOST_AUTH_FAILED: EaphostAuthStatus = 6
 
-public val EapHostAuthIdentityExchange: EAPHOST_AUTH_STATUS = 2
+public val EAP_HOST_AUTH_IDENTITY_EXCHANGE: EaphostAuthStatus = 2
 
-public val EapHostAuthInProgress: EAPHOST_AUTH_STATUS = 4
+public val EAP_HOST_AUTH_IN_PROGRESS: EaphostAuthStatus = 4
 
-public val EapHostAuthNegotiatingType: EAPHOST_AUTH_STATUS = 3
+public val EAP_HOST_AUTH_NEGOTIATING_TYPE: EaphostAuthStatus = 3
 
-public val EapHostAuthNotStarted: EAPHOST_AUTH_STATUS = 1
+public val EAP_HOST_AUTH_NOT_STARTED: EaphostAuthStatus = 1
 
-public val EapHostAuthSucceeded: EAPHOST_AUTH_STATUS = 5
+public val EAP_HOST_AUTH_SUCCEEDED: EaphostAuthStatus = 5
 
-public val EapHostInvalidSession: EAPHOST_AUTH_STATUS = 0
+public val EAP_HOST_INVALID_SESSION: EaphostAuthStatus = 0
 
-public val EapHostNapInfo: EapHostPeerAuthParams = 4
+public val EAP_HOST_NAP_INFO: EapHostPeerAuthParams = 4
 
-public val EapHostPeerAuthStatus: EapHostPeerAuthParams = 1
+public val EAP_HOST_PEER_AUTH_STATUS: EapHostPeerAuthParams = 1
 
-public val EapHostPeerIdentity: EapHostPeerAuthParams = 2
+public val EAP_HOST_PEER_IDENTITY: EapHostPeerAuthParams = 2
 
-public val EapHostPeerIdentityExtendedInfo: EapHostPeerAuthParams = 3
+public val EAP_HOST_PEER_IDENTITY_EXTENDED_INFO: EapHostPeerAuthParams = 3
 
-public val EapHostPeerMethodResultAltSuccessReceived: EapHostPeerMethodResultReason = 1
+public val EAP_HOST_PEER_METHOD_RESULT_ALT_SUCCESS_RECEIVED: EapHostPeerMethodResultReason = 1
 
-public val EapHostPeerMethodResultFromMethod: EapHostPeerMethodResultReason = 3
+public val EAP_HOST_PEER_METHOD_RESULT_FROM_METHOD: EapHostPeerMethodResultReason = 3
 
-public val EapHostPeerMethodResultTimeout: EapHostPeerMethodResultReason = 2
+public val EAP_HOST_PEER_METHOD_RESULT_TIMEOUT: EapHostPeerMethodResultReason = 2
 
-public val EapHostPeerResponseDiscard: EapHostPeerResponseAction = 0
+public val EAP_HOST_PEER_RESPONSE_DISCARD: EapHostPeerResponseAction = 0
 
-public val EapHostPeerResponseInvokeUi: EapHostPeerResponseAction = 3
+public val EAP_HOST_PEER_RESPONSE_INVOKE_UI: EapHostPeerResponseAction = 3
 
-public val EapHostPeerResponseNone: EapHostPeerResponseAction = 6
+public val EAP_HOST_PEER_RESPONSE_NONE: EapHostPeerResponseAction = 6
 
-public val EapHostPeerResponseRespond: EapHostPeerResponseAction = 4
+public val EAP_HOST_PEER_RESPONSE_RESPOND: EapHostPeerResponseAction = 4
 
-public val EapHostPeerResponseResult: EapHostPeerResponseAction = 2
+public val EAP_HOST_PEER_RESPONSE_RESULT: EapHostPeerResponseAction = 2
 
-public val EapHostPeerResponseSend: EapHostPeerResponseAction = 1
+public val EAP_HOST_PEER_RESPONSE_SEND: EapHostPeerResponseAction = 1
 
-public val EapHostPeerResponseStartAuthentication: EapHostPeerResponseAction = 5
+public val EAP_HOST_PEER_RESPONSE_START_AUTHENTICATION: EapHostPeerResponseAction = 5
 
-public val EapPeerMethodResponseActionDiscard: EapPeerMethodResponseAction = 0
+public val EAP_PEER_METHOD_RESPONSE_ACTION_DISCARD: EapPeerMethodResponseAction = 0
 
-public val EapPeerMethodResponseActionInvokeUI: EapPeerMethodResponseAction = 3
+public val EAP_PEER_METHOD_RESPONSE_ACTION_INVOKE_UI: EapPeerMethodResponseAction = 3
 
-public val EapPeerMethodResponseActionNone: EapPeerMethodResponseAction = 5
+public val EAP_PEER_METHOD_RESPONSE_ACTION_NONE: EapPeerMethodResponseAction = 5
 
-public val EapPeerMethodResponseActionRespond: EapPeerMethodResponseAction = 4
+public val EAP_PEER_METHOD_RESPONSE_ACTION_RESPOND: EapPeerMethodResponseAction = 4
 
-public val EapPeerMethodResponseActionResult: EapPeerMethodResponseAction = 2
+public val EAP_PEER_METHOD_RESPONSE_ACTION_RESULT: EapPeerMethodResponseAction = 2
 
-public val EapPeerMethodResponseActionSend: EapPeerMethodResponseAction = 1
+public val EAP_PEER_METHOD_RESPONSE_ACTION_SEND: EapPeerMethodResponseAction = 1
 
-public val EapPeerMethodResultFailure: EapPeerMethodResultReason = 3
+public val EAP_PEER_METHOD_RESULT_FAILURE: EapPeerMethodResultReason = 3
 
-public val EapPeerMethodResultSuccess: EapPeerMethodResultReason = 2
+public val EAP_PEER_METHOD_RESULT_SUCCESS: EapPeerMethodResultReason = 2
 
-public val EapPeerMethodResultUnknown: EapPeerMethodResultReason = 1
+public val EAP_PEER_METHOD_RESULT_UNKNOWN: EapPeerMethodResultReason = 1
 
 public val FACILITY_EAP_MESSAGE: UInt = 2114u
 
-public val GUID_EapHost_Cause_CertStoreInaccessible: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d800000004uL))
+public val GUID_EAP_HOST_CAUSE_CERT_STORE_INACCESSIBLE: Guid = Guid.fromU128(U128(0x9612fc6761504209uL, 0xa85ea8d800000004uL))
 
-public val GUID_EapHost_Cause_EapNegotiationFailed: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d80000001cuL))
+public val GUID_EAP_HOST_CAUSE_EAP_NEGOTIATION_FAILED: Guid = Guid.fromU128(U128(0x9612fc6761504209uL, 0xa85ea8d80000001cuL))
 
-public val GUID_EapHost_Cause_EapQecInaccessible: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d800000312uL))
+public val GUID_EAP_HOST_CAUSE_EAP_QEC_INACCESSIBLE: Guid = Guid.fromU128(U128(0x9612fc6761504209uL, 0xa85ea8d800000312uL))
 
-public val GUID_EapHost_Cause_Generic_AuthFailure: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d800000104uL))
+public val GUID_EAP_HOST_CAUSE_GENERIC_AUTH_FAILURE: Guid = Guid.fromU128(U128(0x9612fc6761504209uL, 0xa85ea8d800000104uL))
 
-public val GUID_EapHost_Cause_IdentityUnknown: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d800000204uL))
+public val GUID_EAP_HOST_CAUSE_IDENTITY_UNKNOWN: Guid = Guid.fromU128(U128(0x9612fc6761504209uL, 0xa85ea8d800000204uL))
 
-public val GUID_EapHost_Cause_MethodDLLNotFound: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d800000001uL))
+public val GUID_EAP_HOST_CAUSE_METHOD_DLL_NOT_FOUND: Guid = Guid.fromU128(U128(0x9612fc6761504209uL, 0xa85ea8d800000001uL))
 
-public val GUID_EapHost_Cause_MethodDoesNotSupportOperation: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d80000001euL))
+public val GUID_EAP_HOST_CAUSE_METHOD_DOES_NOT_SUPPORT_OPERATION: Guid = Guid.fromU128(U128(0x9612fc6761504209uL, 0xa85ea8d80000001euL))
 
-public val GUID_EapHost_Cause_Method_Config_Does_Not_Support_Sso: GUID = GUID.from_u128(U128(0xda18bd32004f41fauL, 0xae080bc85e5845acuL))
+public val GUID_EAP_HOST_CAUSE_METHOD_CONFIG_DOES_NOT_SUPPORT_SSO: Guid = Guid.fromU128(U128(0xda18bd32004f41fauL, 0xae080bc85e5845acuL))
 
-public val GUID_EapHost_Cause_No_SmartCardReader_Found: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d80000002buL))
+public val GUID_EAP_HOST_CAUSE_NO_SMART_CARD_READER_FOUND: Guid = Guid.fromU128(U128(0x9612fc6761504209uL, 0xa85ea8d80000002buL))
 
-public val GUID_EapHost_Cause_Server_CertExpired: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d800000005uL))
+public val GUID_EAP_HOST_CAUSE_SERVER_CERT_EXPIRED: Guid = Guid.fromU128(U128(0x9612fc6761504209uL, 0xa85ea8d800000005uL))
 
-public val GUID_EapHost_Cause_Server_CertInvalid: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d800000006uL))
+public val GUID_EAP_HOST_CAUSE_SERVER_CERT_INVALID: Guid = Guid.fromU128(U128(0x9612fc6761504209uL, 0xa85ea8d800000006uL))
 
-public val GUID_EapHost_Cause_Server_CertNotFound: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d800000007uL))
+public val GUID_EAP_HOST_CAUSE_SERVER_CERT_NOT_FOUND: Guid = Guid.fromU128(U128(0x9612fc6761504209uL, 0xa85ea8d800000007uL))
 
-public val GUID_EapHost_Cause_Server_CertOtherError: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d800000108uL))
+public val GUID_EAP_HOST_CAUSE_SERVER_CERT_OTHER_ERROR: Guid = Guid.fromU128(U128(0x9612fc6761504209uL, 0xa85ea8d800000108uL))
 
-public val GUID_EapHost_Cause_Server_CertRevoked: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d800000008uL))
+public val GUID_EAP_HOST_CAUSE_SERVER_CERT_REVOKED: Guid = Guid.fromU128(U128(0x9612fc6761504209uL, 0xa85ea8d800000008uL))
 
-public val GUID_EapHost_Cause_Server_Root_CertNameRequired: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d800000012uL))
+public val GUID_EAP_HOST_CAUSE_SERVER_ROOT_CERT_NAME_REQUIRED: Guid = Guid.fromU128(U128(0x9612fc6761504209uL, 0xa85ea8d800000012uL))
 
-public val GUID_EapHost_Cause_Server_Root_CertNotFound: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d800000112uL))
+public val GUID_EAP_HOST_CAUSE_SERVER_ROOT_CERT_NOT_FOUND: Guid = Guid.fromU128(U128(0x9612fc6761504209uL, 0xa85ea8d800000112uL))
 
-public val GUID_EapHost_Cause_SimNotValid: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d800000304uL))
+public val GUID_EAP_HOST_CAUSE_SIM_NOT_VALID: Guid = Guid.fromU128(U128(0x9612fc6761504209uL, 0xa85ea8d800000304uL))
 
-public val GUID_EapHost_Cause_ThirdPartyMethod_Host_Reset: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d800000212uL))
+public val GUID_EAP_HOST_CAUSE_THIRD_PARTY_METHOD_HOST_RESET: Guid = Guid.fromU128(U128(0x9612fc6761504209uL, 0xa85ea8d800000212uL))
 
-public val GUID_EapHost_Cause_User_Account_OtherProblem: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d80000010euL))
+public val GUID_EAP_HOST_CAUSE_USER_ACCOUNT_OTHER_PROBLEM: Guid = Guid.fromU128(U128(0x9612fc6761504209uL, 0xa85ea8d80000010euL))
 
-public val GUID_EapHost_Cause_User_CertExpired: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d800000009uL))
+public val GUID_EAP_HOST_CAUSE_USER_CERT_EXPIRED: Guid = Guid.fromU128(U128(0x9612fc6761504209uL, 0xa85ea8d800000009uL))
 
-public val GUID_EapHost_Cause_User_CertInvalid: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d80000000auL))
+public val GUID_EAP_HOST_CAUSE_USER_CERT_INVALID: Guid = Guid.fromU128(U128(0x9612fc6761504209uL, 0xa85ea8d80000000auL))
 
-public val GUID_EapHost_Cause_User_CertNotFound: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d80000000buL))
+public val GUID_EAP_HOST_CAUSE_USER_CERT_NOT_FOUND: Guid = Guid.fromU128(U128(0x9612fc6761504209uL, 0xa85ea8d80000000buL))
 
-public val GUID_EapHost_Cause_User_CertOtherError: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d80000000cuL))
+public val GUID_EAP_HOST_CAUSE_USER_CERT_OTHER_ERROR: Guid = Guid.fromU128(U128(0x9612fc6761504209uL, 0xa85ea8d80000000cuL))
 
-public val GUID_EapHost_Cause_User_CertRejected: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d80000000duL))
+public val GUID_EAP_HOST_CAUSE_USER_CERT_REJECTED: Guid = Guid.fromU128(U128(0x9612fc6761504209uL, 0xa85ea8d80000000duL))
 
-public val GUID_EapHost_Cause_User_CertRevoked: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d80000000euL))
+public val GUID_EAP_HOST_CAUSE_USER_CERT_REVOKED: Guid = Guid.fromU128(U128(0x9612fc6761504209uL, 0xa85ea8d80000000euL))
 
-public val GUID_EapHost_Cause_User_CredsRejected: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d80000020euL))
+public val GUID_EAP_HOST_CAUSE_USER_CREDS_REJECTED: Guid = Guid.fromU128(U128(0x9612fc6761504209uL, 0xa85ea8d80000020euL))
 
-public val GUID_EapHost_Cause_User_Root_CertExpired: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d80000000fuL))
+public val GUID_EAP_HOST_CAUSE_USER_ROOT_CERT_EXPIRED: Guid = Guid.fromU128(U128(0x9612fc6761504209uL, 0xa85ea8d80000000fuL))
 
-public val GUID_EapHost_Cause_User_Root_CertInvalid: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d800000010uL))
+public val GUID_EAP_HOST_CAUSE_USER_ROOT_CERT_INVALID: Guid = Guid.fromU128(U128(0x9612fc6761504209uL, 0xa85ea8d800000010uL))
 
-public val GUID_EapHost_Cause_User_Root_CertNotFound: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d800000011uL))
+public val GUID_EAP_HOST_CAUSE_USER_ROOT_CERT_NOT_FOUND: Guid = Guid.fromU128(U128(0x9612fc6761504209uL, 0xa85ea8d800000011uL))
 
-public val GUID_EapHost_Cause_XmlMalformed: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d80000001duL))
+public val GUID_EAP_HOST_CAUSE_XML_MALFORMED: Guid = Guid.fromU128(U128(0x9612fc6761504209uL, 0xa85ea8d80000001duL))
 
-public val GUID_EapHost_Default: GUID = GUID.from_u128(U128(0x0uL, 0x0uL))
+public val GUID_EAP_HOST_DEFAULT: Guid = Guid.fromU128(U128(0x0uL, 0x0uL))
 
-public val GUID_EapHost_Help_ObtainingCerts: GUID = GUID.from_u128(U128(0xf535eea31bdd46cauL, 0xa2fca6655939b7e8uL))
+public val GUID_EAP_HOST_HELP_OBTAINING_CERTS: Guid = Guid.fromU128(U128(0xf535eea31bdd46cauL, 0xa2fca6655939b7e8uL))
 
-public val GUID_EapHost_Help_Troubleshooting: GUID = GUID.from_u128(U128(0x33307acf069841bauL, 0xb014ea0a2eb8d0a8uL))
+public val GUID_EAP_HOST_HELP_TROUBLESHOOTING: Guid = Guid.fromU128(U128(0x33307acf069841bauL, 0xb014ea0a2eb8d0a8uL))
 
-public val GUID_EapHost_Repair_ContactAdmin_AuthFailure: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d80000001fuL))
+public val GUID_EAP_HOST_REPAIR_CONTACT_ADMIN_AUTH_FAILURE: Guid = Guid.fromU128(U128(0x9612fc6761504209uL, 0xa85ea8d80000001fuL))
 
-public val GUID_EapHost_Repair_ContactAdmin_CertNameAbsent: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d800000029uL))
+public val GUID_EAP_HOST_REPAIR_CONTACT_ADMIN_CERT_NAME_ABSENT: Guid = Guid.fromU128(U128(0x9612fc6761504209uL, 0xa85ea8d800000029uL))
 
-public val GUID_EapHost_Repair_ContactAdmin_CertStoreInaccessible: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d800000024uL))
+public val GUID_EAP_HOST_REPAIR_CONTACT_ADMIN_CERT_STORE_INACCESSIBLE: Guid = Guid.fromU128(U128(0x9612fc6761504209uL, 0xa85ea8d800000024uL))
 
-public val GUID_EapHost_Repair_ContactAdmin_IdentityUnknown: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d800000020uL))
+public val GUID_EAP_HOST_REPAIR_CONTACT_ADMIN_IDENTITY_UNKNOWN: Guid = Guid.fromU128(U128(0x9612fc6761504209uL, 0xa85ea8d800000020uL))
 
-public val GUID_EapHost_Repair_ContactAdmin_InvalidUserAccount: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d800000025uL))
+public val GUID_EAP_HOST_REPAIR_CONTACT_ADMIN_INVALID_USER_ACCOUNT: Guid = Guid.fromU128(U128(0x9612fc6761504209uL, 0xa85ea8d800000025uL))
 
-public val GUID_EapHost_Repair_ContactAdmin_InvalidUserCert: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d80000002cuL))
+public val GUID_EAP_HOST_REPAIR_CONTACT_ADMIN_INVALID_USER_CERT: Guid = Guid.fromU128(U128(0x9612fc6761504209uL, 0xa85ea8d80000002cuL))
 
-public val GUID_EapHost_Repair_ContactAdmin_MethodNotFound: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d800000022uL))
+public val GUID_EAP_HOST_REPAIR_CONTACT_ADMIN_METHOD_NOT_FOUND: Guid = Guid.fromU128(U128(0x9612fc6761504209uL, 0xa85ea8d800000022uL))
 
-public val GUID_EapHost_Repair_ContactAdmin_NegotiationFailed: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d800000021uL))
+public val GUID_EAP_HOST_REPAIR_CONTACT_ADMIN_NEGOTIATION_FAILED: Guid = Guid.fromU128(U128(0x9612fc6761504209uL, 0xa85ea8d800000021uL))
 
-public val GUID_EapHost_Repair_ContactAdmin_NoSmartCardReader: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d80000002auL))
+public val GUID_EAP_HOST_REPAIR_CONTACT_ADMIN_NO_SMART_CARD_READER: Guid = Guid.fromU128(U128(0x9612fc6761504209uL, 0xa85ea8d80000002auL))
 
-public val GUID_EapHost_Repair_ContactAdmin_RootCertInvalid: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d800000026uL))
+public val GUID_EAP_HOST_REPAIR_CONTACT_ADMIN_ROOT_CERT_INVALID: Guid = Guid.fromU128(U128(0x9612fc6761504209uL, 0xa85ea8d800000026uL))
 
-public val GUID_EapHost_Repair_ContactAdmin_RootCertNotFound: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d800000027uL))
+public val GUID_EAP_HOST_REPAIR_CONTACT_ADMIN_ROOT_CERT_NOT_FOUND: Guid = Guid.fromU128(U128(0x9612fc6761504209uL, 0xa85ea8d800000027uL))
 
-public val GUID_EapHost_Repair_ContactAdmin_RootExpired: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d800000028uL))
+public val GUID_EAP_HOST_REPAIR_CONTACT_ADMIN_ROOT_EXPIRED: Guid = Guid.fromU128(U128(0x9612fc6761504209uL, 0xa85ea8d800000028uL))
 
-public val GUID_EapHost_Repair_ContactSysadmin: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d800000002uL))
+public val GUID_EAP_HOST_REPAIR_CONTACT_SYSADMIN: Guid = Guid.fromU128(U128(0x9612fc6761504209uL, 0xa85ea8d800000002uL))
 
-public val GUID_EapHost_Repair_Method_Not_Support_Sso: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d80000002duL))
+public val GUID_EAP_HOST_REPAIR_METHOD_NOT_SUPPORT_SSO: Guid = Guid.fromU128(U128(0x9612fc6761504209uL, 0xa85ea8d80000002duL))
 
-public val GUID_EapHost_Repair_No_ValidSim_Found: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d80000002euL))
+public val GUID_EAP_HOST_REPAIR_NO_VALID_SIM_FOUND: Guid = Guid.fromU128(U128(0x9612fc6761504209uL, 0xa85ea8d80000002euL))
 
-public val GUID_EapHost_Repair_RestartNap: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d800000023uL))
+public val GUID_EAP_HOST_REPAIR_RESTART_NAP: Guid = Guid.fromU128(U128(0x9612fc6761504209uL, 0xa85ea8d800000023uL))
 
-public val GUID_EapHost_Repair_Retry_Authentication: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d80000011buL))
+public val GUID_EAP_HOST_REPAIR_RETRY_AUTHENTICATION: Guid = Guid.fromU128(U128(0x9612fc6761504209uL, 0xa85ea8d80000011buL))
 
-public val GUID_EapHost_Repair_Server_ClientSelectServerCert: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d800000018uL))
+public val GUID_EAP_HOST_REPAIR_SERVER_CLIENT_SELECT_SERVER_CERT: Guid = Guid.fromU128(U128(0x9612fc6761504209uL, 0xa85ea8d800000018uL))
 
-public val GUID_EapHost_Repair_User_AuthFailure: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d800000019uL))
+public val GUID_EAP_HOST_REPAIR_USER_AUTH_FAILURE: Guid = Guid.fromU128(U128(0x9612fc6761504209uL, 0xa85ea8d800000019uL))
 
-public val GUID_EapHost_Repair_User_GetNewCert: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d80000001auL))
+public val GUID_EAP_HOST_REPAIR_USER_GET_NEW_CERT: Guid = Guid.fromU128(U128(0x9612fc6761504209uL, 0xa85ea8d80000001auL))
 
-public val GUID_EapHost_Repair_User_SelectValidCert: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d80000001buL))
+public val GUID_EAP_HOST_REPAIR_USER_SELECT_VALID_CERT: Guid = Guid.fromU128(U128(0x9612fc6761504209uL, 0xa85ea8d80000001buL))
 
-public val ISOLATION_STATE_IN_PROBATION: ISOLATION_STATE = 2
+public val ISOLATION_STATE_IN_PROBATION: IsolationState = 2
 
-public val ISOLATION_STATE_NOT_RESTRICTED: ISOLATION_STATE = 1
+public val ISOLATION_STATE_NOT_RESTRICTED: IsolationState = 1
 
-public val ISOLATION_STATE_RESTRICTED_ACCESS: ISOLATION_STATE = 3
+public val ISOLATION_STATE_RESTRICTED_ACCESS: IsolationState = 3
 
-public val ISOLATION_STATE_UNKNOWN: ISOLATION_STATE = 0
+public val ISOLATION_STATE_UNKNOWN: IsolationState = 0
 
 public val MAXEAPCODE: UInt = 4u
 
@@ -533,7 +533,7 @@ public val RAS_EAP_FLAG_SAVE_CREDMAN: UInt = 2097152u
 
 public val RAS_EAP_FLAG_SERVER_VALIDATION_REQUIRED: UInt = 33554432u
 
-public val RAS_EAP_REGISTRY_LOCATION: PCWSTR = w("System\\CurrentControlSet\\Services\\Rasman\\PPP\\EAP")
+public val RAS_EAP_REGISTRY_LOCATION: Pcwstr = w("System\\CurrentControlSet\\Services\\Rasman\\PPP\\EAP")
 
 public val RAS_EAP_ROLE_AUTHENTICATEE: UInt = 2u
 
@@ -545,558 +545,558 @@ public val RAS_EAP_ROLE_EXCLUDE_IN_PEAP: UInt = 8u
 
 public val RAS_EAP_ROLE_EXCLUDE_IN_VPN: UInt = 16u
 
-public val RAS_EAP_VALUENAME_CONFIGUI: PCWSTR = w("ConfigUIPath")
+public val RAS_EAP_VALUENAME_CONFIGUI: Pcwstr = w("ConfigUIPath")
 
-public val RAS_EAP_VALUENAME_CONFIG_CLSID: PCWSTR = w("ConfigCLSID")
+public val RAS_EAP_VALUENAME_CONFIG_CLSID: Pcwstr = w("ConfigCLSID")
 
-public val RAS_EAP_VALUENAME_DEFAULT_DATA: PCWSTR = w("ConfigData")
+public val RAS_EAP_VALUENAME_DEFAULT_DATA: Pcwstr = w("ConfigData")
 
-public val RAS_EAP_VALUENAME_ENCRYPTION: PCWSTR = w("MPPEEncryptionSupported")
+public val RAS_EAP_VALUENAME_ENCRYPTION: Pcwstr = w("MPPEEncryptionSupported")
 
-public val RAS_EAP_VALUENAME_FILTER_INNERMETHODS: PCWSTR = w("FilterInnerMethods")
+public val RAS_EAP_VALUENAME_FILTER_INNERMETHODS: Pcwstr = w("FilterInnerMethods")
 
-public val RAS_EAP_VALUENAME_FRIENDLY_NAME: PCWSTR = w("FriendlyName")
+public val RAS_EAP_VALUENAME_FRIENDLY_NAME: Pcwstr = w("FriendlyName")
 
-public val RAS_EAP_VALUENAME_IDENTITY: PCWSTR = w("IdentityPath")
+public val RAS_EAP_VALUENAME_IDENTITY: Pcwstr = w("IdentityPath")
 
-public val RAS_EAP_VALUENAME_INTERACTIVEUI: PCWSTR = w("InteractiveUIPath")
+public val RAS_EAP_VALUENAME_INTERACTIVEUI: Pcwstr = w("InteractiveUIPath")
 
-public val RAS_EAP_VALUENAME_INVOKE_NAMEDLG: PCWSTR = w("InvokeUsernameDialog")
+public val RAS_EAP_VALUENAME_INVOKE_NAMEDLG: Pcwstr = w("InvokeUsernameDialog")
 
-public val RAS_EAP_VALUENAME_INVOKE_PWDDLG: PCWSTR = w("InvokePasswordDialog")
+public val RAS_EAP_VALUENAME_INVOKE_PWDDLG: Pcwstr = w("InvokePasswordDialog")
 
-public val RAS_EAP_VALUENAME_ISTUNNEL_METHOD: PCWSTR = w("IsTunnelMethod")
+public val RAS_EAP_VALUENAME_ISTUNNEL_METHOD: Pcwstr = w("IsTunnelMethod")
 
-public val RAS_EAP_VALUENAME_PATH: PCWSTR = w("Path")
+public val RAS_EAP_VALUENAME_PATH: Pcwstr = w("Path")
 
-public val RAS_EAP_VALUENAME_PER_POLICY_CONFIG: PCWSTR = w("PerPolicyConfig")
+public val RAS_EAP_VALUENAME_PER_POLICY_CONFIG: Pcwstr = w("PerPolicyConfig")
 
-public val RAS_EAP_VALUENAME_REQUIRE_CONFIGUI: PCWSTR = w("RequireConfigUI")
+public val RAS_EAP_VALUENAME_REQUIRE_CONFIGUI: Pcwstr = w("RequireConfigUI")
 
-public val RAS_EAP_VALUENAME_ROLES_SUPPORTED: PCWSTR = w("RolesSupported")
+public val RAS_EAP_VALUENAME_ROLES_SUPPORTED: Pcwstr = w("RolesSupported")
 
-public val RAS_EAP_VALUENAME_STANDALONE_SUPPORTED: PCWSTR = w("StandaloneSupported")
+public val RAS_EAP_VALUENAME_STANDALONE_SUPPORTED: Pcwstr = w("StandaloneSupported")
 
-public val eapPropCertifiedMethod: UInt = 4194304u
+public val EAP_PROP_CERTIFIED_METHOD: UInt = 4194304u
 
-public val eapPropChannelBinding: UInt = 65536u
+public val EAP_PROP_CHANNEL_BINDING: UInt = 65536u
 
-public val eapPropCipherSuiteNegotiation: UInt = 1u
+public val EAP_PROP_CIPHER_SUITE_NEGOTIATION: UInt = 1u
 
-public val eapPropConfidentiality: UInt = 16u
+public val EAP_PROP_CONFIDENTIALITY: UInt = 16u
 
-public val eapPropCryptoBinding: UInt = 8192u
+public val EAP_PROP_CRYPTO_BINDING: UInt = 8192u
 
-public val eapPropDictionaryAttackResistance: UInt = 2048u
+public val EAP_PROP_DICTIONARY_ATTACK_RESISTANCE: UInt = 2048u
 
-public val eapPropFastReconnect: UInt = 4096u
+public val EAP_PROP_FAST_RECONNECT: UInt = 4096u
 
-public val eapPropFragmentation: UInt = 32768u
+public val EAP_PROP_FRAGMENTATION: UInt = 32768u
 
-public val eapPropHiddenMethod: UInt = 8388608u
+public val EAP_PROP_HIDDEN_METHOD: UInt = 8388608u
 
-public val eapPropIdentityPrivacy: UInt = 67108864u
+public val EAP_PROP_IDENTITY_PRIVACY: UInt = 67108864u
 
-public val eapPropIntegrity: UInt = 4u
+public val EAP_PROP_INTEGRITY: UInt = 4u
 
-public val eapPropKeyDerivation: UInt = 32u
+public val EAP_PROP_KEY_DERIVATION: UInt = 32u
 
-public val eapPropKeyStrength1024: UInt = 1024u
+public val EAP_PROP_KEY_STRENGTH1024: UInt = 1024u
 
-public val eapPropKeyStrength128: UInt = 128u
+public val EAP_PROP_KEY_STRENGTH128: UInt = 128u
 
-public val eapPropKeyStrength256: UInt = 256u
+public val EAP_PROP_KEY_STRENGTH256: UInt = 256u
 
-public val eapPropKeyStrength512: UInt = 512u
+public val EAP_PROP_KEY_STRENGTH512: UInt = 512u
 
-public val eapPropKeyStrength64: UInt = 64u
+public val EAP_PROP_KEY_STRENGTH64: UInt = 64u
 
-public val eapPropMachineAuth: UInt = 16777216u
+public val EAP_PROP_MACHINE_AUTH: UInt = 16777216u
 
-public val eapPropMethodChaining: UInt = 134217728u
+public val EAP_PROP_METHOD_CHAINING: UInt = 134217728u
 
-public val eapPropMppeEncryption: UInt = 524288u
+public val EAP_PROP_MPPE_ENCRYPTION: UInt = 524288u
 
-public val eapPropMutualAuth: UInt = 2u
+public val EAP_PROP_MUTUAL_AUTH: UInt = 2u
 
-public val eapPropNap: UInt = 131072u
+public val EAP_PROP_NAP: UInt = 131072u
 
-public val eapPropReplayProtection: UInt = 8u
+public val EAP_PROP_REPLAY_PROTECTION: UInt = 8u
 
-public val eapPropReserved: UInt = 2147483648u
+public val EAP_PROP_RESERVED: UInt = 2147483648u
 
-public val eapPropSessionIndependence: UInt = 16384u
+public val EAP_PROP_SESSION_INDEPENDENCE: UInt = 16384u
 
-public val eapPropSharedStateEquivalence: UInt = 268435456u
+public val EAP_PROP_SHARED_STATE_EQUIVALENCE: UInt = 268435456u
 
-public val eapPropStandalone: UInt = 262144u
+public val EAP_PROP_STANDALONE: UInt = 262144u
 
-public val eapPropSupportsConfig: UInt = 2097152u
+public val EAP_PROP_SUPPORTS_CONFIG: UInt = 2097152u
 
-public val eapPropTunnelMethod: UInt = 1048576u
+public val EAP_PROP_TUNNEL_METHOD: UInt = 1048576u
 
-public val eapPropUserAuth: UInt = 33554432u
+public val EAP_PROP_USER_AUTH: UInt = 33554432u
 
-public val eatARAPChallengeResponse: EAP_ATTRIBUTE_TYPE = 84
+public val EAT_ARAP_CHALLENGE_RESPONSE: EapAttributeType = 84
 
-public val eatARAPFeatures: EAP_ATTRIBUTE_TYPE = 71
+public val EAT_ARAP_FEATURES: EapAttributeType = 71
 
-public val eatARAPGuestLogon: EAP_ATTRIBUTE_TYPE = 8096
+public val EAT_ARAP_GUEST_LOGON: EapAttributeType = 8096
 
-public val eatARAPPassword: EAP_ATTRIBUTE_TYPE = 70
+public val EAT_ARAP_PASSWORD: EapAttributeType = 70
 
-public val eatARAPSecurity: EAP_ATTRIBUTE_TYPE = 73
+public val EAT_ARAP_SECURITY: EapAttributeType = 73
 
-public val eatARAPSecurityData: EAP_ATTRIBUTE_TYPE = 74
+public val EAT_ARAP_SECURITY_DATA: EapAttributeType = 74
 
-public val eatARAPZoneAccess: EAP_ATTRIBUTE_TYPE = 72
+public val EAT_ARAP_ZONE_ACCESS: EapAttributeType = 72
 
-public val eatAcctAuthentic: EAP_ATTRIBUTE_TYPE = 45
+public val EAT_ACCT_AUTHENTIC: EapAttributeType = 45
 
-public val eatAcctDelayTime: EAP_ATTRIBUTE_TYPE = 41
+public val EAT_ACCT_DELAY_TIME: EapAttributeType = 41
 
-public val eatAcctEventTimeStamp: EAP_ATTRIBUTE_TYPE = 55
+public val EAT_ACCT_EVENT_TIME_STAMP: EapAttributeType = 55
 
-public val eatAcctInputOctets: EAP_ATTRIBUTE_TYPE = 42
+public val EAT_ACCT_INPUT_OCTETS: EapAttributeType = 42
 
-public val eatAcctInputPackets: EAP_ATTRIBUTE_TYPE = 47
+public val EAT_ACCT_INPUT_PACKETS: EapAttributeType = 47
 
-public val eatAcctInterimInterval: EAP_ATTRIBUTE_TYPE = 85
+public val EAT_ACCT_INTERIM_INTERVAL: EapAttributeType = 85
 
-public val eatAcctLinkCount: EAP_ATTRIBUTE_TYPE = 51
+public val EAT_ACCT_LINK_COUNT: EapAttributeType = 51
 
-public val eatAcctMultiSessionId: EAP_ATTRIBUTE_TYPE = 50
+public val EAT_ACCT_MULTI_SESSION_ID: EapAttributeType = 50
 
-public val eatAcctOutputOctets: EAP_ATTRIBUTE_TYPE = 43
+public val EAT_ACCT_OUTPUT_OCTETS: EapAttributeType = 43
 
-public val eatAcctOutputPackets: EAP_ATTRIBUTE_TYPE = 48
+public val EAT_ACCT_OUTPUT_PACKETS: EapAttributeType = 48
 
-public val eatAcctSessionId: EAP_ATTRIBUTE_TYPE = 44
+public val EAT_ACCT_SESSION_ID: EapAttributeType = 44
 
-public val eatAcctSessionTime: EAP_ATTRIBUTE_TYPE = 46
+public val EAT_ACCT_SESSION_TIME: EapAttributeType = 46
 
-public val eatAcctStatusType: EAP_ATTRIBUTE_TYPE = 40
+public val EAT_ACCT_STATUS_TYPE: EapAttributeType = 40
 
-public val eatAcctTerminateCause: EAP_ATTRIBUTE_TYPE = 49
+public val EAT_ACCT_TERMINATE_CAUSE: EapAttributeType = 49
 
-public val eatCallbackId: EAP_ATTRIBUTE_TYPE = 20
+public val EAT_CALLBACK_ID: EapAttributeType = 20
 
-public val eatCallbackNumber: EAP_ATTRIBUTE_TYPE = 19
+public val EAT_CALLBACK_NUMBER: EapAttributeType = 19
 
-public val eatCalledStationId: EAP_ATTRIBUTE_TYPE = 30
+public val EAT_CALLED_STATION_ID: EapAttributeType = 30
 
-public val eatCallingStationId: EAP_ATTRIBUTE_TYPE = 31
+public val EAT_CALLING_STATION_ID: EapAttributeType = 31
 
-public val eatCertificateOID: EAP_ATTRIBUTE_TYPE = 8097
+public val EAT_CERTIFICATE_OID: EapAttributeType = 8097
 
-public val eatCertificateThumbprint: EAP_ATTRIBUTE_TYPE = 8250
+public val EAT_CERTIFICATE_THUMBPRINT: EapAttributeType = 8250
 
-public val eatClass: EAP_ATTRIBUTE_TYPE = 25
+public val EAT_CLASS: EapAttributeType = 25
 
-public val eatClearTextPassword: EAP_ATTRIBUTE_TYPE = 8107
+public val EAT_CLEAR_TEXT_PASSWORD: EapAttributeType = 8107
 
-public val eatConfigurationToken: EAP_ATTRIBUTE_TYPE = 78
+public val EAT_CONFIGURATION_TOKEN: EapAttributeType = 78
 
-public val eatConnectInfo: EAP_ATTRIBUTE_TYPE = 77
+public val EAT_CONNECT_INFO: EapAttributeType = 77
 
-public val eatCredentialsChanged: EAP_ATTRIBUTE_TYPE = 8103
+public val EAT_CREDENTIALS_CHANGED: EapAttributeType = 8103
 
-public val eatEAPConfiguration: EAP_ATTRIBUTE_TYPE = 8098
+public val EAT_EAP_CONFIGURATION: EapAttributeType = 8098
 
-public val eatEAPMessage: EAP_ATTRIBUTE_TYPE = 79
+public val EAT_EAP_MESSAGE: EapAttributeType = 79
 
-public val eatEAPTLV: EAP_ATTRIBUTE_TYPE = 8102
+public val EAT_EAPTLV: EapAttributeType = 8102
 
-public val eatEMSK: EAP_ATTRIBUTE_TYPE = 9003
+public val EAT_EMSK: EapAttributeType = 9003
 
-public val eatFastRoamedSession: EAP_ATTRIBUTE_TYPE = 8100
+public val EAT_FAST_ROAMED_SESSION: EapAttributeType = 8100
 
-public val eatFilterId: EAP_ATTRIBUTE_TYPE = 11
+public val EAT_FILTER_ID: EapAttributeType = 11
 
-public val eatFramedAppleTalkLink: EAP_ATTRIBUTE_TYPE = 37
+public val EAT_FRAMED_APPLE_TALK_LINK: EapAttributeType = 37
 
-public val eatFramedAppleTalkNetwork: EAP_ATTRIBUTE_TYPE = 38
+public val EAT_FRAMED_APPLE_TALK_NETWORK: EapAttributeType = 38
 
-public val eatFramedAppleTalkZone: EAP_ATTRIBUTE_TYPE = 39
+public val EAT_FRAMED_APPLE_TALK_ZONE: EapAttributeType = 39
 
-public val eatFramedCompression: EAP_ATTRIBUTE_TYPE = 13
+public val EAT_FRAMED_COMPRESSION: EapAttributeType = 13
 
-public val eatFramedIPAddress: EAP_ATTRIBUTE_TYPE = 8
+public val EAT_FRAMED_IP_ADDRESS: EapAttributeType = 8
 
-public val eatFramedIPNetmask: EAP_ATTRIBUTE_TYPE = 9
+public val EAT_FRAMED_IP_NETMASK: EapAttributeType = 9
 
-public val eatFramedIPXNetwork: EAP_ATTRIBUTE_TYPE = 23
+public val EAT_FRAMED_IPX_NETWORK: EapAttributeType = 23
 
-public val eatFramedIPv6Pool: EAP_ATTRIBUTE_TYPE = 100
+public val EAT_FRAMED_I_PV6POOL: EapAttributeType = 100
 
-public val eatFramedIPv6Prefix: EAP_ATTRIBUTE_TYPE = 97
+public val EAT_FRAMED_I_PV6PREFIX: EapAttributeType = 97
 
-public val eatFramedIPv6Route: EAP_ATTRIBUTE_TYPE = 99
+public val EAT_FRAMED_I_PV6ROUTE: EapAttributeType = 99
 
-public val eatFramedInterfaceId: EAP_ATTRIBUTE_TYPE = 96
+public val EAT_FRAMED_INTERFACE_ID: EapAttributeType = 96
 
-public val eatFramedMTU: EAP_ATTRIBUTE_TYPE = 12
+public val EAT_FRAMED_MTU: EapAttributeType = 12
 
-public val eatFramedProtocol: EAP_ATTRIBUTE_TYPE = 7
+public val EAT_FRAMED_PROTOCOL: EapAttributeType = 7
 
-public val eatFramedRoute: EAP_ATTRIBUTE_TYPE = 22
+public val EAT_FRAMED_ROUTE: EapAttributeType = 22
 
-public val eatFramedRouting: EAP_ATTRIBUTE_TYPE = 10
+public val EAT_FRAMED_ROUTING: EapAttributeType = 10
 
-public val eatIdleTimeout: EAP_ATTRIBUTE_TYPE = 28
+public val EAT_IDLE_TIMEOUT: EapAttributeType = 28
 
-public val eatInnerEapMethodType: EAP_ATTRIBUTE_TYPE = 8104
+public val EAT_INNER_EAP_METHOD_TYPE: EapAttributeType = 8104
 
-public val eatLoginIPHost: EAP_ATTRIBUTE_TYPE = 14
+public val EAT_LOGIN_IP_HOST: EapAttributeType = 14
 
-public val eatLoginIPv6Host: EAP_ATTRIBUTE_TYPE = 98
+public val EAT_LOGIN_I_PV6HOST: EapAttributeType = 98
 
-public val eatLoginLATGroup: EAP_ATTRIBUTE_TYPE = 36
+public val EAT_LOGIN_LAT_GROUP: EapAttributeType = 36
 
-public val eatLoginLATNode: EAP_ATTRIBUTE_TYPE = 35
+public val EAT_LOGIN_LAT_NODE: EapAttributeType = 35
 
-public val eatLoginLATPort: EAP_ATTRIBUTE_TYPE = 63
+public val EAT_LOGIN_LAT_PORT: EapAttributeType = 63
 
-public val eatLoginLATService: EAP_ATTRIBUTE_TYPE = 34
+public val EAT_LOGIN_LAT_SERVICE: EapAttributeType = 34
 
-public val eatLoginService: EAP_ATTRIBUTE_TYPE = 15
+public val EAT_LOGIN_SERVICE: EapAttributeType = 15
 
-public val eatLoginTCPPort: EAP_ATTRIBUTE_TYPE = 16
+public val EAT_LOGIN_TCP_PORT: EapAttributeType = 16
 
-public val eatMD5CHAPChallenge: EAP_ATTRIBUTE_TYPE = 60
+public val EAT_MD5CHAP_CHALLENGE: EapAttributeType = 60
 
-public val eatMD5CHAPPassword: EAP_ATTRIBUTE_TYPE = 3
+public val EAT_MD5CHAP_PASSWORD: EapAttributeType = 3
 
-public val eatMethodId: EAP_ATTRIBUTE_TYPE = 9002
+public val EAT_METHOD_ID: EapAttributeType = 9002
 
-public val eatMinimum: EAP_ATTRIBUTE_TYPE = 0
+public val EAT_MINIMUM: EapAttributeType = 0
 
-public val eatNASIPAddress: EAP_ATTRIBUTE_TYPE = 4
+public val EAT_NASIP_ADDRESS: EapAttributeType = 4
 
-public val eatNASIPv6Address: EAP_ATTRIBUTE_TYPE = 95
+public val EAT_NASI_PV6ADDRESS: EapAttributeType = 95
 
-public val eatNASIdentifier: EAP_ATTRIBUTE_TYPE = 32
+public val EAT_NAS_IDENTIFIER: EapAttributeType = 32
 
-public val eatNASPort: EAP_ATTRIBUTE_TYPE = 5
+public val EAT_NAS_PORT: EapAttributeType = 5
 
-public val eatNASPortType: EAP_ATTRIBUTE_TYPE = 61
+public val EAT_NAS_PORT_TYPE: EapAttributeType = 61
 
-public val eatPEAPEmbeddedEAPTypeId: EAP_ATTRIBUTE_TYPE = 8099
+public val EAT_PEAP_EMBEDDED_EAP_TYPE_ID: EapAttributeType = 8099
 
-public val eatPEAPFastRoamedSession: EAP_ATTRIBUTE_TYPE = 8100
+public val EAT_PEAP_FAST_ROAMED_SESSION: EapAttributeType = 8100
 
-public val eatPasswordRetry: EAP_ATTRIBUTE_TYPE = 75
+public val EAT_PASSWORD_RETRY: EapAttributeType = 75
 
-public val eatPeerId: EAP_ATTRIBUTE_TYPE = 9000
+public val EAT_PEER_ID: EapAttributeType = 9000
 
-public val eatPortLimit: EAP_ATTRIBUTE_TYPE = 62
+public val EAT_PORT_LIMIT: EapAttributeType = 62
 
-public val eatPrompt: EAP_ATTRIBUTE_TYPE = 76
+public val EAT_PROMPT: EapAttributeType = 76
 
-public val eatProxyState: EAP_ATTRIBUTE_TYPE = 33
+public val EAT_PROXY_STATE: EapAttributeType = 33
 
-public val eatQuarantineSoH: EAP_ATTRIBUTE_TYPE = 8150
+public val EAT_QUARANTINE_SO_H: EapAttributeType = 8150
 
-public val eatReplyMessage: EAP_ATTRIBUTE_TYPE = 18
+public val EAT_REPLY_MESSAGE: EapAttributeType = 18
 
-public val eatReserved: EAP_ATTRIBUTE_TYPE = -1
+public val EAT_RESERVED: EapAttributeType = -1
 
-public val eatServerId: EAP_ATTRIBUTE_TYPE = 9001
+public val EAT_SERVER_ID: EapAttributeType = 9001
 
-public val eatServiceType: EAP_ATTRIBUTE_TYPE = 6
+public val EAT_SERVICE_TYPE: EapAttributeType = 6
 
-public val eatSessionId: EAP_ATTRIBUTE_TYPE = 9004
+public val EAT_SESSION_ID: EapAttributeType = 9004
 
-public val eatSessionTimeout: EAP_ATTRIBUTE_TYPE = 27
+public val EAT_SESSION_TIMEOUT: EapAttributeType = 27
 
-public val eatSignature: EAP_ATTRIBUTE_TYPE = 80
+public val EAT_SIGNATURE: EapAttributeType = 80
 
-public val eatState: EAP_ATTRIBUTE_TYPE = 24
+public val EAT_STATE: EapAttributeType = 24
 
-public val eatTerminationAction: EAP_ATTRIBUTE_TYPE = 29
+public val EAT_TERMINATION_ACTION: EapAttributeType = 29
 
-public val eatTunnelClientEndpoint: EAP_ATTRIBUTE_TYPE = 66
+public val EAT_TUNNEL_CLIENT_ENDPOINT: EapAttributeType = 66
 
-public val eatTunnelMediumType: EAP_ATTRIBUTE_TYPE = 65
+public val EAT_TUNNEL_MEDIUM_TYPE: EapAttributeType = 65
 
-public val eatTunnelServerEndpoint: EAP_ATTRIBUTE_TYPE = 67
+public val EAT_TUNNEL_SERVER_ENDPOINT: EapAttributeType = 67
 
-public val eatTunnelType: EAP_ATTRIBUTE_TYPE = 64
+public val EAT_TUNNEL_TYPE: EapAttributeType = 64
 
-public val eatUnassigned17: EAP_ATTRIBUTE_TYPE = 17
+public val EAT_UNASSIGNED17: EapAttributeType = 17
 
-public val eatUnassigned21: EAP_ATTRIBUTE_TYPE = 21
+public val EAT_UNASSIGNED21: EapAttributeType = 21
 
-public val eatUserName: EAP_ATTRIBUTE_TYPE = 1
+public val EAT_USER_NAME: EapAttributeType = 1
 
-public val eatUserPassword: EAP_ATTRIBUTE_TYPE = 2
+public val EAT_USER_PASSWORD: EapAttributeType = 2
 
-public val eatVendorSpecific: EAP_ATTRIBUTE_TYPE = 26
+public val EAT_VENDOR_SPECIFIC: EapAttributeType = 26
 
-public val emptLegacyMethodPropertyFlag: EAP_METHOD_PROPERTY_TYPE = 31
+public val EMPT_LEGACY_METHOD_PROPERTY_FLAG: EapMethodPropertyType = 31
 
-public val emptPropCertifiedMethod: EAP_METHOD_PROPERTY_TYPE = 22
+public val EMPT_PROP_CERTIFIED_METHOD: EapMethodPropertyType = 22
 
-public val emptPropChannelBinding: EAP_METHOD_PROPERTY_TYPE = 16
+public val EMPT_PROP_CHANNEL_BINDING: EapMethodPropertyType = 16
 
-public val emptPropCipherSuiteNegotiation: EAP_METHOD_PROPERTY_TYPE = 0
+public val EMPT_PROP_CIPHER_SUITE_NEGOTIATION: EapMethodPropertyType = 0
 
-public val emptPropConfidentiality: EAP_METHOD_PROPERTY_TYPE = 4
+public val EMPT_PROP_CONFIDENTIALITY: EapMethodPropertyType = 4
 
-public val emptPropCryptoBinding: EAP_METHOD_PROPERTY_TYPE = 13
+public val EMPT_PROP_CRYPTO_BINDING: EapMethodPropertyType = 13
 
-public val emptPropDictionaryAttackResistance: EAP_METHOD_PROPERTY_TYPE = 11
+public val EMPT_PROP_DICTIONARY_ATTACK_RESISTANCE: EapMethodPropertyType = 11
 
-public val emptPropFastReconnect: EAP_METHOD_PROPERTY_TYPE = 12
+public val EMPT_PROP_FAST_RECONNECT: EapMethodPropertyType = 12
 
-public val emptPropFragmentation: EAP_METHOD_PROPERTY_TYPE = 15
+public val EMPT_PROP_FRAGMENTATION: EapMethodPropertyType = 15
 
-public val emptPropHiddenMethod: EAP_METHOD_PROPERTY_TYPE = 23
+public val EMPT_PROP_HIDDEN_METHOD: EapMethodPropertyType = 23
 
-public val emptPropIdentityPrivacy: EAP_METHOD_PROPERTY_TYPE = 26
+public val EMPT_PROP_IDENTITY_PRIVACY: EapMethodPropertyType = 26
 
-public val emptPropIntegrity: EAP_METHOD_PROPERTY_TYPE = 2
+public val EMPT_PROP_INTEGRITY: EapMethodPropertyType = 2
 
-public val emptPropKeyDerivation: EAP_METHOD_PROPERTY_TYPE = 5
+public val EMPT_PROP_KEY_DERIVATION: EapMethodPropertyType = 5
 
-public val emptPropKeyStrength1024: EAP_METHOD_PROPERTY_TYPE = 10
+public val EMPT_PROP_KEY_STRENGTH1024: EapMethodPropertyType = 10
 
-public val emptPropKeyStrength128: EAP_METHOD_PROPERTY_TYPE = 7
+public val EMPT_PROP_KEY_STRENGTH128: EapMethodPropertyType = 7
 
-public val emptPropKeyStrength256: EAP_METHOD_PROPERTY_TYPE = 8
+public val EMPT_PROP_KEY_STRENGTH256: EapMethodPropertyType = 8
 
-public val emptPropKeyStrength512: EAP_METHOD_PROPERTY_TYPE = 9
+public val EMPT_PROP_KEY_STRENGTH512: EapMethodPropertyType = 9
 
-public val emptPropKeyStrength64: EAP_METHOD_PROPERTY_TYPE = 6
+public val EMPT_PROP_KEY_STRENGTH64: EapMethodPropertyType = 6
 
-public val emptPropMachineAuth: EAP_METHOD_PROPERTY_TYPE = 24
+public val EMPT_PROP_MACHINE_AUTH: EapMethodPropertyType = 24
 
-public val emptPropMethodChaining: EAP_METHOD_PROPERTY_TYPE = 27
+public val EMPT_PROP_METHOD_CHAINING: EapMethodPropertyType = 27
 
-public val emptPropMppeEncryption: EAP_METHOD_PROPERTY_TYPE = 19
+public val EMPT_PROP_MPPE_ENCRYPTION: EapMethodPropertyType = 19
 
-public val emptPropMutualAuth: EAP_METHOD_PROPERTY_TYPE = 1
+public val EMPT_PROP_MUTUAL_AUTH: EapMethodPropertyType = 1
 
-public val emptPropNap: EAP_METHOD_PROPERTY_TYPE = 17
+public val EMPT_PROP_NAP: EapMethodPropertyType = 17
 
-public val emptPropReplayProtection: EAP_METHOD_PROPERTY_TYPE = 3
+public val EMPT_PROP_REPLAY_PROTECTION: EapMethodPropertyType = 3
 
-public val emptPropSessionIndependence: EAP_METHOD_PROPERTY_TYPE = 14
+public val EMPT_PROP_SESSION_INDEPENDENCE: EapMethodPropertyType = 14
 
-public val emptPropSharedStateEquivalence: EAP_METHOD_PROPERTY_TYPE = 28
+public val EMPT_PROP_SHARED_STATE_EQUIVALENCE: EapMethodPropertyType = 28
 
-public val emptPropStandalone: EAP_METHOD_PROPERTY_TYPE = 18
+public val EMPT_PROP_STANDALONE: EapMethodPropertyType = 18
 
-public val emptPropSupportsConfig: EAP_METHOD_PROPERTY_TYPE = 21
+public val EMPT_PROP_SUPPORTS_CONFIG: EapMethodPropertyType = 21
 
-public val emptPropTunnelMethod: EAP_METHOD_PROPERTY_TYPE = 20
+public val EMPT_PROP_TUNNEL_METHOD: EapMethodPropertyType = 20
 
-public val emptPropUserAuth: EAP_METHOD_PROPERTY_TYPE = 25
+public val EMPT_PROP_USER_AUTH: EapMethodPropertyType = 25
 
-public val emptPropVendorSpecific: EAP_METHOD_PROPERTY_TYPE = 255
+public val EMPT_PROP_VENDOR_SPECIFIC: EapMethodPropertyType = 255
 
-public val empvtBool: EAP_METHOD_PROPERTY_VALUE_TYPE = 0
+public val EMPVT_BOOL: EapMethodPropertyValueType = 0
 
-public val empvtDword: EAP_METHOD_PROPERTY_VALUE_TYPE = 1
+public val EMPVT_DWORD: EapMethodPropertyValueType = 1
 
-public val empvtString: EAP_METHOD_PROPERTY_VALUE_TYPE = 2
+public val EMPVT_STRING: EapMethodPropertyValueType = 2
 
-public val raatARAPChallenge: UInt = 33u
+public val RAAT_ARAP_CHALLENGE: UInt = 33u
 
-public val raatARAPChallengeResponse: RAS_AUTH_ATTRIBUTE_TYPE = 84
+public val RAAT_ARAP_CHALLENGE_RESPONSE: RasAuthAttributeType = 84
 
-public val raatARAPFeatures: RAS_AUTH_ATTRIBUTE_TYPE = 71
+public val RAAT_ARAP_FEATURES: RasAuthAttributeType = 71
 
-public val raatARAPGuestLogon: RAS_AUTH_ATTRIBUTE_TYPE = 8096
+public val RAAT_ARAP_GUEST_LOGON: RasAuthAttributeType = 8096
 
-public val raatARAPNewPassword: UInt = 20u
+public val RAAT_ARAP_NEW_PASSWORD: UInt = 20u
 
-public val raatARAPOldPassword: UInt = 19u
+public val RAAT_ARAP_OLD_PASSWORD: UInt = 19u
 
-public val raatARAPPassword: RAS_AUTH_ATTRIBUTE_TYPE = 70
+public val RAAT_ARAP_PASSWORD: RasAuthAttributeType = 70
 
-public val raatARAPPasswordChangeReason: UInt = 21u
+public val RAAT_ARAP_PASSWORD_CHANGE_REASON: UInt = 21u
 
-public val raatARAPSecurity: RAS_AUTH_ATTRIBUTE_TYPE = 73
+public val RAAT_ARAP_SECURITY: RasAuthAttributeType = 73
 
-public val raatARAPSecurityData: RAS_AUTH_ATTRIBUTE_TYPE = 74
+public val RAAT_ARAP_SECURITY_DATA: RasAuthAttributeType = 74
 
-public val raatARAPZoneAccess: RAS_AUTH_ATTRIBUTE_TYPE = 72
+public val RAAT_ARAP_ZONE_ACCESS: RasAuthAttributeType = 72
 
-public val raatAcctAuthentic: RAS_AUTH_ATTRIBUTE_TYPE = 45
+public val RAAT_ACCT_AUTHENTIC: RasAuthAttributeType = 45
 
-public val raatAcctDelayTime: RAS_AUTH_ATTRIBUTE_TYPE = 41
+public val RAAT_ACCT_DELAY_TIME: RasAuthAttributeType = 41
 
-public val raatAcctEventTimeStamp: RAS_AUTH_ATTRIBUTE_TYPE = 55
+public val RAAT_ACCT_EVENT_TIME_STAMP: RasAuthAttributeType = 55
 
-public val raatAcctInputOctets: RAS_AUTH_ATTRIBUTE_TYPE = 42
+public val RAAT_ACCT_INPUT_OCTETS: RasAuthAttributeType = 42
 
-public val raatAcctInputPackets: RAS_AUTH_ATTRIBUTE_TYPE = 47
+public val RAAT_ACCT_INPUT_PACKETS: RasAuthAttributeType = 47
 
-public val raatAcctInterimInterval: RAS_AUTH_ATTRIBUTE_TYPE = 85
+public val RAAT_ACCT_INTERIM_INTERVAL: RasAuthAttributeType = 85
 
-public val raatAcctLinkCount: RAS_AUTH_ATTRIBUTE_TYPE = 51
+public val RAAT_ACCT_LINK_COUNT: RasAuthAttributeType = 51
 
-public val raatAcctMultiSessionId: RAS_AUTH_ATTRIBUTE_TYPE = 50
+public val RAAT_ACCT_MULTI_SESSION_ID: RasAuthAttributeType = 50
 
-public val raatAcctOutputOctets: RAS_AUTH_ATTRIBUTE_TYPE = 43
+public val RAAT_ACCT_OUTPUT_OCTETS: RasAuthAttributeType = 43
 
-public val raatAcctOutputPackets: RAS_AUTH_ATTRIBUTE_TYPE = 48
+public val RAAT_ACCT_OUTPUT_PACKETS: RasAuthAttributeType = 48
 
-public val raatAcctSessionId: RAS_AUTH_ATTRIBUTE_TYPE = 44
+public val RAAT_ACCT_SESSION_ID: RasAuthAttributeType = 44
 
-public val raatAcctSessionTime: RAS_AUTH_ATTRIBUTE_TYPE = 46
+public val RAAT_ACCT_SESSION_TIME: RasAuthAttributeType = 46
 
-public val raatAcctStatusType: RAS_AUTH_ATTRIBUTE_TYPE = 40
+public val RAAT_ACCT_STATUS_TYPE: RasAuthAttributeType = 40
 
-public val raatAcctTerminateCause: RAS_AUTH_ATTRIBUTE_TYPE = 49
+public val RAAT_ACCT_TERMINATE_CAUSE: RasAuthAttributeType = 49
 
-public val raatCallbackId: RAS_AUTH_ATTRIBUTE_TYPE = 20
+public val RAAT_CALLBACK_ID: RasAuthAttributeType = 20
 
-public val raatCallbackNumber: RAS_AUTH_ATTRIBUTE_TYPE = 19
+public val RAAT_CALLBACK_NUMBER: RasAuthAttributeType = 19
 
-public val raatCalledStationId: RAS_AUTH_ATTRIBUTE_TYPE = 30
+public val RAAT_CALLED_STATION_ID: RasAuthAttributeType = 30
 
-public val raatCallingStationId: RAS_AUTH_ATTRIBUTE_TYPE = 31
+public val RAAT_CALLING_STATION_ID: RasAuthAttributeType = 31
 
-public val raatCertificateOID: RAS_AUTH_ATTRIBUTE_TYPE = 8097
+public val RAAT_CERTIFICATE_OID: RasAuthAttributeType = 8097
 
-public val raatCertificateThumbprint: RAS_AUTH_ATTRIBUTE_TYPE = 8250
+public val RAAT_CERTIFICATE_THUMBPRINT: RasAuthAttributeType = 8250
 
-public val raatClass: RAS_AUTH_ATTRIBUTE_TYPE = 25
+public val RAAT_CLASS: RasAuthAttributeType = 25
 
-public val raatConfigurationToken: RAS_AUTH_ATTRIBUTE_TYPE = 78
+public val RAAT_CONFIGURATION_TOKEN: RasAuthAttributeType = 78
 
-public val raatConnectInfo: RAS_AUTH_ATTRIBUTE_TYPE = 77
+public val RAAT_CONNECT_INFO: RasAuthAttributeType = 77
 
-public val raatCredentialsChanged: RAS_AUTH_ATTRIBUTE_TYPE = 8103
+public val RAAT_CREDENTIALS_CHANGED: RasAuthAttributeType = 8103
 
-public val raatEAPConfiguration: RAS_AUTH_ATTRIBUTE_TYPE = 8098
+public val RAAT_EAP_CONFIGURATION: RasAuthAttributeType = 8098
 
-public val raatEAPMessage: RAS_AUTH_ATTRIBUTE_TYPE = 79
+public val RAAT_EAP_MESSAGE: RasAuthAttributeType = 79
 
-public val raatEAPTLV: RAS_AUTH_ATTRIBUTE_TYPE = 8102
+public val RAAT_EAPTLV: RasAuthAttributeType = 8102
 
-public val raatEMSK: RAS_AUTH_ATTRIBUTE_TYPE = 9003
+public val RAAT_EMSK: RasAuthAttributeType = 9003
 
-public val raatFastRoamedSession: RAS_AUTH_ATTRIBUTE_TYPE = 8100
+public val RAAT_FAST_ROAMED_SESSION: RasAuthAttributeType = 8100
 
-public val raatFilterId: RAS_AUTH_ATTRIBUTE_TYPE = 11
+public val RAAT_FILTER_ID: RasAuthAttributeType = 11
 
-public val raatFramedAppleTalkLink: RAS_AUTH_ATTRIBUTE_TYPE = 37
+public val RAAT_FRAMED_APPLE_TALK_LINK: RasAuthAttributeType = 37
 
-public val raatFramedAppleTalkNetwork: RAS_AUTH_ATTRIBUTE_TYPE = 38
+public val RAAT_FRAMED_APPLE_TALK_NETWORK: RasAuthAttributeType = 38
 
-public val raatFramedAppleTalkZone: RAS_AUTH_ATTRIBUTE_TYPE = 39
+public val RAAT_FRAMED_APPLE_TALK_ZONE: RasAuthAttributeType = 39
 
-public val raatFramedCompression: RAS_AUTH_ATTRIBUTE_TYPE = 13
+public val RAAT_FRAMED_COMPRESSION: RasAuthAttributeType = 13
 
-public val raatFramedIPAddress: RAS_AUTH_ATTRIBUTE_TYPE = 8
+public val RAAT_FRAMED_IP_ADDRESS: RasAuthAttributeType = 8
 
-public val raatFramedIPNetmask: RAS_AUTH_ATTRIBUTE_TYPE = 9
+public val RAAT_FRAMED_IP_NETMASK: RasAuthAttributeType = 9
 
-public val raatFramedIPXNetwork: RAS_AUTH_ATTRIBUTE_TYPE = 23
+public val RAAT_FRAMED_IPX_NETWORK: RasAuthAttributeType = 23
 
-public val raatFramedIPv6Pool: RAS_AUTH_ATTRIBUTE_TYPE = 100
+public val RAAT_FRAMED_I_PV6POOL: RasAuthAttributeType = 100
 
-public val raatFramedIPv6Prefix: RAS_AUTH_ATTRIBUTE_TYPE = 97
+public val RAAT_FRAMED_I_PV6PREFIX: RasAuthAttributeType = 97
 
-public val raatFramedIPv6Route: RAS_AUTH_ATTRIBUTE_TYPE = 99
+public val RAAT_FRAMED_I_PV6ROUTE: RasAuthAttributeType = 99
 
-public val raatFramedInterfaceId: RAS_AUTH_ATTRIBUTE_TYPE = 96
+public val RAAT_FRAMED_INTERFACE_ID: RasAuthAttributeType = 96
 
-public val raatFramedMTU: RAS_AUTH_ATTRIBUTE_TYPE = 12
+public val RAAT_FRAMED_MTU: RasAuthAttributeType = 12
 
-public val raatFramedProtocol: RAS_AUTH_ATTRIBUTE_TYPE = 7
+public val RAAT_FRAMED_PROTOCOL: RasAuthAttributeType = 7
 
-public val raatFramedRoute: RAS_AUTH_ATTRIBUTE_TYPE = 22
+public val RAAT_FRAMED_ROUTE: RasAuthAttributeType = 22
 
-public val raatFramedRouting: RAS_AUTH_ATTRIBUTE_TYPE = 10
+public val RAAT_FRAMED_ROUTING: RasAuthAttributeType = 10
 
-public val raatIdleTimeout: RAS_AUTH_ATTRIBUTE_TYPE = 28
+public val RAAT_IDLE_TIMEOUT: RasAuthAttributeType = 28
 
-public val raatInnerEAPTypeId: RAS_AUTH_ATTRIBUTE_TYPE = 8099
+public val RAAT_INNER_EAP_TYPE_ID: RasAuthAttributeType = 8099
 
-public val raatLoginIPHost: RAS_AUTH_ATTRIBUTE_TYPE = 14
+public val RAAT_LOGIN_IP_HOST: RasAuthAttributeType = 14
 
-public val raatLoginIPv6Host: RAS_AUTH_ATTRIBUTE_TYPE = 98
+public val RAAT_LOGIN_I_PV6HOST: RasAuthAttributeType = 98
 
-public val raatLoginLATGroup: RAS_AUTH_ATTRIBUTE_TYPE = 36
+public val RAAT_LOGIN_LAT_GROUP: RasAuthAttributeType = 36
 
-public val raatLoginLATNode: RAS_AUTH_ATTRIBUTE_TYPE = 35
+public val RAAT_LOGIN_LAT_NODE: RasAuthAttributeType = 35
 
-public val raatLoginLATPort: RAS_AUTH_ATTRIBUTE_TYPE = 63
+public val RAAT_LOGIN_LAT_PORT: RasAuthAttributeType = 63
 
-public val raatLoginLATService: RAS_AUTH_ATTRIBUTE_TYPE = 34
+public val RAAT_LOGIN_LAT_SERVICE: RasAuthAttributeType = 34
 
-public val raatLoginService: RAS_AUTH_ATTRIBUTE_TYPE = 15
+public val RAAT_LOGIN_SERVICE: RasAuthAttributeType = 15
 
-public val raatLoginTCPPort: RAS_AUTH_ATTRIBUTE_TYPE = 16
+public val RAAT_LOGIN_TCP_PORT: RasAuthAttributeType = 16
 
-public val raatMD5CHAPChallenge: RAS_AUTH_ATTRIBUTE_TYPE = 60
+public val RAAT_MD5CHAP_CHALLENGE: RasAuthAttributeType = 60
 
-public val raatMD5CHAPPassword: RAS_AUTH_ATTRIBUTE_TYPE = 3
+public val RAAT_MD5CHAP_PASSWORD: RasAuthAttributeType = 3
 
-public val raatMethodId: RAS_AUTH_ATTRIBUTE_TYPE = 9002
+public val RAAT_METHOD_ID: RasAuthAttributeType = 9002
 
-public val raatMinimum: RAS_AUTH_ATTRIBUTE_TYPE = 0
+public val RAAT_MINIMUM: RasAuthAttributeType = 0
 
-public val raatNASIPAddress: RAS_AUTH_ATTRIBUTE_TYPE = 4
+public val RAAT_NASIP_ADDRESS: RasAuthAttributeType = 4
 
-public val raatNASIPv6Address: RAS_AUTH_ATTRIBUTE_TYPE = 95
+public val RAAT_NASI_PV6ADDRESS: RasAuthAttributeType = 95
 
-public val raatNASIdentifier: RAS_AUTH_ATTRIBUTE_TYPE = 32
+public val RAAT_NAS_IDENTIFIER: RasAuthAttributeType = 32
 
-public val raatNASPort: RAS_AUTH_ATTRIBUTE_TYPE = 5
+public val RAAT_NAS_PORT: RasAuthAttributeType = 5
 
-public val raatNASPortType: RAS_AUTH_ATTRIBUTE_TYPE = 61
+public val RAAT_NAS_PORT_TYPE: RasAuthAttributeType = 61
 
-public val raatPEAPEmbeddedEAPTypeId: RAS_AUTH_ATTRIBUTE_TYPE = 8099
+public val RAAT_PEAP_EMBEDDED_EAP_TYPE_ID: RasAuthAttributeType = 8099
 
-public val raatPEAPFastRoamedSession: RAS_AUTH_ATTRIBUTE_TYPE = 8100
+public val RAAT_PEAP_FAST_ROAMED_SESSION: RasAuthAttributeType = 8100
 
-public val raatPasswordRetry: RAS_AUTH_ATTRIBUTE_TYPE = 75
+public val RAAT_PASSWORD_RETRY: RasAuthAttributeType = 75
 
-public val raatPeerId: RAS_AUTH_ATTRIBUTE_TYPE = 9000
+public val RAAT_PEER_ID: RasAuthAttributeType = 9000
 
-public val raatPortLimit: RAS_AUTH_ATTRIBUTE_TYPE = 62
+public val RAAT_PORT_LIMIT: RasAuthAttributeType = 62
 
-public val raatPrompt: RAS_AUTH_ATTRIBUTE_TYPE = 76
+public val RAAT_PROMPT: RasAuthAttributeType = 76
 
-public val raatProxyState: RAS_AUTH_ATTRIBUTE_TYPE = 33
+public val RAAT_PROXY_STATE: RasAuthAttributeType = 33
 
-public val raatReplyMessage: RAS_AUTH_ATTRIBUTE_TYPE = 18
+public val RAAT_REPLY_MESSAGE: RasAuthAttributeType = 18
 
-public val raatReserved: RAS_AUTH_ATTRIBUTE_TYPE = -1
+public val RAAT_RESERVED: RasAuthAttributeType = -1
 
-public val raatServerId: RAS_AUTH_ATTRIBUTE_TYPE = 9001
+public val RAAT_SERVER_ID: RasAuthAttributeType = 9001
 
-public val raatServiceType: RAS_AUTH_ATTRIBUTE_TYPE = 6
+public val RAAT_SERVICE_TYPE: RasAuthAttributeType = 6
 
-public val raatSessionId: RAS_AUTH_ATTRIBUTE_TYPE = 9004
+public val RAAT_SESSION_ID: RasAuthAttributeType = 9004
 
-public val raatSessionTimeout: RAS_AUTH_ATTRIBUTE_TYPE = 27
+public val RAAT_SESSION_TIMEOUT: RasAuthAttributeType = 27
 
-public val raatSignature: RAS_AUTH_ATTRIBUTE_TYPE = 80
+public val RAAT_SIGNATURE: RasAuthAttributeType = 80
 
-public val raatState: RAS_AUTH_ATTRIBUTE_TYPE = 24
+public val RAAT_STATE: RasAuthAttributeType = 24
 
-public val raatTerminationAction: RAS_AUTH_ATTRIBUTE_TYPE = 29
+public val RAAT_TERMINATION_ACTION: RasAuthAttributeType = 29
 
-public val raatTunnelClientEndpoint: RAS_AUTH_ATTRIBUTE_TYPE = 66
+public val RAAT_TUNNEL_CLIENT_ENDPOINT: RasAuthAttributeType = 66
 
-public val raatTunnelMediumType: RAS_AUTH_ATTRIBUTE_TYPE = 65
+public val RAAT_TUNNEL_MEDIUM_TYPE: RasAuthAttributeType = 65
 
-public val raatTunnelServerEndpoint: RAS_AUTH_ATTRIBUTE_TYPE = 67
+public val RAAT_TUNNEL_SERVER_ENDPOINT: RasAuthAttributeType = 67
 
-public val raatTunnelType: RAS_AUTH_ATTRIBUTE_TYPE = 64
+public val RAAT_TUNNEL_TYPE: RasAuthAttributeType = 64
 
-public val raatUnassigned17: RAS_AUTH_ATTRIBUTE_TYPE = 17
+public val RAAT_UNASSIGNED17: RasAuthAttributeType = 17
 
-public val raatUnassigned21: RAS_AUTH_ATTRIBUTE_TYPE = 21
+public val RAAT_UNASSIGNED21: RasAuthAttributeType = 21
 
-public val raatUserName: RAS_AUTH_ATTRIBUTE_TYPE = 1
+public val RAAT_USER_NAME: RasAuthAttributeType = 1
 
-public val raatUserPassword: RAS_AUTH_ATTRIBUTE_TYPE = 2
+public val RAAT_USER_PASSWORD: RasAuthAttributeType = 2
 
-public val raatVendorSpecific: RAS_AUTH_ATTRIBUTE_TYPE = 26
+public val RAAT_VENDOR_SPECIFIC: RasAuthAttributeType = 26

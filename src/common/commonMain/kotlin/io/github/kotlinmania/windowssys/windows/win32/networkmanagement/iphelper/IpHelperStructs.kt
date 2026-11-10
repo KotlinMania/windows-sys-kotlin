@@ -1,570 +1,571 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.ADDRESS_FAMILY
-import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.IN6_ADDR
-import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.NL_BANDWIDTH_INFORMATION
-import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.NL_DAD_STATE
-import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.NL_INTERFACE_OFFLOAD_ROD
-import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.NL_LINK_LOCAL_ADDRESS_BEHAVIOR
-import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.NL_NEIGHBOR_STATE
-import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.NL_PREFIX_ORIGIN
-import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.NL_ROUTER_DISCOVERY_BEHAVIOR
-import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.NL_ROUTE_ORIGIN
-import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.NL_ROUTE_PROTOCOL
-import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.NL_SUFFIX_ORIGIN
-import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.SCOPE_ID
-import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.SOCKADDR
-import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.SOCKADDR_IN
-import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.SOCKADDR_IN6
-import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.SOCKADDR_INET
-import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.SOCKET_ADDRESS
-import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.ndis.IF_OPER_STATUS
-import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.ndis.NDIS_MEDIUM
-import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.ndis.NDIS_PHYSICAL_MEDIUM
-import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.ndis.NET_IF_ACCESS_TYPE
-import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.ndis.NET_IF_ADMIN_STATUS
-import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.ndis.NET_IF_COMPARTMENT_ID
-import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.ndis.NET_IF_CONNECTION_TYPE
-import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.ndis.NET_IF_DIRECTION_TYPE
-import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.ndis.NET_IF_MEDIA_CONNECT_STATE
-import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.ndis.NET_LUID_LH
-import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.ndis.TUNNEL_TYPE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.AddressFamily
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.In6Addr
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.NlBandwidthInformation
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.NlDadState
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.NlInterfaceOffloadRod
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.NlLinkLocalAddressBehavior
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.NlNeighborState
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.NlPrefixOrigin
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.NlRouteOrigin
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.NlRouteProtocol
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.NlRouterDiscoveryBehavior
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.NlSuffixOrigin
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.ScopeId
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.Sockaddr
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.SockaddrIn
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.SockaddrIn6
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.SockaddrInet
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.SocketAddress
+import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.ndis.IfOperStatus
+import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.ndis.NdisMedium
+import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.ndis.NdisPhysicalMedium
+import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.ndis.NetIfAccessType
+import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.ndis.NetIfAdminStatus
+import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.ndis.NetIfCompartmentId
+import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.ndis.NetIfConnectionType
+import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.ndis.NetIfDirectionType
+import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.ndis.NetIfMediaConnectState
+import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.ndis.NetLuidLh
+import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.ndis.TunnelType
 
-public data class ARP_SEND_REPLY(public var DestAddress: UInt = 0u, public var SrcAddress: UInt = 0u)
+public data class ArpSendReply(public var destAddress: UInt = 0u, public var srcAddress: UInt = 0u)
 
-public data class DNS_DOH_SERVER_SETTINGS(public var Template: PWSTR = 0L, public var Flags: ULong = 0uL)
+public data class DnsDohServerSettings(public var template: Pwstr = null, public var flags: ULong = 0uL)
 
-public data class DNS_INTERFACE_SETTINGS(
-    public var Version: UInt = 0u,
-    public var Flags: ULong = 0uL,
-    public var Domain: PWSTR = 0L,
-    public var NameServer: PWSTR = 0L,
-    public var SearchList: PWSTR = 0L,
-    public var RegistrationEnabled: UInt = 0u,
-    public var RegisterAdapterName: UInt = 0u,
-    public var EnableLLMNR: UInt = 0u,
-    public var QueryAdapterName: UInt = 0u,
-    public var ProfileNameServer: PWSTR = 0L,
+public data class DnsInterfaceSettings(
+    public var version: UInt = 0u,
+    public var flags: ULong = 0uL,
+    public var domain: Pwstr = null,
+    public var nameServer: Pwstr = null,
+    public var searchList: Pwstr = null,
+    public var registrationEnabled: UInt = 0u,
+    public var registerAdapterName: UInt = 0u,
+    public var enableLLMNR: UInt = 0u,
+    public var queryAdapterName: UInt = 0u,
+    public var profileNameServer: Pwstr = null,
 )
 
-public data class DNS_INTERFACE_SETTINGS3(
-    public var Version: UInt = 0u,
-    public var Flags: ULong = 0uL,
-    public var Domain: PWSTR = 0L,
-    public var NameServer: PWSTR = 0L,
-    public var SearchList: PWSTR = 0L,
-    public var RegistrationEnabled: UInt = 0u,
-    public var RegisterAdapterName: UInt = 0u,
-    public var EnableLLMNR: UInt = 0u,
-    public var QueryAdapterName: UInt = 0u,
-    public var ProfileNameServer: PWSTR = 0L,
-    public var DisableUnconstrainedQueries: UInt = 0u,
-    public var SupplementalSearchList: PWSTR = 0L,
+public data class DnsInterfaceSettings3(
+    public var version: UInt = 0u,
+    public var flags: ULong = 0uL,
+    public var domain: Pwstr = null,
+    public var nameServer: Pwstr = null,
+    public var searchList: Pwstr = null,
+    public var registrationEnabled: UInt = 0u,
+    public var registerAdapterName: UInt = 0u,
+    public var enableLLMNR: UInt = 0u,
+    public var queryAdapterName: UInt = 0u,
+    public var profileNameServer: Pwstr = null,
+    public var disableUnconstrainedQueries: UInt = 0u,
+    public var supplementalSearchList: Pwstr = null,
     public var cServerProperties: UInt = 0u,
-    public var ServerProperties: Long = 0L,
+    public var serverProperties: DnsServerProperty? = null,
     public var cProfileServerProperties: UInt = 0u,
-    public var ProfileServerProperties: Long = 0L,
+    public var profileServerProperties: DnsServerProperty? = null,
 )
 
-public class DNS_INTERFACE_SETTINGS4(
-    public var Version: UInt = 0u,
-    public var Flags: ULong = 0uL,
-    public var Domain: PWSTR = 0L,
-    public var NameServer: PWSTR = 0L,
-    public var SearchList: PWSTR = 0L,
-    public var RegistrationEnabled: UInt = 0u,
-    public var RegisterAdapterName: UInt = 0u,
-    public var EnableLLMNR: UInt = 0u,
-    public var QueryAdapterName: UInt = 0u,
-    public var ProfileNameServer: PWSTR = 0L,
-    public var DisableUnconstrainedQueries: UInt = 0u,
-    public var SupplementalSearchList: PWSTR = 0L,
+public class DnsInterfaceSettings4(
+    public var version: UInt = 0u,
+    public var flags: ULong = 0uL,
+    public var domain: Pwstr = null,
+    public var nameServer: Pwstr = null,
+    public var searchList: Pwstr = null,
+    public var registrationEnabled: UInt = 0u,
+    public var registerAdapterName: UInt = 0u,
+    public var enableLLMNR: UInt = 0u,
+    public var queryAdapterName: UInt = 0u,
+    public var profileNameServer: Pwstr = null,
+    public var disableUnconstrainedQueries: UInt = 0u,
+    public var supplementalSearchList: Pwstr = null,
     public var cServerProperties: UInt = 0u,
-    public var ServerProperties: Long = 0L,
+    public var serverProperties: DnsServerProperty? = null,
     public var cProfileServerProperties: UInt = 0u,
-    public var ProfileServerProperties: Long = 0L,
-    public var EncryptedDnsAdapterFlags: UInt = 0u,
+    public var profileServerProperties: DnsServerProperty? = null,
+    public var encryptedDnsAdapterFlags: UInt = 0u,
 )
 
-public data class DNS_INTERFACE_SETTINGS_EX(
-    public var SettingsV1: DNS_INTERFACE_SETTINGS = DNS_INTERFACE_SETTINGS(),
-    public var DisableUnconstrainedQueries: UInt = 0u,
-    public var SupplementalSearchList: PWSTR = 0L,
+public data class DnsInterfaceSettingsEx(
+    public var settingsV1: DnsInterfaceSettings = DnsInterfaceSettings(),
+    public var disableUnconstrainedQueries: UInt = 0u,
+    public var supplementalSearchList: Pwstr = null,
 )
 
-public data class DNS_SERVER_PROPERTY(
-    public var Version: UInt = 0u,
-    public var ServerIndex: UInt = 0u,
-    public var Type: DNS_SERVER_PROPERTY_TYPE = 0,
-    public var Property: DNS_SERVER_PROPERTY_TYPES = DNS_SERVER_PROPERTY_TYPES(),
+public data class DnsServerProperty(
+    public var version: UInt = 0u,
+    public var serverIndex: UInt = 0u,
+    public var type: DnsServerPropertyType = 0,
+    public var property: DnsServerPropertyTypes = DnsServerPropertyTypes(),
 )
 
-public data class DNS_SERVER_PROPERTY_TYPES(public var DohSettings: Long = 0L)
+public data class DnsServerPropertyTypes(public var dohSettings: DnsDohServerSettings? = null)
 
-public data class DNS_SETTINGS(
-    public var Version: UInt = 0u,
-    public var Flags: ULong = 0uL,
-    public var Hostname: PWSTR = 0L,
-    public var Domain: PWSTR = 0L,
-    public var SearchList: PWSTR = 0L,
+public data class DnsSettings(
+    public var version: UInt = 0u,
+    public var flags: ULong = 0uL,
+    public var hostname: Pwstr = null,
+    public var domain: Pwstr = null,
+    public var searchList: Pwstr = null,
 )
 
-public data class DNS_SETTINGS2(
-    public var Version: UInt = 0u,
-    public var Flags: ULong = 0uL,
-    public var Hostname: PWSTR = 0L,
-    public var Domain: PWSTR = 0L,
-    public var SearchList: PWSTR = 0L,
-    public var SettingFlags: ULong = 0uL,
+public data class DnsSettings2(
+    public var version: UInt = 0u,
+    public var flags: ULong = 0uL,
+    public var hostname: Pwstr = null,
+    public var domain: Pwstr = null,
+    public var searchList: Pwstr = null,
+    public var settingFlags: ULong = 0uL,
 )
 
-public data class FIXED_INFO_W2KSP1(
-    public var HostName: ByteArray = ByteArray(132),
-    public var DomainName: ByteArray = ByteArray(132),
-    public var CurrentDnsServer: Long = 0L,
-    public var DnsServerList: IP_ADDR_STRING = IP_ADDR_STRING(),
-    public var NodeType: UInt = 0u,
-    public var ScopeId: ByteArray = ByteArray(260),
-    public var EnableRouting: UInt = 0u,
-    public var EnableProxy: UInt = 0u,
-    public var EnableDns: UInt = 0u,
+public data class FixedInfoW2ksp1(
+    public var hostName: ByteArray = ByteArray(132),
+    public var domainName: ByteArray = ByteArray(132),
+    public var currentDnsServer: IpAddrString? = null,
+    public var dnsServerList: IpAddrString = IpAddrString(),
+    public var nodeType: UInt = 0u,
+    public var scopeId: ByteArray = ByteArray(260),
+    public var enableRouting: UInt = 0u,
+    public var enableProxy: UInt = 0u,
+    public var enableDns: UInt = 0u,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is FIXED_INFO_W2KSP1) return false
-        if (!this.HostName.contentEquals(other.HostName)) return false
-        if (!this.DomainName.contentEquals(other.DomainName)) return false
-        if (this.CurrentDnsServer != other.CurrentDnsServer) return false
-        if (this.DnsServerList != other.DnsServerList) return false
-        if (this.NodeType != other.NodeType) return false
-        if (!this.ScopeId.contentEquals(other.ScopeId)) return false
-        if (this.EnableRouting != other.EnableRouting) return false
-        if (this.EnableProxy != other.EnableProxy) return false
-        if (this.EnableDns != other.EnableDns) return false
+        if (other !is FixedInfoW2ksp1) return false
+        if (!this.hostName.contentEquals(other.hostName)) return false
+        if (!this.domainName.contentEquals(other.domainName)) return false
+        if (this.currentDnsServer != other.currentDnsServer) return false
+        if (this.dnsServerList != other.dnsServerList) return false
+        if (this.nodeType != other.nodeType) return false
+        if (!this.scopeId.contentEquals(other.scopeId)) return false
+        if (this.enableRouting != other.enableRouting) return false
+        if (this.enableProxy != other.enableProxy) return false
+        if (this.enableDns != other.enableDns) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.HostName.contentHashCode()
-        result = 31 * result + this.DomainName.contentHashCode()
-        result = 31 * result + this.CurrentDnsServer.hashCode()
-        result = 31 * result + this.DnsServerList.hashCode()
-        result = 31 * result + this.NodeType.hashCode()
-        result = 31 * result + this.ScopeId.contentHashCode()
-        result = 31 * result + this.EnableRouting.hashCode()
-        result = 31 * result + this.EnableProxy.hashCode()
-        result = 31 * result + this.EnableDns.hashCode()
+        var result = this.hostName.contentHashCode()
+        result = 31 * result + this.domainName.contentHashCode()
+        result = 31 * result + this.currentDnsServer.hashCode()
+        result = 31 * result + this.dnsServerList.hashCode()
+        result = 31 * result + this.nodeType.hashCode()
+        result = 31 * result + this.scopeId.contentHashCode()
+        result = 31 * result + this.enableRouting.hashCode()
+        result = 31 * result + this.enableProxy.hashCode()
+        result = 31 * result + this.enableDns.hashCode()
         return result
     }
 }
 
-public data class ICMPV6_ECHO_REPLY_LH(
-    public var Address: IPV6_ADDRESS_EX = IPV6_ADDRESS_EX(),
-    public var Status: UInt = 0u,
-    public var RoundTripTime: UInt = 0u,
+public data class Icmpv6EchoReplyLh(
+    public var address: Ipv6AddressEx = Ipv6AddressEx(),
+    public var status: UInt = 0u,
+    public var roundTripTime: UInt = 0u,
 )
 
-public data class ICMP_ECHO_REPLY(
-    public var Address: UInt = 0u,
-    public var Status: UInt = 0u,
-    public var RoundTripTime: UInt = 0u,
-    public var DataSize: UShort = 0u,
-    public var Reserved: UShort = 0u,
-    public var Data: Long = 0L,
-    public var Options: IP_OPTION_INFORMATION = IP_OPTION_INFORMATION(),
+public data class IcmpEchoReply(
+    public var address: UInt = 0u,
+    public var status: UInt = 0u,
+    public var roundTripTime: UInt = 0u,
+    public var dataSize: UShort = 0u,
+    public var reserved: UShort = 0u,
+    public var data: COpaquePointer? = null,
+    public var options: IpOptionInformation = IpOptionInformation(),
 )
 
-public data class ICMP_ECHO_REPLY32(
-    public var Address: UInt = 0u,
-    public var Status: UInt = 0u,
-    public var RoundTripTime: UInt = 0u,
-    public var DataSize: UShort = 0u,
-    public var Reserved: UShort = 0u,
-    public var Data: Long = 0L,
-    public var Options: IP_OPTION_INFORMATION32 = IP_OPTION_INFORMATION32(),
+public data class IcmpEchoReply32(
+    public var address: UInt = 0u,
+    public var status: UInt = 0u,
+    public var roundTripTime: UInt = 0u,
+    public var dataSize: UShort = 0u,
+    public var reserved: UShort = 0u,
+    public var data: COpaquePointer? = null,
+    public var options: IpOptionInformation32 = IpOptionInformation32(),
 )
 
-public data class INTERFACE_HARDWARE_CROSSTIMESTAMP(
-    public var SystemTimestamp1: ULong = 0uL,
-    public var HardwareClockTimestamp: ULong = 0uL,
-    public var SystemTimestamp2: ULong = 0uL,
+public data class InterfaceHardwareCrosstimestamp(
+    public var systemTimestamp1: ULong = 0uL,
+    public var hardwareClockTimestamp: ULong = 0uL,
+    public var systemTimestamp2: ULong = 0uL,
 )
 
-public data class INTERFACE_HARDWARE_TIMESTAMP_CAPABILITIES(
-    public var PtpV2OverUdpIPv4EventMessageReceive: Boolean = false,
-    public var PtpV2OverUdpIPv4AllMessageReceive: Boolean = false,
-    public var PtpV2OverUdpIPv4EventMessageTransmit: Boolean = false,
-    public var PtpV2OverUdpIPv4AllMessageTransmit: Boolean = false,
-    public var PtpV2OverUdpIPv6EventMessageReceive: Boolean = false,
-    public var PtpV2OverUdpIPv6AllMessageReceive: Boolean = false,
-    public var PtpV2OverUdpIPv6EventMessageTransmit: Boolean = false,
-    public var PtpV2OverUdpIPv6AllMessageTransmit: Boolean = false,
-    public var AllReceive: Boolean = false,
-    public var AllTransmit: Boolean = false,
-    public var TaggedTransmit: Boolean = false,
+public data class InterfaceHardwareTimestampCapabilities(
+    public var ptpV2OverUdpIPv4EventMessageReceive: Boolean = false,
+    public var ptpV2OverUdpIPv4AllMessageReceive: Boolean = false,
+    public var ptpV2OverUdpIPv4EventMessageTransmit: Boolean = false,
+    public var ptpV2OverUdpIPv4AllMessageTransmit: Boolean = false,
+    public var ptpV2OverUdpIPv6EventMessageReceive: Boolean = false,
+    public var ptpV2OverUdpIPv6AllMessageReceive: Boolean = false,
+    public var ptpV2OverUdpIPv6EventMessageTransmit: Boolean = false,
+    public var ptpV2OverUdpIPv6AllMessageTransmit: Boolean = false,
+    public var allReceive: Boolean = false,
+    public var allTransmit: Boolean = false,
+    public var taggedTransmit: Boolean = false,
 )
 
-public data class INTERFACE_SOFTWARE_TIMESTAMP_CAPABILITIES(
-    public var AllReceive: Boolean = false,
-    public var AllTransmit: Boolean = false,
-    public var TaggedTransmit: Boolean = false,
+public data class InterfaceSoftwareTimestampCapabilities(
+    public var allReceive: Boolean = false,
+    public var allTransmit: Boolean = false,
+    public var taggedTransmit: Boolean = false,
 )
 
-public data class INTERFACE_TIMESTAMP_CAPABILITIES(
-    public var HardwareClockFrequencyHz: ULong = 0uL,
-    public var SupportsCrossTimestamp: Boolean = false,
-    public var HardwareCapabilities: INTERFACE_HARDWARE_TIMESTAMP_CAPABILITIES = INTERFACE_HARDWARE_TIMESTAMP_CAPABILITIES(),
-    public var SoftwareCapabilities: INTERFACE_SOFTWARE_TIMESTAMP_CAPABILITIES = INTERFACE_SOFTWARE_TIMESTAMP_CAPABILITIES(),
+public data class InterfaceTimestampCapabilities(
+    public var hardwareClockFrequencyHz: ULong = 0uL,
+    public var supportsCrossTimestamp: Boolean = false,
+    public var hardwareCapabilities: InterfaceHardwareTimestampCapabilities = InterfaceHardwareTimestampCapabilities(),
+    public var softwareCapabilities: InterfaceSoftwareTimestampCapabilities = InterfaceSoftwareTimestampCapabilities(),
 )
 
-public data class IPV6_ADDRESS_EX(
-    public var sin6_port: UShort = 0u,
-    public var sin6_flowinfo: UInt = 0u,
-    public var sin6_addr: UShortArray = UShortArray(8),
-    public var sin6_scope_id: UInt = 0u,
+public data class Ipv6AddressEx(
+    public var sin6Port: UShort = 0u,
+    public var sin6Flowinfo: UInt = 0u,
+    public var sin6Addr: UShortArray = UShortArray(8),
+    public var sin6ScopeId: UInt = 0u,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is IPV6_ADDRESS_EX) return false
-        if (this.sin6_port != other.sin6_port) return false
-        if (this.sin6_flowinfo != other.sin6_flowinfo) return false
-        if (!this.sin6_addr.contentEquals(other.sin6_addr)) return false
-        if (this.sin6_scope_id != other.sin6_scope_id) return false
+        if (other !is Ipv6AddressEx) return false
+        if (this.sin6Port != other.sin6Port) return false
+        if (this.sin6Flowinfo != other.sin6Flowinfo) return false
+        if (!this.sin6Addr.contentEquals(other.sin6Addr)) return false
+        if (this.sin6ScopeId != other.sin6ScopeId) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.sin6_port.hashCode()
-        result = 31 * result + this.sin6_flowinfo.hashCode()
-        result = 31 * result + this.sin6_addr.contentHashCode()
-        result = 31 * result + this.sin6_scope_id.hashCode()
+        var result = this.sin6Port.hashCode()
+        result = 31 * result + this.sin6Flowinfo.hashCode()
+        result = 31 * result + this.sin6Addr.contentHashCode()
+        result = 31 * result + this.sin6ScopeId.hashCode()
         return result
     }
 }
 
-public class IP_ADAPTER_ADDRESSES_LH(
-    public var Anonymous1: IP_ADAPTER_ADDRESSES_LH_0 = IP_ADAPTER_ADDRESSES_LH_0(),
-    public var Next: Long = 0L,
-    public var AdapterName: PSTR = 0L,
-    public var FirstUnicastAddress: Long = 0L,
-    public var FirstAnycastAddress: Long = 0L,
-    public var FirstMulticastAddress: Long = 0L,
-    public var FirstDnsServerAddress: Long = 0L,
-    public var DnsSuffix: PWSTR = 0L,
-    public var Description: PWSTR = 0L,
-    public var FriendlyName: PWSTR = 0L,
-    public var PhysicalAddress: UByteArray = UByteArray(8),
-    public var PhysicalAddressLength: UInt = 0u,
-    public var Anonymous2: IP_ADAPTER_ADDRESSES_LH_1 = IP_ADAPTER_ADDRESSES_LH_1(),
-    public var Mtu: UInt = 0u,
-    public var IfType: UInt = 0u,
-    public var OperStatus: IF_OPER_STATUS = 0,
-    public var Ipv6IfIndex: UInt = 0u,
-    public var ZoneIndices: UIntArray = UIntArray(16),
-    public var FirstPrefix: Long = 0L,
-    public var TransmitLinkSpeed: ULong = 0uL,
-    public var ReceiveLinkSpeed: ULong = 0uL,
-    public var FirstWinsServerAddress: Long = 0L,
-    public var FirstGatewayAddress: Long = 0L,
-    public var Ipv4Metric: UInt = 0u,
-    public var Ipv6Metric: UInt = 0u,
-    public var Luid: NET_LUID_LH = NET_LUID_LH(),
-    public var Dhcpv4Server: SOCKET_ADDRESS = SOCKET_ADDRESS(),
-    public var CompartmentId: NET_IF_COMPARTMENT_ID = 0u,
-    public var NetworkGuid: GUID = GUID(),
-    public var ConnectionType: NET_IF_CONNECTION_TYPE = 0,
-    public var TunnelType: TUNNEL_TYPE = 0,
-    public var Dhcpv6Server: SOCKET_ADDRESS = SOCKET_ADDRESS(),
-    public var Dhcpv6ClientDuid: UByteArray = UByteArray(130),
-    public var Dhcpv6ClientDuidLength: UInt = 0u,
-    public var Dhcpv6Iaid: UInt = 0u,
-    public var FirstDnsSuffix: Long = 0L,
+public class IpAdapterAddressesLh(
+    public var anonymous1: IpAdapterAddressesLh0 = IpAdapterAddressesLh0(),
+    public var next: IpAdapterAddressesLh? = null,
+    public var adapterName: Pstr = null,
+    public var firstUnicastAddress: IpAdapterUnicastAddressLh? = null,
+    public var firstAnycastAddress: IpAdapterAnycastAddressXp? = null,
+    public var firstMulticastAddress: IpAdapterMulticastAddressXp? = null,
+    public var firstDnsServerAddress: IpAdapterDnsServerAddressXp? = null,
+    public var dnsSuffix: Pwstr = null,
+    public var description: Pwstr = null,
+    public var friendlyName: Pwstr = null,
+    public var physicalAddress: UByteArray = UByteArray(8),
+    public var physicalAddressLength: UInt = 0u,
+    public var anonymous2: IpAdapterAddressesLh1 = IpAdapterAddressesLh1(),
+    public var mtu: UInt = 0u,
+    public var ifType: UInt = 0u,
+    public var operStatus: IfOperStatus = 0,
+    public var ipv6IfIndex: UInt = 0u,
+    public var zoneIndices: UIntArray = UIntArray(16),
+    public var firstPrefix: IpAdapterPrefixXp? = null,
+    public var transmitLinkSpeed: ULong = 0uL,
+    public var receiveLinkSpeed: ULong = 0uL,
+    public var firstWinsServerAddress: IpAdapterWinsServerAddressLh? = null,
+    public var firstGatewayAddress: IpAdapterGatewayAddressLh? = null,
+    public var ipv4Metric: UInt = 0u,
+    public var ipv6Metric: UInt = 0u,
+    public var luid: NetLuidLh = NetLuidLh(),
+    public var dhcpv4Server: SocketAddress = SocketAddress(),
+    public var compartmentId: NetIfCompartmentId = 0u,
+    public var networkGuid: Guid = Guid(),
+    public var connectionType: NetIfConnectionType = 0,
+    public var tunnelType: TunnelType = 0,
+    public var dhcpv6Server: SocketAddress = SocketAddress(),
+    public var dhcpv6ClientDuid: UByteArray = UByteArray(130),
+    public var dhcpv6ClientDuidLength: UInt = 0u,
+    public var dhcpv6Iaid: UInt = 0u,
+    public var firstDnsSuffix: IpAdapterDnsSuffix? = null,
 )
 
-public data class IP_ADAPTER_ADDRESSES_LH_0(public var Alignment: ULong = 0uL, public var Anonymous: IP_ADAPTER_ADDRESSES_LH_0_0 = IP_ADAPTER_ADDRESSES_LH_0_0())
+public data class IpAdapterAddressesLh0(public var alignment: ULong = 0uL, public var anonymous: IpAdapterAddressesLh00 = IpAdapterAddressesLh00())
 
-public data class IP_ADAPTER_ADDRESSES_LH_0_0(public var Length: UInt = 0u, public var IfIndex: UInt = 0u)
+public data class IpAdapterAddressesLh00(public var length: UInt = 0u, public var ifIndex: UInt = 0u)
 
-public data class IP_ADAPTER_ADDRESSES_LH_1(public var Flags: UInt = 0u, public var Anonymous: IP_ADAPTER_ADDRESSES_LH_1_0 = IP_ADAPTER_ADDRESSES_LH_1_0())
+public data class IpAdapterAddressesLh1(public var flags: UInt = 0u, public var anonymous: IpAdapterAddressesLh10 = IpAdapterAddressesLh10())
 
-public data class IP_ADAPTER_ADDRESSES_LH_1_0(public var _bitfield: UInt = 0u)
+public data class IpAdapterAddressesLh10(public var bitfield: UInt = 0u)
 
-public class IP_ADAPTER_ADDRESSES_XP(
-    public var Anonymous: IP_ADAPTER_ADDRESSES_XP_0 = IP_ADAPTER_ADDRESSES_XP_0(),
-    public var Next: Long = 0L,
-    public var AdapterName: PSTR = 0L,
-    public var FirstUnicastAddress: Long = 0L,
-    public var FirstAnycastAddress: Long = 0L,
-    public var FirstMulticastAddress: Long = 0L,
-    public var FirstDnsServerAddress: Long = 0L,
-    public var DnsSuffix: PWSTR = 0L,
-    public var Description: PWSTR = 0L,
-    public var FriendlyName: PWSTR = 0L,
-    public var PhysicalAddress: UByteArray = UByteArray(8),
-    public var PhysicalAddressLength: UInt = 0u,
-    public var Flags: UInt = 0u,
-    public var Mtu: UInt = 0u,
-    public var IfType: UInt = 0u,
-    public var OperStatus: IF_OPER_STATUS = 0,
-    public var Ipv6IfIndex: UInt = 0u,
-    public var ZoneIndices: UIntArray = UIntArray(16),
-    public var FirstPrefix: Long = 0L,
+public class IpAdapterAddressesXp(
+    public var anonymous: IpAdapterAddressesXp0 = IpAdapterAddressesXp0(),
+    public var next: IpAdapterAddressesXp? = null,
+    public var adapterName: Pstr = null,
+    public var firstUnicastAddress: IpAdapterUnicastAddressXp? = null,
+    public var firstAnycastAddress: IpAdapterAnycastAddressXp? = null,
+    public var firstMulticastAddress: IpAdapterMulticastAddressXp? = null,
+    public var firstDnsServerAddress: IpAdapterDnsServerAddressXp? = null,
+    public var dnsSuffix: Pwstr = null,
+    public var description: Pwstr = null,
+    public var friendlyName: Pwstr = null,
+    public var physicalAddress: UByteArray = UByteArray(8),
+    public var physicalAddressLength: UInt = 0u,
+    public var flags: UInt = 0u,
+    public var mtu: UInt = 0u,
+    public var ifType: UInt = 0u,
+    public var operStatus: IfOperStatus = 0,
+    public var ipv6IfIndex: UInt = 0u,
+    public var zoneIndices: UIntArray = UIntArray(16),
+    public var firstPrefix: IpAdapterPrefixXp? = null,
 )
 
-public data class IP_ADAPTER_ADDRESSES_XP_0(public var Alignment: ULong = 0uL, public var Anonymous: IP_ADAPTER_ADDRESSES_XP_0_0 = IP_ADAPTER_ADDRESSES_XP_0_0())
+public data class IpAdapterAddressesXp0(public var alignment: ULong = 0uL, public var anonymous: IpAdapterAddressesXp00 = IpAdapterAddressesXp00())
 
-public data class IP_ADAPTER_ADDRESSES_XP_0_0(public var Length: UInt = 0u, public var IfIndex: UInt = 0u)
+public data class IpAdapterAddressesXp00(public var length: UInt = 0u, public var ifIndex: UInt = 0u)
 
-public data class IP_ADAPTER_ANYCAST_ADDRESS_XP(
-    public var Anonymous: IP_ADAPTER_ANYCAST_ADDRESS_XP_0 = IP_ADAPTER_ANYCAST_ADDRESS_XP_0(),
-    public var Next: Long = 0L,
-    public var Address: SOCKET_ADDRESS = SOCKET_ADDRESS(),
+public data class IpAdapterAnycastAddressXp(
+    public var anonymous: IpAdapterAnycastAddressXp0 = IpAdapterAnycastAddressXp0(),
+    public var next: IpAdapterAnycastAddressXp? = null,
+    public var address: SocketAddress = SocketAddress(),
 )
 
-public data class IP_ADAPTER_ANYCAST_ADDRESS_XP_0(public var Alignment: ULong = 0uL, public var Anonymous: IP_ADAPTER_ANYCAST_ADDRESS_XP_0_0 = IP_ADAPTER_ANYCAST_ADDRESS_XP_0_0())
+public data class IpAdapterAnycastAddressXp0(public var alignment: ULong = 0uL, public var anonymous: IpAdapterAnycastAddressXp00 = IpAdapterAnycastAddressXp00())
 
-public data class IP_ADAPTER_ANYCAST_ADDRESS_XP_0_0(public var Length: UInt = 0u, public var Flags: UInt = 0u)
+public data class IpAdapterAnycastAddressXp00(public var length: UInt = 0u, public var flags: UInt = 0u)
 
-public data class IP_ADAPTER_DNS_SERVER_ADDRESS_XP(
-    public var Anonymous: IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0 = IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0(),
-    public var Next: Long = 0L,
-    public var Address: SOCKET_ADDRESS = SOCKET_ADDRESS(),
+public data class IpAdapterDnsServerAddressXp(
+    public var anonymous: IpAdapterDnsServerAddressXp0 = IpAdapterDnsServerAddressXp0(),
+    public var next: IpAdapterDnsServerAddressXp? = null,
+    public var address: SocketAddress = SocketAddress(),
 )
 
-public data class IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0(public var Alignment: ULong = 0uL, public var Anonymous: IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0_0 = IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0_0())
+public data class IpAdapterDnsServerAddressXp0(public var alignment: ULong = 0uL, public var anonymous: IpAdapterDnsServerAddressXp00 = IpAdapterDnsServerAddressXp00())
 
-public data class IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0_0(public var Length: UInt = 0u, public var Reserved: UInt = 0u)
+public data class IpAdapterDnsServerAddressXp00(public var length: UInt = 0u, public var reserved: UInt = 0u)
 
-public data class IP_ADAPTER_DNS_SUFFIX(public var Next: Long = 0L, public var String: UShortArray = UShortArray(256)) {
+public data class IpAdapterDnsSuffix(public var next: IpAdapterDnsSuffix? = null, public var string: UShortArray = UShortArray(256)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is IP_ADAPTER_DNS_SUFFIX) return false
-        if (this.Next != other.Next) return false
-        if (!this.String.contentEquals(other.String)) return false
+        if (other !is IpAdapterDnsSuffix) return false
+        if (this.next != other.next) return false
+        if (!this.string.contentEquals(other.string)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Next.hashCode()
-        result = 31 * result + this.String.contentHashCode()
+        var result = this.next.hashCode()
+        result = 31 * result + this.string.contentHashCode()
         return result
     }
 }
 
-public data class IP_ADAPTER_GATEWAY_ADDRESS_LH(
-    public var Anonymous: IP_ADAPTER_GATEWAY_ADDRESS_LH_0 = IP_ADAPTER_GATEWAY_ADDRESS_LH_0(),
-    public var Next: Long = 0L,
-    public var Address: SOCKET_ADDRESS = SOCKET_ADDRESS(),
+public data class IpAdapterGatewayAddressLh(
+    public var anonymous: IpAdapterGatewayAddressLh0 = IpAdapterGatewayAddressLh0(),
+    public var next: IpAdapterGatewayAddressLh? = null,
+    public var address: SocketAddress = SocketAddress(),
 )
 
-public data class IP_ADAPTER_GATEWAY_ADDRESS_LH_0(public var Alignment: ULong = 0uL, public var Anonymous: IP_ADAPTER_GATEWAY_ADDRESS_LH_0_0 = IP_ADAPTER_GATEWAY_ADDRESS_LH_0_0())
+public data class IpAdapterGatewayAddressLh0(public var alignment: ULong = 0uL, public var anonymous: IpAdapterGatewayAddressLh00 = IpAdapterGatewayAddressLh00())
 
-public data class IP_ADAPTER_GATEWAY_ADDRESS_LH_0_0(public var Length: UInt = 0u, public var Reserved: UInt = 0u)
+public data class IpAdapterGatewayAddressLh00(public var length: UInt = 0u, public var reserved: UInt = 0u)
 
-public data class IP_ADAPTER_INDEX_MAP(public var Index: UInt = 0u, public var Name: UShortArray = UShortArray(128)) {
+public data class IpAdapterIndexMap(public var index: UInt = 0u, public var name: UShortArray = UShortArray(128)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is IP_ADAPTER_INDEX_MAP) return false
-        if (this.Index != other.Index) return false
-        if (!this.Name.contentEquals(other.Name)) return false
+        if (other !is IpAdapterIndexMap) return false
+        if (this.index != other.index) return false
+        if (!this.name.contentEquals(other.name)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Index.hashCode()
-        result = 31 * result + this.Name.contentHashCode()
+        var result = this.index.hashCode()
+        result = 31 * result + this.name.contentHashCode()
         return result
     }
 }
 
-public class IP_ADAPTER_INFO(
-    public var Next: Long = 0L,
-    public var ComboIndex: UInt = 0u,
-    public var AdapterName: ByteArray = ByteArray(260),
-    public var Description: ByteArray = ByteArray(132),
-    public var AddressLength: UInt = 0u,
-    public var Address: UByteArray = UByteArray(8),
-    public var Index: UInt = 0u,
-    public var Type: UInt = 0u,
-    public var DhcpEnabled: UInt = 0u,
-    public var CurrentIpAddress: Long = 0L,
-    public var IpAddressList: IP_ADDR_STRING = IP_ADDR_STRING(),
-    public var GatewayList: IP_ADDR_STRING = IP_ADDR_STRING(),
-    public var DhcpServer: IP_ADDR_STRING = IP_ADDR_STRING(),
-    public var HaveWins: BOOL = 0,
-    public var PrimaryWinsServer: IP_ADDR_STRING = IP_ADDR_STRING(),
-    public var SecondaryWinsServer: IP_ADDR_STRING = IP_ADDR_STRING(),
-    public var LeaseObtained: Long = 0L,
-    public var LeaseExpires: Long = 0L,
+public class IpAdapterInfo(
+    public var next: IpAdapterInfo? = null,
+    public var comboIndex: UInt = 0u,
+    public var adapterName: ByteArray = ByteArray(260),
+    public var description: ByteArray = ByteArray(132),
+    public var addressLength: UInt = 0u,
+    public var address: UByteArray = UByteArray(8),
+    public var index: UInt = 0u,
+    public var type: UInt = 0u,
+    public var dhcpEnabled: UInt = 0u,
+    public var currentIpAddress: IpAddrString? = null,
+    public var ipAddressList: IpAddrString = IpAddrString(),
+    public var gatewayList: IpAddrString = IpAddrString(),
+    public var dhcpServer: IpAddrString = IpAddrString(),
+    public var haveWins: Bool = 0,
+    public var primaryWinsServer: IpAddrString = IpAddrString(),
+    public var secondaryWinsServer: IpAddrString = IpAddrString(),
+    public var leaseObtained: Long = 0L,
+    public var leaseExpires: Long = 0L,
 )
 
-public data class IP_ADAPTER_MULTICAST_ADDRESS_XP(
-    public var Anonymous: IP_ADAPTER_MULTICAST_ADDRESS_XP_0 = IP_ADAPTER_MULTICAST_ADDRESS_XP_0(),
-    public var Next: Long = 0L,
-    public var Address: SOCKET_ADDRESS = SOCKET_ADDRESS(),
+public data class IpAdapterMulticastAddressXp(
+    public var anonymous: IpAdapterMulticastAddressXp0 = IpAdapterMulticastAddressXp0(),
+    public var next: IpAdapterMulticastAddressXp? = null,
+    public var address: SocketAddress = SocketAddress(),
 )
 
-public data class IP_ADAPTER_MULTICAST_ADDRESS_XP_0(public var Alignment: ULong = 0uL, public var Anonymous: IP_ADAPTER_MULTICAST_ADDRESS_XP_0_0 = IP_ADAPTER_MULTICAST_ADDRESS_XP_0_0())
+public data class IpAdapterMulticastAddressXp0(public var alignment: ULong = 0uL, public var anonymous: IpAdapterMulticastAddressXp00 = IpAdapterMulticastAddressXp00())
 
-public data class IP_ADAPTER_MULTICAST_ADDRESS_XP_0_0(public var Length: UInt = 0u, public var Flags: UInt = 0u)
+public data class IpAdapterMulticastAddressXp00(public var length: UInt = 0u, public var flags: UInt = 0u)
 
-public data class IP_ADAPTER_ORDER_MAP(public var NumAdapters: UInt = 0u, public var AdapterOrder: UIntArray = UIntArray(1)) {
+public data class IpAdapterOrderMap(public var numAdapters: UInt = 0u, public var adapterOrder: UIntArray = UIntArray(1)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is IP_ADAPTER_ORDER_MAP) return false
-        if (this.NumAdapters != other.NumAdapters) return false
-        if (!this.AdapterOrder.contentEquals(other.AdapterOrder)) return false
+        if (other !is IpAdapterOrderMap) return false
+        if (this.numAdapters != other.numAdapters) return false
+        if (!this.adapterOrder.contentEquals(other.adapterOrder)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.NumAdapters.hashCode()
-        result = 31 * result + this.AdapterOrder.contentHashCode()
+        var result = this.numAdapters.hashCode()
+        result = 31 * result + this.adapterOrder.contentHashCode()
         return result
     }
 }
 
-public data class IP_ADAPTER_PREFIX_XP(
-    public var Anonymous: IP_ADAPTER_PREFIX_XP_0 = IP_ADAPTER_PREFIX_XP_0(),
-    public var Next: Long = 0L,
-    public var Address: SOCKET_ADDRESS = SOCKET_ADDRESS(),
-    public var PrefixLength: UInt = 0u,
+public data class IpAdapterPrefixXp(
+    public var anonymous: IpAdapterPrefixXp0 = IpAdapterPrefixXp0(),
+    public var next: IpAdapterPrefixXp? = null,
+    public var address: SocketAddress = SocketAddress(),
+    public var prefixLength: UInt = 0u,
 )
 
-public data class IP_ADAPTER_PREFIX_XP_0(public var Alignment: ULong = 0uL, public var Anonymous: IP_ADAPTER_PREFIX_XP_0_0 = IP_ADAPTER_PREFIX_XP_0_0())
+public data class IpAdapterPrefixXp0(public var alignment: ULong = 0uL, public var anonymous: IpAdapterPrefixXp00 = IpAdapterPrefixXp00())
 
-public data class IP_ADAPTER_PREFIX_XP_0_0(public var Length: UInt = 0u, public var Flags: UInt = 0u)
+public data class IpAdapterPrefixXp00(public var length: UInt = 0u, public var flags: UInt = 0u)
 
-public data class IP_ADAPTER_UNICAST_ADDRESS_LH(
-    public var Anonymous: IP_ADAPTER_UNICAST_ADDRESS_LH_0 = IP_ADAPTER_UNICAST_ADDRESS_LH_0(),
-    public var Next: Long = 0L,
-    public var Address: SOCKET_ADDRESS = SOCKET_ADDRESS(),
-    public var PrefixOrigin: NL_PREFIX_ORIGIN = 0,
-    public var SuffixOrigin: NL_SUFFIX_ORIGIN = 0,
-    public var DadState: NL_DAD_STATE = 0,
-    public var ValidLifetime: UInt = 0u,
-    public var PreferredLifetime: UInt = 0u,
-    public var LeaseLifetime: UInt = 0u,
-    public var OnLinkPrefixLength: UByte = 0u,
+public data class IpAdapterUnicastAddressLh(
+    public var anonymous: IpAdapterUnicastAddressLh0 = IpAdapterUnicastAddressLh0(),
+    public var next: IpAdapterUnicastAddressLh? = null,
+    public var address: SocketAddress = SocketAddress(),
+    public var prefixOrigin: NlPrefixOrigin = 0,
+    public var suffixOrigin: NlSuffixOrigin = 0,
+    public var dadState: NlDadState = 0,
+    public var validLifetime: UInt = 0u,
+    public var preferredLifetime: UInt = 0u,
+    public var leaseLifetime: UInt = 0u,
+    public var onLinkPrefixLength: UByte = 0u,
 )
 
-public data class IP_ADAPTER_UNICAST_ADDRESS_LH_0(public var Alignment: ULong = 0uL, public var Anonymous: IP_ADAPTER_UNICAST_ADDRESS_LH_0_0 = IP_ADAPTER_UNICAST_ADDRESS_LH_0_0())
+public data class IpAdapterUnicastAddressLh0(public var alignment: ULong = 0uL, public var anonymous: IpAdapterUnicastAddressLh00 = IpAdapterUnicastAddressLh00())
 
-public data class IP_ADAPTER_UNICAST_ADDRESS_LH_0_0(public var Length: UInt = 0u, public var Flags: UInt = 0u)
+public data class IpAdapterUnicastAddressLh00(public var length: UInt = 0u, public var flags: UInt = 0u)
 
-public data class IP_ADAPTER_UNICAST_ADDRESS_XP(
-    public var Anonymous: IP_ADAPTER_UNICAST_ADDRESS_XP_0 = IP_ADAPTER_UNICAST_ADDRESS_XP_0(),
-    public var Next: Long = 0L,
-    public var Address: SOCKET_ADDRESS = SOCKET_ADDRESS(),
-    public var PrefixOrigin: NL_PREFIX_ORIGIN = 0,
-    public var SuffixOrigin: NL_SUFFIX_ORIGIN = 0,
-    public var DadState: NL_DAD_STATE = 0,
-    public var ValidLifetime: UInt = 0u,
-    public var PreferredLifetime: UInt = 0u,
-    public var LeaseLifetime: UInt = 0u,
+public data class IpAdapterUnicastAddressXp(
+    public var anonymous: IpAdapterUnicastAddressXp0 = IpAdapterUnicastAddressXp0(),
+    public var next: IpAdapterUnicastAddressXp? = null,
+    public var address: SocketAddress = SocketAddress(),
+    public var prefixOrigin: NlPrefixOrigin = 0,
+    public var suffixOrigin: NlSuffixOrigin = 0,
+    public var dadState: NlDadState = 0,
+    public var validLifetime: UInt = 0u,
+    public var preferredLifetime: UInt = 0u,
+    public var leaseLifetime: UInt = 0u,
 )
 
-public data class IP_ADAPTER_UNICAST_ADDRESS_XP_0(public var Alignment: ULong = 0uL, public var Anonymous: IP_ADAPTER_UNICAST_ADDRESS_XP_0_0 = IP_ADAPTER_UNICAST_ADDRESS_XP_0_0())
+public data class IpAdapterUnicastAddressXp0(public var alignment: ULong = 0uL, public var anonymous: IpAdapterUnicastAddressXp00 = IpAdapterUnicastAddressXp00())
 
-public data class IP_ADAPTER_UNICAST_ADDRESS_XP_0_0(public var Length: UInt = 0u, public var Flags: UInt = 0u)
+public data class IpAdapterUnicastAddressXp00(public var length: UInt = 0u, public var flags: UInt = 0u)
 
-public data class IP_ADAPTER_WINS_SERVER_ADDRESS_LH(
-    public var Anonymous: IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0 = IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0(),
-    public var Next: Long = 0L,
-    public var Address: SOCKET_ADDRESS = SOCKET_ADDRESS(),
+public data class IpAdapterWinsServerAddressLh(
+    public var anonymous: IpAdapterWinsServerAddressLh0 = IpAdapterWinsServerAddressLh0(),
+    public var next: IpAdapterWinsServerAddressLh? = null,
+    public var address: SocketAddress = SocketAddress(),
 )
 
-public data class IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0(public var Alignment: ULong = 0uL, public var Anonymous: IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0_0 = IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0_0())
+public data class IpAdapterWinsServerAddressLh0(public var alignment: ULong = 0uL, public var anonymous: IpAdapterWinsServerAddressLh00 = IpAdapterWinsServerAddressLh00())
 
-public data class IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0_0(public var Length: UInt = 0u, public var Reserved: UInt = 0u)
+public data class IpAdapterWinsServerAddressLh00(public var length: UInt = 0u, public var reserved: UInt = 0u)
 
-public data class IP_ADDRESS_PREFIX(public var Prefix: SOCKADDR_INET = SOCKADDR_INET(), public var PrefixLength: UByte = 0u)
+public data class IpAddressPrefix(public var prefix: SockaddrInet = SockaddrInet(), public var prefixLength: UByte = 0u)
 
-public data class IP_ADDRESS_STRING(public var String: ByteArray = ByteArray(16)) {
+public data class IpAddressString(public var string: ByteArray = ByteArray(16)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is IP_ADDRESS_STRING) return false
-        if (!this.String.contentEquals(other.String)) return false
+        if (other !is IpAddressString) return false
+        if (!this.string.contentEquals(other.string)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        return this.String.contentHashCode()
+        return this.string.contentHashCode()
     }
 }
 
-public data class IP_ADDR_STRING(
-    public var Next: Long = 0L,
-    public var IpAddress: IP_ADDRESS_STRING = IP_ADDRESS_STRING(),
-    public var IpMask: IP_ADDRESS_STRING = IP_ADDRESS_STRING(),
-    public var Context: UInt = 0u,
+public data class IpAddrString(
+    public var next: IpAddrString? = null,
+    public var ipAddress: IpAddressString = IpAddressString(),
+    public var ipMask: IpAddressString = IpAddressString(),
+    public var context: UInt = 0u,
 )
 
-public data class IP_INTERFACE_INFO(public var NumAdapters: Int = 0, public var Adapter: List<IP_ADAPTER_INDEX_MAP> = List(1) { IP_ADAPTER_INDEX_MAP() })
+public data class IpInterfaceInfo(public var numAdapters: Int = 0, public var adapter: List<IpAdapterIndexMap> = List(1) { IpAdapterIndexMap() })
 
-public data class IP_INTERFACE_NAME_INFO_W2KSP1(
-    public var Index: UInt = 0u,
-    public var MediaType: UInt = 0u,
-    public var ConnectionType: UByte = 0u,
-    public var AccessType: UByte = 0u,
-    public var DeviceGuid: GUID = GUID(),
-    public var InterfaceGuid: GUID = GUID(),
+public data class IpInterfaceNameInfoW2ksp1(
+    public var index: UInt = 0u,
+    public var mediaType: UInt = 0u,
+    public var connectionType: UByte = 0u,
+    public var accessType: UByte = 0u,
+    public var deviceGuid: Guid = Guid(),
+    public var interfaceGuid: Guid = Guid(),
 )
 
-public data class IP_MCAST_COUNTER_INFO(
-    public var InMcastOctets: ULong = 0uL,
-    public var OutMcastOctets: ULong = 0uL,
-    public var InMcastPkts: ULong = 0uL,
-    public var OutMcastPkts: ULong = 0uL,
+public data class IpMcastCounterInfo(
+    public var inMcastOctets: ULong = 0uL,
+    public var outMcastOctets: ULong = 0uL,
+    public var inMcastPkts: ULong = 0uL,
+    public var outMcastPkts: ULong = 0uL,
 )
 
-public data class IP_OPTION_INFORMATION(
-    public var Ttl: UByte = 0u,
-    public var Tos: UByte = 0u,
-    public var Flags: UByte = 0u,
-    public var OptionsSize: UByte = 0u,
-    public var OptionsData: Long = 0L,
+public data class IpOptionInformation(
+    public var ttl: UByte = 0u,
+    public var tos: UByte = 0u,
+    public var flags: UByte = 0u,
+    public var optionsSize: UByte = 0u,
+    public var optionsData: COpaquePointer? = null,
 )
 
-public data class IP_OPTION_INFORMATION32(
-    public var Ttl: UByte = 0u,
-    public var Tos: UByte = 0u,
-    public var Flags: UByte = 0u,
-    public var OptionsSize: UByte = 0u,
-    public var OptionsData: Long = 0L,
+public data class IpOptionInformation32(
+    public var ttl: UByte = 0u,
+    public var tos: UByte = 0u,
+    public var flags: UByte = 0u,
+    public var optionsSize: UByte = 0u,
+    public var optionsData: COpaquePointer? = null,
 )
 
-public data class IP_PER_ADAPTER_INFO_W2KSP1(
-    public var AutoconfigEnabled: UInt = 0u,
-    public var AutoconfigActive: UInt = 0u,
-    public var CurrentDnsServer: Long = 0L,
-    public var DnsServerList: IP_ADDR_STRING = IP_ADDR_STRING(),
+public data class IpPerAdapterInfoW2ksp1(
+    public var autoconfigEnabled: UInt = 0u,
+    public var autoconfigActive: UInt = 0u,
+    public var currentDnsServer: IpAddrString? = null,
+    public var dnsServerList: IpAddrString = IpAddrString(),
 )
 
-public data class IP_UNIDIRECTIONAL_ADAPTER_ADDRESS(public var NumAdapters: UInt = 0u, public var Address: UIntArray = UIntArray(1)) {
+public data class IpUnidirectionalAdapterAddress(public var numAdapters: UInt = 0u, public var address: UIntArray = UIntArray(1)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is IP_UNIDIRECTIONAL_ADAPTER_ADDRESS) return false
-        if (this.NumAdapters != other.NumAdapters) return false
-        if (!this.Address.contentEquals(other.Address)) return false
+        if (other !is IpUnidirectionalAdapterAddress) return false
+        if (this.numAdapters != other.numAdapters) return false
+        if (!this.address.contentEquals(other.address)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.NumAdapters.hashCode()
-        result = 31 * result + this.Address.contentHashCode()
+        var result = this.numAdapters.hashCode()
+        result = 31 * result + this.address.contentHashCode()
         return result
     }
 }
 
-public data class MIBICMPINFO(public var icmpInStats: MIBICMPSTATS = MIBICMPSTATS(), public var icmpOutStats: MIBICMPSTATS = MIBICMPSTATS())
+public data class Mibicmpinfo(public var icmpInStats: Mibicmpstats = Mibicmpstats(), public var icmpOutStats: Mibicmpstats = Mibicmpstats())
 
-public data class MIBICMPSTATS(
+public data class Mibicmpstats(
     public var dwMsgs: UInt = 0u,
     public var dwErrors: UInt = 0u,
     public var dwDestUnreachs: UInt = 0u,
@@ -580,14 +581,14 @@ public data class MIBICMPSTATS(
     public var dwAddrMaskReps: UInt = 0u,
 )
 
-public data class MIBICMPSTATS_EX_XPSP1(
+public data class MibicmpstatsExXpsp1(
     public var dwMsgs: UInt = 0u,
     public var dwErrors: UInt = 0u,
     public var rgdwTypeCount: UIntArray = UIntArray(256),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is MIBICMPSTATS_EX_XPSP1) return false
+        if (other !is MibicmpstatsExXpsp1) return false
         if (this.dwMsgs != other.dwMsgs) return false
         if (this.dwErrors != other.dwErrors) return false
         if (!this.rgdwTypeCount.contentEquals(other.rgdwTypeCount)) return false
@@ -602,26 +603,26 @@ public data class MIBICMPSTATS_EX_XPSP1(
     }
 }
 
-public data class MIB_ANYCASTIPADDRESS_ROW(
-    public var Address: SOCKADDR_INET = SOCKADDR_INET(),
-    public var InterfaceLuid: NET_LUID_LH = NET_LUID_LH(),
-    public var InterfaceIndex: UInt = 0u,
-    public var ScopeId: SCOPE_ID = SCOPE_ID(),
+public data class MibAnycastipaddressRow(
+    public var address: SockaddrInet = SockaddrInet(),
+    public var interfaceLuid: NetLuidLh = NetLuidLh(),
+    public var interfaceIndex: UInt = 0u,
+    public var scopeId: ScopeId = ScopeId(),
 )
 
-public data class MIB_ANYCASTIPADDRESS_TABLE(public var NumEntries: UInt = 0u, public var Table: List<MIB_ANYCASTIPADDRESS_ROW> = List(1) { MIB_ANYCASTIPADDRESS_ROW() })
+public data class MibAnycastipaddressTable(public var numEntries: UInt = 0u, public var table: List<MibAnycastipaddressRow> = List(1) { MibAnycastipaddressRow() })
 
-public data class MIB_BEST_IF(public var dwDestAddr: UInt = 0u, public var dwIfIndex: UInt = 0u)
+public data class MibBestIf(public var dwDestAddr: UInt = 0u, public var dwIfIndex: UInt = 0u)
 
-public data class MIB_BOUNDARYROW(public var dwGroupAddress: UInt = 0u, public var dwGroupMask: UInt = 0u)
+public data class MibBoundaryrow(public var dwGroupAddress: UInt = 0u, public var dwGroupMask: UInt = 0u)
 
-public data class MIB_ICMP(public var stats: MIBICMPINFO = MIBICMPINFO())
+public data class MibIcmp(public var stats: Mibicmpinfo = Mibicmpinfo())
 
-public data class MIB_ICMP_EX_XPSP1(public var icmpInStats: MIBICMPSTATS_EX_XPSP1 = MIBICMPSTATS_EX_XPSP1(), public var icmpOutStats: MIBICMPSTATS_EX_XPSP1 = MIBICMPSTATS_EX_XPSP1())
+public data class MibIcmpExXpsp1(public var icmpInStats: MibicmpstatsExXpsp1 = MibicmpstatsExXpsp1(), public var icmpOutStats: MibicmpstatsExXpsp1 = MibicmpstatsExXpsp1())
 
-public data class MIB_IFNUMBER(public var dwValue: UInt = 0u)
+public data class MibIfnumber(public var dwValue: UInt = 0u)
 
-public class MIB_IFROW(
+public class MibIfrow(
     public var wszName: UShortArray = UShortArray(256),
     public var dwIndex: UInt = 0u,
     public var dwType: UInt = 0u,
@@ -630,7 +631,7 @@ public class MIB_IFROW(
     public var dwPhysAddrLen: UInt = 0u,
     public var bPhysAddr: UByteArray = UByteArray(8),
     public var dwAdminStatus: UInt = 0u,
-    public var dwOperStatus: INTERNAL_IF_OPER_STATUS = 0,
+    public var dwOperStatus: InternalIfOperStatus = 0,
     public var dwLastChange: UInt = 0u,
     public var dwInOctets: UInt = 0u,
     public var dwInUcastPkts: UInt = 0u,
@@ -648,73 +649,73 @@ public class MIB_IFROW(
     public var bDescr: UByteArray = UByteArray(256),
 )
 
-public data class MIB_IFSTACK_ROW(public var HigherLayerInterfaceIndex: UInt = 0u, public var LowerLayerInterfaceIndex: UInt = 0u)
+public data class MibIfstackRow(public var higherLayerInterfaceIndex: UInt = 0u, public var lowerLayerInterfaceIndex: UInt = 0u)
 
-public data class MIB_IFSTACK_TABLE(public var NumEntries: UInt = 0u, public var Table: List<MIB_IFSTACK_ROW> = List(1) { MIB_IFSTACK_ROW() })
+public data class MibIfstackTable(public var numEntries: UInt = 0u, public var table: List<MibIfstackRow> = List(1) { MibIfstackRow() })
 
-public data class MIB_IFSTATUS(
+public data class MibIfstatus(
     public var dwIfIndex: UInt = 0u,
     public var dwAdminStatus: UInt = 0u,
     public var dwOperationalStatus: UInt = 0u,
-    public var bMHbeatActive: BOOL = 0,
-    public var bMHbeatAlive: BOOL = 0,
+    public var bMHbeatActive: Bool = 0,
+    public var bMHbeatAlive: Bool = 0,
 )
 
-public data class MIB_IFTABLE(public var dwNumEntries: UInt = 0u, public var table: List<MIB_IFROW> = List(1) { MIB_IFROW() })
+public data class MibIftable(public var dwNumEntries: UInt = 0u, public var table: List<MibIfrow> = List(1) { MibIfrow() })
 
-public class MIB_IF_ROW2(
-    public var InterfaceLuid: NET_LUID_LH = NET_LUID_LH(),
-    public var InterfaceIndex: UInt = 0u,
-    public var InterfaceGuid: GUID = GUID(),
-    public var Alias: UShortArray = UShortArray(257),
-    public var Description: UShortArray = UShortArray(257),
-    public var PhysicalAddressLength: UInt = 0u,
-    public var PhysicalAddress: UByteArray = UByteArray(32),
-    public var PermanentPhysicalAddress: UByteArray = UByteArray(32),
-    public var Mtu: UInt = 0u,
-    public var Type: UInt = 0u,
-    public var TunnelType: TUNNEL_TYPE = 0,
-    public var MediaType: NDIS_MEDIUM = 0,
-    public var PhysicalMediumType: NDIS_PHYSICAL_MEDIUM = 0,
-    public var AccessType: NET_IF_ACCESS_TYPE = 0,
-    public var DirectionType: NET_IF_DIRECTION_TYPE = 0,
-    public var InterfaceAndOperStatusFlags: MIB_IF_ROW2_0 = MIB_IF_ROW2_0(),
-    public var OperStatus: IF_OPER_STATUS = 0,
-    public var AdminStatus: NET_IF_ADMIN_STATUS = 0,
-    public var MediaConnectState: NET_IF_MEDIA_CONNECT_STATE = 0,
-    public var NetworkGuid: GUID = GUID(),
-    public var ConnectionType: NET_IF_CONNECTION_TYPE = 0,
-    public var TransmitLinkSpeed: ULong = 0uL,
-    public var ReceiveLinkSpeed: ULong = 0uL,
-    public var InOctets: ULong = 0uL,
-    public var InUcastPkts: ULong = 0uL,
-    public var InNUcastPkts: ULong = 0uL,
-    public var InDiscards: ULong = 0uL,
-    public var InErrors: ULong = 0uL,
-    public var InUnknownProtos: ULong = 0uL,
-    public var InUcastOctets: ULong = 0uL,
-    public var InMulticastOctets: ULong = 0uL,
-    public var InBroadcastOctets: ULong = 0uL,
-    public var OutOctets: ULong = 0uL,
-    public var OutUcastPkts: ULong = 0uL,
-    public var OutNUcastPkts: ULong = 0uL,
-    public var OutDiscards: ULong = 0uL,
-    public var OutErrors: ULong = 0uL,
-    public var OutUcastOctets: ULong = 0uL,
-    public var OutMulticastOctets: ULong = 0uL,
-    public var OutBroadcastOctets: ULong = 0uL,
-    public var OutQLen: ULong = 0uL,
+public class MibIfRow2(
+    public var interfaceLuid: NetLuidLh = NetLuidLh(),
+    public var interfaceIndex: UInt = 0u,
+    public var interfaceGuid: Guid = Guid(),
+    public var alias: UShortArray = UShortArray(257),
+    public var description: UShortArray = UShortArray(257),
+    public var physicalAddressLength: UInt = 0u,
+    public var physicalAddress: UByteArray = UByteArray(32),
+    public var permanentPhysicalAddress: UByteArray = UByteArray(32),
+    public var mtu: UInt = 0u,
+    public var type: UInt = 0u,
+    public var tunnelType: TunnelType = 0,
+    public var mediaType: NdisMedium = 0,
+    public var physicalMediumType: NdisPhysicalMedium = 0,
+    public var accessType: NetIfAccessType = 0,
+    public var directionType: NetIfDirectionType = 0,
+    public var interfaceAndOperStatusFlags: MibIfRow20 = MibIfRow20(),
+    public var operStatus: IfOperStatus = 0,
+    public var adminStatus: NetIfAdminStatus = 0,
+    public var mediaConnectState: NetIfMediaConnectState = 0,
+    public var networkGuid: Guid = Guid(),
+    public var connectionType: NetIfConnectionType = 0,
+    public var transmitLinkSpeed: ULong = 0uL,
+    public var receiveLinkSpeed: ULong = 0uL,
+    public var inOctets: ULong = 0uL,
+    public var inUcastPkts: ULong = 0uL,
+    public var inNUcastPkts: ULong = 0uL,
+    public var inDiscards: ULong = 0uL,
+    public var inErrors: ULong = 0uL,
+    public var inUnknownProtos: ULong = 0uL,
+    public var inUcastOctets: ULong = 0uL,
+    public var inMulticastOctets: ULong = 0uL,
+    public var inBroadcastOctets: ULong = 0uL,
+    public var outOctets: ULong = 0uL,
+    public var outUcastPkts: ULong = 0uL,
+    public var outNUcastPkts: ULong = 0uL,
+    public var outDiscards: ULong = 0uL,
+    public var outErrors: ULong = 0uL,
+    public var outUcastOctets: ULong = 0uL,
+    public var outMulticastOctets: ULong = 0uL,
+    public var outBroadcastOctets: ULong = 0uL,
+    public var outQLen: ULong = 0uL,
 )
 
-public data class MIB_IF_ROW2_0(public var _bitfield: UByte = 0u)
+public data class MibIfRow20(public var bitfield: UByte = 0u)
 
-public data class MIB_IF_TABLE2(public var NumEntries: UInt = 0u, public var Table: List<MIB_IF_ROW2> = List(1) { MIB_IF_ROW2() })
+public data class MibIfTable2(public var numEntries: UInt = 0u, public var table: List<MibIfRow2> = List(1) { MibIfRow2() })
 
-public data class MIB_INVERTEDIFSTACK_ROW(public var LowerLayerInterfaceIndex: UInt = 0u, public var HigherLayerInterfaceIndex: UInt = 0u)
+public data class MibInvertedifstackRow(public var lowerLayerInterfaceIndex: UInt = 0u, public var higherLayerInterfaceIndex: UInt = 0u)
 
-public data class MIB_INVERTEDIFSTACK_TABLE(public var NumEntries: UInt = 0u, public var Table: List<MIB_INVERTEDIFSTACK_ROW> = List(1) { MIB_INVERTEDIFSTACK_ROW() })
+public data class MibInvertedifstackTable(public var numEntries: UInt = 0u, public var table: List<MibInvertedifstackRow> = List(1) { MibInvertedifstackRow() })
 
-public data class MIB_IPADDRROW_W2K(
+public data class MibIpaddrrowW2k(
     public var dwAddr: UInt = 0u,
     public var dwIndex: UInt = 0u,
     public var dwMask: UInt = 0u,
@@ -724,7 +725,7 @@ public data class MIB_IPADDRROW_W2K(
     public var unused2: UShort = 0u,
 )
 
-public data class MIB_IPADDRROW_XP(
+public data class MibIpaddrrowXp(
     public var dwAddr: UInt = 0u,
     public var dwIndex: UInt = 0u,
     public var dwMask: UInt = 0u,
@@ -734,26 +735,26 @@ public data class MIB_IPADDRROW_XP(
     public var wType: UShort = 0u,
 )
 
-public data class MIB_IPADDRTABLE(public var dwNumEntries: UInt = 0u, public var table: List<MIB_IPADDRROW_XP> = List(1) { MIB_IPADDRROW_XP() })
+public data class MibIpaddrtable(public var dwNumEntries: UInt = 0u, public var table: List<MibIpaddrrowXp> = List(1) { MibIpaddrrowXp() })
 
-public data class MIB_IPDESTROW(
-    public var ForwardRow: MIB_IPFORWARDROW = MIB_IPFORWARDROW(),
+public data class MibIpdestrow(
+    public var forwardRow: MibIpforwardrow = MibIpforwardrow(),
     public var dwForwardPreference: UInt = 0u,
     public var dwForwardViewSet: UInt = 0u,
 )
 
-public data class MIB_IPDESTTABLE(public var dwNumEntries: UInt = 0u, public var table: List<MIB_IPDESTROW> = List(1) { MIB_IPDESTROW() })
+public data class MibIpdesttable(public var dwNumEntries: UInt = 0u, public var table: List<MibIpdestrow> = List(1) { MibIpdestrow() })
 
-public data class MIB_IPFORWARDNUMBER(public var dwValue: UInt = 0u)
+public data class MibIpforwardnumber(public var dwValue: UInt = 0u)
 
-public data class MIB_IPFORWARDROW(
+public data class MibIpforwardrow(
     public var dwForwardDest: UInt = 0u,
     public var dwForwardMask: UInt = 0u,
     public var dwForwardPolicy: UInt = 0u,
     public var dwForwardNextHop: UInt = 0u,
     public var dwForwardIfIndex: UInt = 0u,
-    public var Anonymous1: MIB_IPFORWARDROW_0 = MIB_IPFORWARDROW_0(),
-    public var Anonymous2: MIB_IPFORWARDROW_1 = MIB_IPFORWARDROW_1(),
+    public var anonymous1: MibIpforwardrow0 = MibIpforwardrow0(),
+    public var anonymous2: MibIpforwardrow1 = MibIpforwardrow1(),
     public var dwForwardAge: UInt = 0u,
     public var dwForwardNextHopAS: UInt = 0u,
     public var dwForwardMetric1: UInt = 0u,
@@ -763,84 +764,84 @@ public data class MIB_IPFORWARDROW(
     public var dwForwardMetric5: UInt = 0u,
 )
 
-public data class MIB_IPFORWARDROW_0(public var dwForwardType: UInt = 0u, public var ForwardType: MIB_IPFORWARD_TYPE = 0)
+public data class MibIpforwardrow0(public var dwForwardType: UInt = 0u, public var forwardType: MibIpforwardType = 0)
 
-public data class MIB_IPFORWARDROW_1(public var dwForwardProto: UInt = 0u, public var ForwardProto: NL_ROUTE_PROTOCOL = 0)
+public data class MibIpforwardrow1(public var dwForwardProto: UInt = 0u, public var forwardProto: NlRouteProtocol = 0)
 
-public data class MIB_IPFORWARDTABLE(public var dwNumEntries: UInt = 0u, public var table: List<MIB_IPFORWARDROW> = List(1) { MIB_IPFORWARDROW() })
+public data class MibIpforwardtable(public var dwNumEntries: UInt = 0u, public var table: List<MibIpforwardrow> = List(1) { MibIpforwardrow() })
 
-public data class MIB_IPFORWARD_ROW2(
-    public var InterfaceLuid: NET_LUID_LH = NET_LUID_LH(),
-    public var InterfaceIndex: UInt = 0u,
-    public var DestinationPrefix: IP_ADDRESS_PREFIX = IP_ADDRESS_PREFIX(),
-    public var NextHop: SOCKADDR_INET = SOCKADDR_INET(),
-    public var SitePrefixLength: UByte = 0u,
-    public var ValidLifetime: UInt = 0u,
-    public var PreferredLifetime: UInt = 0u,
-    public var Metric: UInt = 0u,
-    public var Protocol: NL_ROUTE_PROTOCOL = 0,
-    public var Loopback: Boolean = false,
-    public var AutoconfigureAddress: Boolean = false,
-    public var Publish: Boolean = false,
-    public var Immortal: Boolean = false,
-    public var Age: UInt = 0u,
-    public var Origin: NL_ROUTE_ORIGIN = 0,
+public data class MibIpforwardRow2(
+    public var interfaceLuid: NetLuidLh = NetLuidLh(),
+    public var interfaceIndex: UInt = 0u,
+    public var destinationPrefix: IpAddressPrefix = IpAddressPrefix(),
+    public var nextHop: SockaddrInet = SockaddrInet(),
+    public var sitePrefixLength: UByte = 0u,
+    public var validLifetime: UInt = 0u,
+    public var preferredLifetime: UInt = 0u,
+    public var metric: UInt = 0u,
+    public var protocol: NlRouteProtocol = 0,
+    public var loopback: Boolean = false,
+    public var autoconfigureAddress: Boolean = false,
+    public var publish: Boolean = false,
+    public var immortal: Boolean = false,
+    public var age: UInt = 0u,
+    public var origin: NlRouteOrigin = 0,
 )
 
-public data class MIB_IPFORWARD_TABLE2(public var NumEntries: UInt = 0u, public var Table: List<MIB_IPFORWARD_ROW2> = List(1) { MIB_IPFORWARD_ROW2() })
+public data class MibIpforwardTable2(public var numEntries: UInt = 0u, public var table: List<MibIpforwardRow2> = List(1) { MibIpforwardRow2() })
 
-public class MIB_IPINTERFACE_ROW(
-    public var Family: ADDRESS_FAMILY = 0u,
-    public var InterfaceLuid: NET_LUID_LH = NET_LUID_LH(),
-    public var InterfaceIndex: UInt = 0u,
-    public var MaxReassemblySize: UInt = 0u,
-    public var InterfaceIdentifier: ULong = 0uL,
-    public var MinRouterAdvertisementInterval: UInt = 0u,
-    public var MaxRouterAdvertisementInterval: UInt = 0u,
-    public var AdvertisingEnabled: Boolean = false,
-    public var ForwardingEnabled: Boolean = false,
-    public var WeakHostSend: Boolean = false,
-    public var WeakHostReceive: Boolean = false,
-    public var UseAutomaticMetric: Boolean = false,
-    public var UseNeighborUnreachabilityDetection: Boolean = false,
-    public var ManagedAddressConfigurationSupported: Boolean = false,
-    public var OtherStatefulConfigurationSupported: Boolean = false,
-    public var AdvertiseDefaultRoute: Boolean = false,
-    public var RouterDiscoveryBehavior: NL_ROUTER_DISCOVERY_BEHAVIOR = 0,
-    public var DadTransmits: UInt = 0u,
-    public var BaseReachableTime: UInt = 0u,
-    public var RetransmitTime: UInt = 0u,
-    public var PathMtuDiscoveryTimeout: UInt = 0u,
-    public var LinkLocalAddressBehavior: NL_LINK_LOCAL_ADDRESS_BEHAVIOR = 0,
-    public var LinkLocalAddressTimeout: UInt = 0u,
-    public var ZoneIndices: UIntArray = UIntArray(16),
-    public var SitePrefixLength: UInt = 0u,
-    public var Metric: UInt = 0u,
-    public var NlMtu: UInt = 0u,
-    public var Connected: Boolean = false,
-    public var SupportsWakeUpPatterns: Boolean = false,
-    public var SupportsNeighborDiscovery: Boolean = false,
-    public var SupportsRouterDiscovery: Boolean = false,
-    public var ReachableTime: UInt = 0u,
-    public var TransmitOffload: NL_INTERFACE_OFFLOAD_ROD = NL_INTERFACE_OFFLOAD_ROD(),
-    public var ReceiveOffload: NL_INTERFACE_OFFLOAD_ROD = NL_INTERFACE_OFFLOAD_ROD(),
-    public var DisableDefaultRoutes: Boolean = false,
+public class MibIpinterfaceRow(
+    public var family: AddressFamily = 0u,
+    public var interfaceLuid: NetLuidLh = NetLuidLh(),
+    public var interfaceIndex: UInt = 0u,
+    public var maxReassemblySize: UInt = 0u,
+    public var interfaceIdentifier: ULong = 0uL,
+    public var minRouterAdvertisementInterval: UInt = 0u,
+    public var maxRouterAdvertisementInterval: UInt = 0u,
+    public var advertisingEnabled: Boolean = false,
+    public var forwardingEnabled: Boolean = false,
+    public var weakHostSend: Boolean = false,
+    public var weakHostReceive: Boolean = false,
+    public var useAutomaticMetric: Boolean = false,
+    public var useNeighborUnreachabilityDetection: Boolean = false,
+    public var managedAddressConfigurationSupported: Boolean = false,
+    public var otherStatefulConfigurationSupported: Boolean = false,
+    public var advertiseDefaultRoute: Boolean = false,
+    public var routerDiscoveryBehavior: NlRouterDiscoveryBehavior = 0,
+    public var dadTransmits: UInt = 0u,
+    public var baseReachableTime: UInt = 0u,
+    public var retransmitTime: UInt = 0u,
+    public var pathMtuDiscoveryTimeout: UInt = 0u,
+    public var linkLocalAddressBehavior: NlLinkLocalAddressBehavior = 0,
+    public var linkLocalAddressTimeout: UInt = 0u,
+    public var zoneIndices: UIntArray = UIntArray(16),
+    public var sitePrefixLength: UInt = 0u,
+    public var metric: UInt = 0u,
+    public var nlMtu: UInt = 0u,
+    public var connected: Boolean = false,
+    public var supportsWakeUpPatterns: Boolean = false,
+    public var supportsNeighborDiscovery: Boolean = false,
+    public var supportsRouterDiscovery: Boolean = false,
+    public var reachableTime: UInt = 0u,
+    public var transmitOffload: NlInterfaceOffloadRod = NlInterfaceOffloadRod(),
+    public var receiveOffload: NlInterfaceOffloadRod = NlInterfaceOffloadRod(),
+    public var disableDefaultRoutes: Boolean = false,
 )
 
-public data class MIB_IPINTERFACE_TABLE(public var NumEntries: UInt = 0u, public var Table: List<MIB_IPINTERFACE_ROW> = List(1) { MIB_IPINTERFACE_ROW() })
+public data class MibIpinterfaceTable(public var numEntries: UInt = 0u, public var table: List<MibIpinterfaceRow> = List(1) { MibIpinterfaceRow() })
 
-public data class MIB_IPMCAST_BOUNDARY(
+public data class MibIpmcastBoundary(
     public var dwIfIndex: UInt = 0u,
     public var dwGroupAddress: UInt = 0u,
     public var dwGroupMask: UInt = 0u,
     public var dwStatus: UInt = 0u,
 )
 
-public data class MIB_IPMCAST_BOUNDARY_TABLE(public var dwNumEntries: UInt = 0u, public var table: List<MIB_IPMCAST_BOUNDARY> = List(1) { MIB_IPMCAST_BOUNDARY() })
+public data class MibIpmcastBoundaryTable(public var dwNumEntries: UInt = 0u, public var table: List<MibIpmcastBoundary> = List(1) { MibIpmcastBoundary() })
 
-public data class MIB_IPMCAST_GLOBAL(public var dwEnable: UInt = 0u)
+public data class MibIpmcastGlobal(public var dwEnable: UInt = 0u)
 
-public data class MIB_IPMCAST_IF_ENTRY(
+public data class MibIpmcastIfEntry(
     public var dwIfIndex: UInt = 0u,
     public var dwTtl: UInt = 0u,
     public var dwProtocol: UInt = 0u,
@@ -849,9 +850,9 @@ public data class MIB_IPMCAST_IF_ENTRY(
     public var ulOutMcastOctets: UInt = 0u,
 )
 
-public data class MIB_IPMCAST_IF_TABLE(public var dwNumEntries: UInt = 0u, public var table: List<MIB_IPMCAST_IF_ENTRY> = List(1) { MIB_IPMCAST_IF_ENTRY() })
+public data class MibIpmcastIfTable(public var dwNumEntries: UInt = 0u, public var table: List<MibIpmcastIfEntry> = List(1) { MibIpmcastIfEntry() })
 
-public data class MIB_IPMCAST_MFE(
+public data class MibIpmcastMfe(
     public var dwGroup: UInt = 0u,
     public var dwSource: UInt = 0u,
     public var dwSrcMask: UInt = 0u,
@@ -867,10 +868,10 @@ public data class MIB_IPMCAST_MFE(
     public var ulNumOutIf: UInt = 0u,
     public var fFlags: UInt = 0u,
     public var dwReserved: UInt = 0u,
-    public var rgmioOutInfo: List<MIB_IPMCAST_OIF_XP> = List(1) { MIB_IPMCAST_OIF_XP() },
+    public var rgmioOutInfo: List<MibIpmcastOifXp> = List(1) { MibIpmcastOifXp() },
 )
 
-public class MIB_IPMCAST_MFE_STATS(
+public class MibIpmcastMfeStats(
     public var dwGroup: UInt = 0u,
     public var dwSource: UInt = 0u,
     public var dwSrcMask: UInt = 0u,
@@ -887,10 +888,10 @@ public class MIB_IPMCAST_MFE_STATS(
     public var ulInOctets: UInt = 0u,
     public var ulPktsDifferentIf: UInt = 0u,
     public var ulQueueOverflow: UInt = 0u,
-    public var rgmiosOutStats: List<MIB_IPMCAST_OIF_STATS_LH> = List(1) { MIB_IPMCAST_OIF_STATS_LH() },
+    public var rgmiosOutStats: List<MibIpmcastOifStatsLh> = List(1) { MibIpmcastOifStatsLh() },
 )
 
-public class MIB_IPMCAST_MFE_STATS_EX_XP(
+public class MibIpmcastMfeStatsExXp(
     public var dwGroup: UInt = 0u,
     public var dwSource: UInt = 0u,
     public var dwSrcMask: UInt = 0u,
@@ -912,10 +913,10 @@ public class MIB_IPMCAST_MFE_STATS_EX_XP(
     public var ulInDiscards: UInt = 0u,
     public var ulInHdrErrors: UInt = 0u,
     public var ulTotalOutPackets: UInt = 0u,
-    public var rgmiosOutStats: List<MIB_IPMCAST_OIF_STATS_LH> = List(1) { MIB_IPMCAST_OIF_STATS_LH() },
+    public var rgmiosOutStats: List<MibIpmcastOifStatsLh> = List(1) { MibIpmcastOifStatsLh() },
 )
 
-public data class MIB_IPMCAST_OIF_STATS_LH(
+public data class MibIpmcastOifStatsLh(
     public var dwOutIfIndex: UInt = 0u,
     public var dwNextHopAddr: UInt = 0u,
     public var dwDialContext: UInt = 0u,
@@ -925,31 +926,31 @@ public data class MIB_IPMCAST_OIF_STATS_LH(
     public var ulOutDiscards: UInt = 0u,
 )
 
-public data class MIB_IPMCAST_OIF_STATS_W2K(
+public data class MibIpmcastOifStatsW2k(
     public var dwOutIfIndex: UInt = 0u,
     public var dwNextHopAddr: UInt = 0u,
-    public var pvDialContext: Long = 0L,
+    public var pvDialContext: COpaquePointer? = null,
     public var ulTtlTooLow: UInt = 0u,
     public var ulFragNeeded: UInt = 0u,
     public var ulOutPackets: UInt = 0u,
     public var ulOutDiscards: UInt = 0u,
 )
 
-public data class MIB_IPMCAST_OIF_W2K(
+public data class MibIpmcastOifW2k(
     public var dwOutIfIndex: UInt = 0u,
     public var dwNextHopAddr: UInt = 0u,
-    public var pvReserved: Long = 0L,
+    public var pvReserved: COpaquePointer? = null,
     public var dwReserved: UInt = 0u,
 )
 
-public data class MIB_IPMCAST_OIF_XP(
+public data class MibIpmcastOifXp(
     public var dwOutIfIndex: UInt = 0u,
     public var dwNextHopAddr: UInt = 0u,
     public var dwReserved: UInt = 0u,
     public var dwReserved1: UInt = 0u,
 )
 
-public data class MIB_IPMCAST_SCOPE(
+public data class MibIpmcastScope(
     public var dwGroupAddress: UInt = 0u,
     public var dwGroupMask: UInt = 0u,
     public var snNameBuffer: UShortArray = UShortArray(256),
@@ -957,7 +958,7 @@ public data class MIB_IPMCAST_SCOPE(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is MIB_IPMCAST_SCOPE) return false
+        if (other !is MibIpmcastScope) return false
         if (this.dwGroupAddress != other.dwGroupAddress) return false
         if (this.dwGroupMask != other.dwGroupMask) return false
         if (!this.snNameBuffer.contentEquals(other.snNameBuffer)) return false
@@ -974,21 +975,21 @@ public data class MIB_IPMCAST_SCOPE(
     }
 }
 
-public data class MIB_IPNETROW_LH(
+public data class MibIpnetrowLh(
     public var dwIndex: UInt = 0u,
     public var dwPhysAddrLen: UInt = 0u,
     public var bPhysAddr: UByteArray = UByteArray(8),
     public var dwAddr: UInt = 0u,
-    public var Anonymous: MIB_IPNETROW_LH_0 = MIB_IPNETROW_LH_0(),
+    public var anonymous: MibIpnetrowLh0 = MibIpnetrowLh0(),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is MIB_IPNETROW_LH) return false
+        if (other !is MibIpnetrowLh) return false
         if (this.dwIndex != other.dwIndex) return false
         if (this.dwPhysAddrLen != other.dwPhysAddrLen) return false
         if (!this.bPhysAddr.contentEquals(other.bPhysAddr)) return false
         if (this.dwAddr != other.dwAddr) return false
-        if (this.Anonymous != other.Anonymous) return false
+        if (this.anonymous != other.anonymous) return false
         return true
     }
 
@@ -997,14 +998,14 @@ public data class MIB_IPNETROW_LH(
         result = 31 * result + this.dwPhysAddrLen.hashCode()
         result = 31 * result + this.bPhysAddr.contentHashCode()
         result = 31 * result + this.dwAddr.hashCode()
-        result = 31 * result + this.Anonymous.hashCode()
+        result = 31 * result + this.anonymous.hashCode()
         return result
     }
 }
 
-public data class MIB_IPNETROW_LH_0(public var dwType: UInt = 0u, public var Type: MIB_IPNET_TYPE = 0)
+public data class MibIpnetrowLh0(public var dwType: UInt = 0u, public var type: MibIpnetType = 0)
 
-public data class MIB_IPNETROW_W2K(
+public data class MibIpnetrowW2k(
     public var dwIndex: UInt = 0u,
     public var dwPhysAddrLen: UInt = 0u,
     public var bPhysAddr: UByteArray = UByteArray(8),
@@ -1013,7 +1014,7 @@ public data class MIB_IPNETROW_W2K(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is MIB_IPNETROW_W2K) return false
+        if (other !is MibIpnetrowW2k) return false
         if (this.dwIndex != other.dwIndex) return false
         if (this.dwPhysAddrLen != other.dwPhysAddrLen) return false
         if (!this.bPhysAddr.contentEquals(other.bPhysAddr)) return false
@@ -1032,74 +1033,74 @@ public data class MIB_IPNETROW_W2K(
     }
 }
 
-public data class MIB_IPNETTABLE(public var dwNumEntries: UInt = 0u, public var table: List<MIB_IPNETROW_LH> = List(1) { MIB_IPNETROW_LH() })
+public data class MibIpnettable(public var dwNumEntries: UInt = 0u, public var table: List<MibIpnetrowLh> = List(1) { MibIpnetrowLh() })
 
-public data class MIB_IPNET_ROW2(
-    public var Address: SOCKADDR_INET = SOCKADDR_INET(),
-    public var InterfaceIndex: UInt = 0u,
-    public var InterfaceLuid: NET_LUID_LH = NET_LUID_LH(),
-    public var PhysicalAddress: UByteArray = UByteArray(32),
-    public var PhysicalAddressLength: UInt = 0u,
-    public var State: NL_NEIGHBOR_STATE = 0,
-    public var Anonymous: MIB_IPNET_ROW2_0 = MIB_IPNET_ROW2_0(),
-    public var ReachabilityTime: MIB_IPNET_ROW2_1 = MIB_IPNET_ROW2_1(),
+public data class MibIpnetRow2(
+    public var address: SockaddrInet = SockaddrInet(),
+    public var interfaceIndex: UInt = 0u,
+    public var interfaceLuid: NetLuidLh = NetLuidLh(),
+    public var physicalAddress: UByteArray = UByteArray(32),
+    public var physicalAddressLength: UInt = 0u,
+    public var state: NlNeighborState = 0,
+    public var anonymous: MibIpnetRow20 = MibIpnetRow20(),
+    public var reachabilityTime: MibIpnetRow21 = MibIpnetRow21(),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is MIB_IPNET_ROW2) return false
-        if (this.Address != other.Address) return false
-        if (this.InterfaceIndex != other.InterfaceIndex) return false
-        if (this.InterfaceLuid != other.InterfaceLuid) return false
-        if (!this.PhysicalAddress.contentEquals(other.PhysicalAddress)) return false
-        if (this.PhysicalAddressLength != other.PhysicalAddressLength) return false
-        if (this.State != other.State) return false
-        if (this.Anonymous != other.Anonymous) return false
-        if (this.ReachabilityTime != other.ReachabilityTime) return false
+        if (other !is MibIpnetRow2) return false
+        if (this.address != other.address) return false
+        if (this.interfaceIndex != other.interfaceIndex) return false
+        if (this.interfaceLuid != other.interfaceLuid) return false
+        if (!this.physicalAddress.contentEquals(other.physicalAddress)) return false
+        if (this.physicalAddressLength != other.physicalAddressLength) return false
+        if (this.state != other.state) return false
+        if (this.anonymous != other.anonymous) return false
+        if (this.reachabilityTime != other.reachabilityTime) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Address.hashCode()
-        result = 31 * result + this.InterfaceIndex.hashCode()
-        result = 31 * result + this.InterfaceLuid.hashCode()
-        result = 31 * result + this.PhysicalAddress.contentHashCode()
-        result = 31 * result + this.PhysicalAddressLength.hashCode()
-        result = 31 * result + this.State.hashCode()
-        result = 31 * result + this.Anonymous.hashCode()
-        result = 31 * result + this.ReachabilityTime.hashCode()
+        var result = this.address.hashCode()
+        result = 31 * result + this.interfaceIndex.hashCode()
+        result = 31 * result + this.interfaceLuid.hashCode()
+        result = 31 * result + this.physicalAddress.contentHashCode()
+        result = 31 * result + this.physicalAddressLength.hashCode()
+        result = 31 * result + this.state.hashCode()
+        result = 31 * result + this.anonymous.hashCode()
+        result = 31 * result + this.reachabilityTime.hashCode()
         return result
     }
 }
 
-public data class MIB_IPNET_ROW2_0(public var Anonymous: MIB_IPNET_ROW2_0_0 = MIB_IPNET_ROW2_0_0(), public var Flags: UByte = 0u)
+public data class MibIpnetRow20(public var anonymous: MibIpnetRow200 = MibIpnetRow200(), public var flags: UByte = 0u)
 
-public data class MIB_IPNET_ROW2_0_0(public var _bitfield: UByte = 0u)
+public data class MibIpnetRow200(public var bitfield: UByte = 0u)
 
-public data class MIB_IPNET_ROW2_1(public var LastReachable: UInt = 0u, public var LastUnreachable: UInt = 0u)
+public data class MibIpnetRow21(public var lastReachable: UInt = 0u, public var lastUnreachable: UInt = 0u)
 
-public data class MIB_IPNET_TABLE2(public var NumEntries: UInt = 0u, public var Table: List<MIB_IPNET_ROW2> = List(1) { MIB_IPNET_ROW2() })
+public data class MibIpnetTable2(public var numEntries: UInt = 0u, public var table: List<MibIpnetRow2> = List(1) { MibIpnetRow2() })
 
-public data class MIB_IPPATH_ROW(
-    public var Source: SOCKADDR_INET = SOCKADDR_INET(),
-    public var Destination: SOCKADDR_INET = SOCKADDR_INET(),
-    public var InterfaceLuid: NET_LUID_LH = NET_LUID_LH(),
-    public var InterfaceIndex: UInt = 0u,
-    public var CurrentNextHop: SOCKADDR_INET = SOCKADDR_INET(),
-    public var PathMtu: UInt = 0u,
-    public var RttMean: UInt = 0u,
-    public var RttDeviation: UInt = 0u,
-    public var Anonymous: MIB_IPPATH_ROW_0 = MIB_IPPATH_ROW_0(),
-    public var IsReachable: Boolean = false,
-    public var LinkTransmitSpeed: ULong = 0uL,
-    public var LinkReceiveSpeed: ULong = 0uL,
+public data class MibIppathRow(
+    public var source: SockaddrInet = SockaddrInet(),
+    public var destination: SockaddrInet = SockaddrInet(),
+    public var interfaceLuid: NetLuidLh = NetLuidLh(),
+    public var interfaceIndex: UInt = 0u,
+    public var currentNextHop: SockaddrInet = SockaddrInet(),
+    public var pathMtu: UInt = 0u,
+    public var rttMean: UInt = 0u,
+    public var rttDeviation: UInt = 0u,
+    public var anonymous: MibIppathRow0 = MibIppathRow0(),
+    public var isReachable: Boolean = false,
+    public var linkTransmitSpeed: ULong = 0uL,
+    public var linkReceiveSpeed: ULong = 0uL,
 )
 
-public data class MIB_IPPATH_ROW_0(public var LastReachable: UInt = 0u, public var LastUnreachable: UInt = 0u)
+public data class MibIppathRow0(public var lastReachable: UInt = 0u, public var lastUnreachable: UInt = 0u)
 
-public data class MIB_IPPATH_TABLE(public var NumEntries: UInt = 0u, public var Table: List<MIB_IPPATH_ROW> = List(1) { MIB_IPPATH_ROW() })
+public data class MibIppathTable(public var numEntries: UInt = 0u, public var table: List<MibIppathRow> = List(1) { MibIppathRow() })
 
-public class MIB_IPSTATS_LH(
-    public var Anonymous: MIB_IPSTATS_LH_0 = MIB_IPSTATS_LH_0(),
+public class MibIpstatsLh(
+    public var anonymous: MibIpstatsLh0 = MibIpstatsLh0(),
     public var dwDefaultTTL: UInt = 0u,
     public var dwInReceives: UInt = 0u,
     public var dwInHdrErrors: UInt = 0u,
@@ -1124,9 +1125,9 @@ public class MIB_IPSTATS_LH(
     public var dwNumRoutes: UInt = 0u,
 )
 
-public data class MIB_IPSTATS_LH_0(public var dwForwarding: UInt = 0u, public var Forwarding: MIB_IPSTATS_FORWARDING = 0)
+public data class MibIpstatsLh0(public var dwForwarding: UInt = 0u, public var forwarding: MibIpstatsForwarding = 0)
 
-public class MIB_IPSTATS_W2K(
+public class MibIpstatsW2k(
     public var dwForwarding: UInt = 0u,
     public var dwDefaultTTL: UInt = 0u,
     public var dwInReceives: UInt = 0u,
@@ -1152,45 +1153,31 @@ public class MIB_IPSTATS_W2K(
     public var dwNumRoutes: UInt = 0u,
 )
 
-public data class MIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES(public var InboundBandwidthInformation: NL_BANDWIDTH_INFORMATION = NL_BANDWIDTH_INFORMATION(), public var OutboundBandwidthInformation: NL_BANDWIDTH_INFORMATION = NL_BANDWIDTH_INFORMATION())
+public data class MibIpNetworkConnectionBandwidthEstimates(public var inboundBandwidthInformation: NlBandwidthInformation = NlBandwidthInformation(), public var outboundBandwidthInformation: NlBandwidthInformation = NlBandwidthInformation())
 
-public data class MIB_MCAST_LIMIT_ROW(public var dwTtl: UInt = 0u, public var dwRateLimit: UInt = 0u)
+public data class MibMcastLimitRow(public var dwTtl: UInt = 0u, public var dwRateLimit: UInt = 0u)
 
-public data class MIB_MFE_STATS_TABLE(public var dwNumEntries: UInt = 0u, public var table: List<MIB_IPMCAST_MFE_STATS> = List(1) { MIB_IPMCAST_MFE_STATS() })
+public data class MibMfeStatsTable(public var dwNumEntries: UInt = 0u, public var table: List<MibIpmcastMfeStats> = List(1) { MibIpmcastMfeStats() })
 
-public data class MIB_MFE_STATS_TABLE_EX_XP(public var dwNumEntries: UInt = 0u, public var table: LongArray = LongArray(1)) {
-    override fun equals(other: Any?): Boolean {
-        if (this === other) return true
-        if (other !is MIB_MFE_STATS_TABLE_EX_XP) return false
-        if (this.dwNumEntries != other.dwNumEntries) return false
-        if (!this.table.contentEquals(other.table)) return false
-        return true
-    }
+public data class MibMfeStatsTableExXp(public var dwNumEntries: UInt = 0u, public var table: List<MibIpmcastMfeStatsExXp> = List(1) { MibIpmcastMfeStatsExXp() })
 
-    override fun hashCode(): Int {
-        var result = this.dwNumEntries.hashCode()
-        result = 31 * result + this.table.contentHashCode()
-        return result
-    }
-}
+public data class MibMfeTable(public var dwNumEntries: UInt = 0u, public var table: List<MibIpmcastMfe> = List(1) { MibIpmcastMfe() })
 
-public data class MIB_MFE_TABLE(public var dwNumEntries: UInt = 0u, public var table: List<MIB_IPMCAST_MFE> = List(1) { MIB_IPMCAST_MFE() })
-
-public data class MIB_MULTICASTIPADDRESS_ROW(
-    public var Address: SOCKADDR_INET = SOCKADDR_INET(),
-    public var InterfaceIndex: UInt = 0u,
-    public var InterfaceLuid: NET_LUID_LH = NET_LUID_LH(),
-    public var ScopeId: SCOPE_ID = SCOPE_ID(),
+public data class MibMulticastipaddressRow(
+    public var address: SockaddrInet = SockaddrInet(),
+    public var interfaceIndex: UInt = 0u,
+    public var interfaceLuid: NetLuidLh = NetLuidLh(),
+    public var scopeId: ScopeId = ScopeId(),
 )
 
-public data class MIB_MULTICASTIPADDRESS_TABLE(public var NumEntries: UInt = 0u, public var Table: List<MIB_MULTICASTIPADDRESS_ROW> = List(1) { MIB_MULTICASTIPADDRESS_ROW() })
+public data class MibMulticastipaddressTable(public var numEntries: UInt = 0u, public var table: List<MibMulticastipaddressRow> = List(1) { MibMulticastipaddressRow() })
 
-public data class MIB_OPAQUE_INFO(public var dwId: UInt = 0u, public var Anonymous: MIB_OPAQUE_INFO_0 = MIB_OPAQUE_INFO_0())
+public data class MibOpaqueInfo(public var dwId: UInt = 0u, public var anonymous: MibOpaqueInfo0 = MibOpaqueInfo0())
 
-public data class MIB_OPAQUE_INFO_0(public var ullAlign: ULong = 0uL, public var rgbyData: UByteArray = UByteArray(1)) {
+public data class MibOpaqueInfo0(public var ullAlign: ULong = 0uL, public var rgbyData: UByteArray = UByteArray(1)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is MIB_OPAQUE_INFO_0) return false
+        if (other !is MibOpaqueInfo0) return false
         if (this.ullAlign != other.ullAlign) return false
         if (!this.rgbyData.contentEquals(other.rgbyData)) return false
         return true
@@ -1203,10 +1190,10 @@ public data class MIB_OPAQUE_INFO_0(public var ullAlign: ULong = 0uL, public var
     }
 }
 
-public data class MIB_OPAQUE_QUERY(public var dwVarId: UInt = 0u, public var rgdwVarIndex: UIntArray = UIntArray(1)) {
+public data class MibOpaqueQuery(public var dwVarId: UInt = 0u, public var rgdwVarIndex: UIntArray = UIntArray(1)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is MIB_OPAQUE_QUERY) return false
+        if (other !is MibOpaqueQuery) return false
         if (this.dwVarId != other.dwVarId) return false
         if (!this.rgdwVarIndex.contentEquals(other.rgdwVarIndex)) return false
         return true
@@ -1219,37 +1206,37 @@ public data class MIB_OPAQUE_QUERY(public var dwVarId: UInt = 0u, public var rgd
     }
 }
 
-public data class MIB_PROXYARP(
+public data class MibProxyarp(
     public var dwAddress: UInt = 0u,
     public var dwMask: UInt = 0u,
     public var dwIfIndex: UInt = 0u,
 )
 
-public data class MIB_ROUTESTATE(public var bRoutesSetToStack: BOOL = 0)
+public data class MibRoutestate(public var bRoutesSetToStack: Bool = 0)
 
-public data class MIB_TCP6ROW(
-    public var State: MIB_TCP_STATE = 0,
-    public var LocalAddr: IN6_ADDR = IN6_ADDR(),
+public data class MibTcp6row(
+    public var state: MibTcpState = 0,
+    public var localAddr: In6Addr = In6Addr(),
     public var dwLocalScopeId: UInt = 0u,
     public var dwLocalPort: UInt = 0u,
-    public var RemoteAddr: IN6_ADDR = IN6_ADDR(),
+    public var remoteAddr: In6Addr = In6Addr(),
     public var dwRemoteScopeId: UInt = 0u,
     public var dwRemotePort: UInt = 0u,
 )
 
-public data class MIB_TCP6ROW2(
-    public var LocalAddr: IN6_ADDR = IN6_ADDR(),
+public data class MibTcp6row2(
+    public var localAddr: In6Addr = In6Addr(),
     public var dwLocalScopeId: UInt = 0u,
     public var dwLocalPort: UInt = 0u,
-    public var RemoteAddr: IN6_ADDR = IN6_ADDR(),
+    public var remoteAddr: In6Addr = In6Addr(),
     public var dwRemoteScopeId: UInt = 0u,
     public var dwRemotePort: UInt = 0u,
-    public var State: MIB_TCP_STATE = 0,
+    public var state: MibTcpState = 0,
     public var dwOwningPid: UInt = 0u,
-    public var dwOffloadState: TCP_CONNECTION_OFFLOAD_STATE = 0,
+    public var dwOffloadState: TcpConnectionOffloadState = 0,
 )
 
-public data class MIB_TCP6ROW_OWNER_MODULE(
+public data class MibTcp6rowOwnerModule(
     public var ucLocalAddr: UByteArray = UByteArray(16),
     public var dwLocalScopeId: UInt = 0u,
     public var dwLocalPort: UInt = 0u,
@@ -1259,11 +1246,11 @@ public data class MIB_TCP6ROW_OWNER_MODULE(
     public var dwState: UInt = 0u,
     public var dwOwningPid: UInt = 0u,
     public var liCreateTimestamp: Long = 0L,
-    public var OwningModuleInfo: ULongArray = ULongArray(16),
+    public var owningModuleInfo: ULongArray = ULongArray(16),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is MIB_TCP6ROW_OWNER_MODULE) return false
+        if (other !is MibTcp6rowOwnerModule) return false
         if (!this.ucLocalAddr.contentEquals(other.ucLocalAddr)) return false
         if (this.dwLocalScopeId != other.dwLocalScopeId) return false
         if (this.dwLocalPort != other.dwLocalPort) return false
@@ -1273,7 +1260,7 @@ public data class MIB_TCP6ROW_OWNER_MODULE(
         if (this.dwState != other.dwState) return false
         if (this.dwOwningPid != other.dwOwningPid) return false
         if (this.liCreateTimestamp != other.liCreateTimestamp) return false
-        if (!this.OwningModuleInfo.contentEquals(other.OwningModuleInfo)) return false
+        if (!this.owningModuleInfo.contentEquals(other.owningModuleInfo)) return false
         return true
     }
 
@@ -1287,12 +1274,12 @@ public data class MIB_TCP6ROW_OWNER_MODULE(
         result = 31 * result + this.dwState.hashCode()
         result = 31 * result + this.dwOwningPid.hashCode()
         result = 31 * result + this.liCreateTimestamp.hashCode()
-        result = 31 * result + this.OwningModuleInfo.contentHashCode()
+        result = 31 * result + this.owningModuleInfo.contentHashCode()
         return result
     }
 }
 
-public data class MIB_TCP6ROW_OWNER_PID(
+public data class MibTcp6rowOwnerPid(
     public var ucLocalAddr: UByteArray = UByteArray(16),
     public var dwLocalScopeId: UInt = 0u,
     public var dwLocalPort: UInt = 0u,
@@ -1304,7 +1291,7 @@ public data class MIB_TCP6ROW_OWNER_PID(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is MIB_TCP6ROW_OWNER_PID) return false
+        if (other !is MibTcp6rowOwnerPid) return false
         if (!this.ucLocalAddr.contentEquals(other.ucLocalAddr)) return false
         if (this.dwLocalScopeId != other.dwLocalScopeId) return false
         if (this.dwLocalPort != other.dwLocalPort) return false
@@ -1329,35 +1316,35 @@ public data class MIB_TCP6ROW_OWNER_PID(
     }
 }
 
-public data class MIB_TCP6TABLE(public var dwNumEntries: UInt = 0u, public var table: List<MIB_TCP6ROW> = List(1) { MIB_TCP6ROW() })
+public data class MibTcp6table(public var dwNumEntries: UInt = 0u, public var table: List<MibTcp6row> = List(1) { MibTcp6row() })
 
-public data class MIB_TCP6TABLE2(public var dwNumEntries: UInt = 0u, public var table: List<MIB_TCP6ROW2> = List(1) { MIB_TCP6ROW2() })
+public data class MibTcp6table2(public var dwNumEntries: UInt = 0u, public var table: List<MibTcp6row2> = List(1) { MibTcp6row2() })
 
-public data class MIB_TCP6TABLE_OWNER_MODULE(public var dwNumEntries: UInt = 0u, public var table: List<MIB_TCP6ROW_OWNER_MODULE> = List(1) { MIB_TCP6ROW_OWNER_MODULE() })
+public data class MibTcp6tableOwnerModule(public var dwNumEntries: UInt = 0u, public var table: List<MibTcp6rowOwnerModule> = List(1) { MibTcp6rowOwnerModule() })
 
-public data class MIB_TCP6TABLE_OWNER_PID(public var dwNumEntries: UInt = 0u, public var table: List<MIB_TCP6ROW_OWNER_PID> = List(1) { MIB_TCP6ROW_OWNER_PID() })
+public data class MibTcp6tableOwnerPid(public var dwNumEntries: UInt = 0u, public var table: List<MibTcp6rowOwnerPid> = List(1) { MibTcp6rowOwnerPid() })
 
-public data class MIB_TCPROW2(
+public data class MibTcprow2(
     public var dwState: UInt = 0u,
     public var dwLocalAddr: UInt = 0u,
     public var dwLocalPort: UInt = 0u,
     public var dwRemoteAddr: UInt = 0u,
     public var dwRemotePort: UInt = 0u,
     public var dwOwningPid: UInt = 0u,
-    public var dwOffloadState: TCP_CONNECTION_OFFLOAD_STATE = 0,
+    public var dwOffloadState: TcpConnectionOffloadState = 0,
 )
 
-public data class MIB_TCPROW_LH(
-    public var Anonymous: MIB_TCPROW_LH_0 = MIB_TCPROW_LH_0(),
+public data class MibTcprowLh(
+    public var anonymous: MibTcprowLh0 = MibTcprowLh0(),
     public var dwLocalAddr: UInt = 0u,
     public var dwLocalPort: UInt = 0u,
     public var dwRemoteAddr: UInt = 0u,
     public var dwRemotePort: UInt = 0u,
 )
 
-public data class MIB_TCPROW_LH_0(public var dwState: UInt = 0u, public var State: MIB_TCP_STATE = 0)
+public data class MibTcprowLh0(public var dwState: UInt = 0u, public var state: MibTcpState = 0)
 
-public data class MIB_TCPROW_OWNER_MODULE(
+public data class MibTcprowOwnerModule(
     public var dwState: UInt = 0u,
     public var dwLocalAddr: UInt = 0u,
     public var dwLocalPort: UInt = 0u,
@@ -1365,11 +1352,11 @@ public data class MIB_TCPROW_OWNER_MODULE(
     public var dwRemotePort: UInt = 0u,
     public var dwOwningPid: UInt = 0u,
     public var liCreateTimestamp: Long = 0L,
-    public var OwningModuleInfo: ULongArray = ULongArray(16),
+    public var owningModuleInfo: ULongArray = ULongArray(16),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is MIB_TCPROW_OWNER_MODULE) return false
+        if (other !is MibTcprowOwnerModule) return false
         if (this.dwState != other.dwState) return false
         if (this.dwLocalAddr != other.dwLocalAddr) return false
         if (this.dwLocalPort != other.dwLocalPort) return false
@@ -1377,7 +1364,7 @@ public data class MIB_TCPROW_OWNER_MODULE(
         if (this.dwRemotePort != other.dwRemotePort) return false
         if (this.dwOwningPid != other.dwOwningPid) return false
         if (this.liCreateTimestamp != other.liCreateTimestamp) return false
-        if (!this.OwningModuleInfo.contentEquals(other.OwningModuleInfo)) return false
+        if (!this.owningModuleInfo.contentEquals(other.owningModuleInfo)) return false
         return true
     }
 
@@ -1389,12 +1376,12 @@ public data class MIB_TCPROW_OWNER_MODULE(
         result = 31 * result + this.dwRemotePort.hashCode()
         result = 31 * result + this.dwOwningPid.hashCode()
         result = 31 * result + this.liCreateTimestamp.hashCode()
-        result = 31 * result + this.OwningModuleInfo.contentHashCode()
+        result = 31 * result + this.owningModuleInfo.contentHashCode()
         return result
     }
 }
 
-public data class MIB_TCPROW_OWNER_PID(
+public data class MibTcprowOwnerPid(
     public var dwState: UInt = 0u,
     public var dwLocalAddr: UInt = 0u,
     public var dwLocalPort: UInt = 0u,
@@ -1403,7 +1390,7 @@ public data class MIB_TCPROW_OWNER_PID(
     public var dwOwningPid: UInt = 0u,
 )
 
-public data class MIB_TCPROW_W2K(
+public data class MibTcprowW2k(
     public var dwState: UInt = 0u,
     public var dwLocalAddr: UInt = 0u,
     public var dwLocalPort: UInt = 0u,
@@ -1411,8 +1398,8 @@ public data class MIB_TCPROW_W2K(
     public var dwRemotePort: UInt = 0u,
 )
 
-public data class MIB_TCPSTATS2(
-    public var RtoAlgorithm: TCP_RTO_ALGORITHM = 0,
+public data class MibTcpstats2(
+    public var rtoAlgorithm: TcpRtoAlgorithm = 0,
     public var dwRtoMin: UInt = 0u,
     public var dwRtoMax: UInt = 0u,
     public var dwMaxConn: UInt = 0u,
@@ -1429,8 +1416,8 @@ public data class MIB_TCPSTATS2(
     public var dwNumConns: UInt = 0u,
 )
 
-public data class MIB_TCPSTATS_LH(
-    public var Anonymous: MIB_TCPSTATS_LH_0 = MIB_TCPSTATS_LH_0(),
+public data class MibTcpstatsLh(
+    public var anonymous: MibTcpstatsLh0 = MibTcpstatsLh0(),
     public var dwRtoMin: UInt = 0u,
     public var dwRtoMax: UInt = 0u,
     public var dwMaxConn: UInt = 0u,
@@ -1447,9 +1434,9 @@ public data class MIB_TCPSTATS_LH(
     public var dwNumConns: UInt = 0u,
 )
 
-public data class MIB_TCPSTATS_LH_0(public var dwRtoAlgorithm: UInt = 0u, public var RtoAlgorithm: TCP_RTO_ALGORITHM = 0)
+public data class MibTcpstatsLh0(public var dwRtoAlgorithm: UInt = 0u, public var rtoAlgorithm: TcpRtoAlgorithm = 0)
 
-public data class MIB_TCPSTATS_W2K(
+public data class MibTcpstatsW2k(
     public var dwRtoAlgorithm: UInt = 0u,
     public var dwRtoMin: UInt = 0u,
     public var dwRtoMax: UInt = 0u,
@@ -1467,42 +1454,42 @@ public data class MIB_TCPSTATS_W2K(
     public var dwNumConns: UInt = 0u,
 )
 
-public data class MIB_TCPTABLE(public var dwNumEntries: UInt = 0u, public var table: List<MIB_TCPROW_LH> = List(1) { MIB_TCPROW_LH() })
+public data class MibTcptable(public var dwNumEntries: UInt = 0u, public var table: List<MibTcprowLh> = List(1) { MibTcprowLh() })
 
-public data class MIB_TCPTABLE2(public var dwNumEntries: UInt = 0u, public var table: List<MIB_TCPROW2> = List(1) { MIB_TCPROW2() })
+public data class MibTcptable2(public var dwNumEntries: UInt = 0u, public var table: List<MibTcprow2> = List(1) { MibTcprow2() })
 
-public data class MIB_TCPTABLE_OWNER_MODULE(public var dwNumEntries: UInt = 0u, public var table: List<MIB_TCPROW_OWNER_MODULE> = List(1) { MIB_TCPROW_OWNER_MODULE() })
+public data class MibTcptableOwnerModule(public var dwNumEntries: UInt = 0u, public var table: List<MibTcprowOwnerModule> = List(1) { MibTcprowOwnerModule() })
 
-public data class MIB_TCPTABLE_OWNER_PID(public var dwNumEntries: UInt = 0u, public var table: List<MIB_TCPROW_OWNER_PID> = List(1) { MIB_TCPROW_OWNER_PID() })
+public data class MibTcptableOwnerPid(public var dwNumEntries: UInt = 0u, public var table: List<MibTcprowOwnerPid> = List(1) { MibTcprowOwnerPid() })
 
-public data class MIB_UDP6ROW(
-    public var dwLocalAddr: IN6_ADDR = IN6_ADDR(),
+public data class MibUdp6row(
+    public var dwLocalAddr: In6Addr = In6Addr(),
     public var dwLocalScopeId: UInt = 0u,
     public var dwLocalPort: UInt = 0u,
 )
 
-public data class MIB_UDP6ROW2(
+public data class MibUdp6row2(
     public var ucLocalAddr: UByteArray = UByteArray(16),
     public var dwLocalScopeId: UInt = 0u,
     public var dwLocalPort: UInt = 0u,
     public var dwOwningPid: UInt = 0u,
     public var liCreateTimestamp: Long = 0L,
-    public var Anonymous: MIB_UDP6ROW2_0 = MIB_UDP6ROW2_0(),
-    public var OwningModuleInfo: ULongArray = ULongArray(16),
+    public var anonymous: MibUdp6row20 = MibUdp6row20(),
+    public var owningModuleInfo: ULongArray = ULongArray(16),
     public var ucRemoteAddr: UByteArray = UByteArray(16),
     public var dwRemoteScopeId: UInt = 0u,
     public var dwRemotePort: UInt = 0u,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is MIB_UDP6ROW2) return false
+        if (other !is MibUdp6row2) return false
         if (!this.ucLocalAddr.contentEquals(other.ucLocalAddr)) return false
         if (this.dwLocalScopeId != other.dwLocalScopeId) return false
         if (this.dwLocalPort != other.dwLocalPort) return false
         if (this.dwOwningPid != other.dwOwningPid) return false
         if (this.liCreateTimestamp != other.liCreateTimestamp) return false
-        if (this.Anonymous != other.Anonymous) return false
-        if (!this.OwningModuleInfo.contentEquals(other.OwningModuleInfo)) return false
+        if (this.anonymous != other.anonymous) return false
+        if (!this.owningModuleInfo.contentEquals(other.owningModuleInfo)) return false
         if (!this.ucRemoteAddr.contentEquals(other.ucRemoteAddr)) return false
         if (this.dwRemoteScopeId != other.dwRemoteScopeId) return false
         if (this.dwRemotePort != other.dwRemotePort) return false
@@ -1515,8 +1502,8 @@ public data class MIB_UDP6ROW2(
         result = 31 * result + this.dwLocalPort.hashCode()
         result = 31 * result + this.dwOwningPid.hashCode()
         result = 31 * result + this.liCreateTimestamp.hashCode()
-        result = 31 * result + this.Anonymous.hashCode()
-        result = 31 * result + this.OwningModuleInfo.contentHashCode()
+        result = 31 * result + this.anonymous.hashCode()
+        result = 31 * result + this.owningModuleInfo.contentHashCode()
         result = 31 * result + this.ucRemoteAddr.contentHashCode()
         result = 31 * result + this.dwRemoteScopeId.hashCode()
         result = 31 * result + this.dwRemotePort.hashCode()
@@ -1524,29 +1511,29 @@ public data class MIB_UDP6ROW2(
     }
 }
 
-public data class MIB_UDP6ROW2_0(public var Anonymous: MIB_UDP6ROW2_0_0 = MIB_UDP6ROW2_0_0(), public var dwFlags: Int = 0)
+public data class MibUdp6row20(public var anonymous: MibUdp6row200 = MibUdp6row200(), public var dwFlags: Int = 0)
 
-public data class MIB_UDP6ROW2_0_0(public var _bitfield: Int = 0)
+public data class MibUdp6row200(public var bitfield: Int = 0)
 
-public data class MIB_UDP6ROW_OWNER_MODULE(
+public data class MibUdp6rowOwnerModule(
     public var ucLocalAddr: UByteArray = UByteArray(16),
     public var dwLocalScopeId: UInt = 0u,
     public var dwLocalPort: UInt = 0u,
     public var dwOwningPid: UInt = 0u,
     public var liCreateTimestamp: Long = 0L,
-    public var Anonymous: MIB_UDP6ROW_OWNER_MODULE_0 = MIB_UDP6ROW_OWNER_MODULE_0(),
-    public var OwningModuleInfo: ULongArray = ULongArray(16),
+    public var anonymous: MibUdp6rowOwnerModule0 = MibUdp6rowOwnerModule0(),
+    public var owningModuleInfo: ULongArray = ULongArray(16),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is MIB_UDP6ROW_OWNER_MODULE) return false
+        if (other !is MibUdp6rowOwnerModule) return false
         if (!this.ucLocalAddr.contentEquals(other.ucLocalAddr)) return false
         if (this.dwLocalScopeId != other.dwLocalScopeId) return false
         if (this.dwLocalPort != other.dwLocalPort) return false
         if (this.dwOwningPid != other.dwOwningPid) return false
         if (this.liCreateTimestamp != other.liCreateTimestamp) return false
-        if (this.Anonymous != other.Anonymous) return false
-        if (!this.OwningModuleInfo.contentEquals(other.OwningModuleInfo)) return false
+        if (this.anonymous != other.anonymous) return false
+        if (!this.owningModuleInfo.contentEquals(other.owningModuleInfo)) return false
         return true
     }
 
@@ -1556,17 +1543,17 @@ public data class MIB_UDP6ROW_OWNER_MODULE(
         result = 31 * result + this.dwLocalPort.hashCode()
         result = 31 * result + this.dwOwningPid.hashCode()
         result = 31 * result + this.liCreateTimestamp.hashCode()
-        result = 31 * result + this.Anonymous.hashCode()
-        result = 31 * result + this.OwningModuleInfo.contentHashCode()
+        result = 31 * result + this.anonymous.hashCode()
+        result = 31 * result + this.owningModuleInfo.contentHashCode()
         return result
     }
 }
 
-public data class MIB_UDP6ROW_OWNER_MODULE_0(public var Anonymous: MIB_UDP6ROW_OWNER_MODULE_0_0 = MIB_UDP6ROW_OWNER_MODULE_0_0(), public var dwFlags: Int = 0)
+public data class MibUdp6rowOwnerModule0(public var anonymous: MibUdp6rowOwnerModule00 = MibUdp6rowOwnerModule00(), public var dwFlags: Int = 0)
 
-public data class MIB_UDP6ROW_OWNER_MODULE_0_0(public var _bitfield: Int = 0)
+public data class MibUdp6rowOwnerModule00(public var bitfield: Int = 0)
 
-public data class MIB_UDP6ROW_OWNER_PID(
+public data class MibUdp6rowOwnerPid(
     public var ucLocalAddr: UByteArray = UByteArray(16),
     public var dwLocalScopeId: UInt = 0u,
     public var dwLocalPort: UInt = 0u,
@@ -1574,7 +1561,7 @@ public data class MIB_UDP6ROW_OWNER_PID(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is MIB_UDP6ROW_OWNER_PID) return false
+        if (other !is MibUdp6rowOwnerPid) return false
         if (!this.ucLocalAddr.contentEquals(other.ucLocalAddr)) return false
         if (this.dwLocalScopeId != other.dwLocalScopeId) return false
         if (this.dwLocalPort != other.dwLocalPort) return false
@@ -1591,35 +1578,35 @@ public data class MIB_UDP6ROW_OWNER_PID(
     }
 }
 
-public data class MIB_UDP6TABLE(public var dwNumEntries: UInt = 0u, public var table: List<MIB_UDP6ROW> = List(1) { MIB_UDP6ROW() })
+public data class MibUdp6table(public var dwNumEntries: UInt = 0u, public var table: List<MibUdp6row> = List(1) { MibUdp6row() })
 
-public data class MIB_UDP6TABLE2(public var dwNumEntries: UInt = 0u, public var table: List<MIB_UDP6ROW2> = List(1) { MIB_UDP6ROW2() })
+public data class MibUdp6table2(public var dwNumEntries: UInt = 0u, public var table: List<MibUdp6row2> = List(1) { MibUdp6row2() })
 
-public data class MIB_UDP6TABLE_OWNER_MODULE(public var dwNumEntries: UInt = 0u, public var table: List<MIB_UDP6ROW_OWNER_MODULE> = List(1) { MIB_UDP6ROW_OWNER_MODULE() })
+public data class MibUdp6tableOwnerModule(public var dwNumEntries: UInt = 0u, public var table: List<MibUdp6rowOwnerModule> = List(1) { MibUdp6rowOwnerModule() })
 
-public data class MIB_UDP6TABLE_OWNER_PID(public var dwNumEntries: UInt = 0u, public var table: List<MIB_UDP6ROW_OWNER_PID> = List(1) { MIB_UDP6ROW_OWNER_PID() })
+public data class MibUdp6tableOwnerPid(public var dwNumEntries: UInt = 0u, public var table: List<MibUdp6rowOwnerPid> = List(1) { MibUdp6rowOwnerPid() })
 
-public data class MIB_UDPROW(public var dwLocalAddr: UInt = 0u, public var dwLocalPort: UInt = 0u)
+public data class MibUdprow(public var dwLocalAddr: UInt = 0u, public var dwLocalPort: UInt = 0u)
 
-public data class MIB_UDPROW2(
+public data class MibUdprow2(
     public var dwLocalAddr: UInt = 0u,
     public var dwLocalPort: UInt = 0u,
     public var dwOwningPid: UInt = 0u,
     public var liCreateTimestamp: Long = 0L,
-    public var Anonymous: MIB_UDPROW2_0 = MIB_UDPROW2_0(),
-    public var OwningModuleInfo: ULongArray = ULongArray(16),
+    public var anonymous: MibUdprow20 = MibUdprow20(),
+    public var owningModuleInfo: ULongArray = ULongArray(16),
     public var dwRemoteAddr: UInt = 0u,
     public var dwRemotePort: UInt = 0u,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is MIB_UDPROW2) return false
+        if (other !is MibUdprow2) return false
         if (this.dwLocalAddr != other.dwLocalAddr) return false
         if (this.dwLocalPort != other.dwLocalPort) return false
         if (this.dwOwningPid != other.dwOwningPid) return false
         if (this.liCreateTimestamp != other.liCreateTimestamp) return false
-        if (this.Anonymous != other.Anonymous) return false
-        if (!this.OwningModuleInfo.contentEquals(other.OwningModuleInfo)) return false
+        if (this.anonymous != other.anonymous) return false
+        if (!this.owningModuleInfo.contentEquals(other.owningModuleInfo)) return false
         if (this.dwRemoteAddr != other.dwRemoteAddr) return false
         if (this.dwRemotePort != other.dwRemotePort) return false
         return true
@@ -1630,35 +1617,35 @@ public data class MIB_UDPROW2(
         result = 31 * result + this.dwLocalPort.hashCode()
         result = 31 * result + this.dwOwningPid.hashCode()
         result = 31 * result + this.liCreateTimestamp.hashCode()
-        result = 31 * result + this.Anonymous.hashCode()
-        result = 31 * result + this.OwningModuleInfo.contentHashCode()
+        result = 31 * result + this.anonymous.hashCode()
+        result = 31 * result + this.owningModuleInfo.contentHashCode()
         result = 31 * result + this.dwRemoteAddr.hashCode()
         result = 31 * result + this.dwRemotePort.hashCode()
         return result
     }
 }
 
-public data class MIB_UDPROW2_0(public var Anonymous: MIB_UDPROW2_0_0 = MIB_UDPROW2_0_0(), public var dwFlags: Int = 0)
+public data class MibUdprow20(public var anonymous: MibUdprow200 = MibUdprow200(), public var dwFlags: Int = 0)
 
-public data class MIB_UDPROW2_0_0(public var _bitfield: Int = 0)
+public data class MibUdprow200(public var bitfield: Int = 0)
 
-public data class MIB_UDPROW_OWNER_MODULE(
+public data class MibUdprowOwnerModule(
     public var dwLocalAddr: UInt = 0u,
     public var dwLocalPort: UInt = 0u,
     public var dwOwningPid: UInt = 0u,
     public var liCreateTimestamp: Long = 0L,
-    public var Anonymous: MIB_UDPROW_OWNER_MODULE_0 = MIB_UDPROW_OWNER_MODULE_0(),
-    public var OwningModuleInfo: ULongArray = ULongArray(16),
+    public var anonymous: MibUdprowOwnerModule0 = MibUdprowOwnerModule0(),
+    public var owningModuleInfo: ULongArray = ULongArray(16),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is MIB_UDPROW_OWNER_MODULE) return false
+        if (other !is MibUdprowOwnerModule) return false
         if (this.dwLocalAddr != other.dwLocalAddr) return false
         if (this.dwLocalPort != other.dwLocalPort) return false
         if (this.dwOwningPid != other.dwOwningPid) return false
         if (this.liCreateTimestamp != other.liCreateTimestamp) return false
-        if (this.Anonymous != other.Anonymous) return false
-        if (!this.OwningModuleInfo.contentEquals(other.OwningModuleInfo)) return false
+        if (this.anonymous != other.anonymous) return false
+        if (!this.owningModuleInfo.contentEquals(other.owningModuleInfo)) return false
         return true
     }
 
@@ -1667,23 +1654,23 @@ public data class MIB_UDPROW_OWNER_MODULE(
         result = 31 * result + this.dwLocalPort.hashCode()
         result = 31 * result + this.dwOwningPid.hashCode()
         result = 31 * result + this.liCreateTimestamp.hashCode()
-        result = 31 * result + this.Anonymous.hashCode()
-        result = 31 * result + this.OwningModuleInfo.contentHashCode()
+        result = 31 * result + this.anonymous.hashCode()
+        result = 31 * result + this.owningModuleInfo.contentHashCode()
         return result
     }
 }
 
-public data class MIB_UDPROW_OWNER_MODULE_0(public var Anonymous: MIB_UDPROW_OWNER_MODULE_0_0 = MIB_UDPROW_OWNER_MODULE_0_0(), public var dwFlags: Int = 0)
+public data class MibUdprowOwnerModule0(public var anonymous: MibUdprowOwnerModule00 = MibUdprowOwnerModule00(), public var dwFlags: Int = 0)
 
-public data class MIB_UDPROW_OWNER_MODULE_0_0(public var _bitfield: Int = 0)
+public data class MibUdprowOwnerModule00(public var bitfield: Int = 0)
 
-public data class MIB_UDPROW_OWNER_PID(
+public data class MibUdprowOwnerPid(
     public var dwLocalAddr: UInt = 0u,
     public var dwLocalPort: UInt = 0u,
     public var dwOwningPid: UInt = 0u,
 )
 
-public data class MIB_UDPSTATS(
+public data class MibUdpstats(
     public var dwInDatagrams: UInt = 0u,
     public var dwNoPorts: UInt = 0u,
     public var dwInErrors: UInt = 0u,
@@ -1691,7 +1678,7 @@ public data class MIB_UDPSTATS(
     public var dwNumAddrs: UInt = 0u,
 )
 
-public data class MIB_UDPSTATS2(
+public data class MibUdpstats2(
     public var dw64InDatagrams: ULong = 0uL,
     public var dwNoPorts: UInt = 0u,
     public var dwInErrors: UInt = 0u,
@@ -1699,59 +1686,59 @@ public data class MIB_UDPSTATS2(
     public var dwNumAddrs: UInt = 0u,
 )
 
-public data class MIB_UDPTABLE(public var dwNumEntries: UInt = 0u, public var table: List<MIB_UDPROW> = List(1) { MIB_UDPROW() })
+public data class MibUdptable(public var dwNumEntries: UInt = 0u, public var table: List<MibUdprow> = List(1) { MibUdprow() })
 
-public data class MIB_UDPTABLE2(public var dwNumEntries: UInt = 0u, public var table: List<MIB_UDPROW2> = List(1) { MIB_UDPROW2() })
+public data class MibUdptable2(public var dwNumEntries: UInt = 0u, public var table: List<MibUdprow2> = List(1) { MibUdprow2() })
 
-public data class MIB_UDPTABLE_OWNER_MODULE(public var dwNumEntries: UInt = 0u, public var table: List<MIB_UDPROW_OWNER_MODULE> = List(1) { MIB_UDPROW_OWNER_MODULE() })
+public data class MibUdptableOwnerModule(public var dwNumEntries: UInt = 0u, public var table: List<MibUdprowOwnerModule> = List(1) { MibUdprowOwnerModule() })
 
-public data class MIB_UDPTABLE_OWNER_PID(public var dwNumEntries: UInt = 0u, public var table: List<MIB_UDPROW_OWNER_PID> = List(1) { MIB_UDPROW_OWNER_PID() })
+public data class MibUdptableOwnerPid(public var dwNumEntries: UInt = 0u, public var table: List<MibUdprowOwnerPid> = List(1) { MibUdprowOwnerPid() })
 
-public data class MIB_UNICASTIPADDRESS_ROW(
-    public var Address: SOCKADDR_INET = SOCKADDR_INET(),
-    public var InterfaceLuid: NET_LUID_LH = NET_LUID_LH(),
-    public var InterfaceIndex: UInt = 0u,
-    public var PrefixOrigin: NL_PREFIX_ORIGIN = 0,
-    public var SuffixOrigin: NL_SUFFIX_ORIGIN = 0,
-    public var ValidLifetime: UInt = 0u,
-    public var PreferredLifetime: UInt = 0u,
-    public var OnLinkPrefixLength: UByte = 0u,
-    public var SkipAsSource: Boolean = false,
-    public var DadState: NL_DAD_STATE = 0,
-    public var ScopeId: SCOPE_ID = SCOPE_ID(),
-    public var CreationTimeStamp: Long = 0L,
+public data class MibUnicastipaddressRow(
+    public var address: SockaddrInet = SockaddrInet(),
+    public var interfaceLuid: NetLuidLh = NetLuidLh(),
+    public var interfaceIndex: UInt = 0u,
+    public var prefixOrigin: NlPrefixOrigin = 0,
+    public var suffixOrigin: NlSuffixOrigin = 0,
+    public var validLifetime: UInt = 0u,
+    public var preferredLifetime: UInt = 0u,
+    public var onLinkPrefixLength: UByte = 0u,
+    public var skipAsSource: Boolean = false,
+    public var dadState: NlDadState = 0,
+    public var scopeId: ScopeId = ScopeId(),
+    public var creationTimeStamp: Long = 0L,
 )
 
-public data class MIB_UNICASTIPADDRESS_TABLE(public var NumEntries: UInt = 0u, public var Table: List<MIB_UNICASTIPADDRESS_ROW> = List(1) { MIB_UNICASTIPADDRESS_ROW() })
+public data class MibUnicastipaddressTable(public var numEntries: UInt = 0u, public var table: List<MibUnicastipaddressRow> = List(1) { MibUnicastipaddressRow() })
 
-public data class NET_ADDRESS_INFO(public var Format: NET_ADDRESS_FORMAT = 0, public var Anonymous: NET_ADDRESS_INFO_0 = NET_ADDRESS_INFO_0())
+public data class NetAddressInfo(public var format: NetAddressFormat = 0, public var anonymous: NetAddressInfo0 = NetAddressInfo0())
 
-public data class NET_ADDRESS_INFO_0(
-    public var NamedAddress: NET_ADDRESS_INFO_0_0 = NET_ADDRESS_INFO_0_0(),
-    public var Ipv4Address: SOCKADDR_IN = SOCKADDR_IN(),
-    public var Ipv6Address: SOCKADDR_IN6 = SOCKADDR_IN6(),
-    public var IpAddress: SOCKADDR = SOCKADDR(),
+public data class NetAddressInfo0(
+    public var namedAddress: NetAddressInfo00 = NetAddressInfo00(),
+    public var ipv4Address: SockaddrIn = SockaddrIn(),
+    public var ipv6Address: SockaddrIn6 = SockaddrIn6(),
+    public var ipAddress: Sockaddr = Sockaddr(),
 )
 
-public data class NET_ADDRESS_INFO_0_0(public var Address: UShortArray = UShortArray(256), public var Port: UShortArray = UShortArray(6)) {
+public data class NetAddressInfo00(public var address: UShortArray = UShortArray(256), public var port: UShortArray = UShortArray(6)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NET_ADDRESS_INFO_0_0) return false
-        if (!this.Address.contentEquals(other.Address)) return false
-        if (!this.Port.contentEquals(other.Port)) return false
+        if (other !is NetAddressInfo00) return false
+        if (!this.address.contentEquals(other.address)) return false
+        if (!this.port.contentEquals(other.port)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Address.contentHashCode()
-        result = 31 * result + this.Port.contentHashCode()
+        var result = this.address.contentHashCode()
+        result = 31 * result + this.port.contentHashCode()
         return result
     }
 }
 
-public data class PFLOGFRAME(
-    public var Timestamp: Long = 0L,
-    public var pfeTypeOfFrame: PFFRAMETYPE = 0,
+public data class Pflogframe(
+    public var timestamp: Long = 0L,
+    public var pfeTypeOfFrame: Pfframetype = 0,
     public var dwTotalSizeUsed: UInt = 0u,
     public var dwFilterRule: UInt = 0u,
     public var wSizeOfAdditionalData: UShort = 0u,
@@ -1762,8 +1749,8 @@ public data class PFLOGFRAME(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is PFLOGFRAME) return false
-        if (this.Timestamp != other.Timestamp) return false
+        if (other !is Pflogframe) return false
+        if (this.timestamp != other.timestamp) return false
         if (this.pfeTypeOfFrame != other.pfeTypeOfFrame) return false
         if (this.dwTotalSizeUsed != other.dwTotalSizeUsed) return false
         if (this.dwFilterRule != other.dwFilterRule) return false
@@ -1776,7 +1763,7 @@ public data class PFLOGFRAME(
     }
 
     override fun hashCode(): Int {
-        var result = this.Timestamp.hashCode()
+        var result = this.timestamp.hashCode()
         result = 31 * result + this.pfeTypeOfFrame.hashCode()
         result = 31 * result + this.dwTotalSizeUsed.hashCode()
         result = 31 * result + this.dwFilterRule.hashCode()
@@ -1789,14 +1776,14 @@ public data class PFLOGFRAME(
     }
 }
 
-public data class PF_FILTER_DESCRIPTOR(
+public data class PfFilterDescriptor(
     public var dwFilterFlags: UInt = 0u,
     public var dwRule: UInt = 0u,
-    public var pfatType: PFADDRESSTYPE = 0,
-    public var SrcAddr: Long = 0L,
-    public var SrcMask: Long = 0L,
-    public var DstAddr: Long = 0L,
-    public var DstMask: Long = 0L,
+    public var pfatType: Pfaddresstype = 0,
+    public var srcAddr: COpaquePointer? = null,
+    public var srcMask: COpaquePointer? = null,
+    public var dstAddr: COpaquePointer? = null,
+    public var dstMask: COpaquePointer? = null,
     public var dwProtocol: UInt = 0u,
     public var fLateBound: UInt = 0u,
     public var wSrcPort: UShort = 0u,
@@ -1805,15 +1792,15 @@ public data class PF_FILTER_DESCRIPTOR(
     public var wDstPortHighRange: UShort = 0u,
 )
 
-public data class PF_FILTER_STATS(public var dwNumPacketsFiltered: UInt = 0u, public var info: PF_FILTER_DESCRIPTOR = PF_FILTER_DESCRIPTOR())
+public data class PfFilterStats(public var dwNumPacketsFiltered: UInt = 0u, public var info: PfFilterDescriptor = PfFilterDescriptor())
 
-public data class PF_INTERFACE_STATS(
-    public var pvDriverContext: Long = 0L,
+public data class PfInterfaceStats(
+    public var pvDriverContext: COpaquePointer? = null,
     public var dwFlags: UInt = 0u,
     public var dwInDrops: UInt = 0u,
     public var dwOutDrops: UInt = 0u,
-    public var eaInAction: PFFORWARD_ACTION = 0,
-    public var eaOutAction: PFFORWARD_ACTION = 0,
+    public var eaInAction: PfforwardAction = 0,
+    public var eaOutAction: PfforwardAction = 0,
     public var dwNumInFilters: UInt = 0u,
     public var dwNumOutFilters: UInt = 0u,
     public var dwFrag: UInt = 0u,
@@ -1823,167 +1810,167 @@ public data class PF_INTERFACE_STATS(
     public var liSYN: Long = 0L,
     public var liTotalLogged: Long = 0L,
     public var dwLostLogEntries: UInt = 0u,
-    public var FilterInfo: List<PF_FILTER_STATS> = List(1) { PF_FILTER_STATS() },
+    public var filterInfo: List<PfFilterStats> = List(1) { PfFilterStats() },
 )
 
-public data class PF_LATEBIND_INFO(
-    public var SrcAddr: Long = 0L,
-    public var DstAddr: Long = 0L,
-    public var Mask: Long = 0L,
+public data class PfLatebindInfo(
+    public var srcAddr: COpaquePointer? = null,
+    public var dstAddr: COpaquePointer? = null,
+    public var mask: COpaquePointer? = null,
 )
 
-public data class TCPIP_OWNER_MODULE_BASIC_INFO(public var pModuleName: PWSTR = 0L, public var pModulePath: PWSTR = 0L)
+public data class TcpipOwnerModuleBasicInfo(public var pModuleName: Pwstr = null, public var pModulePath: Pwstr = null)
 
-public data class TCP_ESTATS_BANDWIDTH_ROD_v0(
-    public var OutboundBandwidth: ULong = 0uL,
-    public var InboundBandwidth: ULong = 0uL,
-    public var OutboundInstability: ULong = 0uL,
-    public var InboundInstability: ULong = 0uL,
-    public var OutboundBandwidthPeaked: Boolean = false,
-    public var InboundBandwidthPeaked: Boolean = false,
+public data class TcpEstatsBandwidthRodV0(
+    public var outboundBandwidth: ULong = 0uL,
+    public var inboundBandwidth: ULong = 0uL,
+    public var outboundInstability: ULong = 0uL,
+    public var inboundInstability: ULong = 0uL,
+    public var outboundBandwidthPeaked: Boolean = false,
+    public var inboundBandwidthPeaked: Boolean = false,
 )
 
-public data class TCP_ESTATS_BANDWIDTH_RW_v0(public var EnableCollectionOutbound: TCP_BOOLEAN_OPTIONAL = 0, public var EnableCollectionInbound: TCP_BOOLEAN_OPTIONAL = 0)
+public data class TcpEstatsBandwidthRwV0(public var enableCollectionOutbound: TcpBooleanOptional = 0, public var enableCollectionInbound: TcpBooleanOptional = 0)
 
-public data class TCP_ESTATS_DATA_ROD_v0(
-    public var DataBytesOut: ULong = 0uL,
-    public var DataSegsOut: ULong = 0uL,
-    public var DataBytesIn: ULong = 0uL,
-    public var DataSegsIn: ULong = 0uL,
-    public var SegsOut: ULong = 0uL,
-    public var SegsIn: ULong = 0uL,
-    public var SoftErrors: UInt = 0u,
-    public var SoftErrorReason: UInt = 0u,
-    public var SndUna: UInt = 0u,
-    public var SndNxt: UInt = 0u,
-    public var SndMax: UInt = 0u,
-    public var ThruBytesAcked: ULong = 0uL,
-    public var RcvNxt: UInt = 0u,
-    public var ThruBytesReceived: ULong = 0uL,
+public data class TcpEstatsDataRodV0(
+    public var dataBytesOut: ULong = 0uL,
+    public var dataSegsOut: ULong = 0uL,
+    public var dataBytesIn: ULong = 0uL,
+    public var dataSegsIn: ULong = 0uL,
+    public var segsOut: ULong = 0uL,
+    public var segsIn: ULong = 0uL,
+    public var softErrors: UInt = 0u,
+    public var softErrorReason: UInt = 0u,
+    public var sndUna: UInt = 0u,
+    public var sndNxt: UInt = 0u,
+    public var sndMax: UInt = 0u,
+    public var thruBytesAcked: ULong = 0uL,
+    public var rcvNxt: UInt = 0u,
+    public var thruBytesReceived: ULong = 0uL,
 )
 
-public data class TCP_ESTATS_DATA_RW_v0(public var EnableCollection: Boolean = false)
+public data class TcpEstatsDataRwV0(public var enableCollection: Boolean = false)
 
-public data class TCP_ESTATS_FINE_RTT_ROD_v0(
-    public var RttVar: UInt = 0u,
-    public var MaxRtt: UInt = 0u,
-    public var MinRtt: UInt = 0u,
-    public var SumRtt: UInt = 0u,
+public data class TcpEstatsFineRttRodV0(
+    public var rttVar: UInt = 0u,
+    public var maxRtt: UInt = 0u,
+    public var minRtt: UInt = 0u,
+    public var sumRtt: UInt = 0u,
 )
 
-public data class TCP_ESTATS_FINE_RTT_RW_v0(public var EnableCollection: Boolean = false)
+public data class TcpEstatsFineRttRwV0(public var enableCollection: Boolean = false)
 
-public data class TCP_ESTATS_OBS_REC_ROD_v0(
-    public var CurRwinRcvd: UInt = 0u,
-    public var MaxRwinRcvd: UInt = 0u,
-    public var MinRwinRcvd: UInt = 0u,
-    public var WinScaleRcvd: UByte = 0u,
+public data class TcpEstatsObsRecRodV0(
+    public var curRwinRcvd: UInt = 0u,
+    public var maxRwinRcvd: UInt = 0u,
+    public var minRwinRcvd: UInt = 0u,
+    public var winScaleRcvd: UByte = 0u,
 )
 
-public data class TCP_ESTATS_OBS_REC_RW_v0(public var EnableCollection: Boolean = false)
+public data class TcpEstatsObsRecRwV0(public var enableCollection: Boolean = false)
 
-public class TCP_ESTATS_PATH_ROD_v0(
-    public var FastRetran: UInt = 0u,
-    public var Timeouts: UInt = 0u,
-    public var SubsequentTimeouts: UInt = 0u,
-    public var CurTimeoutCount: UInt = 0u,
-    public var AbruptTimeouts: UInt = 0u,
-    public var PktsRetrans: UInt = 0u,
-    public var BytesRetrans: UInt = 0u,
-    public var DupAcksIn: UInt = 0u,
-    public var SacksRcvd: UInt = 0u,
-    public var SackBlocksRcvd: UInt = 0u,
-    public var CongSignals: UInt = 0u,
-    public var PreCongSumCwnd: UInt = 0u,
-    public var PreCongSumRtt: UInt = 0u,
-    public var PostCongSumRtt: UInt = 0u,
-    public var PostCongCountRtt: UInt = 0u,
-    public var EcnSignals: UInt = 0u,
-    public var EceRcvd: UInt = 0u,
-    public var SendStall: UInt = 0u,
-    public var QuenchRcvd: UInt = 0u,
-    public var RetranThresh: UInt = 0u,
-    public var SndDupAckEpisodes: UInt = 0u,
-    public var SumBytesReordered: UInt = 0u,
-    public var NonRecovDa: UInt = 0u,
-    public var NonRecovDaEpisodes: UInt = 0u,
-    public var AckAfterFr: UInt = 0u,
-    public var DsackDups: UInt = 0u,
-    public var SampleRtt: UInt = 0u,
-    public var SmoothedRtt: UInt = 0u,
-    public var RttVar: UInt = 0u,
-    public var MaxRtt: UInt = 0u,
-    public var MinRtt: UInt = 0u,
-    public var SumRtt: UInt = 0u,
-    public var CountRtt: UInt = 0u,
-    public var CurRto: UInt = 0u,
-    public var MaxRto: UInt = 0u,
-    public var MinRto: UInt = 0u,
-    public var CurMss: UInt = 0u,
-    public var MaxMss: UInt = 0u,
-    public var MinMss: UInt = 0u,
-    public var SpuriousRtoDetections: UInt = 0u,
+public class TcpEstatsPathRodV0(
+    public var fastRetran: UInt = 0u,
+    public var timeouts: UInt = 0u,
+    public var subsequentTimeouts: UInt = 0u,
+    public var curTimeoutCount: UInt = 0u,
+    public var abruptTimeouts: UInt = 0u,
+    public var pktsRetrans: UInt = 0u,
+    public var bytesRetrans: UInt = 0u,
+    public var dupAcksIn: UInt = 0u,
+    public var sacksRcvd: UInt = 0u,
+    public var sackBlocksRcvd: UInt = 0u,
+    public var congSignals: UInt = 0u,
+    public var preCongSumCwnd: UInt = 0u,
+    public var preCongSumRtt: UInt = 0u,
+    public var postCongSumRtt: UInt = 0u,
+    public var postCongCountRtt: UInt = 0u,
+    public var ecnSignals: UInt = 0u,
+    public var eceRcvd: UInt = 0u,
+    public var sendStall: UInt = 0u,
+    public var quenchRcvd: UInt = 0u,
+    public var retranThresh: UInt = 0u,
+    public var sndDupAckEpisodes: UInt = 0u,
+    public var sumBytesReordered: UInt = 0u,
+    public var nonRecovDa: UInt = 0u,
+    public var nonRecovDaEpisodes: UInt = 0u,
+    public var ackAfterFr: UInt = 0u,
+    public var dsackDups: UInt = 0u,
+    public var sampleRtt: UInt = 0u,
+    public var smoothedRtt: UInt = 0u,
+    public var rttVar: UInt = 0u,
+    public var maxRtt: UInt = 0u,
+    public var minRtt: UInt = 0u,
+    public var sumRtt: UInt = 0u,
+    public var countRtt: UInt = 0u,
+    public var curRto: UInt = 0u,
+    public var maxRto: UInt = 0u,
+    public var minRto: UInt = 0u,
+    public var curMss: UInt = 0u,
+    public var maxMss: UInt = 0u,
+    public var minMss: UInt = 0u,
+    public var spuriousRtoDetections: UInt = 0u,
 )
 
-public data class TCP_ESTATS_PATH_RW_v0(public var EnableCollection: Boolean = false)
+public data class TcpEstatsPathRwV0(public var enableCollection: Boolean = false)
 
-public data class TCP_ESTATS_REC_ROD_v0(
-    public var CurRwinSent: UInt = 0u,
-    public var MaxRwinSent: UInt = 0u,
-    public var MinRwinSent: UInt = 0u,
-    public var LimRwin: UInt = 0u,
-    public var DupAckEpisodes: UInt = 0u,
-    public var DupAcksOut: UInt = 0u,
-    public var CeRcvd: UInt = 0u,
-    public var EcnSent: UInt = 0u,
-    public var EcnNoncesRcvd: UInt = 0u,
-    public var CurReasmQueue: UInt = 0u,
-    public var MaxReasmQueue: UInt = 0u,
-    public var CurAppRQueue: ULong = 0uL,
-    public var MaxAppRQueue: ULong = 0uL,
-    public var WinScaleSent: UByte = 0u,
+public data class TcpEstatsRecRodV0(
+    public var curRwinSent: UInt = 0u,
+    public var maxRwinSent: UInt = 0u,
+    public var minRwinSent: UInt = 0u,
+    public var limRwin: UInt = 0u,
+    public var dupAckEpisodes: UInt = 0u,
+    public var dupAcksOut: UInt = 0u,
+    public var ceRcvd: UInt = 0u,
+    public var ecnSent: UInt = 0u,
+    public var ecnNoncesRcvd: UInt = 0u,
+    public var curReasmQueue: UInt = 0u,
+    public var maxReasmQueue: UInt = 0u,
+    public var curAppRQueue: Int = 0,
+    public var maxAppRQueue: Int = 0,
+    public var winScaleSent: UByte = 0u,
 )
 
-public data class TCP_ESTATS_REC_RW_v0(public var EnableCollection: Boolean = false)
+public data class TcpEstatsRecRwV0(public var enableCollection: Boolean = false)
 
-public data class TCP_ESTATS_SEND_BUFF_ROD_v0(
-    public var CurRetxQueue: ULong = 0uL,
-    public var MaxRetxQueue: ULong = 0uL,
-    public var CurAppWQueue: ULong = 0uL,
-    public var MaxAppWQueue: ULong = 0uL,
+public data class TcpEstatsSendBuffRodV0(
+    public var curRetxQueue: Int = 0,
+    public var maxRetxQueue: Int = 0,
+    public var curAppWQueue: Int = 0,
+    public var maxAppWQueue: Int = 0,
 )
 
-public data class TCP_ESTATS_SEND_BUFF_RW_v0(public var EnableCollection: Boolean = false)
+public data class TcpEstatsSendBuffRwV0(public var enableCollection: Boolean = false)
 
-public class TCP_ESTATS_SND_CONG_ROD_v0(
-    public var SndLimTransRwin: UInt = 0u,
-    public var SndLimTimeRwin: UInt = 0u,
-    public var SndLimBytesRwin: ULong = 0uL,
-    public var SndLimTransCwnd: UInt = 0u,
-    public var SndLimTimeCwnd: UInt = 0u,
-    public var SndLimBytesCwnd: ULong = 0uL,
-    public var SndLimTransSnd: UInt = 0u,
-    public var SndLimTimeSnd: UInt = 0u,
-    public var SndLimBytesSnd: ULong = 0uL,
-    public var SlowStart: UInt = 0u,
-    public var CongAvoid: UInt = 0u,
-    public var OtherReductions: UInt = 0u,
-    public var CurCwnd: UInt = 0u,
-    public var MaxSsCwnd: UInt = 0u,
-    public var MaxCaCwnd: UInt = 0u,
-    public var CurSsthresh: UInt = 0u,
-    public var MaxSsthresh: UInt = 0u,
-    public var MinSsthresh: UInt = 0u,
+public class TcpEstatsSndCongRodV0(
+    public var sndLimTransRwin: UInt = 0u,
+    public var sndLimTimeRwin: UInt = 0u,
+    public var sndLimBytesRwin: Int = 0,
+    public var sndLimTransCwnd: UInt = 0u,
+    public var sndLimTimeCwnd: UInt = 0u,
+    public var sndLimBytesCwnd: Int = 0,
+    public var sndLimTransSnd: UInt = 0u,
+    public var sndLimTimeSnd: UInt = 0u,
+    public var sndLimBytesSnd: Int = 0,
+    public var slowStart: UInt = 0u,
+    public var congAvoid: UInt = 0u,
+    public var otherReductions: UInt = 0u,
+    public var curCwnd: UInt = 0u,
+    public var maxSsCwnd: UInt = 0u,
+    public var maxCaCwnd: UInt = 0u,
+    public var curSsthresh: UInt = 0u,
+    public var maxSsthresh: UInt = 0u,
+    public var minSsthresh: UInt = 0u,
 )
 
-public data class TCP_ESTATS_SND_CONG_ROS_v0(public var LimCwnd: UInt = 0u)
+public data class TcpEstatsSndCongRosV0(public var limCwnd: UInt = 0u)
 
-public data class TCP_ESTATS_SND_CONG_RW_v0(public var EnableCollection: Boolean = false)
+public data class TcpEstatsSndCongRwV0(public var enableCollection: Boolean = false)
 
-public data class TCP_ESTATS_SYN_OPTS_ROS_v0(
-    public var ActiveOpen: Boolean = false,
-    public var MssRcvd: UInt = 0u,
-    public var MssSent: UInt = 0u,
+public data class TcpEstatsSynOptsRosV0(
+    public var activeOpen: Boolean = false,
+    public var mssRcvd: UInt = 0u,
+    public var mssSent: UInt = 0u,
 )
 
-public data class TCP_RESERVE_PORT_RANGE(public var UpperRange: UShort = 0u, public var LowerRange: UShort = 0u)
+public data class TcpReservePortRange(public var upperRange: UShort = 0u, public var lowerRange: UShort = 0u)

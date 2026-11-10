@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_system_hostcomputesystem_HcsAddResourceToOperation(void* operation, int32_t type, void* uri, void* handle) {
+int32_t windowssys_windows_win32_system_hostcomputesystem_hcsAddResourceToOperation(void* operation, int32_t type, void* uri, void* handle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -40,7 +40,7 @@ int32_t windowssys_windows_win32_system_hostcomputesystem_HcsAddResourceToOperat
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputesystem_HcsAttachLayerStorageFilter(void* layerpath, void* layerdata) {
+int32_t windowssys_windows_win32_system_hostcomputesystem_hcsAttachLayerStorageFilter(void* layerpath, void* layerdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -63,7 +63,7 @@ int32_t windowssys_windows_win32_system_hostcomputesystem_HcsAttachLayerStorageF
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputesystem_HcsCancelOperation(void* operation) {
+int32_t windowssys_windows_win32_system_hostcomputesystem_hcsCancelOperation(void* operation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -85,7 +85,7 @@ int32_t windowssys_windows_win32_system_hostcomputesystem_HcsCancelOperation(voi
 #endif
 }
 
-void windowssys_windows_win32_system_hostcomputesystem_HcsCloseComputeSystem(void* computesystem) {
+void windowssys_windows_win32_system_hostcomputesystem_hcsCloseComputeSystem(void* computesystem) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -106,7 +106,7 @@ void windowssys_windows_win32_system_hostcomputesystem_HcsCloseComputeSystem(voi
 #endif
 }
 
-void windowssys_windows_win32_system_hostcomputesystem_HcsCloseOperation(void* operation) {
+void windowssys_windows_win32_system_hostcomputesystem_hcsCloseOperation(void* operation) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -127,7 +127,7 @@ void windowssys_windows_win32_system_hostcomputesystem_HcsCloseOperation(void* o
 #endif
 }
 
-void windowssys_windows_win32_system_hostcomputesystem_HcsCloseProcess(void* process) {
+void windowssys_windows_win32_system_hostcomputesystem_hcsCloseProcess(void* process) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -148,7 +148,7 @@ void windowssys_windows_win32_system_hostcomputesystem_HcsCloseProcess(void* pro
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputesystem_HcsCrashComputeSystem(void* computesystem, void* operation, void* options) {
+int32_t windowssys_windows_win32_system_hostcomputesystem_hcsCrashComputeSystem(void* computesystem, void* operation, void* options) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -172,7 +172,7 @@ int32_t windowssys_windows_win32_system_hostcomputesystem_HcsCrashComputeSystem(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputesystem_HcsCreateComputeSystem(void* id, void* configuration, void* operation, void* securitydescriptor, void* computesystem) {
+int32_t windowssys_windows_win32_system_hostcomputesystem_hcsCreateComputeSystem(void* id, void* configuration, void* operation, void* securitydescriptor, void* computesystem) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -198,7 +198,7 @@ int32_t windowssys_windows_win32_system_hostcomputesystem_HcsCreateComputeSystem
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputesystem_HcsCreateComputeSystemInNamespace(void* idnamespace, void* id, void* configuration, void* operation, void* options, void* computesystem) {
+int32_t windowssys_windows_win32_system_hostcomputesystem_hcsCreateComputeSystemInNamespace(void* idnamespace, void* id, void* configuration, void* operation, void* options, void* computesystem) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -225,7 +225,7 @@ int32_t windowssys_windows_win32_system_hostcomputesystem_HcsCreateComputeSystem
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputesystem_HcsCreateEmptyGuestStateFile(void* gueststatefilepath) {
+int32_t windowssys_windows_win32_system_hostcomputesystem_hcsCreateEmptyGuestStateFile(void* gueststatefilepath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -247,7 +247,7 @@ int32_t windowssys_windows_win32_system_hostcomputesystem_HcsCreateEmptyGuestSta
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputesystem_HcsCreateEmptyRuntimeStateFile(void* runtimestatefilepath) {
+int32_t windowssys_windows_win32_system_hostcomputesystem_hcsCreateEmptyRuntimeStateFile(void* runtimestatefilepath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -269,7 +269,7 @@ int32_t windowssys_windows_win32_system_hostcomputesystem_HcsCreateEmptyRuntimeS
 #endif
 }
 
-void* windowssys_windows_win32_system_hostcomputesystem_HcsCreateOperation(void* context, void* callback) {
+void* windowssys_windows_win32_system_hostcomputesystem_hcsCreateOperation(void* context, void* callback) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -292,7 +292,7 @@ void* windowssys_windows_win32_system_hostcomputesystem_HcsCreateOperation(void*
 #endif
 }
 
-void* windowssys_windows_win32_system_hostcomputesystem_HcsCreateOperationWithNotifications(int32_t eventtypes, void* context, void* callback) {
+void* windowssys_windows_win32_system_hostcomputesystem_hcsCreateOperationWithNotifications(int32_t eventtypes, void* context, void* callback) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -316,7 +316,7 @@ void* windowssys_windows_win32_system_hostcomputesystem_HcsCreateOperationWithNo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputesystem_HcsCreateProcess(void* computesystem, void* processparameters, void* operation, void* securitydescriptor, void* process) {
+int32_t windowssys_windows_win32_system_hostcomputesystem_hcsCreateProcess(void* computesystem, void* processparameters, void* operation, void* securitydescriptor, void* process) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -342,7 +342,7 @@ int32_t windowssys_windows_win32_system_hostcomputesystem_HcsCreateProcess(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputesystem_HcsDestroyLayer(void* layerpath) {
+int32_t windowssys_windows_win32_system_hostcomputesystem_hcsDestroyLayer(void* layerpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -364,7 +364,7 @@ int32_t windowssys_windows_win32_system_hostcomputesystem_HcsDestroyLayer(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputesystem_HcsDetachLayerStorageFilter(void* layerpath) {
+int32_t windowssys_windows_win32_system_hostcomputesystem_hcsDetachLayerStorageFilter(void* layerpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -386,7 +386,7 @@ int32_t windowssys_windows_win32_system_hostcomputesystem_HcsDetachLayerStorageF
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputesystem_HcsEnumerateComputeSystems(void* query, void* operation) {
+int32_t windowssys_windows_win32_system_hostcomputesystem_hcsEnumerateComputeSystems(void* query, void* operation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -409,7 +409,7 @@ int32_t windowssys_windows_win32_system_hostcomputesystem_HcsEnumerateComputeSys
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputesystem_HcsEnumerateComputeSystemsInNamespace(void* idnamespace, void* query, void* operation) {
+int32_t windowssys_windows_win32_system_hostcomputesystem_hcsEnumerateComputeSystemsInNamespace(void* idnamespace, void* query, void* operation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -433,7 +433,7 @@ int32_t windowssys_windows_win32_system_hostcomputesystem_HcsEnumerateComputeSys
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputesystem_HcsExportLayer(void* layerpath, void* exportfolderpath, void* layerdata, void* options) {
+int32_t windowssys_windows_win32_system_hostcomputesystem_hcsExportLayer(void* layerpath, void* exportfolderpath, void* layerdata, void* options) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -458,7 +458,7 @@ int32_t windowssys_windows_win32_system_hostcomputesystem_HcsExportLayer(void* l
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputesystem_HcsExportLegacyWritableLayer(void* writablelayermountpath, void* writablelayerfolderpath, void* exportfolderpath, void* layerdata) {
+int32_t windowssys_windows_win32_system_hostcomputesystem_hcsExportLegacyWritableLayer(void* writablelayermountpath, void* writablelayerfolderpath, void* exportfolderpath, void* layerdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -483,7 +483,7 @@ int32_t windowssys_windows_win32_system_hostcomputesystem_HcsExportLegacyWritabl
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputesystem_HcsFormatWritableLayerVhd(void* vhdhandle) {
+int32_t windowssys_windows_win32_system_hostcomputesystem_hcsFormatWritableLayerVhd(void* vhdhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -505,7 +505,7 @@ int32_t windowssys_windows_win32_system_hostcomputesystem_HcsFormatWritableLayer
 #endif
 }
 
-void* windowssys_windows_win32_system_hostcomputesystem_HcsGetComputeSystemFromOperation(void* operation) {
+void* windowssys_windows_win32_system_hostcomputesystem_hcsGetComputeSystemFromOperation(void* operation) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -527,7 +527,7 @@ void* windowssys_windows_win32_system_hostcomputesystem_HcsGetComputeSystemFromO
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputesystem_HcsGetComputeSystemProperties(void* computesystem, void* operation, void* propertyquery) {
+int32_t windowssys_windows_win32_system_hostcomputesystem_hcsGetComputeSystemProperties(void* computesystem, void* operation, void* propertyquery) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -551,7 +551,7 @@ int32_t windowssys_windows_win32_system_hostcomputesystem_HcsGetComputeSystemPro
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputesystem_HcsGetLayerVhdMountPath(void* vhdhandle, void* mountpath) {
+int32_t windowssys_windows_win32_system_hostcomputesystem_hcsGetLayerVhdMountPath(void* vhdhandle, void* mountpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -574,7 +574,7 @@ int32_t windowssys_windows_win32_system_hostcomputesystem_HcsGetLayerVhdMountPat
 #endif
 }
 
-void* windowssys_windows_win32_system_hostcomputesystem_HcsGetOperationContext(void* operation) {
+void* windowssys_windows_win32_system_hostcomputesystem_hcsGetOperationContext(void* operation) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -596,7 +596,7 @@ void* windowssys_windows_win32_system_hostcomputesystem_HcsGetOperationContext(v
 #endif
 }
 
-uint64_t windowssys_windows_win32_system_hostcomputesystem_HcsGetOperationId(void* operation) {
+uint64_t windowssys_windows_win32_system_hostcomputesystem_hcsGetOperationId(void* operation) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -618,7 +618,7 @@ uint64_t windowssys_windows_win32_system_hostcomputesystem_HcsGetOperationId(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputesystem_HcsGetOperationResult(void* operation, void* resultdocument) {
+int32_t windowssys_windows_win32_system_hostcomputesystem_hcsGetOperationResult(void* operation, void* resultdocument) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -641,7 +641,7 @@ int32_t windowssys_windows_win32_system_hostcomputesystem_HcsGetOperationResult(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputesystem_HcsGetOperationResultAndProcessInfo(void* operation, void* processinformation, void* resultdocument) {
+int32_t windowssys_windows_win32_system_hostcomputesystem_hcsGetOperationResultAndProcessInfo(void* operation, void* processinformation, void* resultdocument) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -665,7 +665,7 @@ int32_t windowssys_windows_win32_system_hostcomputesystem_HcsGetOperationResultA
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputesystem_HcsGetOperationType(void* operation) {
+int32_t windowssys_windows_win32_system_hostcomputesystem_hcsGetOperationType(void* operation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -687,7 +687,7 @@ int32_t windowssys_windows_win32_system_hostcomputesystem_HcsGetOperationType(vo
 #endif
 }
 
-void* windowssys_windows_win32_system_hostcomputesystem_HcsGetProcessFromOperation(void* operation) {
+void* windowssys_windows_win32_system_hostcomputesystem_hcsGetProcessFromOperation(void* operation) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -709,7 +709,7 @@ void* windowssys_windows_win32_system_hostcomputesystem_HcsGetProcessFromOperati
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputesystem_HcsGetProcessInfo(void* process, void* operation) {
+int32_t windowssys_windows_win32_system_hostcomputesystem_hcsGetProcessInfo(void* process, void* operation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -732,7 +732,7 @@ int32_t windowssys_windows_win32_system_hostcomputesystem_HcsGetProcessInfo(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputesystem_HcsGetProcessProperties(void* process, void* operation, void* propertyquery) {
+int32_t windowssys_windows_win32_system_hostcomputesystem_hcsGetProcessProperties(void* process, void* operation, void* propertyquery) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -756,7 +756,7 @@ int32_t windowssys_windows_win32_system_hostcomputesystem_HcsGetProcessPropertie
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputesystem_HcsGetProcessorCompatibilityFromSavedState(void* runtimefilename, void* processorfeaturesstring) {
+int32_t windowssys_windows_win32_system_hostcomputesystem_hcsGetProcessorCompatibilityFromSavedState(void* runtimefilename, void* processorfeaturesstring) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -779,7 +779,7 @@ int32_t windowssys_windows_win32_system_hostcomputesystem_HcsGetProcessorCompati
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputesystem_HcsGetServiceProperties(void* propertyquery, void* result) {
+int32_t windowssys_windows_win32_system_hostcomputesystem_hcsGetServiceProperties(void* propertyquery, void* result) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -802,7 +802,7 @@ int32_t windowssys_windows_win32_system_hostcomputesystem_HcsGetServicePropertie
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputesystem_HcsGrantVmAccess(void* vmid, void* filepath) {
+int32_t windowssys_windows_win32_system_hostcomputesystem_hcsGrantVmAccess(void* vmid, void* filepath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -825,7 +825,7 @@ int32_t windowssys_windows_win32_system_hostcomputesystem_HcsGrantVmAccess(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputesystem_HcsGrantVmGroupAccess(void* filepath) {
+int32_t windowssys_windows_win32_system_hostcomputesystem_hcsGrantVmGroupAccess(void* filepath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -847,7 +847,7 @@ int32_t windowssys_windows_win32_system_hostcomputesystem_HcsGrantVmGroupAccess(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputesystem_HcsImportLayer(void* layerpath, void* sourcefolderpath, void* layerdata) {
+int32_t windowssys_windows_win32_system_hostcomputesystem_hcsImportLayer(void* layerpath, void* sourcefolderpath, void* layerdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -871,7 +871,7 @@ int32_t windowssys_windows_win32_system_hostcomputesystem_HcsImportLayer(void* l
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputesystem_HcsInitializeLegacyWritableLayer(void* writablelayermountpath, void* writablelayerfolderpath, void* layerdata, void* options) {
+int32_t windowssys_windows_win32_system_hostcomputesystem_hcsInitializeLegacyWritableLayer(void* writablelayermountpath, void* writablelayerfolderpath, void* layerdata, void* options) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -896,7 +896,7 @@ int32_t windowssys_windows_win32_system_hostcomputesystem_HcsInitializeLegacyWri
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputesystem_HcsInitializeWritableLayer(void* writablelayerpath, void* layerdata, void* options) {
+int32_t windowssys_windows_win32_system_hostcomputesystem_hcsInitializeWritableLayer(void* writablelayerpath, void* layerdata, void* options) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -920,7 +920,7 @@ int32_t windowssys_windows_win32_system_hostcomputesystem_HcsInitializeWritableL
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputesystem_HcsModifyComputeSystem(void* computesystem, void* operation, void* configuration, void* identity) {
+int32_t windowssys_windows_win32_system_hostcomputesystem_hcsModifyComputeSystem(void* computesystem, void* operation, void* configuration, void* identity) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -945,7 +945,7 @@ int32_t windowssys_windows_win32_system_hostcomputesystem_HcsModifyComputeSystem
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputesystem_HcsModifyProcess(void* process, void* operation, void* settings) {
+int32_t windowssys_windows_win32_system_hostcomputesystem_hcsModifyProcess(void* process, void* operation, void* settings) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -969,7 +969,7 @@ int32_t windowssys_windows_win32_system_hostcomputesystem_HcsModifyProcess(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputesystem_HcsModifyServiceSettings(void* settings, void* result) {
+int32_t windowssys_windows_win32_system_hostcomputesystem_hcsModifyServiceSettings(void* settings, void* result) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -992,7 +992,7 @@ int32_t windowssys_windows_win32_system_hostcomputesystem_HcsModifyServiceSettin
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputesystem_HcsOpenComputeSystem(void* id, uint32_t requestedaccess, void* computesystem) {
+int32_t windowssys_windows_win32_system_hostcomputesystem_hcsOpenComputeSystem(void* id, uint32_t requestedaccess, void* computesystem) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1016,7 +1016,7 @@ int32_t windowssys_windows_win32_system_hostcomputesystem_HcsOpenComputeSystem(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputesystem_HcsOpenComputeSystemInNamespace(void* idnamespace, void* id, uint32_t requestedaccess, void* computesystem) {
+int32_t windowssys_windows_win32_system_hostcomputesystem_hcsOpenComputeSystemInNamespace(void* idnamespace, void* id, uint32_t requestedaccess, void* computesystem) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1041,7 +1041,7 @@ int32_t windowssys_windows_win32_system_hostcomputesystem_HcsOpenComputeSystemIn
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputesystem_HcsOpenProcess(void* computesystem, uint32_t processid, uint32_t requestedaccess, void* process) {
+int32_t windowssys_windows_win32_system_hostcomputesystem_hcsOpenProcess(void* computesystem, uint32_t processid, uint32_t requestedaccess, void* process) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1066,7 +1066,7 @@ int32_t windowssys_windows_win32_system_hostcomputesystem_HcsOpenProcess(void* c
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputesystem_HcsPauseComputeSystem(void* computesystem, void* operation, void* options) {
+int32_t windowssys_windows_win32_system_hostcomputesystem_hcsPauseComputeSystem(void* computesystem, void* operation, void* options) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1090,7 +1090,7 @@ int32_t windowssys_windows_win32_system_hostcomputesystem_HcsPauseComputeSystem(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputesystem_HcsResumeComputeSystem(void* computesystem, void* operation, void* options) {
+int32_t windowssys_windows_win32_system_hostcomputesystem_hcsResumeComputeSystem(void* computesystem, void* operation, void* options) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1114,7 +1114,7 @@ int32_t windowssys_windows_win32_system_hostcomputesystem_HcsResumeComputeSystem
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputesystem_HcsRevokeVmAccess(void* vmid, void* filepath) {
+int32_t windowssys_windows_win32_system_hostcomputesystem_hcsRevokeVmAccess(void* vmid, void* filepath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1137,7 +1137,7 @@ int32_t windowssys_windows_win32_system_hostcomputesystem_HcsRevokeVmAccess(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputesystem_HcsRevokeVmGroupAccess(void* filepath) {
+int32_t windowssys_windows_win32_system_hostcomputesystem_hcsRevokeVmGroupAccess(void* filepath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1159,7 +1159,7 @@ int32_t windowssys_windows_win32_system_hostcomputesystem_HcsRevokeVmGroupAccess
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputesystem_HcsSaveComputeSystem(void* computesystem, void* operation, void* options) {
+int32_t windowssys_windows_win32_system_hostcomputesystem_hcsSaveComputeSystem(void* computesystem, void* operation, void* options) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1183,7 +1183,7 @@ int32_t windowssys_windows_win32_system_hostcomputesystem_HcsSaveComputeSystem(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputesystem_HcsSetComputeSystemCallback(void* computesystem, int32_t callbackoptions, void* context, void* callback) {
+int32_t windowssys_windows_win32_system_hostcomputesystem_hcsSetComputeSystemCallback(void* computesystem, int32_t callbackoptions, void* context, void* callback) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1208,7 +1208,7 @@ int32_t windowssys_windows_win32_system_hostcomputesystem_HcsSetComputeSystemCal
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputesystem_HcsSetOperationCallback(void* operation, void* context, void* callback) {
+int32_t windowssys_windows_win32_system_hostcomputesystem_hcsSetOperationCallback(void* operation, void* context, void* callback) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1232,7 +1232,7 @@ int32_t windowssys_windows_win32_system_hostcomputesystem_HcsSetOperationCallbac
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputesystem_HcsSetOperationContext(void* operation, void* context) {
+int32_t windowssys_windows_win32_system_hostcomputesystem_hcsSetOperationContext(void* operation, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1255,7 +1255,7 @@ int32_t windowssys_windows_win32_system_hostcomputesystem_HcsSetOperationContext
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputesystem_HcsSetProcessCallback(void* process, int32_t callbackoptions, void* context, void* callback) {
+int32_t windowssys_windows_win32_system_hostcomputesystem_hcsSetProcessCallback(void* process, int32_t callbackoptions, void* context, void* callback) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1280,7 +1280,7 @@ int32_t windowssys_windows_win32_system_hostcomputesystem_HcsSetProcessCallback(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputesystem_HcsSetupBaseOSLayer(void* layerpath, void* vhdhandle, void* options) {
+int32_t windowssys_windows_win32_system_hostcomputesystem_hcsSetupBaseOSLayer(void* layerpath, void* vhdhandle, void* options) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1304,7 +1304,7 @@ int32_t windowssys_windows_win32_system_hostcomputesystem_HcsSetupBaseOSLayer(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputesystem_HcsSetupBaseOSVolume(void* layerpath, void* volumepath, void* options) {
+int32_t windowssys_windows_win32_system_hostcomputesystem_hcsSetupBaseOSVolume(void* layerpath, void* volumepath, void* options) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1328,7 +1328,7 @@ int32_t windowssys_windows_win32_system_hostcomputesystem_HcsSetupBaseOSVolume(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputesystem_HcsShutDownComputeSystem(void* computesystem, void* operation, void* options) {
+int32_t windowssys_windows_win32_system_hostcomputesystem_hcsShutDownComputeSystem(void* computesystem, void* operation, void* options) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1352,7 +1352,7 @@ int32_t windowssys_windows_win32_system_hostcomputesystem_HcsShutDownComputeSyst
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputesystem_HcsSignalProcess(void* process, void* operation, void* options) {
+int32_t windowssys_windows_win32_system_hostcomputesystem_hcsSignalProcess(void* process, void* operation, void* options) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1376,7 +1376,7 @@ int32_t windowssys_windows_win32_system_hostcomputesystem_HcsSignalProcess(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputesystem_HcsStartComputeSystem(void* computesystem, void* operation, void* options) {
+int32_t windowssys_windows_win32_system_hostcomputesystem_hcsStartComputeSystem(void* computesystem, void* operation, void* options) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1400,7 +1400,7 @@ int32_t windowssys_windows_win32_system_hostcomputesystem_HcsStartComputeSystem(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputesystem_HcsSubmitWerReport(void* settings) {
+int32_t windowssys_windows_win32_system_hostcomputesystem_hcsSubmitWerReport(void* settings) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1422,7 +1422,7 @@ int32_t windowssys_windows_win32_system_hostcomputesystem_HcsSubmitWerReport(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputesystem_HcsTerminateComputeSystem(void* computesystem, void* operation, void* options) {
+int32_t windowssys_windows_win32_system_hostcomputesystem_hcsTerminateComputeSystem(void* computesystem, void* operation, void* options) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1446,7 +1446,7 @@ int32_t windowssys_windows_win32_system_hostcomputesystem_HcsTerminateComputeSys
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputesystem_HcsTerminateProcess(void* process, void* operation, void* options) {
+int32_t windowssys_windows_win32_system_hostcomputesystem_hcsTerminateProcess(void* process, void* operation, void* options) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1470,7 +1470,7 @@ int32_t windowssys_windows_win32_system_hostcomputesystem_HcsTerminateProcess(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputesystem_HcsWaitForComputeSystemExit(void* computesystem, uint32_t timeoutms, void* result) {
+int32_t windowssys_windows_win32_system_hostcomputesystem_hcsWaitForComputeSystemExit(void* computesystem, uint32_t timeoutms, void* result) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1494,7 +1494,7 @@ int32_t windowssys_windows_win32_system_hostcomputesystem_HcsWaitForComputeSyste
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputesystem_HcsWaitForOperationResult(void* operation, uint32_t timeoutms, void* resultdocument) {
+int32_t windowssys_windows_win32_system_hostcomputesystem_hcsWaitForOperationResult(void* operation, uint32_t timeoutms, void* resultdocument) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1518,7 +1518,7 @@ int32_t windowssys_windows_win32_system_hostcomputesystem_HcsWaitForOperationRes
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputesystem_HcsWaitForOperationResultAndProcessInfo(void* operation, uint32_t timeoutms, void* processinformation, void* resultdocument) {
+int32_t windowssys_windows_win32_system_hostcomputesystem_hcsWaitForOperationResultAndProcessInfo(void* operation, uint32_t timeoutms, void* processinformation, void* resultdocument) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1543,7 +1543,7 @@ int32_t windowssys_windows_win32_system_hostcomputesystem_HcsWaitForOperationRes
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputesystem_HcsWaitForProcessExit(void* computesystem, uint32_t timeoutms, void* result) {
+int32_t windowssys_windows_win32_system_hostcomputesystem_hcsWaitForProcessExit(void* computesystem, uint32_t timeoutms, void* result) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;

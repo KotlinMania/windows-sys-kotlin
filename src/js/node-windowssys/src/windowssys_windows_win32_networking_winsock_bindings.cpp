@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_AcceptEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_acceptEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t slistensocket = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t sacceptsocket = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -83,7 +83,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_AcceptEx_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_EnumProtocolsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_enumProtocolsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpiprotocols = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpprotocolbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -105,7 +105,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_EnumProtocolsA_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_EnumProtocolsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_enumProtocolsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpiprotocols = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpprotocolbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -127,7 +127,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_EnumProtocolsW_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_FreeAddrInfoEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_freeAddrInfoEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* paddrinfoex = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -144,7 +144,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_FreeAddrInfoEx_na
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_FreeAddrInfoExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_freeAddrInfoExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* paddrinfoex = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -161,7 +161,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_FreeAddrInfoExW_n
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_FreeAddrInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_freeAddrInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* paddrinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -178,7 +178,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_FreeAddrInfoW_nap
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_GetAcceptExSockaddrs_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_getAcceptExSockaddrs_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpoutputbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwreceivedatalength = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -209,7 +209,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_GetAcceptExSockad
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_GetAddrInfoExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_getAddrInfoExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pservicename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -245,7 +245,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_GetAddrInfoExA_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_GetAddrInfoExCancel_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_getAddrInfoExCancel_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lphandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -263,7 +263,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_GetAddrInfoExCanc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_GetAddrInfoExOverlappedResult_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_getAddrInfoExOverlappedResult_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpoverlapped = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -281,7 +281,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_GetAddrInfoExOver
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_GetAddrInfoExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_getAddrInfoExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pservicename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -317,7 +317,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_GetAddrInfoExW_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_GetAddrInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_getAddrInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pnodename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pservicename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -341,7 +341,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_GetAddrInfoW_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_GetAddressByNameA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_getAddressByNameA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwnamespace = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpservicetype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -377,7 +377,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_GetAddressByNameA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_GetAddressByNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_getAddressByNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwnamespace = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpservicetype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -413,7 +413,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_GetAddressByNameW
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_GetHostNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_getHostNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* name = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t namelen = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -433,7 +433,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_GetHostNameW_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_GetNameByTypeA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_getNameByTypeA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpservicetype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpservicename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -455,7 +455,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_GetNameByTypeA_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_GetNameByTypeW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_getNameByTypeW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpservicetype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpservicename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -477,7 +477,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_GetNameByTypeW_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_GetNameInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_getNameInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psockaddr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t sockaddrlength = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -507,7 +507,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_GetNameInfoW_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_GetServiceA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_getServiceA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwnamespace = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -537,7 +537,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_GetServiceA_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_GetServiceW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_getServiceW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwnamespace = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -567,7 +567,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_GetServiceW_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_GetTypeByNameA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_getTypeByNameA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpservicename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpservicetype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -587,7 +587,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_GetTypeByNameA_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_GetTypeByNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_getTypeByNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpservicename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpservicetype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -607,7 +607,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_GetTypeByNameW_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_InetNtopW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_inetNtopW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t family = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* paddr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -631,7 +631,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_InetNtopW_napi(co
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_InetPtonW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_inetPtonW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t family = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pszaddrstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -653,7 +653,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_InetPtonW_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_ProcessSocketNotifications_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_processSocketNotifications_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* completionport = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t registrationcount = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -683,7 +683,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_ProcessSocketNoti
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_RtlEthernetAddressToStringA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_rtlEthernetAddressToStringA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* addr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* s = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -703,7 +703,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_RtlEthernetAddres
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_RtlEthernetAddressToStringW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_rtlEthernetAddressToStringW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* addr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* s = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -723,7 +723,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_RtlEthernetAddres
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_RtlEthernetStringToAddressA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_rtlEthernetStringToAddressA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* s = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* terminator = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -745,7 +745,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_RtlEthernetString
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_RtlEthernetStringToAddressW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_rtlEthernetStringToAddressW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* s = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* terminator = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -767,7 +767,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_RtlEthernetString
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_RtlIpv4AddressToStringA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_rtlIpv4AddressToStringA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* addr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* s = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -787,7 +787,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_RtlIpv4AddressToS
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_RtlIpv4AddressToStringExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_rtlIpv4AddressToStringExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* address = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t port = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -811,7 +811,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_RtlIpv4AddressToS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_RtlIpv4AddressToStringExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_rtlIpv4AddressToStringExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* address = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t port = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -835,7 +835,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_RtlIpv4AddressToS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_RtlIpv4AddressToStringW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_rtlIpv4AddressToStringW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* addr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* s = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -855,7 +855,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_RtlIpv4AddressToS
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_RtlIpv4StringToAddressA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_rtlIpv4StringToAddressA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* s = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     bool strict = km_info.Length() > 1 ? km_info[1].ToBoolean().Value() : false;
@@ -879,7 +879,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_RtlIpv4StringToAd
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_RtlIpv4StringToAddressExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_rtlIpv4StringToAddressExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* addressstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     bool strict = km_info.Length() > 1 ? km_info[1].ToBoolean().Value() : false;
@@ -903,7 +903,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_RtlIpv4StringToAd
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_RtlIpv4StringToAddressExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_rtlIpv4StringToAddressExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* addressstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     bool strict = km_info.Length() > 1 ? km_info[1].ToBoolean().Value() : false;
@@ -927,7 +927,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_RtlIpv4StringToAd
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_RtlIpv4StringToAddressW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_rtlIpv4StringToAddressW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* s = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     bool strict = km_info.Length() > 1 ? km_info[1].ToBoolean().Value() : false;
@@ -951,7 +951,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_RtlIpv4StringToAd
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_RtlIpv6AddressToStringA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_rtlIpv6AddressToStringA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* addr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* s = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -971,7 +971,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_RtlIpv6AddressToS
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_RtlIpv6AddressToStringExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_rtlIpv6AddressToStringExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* address = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t scopeid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -997,7 +997,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_RtlIpv6AddressToS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_RtlIpv6AddressToStringExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_rtlIpv6AddressToStringExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* address = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t scopeid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1023,7 +1023,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_RtlIpv6AddressToS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_RtlIpv6AddressToStringW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_rtlIpv6AddressToStringW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* addr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* s = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1043,7 +1043,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_RtlIpv6AddressToS
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_RtlIpv6StringToAddressA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_rtlIpv6StringToAddressA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* s = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* terminator = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1065,7 +1065,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_RtlIpv6StringToAd
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_RtlIpv6StringToAddressExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_rtlIpv6StringToAddressExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* addressstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* address = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1089,7 +1089,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_RtlIpv6StringToAd
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_RtlIpv6StringToAddressExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_rtlIpv6StringToAddressExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* addressstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* address = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1113,7 +1113,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_RtlIpv6StringToAd
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_RtlIpv6StringToAddressW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_rtlIpv6StringToAddressW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* s = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* terminator = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1135,7 +1135,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_RtlIpv6StringToAd
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_SetAddrInfoExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_setAddrInfoExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pservicename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1175,7 +1175,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_SetAddrInfoExA_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_SetAddrInfoExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_setAddrInfoExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pservicename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1215,7 +1215,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_SetAddrInfoExW_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_SetServiceA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_setServiceA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwnamespace = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwoperation = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1243,7 +1243,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_SetServiceA_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_SetServiceW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_setServiceW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwnamespace = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwoperation = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1271,7 +1271,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_SetServiceW_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_SetSocketMediaStreamingMode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_setSocketMediaStreamingMode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t value = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -1289,7 +1289,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_SetSocketMediaStr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_TransmitFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_transmitFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t hsocket = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1319,7 +1319,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_TransmitFile_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WPUCompleteOverlappedRequest_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wPUCompleteOverlappedRequest_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t s = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* lpoverlapped = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1345,7 +1345,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WPUCompleteOverla
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSAAccept_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSAAccept_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t s = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* addr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1371,7 +1371,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSAAccept_napi(co
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSAAddressToStringA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSAAddressToStringA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpsaaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwaddresslength = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1397,7 +1397,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSAAddressToStrin
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSAAddressToStringW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSAAddressToStringW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpsaaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwaddresslength = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1423,7 +1423,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSAAddressToStrin
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSAAdvertiseProvider_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSAAdvertiseProvider_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* puuidproviderid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pnspv2routine = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1443,7 +1443,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSAAdvertiseProvi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSAAsyncGetHostByAddr_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSAAsyncGetHostByAddr_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t wmsg = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1473,7 +1473,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSAAsyncGetHostBy
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSAAsyncGetHostByName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSAAsyncGetHostByName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t wmsg = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1499,7 +1499,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSAAsyncGetHostBy
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSAAsyncGetProtoByName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSAAsyncGetProtoByName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t wmsg = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1525,7 +1525,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSAAsyncGetProtoB
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSAAsyncGetProtoByNumber_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSAAsyncGetProtoByNumber_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t wmsg = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1551,7 +1551,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSAAsyncGetProtoB
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSAAsyncGetServByName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSAAsyncGetServByName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t wmsg = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1579,7 +1579,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSAAsyncGetServBy
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSAAsyncGetServByPort_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSAAsyncGetServByPort_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t wmsg = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1607,7 +1607,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSAAsyncGetServBy
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSAAsyncSelect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSAAsyncSelect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t s = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1631,7 +1631,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSAAsyncSelect_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSACancelAsyncRequest_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSACancelAsyncRequest_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hasynctaskhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1649,7 +1649,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSACancelAsyncReq
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSACancelBlockingCall_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSACancelBlockingCall_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -1665,7 +1665,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSACancelBlocking
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSACleanup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSACleanup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -1681,7 +1681,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSACleanup_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSACloseEvent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSACloseEvent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hevent = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -1699,7 +1699,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSACloseEvent_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSAConnect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSAConnect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t s = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* name = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1729,7 +1729,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSAConnect_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSAConnectByList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSAConnectByList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t s = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* socketaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1761,7 +1761,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSAConnectByList_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSAConnectByNameA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSAConnectByNameA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t s = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* nodename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1795,7 +1795,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSAConnectByNameA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSAConnectByNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSAConnectByNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t s = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* nodename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1829,7 +1829,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSAConnectByNameW
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSACreateEvent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSACreateEvent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void);
@@ -1845,7 +1845,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSACreateEvent_na
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSADeleteSocketPeerTargetName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSADeleteSocketPeerTargetName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t arg_0_socket = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* peeraddr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1871,7 +1871,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSADeleteSocketPe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSADuplicateSocketA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSADuplicateSocketA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t s = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t dwprocessid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1893,7 +1893,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSADuplicateSocke
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSADuplicateSocketW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSADuplicateSocketW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t s = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t dwprocessid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1915,7 +1915,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSADuplicateSocke
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSAEnumNameSpaceProvidersA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSAEnumNameSpaceProvidersA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpdwbufferlength = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpnspbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1935,7 +1935,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSAEnumNameSpaceP
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSAEnumNameSpaceProvidersExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSAEnumNameSpaceProvidersExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpdwbufferlength = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpnspbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1955,7 +1955,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSAEnumNameSpaceP
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSAEnumNameSpaceProvidersExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSAEnumNameSpaceProvidersExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpdwbufferlength = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpnspbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1975,7 +1975,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSAEnumNameSpaceP
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSAEnumNameSpaceProvidersW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSAEnumNameSpaceProvidersW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpdwbufferlength = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpnspbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1995,7 +1995,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSAEnumNameSpaceP
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSAEnumNetworkEvents_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSAEnumNetworkEvents_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t s = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     int64_t heventobject = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -2017,7 +2017,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSAEnumNetworkEve
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSAEnumProtocolsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSAEnumProtocolsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpiprotocols = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpprotocolbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2039,7 +2039,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSAEnumProtocolsA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSAEnumProtocolsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSAEnumProtocolsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpiprotocols = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpprotocolbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2061,7 +2061,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSAEnumProtocolsW
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSAEventSelect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSAEventSelect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t s = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     int64_t heventobject = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -2083,7 +2083,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSAEventSelect_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSAGetLastError_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSAGetLastError_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -2099,7 +2099,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSAGetLastError_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSAGetOverlappedResult_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSAGetOverlappedResult_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t s = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* lpoverlapped = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2125,7 +2125,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSAGetOverlappedR
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSAGetQOSByName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSAGetQOSByName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t s = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* lpqosname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2147,7 +2147,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSAGetQOSByName_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSAGetServiceClassInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSAGetServiceClassInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpproviderid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpserviceclassid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2171,7 +2171,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSAGetServiceClas
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSAGetServiceClassInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSAGetServiceClassInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpproviderid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpserviceclassid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2195,7 +2195,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSAGetServiceClas
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSAGetServiceClassNameByClassIdA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSAGetServiceClassNameByClassIdA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpserviceclassid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszserviceclassname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2217,7 +2217,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSAGetServiceClas
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSAGetServiceClassNameByClassIdW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSAGetServiceClassNameByClassIdW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpserviceclassid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszserviceclassname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2239,7 +2239,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSAGetServiceClas
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSAHtonl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSAHtonl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t s = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t hostlong = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2261,7 +2261,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSAHtonl_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSAHtons_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSAHtons_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t s = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint16_t hostshort = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2283,7 +2283,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSAHtons_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSAImpersonateSocketPeer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSAImpersonateSocketPeer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t arg_0_socket = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* peeraddr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2305,7 +2305,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSAImpersonateSoc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSAInstallServiceClassA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSAInstallServiceClassA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpserviceclassinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2323,7 +2323,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSAInstallService
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSAInstallServiceClassW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSAInstallServiceClassW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpserviceclassinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2341,7 +2341,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSAInstallService
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSAIoctl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSAIoctl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t s = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t dwiocontrolcode = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2375,7 +2375,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSAIoctl_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSAIsBlocking_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSAIsBlocking_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -2391,7 +2391,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSAIsBlocking_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSAJoinLeaf_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSAJoinLeaf_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t s = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* name = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2423,7 +2423,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSAJoinLeaf_napi(
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSALookupServiceBeginA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSALookupServiceBeginA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpqsrestrictions = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwcontrolflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2445,7 +2445,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSALookupServiceB
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSALookupServiceBeginW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSALookupServiceBeginW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpqsrestrictions = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwcontrolflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2467,7 +2467,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSALookupServiceB
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSALookupServiceEnd_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSALookupServiceEnd_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hlookup = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2485,7 +2485,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSALookupServiceE
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSALookupServiceNextA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSALookupServiceNextA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hlookup = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwcontrolflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2509,7 +2509,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSALookupServiceN
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSALookupServiceNextW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSALookupServiceNextW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hlookup = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwcontrolflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2533,7 +2533,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSALookupServiceN
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSANSPIoctl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSANSPIoctl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hlookup = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwcontrolcode = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2565,7 +2565,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSANSPIoctl_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSANtohl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSANtohl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t s = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t netlong = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2587,7 +2587,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSANtohl_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSANtohs_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSANtohs_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t s = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint16_t netshort = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2609,7 +2609,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSANtohs_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSAPoll_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSAPoll_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fdarray = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t fds = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2631,7 +2631,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSAPoll_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSAProviderCompleteAsyncCall_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSAProviderCompleteAsyncCall_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hasynccall = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t iretcode = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2651,7 +2651,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSAProviderComple
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSAProviderConfigChange_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSAProviderConfigChange_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpnotificationhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpoverlapped = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2673,7 +2673,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSAProviderConfig
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSAQuerySocketSecurity_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSAQuerySocketSecurity_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t arg_0_socket = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* securityquerytemplate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2703,7 +2703,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSAQuerySocketSec
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSARecv_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSARecv_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t s = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* lpbuffers = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2733,7 +2733,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSARecv_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSARecvDisconnect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSARecvDisconnect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t s = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* lpinbounddisconnectdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2753,7 +2753,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSARecvDisconnect
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSARecvEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSARecvEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t s = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* buf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2777,7 +2777,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSARecvEx_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSARecvFrom_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSARecvFrom_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t s = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* lpbuffers = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2811,7 +2811,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSARecvFrom_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSARemoveServiceClass_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSARemoveServiceClass_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpserviceclassid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2829,7 +2829,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSARemoveServiceC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSAResetEvent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSAResetEvent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hevent = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -2847,7 +2847,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSAResetEvent_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSARevertImpersonation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSARevertImpersonation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -2863,7 +2863,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSARevertImperson
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSASend_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSASend_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t s = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* lpbuffers = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2893,7 +2893,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSASend_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSASendDisconnect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSASendDisconnect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t s = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* lpoutbounddisconnectdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2913,7 +2913,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSASendDisconnect
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSASendMsg_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSASendMsg_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t handle = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* lpmsg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2941,7 +2941,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSASendMsg_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSASendTo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSASendTo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t s = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* lpbuffers = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2975,7 +2975,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSASendTo_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSASetEvent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSASetEvent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hevent = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -2993,7 +2993,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSASetEvent_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSASetLastError_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSASetLastError_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t ierror = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -3010,7 +3010,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSASetLastError_n
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSASetServiceA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSASetServiceA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpqsreginfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t essoperation = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3032,7 +3032,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSASetServiceA_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSASetServiceW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSASetServiceW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpqsreginfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t essoperation = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3054,7 +3054,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSASetServiceW_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSASetSocketPeerTargetName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSASetSocketPeerTargetName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t arg_0_socket = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* peertargetname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3080,7 +3080,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSASetSocketPeerT
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSASetSocketSecurity_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSASetSocketSecurity_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t arg_0_socket = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* securitysettings = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3106,7 +3106,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSASetSocketSecur
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSASocketA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSASocketA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t af = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t type = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3134,7 +3134,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSASocketA_napi(c
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSASocketW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSASocketW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t af = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t type = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3162,7 +3162,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSASocketW_napi(c
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSAStartup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSAStartup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t wversionrequested = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpwsadata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3182,7 +3182,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSAStartup_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSAStringToAddressA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSAStringToAddressA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* addressstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t addressfamily = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3208,7 +3208,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSAStringToAddres
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSAStringToAddressW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSAStringToAddressW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* addressstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t addressfamily = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3234,7 +3234,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSAStringToAddres
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSAUnadvertiseProvider_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSAUnadvertiseProvider_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* puuidproviderid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3252,7 +3252,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSAUnadvertisePro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSAUnhookBlockingHook_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSAUnhookBlockingHook_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -3268,7 +3268,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSAUnhookBlocking
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSAWaitForMultipleEvents_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSAWaitForMultipleEvents_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t cevents = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lphevents = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3294,7 +3294,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSAWaitForMultipl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSCDeinstallProvider_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSCDeinstallProvider_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpproviderid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lperrno = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3314,7 +3314,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSCDeinstallProvi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSCDeinstallProvider32_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSCDeinstallProvider32_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpproviderid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lperrno = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3334,7 +3334,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSCDeinstallProvi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSCEnableNSProvider_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSCEnableNSProvider_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpproviderid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t fenable = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3354,7 +3354,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSCEnableNSProvid
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSCEnableNSProvider32_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSCEnableNSProvider32_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpproviderid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t fenable = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3374,7 +3374,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSCEnableNSProvid
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSCEnumNameSpaceProviders32_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSCEnumNameSpaceProviders32_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpdwbufferlength = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpnspbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3394,7 +3394,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSCEnumNameSpaceP
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSCEnumNameSpaceProvidersEx32_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSCEnumNameSpaceProvidersEx32_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpdwbufferlength = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpnspbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3414,7 +3414,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSCEnumNameSpaceP
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSCEnumProtocols_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSCEnumProtocols_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpiprotocols = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpprotocolbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3438,7 +3438,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSCEnumProtocols_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSCEnumProtocols32_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSCEnumProtocols32_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpiprotocols = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpprotocolbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3462,7 +3462,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSCEnumProtocols3
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSCGetApplicationCategory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSCGetApplicationCategory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* path = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t pathlength = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3490,7 +3490,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSCGetApplication
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSCGetProviderInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSCGetProviderInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpproviderid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t infotype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3518,7 +3518,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSCGetProviderInf
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSCGetProviderInfo32_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSCGetProviderInfo32_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpproviderid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t infotype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3546,7 +3546,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSCGetProviderInf
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSCGetProviderPath_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSCGetProviderPath_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpproviderid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszproviderdllpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3570,7 +3570,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSCGetProviderPat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSCGetProviderPath32_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSCGetProviderPath32_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpproviderid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszproviderdllpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3594,7 +3594,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSCGetProviderPat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSCInstallNameSpace_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSCInstallNameSpace_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszidentifier = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszpathname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3620,7 +3620,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSCInstallNameSpa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSCInstallNameSpace32_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSCInstallNameSpace32_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszidentifier = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszpathname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3646,7 +3646,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSCInstallNameSpa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSCInstallNameSpaceEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSCInstallNameSpaceEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszidentifier = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszpathname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3674,7 +3674,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSCInstallNameSpa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSCInstallNameSpaceEx32_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSCInstallNameSpaceEx32_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszidentifier = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszpathname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3702,7 +3702,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSCInstallNameSpa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSCInstallProvider_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSCInstallProvider_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpproviderid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszproviderdllpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3728,7 +3728,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSCInstallProvide
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSCInstallProvider64_32_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wscinstallProvider6432_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpproviderid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszproviderdllpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3754,7 +3754,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSCInstallProvide
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSCInstallProviderAndChains64_32_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wscinstallProviderAndChains6432_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpproviderid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszproviderdllpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3788,7 +3788,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSCInstallProvide
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSCSetApplicationCategory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSCSetApplicationCategory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* path = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t pathlength = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3818,7 +3818,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSCSetApplication
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSCSetProviderInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSCSetProviderInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpproviderid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t infotype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3846,7 +3846,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSCSetProviderInf
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSCSetProviderInfo32_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSCSetProviderInfo32_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpproviderid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t infotype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3874,7 +3874,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSCSetProviderInf
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSCUnInstallNameSpace_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSCUnInstallNameSpace_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpproviderid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3892,7 +3892,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSCUnInstallNameS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSCUnInstallNameSpace32_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSCUnInstallNameSpace32_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpproviderid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3910,7 +3910,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSCUnInstallNameS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSCUpdateProvider_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSCUpdateProvider_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpproviderid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszproviderdllpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3936,7 +3936,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSCUpdateProvider
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSCUpdateProvider32_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSCUpdateProvider32_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpproviderid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszproviderdllpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3962,7 +3962,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSCUpdateProvider
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSCWriteNameSpaceOrder_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSCWriteNameSpaceOrder_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpproviderid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwnumberofentries = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3982,7 +3982,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSCWriteNameSpace
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSCWriteNameSpaceOrder32_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSCWriteNameSpaceOrder32_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpproviderid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwnumberofentries = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4002,7 +4002,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSCWriteNameSpace
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSCWriteProviderOrder_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSCWriteProviderOrder_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpwdcatalogentryid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwnumberofentries = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4022,7 +4022,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSCWriteProviderO
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_WSCWriteProviderOrder32_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wSCWriteProviderOrder32_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpwdcatalogentryid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwnumberofentries = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4042,7 +4042,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_WSCWriteProviderO
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock___WSAFDIsSet_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_wsafdisSet_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t fd = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4459,7 +4459,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_htons_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_inet_addr_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_inetAddr_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* cp = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4477,7 +4477,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_inet_addr_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_inet_ntop_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_inetNtop_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t family = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* paddr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4501,7 +4501,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_inet_ntop_napi(co
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winsock_inet_pton_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_winsock_inetPton_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t family = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pszaddrstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4800,173 +4800,173 @@ static Napi::Value windowssys_windows_win32_networking_winsock_socket_napi(const
 }
 
 static void register_windows_win32_networking_winsock_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_networking_winsock_AcceptEx", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_AcceptEx_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_EnumProtocolsA", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_EnumProtocolsA_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_EnumProtocolsW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_EnumProtocolsW_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_FreeAddrInfoEx", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_FreeAddrInfoEx_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_FreeAddrInfoExW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_FreeAddrInfoExW_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_FreeAddrInfoW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_FreeAddrInfoW_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_GetAcceptExSockaddrs", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_GetAcceptExSockaddrs_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_GetAddrInfoExA", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_GetAddrInfoExA_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_GetAddrInfoExCancel", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_GetAddrInfoExCancel_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_GetAddrInfoExOverlappedResult", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_GetAddrInfoExOverlappedResult_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_GetAddrInfoExW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_GetAddrInfoExW_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_GetAddrInfoW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_GetAddrInfoW_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_GetAddressByNameA", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_GetAddressByNameA_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_GetAddressByNameW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_GetAddressByNameW_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_GetHostNameW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_GetHostNameW_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_GetNameByTypeA", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_GetNameByTypeA_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_GetNameByTypeW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_GetNameByTypeW_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_GetNameInfoW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_GetNameInfoW_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_GetServiceA", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_GetServiceA_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_GetServiceW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_GetServiceW_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_GetTypeByNameA", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_GetTypeByNameA_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_GetTypeByNameW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_GetTypeByNameW_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_InetNtopW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_InetNtopW_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_InetPtonW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_InetPtonW_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_ProcessSocketNotifications", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_ProcessSocketNotifications_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_RtlEthernetAddressToStringA", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_RtlEthernetAddressToStringA_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_RtlEthernetAddressToStringW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_RtlEthernetAddressToStringW_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_RtlEthernetStringToAddressA", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_RtlEthernetStringToAddressA_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_RtlEthernetStringToAddressW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_RtlEthernetStringToAddressW_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_RtlIpv4AddressToStringA", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_RtlIpv4AddressToStringA_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_RtlIpv4AddressToStringExA", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_RtlIpv4AddressToStringExA_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_RtlIpv4AddressToStringExW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_RtlIpv4AddressToStringExW_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_RtlIpv4AddressToStringW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_RtlIpv4AddressToStringW_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_RtlIpv4StringToAddressA", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_RtlIpv4StringToAddressA_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_RtlIpv4StringToAddressExA", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_RtlIpv4StringToAddressExA_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_RtlIpv4StringToAddressExW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_RtlIpv4StringToAddressExW_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_RtlIpv4StringToAddressW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_RtlIpv4StringToAddressW_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_RtlIpv6AddressToStringA", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_RtlIpv6AddressToStringA_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_RtlIpv6AddressToStringExA", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_RtlIpv6AddressToStringExA_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_RtlIpv6AddressToStringExW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_RtlIpv6AddressToStringExW_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_RtlIpv6AddressToStringW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_RtlIpv6AddressToStringW_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_RtlIpv6StringToAddressA", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_RtlIpv6StringToAddressA_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_RtlIpv6StringToAddressExA", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_RtlIpv6StringToAddressExA_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_RtlIpv6StringToAddressExW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_RtlIpv6StringToAddressExW_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_RtlIpv6StringToAddressW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_RtlIpv6StringToAddressW_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_SetAddrInfoExA", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_SetAddrInfoExA_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_SetAddrInfoExW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_SetAddrInfoExW_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_SetServiceA", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_SetServiceA_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_SetServiceW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_SetServiceW_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_SetSocketMediaStreamingMode", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_SetSocketMediaStreamingMode_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_TransmitFile", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_TransmitFile_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WPUCompleteOverlappedRequest", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WPUCompleteOverlappedRequest_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSAAccept", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSAAccept_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSAAddressToStringA", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSAAddressToStringA_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSAAddressToStringW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSAAddressToStringW_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSAAdvertiseProvider", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSAAdvertiseProvider_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSAAsyncGetHostByAddr", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSAAsyncGetHostByAddr_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSAAsyncGetHostByName", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSAAsyncGetHostByName_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSAAsyncGetProtoByName", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSAAsyncGetProtoByName_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSAAsyncGetProtoByNumber", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSAAsyncGetProtoByNumber_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSAAsyncGetServByName", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSAAsyncGetServByName_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSAAsyncGetServByPort", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSAAsyncGetServByPort_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSAAsyncSelect", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSAAsyncSelect_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSACancelAsyncRequest", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSACancelAsyncRequest_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSACancelBlockingCall", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSACancelBlockingCall_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSACleanup", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSACleanup_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSACloseEvent", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSACloseEvent_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSAConnect", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSAConnect_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSAConnectByList", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSAConnectByList_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSAConnectByNameA", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSAConnectByNameA_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSAConnectByNameW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSAConnectByNameW_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSACreateEvent", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSACreateEvent_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSADeleteSocketPeerTargetName", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSADeleteSocketPeerTargetName_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSADuplicateSocketA", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSADuplicateSocketA_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSADuplicateSocketW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSADuplicateSocketW_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSAEnumNameSpaceProvidersA", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSAEnumNameSpaceProvidersA_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSAEnumNameSpaceProvidersExA", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSAEnumNameSpaceProvidersExA_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSAEnumNameSpaceProvidersExW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSAEnumNameSpaceProvidersExW_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSAEnumNameSpaceProvidersW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSAEnumNameSpaceProvidersW_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSAEnumNetworkEvents", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSAEnumNetworkEvents_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSAEnumProtocolsA", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSAEnumProtocolsA_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSAEnumProtocolsW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSAEnumProtocolsW_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSAEventSelect", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSAEventSelect_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSAGetLastError", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSAGetLastError_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSAGetOverlappedResult", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSAGetOverlappedResult_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSAGetQOSByName", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSAGetQOSByName_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSAGetServiceClassInfoA", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSAGetServiceClassInfoA_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSAGetServiceClassInfoW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSAGetServiceClassInfoW_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSAGetServiceClassNameByClassIdA", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSAGetServiceClassNameByClassIdA_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSAGetServiceClassNameByClassIdW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSAGetServiceClassNameByClassIdW_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSAHtonl", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSAHtonl_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSAHtons", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSAHtons_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSAImpersonateSocketPeer", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSAImpersonateSocketPeer_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSAInstallServiceClassA", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSAInstallServiceClassA_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSAInstallServiceClassW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSAInstallServiceClassW_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSAIoctl", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSAIoctl_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSAIsBlocking", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSAIsBlocking_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSAJoinLeaf", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSAJoinLeaf_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSALookupServiceBeginA", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSALookupServiceBeginA_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSALookupServiceBeginW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSALookupServiceBeginW_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSALookupServiceEnd", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSALookupServiceEnd_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSALookupServiceNextA", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSALookupServiceNextA_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSALookupServiceNextW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSALookupServiceNextW_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSANSPIoctl", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSANSPIoctl_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSANtohl", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSANtohl_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSANtohs", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSANtohs_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSAPoll", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSAPoll_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSAProviderCompleteAsyncCall", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSAProviderCompleteAsyncCall_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSAProviderConfigChange", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSAProviderConfigChange_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSAQuerySocketSecurity", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSAQuerySocketSecurity_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSARecv", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSARecv_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSARecvDisconnect", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSARecvDisconnect_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSARecvEx", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSARecvEx_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSARecvFrom", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSARecvFrom_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSARemoveServiceClass", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSARemoveServiceClass_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSAResetEvent", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSAResetEvent_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSARevertImpersonation", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSARevertImpersonation_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSASend", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSASend_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSASendDisconnect", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSASendDisconnect_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSASendMsg", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSASendMsg_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSASendTo", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSASendTo_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSASetEvent", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSASetEvent_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSASetLastError", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSASetLastError_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSASetServiceA", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSASetServiceA_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSASetServiceW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSASetServiceW_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSASetSocketPeerTargetName", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSASetSocketPeerTargetName_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSASetSocketSecurity", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSASetSocketSecurity_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSASocketA", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSASocketA_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSASocketW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSASocketW_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSAStartup", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSAStartup_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSAStringToAddressA", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSAStringToAddressA_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSAStringToAddressW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSAStringToAddressW_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSAUnadvertiseProvider", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSAUnadvertiseProvider_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSAUnhookBlockingHook", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSAUnhookBlockingHook_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSAWaitForMultipleEvents", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSAWaitForMultipleEvents_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSCDeinstallProvider", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSCDeinstallProvider_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSCDeinstallProvider32", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSCDeinstallProvider32_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSCEnableNSProvider", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSCEnableNSProvider_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSCEnableNSProvider32", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSCEnableNSProvider32_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSCEnumNameSpaceProviders32", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSCEnumNameSpaceProviders32_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSCEnumNameSpaceProvidersEx32", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSCEnumNameSpaceProvidersEx32_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSCEnumProtocols", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSCEnumProtocols_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSCEnumProtocols32", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSCEnumProtocols32_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSCGetApplicationCategory", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSCGetApplicationCategory_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSCGetProviderInfo", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSCGetProviderInfo_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSCGetProviderInfo32", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSCGetProviderInfo32_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSCGetProviderPath", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSCGetProviderPath_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSCGetProviderPath32", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSCGetProviderPath32_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSCInstallNameSpace", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSCInstallNameSpace_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSCInstallNameSpace32", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSCInstallNameSpace32_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSCInstallNameSpaceEx", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSCInstallNameSpaceEx_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSCInstallNameSpaceEx32", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSCInstallNameSpaceEx32_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSCInstallProvider", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSCInstallProvider_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSCInstallProvider64_32", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSCInstallProvider64_32_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSCInstallProviderAndChains64_32", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSCInstallProviderAndChains64_32_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSCSetApplicationCategory", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSCSetApplicationCategory_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSCSetProviderInfo", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSCSetProviderInfo_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSCSetProviderInfo32", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSCSetProviderInfo32_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSCUnInstallNameSpace", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSCUnInstallNameSpace_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSCUnInstallNameSpace32", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSCUnInstallNameSpace32_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSCUpdateProvider", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSCUpdateProvider_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSCUpdateProvider32", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSCUpdateProvider32_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSCWriteNameSpaceOrder", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSCWriteNameSpaceOrder_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSCWriteNameSpaceOrder32", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSCWriteNameSpaceOrder32_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSCWriteProviderOrder", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSCWriteProviderOrder_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_WSCWriteProviderOrder32", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_WSCWriteProviderOrder32_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock___WSAFDIsSet", Napi::Function::New(env, windowssys_windows_win32_networking_winsock___WSAFDIsSet_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_acceptEx", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_acceptEx_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_enumProtocolsA", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_enumProtocolsA_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_enumProtocolsW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_enumProtocolsW_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_freeAddrInfoEx", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_freeAddrInfoEx_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_freeAddrInfoExW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_freeAddrInfoExW_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_freeAddrInfoW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_freeAddrInfoW_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_getAcceptExSockaddrs", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_getAcceptExSockaddrs_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_getAddrInfoExA", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_getAddrInfoExA_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_getAddrInfoExCancel", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_getAddrInfoExCancel_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_getAddrInfoExOverlappedResult", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_getAddrInfoExOverlappedResult_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_getAddrInfoExW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_getAddrInfoExW_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_getAddrInfoW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_getAddrInfoW_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_getAddressByNameA", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_getAddressByNameA_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_getAddressByNameW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_getAddressByNameW_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_getHostNameW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_getHostNameW_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_getNameByTypeA", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_getNameByTypeA_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_getNameByTypeW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_getNameByTypeW_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_getNameInfoW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_getNameInfoW_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_getServiceA", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_getServiceA_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_getServiceW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_getServiceW_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_getTypeByNameA", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_getTypeByNameA_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_getTypeByNameW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_getTypeByNameW_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_inetNtopW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_inetNtopW_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_inetPtonW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_inetPtonW_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_processSocketNotifications", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_processSocketNotifications_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_rtlEthernetAddressToStringA", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_rtlEthernetAddressToStringA_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_rtlEthernetAddressToStringW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_rtlEthernetAddressToStringW_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_rtlEthernetStringToAddressA", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_rtlEthernetStringToAddressA_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_rtlEthernetStringToAddressW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_rtlEthernetStringToAddressW_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_rtlIpv4AddressToStringA", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_rtlIpv4AddressToStringA_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_rtlIpv4AddressToStringExA", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_rtlIpv4AddressToStringExA_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_rtlIpv4AddressToStringExW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_rtlIpv4AddressToStringExW_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_rtlIpv4AddressToStringW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_rtlIpv4AddressToStringW_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_rtlIpv4StringToAddressA", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_rtlIpv4StringToAddressA_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_rtlIpv4StringToAddressExA", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_rtlIpv4StringToAddressExA_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_rtlIpv4StringToAddressExW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_rtlIpv4StringToAddressExW_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_rtlIpv4StringToAddressW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_rtlIpv4StringToAddressW_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_rtlIpv6AddressToStringA", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_rtlIpv6AddressToStringA_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_rtlIpv6AddressToStringExA", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_rtlIpv6AddressToStringExA_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_rtlIpv6AddressToStringExW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_rtlIpv6AddressToStringExW_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_rtlIpv6AddressToStringW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_rtlIpv6AddressToStringW_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_rtlIpv6StringToAddressA", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_rtlIpv6StringToAddressA_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_rtlIpv6StringToAddressExA", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_rtlIpv6StringToAddressExA_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_rtlIpv6StringToAddressExW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_rtlIpv6StringToAddressExW_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_rtlIpv6StringToAddressW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_rtlIpv6StringToAddressW_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_setAddrInfoExA", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_setAddrInfoExA_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_setAddrInfoExW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_setAddrInfoExW_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_setServiceA", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_setServiceA_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_setServiceW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_setServiceW_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_setSocketMediaStreamingMode", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_setSocketMediaStreamingMode_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_transmitFile", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_transmitFile_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wPUCompleteOverlappedRequest", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wPUCompleteOverlappedRequest_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSAAccept", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSAAccept_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSAAddressToStringA", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSAAddressToStringA_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSAAddressToStringW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSAAddressToStringW_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSAAdvertiseProvider", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSAAdvertiseProvider_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSAAsyncGetHostByAddr", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSAAsyncGetHostByAddr_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSAAsyncGetHostByName", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSAAsyncGetHostByName_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSAAsyncGetProtoByName", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSAAsyncGetProtoByName_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSAAsyncGetProtoByNumber", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSAAsyncGetProtoByNumber_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSAAsyncGetServByName", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSAAsyncGetServByName_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSAAsyncGetServByPort", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSAAsyncGetServByPort_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSAAsyncSelect", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSAAsyncSelect_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSACancelAsyncRequest", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSACancelAsyncRequest_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSACancelBlockingCall", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSACancelBlockingCall_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSACleanup", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSACleanup_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSACloseEvent", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSACloseEvent_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSAConnect", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSAConnect_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSAConnectByList", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSAConnectByList_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSAConnectByNameA", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSAConnectByNameA_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSAConnectByNameW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSAConnectByNameW_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSACreateEvent", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSACreateEvent_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSADeleteSocketPeerTargetName", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSADeleteSocketPeerTargetName_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSADuplicateSocketA", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSADuplicateSocketA_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSADuplicateSocketW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSADuplicateSocketW_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSAEnumNameSpaceProvidersA", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSAEnumNameSpaceProvidersA_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSAEnumNameSpaceProvidersExA", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSAEnumNameSpaceProvidersExA_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSAEnumNameSpaceProvidersExW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSAEnumNameSpaceProvidersExW_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSAEnumNameSpaceProvidersW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSAEnumNameSpaceProvidersW_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSAEnumNetworkEvents", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSAEnumNetworkEvents_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSAEnumProtocolsA", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSAEnumProtocolsA_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSAEnumProtocolsW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSAEnumProtocolsW_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSAEventSelect", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSAEventSelect_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSAGetLastError", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSAGetLastError_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSAGetOverlappedResult", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSAGetOverlappedResult_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSAGetQOSByName", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSAGetQOSByName_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSAGetServiceClassInfoA", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSAGetServiceClassInfoA_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSAGetServiceClassInfoW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSAGetServiceClassInfoW_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSAGetServiceClassNameByClassIdA", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSAGetServiceClassNameByClassIdA_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSAGetServiceClassNameByClassIdW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSAGetServiceClassNameByClassIdW_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSAHtonl", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSAHtonl_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSAHtons", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSAHtons_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSAImpersonateSocketPeer", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSAImpersonateSocketPeer_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSAInstallServiceClassA", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSAInstallServiceClassA_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSAInstallServiceClassW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSAInstallServiceClassW_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSAIoctl", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSAIoctl_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSAIsBlocking", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSAIsBlocking_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSAJoinLeaf", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSAJoinLeaf_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSALookupServiceBeginA", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSALookupServiceBeginA_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSALookupServiceBeginW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSALookupServiceBeginW_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSALookupServiceEnd", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSALookupServiceEnd_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSALookupServiceNextA", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSALookupServiceNextA_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSALookupServiceNextW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSALookupServiceNextW_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSANSPIoctl", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSANSPIoctl_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSANtohl", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSANtohl_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSANtohs", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSANtohs_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSAPoll", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSAPoll_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSAProviderCompleteAsyncCall", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSAProviderCompleteAsyncCall_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSAProviderConfigChange", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSAProviderConfigChange_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSAQuerySocketSecurity", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSAQuerySocketSecurity_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSARecv", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSARecv_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSARecvDisconnect", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSARecvDisconnect_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSARecvEx", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSARecvEx_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSARecvFrom", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSARecvFrom_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSARemoveServiceClass", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSARemoveServiceClass_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSAResetEvent", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSAResetEvent_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSARevertImpersonation", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSARevertImpersonation_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSASend", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSASend_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSASendDisconnect", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSASendDisconnect_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSASendMsg", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSASendMsg_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSASendTo", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSASendTo_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSASetEvent", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSASetEvent_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSASetLastError", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSASetLastError_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSASetServiceA", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSASetServiceA_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSASetServiceW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSASetServiceW_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSASetSocketPeerTargetName", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSASetSocketPeerTargetName_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSASetSocketSecurity", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSASetSocketSecurity_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSASocketA", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSASocketA_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSASocketW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSASocketW_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSAStartup", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSAStartup_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSAStringToAddressA", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSAStringToAddressA_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSAStringToAddressW", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSAStringToAddressW_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSAUnadvertiseProvider", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSAUnadvertiseProvider_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSAUnhookBlockingHook", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSAUnhookBlockingHook_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSAWaitForMultipleEvents", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSAWaitForMultipleEvents_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSCDeinstallProvider", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSCDeinstallProvider_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSCDeinstallProvider32", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSCDeinstallProvider32_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSCEnableNSProvider", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSCEnableNSProvider_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSCEnableNSProvider32", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSCEnableNSProvider32_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSCEnumNameSpaceProviders32", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSCEnumNameSpaceProviders32_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSCEnumNameSpaceProvidersEx32", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSCEnumNameSpaceProvidersEx32_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSCEnumProtocols", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSCEnumProtocols_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSCEnumProtocols32", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSCEnumProtocols32_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSCGetApplicationCategory", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSCGetApplicationCategory_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSCGetProviderInfo", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSCGetProviderInfo_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSCGetProviderInfo32", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSCGetProviderInfo32_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSCGetProviderPath", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSCGetProviderPath_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSCGetProviderPath32", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSCGetProviderPath32_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSCInstallNameSpace", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSCInstallNameSpace_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSCInstallNameSpace32", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSCInstallNameSpace32_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSCInstallNameSpaceEx", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSCInstallNameSpaceEx_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSCInstallNameSpaceEx32", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSCInstallNameSpaceEx32_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSCInstallProvider", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSCInstallProvider_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wscinstallProvider6432", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wscinstallProvider6432_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wscinstallProviderAndChains6432", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wscinstallProviderAndChains6432_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSCSetApplicationCategory", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSCSetApplicationCategory_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSCSetProviderInfo", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSCSetProviderInfo_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSCSetProviderInfo32", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSCSetProviderInfo32_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSCUnInstallNameSpace", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSCUnInstallNameSpace_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSCUnInstallNameSpace32", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSCUnInstallNameSpace32_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSCUpdateProvider", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSCUpdateProvider_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSCUpdateProvider32", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSCUpdateProvider32_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSCWriteNameSpaceOrder", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSCWriteNameSpaceOrder_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSCWriteNameSpaceOrder32", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSCWriteNameSpaceOrder32_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSCWriteProviderOrder", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSCWriteProviderOrder_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wSCWriteProviderOrder32", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wSCWriteProviderOrder32_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_wsafdisSet", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_wsafdisSet_napi));
     exports.Set("windowssys_windows_win32_networking_winsock_accept", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_accept_napi));
     exports.Set("windowssys_windows_win32_networking_winsock_bind", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_bind_napi));
     exports.Set("windowssys_windows_win32_networking_winsock_closesocket", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_closesocket_napi));
@@ -4986,9 +4986,9 @@ static void register_windows_win32_networking_winsock_napi(Napi::Env env, Napi::
     exports.Set("windowssys_windows_win32_networking_winsock_getsockopt", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_getsockopt_napi));
     exports.Set("windowssys_windows_win32_networking_winsock_htonl", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_htonl_napi));
     exports.Set("windowssys_windows_win32_networking_winsock_htons", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_htons_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_inet_addr", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_inet_addr_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_inet_ntop", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_inet_ntop_napi));
-    exports.Set("windowssys_windows_win32_networking_winsock_inet_pton", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_inet_pton_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_inetAddr", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_inetAddr_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_inetNtop", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_inetNtop_napi));
+    exports.Set("windowssys_windows_win32_networking_winsock_inetPton", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_inetPton_napi));
     exports.Set("windowssys_windows_win32_networking_winsock_ioctlsocket", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_ioctlsocket_napi));
     exports.Set("windowssys_windows_win32_networking_winsock_listen", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_listen_napi));
     exports.Set("windowssys_windows_win32_networking_winsock_ntohl", Napi::Function::New(env, windowssys_windows_win32_networking_winsock_ntohl_napi));

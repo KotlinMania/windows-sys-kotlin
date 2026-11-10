@@ -1,7 +1,7 @@
 package io.github.kotlinmania.windowssys.windows.wdk.system.systemservices
 
 import io.github.kotlinmania.windowssys.U128
-import io.github.kotlinmania.windowssys.core.GUID
+import io.github.kotlinmania.windowssys.core.Guid
 
 public val PCI_EXPRESS_RESERVED_FOR_AMD_CAP_ID: UInt = 20u
 
@@ -51,7 +51,7 @@ public val PCI_PROGRAMMING_INTERFACE_MSC_NVM_EXPRESS: UInt = 2u
 
 public val PCI_PTM_TIME_SOURCE_AUX: UInt = 4294967295u
 
-public val PCI_RECOVERY_SECTION_GUID: GUID = GUID.from_u128(U128(0xdd060800f6e14204uL, 0xac27c4bca9568402uL))
+public val PCI_RECOVERY_SECTION_GUID: Guid = Guid.fromU128(U128(0xdd060800f6e14204uL, 0xac27c4bca9568402uL))
 
 public val PCI_ROMADDRESS_ENABLED: UInt = 1u
 
@@ -297,11 +297,11 @@ public val PCI_WHICHSPACE_CONFIG: UInt = 0u
 
 public val PCI_WHICHSPACE_ROM: UInt = 1382638416u
 
-public val PCIe_NOTIFY_TYPE_GUID: GUID = GUID.from_u128(U128(0xcf93c01f1a164dfcuL, 0xb8bc9c4daf67c104uL))
+public val PC_IE_NOTIFY_TYPE_GUID: Guid = Guid.fromU128(U128(0xcf93c01f1a164dfcuL, 0xb8bc9c4daf67c104uL))
 
-public val PCMCIABus: INTERFACE_TYPE = 8
+public val PCMCIA_BUS: InterfaceType = 8
 
-public val PCMCIAConfiguration: BUS_DATA_TYPE = 7
+public val PCMCIA_CONFIGURATION: BusDataType = 7
 
 public val PCR_BTI_MITIGATION_CSWAP_HVC: UInt = 16u
 
@@ -329,9 +329,9 @@ public val PDE_TOP: UInt = 3224375295u
 
 public val PDI_SHIFT: UInt = 21u
 
-public val PEI_NOTIFY_TYPE_GUID: GUID = GUID.from_u128(U128(0x9a9d5ac52044214uL, 0x96e594992e752bcduL))
+public val PEI_NOTIFY_TYPE_GUID: Guid = Guid.fromU128(U128(0x9a9d5ac52044214uL, 0x96e594992e752bcduL))
 
-public val PFAControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = 6
+public val PFA_CONTROL: NpemControlStandardControlBit = 6
 
 public val PLUGPLAY_PROPERTY_PERSISTENT: UInt = 1u
 
@@ -341,15 +341,15 @@ public val PLUGPLAY_REGKEY_DEVICE: UInt = 1u
 
 public val PLUGPLAY_REGKEY_DRIVER: UInt = 2u
 
-public val PMCCounter: HARDWARE_COUNTER_TYPE = 0
+public val PMC_COUNTER: HardwareCounterType = 0
 
-public val PMEM_ERROR_SECTION_GUID: GUID = GUID.from_u128(U128(0x81687003dbfd4728uL, 0x9ffdf0904f97597duL))
+public val PMEM_ERROR_SECTION_GUID: Guid = Guid.fromU128(U128(0x81687003dbfd4728uL, 0x9ffdf0904f97597duL))
 
-public val PNPBus: INTERFACE_TYPE = 15
+public val PNP_BUS: InterfaceType = 15
 
-public val PNPISABus: INTERFACE_TYPE = 14
+public val PNPISA_BUS: InterfaceType = 14
 
-public val PNPISAConfiguration: BUS_DATA_TYPE = 10
+public val PNPISA_CONFIGURATION: BusDataType = 10
 
 public val PNPNOTIFY_DEVICE_INTERFACE_INCLUDE_EXISTING_INTERFACES: UInt = 1u
 
@@ -485,7 +485,7 @@ public val PRIVILEGE_SET_ALL_NECESSARY: UInt = 1u
 
 public val PROCESSOR_FEATURE_MAX: UInt = 64u
 
-public val PROCESSOR_GENERIC_ERROR_SECTION_GUID: GUID = GUID.from_u128(U128(0x9876ccad47b44bdbuL, 0xb65e16f193c4f3dbuL))
+public val PROCESSOR_GENERIC_ERROR_SECTION_GUID: Guid = Guid.fromU128(U128(0x9876ccad47b44bdbuL, 0xb65e16f193c4f3dbuL))
 
 public val PROCESS_EXCEPTION_PORT_ALL_STATE_BITS: UInt = 3u
 
@@ -515,271 +515,271 @@ public val PTE_TOP: UInt = 3225419775u
 
 public val PTI_SHIFT: UInt = 12u
 
-public val PageIn: KWAIT_REASON = 2
+public val PAGE_IN: KwaitReason = 2
 
-public val ParallelController: CONFIGURATION_TYPE = 20
+public val PARALLEL_CONTROLLER: ConfigurationType = 20
 
-public val PciAcsBitDisable: PCI_ACS_BIT = 2
+public val PCI_ACS_BIT_DISABLE: PciAcsBit = 2
 
-public val PciAcsBitDontCare: PCI_ACS_BIT = 3
+public val PCI_ACS_BIT_DONT_CARE: PciAcsBit = 3
 
-public val PciAcsBitEnable: PCI_ACS_BIT = 1
+public val PCI_ACS_BIT_ENABLE: PciAcsBit = 1
 
-public val PciAcsReserved: PCI_ACS_BIT = 0
+public val PCI_ACS_RESERVED: PciAcsBit = 0
 
-public val PciAddressParityError: UShort = 6u
+public val PCI_ADDRESS_PARITY_ERROR: UShort = 6u.toUShort()
 
-public val PciBusDataParityError: UShort = 1u
+public val PCI_BUS_DATA_PARITY_ERROR: UShort = 1u.toUShort()
 
-public val PciBusMasterAbort: UShort = 3u
+public val PCI_BUS_MASTER_ABORT: UShort = 3u.toUShort()
 
-public val PciBusSystemError: UShort = 2u
+public val PCI_BUS_SYSTEM_ERROR: UShort = 2u.toUShort()
 
-public val PciBusTimeOut: UShort = 4u
+public val PCI_BUS_TIME_OUT: UShort = 4u.toUShort()
 
-public val PciBusUnknownError: UShort = 0u
+public val PCI_BUS_UNKNOWN_ERROR: UShort = 0u.toUShort()
 
-public val PciCommandParityError: UShort = 7u
+public val PCI_COMMAND_PARITY_ERROR: UShort = 7u.toUShort()
 
-public val PciConventional: PCI_HARDWARE_INTERFACE = 0
+public val PCI_CONVENTIONAL: PciHardwareInterface = 0
 
-public val PciDeviceD3Cold_Reason_Default_State_BitIndex: PCI_DEVICE_D3COLD_STATE_REASON = 8
+public val PCI_DEVICE_D3COLD_REASON_DEFAULT_STATE_BIT_INDEX: PciDeviceD3coldStateReason = 8
 
-public val PciDeviceD3Cold_Reason_INF_BitIndex: PCI_DEVICE_D3COLD_STATE_REASON = 9
+public val PCI_DEVICE_D3COLD_REASON_INF_BIT_INDEX: PciDeviceD3coldStateReason = 9
 
-public val PciDeviceD3Cold_Reason_Interface_Api_BitIndex: PCI_DEVICE_D3COLD_STATE_REASON = 10
+public val PCI_DEVICE_D3COLD_REASON_INTERFACE_API_BIT_INDEX: PciDeviceD3coldStateReason = 10
 
-public val PciDeviceD3Cold_State_Disabled_BitIndex: PCI_DEVICE_D3COLD_STATE_REASON = 1
+public val PCI_DEVICE_D3COLD_STATE_DISABLED_BIT_INDEX: PciDeviceD3coldStateReason = 1
 
-public val PciDeviceD3Cold_State_Disabled_Bridge_HackFlags_BitIndex: PCI_DEVICE_D3COLD_STATE_REASON = 4
+public val PCI_DEVICE_D3COLD_STATE_DISABLED_BRIDGE_HACK_FLAGS_BIT_INDEX: PciDeviceD3coldStateReason = 4
 
-public val PciDeviceD3Cold_State_Enabled_BitIndex: PCI_DEVICE_D3COLD_STATE_REASON = 2
+public val PCI_DEVICE_D3COLD_STATE_ENABLED_BIT_INDEX: PciDeviceD3coldStateReason = 2
 
-public val PciDeviceD3Cold_State_ParentRootPortS0WakeSupported_BitIndex: PCI_DEVICE_D3COLD_STATE_REASON = 3
+public val PCI_DEVICE_D3COLD_STATE_PARENT_ROOT_PORT_S0WAKE_SUPPORTED_BIT_INDEX: PciDeviceD3coldStateReason = 3
 
-public val PciExpress: PCI_HARDWARE_INTERFACE = 3
+public val PCI_EXPRESS: PciHardwareInterface = 3
 
-public val PciExpressASPMLinkSubState_L11_BitIndex: PCI_EXPRESS_LINK_SUBSTATE = 2
+public val PCI_EXPRESS_ASPM_LINK_SUB_STATE_L11_BIT_INDEX: PciExpressLinkSubstate = 2
 
-public val PciExpressASPMLinkSubState_L12_BitIndex: PCI_EXPRESS_LINK_SUBSTATE = 3
+public val PCI_EXPRESS_ASPM_LINK_SUB_STATE_L12_BIT_INDEX: PciExpressLinkSubstate = 3
 
-public val PciExpressDownstreamSwitchPort: PCI_EXPRESS_DEVICE_TYPE = 6
+public val PCI_EXPRESS_DOWNSTREAM_SWITCH_PORT: PciExpressDeviceType = 6
 
-public val PciExpressEndpoint: PCI_EXPRESS_DEVICE_TYPE = 0
+public val PCI_EXPRESS_ENDPOINT: PciExpressDeviceType = 0
 
-public val PciExpressLegacyEndpoint: PCI_EXPRESS_DEVICE_TYPE = 1
+public val PCI_EXPRESS_LEGACY_ENDPOINT: PciExpressDeviceType = 1
 
-public val PciExpressPciPmLinkSubState_L11_BitIndex: PCI_EXPRESS_LINK_SUBSTATE = 0
+public val PCI_EXPRESS_PCI_PM_LINK_SUB_STATE_L11_BIT_INDEX: PciExpressLinkSubstate = 0
 
-public val PciExpressPciPmLinkSubState_L12_BitIndex: PCI_EXPRESS_LINK_SUBSTATE = 1
+public val PCI_EXPRESS_PCI_PM_LINK_SUB_STATE_L12_BIT_INDEX: PciExpressLinkSubstate = 1
 
-public val PciExpressRootComplexEventCollector: PCI_EXPRESS_DEVICE_TYPE = 10
+public val PCI_EXPRESS_ROOT_COMPLEX_EVENT_COLLECTOR: PciExpressDeviceType = 10
 
-public val PciExpressRootComplexIntegratedEndpoint: PCI_EXPRESS_DEVICE_TYPE = 9
+public val PCI_EXPRESS_ROOT_COMPLEX_INTEGRATED_ENDPOINT: PciExpressDeviceType = 9
 
-public val PciExpressRootPort: PCI_EXPRESS_DEVICE_TYPE = 4
+public val PCI_EXPRESS_ROOT_PORT: PciExpressDeviceType = 4
 
-public val PciExpressToPciXBridge: PCI_EXPRESS_DEVICE_TYPE = 7
+public val PCI_EXPRESS_TO_PCI_X_BRIDGE: PciExpressDeviceType = 7
 
-public val PciExpressUpstreamSwitchPort: PCI_EXPRESS_DEVICE_TYPE = 5
+public val PCI_EXPRESS_UPSTREAM_SWITCH_PORT: PciExpressDeviceType = 5
 
-public val PciMasterDataParityError: UShort = 5u
+public val PCI_MASTER_DATA_PARITY_ERROR: UShort = 5u.toUShort()
 
-public val PciXMode1: PCI_HARDWARE_INTERFACE = 1
+public val PCI_X_MODE1: PciHardwareInterface = 1
 
-public val PciXMode2: PCI_HARDWARE_INTERFACE = 2
+public val PCI_X_MODE2: PciHardwareInterface = 2
 
-public val PciXToExpressBridge: PCI_EXPRESS_DEVICE_TYPE = 8
+public val PCI_X_TO_EXPRESS_BRIDGE: PciExpressDeviceType = 8
 
-public val PcwCallbackAddCounter: PCW_CALLBACK_TYPE = 0
+public val PCW_CALLBACK_ADD_COUNTER: PcwCallbackType = 0
 
-public val PcwCallbackCollectData: PCW_CALLBACK_TYPE = 3
+public val PCW_CALLBACK_COLLECT_DATA: PcwCallbackType = 3
 
-public val PcwCallbackEnumerateInstances: PCW_CALLBACK_TYPE = 2
+public val PCW_CALLBACK_ENUMERATE_INSTANCES: PcwCallbackType = 2
 
-public val PcwCallbackRemoveCounter: PCW_CALLBACK_TYPE = 1
+public val PCW_CALLBACK_REMOVE_COUNTER: PcwCallbackType = 1
 
-public val PcwRegistrationNone: PCW_REGISTRATION_FLAGS = 0
+public val PCW_REGISTRATION_NONE: PcwRegistrationFlags = 0
 
-public val PcwRegistrationSiloNeutral: PCW_REGISTRATION_FLAGS = 1
+public val PCW_REGISTRATION_SILO_NEUTRAL: PcwRegistrationFlags = 1
 
-public val PermissionFault: FAULT_INFORMATION_ARM64_TYPE = 4
+public val PERMISSION_FAULT: FaultInformationArm64Type = 4
 
-public val PlatformLevelDeviceReset: DEVICE_RESET_TYPE = 1
+public val PLATFORM_LEVEL_DEVICE_RESET: DeviceResetType = 1
 
-public val PlatformRoleAppliancePC: POWER_PLATFORM_ROLE = 6
+public val PLATFORM_ROLE_APPLIANCE_PC: PowerPlatformRole = 6
 
-public val PlatformRoleDesktop: POWER_PLATFORM_ROLE = 1
+public val PLATFORM_ROLE_DESKTOP: PowerPlatformRole = 1
 
-public val PlatformRoleEnterpriseServer: POWER_PLATFORM_ROLE = 4
+public val PLATFORM_ROLE_ENTERPRISE_SERVER: PowerPlatformRole = 4
 
-public val PlatformRoleMaximum: POWER_PLATFORM_ROLE = 9
+public val PLATFORM_ROLE_MAXIMUM: PowerPlatformRole = 9
 
-public val PlatformRoleMobile: POWER_PLATFORM_ROLE = 2
+public val PLATFORM_ROLE_MOBILE: PowerPlatformRole = 2
 
-public val PlatformRolePerformanceServer: POWER_PLATFORM_ROLE = 7
+public val PLATFORM_ROLE_PERFORMANCE_SERVER: PowerPlatformRole = 7
 
-public val PlatformRoleSOHOServer: POWER_PLATFORM_ROLE = 5
+public val PLATFORM_ROLE_SOHO_SERVER: PowerPlatformRole = 5
 
-public val PlatformRoleSlate: POWER_PLATFORM_ROLE = 8
+public val PLATFORM_ROLE_SLATE: PowerPlatformRole = 8
 
-public val PlatformRoleUnspecified: POWER_PLATFORM_ROLE = 0
+public val PLATFORM_ROLE_UNSPECIFIED: PowerPlatformRole = 0
 
-public val PlatformRoleWorkstation: POWER_PLATFORM_ROLE = 3
+public val PLATFORM_ROLE_WORKSTATION: PowerPlatformRole = 3
 
-public val PoAc: SYSTEM_POWER_CONDITION = 0
+public val PO_AC: SystemPowerCondition = 0
 
-public val PoConditionMaximum: SYSTEM_POWER_CONDITION = 3
+public val PO_CONDITION_MAXIMUM: SystemPowerCondition = 3
 
-public val PoDc: SYSTEM_POWER_CONDITION = 1
+public val PO_DC: SystemPowerCondition = 1
 
-public val PoFxPerfStateTypeDiscrete: PO_FX_PERF_STATE_TYPE = 0
+public val PO_FX_PERF_STATE_TYPE_DISCRETE: PoFxPerfStateType = 0
 
-public val PoFxPerfStateTypeMaximum: PO_FX_PERF_STATE_TYPE = 2
+public val PO_FX_PERF_STATE_TYPE_MAXIMUM: PoFxPerfStateType = 2
 
-public val PoFxPerfStateTypeRange: PO_FX_PERF_STATE_TYPE = 1
+public val PO_FX_PERF_STATE_TYPE_RANGE: PoFxPerfStateType = 1
 
-public val PoFxPerfStateUnitBandwidth: PO_FX_PERF_STATE_UNIT = 2
+public val PO_FX_PERF_STATE_UNIT_BANDWIDTH: PoFxPerfStateUnit = 2
 
-public val PoFxPerfStateUnitFrequency: PO_FX_PERF_STATE_UNIT = 1
+public val PO_FX_PERF_STATE_UNIT_FREQUENCY: PoFxPerfStateUnit = 1
 
-public val PoFxPerfStateUnitMaximum: PO_FX_PERF_STATE_UNIT = 3
+public val PO_FX_PERF_STATE_UNIT_MAXIMUM: PoFxPerfStateUnit = 3
 
-public val PoFxPerfStateUnitOther: PO_FX_PERF_STATE_UNIT = 0
+public val PO_FX_PERF_STATE_UNIT_OTHER: PoFxPerfStateUnit = 0
 
-public val PoHot: SYSTEM_POWER_CONDITION = 2
+public val PO_HOT: SystemPowerCondition = 2
 
-public val PoThermalRequestActive: PO_THERMAL_REQUEST_TYPE = 1
+public val PO_THERMAL_REQUEST_ACTIVE: PoThermalRequestType = 1
 
-public val PoThermalRequestPassive: PO_THERMAL_REQUEST_TYPE = 0
+public val PO_THERMAL_REQUEST_PASSIVE: PoThermalRequestType = 0
 
-public val PointerController: CONFIGURATION_TYPE = 21
+public val POINTER_CONTROLLER: ConfigurationType = 21
 
-public val PointerPeripheral: CONFIGURATION_TYPE = 31
+public val POINTER_PERIPHERAL: ConfigurationType = 31
 
-public val PoolAllocation: KWAIT_REASON = 3
+public val POOL_ALLOCATION: KwaitReason = 3
 
-public val PoolExtendedParameterInvalidType: POOL_EXTENDED_PARAMETER_TYPE = 0
+public val POOL_EXTENDED_PARAMETER_INVALID_TYPE: PoolExtendedParameterType = 0
 
-public val PoolExtendedParameterMax: POOL_EXTENDED_PARAMETER_TYPE = 4
+public val POOL_EXTENDED_PARAMETER_MAX: PoolExtendedParameterType = 4
 
-public val PoolExtendedParameterNumaNode: POOL_EXTENDED_PARAMETER_TYPE = 3
+public val POOL_EXTENDED_PARAMETER_NUMA_NODE: PoolExtendedParameterType = 3
 
-public val PoolExtendedParameterPriority: POOL_EXTENDED_PARAMETER_TYPE = 1
+public val POOL_EXTENDED_PARAMETER_PRIORITY: PoolExtendedParameterType = 1
 
-public val PoolExtendedParameterSecurePool: POOL_EXTENDED_PARAMETER_TYPE = 2
+public val POOL_EXTENDED_PARAMETER_SECURE_POOL: PoolExtendedParameterType = 2
 
-public val Pos: BUS_DATA_TYPE = 2
+public val POS: BusDataType = 2
 
-public val PowerOff: PCI_EXPRESS_POWER_STATE = 1
+public val POWER_OFF: PciExpressPowerState = 1
 
-public val PowerOn: PCI_EXPRESS_POWER_STATE = 0
+public val POWER_ON: PciExpressPowerState = 0
 
-public val PowerRelations: DEVICE_RELATION_TYPE = 2
+public val POWER_RELATIONS: DeviceRelationType = 2
 
-public val PrimaryDcache: CONFIGURATION_TYPE = 4
+public val PRIMARY_DCACHE: ConfigurationType = 4
 
-public val PrimaryIcache: CONFIGURATION_TYPE = 3
+public val PRIMARY_ICACHE: ConfigurationType = 3
 
-public val PrinterPeripheral: CONFIGURATION_TYPE = 30
+public val PRINTER_PERIPHERAL: ConfigurationType = 30
 
-public val ProcessorInternal: INTERFACE_TYPE = 12
+public val PROCESSOR_INTERNAL: InterfaceType = 12
 
-public val Profile2Issue: KPROFILE_SOURCE = 15
+public val PROFILE2ISSUE: KprofileSource = 15
 
-public val Profile3Issue: KPROFILE_SOURCE = 16
+public val PROFILE3ISSUE: KprofileSource = 16
 
-public val Profile4Issue: KPROFILE_SOURCE = 17
+public val PROFILE4ISSUE: KprofileSource = 17
 
-public val ProfileAlignmentFixup: KPROFILE_SOURCE = 1
+public val PROFILE_ALIGNMENT_FIXUP: KprofileSource = 1
 
-public val ProfileBranchInstructions: KPROFILE_SOURCE = 6
+public val PROFILE_BRANCH_INSTRUCTIONS: KprofileSource = 6
 
-public val ProfileBranchMispredictions: KPROFILE_SOURCE = 11
+public val PROFILE_BRANCH_MISPREDICTIONS: KprofileSource = 11
 
-public val ProfileCacheMisses: KPROFILE_SOURCE = 10
+public val PROFILE_CACHE_MISSES: KprofileSource = 10
 
-public val ProfileDcacheAccesses: KPROFILE_SOURCE = 21
+public val PROFILE_DCACHE_ACCESSES: KprofileSource = 21
 
-public val ProfileDcacheMisses: KPROFILE_SOURCE = 8
+public val PROFILE_DCACHE_MISSES: KprofileSource = 8
 
-public val ProfileFpInstructions: KPROFILE_SOURCE = 13
+public val PROFILE_FP_INSTRUCTIONS: KprofileSource = 13
 
-public val ProfileIcacheIssues: KPROFILE_SOURCE = 20
+public val PROFILE_ICACHE_ISSUES: KprofileSource = 20
 
-public val ProfileIcacheMisses: KPROFILE_SOURCE = 9
+public val PROFILE_ICACHE_MISSES: KprofileSource = 9
 
-public val ProfileIntegerInstructions: KPROFILE_SOURCE = 14
+public val PROFILE_INTEGER_INSTRUCTIONS: KprofileSource = 14
 
-public val ProfileLoadInstructions: KPROFILE_SOURCE = 4
+public val PROFILE_LOAD_INSTRUCTIONS: KprofileSource = 4
 
-public val ProfileLoadLinkedIssues: KPROFILE_SOURCE = 23
+public val PROFILE_LOAD_LINKED_ISSUES: KprofileSource = 23
 
-public val ProfileMaximum: KPROFILE_SOURCE = 24
+public val PROFILE_MAXIMUM: KprofileSource = 24
 
-public val ProfileMemoryBarrierCycles: KPROFILE_SOURCE = 22
+public val PROFILE_MEMORY_BARRIER_CYCLES: KprofileSource = 22
 
-public val ProfilePipelineDry: KPROFILE_SOURCE = 3
+public val PROFILE_PIPELINE_DRY: KprofileSource = 3
 
-public val ProfilePipelineFrozen: KPROFILE_SOURCE = 5
+public val PROFILE_PIPELINE_FROZEN: KprofileSource = 5
 
-public val ProfileSpecialInstructions: KPROFILE_SOURCE = 18
+public val PROFILE_SPECIAL_INSTRUCTIONS: KprofileSource = 18
 
-public val ProfileStoreInstructions: KPROFILE_SOURCE = 12
+public val PROFILE_STORE_INSTRUCTIONS: KprofileSource = 12
 
-public val ProfileTime: KPROFILE_SOURCE = 0
+public val PROFILE_TIME: KprofileSource = 0
 
-public val ProfileTotalCycles: KPROFILE_SOURCE = 19
+public val PROFILE_TOTAL_CYCLES: KprofileSource = 19
 
-public val ProfileTotalIssues: KPROFILE_SOURCE = 2
+public val PROFILE_TOTAL_ISSUES: KprofileSource = 2
 
-public val ProfileTotalNonissues: KPROFILE_SOURCE = 7
+public val PROFILE_TOTAL_NONISSUES: KprofileSource = 7
 
-public val PsCreateProcessNotifySubsystems: PSCREATEPROCESSNOTIFYTYPE = 0
+public val PS_CREATE_PROCESS_NOTIFY_SUBSYSTEMS: Pscreateprocessnotifytype = 0
 
-public val PsCreateThreadNotifyNonSystem: PSCREATETHREADNOTIFYTYPE = 0
+public val PS_CREATE_THREAD_NOTIFY_NON_SYSTEM: Pscreatethreadnotifytype = 0
 
-public val PsCreateThreadNotifySubsystems: PSCREATETHREADNOTIFYTYPE = 1
+public val PS_CREATE_THREAD_NOTIFY_SUBSYSTEMS: Pscreatethreadnotifytype = 1
 
-public val PshedFADiscovery: UInt = 1u
+public val PSHED_FA_DISCOVERY: UInt = 1u
 
-public val PshedFAErrorInfoRetrieval: UInt = 8u
+public val PSHED_FA_ERROR_INFO_RETRIEVAL: UInt = 8u
 
-public val PshedFAErrorInjection: UInt = 32u
+public val PSHED_FA_ERROR_INJECTION: UInt = 32u
 
-public val PshedFAErrorRecordPersistence: UInt = 4u
+public val PSHED_FA_ERROR_RECORD_PERSISTENCE: UInt = 4u
 
-public val PshedFAErrorRecovery: UInt = 16u
+public val PSHED_FA_ERROR_RECOVERY: UInt = 16u
 
-public val PshedFAErrorSourceControl: UInt = 2u
+public val PSHED_FA_ERROR_SOURCE_CONTROL: UInt = 2u
 
-public val PshedPiEnableNotifyErrorCreateNotifyEvent: WHEA_PSHED_PLUGIN_ENABLE_NOTIFY_ERRORS = 1
+public val PSHED_PI_ENABLE_NOTIFY_ERROR_CREATE_NOTIFY_EVENT: WheaPshedPluginEnableNotifyErrors = 1
 
-public val PshedPiEnableNotifyErrorCreateSystemThread: WHEA_PSHED_PLUGIN_ENABLE_NOTIFY_ERRORS = 2
+public val PSHED_PI_ENABLE_NOTIFY_ERROR_CREATE_SYSTEM_THREAD: WheaPshedPluginEnableNotifyErrors = 2
 
-public val PshedPiEnableNotifyErrorMax: WHEA_PSHED_PLUGIN_ENABLE_NOTIFY_ERRORS = 3
+public val PSHED_PI_ENABLE_NOTIFY_ERROR_MAX: WheaPshedPluginEnableNotifyErrors = 3
 
-public val PshedPiErrReadingPcieOverridesBadSignature: PSHED_PI_ERR_READING_PCIE_OVERRIDES = 4
+public val PSHED_PI_ERR_READING_PCIE_OVERRIDES_BAD_SIGNATURE: PshedPiErrReadingPcieOverrides = 4
 
-public val PshedPiErrReadingPcieOverridesBadSize: PSHED_PI_ERR_READING_PCIE_OVERRIDES = 3
+public val PSHED_PI_ERR_READING_PCIE_OVERRIDES_BAD_SIZE: PshedPiErrReadingPcieOverrides = 3
 
-public val PshedPiErrReadingPcieOverridesNoCapOffset: PSHED_PI_ERR_READING_PCIE_OVERRIDES = 5
+public val PSHED_PI_ERR_READING_PCIE_OVERRIDES_NO_CAP_OFFSET: PshedPiErrReadingPcieOverrides = 5
 
-public val PshedPiErrReadingPcieOverridesNoErr: PSHED_PI_ERR_READING_PCIE_OVERRIDES = 0
+public val PSHED_PI_ERR_READING_PCIE_OVERRIDES_NO_ERR: PshedPiErrReadingPcieOverrides = 0
 
-public val PshedPiErrReadingPcieOverridesNoMemory: PSHED_PI_ERR_READING_PCIE_OVERRIDES = 1
+public val PSHED_PI_ERR_READING_PCIE_OVERRIDES_NO_MEMORY: PshedPiErrReadingPcieOverrides = 1
 
-public val PshedPiErrReadingPcieOverridesNotBinary: PSHED_PI_ERR_READING_PCIE_OVERRIDES = 6
+public val PSHED_PI_ERR_READING_PCIE_OVERRIDES_NOT_BINARY: PshedPiErrReadingPcieOverrides = 6
 
-public val PshedPiErrReadingPcieOverridesQueryErr: PSHED_PI_ERR_READING_PCIE_OVERRIDES = 2
+public val PSHED_PI_ERR_READING_PCIE_OVERRIDES_QUERY_ERR: PshedPiErrReadingPcieOverrides = 2
 
-public val QuerySecurityDescriptor: SECURITY_OPERATION_CODE = 1
+public val QUERY_SECURITY_DESCRIPTOR: SecurityOperationCode = 1
 
-public val RCB128Bytes: PCI_EXPRESS_RCB = 1
+public val RCB128BYTES: PciExpressRcb = 1
 
-public val RCB64Bytes: PCI_EXPRESS_RCB = 0
+public val RCB64BYTES: PciExpressRcb = 0
 
-public val RECOVERY_INFO_SECTION_GUID: GUID = GUID.from_u128(U128(0xc34832a102c34c52uL, 0xa9f19f1d5d7723fcuL))
+public val RECOVERY_INFO_SECTION_GUID: Guid = Guid.fromU128(U128(0xc34832a102c34c52uL, 0xa9f19f1d5d7723fcuL))
 
 public val RESOURCE_HASH_TABLE_SIZE: UInt = 64u
 
@@ -841,183 +841,183 @@ public val RTL_REGISTRY_WINDOWS_NT: UInt = 3u
 
 public val RTL_STACK_WALKING_MODE_FRAMES_TO_SKIP_SHIFT: UInt = 8u
 
-public val RandomAccess: IO_ACCESS_MODE = 1
+public val RANDOM_ACCESS: IoAccessMode = 1
 
-public val ReadAccess: IO_ACCESS_TYPE = 0
+public val READ_ACCESS: IoAccessType = 0
 
-public val RealModeIrqRoutingTable: CONFIGURATION_TYPE = 39
+public val REAL_MODE_IRQ_ROUTING_TABLE: ConfigurationType = 39
 
-public val RealModePCIEnumeration: CONFIGURATION_TYPE = 40
+public val REAL_MODE_PCI_ENUMERATION: ConfigurationType = 40
 
-public val RealTimeWorkQueue: WORK_QUEUE_TYPE = 5
+public val REAL_TIME_WORK_QUEUE: WorkQueueType = 5
 
-public val RebuildControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = 5
+public val REBUILD_CONTROL: NpemControlStandardControlBit = 5
 
-public val RegNtCallbackObjectContextCleanup: REG_NOTIFY_CLASS = 40
+public val REG_NT_CALLBACK_OBJECT_CONTEXT_CLEANUP: RegNotifyClass = 40
 
-public val RegNtDeleteKey: REG_NOTIFY_CLASS = 0
+public val REG_NT_DELETE_KEY: RegNotifyClass = 0
 
-public val RegNtDeleteValueKey: REG_NOTIFY_CLASS = 2
+public val REG_NT_DELETE_VALUE_KEY: RegNotifyClass = 2
 
-public val RegNtEnumerateKey: REG_NOTIFY_CLASS = 5
+public val REG_NT_ENUMERATE_KEY: RegNotifyClass = 5
 
-public val RegNtEnumerateValueKey: REG_NOTIFY_CLASS = 6
+public val REG_NT_ENUMERATE_VALUE_KEY: RegNotifyClass = 6
 
-public val RegNtKeyHandleClose: REG_NOTIFY_CLASS = 14
+public val REG_NT_KEY_HANDLE_CLOSE: RegNotifyClass = 14
 
-public val RegNtPostCreateKey: REG_NOTIFY_CLASS = 11
+public val REG_NT_POST_CREATE_KEY: RegNotifyClass = 11
 
-public val RegNtPostCreateKeyEx: REG_NOTIFY_CLASS = 27
+public val REG_NT_POST_CREATE_KEY_EX: RegNotifyClass = 27
 
-public val RegNtPostDeleteKey: REG_NOTIFY_CLASS = 15
+public val REG_NT_POST_DELETE_KEY: RegNotifyClass = 15
 
-public val RegNtPostDeleteValueKey: REG_NOTIFY_CLASS = 17
+public val REG_NT_POST_DELETE_VALUE_KEY: RegNotifyClass = 17
 
-public val RegNtPostEnumerateKey: REG_NOTIFY_CLASS = 20
+public val REG_NT_POST_ENUMERATE_KEY: RegNotifyClass = 20
 
-public val RegNtPostEnumerateValueKey: REG_NOTIFY_CLASS = 21
+public val REG_NT_POST_ENUMERATE_VALUE_KEY: RegNotifyClass = 21
 
-public val RegNtPostFlushKey: REG_NOTIFY_CLASS = 31
+public val REG_NT_POST_FLUSH_KEY: RegNotifyClass = 31
 
-public val RegNtPostKeyHandleClose: REG_NOTIFY_CLASS = 25
+public val REG_NT_POST_KEY_HANDLE_CLOSE: RegNotifyClass = 25
 
-public val RegNtPostLoadKey: REG_NOTIFY_CLASS = 33
+public val REG_NT_POST_LOAD_KEY: RegNotifyClass = 33
 
-public val RegNtPostOpenKey: REG_NOTIFY_CLASS = 13
+public val REG_NT_POST_OPEN_KEY: RegNotifyClass = 13
 
-public val RegNtPostOpenKeyEx: REG_NOTIFY_CLASS = 29
+public val REG_NT_POST_OPEN_KEY_EX: RegNotifyClass = 29
 
-public val RegNtPostQueryKey: REG_NOTIFY_CLASS = 22
+public val REG_NT_POST_QUERY_KEY: RegNotifyClass = 22
 
-public val RegNtPostQueryKeyName: REG_NOTIFY_CLASS = 48
+public val REG_NT_POST_QUERY_KEY_NAME: RegNotifyClass = 48
 
-public val RegNtPostQueryKeySecurity: REG_NOTIFY_CLASS = 37
+public val REG_NT_POST_QUERY_KEY_SECURITY: RegNotifyClass = 37
 
-public val RegNtPostQueryMultipleValueKey: REG_NOTIFY_CLASS = 24
+public val REG_NT_POST_QUERY_MULTIPLE_VALUE_KEY: RegNotifyClass = 24
 
-public val RegNtPostQueryValueKey: REG_NOTIFY_CLASS = 23
+public val REG_NT_POST_QUERY_VALUE_KEY: RegNotifyClass = 23
 
-public val RegNtPostRenameKey: REG_NOTIFY_CLASS = 19
+public val REG_NT_POST_RENAME_KEY: RegNotifyClass = 19
 
-public val RegNtPostReplaceKey: REG_NOTIFY_CLASS = 46
+public val REG_NT_POST_REPLACE_KEY: RegNotifyClass = 46
 
-public val RegNtPostRestoreKey: REG_NOTIFY_CLASS = 42
+public val REG_NT_POST_RESTORE_KEY: RegNotifyClass = 42
 
-public val RegNtPostSaveKey: REG_NOTIFY_CLASS = 44
+public val REG_NT_POST_SAVE_KEY: RegNotifyClass = 44
 
-public val RegNtPostSaveMergedKey: REG_NOTIFY_CLASS = 50
+public val REG_NT_POST_SAVE_MERGED_KEY: RegNotifyClass = 50
 
-public val RegNtPostSetInformationKey: REG_NOTIFY_CLASS = 18
+public val REG_NT_POST_SET_INFORMATION_KEY: RegNotifyClass = 18
 
-public val RegNtPostSetKeySecurity: REG_NOTIFY_CLASS = 39
+public val REG_NT_POST_SET_KEY_SECURITY: RegNotifyClass = 39
 
-public val RegNtPostSetValueKey: REG_NOTIFY_CLASS = 16
+public val REG_NT_POST_SET_VALUE_KEY: RegNotifyClass = 16
 
-public val RegNtPostUnLoadKey: REG_NOTIFY_CLASS = 35
+public val REG_NT_POST_UN_LOAD_KEY: RegNotifyClass = 35
 
-public val RegNtPreCreateKey: REG_NOTIFY_CLASS = 10
+public val REG_NT_PRE_CREATE_KEY: RegNotifyClass = 10
 
-public val RegNtPreCreateKeyEx: REG_NOTIFY_CLASS = 26
+public val REG_NT_PRE_CREATE_KEY_EX: RegNotifyClass = 26
 
-public val RegNtPreDeleteKey: REG_NOTIFY_CLASS = 0
+public val REG_NT_PRE_DELETE_KEY: RegNotifyClass = 0
 
-public val RegNtPreDeleteValueKey: REG_NOTIFY_CLASS = 2
+public val REG_NT_PRE_DELETE_VALUE_KEY: RegNotifyClass = 2
 
-public val RegNtPreEnumerateKey: REG_NOTIFY_CLASS = 5
+public val REG_NT_PRE_ENUMERATE_KEY: RegNotifyClass = 5
 
-public val RegNtPreEnumerateValueKey: REG_NOTIFY_CLASS = 6
+public val REG_NT_PRE_ENUMERATE_VALUE_KEY: RegNotifyClass = 6
 
-public val RegNtPreFlushKey: REG_NOTIFY_CLASS = 30
+public val REG_NT_PRE_FLUSH_KEY: RegNotifyClass = 30
 
-public val RegNtPreKeyHandleClose: REG_NOTIFY_CLASS = 14
+public val REG_NT_PRE_KEY_HANDLE_CLOSE: RegNotifyClass = 14
 
-public val RegNtPreLoadKey: REG_NOTIFY_CLASS = 32
+public val REG_NT_PRE_LOAD_KEY: RegNotifyClass = 32
 
-public val RegNtPreOpenKey: REG_NOTIFY_CLASS = 12
+public val REG_NT_PRE_OPEN_KEY: RegNotifyClass = 12
 
-public val RegNtPreOpenKeyEx: REG_NOTIFY_CLASS = 28
+public val REG_NT_PRE_OPEN_KEY_EX: RegNotifyClass = 28
 
-public val RegNtPreQueryKey: REG_NOTIFY_CLASS = 7
+public val REG_NT_PRE_QUERY_KEY: RegNotifyClass = 7
 
-public val RegNtPreQueryKeyName: REG_NOTIFY_CLASS = 47
+public val REG_NT_PRE_QUERY_KEY_NAME: RegNotifyClass = 47
 
-public val RegNtPreQueryKeySecurity: REG_NOTIFY_CLASS = 36
+public val REG_NT_PRE_QUERY_KEY_SECURITY: RegNotifyClass = 36
 
-public val RegNtPreQueryMultipleValueKey: REG_NOTIFY_CLASS = 9
+public val REG_NT_PRE_QUERY_MULTIPLE_VALUE_KEY: RegNotifyClass = 9
 
-public val RegNtPreQueryValueKey: REG_NOTIFY_CLASS = 8
+public val REG_NT_PRE_QUERY_VALUE_KEY: RegNotifyClass = 8
 
-public val RegNtPreRenameKey: REG_NOTIFY_CLASS = 4
+public val REG_NT_PRE_RENAME_KEY: RegNotifyClass = 4
 
-public val RegNtPreReplaceKey: REG_NOTIFY_CLASS = 45
+public val REG_NT_PRE_REPLACE_KEY: RegNotifyClass = 45
 
-public val RegNtPreRestoreKey: REG_NOTIFY_CLASS = 41
+public val REG_NT_PRE_RESTORE_KEY: RegNotifyClass = 41
 
-public val RegNtPreSaveKey: REG_NOTIFY_CLASS = 43
+public val REG_NT_PRE_SAVE_KEY: RegNotifyClass = 43
 
-public val RegNtPreSaveMergedKey: REG_NOTIFY_CLASS = 49
+public val REG_NT_PRE_SAVE_MERGED_KEY: RegNotifyClass = 49
 
-public val RegNtPreSetInformationKey: REG_NOTIFY_CLASS = 3
+public val REG_NT_PRE_SET_INFORMATION_KEY: RegNotifyClass = 3
 
-public val RegNtPreSetKeySecurity: REG_NOTIFY_CLASS = 38
+public val REG_NT_PRE_SET_KEY_SECURITY: RegNotifyClass = 38
 
-public val RegNtPreSetValueKey: REG_NOTIFY_CLASS = 1
+public val REG_NT_PRE_SET_VALUE_KEY: RegNotifyClass = 1
 
-public val RegNtPreUnLoadKey: REG_NOTIFY_CLASS = 34
+public val REG_NT_PRE_UN_LOAD_KEY: RegNotifyClass = 34
 
-public val RegNtQueryKey: REG_NOTIFY_CLASS = 7
+public val REG_NT_QUERY_KEY: RegNotifyClass = 7
 
-public val RegNtQueryMultipleValueKey: REG_NOTIFY_CLASS = 9
+public val REG_NT_QUERY_MULTIPLE_VALUE_KEY: RegNotifyClass = 9
 
-public val RegNtQueryValueKey: REG_NOTIFY_CLASS = 8
+public val REG_NT_QUERY_VALUE_KEY: RegNotifyClass = 8
 
-public val RegNtRenameKey: REG_NOTIFY_CLASS = 4
+public val REG_NT_RENAME_KEY: RegNotifyClass = 4
 
-public val RegNtSetInformationKey: REG_NOTIFY_CLASS = 3
+public val REG_NT_SET_INFORMATION_KEY: RegNotifyClass = 3
 
-public val RegNtSetValueKey: REG_NOTIFY_CLASS = 1
+public val REG_NT_SET_VALUE_KEY: RegNotifyClass = 1
 
-public val RemovalPolicyExpectNoRemoval: DEVICE_REMOVAL_POLICY = 1
+public val REMOVAL_POLICY_EXPECT_NO_REMOVAL: DeviceRemovalPolicy = 1
 
-public val RemovalPolicyExpectOrderlyRemoval: DEVICE_REMOVAL_POLICY = 2
+public val REMOVAL_POLICY_EXPECT_ORDERLY_REMOVAL: DeviceRemovalPolicy = 2
 
-public val RemovalPolicyExpectSurpriseRemoval: DEVICE_REMOVAL_POLICY = 3
+public val REMOVAL_POLICY_EXPECT_SURPRISE_REMOVAL: DeviceRemovalPolicy = 3
 
-public val RemovalRelations: DEVICE_RELATION_TYPE = 3
+public val REMOVAL_RELATIONS: DeviceRelationType = 3
 
-public val ResourceNeverExclusive: UInt = 16u
+public val RESOURCE_NEVER_EXCLUSIVE: UInt = 16u
 
-public val ResourceOwnedExclusive: UInt = 128u
+public val RESOURCE_OWNED_EXCLUSIVE: UInt = 128u
 
-public val ResourceReleaseByOtherThread: UInt = 32u
+public val RESOURCE_RELEASE_BY_OTHER_THREAD: UInt = 32u
 
-public val ResourceTypeEventBuffer: PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE = 4
+public val RESOURCE_TYPE_EVENT_BUFFER: PhysicalCounterResourceDescriptorType = 4
 
-public val ResourceTypeExtendedCounterConfiguration: PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE = 2
+public val RESOURCE_TYPE_EXTENDED_COUNTER_CONFIGURATION: PhysicalCounterResourceDescriptorType = 2
 
-public val ResourceTypeIdenitificationTag: PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE = 5
+public val RESOURCE_TYPE_IDENITIFICATION_TAG: PhysicalCounterResourceDescriptorType = 5
 
-public val ResourceTypeMax: PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE = 6
+public val RESOURCE_TYPE_MAX: PhysicalCounterResourceDescriptorType = 6
 
-public val ResourceTypeOverflow: PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE = 3
+public val RESOURCE_TYPE_OVERFLOW: PhysicalCounterResourceDescriptorType = 3
 
-public val ResourceTypeRange: PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE = 1
+public val RESOURCE_TYPE_RANGE: PhysicalCounterResourceDescriptorType = 1
 
-public val ResourceTypeSingle: PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE = 0
+public val RESOURCE_TYPE_SINGLE: PhysicalCounterResourceDescriptorType = 0
 
-public val ResultNegative: INTERLOCKED_RESULT = 32768
+public val RESULT_NEGATIVE1: InterlockedResult = 32768
 
-public val ResultPositive: INTERLOCKED_RESULT = 0
+public val RESULT_POSITIVE1: InterlockedResult = 0
 
-public val ResultZero: INTERLOCKED_RESULT = 16384
+public val RESULT_ZERO1: InterlockedResult = 16384
 
-public val SCI_NOTIFY_TYPE_GUID: GUID = GUID.from_u128(U128(0xe9d5919794ee4a4fuL, 0x8ad89b7d8bd93d2euL))
+public val SCI_NOTIFY_TYPE_GUID: Guid = Guid.fromU128(U128(0xe9d5919794ee4a4fuL, 0x8ad89b7d8bd93d2euL))
 
 public val SDEV_IDENTIFIER_INTERFACE_VERSION: UInt = 1u
 
-public val SEA_NOTIFY_TYPE_GUID: GUID = GUID.from_u128(U128(0x9a78788abbe811e4uL, 0x809e67611e5d46b0uL))
+public val SEA_NOTIFY_TYPE_GUID: Guid = Guid.fromU128(U128(0x9a78788abbe811e4uL, 0x809e67611e5d46b0uL))
 
-public val SEA_SECTION_GUID: GUID = GUID.from_u128(U128(0xf5fe48a684ce4c1euL, 0xaa6420c9a53099f1uL))
+public val SEA_SECTION_GUID: Guid = Guid.fromU128(U128(0xf5fe48a684ce4c1euL, 0xaa6420c9a53099f1uL))
 
 public val SECTION_MAP_EXECUTE: UInt = 8u
 
@@ -1049,9 +1049,9 @@ public val SEH_VALIDATION_POLICY_ON: UInt = 0u
 
 public val SEH_VALIDATION_POLICY_TELEMETRY: UInt = 2u
 
-public val SEI_NOTIFY_TYPE_GUID: GUID = GUID.from_u128(U128(0x5c284c81b0ae4e87uL, 0xa322b04c85624323uL))
+public val SEI_NOTIFY_TYPE_GUID: Guid = Guid.fromU128(U128(0x5c284c81b0ae4e87uL, 0xa322b04c85624323uL))
 
-public val SEI_SECTION_GUID: GUID = GUID.from_u128(U128(0xf2a4a1529c6d4020uL, 0xaecf7695b389251buL))
+public val SEI_SECTION_GUID: Guid = Guid.fromU128(U128(0xf2a4a1529c6d4020uL, 0xaecf7695b389251buL))
 
 public val SEMAPHORE_QUERY_STATE: UInt = 1u
 
@@ -1249,19 +1249,19 @@ public val SL_WRITE_ACCESS_GRANTED: UInt = 4u
 
 public val SL_WRITE_THROUGH: UInt = 4u
 
-public val SOC_SUBSYS_AUDIO_DSP: SOC_SUBSYSTEM_TYPE = 1
+public val SOC_SUBSYS_AUDIO_DSP: SocSubsystemType = 1
 
-public val SOC_SUBSYS_COMPUTE_DSP: SOC_SUBSYSTEM_TYPE = 4
+public val SOC_SUBSYS_COMPUTE_DSP: SocSubsystemType = 4
 
-public val SOC_SUBSYS_SECURE_PROC: SOC_SUBSYSTEM_TYPE = 5
+public val SOC_SUBSYS_SECURE_PROC: SocSubsystemType = 5
 
-public val SOC_SUBSYS_SENSORS: SOC_SUBSYSTEM_TYPE = 3
+public val SOC_SUBSYS_SENSORS: SocSubsystemType = 3
 
-public val SOC_SUBSYS_VENDOR_DEFINED: SOC_SUBSYSTEM_TYPE = 65536
+public val SOC_SUBSYS_VENDOR_DEFINED: SocSubsystemType = 65536
 
-public val SOC_SUBSYS_WIRELESS_MODEM: SOC_SUBSYSTEM_TYPE = 0
+public val SOC_SUBSYS_WIRELESS_MODEM: SocSubsystemType = 0
 
-public val SOC_SUBSYS_WIRELSS_CONNECTIVITY: SOC_SUBSYSTEM_TYPE = 2
+public val SOC_SUBSYS_WIRELSS_CONNECTIVITY: SocSubsystemType = 2
 
 public val SSINFO_FLAGS_ALIGNED_DEVICE: UInt = 1u
 
@@ -1283,69 +1283,69 @@ public val SYSTEM_CALL_INT_2E: UInt = 1u
 
 public val SYSTEM_CALL_SYSCALL: UInt = 0u
 
-public val ScsiAdapter: CONFIGURATION_TYPE = 10
+public val SCSI_ADAPTER: ConfigurationType = 10
 
-public val SeImageTypeDriver: SE_IMAGE_TYPE = 1
+public val SE_IMAGE_TYPE_DRIVER: SeImageType = 1
 
-public val SeImageTypeDynamicCodeFile: SE_IMAGE_TYPE = 3
+public val SE_IMAGE_TYPE_DYNAMIC_CODE_FILE: SeImageType = 3
 
-public val SeImageTypeElamDriver: SE_IMAGE_TYPE = 0
+public val SE_IMAGE_TYPE_ELAM_DRIVER: SeImageType = 0
 
-public val SeImageTypeMax: SE_IMAGE_TYPE = 4
+public val SE_IMAGE_TYPE_MAX: SeImageType = 4
 
-public val SeImageTypePlatformSecureFile: SE_IMAGE_TYPE = 2
+public val SE_IMAGE_TYPE_PLATFORM_SECURE_FILE: SeImageType = 2
 
-public val SeImageVerificationCallbackInformational: SE_IMAGE_VERIFICATION_CALLBACK_TYPE = 0
+public val SE_IMAGE_VERIFICATION_CALLBACK_INFORMATIONAL: SeImageVerificationCallbackType = 0
 
-public val SecondaryCache: CONFIGURATION_TYPE = 7
+public val SECONDARY_CACHE: ConfigurationType = 7
 
-public val SecondaryDcache: CONFIGURATION_TYPE = 6
+public val SECONDARY_DCACHE: ConfigurationType = 6
 
-public val SecondaryIcache: CONFIGURATION_TYPE = 5
+public val SECONDARY_ICACHE: ConfigurationType = 5
 
-public val SequentialAccess: IO_ACCESS_MODE = 0
+public val SEQUENTIAL_ACCESS: IoAccessMode = 0
 
-public val SerialController: CONFIGURATION_TYPE = 17
+public val SERIAL_CONTROLLER: ConfigurationType = 17
 
-public val SetSecurityDescriptor: SECURITY_OPERATION_CODE = 0
+public val SET_SECURITY_DESCRIPTOR: SecurityOperationCode = 0
 
-public val SgiInternalConfiguration: BUS_DATA_TYPE = 11
+public val SGI_INTERNAL_CONFIGURATION: BusDataType = 11
 
-public val SharedInterruptTime: UInt = 4292804616u
+public val SHARED_INTERRUPT_TIME: UInt = 4292804616u
 
-public val SharedSystemTime: UInt = 4292804628u
+public val SHARED_SYSTEM_TIME: UInt = 4292804628u
 
-public val SharedTickCount: UInt = 4292805408u
+public val SHARED_TICK_COUNT: UInt = 4292805408u
 
-public val SingleBusRelations: DEVICE_RELATION_TYPE = 5
+public val SINGLE_BUS_RELATIONS: DeviceRelationType = 5
 
-public val SlotEmpty: PCI_EXPRESS_CARD_PRESENCE = 0
+public val SLOT_EMPTY: PciExpressCardPresence = 0
 
-public val StandardDesign: ALTERNATIVE_ARCHITECTURE_TYPE = 0
+public val STANDARD_DESIGN: AlternativeArchitectureType = 0
 
-public val StopCompletion: IO_COMPLETION_ROUTINE_RESULT = -1073741802
+public val STOP_COMPLETION: IoCompletionRoutineResult = -1073741802
 
-public val SubsystemInformationTypeWSL: SUBSYSTEM_INFORMATION_TYPE = 1
+public val SUBSYSTEM_INFORMATION_TYPE_WSL: SubsystemInformationType = 1
 
-public val SubsystemInformationTypeWin32: SUBSYSTEM_INFORMATION_TYPE = 0
+public val SUBSYSTEM_INFORMATION_TYPE_WIN32: SubsystemInformationType = 0
 
-public val SuperCriticalWorkQueue: WORK_QUEUE_TYPE = 6
+public val SUPER_CRITICAL_WORK_QUEUE: WorkQueueType = 6
 
-public val Suspended: KWAIT_REASON = 5
+public val SUSPENDED: KwaitReason = 5
 
-public val SystemFirmwareTable_Enumerate: SYSTEM_FIRMWARE_TABLE_ACTION = 0
+public val SYSTEM_FIRMWARE_TABLE_ENUMERATE: SystemFirmwareTableAction = 0
 
-public val SystemFirmwareTable_Get: SYSTEM_FIRMWARE_TABLE_ACTION = 1
+public val SYSTEM_FIRMWARE_TABLE_GET: SystemFirmwareTableAction = 1
 
-public val SystemMemory: CONFIGURATION_TYPE = 37
+public val SYSTEM_MEMORY: ConfigurationType = 37
 
-public val SystemMemoryPartitionDedicatedMemoryInformation: PARTITION_INFORMATION_CLASS = 9
+public val SYSTEM_MEMORY_PARTITION_DEDICATED_MEMORY_INFORMATION: PartitionInformationClass = 9
 
-public val SystemMemoryPartitionInformation: PARTITION_INFORMATION_CLASS = 0
+public val SYSTEM_MEMORY_PARTITION_INFORMATION: PartitionInformationClass = 0
 
-public val SystemMemoryPartitionOpenDedicatedMemory: PARTITION_INFORMATION_CLASS = 10
+public val SYSTEM_MEMORY_PARTITION_OPEN_DEDICATED_MEMORY: PartitionInformationClass = 10
 
-public val SystemPowerState: POWER_STATE_TYPE = 0
+public val SYSTEM_POWER_STATE: PowerStateType = 0
 
 public val THREAD_ALERT: UInt = 4u
 
@@ -1369,77 +1369,77 @@ public val TREE_CONNECT_WRITE_THROUGH: UInt = 2u
 
 public val TXF_MINIVERSION_DEFAULT_VIEW: UInt = 65534u
 
-public val TableEmptyTree: TABLE_SEARCH_RESULT = 0
+public val TABLE_EMPTY_TREE: TableSearchResult = 0
 
-public val TableFoundNode: TABLE_SEARCH_RESULT = 1
+public val TABLE_FOUND_NODE: TableSearchResult = 1
 
-public val TableInsertAsLeft: TABLE_SEARCH_RESULT = 2
+public val TABLE_INSERT_AS_LEFT: TableSearchResult = 2
 
-public val TableInsertAsRight: TABLE_SEARCH_RESULT = 3
+public val TABLE_INSERT_AS_RIGHT: TableSearchResult = 3
 
-public val TapeController: CONFIGURATION_TYPE = 14
+public val TAPE_CONTROLLER: ConfigurationType = 14
 
-public val TapePeripheral: CONFIGURATION_TYPE = 27
+public val TAPE_PERIPHERAL: ConfigurationType = 27
 
-public val TargetDeviceRelation: DEVICE_RELATION_TYPE = 4
+public val TARGET_DEVICE_RELATION: DeviceRelationType = 4
 
-public val TcAdapter: CONFIGURATION_TYPE = 9
+public val TC_ADAPTER: ConfigurationType = 9
 
-public val TerminalPeripheral: CONFIGURATION_TYPE = 33
+public val TERMINAL_PERIPHERAL: ConfigurationType = 33
 
-public val TlbMatchConflict: FAULT_INFORMATION_ARM64_TYPE = 2
+public val TLB_MATCH_CONFLICT: FaultInformationArm64Type = 2
 
-public val TraceEnableFlagsClass: TRACE_INFORMATION_CLASS = 2
+public val TRACE_ENABLE_FLAGS_CLASS: TraceInformationClass = 2
 
-public val TraceEnableLevelClass: TRACE_INFORMATION_CLASS = 3
+public val TRACE_ENABLE_LEVEL_CLASS: TraceInformationClass = 3
 
-public val TraceHandleByNameClass: TRACE_INFORMATION_CLASS = 7
+public val TRACE_HANDLE_BY_NAME_CLASS: TraceInformationClass = 7
 
-public val TraceHandleClass: TRACE_INFORMATION_CLASS = 1
+public val TRACE_HANDLE_CLASS: TraceInformationClass = 1
 
-public val TraceIdClass: TRACE_INFORMATION_CLASS = 0
+public val TRACE_ID_CLASS: TraceInformationClass = 0
 
-public val TraceInformationClassReserved1: TRACE_INFORMATION_CLASS = 12
+public val TRACE_INFORMATION_CLASS_RESERVED1: TraceInformationClass = 12
 
-public val TraceInformationClassReserved2: TRACE_INFORMATION_CLASS = 14
+public val TRACE_INFORMATION_CLASS_RESERVED2: TraceInformationClass = 14
 
-public val TraceSessionSettingsClass: TRACE_INFORMATION_CLASS = 9
+public val TRACE_SESSION_SETTINGS_CLASS: TraceInformationClass = 9
 
-public val TranslateChildToParent: RESOURCE_TRANSLATION_DIRECTION = 0
+public val TRANSLATE_CHILD_TO_PARENT: ResourceTranslationDirection = 0
 
-public val TranslateParentToChild: RESOURCE_TRANSLATION_DIRECTION = 1
+public val TRANSLATE_PARENT_TO_CHILD: ResourceTranslationDirection = 1
 
-public val TranslationFault: FAULT_INFORMATION_ARM64_TYPE = 6
+public val TRANSLATION_FAULT: FaultInformationArm64Type = 6
 
-public val TransportRelations: DEVICE_RELATION_TYPE = 6
+public val TRANSPORT_RELATIONS: DeviceRelationType = 6
 
-public val TurboChannel: INTERFACE_TYPE = 4
+public val TURBO_CHANNEL: InterfaceType = 4
 
-public val TypeA: DMA_SPEED = 1
+public val TYPE_A: DmaSpeed = 1
 
-public val TypeB: DMA_SPEED = 2
+public val TYPE_B: DmaSpeed = 2
 
-public val TypeC: DMA_SPEED = 3
+public val TYPE_C: DmaSpeed = 3
 
-public val TypeF: DMA_SPEED = 4
+public val TYPE_F: DmaSpeed = 4
 
 public val UADDRESS_BASE: UInt = 0u
 
-public val UnsupportedUpstreamTransaction: FAULT_INFORMATION_ARM64_TYPE = 0
+public val UNSUPPORTED_UPSTREAM_TRANSACTION: FaultInformationArm64Type = 0
 
-public val UserMode: MODE = 1
+public val USER_MODE: Mode = 1
 
-public val UserNotPresent: POWER_USER_PRESENCE_TYPE = 0
+public val USER_NOT_PRESENT: PowerUserPresenceType = 0
 
-public val UserPresent: POWER_USER_PRESENCE_TYPE = 1
+public val USER_PRESENT: PowerUserPresenceType = 1
 
-public val UserRequest: KWAIT_REASON = 6
+public val USER_REQUEST: KwaitReason = 6
 
-public val UserUnknown: POWER_USER_PRESENCE_TYPE = 255
+public val USER_UNKNOWN: PowerUserPresenceType = 255
 
-public val VMEBus: INTERFACE_TYPE = 6
+public val VME_BUS: InterfaceType = 6
 
-public val VMEConfiguration: BUS_DATA_TYPE = 5
+public val VME_CONFIGURATION: BusDataType = 5
 
 public val VPB_DIRECT_WRITES_ALLOWED: UInt = 32u
 
@@ -1457,7 +1457,7 @@ public val VPB_RAW_MOUNT: UInt = 16u
 
 public val VPB_REMOVE_PENDING: UInt = 8u
 
-public val Vmcs: INTERFACE_TYPE = 16
+public val VMCS: InterfaceType = 16
 
 public val WCS_RAS_REGISTER_NAME_MAX_LENGTH: UInt = 32u
 
@@ -1467,17 +1467,17 @@ public val WDM_MINORVERSION: UInt = 0u
 
 public val WHEA_AMD_EXT_REG_NUM: UInt = 10u
 
-public val WHEA_BUSCHECK_GUID: GUID = GUID.from_u128(U128(0x1cf3f8b3c5b149a2uL, 0xaa595eef92ffa63cuL))
+public val WHEA_BUSCHECK_GUID: Guid = Guid.fromU128(U128(0x1cf3f8b3c5b149a2uL, 0xaa595eef92ffa63cuL))
 
-public val WHEA_CACHECHECK_GUID: GUID = GUID.from_u128(U128(0xa55701f5e3ef43deuL, 0xac72249b573fad2cuL))
+public val WHEA_CACHECHECK_GUID: Guid = Guid.fromU128(U128(0xa55701f5e3ef43deuL, 0xac72249b573fad2cuL))
 
-public val WHEA_DEVICE_ERROR_SUMMARY_GUID: GUID = GUID.from_u128(U128(0x990b31e9541a4db0uL, 0xa42f837d344f6923uL))
+public val WHEA_DEVICE_ERROR_SUMMARY_GUID: Guid = Guid.fromU128(U128(0x990b31e9541a4db0uL, 0xa42f837d344f6923uL))
 
-public val WHEA_DPC_CAPABILITY_SECTION_GUID: GUID = GUID.from_u128(U128(0xec49534b30e74358uL, 0x972feca6958fae3buL))
+public val WHEA_DPC_CAPABILITY_SECTION_GUID: Guid = Guid.fromU128(U128(0xec49534b30e74358uL, 0x972feca6958fae3buL))
 
 public val WHEA_ERROR_LOG_ENTRY_VERSION: UInt = 1u
 
-public val WHEA_ERROR_PACKET_SECTION_GUID: GUID = GUID.from_u128(U128(0xe71254e9c1b94940uL, 0xab76909703a4320fuL))
+public val WHEA_ERROR_PACKET_SECTION_GUID: Guid = Guid.fromU128(U128(0xe71254e9c1b94940uL, 0xab76909703a4320fuL))
 
 public val WHEA_ERROR_PACKET_V1_VERSION: UInt = 2u
 
@@ -1555,7 +1555,7 @@ public val WHEA_MEMERRTYPE_UNKNOWN: UInt = 0u
 
 public val WHEA_MEMERRTYPE_WATCHDOGTIMEOUT: UInt = 9u
 
-public val WHEA_MSCHECK_GUID: GUID = GUID.from_u128(U128(0x48ab7f57dc344f6cuL, 0xa7d3b0b5b0a74314uL))
+public val WHEA_MSCHECK_GUID: Guid = Guid.fromU128(U128(0x48ab7f57dc344f6cuL, 0xa7d3b0b5b0a74314uL))
 
 public val WHEA_PCIE_CORRECTABLE_ERROR_SECTION_COUNT_SIZE: UInt = 32u
 
@@ -1569,7 +1569,7 @@ public val WHEA_PMEM_ERROR_SECTION_LOCATION_INFO_SIZE: UInt = 64u
 
 public val WHEA_PMEM_ERROR_SECTION_MAX_PAGES: UInt = 50u
 
-public val WHEA_RECORD_CREATOR_GUID: GUID = GUID.from_u128(U128(0xcf07c4bdb7894e18uL, 0xb3c41f732cb57131uL))
+public val WHEA_RECORD_CREATOR_GUID: Guid = Guid.fromU128(U128(0xcf07c4bdb7894e18uL, 0xb3c41f732cb57131uL))
 
 public val WHEA_SECTION_DESCRIPTOR_FLAGS_CONTAINMENTWRN: UInt = 2u
 
@@ -1591,7 +1591,7 @@ public val WHEA_SECTION_DESCRIPTOR_REVISION: UInt = 768u
 
 public val WHEA_SEL_BUGCHECK_RECOVERY_STATUS_PHASE1_VERSION: UInt = 1u
 
-public val WHEA_TLBCHECK_GUID: GUID = GUID.from_u128(U128(0xfc06b5355e1f4562uL, 0x9f250a3b9adb63c3uL))
+public val WHEA_TLBCHECK_GUID: Guid = Guid.fromU128(U128(0xfc06b5355e1f4562uL, 0x9f250a3b9adb63c3uL))
 
 public val WHEA_WRITE_FLAG_DUMMY: UInt = 1u
 
@@ -1617,453 +1617,453 @@ public val WMIREG_ACTION_UPDATE_GUIDS: UInt = 4u
 
 public val WMIUPDATE: UInt = 1u
 
-public val WdfNotifyRoutinesClass: TRACE_INFORMATION_CLASS = 15
+public val WDF_NOTIFY_ROUTINES_CLASS: TraceInformationClass = 15
 
-public val WheaCpuVendorAmd: WHEA_CPU_VENDOR = 2
+public val WHEA_CPU_VENDOR_AMD: WheaCpuVendor = 2
 
-public val WheaCpuVendorIntel: WHEA_CPU_VENDOR = 1
+public val WHEA_CPU_VENDOR_INTEL: WheaCpuVendor = 1
 
-public val WheaCpuVendorOther: WHEA_CPU_VENDOR = 0
+public val WHEA_CPU_VENDOR_OTHER: WheaCpuVendor = 0
 
-public val WheaDataFormatGeneric: WHEA_ERROR_PACKET_DATA_FORMAT = 7
+public val WHEA_DATA_FORMAT_GENERIC: WheaErrorPacketDataFormat = 7
 
-public val WheaDataFormatIPFSalRecord: WHEA_ERROR_PACKET_DATA_FORMAT = 0
+public val WHEA_DATA_FORMAT_IPF_SAL_RECORD: WheaErrorPacketDataFormat = 0
 
-public val WheaDataFormatMax: WHEA_ERROR_PACKET_DATA_FORMAT = 8
+public val WHEA_DATA_FORMAT_MAX: WheaErrorPacketDataFormat = 8
 
-public val WheaDataFormatMemory: WHEA_ERROR_PACKET_DATA_FORMAT = 2
+public val WHEA_DATA_FORMAT_MEMORY: WheaErrorPacketDataFormat = 2
 
-public val WheaDataFormatNMIPort: WHEA_ERROR_PACKET_DATA_FORMAT = 4
+public val WHEA_DATA_FORMAT_NMI_PORT: WheaErrorPacketDataFormat = 4
 
-public val WheaDataFormatPCIExpress: WHEA_ERROR_PACKET_DATA_FORMAT = 3
+public val WHEA_DATA_FORMAT_PCI_EXPRESS: WheaErrorPacketDataFormat = 3
 
-public val WheaDataFormatPCIXBus: WHEA_ERROR_PACKET_DATA_FORMAT = 5
+public val WHEA_DATA_FORMAT_PCIX_BUS: WheaErrorPacketDataFormat = 5
 
-public val WheaDataFormatPCIXDevice: WHEA_ERROR_PACKET_DATA_FORMAT = 6
+public val WHEA_DATA_FORMAT_PCIX_DEVICE: WheaErrorPacketDataFormat = 6
 
-public val WheaDataFormatXPFMCA: WHEA_ERROR_PACKET_DATA_FORMAT = 1
+public val WHEA_DATA_FORMAT_XPFMCA: WheaErrorPacketDataFormat = 1
 
-public val WheaErrSevCorrected: WHEA_ERROR_SEVERITY = 2
+public val WHEA_ERR_SEV_CORRECTED: WheaErrorSeverity = 2
 
-public val WheaErrSevFatal: WHEA_ERROR_SEVERITY = 1
+public val WHEA_ERR_SEV_FATAL: WheaErrorSeverity = 1
 
-public val WheaErrSevInformational: WHEA_ERROR_SEVERITY = 3
+public val WHEA_ERR_SEV_INFORMATIONAL: WheaErrorSeverity = 3
 
-public val WheaErrSevRecoverable: WHEA_ERROR_SEVERITY = 0
+public val WHEA_ERR_SEV_RECOVERABLE: WheaErrorSeverity = 0
 
-public val WheaErrTypeGeneric: WHEA_ERROR_TYPE = 6
+public val WHEA_ERR_TYPE_GENERIC: WheaErrorType = 6
 
-public val WheaErrTypeMemory: WHEA_ERROR_TYPE = 1
+public val WHEA_ERR_TYPE_MEMORY: WheaErrorType = 1
 
-public val WheaErrTypeNMI: WHEA_ERROR_TYPE = 3
+public val WHEA_ERR_TYPE_NMI: WheaErrorType = 3
 
-public val WheaErrTypePCIExpress: WHEA_ERROR_TYPE = 2
+public val WHEA_ERR_TYPE_PCI_EXPRESS: WheaErrorType = 2
 
-public val WheaErrTypePCIXBus: WHEA_ERROR_TYPE = 4
+public val WHEA_ERR_TYPE_PCIX_BUS: WheaErrorType = 4
 
-public val WheaErrTypePCIXDevice: WHEA_ERROR_TYPE = 5
+public val WHEA_ERR_TYPE_PCIX_DEVICE: WheaErrorType = 5
 
-public val WheaErrTypePmem: WHEA_ERROR_TYPE = 7
+public val WHEA_ERR_TYPE_PMEM: WheaErrorType = 7
 
-public val WheaErrTypeProcessor: WHEA_ERROR_TYPE = 0
+public val WHEA_ERR_TYPE_PROCESSOR: WheaErrorType = 0
 
-public val WheaEventBugCheckRecoveryEntry: WHEA_BUGCHECK_RECOVERY_LOG_TYPE = 0
+public val WHEA_EVENT_BUG_CHECK_RECOVERY_ENTRY: WheaBugcheckRecoveryLogType = 0
 
-public val WheaEventBugCheckRecoveryMax: WHEA_BUGCHECK_RECOVERY_LOG_TYPE = 2
+public val WHEA_EVENT_BUG_CHECK_RECOVERY_MAX: WheaBugcheckRecoveryLogType = 2
 
-public val WheaEventBugCheckRecoveryReturn: WHEA_BUGCHECK_RECOVERY_LOG_TYPE = 1
+public val WHEA_EVENT_BUG_CHECK_RECOVERY_RETURN: WheaBugcheckRecoveryLogType = 1
 
-public val WheaEventLogAzccRootBusList: WHEA_EVENT_LOG_ENTRY_ID = -2147483617
+public val WHEA_EVENT_LOG_AZCC_ROOT_BUS_LIST: WheaEventLogEntryId = -2147483617
 
-public val WheaEventLogAzccRootBusPoisonSet: WHEA_EVENT_LOG_ENTRY_ID = -2147483602
+public val WHEA_EVENT_LOG_AZCC_ROOT_BUS_POISON_SET: WheaEventLogEntryId = -2147483602
 
-public val WheaEventLogAzccRootBusSearchErr: WHEA_EVENT_LOG_ENTRY_ID = -2147483618
+public val WHEA_EVENT_LOG_AZCC_ROOT_BUS_SEARCH_ERR: WheaEventLogEntryId = -2147483618
 
-public val WheaEventLogCmciFinalRestart: WHEA_EVENT_LOG_ENTRY_ID = -2147483620
+public val WHEA_EVENT_LOG_CMCI_FINAL_RESTART: WheaEventLogEntryId = -2147483620
 
-public val WheaEventLogCmciRestart: WHEA_EVENT_LOG_ENTRY_ID = -2147483621
+public val WHEA_EVENT_LOG_CMCI_RESTART: WheaEventLogEntryId = -2147483621
 
-public val WheaEventLogEntryEarlyError: WHEA_EVENT_LOG_ENTRY_ID = -2147483594
+public val WHEA_EVENT_LOG_ENTRY_EARLY_ERROR: WheaEventLogEntryId = -2147483594
 
-public val WheaEventLogEntryEtwOverFlow: WHEA_EVENT_LOG_ENTRY_ID = -2147483619
+public val WHEA_EVENT_LOG_ENTRY_ETW_OVER_FLOW: WheaEventLogEntryId = -2147483619
 
-public val WheaEventLogEntryIdAcpiTimeOut: WHEA_EVENT_LOG_ENTRY_ID = -2147483622
+public val WHEA_EVENT_LOG_ENTRY_ID_ACPI_TIME_OUT: WheaEventLogEntryId = -2147483622
 
-public val WheaEventLogEntryIdAddRemoveErrorSource: WHEA_EVENT_LOG_ENTRY_ID = -2147483636
+public val WHEA_EVENT_LOG_ENTRY_ID_ADD_REMOVE_ERROR_SOURCE: WheaEventLogEntryId = -2147483636
 
-public val WheaEventLogEntryIdAerNotGrantedToOs: WHEA_EVENT_LOG_ENTRY_ID = -2147483624
+public val WHEA_EVENT_LOG_ENTRY_ID_AER_NOT_GRANTED_TO_OS: WheaEventLogEntryId = -2147483624
 
-public val WheaEventLogEntryIdAttemptErrorRecovery: WHEA_EVENT_LOG_ENTRY_ID = -2147483634
+public val WHEA_EVENT_LOG_ENTRY_ID_ATTEMPT_ERROR_RECOVERY: WheaEventLogEntryId = -2147483634
 
-public val WheaEventLogEntryIdBadHestNotifyData: WHEA_EVENT_LOG_ENTRY_ID = -2147483565
+public val WHEA_EVENT_LOG_ENTRY_ID_BAD_HEST_NOTIFY_DATA: WheaEventLogEntryId = -2147483565
 
-public val WheaEventLogEntryIdBadPageLimitReached: WHEA_EVENT_LOG_ENTRY_ID = -2147483596
+public val WHEA_EVENT_LOG_ENTRY_ID_BAD_PAGE_LIMIT_REACHED: WheaEventLogEntryId = -2147483596
 
-public val WheaEventLogEntryIdClearedPoison: WHEA_EVENT_LOG_ENTRY_ID = -2147483630
+public val WHEA_EVENT_LOG_ENTRY_ID_CLEARED_POISON: WheaEventLogEntryId = -2147483630
 
-public val WheaEventLogEntryIdCmcPollingTimeout: WHEA_EVENT_LOG_ENTRY_ID = -2147483647
+public val WHEA_EVENT_LOG_ENTRY_ID_CMC_POLLING_TIMEOUT: WheaEventLogEntryId = -2147483647
 
-public val WheaEventLogEntryIdCmcSwitchToPolling: WHEA_EVENT_LOG_ENTRY_ID = -2147483645
+public val WHEA_EVENT_LOG_ENTRY_ID_CMC_SWITCH_TO_POLLING: WheaEventLogEntryId = -2147483645
 
-public val WheaEventLogEntryIdCmciImplPresent: WHEA_EVENT_LOG_ENTRY_ID = -2147483608
+public val WHEA_EVENT_LOG_ENTRY_ID_CMCI_IMPL_PRESENT: WheaEventLogEntryId = -2147483608
 
-public val WheaEventLogEntryIdCmciInitError: WHEA_EVENT_LOG_ENTRY_ID = -2147483607
+public val WHEA_EVENT_LOG_ENTRY_ID_CMCI_INIT_ERROR: WheaEventLogEntryId = -2147483607
 
-public val WheaEventLogEntryIdCpuBusesInitFailed: WHEA_EVENT_LOG_ENTRY_ID = -2147483571
+public val WHEA_EVENT_LOG_ENTRY_ID_CPU_BUSES_INIT_FAILED: WheaEventLogEntryId = -2147483571
 
-public val WheaEventLogEntryIdCpusFrozen: WHEA_EVENT_LOG_ENTRY_ID = -2147483552
+public val WHEA_EVENT_LOG_ENTRY_ID_CPUS_FROZEN: WheaEventLogEntryId = -2147483552
 
-public val WheaEventLogEntryIdCpusFrozenNoCrashDump: WHEA_EVENT_LOG_ENTRY_ID = -2147483551
+public val WHEA_EVENT_LOG_ENTRY_ID_CPUS_FROZEN_NO_CRASH_DUMP: WheaEventLogEntryId = -2147483551
 
-public val WheaEventLogEntryIdCreateGenericRecord: WHEA_EVENT_LOG_ENTRY_ID = -2147483627
+public val WHEA_EVENT_LOG_ENTRY_ID_CREATE_GENERIC_RECORD: WheaEventLogEntryId = -2147483627
 
-public val WheaEventLogEntryIdDefectListCorrupt: WHEA_EVENT_LOG_ENTRY_ID = -2147483566
+public val WHEA_EVENT_LOG_ENTRY_ID_DEFECT_LIST_CORRUPT: WheaEventLogEntryId = -2147483566
 
-public val WheaEventLogEntryIdDefectListFull: WHEA_EVENT_LOG_ENTRY_ID = -2147483568
+public val WHEA_EVENT_LOG_ENTRY_ID_DEFECT_LIST_FULL: WheaEventLogEntryId = -2147483568
 
-public val WheaEventLogEntryIdDefectListUEFIVarFailed: WHEA_EVENT_LOG_ENTRY_ID = -2147483567
+public val WHEA_EVENT_LOG_ENTRY_ID_DEFECT_LIST_UEFI_VAR_FAILED: WheaEventLogEntryId = -2147483567
 
-public val WheaEventLogEntryIdDeviceDriver: WHEA_EVENT_LOG_ENTRY_ID = -2147483609
+public val WHEA_EVENT_LOG_ENTRY_ID_DEVICE_DRIVER: WheaEventLogEntryId = -2147483609
 
-public val WheaEventLogEntryIdDroppedCorrectedError: WHEA_EVENT_LOG_ENTRY_ID = -2147483644
+public val WHEA_EVENT_LOG_ENTRY_ID_DROPPED_CORRECTED_ERROR: WheaEventLogEntryId = -2147483644
 
-public val WheaEventLogEntryIdDrvErrSrcInvalid: WHEA_EVENT_LOG_ENTRY_ID = -2147483605
+public val WHEA_EVENT_LOG_ENTRY_ID_DRV_ERR_SRC_INVALID: WheaEventLogEntryId = -2147483605
 
-public val WheaEventLogEntryIdDrvHandleBusy: WHEA_EVENT_LOG_ENTRY_ID = -2147483604
+public val WHEA_EVENT_LOG_ENTRY_ID_DRV_HANDLE_BUSY: WheaEventLogEntryId = -2147483604
 
-public val WheaEventLogEntryIdEnableKeyNotifFailed: WHEA_EVENT_LOG_ENTRY_ID = -2147483580
+public val WHEA_EVENT_LOG_ENTRY_ID_ENABLE_KEY_NOTIF_FAILED: WheaEventLogEntryId = -2147483580
 
-public val WheaEventLogEntryIdErrDimmInfoMismatch: WHEA_EVENT_LOG_ENTRY_ID = -2147483600
+public val WHEA_EVENT_LOG_ENTRY_ID_ERR_DIMM_INFO_MISMATCH: WheaEventLogEntryId = -2147483600
 
-public val WheaEventLogEntryIdErrSrcArrayInvalid: WHEA_EVENT_LOG_ENTRY_ID = -2147483623
+public val WHEA_EVENT_LOG_ENTRY_ID_ERR_SRC_ARRAY_INVALID: WheaEventLogEntryId = -2147483623
 
-public val WheaEventLogEntryIdErrSrcInvalid: WHEA_EVENT_LOG_ENTRY_ID = -2147483616
+public val WHEA_EVENT_LOG_ENTRY_ID_ERR_SRC_INVALID: WheaEventLogEntryId = -2147483616
 
-public val WheaEventLogEntryIdErrorRecord: WHEA_EVENT_LOG_ENTRY_ID = -2147483626
+public val WHEA_EVENT_LOG_ENTRY_ID_ERROR_RECORD: WheaEventLogEntryId = -2147483626
 
-public val WheaEventLogEntryIdErrorRecordLimit: WHEA_EVENT_LOG_ENTRY_ID = -2147483625
+public val WHEA_EVENT_LOG_ENTRY_ID_ERROR_RECORD_LIMIT: WheaEventLogEntryId = -2147483625
 
-public val WheaEventLogEntryIdFailedAddToDefectList: WHEA_EVENT_LOG_ENTRY_ID = -2147483569
+public val WHEA_EVENT_LOG_ENTRY_ID_FAILED_ADD_TO_DEFECT_LIST: WheaEventLogEntryId = -2147483569
 
-public val WheaEventLogEntryIdGenericErrMemMap: WHEA_EVENT_LOG_ENTRY_ID = -2147483615
+public val WHEA_EVENT_LOG_ENTRY_ID_GENERIC_ERR_MEM_MAP: WheaEventLogEntryId = -2147483615
 
-public val WheaEventLogEntryIdKeyNotificationFailed: WHEA_EVENT_LOG_ENTRY_ID = -2147483579
+public val WHEA_EVENT_LOG_ENTRY_ID_KEY_NOTIFICATION_FAILED: WheaEventLogEntryId = -2147483579
 
-public val WheaEventLogEntryIdMcaErrorCleared: WHEA_EVENT_LOG_ENTRY_ID = -2147483631
+public val WHEA_EVENT_LOG_ENTRY_ID_MCA_ERROR_CLEARED: WheaEventLogEntryId = -2147483631
 
-public val WheaEventLogEntryIdMcaFoundErrorInBank: WHEA_EVENT_LOG_ENTRY_ID = -2147483633
+public val WHEA_EVENT_LOG_ENTRY_ID_MCA_FOUND_ERROR_IN_BANK: WheaEventLogEntryId = -2147483633
 
-public val WheaEventLogEntryIdMcaStuckErrorCheck: WHEA_EVENT_LOG_ENTRY_ID = -2147483632
+public val WHEA_EVENT_LOG_ENTRY_ID_MCA_STUCK_ERROR_CHECK: WheaEventLogEntryId = -2147483632
 
-public val WheaEventLogEntryIdMemoryAddDevice: WHEA_EVENT_LOG_ENTRY_ID = -2147483575
+public val WHEA_EVENT_LOG_ENTRY_ID_MEMORY_ADD_DEVICE: WheaEventLogEntryId = -2147483575
 
-public val WheaEventLogEntryIdMemoryRemoveDevice: WHEA_EVENT_LOG_ENTRY_ID = -2147483574
+public val WHEA_EVENT_LOG_ENTRY_ID_MEMORY_REMOVE_DEVICE: WheaEventLogEntryId = -2147483574
 
-public val WheaEventLogEntryIdMemorySummaryFailed: WHEA_EVENT_LOG_ENTRY_ID = -2147483573
+public val WHEA_EVENT_LOG_ENTRY_ID_MEMORY_SUMMARY_FAILED: WheaEventLogEntryId = -2147483573
 
-public val WheaEventLogEntryIdOscCapabilities: WHEA_EVENT_LOG_ENTRY_ID = -2147483638
+public val WHEA_EVENT_LOG_ENTRY_ID_OSC_CAPABILITIES: WheaEventLogEntryId = -2147483638
 
-public val WheaEventLogEntryIdPFAMemoryOfflined: WHEA_EVENT_LOG_ENTRY_ID = -2147483642
+public val WHEA_EVENT_LOG_ENTRY_ID_PFA_MEMORY_OFFLINED: WheaEventLogEntryId = -2147483642
 
-public val WheaEventLogEntryIdPFAMemoryPolicy: WHEA_EVENT_LOG_ENTRY_ID = -2147483640
+public val WHEA_EVENT_LOG_ENTRY_ID_PFA_MEMORY_POLICY: WheaEventLogEntryId = -2147483640
 
-public val WheaEventLogEntryIdPFAMemoryRemoveMonitor: WHEA_EVENT_LOG_ENTRY_ID = -2147483641
+public val WHEA_EVENT_LOG_ENTRY_ID_PFA_MEMORY_REMOVE_MONITOR: WheaEventLogEntryId = -2147483641
 
-public val WheaEventLogEntryIdPcieAddDevice: WHEA_EVENT_LOG_ENTRY_ID = -2147483577
+public val WHEA_EVENT_LOG_ENTRY_ID_PCIE_ADD_DEVICE: WheaEventLogEntryId = -2147483577
 
-public val WheaEventLogEntryIdPcieConfigInfo: WHEA_EVENT_LOG_ENTRY_ID = -2147483591
+public val WHEA_EVENT_LOG_ENTRY_ID_PCIE_CONFIG_INFO: WheaEventLogEntryId = -2147483591
 
-public val WheaEventLogEntryIdPcieDpcError: WHEA_EVENT_LOG_ENTRY_ID = -2147483572
+public val WHEA_EVENT_LOG_ENTRY_ID_PCIE_DPC_ERROR: WheaEventLogEntryId = -2147483572
 
-public val WheaEventLogEntryIdPcieOverrideInfo: WHEA_EVENT_LOG_ENTRY_ID = -2147483593
+public val WHEA_EVENT_LOG_ENTRY_ID_PCIE_OVERRIDE_INFO: WheaEventLogEntryId = -2147483593
 
-public val WheaEventLogEntryIdPcieRemoveDevice: WHEA_EVENT_LOG_ENTRY_ID = -2147483578
+public val WHEA_EVENT_LOG_ENTRY_ID_PCIE_REMOVE_DEVICE: WheaEventLogEntryId = -2147483578
 
-public val WheaEventLogEntryIdPcieSpuriousErrSource: WHEA_EVENT_LOG_ENTRY_ID = -2147483576
+public val WHEA_EVENT_LOG_ENTRY_ID_PCIE_SPURIOUS_ERR_SOURCE: WheaEventLogEntryId = -2147483576
 
-public val WheaEventLogEntryIdPcieSummaryFailed: WHEA_EVENT_LOG_ENTRY_ID = -2147483584
+public val WHEA_EVENT_LOG_ENTRY_ID_PCIE_SUMMARY_FAILED: WheaEventLogEntryId = -2147483584
 
-public val WheaEventLogEntryIdProcessEINJ: WHEA_EVENT_LOG_ENTRY_ID = -2147483629
+public val WHEA_EVENT_LOG_ENTRY_ID_PROCESS_EINJ: WheaEventLogEntryId = -2147483629
 
-public val WheaEventLogEntryIdProcessHEST: WHEA_EVENT_LOG_ENTRY_ID = -2147483628
+public val WHEA_EVENT_LOG_ENTRY_ID_PROCESS_HEST: WheaEventLogEntryId = -2147483628
 
-public val WheaEventLogEntryIdPshedCallbackCollision: WHEA_EVENT_LOG_ENTRY_ID = -2147483614
+public val WHEA_EVENT_LOG_ENTRY_ID_PSHED_CALLBACK_COLLISION: WheaEventLogEntryId = -2147483614
 
-public val WheaEventLogEntryIdPshedInjectError: WHEA_EVENT_LOG_ENTRY_ID = -2147483639
+public val WHEA_EVENT_LOG_ENTRY_ID_PSHED_INJECT_ERROR: WheaEventLogEntryId = -2147483639
 
-public val WheaEventLogEntryIdPshedPiTraceLog: WHEA_EVENT_LOG_ENTRY_ID = -2147221488
+public val WHEA_EVENT_LOG_ENTRY_ID_PSHED_PI_TRACE_LOG: WheaEventLogEntryId = -2147221488
 
-public val WheaEventLogEntryIdPshedPluginInitFailed: WHEA_EVENT_LOG_ENTRY_ID = -2147483570
+public val WHEA_EVENT_LOG_ENTRY_ID_PSHED_PLUGIN_INIT_FAILED: WheaEventLogEntryId = -2147483570
 
-public val WheaEventLogEntryIdPshedPluginLoad: WHEA_EVENT_LOG_ENTRY_ID = -2147483612
+public val WHEA_EVENT_LOG_ENTRY_ID_PSHED_PLUGIN_LOAD: WheaEventLogEntryId = -2147483612
 
-public val WheaEventLogEntryIdPshedPluginRegister: WHEA_EVENT_LOG_ENTRY_ID = -2147483637
+public val WHEA_EVENT_LOG_ENTRY_ID_PSHED_PLUGIN_REGISTER: WheaEventLogEntryId = -2147483637
 
-public val WheaEventLogEntryIdPshedPluginSupported: WHEA_EVENT_LOG_ENTRY_ID = -2147483610
+public val WHEA_EVENT_LOG_ENTRY_ID_PSHED_PLUGIN_SUPPORTED: WheaEventLogEntryId = -2147483610
 
-public val WheaEventLogEntryIdPshedPluginUnload: WHEA_EVENT_LOG_ENTRY_ID = -2147483611
+public val WHEA_EVENT_LOG_ENTRY_ID_PSHED_PLUGIN_UNLOAD: WheaEventLogEntryId = -2147483611
 
-public val WheaEventLogEntryIdReadPcieOverridesErr: WHEA_EVENT_LOG_ENTRY_ID = -2147483592
+public val WHEA_EVENT_LOG_ENTRY_ID_READ_PCIE_OVERRIDES_ERR: WheaEventLogEntryId = -2147483592
 
-public val WheaEventLogEntryIdRowFailure: WHEA_EVENT_LOG_ENTRY_ID = -2147483561
+public val WHEA_EVENT_LOG_ENTRY_ID_ROW_FAILURE: WheaEventLogEntryId = -2147483561
 
-public val WheaEventLogEntryIdSELBugCheckInfo: WHEA_EVENT_LOG_ENTRY_ID = -2147483601
+public val WHEA_EVENT_LOG_ENTRY_ID_SEL_BUG_CHECK_INFO: WheaEventLogEntryId = -2147483601
 
-public val WheaEventLogEntryIdSELBugCheckProgress: WHEA_EVENT_LOG_ENTRY_ID = -2147483613
+public val WHEA_EVENT_LOG_ENTRY_ID_SEL_BUG_CHECK_PROGRESS: WheaEventLogEntryId = -2147483613
 
-public val WheaEventLogEntryIdSELBugCheckRecovery: WHEA_EVENT_LOG_ENTRY_ID = -2147483606
+public val WHEA_EVENT_LOG_ENTRY_ID_SEL_BUG_CHECK_RECOVERY: WheaEventLogEntryId = -2147483606
 
-public val WheaEventLogEntryIdSrasTableEntries: WHEA_EVENT_LOG_ENTRY_ID = -2147483562
+public val WHEA_EVENT_LOG_ENTRY_ID_SRAS_TABLE_ENTRIES: WheaEventLogEntryId = -2147483562
 
-public val WheaEventLogEntryIdSrasTableError: WHEA_EVENT_LOG_ENTRY_ID = -2147483563
+public val WHEA_EVENT_LOG_ENTRY_ID_SRAS_TABLE_ERROR: WheaEventLogEntryId = -2147483563
 
-public val WheaEventLogEntryIdSrasTableNotFound: WHEA_EVENT_LOG_ENTRY_ID = -2147483564
+public val WHEA_EVENT_LOG_ENTRY_ID_SRAS_TABLE_NOT_FOUND: WheaEventLogEntryId = -2147483564
 
-public val WheaEventLogEntryIdStartedReportHwError: WHEA_EVENT_LOG_ENTRY_ID = -2147483643
+public val WHEA_EVENT_LOG_ENTRY_ID_STARTED_REPORT_HW_ERROR: WheaEventLogEntryId = -2147483643
 
-public val WheaEventLogEntryIdThrottleAddErrSrcFailed: WHEA_EVENT_LOG_ENTRY_ID = -2147483582
+public val WHEA_EVENT_LOG_ENTRY_ID_THROTTLE_ADD_ERR_SRC_FAILED: WheaEventLogEntryId = -2147483582
 
-public val WheaEventLogEntryIdThrottleRegCorrupt: WHEA_EVENT_LOG_ENTRY_ID = -2147483583
+public val WHEA_EVENT_LOG_ENTRY_ID_THROTTLE_REG_CORRUPT: WheaEventLogEntryId = -2147483583
 
-public val WheaEventLogEntryIdThrottleRegDataIgnored: WHEA_EVENT_LOG_ENTRY_ID = -2147483581
+public val WHEA_EVENT_LOG_ENTRY_ID_THROTTLE_REG_DATA_IGNORED: WheaEventLogEntryId = -2147483581
 
-public val WheaEventLogEntryIdWheaHeartbeat: WHEA_EVENT_LOG_ENTRY_ID = -2147483603
+public val WHEA_EVENT_LOG_ENTRY_ID_WHEA_HEARTBEAT: WheaEventLogEntryId = -2147483603
 
-public val WheaEventLogEntryIdWheaInit: WHEA_EVENT_LOG_ENTRY_ID = -2147483646
+public val WHEA_EVENT_LOG_ENTRY_ID_WHEA_INIT: WheaEventLogEntryId = -2147483646
 
-public val WheaEventLogEntryIdWorkQueueItem: WHEA_EVENT_LOG_ENTRY_ID = -2147483635
+public val WHEA_EVENT_LOG_ENTRY_ID_WORK_QUEUE_ITEM: WheaEventLogEntryId = -2147483635
 
-public val WheaEventLogEntryIdeDpcEnabled: WHEA_EVENT_LOG_ENTRY_ID = -2147483599
+public val WHEA_EVENT_LOG_ENTRY_IDE_DPC_ENABLED: WheaEventLogEntryId = -2147483599
 
-public val WheaEventLogEntryPageOfflineDone: WHEA_EVENT_LOG_ENTRY_ID = -2147483598
+public val WHEA_EVENT_LOG_ENTRY_PAGE_OFFLINE_DONE: WheaEventLogEntryId = -2147483598
 
-public val WheaEventLogEntryPageOfflinePendMax: WHEA_EVENT_LOG_ENTRY_ID = -2147483597
+public val WHEA_EVENT_LOG_ENTRY_PAGE_OFFLINE_PEND_MAX: WheaEventLogEntryId = -2147483597
 
-public val WheaEventLogEntrySrarDetail: WHEA_EVENT_LOG_ENTRY_ID = -2147483595
+public val WHEA_EVENT_LOG_ENTRY_SRAR_DETAIL: WheaEventLogEntryId = -2147483595
 
-public val WheaEventLogEntryTypeError: WHEA_EVENT_LOG_ENTRY_TYPE = 2
+public val WHEA_EVENT_LOG_ENTRY_TYPE_ERROR: WheaEventLogEntryType = 2
 
-public val WheaEventLogEntryTypeInformational: WHEA_EVENT_LOG_ENTRY_TYPE = 0
+public val WHEA_EVENT_LOG_ENTRY_TYPE_INFORMATIONAL: WheaEventLogEntryType = 0
 
-public val WheaEventLogEntryTypeWarning: WHEA_EVENT_LOG_ENTRY_TYPE = 1
+public val WHEA_EVENT_LOG_ENTRY_TYPE_WARNING: WheaEventLogEntryType = 1
 
-public val WheaMemoryThrottle: WHEA_THROTTLE_TYPE = 1
+public val WHEA_MEMORY_THROTTLE: WheaThrottleType = 1
 
-public val WheaPciExpressDownstreamSwitchPort: WHEA_PCIEXPRESS_DEVICE_TYPE = 6
+public val WHEA_PCI_EXPRESS_DOWNSTREAM_SWITCH_PORT: WheaPciexpressDeviceType = 6
 
-public val WheaPciExpressEndpoint: WHEA_PCIEXPRESS_DEVICE_TYPE = 0
+public val WHEA_PCI_EXPRESS_ENDPOINT: WheaPciexpressDeviceType = 0
 
-public val WheaPciExpressLegacyEndpoint: WHEA_PCIEXPRESS_DEVICE_TYPE = 1
+public val WHEA_PCI_EXPRESS_LEGACY_ENDPOINT: WheaPciexpressDeviceType = 1
 
-public val WheaPciExpressRootComplexEventCollector: WHEA_PCIEXPRESS_DEVICE_TYPE = 10
+public val WHEA_PCI_EXPRESS_ROOT_COMPLEX_EVENT_COLLECTOR: WheaPciexpressDeviceType = 10
 
-public val WheaPciExpressRootComplexIntegratedEndpoint: WHEA_PCIEXPRESS_DEVICE_TYPE = 9
+public val WHEA_PCI_EXPRESS_ROOT_COMPLEX_INTEGRATED_ENDPOINT: WheaPciexpressDeviceType = 9
 
-public val WheaPciExpressRootPort: WHEA_PCIEXPRESS_DEVICE_TYPE = 4
+public val WHEA_PCI_EXPRESS_ROOT_PORT: WheaPciexpressDeviceType = 4
 
-public val WheaPciExpressToPciXBridge: WHEA_PCIEXPRESS_DEVICE_TYPE = 7
+public val WHEA_PCI_EXPRESS_TO_PCI_X_BRIDGE: WheaPciexpressDeviceType = 7
 
-public val WheaPciExpressUpstreamSwitchPort: WHEA_PCIEXPRESS_DEVICE_TYPE = 5
+public val WHEA_PCI_EXPRESS_UPSTREAM_SWITCH_PORT: WheaPciexpressDeviceType = 5
 
-public val WheaPciREcoveryStatusUnknown: WHEA_PCI_RECOVERY_STATUS = 0
+public val WHEA_PCI_R_ECOVERY_STATUS_UNKNOWN: WheaPciRecoveryStatus = 0
 
-public val WheaPciRecoverySignalAer: WHEA_PCI_RECOVERY_SIGNAL = 1
+public val WHEA_PCI_RECOVERY_SIGNAL_AER: WheaPciRecoverySignal = 1
 
-public val WheaPciRecoverySignalDpc: WHEA_PCI_RECOVERY_SIGNAL = 2
+public val WHEA_PCI_RECOVERY_SIGNAL_DPC: WheaPciRecoverySignal = 2
 
-public val WheaPciRecoverySignalUnknown: WHEA_PCI_RECOVERY_SIGNAL = 0
+public val WHEA_PCI_RECOVERY_SIGNAL_UNKNOWN: WheaPciRecoverySignal = 0
 
-public val WheaPciRecoveryStatusBusNotFound: WHEA_PCI_RECOVERY_STATUS = 6
+public val WHEA_PCI_RECOVERY_STATUS_BUS_NOT_FOUND: WheaPciRecoveryStatus = 6
 
-public val WheaPciRecoveryStatusComplexTree: WHEA_PCI_RECOVERY_STATUS = 5
+public val WHEA_PCI_RECOVERY_STATUS_COMPLEX_TREE: WheaPciRecoveryStatus = 5
 
-public val WheaPciRecoveryStatusLinkDisableTimeout: WHEA_PCI_RECOVERY_STATUS = 2
+public val WHEA_PCI_RECOVERY_STATUS_LINK_DISABLE_TIMEOUT: WheaPciRecoveryStatus = 2
 
-public val WheaPciRecoveryStatusLinkEnableTimeout: WHEA_PCI_RECOVERY_STATUS = 3
+public val WHEA_PCI_RECOVERY_STATUS_LINK_ENABLE_TIMEOUT: WheaPciRecoveryStatus = 3
 
-public val WheaPciRecoveryStatusNoError: WHEA_PCI_RECOVERY_STATUS = 1
+public val WHEA_PCI_RECOVERY_STATUS_NO_ERROR: WheaPciRecoveryStatus = 1
 
-public val WheaPciRecoveryStatusRpBusyTimeout: WHEA_PCI_RECOVERY_STATUS = 4
+public val WHEA_PCI_RECOVERY_STATUS_RP_BUSY_TIMEOUT: WheaPciRecoveryStatus = 4
 
-public val WheaPciXToExpressBridge: WHEA_PCIEXPRESS_DEVICE_TYPE = 8
+public val WHEA_PCI_X_TO_EXPRESS_BRIDGE: WheaPciexpressDeviceType = 8
 
-public val WheaPcieThrottle: WHEA_THROTTLE_TYPE = 0
+public val WHEA_PCIE_THROTTLE: WheaThrottleType = 0
 
-public val WheaPfaRemoveCapacity: WHEA_PFA_REMOVE_TRIGGER = 3
+public val WHEA_PFA_REMOVE_CAPACITY: WheaPfaRemoveTrigger = 3
 
-public val WheaPfaRemoveErrorThreshold: WHEA_PFA_REMOVE_TRIGGER = 1
+public val WHEA_PFA_REMOVE_ERROR_THRESHOLD: WheaPfaRemoveTrigger = 1
 
-public val WheaPfaRemoveTimeout: WHEA_PFA_REMOVE_TRIGGER = 2
+public val WHEA_PFA_REMOVE_TIMEOUT: WheaPfaRemoveTrigger = 2
 
-public val WheaRawDataFormatAMD64MCA: WHEA_RAW_DATA_FORMAT = 3
+public val WHEA_RAW_DATA_FORMAT_AMD64MCA: WheaRawDataFormat = 3
 
-public val WheaRawDataFormatGeneric: WHEA_RAW_DATA_FORMAT = 9
+public val WHEA_RAW_DATA_FORMAT_GENERIC: WheaRawDataFormat = 9
 
-public val WheaRawDataFormatIA32MCA: WHEA_RAW_DATA_FORMAT = 1
+public val WHEA_RAW_DATA_FORMAT_IA32MCA: WheaRawDataFormat = 1
 
-public val WheaRawDataFormatIPFSalRecord: WHEA_RAW_DATA_FORMAT = 0
+public val WHEA_RAW_DATA_FORMAT_IPF_SAL_RECORD: WheaRawDataFormat = 0
 
-public val WheaRawDataFormatIntel64MCA: WHEA_RAW_DATA_FORMAT = 2
+public val WHEA_RAW_DATA_FORMAT_INTEL64MCA: WheaRawDataFormat = 2
 
-public val WheaRawDataFormatMax: WHEA_RAW_DATA_FORMAT = 10
+public val WHEA_RAW_DATA_FORMAT_MAX: WheaRawDataFormat = 10
 
-public val WheaRawDataFormatMemory: WHEA_RAW_DATA_FORMAT = 4
+public val WHEA_RAW_DATA_FORMAT_MEMORY: WheaRawDataFormat = 4
 
-public val WheaRawDataFormatNMIPort: WHEA_RAW_DATA_FORMAT = 6
+public val WHEA_RAW_DATA_FORMAT_NMI_PORT: WheaRawDataFormat = 6
 
-public val WheaRawDataFormatPCIExpress: WHEA_RAW_DATA_FORMAT = 5
+public val WHEA_RAW_DATA_FORMAT_PCI_EXPRESS: WheaRawDataFormat = 5
 
-public val WheaRawDataFormatPCIXBus: WHEA_RAW_DATA_FORMAT = 7
+public val WHEA_RAW_DATA_FORMAT_PCIX_BUS: WheaRawDataFormat = 7
 
-public val WheaRawDataFormatPCIXDevice: WHEA_RAW_DATA_FORMAT = 8
+public val WHEA_RAW_DATA_FORMAT_PCIX_DEVICE: WheaRawDataFormat = 8
 
-public val WheaRecoveryContextErrorTypeMax: WHEA_RECOVERY_CONTEXT_ERROR_TYPE = 3
+public val WHEA_RECOVERY_CONTEXT_ERROR_TYPE_MAX: WheaRecoveryContextErrorType = 3
 
-public val WheaRecoveryContextErrorTypeMemory: WHEA_RECOVERY_CONTEXT_ERROR_TYPE = 1
+public val WHEA_RECOVERY_CONTEXT_ERROR_TYPE_MEMORY: WheaRecoveryContextErrorType = 1
 
-public val WheaRecoveryContextErrorTypePmem: WHEA_RECOVERY_CONTEXT_ERROR_TYPE = 2
+public val WHEA_RECOVERY_CONTEXT_ERROR_TYPE_PMEM: WheaRecoveryContextErrorType = 2
 
-public val WheaRecoveryFailureReasonFarNotValid: WHEA_RECOVERY_FAILURE_REASON = 17
+public val WHEA_RECOVERY_FAILURE_REASON_FAR_NOT_VALID: WheaRecoveryFailureReason = 17
 
-public val WheaRecoveryFailureReasonHighIrql: WHEA_RECOVERY_FAILURE_REASON = 10
+public val WHEA_RECOVERY_FAILURE_REASON_HIGH_IRQL: WheaRecoveryFailureReason = 10
 
-public val WheaRecoveryFailureReasonInsufficientAltContextWrappers: WHEA_RECOVERY_FAILURE_REASON = 11
+public val WHEA_RECOVERY_FAILURE_REASON_INSUFFICIENT_ALT_CONTEXT_WRAPPERS: WheaRecoveryFailureReason = 11
 
-public val WheaRecoveryFailureReasonInterruptsDisabled: WHEA_RECOVERY_FAILURE_REASON = 12
+public val WHEA_RECOVERY_FAILURE_REASON_INTERRUPTS_DISABLED: WheaRecoveryFailureReason = 12
 
-public val WheaRecoveryFailureReasonInvalidAddressMode: WHEA_RECOVERY_FAILURE_REASON = 9
+public val WHEA_RECOVERY_FAILURE_REASON_INVALID_ADDRESS_MODE: WheaRecoveryFailureReason = 9
 
-public val WheaRecoveryFailureReasonKernelCouldNotMarkMemoryBad: WHEA_RECOVERY_FAILURE_REASON = 1
+public val WHEA_RECOVERY_FAILURE_REASON_KERNEL_COULD_NOT_MARK_MEMORY_BAD: WheaRecoveryFailureReason = 1
 
-public val WheaRecoveryFailureReasonKernelMarkMemoryBadTimedOut: WHEA_RECOVERY_FAILURE_REASON = 2
+public val WHEA_RECOVERY_FAILURE_REASON_KERNEL_MARK_MEMORY_BAD_TIMED_OUT: WheaRecoveryFailureReason = 2
 
-public val WheaRecoveryFailureReasonKernelWillPageFaultBCAtCurrentIrql: WHEA_RECOVERY_FAILURE_REASON = 16
+public val WHEA_RECOVERY_FAILURE_REASON_KERNEL_WILL_PAGE_FAULT_BC_AT_CURRENT_IRQL: WheaRecoveryFailureReason = 16
 
-public val WheaRecoveryFailureReasonMax: WHEA_RECOVERY_FAILURE_REASON = 18
+public val WHEA_RECOVERY_FAILURE_REASON_MAX: WheaRecoveryFailureReason = 18
 
-public val WheaRecoveryFailureReasonMiscOrAddrNotValid: WHEA_RECOVERY_FAILURE_REASON = 8
+public val WHEA_RECOVERY_FAILURE_REASON_MISC_OR_ADDR_NOT_VALID: WheaRecoveryFailureReason = 8
 
-public val WheaRecoveryFailureReasonNoRecoveryContext: WHEA_RECOVERY_FAILURE_REASON = 3
+public val WHEA_RECOVERY_FAILURE_REASON_NO_RECOVERY_CONTEXT: WheaRecoveryFailureReason = 3
 
-public val WheaRecoveryFailureReasonNotContinuable: WHEA_RECOVERY_FAILURE_REASON = 4
+public val WHEA_RECOVERY_FAILURE_REASON_NOT_CONTINUABLE: WheaRecoveryFailureReason = 4
 
-public val WheaRecoveryFailureReasonNotSupported: WHEA_RECOVERY_FAILURE_REASON = 7
+public val WHEA_RECOVERY_FAILURE_REASON_NOT_SUPPORTED: WheaRecoveryFailureReason = 7
 
-public val WheaRecoveryFailureReasonOverflow: WHEA_RECOVERY_FAILURE_REASON = 6
+public val WHEA_RECOVERY_FAILURE_REASON_OVERFLOW: WheaRecoveryFailureReason = 6
 
-public val WheaRecoveryFailureReasonPcc: WHEA_RECOVERY_FAILURE_REASON = 5
+public val WHEA_RECOVERY_FAILURE_REASON_PCC: WheaRecoveryFailureReason = 5
 
-public val WheaRecoveryFailureReasonStackOverflow: WHEA_RECOVERY_FAILURE_REASON = 14
+public val WHEA_RECOVERY_FAILURE_REASON_STACK_OVERFLOW: WheaRecoveryFailureReason = 14
 
-public val WheaRecoveryFailureReasonSwapBusy: WHEA_RECOVERY_FAILURE_REASON = 13
+public val WHEA_RECOVERY_FAILURE_REASON_SWAP_BUSY: WheaRecoveryFailureReason = 13
 
-public val WheaRecoveryFailureReasonUnexpectedFailure: WHEA_RECOVERY_FAILURE_REASON = 15
+public val WHEA_RECOVERY_FAILURE_REASON_UNEXPECTED_FAILURE: WheaRecoveryFailureReason = 15
 
-public val WheaRecoveryTypeActionOptional: WHEA_RECOVERY_TYPE = 2
+public val WHEA_RECOVERY_TYPE_ACTION_OPTIONAL: WheaRecoveryType = 2
 
-public val WheaRecoveryTypeActionRequired: WHEA_RECOVERY_TYPE = 1
+public val WHEA_RECOVERY_TYPE_ACTION_REQUIRED: WheaRecoveryType = 1
 
-public val WheaRecoveryTypeMax: WHEA_RECOVERY_TYPE = 3
+public val WHEA_RECOVERY_TYPE_MAX: WheaRecoveryType = 3
 
-public val WheapDpcErrBusNotFound: WHEAP_DPC_ERROR_EVENT_TYPE = 1
+public val WHEAP_DPC_ERR_BUS_NOT_FOUND: WheapDpcErrorEventType = 1
 
-public val WheapDpcErrDeviceIdBad: WHEAP_DPC_ERROR_EVENT_TYPE = 3
+public val WHEAP_DPC_ERR_DEVICE_ID_BAD: WheapDpcErrorEventType = 3
 
-public val WheapDpcErrDpcedSubtree: WHEAP_DPC_ERROR_EVENT_TYPE = 2
+public val WHEAP_DPC_ERR_DPCED_SUBTREE: WheapDpcErrorEventType = 2
 
-public val WheapDpcErrNoChildren: WHEAP_DPC_ERROR_EVENT_TYPE = 5
+public val WHEAP_DPC_ERR_NO_CHILDREN: WheapDpcErrorEventType = 5
 
-public val WheapDpcErrNoErr: WHEAP_DPC_ERROR_EVENT_TYPE = 0
+public val WHEAP_DPC_ERR_NO_ERR: WheapDpcErrorEventType = 0
 
-public val WheapDpcErrResetFailed: WHEAP_DPC_ERROR_EVENT_TYPE = 4
+public val WHEAP_DPC_ERR_RESET_FAILED: WheapDpcErrorEventType = 4
 
-public val WheapPfaOfflinePredictiveFailure: WHEAP_PFA_OFFLINE_DECISION_TYPE = 1
+public val WHEAP_PFA_OFFLINE_PREDICTIVE_FAILURE: WheapPfaOfflineDecisionType = 1
 
-public val WheapPfaOfflineUncorrectedError: WHEAP_PFA_OFFLINE_DECISION_TYPE = 2
+public val WHEAP_PFA_OFFLINE_UNCORRECTED_ERROR: WheapPfaOfflineDecisionType = 2
 
-public val Width16Bits: DMA_WIDTH = 1
+public val WIDTH16BITS: DmaWidth = 1
 
-public val Width32Bits: DMA_WIDTH = 2
+public val WIDTH32BITS: DmaWidth = 2
 
-public val Width64Bits: DMA_WIDTH = 3
+public val WIDTH64BITS: DmaWidth = 3
 
-public val Width8Bits: DMA_WIDTH = 0
+public val WIDTH8BITS: DmaWidth = 0
 
-public val WidthNoWrap: DMA_WIDTH = 4
+public val WIDTH_NO_WRAP: DmaWidth = 4
 
-public val WormController: CONFIGURATION_TYPE = 16
+public val WORM_CONTROLLER: ConfigurationType = 16
 
-public val WrAlertByThreadId: KWAIT_REASON = 37
+public val WR_ALERT_BY_THREAD_ID: KwaitReason = 37
 
-public val WrCalloutStack: KWAIT_REASON = 25
+public val WR_CALLOUT_STACK: KwaitReason = 25
 
-public val WrCpuRateControl: KWAIT_REASON = 24
+public val WR_CPU_RATE_CONTROL: KwaitReason = 24
 
-public val WrDeferredPreempt: KWAIT_REASON = 38
+public val WR_DEFERRED_PREEMPT: KwaitReason = 38
 
-public val WrDelayExecution: KWAIT_REASON = 11
+public val WR_DELAY_EXECUTION: KwaitReason = 11
 
-public val WrDispatchInt: KWAIT_REASON = 31
+public val WR_DISPATCH_INT: KwaitReason = 31
 
-public val WrExecutive: KWAIT_REASON = 7
+public val WR_EXECUTIVE: KwaitReason = 7
 
-public val WrFastMutex: KWAIT_REASON = 34
+public val WR_FAST_MUTEX: KwaitReason = 34
 
-public val WrFreePage: KWAIT_REASON = 8
+public val WR_FREE_PAGE: KwaitReason = 8
 
-public val WrGuardedMutex: KWAIT_REASON = 35
+public val WR_GUARDED_MUTEX: KwaitReason = 35
 
-public val WrIoRing: KWAIT_REASON = 40
+public val WR_IO_RING: KwaitReason = 40
 
-public val WrKernel: KWAIT_REASON = 26
+public val WR_KERNEL: KwaitReason = 26
 
-public val WrKeyedEvent: KWAIT_REASON = 21
+public val WR_KEYED_EVENT: KwaitReason = 21
 
-public val WrLpcReceive: KWAIT_REASON = 16
+public val WR_LPC_RECEIVE: KwaitReason = 16
 
-public val WrLpcReply: KWAIT_REASON = 17
+public val WR_LPC_REPLY: KwaitReason = 17
 
-public val WrMdlCache: KWAIT_REASON = 41
+public val WR_MDL_CACHE: KwaitReason = 41
 
-public val WrMutex: KWAIT_REASON = 29
+public val WR_MUTEX: KwaitReason = 29
 
-public val WrPageIn: KWAIT_REASON = 9
+public val WR_PAGE_IN: KwaitReason = 9
 
-public val WrPageOut: KWAIT_REASON = 19
+public val WR_PAGE_OUT: KwaitReason = 19
 
-public val WrPhysicalFault: KWAIT_REASON = 39
+public val WR_PHYSICAL_FAULT: KwaitReason = 39
 
-public val WrPoolAllocation: KWAIT_REASON = 10
+public val WR_POOL_ALLOCATION: KwaitReason = 10
 
-public val WrPreempted: KWAIT_REASON = 32
+public val WR_PREEMPTED: KwaitReason = 32
 
-public val WrProcessInSwap: KWAIT_REASON = 23
+public val WR_PROCESS_IN_SWAP: KwaitReason = 23
 
-public val WrPushLock: KWAIT_REASON = 28
+public val WR_PUSH_LOCK: KwaitReason = 28
 
-public val WrQuantumEnd: KWAIT_REASON = 30
+public val WR_QUANTUM_END: KwaitReason = 30
 
-public val WrQueue: KWAIT_REASON = 15
+public val WR_QUEUE: KwaitReason = 15
 
-public val WrRendezvous: KWAIT_REASON = 20
+public val WR_RENDEZVOUS: KwaitReason = 20
 
-public val WrResource: KWAIT_REASON = 27
+public val WR_RESOURCE: KwaitReason = 27
 
-public val WrRundown: KWAIT_REASON = 36
+public val WR_RUNDOWN: KwaitReason = 36
 
-public val WrSpare0: KWAIT_REASON = 14
+public val WR_SPARE0: KwaitReason = 14
 
-public val WrSuspended: KWAIT_REASON = 12
+public val WR_SUSPENDED: KwaitReason = 12
 
-public val WrTerminated: KWAIT_REASON = 22
+public val WR_TERMINATED: KwaitReason = 22
 
-public val WrUserRequest: KWAIT_REASON = 13
+public val WR_USER_REQUEST: KwaitReason = 13
 
-public val WrVirtualMemory: KWAIT_REASON = 18
+public val WR_VIRTUAL_MEMORY: KwaitReason = 18
 
-public val WrYieldExecution: KWAIT_REASON = 33
+public val WR_YIELD_EXECUTION: KwaitReason = 33
 
-public val WriteAccess: IO_ACCESS_TYPE = 1
+public val WRITE_ACCESS: IoAccessType = 1
 
 public val XPF_BUS_CHECK_ADDRESS_IO: UInt = 2u
 
@@ -2141,7 +2141,7 @@ public val XPF_CONTEXT_INFO_MSRREGISTERS: UInt = 1u
 
 public val XPF_CONTEXT_INFO_UNCLASSIFIEDDATA: UInt = 0u
 
-public val XPF_MCA_SECTION_GUID: GUID = GUID.from_u128(U128(0x8a1e1d0142f94557uL, 0x9c33565e5cc3f7e8uL))
+public val XPF_MCA_SECTION_GUID: Guid = Guid.fromU128(U128(0x8a1e1d0142f94557uL, 0x9c33565e5cc3f7e8uL))
 
 public val XPF_MS_CHECK_ERRORTYPE_EXTERNAL: UInt = 3u
 
@@ -2155,7 +2155,7 @@ public val XPF_MS_CHECK_ERRORTYPE_NOERROR: UInt = 0u
 
 public val XPF_MS_CHECK_ERRORTYPE_UNCLASSIFIED: UInt = 1u
 
-public val XPF_PROCESSOR_ERROR_SECTION_GUID: GUID = GUID.from_u128(U128(0xdc3ea0b0a1444797uL, 0xb95b53fa242b6e1duL))
+public val XPF_PROCESSOR_ERROR_SECTION_GUID: Guid = Guid.fromU128(U128(0xdc3ea0b0a1444797uL, 0xb95b53fa242b6e1duL))
 
 public val XPF_TLB_CHECK_OPERATION_DATAREAD: UInt = 3u
 
@@ -2177,10 +2177,10 @@ public val XPF_TLB_CHECK_TRANSACTIONTYPE_GENERIC: UInt = 2u
 
 public val XPF_TLB_CHECK_TRANSACTIONTYPE_INSTRUCTION: UInt = 0u
 
-public val _STRSAFE_USE_SECURE_CRT: UInt = 0u
+public val STRSAFE_USE_SECURE_CRT: UInt = 0u
 
-public val __guid_type: UInt = 8192u
+public val GUID_TYPE: UInt = 8192u
 
-public val __multiString_type: UInt = 16384u
+public val MULTI_STRING_TYPE: UInt = 16384u
 
-public val __string_type: UInt = 4096u
+public val STRING_TYPE: UInt = 4096u

@@ -18,7 +18,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1AddClusterGroupDependency(JNIEnv* km_env, jclass km_clazz, jlong hdependentgroup, jlong hprovidergroup) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1addClusterGroupDependency(JNIEnv* km_env, jclass km_clazz, jlong hdependentgroup, jlong hprovidergroup) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -37,7 +37,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1AddClusterGroupDependencyEx(JNIEnv* km_env, jclass km_clazz, jlong hdependentgroup, jlong hprovidergroup, jlong lpszreason) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1addClusterGroupDependencyEx(JNIEnv* km_env, jclass km_clazz, jlong hdependentgroup, jlong hprovidergroup, jlong lpszreason) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -57,7 +57,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1AddClusterGroupSetDependency(JNIEnv* km_env, jclass km_clazz, jlong hdependentgroupset, jlong hprovidergroupset) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1addClusterGroupSetDependency(JNIEnv* km_env, jclass km_clazz, jlong hdependentgroupset, jlong hprovidergroupset) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -76,7 +76,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1AddClusterGroupSetDependencyEx(JNIEnv* km_env, jclass km_clazz, jlong hdependentgroupset, jlong hprovidergroupset, jlong lpszreason) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1addClusterGroupSetDependencyEx(JNIEnv* km_env, jclass km_clazz, jlong hdependentgroupset, jlong hprovidergroupset, jlong lpszreason) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -96,7 +96,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1AddClusterGroupToGroupSetDependency(JNIEnv* km_env, jclass km_clazz, jlong hdependentgroup, jlong hprovidergroupset) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1addClusterGroupToGroupSetDependency(JNIEnv* km_env, jclass km_clazz, jlong hdependentgroup, jlong hprovidergroupset) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -115,7 +115,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1AddClusterGroupToGroupSetDependencyEx(JNIEnv* km_env, jclass km_clazz, jlong hdependentgroup, jlong hprovidergroupset, jlong lpszreason) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1addClusterGroupToGroupSetDependencyEx(JNIEnv* km_env, jclass km_clazz, jlong hdependentgroup, jlong hprovidergroupset, jlong lpszreason) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -135,7 +135,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1AddClusterNode(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpsznodename, jlong pfnprogresscallback, jlong pvcallbackarg) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1addClusterNode(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpsznodename, jlong pfnprogresscallback, jlong pvcallbackarg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -156,7 +156,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1AddClusterNodeEx(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpsznodename, jint dwflags, jlong pfnprogresscallback, jlong pvcallbackarg) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1addClusterNodeEx(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpsznodename, jint dwflags, jlong pfnprogresscallback, jlong pvcallbackarg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -178,7 +178,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1AddClusterResourceDependency(JNIEnv* km_env, jclass km_clazz, jlong hresource, jlong hdependson) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1addClusterResourceDependency(JNIEnv* km_env, jclass km_clazz, jlong hresource, jlong hdependson) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -197,7 +197,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1AddClusterResourceDependencyEx(JNIEnv* km_env, jclass km_clazz, jlong hresource, jlong hdependson, jlong lpszreason) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1addClusterResourceDependencyEx(JNIEnv* km_env, jclass km_clazz, jlong hresource, jlong hdependson, jlong lpszreason) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -217,7 +217,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1AddClusterResourceNode(JNIEnv* km_env, jclass km_clazz, jlong hresource, jlong hnode) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1addClusterResourceNode(JNIEnv* km_env, jclass km_clazz, jlong hresource, jlong hnode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -236,7 +236,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1AddClusterResourceNodeEx(JNIEnv* km_env, jclass km_clazz, jlong hresource, jlong hnode, jlong lpszreason) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1addClusterResourceNodeEx(JNIEnv* km_env, jclass km_clazz, jlong hresource, jlong hnode, jlong lpszreason) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -256,7 +256,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1AddClusterStorageNode(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpsznodename, jlong pfnprogresscallback, jlong pvcallbackarg, jlong lpszclusterstoragenodedescription, jlong lpszclusterstoragenodelocation) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1addClusterStorageNode(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpsznodename, jlong pfnprogresscallback, jlong pvcallbackarg, jlong lpszclusterstoragenodedescription, jlong lpszclusterstoragenodelocation) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -279,7 +279,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1AddCrossClusterGroupSetDependency(JNIEnv* km_env, jclass km_clazz, jlong hdependentgroupset, jlong lpremoteclustername, jlong lpremotegroupsetname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1addCrossClusterGroupSetDependency(JNIEnv* km_env, jclass km_clazz, jlong hdependentgroupset, jlong lpremoteclustername, jlong lpremotegroupsetname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -299,7 +299,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1AddResourceToClusterSharedVolumes(JNIEnv* km_env, jclass km_clazz, jlong hresource) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1addResourceToClusterSharedVolumes(JNIEnv* km_env, jclass km_clazz, jlong hresource) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -317,7 +317,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1BackupClusterDatabase(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpszpathname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1backupClusterDatabase(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpszpathname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -336,7 +336,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1CanResourceBeDependent(JNIEnv* km_env, jclass km_clazz, jlong hresource, jlong hresourcedependent) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1canResourceBeDependent(JNIEnv* km_env, jclass km_clazz, jlong hresource, jlong hresourcedependent) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -355,7 +355,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1CancelClusterGroupOperation(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jint dwcancelflags_reserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1cancelClusterGroupOperation(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jint dwcancelflags_reserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -374,7 +374,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ChangeClusterResourceGroup(JNIEnv* km_env, jclass km_clazz, jlong hresource, jlong hgroup) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1changeClusterResourceGroup(JNIEnv* km_env, jclass km_clazz, jlong hresource, jlong hgroup) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -393,7 +393,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ChangeClusterResourceGroupEx(JNIEnv* km_env, jclass km_clazz, jlong hresource, jlong hgroup, jlong flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1changeClusterResourceGroupEx(JNIEnv* km_env, jclass km_clazz, jlong hresource, jlong hgroup, jlong flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -413,7 +413,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ChangeClusterResourceGroupEx2(JNIEnv* km_env, jclass km_clazz, jlong hresource, jlong hgroup, jlong flags, jlong lpszreason) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1changeClusterResourceGroupEx2(JNIEnv* km_env, jclass km_clazz, jlong hresource, jlong hgroup, jlong flags, jlong lpszreason) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -434,7 +434,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1CloseCluster(JNIEnv* km_env, jclass km_clazz, jlong hcluster) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1closeCluster(JNIEnv* km_env, jclass km_clazz, jlong hcluster) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -452,7 +452,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1CloseClusterCryptProvider(JNIEnv* km_env, jclass km_clazz, jlong hcluscryptprovider) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1closeClusterCryptProvider(JNIEnv* km_env, jclass km_clazz, jlong hcluscryptprovider) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -470,7 +470,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1CloseClusterGroup(JNIEnv* km_env, jclass km_clazz, jlong hgroup) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1closeClusterGroup(JNIEnv* km_env, jclass km_clazz, jlong hgroup) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -488,7 +488,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1CloseClusterGroupSet(JNIEnv* km_env, jclass km_clazz, jlong hgroupset) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1closeClusterGroupSet(JNIEnv* km_env, jclass km_clazz, jlong hgroupset) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -506,7 +506,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1CloseClusterNetInterface(JNIEnv* km_env, jclass km_clazz, jlong hnetinterface) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1closeClusterNetInterface(JNIEnv* km_env, jclass km_clazz, jlong hnetinterface) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -524,7 +524,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1CloseClusterNetwork(JNIEnv* km_env, jclass km_clazz, jlong hnetwork) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1closeClusterNetwork(JNIEnv* km_env, jclass km_clazz, jlong hnetwork) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -542,7 +542,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1CloseClusterNode(JNIEnv* km_env, jclass km_clazz, jlong hnode) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1closeClusterNode(JNIEnv* km_env, jclass km_clazz, jlong hnode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -560,7 +560,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1CloseClusterNotifyPort(JNIEnv* km_env, jclass km_clazz, jlong hchange) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1closeClusterNotifyPort(JNIEnv* km_env, jclass km_clazz, jlong hchange) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -578,7 +578,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1CloseClusterResource(JNIEnv* km_env, jclass km_clazz, jlong hresource) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1closeClusterResource(JNIEnv* km_env, jclass km_clazz, jlong hresource) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -596,7 +596,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusAddClusterHealthFault(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong failure, jint param2) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusAddClusterHealthFault(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong failure, jint param2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -616,7 +616,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusGetClusterHealthFaults(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong objects, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusGetClusterHealthFaults(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong objects, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -636,7 +636,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusRemoveClusterHealthFault(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong id, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusRemoveClusterHealthFault(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong id, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -656,7 +656,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusWorkerCheckTerminate(JNIEnv* km_env, jclass km_clazz, jlong lpworker) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusWorkerCheckTerminate(JNIEnv* km_env, jclass km_clazz, jlong lpworker) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -674,7 +674,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusWorkerCreate(JNIEnv* km_env, jclass km_clazz, jlong lpworker, jlong lpstartaddress, jlong lpparameter) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusWorkerCreate(JNIEnv* km_env, jclass km_clazz, jlong lpworker, jlong lpstartaddress, jlong lpparameter) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -694,7 +694,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusWorkerTerminate(JNIEnv* km_env, jclass km_clazz, jlong lpworker) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusWorkerTerminate(JNIEnv* km_env, jclass km_clazz, jlong lpworker) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -710,7 +710,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusWorkerTerminateEx(JNIEnv* km_env, jclass km_clazz, jlong clusworker, jint timeoutinmilliseconds, jint waitonly) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusWorkerTerminateEx(JNIEnv* km_env, jclass km_clazz, jlong clusworker, jint timeoutinmilliseconds, jint waitonly) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -730,7 +730,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusWorkersTerminate(JNIEnv* km_env, jclass km_clazz, jlong clusworkers, jlong clusworkerscount, jint timeoutinmilliseconds, jint waitonly) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusWorkersTerminate(JNIEnv* km_env, jclass km_clazz, jlong clusworkers, jlong clusworkerscount, jint timeoutinmilliseconds, jint waitonly) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -751,7 +751,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusapiSetReasonHandler(JNIEnv* km_env, jclass km_clazz, jlong lphandler) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusapiSetReasonHandler(JNIEnv* km_env, jclass km_clazz, jlong lphandler) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -769,7 +769,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterAddGroupToAffinityRule(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong rulename, jlong hgroup) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterAddGroupToAffinityRule(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong rulename, jlong hgroup) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -789,7 +789,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterAddGroupToGroupSet(JNIEnv* km_env, jclass km_clazz, jlong hgroupset, jlong hgroup) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterAddGroupToGroupSet(JNIEnv* km_env, jclass km_clazz, jlong hgroupset, jlong hgroup) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -808,7 +808,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterAddGroupToGroupSetWithDomains(JNIEnv* km_env, jclass km_clazz, jlong hgroupset, jlong hgroup, jint faultdomain, jint updatedomain) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterAddGroupToGroupSetWithDomains(JNIEnv* km_env, jclass km_clazz, jlong hgroupset, jlong hgroup, jint faultdomain, jint updatedomain) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -829,7 +829,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterAddGroupToGroupSetWithDomainsEx(JNIEnv* km_env, jclass km_clazz, jlong hgroupset, jlong hgroup, jint faultdomain, jint updatedomain, jlong lpszreason) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterAddGroupToGroupSetWithDomainsEx(JNIEnv* km_env, jclass km_clazz, jlong hgroupset, jlong hgroup, jint faultdomain, jint updatedomain, jlong lpszreason) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -851,7 +851,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterAffinityRuleControl(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong affinityrulename, jlong hhostnode, jint dwcontrolcode, jlong lpinbuffer, jint cbinbuffersize, jlong lpoutbuffer, jint cboutbuffersize, jlong lpbytesreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterAffinityRuleControl(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong affinityrulename, jlong hhostnode, jint dwcontrolcode, jlong lpinbuffer, jint cbinbuffersize, jlong lpoutbuffer, jint cboutbuffersize, jlong lpbytesreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -877,7 +877,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterClearBackupStateForSharedVolume(JNIEnv* km_env, jclass km_clazz, jlong lpszvolumepathname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterClearBackupStateForSharedVolume(JNIEnv* km_env, jclass km_clazz, jlong lpszvolumepathname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -895,7 +895,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterCloseEnum(JNIEnv* km_env, jclass km_clazz, jlong henum) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterCloseEnum(JNIEnv* km_env, jclass km_clazz, jlong henum) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -913,7 +913,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterCloseEnumEx(JNIEnv* km_env, jclass km_clazz, jlong hclusterenum) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterCloseEnumEx(JNIEnv* km_env, jclass km_clazz, jlong hclusterenum) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -931,7 +931,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterControl(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong hhostnode, jint dwcontrolcode, jlong lpinbuffer, jint ninbuffersize, jlong lpoutbuffer, jint noutbuffersize, jlong lpbytesreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterControl(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong hhostnode, jint dwcontrolcode, jlong lpinbuffer, jint ninbuffersize, jlong lpoutbuffer, jint noutbuffersize, jlong lpbytesreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -956,7 +956,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterControlEx(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong hhostnode, jint dwcontrolcode, jlong lpinbuffer, jint ninbuffersize, jlong lpoutbuffer, jint noutbuffersize, jlong lpbytesreturned, jlong lpszreason) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterControlEx(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong hhostnode, jint dwcontrolcode, jlong lpinbuffer, jint ninbuffersize, jlong lpoutbuffer, jint noutbuffersize, jlong lpbytesreturned, jlong lpszreason) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -982,7 +982,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterCreateAffinityRule(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong rulename, jint ruletype) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterCreateAffinityRule(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong rulename, jint ruletype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1002,7 +1002,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterDecrypt(JNIEnv* km_env, jclass km_clazz, jlong hcluscryptprovider, jlong pcryptinput, jint cbcryptinput, jlong ppcryptoutput, jlong pcbcryptoutput) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterDecrypt(JNIEnv* km_env, jclass km_clazz, jlong hcluscryptprovider, jlong pcryptinput, jint cbcryptinput, jlong ppcryptoutput, jlong pcbcryptoutput) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1024,7 +1024,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterEncrypt(JNIEnv* km_env, jclass km_clazz, jlong hcluscryptprovider, jlong pdata, jint cbdata, jlong ppdata, jlong pcbdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterEncrypt(JNIEnv* km_env, jclass km_clazz, jlong hcluscryptprovider, jlong pdata, jint cbdata, jlong ppdata, jlong pcbdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1046,7 +1046,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterEnum(JNIEnv* km_env, jclass km_clazz, jlong henum, jint dwindex, jlong lpdwtype, jlong lpszname, jlong lpcchname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterEnum(JNIEnv* km_env, jclass km_clazz, jlong henum, jint dwindex, jlong lpdwtype, jlong lpszname, jlong lpcchname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1068,7 +1068,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterEnumEx(JNIEnv* km_env, jclass km_clazz, jlong hclusterenum, jint dwindex, jlong pitem, jlong cbitem) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterEnumEx(JNIEnv* km_env, jclass km_clazz, jlong hclusterenum, jint dwindex, jlong pitem, jlong cbitem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1089,7 +1089,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterGetEnumCount(JNIEnv* km_env, jclass km_clazz, jlong henum) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterGetEnumCount(JNIEnv* km_env, jclass km_clazz, jlong henum) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1107,7 +1107,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterGetEnumCountEx(JNIEnv* km_env, jclass km_clazz, jlong hclusterenum) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterGetEnumCountEx(JNIEnv* km_env, jclass km_clazz, jlong hclusterenum) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1125,7 +1125,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterGetVolumeNameForVolumeMountPoint(JNIEnv* km_env, jclass km_clazz, jlong lpszvolumemountpoint, jlong lpszvolumename, jint cchbufferlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterGetVolumeNameForVolumeMountPoint(JNIEnv* km_env, jclass km_clazz, jlong lpszvolumemountpoint, jlong lpszvolumename, jint cchbufferlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1145,7 +1145,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterGetVolumePathName(JNIEnv* km_env, jclass km_clazz, jlong lpszfilename, jlong lpszvolumepathname, jint cchbufferlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterGetVolumePathName(JNIEnv* km_env, jclass km_clazz, jlong lpszfilename, jlong lpszvolumepathname, jint cchbufferlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1165,7 +1165,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterGroupCloseEnum(JNIEnv* km_env, jclass km_clazz, jlong hgroupenum) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterGroupCloseEnum(JNIEnv* km_env, jclass km_clazz, jlong hgroupenum) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1183,7 +1183,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterGroupCloseEnumEx(JNIEnv* km_env, jclass km_clazz, jlong hgroupenumex) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterGroupCloseEnumEx(JNIEnv* km_env, jclass km_clazz, jlong hgroupenumex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1201,7 +1201,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterGroupControl(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong hhostnode, jint dwcontrolcode, jlong lpinbuffer, jint ninbuffersize, jlong lpoutbuffer, jint noutbuffersize, jlong lpbytesreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterGroupControl(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong hhostnode, jint dwcontrolcode, jlong lpinbuffer, jint ninbuffersize, jlong lpoutbuffer, jint noutbuffersize, jlong lpbytesreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1226,7 +1226,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterGroupControlEx(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong hhostnode, jint dwcontrolcode, jlong lpinbuffer, jint ninbuffersize, jlong lpoutbuffer, jint noutbuffersize, jlong lpbytesreturned, jlong lpszreason) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterGroupControlEx(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong hhostnode, jint dwcontrolcode, jlong lpinbuffer, jint ninbuffersize, jlong lpoutbuffer, jint noutbuffersize, jlong lpbytesreturned, jlong lpszreason) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1252,7 +1252,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterGroupEnum(JNIEnv* km_env, jclass km_clazz, jlong hgroupenum, jint dwindex, jlong lpdwtype, jlong lpszresourcename, jlong lpcchname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterGroupEnum(JNIEnv* km_env, jclass km_clazz, jlong hgroupenum, jint dwindex, jlong lpdwtype, jlong lpszresourcename, jlong lpcchname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1274,7 +1274,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterGroupEnumEx(JNIEnv* km_env, jclass km_clazz, jlong hgroupenumex, jint dwindex, jlong pitem, jlong cbitem) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterGroupEnumEx(JNIEnv* km_env, jclass km_clazz, jlong hgroupenumex, jint dwindex, jlong pitem, jlong cbitem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1295,7 +1295,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterGroupGetEnumCount(JNIEnv* km_env, jclass km_clazz, jlong hgroupenum) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterGroupGetEnumCount(JNIEnv* km_env, jclass km_clazz, jlong hgroupenum) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1313,7 +1313,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterGroupGetEnumCountEx(JNIEnv* km_env, jclass km_clazz, jlong hgroupenumex) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterGroupGetEnumCountEx(JNIEnv* km_env, jclass km_clazz, jlong hgroupenumex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1331,7 +1331,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterGroupOpenEnum(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jint dwtype) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterGroupOpenEnum(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jint dwtype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1350,7 +1350,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterGroupOpenEnumEx(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpszproperties, jint cbproperties, jlong lpszroproperties, jint cbroproperties, jint dwflags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterGroupOpenEnumEx(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpszproperties, jint cbproperties, jlong lpszroproperties, jint cbroproperties, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1373,7 +1373,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterGroupSetCloseEnum(JNIEnv* km_env, jclass km_clazz, jlong hgroupsetenum) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterGroupSetCloseEnum(JNIEnv* km_env, jclass km_clazz, jlong hgroupsetenum) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1391,7 +1391,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterGroupSetControl(JNIEnv* km_env, jclass km_clazz, jlong hgroupset, jlong hhostnode, jint dwcontrolcode, jlong lpinbuffer, jint cbinbuffersize, jlong lpoutbuffer, jint cboutbuffersize, jlong lpbytesreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterGroupSetControl(JNIEnv* km_env, jclass km_clazz, jlong hgroupset, jlong hhostnode, jint dwcontrolcode, jlong lpinbuffer, jint cbinbuffersize, jlong lpoutbuffer, jint cboutbuffersize, jlong lpbytesreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1416,7 +1416,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterGroupSetControlEx(JNIEnv* km_env, jclass km_clazz, jlong hgroupset, jlong hhostnode, jint dwcontrolcode, jlong lpinbuffer, jint cbinbuffersize, jlong lpoutbuffer, jint cboutbuffersize, jlong lpbytesreturned, jlong lpszreason) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterGroupSetControlEx(JNIEnv* km_env, jclass km_clazz, jlong hgroupset, jlong hhostnode, jint dwcontrolcode, jlong lpinbuffer, jint cbinbuffersize, jlong lpoutbuffer, jint cboutbuffersize, jlong lpbytesreturned, jlong lpszreason) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1442,7 +1442,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterGroupSetEnum(JNIEnv* km_env, jclass km_clazz, jlong hgroupsetenum, jint dwindex, jlong lpszname, jlong lpcchname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterGroupSetEnum(JNIEnv* km_env, jclass km_clazz, jlong hgroupsetenum, jint dwindex, jlong lpszname, jlong lpcchname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1463,7 +1463,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterGroupSetGetEnumCount(JNIEnv* km_env, jclass km_clazz, jlong hgroupsetenum) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterGroupSetGetEnumCount(JNIEnv* km_env, jclass km_clazz, jlong hgroupsetenum) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1481,25 +1481,25 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterGroupSetOpenEnum(JNIEnv* km_env, jclass km_clazz, jlong hcluster) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterGroupSetOpenEnum(JNIEnv* km_env, jclass km_clazz, jlong hcluster) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(int64_t);
+    typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ClusterGroupSetOpenEnum");
     }
-    int64_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)hcluster) : -1;
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)hcluster) : -1;
 #else
     (void)hcluster;
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return (jlong)km_res;
+    return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterIsPathOnSharedVolume(JNIEnv* km_env, jclass km_clazz, jlong lpszpathname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterIsPathOnSharedVolume(JNIEnv* km_env, jclass km_clazz, jlong lpszpathname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1517,7 +1517,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterNetInterfaceCloseEnum(JNIEnv* km_env, jclass km_clazz, jlong hnetinterfaceenum) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterNetInterfaceCloseEnum(JNIEnv* km_env, jclass km_clazz, jlong hnetinterfaceenum) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1535,7 +1535,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterNetInterfaceControl(JNIEnv* km_env, jclass km_clazz, jlong hnetinterface, jlong hhostnode, jint dwcontrolcode, jlong lpinbuffer, jint ninbuffersize, jlong lpoutbuffer, jint noutbuffersize, jlong lpbytesreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterNetInterfaceControl(JNIEnv* km_env, jclass km_clazz, jlong hnetinterface, jlong hhostnode, jint dwcontrolcode, jlong lpinbuffer, jint ninbuffersize, jlong lpoutbuffer, jint noutbuffersize, jlong lpbytesreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1560,7 +1560,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterNetInterfaceControlEx(JNIEnv* km_env, jclass km_clazz, jlong hnetinterface, jlong hhostnode, jint dwcontrolcode, jlong lpinbuffer, jint ninbuffersize, jlong lpoutbuffer, jint noutbuffersize, jlong lpbytesreturned, jlong lpszreason) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterNetInterfaceControlEx(JNIEnv* km_env, jclass km_clazz, jlong hnetinterface, jlong hhostnode, jint dwcontrolcode, jlong lpinbuffer, jint ninbuffersize, jlong lpoutbuffer, jint noutbuffersize, jlong lpbytesreturned, jlong lpszreason) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1586,7 +1586,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterNetInterfaceEnum(JNIEnv* km_env, jclass km_clazz, jlong hnetinterfaceenum, jint dwindex, jlong lpszname, jlong lpcchname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterNetInterfaceEnum(JNIEnv* km_env, jclass km_clazz, jlong hnetinterfaceenum, jint dwindex, jlong lpszname, jlong lpcchname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1607,27 +1607,27 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterNetInterfaceOpenEnum(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpsznodename, jlong lpsznetworkname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterNetInterfaceOpenEnum(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpsznodename, jlong lpsznetworkname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(int64_t, void*, void*);
+    typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ClusterNetInterfaceOpenEnum");
     }
-    int64_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)hcluster, (void*)(uintptr_t)lpsznodename, (void*)(uintptr_t)lpsznetworkname) : -1;
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)hcluster, (void*)(uintptr_t)lpsznodename, (void*)(uintptr_t)lpsznetworkname) : -1;
 #else
     (void)hcluster;
     (void)lpsznodename;
     (void)lpsznetworkname;
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return (jlong)km_res;
+    return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterNetworkCloseEnum(JNIEnv* km_env, jclass km_clazz, jlong hnetworkenum) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterNetworkCloseEnum(JNIEnv* km_env, jclass km_clazz, jlong hnetworkenum) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1645,7 +1645,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterNetworkControl(JNIEnv* km_env, jclass km_clazz, jlong hnetwork, jlong hhostnode, jint dwcontrolcode, jlong lpinbuffer, jint ninbuffersize, jlong lpoutbuffer, jint noutbuffersize, jlong lpbytesreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterNetworkControl(JNIEnv* km_env, jclass km_clazz, jlong hnetwork, jlong hhostnode, jint dwcontrolcode, jlong lpinbuffer, jint ninbuffersize, jlong lpoutbuffer, jint noutbuffersize, jlong lpbytesreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1670,7 +1670,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterNetworkControlEx(JNIEnv* km_env, jclass km_clazz, jlong hnetwork, jlong hhostnode, jint dwcontrolcode, jlong lpinbuffer, jint ninbuffersize, jlong lpoutbuffer, jint noutbuffersize, jlong lpbytesreturned, jlong lpszreason) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterNetworkControlEx(JNIEnv* km_env, jclass km_clazz, jlong hnetwork, jlong hhostnode, jint dwcontrolcode, jlong lpinbuffer, jint ninbuffersize, jlong lpoutbuffer, jint noutbuffersize, jlong lpbytesreturned, jlong lpszreason) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1696,7 +1696,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterNetworkEnum(JNIEnv* km_env, jclass km_clazz, jlong hnetworkenum, jint dwindex, jlong lpdwtype, jlong lpszname, jlong lpcchname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterNetworkEnum(JNIEnv* km_env, jclass km_clazz, jlong hnetworkenum, jint dwindex, jlong lpdwtype, jlong lpszname, jlong lpcchname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1718,7 +1718,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterNetworkGetEnumCount(JNIEnv* km_env, jclass km_clazz, jlong hnetworkenum) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterNetworkGetEnumCount(JNIEnv* km_env, jclass km_clazz, jlong hnetworkenum) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1736,7 +1736,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterNetworkOpenEnum(JNIEnv* km_env, jclass km_clazz, jlong hnetwork, jint dwtype) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterNetworkOpenEnum(JNIEnv* km_env, jclass km_clazz, jlong hnetwork, jint dwtype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1755,7 +1755,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterNodeCloseEnum(JNIEnv* km_env, jclass km_clazz, jlong hnodeenum) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterNodeCloseEnum(JNIEnv* km_env, jclass km_clazz, jlong hnodeenum) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1773,7 +1773,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterNodeCloseEnumEx(JNIEnv* km_env, jclass km_clazz, jlong hnodeenum) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterNodeCloseEnumEx(JNIEnv* km_env, jclass km_clazz, jlong hnodeenum) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1791,7 +1791,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterNodeControl(JNIEnv* km_env, jclass km_clazz, jlong hnode, jlong hhostnode, jint dwcontrolcode, jlong lpinbuffer, jint ninbuffersize, jlong lpoutbuffer, jint noutbuffersize, jlong lpbytesreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterNodeControl(JNIEnv* km_env, jclass km_clazz, jlong hnode, jlong hhostnode, jint dwcontrolcode, jlong lpinbuffer, jint ninbuffersize, jlong lpoutbuffer, jint noutbuffersize, jlong lpbytesreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1816,7 +1816,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterNodeControlEx(JNIEnv* km_env, jclass km_clazz, jlong hnode, jlong hhostnode, jint dwcontrolcode, jlong lpinbuffer, jint ninbuffersize, jlong lpoutbuffer, jint noutbuffersize, jlong lpbytesreturned, jlong lpszreason) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterNodeControlEx(JNIEnv* km_env, jclass km_clazz, jlong hnode, jlong hhostnode, jint dwcontrolcode, jlong lpinbuffer, jint ninbuffersize, jlong lpoutbuffer, jint noutbuffersize, jlong lpbytesreturned, jlong lpszreason) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1842,7 +1842,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterNodeEnum(JNIEnv* km_env, jclass km_clazz, jlong hnodeenum, jint dwindex, jlong lpdwtype, jlong lpszname, jlong lpcchname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterNodeEnum(JNIEnv* km_env, jclass km_clazz, jlong hnodeenum, jint dwindex, jlong lpdwtype, jlong lpszname, jlong lpcchname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1864,7 +1864,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterNodeEnumEx(JNIEnv* km_env, jclass km_clazz, jlong hnodeenum, jint dwindex, jlong pitem, jlong cbitem) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterNodeEnumEx(JNIEnv* km_env, jclass km_clazz, jlong hnodeenum, jint dwindex, jlong pitem, jlong cbitem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1885,7 +1885,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterNodeGetEnumCount(JNIEnv* km_env, jclass km_clazz, jlong hnodeenum) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterNodeGetEnumCount(JNIEnv* km_env, jclass km_clazz, jlong hnodeenum) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1903,7 +1903,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterNodeGetEnumCountEx(JNIEnv* km_env, jclass km_clazz, jlong hnodeenum) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterNodeGetEnumCountEx(JNIEnv* km_env, jclass km_clazz, jlong hnodeenum) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1921,7 +1921,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterNodeOpenEnum(JNIEnv* km_env, jclass km_clazz, jlong hnode, jint dwtype) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterNodeOpenEnum(JNIEnv* km_env, jclass km_clazz, jlong hnode, jint dwtype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1940,7 +1940,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterNodeOpenEnumEx(JNIEnv* km_env, jclass km_clazz, jlong hnode, jint dwtype, jlong poptions) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterNodeOpenEnumEx(JNIEnv* km_env, jclass km_clazz, jlong hnode, jint dwtype, jlong poptions) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1960,7 +1960,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterNodeReplacement(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpsznodenamecurrent, jlong lpsznodenamenew) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterNodeReplacement(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpsznodenamecurrent, jlong lpsznodenamenew) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1980,7 +1980,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterOpenEnum(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jint dwtype) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterOpenEnum(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jint dwtype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1999,7 +1999,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterOpenEnumEx(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jint dwtype, jlong poptions) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterOpenEnumEx(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jint dwtype, jlong poptions) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2019,7 +2019,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterPrepareSharedVolumeForBackup(JNIEnv* km_env, jclass km_clazz, jlong lpszfilename, jlong lpszvolumepathname, jlong lpcchvolumepathname, jlong lpszvolumename, jlong lpcchvolumename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterPrepareSharedVolumeForBackup(JNIEnv* km_env, jclass km_clazz, jlong lpszfilename, jlong lpszvolumepathname, jlong lpcchvolumepathname, jlong lpszvolumename, jlong lpcchvolumename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2041,7 +2041,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterRegBatchAddCommand(JNIEnv* km_env, jclass km_clazz, jlong hregbatch, jint dwcommand, jlong wzname, jint dwoptions, jlong lpdata, jint cbdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterRegBatchAddCommand(JNIEnv* km_env, jclass km_clazz, jlong hregbatch, jint dwcommand, jlong wzname, jint dwoptions, jlong lpdata, jint cbdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2064,7 +2064,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterRegBatchCloseNotification(JNIEnv* km_env, jclass km_clazz, jlong hbatchnotification) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterRegBatchCloseNotification(JNIEnv* km_env, jclass km_clazz, jlong hbatchnotification) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2082,7 +2082,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterRegBatchReadCommand(JNIEnv* km_env, jclass km_clazz, jlong hbatchnotification, jlong pbatchcommand) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterRegBatchReadCommand(JNIEnv* km_env, jclass km_clazz, jlong hbatchnotification, jlong pbatchcommand) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2101,7 +2101,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterRegCloseBatch(JNIEnv* km_env, jclass km_clazz, jlong hregbatch, jint bcommit, jlong failedcommandnumber) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterRegCloseBatch(JNIEnv* km_env, jclass km_clazz, jlong hregbatch, jint bcommit, jlong failedcommandnumber) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2121,7 +2121,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterRegCloseBatchEx(JNIEnv* km_env, jclass km_clazz, jlong hregbatch, jint flags, jlong failedcommandnumber) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterRegCloseBatchEx(JNIEnv* km_env, jclass km_clazz, jlong hregbatch, jint flags, jlong failedcommandnumber) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2141,7 +2141,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterRegCloseBatchNotifyPort(JNIEnv* km_env, jclass km_clazz, jlong hbatchnotifyport) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterRegCloseBatchNotifyPort(JNIEnv* km_env, jclass km_clazz, jlong hbatchnotifyport) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2159,7 +2159,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterRegCloseKey(JNIEnv* km_env, jclass km_clazz, jlong hkey) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterRegCloseKey(JNIEnv* km_env, jclass km_clazz, jlong hkey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2177,7 +2177,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterRegCloseReadBatch(JNIEnv* km_env, jclass km_clazz, jlong hregreadbatch, jlong phregreadbatchreply) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterRegCloseReadBatch(JNIEnv* km_env, jclass km_clazz, jlong hregreadbatch, jlong phregreadbatchreply) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2196,7 +2196,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterRegCloseReadBatchEx(JNIEnv* km_env, jclass km_clazz, jlong hregreadbatch, jint flags, jlong phregreadbatchreply) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterRegCloseReadBatchEx(JNIEnv* km_env, jclass km_clazz, jlong hregreadbatch, jint flags, jlong phregreadbatchreply) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2216,7 +2216,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterRegCloseReadBatchReply(JNIEnv* km_env, jclass km_clazz, jlong hregreadbatchreply) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterRegCloseReadBatchReply(JNIEnv* km_env, jclass km_clazz, jlong hregreadbatchreply) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2234,7 +2234,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterRegCreateBatch(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong phregbatch) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterRegCreateBatch(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong phregbatch) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2253,7 +2253,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterRegCreateBatchNotifyPort(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong phbatchnotifyport) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterRegCreateBatchNotifyPort(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong phbatchnotifyport) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2272,7 +2272,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterRegCreateKey(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpszsubkey, jint dwoptions, jint samdesired, jlong lpsecurityattributes, jlong phkresult, jlong lpdwdisposition) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterRegCreateKey(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpszsubkey, jint dwoptions, jint samdesired, jlong lpsecurityattributes, jlong phkresult, jlong lpdwdisposition) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2296,7 +2296,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterRegCreateKeyEx(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey, jint dwoptions, jint samdesired, jlong lpsecurityattributes, jlong phkresult, jlong lpdwdisposition, jlong lpszreason) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterRegCreateKeyEx(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey, jint dwoptions, jint samdesired, jlong lpsecurityattributes, jlong phkresult, jlong lpdwdisposition, jlong lpszreason) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2321,7 +2321,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterRegCreateReadBatch(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong phregreadbatch) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterRegCreateReadBatch(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong phregreadbatch) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2340,7 +2340,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterRegDeleteKey(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpszsubkey) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterRegDeleteKey(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpszsubkey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2359,7 +2359,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterRegDeleteKeyEx(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey, jlong lpszreason) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterRegDeleteKeyEx(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey, jlong lpszreason) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2379,7 +2379,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterRegDeleteValue(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpszvaluename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterRegDeleteValue(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpszvaluename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2398,7 +2398,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterRegDeleteValueEx(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpszvaluename, jlong lpszreason) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterRegDeleteValueEx(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpszvaluename, jlong lpszreason) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2418,7 +2418,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterRegEnumKey(JNIEnv* km_env, jclass km_clazz, jlong hkey, jint dwindex, jlong lpszname, jlong lpcchname, jlong lpftlastwritetime) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterRegEnumKey(JNIEnv* km_env, jclass km_clazz, jlong hkey, jint dwindex, jlong lpszname, jlong lpcchname, jlong lpftlastwritetime) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2440,7 +2440,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterRegEnumValue(JNIEnv* km_env, jclass km_clazz, jlong hkey, jint dwindex, jlong lpszvaluename, jlong lpcchvaluename, jlong lpdwtype, jlong lpdata, jlong lpcbdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterRegEnumValue(JNIEnv* km_env, jclass km_clazz, jlong hkey, jint dwindex, jlong lpszvaluename, jlong lpcchvaluename, jlong lpdwtype, jlong lpdata, jlong lpcbdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2464,7 +2464,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterRegGetBatchNotification(JNIEnv* km_env, jclass km_clazz, jlong hbatchnotify, jlong phbatchnotification) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterRegGetBatchNotification(JNIEnv* km_env, jclass km_clazz, jlong hbatchnotify, jlong phbatchnotification) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2483,7 +2483,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterRegGetKeySecurity(JNIEnv* km_env, jclass km_clazz, jlong hkey, jint requestedinformation, jlong psecuritydescriptor, jlong lpcbsecuritydescriptor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterRegGetKeySecurity(JNIEnv* km_env, jclass km_clazz, jlong hkey, jint requestedinformation, jlong psecuritydescriptor, jlong lpcbsecuritydescriptor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2504,7 +2504,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterRegOpenKey(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpszsubkey, jint samdesired, jlong phkresult) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterRegOpenKey(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpszsubkey, jint samdesired, jlong phkresult) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2525,7 +2525,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterRegQueryInfoKey(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpcsubkeys, jlong lpcchmaxsubkeylen, jlong lpcvalues, jlong lpcchmaxvaluenamelen, jlong lpcbmaxvaluelen, jlong lpcbsecuritydescriptor, jlong lpftlastwritetime) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterRegQueryInfoKey(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpcsubkeys, jlong lpcchmaxsubkeylen, jlong lpcvalues, jlong lpcchmaxvaluenamelen, jlong lpcbmaxvaluelen, jlong lpcbsecuritydescriptor, jlong lpftlastwritetime) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2550,7 +2550,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterRegQueryValue(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpszvaluename, jlong lpdwvaluetype, jlong lpdata, jlong lpcbdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterRegQueryValue(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpszvaluename, jlong lpdwvaluetype, jlong lpdata, jlong lpcbdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2572,7 +2572,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterRegReadBatchAddCommand(JNIEnv* km_env, jclass km_clazz, jlong hregreadbatch, jlong wzsubkeyname, jlong wzvaluename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterRegReadBatchAddCommand(JNIEnv* km_env, jclass km_clazz, jlong hregreadbatch, jlong wzsubkeyname, jlong wzvaluename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2592,7 +2592,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterRegReadBatchReplyNextCommand(JNIEnv* km_env, jclass km_clazz, jlong hregreadbatchreply, jlong pbatchcommand) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterRegReadBatchReplyNextCommand(JNIEnv* km_env, jclass km_clazz, jlong hregreadbatchreply, jlong pbatchcommand) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2611,7 +2611,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterRegSetKeySecurity(JNIEnv* km_env, jclass km_clazz, jlong hkey, jint securityinformation, jlong psecuritydescriptor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterRegSetKeySecurity(JNIEnv* km_env, jclass km_clazz, jlong hkey, jint securityinformation, jlong psecuritydescriptor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2631,7 +2631,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterRegSetKeySecurityEx(JNIEnv* km_env, jclass km_clazz, jlong hkey, jint securityinformation, jlong psecuritydescriptor, jlong lpszreason) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterRegSetKeySecurityEx(JNIEnv* km_env, jclass km_clazz, jlong hkey, jint securityinformation, jlong psecuritydescriptor, jlong lpszreason) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2652,7 +2652,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterRegSetValue(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpszvaluename, jint dwtype, jlong lpdata, jint cbdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterRegSetValue(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpszvaluename, jint dwtype, jlong lpdata, jint cbdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2674,7 +2674,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterRegSetValueEx(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpszvaluename, jint dwtype, jlong lpdata, jint cbdata, jlong lpszreason) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterRegSetValueEx(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpszvaluename, jint dwtype, jlong lpdata, jint cbdata, jlong lpszreason) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2697,7 +2697,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterRegSyncDatabase(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterRegSyncDatabase(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2716,7 +2716,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterRemoveAffinityRule(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong rulename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterRemoveAffinityRule(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong rulename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2735,7 +2735,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterRemoveGroupFromAffinityRule(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong rulename, jlong hgroup) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterRemoveGroupFromAffinityRule(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong rulename, jlong hgroup) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2755,7 +2755,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterRemoveGroupFromGroupSet(JNIEnv* km_env, jclass km_clazz, jlong hgroup) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterRemoveGroupFromGroupSet(JNIEnv* km_env, jclass km_clazz, jlong hgroup) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2773,7 +2773,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterRemoveGroupFromGroupSetEx(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong lpszreason) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterRemoveGroupFromGroupSetEx(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong lpszreason) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2792,7 +2792,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterResourceCloseEnum(JNIEnv* km_env, jclass km_clazz, jlong hresenum) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterResourceCloseEnum(JNIEnv* km_env, jclass km_clazz, jlong hresenum) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2810,7 +2810,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterResourceCloseEnumEx(JNIEnv* km_env, jclass km_clazz, jlong hresourceenumex) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterResourceCloseEnumEx(JNIEnv* km_env, jclass km_clazz, jlong hresourceenumex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2828,7 +2828,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterResourceControl(JNIEnv* km_env, jclass km_clazz, jlong hresource, jlong hhostnode, jint dwcontrolcode, jlong lpinbuffer, jint cbinbuffersize, jlong lpoutbuffer, jint cboutbuffersize, jlong lpbytesreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterResourceControl(JNIEnv* km_env, jclass km_clazz, jlong hresource, jlong hhostnode, jint dwcontrolcode, jlong lpinbuffer, jint cbinbuffersize, jlong lpoutbuffer, jint cboutbuffersize, jlong lpbytesreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2853,7 +2853,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterResourceControlAsUser(JNIEnv* km_env, jclass km_clazz, jlong hresource, jlong hhostnode, jint dwcontrolcode, jlong lpinbuffer, jint cbinbuffersize, jlong lpoutbuffer, jint cboutbuffersize, jlong lpbytesreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterResourceControlAsUser(JNIEnv* km_env, jclass km_clazz, jlong hresource, jlong hhostnode, jint dwcontrolcode, jlong lpinbuffer, jint cbinbuffersize, jlong lpoutbuffer, jint cboutbuffersize, jlong lpbytesreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2878,7 +2878,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterResourceControlAsUserEx(JNIEnv* km_env, jclass km_clazz, jlong hresource, jlong hhostnode, jint dwcontrolcode, jlong lpinbuffer, jint cbinbuffersize, jlong lpoutbuffer, jint cboutbuffersize, jlong lpbytesreturned, jlong lpszreason) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterResourceControlAsUserEx(JNIEnv* km_env, jclass km_clazz, jlong hresource, jlong hhostnode, jint dwcontrolcode, jlong lpinbuffer, jint cbinbuffersize, jlong lpoutbuffer, jint cboutbuffersize, jlong lpbytesreturned, jlong lpszreason) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2904,7 +2904,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterResourceControlEx(JNIEnv* km_env, jclass km_clazz, jlong hresource, jlong hhostnode, jint dwcontrolcode, jlong lpinbuffer, jint cbinbuffersize, jlong lpoutbuffer, jint cboutbuffersize, jlong lpbytesreturned, jlong lpszreason) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterResourceControlEx(JNIEnv* km_env, jclass km_clazz, jlong hresource, jlong hhostnode, jint dwcontrolcode, jlong lpinbuffer, jint cbinbuffersize, jlong lpoutbuffer, jint cboutbuffersize, jlong lpbytesreturned, jlong lpszreason) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2930,7 +2930,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterResourceEnum(JNIEnv* km_env, jclass km_clazz, jlong hresenum, jint dwindex, jlong lpdwtype, jlong lpszname, jlong lpcchname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterResourceEnum(JNIEnv* km_env, jclass km_clazz, jlong hresenum, jint dwindex, jlong lpdwtype, jlong lpszname, jlong lpcchname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2952,7 +2952,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterResourceEnumEx(JNIEnv* km_env, jclass km_clazz, jlong hresourceenumex, jint dwindex, jlong pitem, jlong cbitem) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterResourceEnumEx(JNIEnv* km_env, jclass km_clazz, jlong hresourceenumex, jint dwindex, jlong pitem, jlong cbitem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2973,7 +2973,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterResourceGetEnumCount(JNIEnv* km_env, jclass km_clazz, jlong hresenum) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterResourceGetEnumCount(JNIEnv* km_env, jclass km_clazz, jlong hresenum) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2991,7 +2991,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterResourceGetEnumCountEx(JNIEnv* km_env, jclass km_clazz, jlong hresourceenumex) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterResourceGetEnumCountEx(JNIEnv* km_env, jclass km_clazz, jlong hresourceenumex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3009,7 +3009,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterResourceOpenEnum(JNIEnv* km_env, jclass km_clazz, jlong hresource, jint dwtype) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterResourceOpenEnum(JNIEnv* km_env, jclass km_clazz, jlong hresource, jint dwtype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3028,7 +3028,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterResourceOpenEnumEx(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpszproperties, jint cbproperties, jlong lpszroproperties, jint cbroproperties, jint dwflags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterResourceOpenEnumEx(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpszproperties, jint cbproperties, jlong lpszroproperties, jint cbroproperties, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3051,7 +3051,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterResourceTypeCloseEnum(JNIEnv* km_env, jclass km_clazz, jlong hrestypeenum) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterResourceTypeCloseEnum(JNIEnv* km_env, jclass km_clazz, jlong hrestypeenum) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3069,7 +3069,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterResourceTypeControl(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpszresourcetypename, jlong hhostnode, jint dwcontrolcode, jlong lpinbuffer, jint ninbuffersize, jlong lpoutbuffer, jint noutbuffersize, jlong lpbytesreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterResourceTypeControl(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpszresourcetypename, jlong hhostnode, jint dwcontrolcode, jlong lpinbuffer, jint ninbuffersize, jlong lpoutbuffer, jint noutbuffersize, jlong lpbytesreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3095,7 +3095,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterResourceTypeControlAsUser(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpszresourcetypename, jlong hhostnode, jint dwcontrolcode, jlong lpinbuffer, jint ninbuffersize, jlong lpoutbuffer, jint noutbuffersize, jlong lpbytesreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterResourceTypeControlAsUser(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpszresourcetypename, jlong hhostnode, jint dwcontrolcode, jlong lpinbuffer, jint ninbuffersize, jlong lpoutbuffer, jint noutbuffersize, jlong lpbytesreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3121,7 +3121,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterResourceTypeControlAsUserEx(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpszresourcetypename, jlong hhostnode, jint dwcontrolcode, jlong lpinbuffer, jint ninbuffersize, jlong lpoutbuffer, jint noutbuffersize, jlong lpbytesreturned, jlong lpszreason) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterResourceTypeControlAsUserEx(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpszresourcetypename, jlong hhostnode, jint dwcontrolcode, jlong lpinbuffer, jint ninbuffersize, jlong lpoutbuffer, jint noutbuffersize, jlong lpbytesreturned, jlong lpszreason) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3148,7 +3148,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterResourceTypeControlEx(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpszresourcetypename, jlong hhostnode, jint dwcontrolcode, jlong lpinbuffer, jint ninbuffersize, jlong lpoutbuffer, jint noutbuffersize, jlong lpbytesreturned, jlong lpszreason) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterResourceTypeControlEx(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpszresourcetypename, jlong hhostnode, jint dwcontrolcode, jlong lpinbuffer, jint ninbuffersize, jlong lpoutbuffer, jint noutbuffersize, jlong lpbytesreturned, jlong lpszreason) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3175,7 +3175,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterResourceTypeEnum(JNIEnv* km_env, jclass km_clazz, jlong hrestypeenum, jint dwindex, jlong lpdwtype, jlong lpszname, jlong lpcchname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterResourceTypeEnum(JNIEnv* km_env, jclass km_clazz, jlong hrestypeenum, jint dwindex, jlong lpdwtype, jlong lpszname, jlong lpcchname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3197,7 +3197,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterResourceTypeGetEnumCount(JNIEnv* km_env, jclass km_clazz, jlong hrestypeenum) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterResourceTypeGetEnumCount(JNIEnv* km_env, jclass km_clazz, jlong hrestypeenum) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3215,7 +3215,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterResourceTypeOpenEnum(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpszresourcetypename, jint dwtype) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterResourceTypeOpenEnum(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpszresourcetypename, jint dwtype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3235,7 +3235,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterSetAccountAccess(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong szaccountsid, jint dwaccess, jint dwcontroltype) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterSetAccountAccess(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong szaccountsid, jint dwaccess, jint dwcontroltype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3256,7 +3256,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ClusterUpgradeFunctionalLevel(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jint perform, jlong pfnprogresscallback, jlong pvcallbackarg) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1clusterUpgradeFunctionalLevel(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jint perform, jlong pfnprogresscallback, jlong pvcallbackarg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3277,7 +3277,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1CreateCluster(JNIEnv* km_env, jclass km_clazz, jlong pconfig, jlong pfnprogresscallback, jlong pvcallbackarg) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1createCluster(JNIEnv* km_env, jclass km_clazz, jlong pconfig, jlong pfnprogresscallback, jlong pvcallbackarg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3297,7 +3297,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1CreateClusterAvailabilitySet(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpavailabilitysetname, jlong pavailabilitysetconfig) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1createClusterAvailabilitySet(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpavailabilitysetname, jlong pavailabilitysetconfig) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3317,7 +3317,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1CreateClusterGroup(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpszgroupname) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1createClusterGroup(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpszgroupname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3336,7 +3336,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1CreateClusterGroupEx(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpszgroupname, jlong pgroupinfo) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1createClusterGroupEx(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpszgroupname, jlong pgroupinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3356,7 +3356,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1CreateClusterGroupSet(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong groupsetname) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1createClusterGroupSet(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong groupsetname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3375,7 +3375,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1CreateClusterNameAccount(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong pconfig, jlong pfnprogresscallback, jlong pvcallbackarg) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1createClusterNameAccount(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong pconfig, jlong pfnprogresscallback, jlong pvcallbackarg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3396,7 +3396,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1CreateClusterNotifyPort(JNIEnv* km_env, jclass km_clazz, jlong hchange, jlong hcluster, jint dwfilter, jlong dwnotifykey) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1createClusterNotifyPort(JNIEnv* km_env, jclass km_clazz, jlong hchange, jlong hcluster, jint dwfilter, jlong dwnotifykey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3417,7 +3417,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1CreateClusterNotifyPortV2(JNIEnv* km_env, jclass km_clazz, jlong hchange, jlong hcluster, jlong filters, jint dwfiltercount, jlong dwnotifykey) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1createClusterNotifyPortV2(JNIEnv* km_env, jclass km_clazz, jlong hchange, jlong hcluster, jlong filters, jint dwfiltercount, jlong dwnotifykey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3439,7 +3439,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1CreateClusterResource(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong lpszresourcename, jlong lpszresourcetype, jint dwflags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1createClusterResource(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong lpszresourcename, jlong lpszresourcetype, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3460,7 +3460,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1CreateClusterResourceEx(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong lpszresourcename, jlong lpszresourcetype, jint dwflags, jlong lpszreason) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1createClusterResourceEx(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong lpszresourcename, jlong lpszresourcetype, jint dwflags, jlong lpszreason) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3482,7 +3482,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1CreateClusterResourceType(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpszresourcetypename, jlong lpszdisplayname, jlong lpszresourcetypedll, jint dwlooksalivepollinterval, jint dwisalivepollinterval) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1createClusterResourceType(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpszresourcetypename, jlong lpszdisplayname, jlong lpszresourcetypedll, jint dwlooksalivepollinterval, jint dwisalivepollinterval) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3505,7 +3505,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1CreateClusterResourceTypeEx(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpszresourcetypename, jlong lpszdisplayname, jlong lpszresourcetypedll, jint dwlooksalivepollinterval, jint dwisalivepollinterval, jlong lpszreason) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1createClusterResourceTypeEx(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpszresourcetypename, jlong lpszdisplayname, jlong lpszresourcetypedll, jint dwlooksalivepollinterval, jint dwisalivepollinterval, jlong lpszreason) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3529,7 +3529,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1DeleteClusterGroup(JNIEnv* km_env, jclass km_clazz, jlong hgroup) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1deleteClusterGroup(JNIEnv* km_env, jclass km_clazz, jlong hgroup) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3547,7 +3547,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1DeleteClusterGroupEx(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong lpszreason) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1deleteClusterGroupEx(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong lpszreason) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3566,7 +3566,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1DeleteClusterGroupSet(JNIEnv* km_env, jclass km_clazz, jlong hgroupset) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1deleteClusterGroupSet(JNIEnv* km_env, jclass km_clazz, jlong hgroupset) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3584,7 +3584,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1DeleteClusterGroupSetEx(JNIEnv* km_env, jclass km_clazz, jlong hgroupset, jlong lpszreason) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1deleteClusterGroupSetEx(JNIEnv* km_env, jclass km_clazz, jlong hgroupset, jlong lpszreason) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3603,7 +3603,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1DeleteClusterResource(JNIEnv* km_env, jclass km_clazz, jlong hresource) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1deleteClusterResource(JNIEnv* km_env, jclass km_clazz, jlong hresource) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3621,7 +3621,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1DeleteClusterResourceEx(JNIEnv* km_env, jclass km_clazz, jlong hresource, jlong lpszreason) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1deleteClusterResourceEx(JNIEnv* km_env, jclass km_clazz, jlong hresource, jlong lpszreason) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3640,7 +3640,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1DeleteClusterResourceType(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpszresourcetypename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1deleteClusterResourceType(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpszresourcetypename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3659,7 +3659,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1DeleteClusterResourceTypeEx(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpsztypename, jlong lpszreason) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1deleteClusterResourceTypeEx(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpsztypename, jlong lpszreason) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3679,7 +3679,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1DestroyCluster(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong pfnprogresscallback, jlong pvcallbackarg, jint fdeletevirtualcomputerobjects) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1destroyCluster(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong pfnprogresscallback, jlong pvcallbackarg, jint fdeletevirtualcomputerobjects) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3700,7 +3700,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1DestroyClusterGroup(JNIEnv* km_env, jclass km_clazz, jlong hgroup) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1destroyClusterGroup(JNIEnv* km_env, jclass km_clazz, jlong hgroup) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3718,7 +3718,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1DestroyClusterGroupEx(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong lpszreason) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1destroyClusterGroupEx(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong lpszreason) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3737,7 +3737,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1DetermineCNOResTypeFromCluster(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong pcnorestype) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1determineCNOResTypeFromCluster(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong pcnorestype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3756,7 +3756,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1DetermineCNOResTypeFromNodelist(JNIEnv* km_env, jclass km_clazz, jint cnodes, jlong ppsznodenames, jlong pcnorestype) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1determineCNOResTypeFromNodelist(JNIEnv* km_env, jclass km_clazz, jint cnodes, jlong ppsznodenames, jlong pcnorestype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3776,7 +3776,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1DetermineClusterCloudTypeFromCluster(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong pcloudtype) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1determineClusterCloudTypeFromCluster(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong pcloudtype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3795,7 +3795,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1DetermineClusterCloudTypeFromNodelist(JNIEnv* km_env, jclass km_clazz, jint cnodes, jlong ppsznodenames, jlong pcloudtype) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1determineClusterCloudTypeFromNodelist(JNIEnv* km_env, jclass km_clazz, jint cnodes, jlong ppsznodenames, jlong pcloudtype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3815,7 +3815,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1EvictClusterNode(JNIEnv* km_env, jclass km_clazz, jlong hnode) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1evictClusterNode(JNIEnv* km_env, jclass km_clazz, jlong hnode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3833,7 +3833,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1EvictClusterNodeEx(JNIEnv* km_env, jclass km_clazz, jlong hnode, jint dwtimeout, jlong phrcleanupstatus) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1evictClusterNodeEx(JNIEnv* km_env, jclass km_clazz, jlong hnode, jint dwtimeout, jlong phrcleanupstatus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3853,7 +3853,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1EvictClusterNodeEx2(JNIEnv* km_env, jclass km_clazz, jlong hnode, jint dwtimeout, jlong phrcleanupstatus, jlong lpszreason) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1evictClusterNodeEx2(JNIEnv* km_env, jclass km_clazz, jlong hnode, jint dwtimeout, jlong phrcleanupstatus, jlong lpszreason) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3874,7 +3874,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1FailClusterResource(JNIEnv* km_env, jclass km_clazz, jlong hresource) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1failClusterResource(JNIEnv* km_env, jclass km_clazz, jlong hresource) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3892,7 +3892,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1FailClusterResourceEx(JNIEnv* km_env, jclass km_clazz, jlong hresource, jlong lpszreason) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1failClusterResourceEx(JNIEnv* km_env, jclass km_clazz, jlong hresource, jlong lpszreason) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3911,7 +3911,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1FreeClusterCrypt(JNIEnv* km_env, jclass km_clazz, jlong pcryptinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1freeClusterCrypt(JNIEnv* km_env, jclass km_clazz, jlong pcryptinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3929,7 +3929,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1FreeClusterHealthFault(JNIEnv* km_env, jclass km_clazz, jlong clusterhealthfault) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1freeClusterHealthFault(JNIEnv* km_env, jclass km_clazz, jlong clusterhealthfault) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3947,7 +3947,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1FreeClusterHealthFaultArray(JNIEnv* km_env, jclass km_clazz, jlong clusterhealthfaultarray) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1freeClusterHealthFaultArray(JNIEnv* km_env, jclass km_clazz, jlong clusterhealthfaultarray) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3965,7 +3965,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1GetClusterFromGroup(JNIEnv* km_env, jclass km_clazz, jlong hgroup) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1getClusterFromGroup(JNIEnv* km_env, jclass km_clazz, jlong hgroup) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3983,7 +3983,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1GetClusterFromNetInterface(JNIEnv* km_env, jclass km_clazz, jlong hnetinterface) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1getClusterFromNetInterface(JNIEnv* km_env, jclass km_clazz, jlong hnetinterface) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4001,7 +4001,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1GetClusterFromNetwork(JNIEnv* km_env, jclass km_clazz, jlong hnetwork) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1getClusterFromNetwork(JNIEnv* km_env, jclass km_clazz, jlong hnetwork) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4019,7 +4019,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1GetClusterFromNode(JNIEnv* km_env, jclass km_clazz, jlong hnode) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1getClusterFromNode(JNIEnv* km_env, jclass km_clazz, jlong hnode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4037,7 +4037,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1GetClusterFromResource(JNIEnv* km_env, jclass km_clazz, jlong hresource) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1getClusterFromResource(JNIEnv* km_env, jclass km_clazz, jlong hresource) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4055,7 +4055,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1GetClusterGroupKey(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jint samdesired) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1getClusterGroupKey(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jint samdesired) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4074,7 +4074,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1GetClusterGroupState(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong lpsznodename, jlong lpcchnodename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1getClusterGroupState(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong lpsznodename, jlong lpcchnodename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4094,7 +4094,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1GetClusterInformation(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpszclustername, jlong lpcchclustername, jlong lpclusterinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1getClusterInformation(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpszclustername, jlong lpcchclustername, jlong lpclusterinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4115,7 +4115,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1GetClusterKey(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jint samdesired) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1getClusterKey(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jint samdesired) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4134,7 +4134,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1GetClusterNetInterface(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpsznodename, jlong lpsznetworkname, jlong lpszinterfacename, jlong lpcchinterfacename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1getClusterNetInterface(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpsznodename, jlong lpsznetworkname, jlong lpszinterfacename, jlong lpcchinterfacename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4156,7 +4156,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1GetClusterNetInterfaceKey(JNIEnv* km_env, jclass km_clazz, jlong hnetinterface, jint samdesired) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1getClusterNetInterfaceKey(JNIEnv* km_env, jclass km_clazz, jlong hnetinterface, jint samdesired) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4175,7 +4175,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1GetClusterNetInterfaceState(JNIEnv* km_env, jclass km_clazz, jlong hnetinterface) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1getClusterNetInterfaceState(JNIEnv* km_env, jclass km_clazz, jlong hnetinterface) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4193,7 +4193,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1GetClusterNetworkId(JNIEnv* km_env, jclass km_clazz, jlong hnetwork, jlong lpsznetworkid, jlong lpcchname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1getClusterNetworkId(JNIEnv* km_env, jclass km_clazz, jlong hnetwork, jlong lpsznetworkid, jlong lpcchname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4213,7 +4213,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1GetClusterNetworkKey(JNIEnv* km_env, jclass km_clazz, jlong hnetwork, jint samdesired) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1getClusterNetworkKey(JNIEnv* km_env, jclass km_clazz, jlong hnetwork, jint samdesired) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4232,7 +4232,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1GetClusterNetworkState(JNIEnv* km_env, jclass km_clazz, jlong hnetwork) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1getClusterNetworkState(JNIEnv* km_env, jclass km_clazz, jlong hnetwork) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4250,7 +4250,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1GetClusterNodeId(JNIEnv* km_env, jclass km_clazz, jlong hnode, jlong lpsznodeid, jlong lpcchname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1getClusterNodeId(JNIEnv* km_env, jclass km_clazz, jlong hnode, jlong lpsznodeid, jlong lpcchname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4270,7 +4270,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1GetClusterNodeKey(JNIEnv* km_env, jclass km_clazz, jlong hnode, jint samdesired) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1getClusterNodeKey(JNIEnv* km_env, jclass km_clazz, jlong hnode, jint samdesired) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4289,7 +4289,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1GetClusterNodeState(JNIEnv* km_env, jclass km_clazz, jlong hnode) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1getClusterNodeState(JNIEnv* km_env, jclass km_clazz, jlong hnode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4307,7 +4307,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1GetClusterNotify(JNIEnv* km_env, jclass km_clazz, jlong hchange, jlong lpdwnotifykey, jlong lpdwfiltertype, jlong lpszname, jlong lpcchname, jint dwmilliseconds) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1getClusterNotify(JNIEnv* km_env, jclass km_clazz, jlong hchange, jlong lpdwnotifykey, jlong lpdwfiltertype, jlong lpszname, jlong lpcchname, jint dwmilliseconds) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4330,7 +4330,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1GetClusterNotifyV2(JNIEnv* km_env, jclass km_clazz, jlong hchange, jlong lpdwnotifykey, jlong pfilterandtype, jlong buffer, jlong lpbbuffersize, jlong lpszobjectid, jlong lpcchobjectid, jlong lpszparentid, jlong lpcchparentid, jlong lpszname, jlong lpcchname, jlong lpsztype, jlong lpcchtype, jint dwmilliseconds) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1getClusterNotifyV2(JNIEnv* km_env, jclass km_clazz, jlong hchange, jlong lpdwnotifykey, jlong pfilterandtype, jlong buffer, jlong lpbbuffersize, jlong lpszobjectid, jlong lpcchobjectid, jlong lpszparentid, jlong lpcchparentid, jlong lpszname, jlong lpcchname, jlong lpsztype, jlong lpcchtype, jint dwmilliseconds) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4361,7 +4361,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1GetClusterQuorumResource(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpszresourcename, jlong lpcchresourcename, jlong lpszdevicename, jlong lpcchdevicename, jlong lpdwmaxquorumlogsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1getClusterQuorumResource(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpszresourcename, jlong lpcchresourcename, jlong lpszdevicename, jlong lpcchdevicename, jlong lpdwmaxquorumlogsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4384,7 +4384,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1GetClusterResourceDependencyExpression(JNIEnv* km_env, jclass km_clazz, jlong hresource, jlong lpszdependencyexpression, jlong lpcchdependencyexpression) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1getClusterResourceDependencyExpression(JNIEnv* km_env, jclass km_clazz, jlong hresource, jlong lpszdependencyexpression, jlong lpcchdependencyexpression) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4404,7 +4404,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1GetClusterResourceKey(JNIEnv* km_env, jclass km_clazz, jlong hresource, jint samdesired) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1getClusterResourceKey(JNIEnv* km_env, jclass km_clazz, jlong hresource, jint samdesired) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4423,7 +4423,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1GetClusterResourceNetworkName(JNIEnv* km_env, jclass km_clazz, jlong hresource, jlong lpbuffer, jlong nsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1getClusterResourceNetworkName(JNIEnv* km_env, jclass km_clazz, jlong hresource, jlong lpbuffer, jlong nsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4443,7 +4443,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1GetClusterResourceState(JNIEnv* km_env, jclass km_clazz, jlong hresource, jlong lpsznodename, jlong lpcchnodename, jlong lpszgroupname, jlong lpcchgroupname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1getClusterResourceState(JNIEnv* km_env, jclass km_clazz, jlong hresource, jlong lpsznodename, jlong lpcchnodename, jlong lpszgroupname, jlong lpcchgroupname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4465,7 +4465,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1GetClusterResourceTypeKey(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpsztypename, jint samdesired) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1getClusterResourceTypeKey(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpsztypename, jint samdesired) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4485,7 +4485,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1GetNodeCloudTypeDW(JNIEnv* km_env, jclass km_clazz, jlong ppsznodename, jlong nodecloudtype) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1getNodeCloudTypeDW(JNIEnv* km_env, jclass km_clazz, jlong ppsznodename, jlong nodecloudtype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4504,7 +4504,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1GetNodeClusterState(JNIEnv* km_env, jclass km_clazz, jlong lpsznodename, jlong pdwclusterstate) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1getNodeClusterState(JNIEnv* km_env, jclass km_clazz, jlong lpsznodename, jlong pdwclusterstate) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4523,7 +4523,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1GetNotifyEventHandle(JNIEnv* km_env, jclass km_clazz, jlong hchange, jlong lphtargetevent) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1getNotifyEventHandle(JNIEnv* km_env, jclass km_clazz, jlong hchange, jlong lphtargetevent) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4542,7 +4542,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1InitializeClusterHealthFault(JNIEnv* km_env, jclass km_clazz, jlong clusterhealthfault) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1initializeClusterHealthFault(JNIEnv* km_env, jclass km_clazz, jlong clusterhealthfault) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4560,7 +4560,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1InitializeClusterHealthFaultArray(JNIEnv* km_env, jclass km_clazz, jlong clusterhealthfaultarray) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1initializeClusterHealthFaultArray(JNIEnv* km_env, jclass km_clazz, jlong clusterhealthfaultarray) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4578,7 +4578,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1IsFileOnClusterSharedVolume(JNIEnv* km_env, jclass km_clazz, jlong lpszpathname, jlong pbfileisonsharedvolume) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1isFileOnClusterSharedVolume(JNIEnv* km_env, jclass km_clazz, jlong lpszpathname, jlong pbfileisonsharedvolume) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4597,7 +4597,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1MoveClusterGroup(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong hdestinationnode) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1moveClusterGroup(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong hdestinationnode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4616,7 +4616,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1MoveClusterGroupEx(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong hdestinationnode, jint dwmoveflags, jlong lpinbuffer, jint cbinbuffersize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1moveClusterGroupEx(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong hdestinationnode, jint dwmoveflags, jlong lpinbuffer, jint cbinbuffersize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4638,7 +4638,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1MoveClusterGroupEx2(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong hdestinationnode, jint dwmoveflags, jlong lpinbuffer, jint cbinbuffersize, jlong lpszreason) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1moveClusterGroupEx2(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong hdestinationnode, jint dwmoveflags, jlong lpinbuffer, jint cbinbuffersize, jlong lpszreason) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4661,7 +4661,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1OfflineClusterGroup(JNIEnv* km_env, jclass km_clazz, jlong hgroup) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1offlineClusterGroup(JNIEnv* km_env, jclass km_clazz, jlong hgroup) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4679,7 +4679,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1OfflineClusterGroupEx(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jint dwofflineflags, jlong lpinbuffer, jint cbinbuffersize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1offlineClusterGroupEx(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jint dwofflineflags, jlong lpinbuffer, jint cbinbuffersize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4700,7 +4700,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1OfflineClusterGroupEx2(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jint dwofflineflags, jlong lpinbuffer, jint cbinbuffersize, jlong lpszreason) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1offlineClusterGroupEx2(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jint dwofflineflags, jlong lpinbuffer, jint cbinbuffersize, jlong lpszreason) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4722,7 +4722,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1OfflineClusterResource(JNIEnv* km_env, jclass km_clazz, jlong hresource) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1offlineClusterResource(JNIEnv* km_env, jclass km_clazz, jlong hresource) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4740,7 +4740,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1OfflineClusterResourceEx(JNIEnv* km_env, jclass km_clazz, jlong hresource, jint dwofflineflags, jlong lpinbuffer, jint cbinbuffersize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1offlineClusterResourceEx(JNIEnv* km_env, jclass km_clazz, jlong hresource, jint dwofflineflags, jlong lpinbuffer, jint cbinbuffersize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4761,7 +4761,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1OfflineClusterResourceEx2(JNIEnv* km_env, jclass km_clazz, jlong hresource, jint dwofflineflags, jlong lpinbuffer, jint cbinbuffersize, jlong lpszreason) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1offlineClusterResourceEx2(JNIEnv* km_env, jclass km_clazz, jlong hresource, jint dwofflineflags, jlong lpinbuffer, jint cbinbuffersize, jlong lpszreason) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4783,7 +4783,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1OnlineClusterGroup(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong hdestinationnode) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1onlineClusterGroup(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong hdestinationnode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4802,7 +4802,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1OnlineClusterGroupEx(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong hdestinationnode, jint dwonlineflags, jlong lpinbuffer, jint cbinbuffersize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1onlineClusterGroupEx(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong hdestinationnode, jint dwonlineflags, jlong lpinbuffer, jint cbinbuffersize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4824,7 +4824,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1OnlineClusterGroupEx2(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong hdestinationnode, jint dwonlineflags, jlong lpinbuffer, jint cbinbuffersize, jlong lpszreason) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1onlineClusterGroupEx2(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong hdestinationnode, jint dwonlineflags, jlong lpinbuffer, jint cbinbuffersize, jlong lpszreason) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4847,7 +4847,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1OnlineClusterResource(JNIEnv* km_env, jclass km_clazz, jlong hresource) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1onlineClusterResource(JNIEnv* km_env, jclass km_clazz, jlong hresource) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4865,7 +4865,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1OnlineClusterResourceEx(JNIEnv* km_env, jclass km_clazz, jlong hresource, jint dwonlineflags, jlong lpinbuffer, jint cbinbuffersize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1onlineClusterResourceEx(JNIEnv* km_env, jclass km_clazz, jlong hresource, jint dwonlineflags, jlong lpinbuffer, jint cbinbuffersize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4886,7 +4886,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1OnlineClusterResourceEx2(JNIEnv* km_env, jclass km_clazz, jlong hresource, jint dwonlineflags, jlong lpinbuffer, jint cbinbuffersize, jlong lpszreason) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1onlineClusterResourceEx2(JNIEnv* km_env, jclass km_clazz, jlong hresource, jint dwonlineflags, jlong lpinbuffer, jint cbinbuffersize, jlong lpszreason) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4908,7 +4908,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1OpenCluster(JNIEnv* km_env, jclass km_clazz, jlong lpszclustername) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1openCluster(JNIEnv* km_env, jclass km_clazz, jlong lpszclustername) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4926,7 +4926,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1OpenClusterCryptProvider(JNIEnv* km_env, jclass km_clazz, jlong lpszresource, jlong lpszprovider, jint dwtype, jint dwflags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1openClusterCryptProvider(JNIEnv* km_env, jclass km_clazz, jlong lpszresource, jlong lpszprovider, jint dwtype, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4947,7 +4947,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1OpenClusterCryptProviderEx(JNIEnv* km_env, jclass km_clazz, jlong lpszresource, jlong lpszkeyname, jlong lpszprovider, jint dwtype, jint dwflags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1openClusterCryptProviderEx(JNIEnv* km_env, jclass km_clazz, jlong lpszresource, jlong lpszkeyname, jlong lpszprovider, jint dwtype, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4969,7 +4969,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1OpenClusterEx(JNIEnv* km_env, jclass km_clazz, jlong lpszclustername, jint desiredaccess, jlong grantedaccess) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1openClusterEx(JNIEnv* km_env, jclass km_clazz, jlong lpszclustername, jint desiredaccess, jlong grantedaccess) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4989,7 +4989,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1OpenClusterGroup(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpszgroupname) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1openClusterGroup(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpszgroupname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5008,7 +5008,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1OpenClusterGroupEx(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpszgroupname, jint dwdesiredaccess, jlong lpdwgrantedaccess) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1openClusterGroupEx(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpszgroupname, jint dwdesiredaccess, jlong lpdwgrantedaccess) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5029,7 +5029,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1OpenClusterGroupSet(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpszgroupsetname) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1openClusterGroupSet(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpszgroupsetname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5048,7 +5048,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1OpenClusterNetInterface(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpszinterfacename) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1openClusterNetInterface(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpszinterfacename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5067,7 +5067,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1OpenClusterNetInterfaceEx(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpszinterfacename, jint dwdesiredaccess, jlong lpdwgrantedaccess) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1openClusterNetInterfaceEx(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpszinterfacename, jint dwdesiredaccess, jlong lpdwgrantedaccess) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5088,7 +5088,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1OpenClusterNetwork(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpsznetworkname) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1openClusterNetwork(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpsznetworkname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5107,7 +5107,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1OpenClusterNetworkEx(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpsznetworkname, jint dwdesiredaccess, jlong lpdwgrantedaccess) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1openClusterNetworkEx(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpsznetworkname, jint dwdesiredaccess, jlong lpdwgrantedaccess) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5128,7 +5128,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1OpenClusterNode(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpsznodename) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1openClusterNode(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpsznodename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5147,7 +5147,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1OpenClusterNodeById(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jint nodeid) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1openClusterNodeById(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jint nodeid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5166,7 +5166,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1OpenClusterNodeEx(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpsznodename, jint dwdesiredaccess, jlong lpdwgrantedaccess) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1openClusterNodeEx(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpsznodename, jint dwdesiredaccess, jlong lpdwgrantedaccess) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5187,7 +5187,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1OpenClusterResource(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpszresourcename) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1openClusterResource(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpszresourcename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5206,7 +5206,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1OpenClusterResourceEx(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpszresourcename, jint dwdesiredaccess, jlong lpdwgrantedaccess) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1openClusterResourceEx(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpszresourcename, jint dwdesiredaccess, jlong lpdwgrantedaccess) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5227,7 +5227,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1PauseClusterNode(JNIEnv* km_env, jclass km_clazz, jlong hnode) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1pauseClusterNode(JNIEnv* km_env, jclass km_clazz, jlong hnode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5245,7 +5245,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1PauseClusterNodeEx(JNIEnv* km_env, jclass km_clazz, jlong hnode, jint bdrainnode, jint dwpauseflags, jlong hnodedraintarget) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1pauseClusterNodeEx(JNIEnv* km_env, jclass km_clazz, jlong hnode, jint bdrainnode, jint dwpauseflags, jlong hnodedraintarget) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5266,7 +5266,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1PauseClusterNodeEx2(JNIEnv* km_env, jclass km_clazz, jlong hnode, jint bdrainnode, jint dwpauseflags, jlong hnodedraintarget, jlong lpszreason) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1pauseClusterNodeEx2(JNIEnv* km_env, jclass km_clazz, jlong hnode, jint bdrainnode, jint dwpauseflags, jlong hnodedraintarget, jlong lpszreason) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5288,7 +5288,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1QueryAppInstanceVersion(JNIEnv* km_env, jclass km_clazz, jlong appinstanceid, jlong instanceversionhigh, jlong instanceversionlow, jlong versionstatus) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1queryAppInstanceVersion(JNIEnv* km_env, jclass km_clazz, jlong appinstanceid, jlong instanceversionhigh, jlong instanceversionlow, jlong versionstatus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5309,7 +5309,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1RegisterAppInstance(JNIEnv* km_env, jclass km_clazz, jlong processhandle, jlong appinstanceid, jint childreninheritappinstance) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1registerAppInstance(JNIEnv* km_env, jclass km_clazz, jlong processhandle, jlong appinstanceid, jint childreninheritappinstance) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5329,7 +5329,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1RegisterAppInstanceVersion(JNIEnv* km_env, jclass km_clazz, jlong appinstanceid, jlong instanceversionhigh, jlong instanceversionlow) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1registerAppInstanceVersion(JNIEnv* km_env, jclass km_clazz, jlong appinstanceid, jlong instanceversionhigh, jlong instanceversionlow) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5349,7 +5349,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1RegisterClusterNotify(JNIEnv* km_env, jclass km_clazz, jlong hchange, jint dwfiltertype, jlong hobject, jlong dwnotifykey) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1registerClusterNotify(JNIEnv* km_env, jclass km_clazz, jlong hchange, jint dwfiltertype, jlong hobject, jlong dwnotifykey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5370,7 +5370,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1RegisterClusterResourceTypeNotifyV2(JNIEnv* km_env, jclass km_clazz, jlong hchange, jlong hcluster, jlong flags, jlong restypename, jlong dwnotifykey) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1registerClusterResourceTypeNotifyV2(JNIEnv* km_env, jclass km_clazz, jlong hchange, jlong hcluster, jlong flags, jlong restypename, jlong dwnotifykey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5392,7 +5392,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1RemoveClusterGroupDependency(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong hdependson) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1removeClusterGroupDependency(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong hdependson) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5411,7 +5411,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1RemoveClusterGroupDependencyEx(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong hdependson, jlong lpszreason) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1removeClusterGroupDependencyEx(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong hdependson, jlong lpszreason) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5431,7 +5431,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1RemoveClusterGroupSetDependency(JNIEnv* km_env, jclass km_clazz, jlong hgroupset, jlong hdependson) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1removeClusterGroupSetDependency(JNIEnv* km_env, jclass km_clazz, jlong hgroupset, jlong hdependson) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5450,7 +5450,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1RemoveClusterGroupSetDependencyEx(JNIEnv* km_env, jclass km_clazz, jlong hgroupset, jlong hdependson, jlong lpszreason) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1removeClusterGroupSetDependencyEx(JNIEnv* km_env, jclass km_clazz, jlong hgroupset, jlong hdependson, jlong lpszreason) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5470,7 +5470,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1RemoveClusterGroupToGroupSetDependency(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong hdependson) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1removeClusterGroupToGroupSetDependency(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong hdependson) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5489,7 +5489,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1RemoveClusterGroupToGroupSetDependencyEx(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong hdependson, jlong lpszreason) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1removeClusterGroupToGroupSetDependencyEx(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong hdependson, jlong lpszreason) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5509,7 +5509,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1RemoveClusterNameAccount(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jint bdeletecomputerobjects) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1removeClusterNameAccount(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jint bdeletecomputerobjects) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5528,7 +5528,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1RemoveClusterResourceDependency(JNIEnv* km_env, jclass km_clazz, jlong hresource, jlong hdependson) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1removeClusterResourceDependency(JNIEnv* km_env, jclass km_clazz, jlong hresource, jlong hdependson) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5547,7 +5547,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1RemoveClusterResourceDependencyEx(JNIEnv* km_env, jclass km_clazz, jlong hresource, jlong hdependson, jlong lpszreason) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1removeClusterResourceDependencyEx(JNIEnv* km_env, jclass km_clazz, jlong hresource, jlong hdependson, jlong lpszreason) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5567,7 +5567,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1RemoveClusterResourceNode(JNIEnv* km_env, jclass km_clazz, jlong hresource, jlong hnode) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1removeClusterResourceNode(JNIEnv* km_env, jclass km_clazz, jlong hresource, jlong hnode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5586,7 +5586,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1RemoveClusterResourceNodeEx(JNIEnv* km_env, jclass km_clazz, jlong hresource, jlong hnode, jlong lpszreason) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1removeClusterResourceNodeEx(JNIEnv* km_env, jclass km_clazz, jlong hresource, jlong hnode, jlong lpszreason) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5606,7 +5606,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1RemoveClusterStorageNode(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpszclusterstorageenclosurename, jint dwtimeout, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1removeClusterStorageNode(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpszclusterstorageenclosurename, jint dwtimeout, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5627,7 +5627,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1RemoveCrossClusterGroupSetDependency(JNIEnv* km_env, jclass km_clazz, jlong hdependentgroupset, jlong lpremoteclustername, jlong lpremotegroupsetname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1removeCrossClusterGroupSetDependency(JNIEnv* km_env, jclass km_clazz, jlong hdependentgroupset, jlong lpremoteclustername, jlong lpremotegroupsetname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5647,7 +5647,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1RemoveResourceFromClusterSharedVolumes(JNIEnv* km_env, jclass km_clazz, jlong hresource) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1removeResourceFromClusterSharedVolumes(JNIEnv* km_env, jclass km_clazz, jlong hresource) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5665,7 +5665,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilAddUnknownProperties(JNIEnv* km_env, jclass km_clazz, jlong hkeyclusterkey, jlong ppropertytable, jlong poutpropertylist, jint pcboutpropertylistsize, jlong pcbbytesreturned, jlong pcbrequired) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilAddUnknownProperties(JNIEnv* km_env, jclass km_clazz, jlong hkeyclusterkey, jlong ppropertytable, jlong poutpropertylist, jint pcboutpropertylistsize, jlong pcbbytesreturned, jlong pcbrequired) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5688,7 +5688,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilCreateDirectoryTree(JNIEnv* km_env, jclass km_clazz, jlong pszpath) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilCreateDirectoryTree(JNIEnv* km_env, jclass km_clazz, jlong pszpath) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5706,7 +5706,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilDupGroup(JNIEnv* km_env, jclass km_clazz, jlong group, jlong copy) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilDupGroup(JNIEnv* km_env, jclass km_clazz, jlong group, jlong copy) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5725,7 +5725,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilDupParameterBlock(JNIEnv* km_env, jclass km_clazz, jlong poutparams, jlong pinparams, jlong ppropertytable) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilDupParameterBlock(JNIEnv* km_env, jclass km_clazz, jlong poutparams, jlong pinparams, jlong ppropertytable) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5745,7 +5745,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilDupResource(JNIEnv* km_env, jclass km_clazz, jlong group, jlong copy) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilDupResource(JNIEnv* km_env, jclass km_clazz, jlong group, jlong copy) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5764,7 +5764,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilDupString(JNIEnv* km_env, jclass km_clazz, jlong pszinstring) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilDupString(JNIEnv* km_env, jclass km_clazz, jlong pszinstring) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5782,7 +5782,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilEnumGroups(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong hself, jlong prescallback, jlong pparameter) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilEnumGroups(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong hself, jlong prescallback, jlong pparameter) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5803,7 +5803,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilEnumGroupsEx(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong hself, jint grouptype, jlong prescallback, jlong pparameter) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilEnumGroupsEx(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong hself, jint grouptype, jlong prescallback, jlong pparameter) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5825,7 +5825,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilEnumPrivateProperties(JNIEnv* km_env, jclass km_clazz, jlong hkeyclusterkey, jlong pszoutproperties, jint cboutpropertiessize, jlong pcbbytesreturned, jlong pcbrequired) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilEnumPrivateProperties(JNIEnv* km_env, jclass km_clazz, jlong hkeyclusterkey, jlong pszoutproperties, jint cboutpropertiessize, jlong pcbbytesreturned, jlong pcbrequired) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5847,7 +5847,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilEnumProperties(JNIEnv* km_env, jclass km_clazz, jlong ppropertytable, jlong pszoutproperties, jint cboutpropertiessize, jlong pcbbytesreturned, jlong pcbrequired) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilEnumProperties(JNIEnv* km_env, jclass km_clazz, jlong ppropertytable, jlong pszoutproperties, jint cboutpropertiessize, jlong pcbbytesreturned, jlong pcbrequired) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5869,7 +5869,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilEnumResources(JNIEnv* km_env, jclass km_clazz, jlong hself, jlong lpszrestypename, jlong prescallback, jlong pparameter) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilEnumResources(JNIEnv* km_env, jclass km_clazz, jlong hself, jlong lpszrestypename, jlong prescallback, jlong pparameter) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5890,7 +5890,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilEnumResourcesEx(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong hself, jlong lpszrestypename, jlong prescallback, jlong pparameter) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilEnumResourcesEx(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong hself, jlong lpszrestypename, jlong prescallback, jlong pparameter) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5912,7 +5912,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilEnumResourcesEx2(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong hself, jlong lpszrestypename, jlong prescallback, jlong pparameter, jint dwdesiredaccess) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilEnumResourcesEx2(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong hself, jlong lpszrestypename, jlong prescallback, jlong pparameter, jint dwdesiredaccess) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5935,7 +5935,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilExpandEnvironmentStrings(JNIEnv* km_env, jclass km_clazz, jlong pszsrc) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilExpandEnvironmentStrings(JNIEnv* km_env, jclass km_clazz, jlong pszsrc) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5953,7 +5953,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilFindBinaryProperty(JNIEnv* km_env, jclass km_clazz, jlong ppropertylist, jint cbpropertylistsize, jlong pszpropertyname, jlong pbpropertyvalue, jlong pcbpropertyvaluesize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilFindBinaryProperty(JNIEnv* km_env, jclass km_clazz, jlong ppropertylist, jint cbpropertylistsize, jlong pszpropertyname, jlong pbpropertyvalue, jlong pcbpropertyvaluesize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5975,7 +5975,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilFindDependentDiskResourceDriveLetter(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong hresource, jlong pszdriveletter, jlong pcchdriveletter) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilFindDependentDiskResourceDriveLetter(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong hresource, jlong pszdriveletter, jlong pcchdriveletter) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5996,7 +5996,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilFindDwordProperty(JNIEnv* km_env, jclass km_clazz, jlong ppropertylist, jint cbpropertylistsize, jlong pszpropertyname, jlong pdwpropertyvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilFindDwordProperty(JNIEnv* km_env, jclass km_clazz, jlong ppropertylist, jint cbpropertylistsize, jlong pszpropertyname, jlong pdwpropertyvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6017,7 +6017,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilFindExpandSzProperty(JNIEnv* km_env, jclass km_clazz, jlong ppropertylist, jint cbpropertylistsize, jlong pszpropertyname, jlong pszpropertyvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilFindExpandSzProperty(JNIEnv* km_env, jclass km_clazz, jlong ppropertylist, jint cbpropertylistsize, jlong pszpropertyname, jlong pszpropertyvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6038,7 +6038,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilFindExpandedSzProperty(JNIEnv* km_env, jclass km_clazz, jlong ppropertylist, jint cbpropertylistsize, jlong pszpropertyname, jlong pszpropertyvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilFindExpandedSzProperty(JNIEnv* km_env, jclass km_clazz, jlong ppropertylist, jint cbpropertylistsize, jlong pszpropertyname, jlong pszpropertyvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6059,7 +6059,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilFindFileTimeProperty(JNIEnv* km_env, jclass km_clazz, jlong ppropertylist, jint cbpropertylistsize, jlong pszpropertyname, jlong pftpropertyvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilFindFileTimeProperty(JNIEnv* km_env, jclass km_clazz, jlong ppropertylist, jint cbpropertylistsize, jlong pszpropertyname, jlong pftpropertyvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6080,7 +6080,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilFindLongProperty(JNIEnv* km_env, jclass km_clazz, jlong ppropertylist, jint cbpropertylistsize, jlong pszpropertyname, jlong plpropertyvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilFindLongProperty(JNIEnv* km_env, jclass km_clazz, jlong ppropertylist, jint cbpropertylistsize, jlong pszpropertyname, jlong plpropertyvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6101,7 +6101,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilFindMultiSzProperty(JNIEnv* km_env, jclass km_clazz, jlong ppropertylist, jint cbpropertylistsize, jlong pszpropertyname, jlong pszpropertyvalue, jlong pcbpropertyvaluesize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilFindMultiSzProperty(JNIEnv* km_env, jclass km_clazz, jlong ppropertylist, jint cbpropertylistsize, jlong pszpropertyname, jlong pszpropertyvalue, jlong pcbpropertyvaluesize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6123,7 +6123,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilFindSzProperty(JNIEnv* km_env, jclass km_clazz, jlong ppropertylist, jint cbpropertylistsize, jlong pszpropertyname, jlong pszpropertyvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilFindSzProperty(JNIEnv* km_env, jclass km_clazz, jlong ppropertylist, jint cbpropertylistsize, jlong pszpropertyname, jlong pszpropertyvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6144,7 +6144,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilFindULargeIntegerProperty(JNIEnv* km_env, jclass km_clazz, jlong ppropertylist, jint cbpropertylistsize, jlong pszpropertyname, jlong plpropertyvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilFindULargeIntegerProperty(JNIEnv* km_env, jclass km_clazz, jlong ppropertylist, jint cbpropertylistsize, jlong pszpropertyname, jlong plpropertyvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6165,7 +6165,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilFreeEnvironment(JNIEnv* km_env, jclass km_clazz, jlong lpenvironment) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilFreeEnvironment(JNIEnv* km_env, jclass km_clazz, jlong lpenvironment) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6183,7 +6183,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilFreeParameterBlock(JNIEnv* km_env, jclass km_clazz, jlong poutparams, jlong pinparams, jlong ppropertytable) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilFreeParameterBlock(JNIEnv* km_env, jclass km_clazz, jlong poutparams, jlong pinparams, jlong ppropertytable) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6201,7 +6201,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilGetAllProperties(JNIEnv* km_env, jclass km_clazz, jlong hkeyclusterkey, jlong ppropertytable, jlong poutpropertylist, jint cboutpropertylistsize, jlong pcbbytesreturned, jlong pcbrequired) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilGetAllProperties(JNIEnv* km_env, jclass km_clazz, jlong hkeyclusterkey, jlong ppropertytable, jlong poutpropertylist, jint cboutpropertylistsize, jlong pcbbytesreturned, jlong pcbrequired) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6224,7 +6224,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilGetBinaryProperty(JNIEnv* km_env, jclass km_clazz, jlong ppboutvalue, jlong pcboutvaluesize, jlong pvaluestruct, jlong pboldvalue, jint cboldvaluesize, jlong pppropertylist, jlong pcbpropertylistsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilGetBinaryProperty(JNIEnv* km_env, jclass km_clazz, jlong ppboutvalue, jlong pcboutvaluesize, jlong pvaluestruct, jlong pboldvalue, jint cboldvaluesize, jlong pppropertylist, jlong pcbpropertylistsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6248,7 +6248,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilGetBinaryValue(JNIEnv* km_env, jclass km_clazz, jlong hkeyclusterkey, jlong pszvaluename, jlong ppboutvalue, jlong pcboutvaluesize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilGetBinaryValue(JNIEnv* km_env, jclass km_clazz, jlong hkeyclusterkey, jlong pszvaluename, jlong ppboutvalue, jlong pcboutvaluesize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6269,7 +6269,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilGetClusterGroupType(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong grouptype) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilGetClusterGroupType(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong grouptype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6288,7 +6288,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilGetClusterId(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong guid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilGetClusterId(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong guid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6307,7 +6307,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilGetClusterRoleState(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jint eclusterrole) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilGetClusterRoleState(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jint eclusterrole) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6326,7 +6326,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilGetCoreClusterResources(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong phclusternameresource, jlong phclusteripaddressresource, jlong phclusterquorumresource) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilGetCoreClusterResources(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong phclusternameresource, jlong phclusteripaddressresource, jlong phclusterquorumresource) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6347,7 +6347,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilGetCoreClusterResourcesEx(JNIEnv* km_env, jclass km_clazz, jlong hclusterin, jlong phclusternameresourceout, jlong phclusterquorumresourceout, jint dwdesiredaccess) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilGetCoreClusterResourcesEx(JNIEnv* km_env, jclass km_clazz, jlong hclusterin, jlong phclusternameresourceout, jlong phclusterquorumresourceout, jint dwdesiredaccess) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6368,7 +6368,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilGetCoreGroup(JNIEnv* km_env, jclass km_clazz, jlong hcluster) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilGetCoreGroup(JNIEnv* km_env, jclass km_clazz, jlong hcluster) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6386,7 +6386,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilGetDwordProperty(JNIEnv* km_env, jclass km_clazz, jlong pdwoutvalue, jlong pvaluestruct, jint dwoldvalue, jint dwminimum, jint dwmaximum, jlong pppropertylist, jlong pcbpropertylistsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilGetDwordProperty(JNIEnv* km_env, jclass km_clazz, jlong pdwoutvalue, jlong pvaluestruct, jint dwoldvalue, jint dwminimum, jint dwmaximum, jlong pppropertylist, jlong pcbpropertylistsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6410,7 +6410,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilGetDwordValue(JNIEnv* km_env, jclass km_clazz, jlong hkeyclusterkey, jlong pszvaluename, jlong pdwoutvalue, jint dwdefaultvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilGetDwordValue(JNIEnv* km_env, jclass km_clazz, jlong hkeyclusterkey, jlong pszvaluename, jlong pdwoutvalue, jint dwdefaultvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6431,7 +6431,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilGetEnvironmentWithNetName(JNIEnv* km_env, jclass km_clazz, jlong hresource) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilGetEnvironmentWithNetName(JNIEnv* km_env, jclass km_clazz, jlong hresource) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6449,7 +6449,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilGetLongProperty(JNIEnv* km_env, jclass km_clazz, jlong ploutvalue, jlong pvaluestruct, jint loldvalue, jint lminimum, jint lmaximum, jlong pppropertylist, jlong pcbpropertylistsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilGetLongProperty(JNIEnv* km_env, jclass km_clazz, jlong ploutvalue, jlong pvaluestruct, jint loldvalue, jint lminimum, jint lmaximum, jlong pppropertylist, jlong pcbpropertylistsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6473,7 +6473,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilGetMultiSzProperty(JNIEnv* km_env, jclass km_clazz, jlong ppszoutvalue, jlong pcboutvaluesize, jlong pvaluestruct, jlong pszoldvalue, jint cboldvaluesize, jlong pppropertylist, jlong pcbpropertylistsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilGetMultiSzProperty(JNIEnv* km_env, jclass km_clazz, jlong ppszoutvalue, jlong pcboutvaluesize, jlong pvaluestruct, jlong pszoldvalue, jint cboldvaluesize, jlong pppropertylist, jlong pcbpropertylistsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6497,7 +6497,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilGetPrivateProperties(JNIEnv* km_env, jclass km_clazz, jlong hkeyclusterkey, jlong poutpropertylist, jint cboutpropertylistsize, jlong pcbbytesreturned, jlong pcbrequired) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilGetPrivateProperties(JNIEnv* km_env, jclass km_clazz, jlong hkeyclusterkey, jlong poutpropertylist, jint cboutpropertylistsize, jlong pcbbytesreturned, jlong pcbrequired) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6519,7 +6519,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilGetProperties(JNIEnv* km_env, jclass km_clazz, jlong hkeyclusterkey, jlong ppropertytable, jlong poutpropertylist, jint cboutpropertylistsize, jlong pcbbytesreturned, jlong pcbrequired) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilGetProperties(JNIEnv* km_env, jclass km_clazz, jlong hkeyclusterkey, jlong ppropertytable, jlong poutpropertylist, jint cboutpropertylistsize, jlong pcbbytesreturned, jlong pcbrequired) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6542,7 +6542,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilGetPropertiesToParameterBlock(JNIEnv* km_env, jclass km_clazz, jlong hkeyclusterkey, jlong ppropertytable, jlong poutparams, jint bcheckforrequiredproperties, jlong psznameofpropinerror) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilGetPropertiesToParameterBlock(JNIEnv* km_env, jclass km_clazz, jlong hkeyclusterkey, jlong ppropertytable, jlong poutparams, jint bcheckforrequiredproperties, jlong psznameofpropinerror) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6564,7 +6564,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilGetProperty(JNIEnv* km_env, jclass km_clazz, jlong hkeyclusterkey, jlong ppropertytableitem, jlong poutpropertyitem, jlong pcboutpropertyitemsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilGetProperty(JNIEnv* km_env, jclass km_clazz, jlong hkeyclusterkey, jlong ppropertytableitem, jlong poutpropertyitem, jlong pcboutpropertyitemsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6585,7 +6585,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilGetPropertyFormats(JNIEnv* km_env, jclass km_clazz, jlong ppropertytable, jlong poutpropertyformatlist, jint cbpropertyformatlistsize, jlong pcbbytesreturned, jlong pcbrequired) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilGetPropertyFormats(JNIEnv* km_env, jclass km_clazz, jlong ppropertytable, jlong poutpropertyformatlist, jint cbpropertyformatlistsize, jlong pcbbytesreturned, jlong pcbrequired) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6607,7 +6607,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilGetPropertySize(JNIEnv* km_env, jclass km_clazz, jlong hkeyclusterkey, jlong ppropertytableitem, jlong pcboutpropertylistsize, jlong pnpropertycount) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilGetPropertySize(JNIEnv* km_env, jclass km_clazz, jlong hkeyclusterkey, jlong ppropertytableitem, jlong pcboutpropertylistsize, jlong pnpropertycount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6628,7 +6628,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilGetQwordValue(JNIEnv* km_env, jclass km_clazz, jlong hkeyclusterkey, jlong pszvaluename, jlong pqwoutvalue, jlong qwdefaultvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilGetQwordValue(JNIEnv* km_env, jclass km_clazz, jlong hkeyclusterkey, jlong pszvaluename, jlong pqwoutvalue, jlong qwdefaultvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6649,7 +6649,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilGetResourceDependency(JNIEnv* km_env, jclass km_clazz, jlong hself, jlong lpszresourcetype) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilGetResourceDependency(JNIEnv* km_env, jclass km_clazz, jlong hself, jlong lpszresourcetype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6668,7 +6668,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilGetResourceDependencyByClass(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong hself, jlong prci, jint brecurse) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilGetResourceDependencyByClass(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong hself, jlong prci, jint brecurse) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6689,7 +6689,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilGetResourceDependencyByClassEx(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong hself, jlong prci, jint brecurse, jint dwdesiredaccess) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilGetResourceDependencyByClassEx(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong hself, jlong prci, jint brecurse, jint dwdesiredaccess) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6711,7 +6711,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilGetResourceDependencyByName(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong hself, jlong lpszresourcetype, jint brecurse) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilGetResourceDependencyByName(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong hself, jlong lpszresourcetype, jint brecurse) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6732,7 +6732,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilGetResourceDependencyByNameEx(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong hself, jlong lpszresourcetype, jint brecurse, jint dwdesiredaccess) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilGetResourceDependencyByNameEx(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong hself, jlong lpszresourcetype, jint brecurse, jint dwdesiredaccess) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6754,7 +6754,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilGetResourceDependencyEx(JNIEnv* km_env, jclass km_clazz, jlong hself, jlong lpszresourcetype, jint dwdesiredaccess) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilGetResourceDependencyEx(JNIEnv* km_env, jclass km_clazz, jlong hself, jlong lpszresourcetype, jint dwdesiredaccess) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6774,7 +6774,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilGetResourceDependentIPAddressProps(JNIEnv* km_env, jclass km_clazz, jlong hresource, jlong pszaddress, jlong pcchaddress, jlong pszsubnetmask, jlong pcchsubnetmask, jlong psznetwork, jlong pcchnetwork) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilGetResourceDependentIPAddressProps(JNIEnv* km_env, jclass km_clazz, jlong hresource, jlong pszaddress, jlong pcchaddress, jlong pszsubnetmask, jlong pcchsubnetmask, jlong psznetwork, jlong pcchnetwork) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6798,7 +6798,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilGetResourceName(JNIEnv* km_env, jclass km_clazz, jlong hresource, jlong pszresourcename, jlong pcchresourcenameinout) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilGetResourceName(JNIEnv* km_env, jclass km_clazz, jlong hresource, jlong pszresourcename, jlong pcchresourcenameinout) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6818,7 +6818,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilGetResourceNameDependency(JNIEnv* km_env, jclass km_clazz, jlong lpszresourcename, jlong lpszresourcetype) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilGetResourceNameDependency(JNIEnv* km_env, jclass km_clazz, jlong lpszresourcename, jlong lpszresourcetype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6837,7 +6837,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilGetResourceNameDependencyEx(JNIEnv* km_env, jclass km_clazz, jlong lpszresourcename, jlong lpszresourcetype, jint dwdesiredaccess) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilGetResourceNameDependencyEx(JNIEnv* km_env, jclass km_clazz, jlong lpszresourcename, jlong lpszresourcetype, jint dwdesiredaccess) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6857,7 +6857,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilGetSzProperty(JNIEnv* km_env, jclass km_clazz, jlong ppszoutvalue, jlong pvaluestruct, jlong pszoldvalue, jlong pppropertylist, jlong pcbpropertylistsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilGetSzProperty(JNIEnv* km_env, jclass km_clazz, jlong ppszoutvalue, jlong pvaluestruct, jlong pszoldvalue, jlong pppropertylist, jlong pcbpropertylistsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6879,7 +6879,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilGetSzValue(JNIEnv* km_env, jclass km_clazz, jlong hkeyclusterkey, jlong pszvaluename) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilGetSzValue(JNIEnv* km_env, jclass km_clazz, jlong hkeyclusterkey, jlong pszvaluename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6898,7 +6898,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilGroupsEqual(JNIEnv* km_env, jclass km_clazz, jlong hself, jlong hgroup, jlong pequal) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilGroupsEqual(JNIEnv* km_env, jclass km_clazz, jlong hself, jlong hgroup, jlong pequal) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6918,7 +6918,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilIsPathValid(JNIEnv* km_env, jclass km_clazz, jlong pszpath) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilIsPathValid(JNIEnv* km_env, jclass km_clazz, jlong pszpath) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6936,7 +6936,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilIsResourceClassEqual(JNIEnv* km_env, jclass km_clazz, jlong prci, jlong hresource) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilIsResourceClassEqual(JNIEnv* km_env, jclass km_clazz, jlong prci, jlong hresource) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6955,7 +6955,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilLeftPaxosIsLessThanRight(JNIEnv* km_env, jclass km_clazz, jlong left, jlong right) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilLeftPaxosIsLessThanRight(JNIEnv* km_env, jclass km_clazz, jlong left, jlong right) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6974,7 +6974,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilNodeEnum(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong pnodecallback, jlong pparameter) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilNodeEnum(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong pnodecallback, jlong pparameter) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6994,7 +6994,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilPaxosComparer(JNIEnv* km_env, jclass km_clazz, jlong left, jlong right) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilPaxosComparer(JNIEnv* km_env, jclass km_clazz, jlong left, jlong right) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7013,7 +7013,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilPropertyListFromParameterBlock(JNIEnv* km_env, jclass km_clazz, jlong ppropertytable, jlong poutpropertylist, jlong pcboutpropertylistsize, jlong pinparams, jlong pcbbytesreturned, jlong pcbrequired) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilPropertyListFromParameterBlock(JNIEnv* km_env, jclass km_clazz, jlong ppropertytable, jlong poutpropertylist, jlong pcboutpropertylistsize, jlong pinparams, jlong pcbbytesreturned, jlong pcbrequired) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7036,7 +7036,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilRemoveResourceServiceEnvironment(JNIEnv* km_env, jclass km_clazz, jlong pszservicename, jlong pfnlogevent, jlong hresourcehandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilRemoveResourceServiceEnvironment(JNIEnv* km_env, jclass km_clazz, jlong pszservicename, jlong pfnlogevent, jlong hresourcehandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7056,7 +7056,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilResourceDepEnum(JNIEnv* km_env, jclass km_clazz, jlong hself, jint enumtype, jlong prescallback, jlong pparameter) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilResourceDepEnum(JNIEnv* km_env, jclass km_clazz, jlong hself, jint enumtype, jlong prescallback, jlong pparameter) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7077,7 +7077,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilResourceTypesEqual(JNIEnv* km_env, jclass km_clazz, jlong lpszresourcetypename, jlong hresource) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilResourceTypesEqual(JNIEnv* km_env, jclass km_clazz, jlong lpszresourcetypename, jlong hresource) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7096,7 +7096,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilResourcesEqual(JNIEnv* km_env, jclass km_clazz, jlong hself, jlong hresource) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilResourcesEqual(JNIEnv* km_env, jclass km_clazz, jlong hself, jlong hresource) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7115,7 +7115,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilSetBinaryValue(JNIEnv* km_env, jclass km_clazz, jlong hkeyclusterkey, jlong pszvaluename, jlong pbnewvalue, jint cbnewvaluesize, jlong ppboutvalue, jlong pcboutvaluesize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilSetBinaryValue(JNIEnv* km_env, jclass km_clazz, jlong hkeyclusterkey, jlong pszvaluename, jlong pbnewvalue, jint cbnewvaluesize, jlong ppboutvalue, jlong pcboutvaluesize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7138,7 +7138,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilSetDwordValue(JNIEnv* km_env, jclass km_clazz, jlong hkeyclusterkey, jlong pszvaluename, jint dwnewvalue, jlong pdwoutvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilSetDwordValue(JNIEnv* km_env, jclass km_clazz, jlong hkeyclusterkey, jlong pszvaluename, jint dwnewvalue, jlong pdwoutvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7159,7 +7159,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilSetExpandSzValue(JNIEnv* km_env, jclass km_clazz, jlong hkeyclusterkey, jlong pszvaluename, jlong psznewvalue, jlong ppszoutstring) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilSetExpandSzValue(JNIEnv* km_env, jclass km_clazz, jlong hkeyclusterkey, jlong pszvaluename, jlong psznewvalue, jlong ppszoutstring) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7180,7 +7180,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilSetMultiSzValue(JNIEnv* km_env, jclass km_clazz, jlong hkeyclusterkey, jlong pszvaluename, jlong psznewvalue, jint cbnewvaluesize, jlong ppszoutvalue, jlong pcboutvaluesize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilSetMultiSzValue(JNIEnv* km_env, jclass km_clazz, jlong hkeyclusterkey, jlong pszvaluename, jlong psznewvalue, jint cbnewvaluesize, jlong ppszoutvalue, jlong pcboutvaluesize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7203,7 +7203,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilSetPrivatePropertyList(JNIEnv* km_env, jclass km_clazz, jlong hkeyclusterkey, jlong pinpropertylist, jint cbinpropertylistsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilSetPrivatePropertyList(JNIEnv* km_env, jclass km_clazz, jlong hkeyclusterkey, jlong pinpropertylist, jint cbinpropertylistsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7223,7 +7223,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilSetPropertyParameterBlock(JNIEnv* km_env, jclass km_clazz, jlong hkeyclusterkey, jlong ppropertytable, jlong reserved, jlong pinparams, jlong pinpropertylist, jint cbinpropertylistsize, jlong poutparams) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilSetPropertyParameterBlock(JNIEnv* km_env, jclass km_clazz, jlong hkeyclusterkey, jlong ppropertytable, jlong reserved, jlong pinparams, jlong pinpropertylist, jint cbinpropertylistsize, jlong poutparams) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7247,7 +7247,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilSetPropertyParameterBlockEx(JNIEnv* km_env, jclass km_clazz, jlong hkeyclusterkey, jlong ppropertytable, jlong reserved, jlong pinparams, jlong pinpropertylist, jint cbinpropertylistsize, jint bforcewrite, jlong poutparams) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilSetPropertyParameterBlockEx(JNIEnv* km_env, jclass km_clazz, jlong hkeyclusterkey, jlong ppropertytable, jlong reserved, jlong pinparams, jlong pinpropertylist, jint cbinpropertylistsize, jint bforcewrite, jlong poutparams) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7272,7 +7272,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilSetPropertyTable(JNIEnv* km_env, jclass km_clazz, jlong hkeyclusterkey, jlong ppropertytable, jlong reserved, jint ballowunknownproperties, jlong pinpropertylist, jint cbinpropertylistsize, jlong poutparams) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilSetPropertyTable(JNIEnv* km_env, jclass km_clazz, jlong hkeyclusterkey, jlong ppropertytable, jlong reserved, jint ballowunknownproperties, jlong pinpropertylist, jint cbinpropertylistsize, jlong poutparams) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7296,7 +7296,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilSetPropertyTableEx(JNIEnv* km_env, jclass km_clazz, jlong hkeyclusterkey, jlong ppropertytable, jlong reserved, jint ballowunknownproperties, jlong pinpropertylist, jint cbinpropertylistsize, jint bforcewrite, jlong poutparams) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilSetPropertyTableEx(JNIEnv* km_env, jclass km_clazz, jlong hkeyclusterkey, jlong ppropertytable, jlong reserved, jint ballowunknownproperties, jlong pinpropertylist, jint cbinpropertylistsize, jint bforcewrite, jlong poutparams) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7321,7 +7321,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilSetQwordValue(JNIEnv* km_env, jclass km_clazz, jlong hkeyclusterkey, jlong pszvaluename, jlong qwnewvalue, jlong pqwoutvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilSetQwordValue(JNIEnv* km_env, jclass km_clazz, jlong hkeyclusterkey, jlong pszvaluename, jlong qwnewvalue, jlong pqwoutvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7342,7 +7342,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilSetResourceServiceEnvironment(JNIEnv* km_env, jclass km_clazz, jlong pszservicename, jlong hresource, jlong pfnlogevent, jlong hresourcehandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilSetResourceServiceEnvironment(JNIEnv* km_env, jclass km_clazz, jlong pszservicename, jlong hresource, jlong pfnlogevent, jlong hresourcehandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7363,7 +7363,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilSetResourceServiceStartParameters(JNIEnv* km_env, jclass km_clazz, jlong pszservicename, jlong schscmhandle, jlong phservice, jlong pfnlogevent, jlong hresourcehandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilSetResourceServiceStartParameters(JNIEnv* km_env, jclass km_clazz, jlong pszservicename, jlong schscmhandle, jlong phservice, jlong pfnlogevent, jlong hresourcehandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7385,7 +7385,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilSetResourceServiceStartParametersEx(JNIEnv* km_env, jclass km_clazz, jlong pszservicename, jlong schscmhandle, jlong phservice, jint dwdesiredaccess, jlong pfnlogevent, jlong hresourcehandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilSetResourceServiceStartParametersEx(JNIEnv* km_env, jclass km_clazz, jlong pszservicename, jlong schscmhandle, jlong phservice, jint dwdesiredaccess, jlong pfnlogevent, jlong hresourcehandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7408,7 +7408,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilSetSzValue(JNIEnv* km_env, jclass km_clazz, jlong hkeyclusterkey, jlong pszvaluename, jlong psznewvalue, jlong ppszoutstring) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilSetSzValue(JNIEnv* km_env, jclass km_clazz, jlong hkeyclusterkey, jlong pszvaluename, jlong psznewvalue, jlong ppszoutstring) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7429,7 +7429,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilSetUnknownProperties(JNIEnv* km_env, jclass km_clazz, jlong hkeyclusterkey, jlong ppropertytable, jlong pinpropertylist, jint cbinpropertylistsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilSetUnknownProperties(JNIEnv* km_env, jclass km_clazz, jlong hkeyclusterkey, jlong ppropertytable, jlong pinpropertylist, jint cbinpropertylistsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7450,7 +7450,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilSetValueEx(JNIEnv* km_env, jclass km_clazz, jlong hkeyclusterkey, jlong valuename, jint valuetype, jlong valuedata, jint valuesize, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilSetValueEx(JNIEnv* km_env, jclass km_clazz, jlong hkeyclusterkey, jlong valuename, jint valuetype, jlong valuedata, jint valuesize, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7473,7 +7473,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilStartResourceService(JNIEnv* km_env, jclass km_clazz, jlong pszservicename, jlong phservicehandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilStartResourceService(JNIEnv* km_env, jclass km_clazz, jlong pszservicename, jlong phservicehandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7492,7 +7492,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilStopResourceService(JNIEnv* km_env, jclass km_clazz, jlong pszservicename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilStopResourceService(JNIEnv* km_env, jclass km_clazz, jlong pszservicename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7510,7 +7510,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilStopService(JNIEnv* km_env, jclass km_clazz, jlong hservicehandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilStopService(JNIEnv* km_env, jclass km_clazz, jlong hservicehandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7528,7 +7528,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilTerminateServiceProcessFromResDll(JNIEnv* km_env, jclass km_clazz, jint dwservicepid, jint boffline, jlong pdwresourcestate, jlong pfnlogevent, jlong hresourcehandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilTerminateServiceProcessFromResDll(JNIEnv* km_env, jclass km_clazz, jint dwservicepid, jint boffline, jlong pdwresourcestate, jlong pfnlogevent, jlong hresourcehandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7550,7 +7550,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilVerifyPrivatePropertyList(JNIEnv* km_env, jclass km_clazz, jlong pinpropertylist, jint cbinpropertylistsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilVerifyPrivatePropertyList(JNIEnv* km_env, jclass km_clazz, jlong pinpropertylist, jint cbinpropertylistsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7569,7 +7569,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilVerifyPropertyTable(JNIEnv* km_env, jclass km_clazz, jlong ppropertytable, jlong reserved, jint ballowunknownproperties, jlong pinpropertylist, jint cbinpropertylistsize, jlong poutparams) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilVerifyPropertyTable(JNIEnv* km_env, jclass km_clazz, jlong ppropertytable, jlong reserved, jint ballowunknownproperties, jlong pinpropertylist, jint cbinpropertylistsize, jlong poutparams) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7592,7 +7592,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilVerifyResourceService(JNIEnv* km_env, jclass km_clazz, jlong pszservicename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilVerifyResourceService(JNIEnv* km_env, jclass km_clazz, jlong pszservicename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7610,7 +7610,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilVerifyService(JNIEnv* km_env, jclass km_clazz, jlong hservicehandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilVerifyService(JNIEnv* km_env, jclass km_clazz, jlong hservicehandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7628,7 +7628,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilVerifyShutdownSafe(JNIEnv* km_env, jclass km_clazz, jint flags, jint reason, jlong presult) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilVerifyShutdownSafe(JNIEnv* km_env, jclass km_clazz, jint flags, jint reason, jlong presult) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7648,7 +7648,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResUtilsDeleteKeyTree(JNIEnv* km_env, jclass km_clazz, jlong key, jlong keyname, jint treatnokeyaserror) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resUtilsDeleteKeyTree(JNIEnv* km_env, jclass km_clazz, jlong key, jlong keyname, jint treatnokeyaserror) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7668,7 +7668,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResetAllAppInstanceVersions(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resetAllAppInstanceVersions(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7685,7 +7685,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1RestartClusterResource(JNIEnv* km_env, jclass km_clazz, jlong hresource, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1restartClusterResource(JNIEnv* km_env, jclass km_clazz, jlong hresource, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7704,7 +7704,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1RestartClusterResourceEx(JNIEnv* km_env, jclass km_clazz, jlong hresource, jint dwflags, jlong lpszreason) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1restartClusterResourceEx(JNIEnv* km_env, jclass km_clazz, jlong hresource, jint dwflags, jlong lpszreason) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7724,7 +7724,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1RestoreClusterDatabase(JNIEnv* km_env, jclass km_clazz, jlong lpszpathname, jint bforce, jlong lpszquorumdriveletter) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1restoreClusterDatabase(JNIEnv* km_env, jclass km_clazz, jlong lpszpathname, jint bforce, jlong lpszquorumdriveletter) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7744,7 +7744,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResumeClusterNode(JNIEnv* km_env, jclass km_clazz, jlong hnode) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resumeClusterNode(JNIEnv* km_env, jclass km_clazz, jlong hnode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7762,7 +7762,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResumeClusterNodeEx(JNIEnv* km_env, jclass km_clazz, jlong hnode, jint eresumefailbacktype, jint dwresumeflagsreserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resumeClusterNodeEx(JNIEnv* km_env, jclass km_clazz, jlong hnode, jint eresumefailbacktype, jint dwresumeflagsreserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7782,7 +7782,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1ResumeClusterNodeEx2(JNIEnv* km_env, jclass km_clazz, jlong hnode, jint eresumefailbacktype, jint dwresumeflagsreserved, jlong lpszreason) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1resumeClusterNodeEx2(JNIEnv* km_env, jclass km_clazz, jlong hnode, jint eresumefailbacktype, jint dwresumeflagsreserved, jlong lpszreason) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7803,7 +7803,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1SetAppInstanceCsvFlags(JNIEnv* km_env, jclass km_clazz, jlong processhandle, jint mask, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1setAppInstanceCsvFlags(JNIEnv* km_env, jclass km_clazz, jlong processhandle, jint mask, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7823,7 +7823,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1SetClusterGroupName(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong lpszgroupname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1setClusterGroupName(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong lpszgroupname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7842,7 +7842,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1SetClusterGroupNameEx(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong lpszgroupname, jlong lpszreason) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1setClusterGroupNameEx(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong lpszgroupname, jlong lpszreason) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7862,7 +7862,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1SetClusterGroupNodeList(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jint nodecount, jlong nodelist) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1setClusterGroupNodeList(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jint nodecount, jlong nodelist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7882,7 +7882,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1SetClusterGroupNodeListEx(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jint nodecount, jlong nodelist, jlong lpszreason) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1setClusterGroupNodeListEx(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jint nodecount, jlong nodelist, jlong lpszreason) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7903,7 +7903,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1SetClusterGroupSetDependencyExpression(JNIEnv* km_env, jclass km_clazz, jlong hgroupset, jlong lpszdependencyexprssion) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1setClusterGroupSetDependencyExpression(JNIEnv* km_env, jclass km_clazz, jlong hgroupset, jlong lpszdependencyexprssion) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7922,7 +7922,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1SetClusterGroupSetDependencyExpressionEx(JNIEnv* km_env, jclass km_clazz, jlong hgroupset, jlong lpszdependencyexpression, jlong lpszreason) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1setClusterGroupSetDependencyExpressionEx(JNIEnv* km_env, jclass km_clazz, jlong hgroupset, jlong lpszdependencyexpression, jlong lpszreason) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7942,7 +7942,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1SetClusterName(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpsznewclustername) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1setClusterName(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpsznewclustername) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7961,7 +7961,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1SetClusterNameEx(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpsznewclustername, jlong lpszreason) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1setClusterNameEx(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jlong lpsznewclustername, jlong lpszreason) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7981,7 +7981,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1SetClusterNetworkName(JNIEnv* km_env, jclass km_clazz, jlong hnetwork, jlong lpszname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1setClusterNetworkName(JNIEnv* km_env, jclass km_clazz, jlong hnetwork, jlong lpszname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8000,7 +8000,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1SetClusterNetworkNameEx(JNIEnv* km_env, jclass km_clazz, jlong hnetwork, jlong lpszname, jlong lpszreason) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1setClusterNetworkNameEx(JNIEnv* km_env, jclass km_clazz, jlong hnetwork, jlong lpszname, jlong lpszreason) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8020,7 +8020,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1SetClusterNetworkPriorityOrder(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jint networkcount, jlong networklist) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1setClusterNetworkPriorityOrder(JNIEnv* km_env, jclass km_clazz, jlong hcluster, jint networkcount, jlong networklist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8040,7 +8040,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1SetClusterQuorumResource(JNIEnv* km_env, jclass km_clazz, jlong hresource, jlong lpszdevicename, jint dwmaxquologsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1setClusterQuorumResource(JNIEnv* km_env, jclass km_clazz, jlong hresource, jlong lpszdevicename, jint dwmaxquologsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8060,7 +8060,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1SetClusterQuorumResourceEx(JNIEnv* km_env, jclass km_clazz, jlong hresource, jlong lpszdevicename, jint dwmaxquorumlogsize, jlong lpszreason) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1setClusterQuorumResourceEx(JNIEnv* km_env, jclass km_clazz, jlong hresource, jlong lpszdevicename, jint dwmaxquorumlogsize, jlong lpszreason) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8081,7 +8081,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1SetClusterResourceDependencyExpression(JNIEnv* km_env, jclass km_clazz, jlong hresource, jlong lpszdependencyexpression) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1setClusterResourceDependencyExpression(JNIEnv* km_env, jclass km_clazz, jlong hresource, jlong lpszdependencyexpression) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8100,7 +8100,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1SetClusterResourceName(JNIEnv* km_env, jclass km_clazz, jlong hresource, jlong lpszresourcename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1setClusterResourceName(JNIEnv* km_env, jclass km_clazz, jlong hresource, jlong lpszresourcename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8119,7 +8119,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1SetClusterResourceNameEx(JNIEnv* km_env, jclass km_clazz, jlong hresource, jlong lpszresourcename, jlong lpszreason) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1setClusterResourceNameEx(JNIEnv* km_env, jclass km_clazz, jlong hresource, jlong lpszresourcename, jlong lpszreason) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8139,7 +8139,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1SetClusterServiceAccountPassword(JNIEnv* km_env, jclass km_clazz, jlong lpszclustername, jlong lpsznewpassword, jint dwflags, jlong lpreturnstatusbuffer, jlong lpcbreturnstatusbuffersize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1setClusterServiceAccountPassword(JNIEnv* km_env, jclass km_clazz, jlong lpszclustername, jlong lpsznewpassword, jint dwflags, jlong lpreturnstatusbuffer, jlong lpcbreturnstatusbuffersize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8161,7 +8161,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1SetGroupDependencyExpression(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong lpszdependencyexpression) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1setGroupDependencyExpression(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong lpszdependencyexpression) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8180,7 +8180,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1SetGroupDependencyExpressionEx(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong lpszdependencyexpression, jlong lpszreason) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_clustering_WindowsWin32NetworkingClusteringJniBridge_windowssys_1windows_1win32_1networking_1clustering_1setGroupDependencyExpressionEx(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong lpszdependencyexpression, jlong lpszreason) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

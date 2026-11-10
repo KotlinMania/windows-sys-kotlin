@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_system_developerlicensing_AcquireDeveloperLicense_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_developerlicensing_acquireDeveloperLicense_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pexpiration = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -71,7 +71,7 @@ static Napi::Value windowssys_windows_win32_system_developerlicensing_AcquireDev
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_developerlicensing_CheckDeveloperLicense_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_developerlicensing_checkDeveloperLicense_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pexpiration = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -89,7 +89,7 @@ static Napi::Value windowssys_windows_win32_system_developerlicensing_CheckDevel
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_developerlicensing_RemoveDeveloperLicense_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_developerlicensing_removeDeveloperLicense_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -108,9 +108,9 @@ static Napi::Value windowssys_windows_win32_system_developerlicensing_RemoveDeve
 }
 
 static void register_windows_win32_system_developerlicensing_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_system_developerlicensing_AcquireDeveloperLicense", Napi::Function::New(env, windowssys_windows_win32_system_developerlicensing_AcquireDeveloperLicense_napi));
-    exports.Set("windowssys_windows_win32_system_developerlicensing_CheckDeveloperLicense", Napi::Function::New(env, windowssys_windows_win32_system_developerlicensing_CheckDeveloperLicense_napi));
-    exports.Set("windowssys_windows_win32_system_developerlicensing_RemoveDeveloperLicense", Napi::Function::New(env, windowssys_windows_win32_system_developerlicensing_RemoveDeveloperLicense_napi));
+    exports.Set("windowssys_windows_win32_system_developerlicensing_acquireDeveloperLicense", Napi::Function::New(env, windowssys_windows_win32_system_developerlicensing_acquireDeveloperLicense_napi));
+    exports.Set("windowssys_windows_win32_system_developerlicensing_checkDeveloperLicense", Napi::Function::New(env, windowssys_windows_win32_system_developerlicensing_checkDeveloperLicense_napi));
+    exports.Set("windowssys_windows_win32_system_developerlicensing_removeDeveloperLicense", Napi::Function::New(env, windowssys_windows_win32_system_developerlicensing_removeDeveloperLicense_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_system_developerlicensing_napi, nullptr };

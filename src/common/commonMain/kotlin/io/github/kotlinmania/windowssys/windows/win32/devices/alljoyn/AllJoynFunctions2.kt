@@ -1,95 +1,97 @@
 package io.github.kotlinmania.windowssys.windows.win32.devices.alljoyn
 
-public expect fun alljoyn_routerinitwithconfig(configxml: Long): QStatus
+import io.github.kotlinmania.windowssys.COpaquePointer
 
-public expect fun alljoyn_routershutdown(): QStatus
+public expect fun alljoynRouterinitwithconfig(configxml: COpaquePointer?): QStatus
 
-public expect fun alljoyn_securityapplicationproxy_claim(proxy: alljoyn_securityapplicationproxy, cakey: Long, identitycertificatechain: Long, groupid: Long, groupsize: ULong, groupauthority: Long, manifestsxmls: Long, manifestscount: ULong): QStatus
+public expect fun alljoynRoutershutdown(): QStatus
 
-public expect fun alljoyn_securityapplicationproxy_computemanifestdigest(unsignedmanifestxml: Long, identitycertificatepem: Long, digest: Long, digestsize: Long): QStatus
+public expect fun alljoynSecurityapplicationproxyClaim(proxy: AlljoynSecurityapplicationproxy, cakey: COpaquePointer?, identitycertificatechain: COpaquePointer?, groupid: COpaquePointer?, groupsize: ULong, groupauthority: COpaquePointer?, manifestsxmls: COpaquePointer?, manifestscount: ULong): QStatus
 
-public expect fun alljoyn_securityapplicationproxy_create(bus: alljoyn_busattachment, appbusname: Long, sessionid: UInt): alljoyn_securityapplicationproxy
+public expect fun alljoynSecurityapplicationproxyComputemanifestdigest(unsignedmanifestxml: COpaquePointer?, identitycertificatepem: COpaquePointer?, digest: COpaquePointer?, digestsize: COpaquePointer?): QStatus
 
-public expect fun alljoyn_securityapplicationproxy_destroy(proxy: alljoyn_securityapplicationproxy)
+public expect fun alljoynSecurityapplicationproxyCreate(bus: AlljoynBusattachment, appbusname: COpaquePointer?, sessionid: UInt): AlljoynSecurityapplicationproxy
 
-public expect fun alljoyn_securityapplicationproxy_digest_destroy(digest: Long)
+public expect fun alljoynSecurityapplicationproxyDestroy(proxy: AlljoynSecurityapplicationproxy)
 
-public expect fun alljoyn_securityapplicationproxy_eccpublickey_destroy(eccpublickey: Long)
+public expect fun alljoynSecurityapplicationproxyDigestDestroy(digest: COpaquePointer?)
 
-public expect fun alljoyn_securityapplicationproxy_endmanagement(proxy: alljoyn_securityapplicationproxy): QStatus
+public expect fun alljoynSecurityapplicationproxyEccpublickeyDestroy(eccpublickey: COpaquePointer?)
 
-public expect fun alljoyn_securityapplicationproxy_getapplicationstate(proxy: alljoyn_securityapplicationproxy, applicationstate: Long): QStatus
+public expect fun alljoynSecurityapplicationproxyEndmanagement(proxy: AlljoynSecurityapplicationproxy): QStatus
 
-public expect fun alljoyn_securityapplicationproxy_getclaimcapabilities(proxy: alljoyn_securityapplicationproxy, capabilities: Long): QStatus
+public expect fun alljoynSecurityapplicationproxyGetapplicationstate(proxy: AlljoynSecurityapplicationproxy, applicationstate: COpaquePointer?): QStatus
 
-public expect fun alljoyn_securityapplicationproxy_getclaimcapabilitiesadditionalinfo(proxy: alljoyn_securityapplicationproxy, additionalinfo: Long): QStatus
+public expect fun alljoynSecurityapplicationproxyGetclaimcapabilities(proxy: AlljoynSecurityapplicationproxy, capabilities: COpaquePointer?): QStatus
 
-public expect fun alljoyn_securityapplicationproxy_getdefaultpolicy(proxy: alljoyn_securityapplicationproxy, policyxml: Long): QStatus
+public expect fun alljoynSecurityapplicationproxyGetclaimcapabilitiesadditionalinfo(proxy: AlljoynSecurityapplicationproxy, additionalinfo: COpaquePointer?): QStatus
 
-public expect fun alljoyn_securityapplicationproxy_geteccpublickey(proxy: alljoyn_securityapplicationproxy, eccpublickey: Long): QStatus
+public expect fun alljoynSecurityapplicationproxyGetdefaultpolicy(proxy: AlljoynSecurityapplicationproxy, policyxml: COpaquePointer?): QStatus
 
-public expect fun alljoyn_securityapplicationproxy_getmanifesttemplate(proxy: alljoyn_securityapplicationproxy, manifesttemplatexml: Long): QStatus
+public expect fun alljoynSecurityapplicationproxyGeteccpublickey(proxy: AlljoynSecurityapplicationproxy, eccpublickey: COpaquePointer?): QStatus
 
-public expect fun alljoyn_securityapplicationproxy_getpermissionmanagementsessionport(): UShort
+public expect fun alljoynSecurityapplicationproxyGetmanifesttemplate(proxy: AlljoynSecurityapplicationproxy, manifesttemplatexml: COpaquePointer?): QStatus
 
-public expect fun alljoyn_securityapplicationproxy_getpolicy(proxy: alljoyn_securityapplicationproxy, policyxml: Long): QStatus
+public expect fun alljoynSecurityapplicationproxyGetpermissionmanagementsessionport(): UShort
 
-public expect fun alljoyn_securityapplicationproxy_installmembership(proxy: alljoyn_securityapplicationproxy, membershipcertificatechain: Long): QStatus
+public expect fun alljoynSecurityapplicationproxyGetpolicy(proxy: AlljoynSecurityapplicationproxy, policyxml: COpaquePointer?): QStatus
 
-public expect fun alljoyn_securityapplicationproxy_manifest_destroy(signedmanifestxml: Long)
+public expect fun alljoynSecurityapplicationproxyInstallmembership(proxy: AlljoynSecurityapplicationproxy, membershipcertificatechain: COpaquePointer?): QStatus
 
-public expect fun alljoyn_securityapplicationproxy_manifesttemplate_destroy(manifesttemplatexml: Long)
+public expect fun alljoynSecurityapplicationproxyManifestDestroy(signedmanifestxml: COpaquePointer?)
 
-public expect fun alljoyn_securityapplicationproxy_policy_destroy(policyxml: Long)
+public expect fun alljoynSecurityapplicationproxyManifesttemplateDestroy(manifesttemplatexml: COpaquePointer?)
 
-public expect fun alljoyn_securityapplicationproxy_reset(proxy: alljoyn_securityapplicationproxy): QStatus
+public expect fun alljoynSecurityapplicationproxyPolicyDestroy(policyxml: COpaquePointer?)
 
-public expect fun alljoyn_securityapplicationproxy_resetpolicy(proxy: alljoyn_securityapplicationproxy): QStatus
+public expect fun alljoynSecurityapplicationproxyReset(proxy: AlljoynSecurityapplicationproxy): QStatus
 
-public expect fun alljoyn_securityapplicationproxy_setmanifestsignature(unsignedmanifestxml: Long, identitycertificatepem: Long, signature: Long, signaturesize: ULong, signedmanifestxml: Long): QStatus
+public expect fun alljoynSecurityapplicationproxyResetpolicy(proxy: AlljoynSecurityapplicationproxy): QStatus
 
-public expect fun alljoyn_securityapplicationproxy_signmanifest(unsignedmanifestxml: Long, identitycertificatepem: Long, signingprivatekeypem: Long, signedmanifestxml: Long): QStatus
+public expect fun alljoynSecurityapplicationproxySetmanifestsignature(unsignedmanifestxml: COpaquePointer?, identitycertificatepem: COpaquePointer?, signature: COpaquePointer?, signaturesize: ULong, signedmanifestxml: COpaquePointer?): QStatus
 
-public expect fun alljoyn_securityapplicationproxy_startmanagement(proxy: alljoyn_securityapplicationproxy): QStatus
+public expect fun alljoynSecurityapplicationproxySignmanifest(unsignedmanifestxml: COpaquePointer?, identitycertificatepem: COpaquePointer?, signingprivatekeypem: COpaquePointer?, signedmanifestxml: COpaquePointer?): QStatus
 
-public expect fun alljoyn_securityapplicationproxy_updateidentity(proxy: alljoyn_securityapplicationproxy, identitycertificatechain: Long, manifestsxmls: Long, manifestscount: ULong): QStatus
+public expect fun alljoynSecurityapplicationproxyStartmanagement(proxy: AlljoynSecurityapplicationproxy): QStatus
 
-public expect fun alljoyn_securityapplicationproxy_updatepolicy(proxy: alljoyn_securityapplicationproxy, policyxml: Long): QStatus
+public expect fun alljoynSecurityapplicationproxyUpdateidentity(proxy: AlljoynSecurityapplicationproxy, identitycertificatechain: COpaquePointer?, manifestsxmls: COpaquePointer?, manifestscount: ULong): QStatus
 
-public expect fun alljoyn_sessionlistener_create(callbacks: Long, context: Long): alljoyn_sessionlistener
+public expect fun alljoynSecurityapplicationproxyUpdatepolicy(proxy: AlljoynSecurityapplicationproxy, policyxml: COpaquePointer?): QStatus
 
-public expect fun alljoyn_sessionlistener_destroy(listener: alljoyn_sessionlistener)
+public expect fun alljoynSessionlistenerCreate(callbacks: COpaquePointer?, context: COpaquePointer?): AlljoynSessionlistener
 
-public expect fun alljoyn_sessionopts_cmp(one: alljoyn_sessionopts, other: alljoyn_sessionopts): Int
+public expect fun alljoynSessionlistenerDestroy(listener: AlljoynSessionlistener)
 
-public expect fun alljoyn_sessionopts_create(traffic: UByte, ismultipoint: Int, proximity: UByte, transports: UShort): alljoyn_sessionopts
+public expect fun alljoynSessionoptsCmp(one: AlljoynSessionopts, other: AlljoynSessionopts): Int
 
-public expect fun alljoyn_sessionopts_destroy(opts: alljoyn_sessionopts)
+public expect fun alljoynSessionoptsCreate(traffic: UByte, ismultipoint: Int, proximity: UByte, transports: UShort): AlljoynSessionopts
 
-public expect fun alljoyn_sessionopts_get_multipoint(opts: alljoyn_sessionopts): Int
+public expect fun alljoynSessionoptsDestroy(opts: AlljoynSessionopts)
 
-public expect fun alljoyn_sessionopts_get_proximity(opts: alljoyn_sessionopts): UByte
+public expect fun alljoynSessionoptsGetMultipoint(opts: AlljoynSessionopts): Int
 
-public expect fun alljoyn_sessionopts_get_traffic(opts: alljoyn_sessionopts): UByte
+public expect fun alljoynSessionoptsGetProximity(opts: AlljoynSessionopts): UByte
 
-public expect fun alljoyn_sessionopts_get_transports(opts: alljoyn_sessionopts): UShort
+public expect fun alljoynSessionoptsGetTraffic(opts: AlljoynSessionopts): UByte
 
-public expect fun alljoyn_sessionopts_iscompatible(one: alljoyn_sessionopts, other: alljoyn_sessionopts): Int
+public expect fun alljoynSessionoptsGetTransports(opts: AlljoynSessionopts): UShort
 
-public expect fun alljoyn_sessionopts_set_multipoint(opts: alljoyn_sessionopts, ismultipoint: Int)
+public expect fun alljoynSessionoptsIscompatible(one: AlljoynSessionopts, other: AlljoynSessionopts): Int
 
-public expect fun alljoyn_sessionopts_set_proximity(opts: alljoyn_sessionopts, proximity: UByte)
+public expect fun alljoynSessionoptsSetMultipoint(opts: AlljoynSessionopts, ismultipoint: Int)
 
-public expect fun alljoyn_sessionopts_set_traffic(opts: alljoyn_sessionopts, traffic: UByte)
+public expect fun alljoynSessionoptsSetProximity(opts: AlljoynSessionopts, proximity: UByte)
 
-public expect fun alljoyn_sessionopts_set_transports(opts: alljoyn_sessionopts, transports: UShort)
+public expect fun alljoynSessionoptsSetTraffic(opts: AlljoynSessionopts, traffic: UByte)
 
-public expect fun alljoyn_sessionportlistener_create(callbacks: Long, context: Long): alljoyn_sessionportlistener
+public expect fun alljoynSessionoptsSetTransports(opts: AlljoynSessionopts, transports: UShort)
 
-public expect fun alljoyn_sessionportlistener_destroy(listener: alljoyn_sessionportlistener)
+public expect fun alljoynSessionportlistenerCreate(callbacks: COpaquePointer?, context: COpaquePointer?): AlljoynSessionportlistener
 
-public expect fun alljoyn_shutdown(): QStatus
+public expect fun alljoynSessionportlistenerDestroy(listener: AlljoynSessionportlistener)
 
-public expect fun alljoyn_unity_deferred_callbacks_process(): Int
+public expect fun alljoynShutdown(): QStatus
 
-public expect fun alljoyn_unity_set_deferred_callback_mainthread_only(mainthread_only: Int)
+public expect fun alljoynUnityDeferredCallbacksProcess(): Int
+
+public expect fun alljoynUnitySetDeferredCallbackMainthreadOnly(mainthreadOnly: Int)

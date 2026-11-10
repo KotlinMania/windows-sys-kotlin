@@ -18,7 +18,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSCoerceToCanonicalValue(JNIEnv* km_env, jclass km_clazz, jlong key, jlong ppropvar) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1pSCoerceToCanonicalValue(JNIEnv* km_env, jclass km_clazz, jlong key, jlong ppropvar) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -37,7 +37,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSCreateAdapterFromPropertyStore(JNIEnv* km_env, jclass km_clazz, jlong pps, jlong riid, jlong ppv) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1pSCreateAdapterFromPropertyStore(JNIEnv* km_env, jclass km_clazz, jlong pps, jlong riid, jlong ppv) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -57,7 +57,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSCreateDelayedMultiplexPropertyStore(JNIEnv* km_env, jclass km_clazz, jint flags, jlong pdpsf, jlong rgstoreids, jint cstores, jlong riid, jlong ppv) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1pSCreateDelayedMultiplexPropertyStore(JNIEnv* km_env, jclass km_clazz, jint flags, jlong pdpsf, jlong rgstoreids, jint cstores, jlong riid, jlong ppv) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -80,7 +80,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSCreateMemoryPropertyStore(JNIEnv* km_env, jclass km_clazz, jlong riid, jlong ppv) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1pSCreateMemoryPropertyStore(JNIEnv* km_env, jclass km_clazz, jlong riid, jlong ppv) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -99,7 +99,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSCreateMultiplexPropertyStore(JNIEnv* km_env, jclass km_clazz, jlong prgpunkstores, jint cstores, jlong riid, jlong ppv) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1pSCreateMultiplexPropertyStore(JNIEnv* km_env, jclass km_clazz, jlong prgpunkstores, jint cstores, jlong riid, jlong ppv) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -120,7 +120,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSCreatePropertyChangeArray(JNIEnv* km_env, jclass km_clazz, jlong rgpropkey, jlong rgflags, jlong rgpropvar, jint cchanges, jlong riid, jlong ppv) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1pSCreatePropertyChangeArray(JNIEnv* km_env, jclass km_clazz, jlong rgpropkey, jlong rgflags, jlong rgpropvar, jint cchanges, jlong riid, jlong ppv) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -143,7 +143,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSCreatePropertyStoreFromObject(JNIEnv* km_env, jclass km_clazz, jlong punk, jint grfmode, jlong riid, jlong ppv) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1pSCreatePropertyStoreFromObject(JNIEnv* km_env, jclass km_clazz, jlong punk, jint grfmode, jlong riid, jlong ppv) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -164,7 +164,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSCreatePropertyStoreFromPropertySetStorage(JNIEnv* km_env, jclass km_clazz, jlong ppss, jint grfmode, jlong riid, jlong ppv) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1pSCreatePropertyStoreFromPropertySetStorage(JNIEnv* km_env, jclass km_clazz, jlong ppss, jint grfmode, jlong riid, jlong ppv) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -185,7 +185,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSCreateSimplePropertyChange(JNIEnv* km_env, jclass km_clazz, jint flags, jlong key, jlong propvar, jlong riid, jlong ppv) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1pSCreateSimplePropertyChange(JNIEnv* km_env, jclass km_clazz, jint flags, jlong key, jlong propvar, jlong riid, jlong ppv) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -207,7 +207,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSEnumeratePropertyDescriptions(JNIEnv* km_env, jclass km_clazz, jint filteron, jlong riid, jlong ppv) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1pSEnumeratePropertyDescriptions(JNIEnv* km_env, jclass km_clazz, jint filteron, jlong riid, jlong ppv) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -227,7 +227,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSFormatForDisplay(JNIEnv* km_env, jclass km_clazz, jlong propkey, jlong propvar, jint pdfflags, jlong pwsztext, jint cchtext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1pSFormatForDisplay(JNIEnv* km_env, jclass km_clazz, jlong propkey, jlong propvar, jint pdfflags, jlong pwsztext, jint cchtext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -249,7 +249,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSFormatForDisplayAlloc(JNIEnv* km_env, jclass km_clazz, jlong key, jlong propvar, jint pdff, jlong ppszdisplay) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1pSFormatForDisplayAlloc(JNIEnv* km_env, jclass km_clazz, jlong key, jlong propvar, jint pdff, jlong ppszdisplay) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -270,7 +270,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSFormatPropertyValue(JNIEnv* km_env, jclass km_clazz, jlong pps, jlong ppd, jint pdff, jlong ppszdisplay) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1pSFormatPropertyValue(JNIEnv* km_env, jclass km_clazz, jlong pps, jlong ppd, jint pdff, jlong ppszdisplay) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -291,7 +291,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSGetImageReferenceForValue(JNIEnv* km_env, jclass km_clazz, jlong propkey, jlong propvar, jlong ppszimageres) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1pSGetImageReferenceForValue(JNIEnv* km_env, jclass km_clazz, jlong propkey, jlong propvar, jlong ppszimageres) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -311,7 +311,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSGetItemPropertyHandler(JNIEnv* km_env, jclass km_clazz, jlong punkitem, jint freadwrite, jlong riid, jlong ppv) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1pSGetItemPropertyHandler(JNIEnv* km_env, jclass km_clazz, jlong punkitem, jint freadwrite, jlong riid, jlong ppv) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -332,7 +332,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSGetItemPropertyHandlerWithCreateObject(JNIEnv* km_env, jclass km_clazz, jlong punkitem, jint freadwrite, jlong punkcreateobject, jlong riid, jlong ppv) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1pSGetItemPropertyHandlerWithCreateObject(JNIEnv* km_env, jclass km_clazz, jlong punkitem, jint freadwrite, jlong punkcreateobject, jlong riid, jlong ppv) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -354,7 +354,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSGetNameFromPropertyKey(JNIEnv* km_env, jclass km_clazz, jlong propkey, jlong ppszcanonicalname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1pSGetNameFromPropertyKey(JNIEnv* km_env, jclass km_clazz, jlong propkey, jlong ppszcanonicalname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -373,7 +373,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSGetNamedPropertyFromPropertyStorage(JNIEnv* km_env, jclass km_clazz, jlong psps, jint cb, jlong pszname, jlong ppropvar) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1pSGetNamedPropertyFromPropertyStorage(JNIEnv* km_env, jclass km_clazz, jlong psps, jint cb, jlong pszname, jlong ppropvar) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -394,7 +394,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSGetPropertyDescription(JNIEnv* km_env, jclass km_clazz, jlong propkey, jlong riid, jlong ppv) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1pSGetPropertyDescription(JNIEnv* km_env, jclass km_clazz, jlong propkey, jlong riid, jlong ppv) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -414,7 +414,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSGetPropertyDescriptionByName(JNIEnv* km_env, jclass km_clazz, jlong pszcanonicalname, jlong riid, jlong ppv) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1pSGetPropertyDescriptionByName(JNIEnv* km_env, jclass km_clazz, jlong pszcanonicalname, jlong riid, jlong ppv) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -434,7 +434,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSGetPropertyDescriptionListFromString(JNIEnv* km_env, jclass km_clazz, jlong pszproplist, jlong riid, jlong ppv) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1pSGetPropertyDescriptionListFromString(JNIEnv* km_env, jclass km_clazz, jlong pszproplist, jlong riid, jlong ppv) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -454,7 +454,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSGetPropertyFromPropertyStorage(JNIEnv* km_env, jclass km_clazz, jlong psps, jint cb, jlong rpkey, jlong ppropvar) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1pSGetPropertyFromPropertyStorage(JNIEnv* km_env, jclass km_clazz, jlong psps, jint cb, jlong rpkey, jlong ppropvar) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -475,7 +475,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSGetPropertyKeyFromName(JNIEnv* km_env, jclass km_clazz, jlong pszname, jlong ppropkey) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1pSGetPropertyKeyFromName(JNIEnv* km_env, jclass km_clazz, jlong pszname, jlong ppropkey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -494,7 +494,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSGetPropertySystem(JNIEnv* km_env, jclass km_clazz, jlong riid, jlong ppv) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1pSGetPropertySystem(JNIEnv* km_env, jclass km_clazz, jlong riid, jlong ppv) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -513,7 +513,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSGetPropertyValue(JNIEnv* km_env, jclass km_clazz, jlong pps, jlong ppd, jlong ppropvar) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1pSGetPropertyValue(JNIEnv* km_env, jclass km_clazz, jlong pps, jlong ppd, jlong ppropvar) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -533,7 +533,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSLookupPropertyHandlerCLSID(JNIEnv* km_env, jclass km_clazz, jlong pszfilepath, jlong pclsid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1pSLookupPropertyHandlerCLSID(JNIEnv* km_env, jclass km_clazz, jlong pszfilepath, jlong pclsid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -552,7 +552,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSPropertyBag_1Delete(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1pspropertyBagDelete(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -571,7 +571,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSPropertyBag_1ReadBOOL(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1pspropertyBagReadBool(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -591,7 +591,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSPropertyBag_1ReadBSTR(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1pspropertyBagReadBstr(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -611,7 +611,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSPropertyBag_1ReadDWORD(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1pspropertyBagReadDword(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -631,7 +631,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSPropertyBag_1ReadGUID(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1pspropertyBagReadGuid(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -651,7 +651,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSPropertyBag_1ReadInt(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1pspropertyBagReadInt(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -671,7 +671,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSPropertyBag_1ReadLONG(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1pspropertyBagReadLong(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -691,7 +691,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSPropertyBag_1ReadPOINTL(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1pspropertyBagReadPointl(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -711,7 +711,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSPropertyBag_1ReadPOINTS(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1pspropertyBagReadPoints(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -731,7 +731,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSPropertyBag_1ReadPropertyKey(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1pspropertyBagReadPropertyKey(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -751,7 +751,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSPropertyBag_1ReadRECTL(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1pspropertyBagReadRectl(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -771,7 +771,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSPropertyBag_1ReadSHORT(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1pspropertyBagReadShort(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -791,7 +791,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSPropertyBag_1ReadStr(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value, jint charactercount) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1pspropertyBagReadStr(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value, jint charactercount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -812,7 +812,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSPropertyBag_1ReadStrAlloc(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1pspropertyBagReadStrAlloc(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -832,7 +832,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSPropertyBag_1ReadStream(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1pspropertyBagReadStream(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -852,7 +852,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSPropertyBag_1ReadType(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong var, jshort type) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1pspropertyBagReadType(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong var, jshort type) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -873,7 +873,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSPropertyBag_1ReadULONGLONG(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1pspropertyBagReadUlonglong(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -893,7 +893,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSPropertyBag_1ReadUnknown(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong riid, jlong ppv) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1pspropertyBagReadUnknown(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong riid, jlong ppv) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -914,7 +914,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSPropertyBag_1WriteBOOL(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jint value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1pspropertyBagWriteBool(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jint value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -934,7 +934,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSPropertyBag_1WriteBSTR(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1pspropertyBagWriteBstr(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -954,7 +954,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSPropertyBag_1WriteDWORD(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jint value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1pspropertyBagWriteDword(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jint value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -974,7 +974,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSPropertyBag_1WriteGUID(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1pspropertyBagWriteGuid(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -994,7 +994,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSPropertyBag_1WriteInt(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jint value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1pspropertyBagWriteInt(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jint value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1014,7 +1014,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSPropertyBag_1WriteLONG(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jint value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1pspropertyBagWriteLong(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jint value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1034,7 +1034,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSPropertyBag_1WritePOINTL(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1pspropertyBagWritePointl(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1054,7 +1054,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSPropertyBag_1WritePOINTS(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1pspropertyBagWritePoints(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1074,7 +1074,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSPropertyBag_1WritePropertyKey(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1pspropertyBagWritePropertyKey(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1094,7 +1094,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSPropertyBag_1WriteRECTL(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1pspropertyBagWriteRectl(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1114,7 +1114,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSPropertyBag_1WriteSHORT(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jshort value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1pspropertyBagWriteShort(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jshort value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1134,7 +1134,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSPropertyBag_1WriteStr(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1pspropertyBagWriteStr(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1154,7 +1154,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSPropertyBag_1WriteStream(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1pspropertyBagWriteStream(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1174,7 +1174,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSPropertyBag_1WriteULONGLONG(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1pspropertyBagWriteUlonglong(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1194,7 +1194,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSPropertyBag_1WriteUnknown(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong punk) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1pspropertyBagWriteUnknown(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong punk) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1214,7 +1214,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSPropertyKeyFromString(JNIEnv* km_env, jclass km_clazz, jlong pszstring, jlong pkey) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1pSPropertyKeyFromString(JNIEnv* km_env, jclass km_clazz, jlong pszstring, jlong pkey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1233,7 +1233,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSRefreshPropertySchema(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1pSRefreshPropertySchema(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1250,7 +1250,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSRegisterPropertySchema(JNIEnv* km_env, jclass km_clazz, jlong pszpath) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1pSRegisterPropertySchema(JNIEnv* km_env, jclass km_clazz, jlong pszpath) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1268,7 +1268,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSSetPropertyValue(JNIEnv* km_env, jclass km_clazz, jlong pps, jlong ppd, jlong propvar) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1pSSetPropertyValue(JNIEnv* km_env, jclass km_clazz, jlong pps, jlong ppd, jlong propvar) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1288,7 +1288,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSStringFromPropertyKey(JNIEnv* km_env, jclass km_clazz, jlong pkey, jlong psz, jint cch) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1pSStringFromPropertyKey(JNIEnv* km_env, jclass km_clazz, jlong pkey, jlong psz, jint cch) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1308,7 +1308,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSUnregisterPropertySchema(JNIEnv* km_env, jclass km_clazz, jlong pszpath) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1pSUnregisterPropertySchema(JNIEnv* km_env, jclass km_clazz, jlong pszpath) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1326,7 +1326,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PifMgr_1CloseProperties(JNIEnv* km_env, jclass km_clazz, jlong hprops, jint flopt) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1pifMgrCloseProperties(JNIEnv* km_env, jclass km_clazz, jlong hprops, jint flopt) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1345,7 +1345,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_s
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PifMgr_1GetProperties(JNIEnv* km_env, jclass km_clazz, jlong hprops, jlong pszgroup, jlong lpprops, jint cbprops, jint flopt) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1pifMgrGetProperties(JNIEnv* km_env, jclass km_clazz, jlong hprops, jlong pszgroup, jlong lpprops, jint cbprops, jint flopt) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1367,7 +1367,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PifMgr_1OpenProperties(JNIEnv* km_env, jclass km_clazz, jlong pszapp, jlong pszpif, jint hinf, jint flopt) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1pifMgrOpenProperties(JNIEnv* km_env, jclass km_clazz, jlong pszapp, jlong pszpif, jint hinf, jint flopt) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1388,7 +1388,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_s
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PifMgr_1SetProperties(JNIEnv* km_env, jclass km_clazz, jlong hprops, jlong pszgroup, jlong lpprops, jint cbprops, jint flopt) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1pifMgrSetProperties(JNIEnv* km_env, jclass km_clazz, jlong hprops, jlong pszgroup, jlong lpprops, jint cbprops, jint flopt) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1410,7 +1410,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1SHAddDefaultPropertiesByExt(JNIEnv* km_env, jclass km_clazz, jlong pszext, jlong ppropstore) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1sHAddDefaultPropertiesByExt(JNIEnv* km_env, jclass km_clazz, jlong pszext, jlong ppropstore) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1429,7 +1429,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1SHGetPropertyStoreForWindow(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong riid, jlong ppv) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1sHGetPropertyStoreForWindow(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong riid, jlong ppv) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1449,7 +1449,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1SHGetPropertyStoreFromIDList(JNIEnv* km_env, jclass km_clazz, jlong pidl, jint flags, jlong riid, jlong ppv) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1sHGetPropertyStoreFromIDList(JNIEnv* km_env, jclass km_clazz, jlong pidl, jint flags, jlong riid, jlong ppv) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1470,7 +1470,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1SHGetPropertyStoreFromParsingName(JNIEnv* km_env, jclass km_clazz, jlong pszpath, jlong pbc, jint flags, jlong riid, jlong ppv) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1sHGetPropertyStoreFromParsingName(JNIEnv* km_env, jclass km_clazz, jlong pszpath, jlong pbc, jint flags, jlong riid, jlong ppv) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1492,7 +1492,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1SHPropStgCreate(JNIEnv* km_env, jclass km_clazz, jlong psstg, jlong fmtid, jlong pclsid, jint grfflags, jint grfmode, jint dwdisposition, jlong ppstg, jlong pucodepage) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1sHPropStgCreate(JNIEnv* km_env, jclass km_clazz, jlong psstg, jlong fmtid, jlong pclsid, jint grfflags, jint grfmode, jint dwdisposition, jlong ppstg, jlong pucodepage) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1517,7 +1517,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1SHPropStgReadMultiple(JNIEnv* km_env, jclass km_clazz, jlong pps, jint ucodepage, jint cpspec, jlong rgpspec, jlong rgvar) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1sHPropStgReadMultiple(JNIEnv* km_env, jclass km_clazz, jlong pps, jint ucodepage, jint cpspec, jlong rgpspec, jlong rgvar) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1539,7 +1539,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_sh
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1SHPropStgWriteMultiple(JNIEnv* km_env, jclass km_clazz, jlong pps, jlong pucodepage, jint cpspec, jlong rgpspec, jlong rgvar, jint propidnamefirst) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1sHPropStgWriteMultiple(JNIEnv* km_env, jclass km_clazz, jlong pps, jlong pucodepage, jint cpspec, jlong rgpspec, jlong rgvar, jint propidnamefirst) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

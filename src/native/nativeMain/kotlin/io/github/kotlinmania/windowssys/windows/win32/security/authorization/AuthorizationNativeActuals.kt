@@ -2,303 +2,304 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.security.authorization
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LUID
-import io.github.kotlinmania.windowssys.windows.win32.foundation.WIN32_ERROR
-import io.github.kotlinmania.windowssys.windows.win32.security.ACE_FLAGS
-import io.github.kotlinmania.windowssys.windows.win32.security.OBJECT_SECURITY_INFORMATION
-import io.github.kotlinmania.windowssys.windows.win32.security.PSECURITY_DESCRIPTOR
-import io.github.kotlinmania.windowssys.windows.win32.security.PSID
-import io.github.kotlinmania.windowssys.windows.win32.system.threading.LPTHREAD_START_ROUTINE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Luid
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Win32Error
+import io.github.kotlinmania.windowssys.windows.win32.security.AceFlags
+import io.github.kotlinmania.windowssys.windows.win32.security.ObjectSecurityInformation
+import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
+import io.github.kotlinmania.windowssys.windows.win32.security.Psid
+import io.github.kotlinmania.windowssys.windows.win32.system.threading.LpthreadStartRoutine
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun AuthzAccessCheck(flags: AUTHZ_ACCESS_CHECK_FLAGS, hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, prequest: Long, hauditevent: AUTHZ_AUDIT_EVENT_HANDLE, psecuritydescriptor: PSECURITY_DESCRIPTOR, optionalsecuritydescriptorarray: Long, optionalsecuritydescriptorcount: UInt, preply: Long, phaccesscheckresults: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_AuthzAccessCheck(flags, hauthzclientcontext.toCPointer<ByteVar>(), prequest.toCPointer<ByteVar>(), hauditevent.toCPointer<ByteVar>(), psecuritydescriptor.toCPointer<ByteVar>(), optionalsecuritydescriptorarray.toCPointer<ByteVar>(), optionalsecuritydescriptorcount, preply.toCPointer<ByteVar>(), phaccesscheckresults.toCPointer<ByteVar>())
+public actual fun authzAccessCheck(flags: AuthzAccessCheckFlags, hauthzclientcontext: AuthzClientContextHandle, prequest: COpaquePointer?, hauditevent: AuthzAuditEventHandle, psecuritydescriptor: PsecurityDescriptor, optionalsecuritydescriptorarray: COpaquePointer?, optionalsecuritydescriptorcount: UInt, preply: COpaquePointer?, phaccesscheckresults: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_authzAccessCheck(flags, hauthzclientcontext?.value?.toCPointer<ByteVar>(), prequest?.value?.toCPointer<ByteVar>(), hauditevent?.value?.toCPointer<ByteVar>(), psecuritydescriptor?.value?.toCPointer<ByteVar>(), optionalsecuritydescriptorarray?.value?.toCPointer<ByteVar>(), optionalsecuritydescriptorcount, preply?.value?.toCPointer<ByteVar>(), phaccesscheckresults?.value?.toCPointer<ByteVar>())
 
-public actual fun AuthzAddSidsToContext(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, sids: Long, sidcount: UInt, restrictedsids: Long, restrictedsidcount: UInt, phnewauthzclientcontext: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_AuthzAddSidsToContext(hauthzclientcontext.toCPointer<ByteVar>(), sids.toCPointer<ByteVar>(), sidcount, restrictedsids.toCPointer<ByteVar>(), restrictedsidcount, phnewauthzclientcontext.toCPointer<ByteVar>())
+public actual fun authzAddSidsToContext(hauthzclientcontext: AuthzClientContextHandle, sids: COpaquePointer?, sidcount: UInt, restrictedsids: COpaquePointer?, restrictedsidcount: UInt, phnewauthzclientcontext: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_authzAddSidsToContext(hauthzclientcontext?.value?.toCPointer<ByteVar>(), sids?.value?.toCPointer<ByteVar>(), sidcount, restrictedsids?.value?.toCPointer<ByteVar>(), restrictedsidcount, phnewauthzclientcontext?.value?.toCPointer<ByteVar>())
 
-public actual fun AuthzCachedAccessCheck(flags: UInt, haccesscheckresults: AUTHZ_ACCESS_CHECK_RESULTS_HANDLE, prequest: Long, hauditevent: AUTHZ_AUDIT_EVENT_HANDLE, preply: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_AuthzCachedAccessCheck(flags, haccesscheckresults.toCPointer<ByteVar>(), prequest.toCPointer<ByteVar>(), hauditevent.toCPointer<ByteVar>(), preply.toCPointer<ByteVar>())
+public actual fun authzCachedAccessCheck(flags: UInt, haccesscheckresults: AuthzAccessCheckResultsHandle, prequest: COpaquePointer?, hauditevent: AuthzAuditEventHandle, preply: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_authzCachedAccessCheck(flags, haccesscheckresults?.value?.toCPointer<ByteVar>(), prequest?.value?.toCPointer<ByteVar>(), hauditevent?.value?.toCPointer<ByteVar>(), preply?.value?.toCPointer<ByteVar>())
 
-public actual fun AuthzEnumerateSecurityEventSources(dwflags: UInt, buffer: Long, pdwcount: Long, pdwlength: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_AuthzEnumerateSecurityEventSources(dwflags, buffer.toCPointer<ByteVar>(), pdwcount.toCPointer<ByteVar>(), pdwlength.toCPointer<ByteVar>())
+public actual fun authzEnumerateSecurityEventSources(dwflags: UInt, buffer: COpaquePointer?, pdwcount: COpaquePointer?, pdwlength: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_authzEnumerateSecurityEventSources(dwflags, buffer?.value?.toCPointer<ByteVar>(), pdwcount?.value?.toCPointer<ByteVar>(), pdwlength?.value?.toCPointer<ByteVar>())
 
-public actual fun AuthzEvaluateSacl(authzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, prequest: Long, sacl: Long, grantedaccess: UInt, accessgranted: BOOL, pbgenerateaudit: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_AuthzEvaluateSacl(authzclientcontext.toCPointer<ByteVar>(), prequest.toCPointer<ByteVar>(), sacl.toCPointer<ByteVar>(), grantedaccess, accessgranted, pbgenerateaudit.toCPointer<ByteVar>())
+public actual fun authzEvaluateSacl(authzclientcontext: AuthzClientContextHandle, prequest: COpaquePointer?, sacl: COpaquePointer?, grantedaccess: UInt, accessgranted: Bool, pbgenerateaudit: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_authzEvaluateSacl(authzclientcontext?.value?.toCPointer<ByteVar>(), prequest?.value?.toCPointer<ByteVar>(), sacl?.value?.toCPointer<ByteVar>(), grantedaccess, accessgranted, pbgenerateaudit?.value?.toCPointer<ByteVar>())
 
-public actual fun AuthzFreeAuditEvent(hauditevent: AUTHZ_AUDIT_EVENT_HANDLE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_AuthzFreeAuditEvent(hauditevent.toCPointer<ByteVar>())
+public actual fun authzFreeAuditEvent(hauditevent: AuthzAuditEventHandle): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_authzFreeAuditEvent(hauditevent?.value?.toCPointer<ByteVar>())
 
-public actual fun AuthzFreeCentralAccessPolicyCache(): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_AuthzFreeCentralAccessPolicyCache()
+public actual fun authzFreeCentralAccessPolicyCache(): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_authzFreeCentralAccessPolicyCache()
 
-public actual fun AuthzFreeContext(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_AuthzFreeContext(hauthzclientcontext.toCPointer<ByteVar>())
+public actual fun authzFreeContext(hauthzclientcontext: AuthzClientContextHandle): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_authzFreeContext(hauthzclientcontext?.value?.toCPointer<ByteVar>())
 
-public actual fun AuthzFreeHandle(haccesscheckresults: AUTHZ_ACCESS_CHECK_RESULTS_HANDLE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_AuthzFreeHandle(haccesscheckresults.toCPointer<ByteVar>())
+public actual fun authzFreeHandle(haccesscheckresults: AuthzAccessCheckResultsHandle): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_authzFreeHandle(haccesscheckresults?.value?.toCPointer<ByteVar>())
 
-public actual fun AuthzFreeResourceManager(hauthzresourcemanager: AUTHZ_RESOURCE_MANAGER_HANDLE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_AuthzFreeResourceManager(hauthzresourcemanager.toCPointer<ByteVar>())
+public actual fun authzFreeResourceManager(hauthzresourcemanager: AuthzResourceManagerHandle): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_authzFreeResourceManager(hauthzresourcemanager?.value?.toCPointer<ByteVar>())
 
-public actual fun AuthzGetInformationFromContext(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, infoclass: AUTHZ_CONTEXT_INFORMATION_CLASS, buffersize: UInt, psizerequired: Long, buffer: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_AuthzGetInformationFromContext(hauthzclientcontext.toCPointer<ByteVar>(), infoclass, buffersize, psizerequired.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>())
+public actual fun authzGetInformationFromContext(hauthzclientcontext: AuthzClientContextHandle, infoclass: AuthzContextInformationClass, buffersize: UInt, psizerequired: COpaquePointer?, buffer: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_authzGetInformationFromContext(hauthzclientcontext?.value?.toCPointer<ByteVar>(), infoclass, buffersize, psizerequired?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>())
 
-public actual fun AuthzInitializeCompoundContext(usercontext: AUTHZ_CLIENT_CONTEXT_HANDLE, devicecontext: AUTHZ_CLIENT_CONTEXT_HANDLE, phcompoundcontext: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_AuthzInitializeCompoundContext(usercontext.toCPointer<ByteVar>(), devicecontext.toCPointer<ByteVar>(), phcompoundcontext.toCPointer<ByteVar>())
+public actual fun authzInitializeCompoundContext(usercontext: AuthzClientContextHandle, devicecontext: AuthzClientContextHandle, phcompoundcontext: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_authzInitializeCompoundContext(usercontext?.value?.toCPointer<ByteVar>(), devicecontext?.value?.toCPointer<ByteVar>(), phcompoundcontext?.value?.toCPointer<ByteVar>())
 
-public actual fun AuthzInitializeContextFromAuthzContext(flags: UInt, hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, pexpirationtime: Long, identifier: LUID, dynamicgroupargs: Long, phnewauthzclientcontext: Long): BOOL =
+public actual fun authzInitializeContextFromAuthzContext(flags: UInt, hauthzclientcontext: AuthzClientContextHandle, pexpirationtime: COpaquePointer?, identifier: Luid, dynamicgroupargs: COpaquePointer?, phnewauthzclientcontext: COpaquePointer?): Bool =
     0
 
-public actual fun AuthzInitializeContextFromSid(flags: UInt, usersid: PSID, hauthzresourcemanager: AUTHZ_RESOURCE_MANAGER_HANDLE, pexpirationtime: Long, identifier: LUID, dynamicgroupargs: Long, phauthzclientcontext: Long): BOOL =
+public actual fun authzInitializeContextFromSid(flags: UInt, usersid: Psid, hauthzresourcemanager: AuthzResourceManagerHandle, pexpirationtime: COpaquePointer?, identifier: Luid, dynamicgroupargs: COpaquePointer?, phauthzclientcontext: COpaquePointer?): Bool =
     0
 
-public actual fun AuthzInitializeContextFromToken(flags: UInt, tokenhandle: HANDLE, hauthzresourcemanager: AUTHZ_RESOURCE_MANAGER_HANDLE, pexpirationtime: Long, identifier: LUID, dynamicgroupargs: Long, phauthzclientcontext: Long): BOOL =
+public actual fun authzInitializeContextFromToken(flags: UInt, tokenhandle: Handle, hauthzresourcemanager: AuthzResourceManagerHandle, pexpirationtime: COpaquePointer?, identifier: Luid, dynamicgroupargs: COpaquePointer?, phauthzclientcontext: COpaquePointer?): Bool =
     0
 
-public actual fun AuthzInitializeObjectAccessAuditEvent(flags: AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS, hauditeventtype: AUTHZ_AUDIT_EVENT_TYPE_HANDLE, szoperationtype: PCWSTR, szobjecttype: PCWSTR, szobjectname: PCWSTR, szadditionalinfo: PCWSTR, phauditevent: Long, dwadditionalparametercount: UInt): BOOL =
-    0
+public actual fun authzInitializeObjectAccessAuditEvent(flags: AuthzInitializeObjectAccessAuditEventFlags, hauditeventtype: AuthzAuditEventTypeHandle, szoperationtype: Pcwstr, szobjecttype: Pcwstr, szobjectname: Pcwstr, szadditionalinfo: Pcwstr, phauditevent: COpaquePointer?, dwadditionalparametercount: UInt, vararg variadicArgs: Long): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_authzInitializeObjectAccessAuditEvent(flags, hauditeventtype?.value?.toCPointer<ByteVar>(), szoperationtype?.value?.toCPointer<ByteVar>(), szobjecttype?.value?.toCPointer<ByteVar>(), szobjectname?.value?.toCPointer<ByteVar>(), szadditionalinfo?.value?.toCPointer<ByteVar>(), phauditevent?.value?.toCPointer<ByteVar>(), dwadditionalparametercount, variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
 
-public actual fun AuthzInitializeObjectAccessAuditEvent2(flags: UInt, hauditeventtype: AUTHZ_AUDIT_EVENT_TYPE_HANDLE, szoperationtype: PCWSTR, szobjecttype: PCWSTR, szobjectname: PCWSTR, szadditionalinfo: PCWSTR, szadditionalinfo2: PCWSTR, phauditevent: Long, dwadditionalparametercount: UInt): BOOL =
-    0
+public actual fun authzInitializeObjectAccessAuditEvent2(flags: UInt, hauditeventtype: AuthzAuditEventTypeHandle, szoperationtype: Pcwstr, szobjecttype: Pcwstr, szobjectname: Pcwstr, szadditionalinfo: Pcwstr, szadditionalinfo2: Pcwstr, phauditevent: COpaquePointer?, dwadditionalparametercount: UInt, vararg variadicArgs: Long): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_authzInitializeObjectAccessAuditEvent2(flags, hauditeventtype?.value?.toCPointer<ByteVar>(), szoperationtype?.value?.toCPointer<ByteVar>(), szobjecttype?.value?.toCPointer<ByteVar>(), szobjectname?.value?.toCPointer<ByteVar>(), szadditionalinfo?.value?.toCPointer<ByteVar>(), szadditionalinfo2?.value?.toCPointer<ByteVar>(), phauditevent?.value?.toCPointer<ByteVar>(), dwadditionalparametercount, variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
 
-public actual fun AuthzInitializeRemoteResourceManager(prpcinitinfo: Long, phauthzresourcemanager: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_AuthzInitializeRemoteResourceManager(prpcinitinfo.toCPointer<ByteVar>(), phauthzresourcemanager.toCPointer<ByteVar>())
+public actual fun authzInitializeRemoteResourceManager(prpcinitinfo: COpaquePointer?, phauthzresourcemanager: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_authzInitializeRemoteResourceManager(prpcinitinfo?.value?.toCPointer<ByteVar>(), phauthzresourcemanager?.value?.toCPointer<ByteVar>())
 
-public actual fun AuthzInitializeResourceManager(flags: UInt, pfndynamicaccesscheck: PFN_AUTHZ_DYNAMIC_ACCESS_CHECK, pfncomputedynamicgroups: PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS, pfnfreedynamicgroups: PFN_AUTHZ_FREE_DYNAMIC_GROUPS, szresourcemanagername: PCWSTR, phauthzresourcemanager: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_AuthzInitializeResourceManager(flags, pfndynamicaccesscheck.toLong().toCPointer<ByteVar>(), pfncomputedynamicgroups.toLong().toCPointer<ByteVar>(), pfnfreedynamicgroups.toLong().toCPointer<ByteVar>(), szresourcemanagername.toCPointer<ByteVar>(), phauthzresourcemanager.toCPointer<ByteVar>())
+public actual fun authzInitializeResourceManager(flags: UInt, pfndynamicaccesscheck: PfnAuthzDynamicAccessCheck, pfncomputedynamicgroups: PfnAuthzComputeDynamicGroups, pfnfreedynamicgroups: PfnAuthzFreeDynamicGroups, szresourcemanagername: Pcwstr, phauthzresourcemanager: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_authzInitializeResourceManager(flags, 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), szresourcemanagername?.value?.toCPointer<ByteVar>(), phauthzresourcemanager?.value?.toCPointer<ByteVar>())
 
-public actual fun AuthzInitializeResourceManagerEx(flags: AUTHZ_RESOURCE_MANAGER_FLAGS, pauthzinitinfo: Long, phauthzresourcemanager: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_AuthzInitializeResourceManagerEx(flags, pauthzinitinfo.toCPointer<ByteVar>(), phauthzresourcemanager.toCPointer<ByteVar>())
+public actual fun authzInitializeResourceManagerEx(flags: AuthzResourceManagerFlags, pauthzinitinfo: COpaquePointer?, phauthzresourcemanager: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_authzInitializeResourceManagerEx(flags, pauthzinitinfo?.value?.toCPointer<ByteVar>(), phauthzresourcemanager?.value?.toCPointer<ByteVar>())
 
-public actual fun AuthzInstallSecurityEventSource(dwflags: UInt, pregistration: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_AuthzInstallSecurityEventSource(dwflags, pregistration.toCPointer<ByteVar>())
+public actual fun authzInstallSecurityEventSource(dwflags: UInt, pregistration: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_authzInstallSecurityEventSource(dwflags, pregistration?.value?.toCPointer<ByteVar>())
 
-public actual fun AuthzModifyClaims(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, claimclass: AUTHZ_CONTEXT_INFORMATION_CLASS, pclaimoperations: Long, pclaims: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_AuthzModifyClaims(hauthzclientcontext.toCPointer<ByteVar>(), claimclass, pclaimoperations.toCPointer<ByteVar>(), pclaims.toCPointer<ByteVar>())
+public actual fun authzModifyClaims(hauthzclientcontext: AuthzClientContextHandle, claimclass: AuthzContextInformationClass, pclaimoperations: COpaquePointer?, pclaims: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_authzModifyClaims(hauthzclientcontext?.value?.toCPointer<ByteVar>(), claimclass, pclaimoperations?.value?.toCPointer<ByteVar>(), pclaims?.value?.toCPointer<ByteVar>())
 
-public actual fun AuthzModifySecurityAttributes(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, poperations: Long, pattributes: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_AuthzModifySecurityAttributes(hauthzclientcontext.toCPointer<ByteVar>(), poperations.toCPointer<ByteVar>(), pattributes.toCPointer<ByteVar>())
+public actual fun authzModifySecurityAttributes(hauthzclientcontext: AuthzClientContextHandle, poperations: COpaquePointer?, pattributes: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_authzModifySecurityAttributes(hauthzclientcontext?.value?.toCPointer<ByteVar>(), poperations?.value?.toCPointer<ByteVar>(), pattributes?.value?.toCPointer<ByteVar>())
 
-public actual fun AuthzModifySids(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, sidclass: AUTHZ_CONTEXT_INFORMATION_CLASS, psidoperations: Long, psids: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_AuthzModifySids(hauthzclientcontext.toCPointer<ByteVar>(), sidclass, psidoperations.toCPointer<ByteVar>(), psids.toCPointer<ByteVar>())
+public actual fun authzModifySids(hauthzclientcontext: AuthzClientContextHandle, sidclass: AuthzContextInformationClass, psidoperations: COpaquePointer?, psids: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_authzModifySids(hauthzclientcontext?.value?.toCPointer<ByteVar>(), sidclass, psidoperations?.value?.toCPointer<ByteVar>(), psids?.value?.toCPointer<ByteVar>())
 
-public actual fun AuthzOpenObjectAudit(flags: UInt, hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, prequest: Long, hauditevent: AUTHZ_AUDIT_EVENT_HANDLE, psecuritydescriptor: PSECURITY_DESCRIPTOR, optionalsecuritydescriptorarray: Long, optionalsecuritydescriptorcount: UInt, preply: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_AuthzOpenObjectAudit(flags, hauthzclientcontext.toCPointer<ByteVar>(), prequest.toCPointer<ByteVar>(), hauditevent.toCPointer<ByteVar>(), psecuritydescriptor.toCPointer<ByteVar>(), optionalsecuritydescriptorarray.toCPointer<ByteVar>(), optionalsecuritydescriptorcount, preply.toCPointer<ByteVar>())
+public actual fun authzOpenObjectAudit(flags: UInt, hauthzclientcontext: AuthzClientContextHandle, prequest: COpaquePointer?, hauditevent: AuthzAuditEventHandle, psecuritydescriptor: PsecurityDescriptor, optionalsecuritydescriptorarray: COpaquePointer?, optionalsecuritydescriptorcount: UInt, preply: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_authzOpenObjectAudit(flags, hauthzclientcontext?.value?.toCPointer<ByteVar>(), prequest?.value?.toCPointer<ByteVar>(), hauditevent?.value?.toCPointer<ByteVar>(), psecuritydescriptor?.value?.toCPointer<ByteVar>(), optionalsecuritydescriptorarray?.value?.toCPointer<ByteVar>(), optionalsecuritydescriptorcount, preply?.value?.toCPointer<ByteVar>())
 
-public actual fun AuthzRegisterCapChangeNotification(phcapchangesubscription: Long, pfncapchangecallback: LPTHREAD_START_ROUTINE, pcallbackcontext: Long): BOOL =
-    0
+public actual fun authzRegisterCapChangeNotification(phcapchangesubscription: COpaquePointer?, pfncapchangecallback: LpthreadStartRoutine, pcallbackcontext: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_authzRegisterCapChangeNotification(phcapchangesubscription?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), pcallbackcontext?.value?.toCPointer<ByteVar>())
 
-public actual fun AuthzRegisterSecurityEventSource(dwflags: UInt, szeventsourcename: PCWSTR, pheventprovider: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_AuthzRegisterSecurityEventSource(dwflags, szeventsourcename.toCPointer<ByteVar>(), pheventprovider.toCPointer<ByteVar>())
+public actual fun authzRegisterSecurityEventSource(dwflags: UInt, szeventsourcename: Pcwstr, pheventprovider: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_authzRegisterSecurityEventSource(dwflags, szeventsourcename?.value?.toCPointer<ByteVar>(), pheventprovider?.value?.toCPointer<ByteVar>())
 
-public actual fun AuthzReportSecurityEvent(dwflags: UInt, heventprovider: AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE, dwauditid: UInt, pusersid: PSID, dwcount: UInt): BOOL =
-    0
+public actual fun authzReportSecurityEvent(dwflags: UInt, heventprovider: AuthzSecurityEventProviderHandle, dwauditid: UInt, pusersid: Psid, dwcount: UInt, vararg variadicArgs: Long): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_authzReportSecurityEvent(dwflags, heventprovider?.value?.toCPointer<ByteVar>(), dwauditid, pusersid?.value?.toCPointer<ByteVar>(), dwcount, variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
 
-public actual fun AuthzReportSecurityEventFromParams(dwflags: UInt, heventprovider: AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE, dwauditid: UInt, pusersid: PSID, pparams: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_AuthzReportSecurityEventFromParams(dwflags, heventprovider.toCPointer<ByteVar>(), dwauditid, pusersid.toCPointer<ByteVar>(), pparams.toCPointer<ByteVar>())
+public actual fun authzReportSecurityEventFromParams(dwflags: UInt, heventprovider: AuthzSecurityEventProviderHandle, dwauditid: UInt, pusersid: Psid, pparams: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_authzReportSecurityEventFromParams(dwflags, heventprovider?.value?.toCPointer<ByteVar>(), dwauditid, pusersid?.value?.toCPointer<ByteVar>(), pparams?.value?.toCPointer<ByteVar>())
 
-public actual fun AuthzSetAppContainerInformation(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, pappcontainersid: PSID, capabilitycount: UInt, pcapabilitysids: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_AuthzSetAppContainerInformation(hauthzclientcontext.toCPointer<ByteVar>(), pappcontainersid.toCPointer<ByteVar>(), capabilitycount, pcapabilitysids.toCPointer<ByteVar>())
+public actual fun authzSetAppContainerInformation(hauthzclientcontext: AuthzClientContextHandle, pappcontainersid: Psid, capabilitycount: UInt, pcapabilitysids: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_authzSetAppContainerInformation(hauthzclientcontext?.value?.toCPointer<ByteVar>(), pappcontainersid?.value?.toCPointer<ByteVar>(), capabilitycount, pcapabilitysids?.value?.toCPointer<ByteVar>())
 
-public actual fun AuthzUninstallSecurityEventSource(dwflags: UInt, szeventsourcename: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_AuthzUninstallSecurityEventSource(dwflags, szeventsourcename.toCPointer<ByteVar>())
+public actual fun authzUninstallSecurityEventSource(dwflags: UInt, szeventsourcename: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_authzUninstallSecurityEventSource(dwflags, szeventsourcename?.value?.toCPointer<ByteVar>())
 
-public actual fun AuthzUnregisterCapChangeNotification(hcapchangesubscription: AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_AuthzUnregisterCapChangeNotification(hcapchangesubscription.toCPointer<ByteVar>())
+public actual fun authzUnregisterCapChangeNotification(hcapchangesubscription: AuthzCapChangeSubscriptionHandle): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_authzUnregisterCapChangeNotification(hcapchangesubscription?.value?.toCPointer<ByteVar>())
 
-public actual fun AuthzUnregisterSecurityEventSource(dwflags: UInt, pheventprovider: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_AuthzUnregisterSecurityEventSource(dwflags, pheventprovider.toCPointer<ByteVar>())
+public actual fun authzUnregisterSecurityEventSource(dwflags: UInt, pheventprovider: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_authzUnregisterSecurityEventSource(dwflags, pheventprovider?.value?.toCPointer<ByteVar>())
 
-public actual fun BuildExplicitAccessWithNameA(pexplicitaccess: Long, ptrusteename: PCSTR, accesspermissions: UInt, accessmode: ACCESS_MODE, inheritance: ACE_FLAGS) {
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_BuildExplicitAccessWithNameA(pexplicitaccess.toCPointer<ByteVar>(), ptrusteename.toCPointer<ByteVar>(), accesspermissions, accessmode, inheritance)
+public actual fun buildExplicitAccessWithNameA(pexplicitaccess: COpaquePointer?, ptrusteename: Pcstr, accesspermissions: UInt, accessmode: AccessMode, inheritance: AceFlags) {
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_buildExplicitAccessWithNameA(pexplicitaccess?.value?.toCPointer<ByteVar>(), ptrusteename?.value?.toCPointer<ByteVar>(), accesspermissions, accessmode, inheritance)
 }
 
-public actual fun BuildExplicitAccessWithNameW(pexplicitaccess: Long, ptrusteename: PCWSTR, accesspermissions: UInt, accessmode: ACCESS_MODE, inheritance: ACE_FLAGS) {
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_BuildExplicitAccessWithNameW(pexplicitaccess.toCPointer<ByteVar>(), ptrusteename.toCPointer<ByteVar>(), accesspermissions, accessmode, inheritance)
+public actual fun buildExplicitAccessWithNameW(pexplicitaccess: COpaquePointer?, ptrusteename: Pcwstr, accesspermissions: UInt, accessmode: AccessMode, inheritance: AceFlags) {
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_buildExplicitAccessWithNameW(pexplicitaccess?.value?.toCPointer<ByteVar>(), ptrusteename?.value?.toCPointer<ByteVar>(), accesspermissions, accessmode, inheritance)
 }
 
-public actual fun BuildImpersonateExplicitAccessWithNameA(pexplicitaccess: Long, ptrusteename: PCSTR, ptrustee: Long, accesspermissions: UInt, accessmode: ACCESS_MODE, inheritance: UInt) {
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_BuildImpersonateExplicitAccessWithNameA(pexplicitaccess.toCPointer<ByteVar>(), ptrusteename.toCPointer<ByteVar>(), ptrustee.toCPointer<ByteVar>(), accesspermissions, accessmode, inheritance)
+public actual fun buildImpersonateExplicitAccessWithNameA(pexplicitaccess: COpaquePointer?, ptrusteename: Pcstr, ptrustee: COpaquePointer?, accesspermissions: UInt, accessmode: AccessMode, inheritance: UInt) {
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_buildImpersonateExplicitAccessWithNameA(pexplicitaccess?.value?.toCPointer<ByteVar>(), ptrusteename?.value?.toCPointer<ByteVar>(), ptrustee?.value?.toCPointer<ByteVar>(), accesspermissions, accessmode, inheritance)
 }
 
-public actual fun BuildImpersonateExplicitAccessWithNameW(pexplicitaccess: Long, ptrusteename: PCWSTR, ptrustee: Long, accesspermissions: UInt, accessmode: ACCESS_MODE, inheritance: UInt) {
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_BuildImpersonateExplicitAccessWithNameW(pexplicitaccess.toCPointer<ByteVar>(), ptrusteename.toCPointer<ByteVar>(), ptrustee.toCPointer<ByteVar>(), accesspermissions, accessmode, inheritance)
+public actual fun buildImpersonateExplicitAccessWithNameW(pexplicitaccess: COpaquePointer?, ptrusteename: Pcwstr, ptrustee: COpaquePointer?, accesspermissions: UInt, accessmode: AccessMode, inheritance: UInt) {
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_buildImpersonateExplicitAccessWithNameW(pexplicitaccess?.value?.toCPointer<ByteVar>(), ptrusteename?.value?.toCPointer<ByteVar>(), ptrustee?.value?.toCPointer<ByteVar>(), accesspermissions, accessmode, inheritance)
 }
 
-public actual fun BuildImpersonateTrusteeA(ptrustee: Long, pimpersonatetrustee: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_BuildImpersonateTrusteeA(ptrustee.toCPointer<ByteVar>(), pimpersonatetrustee.toCPointer<ByteVar>())
+public actual fun buildImpersonateTrusteeA(ptrustee: COpaquePointer?, pimpersonatetrustee: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_buildImpersonateTrusteeA(ptrustee?.value?.toCPointer<ByteVar>(), pimpersonatetrustee?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun BuildImpersonateTrusteeW(ptrustee: Long, pimpersonatetrustee: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_BuildImpersonateTrusteeW(ptrustee.toCPointer<ByteVar>(), pimpersonatetrustee.toCPointer<ByteVar>())
+public actual fun buildImpersonateTrusteeW(ptrustee: COpaquePointer?, pimpersonatetrustee: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_buildImpersonateTrusteeW(ptrustee?.value?.toCPointer<ByteVar>(), pimpersonatetrustee?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun BuildSecurityDescriptorA(powner: Long, pgroup: Long, ccountofaccessentries: UInt, plistofaccessentries: Long, ccountofauditentries: UInt, plistofauditentries: Long, poldsd: PSECURITY_DESCRIPTOR, psizenewsd: Long, pnewsd: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_BuildSecurityDescriptorA(powner.toCPointer<ByteVar>(), pgroup.toCPointer<ByteVar>(), ccountofaccessentries, plistofaccessentries.toCPointer<ByteVar>(), ccountofauditentries, plistofauditentries.toCPointer<ByteVar>(), poldsd.toCPointer<ByteVar>(), psizenewsd.toCPointer<ByteVar>(), pnewsd.toCPointer<ByteVar>())
+public actual fun buildSecurityDescriptorA(powner: COpaquePointer?, pgroup: COpaquePointer?, ccountofaccessentries: UInt, plistofaccessentries: COpaquePointer?, ccountofauditentries: UInt, plistofauditentries: COpaquePointer?, poldsd: PsecurityDescriptor, psizenewsd: COpaquePointer?, pnewsd: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_buildSecurityDescriptorA(powner?.value?.toCPointer<ByteVar>(), pgroup?.value?.toCPointer<ByteVar>(), ccountofaccessentries, plistofaccessentries?.value?.toCPointer<ByteVar>(), ccountofauditentries, plistofauditentries?.value?.toCPointer<ByteVar>(), poldsd?.value?.toCPointer<ByteVar>(), psizenewsd?.value?.toCPointer<ByteVar>(), pnewsd?.value?.toCPointer<ByteVar>())
 
-public actual fun BuildSecurityDescriptorW(powner: Long, pgroup: Long, ccountofaccessentries: UInt, plistofaccessentries: Long, ccountofauditentries: UInt, plistofauditentries: Long, poldsd: PSECURITY_DESCRIPTOR, psizenewsd: Long, pnewsd: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_BuildSecurityDescriptorW(powner.toCPointer<ByteVar>(), pgroup.toCPointer<ByteVar>(), ccountofaccessentries, plistofaccessentries.toCPointer<ByteVar>(), ccountofauditentries, plistofauditentries.toCPointer<ByteVar>(), poldsd.toCPointer<ByteVar>(), psizenewsd.toCPointer<ByteVar>(), pnewsd.toCPointer<ByteVar>())
+public actual fun buildSecurityDescriptorW(powner: COpaquePointer?, pgroup: COpaquePointer?, ccountofaccessentries: UInt, plistofaccessentries: COpaquePointer?, ccountofauditentries: UInt, plistofauditentries: COpaquePointer?, poldsd: PsecurityDescriptor, psizenewsd: COpaquePointer?, pnewsd: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_buildSecurityDescriptorW(powner?.value?.toCPointer<ByteVar>(), pgroup?.value?.toCPointer<ByteVar>(), ccountofaccessentries, plistofaccessentries?.value?.toCPointer<ByteVar>(), ccountofauditentries, plistofauditentries?.value?.toCPointer<ByteVar>(), poldsd?.value?.toCPointer<ByteVar>(), psizenewsd?.value?.toCPointer<ByteVar>(), pnewsd?.value?.toCPointer<ByteVar>())
 
-public actual fun BuildTrusteeWithNameA(ptrustee: Long, pname: PCSTR) {
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_BuildTrusteeWithNameA(ptrustee.toCPointer<ByteVar>(), pname.toCPointer<ByteVar>())
+public actual fun buildTrusteeWithNameA(ptrustee: COpaquePointer?, pname: Pcstr) {
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_buildTrusteeWithNameA(ptrustee?.value?.toCPointer<ByteVar>(), pname?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun BuildTrusteeWithNameW(ptrustee: Long, pname: PCWSTR) {
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_BuildTrusteeWithNameW(ptrustee.toCPointer<ByteVar>(), pname.toCPointer<ByteVar>())
+public actual fun buildTrusteeWithNameW(ptrustee: COpaquePointer?, pname: Pcwstr) {
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_buildTrusteeWithNameW(ptrustee?.value?.toCPointer<ByteVar>(), pname?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun BuildTrusteeWithObjectsAndNameA(ptrustee: Long, pobjname: Long, objecttype: SE_OBJECT_TYPE, objecttypename: PCSTR, inheritedobjecttypename: PCSTR, name: PCSTR) {
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_BuildTrusteeWithObjectsAndNameA(ptrustee.toCPointer<ByteVar>(), pobjname.toCPointer<ByteVar>(), objecttype, objecttypename.toCPointer<ByteVar>(), inheritedobjecttypename.toCPointer<ByteVar>(), name.toCPointer<ByteVar>())
+public actual fun buildTrusteeWithObjectsAndNameA(ptrustee: COpaquePointer?, pobjname: COpaquePointer?, objecttype: SeObjectType, objecttypename: Pcstr, inheritedobjecttypename: Pcstr, name: Pcstr) {
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_buildTrusteeWithObjectsAndNameA(ptrustee?.value?.toCPointer<ByteVar>(), pobjname?.value?.toCPointer<ByteVar>(), objecttype, objecttypename?.value?.toCPointer<ByteVar>(), inheritedobjecttypename?.value?.toCPointer<ByteVar>(), name?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun BuildTrusteeWithObjectsAndNameW(ptrustee: Long, pobjname: Long, objecttype: SE_OBJECT_TYPE, objecttypename: PCWSTR, inheritedobjecttypename: PCWSTR, name: PCWSTR) {
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_BuildTrusteeWithObjectsAndNameW(ptrustee.toCPointer<ByteVar>(), pobjname.toCPointer<ByteVar>(), objecttype, objecttypename.toCPointer<ByteVar>(), inheritedobjecttypename.toCPointer<ByteVar>(), name.toCPointer<ByteVar>())
+public actual fun buildTrusteeWithObjectsAndNameW(ptrustee: COpaquePointer?, pobjname: COpaquePointer?, objecttype: SeObjectType, objecttypename: Pcwstr, inheritedobjecttypename: Pcwstr, name: Pcwstr) {
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_buildTrusteeWithObjectsAndNameW(ptrustee?.value?.toCPointer<ByteVar>(), pobjname?.value?.toCPointer<ByteVar>(), objecttype, objecttypename?.value?.toCPointer<ByteVar>(), inheritedobjecttypename?.value?.toCPointer<ByteVar>(), name?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun BuildTrusteeWithObjectsAndSidA(ptrustee: Long, pobjsid: Long, pobjectguid: Long, pinheritedobjectguid: Long, psid: PSID) {
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_BuildTrusteeWithObjectsAndSidA(ptrustee.toCPointer<ByteVar>(), pobjsid.toCPointer<ByteVar>(), pobjectguid.toCPointer<ByteVar>(), pinheritedobjectguid.toCPointer<ByteVar>(), psid.toCPointer<ByteVar>())
+public actual fun buildTrusteeWithObjectsAndSidA(ptrustee: COpaquePointer?, pobjsid: COpaquePointer?, pobjectguid: COpaquePointer?, pinheritedobjectguid: COpaquePointer?, psid: Psid) {
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_buildTrusteeWithObjectsAndSidA(ptrustee?.value?.toCPointer<ByteVar>(), pobjsid?.value?.toCPointer<ByteVar>(), pobjectguid?.value?.toCPointer<ByteVar>(), pinheritedobjectguid?.value?.toCPointer<ByteVar>(), psid?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun BuildTrusteeWithObjectsAndSidW(ptrustee: Long, pobjsid: Long, pobjectguid: Long, pinheritedobjectguid: Long, psid: PSID) {
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_BuildTrusteeWithObjectsAndSidW(ptrustee.toCPointer<ByteVar>(), pobjsid.toCPointer<ByteVar>(), pobjectguid.toCPointer<ByteVar>(), pinheritedobjectguid.toCPointer<ByteVar>(), psid.toCPointer<ByteVar>())
+public actual fun buildTrusteeWithObjectsAndSidW(ptrustee: COpaquePointer?, pobjsid: COpaquePointer?, pobjectguid: COpaquePointer?, pinheritedobjectguid: COpaquePointer?, psid: Psid) {
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_buildTrusteeWithObjectsAndSidW(ptrustee?.value?.toCPointer<ByteVar>(), pobjsid?.value?.toCPointer<ByteVar>(), pobjectguid?.value?.toCPointer<ByteVar>(), pinheritedobjectguid?.value?.toCPointer<ByteVar>(), psid?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun BuildTrusteeWithSidA(ptrustee: Long, psid: PSID) {
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_BuildTrusteeWithSidA(ptrustee.toCPointer<ByteVar>(), psid.toCPointer<ByteVar>())
+public actual fun buildTrusteeWithSidA(ptrustee: COpaquePointer?, psid: Psid) {
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_buildTrusteeWithSidA(ptrustee?.value?.toCPointer<ByteVar>(), psid?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun BuildTrusteeWithSidW(ptrustee: Long, psid: PSID) {
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_BuildTrusteeWithSidW(ptrustee.toCPointer<ByteVar>(), psid.toCPointer<ByteVar>())
+public actual fun buildTrusteeWithSidW(ptrustee: COpaquePointer?, psid: Psid) {
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_buildTrusteeWithSidW(ptrustee?.value?.toCPointer<ByteVar>(), psid?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ConvertSecurityDescriptorToStringSecurityDescriptorA(securitydescriptor: PSECURITY_DESCRIPTOR, requestedstringsdrevision: UInt, securityinformation: OBJECT_SECURITY_INFORMATION, stringsecuritydescriptor: Long, stringsecuritydescriptorlen: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_ConvertSecurityDescriptorToStringSecurityDescriptorA(securitydescriptor.toCPointer<ByteVar>(), requestedstringsdrevision, securityinformation, stringsecuritydescriptor.toCPointer<ByteVar>(), stringsecuritydescriptorlen.toCPointer<ByteVar>())
+public actual fun convertSecurityDescriptorToStringSecurityDescriptorA(securitydescriptor: PsecurityDescriptor, requestedstringsdrevision: UInt, securityinformation: ObjectSecurityInformation, stringsecuritydescriptor: COpaquePointer?, stringsecuritydescriptorlen: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_convertSecurityDescriptorToStringSecurityDescriptorA(securitydescriptor?.value?.toCPointer<ByteVar>(), requestedstringsdrevision, securityinformation, stringsecuritydescriptor?.value?.toCPointer<ByteVar>(), stringsecuritydescriptorlen?.value?.toCPointer<ByteVar>())
 
-public actual fun ConvertSecurityDescriptorToStringSecurityDescriptorW(securitydescriptor: PSECURITY_DESCRIPTOR, requestedstringsdrevision: UInt, securityinformation: OBJECT_SECURITY_INFORMATION, stringsecuritydescriptor: Long, stringsecuritydescriptorlen: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_ConvertSecurityDescriptorToStringSecurityDescriptorW(securitydescriptor.toCPointer<ByteVar>(), requestedstringsdrevision, securityinformation, stringsecuritydescriptor.toCPointer<ByteVar>(), stringsecuritydescriptorlen.toCPointer<ByteVar>())
+public actual fun convertSecurityDescriptorToStringSecurityDescriptorW(securitydescriptor: PsecurityDescriptor, requestedstringsdrevision: UInt, securityinformation: ObjectSecurityInformation, stringsecuritydescriptor: COpaquePointer?, stringsecuritydescriptorlen: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_convertSecurityDescriptorToStringSecurityDescriptorW(securitydescriptor?.value?.toCPointer<ByteVar>(), requestedstringsdrevision, securityinformation, stringsecuritydescriptor?.value?.toCPointer<ByteVar>(), stringsecuritydescriptorlen?.value?.toCPointer<ByteVar>())
 
-public actual fun ConvertSidToStringSidA(sid: PSID, stringsid: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_ConvertSidToStringSidA(sid.toCPointer<ByteVar>(), stringsid.toCPointer<ByteVar>())
+public actual fun convertSidToStringSidA(sid: Psid, stringsid: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_convertSidToStringSidA(sid?.value?.toCPointer<ByteVar>(), stringsid?.value?.toCPointer<ByteVar>())
 
-public actual fun ConvertSidToStringSidW(sid: PSID, stringsid: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_ConvertSidToStringSidW(sid.toCPointer<ByteVar>(), stringsid.toCPointer<ByteVar>())
+public actual fun convertSidToStringSidW(sid: Psid, stringsid: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_convertSidToStringSidW(sid?.value?.toCPointer<ByteVar>(), stringsid?.value?.toCPointer<ByteVar>())
 
-public actual fun ConvertStringSecurityDescriptorToSecurityDescriptorA(stringsecuritydescriptor: PCSTR, stringsdrevision: UInt, securitydescriptor: Long, securitydescriptorsize: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_ConvertStringSecurityDescriptorToSecurityDescriptorA(stringsecuritydescriptor.toCPointer<ByteVar>(), stringsdrevision, securitydescriptor.toCPointer<ByteVar>(), securitydescriptorsize.toCPointer<ByteVar>())
+public actual fun convertStringSecurityDescriptorToSecurityDescriptorA(stringsecuritydescriptor: Pcstr, stringsdrevision: UInt, securitydescriptor: COpaquePointer?, securitydescriptorsize: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_convertStringSecurityDescriptorToSecurityDescriptorA(stringsecuritydescriptor?.value?.toCPointer<ByteVar>(), stringsdrevision, securitydescriptor?.value?.toCPointer<ByteVar>(), securitydescriptorsize?.value?.toCPointer<ByteVar>())
 
-public actual fun ConvertStringSecurityDescriptorToSecurityDescriptorW(stringsecuritydescriptor: PCWSTR, stringsdrevision: UInt, securitydescriptor: Long, securitydescriptorsize: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_ConvertStringSecurityDescriptorToSecurityDescriptorW(stringsecuritydescriptor.toCPointer<ByteVar>(), stringsdrevision, securitydescriptor.toCPointer<ByteVar>(), securitydescriptorsize.toCPointer<ByteVar>())
+public actual fun convertStringSecurityDescriptorToSecurityDescriptorW(stringsecuritydescriptor: Pcwstr, stringsdrevision: UInt, securitydescriptor: COpaquePointer?, securitydescriptorsize: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_convertStringSecurityDescriptorToSecurityDescriptorW(stringsecuritydescriptor?.value?.toCPointer<ByteVar>(), stringsdrevision, securitydescriptor?.value?.toCPointer<ByteVar>(), securitydescriptorsize?.value?.toCPointer<ByteVar>())
 
-public actual fun ConvertStringSidToSidA(stringsid: PCSTR, sid: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_ConvertStringSidToSidA(stringsid.toCPointer<ByteVar>(), sid.toCPointer<ByteVar>())
+public actual fun convertStringSidToSidA(stringsid: Pcstr, sid: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_convertStringSidToSidA(stringsid?.value?.toCPointer<ByteVar>(), sid?.value?.toCPointer<ByteVar>())
 
-public actual fun ConvertStringSidToSidW(stringsid: PCWSTR, sid: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_ConvertStringSidToSidW(stringsid.toCPointer<ByteVar>(), sid.toCPointer<ByteVar>())
+public actual fun convertStringSidToSidW(stringsid: Pcwstr, sid: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_convertStringSidToSidW(stringsid?.value?.toCPointer<ByteVar>(), sid?.value?.toCPointer<ByteVar>())
 
-public actual fun FreeInheritedFromArray(pinheritarray: Long, acecnt: UShort, pfnarray: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_FreeInheritedFromArray(pinheritarray.toCPointer<ByteVar>(), acecnt, pfnarray.toCPointer<ByteVar>())
+public actual fun freeInheritedFromArray(pinheritarray: COpaquePointer?, acecnt: UShort, pfnarray: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_freeInheritedFromArray(pinheritarray?.value?.toCPointer<ByteVar>(), acecnt, pfnarray?.value?.toCPointer<ByteVar>())
 
-public actual fun GetAuditedPermissionsFromAclA(pacl: Long, ptrustee: Long, psuccessfulauditedrights: Long, pfailedauditrights: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_GetAuditedPermissionsFromAclA(pacl.toCPointer<ByteVar>(), ptrustee.toCPointer<ByteVar>(), psuccessfulauditedrights.toCPointer<ByteVar>(), pfailedauditrights.toCPointer<ByteVar>())
+public actual fun getAuditedPermissionsFromAclA(pacl: COpaquePointer?, ptrustee: COpaquePointer?, psuccessfulauditedrights: COpaquePointer?, pfailedauditrights: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_getAuditedPermissionsFromAclA(pacl?.value?.toCPointer<ByteVar>(), ptrustee?.value?.toCPointer<ByteVar>(), psuccessfulauditedrights?.value?.toCPointer<ByteVar>(), pfailedauditrights?.value?.toCPointer<ByteVar>())
 
-public actual fun GetAuditedPermissionsFromAclW(pacl: Long, ptrustee: Long, psuccessfulauditedrights: Long, pfailedauditrights: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_GetAuditedPermissionsFromAclW(pacl.toCPointer<ByteVar>(), ptrustee.toCPointer<ByteVar>(), psuccessfulauditedrights.toCPointer<ByteVar>(), pfailedauditrights.toCPointer<ByteVar>())
+public actual fun getAuditedPermissionsFromAclW(pacl: COpaquePointer?, ptrustee: COpaquePointer?, psuccessfulauditedrights: COpaquePointer?, pfailedauditrights: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_getAuditedPermissionsFromAclW(pacl?.value?.toCPointer<ByteVar>(), ptrustee?.value?.toCPointer<ByteVar>(), psuccessfulauditedrights?.value?.toCPointer<ByteVar>(), pfailedauditrights?.value?.toCPointer<ByteVar>())
 
-public actual fun GetEffectiveRightsFromAclA(pacl: Long, ptrustee: Long, paccessrights: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_GetEffectiveRightsFromAclA(pacl.toCPointer<ByteVar>(), ptrustee.toCPointer<ByteVar>(), paccessrights.toCPointer<ByteVar>())
+public actual fun getEffectiveRightsFromAclA(pacl: COpaquePointer?, ptrustee: COpaquePointer?, paccessrights: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_getEffectiveRightsFromAclA(pacl?.value?.toCPointer<ByteVar>(), ptrustee?.value?.toCPointer<ByteVar>(), paccessrights?.value?.toCPointer<ByteVar>())
 
-public actual fun GetEffectiveRightsFromAclW(pacl: Long, ptrustee: Long, paccessrights: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_GetEffectiveRightsFromAclW(pacl.toCPointer<ByteVar>(), ptrustee.toCPointer<ByteVar>(), paccessrights.toCPointer<ByteVar>())
+public actual fun getEffectiveRightsFromAclW(pacl: COpaquePointer?, ptrustee: COpaquePointer?, paccessrights: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_getEffectiveRightsFromAclW(pacl?.value?.toCPointer<ByteVar>(), ptrustee?.value?.toCPointer<ByteVar>(), paccessrights?.value?.toCPointer<ByteVar>())
 
-public actual fun GetExplicitEntriesFromAclA(pacl: Long, pccountofexplicitentries: Long, plistofexplicitentries: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_GetExplicitEntriesFromAclA(pacl.toCPointer<ByteVar>(), pccountofexplicitentries.toCPointer<ByteVar>(), plistofexplicitentries.toCPointer<ByteVar>())
+public actual fun getExplicitEntriesFromAclA(pacl: COpaquePointer?, pccountofexplicitentries: COpaquePointer?, plistofexplicitentries: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_getExplicitEntriesFromAclA(pacl?.value?.toCPointer<ByteVar>(), pccountofexplicitentries?.value?.toCPointer<ByteVar>(), plistofexplicitentries?.value?.toCPointer<ByteVar>())
 
-public actual fun GetExplicitEntriesFromAclW(pacl: Long, pccountofexplicitentries: Long, plistofexplicitentries: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_GetExplicitEntriesFromAclW(pacl.toCPointer<ByteVar>(), pccountofexplicitentries.toCPointer<ByteVar>(), plistofexplicitentries.toCPointer<ByteVar>())
+public actual fun getExplicitEntriesFromAclW(pacl: COpaquePointer?, pccountofexplicitentries: COpaquePointer?, plistofexplicitentries: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_getExplicitEntriesFromAclW(pacl?.value?.toCPointer<ByteVar>(), pccountofexplicitentries?.value?.toCPointer<ByteVar>(), plistofexplicitentries?.value?.toCPointer<ByteVar>())
 
-public actual fun GetInheritanceSourceA(pobjectname: PCSTR, objecttype: SE_OBJECT_TYPE, securityinfo: OBJECT_SECURITY_INFORMATION, container: BOOL, pobjectclassguids: Long, guidcount: UInt, pacl: Long, pfnarray: Long, pgenericmapping: Long, pinheritarray: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_GetInheritanceSourceA(pobjectname.toCPointer<ByteVar>(), objecttype, securityinfo, container, pobjectclassguids.toCPointer<ByteVar>(), guidcount, pacl.toCPointer<ByteVar>(), pfnarray.toCPointer<ByteVar>(), pgenericmapping.toCPointer<ByteVar>(), pinheritarray.toCPointer<ByteVar>())
+public actual fun getInheritanceSourceA(pobjectname: Pcstr, objecttype: SeObjectType, securityinfo: ObjectSecurityInformation, container: Bool, pobjectclassguids: COpaquePointer?, guidcount: UInt, pacl: COpaquePointer?, pfnarray: COpaquePointer?, pgenericmapping: COpaquePointer?, pinheritarray: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_getInheritanceSourceA(pobjectname?.value?.toCPointer<ByteVar>(), objecttype, securityinfo, container, pobjectclassguids?.value?.toCPointer<ByteVar>(), guidcount, pacl?.value?.toCPointer<ByteVar>(), pfnarray?.value?.toCPointer<ByteVar>(), pgenericmapping?.value?.toCPointer<ByteVar>(), pinheritarray?.value?.toCPointer<ByteVar>())
 
-public actual fun GetInheritanceSourceW(pobjectname: PCWSTR, objecttype: SE_OBJECT_TYPE, securityinfo: OBJECT_SECURITY_INFORMATION, container: BOOL, pobjectclassguids: Long, guidcount: UInt, pacl: Long, pfnarray: Long, pgenericmapping: Long, pinheritarray: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_GetInheritanceSourceW(pobjectname.toCPointer<ByteVar>(), objecttype, securityinfo, container, pobjectclassguids.toCPointer<ByteVar>(), guidcount, pacl.toCPointer<ByteVar>(), pfnarray.toCPointer<ByteVar>(), pgenericmapping.toCPointer<ByteVar>(), pinheritarray.toCPointer<ByteVar>())
+public actual fun getInheritanceSourceW(pobjectname: Pcwstr, objecttype: SeObjectType, securityinfo: ObjectSecurityInformation, container: Bool, pobjectclassguids: COpaquePointer?, guidcount: UInt, pacl: COpaquePointer?, pfnarray: COpaquePointer?, pgenericmapping: COpaquePointer?, pinheritarray: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_getInheritanceSourceW(pobjectname?.value?.toCPointer<ByteVar>(), objecttype, securityinfo, container, pobjectclassguids?.value?.toCPointer<ByteVar>(), guidcount, pacl?.value?.toCPointer<ByteVar>(), pfnarray?.value?.toCPointer<ByteVar>(), pgenericmapping?.value?.toCPointer<ByteVar>(), pinheritarray?.value?.toCPointer<ByteVar>())
 
-public actual fun GetMultipleTrusteeA(ptrustee: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_GetMultipleTrusteeA(ptrustee.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun getMultipleTrusteeA(ptrustee: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_getMultipleTrusteeA(ptrustee?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun GetMultipleTrusteeOperationA(ptrustee: Long): MULTIPLE_TRUSTEE_OPERATION =
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_GetMultipleTrusteeOperationA(ptrustee.toCPointer<ByteVar>())
+public actual fun getMultipleTrusteeOperationA(ptrustee: COpaquePointer?): MultipleTrusteeOperation =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_getMultipleTrusteeOperationA(ptrustee?.value?.toCPointer<ByteVar>())
 
-public actual fun GetMultipleTrusteeOperationW(ptrustee: Long): MULTIPLE_TRUSTEE_OPERATION =
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_GetMultipleTrusteeOperationW(ptrustee.toCPointer<ByteVar>())
+public actual fun getMultipleTrusteeOperationW(ptrustee: COpaquePointer?): MultipleTrusteeOperation =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_getMultipleTrusteeOperationW(ptrustee?.value?.toCPointer<ByteVar>())
 
-public actual fun GetMultipleTrusteeW(ptrustee: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_GetMultipleTrusteeW(ptrustee.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun getMultipleTrusteeW(ptrustee: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_getMultipleTrusteeW(ptrustee?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun GetNamedSecurityInfoA(pobjectname: PCSTR, objecttype: SE_OBJECT_TYPE, securityinfo: OBJECT_SECURITY_INFORMATION, ppsidowner: Long, ppsidgroup: Long, ppdacl: Long, ppsacl: Long, ppsecuritydescriptor: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_GetNamedSecurityInfoA(pobjectname.toCPointer<ByteVar>(), objecttype, securityinfo, ppsidowner.toCPointer<ByteVar>(), ppsidgroup.toCPointer<ByteVar>(), ppdacl.toCPointer<ByteVar>(), ppsacl.toCPointer<ByteVar>(), ppsecuritydescriptor.toCPointer<ByteVar>())
+public actual fun getNamedSecurityInfoA(pobjectname: Pcstr, objecttype: SeObjectType, securityinfo: ObjectSecurityInformation, ppsidowner: COpaquePointer?, ppsidgroup: COpaquePointer?, ppdacl: COpaquePointer?, ppsacl: COpaquePointer?, ppsecuritydescriptor: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_getNamedSecurityInfoA(pobjectname?.value?.toCPointer<ByteVar>(), objecttype, securityinfo, ppsidowner?.value?.toCPointer<ByteVar>(), ppsidgroup?.value?.toCPointer<ByteVar>(), ppdacl?.value?.toCPointer<ByteVar>(), ppsacl?.value?.toCPointer<ByteVar>(), ppsecuritydescriptor?.value?.toCPointer<ByteVar>())
 
-public actual fun GetNamedSecurityInfoW(pobjectname: PCWSTR, objecttype: SE_OBJECT_TYPE, securityinfo: OBJECT_SECURITY_INFORMATION, ppsidowner: Long, ppsidgroup: Long, ppdacl: Long, ppsacl: Long, ppsecuritydescriptor: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_GetNamedSecurityInfoW(pobjectname.toCPointer<ByteVar>(), objecttype, securityinfo, ppsidowner.toCPointer<ByteVar>(), ppsidgroup.toCPointer<ByteVar>(), ppdacl.toCPointer<ByteVar>(), ppsacl.toCPointer<ByteVar>(), ppsecuritydescriptor.toCPointer<ByteVar>())
+public actual fun getNamedSecurityInfoW(pobjectname: Pcwstr, objecttype: SeObjectType, securityinfo: ObjectSecurityInformation, ppsidowner: COpaquePointer?, ppsidgroup: COpaquePointer?, ppdacl: COpaquePointer?, ppsacl: COpaquePointer?, ppsecuritydescriptor: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_getNamedSecurityInfoW(pobjectname?.value?.toCPointer<ByteVar>(), objecttype, securityinfo, ppsidowner?.value?.toCPointer<ByteVar>(), ppsidgroup?.value?.toCPointer<ByteVar>(), ppdacl?.value?.toCPointer<ByteVar>(), ppsacl?.value?.toCPointer<ByteVar>(), ppsecuritydescriptor?.value?.toCPointer<ByteVar>())
 
-public actual fun GetSecurityInfo(handle: HANDLE, objecttype: SE_OBJECT_TYPE, securityinfo: OBJECT_SECURITY_INFORMATION, ppsidowner: Long, ppsidgroup: Long, ppdacl: Long, ppsacl: Long, ppsecuritydescriptor: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_GetSecurityInfo(handle.toCPointer<ByteVar>(), objecttype, securityinfo, ppsidowner.toCPointer<ByteVar>(), ppsidgroup.toCPointer<ByteVar>(), ppdacl.toCPointer<ByteVar>(), ppsacl.toCPointer<ByteVar>(), ppsecuritydescriptor.toCPointer<ByteVar>())
+public actual fun getSecurityInfo(handle: Handle, objecttype: SeObjectType, securityinfo: ObjectSecurityInformation, ppsidowner: COpaquePointer?, ppsidgroup: COpaquePointer?, ppdacl: COpaquePointer?, ppsacl: COpaquePointer?, ppsecuritydescriptor: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_getSecurityInfo(handle?.value?.toCPointer<ByteVar>(), objecttype, securityinfo, ppsidowner?.value?.toCPointer<ByteVar>(), ppsidgroup?.value?.toCPointer<ByteVar>(), ppdacl?.value?.toCPointer<ByteVar>(), ppsacl?.value?.toCPointer<ByteVar>(), ppsecuritydescriptor?.value?.toCPointer<ByteVar>())
 
-public actual fun GetTrusteeFormA(ptrustee: Long): TRUSTEE_FORM =
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_GetTrusteeFormA(ptrustee.toCPointer<ByteVar>())
+public actual fun getTrusteeFormA(ptrustee: COpaquePointer?): TrusteeForm =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_getTrusteeFormA(ptrustee?.value?.toCPointer<ByteVar>())
 
-public actual fun GetTrusteeFormW(ptrustee: Long): TRUSTEE_FORM =
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_GetTrusteeFormW(ptrustee.toCPointer<ByteVar>())
+public actual fun getTrusteeFormW(ptrustee: COpaquePointer?): TrusteeForm =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_getTrusteeFormW(ptrustee?.value?.toCPointer<ByteVar>())
 
-public actual fun GetTrusteeNameA(ptrustee: Long): PSTR =
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_GetTrusteeNameA(ptrustee.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun getTrusteeNameA(ptrustee: COpaquePointer?): Pstr =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_getTrusteeNameA(ptrustee?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun GetTrusteeNameW(ptrustee: Long): PWSTR =
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_GetTrusteeNameW(ptrustee.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun getTrusteeNameW(ptrustee: COpaquePointer?): Pwstr =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_getTrusteeNameW(ptrustee?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun GetTrusteeTypeA(ptrustee: Long): TRUSTEE_TYPE =
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_GetTrusteeTypeA(ptrustee.toCPointer<ByteVar>())
+public actual fun getTrusteeTypeA(ptrustee: COpaquePointer?): TrusteeType =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_getTrusteeTypeA(ptrustee?.value?.toCPointer<ByteVar>())
 
-public actual fun GetTrusteeTypeW(ptrustee: Long): TRUSTEE_TYPE =
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_GetTrusteeTypeW(ptrustee.toCPointer<ByteVar>())
+public actual fun getTrusteeTypeW(ptrustee: COpaquePointer?): TrusteeType =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_getTrusteeTypeW(ptrustee?.value?.toCPointer<ByteVar>())
 
-public actual fun LookupSecurityDescriptorPartsA(ppowner: Long, ppgroup: Long, pccountofaccessentries: Long, pplistofaccessentries: Long, pccountofauditentries: Long, pplistofauditentries: Long, psd: PSECURITY_DESCRIPTOR): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_LookupSecurityDescriptorPartsA(ppowner.toCPointer<ByteVar>(), ppgroup.toCPointer<ByteVar>(), pccountofaccessentries.toCPointer<ByteVar>(), pplistofaccessentries.toCPointer<ByteVar>(), pccountofauditentries.toCPointer<ByteVar>(), pplistofauditentries.toCPointer<ByteVar>(), psd.toCPointer<ByteVar>())
+public actual fun lookupSecurityDescriptorPartsA(ppowner: COpaquePointer?, ppgroup: COpaquePointer?, pccountofaccessentries: COpaquePointer?, pplistofaccessentries: COpaquePointer?, pccountofauditentries: COpaquePointer?, pplistofauditentries: COpaquePointer?, psd: PsecurityDescriptor): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_lookupSecurityDescriptorPartsA(ppowner?.value?.toCPointer<ByteVar>(), ppgroup?.value?.toCPointer<ByteVar>(), pccountofaccessentries?.value?.toCPointer<ByteVar>(), pplistofaccessentries?.value?.toCPointer<ByteVar>(), pccountofauditentries?.value?.toCPointer<ByteVar>(), pplistofauditentries?.value?.toCPointer<ByteVar>(), psd?.value?.toCPointer<ByteVar>())
 
-public actual fun LookupSecurityDescriptorPartsW(ppowner: Long, ppgroup: Long, pccountofaccessentries: Long, pplistofaccessentries: Long, pccountofauditentries: Long, pplistofauditentries: Long, psd: PSECURITY_DESCRIPTOR): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_LookupSecurityDescriptorPartsW(ppowner.toCPointer<ByteVar>(), ppgroup.toCPointer<ByteVar>(), pccountofaccessentries.toCPointer<ByteVar>(), pplistofaccessentries.toCPointer<ByteVar>(), pccountofauditentries.toCPointer<ByteVar>(), pplistofauditentries.toCPointer<ByteVar>(), psd.toCPointer<ByteVar>())
+public actual fun lookupSecurityDescriptorPartsW(ppowner: COpaquePointer?, ppgroup: COpaquePointer?, pccountofaccessentries: COpaquePointer?, pplistofaccessentries: COpaquePointer?, pccountofauditentries: COpaquePointer?, pplistofauditentries: COpaquePointer?, psd: PsecurityDescriptor): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_lookupSecurityDescriptorPartsW(ppowner?.value?.toCPointer<ByteVar>(), ppgroup?.value?.toCPointer<ByteVar>(), pccountofaccessentries?.value?.toCPointer<ByteVar>(), pplistofaccessentries?.value?.toCPointer<ByteVar>(), pccountofauditentries?.value?.toCPointer<ByteVar>(), pplistofauditentries?.value?.toCPointer<ByteVar>(), psd?.value?.toCPointer<ByteVar>())
 
-public actual fun SetEntriesInAclA(ccountofexplicitentries: UInt, plistofexplicitentries: Long, oldacl: Long, newacl: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_SetEntriesInAclA(ccountofexplicitentries, plistofexplicitentries.toCPointer<ByteVar>(), oldacl.toCPointer<ByteVar>(), newacl.toCPointer<ByteVar>())
+public actual fun setEntriesInAclA(ccountofexplicitentries: UInt, plistofexplicitentries: COpaquePointer?, oldacl: COpaquePointer?, newacl: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_setEntriesInAclA(ccountofexplicitentries, plistofexplicitentries?.value?.toCPointer<ByteVar>(), oldacl?.value?.toCPointer<ByteVar>(), newacl?.value?.toCPointer<ByteVar>())
 
-public actual fun SetEntriesInAclW(ccountofexplicitentries: UInt, plistofexplicitentries: Long, oldacl: Long, newacl: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_SetEntriesInAclW(ccountofexplicitentries, plistofexplicitentries.toCPointer<ByteVar>(), oldacl.toCPointer<ByteVar>(), newacl.toCPointer<ByteVar>())
+public actual fun setEntriesInAclW(ccountofexplicitentries: UInt, plistofexplicitentries: COpaquePointer?, oldacl: COpaquePointer?, newacl: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_setEntriesInAclW(ccountofexplicitentries, plistofexplicitentries?.value?.toCPointer<ByteVar>(), oldacl?.value?.toCPointer<ByteVar>(), newacl?.value?.toCPointer<ByteVar>())
 
-public actual fun SetNamedSecurityInfoA(pobjectname: PCSTR, objecttype: SE_OBJECT_TYPE, securityinfo: OBJECT_SECURITY_INFORMATION, psidowner: PSID, psidgroup: PSID, pdacl: Long, psacl: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_SetNamedSecurityInfoA(pobjectname.toCPointer<ByteVar>(), objecttype, securityinfo, psidowner.toCPointer<ByteVar>(), psidgroup.toCPointer<ByteVar>(), pdacl.toCPointer<ByteVar>(), psacl.toCPointer<ByteVar>())
+public actual fun setNamedSecurityInfoA(pobjectname: Pcstr, objecttype: SeObjectType, securityinfo: ObjectSecurityInformation, psidowner: Psid, psidgroup: Psid, pdacl: COpaquePointer?, psacl: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_setNamedSecurityInfoA(pobjectname?.value?.toCPointer<ByteVar>(), objecttype, securityinfo, psidowner?.value?.toCPointer<ByteVar>(), psidgroup?.value?.toCPointer<ByteVar>(), pdacl?.value?.toCPointer<ByteVar>(), psacl?.value?.toCPointer<ByteVar>())
 
-public actual fun SetNamedSecurityInfoW(pobjectname: PCWSTR, objecttype: SE_OBJECT_TYPE, securityinfo: OBJECT_SECURITY_INFORMATION, psidowner: PSID, psidgroup: PSID, pdacl: Long, psacl: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_SetNamedSecurityInfoW(pobjectname.toCPointer<ByteVar>(), objecttype, securityinfo, psidowner.toCPointer<ByteVar>(), psidgroup.toCPointer<ByteVar>(), pdacl.toCPointer<ByteVar>(), psacl.toCPointer<ByteVar>())
+public actual fun setNamedSecurityInfoW(pobjectname: Pcwstr, objecttype: SeObjectType, securityinfo: ObjectSecurityInformation, psidowner: Psid, psidgroup: Psid, pdacl: COpaquePointer?, psacl: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_setNamedSecurityInfoW(pobjectname?.value?.toCPointer<ByteVar>(), objecttype, securityinfo, psidowner?.value?.toCPointer<ByteVar>(), psidgroup?.value?.toCPointer<ByteVar>(), pdacl?.value?.toCPointer<ByteVar>(), psacl?.value?.toCPointer<ByteVar>())
 
-public actual fun SetSecurityInfo(handle: HANDLE, objecttype: SE_OBJECT_TYPE, securityinfo: OBJECT_SECURITY_INFORMATION, psidowner: PSID, psidgroup: PSID, pdacl: Long, psacl: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_SetSecurityInfo(handle.toCPointer<ByteVar>(), objecttype, securityinfo, psidowner.toCPointer<ByteVar>(), psidgroup.toCPointer<ByteVar>(), pdacl.toCPointer<ByteVar>(), psacl.toCPointer<ByteVar>())
+public actual fun setSecurityInfo(handle: Handle, objecttype: SeObjectType, securityinfo: ObjectSecurityInformation, psidowner: Psid, psidgroup: Psid, pdacl: COpaquePointer?, psacl: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_setSecurityInfo(handle?.value?.toCPointer<ByteVar>(), objecttype, securityinfo, psidowner?.value?.toCPointer<ByteVar>(), psidgroup?.value?.toCPointer<ByteVar>(), pdacl?.value?.toCPointer<ByteVar>(), psacl?.value?.toCPointer<ByteVar>())
 
-public actual fun TreeResetNamedSecurityInfoA(pobjectname: PCSTR, objecttype: SE_OBJECT_TYPE, securityinfo: OBJECT_SECURITY_INFORMATION, powner: PSID, pgroup: PSID, pdacl: Long, psacl: Long, keepexplicit: BOOL, fnprogress: FN_PROGRESS, progressinvokesetting: PROG_INVOKE_SETTING, args: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_TreeResetNamedSecurityInfoA(pobjectname.toCPointer<ByteVar>(), objecttype, securityinfo, powner.toCPointer<ByteVar>(), pgroup.toCPointer<ByteVar>(), pdacl.toCPointer<ByteVar>(), psacl.toCPointer<ByteVar>(), keepexplicit, fnprogress.toLong().toCPointer<ByteVar>(), progressinvokesetting, args.toCPointer<ByteVar>())
+public actual fun treeResetNamedSecurityInfoA(pobjectname: Pcstr, objecttype: SeObjectType, securityinfo: ObjectSecurityInformation, powner: Psid, pgroup: Psid, pdacl: COpaquePointer?, psacl: COpaquePointer?, keepexplicit: Bool, fnprogress: FnProgress, progressinvokesetting: ProgInvokeSetting, args: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_treeResetNamedSecurityInfoA(pobjectname?.value?.toCPointer<ByteVar>(), objecttype, securityinfo, powner?.value?.toCPointer<ByteVar>(), pgroup?.value?.toCPointer<ByteVar>(), pdacl?.value?.toCPointer<ByteVar>(), psacl?.value?.toCPointer<ByteVar>(), keepexplicit, 0L.toCPointer<ByteVar>(), progressinvokesetting, args?.value?.toCPointer<ByteVar>())
 
-public actual fun TreeResetNamedSecurityInfoW(pobjectname: PCWSTR, objecttype: SE_OBJECT_TYPE, securityinfo: OBJECT_SECURITY_INFORMATION, powner: PSID, pgroup: PSID, pdacl: Long, psacl: Long, keepexplicit: BOOL, fnprogress: FN_PROGRESS, progressinvokesetting: PROG_INVOKE_SETTING, args: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_TreeResetNamedSecurityInfoW(pobjectname.toCPointer<ByteVar>(), objecttype, securityinfo, powner.toCPointer<ByteVar>(), pgroup.toCPointer<ByteVar>(), pdacl.toCPointer<ByteVar>(), psacl.toCPointer<ByteVar>(), keepexplicit, fnprogress.toLong().toCPointer<ByteVar>(), progressinvokesetting, args.toCPointer<ByteVar>())
+public actual fun treeResetNamedSecurityInfoW(pobjectname: Pcwstr, objecttype: SeObjectType, securityinfo: ObjectSecurityInformation, powner: Psid, pgroup: Psid, pdacl: COpaquePointer?, psacl: COpaquePointer?, keepexplicit: Bool, fnprogress: FnProgress, progressinvokesetting: ProgInvokeSetting, args: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_treeResetNamedSecurityInfoW(pobjectname?.value?.toCPointer<ByteVar>(), objecttype, securityinfo, powner?.value?.toCPointer<ByteVar>(), pgroup?.value?.toCPointer<ByteVar>(), pdacl?.value?.toCPointer<ByteVar>(), psacl?.value?.toCPointer<ByteVar>(), keepexplicit, 0L.toCPointer<ByteVar>(), progressinvokesetting, args?.value?.toCPointer<ByteVar>())
 
-public actual fun TreeSetNamedSecurityInfoA(pobjectname: PCSTR, objecttype: SE_OBJECT_TYPE, securityinfo: OBJECT_SECURITY_INFORMATION, powner: PSID, pgroup: PSID, pdacl: Long, psacl: Long, dwaction: TREE_SEC_INFO, fnprogress: FN_PROGRESS, progressinvokesetting: PROG_INVOKE_SETTING, args: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_TreeSetNamedSecurityInfoA(pobjectname.toCPointer<ByteVar>(), objecttype, securityinfo, powner.toCPointer<ByteVar>(), pgroup.toCPointer<ByteVar>(), pdacl.toCPointer<ByteVar>(), psacl.toCPointer<ByteVar>(), dwaction, fnprogress.toLong().toCPointer<ByteVar>(), progressinvokesetting, args.toCPointer<ByteVar>())
+public actual fun treeSetNamedSecurityInfoA(pobjectname: Pcstr, objecttype: SeObjectType, securityinfo: ObjectSecurityInformation, powner: Psid, pgroup: Psid, pdacl: COpaquePointer?, psacl: COpaquePointer?, dwaction: TreeSecInfo, fnprogress: FnProgress, progressinvokesetting: ProgInvokeSetting, args: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_treeSetNamedSecurityInfoA(pobjectname?.value?.toCPointer<ByteVar>(), objecttype, securityinfo, powner?.value?.toCPointer<ByteVar>(), pgroup?.value?.toCPointer<ByteVar>(), pdacl?.value?.toCPointer<ByteVar>(), psacl?.value?.toCPointer<ByteVar>(), dwaction, 0L.toCPointer<ByteVar>(), progressinvokesetting, args?.value?.toCPointer<ByteVar>())
 
-public actual fun TreeSetNamedSecurityInfoW(pobjectname: PCWSTR, objecttype: SE_OBJECT_TYPE, securityinfo: OBJECT_SECURITY_INFORMATION, powner: PSID, pgroup: PSID, pdacl: Long, psacl: Long, dwaction: TREE_SEC_INFO, fnprogress: FN_PROGRESS, progressinvokesetting: PROG_INVOKE_SETTING, args: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_TreeSetNamedSecurityInfoW(pobjectname.toCPointer<ByteVar>(), objecttype, securityinfo, powner.toCPointer<ByteVar>(), pgroup.toCPointer<ByteVar>(), pdacl.toCPointer<ByteVar>(), psacl.toCPointer<ByteVar>(), dwaction, fnprogress.toLong().toCPointer<ByteVar>(), progressinvokesetting, args.toCPointer<ByteVar>())
+public actual fun treeSetNamedSecurityInfoW(pobjectname: Pcwstr, objecttype: SeObjectType, securityinfo: ObjectSecurityInformation, powner: Psid, pgroup: Psid, pdacl: COpaquePointer?, psacl: COpaquePointer?, dwaction: TreeSecInfo, fnprogress: FnProgress, progressinvokesetting: ProgInvokeSetting, args: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.security.authorization.cinterop.windowssys_windows_win32_security_authorization_treeSetNamedSecurityInfoW(pobjectname?.value?.toCPointer<ByteVar>(), objecttype, securityinfo, powner?.value?.toCPointer<ByteVar>(), pgroup?.value?.toCPointer<ByteVar>(), pdacl?.value?.toCPointer<ByteVar>(), psacl?.value?.toCPointer<ByteVar>(), dwaction, 0L.toCPointer<ByteVar>(), progressinvokesetting, args?.value?.toCPointer<ByteVar>())

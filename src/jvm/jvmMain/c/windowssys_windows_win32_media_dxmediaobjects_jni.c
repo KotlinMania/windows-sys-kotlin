@@ -18,7 +18,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_dxmediaobjects_WindowsWin32MediaDxmediaobjectsJniBridge_windowssys_1windows_1win32_1media_1dxmediaobjects_1DMOEnum(JNIEnv* km_env, jclass km_clazz, jlong guidcategory, jint dwflags, jint cintypes, jlong pintypes, jint couttypes, jlong pouttypes, jlong ppenum) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_dxmediaobjects_WindowsWin32MediaDxmediaobjectsJniBridge_windowssys_1windows_1win32_1media_1dxmediaobjects_1dMOEnum(JNIEnv* km_env, jclass km_clazz, jlong guidcategory, jint dwflags, jint cintypes, jlong pintypes, jint couttypes, jlong pouttypes, jlong ppenum) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -42,7 +42,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_dxmediaobjects_WindowsWin32MediaDxmediaobjectsJniBridge_windowssys_1windows_1win32_1media_1dxmediaobjects_1DMOGetName(JNIEnv* km_env, jclass km_clazz, jlong clsiddmo, jlong szname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_dxmediaobjects_WindowsWin32MediaDxmediaobjectsJniBridge_windowssys_1windows_1win32_1media_1dxmediaobjects_1dMOGetName(JNIEnv* km_env, jclass km_clazz, jlong clsiddmo, jlong szname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -61,7 +61,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_dxmediaobjects_WindowsWin32MediaDxmediaobjectsJniBridge_windowssys_1windows_1win32_1media_1dxmediaobjects_1DMOGetTypes(JNIEnv* km_env, jclass km_clazz, jlong clsiddmo, jint ulinputtypesrequested, jlong pulinputtypessupplied, jlong pinputtypes, jint uloutputtypesrequested, jlong puloutputtypessupplied, jlong poutputtypes) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_dxmediaobjects_WindowsWin32MediaDxmediaobjectsJniBridge_windowssys_1windows_1win32_1media_1dxmediaobjects_1dMOGetTypes(JNIEnv* km_env, jclass km_clazz, jlong clsiddmo, jint ulinputtypesrequested, jlong pulinputtypessupplied, jlong pinputtypes, jint uloutputtypesrequested, jlong puloutputtypessupplied, jlong poutputtypes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -85,7 +85,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_dxmediaobjects_WindowsWin32MediaDxmediaobjectsJniBridge_windowssys_1windows_1win32_1media_1dxmediaobjects_1DMORegister(JNIEnv* km_env, jclass km_clazz, jlong szname, jlong clsiddmo, jlong guidcategory, jint dwflags, jint cintypes, jlong pintypes, jint couttypes, jlong pouttypes) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_dxmediaobjects_WindowsWin32MediaDxmediaobjectsJniBridge_windowssys_1windows_1win32_1media_1dxmediaobjects_1dMORegister(JNIEnv* km_env, jclass km_clazz, jlong szname, jlong clsiddmo, jlong guidcategory, jint dwflags, jint cintypes, jlong pintypes, jint couttypes, jlong pouttypes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -110,7 +110,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_dxmediaobjects_WindowsWin32MediaDxmediaobjectsJniBridge_windowssys_1windows_1win32_1media_1dxmediaobjects_1DMOUnregister(JNIEnv* km_env, jclass km_clazz, jlong clsiddmo, jlong guidcategory) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_dxmediaobjects_WindowsWin32MediaDxmediaobjectsJniBridge_windowssys_1windows_1win32_1media_1dxmediaobjects_1dMOUnregister(JNIEnv* km_env, jclass km_clazz, jlong clsiddmo, jlong guidcategory) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -129,7 +129,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_dxmediaobjects_WindowsWin32MediaDxmediaobjectsJniBridge_windowssys_1windows_1win32_1media_1dxmediaobjects_1MoCopyMediaType(JNIEnv* km_env, jclass km_clazz, jlong pmtdest, jlong pmtsrc) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_dxmediaobjects_WindowsWin32MediaDxmediaobjectsJniBridge_windowssys_1windows_1win32_1media_1dxmediaobjects_1moCopyMediaType(JNIEnv* km_env, jclass km_clazz, jlong pmtdest, jlong pmtsrc) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -148,7 +148,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_dxmediaobjects_WindowsWin32MediaDxmediaobjectsJniBridge_windowssys_1windows_1win32_1media_1dxmediaobjects_1MoCreateMediaType(JNIEnv* km_env, jclass km_clazz, jlong ppmt, jint cbformat) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_dxmediaobjects_WindowsWin32MediaDxmediaobjectsJniBridge_windowssys_1windows_1win32_1media_1dxmediaobjects_1moCreateMediaType(JNIEnv* km_env, jclass km_clazz, jlong ppmt, jint cbformat) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -167,7 +167,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_dxmediaobjects_WindowsWin32MediaDxmediaobjectsJniBridge_windowssys_1windows_1win32_1media_1dxmediaobjects_1MoDeleteMediaType(JNIEnv* km_env, jclass km_clazz, jlong pmt) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_dxmediaobjects_WindowsWin32MediaDxmediaobjectsJniBridge_windowssys_1windows_1win32_1media_1dxmediaobjects_1moDeleteMediaType(JNIEnv* km_env, jclass km_clazz, jlong pmt) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -185,7 +185,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_dxmediaobjects_WindowsWin32MediaDxmediaobjectsJniBridge_windowssys_1windows_1win32_1media_1dxmediaobjects_1MoDuplicateMediaType(JNIEnv* km_env, jclass km_clazz, jlong ppmtdest, jlong pmtsrc) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_dxmediaobjects_WindowsWin32MediaDxmediaobjectsJniBridge_windowssys_1windows_1win32_1media_1dxmediaobjects_1moDuplicateMediaType(JNIEnv* km_env, jclass km_clazz, jlong ppmtdest, jlong pmtsrc) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -204,7 +204,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_dxmediaobjects_WindowsWin32MediaDxmediaobjectsJniBridge_windowssys_1windows_1win32_1media_1dxmediaobjects_1MoFreeMediaType(JNIEnv* km_env, jclass km_clazz, jlong pmt) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_dxmediaobjects_WindowsWin32MediaDxmediaobjectsJniBridge_windowssys_1windows_1win32_1media_1dxmediaobjects_1moFreeMediaType(JNIEnv* km_env, jclass km_clazz, jlong pmt) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -222,7 +222,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_dxmediaobjects_WindowsWin32MediaDxmediaobjectsJniBridge_windowssys_1windows_1win32_1media_1dxmediaobjects_1MoInitMediaType(JNIEnv* km_env, jclass km_clazz, jlong pmt, jint cbformat) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_dxmediaobjects_WindowsWin32MediaDxmediaobjectsJniBridge_windowssys_1windows_1win32_1media_1dxmediaobjects_1moInitMediaType(JNIEnv* km_env, jclass km_clazz, jlong pmt, jint cbformat) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

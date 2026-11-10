@@ -1,9 +1,9 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.systemservices
 
 import io.github.kotlinmania.windowssys.U128
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.s
 import io.github.kotlinmania.windowssys.core.w
 
@@ -11,25 +11,25 @@ public val MINSHORT: UInt = 32768u
 
 public val MIN_UCSCHAR: UInt = 0u
 
-public val MK_CONTROL: MODIFIERKEYS_FLAGS = 8u
+public val MK_CONTROL: ModifierkeysFlags = 8u
 
-public val MK_LBUTTON: MODIFIERKEYS_FLAGS = 1u
+public val MK_LBUTTON: ModifierkeysFlags = 1u
 
-public val MK_MBUTTON: MODIFIERKEYS_FLAGS = 16u
+public val MK_MBUTTON: ModifierkeysFlags = 16u
 
-public val MK_RBUTTON: MODIFIERKEYS_FLAGS = 2u
+public val MK_RBUTTON: ModifierkeysFlags = 2u
 
-public val MK_SHIFT: MODIFIERKEYS_FLAGS = 4u
+public val MK_SHIFT: ModifierkeysFlags = 4u
 
-public val MK_XBUTTON1: MODIFIERKEYS_FLAGS = 32u
+public val MK_XBUTTON1: ModifierkeysFlags = 32u
 
-public val MK_XBUTTON2: MODIFIERKEYS_FLAGS = 64u
+public val MK_XBUTTON2: ModifierkeysFlags = 64u
 
 public val MS_PPM_SOFTWARE_ALL: UInt = 1u
 
 public val MUTANT_QUERY_STATE: UInt = 1u
 
-public val MaxActivationContextInfoClass: ACTIVATION_CONTEXT_INFO_CLASS = 8
+public val MAX_ACTIVATION_CONTEXT_INFO_CLASS: ActivationContextInfoClass = 8
 
 public val NATIVE_TYPE_MAX_CB: ReplacesCorHdrNumericDefines = 1
 
@@ -43,7 +43,7 @@ public val NONVOL_INT_NUMREG_ARM64: UInt = 11u
 
 public val NON_PAGED_DEBUG_SIGNATURE: UInt = 18766u
 
-public val NO_SUBGROUP_GUID: GUID = GUID.from_u128(U128(0xfea3413e7e054911uL, 0x9a71700331f1c294uL))
+public val NO_SUBGROUP_GUID: Guid = Guid.fromU128(U128(0xfea3413e7e054911uL, 0x9a71700331f1c294uL))
 
 public val NUMA_NO_PREFERRED_NODE: UInt = 4294967295u
 
@@ -61,9 +61,9 @@ public val N_TMASK2: UInt = 240u
 
 public val N_TSHIFT: UInt = 2u
 
-public val NormalError: SERVICE_ERROR_TYPE = 1
+public val NORMAL_ERROR: ServiceErrorType = 1
 
-public val OUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK_EXPORT_NAME: PCSTR = s("OutOfProcessFunctionTableCallback")
+public val OUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK_EXPORT_NAME: Pcstr = s("OutOfProcessFunctionTableCallback")
 
 public val PARKING_TOPOLOGY_POLICY_DISABLED: UInt = 0u
 
@@ -257,9 +257,9 @@ public val PROCESSOR_PPC_604: UInt = 604u
 
 public val PROCESSOR_PPC_620: UInt = 620u
 
-public val PROCESSOR_SHx_SH3: UInt = 103u
+public val PROCESSOR_S_HX_SH3: UInt = 103u
 
-public val PROCESSOR_SHx_SH4: UInt = 104u
+public val PROCESSOR_S_HX_SH4: UInt = 104u
 
 public val PROCESSOR_STRONGARM: UInt = 2577u
 
@@ -441,27 +441,27 @@ public val PRODUCT_XBOX_SCARLETTHOSTOS: UInt = 197u
 
 public val PRODUCT_XBOX_SYSTEMOS: UInt = 192u
 
-public val PcTeb: UInt = 24u
+public val PC_TEB: UInt = 24u
 
-public val PdataCrChained: ARM64_FNPDATA_CR = 3
+public val PDATA_CR_CHAINED: Arm64FnpdataCr = 3
 
-public val PdataCrChainedWithPac: ARM64_FNPDATA_CR = 2
+public val PDATA_CR_CHAINED_WITH_PAC: Arm64FnpdataCr = 2
 
-public val PdataCrUnchained: ARM64_FNPDATA_CR = 0
+public val PDATA_CR_UNCHAINED: Arm64FnpdataCr = 0
 
-public val PdataCrUnchainedSavedLr: ARM64_FNPDATA_CR = 1
+public val PDATA_CR_UNCHAINED_SAVED_LR: Arm64FnpdataCr = 1
 
-public val PdataPackedUnwindFragment: ARM64_FNPDATA_FLAGS = 2
+public val PDATA_PACKED_UNWIND_FRAGMENT: Arm64FnpdataFlags = 2
 
-public val PdataPackedUnwindFunction: ARM64_FNPDATA_FLAGS = 1
+public val PDATA_PACKED_UNWIND_FUNCTION: Arm64FnpdataFlags = 1
 
-public val PdataRefToFullXdata: ARM64_FNPDATA_FLAGS = 0
+public val PDATA_REF_TO_FULL_XDATA: Arm64FnpdataFlags = 0
 
-public val PowerMonitorDim: MONITOR_DISPLAY_STATE = 2
+public val POWER_MONITOR_DIM: MonitorDisplayState = 2
 
-public val PowerMonitorOff: MONITOR_DISPLAY_STATE = 0
+public val POWER_MONITOR_OFF: MonitorDisplayState = 0
 
-public val PowerMonitorOn: MONITOR_DISPLAY_STATE = 1
+public val POWER_MONITOR_ON: MonitorDisplayState = 1
 
 public val QUOTA_LIMITS_USE_DEFAULT_LIMITS: UInt = 16u
 
@@ -469,15 +469,15 @@ public val READ_THREAD_PROFILING_FLAG_DISPATCHING: UInt = 1u
 
 public val READ_THREAD_PROFILING_FLAG_HARDWARE_COUNTERS: UInt = 2u
 
-public val RECO_COPY: RECO_FLAGS = 2u
+public val RECO_COPY: RecoFlags = 2u
 
-public val RECO_CUT: RECO_FLAGS = 3u
+public val RECO_CUT: RecoFlags = 3u
 
-public val RECO_DRAG: RECO_FLAGS = 4u
+public val RECO_DRAG: RecoFlags = 4u
 
-public val RECO_DROP: RECO_FLAGS = 1u
+public val RECO_DROP: RecoFlags = 1u
 
-public val RECO_PASTE: RECO_FLAGS = 0u
+public val RECO_PASTE: RecoFlags = 0u
 
 public val REDBOOK_DIGITAL_AUDIO_EXTRACTION_INFO_VERSION: UInt = 1u
 
@@ -537,13 +537,13 @@ public val RTL_VIRTUAL_UNWIND2_VALIDATE_PAC: UInt = 1u
 
 public val RUNTIME_FUNCTION_INDIRECT: UInt = 1u
 
-public val RecognizerType: SERVICE_NODE_TYPE = 8
+public val RECOGNIZER_TYPE: ServiceNodeType = 8
 
-public val ResourceManagerBasicInformation: RESOURCEMANAGER_INFORMATION_CLASS = 0
+public val RESOURCE_MANAGER_BASIC_INFORMATION: ResourcemanagerInformationClass = 0
 
-public val ResourceManagerCompletionInformation: RESOURCEMANAGER_INFORMATION_CLASS = 1
+public val RESOURCE_MANAGER_COMPLETION_INFORMATION: ResourcemanagerInformationClass = 1
 
-public val RunlevelInformationInActivationContext: ACTIVATION_CONTEXT_INFO_CLASS = 5
+public val RUNLEVEL_INFORMATION_IN_ACTIVATION_CONTEXT: ActivationContextInfoClass = 5
 
 public val SCRUB_DATA_INPUT_FLAG_IGNORE_REDUNDANCY: UInt = 8u
 
@@ -851,15 +851,15 @@ public val SEF_FORCE_USER_MODE: UInt = 8192u
 
 public val SEF_NORMALIZE_OUTPUT_DESCRIPTOR: UInt = 16384u
 
-public val SERVERSILO_INITING: SERVERSILO_STATE = 0
+public val SERVERSILO_INITING: ServersiloState = 0
 
-public val SERVERSILO_SHUTTING_DOWN: SERVERSILO_STATE = 2
+public val SERVERSILO_SHUTTING_DOWN: ServersiloState = 2
 
-public val SERVERSILO_STARTED: SERVERSILO_STATE = 1
+public val SERVERSILO_STARTED: ServersiloState = 1
 
-public val SERVERSILO_TERMINATED: SERVERSILO_STATE = 4
+public val SERVERSILO_TERMINATED: ServersiloState = 4
 
-public val SERVERSILO_TERMINATING: SERVERSILO_STATE = 3
+public val SERVERSILO_TERMINATING: ServersiloState = 3
 
 public val SERVICE_INTERACTIVE_PROCESS: UInt = 256u
 
@@ -877,19 +877,19 @@ public val SE_ACCESS_CHECK_FLAG_NO_LEARNING_MODE_LOGGING: UInt = 8u
 
 public val SE_ACCESS_CHECK_VALID_FLAGS: UInt = 8u
 
-public val SE_ACTIVATE_AS_USER_CAPABILITY: PCWSTR = w("activateAsUser")
+public val SE_ACTIVATE_AS_USER_CAPABILITY: Pcwstr = w("activateAsUser")
 
-public val SE_APP_SILO_PRINT_CAPABILITY: PCWSTR = w("isolatedWin32-print")
+public val SE_APP_SILO_PRINT_CAPABILITY: Pcwstr = w("isolatedWin32-print")
 
-public val SE_APP_SILO_PROFILES_ROOT_MINIMAL_CAPABILITY: PCWSTR = w("isolatedWin32-profilesRootMinimal")
+public val SE_APP_SILO_PROFILES_ROOT_MINIMAL_CAPABILITY: Pcwstr = w("isolatedWin32-profilesRootMinimal")
 
-public val SE_APP_SILO_USER_PROFILE_MINIMAL_CAPABILITY: PCWSTR = w("isolatedWin32-userProfileMinimal")
+public val SE_APP_SILO_USER_PROFILE_MINIMAL_CAPABILITY: Pcwstr = w("isolatedWin32-userProfileMinimal")
 
-public val SE_APP_SILO_VOLUME_ROOT_MINIMAL_CAPABILITY: PCWSTR = w("isolatedWin32-volumeRootMinimal")
+public val SE_APP_SILO_VOLUME_ROOT_MINIMAL_CAPABILITY: Pcwstr = w("isolatedWin32-volumeRootMinimal")
 
-public val SE_CONSTRAINED_IMPERSONATION_CAPABILITY: PCWSTR = w("constrainedImpersonation")
+public val SE_CONSTRAINED_IMPERSONATION_CAPABILITY: Pcwstr = w("constrainedImpersonation")
 
-public val SE_DEVELOPMENT_MODE_NETWORK_CAPABILITY: PCWSTR = w("developmentModeNetwork")
+public val SE_DEVELOPMENT_MODE_NETWORK_CAPABILITY: Pcwstr = w("developmentModeNetwork")
 
 public val SE_GROUP_ENABLED: Int = 4
 
@@ -909,11 +909,11 @@ public val SE_GROUP_RESOURCE: Int = 536870912
 
 public val SE_GROUP_USE_FOR_DENY_ONLY: Int = 16
 
-public val SE_LEARNING_MODE_LOGGING_CAPABILITY: PCWSTR = w("learningModeLogging")
+public val SE_LEARNING_MODE_LOGGING_CAPABILITY: Pcwstr = w("learningModeLogging")
 
-public val SE_MUMA_CAPABILITY: PCWSTR = w("muma")
+public val SE_MUMA_CAPABILITY: Pcwstr = w("muma")
 
-public val SE_PERMISSIVE_LEARNING_MODE_CAPABILITY: PCWSTR = w("permissiveLearningMode")
+public val SE_PERMISSIVE_LEARNING_MODE_CAPABILITY: Pcwstr = w("permissiveLearningMode")
 
 public val SE_SECURITY_DESCRIPTOR_FLAG_NO_ACCESS_FILTER_ACE: UInt = 4u
 
@@ -923,7 +923,7 @@ public val SE_SECURITY_DESCRIPTOR_FLAG_NO_OWNER_ACE: UInt = 1u
 
 public val SE_SECURITY_DESCRIPTOR_VALID_FLAGS: UInt = 7u
 
-public val SE_SESSION_IMPERSONATION_CAPABILITY: PCWSTR = w("sessionImpersonation")
+public val SE_SESSION_IMPERSONATION_CAPABILITY: Pcwstr = w("sessionImpersonation")
 
 public val SE_SIGNING_LEVEL_ANTIMALWARE: UInt = 7u
 
@@ -961,77 +961,77 @@ public val SE_SIGNING_LEVEL_WINDOWS: UInt = 12u
 
 public val SE_SIGNING_LEVEL_WINDOWS_TCB: UInt = 14u
 
-public val SFGAO_BROWSABLE: SFGAO_FLAGS = 134217728u
+public val SFGAO_BROWSABLE: SfgaoFlags = 134217728u
 
-public val SFGAO_CANCOPY: SFGAO_FLAGS = 1u
+public val SFGAO_CANCOPY: SfgaoFlags = 1u
 
-public val SFGAO_CANDELETE: SFGAO_FLAGS = 32u
+public val SFGAO_CANDELETE: SfgaoFlags = 32u
 
-public val SFGAO_CANLINK: SFGAO_FLAGS = 4u
+public val SFGAO_CANLINK: SfgaoFlags = 4u
 
-public val SFGAO_CANMONIKER: SFGAO_FLAGS = 4194304u
+public val SFGAO_CANMONIKER: SfgaoFlags = 4194304u
 
-public val SFGAO_CANMOVE: SFGAO_FLAGS = 2u
+public val SFGAO_CANMOVE: SfgaoFlags = 2u
 
-public val SFGAO_CANRENAME: SFGAO_FLAGS = 16u
+public val SFGAO_CANRENAME: SfgaoFlags = 16u
 
-public val SFGAO_CAPABILITYMASK: SFGAO_FLAGS = 375u
+public val SFGAO_CAPABILITYMASK: SfgaoFlags = 375u
 
-public val SFGAO_COMPRESSED: SFGAO_FLAGS = 67108864u
+public val SFGAO_COMPRESSED: SfgaoFlags = 67108864u
 
-public val SFGAO_CONTENTSMASK: SFGAO_FLAGS = 2147483648u
+public val SFGAO_CONTENTSMASK: SfgaoFlags = 2147483648u
 
-public val SFGAO_DISPLAYATTRMASK: SFGAO_FLAGS = 1032192u
+public val SFGAO_DISPLAYATTRMASK: SfgaoFlags = 1032192u
 
-public val SFGAO_DROPTARGET: SFGAO_FLAGS = 256u
+public val SFGAO_DROPTARGET: SfgaoFlags = 256u
 
-public val SFGAO_ENCRYPTED: SFGAO_FLAGS = 8192u
+public val SFGAO_ENCRYPTED: SfgaoFlags = 8192u
 
-public val SFGAO_FILESYSANCESTOR: SFGAO_FLAGS = 268435456u
+public val SFGAO_FILESYSANCESTOR: SfgaoFlags = 268435456u
 
-public val SFGAO_FILESYSTEM: SFGAO_FLAGS = 1073741824u
+public val SFGAO_FILESYSTEM: SfgaoFlags = 1073741824u
 
-public val SFGAO_FOLDER: SFGAO_FLAGS = 536870912u
+public val SFGAO_FOLDER: SfgaoFlags = 536870912u
 
-public val SFGAO_GHOSTED: SFGAO_FLAGS = 32768u
+public val SFGAO_GHOSTED: SfgaoFlags = 32768u
 
-public val SFGAO_HASPROPSHEET: SFGAO_FLAGS = 64u
+public val SFGAO_HASPROPSHEET: SfgaoFlags = 64u
 
-public val SFGAO_HASSTORAGE: SFGAO_FLAGS = 4194304u
+public val SFGAO_HASSTORAGE: SfgaoFlags = 4194304u
 
-public val SFGAO_HASSUBFOLDER: SFGAO_FLAGS = 2147483648u
+public val SFGAO_HASSUBFOLDER: SfgaoFlags = 2147483648u
 
-public val SFGAO_HIDDEN: SFGAO_FLAGS = 524288u
+public val SFGAO_HIDDEN: SfgaoFlags = 524288u
 
-public val SFGAO_ISSLOW: SFGAO_FLAGS = 16384u
+public val SFGAO_ISSLOW: SfgaoFlags = 16384u
 
-public val SFGAO_LINK: SFGAO_FLAGS = 65536u
+public val SFGAO_LINK: SfgaoFlags = 65536u
 
-public val SFGAO_NEWCONTENT: SFGAO_FLAGS = 2097152u
+public val SFGAO_NEWCONTENT: SfgaoFlags = 2097152u
 
-public val SFGAO_NONENUMERATED: SFGAO_FLAGS = 1048576u
+public val SFGAO_NONENUMERATED: SfgaoFlags = 1048576u
 
-public val SFGAO_PKEYSFGAOMASK: SFGAO_FLAGS = 2164539392u
+public val SFGAO_PKEYSFGAOMASK: SfgaoFlags = 2164539392u
 
-public val SFGAO_PLACEHOLDER: SFGAO_FLAGS = 2048u
+public val SFGAO_PLACEHOLDER: SfgaoFlags = 2048u
 
-public val SFGAO_READONLY: SFGAO_FLAGS = 262144u
+public val SFGAO_READONLY: SfgaoFlags = 262144u
 
-public val SFGAO_REMOVABLE: SFGAO_FLAGS = 33554432u
+public val SFGAO_REMOVABLE: SfgaoFlags = 33554432u
 
-public val SFGAO_SHARE: SFGAO_FLAGS = 131072u
+public val SFGAO_SHARE: SfgaoFlags = 131072u
 
-public val SFGAO_STORAGE: SFGAO_FLAGS = 8u
+public val SFGAO_STORAGE: SfgaoFlags = 8u
 
-public val SFGAO_STORAGEANCESTOR: SFGAO_FLAGS = 8388608u
+public val SFGAO_STORAGEANCESTOR: SfgaoFlags = 8388608u
 
-public val SFGAO_STORAGECAPMASK: SFGAO_FLAGS = 1891958792u
+public val SFGAO_STORAGECAPMASK: SfgaoFlags = 1891958792u
 
-public val SFGAO_STREAM: SFGAO_FLAGS = 4194304u
+public val SFGAO_STREAM: SfgaoFlags = 4194304u
 
-public val SFGAO_SYSTEM: SFGAO_FLAGS = 4096u
+public val SFGAO_SYSTEM: SfgaoFlags = 4096u
 
-public val SFGAO_VALIDATE: SFGAO_FLAGS = 16777216u
+public val SFGAO_VALIDATE: SfgaoFlags = 16777216u
 
 public val SHUFFLE_FILE_FLAG_SKIP_INITIALIZING_NEW_CLUSTERS: UInt = 1u
 
@@ -1047,7 +1047,7 @@ public val SIZEOF_RFPO_DATA: UInt = 16u
 
 public val SIZE_OF_80387_REGISTERS: UInt = 80u
 
-public val SMB_CCF_APP_INSTANCE_EA_NAME: PCSTR = s("ClusteredApplicationInstance")
+public val SMB_CCF_APP_INSTANCE_EA_NAME: Pcstr = s("ClusteredApplicationInstance")
 
 public val SMT_UNPARKING_POLICY_CORE: UInt = 0u
 
@@ -1093,69 +1093,69 @@ public val SORT_KOREAN_KSC: UInt = 0u
 
 public val SORT_KOREAN_UNICODE: UInt = 1u
 
-public val SS_BITMAP: STATIC_STYLES = 14u
+public val SS_BITMAP: StaticStyles = 14u
 
-public val SS_BLACKFRAME: STATIC_STYLES = 7u
+public val SS_BLACKFRAME: StaticStyles = 7u
 
-public val SS_BLACKRECT: STATIC_STYLES = 4u
+public val SS_BLACKRECT: StaticStyles = 4u
 
-public val SS_CENTER: STATIC_STYLES = 1u
+public val SS_CENTER: StaticStyles = 1u
 
-public val SS_CENTERIMAGE: STATIC_STYLES = 512u
+public val SS_CENTERIMAGE: StaticStyles = 512u
 
-public val SS_EDITCONTROL: STATIC_STYLES = 8192u
+public val SS_EDITCONTROL: StaticStyles = 8192u
 
-public val SS_ELLIPSISMASK: STATIC_STYLES = 49152u
+public val SS_ELLIPSISMASK: StaticStyles = 49152u
 
-public val SS_ENDELLIPSIS: STATIC_STYLES = 16384u
+public val SS_ENDELLIPSIS: StaticStyles = 16384u
 
-public val SS_ENHMETAFILE: STATIC_STYLES = 15u
+public val SS_ENHMETAFILE: StaticStyles = 15u
 
-public val SS_ETCHEDFRAME: STATIC_STYLES = 18u
+public val SS_ETCHEDFRAME: StaticStyles = 18u
 
-public val SS_ETCHEDHORZ: STATIC_STYLES = 16u
+public val SS_ETCHEDHORZ: StaticStyles = 16u
 
-public val SS_ETCHEDVERT: STATIC_STYLES = 17u
+public val SS_ETCHEDVERT: StaticStyles = 17u
 
-public val SS_GRAYFRAME: STATIC_STYLES = 8u
+public val SS_GRAYFRAME: StaticStyles = 8u
 
-public val SS_GRAYRECT: STATIC_STYLES = 5u
+public val SS_GRAYRECT: StaticStyles = 5u
 
-public val SS_ICON: STATIC_STYLES = 3u
+public val SS_ICON: StaticStyles = 3u
 
-public val SS_LEFT: STATIC_STYLES = 0u
+public val SS_LEFT: StaticStyles = 0u
 
-public val SS_LEFTNOWORDWRAP: STATIC_STYLES = 12u
+public val SS_LEFTNOWORDWRAP: StaticStyles = 12u
 
-public val SS_NOPREFIX: STATIC_STYLES = 128u
+public val SS_NOPREFIX: StaticStyles = 128u
 
-public val SS_NOTIFY: STATIC_STYLES = 256u
+public val SS_NOTIFY: StaticStyles = 256u
 
-public val SS_OWNERDRAW: STATIC_STYLES = 13u
+public val SS_OWNERDRAW: StaticStyles = 13u
 
-public val SS_PATHELLIPSIS: STATIC_STYLES = 32768u
+public val SS_PATHELLIPSIS: StaticStyles = 32768u
 
-public val SS_REALSIZECONTROL: STATIC_STYLES = 64u
+public val SS_REALSIZECONTROL: StaticStyles = 64u
 
-public val SS_REALSIZEIMAGE: STATIC_STYLES = 2048u
+public val SS_REALSIZEIMAGE: StaticStyles = 2048u
 
-public val SS_RIGHT: STATIC_STYLES = 2u
+public val SS_RIGHT: StaticStyles = 2u
 
-public val SS_RIGHTJUST: STATIC_STYLES = 1024u
+public val SS_RIGHTJUST: StaticStyles = 1024u
 
-public val SS_SIMPLE: STATIC_STYLES = 11u
+public val SS_SIMPLE: StaticStyles = 11u
 
-public val SS_SUNKEN: STATIC_STYLES = 4096u
+public val SS_SUNKEN: StaticStyles = 4096u
 
-public val SS_TYPEMASK: STATIC_STYLES = 31u
+public val SS_TYPEMASK: StaticStyles = 31u
 
-public val SS_USERITEM: STATIC_STYLES = 10u
+public val SS_USERITEM: StaticStyles = 10u
 
-public val SS_WHITEFRAME: STATIC_STYLES = 9u
+public val SS_WHITEFRAME: StaticStyles = 9u
 
-public val SS_WHITERECT: STATIC_STYLES = 6u
+public val SS_WHITERECT: StaticStyles = 6u
 
-public val SS_WORDELLIPSIS: STATIC_STYLES = 49152u
+public val SS_WORDELLIPSIS: StaticStyles = 49152u
 
 public val SUBLANG_AFRIKAANS_SOUTH_AFRICA: UInt = 1u
 
@@ -1687,45 +1687,45 @@ public val SYSTEM_RESOURCE_ATTRIBUTE_ACE_TYPE: UInt = 18u
 
 public val SYSTEM_SCOPED_POLICY_ID_ACE_TYPE: UInt = 19u
 
-public val SeImageSignatureCache: SE_IMAGE_SIGNATURE_TYPE = 2
+public val SE_IMAGE_SIGNATURE_CACHE: SeImageSignatureType = 2
 
-public val SeImageSignatureCatalogCached: SE_IMAGE_SIGNATURE_TYPE = 3
+public val SE_IMAGE_SIGNATURE_CATALOG_CACHED: SeImageSignatureType = 3
 
-public val SeImageSignatureCatalogHint: SE_IMAGE_SIGNATURE_TYPE = 5
+public val SE_IMAGE_SIGNATURE_CATALOG_HINT: SeImageSignatureType = 5
 
-public val SeImageSignatureCatalogNotCached: SE_IMAGE_SIGNATURE_TYPE = 4
+public val SE_IMAGE_SIGNATURE_CATALOG_NOT_CACHED: SeImageSignatureType = 4
 
-public val SeImageSignatureEmbedded: SE_IMAGE_SIGNATURE_TYPE = 1
+public val SE_IMAGE_SIGNATURE_EMBEDDED: SeImageSignatureType = 1
 
-public val SeImageSignatureNone: SE_IMAGE_SIGNATURE_TYPE = 0
+public val SE_IMAGE_SIGNATURE_NONE: SeImageSignatureType = 0
 
-public val SeImageSignaturePackageCatalog: SE_IMAGE_SIGNATURE_TYPE = 6
+public val SE_IMAGE_SIGNATURE_PACKAGE_CATALOG: SeImageSignatureType = 6
 
-public val SeImageSignaturePplMitigated: SE_IMAGE_SIGNATURE_TYPE = 7
+public val SE_IMAGE_SIGNATURE_PPL_MITIGATED: SeImageSignatureType = 7
 
-public val SevereError: SERVICE_ERROR_TYPE = 2
+public val SEVERE_ERROR: ServiceErrorType = 2
 
-public val SharedVirtualDiskCDPSnapshotsSupported: SharedVirtualDiskSupportType = 7
+public val SHARED_VIRTUAL_DISK_CDP_SNAPSHOTS_SUPPORTED: SharedVirtualDiskSupportType = 7
 
-public val SharedVirtualDiskHandleStateFileShared: SharedVirtualDiskHandleState = 1
+public val SHARED_VIRTUAL_DISK_HANDLE_STATE_FILE_SHARED: SharedVirtualDiskHandleState = 1
 
-public val SharedVirtualDiskHandleStateHandleShared: SharedVirtualDiskHandleState = 3
+public val SHARED_VIRTUAL_DISK_HANDLE_STATE_HANDLE_SHARED: SharedVirtualDiskHandleState = 3
 
-public val SharedVirtualDiskHandleStateNone: SharedVirtualDiskHandleState = 0
+public val SHARED_VIRTUAL_DISK_HANDLE_STATE_NONE: SharedVirtualDiskHandleState = 0
 
-public val SharedVirtualDiskSnapshotsSupported: SharedVirtualDiskSupportType = 3
+public val SHARED_VIRTUAL_DISK_SNAPSHOTS_SUPPORTED: SharedVirtualDiskSupportType = 3
 
-public val SharedVirtualDisksSupported: SharedVirtualDiskSupportType = 1
+public val SHARED_VIRTUAL_DISKS_SUPPORTED: SharedVirtualDiskSupportType = 1
 
-public val SharedVirtualDisksUnsupported: SharedVirtualDiskSupportType = 0
+public val SHARED_VIRTUAL_DISKS_UNSUPPORTED: SharedVirtualDiskSupportType = 0
 
-public val SystemLoad: SERVICE_LOAD_TYPE = 1
+public val SYSTEM_LOAD: ServiceLoadType = 1
 
 public val TAPE_CHECK_FOR_DRIVE_PROBLEM: Int = 2
 
-public val TAPE_DRIVE_ABSOLUTE_BLK: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = 2147487744u
+public val TAPE_DRIVE_ABSOLUTE_BLK: TapeGetDriveParametersFeaturesHigh = 2147487744u
 
-public val TAPE_DRIVE_ABS_BLK_IMMED: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = 2147491840u
+public val TAPE_DRIVE_ABS_BLK_IMMED: TapeGetDriveParametersFeaturesHigh = 2147491840u
 
 public val TAPE_DRIVE_CLEAN_REQUESTS: UInt = 33554432u
 
@@ -1735,7 +1735,7 @@ public val TAPE_DRIVE_ECC: UInt = 65536u
 
 public val TAPE_DRIVE_EJECT_MEDIA: UInt = 16777216u
 
-public val TAPE_DRIVE_END_OF_DATA: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = 2147549184u
+public val TAPE_DRIVE_END_OF_DATA: TapeGetDriveParametersFeaturesHigh = 2147549184u
 
 public val TAPE_DRIVE_EOT_WZ_SIZE: UInt = 8192u
 
@@ -1747,7 +1747,7 @@ public val TAPE_DRIVE_ERASE_LONG: UInt = 32u
 
 public val TAPE_DRIVE_ERASE_SHORT: UInt = 16u
 
-public val TAPE_DRIVE_FILEMARKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = 2147745792u
+public val TAPE_DRIVE_FILEMARKS: TapeGetDriveParametersFeaturesHigh = 2147745792u
 
 public val TAPE_DRIVE_FIXED: UInt = 1u
 
@@ -1765,75 +1765,75 @@ public val TAPE_DRIVE_HIGH_FEATURES: UInt = 2147483648u
 
 public val TAPE_DRIVE_INITIATOR: UInt = 4u
 
-public val TAPE_DRIVE_LOAD_UNLD_IMMED: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = 2147483680u
+public val TAPE_DRIVE_LOAD_UNLD_IMMED: TapeGetDriveParametersFeaturesHigh = 2147483680u
 
-public val TAPE_DRIVE_LOAD_UNLOAD: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = 2147483649u
+public val TAPE_DRIVE_LOAD_UNLOAD: TapeGetDriveParametersFeaturesHigh = 2147483649u
 
-public val TAPE_DRIVE_LOCK_UNLK_IMMED: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = 2147483776u
+public val TAPE_DRIVE_LOCK_UNLK_IMMED: TapeGetDriveParametersFeaturesHigh = 2147483776u
 
-public val TAPE_DRIVE_LOCK_UNLOCK: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = 2147483652u
+public val TAPE_DRIVE_LOCK_UNLOCK: TapeGetDriveParametersFeaturesHigh = 2147483652u
 
-public val TAPE_DRIVE_LOGICAL_BLK: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = 2147500032u
+public val TAPE_DRIVE_LOGICAL_BLK: TapeGetDriveParametersFeaturesHigh = 2147500032u
 
-public val TAPE_DRIVE_LOG_BLK_IMMED: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = 2147516416u
+public val TAPE_DRIVE_LOG_BLK_IMMED: TapeGetDriveParametersFeaturesHigh = 2147516416u
 
 public val TAPE_DRIVE_PADDING: UInt = 262144u
 
-public val TAPE_DRIVE_RELATIVE_BLKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = 2147614720u
+public val TAPE_DRIVE_RELATIVE_BLKS: TapeGetDriveParametersFeaturesHigh = 2147614720u
 
 public val TAPE_DRIVE_REPORT_SMKS: UInt = 524288u
 
 public val TAPE_DRIVE_RESERVED_BIT: UInt = 2147483648u
 
-public val TAPE_DRIVE_REVERSE_POSITION: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = 2151677952u
+public val TAPE_DRIVE_REVERSE_POSITION: TapeGetDriveParametersFeaturesHigh = 2151677952u
 
-public val TAPE_DRIVE_REWIND_IMMEDIATE: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = 2147483656u
+public val TAPE_DRIVE_REWIND_IMMEDIATE: TapeGetDriveParametersFeaturesHigh = 2147483656u
 
 public val TAPE_DRIVE_SELECT: UInt = 2u
 
-public val TAPE_DRIVE_SEQUENTIAL_FMKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = 2148007936u
+public val TAPE_DRIVE_SEQUENTIAL_FMKS: TapeGetDriveParametersFeaturesHigh = 2148007936u
 
-public val TAPE_DRIVE_SEQUENTIAL_SMKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = 2149580800u
+public val TAPE_DRIVE_SEQUENTIAL_SMKS: TapeGetDriveParametersFeaturesHigh = 2149580800u
 
-public val TAPE_DRIVE_SETMARKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = 2148532224u
+public val TAPE_DRIVE_SETMARKS: TapeGetDriveParametersFeaturesHigh = 2148532224u
 
-public val TAPE_DRIVE_SET_BLOCK_SIZE: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = 2147483664u
+public val TAPE_DRIVE_SET_BLOCK_SIZE: TapeGetDriveParametersFeaturesHigh = 2147483664u
 
 public val TAPE_DRIVE_SET_CMP_BOP_ONLY: UInt = 67108864u
 
-public val TAPE_DRIVE_SET_COMPRESSION: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = 2147484160u
+public val TAPE_DRIVE_SET_COMPRESSION: TapeGetDriveParametersFeaturesHigh = 2147484160u
 
-public val TAPE_DRIVE_SET_ECC: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = 2147483904u
+public val TAPE_DRIVE_SET_ECC: TapeGetDriveParametersFeaturesHigh = 2147483904u
 
 public val TAPE_DRIVE_SET_EOT_WZ_SIZE: UInt = 4194304u
 
-public val TAPE_DRIVE_SET_PADDING: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = 2147484672u
+public val TAPE_DRIVE_SET_PADDING: TapeGetDriveParametersFeaturesHigh = 2147484672u
 
-public val TAPE_DRIVE_SET_REPORT_SMKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = 2147485696u
+public val TAPE_DRIVE_SET_REPORT_SMKS: TapeGetDriveParametersFeaturesHigh = 2147485696u
 
-public val TAPE_DRIVE_SPACE_IMMEDIATE: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = 2155872256u
+public val TAPE_DRIVE_SPACE_IMMEDIATE: TapeGetDriveParametersFeaturesHigh = 2155872256u
 
 public val TAPE_DRIVE_TAPE_CAPACITY: UInt = 256u
 
 public val TAPE_DRIVE_TAPE_REMAINING: UInt = 512u
 
-public val TAPE_DRIVE_TENSION: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = 2147483650u
+public val TAPE_DRIVE_TENSION: TapeGetDriveParametersFeaturesHigh = 2147483650u
 
-public val TAPE_DRIVE_TENSION_IMMED: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = 2147483712u
+public val TAPE_DRIVE_TENSION_IMMED: TapeGetDriveParametersFeaturesHigh = 2147483712u
 
 public val TAPE_DRIVE_VARIABLE_BLOCK: UInt = 2048u
 
-public val TAPE_DRIVE_WRITE_FILEMARKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = 2181038080u
+public val TAPE_DRIVE_WRITE_FILEMARKS: TapeGetDriveParametersFeaturesHigh = 2181038080u
 
-public val TAPE_DRIVE_WRITE_LONG_FMKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = 2281701376u
+public val TAPE_DRIVE_WRITE_LONG_FMKS: TapeGetDriveParametersFeaturesHigh = 2281701376u
 
-public val TAPE_DRIVE_WRITE_MARK_IMMED: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = 2415919104u
+public val TAPE_DRIVE_WRITE_MARK_IMMED: TapeGetDriveParametersFeaturesHigh = 2415919104u
 
 public val TAPE_DRIVE_WRITE_PROTECT: UInt = 4096u
 
-public val TAPE_DRIVE_WRITE_SETMARKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = 2164260864u
+public val TAPE_DRIVE_WRITE_SETMARKS: TapeGetDriveParametersFeaturesHigh = 2164260864u
 
-public val TAPE_DRIVE_WRITE_SHORT_FMKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = 2214592512u
+public val TAPE_DRIVE_WRITE_SHORT_FMKS: TapeGetDriveParametersFeaturesHigh = 2214592512u
 
 public val TAPE_PSEUDO_LOGICAL_BLOCK: Int = 3
 
@@ -1905,73 +1905,73 @@ public val TREE_CONNECT_ATTRIBUTE_PRIVACY: UInt = 16384u
 
 public val TRUST_PROTECTED_FILTER_ACE_FLAG: UInt = 64u
 
-public val TapeDriveCleanDriveNow: TAPE_DRIVE_PROBLEM_TYPE = 11
+public val TAPE_DRIVE_CLEAN_DRIVE_NOW: TapeDriveProblemType = 11
 
-public val TapeDriveHardwareError: TAPE_DRIVE_PROBLEM_TYPE = 7
+public val TAPE_DRIVE_HARDWARE_ERROR: TapeDriveProblemType = 7
 
-public val TapeDriveMediaLifeExpired: TAPE_DRIVE_PROBLEM_TYPE = 12
+public val TAPE_DRIVE_MEDIA_LIFE_EXPIRED: TapeDriveProblemType = 12
 
-public val TapeDriveProblemNone: TAPE_DRIVE_PROBLEM_TYPE = 0
+public val TAPE_DRIVE_PROBLEM_NONE: TapeDriveProblemType = 0
 
-public val TapeDriveReadError: TAPE_DRIVE_PROBLEM_TYPE = 5
+public val TAPE_DRIVE_READ_ERROR: TapeDriveProblemType = 5
 
-public val TapeDriveReadWarning: TAPE_DRIVE_PROBLEM_TYPE = 3
+public val TAPE_DRIVE_READ_WARNING: TapeDriveProblemType = 3
 
-public val TapeDriveReadWriteError: TAPE_DRIVE_PROBLEM_TYPE = 2
+public val TAPE_DRIVE_READ_WRITE_ERROR: TapeDriveProblemType = 2
 
-public val TapeDriveReadWriteWarning: TAPE_DRIVE_PROBLEM_TYPE = 1
+public val TAPE_DRIVE_READ_WRITE_WARNING: TapeDriveProblemType = 1
 
-public val TapeDriveScsiConnectionError: TAPE_DRIVE_PROBLEM_TYPE = 9
+public val TAPE_DRIVE_SCSI_CONNECTION_ERROR: TapeDriveProblemType = 9
 
-public val TapeDriveSnappedTape: TAPE_DRIVE_PROBLEM_TYPE = 13
+public val TAPE_DRIVE_SNAPPED_TAPE: TapeDriveProblemType = 13
 
-public val TapeDriveTimetoClean: TAPE_DRIVE_PROBLEM_TYPE = 10
+public val TAPE_DRIVE_TIMETO_CLEAN: TapeDriveProblemType = 10
 
-public val TapeDriveUnsupportedMedia: TAPE_DRIVE_PROBLEM_TYPE = 8
+public val TAPE_DRIVE_UNSUPPORTED_MEDIA: TapeDriveProblemType = 8
 
-public val TapeDriveWriteError: TAPE_DRIVE_PROBLEM_TYPE = 6
+public val TAPE_DRIVE_WRITE_ERROR: TapeDriveProblemType = 6
 
-public val TapeDriveWriteWarning: TAPE_DRIVE_PROBLEM_TYPE = 4
+public val TAPE_DRIVE_WRITE_WARNING: TapeDriveProblemType = 4
 
-public val TransactionBasicInformation: TRANSACTION_INFORMATION_CLASS = 0
+public val TRANSACTION_BASIC_INFORMATION: TransactionInformationClass = 0
 
-public val TransactionBindInformation: TRANSACTION_INFORMATION_CLASS = 4
+public val TRANSACTION_BIND_INFORMATION: TransactionInformationClass = 4
 
-public val TransactionDTCPrivateInformation: TRANSACTION_INFORMATION_CLASS = 5
+public val TRANSACTION_DTC_PRIVATE_INFORMATION: TransactionInformationClass = 5
 
-public val TransactionEnlistmentInformation: TRANSACTION_INFORMATION_CLASS = 2
+public val TRANSACTION_ENLISTMENT_INFORMATION: TransactionInformationClass = 2
 
-public val TransactionManagerBasicInformation: TRANSACTIONMANAGER_INFORMATION_CLASS = 0
+public val TRANSACTION_MANAGER_BASIC_INFORMATION: TransactionmanagerInformationClass = 0
 
-public val TransactionManagerLogInformation: TRANSACTIONMANAGER_INFORMATION_CLASS = 1
+public val TRANSACTION_MANAGER_LOG_INFORMATION: TransactionmanagerInformationClass = 1
 
-public val TransactionManagerLogPathInformation: TRANSACTIONMANAGER_INFORMATION_CLASS = 2
+public val TRANSACTION_MANAGER_LOG_PATH_INFORMATION: TransactionmanagerInformationClass = 2
 
-public val TransactionManagerOldestTransactionInformation: TRANSACTIONMANAGER_INFORMATION_CLASS = 5
+public val TRANSACTION_MANAGER_OLDEST_TRANSACTION_INFORMATION: TransactionmanagerInformationClass = 5
 
-public val TransactionManagerOnlineProbeInformation: TRANSACTIONMANAGER_INFORMATION_CLASS = 3
+public val TRANSACTION_MANAGER_ONLINE_PROBE_INFORMATION: TransactionmanagerInformationClass = 3
 
-public val TransactionManagerRecoveryInformation: TRANSACTIONMANAGER_INFORMATION_CLASS = 4
+public val TRANSACTION_MANAGER_RECOVERY_INFORMATION: TransactionmanagerInformationClass = 4
 
-public val TransactionPropertiesInformation: TRANSACTION_INFORMATION_CLASS = 1
+public val TRANSACTION_PROPERTIES_INFORMATION: TransactionInformationClass = 1
 
-public val TransactionStateCommittedNotify: TRANSACTION_STATE = 3
+public val TRANSACTION_STATE_COMMITTED_NOTIFY: TransactionState = 3
 
-public val TransactionStateIndoubt: TRANSACTION_STATE = 2
+public val TRANSACTION_STATE_INDOUBT: TransactionState = 2
 
-public val TransactionStateNormal: TRANSACTION_STATE = 1
+public val TRANSACTION_STATE_NORMAL: TransactionState = 1
 
-public val TransactionSuperiorEnlistmentInformation: TRANSACTION_INFORMATION_CLASS = 3
+public val TRANSACTION_SUPERIOR_ENLISTMENT_INFORMATION: TransactionInformationClass = 3
 
 public val UCSCHAR_INVALID_CHARACTER: UInt = 4294967295u
 
 public val UNICODE_STRING_MAX_CHARS: UInt = 32767u
 
-public val UNIFIEDBUILDREVISION_KEY: PCWSTR = w("\\Registry\\Machine\\Software\\Microsoft\\Windows NT\\CurrentVersion")
+public val UNIFIEDBUILDREVISION_KEY: Pcwstr = w("\\Registry\\Machine\\Software\\Microsoft\\Windows NT\\CurrentVersion")
 
 public val UNIFIEDBUILDREVISION_MIN: UInt = 0u
 
-public val UNIFIEDBUILDREVISION_VALUE: PCWSTR = w("UBR")
+public val UNIFIEDBUILDREVISION_VALUE: Pcwstr = w("UBR")
 
 public val UNWIND_CHAIN_LIMIT: UInt = 32u
 
@@ -1979,11 +1979,11 @@ public val UNWIND_HISTORY_TABLE_SIZE: UInt = 12u
 
 public val UNW_FLAG_NO_EPILOGUE: UInt = 2147483648u
 
-public val UmsSchedulerStartup: RTL_UMS_SCHEDULER_REASON = 0
+public val UMS_SCHEDULER_STARTUP: RtlUmsSchedulerReason = 0
 
-public val UmsSchedulerThreadBlocked: RTL_UMS_SCHEDULER_REASON = 1
+public val UMS_SCHEDULER_THREAD_BLOCKED: RtlUmsSchedulerReason = 1
 
-public val UmsSchedulerThreadYield: RTL_UMS_SCHEDULER_REASON = 2
+public val UMS_SCHEDULER_THREAD_YIELD: RtlUmsSchedulerReason = 2
 
 public val VALID_INHERIT_FLAGS: UInt = 31u
 
@@ -2087,9 +2087,9 @@ public val WT_EXECUTEINPERSISTENTIOTHREAD: UInt = 64u
 
 public val WT_EXECUTEINUITHREAD: UInt = 2u
 
-public val Win32ServiceOwnProcess: SERVICE_NODE_TYPE = 16
+public val WIN32SERVICE_OWN_PROCESS: ServiceNodeType = 16
 
-public val Win32ServiceShareProcess: SERVICE_NODE_TYPE = 32
+public val WIN32SERVICE_SHARE_PROCESS: ServiceNodeType = 32
 
 public val X3_BTYPE_QP_INST_VAL_POS_X: UInt = 0u
 
@@ -2217,10 +2217,10 @@ public val XSTATE_PASID: UInt = 10u
 
 public val XSTATE_XFD_BIT: UInt = 2u
 
-public val _MM_HINT_NTA: UInt = 0u
+public val MM_HINT_NTA: UInt = 0u
 
-public val _MM_HINT_T0: UInt = 1u
+public val MM_HINT_T0: UInt = 1u
 
-public val _MM_HINT_T1: UInt = 2u
+public val MM_HINT_T1: UInt = 2u
 
-public val _MM_HINT_T2: UInt = 3u
+public val MM_HINT_T2: UInt = 3u

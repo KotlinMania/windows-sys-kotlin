@@ -2,36 +2,37 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.processsnapshotting
 
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun PssCaptureSnapshot(processhandle: HANDLE, captureflags: PSS_CAPTURE_FLAGS, threadcontextflags: UInt, snapshothandle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.processsnapshotting.cinterop.windowssys_windows_win32_system_diagnostics_processsnapshotting_PssCaptureSnapshot(processhandle.toCPointer<ByteVar>(), captureflags, threadcontextflags, snapshothandle.toCPointer<ByteVar>())
+public actual fun pssCaptureSnapshot(processhandle: Handle, captureflags: PssCaptureFlags, threadcontextflags: UInt, snapshothandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.processsnapshotting.cinterop.windowssys_windows_win32_system_diagnostics_processsnapshotting_pssCaptureSnapshot(processhandle?.value?.toCPointer<ByteVar>(), captureflags, threadcontextflags, snapshothandle?.value?.toCPointer<ByteVar>())
 
-public actual fun PssDuplicateSnapshot(sourceprocesshandle: HANDLE, snapshothandle: HPSS, targetprocesshandle: HANDLE, targetsnapshothandle: Long, flags: PSS_DUPLICATE_FLAGS): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.processsnapshotting.cinterop.windowssys_windows_win32_system_diagnostics_processsnapshotting_PssDuplicateSnapshot(sourceprocesshandle.toCPointer<ByteVar>(), snapshothandle.toCPointer<ByteVar>(), targetprocesshandle.toCPointer<ByteVar>(), targetsnapshothandle.toCPointer<ByteVar>(), flags)
+public actual fun pssDuplicateSnapshot(sourceprocesshandle: Handle, snapshothandle: Hpss, targetprocesshandle: Handle, targetsnapshothandle: COpaquePointer?, flags: PssDuplicateFlags): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.processsnapshotting.cinterop.windowssys_windows_win32_system_diagnostics_processsnapshotting_pssDuplicateSnapshot(sourceprocesshandle?.value?.toCPointer<ByteVar>(), snapshothandle?.value?.toCPointer<ByteVar>(), targetprocesshandle?.value?.toCPointer<ByteVar>(), targetsnapshothandle?.value?.toCPointer<ByteVar>(), flags)
 
-public actual fun PssFreeSnapshot(processhandle: HANDLE, snapshothandle: HPSS): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.processsnapshotting.cinterop.windowssys_windows_win32_system_diagnostics_processsnapshotting_PssFreeSnapshot(processhandle.toCPointer<ByteVar>(), snapshothandle.toCPointer<ByteVar>())
+public actual fun pssFreeSnapshot(processhandle: Handle, snapshothandle: Hpss): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.processsnapshotting.cinterop.windowssys_windows_win32_system_diagnostics_processsnapshotting_pssFreeSnapshot(processhandle?.value?.toCPointer<ByteVar>(), snapshothandle?.value?.toCPointer<ByteVar>())
 
-public actual fun PssQuerySnapshot(snapshothandle: HPSS, informationclass: PSS_QUERY_INFORMATION_CLASS, buffer: Long, bufferlength: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.processsnapshotting.cinterop.windowssys_windows_win32_system_diagnostics_processsnapshotting_PssQuerySnapshot(snapshothandle.toCPointer<ByteVar>(), informationclass, buffer.toCPointer<ByteVar>(), bufferlength)
+public actual fun pssQuerySnapshot(snapshothandle: Hpss, informationclass: PssQueryInformationClass, buffer: COpaquePointer?, bufferlength: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.processsnapshotting.cinterop.windowssys_windows_win32_system_diagnostics_processsnapshotting_pssQuerySnapshot(snapshothandle?.value?.toCPointer<ByteVar>(), informationclass, buffer?.value?.toCPointer<ByteVar>(), bufferlength)
 
-public actual fun PssWalkMarkerCreate(allocator: Long, walkmarkerhandle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.processsnapshotting.cinterop.windowssys_windows_win32_system_diagnostics_processsnapshotting_PssWalkMarkerCreate(allocator.toCPointer<ByteVar>(), walkmarkerhandle.toCPointer<ByteVar>())
+public actual fun pssWalkMarkerCreate(allocator: COpaquePointer?, walkmarkerhandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.processsnapshotting.cinterop.windowssys_windows_win32_system_diagnostics_processsnapshotting_pssWalkMarkerCreate(allocator?.value?.toCPointer<ByteVar>(), walkmarkerhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun PssWalkMarkerFree(walkmarkerhandle: HPSSWALK): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.processsnapshotting.cinterop.windowssys_windows_win32_system_diagnostics_processsnapshotting_PssWalkMarkerFree(walkmarkerhandle.toCPointer<ByteVar>())
+public actual fun pssWalkMarkerFree(walkmarkerhandle: Hpsswalk): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.processsnapshotting.cinterop.windowssys_windows_win32_system_diagnostics_processsnapshotting_pssWalkMarkerFree(walkmarkerhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun PssWalkMarkerGetPosition(walkmarkerhandle: HPSSWALK, position: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.processsnapshotting.cinterop.windowssys_windows_win32_system_diagnostics_processsnapshotting_PssWalkMarkerGetPosition(walkmarkerhandle.toCPointer<ByteVar>(), position.toCPointer<ByteVar>())
+public actual fun pssWalkMarkerGetPosition(walkmarkerhandle: Hpsswalk, position: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.processsnapshotting.cinterop.windowssys_windows_win32_system_diagnostics_processsnapshotting_pssWalkMarkerGetPosition(walkmarkerhandle?.value?.toCPointer<ByteVar>(), position?.value?.toCPointer<ByteVar>())
 
-public actual fun PssWalkMarkerSeekToBeginning(walkmarkerhandle: HPSSWALK): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.processsnapshotting.cinterop.windowssys_windows_win32_system_diagnostics_processsnapshotting_PssWalkMarkerSeekToBeginning(walkmarkerhandle.toCPointer<ByteVar>())
+public actual fun pssWalkMarkerSeekToBeginning(walkmarkerhandle: Hpsswalk): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.processsnapshotting.cinterop.windowssys_windows_win32_system_diagnostics_processsnapshotting_pssWalkMarkerSeekToBeginning(walkmarkerhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun PssWalkMarkerSetPosition(walkmarkerhandle: HPSSWALK, position: ULong): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.processsnapshotting.cinterop.windowssys_windows_win32_system_diagnostics_processsnapshotting_PssWalkMarkerSetPosition(walkmarkerhandle.toCPointer<ByteVar>(), position)
+public actual fun pssWalkMarkerSetPosition(walkmarkerhandle: Hpsswalk, position: ULong): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.processsnapshotting.cinterop.windowssys_windows_win32_system_diagnostics_processsnapshotting_pssWalkMarkerSetPosition(walkmarkerhandle?.value?.toCPointer<ByteVar>(), position)
 
-public actual fun PssWalkSnapshot(snapshothandle: HPSS, informationclass: PSS_WALK_INFORMATION_CLASS, walkmarkerhandle: HPSSWALK, buffer: Long, bufferlength: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.processsnapshotting.cinterop.windowssys_windows_win32_system_diagnostics_processsnapshotting_PssWalkSnapshot(snapshothandle.toCPointer<ByteVar>(), informationclass, walkmarkerhandle.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>(), bufferlength)
+public actual fun pssWalkSnapshot(snapshothandle: Hpss, informationclass: PssWalkInformationClass, walkmarkerhandle: Hpsswalk, buffer: COpaquePointer?, bufferlength: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.processsnapshotting.cinterop.windowssys_windows_win32_system_diagnostics_processsnapshotting_pssWalkSnapshot(snapshothandle?.value?.toCPointer<ByteVar>(), informationclass, walkmarkerhandle?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), bufferlength)

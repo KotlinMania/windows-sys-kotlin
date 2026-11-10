@@ -1,6 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.internetconnectionwizard
 
-import io.github.kotlinmania.windowssys.core.PCSTR
+import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.s
 
 public val ICW_ALREADYRUN: UInt = 4u
@@ -35,9 +35,9 @@ public val ICW_MAX_RASNAME: UInt = 256u
 
 public val ICW_MAX_SERVERNAME: UInt = 64u
 
-public val ICW_REGKEYCOMPLETED: PCSTR = s("Completed")
+public val ICW_REGKEYCOMPLETED: Pcstr = s("Completed")
 
-public val ICW_REGPATHSETTINGS: PCSTR = s("Software\\Microsoft\\Internet Connection Wizard")
+public val ICW_REGPATHSETTINGS: Pcstr = s("Software\\Microsoft\\Internet Connection Wizard")
 
 public val ICW_USEDEFAULTS: UInt = 1u
 

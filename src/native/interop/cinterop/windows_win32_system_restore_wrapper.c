@@ -15,7 +15,7 @@
 #endif
 #endif
 
-uint32_t windowssys_windows_win32_system_restore_SRRemoveRestorePoint(uint32_t dwrpnum) {
+uint32_t windowssys_windows_win32_system_restore_sRRemoveRestorePoint(uint32_t dwrpnum) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -37,7 +37,7 @@ uint32_t windowssys_windows_win32_system_restore_SRRemoveRestorePoint(uint32_t d
 #endif
 }
 
-int32_t windowssys_windows_win32_system_restore_SRSetRestorePointA(void* prestoreptspec, void* psmgrstatus) {
+int32_t windowssys_windows_win32_system_restore_sRSetRestorePointA(void* prestoreptspec, void* psmgrstatus) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -60,7 +60,7 @@ int32_t windowssys_windows_win32_system_restore_SRSetRestorePointA(void* prestor
 #endif
 }
 
-int32_t windowssys_windows_win32_system_restore_SRSetRestorePointW(void* prestoreptspec, void* psmgrstatus) {
+int32_t windowssys_windows_win32_system_restore_sRSetRestorePointW(void* prestoreptspec, void* psmgrstatus) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;

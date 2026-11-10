@@ -2,166 +2,166 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.POINT
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Point
 
-public actual fun ActivateKeyboardLayout(hkl: HKL, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS): HKL =
-    0L
+public actual fun activateKeyboardLayout(hkl: Hkl, flags: ActivateKeyboardLayoutFlags): Hkl =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun BlockInput(fblockit: BOOL): BOOL =
-    0
+public actual fun blockInput(fblockit: Bool): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DragDetect(hwnd: HWND, pt: POINT): BOOL =
-    0
+public actual fun dragDetect(hwnd: Hwnd, pt: Point): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun EnableWindow(hwnd: HWND, benable: BOOL): BOOL =
-    0
+public actual fun enableWindow(hwnd: Hwnd, benable: Bool): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetActiveWindow(): HWND =
-    0L
+public actual fun getActiveWindow(): Hwnd =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetAsyncKeyState(vkey: Int): Short =
-    0
+public actual fun getAsyncKeyState(vkey: Int): Short =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetCapture(): HWND =
-    0L
+public actual fun getCapture(): Hwnd =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetDoubleClickTime(): UInt =
-    0u
+public actual fun getDoubleClickTime(): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetFocus(): HWND =
-    0L
+public actual fun getFocus(): Hwnd =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetKBCodePage(): UInt =
-    0u
+public actual fun getKBCodePage(): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetKeyNameTextA(lparam: Int, lpstring: PSTR, cchsize: Int): Int =
-    0
+public actual fun getKeyNameTextA(lparam: Int, lpstring: Pstr, cchsize: Int): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetKeyNameTextW(lparam: Int, lpstring: PWSTR, cchsize: Int): Int =
-    0
+public actual fun getKeyNameTextW(lparam: Int, lpstring: Pwstr, cchsize: Int): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetKeyState(nvirtkey: Int): Short =
-    0
+public actual fun getKeyState(nvirtkey: Int): Short =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetKeyboardLayout(idthread: UInt): HKL =
-    0L
+public actual fun getKeyboardLayout(idthread: UInt): Hkl =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetKeyboardLayoutList(nbuff: Int, lplist: Long): Int =
-    0
+public actual fun getKeyboardLayoutList(nbuff: Int, lplist: COpaquePointer?): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetKeyboardLayoutNameA(pwszklid: PSTR): BOOL =
-    0
+public actual fun getKeyboardLayoutNameA(pwszklid: Pstr): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetKeyboardLayoutNameW(pwszklid: PWSTR): BOOL =
-    0
+public actual fun getKeyboardLayoutNameW(pwszklid: Pwstr): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetKeyboardState(lpkeystate: Long): BOOL =
-    0
+public actual fun getKeyboardState(lpkeystate: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetKeyboardType(ntypeflag: Int): Int =
-    0
+public actual fun getKeyboardType(ntypeflag: Int): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetLastInputInfo(plii: Long): BOOL =
-    0
+public actual fun getLastInputInfo(plii: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetMouseMovePointsEx(cbsize: UInt, lppt: Long, lpptbuf: Long, nbufpoints: Int, resolution: GET_MOUSE_MOVE_POINTS_EX_RESOLUTION): Int =
-    0
+public actual fun getMouseMovePointsEx(cbsize: UInt, lppt: COpaquePointer?, lpptbuf: COpaquePointer?, nbufpoints: Int, resolution: GetMouseMovePointsExResolution): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun IsWindowEnabled(hwnd: HWND): BOOL =
-    0
+public actual fun isWindowEnabled(hwnd: Hwnd): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LoadKeyboardLayoutA(pwszklid: PCSTR, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS): HKL =
-    0L
+public actual fun loadKeyboardLayoutA(pwszklid: Pcstr, flags: ActivateKeyboardLayoutFlags): Hkl =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LoadKeyboardLayoutW(pwszklid: PCWSTR, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS): HKL =
-    0L
+public actual fun loadKeyboardLayoutW(pwszklid: Pcwstr, flags: ActivateKeyboardLayoutFlags): Hkl =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun MapVirtualKeyA(ucode: UInt, umaptype: MAP_VIRTUAL_KEY_TYPE): UInt =
-    0u
+public actual fun mapVirtualKeyA(ucode: UInt, umaptype: MapVirtualKeyType): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun MapVirtualKeyExA(ucode: UInt, umaptype: MAP_VIRTUAL_KEY_TYPE, dwhkl: HKL): UInt =
-    0u
+public actual fun mapVirtualKeyExA(ucode: UInt, umaptype: MapVirtualKeyType, dwhkl: Hkl): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun MapVirtualKeyExW(ucode: UInt, umaptype: MAP_VIRTUAL_KEY_TYPE, dwhkl: HKL): UInt =
-    0u
+public actual fun mapVirtualKeyExW(ucode: UInt, umaptype: MapVirtualKeyType, dwhkl: Hkl): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun MapVirtualKeyW(ucode: UInt, umaptype: MAP_VIRTUAL_KEY_TYPE): UInt =
-    0u
+public actual fun mapVirtualKeyW(ucode: UInt, umaptype: MapVirtualKeyType): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun OemKeyScan(woemchar: UShort): UInt =
-    0u
+public actual fun oemKeyScan(woemchar: UShort): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun RegisterHotKey(hwnd: HWND, id: Int, fsmodifiers: HOT_KEY_MODIFIERS, vk: UInt): BOOL =
-    0
+public actual fun registerHotKey(hwnd: Hwnd, id: Int, fsmodifiers: HotKeyModifiers, vk: UInt): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ReleaseCapture(): BOOL =
-    0
+public actual fun releaseCapture(): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SendInput(cinputs: UInt, pinputs: Long, cbsize: Int): UInt =
-    0u
+public actual fun sendInput(cinputs: UInt, pinputs: COpaquePointer?, cbsize: Int): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetActiveWindow(hwnd: HWND): HWND =
-    0L
+public actual fun setActiveWindow(hwnd: Hwnd): Hwnd =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetCapture(hwnd: HWND): HWND =
-    0L
+public actual fun setCapture(hwnd: Hwnd): Hwnd =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetDoubleClickTime(param0: UInt): BOOL =
-    0
+public actual fun setDoubleClickTime(param0: UInt): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetFocus(hwnd: HWND): HWND =
-    0L
+public actual fun setFocus(hwnd: Hwnd): Hwnd =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetKeyboardState(lpkeystate: Long): BOOL =
-    0
+public actual fun setKeyboardState(lpkeystate: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SwapMouseButton(fswap: BOOL): BOOL =
-    0
+public actual fun swapMouseButton(fswap: Bool): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ToAscii(uvirtkey: UInt, uscancode: UInt, lpkeystate: Long, lpchar: Long, uflags: UInt): Int =
-    0
+public actual fun toAscii(uvirtkey: UInt, uscancode: UInt, lpkeystate: COpaquePointer?, lpchar: COpaquePointer?, uflags: UInt): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ToAsciiEx(uvirtkey: UInt, uscancode: UInt, lpkeystate: Long, lpchar: Long, uflags: UInt, dwhkl: HKL): Int =
-    0
+public actual fun toAsciiEx(uvirtkey: UInt, uscancode: UInt, lpkeystate: COpaquePointer?, lpchar: COpaquePointer?, uflags: UInt, dwhkl: Hkl): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ToUnicode(wvirtkey: UInt, wscancode: UInt, lpkeystate: Long, pwszbuff: PWSTR, cchbuff: Int, wflags: UInt): Int =
-    0
+public actual fun toUnicode(wvirtkey: UInt, wscancode: UInt, lpkeystate: COpaquePointer?, pwszbuff: Pwstr, cchbuff: Int, wflags: UInt): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ToUnicodeEx(wvirtkey: UInt, wscancode: UInt, lpkeystate: Long, pwszbuff: PWSTR, cchbuff: Int, wflags: UInt, dwhkl: HKL): Int =
-    0
+public actual fun toUnicodeEx(wvirtkey: UInt, wscancode: UInt, lpkeystate: COpaquePointer?, pwszbuff: Pwstr, cchbuff: Int, wflags: UInt, dwhkl: Hkl): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun TrackMouseEvent(lpeventtrack: Long): BOOL =
-    0
+public actual fun trackMouseEvent(lpeventtrack: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun UnloadKeyboardLayout(hkl: HKL): BOOL =
-    0
+public actual fun unloadKeyboardLayout(hkl: Hkl): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun UnregisterHotKey(hwnd: HWND, id: Int): BOOL =
-    0
+public actual fun unregisterHotKey(hwnd: Hwnd, id: Int): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun VkKeyScanA(ch: Byte): Short =
-    0
+public actual fun vkKeyScanA(ch: Byte): Short =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun VkKeyScanExA(ch: Byte, dwhkl: HKL): Short =
-    0
+public actual fun vkKeyScanExA(ch: Byte, dwhkl: Hkl): Short =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun VkKeyScanExW(ch: UShort, dwhkl: HKL): Short =
-    0
+public actual fun vkKeyScanExW(ch: UShort, dwhkl: Hkl): Short =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun VkKeyScanW(ch: UShort): Short =
-    0
+public actual fun vkKeyScanW(ch: UShort): Short =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun _TrackMouseEvent(lpeventtrack: Long): BOOL =
-    0
-
-public actual fun keybd_event(bvk: UByte, bscan: UByte, dwflags: KEYBD_EVENT_FLAGS, dwextrainfo: ULong) {
+public actual fun keybdEvent(bvk: UByte, bscan: UByte, dwflags: KeybdEventFlags, dwextrainfo: ULong) {
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 }
 
-public actual fun mouse_event(dwflags: MOUSE_EVENT_FLAGS, dx: Int, dy: Int, dwdata: Int, dwextrainfo: ULong) {
+public actual fun mouseEvent(dwflags: MouseEventFlags, dx: Int, dy: Int, dwdata: Int, dwextrainfo: ULong) {
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 }

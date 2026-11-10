@@ -18,7 +18,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_applocker_WindowsWin32SecurityApplockerJniBridge_windowssys_1windows_1win32_1security_1applocker_1SaferCloseLevel(JNIEnv* km_env, jclass km_clazz, jlong hlevelhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_applocker_WindowsWin32SecurityApplockerJniBridge_windowssys_1windows_1win32_1security_1applocker_1saferCloseLevel(JNIEnv* km_env, jclass km_clazz, jlong hlevelhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -36,7 +36,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_applocker_WindowsWin32SecurityApplockerJniBridge_windowssys_1windows_1win32_1security_1applocker_1SaferComputeTokenFromLevel(JNIEnv* km_env, jclass km_clazz, jlong levelhandle, jlong inaccesstoken, jlong outaccesstoken, jint dwflags, jlong lpreserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_applocker_WindowsWin32SecurityApplockerJniBridge_windowssys_1windows_1win32_1security_1applocker_1saferComputeTokenFromLevel(JNIEnv* km_env, jclass km_clazz, jlong levelhandle, jlong inaccesstoken, jlong outaccesstoken, jint dwflags, jlong lpreserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -58,7 +58,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_applocker_WindowsWin32SecurityApplockerJniBridge_windowssys_1windows_1win32_1security_1applocker_1SaferCreateLevel(JNIEnv* km_env, jclass km_clazz, jint dwscopeid, jint dwlevelid, jint openflags, jlong plevelhandle, jlong lpreserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_applocker_WindowsWin32SecurityApplockerJniBridge_windowssys_1windows_1win32_1security_1applocker_1saferCreateLevel(JNIEnv* km_env, jclass km_clazz, jint dwscopeid, jint dwlevelid, jint openflags, jlong plevelhandle, jlong lpreserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -80,7 +80,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_applocker_WindowsWin32SecurityApplockerJniBridge_windowssys_1windows_1win32_1security_1applocker_1SaferGetLevelInformation(JNIEnv* km_env, jclass km_clazz, jlong levelhandle, jint dwinfotype, jlong lpquerybuffer, jint dwinbuffersize, jlong lpdwoutbuffersize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_applocker_WindowsWin32SecurityApplockerJniBridge_windowssys_1windows_1win32_1security_1applocker_1saferGetLevelInformation(JNIEnv* km_env, jclass km_clazz, jlong levelhandle, jint dwinfotype, jlong lpquerybuffer, jint dwinbuffersize, jlong lpdwoutbuffersize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -102,7 +102,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_applocker_WindowsWin32SecurityApplockerJniBridge_windowssys_1windows_1win32_1security_1applocker_1SaferGetPolicyInformation(JNIEnv* km_env, jclass km_clazz, jint dwscopeid, jint saferpolicyinfoclass, jint infobuffersize, jlong infobuffer, jlong infobufferretsize, jlong lpreserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_applocker_WindowsWin32SecurityApplockerJniBridge_windowssys_1windows_1win32_1security_1applocker_1saferGetPolicyInformation(JNIEnv* km_env, jclass km_clazz, jint dwscopeid, jint saferpolicyinfoclass, jint infobuffersize, jlong infobuffer, jlong infobufferretsize, jlong lpreserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -125,7 +125,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_applocker_WindowsWin32SecurityApplockerJniBridge_windowssys_1windows_1win32_1security_1applocker_1SaferIdentifyLevel(JNIEnv* km_env, jclass km_clazz, jint dwnumproperties, jlong pcodeproperties, jlong plevelhandle, jlong lpreserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_applocker_WindowsWin32SecurityApplockerJniBridge_windowssys_1windows_1win32_1security_1applocker_1saferIdentifyLevel(JNIEnv* km_env, jclass km_clazz, jint dwnumproperties, jlong pcodeproperties, jlong plevelhandle, jlong lpreserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -146,7 +146,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_applocker_WindowsWin32SecurityApplockerJniBridge_windowssys_1windows_1win32_1security_1applocker_1SaferRecordEventLogEntry(JNIEnv* km_env, jclass km_clazz, jlong hlevel, jlong sztargetpath, jlong lpreserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_applocker_WindowsWin32SecurityApplockerJniBridge_windowssys_1windows_1win32_1security_1applocker_1saferRecordEventLogEntry(JNIEnv* km_env, jclass km_clazz, jlong hlevel, jlong sztargetpath, jlong lpreserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -166,7 +166,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_applocker_WindowsWin32SecurityApplockerJniBridge_windowssys_1windows_1win32_1security_1applocker_1SaferSetLevelInformation(JNIEnv* km_env, jclass km_clazz, jlong levelhandle, jint dwinfotype, jlong lpquerybuffer, jint dwinbuffersize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_applocker_WindowsWin32SecurityApplockerJniBridge_windowssys_1windows_1win32_1security_1applocker_1saferSetLevelInformation(JNIEnv* km_env, jclass km_clazz, jlong levelhandle, jint dwinfotype, jlong lpquerybuffer, jint dwinbuffersize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -187,7 +187,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_applocker_WindowsWin32SecurityApplockerJniBridge_windowssys_1windows_1win32_1security_1applocker_1SaferSetPolicyInformation(JNIEnv* km_env, jclass km_clazz, jint dwscopeid, jint saferpolicyinfoclass, jint infobuffersize, jlong infobuffer, jlong lpreserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_applocker_WindowsWin32SecurityApplockerJniBridge_windowssys_1windows_1win32_1security_1applocker_1saferSetPolicyInformation(JNIEnv* km_env, jclass km_clazz, jint dwscopeid, jint saferpolicyinfoclass, jint infobuffersize, jlong infobuffer, jlong lpreserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -209,7 +209,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_applocker_WindowsWin32SecurityApplockerJniBridge_windowssys_1windows_1win32_1security_1applocker_1SaferiIsExecutableFileType(JNIEnv* km_env, jclass km_clazz, jlong szfullpathname, jboolean bfromshellexecute) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_applocker_WindowsWin32SecurityApplockerJniBridge_windowssys_1windows_1win32_1security_1applocker_1saferiIsExecutableFileType(JNIEnv* km_env, jclass km_clazz, jlong szfullpathname, jboolean bfromshellexecute) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

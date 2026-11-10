@@ -2,259 +2,271 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.snmp
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 
-public actual fun SnmpCancelMsg(session: Long, reqid: Int): UInt =
-    0u
+public actual fun snmpCancelMsg(session: Long, reqid: Int): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpCleanup(): UInt =
-    0u
+public actual fun snmpCleanup(): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpCleanupEx(): UInt =
-    0u
+public actual fun snmpCleanupEx(): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpClose(session: Long): UInt =
-    0u
+public actual fun snmpClose(session: Long): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpContextToStr(context: Long, string: Long): UInt =
-    0u
+public actual fun snmpContextToStr(context: Long, string: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpCountVbl(vbl: Long): UInt =
-    0u
+public actual fun snmpCountVbl(vbl: Long): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpCreatePdu(session: Long, pdu_type: SNMP_PDU_TYPE, request_id: Int, error_status: Int, error_index: Int, varbindlist: Long): Long =
-    0L
+public actual fun snmpCreatePdu(session: Long, pduType: SnmpPduType, requestId: Int, errorStatus: Int, errorIndex: Int, varbindlist: Long): Long =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpCreateSession(hwnd: HWND, wmsg: UInt, fcallback: SNMPAPI_CALLBACK, lpclientdata: Long): Long =
-    0L
+public actual fun snmpCreateSession(hwnd: Hwnd, wmsg: UInt, fcallback: SnmpapiCallback, lpclientdata: COpaquePointer?): Long =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpCreateVbl(session: Long, name: Long, value: Long): Long =
-    0L
+public actual fun snmpCreateVbl(session: Long, name: COpaquePointer?, value: COpaquePointer?): Long =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpDecodeMsg(session: Long, srcentity: Long, dstentity: Long, context: Long, pdu: Long, msgbufdesc: Long): UInt =
-    0u
+public actual fun snmpDecodeMsg(session: Long, srcentity: COpaquePointer?, dstentity: COpaquePointer?, context: COpaquePointer?, pdu: COpaquePointer?, msgbufdesc: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpDeleteVb(vbl: Long, index: UInt): UInt =
-    0u
+public actual fun snmpDeleteVb(vbl: Long, index: UInt): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpDuplicatePdu(session: Long, pdu: Long): Long =
-    0L
+public actual fun snmpDuplicatePdu(session: Long, pdu: Long): Long =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpDuplicateVbl(session: Long, vbl: Long): Long =
-    0L
+public actual fun snmpDuplicateVbl(session: Long, vbl: Long): Long =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpEncodeMsg(session: Long, srcentity: Long, dstentity: Long, context: Long, pdu: Long, msgbufdesc: Long): UInt =
-    0u
+public actual fun snmpEncodeMsg(session: Long, srcentity: Long, dstentity: Long, context: Long, pdu: Long, msgbufdesc: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpEntityToStr(entity: Long, size: UInt, string: PSTR): UInt =
-    0u
+public actual fun snmpEntityToStr(entity: Long, size: UInt, string: Pstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpFreeContext(context: Long): UInt =
-    0u
+public actual fun snmpFreeContext(context: Long): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpFreeDescriptor(syntax: UInt, descriptor: Long): UInt =
-    0u
+public actual fun snmpFreeDescriptor(syntax: UInt, descriptor: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpFreeEntity(entity: Long): UInt =
-    0u
+public actual fun snmpFreeEntity(entity: Long): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpFreePdu(pdu: Long): UInt =
-    0u
+public actual fun snmpFreePdu(pdu: Long): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpFreeVbl(vbl: Long): UInt =
-    0u
+public actual fun snmpFreeVbl(vbl: Long): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpGetLastError(session: Long): UInt =
-    0u
+public actual fun snmpGetLastError(session: Long): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpGetPduData(pdu: Long, pdu_type: Long, request_id: Long, error_status: Long, error_index: Long, varbindlist: Long): UInt =
-    0u
+public actual fun snmpGetPduData(pdu: Long, pduType: COpaquePointer?, requestId: COpaquePointer?, errorStatus: COpaquePointer?, errorIndex: COpaquePointer?, varbindlist: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpGetRetransmitMode(nretransmitmode: Long): UInt =
-    0u
+public actual fun snmpGetRetransmitMode(nretransmitmode: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpGetRetry(hentity: Long, npolicyretry: Long, nactualretry: Long): UInt =
-    0u
+public actual fun snmpGetRetry(hentity: Long, npolicyretry: COpaquePointer?, nactualretry: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpGetTimeout(hentity: Long, npolicytimeout: Long, nactualtimeout: Long): UInt =
-    0u
+public actual fun snmpGetTimeout(hentity: Long, npolicytimeout: COpaquePointer?, nactualtimeout: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpGetTranslateMode(ntranslatemode: Long): UInt =
-    0u
+public actual fun snmpGetTranslateMode(ntranslatemode: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpGetVb(vbl: Long, index: UInt, name: Long, value: Long): UInt =
-    0u
+public actual fun snmpGetVb(vbl: Long, index: UInt, name: COpaquePointer?, value: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpGetVendorInfo(vendorinfo: Long): UInt =
-    0u
+public actual fun snmpGetVendorInfo(vendorinfo: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpListen(hentity: Long, lstatus: SNMP_STATUS): UInt =
-    0u
+public actual fun snmpListen(hentity: Long, lstatus: SnmpStatus): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpListenEx(hentity: Long, lstatus: UInt, nuseentityaddr: UInt): UInt =
-    0u
+public actual fun snmpListenEx(hentity: Long, lstatus: UInt, nuseentityaddr: UInt): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpMgrClose(session: Long): BOOL =
-    0
+public actual fun snmpMgrClose(session: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpMgrCtl(session: Long, dwctlcode: UInt, lpvinbuffer: Long, cbinbuffer: UInt, lpvoutbuffer: Long, cboutbuffer: UInt, lpcbbytesreturned: Long): BOOL =
-    0
+public actual fun snmpMgrCtl(session: COpaquePointer?, dwctlcode: UInt, lpvinbuffer: COpaquePointer?, cbinbuffer: UInt, lpvoutbuffer: COpaquePointer?, cboutbuffer: UInt, lpcbbytesreturned: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpMgrGetTrap(enterprise: Long, ipaddress: Long, generictrap: Long, specifictrap: Long, timestamp: Long, variablebindings: Long): BOOL =
-    0
+public actual fun snmpMgrGetTrap(enterprise: COpaquePointer?, ipaddress: COpaquePointer?, generictrap: COpaquePointer?, specifictrap: COpaquePointer?, timestamp: COpaquePointer?, variablebindings: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpMgrGetTrapEx(enterprise: Long, agentaddress: Long, sourceaddress: Long, generictrap: Long, specifictrap: Long, community: Long, timestamp: Long, variablebindings: Long): BOOL =
-    0
+public actual fun snmpMgrGetTrapEx(enterprise: COpaquePointer?, agentaddress: COpaquePointer?, sourceaddress: COpaquePointer?, generictrap: COpaquePointer?, specifictrap: COpaquePointer?, community: COpaquePointer?, timestamp: COpaquePointer?, variablebindings: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpMgrOidToStr(oid: Long, string: Long): BOOL =
-    0
+public actual fun snmpMgrOidToStr(oid: COpaquePointer?, string: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpMgrOpen(lpagentaddress: PCSTR, lpagentcommunity: PCSTR, ntimeout: Int, nretries: Int): Long =
-    0L
+public actual fun snmpMgrOpen(lpagentaddress: Pcstr, lpagentcommunity: Pcstr, ntimeout: Int, nretries: Int): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpMgrRequest(session: Long, requesttype: UByte, variablebindings: Long, errorstatus: Long, errorindex: Long): Int =
-    0
+public actual fun snmpMgrRequest(session: COpaquePointer?, requesttype: UByte, variablebindings: COpaquePointer?, errorstatus: COpaquePointer?, errorindex: COpaquePointer?): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpMgrStrToOid(string: PCSTR, oid: Long): BOOL =
-    0
+public actual fun snmpMgrStrToOid(string: Pcstr, oid: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpMgrTrapListen(phtrapavailable: Long): BOOL =
-    0
+public actual fun snmpMgrTrapListen(phtrapavailable: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpOidCompare(xoid: Long, yoid: Long, maxlen: UInt, result: Long): UInt =
-    0u
+public actual fun snmpOidCompare(xoid: COpaquePointer?, yoid: COpaquePointer?, maxlen: UInt, result: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpOidCopy(srcoid: Long, dstoid: Long): UInt =
-    0u
+public actual fun snmpOidCopy(srcoid: COpaquePointer?, dstoid: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpOidToStr(srcoid: Long, size: UInt, string: PSTR): UInt =
-    0u
+public actual fun snmpOidToStr(srcoid: COpaquePointer?, size: UInt, string: Pstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpOpen(hwnd: HWND, wmsg: UInt): Long =
-    0L
+public actual fun snmpOpen(hwnd: Hwnd, wmsg: UInt): Long =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpRecvMsg(session: Long, srcentity: Long, dstentity: Long, context: Long, pdu: Long): UInt =
-    0u
+public actual fun snmpRecvMsg(session: Long, srcentity: COpaquePointer?, dstentity: COpaquePointer?, context: COpaquePointer?, pdu: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpRegister(session: Long, srcentity: Long, dstentity: Long, context: Long, notification: Long, state: SNMP_STATUS): UInt =
-    0u
+public actual fun snmpRegister(session: Long, srcentity: Long, dstentity: Long, context: Long, notification: COpaquePointer?, state: SnmpStatus): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpSendMsg(session: Long, srcentity: Long, dstentity: Long, context: Long, pdu: Long): UInt =
-    0u
+public actual fun snmpSendMsg(session: Long, srcentity: Long, dstentity: Long, context: Long, pdu: Long): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpSetPduData(pdu: Long, pdu_type: Long, request_id: Long, non_repeaters: Long, max_repetitions: Long, varbindlist: Long): UInt =
-    0u
+public actual fun snmpSetPduData(pdu: Long, pduType: COpaquePointer?, requestId: COpaquePointer?, nonRepeaters: COpaquePointer?, maxRepetitions: COpaquePointer?, varbindlist: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpSetPort(hentity: Long, nport: UInt): UInt =
-    0u
+public actual fun snmpSetPort(hentity: Long, nport: UInt): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpSetRetransmitMode(nretransmitmode: SNMP_STATUS): UInt =
-    0u
+public actual fun snmpSetRetransmitMode(nretransmitmode: SnmpStatus): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpSetRetry(hentity: Long, npolicyretry: UInt): UInt =
-    0u
+public actual fun snmpSetRetry(hentity: Long, npolicyretry: UInt): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpSetTimeout(hentity: Long, npolicytimeout: UInt): UInt =
-    0u
+public actual fun snmpSetTimeout(hentity: Long, npolicytimeout: UInt): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpSetTranslateMode(ntranslatemode: SNMP_API_TRANSLATE_MODE): UInt =
-    0u
+public actual fun snmpSetTranslateMode(ntranslatemode: SnmpApiTranslateMode): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpSetVb(vbl: Long, index: UInt, name: Long, value: Long): UInt =
-    0u
+public actual fun snmpSetVb(vbl: Long, index: UInt, name: COpaquePointer?, value: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpStartup(nmajorversion: Long, nminorversion: Long, nlevel: Long, ntranslatemode: Long, nretransmitmode: Long): UInt =
-    0u
+public actual fun snmpStartup(nmajorversion: COpaquePointer?, nminorversion: COpaquePointer?, nlevel: COpaquePointer?, ntranslatemode: COpaquePointer?, nretransmitmode: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpStartupEx(nmajorversion: Long, nminorversion: Long, nlevel: Long, ntranslatemode: Long, nretransmitmode: Long): UInt =
-    0u
+public actual fun snmpStartupEx(nmajorversion: COpaquePointer?, nminorversion: COpaquePointer?, nlevel: COpaquePointer?, ntranslatemode: COpaquePointer?, nretransmitmode: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpStrToContext(session: Long, string: Long): Long =
-    0L
+public actual fun snmpStrToContext(session: Long, string: COpaquePointer?): Long =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpStrToEntity(session: Long, string: PCSTR): Long =
-    0L
+public actual fun snmpStrToEntity(session: Long, string: Pcstr): Long =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpStrToOid(string: PCSTR, dstoid: Long): UInt =
-    0u
+public actual fun snmpStrToOid(string: Pcstr, dstoid: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpSvcGetUptime(): UInt =
-    0u
+public actual fun snmpSvcGetUptime(): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpSvcSetLogLevel(nloglevel: SNMP_LOG) {
+public actual fun snmpSvcSetLogLevel(nloglevel: SnmpLog) {
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 }
 
-public actual fun SnmpSvcSetLogType(nlogtype: Int) {
+public actual fun snmpSvcSetLogType(nlogtype: Int) {
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 }
 
-public actual fun SnmpUtilAsnAnyCpy(panydst: Long, panysrc: Long): Int =
-    0
+public actual fun snmpUtilAsnAnyCpy(panydst: COpaquePointer?, panysrc: COpaquePointer?): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpUtilAsnAnyFree(pany: Long) {
+public actual fun snmpUtilAsnAnyFree(pany: COpaquePointer?) {
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 }
 
-public actual fun SnmpUtilDbgPrint(nloglevel: SNMP_LOG, szformat: PCSTR) {
+public actual fun snmpUtilDbgPrint(nloglevel: SnmpLog, szformat: Pcstr, vararg variadicArgs: Long) {
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 }
 
-public actual fun SnmpUtilIdsToA(ids: Long, idlength: UInt): PSTR =
-    0L
+public actual fun snmpUtilIdsToA(ids: COpaquePointer?, idlength: UInt): Pstr =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpUtilMemAlloc(nbytes: UInt): Long =
-    0L
+public actual fun snmpUtilMemAlloc(nbytes: UInt): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpUtilMemFree(pmem: Long) {
+public actual fun snmpUtilMemFree(pmem: COpaquePointer?) {
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 }
 
-public actual fun SnmpUtilMemReAlloc(pmem: Long, nbytes: UInt): Long =
-    0L
+public actual fun snmpUtilMemReAlloc(pmem: COpaquePointer?, nbytes: UInt): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpUtilOctetsCmp(poctets1: Long, poctets2: Long): Int =
-    0
+public actual fun snmpUtilOctetsCmp(poctets1: COpaquePointer?, poctets2: COpaquePointer?): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpUtilOctetsCpy(poctetsdst: Long, poctetssrc: Long): Int =
-    0
+public actual fun snmpUtilOctetsCpy(poctetsdst: COpaquePointer?, poctetssrc: COpaquePointer?): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpUtilOctetsFree(poctets: Long) {
+public actual fun snmpUtilOctetsFree(poctets: COpaquePointer?) {
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 }
 
-public actual fun SnmpUtilOctetsNCmp(poctets1: Long, poctets2: Long, nchars: UInt): Int =
-    0
+public actual fun snmpUtilOctetsNCmp(poctets1: COpaquePointer?, poctets2: COpaquePointer?, nchars: UInt): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpUtilOidAppend(poiddst: Long, poidsrc: Long): Int =
-    0
+public actual fun snmpUtilOidAppend(poiddst: COpaquePointer?, poidsrc: COpaquePointer?): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpUtilOidCmp(poid1: Long, poid2: Long): Int =
-    0
+public actual fun snmpUtilOidCmp(poid1: COpaquePointer?, poid2: COpaquePointer?): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpUtilOidCpy(poiddst: Long, poidsrc: Long): Int =
-    0
+public actual fun snmpUtilOidCpy(poiddst: COpaquePointer?, poidsrc: COpaquePointer?): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpUtilOidFree(poid: Long) {
+public actual fun snmpUtilOidFree(poid: COpaquePointer?) {
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 }
 
-public actual fun SnmpUtilOidNCmp(poid1: Long, poid2: Long, nsubids: UInt): Int =
-    0
+public actual fun snmpUtilOidNCmp(poid1: COpaquePointer?, poid2: COpaquePointer?, nsubids: UInt): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpUtilOidToA(oid: Long): PSTR =
-    0L
+public actual fun snmpUtilOidToA(oid: COpaquePointer?): Pstr =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpUtilPrintAsnAny(pany: Long) {
+public actual fun snmpUtilPrintAsnAny(pany: COpaquePointer?) {
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 }
 
-public actual fun SnmpUtilPrintOid(oid: Long) {
+public actual fun snmpUtilPrintOid(oid: COpaquePointer?) {
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 }
 
-public actual fun SnmpUtilVarBindCpy(pvbdst: Long, pvbsrc: Long): Int =
-    0
+public actual fun snmpUtilVarBindCpy(pvbdst: COpaquePointer?, pvbsrc: COpaquePointer?): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpUtilVarBindFree(pvb: Long) {
+public actual fun snmpUtilVarBindFree(pvb: COpaquePointer?) {
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 }
 
-public actual fun SnmpUtilVarBindListCpy(pvbldst: Long, pvblsrc: Long): Int =
-    0
+public actual fun snmpUtilVarBindListCpy(pvbldst: COpaquePointer?, pvblsrc: COpaquePointer?): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SnmpUtilVarBindListFree(pvbl: Long) {
+public actual fun snmpUtilVarBindListFree(pvbl: COpaquePointer?) {
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 }

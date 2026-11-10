@@ -1,71 +1,71 @@
 package io.github.kotlinmania.windowssys.windows.win32.ui.controls.dialogs
 
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
-import io.github.kotlinmania.windowssys.windows.win32.foundation.WPARAM
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Wparam
 
-public typealias CHOOSECOLOR_FLAGS = UInt
+public typealias ChoosecolorFlags = UInt
 
-public typealias CHOOSEFONT_FLAGS = UInt
+public typealias ChoosefontFlags = UInt
 
-public typealias CHOOSEFONT_FONT_TYPE = UShort
+public typealias ChoosefontFontType = UShort
 
-public typealias COMMON_DLG_ERRORS = UInt
+public typealias CommonDlgErrors = UInt
 
-public typealias FINDREPLACE_FLAGS = UInt
+public typealias FindreplaceFlags = UInt
 
-public fun interface LPCCHOOKPROCFn {
-    public operator fun invoke(param0: HWND, param1: UInt, param2: WPARAM, param3: LPARAM): ULong
+public fun interface LpcchookprocFn {
+    public operator fun invoke(param0: Hwnd, param1: UInt, param2: Wparam, param3: Lparam): ULong
 }
 
-public typealias LPCCHOOKPROC = LPCCHOOKPROCFn?
+public typealias Lpcchookproc = LpcchookprocFn?
 
-public fun interface LPCFHOOKPROCFn {
-    public operator fun invoke(param0: HWND, param1: UInt, param2: WPARAM, param3: LPARAM): ULong
+public fun interface LpcfhookprocFn {
+    public operator fun invoke(param0: Hwnd, param1: UInt, param2: Wparam, param3: Lparam): ULong
 }
 
-public typealias LPCFHOOKPROC = LPCFHOOKPROCFn?
+public typealias Lpcfhookproc = LpcfhookprocFn?
 
-public fun interface LPFRHOOKPROCFn {
-    public operator fun invoke(param0: HWND, param1: UInt, param2: WPARAM, param3: LPARAM): ULong
+public fun interface LpfrhookprocFn {
+    public operator fun invoke(param0: Hwnd, param1: UInt, param2: Wparam, param3: Lparam): ULong
 }
 
-public typealias LPFRHOOKPROC = LPFRHOOKPROCFn?
+public typealias Lpfrhookproc = LpfrhookprocFn?
 
-public fun interface LPOFNHOOKPROCFn {
-    public operator fun invoke(param0: HWND, param1: UInt, param2: WPARAM, param3: LPARAM): ULong
+public fun interface LpofnhookprocFn {
+    public operator fun invoke(param0: Hwnd, param1: UInt, param2: Wparam, param3: Lparam): ULong
 }
 
-public typealias LPOFNHOOKPROC = LPOFNHOOKPROCFn?
+public typealias Lpofnhookproc = LpofnhookprocFn?
 
-public fun interface LPPAGEPAINTHOOKFn {
-    public operator fun invoke(param0: HWND, param1: UInt, param2: WPARAM, param3: LPARAM): ULong
+public fun interface LppagepainthookFn {
+    public operator fun invoke(param0: Hwnd, param1: UInt, param2: Wparam, param3: Lparam): ULong
 }
 
-public typealias LPPAGEPAINTHOOK = LPPAGEPAINTHOOKFn?
+public typealias Lppagepainthook = LppagepainthookFn?
 
-public fun interface LPPAGESETUPHOOKFn {
-    public operator fun invoke(param0: HWND, param1: UInt, param2: WPARAM, param3: LPARAM): ULong
+public fun interface LppagesetuphookFn {
+    public operator fun invoke(param0: Hwnd, param1: UInt, param2: Wparam, param3: Lparam): ULong
 }
 
-public typealias LPPAGESETUPHOOK = LPPAGESETUPHOOKFn?
+public typealias Lppagesetuphook = LppagesetuphookFn?
 
-public fun interface LPPRINTHOOKPROCFn {
-    public operator fun invoke(param0: HWND, param1: UInt, param2: WPARAM, param3: LPARAM): ULong
+public fun interface LpprinthookprocFn {
+    public operator fun invoke(param0: Hwnd, param1: UInt, param2: Wparam, param3: Lparam): ULong
 }
 
-public typealias LPPRINTHOOKPROC = LPPRINTHOOKPROCFn?
+public typealias Lpprinthookproc = LpprinthookprocFn?
 
-public fun interface LPSETUPHOOKPROCFn {
-    public operator fun invoke(param0: HWND, param1: UInt, param2: WPARAM, param3: LPARAM): ULong
+public fun interface LpsetuphookprocFn {
+    public operator fun invoke(param0: Hwnd, param1: UInt, param2: Wparam, param3: Lparam): ULong
 }
 
-public typealias LPSETUPHOOKPROC = LPSETUPHOOKPROCFn?
+public typealias Lpsetuphookproc = LpsetuphookprocFn?
 
-public typealias OPEN_FILENAME_FLAGS = UInt
+public typealias OpenFilenameFlags = UInt
 
-public typealias OPEN_FILENAME_FLAGS_EX = UInt
+public typealias OpenFilenameFlagsEx = UInt
 
-public typealias PAGESETUPDLG_FLAGS = UInt
+public typealias PagesetupdlgFlags = UInt
 
-public typealias PRINTDLGEX_FLAGS = UInt
+public typealias PrintdlgexFlags = UInt

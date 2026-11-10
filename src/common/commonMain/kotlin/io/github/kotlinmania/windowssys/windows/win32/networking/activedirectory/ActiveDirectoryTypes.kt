@@ -1,123 +1,124 @@
 package io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory
 
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
-import io.github.kotlinmania.windowssys.windows.win32.foundation.WPARAM
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Wparam
 
-public typealias ADSI_DIALECT_ENUM = Int
+public typealias AdsiDialectEnum = Int
 
-public typealias ADSTYPE = Int
+public typealias Adstype = Int
 
-public typealias ADS_ACEFLAG_ENUM = Int
+public typealias AdsAceflagEnum = Int
 
-public typealias ADS_ACETYPE_ENUM = Int
+public typealias AdsAcetypeEnum = Int
 
-public typealias ADS_AUTHENTICATION_ENUM = UInt
+public typealias AdsAuthenticationEnum = UInt
 
-public typealias ADS_CHASE_REFERRALS_ENUM = Int
+public typealias AdsChaseReferralsEnum = Int
 
-public typealias ADS_DEREFENUM = Int
+public typealias AdsDerefenum = Int
 
-public typealias ADS_DISPLAY_ENUM = Int
+public typealias AdsDisplayEnum = Int
 
-public typealias ADS_ESCAPE_MODE_ENUM = Int
+public typealias AdsEscapeModeEnum = Int
 
-public typealias ADS_FLAGTYPE_ENUM = Int
+public typealias AdsFlagtypeEnum = Int
 
-public typealias ADS_FORMAT_ENUM = Int
+public typealias AdsFormatEnum = Int
 
-public typealias ADS_GROUP_TYPE_ENUM = Int
+public typealias AdsGroupTypeEnum = Int
 
-public typealias ADS_NAME_INITTYPE_ENUM = Int
+public typealias AdsNameInittypeEnum = Int
 
-public typealias ADS_NAME_TYPE_ENUM = Int
+public typealias AdsNameTypeEnum = Int
 
-public typealias ADS_OPTION_ENUM = Int
+public typealias AdsOptionEnum = Int
 
-public typealias ADS_PASSWORD_ENCODING_ENUM = Int
+public typealias AdsPasswordEncodingEnum = Int
 
-public typealias ADS_PATHTYPE_ENUM = Int
+public typealias AdsPathtypeEnum = Int
 
-public typealias ADS_PREFERENCES_ENUM = Int
+public typealias AdsPreferencesEnum = Int
 
-public typealias ADS_PROPERTY_OPERATION_ENUM = Int
+public typealias AdsPropertyOperationEnum = Int
 
-public typealias ADS_RIGHTS_ENUM = Int
+public typealias AdsRightsEnum = Int
 
-public typealias ADS_SCOPEENUM = Int
+public typealias AdsScopeenum = Int
 
-public typealias ADS_SD_CONTROL_ENUM = Int
+public typealias AdsSdControlEnum = Int
 
-public typealias ADS_SD_FORMAT_ENUM = Int
+public typealias AdsSdFormatEnum = Int
 
-public typealias ADS_SD_REVISION_ENUM = Int
+public typealias AdsSdRevisionEnum = Int
 
-public typealias ADS_SEARCHPREF_ENUM = Int
+public typealias AdsSearchprefEnum = Int
 
-public typealias ADS_SEARCH_HANDLE = Long
+public typealias AdsSearchHandle = Long
 
-public typealias ADS_SECURITY_INFO_ENUM = Int
+public typealias AdsSecurityInfoEnum = Int
 
-public typealias ADS_SETTYPE_ENUM = Int
+public typealias AdsSettypeEnum = Int
 
-public typealias ADS_STATUSENUM = Int
+public typealias AdsStatusenum = Int
 
-public typealias ADS_SYSTEMFLAG_ENUM = Int
+public typealias AdsSystemflagEnum = Int
 
-public typealias ADS_USER_FLAG_ENUM = Int
+public typealias AdsUserFlagEnum = Int
 
-public typealias DSROLE_MACHINE_ROLE = Int
+public typealias DsroleMachineRole = Int
 
-public typealias DSROLE_OPERATION_STATE = Int
+public typealias DsroleOperationState = Int
 
-public typealias DSROLE_PRIMARY_DOMAIN_INFO_LEVEL = Int
+public typealias DsrolePrimaryDomainInfoLevel = Int
 
-public typealias DSROLE_SERVER_STATE = Int
+public typealias DsroleServerState = Int
 
-public typealias DS_KCC_TASKID = Int
+public typealias DsKccTaskid = Int
 
-public typealias DS_MANGLE_FOR = Int
+public typealias DsMangleFor = Int
 
-public typealias DS_NAME_ERROR = Int
+public typealias DsNameError = Int
 
-public typealias DS_NAME_FLAGS = Int
+public typealias DsNameFlags = Int
 
-public typealias DS_NAME_FORMAT = Int
+public typealias DsNameFormat = Int
 
-public typealias DS_REPL_INFO_TYPE = Int
+public typealias DsReplInfoType = Int
 
-public typealias DS_REPL_OP_TYPE = Int
+public typealias DsReplOpType = Int
 
-public typealias DS_REPSYNCALL_ERROR = Int
+public typealias DsRepsyncallError = Int
 
-public typealias DS_REPSYNCALL_EVENT = Int
+public typealias DsRepsyncallEvent = Int
 
-public typealias DS_SPN_NAME_TYPE = Int
+public typealias DsSpnNameType = Int
 
-public typealias DS_SPN_WRITE_OP = Int
+public typealias DsSpnWriteOp = Int
 
-public fun interface LPCQADDFORMSPROCFn {
-    public operator fun invoke(lparam: LPARAM, pform: Long): HRESULT
+public fun interface LpcqaddformsprocFn {
+    public operator fun invoke(lparam: Lparam, pform: COpaquePointer?): Hresult
 }
 
-public typealias LPCQADDFORMSPROC = LPCQADDFORMSPROCFn?
+public typealias Lpcqaddformsproc = LpcqaddformsprocFn?
 
-public fun interface LPCQADDPAGESPROCFn {
-    public operator fun invoke(lparam: LPARAM, clsidform: Long, ppage: Long): HRESULT
+public fun interface LpcqaddpagesprocFn {
+    public operator fun invoke(lparam: Lparam, clsidform: COpaquePointer?, ppage: COpaquePointer?): Hresult
 }
 
-public typealias LPCQADDPAGESPROC = LPCQADDPAGESPROCFn?
+public typealias Lpcqaddpagesproc = LpcqaddpagesprocFn?
 
-public fun interface LPCQPAGEPROCFn {
-    public operator fun invoke(ppage: Long, hwnd: HWND, umsg: UInt, wparam: WPARAM, lparam: LPARAM): HRESULT
+public fun interface LpcqpageprocFn {
+    public operator fun invoke(ppage: COpaquePointer?, hwnd: Hwnd, umsg: UInt, wparam: Wparam, lparam: Lparam): Hresult
 }
 
-public typealias LPCQPAGEPROC = LPCQPAGEPROCFn?
+public typealias Lpcqpageproc = LpcqpageprocFn?
 
-public fun interface LPDSENUMATTRIBUTESFn {
-    public operator fun invoke(lparam: LPARAM, pszattributename: PCWSTR, pszdisplayname: PCWSTR, dwflags: UInt): HRESULT
+public fun interface LpdsenumattributesFn {
+    public operator fun invoke(lparam: Lparam, pszattributename: Pcwstr, pszdisplayname: Pcwstr, dwflags: UInt): Hresult
 }
 
-public typealias LPDSENUMATTRIBUTES = LPDSENUMATTRIBUTESFn?
+public typealias Lpdsenumattributes = LpdsenumattributesFn?

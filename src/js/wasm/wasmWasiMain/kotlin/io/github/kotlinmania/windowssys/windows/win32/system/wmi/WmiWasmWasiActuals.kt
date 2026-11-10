@@ -2,5 +2,7 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.wmi
 
-public actual fun MI_Application_InitializeV1(flags: UInt, applicationid: Long, extendederror: Long, application: Long): MI_Result =
-    0
+import io.github.kotlinmania.windowssys.COpaquePointer
+
+public actual fun miApplicationInitializeV1(flags: UInt, applicationid: COpaquePointer?, extendederror: COpaquePointer?, application: COpaquePointer?): MiResult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

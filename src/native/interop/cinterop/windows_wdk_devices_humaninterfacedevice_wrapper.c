@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_wdk_devices_humaninterfacedevice_VhfAsyncOperationComplete(void* vhfoperationhandle, int32_t completionstatus) {
+int32_t windowssys_windows_wdk_devices_humaninterfacedevice_vhfAsyncOperationComplete(void* vhfoperationhandle, int32_t completionstatus) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -38,7 +38,7 @@ int32_t windowssys_windows_wdk_devices_humaninterfacedevice_VhfAsyncOperationCom
 #endif
 }
 
-int32_t windowssys_windows_wdk_devices_humaninterfacedevice_VhfCreate(void* vhfconfig, void* vhfhandle) {
+int32_t windowssys_windows_wdk_devices_humaninterfacedevice_vhfCreate(void* vhfconfig, void* vhfhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -61,7 +61,7 @@ int32_t windowssys_windows_wdk_devices_humaninterfacedevice_VhfCreate(void* vhfc
 #endif
 }
 
-void windowssys_windows_wdk_devices_humaninterfacedevice_VhfDelete(void* vhfhandle, bool wait) {
+void windowssys_windows_wdk_devices_humaninterfacedevice_vhfDelete(void* vhfhandle, bool wait) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -83,7 +83,7 @@ void windowssys_windows_wdk_devices_humaninterfacedevice_VhfDelete(void* vhfhand
 #endif
 }
 
-int32_t windowssys_windows_wdk_devices_humaninterfacedevice_VhfReadReportSubmit(void* vhfhandle, void* hidtransferpacket) {
+int32_t windowssys_windows_wdk_devices_humaninterfacedevice_vhfReadReportSubmit(void* vhfhandle, void* hidtransferpacket) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -106,7 +106,7 @@ int32_t windowssys_windows_wdk_devices_humaninterfacedevice_VhfReadReportSubmit(
 #endif
 }
 
-int32_t windowssys_windows_wdk_devices_humaninterfacedevice_VhfStart(void* vhfhandle) {
+int32_t windowssys_windows_wdk_devices_humaninterfacedevice_vhfStart(void* vhfhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;

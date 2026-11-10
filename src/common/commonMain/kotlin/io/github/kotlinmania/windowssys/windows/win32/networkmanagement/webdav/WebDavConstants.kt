@@ -1,6 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.webdav
 
-public val CancelRequest: AUTHNEXTSTEP = 2
+public val CANCEL_REQUEST: Authnextstep = 2
 
 public val DAV_AUTHN_SCHEME_BASIC: UInt = 1u
 
@@ -16,6 +16,6 @@ public val DAV_AUTHN_SCHEME_NTLM: UInt = 2u
 
 public val DAV_AUTHN_SCHEME_PASSPORT: UInt = 4u
 
-public val DefaultBehavior: AUTHNEXTSTEP = 0
+public val DEFAULT_BEHAVIOR: Authnextstep = 0
 
-public val RetryRequest: AUTHNEXTSTEP = 1
+public val RETRY_REQUEST: Authnextstep = 1

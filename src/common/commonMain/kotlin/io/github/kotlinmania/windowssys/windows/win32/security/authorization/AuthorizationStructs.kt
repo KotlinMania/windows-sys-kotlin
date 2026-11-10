@@ -1,74 +1,77 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.security.authorization
 
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LUID
-import io.github.kotlinmania.windowssys.windows.win32.security.ACE_FLAGS
-import io.github.kotlinmania.windowssys.windows.win32.security.PSID
-import io.github.kotlinmania.windowssys.windows.win32.security.SYSTEM_AUDIT_OBJECT_ACE_FLAGS
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Luid
+import io.github.kotlinmania.windowssys.windows.win32.security.AceFlags
+import io.github.kotlinmania.windowssys.windows.win32.security.ObjectTypeList
+import io.github.kotlinmania.windowssys.windows.win32.security.Psid
+import io.github.kotlinmania.windowssys.windows.win32.security.Sid
+import io.github.kotlinmania.windowssys.windows.win32.security.SystemAuditObjectAceFlags
 
-public data class ACTRL_ACCESSA(public var cEntries: UInt = 0u, public var pPropertyAccessList: Long = 0L)
+public data class ActrlAccessa(public var cEntries: UInt = 0u, public var pPropertyAccessList: ActrlPropertyEntrya? = null)
 
-public data class ACTRL_ACCESSW(public var cEntries: UInt = 0u, public var pPropertyAccessList: Long = 0L)
+public data class ActrlAccessw(public var cEntries: UInt = 0u, public var pPropertyAccessList: ActrlPropertyEntryw? = null)
 
-public data class ACTRL_ACCESS_ENTRYA(
-    public var Trustee: TRUSTEE_A = TRUSTEE_A(),
-    public var fAccessFlags: ACTRL_ACCESS_ENTRY_ACCESS_FLAGS = 0u,
-    public var Access: UInt = 0u,
-    public var ProvSpecificAccess: UInt = 0u,
-    public var Inheritance: ACE_FLAGS = 0u,
-    public var lpInheritProperty: PSTR = 0L,
+public data class ActrlAccessEntrya(
+    public var trustee: TrusteeA = TrusteeA(),
+    public var fAccessFlags: ActrlAccessEntryAccessFlags = 0u,
+    public var access: UInt = 0u,
+    public var provSpecificAccess: UInt = 0u,
+    public var inheritance: AceFlags = 0u,
+    public var lpInheritProperty: Pstr = null,
 )
 
-public data class ACTRL_ACCESS_ENTRYW(
-    public var Trustee: TRUSTEE_W = TRUSTEE_W(),
-    public var fAccessFlags: ACTRL_ACCESS_ENTRY_ACCESS_FLAGS = 0u,
-    public var Access: UInt = 0u,
-    public var ProvSpecificAccess: UInt = 0u,
-    public var Inheritance: ACE_FLAGS = 0u,
-    public var lpInheritProperty: PWSTR = 0L,
+public data class ActrlAccessEntryw(
+    public var trustee: TrusteeW = TrusteeW(),
+    public var fAccessFlags: ActrlAccessEntryAccessFlags = 0u,
+    public var access: UInt = 0u,
+    public var provSpecificAccess: UInt = 0u,
+    public var inheritance: AceFlags = 0u,
+    public var lpInheritProperty: Pwstr = null,
 )
 
-public data class ACTRL_ACCESS_ENTRY_LISTA(public var cEntries: UInt = 0u, public var pAccessList: Long = 0L)
+public data class ActrlAccessEntryLista(public var cEntries: UInt = 0u, public var pAccessList: ActrlAccessEntrya? = null)
 
-public data class ACTRL_ACCESS_ENTRY_LISTW(public var cEntries: UInt = 0u, public var pAccessList: Long = 0L)
+public data class ActrlAccessEntryListw(public var cEntries: UInt = 0u, public var pAccessList: ActrlAccessEntryw? = null)
 
-public data class ACTRL_ACCESS_INFOA(public var fAccessPermission: UInt = 0u, public var lpAccessPermissionName: PSTR = 0L)
+public data class ActrlAccessInfoa(public var fAccessPermission: UInt = 0u, public var lpAccessPermissionName: Pstr = null)
 
-public data class ACTRL_ACCESS_INFOW(public var fAccessPermission: UInt = 0u, public var lpAccessPermissionName: PWSTR = 0L)
+public data class ActrlAccessInfow(public var fAccessPermission: UInt = 0u, public var lpAccessPermissionName: Pwstr = null)
 
-public data class ACTRL_CONTROL_INFOA(public var lpControlId: PSTR = 0L, public var lpControlName: PSTR = 0L)
+public data class ActrlControlInfoa(public var lpControlId: Pstr = null, public var lpControlName: Pstr = null)
 
-public data class ACTRL_CONTROL_INFOW(public var lpControlId: PWSTR = 0L, public var lpControlName: PWSTR = 0L)
+public data class ActrlControlInfow(public var lpControlId: Pwstr = null, public var lpControlName: Pwstr = null)
 
-public data class ACTRL_OVERLAPPED(
-    public var Anonymous: ACTRL_OVERLAPPED_0 = ACTRL_OVERLAPPED_0(),
-    public var Reserved2: UInt = 0u,
-    public var hEvent: HANDLE = 0L,
+public data class ActrlOverlapped(
+    public var anonymous: ActrlOverlapped0 = ActrlOverlapped0(),
+    public var reserved2: UInt = 0u,
+    public var hEvent: Handle = null,
 )
 
-public data class ACTRL_OVERLAPPED_0(public var Provider: Long = 0L, public var Reserved1: UInt = 0u)
+public data class ActrlOverlapped0(public var provider: COpaquePointer? = null, public var reserved1: UInt = 0u)
 
-public data class ACTRL_PROPERTY_ENTRYA(
-    public var lpProperty: PSTR = 0L,
-    public var pAccessEntryList: Long = 0L,
+public data class ActrlPropertyEntrya(
+    public var lpProperty: Pstr = null,
+    public var pAccessEntryList: ActrlAccessEntryLista? = null,
     public var fListFlags: UInt = 0u,
 )
 
-public data class ACTRL_PROPERTY_ENTRYW(
-    public var lpProperty: PWSTR = 0L,
-    public var pAccessEntryList: Long = 0L,
+public data class ActrlPropertyEntryw(
+    public var lpProperty: Pwstr = null,
+    public var pAccessEntryList: ActrlAccessEntryListw? = null,
     public var fListFlags: UInt = 0u,
 )
 
-public data class AUDIT_IP_ADDRESS(public var pIpAddress: UByteArray = UByteArray(128)) {
+public data class AuditIpAddress(public var pIpAddress: UByteArray = UByteArray(128)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is AUDIT_IP_ADDRESS) return false
+        if (other !is AuditIpAddress) return false
         if (!this.pIpAddress.contentEquals(other.pIpAddress)) return false
         return true
     }
@@ -78,214 +81,214 @@ public data class AUDIT_IP_ADDRESS(public var pIpAddress: UByteArray = UByteArra
     }
 }
 
-public data class AUDIT_OBJECT_TYPE(
-    public var ObjectType: GUID = GUID(),
-    public var Flags: UShort = 0u,
-    public var Level: UShort = 0u,
-    public var AccessMask: UInt = 0u,
+public data class AuditObjectType(
+    public var objectType: Guid = Guid(),
+    public var flags: UShort = 0u,
+    public var level: UShort = 0u,
+    public var accessMask: UInt = 0u,
 )
 
-public data class AUDIT_OBJECT_TYPES(
-    public var Count: UShort = 0u,
-    public var Flags: UShort = 0u,
-    public var pObjectTypes: Long = 0L,
+public data class AuditObjectTypes(
+    public var count: UShort = 0u,
+    public var flags: UShort = 0u,
+    public var pObjectTypes: AuditObjectType? = null,
 )
 
-public data class AUDIT_PARAM(
-    public var Type: AUDIT_PARAM_TYPE = 0,
-    public var Length: UInt = 0u,
-    public var Flags: UInt = 0u,
-    public var Anonymous1: AUDIT_PARAM_0 = AUDIT_PARAM_0(),
-    public var Anonymous2: AUDIT_PARAM_1 = AUDIT_PARAM_1(),
+public data class AuditParam(
+    public var type: AuditParamType = 0,
+    public var length: UInt = 0u,
+    public var flags: UInt = 0u,
+    public var anonymous1: AuditParam0 = AuditParam0(),
+    public var anonymous2: AuditParam1 = AuditParam1(),
 )
 
-public data class AUDIT_PARAM_0(
-    public var Data0: ULong = 0uL,
-    public var String: PWSTR = 0L,
-    public var u: ULong = 0uL,
-    public var psid: Long = 0L,
-    public var pguid: Long = 0L,
-    public var LogonId_LowPart: UInt = 0u,
-    public var pObjectTypes: Long = 0L,
-    public var pIpAddress: Long = 0L,
+public data class AuditParam0(
+    public var data0: Int = 0,
+    public var string: Pwstr = null,
+    public var u: Int = 0,
+    public var psid: Sid? = null,
+    public var pguid: Guid? = null,
+    public var logonIdLowPart: UInt = 0u,
+    public var pObjectTypes: AuditObjectTypes? = null,
+    public var pIpAddress: AuditIpAddress? = null,
 )
 
-public data class AUDIT_PARAM_1(public var Data1: ULong = 0uL, public var LogonId_HighPart: Int = 0)
+public data class AuditParam1(public var data1: Int = 0, public var logonIdHighPart: Int = 0)
 
-public data class AUDIT_PARAMS(
-    public var Length: UInt = 0u,
-    public var Flags: UInt = 0u,
-    public var Count: UShort = 0u,
-    public var Parameters: Long = 0L,
+public data class AuditParams(
+    public var length: UInt = 0u,
+    public var flags: UInt = 0u,
+    public var count: UShort = 0u,
+    public var parameters: AuditParam? = null,
 )
 
-public data class AUTHZ_ACCESS_REPLY(
-    public var ResultListLength: UInt = 0u,
-    public var GrantedAccessMask: Long = 0L,
-    public var SaclEvaluationResults: Long = 0L,
-    public var Error: Long = 0L,
+public data class AuthzAccessReply(
+    public var resultListLength: UInt = 0u,
+    public var grantedAccessMask: UInt? = null,
+    public var saclEvaluationResults: UInt? = null,
+    public var error: UInt? = null,
 )
 
-public data class AUTHZ_ACCESS_REQUEST(
-    public var DesiredAccess: UInt = 0u,
-    public var PrincipalSelfSid: PSID = 0L,
-    public var ObjectTypeList: Long = 0L,
-    public var ObjectTypeListLength: UInt = 0u,
-    public var OptionalArguments: Long = 0L,
+public data class AuthzAccessRequest(
+    public var desiredAccess: UInt = 0u,
+    public var principalSelfSid: Psid = null,
+    public var objectTypeList: ObjectTypeList? = null,
+    public var objectTypeListLength: UInt = 0u,
+    public var optionalArguments: COpaquePointer? = null,
 )
 
-public data class AUTHZ_AUDIT_EVENT_TYPE_LEGACY(
-    public var CategoryId: UShort = 0u,
-    public var AuditId: UShort = 0u,
-    public var ParameterCount: UShort = 0u,
+public data class AuthzAuditEventTypeLegacy(
+    public var categoryId: UShort = 0u,
+    public var auditId: UShort = 0u,
+    public var parameterCount: UShort = 0u,
 )
 
-public data class AUTHZ_AUDIT_EVENT_TYPE_OLD(
-    public var Version: UInt = 0u,
+public data class AuthzAuditEventTypeOld(
+    public var version: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var RefCount: Int = 0,
-    public var hAudit: ULong = 0uL,
-    public var LinkId: LUID = LUID(),
-    public var u: AUTHZ_AUDIT_EVENT_TYPE_UNION = AUTHZ_AUDIT_EVENT_TYPE_UNION(),
+    public var refCount: Int = 0,
+    public var hAudit: Int = 0,
+    public var linkId: Luid = Luid(),
+    public var u: AuthzAuditEventTypeUnion = AuthzAuditEventTypeUnion(),
 )
 
-public data class AUTHZ_AUDIT_EVENT_TYPE_UNION(public var Legacy: AUTHZ_AUDIT_EVENT_TYPE_LEGACY = AUTHZ_AUDIT_EVENT_TYPE_LEGACY())
+public data class AuthzAuditEventTypeUnion(public var legacy: AuthzAuditEventTypeLegacy = AuthzAuditEventTypeLegacy())
 
-public data class AUTHZ_INIT_INFO(
+public data class AuthzInitInfo(
     public var version: UShort = 0u,
-    public var szResourceManagerName: PCWSTR = 0L,
-    public var pfnDynamicAccessCheck: PFN_AUTHZ_DYNAMIC_ACCESS_CHECK = null,
-    public var pfnComputeDynamicGroups: PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS = null,
-    public var pfnFreeDynamicGroups: PFN_AUTHZ_FREE_DYNAMIC_GROUPS = null,
-    public var pfnGetCentralAccessPolicy: PFN_AUTHZ_GET_CENTRAL_ACCESS_POLICY = null,
-    public var pfnFreeCentralAccessPolicy: PFN_AUTHZ_FREE_CENTRAL_ACCESS_POLICY = null,
+    public var szResourceManagerName: Pcwstr = null,
+    public var pfnDynamicAccessCheck: PfnAuthzDynamicAccessCheck = null,
+    public var pfnComputeDynamicGroups: PfnAuthzComputeDynamicGroups = null,
+    public var pfnFreeDynamicGroups: PfnAuthzFreeDynamicGroups = null,
+    public var pfnGetCentralAccessPolicy: PfnAuthzGetCentralAccessPolicy = null,
+    public var pfnFreeCentralAccessPolicy: PfnAuthzFreeCentralAccessPolicy = null,
 )
 
-public data class AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET(public var szObjectTypeName: PWSTR = 0L, public var dwOffset: UInt = 0u)
+public data class AuthzRegistrationObjectTypeNameOffset(public var szObjectTypeName: Pwstr = null, public var dwOffset: UInt = 0u)
 
-public data class AUTHZ_RPC_INIT_INFO_CLIENT(
+public data class AuthzRpcInitInfoClient(
     public var version: UShort = 0u,
-    public var ObjectUuid: PWSTR = 0L,
-    public var ProtSeq: PWSTR = 0L,
-    public var NetworkAddr: PWSTR = 0L,
-    public var Endpoint: PWSTR = 0L,
-    public var Options: PWSTR = 0L,
-    public var ServerSpn: PWSTR = 0L,
+    public var objectUuid: Pwstr = null,
+    public var protSeq: Pwstr = null,
+    public var networkAddr: Pwstr = null,
+    public var endpoint: Pwstr = null,
+    public var options: Pwstr = null,
+    public var serverSpn: Pwstr = null,
 )
 
-public data class AUTHZ_SECURITY_ATTRIBUTES_INFORMATION(
-    public var Version: UShort = 0u,
-    public var Reserved: UShort = 0u,
-    public var AttributeCount: UInt = 0u,
-    public var Attribute: AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_0 = AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_0(),
+public data class AuthzSecurityAttributesInformation(
+    public var version: UShort = 0u,
+    public var reserved: UShort = 0u,
+    public var attributeCount: UInt = 0u,
+    public var attribute: AuthzSecurityAttributesInformation0 = AuthzSecurityAttributesInformation0(),
 )
 
-public data class AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_0(public var pAttributeV1: Long = 0L)
+public data class AuthzSecurityAttributesInformation0(public var pAttributeV1: AuthzSecurityAttributeV1? = null)
 
-public data class AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE(public var Version: ULong = 0uL, public var pName: PWSTR = 0L)
+public data class AuthzSecurityAttributeFqbnValue(public var version: ULong = 0uL, public var pName: Pwstr = null)
 
-public data class AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE(public var pValue: Long = 0L, public var ValueLength: UInt = 0u)
+public data class AuthzSecurityAttributeOctetStringValue(public var pValue: COpaquePointer? = null, public var valueLength: UInt = 0u)
 
-public data class AUTHZ_SECURITY_ATTRIBUTE_V1(
-    public var pName: PWSTR = 0L,
-    public var ValueType: UShort = 0u,
-    public var Reserved: UShort = 0u,
-    public var Flags: AUTHZ_SECURITY_ATTRIBUTE_FLAGS = 0u,
-    public var ValueCount: UInt = 0u,
-    public var Values: AUTHZ_SECURITY_ATTRIBUTE_V1_0 = AUTHZ_SECURITY_ATTRIBUTE_V1_0(),
+public data class AuthzSecurityAttributeV1(
+    public var pName: Pwstr = null,
+    public var valueType: UShort = 0u,
+    public var reserved: UShort = 0u,
+    public var flags: AuthzSecurityAttributeFlags = 0u,
+    public var valueCount: UInt = 0u,
+    public var values: AuthzSecurityAttributeV10 = AuthzSecurityAttributeV10(),
 )
 
-public data class AUTHZ_SECURITY_ATTRIBUTE_V1_0(
-    public var pInt64: Long = 0L,
-    public var pUint64: Long = 0L,
-    public var ppString: Long = 0L,
-    public var pFqbn: Long = 0L,
-    public var pOctetString: Long = 0L,
+public data class AuthzSecurityAttributeV10(
+    public var pInt64: Long? = null,
+    public var pUint64: ULong? = null,
+    public var ppString: Pwstr? = null,
+    public var pFqbn: AuthzSecurityAttributeFqbnValue? = null,
+    public var pOctetString: AuthzSecurityAttributeOctetStringValue? = null,
 )
 
-public data class AUTHZ_SOURCE_SCHEMA_REGISTRATION(
+public data class AuthzSourceSchemaRegistration(
     public var dwFlags: UInt = 0u,
-    public var szEventSourceName: PWSTR = 0L,
-    public var szEventMessageFile: PWSTR = 0L,
-    public var szEventSourceXmlSchemaFile: PWSTR = 0L,
-    public var szEventAccessStringsFile: PWSTR = 0L,
-    public var szExecutableImagePath: PWSTR = 0L,
-    public var Anonymous: AUTHZ_SOURCE_SCHEMA_REGISTRATION_0 = AUTHZ_SOURCE_SCHEMA_REGISTRATION_0(),
+    public var szEventSourceName: Pwstr = null,
+    public var szEventMessageFile: Pwstr = null,
+    public var szEventSourceXmlSchemaFile: Pwstr = null,
+    public var szEventAccessStringsFile: Pwstr = null,
+    public var szExecutableImagePath: Pwstr = null,
+    public var anonymous: AuthzSourceSchemaRegistration0 = AuthzSourceSchemaRegistration0(),
     public var dwObjectTypeNameCount: UInt = 0u,
-    public var ObjectTypeNames: List<AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET> = List(1) { AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET() },
+    public var objectTypeNames: List<AuthzRegistrationObjectTypeNameOffset> = List(1) { AuthzRegistrationObjectTypeNameOffset() },
 )
 
-public data class AUTHZ_SOURCE_SCHEMA_REGISTRATION_0(public var pReserved: Long = 0L, public var pProviderGuid: Long = 0L)
+public data class AuthzSourceSchemaRegistration0(public var pReserved: COpaquePointer? = null, public var pProviderGuid: Guid? = null)
 
-public data class EXPLICIT_ACCESS_A(
+public data class ExplicitAccessA(
     public var grfAccessPermissions: UInt = 0u,
-    public var grfAccessMode: ACCESS_MODE = 0,
-    public var grfInheritance: ACE_FLAGS = 0u,
-    public var Trustee: TRUSTEE_A = TRUSTEE_A(),
+    public var grfAccessMode: AccessMode = 0,
+    public var grfInheritance: AceFlags = 0u,
+    public var trustee: TrusteeA = TrusteeA(),
 )
 
-public data class EXPLICIT_ACCESS_W(
+public data class ExplicitAccessW(
     public var grfAccessPermissions: UInt = 0u,
-    public var grfAccessMode: ACCESS_MODE = 0,
-    public var grfInheritance: ACE_FLAGS = 0u,
-    public var Trustee: TRUSTEE_W = TRUSTEE_W(),
+    public var grfAccessMode: AccessMode = 0,
+    public var grfInheritance: AceFlags = 0u,
+    public var trustee: TrusteeW = TrusteeW(),
 )
 
-public data class FN_OBJECT_MGR_FUNCTS(public var sampleValue: UInt = 0u)
+public data class FnObjectMgrFuncts(public var sampleValue: UInt = 0u)
 
-public data class INHERITED_FROMA(public var GenerationGap: Int = 0, public var AncestorName: PSTR = 0L)
+public data class InheritedFroma(public var generationGap: Int = 0, public var ancestorName: Pstr = null)
 
-public data class INHERITED_FROMW(public var GenerationGap: Int = 0, public var AncestorName: PWSTR = 0L)
+public data class InheritedFromw(public var generationGap: Int = 0, public var ancestorName: Pwstr = null)
 
-public data class OBJECTS_AND_NAME_A(
-    public var ObjectsPresent: SYSTEM_AUDIT_OBJECT_ACE_FLAGS = 0u,
-    public var ObjectType: SE_OBJECT_TYPE = 0,
-    public var ObjectTypeName: PSTR = 0L,
-    public var InheritedObjectTypeName: PSTR = 0L,
-    public var ptstrName: PSTR = 0L,
+public data class ObjectsAndNameA(
+    public var objectsPresent: SystemAuditObjectAceFlags = 0u,
+    public var objectType: SeObjectType = 0,
+    public var objectTypeName: Pstr = null,
+    public var inheritedObjectTypeName: Pstr = null,
+    public var ptstrName: Pstr = null,
 )
 
-public data class OBJECTS_AND_NAME_W(
-    public var ObjectsPresent: SYSTEM_AUDIT_OBJECT_ACE_FLAGS = 0u,
-    public var ObjectType: SE_OBJECT_TYPE = 0,
-    public var ObjectTypeName: PWSTR = 0L,
-    public var InheritedObjectTypeName: PWSTR = 0L,
-    public var ptstrName: PWSTR = 0L,
+public data class ObjectsAndNameW(
+    public var objectsPresent: SystemAuditObjectAceFlags = 0u,
+    public var objectType: SeObjectType = 0,
+    public var objectTypeName: Pwstr = null,
+    public var inheritedObjectTypeName: Pwstr = null,
+    public var ptstrName: Pwstr = null,
 )
 
-public data class OBJECTS_AND_SID(
-    public var ObjectsPresent: SYSTEM_AUDIT_OBJECT_ACE_FLAGS = 0u,
-    public var ObjectTypeGuid: GUID = GUID(),
-    public var InheritedObjectTypeGuid: GUID = GUID(),
-    public var pSid: Long = 0L,
+public data class ObjectsAndSid(
+    public var objectsPresent: SystemAuditObjectAceFlags = 0u,
+    public var objectTypeGuid: Guid = Guid(),
+    public var inheritedObjectTypeGuid: Guid = Guid(),
+    public var pSid: Sid? = null,
 )
 
-public data class TRUSTEE_A(
-    public var pMultipleTrustee: Long = 0L,
-    public var MultipleTrusteeOperation: MULTIPLE_TRUSTEE_OPERATION = 0,
-    public var TrusteeForm: TRUSTEE_FORM = 0,
-    public var TrusteeType: TRUSTEE_TYPE = 0,
-    public var ptstrName: PSTR = 0L,
+public data class TrusteeA(
+    public var pMultipleTrustee: TrusteeA? = null,
+    public var multipleTrusteeOperation: MultipleTrusteeOperation = 0,
+    public var trusteeForm: TrusteeForm = 0,
+    public var trusteeType: TrusteeType = 0,
+    public var ptstrName: Pstr = null,
 )
 
-public data class TRUSTEE_ACCESSA(
-    public var lpProperty: PSTR = 0L,
-    public var Access: UInt = 0u,
+public data class TrusteeAccessa(
+    public var lpProperty: Pstr = null,
+    public var access: UInt = 0u,
     public var fAccessFlags: UInt = 0u,
     public var fReturnedAccess: UInt = 0u,
 )
 
-public data class TRUSTEE_ACCESSW(
-    public var lpProperty: PWSTR = 0L,
-    public var Access: UInt = 0u,
+public data class TrusteeAccessw(
+    public var lpProperty: Pwstr = null,
+    public var access: UInt = 0u,
     public var fAccessFlags: UInt = 0u,
     public var fReturnedAccess: UInt = 0u,
 )
 
-public data class TRUSTEE_W(
-    public var pMultipleTrustee: Long = 0L,
-    public var MultipleTrusteeOperation: MULTIPLE_TRUSTEE_OPERATION = 0,
-    public var TrusteeForm: TRUSTEE_FORM = 0,
-    public var TrusteeType: TRUSTEE_TYPE = 0,
-    public var ptstrName: PWSTR = 0L,
+public data class TrusteeW(
+    public var pMultipleTrustee: TrusteeW? = null,
+    public var multipleTrusteeOperation: MultipleTrusteeOperation = 0,
+    public var trusteeForm: TrusteeForm = 0,
+    public var trusteeType: TrusteeType = 0,
+    public var ptstrName: Pwstr = null,
 )

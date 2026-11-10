@@ -2,3929 +2,3933 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.globalization
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.core.s
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.ETO_OPTIONS
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HDC
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.EtoOptions
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hdc
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun AdjustCalendarDate(lpcaldatetime: Long, calunit: CALDATETIME_DATEUNIT, amount: Int): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_AdjustCalendarDate(lpcaldatetime.toCPointer<ByteVar>(), calunit, amount)
+public actual fun adjustCalendarDate(lpcaldatetime: COpaquePointer?, calunit: CaldatetimeDateunit, amount: Int): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_adjustCalendarDate(lpcaldatetime?.value?.toCPointer<ByteVar>(), calunit, amount)
 
-public actual fun CompareStringA(locale: UInt, dwcmpflags: UInt, lpstring1: Long, cchcount1: Int, lpstring2: Long, cchcount2: Int): COMPARESTRING_RESULT =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_CompareStringA(locale, dwcmpflags, lpstring1.toCPointer<ByteVar>(), cchcount1, lpstring2.toCPointer<ByteVar>(), cchcount2)
+public actual fun compareStringA(locale: UInt, dwcmpflags: UInt, lpstring1: COpaquePointer?, cchcount1: Int, lpstring2: COpaquePointer?, cchcount2: Int): ComparestringResult =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_compareStringA(locale, dwcmpflags, lpstring1?.value?.toCPointer<ByteVar>(), cchcount1, lpstring2?.value?.toCPointer<ByteVar>(), cchcount2)
 
-public actual fun CompareStringEx(lplocalename: PCWSTR, dwcmpflags: COMPARE_STRING_FLAGS, lpstring1: PCWSTR, cchcount1: Int, lpstring2: PCWSTR, cchcount2: Int, lpversioninformation: Long, lpreserved: Long, lparam: LPARAM): COMPARESTRING_RESULT =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_CompareStringEx(lplocalename.toCPointer<ByteVar>(), dwcmpflags, lpstring1.toCPointer<ByteVar>(), cchcount1, lpstring2.toCPointer<ByteVar>(), cchcount2, lpversioninformation.toCPointer<ByteVar>(), lpreserved.toCPointer<ByteVar>(), lparam)
+public actual fun compareStringEx(lplocalename: Pcwstr, dwcmpflags: CompareStringFlags, lpstring1: Pcwstr, cchcount1: Int, lpstring2: Pcwstr, cchcount2: Int, lpversioninformation: COpaquePointer?, lpreserved: COpaquePointer?, lparam: Lparam): ComparestringResult =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_compareStringEx(lplocalename?.value?.toCPointer<ByteVar>(), dwcmpflags, lpstring1?.value?.toCPointer<ByteVar>(), cchcount1, lpstring2?.value?.toCPointer<ByteVar>(), cchcount2, lpversioninformation?.value?.toCPointer<ByteVar>(), lpreserved?.value?.toCPointer<ByteVar>(), lparam)
 
-public actual fun CompareStringOrdinal(lpstring1: PCWSTR, cchcount1: Int, lpstring2: PCWSTR, cchcount2: Int, bignorecase: BOOL): COMPARESTRING_RESULT =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_CompareStringOrdinal(lpstring1.toCPointer<ByteVar>(), cchcount1, lpstring2.toCPointer<ByteVar>(), cchcount2, bignorecase)
+public actual fun compareStringOrdinal(lpstring1: Pcwstr, cchcount1: Int, lpstring2: Pcwstr, cchcount2: Int, bignorecase: Bool): ComparestringResult =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_compareStringOrdinal(lpstring1?.value?.toCPointer<ByteVar>(), cchcount1, lpstring2?.value?.toCPointer<ByteVar>(), cchcount2, bignorecase)
 
-public actual fun CompareStringW(locale: UInt, dwcmpflags: UInt, lpstring1: PCWSTR, cchcount1: Int, lpstring2: PCWSTR, cchcount2: Int): COMPARESTRING_RESULT =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_CompareStringW(locale, dwcmpflags, lpstring1.toCPointer<ByteVar>(), cchcount1, lpstring2.toCPointer<ByteVar>(), cchcount2)
+public actual fun compareStringW(locale: UInt, dwcmpflags: UInt, lpstring1: Pcwstr, cchcount1: Int, lpstring2: Pcwstr, cchcount2: Int): ComparestringResult =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_compareStringW(locale, dwcmpflags, lpstring1?.value?.toCPointer<ByteVar>(), cchcount1, lpstring2?.value?.toCPointer<ByteVar>(), cchcount2)
 
-public actual fun ConvertCalDateTimeToSystemTime(lpcaldatetime: Long, lpsystime: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ConvertCalDateTimeToSystemTime(lpcaldatetime.toCPointer<ByteVar>(), lpsystime.toCPointer<ByteVar>())
+public actual fun convertCalDateTimeToSystemTime(lpcaldatetime: COpaquePointer?, lpsystime: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_convertCalDateTimeToSystemTime(lpcaldatetime?.value?.toCPointer<ByteVar>(), lpsystime?.value?.toCPointer<ByteVar>())
 
-public actual fun ConvertDefaultLocale(locale: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ConvertDefaultLocale(locale)
+public actual fun convertDefaultLocale(locale: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_convertDefaultLocale(locale)
 
-public actual fun ConvertSystemTimeToCalDateTime(lpsystime: Long, calid: UInt, lpcaldatetime: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ConvertSystemTimeToCalDateTime(lpsystime.toCPointer<ByteVar>(), calid, lpcaldatetime.toCPointer<ByteVar>())
+public actual fun convertSystemTimeToCalDateTime(lpsystime: COpaquePointer?, calid: UInt, lpcaldatetime: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_convertSystemTimeToCalDateTime(lpsystime?.value?.toCPointer<ByteVar>(), calid, lpcaldatetime?.value?.toCPointer<ByteVar>())
 
-public actual fun EnumCalendarInfoA(lpcalinfoenumproc: CALINFO_ENUMPROCA, locale: UInt, calendar: UInt, caltype: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_EnumCalendarInfoA(lpcalinfoenumproc.toLong().toCPointer<ByteVar>(), locale, calendar, caltype)
+public actual fun enumCalendarInfoA(lpcalinfoenumproc: CalinfoEnumproca, locale: UInt, calendar: UInt, caltype: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_enumCalendarInfoA(0L.toCPointer<ByteVar>(), locale, calendar, caltype)
 
-public actual fun EnumCalendarInfoExA(lpcalinfoenumprocex: CALINFO_ENUMPROCEXA, locale: UInt, calendar: UInt, caltype: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_EnumCalendarInfoExA(lpcalinfoenumprocex.toLong().toCPointer<ByteVar>(), locale, calendar, caltype)
+public actual fun enumCalendarInfoExA(lpcalinfoenumprocex: CalinfoEnumprocexa, locale: UInt, calendar: UInt, caltype: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_enumCalendarInfoExA(0L.toCPointer<ByteVar>(), locale, calendar, caltype)
 
-public actual fun EnumCalendarInfoExEx(pcalinfoenumprocexex: CALINFO_ENUMPROCEXEX, lplocalename: PCWSTR, calendar: UInt, lpreserved: PCWSTR, caltype: UInt, lparam: LPARAM): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_EnumCalendarInfoExEx(pcalinfoenumprocexex.toLong().toCPointer<ByteVar>(), lplocalename.toCPointer<ByteVar>(), calendar, lpreserved.toCPointer<ByteVar>(), caltype, lparam)
+public actual fun enumCalendarInfoExEx(pcalinfoenumprocexex: CalinfoEnumprocexex, lplocalename: Pcwstr, calendar: UInt, lpreserved: Pcwstr, caltype: UInt, lparam: Lparam): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_enumCalendarInfoExEx(0L.toCPointer<ByteVar>(), lplocalename?.value?.toCPointer<ByteVar>(), calendar, lpreserved?.value?.toCPointer<ByteVar>(), caltype, lparam)
 
-public actual fun EnumCalendarInfoExW(lpcalinfoenumprocex: CALINFO_ENUMPROCEXW, locale: UInt, calendar: UInt, caltype: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_EnumCalendarInfoExW(lpcalinfoenumprocex.toLong().toCPointer<ByteVar>(), locale, calendar, caltype)
+public actual fun enumCalendarInfoExW(lpcalinfoenumprocex: CalinfoEnumprocexw, locale: UInt, calendar: UInt, caltype: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_enumCalendarInfoExW(0L.toCPointer<ByteVar>(), locale, calendar, caltype)
 
-public actual fun EnumCalendarInfoW(lpcalinfoenumproc: CALINFO_ENUMPROCW, locale: UInt, calendar: UInt, caltype: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_EnumCalendarInfoW(lpcalinfoenumproc.toLong().toCPointer<ByteVar>(), locale, calendar, caltype)
+public actual fun enumCalendarInfoW(lpcalinfoenumproc: CalinfoEnumprocw, locale: UInt, calendar: UInt, caltype: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_enumCalendarInfoW(0L.toCPointer<ByteVar>(), locale, calendar, caltype)
 
-public actual fun EnumDateFormatsA(lpdatefmtenumproc: DATEFMT_ENUMPROCA, locale: UInt, dwflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_EnumDateFormatsA(lpdatefmtenumproc.toLong().toCPointer<ByteVar>(), locale, dwflags)
+public actual fun enumDateFormatsA(lpdatefmtenumproc: DatefmtEnumproca, locale: UInt, dwflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_enumDateFormatsA(0L.toCPointer<ByteVar>(), locale, dwflags)
 
-public actual fun EnumDateFormatsExA(lpdatefmtenumprocex: DATEFMT_ENUMPROCEXA, locale: UInt, dwflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_EnumDateFormatsExA(lpdatefmtenumprocex.toLong().toCPointer<ByteVar>(), locale, dwflags)
+public actual fun enumDateFormatsExA(lpdatefmtenumprocex: DatefmtEnumprocexa, locale: UInt, dwflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_enumDateFormatsExA(0L.toCPointer<ByteVar>(), locale, dwflags)
 
-public actual fun EnumDateFormatsExEx(lpdatefmtenumprocexex: DATEFMT_ENUMPROCEXEX, lplocalename: PCWSTR, dwflags: ENUM_DATE_FORMATS_FLAGS, lparam: LPARAM): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_EnumDateFormatsExEx(lpdatefmtenumprocexex.toLong().toCPointer<ByteVar>(), lplocalename.toCPointer<ByteVar>(), dwflags, lparam)
+public actual fun enumDateFormatsExEx(lpdatefmtenumprocexex: DatefmtEnumprocexex, lplocalename: Pcwstr, dwflags: EnumDateFormatsFlags, lparam: Lparam): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_enumDateFormatsExEx(0L.toCPointer<ByteVar>(), lplocalename?.value?.toCPointer<ByteVar>(), dwflags, lparam)
 
-public actual fun EnumDateFormatsExW(lpdatefmtenumprocex: DATEFMT_ENUMPROCEXW, locale: UInt, dwflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_EnumDateFormatsExW(lpdatefmtenumprocex.toLong().toCPointer<ByteVar>(), locale, dwflags)
+public actual fun enumDateFormatsExW(lpdatefmtenumprocex: DatefmtEnumprocexw, locale: UInt, dwflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_enumDateFormatsExW(0L.toCPointer<ByteVar>(), locale, dwflags)
 
-public actual fun EnumDateFormatsW(lpdatefmtenumproc: DATEFMT_ENUMPROCW, locale: UInt, dwflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_EnumDateFormatsW(lpdatefmtenumproc.toLong().toCPointer<ByteVar>(), locale, dwflags)
+public actual fun enumDateFormatsW(lpdatefmtenumproc: DatefmtEnumprocw, locale: UInt, dwflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_enumDateFormatsW(0L.toCPointer<ByteVar>(), locale, dwflags)
 
-public actual fun EnumLanguageGroupLocalesA(lplanggrouplocaleenumproc: LANGGROUPLOCALE_ENUMPROCA, languagegroup: UInt, dwflags: UInt, lparam: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_EnumLanguageGroupLocalesA(lplanggrouplocaleenumproc.toLong().toCPointer<ByteVar>(), languagegroup, dwflags, lparam)
+public actual fun enumLanguageGroupLocalesA(lplanggrouplocaleenumproc: LanggrouplocaleEnumproca, languagegroup: UInt, dwflags: UInt, lparam: Long): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_enumLanguageGroupLocalesA(0L.toCPointer<ByteVar>(), languagegroup, dwflags, lparam)
 
-public actual fun EnumLanguageGroupLocalesW(lplanggrouplocaleenumproc: LANGGROUPLOCALE_ENUMPROCW, languagegroup: UInt, dwflags: UInt, lparam: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_EnumLanguageGroupLocalesW(lplanggrouplocaleenumproc.toLong().toCPointer<ByteVar>(), languagegroup, dwflags, lparam)
+public actual fun enumLanguageGroupLocalesW(lplanggrouplocaleenumproc: LanggrouplocaleEnumprocw, languagegroup: UInt, dwflags: UInt, lparam: Long): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_enumLanguageGroupLocalesW(0L.toCPointer<ByteVar>(), languagegroup, dwflags, lparam)
 
-public actual fun EnumSystemCodePagesA(lpcodepageenumproc: CODEPAGE_ENUMPROCA, dwflags: ENUM_SYSTEM_CODE_PAGES_FLAGS): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_EnumSystemCodePagesA(lpcodepageenumproc.toLong().toCPointer<ByteVar>(), dwflags)
+public actual fun enumSystemCodePagesA(lpcodepageenumproc: CodepageEnumproca, dwflags: EnumSystemCodePagesFlags): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_enumSystemCodePagesA(0L.toCPointer<ByteVar>(), dwflags)
 
-public actual fun EnumSystemCodePagesW(lpcodepageenumproc: CODEPAGE_ENUMPROCW, dwflags: ENUM_SYSTEM_CODE_PAGES_FLAGS): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_EnumSystemCodePagesW(lpcodepageenumproc.toLong().toCPointer<ByteVar>(), dwflags)
+public actual fun enumSystemCodePagesW(lpcodepageenumproc: CodepageEnumprocw, dwflags: EnumSystemCodePagesFlags): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_enumSystemCodePagesW(0L.toCPointer<ByteVar>(), dwflags)
 
-public actual fun EnumSystemGeoID(geoclass: UInt, parentgeoid: Int, lpgeoenumproc: GEO_ENUMPROC): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_EnumSystemGeoID(geoclass, parentgeoid, lpgeoenumproc.toLong().toCPointer<ByteVar>())
+public actual fun enumSystemGeoID(geoclass: UInt, parentgeoid: Int, lpgeoenumproc: GeoEnumproc): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_enumSystemGeoID(geoclass, parentgeoid, 0L.toCPointer<ByteVar>())
 
-public actual fun EnumSystemGeoNames(geoclass: UInt, geoenumproc: GEO_ENUMNAMEPROC, data: LPARAM): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_EnumSystemGeoNames(geoclass, geoenumproc.toLong().toCPointer<ByteVar>(), data)
+public actual fun enumSystemGeoNames(geoclass: UInt, geoenumproc: GeoEnumnameproc, data: Lparam): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_enumSystemGeoNames(geoclass, 0L.toCPointer<ByteVar>(), data)
 
-public actual fun EnumSystemLanguageGroupsA(lplanguagegroupenumproc: LANGUAGEGROUP_ENUMPROCA, dwflags: ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS, lparam: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_EnumSystemLanguageGroupsA(lplanguagegroupenumproc.toLong().toCPointer<ByteVar>(), dwflags, lparam)
+public actual fun enumSystemLanguageGroupsA(lplanguagegroupenumproc: LanguagegroupEnumproca, dwflags: EnumSystemLanguageGroupsFlags, lparam: Long): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_enumSystemLanguageGroupsA(0L.toCPointer<ByteVar>(), dwflags, lparam)
 
-public actual fun EnumSystemLanguageGroupsW(lplanguagegroupenumproc: LANGUAGEGROUP_ENUMPROCW, dwflags: ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS, lparam: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_EnumSystemLanguageGroupsW(lplanguagegroupenumproc.toLong().toCPointer<ByteVar>(), dwflags, lparam)
+public actual fun enumSystemLanguageGroupsW(lplanguagegroupenumproc: LanguagegroupEnumprocw, dwflags: EnumSystemLanguageGroupsFlags, lparam: Long): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_enumSystemLanguageGroupsW(0L.toCPointer<ByteVar>(), dwflags, lparam)
 
-public actual fun EnumSystemLocalesA(lplocaleenumproc: LOCALE_ENUMPROCA, dwflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_EnumSystemLocalesA(lplocaleenumproc.toLong().toCPointer<ByteVar>(), dwflags)
+public actual fun enumSystemLocalesA(lplocaleenumproc: LocaleEnumproca, dwflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_enumSystemLocalesA(0L.toCPointer<ByteVar>(), dwflags)
 
-public actual fun EnumSystemLocalesEx(lplocaleenumprocex: LOCALE_ENUMPROCEX, dwflags: UInt, lparam: LPARAM, lpreserved: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_EnumSystemLocalesEx(lplocaleenumprocex.toLong().toCPointer<ByteVar>(), dwflags, lparam, lpreserved.toCPointer<ByteVar>())
+public actual fun enumSystemLocalesEx(lplocaleenumprocex: LocaleEnumprocex, dwflags: UInt, lparam: Lparam, lpreserved: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_enumSystemLocalesEx(0L.toCPointer<ByteVar>(), dwflags, lparam, lpreserved?.value?.toCPointer<ByteVar>())
 
-public actual fun EnumSystemLocalesW(lplocaleenumproc: LOCALE_ENUMPROCW, dwflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_EnumSystemLocalesW(lplocaleenumproc.toLong().toCPointer<ByteVar>(), dwflags)
+public actual fun enumSystemLocalesW(lplocaleenumproc: LocaleEnumprocw, dwflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_enumSystemLocalesW(0L.toCPointer<ByteVar>(), dwflags)
 
-public actual fun EnumTimeFormatsA(lptimefmtenumproc: TIMEFMT_ENUMPROCA, locale: UInt, dwflags: TIME_FORMAT_FLAGS): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_EnumTimeFormatsA(lptimefmtenumproc.toLong().toCPointer<ByteVar>(), locale, dwflags)
+public actual fun enumTimeFormatsA(lptimefmtenumproc: TimefmtEnumproca, locale: UInt, dwflags: TimeFormatFlags): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_enumTimeFormatsA(0L.toCPointer<ByteVar>(), locale, dwflags)
 
-public actual fun EnumTimeFormatsEx(lptimefmtenumprocex: TIMEFMT_ENUMPROCEX, lplocalename: PCWSTR, dwflags: UInt, lparam: LPARAM): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_EnumTimeFormatsEx(lptimefmtenumprocex.toLong().toCPointer<ByteVar>(), lplocalename.toCPointer<ByteVar>(), dwflags, lparam)
+public actual fun enumTimeFormatsEx(lptimefmtenumprocex: TimefmtEnumprocex, lplocalename: Pcwstr, dwflags: UInt, lparam: Lparam): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_enumTimeFormatsEx(0L.toCPointer<ByteVar>(), lplocalename?.value?.toCPointer<ByteVar>(), dwflags, lparam)
 
-public actual fun EnumTimeFormatsW(lptimefmtenumproc: TIMEFMT_ENUMPROCW, locale: UInt, dwflags: TIME_FORMAT_FLAGS): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_EnumTimeFormatsW(lptimefmtenumproc.toLong().toCPointer<ByteVar>(), locale, dwflags)
+public actual fun enumTimeFormatsW(lptimefmtenumproc: TimefmtEnumprocw, locale: UInt, dwflags: TimeFormatFlags): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_enumTimeFormatsW(0L.toCPointer<ByteVar>(), locale, dwflags)
 
-public actual fun EnumUILanguagesA(lpuilanguageenumproc: UILANGUAGE_ENUMPROCA, dwflags: UInt, lparam: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_EnumUILanguagesA(lpuilanguageenumproc.toLong().toCPointer<ByteVar>(), dwflags, lparam)
+public actual fun enumUILanguagesA(lpuilanguageenumproc: UilanguageEnumproca, dwflags: UInt, lparam: Long): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_enumUILanguagesA(0L.toCPointer<ByteVar>(), dwflags, lparam)
 
-public actual fun EnumUILanguagesW(lpuilanguageenumproc: UILANGUAGE_ENUMPROCW, dwflags: UInt, lparam: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_EnumUILanguagesW(lpuilanguageenumproc.toLong().toCPointer<ByteVar>(), dwflags, lparam)
+public actual fun enumUILanguagesW(lpuilanguageenumproc: UilanguageEnumprocw, dwflags: UInt, lparam: Long): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_enumUILanguagesW(0L.toCPointer<ByteVar>(), dwflags, lparam)
 
-public actual fun FindNLSString(locale: UInt, dwfindnlsstringflags: UInt, lpstringsource: PCWSTR, cchsource: Int, lpstringvalue: PCWSTR, cchvalue: Int, pcchfound: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_FindNLSString(locale, dwfindnlsstringflags, lpstringsource.toCPointer<ByteVar>(), cchsource, lpstringvalue.toCPointer<ByteVar>(), cchvalue, pcchfound.toCPointer<ByteVar>())
+public actual fun findNLSString(locale: UInt, dwfindnlsstringflags: UInt, lpstringsource: Pcwstr, cchsource: Int, lpstringvalue: Pcwstr, cchvalue: Int, pcchfound: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_findNLSString(locale, dwfindnlsstringflags, lpstringsource?.value?.toCPointer<ByteVar>(), cchsource, lpstringvalue?.value?.toCPointer<ByteVar>(), cchvalue, pcchfound?.value?.toCPointer<ByteVar>())
 
-public actual fun FindNLSStringEx(lplocalename: PCWSTR, dwfindnlsstringflags: UInt, lpstringsource: PCWSTR, cchsource: Int, lpstringvalue: PCWSTR, cchvalue: Int, pcchfound: Long, lpversioninformation: Long, lpreserved: Long, sorthandle: LPARAM): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_FindNLSStringEx(lplocalename.toCPointer<ByteVar>(), dwfindnlsstringflags, lpstringsource.toCPointer<ByteVar>(), cchsource, lpstringvalue.toCPointer<ByteVar>(), cchvalue, pcchfound.toCPointer<ByteVar>(), lpversioninformation.toCPointer<ByteVar>(), lpreserved.toCPointer<ByteVar>(), sorthandle)
+public actual fun findNLSStringEx(lplocalename: Pcwstr, dwfindnlsstringflags: UInt, lpstringsource: Pcwstr, cchsource: Int, lpstringvalue: Pcwstr, cchvalue: Int, pcchfound: COpaquePointer?, lpversioninformation: COpaquePointer?, lpreserved: COpaquePointer?, sorthandle: Lparam): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_findNLSStringEx(lplocalename?.value?.toCPointer<ByteVar>(), dwfindnlsstringflags, lpstringsource?.value?.toCPointer<ByteVar>(), cchsource, lpstringvalue?.value?.toCPointer<ByteVar>(), cchvalue, pcchfound?.value?.toCPointer<ByteVar>(), lpversioninformation?.value?.toCPointer<ByteVar>(), lpreserved?.value?.toCPointer<ByteVar>(), sorthandle)
 
-public actual fun FindStringOrdinal(dwfindstringordinalflags: UInt, lpstringsource: PCWSTR, cchsource: Int, lpstringvalue: PCWSTR, cchvalue: Int, bignorecase: BOOL): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_FindStringOrdinal(dwfindstringordinalflags, lpstringsource.toCPointer<ByteVar>(), cchsource, lpstringvalue.toCPointer<ByteVar>(), cchvalue, bignorecase)
+public actual fun findStringOrdinal(dwfindstringordinalflags: UInt, lpstringsource: Pcwstr, cchsource: Int, lpstringvalue: Pcwstr, cchvalue: Int, bignorecase: Bool): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_findStringOrdinal(dwfindstringordinalflags, lpstringsource?.value?.toCPointer<ByteVar>(), cchsource, lpstringvalue?.value?.toCPointer<ByteVar>(), cchvalue, bignorecase)
 
-public actual fun FoldStringA(dwmapflags: FOLD_STRING_MAP_FLAGS, lpsrcstr: PCSTR, cchsrc: Int, lpdeststr: PSTR, cchdest: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_FoldStringA(dwmapflags, lpsrcstr.toCPointer<ByteVar>(), cchsrc, lpdeststr.toCPointer<ByteVar>(), cchdest)
+public actual fun foldStringA(dwmapflags: FoldStringMapFlags, lpsrcstr: Pcstr, cchsrc: Int, lpdeststr: Pstr, cchdest: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_foldStringA(dwmapflags, lpsrcstr?.value?.toCPointer<ByteVar>(), cchsrc, lpdeststr?.value?.toCPointer<ByteVar>(), cchdest)
 
-public actual fun FoldStringW(dwmapflags: FOLD_STRING_MAP_FLAGS, lpsrcstr: PCWSTR, cchsrc: Int, lpdeststr: PWSTR, cchdest: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_FoldStringW(dwmapflags, lpsrcstr.toCPointer<ByteVar>(), cchsrc, lpdeststr.toCPointer<ByteVar>(), cchdest)
+public actual fun foldStringW(dwmapflags: FoldStringMapFlags, lpsrcstr: Pcwstr, cchsrc: Int, lpdeststr: Pwstr, cchdest: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_foldStringW(dwmapflags, lpsrcstr?.value?.toCPointer<ByteVar>(), cchsrc, lpdeststr?.value?.toCPointer<ByteVar>(), cchdest)
 
-public actual fun GetACP(): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_GetACP()
+public actual fun getACP(): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_getACP()
 
-public actual fun GetCPInfo(codepage: UInt, lpcpinfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_GetCPInfo(codepage, lpcpinfo.toCPointer<ByteVar>())
+public actual fun getCPInfo(codepage: UInt, lpcpinfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_getCPInfo(codepage, lpcpinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun GetCPInfoExA(codepage: UInt, dwflags: UInt, lpcpinfoex: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_GetCPInfoExA(codepage, dwflags, lpcpinfoex.toCPointer<ByteVar>())
+public actual fun getCPInfoExA(codepage: UInt, dwflags: UInt, lpcpinfoex: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_getCPInfoExA(codepage, dwflags, lpcpinfoex?.value?.toCPointer<ByteVar>())
 
-public actual fun GetCPInfoExW(codepage: UInt, dwflags: UInt, lpcpinfoex: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_GetCPInfoExW(codepage, dwflags, lpcpinfoex.toCPointer<ByteVar>())
+public actual fun getCPInfoExW(codepage: UInt, dwflags: UInt, lpcpinfoex: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_getCPInfoExW(codepage, dwflags, lpcpinfoex?.value?.toCPointer<ByteVar>())
 
-public actual fun GetCalendarDateFormatEx(lpszlocale: PCWSTR, dwflags: UInt, lpcaldatetime: Long, lpformat: PCWSTR, lpdatestr: PWSTR, cchdate: Int): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_GetCalendarDateFormatEx(lpszlocale.toCPointer<ByteVar>(), dwflags, lpcaldatetime.toCPointer<ByteVar>(), lpformat.toCPointer<ByteVar>(), lpdatestr.toCPointer<ByteVar>(), cchdate)
+public actual fun getCalendarDateFormatEx(lpszlocale: Pcwstr, dwflags: UInt, lpcaldatetime: COpaquePointer?, lpformat: Pcwstr, lpdatestr: Pwstr, cchdate: Int): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_getCalendarDateFormatEx(lpszlocale?.value?.toCPointer<ByteVar>(), dwflags, lpcaldatetime?.value?.toCPointer<ByteVar>(), lpformat?.value?.toCPointer<ByteVar>(), lpdatestr?.value?.toCPointer<ByteVar>(), cchdate)
 
-public actual fun GetCalendarInfoA(locale: UInt, calendar: UInt, caltype: UInt, lpcaldata: PSTR, cchdata: Int, lpvalue: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_GetCalendarInfoA(locale, calendar, caltype, lpcaldata.toCPointer<ByteVar>(), cchdata, lpvalue.toCPointer<ByteVar>())
+public actual fun getCalendarInfoA(locale: UInt, calendar: UInt, caltype: UInt, lpcaldata: Pstr, cchdata: Int, lpvalue: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_getCalendarInfoA(locale, calendar, caltype, lpcaldata?.value?.toCPointer<ByteVar>(), cchdata, lpvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun GetCalendarInfoEx(lplocalename: PCWSTR, calendar: UInt, lpreserved: PCWSTR, caltype: UInt, lpcaldata: PWSTR, cchdata: Int, lpvalue: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_GetCalendarInfoEx(lplocalename.toCPointer<ByteVar>(), calendar, lpreserved.toCPointer<ByteVar>(), caltype, lpcaldata.toCPointer<ByteVar>(), cchdata, lpvalue.toCPointer<ByteVar>())
+public actual fun getCalendarInfoEx(lplocalename: Pcwstr, calendar: UInt, lpreserved: Pcwstr, caltype: UInt, lpcaldata: Pwstr, cchdata: Int, lpvalue: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_getCalendarInfoEx(lplocalename?.value?.toCPointer<ByteVar>(), calendar, lpreserved?.value?.toCPointer<ByteVar>(), caltype, lpcaldata?.value?.toCPointer<ByteVar>(), cchdata, lpvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun GetCalendarInfoW(locale: UInt, calendar: UInt, caltype: UInt, lpcaldata: PWSTR, cchdata: Int, lpvalue: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_GetCalendarInfoW(locale, calendar, caltype, lpcaldata.toCPointer<ByteVar>(), cchdata, lpvalue.toCPointer<ByteVar>())
+public actual fun getCalendarInfoW(locale: UInt, calendar: UInt, caltype: UInt, lpcaldata: Pwstr, cchdata: Int, lpvalue: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_getCalendarInfoW(locale, calendar, caltype, lpcaldata?.value?.toCPointer<ByteVar>(), cchdata, lpvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun GetCalendarSupportedDateRange(calendar: UInt, lpcalmindatetime: Long, lpcalmaxdatetime: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_GetCalendarSupportedDateRange(calendar, lpcalmindatetime.toCPointer<ByteVar>(), lpcalmaxdatetime.toCPointer<ByteVar>())
+public actual fun getCalendarSupportedDateRange(calendar: UInt, lpcalmindatetime: COpaquePointer?, lpcalmaxdatetime: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_getCalendarSupportedDateRange(calendar, lpcalmindatetime?.value?.toCPointer<ByteVar>(), lpcalmaxdatetime?.value?.toCPointer<ByteVar>())
 
-public actual fun GetCurrencyFormatA(locale: UInt, dwflags: UInt, lpvalue: PCSTR, lpformat: Long, lpcurrencystr: PSTR, cchcurrency: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_GetCurrencyFormatA(locale, dwflags, lpvalue.toCPointer<ByteVar>(), lpformat.toCPointer<ByteVar>(), lpcurrencystr.toCPointer<ByteVar>(), cchcurrency)
+public actual fun getCurrencyFormatA(locale: UInt, dwflags: UInt, lpvalue: Pcstr, lpformat: COpaquePointer?, lpcurrencystr: Pstr, cchcurrency: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_getCurrencyFormatA(locale, dwflags, lpvalue?.value?.toCPointer<ByteVar>(), lpformat?.value?.toCPointer<ByteVar>(), lpcurrencystr?.value?.toCPointer<ByteVar>(), cchcurrency)
 
-public actual fun GetCurrencyFormatEx(lplocalename: PCWSTR, dwflags: UInt, lpvalue: PCWSTR, lpformat: Long, lpcurrencystr: PWSTR, cchcurrency: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_GetCurrencyFormatEx(lplocalename.toCPointer<ByteVar>(), dwflags, lpvalue.toCPointer<ByteVar>(), lpformat.toCPointer<ByteVar>(), lpcurrencystr.toCPointer<ByteVar>(), cchcurrency)
+public actual fun getCurrencyFormatEx(lplocalename: Pcwstr, dwflags: UInt, lpvalue: Pcwstr, lpformat: COpaquePointer?, lpcurrencystr: Pwstr, cchcurrency: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_getCurrencyFormatEx(lplocalename?.value?.toCPointer<ByteVar>(), dwflags, lpvalue?.value?.toCPointer<ByteVar>(), lpformat?.value?.toCPointer<ByteVar>(), lpcurrencystr?.value?.toCPointer<ByteVar>(), cchcurrency)
 
-public actual fun GetCurrencyFormatW(locale: UInt, dwflags: UInt, lpvalue: PCWSTR, lpformat: Long, lpcurrencystr: PWSTR, cchcurrency: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_GetCurrencyFormatW(locale, dwflags, lpvalue.toCPointer<ByteVar>(), lpformat.toCPointer<ByteVar>(), lpcurrencystr.toCPointer<ByteVar>(), cchcurrency)
+public actual fun getCurrencyFormatW(locale: UInt, dwflags: UInt, lpvalue: Pcwstr, lpformat: COpaquePointer?, lpcurrencystr: Pwstr, cchcurrency: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_getCurrencyFormatW(locale, dwflags, lpvalue?.value?.toCPointer<ByteVar>(), lpformat?.value?.toCPointer<ByteVar>(), lpcurrencystr?.value?.toCPointer<ByteVar>(), cchcurrency)
 
-public actual fun GetDateFormatA(locale: UInt, dwflags: UInt, lpdate: Long, lpformat: PCSTR, lpdatestr: PSTR, cchdate: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_GetDateFormatA(locale, dwflags, lpdate.toCPointer<ByteVar>(), lpformat.toCPointer<ByteVar>(), lpdatestr.toCPointer<ByteVar>(), cchdate)
+public actual fun getDateFormatA(locale: UInt, dwflags: UInt, lpdate: COpaquePointer?, lpformat: Pcstr, lpdatestr: Pstr, cchdate: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_getDateFormatA(locale, dwflags, lpdate?.value?.toCPointer<ByteVar>(), lpformat?.value?.toCPointer<ByteVar>(), lpdatestr?.value?.toCPointer<ByteVar>(), cchdate)
 
-public actual fun GetDateFormatEx(lplocalename: PCWSTR, dwflags: ENUM_DATE_FORMATS_FLAGS, lpdate: Long, lpformat: PCWSTR, lpdatestr: PWSTR, cchdate: Int, lpcalendar: PCWSTR): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_GetDateFormatEx(lplocalename.toCPointer<ByteVar>(), dwflags, lpdate.toCPointer<ByteVar>(), lpformat.toCPointer<ByteVar>(), lpdatestr.toCPointer<ByteVar>(), cchdate, lpcalendar.toCPointer<ByteVar>())
+public actual fun getDateFormatEx(lplocalename: Pcwstr, dwflags: EnumDateFormatsFlags, lpdate: COpaquePointer?, lpformat: Pcwstr, lpdatestr: Pwstr, cchdate: Int, lpcalendar: Pcwstr): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_getDateFormatEx(lplocalename?.value?.toCPointer<ByteVar>(), dwflags, lpdate?.value?.toCPointer<ByteVar>(), lpformat?.value?.toCPointer<ByteVar>(), lpdatestr?.value?.toCPointer<ByteVar>(), cchdate, lpcalendar?.value?.toCPointer<ByteVar>())
 
-public actual fun GetDateFormatW(locale: UInt, dwflags: UInt, lpdate: Long, lpformat: PCWSTR, lpdatestr: PWSTR, cchdate: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_GetDateFormatW(locale, dwflags, lpdate.toCPointer<ByteVar>(), lpformat.toCPointer<ByteVar>(), lpdatestr.toCPointer<ByteVar>(), cchdate)
+public actual fun getDateFormatW(locale: UInt, dwflags: UInt, lpdate: COpaquePointer?, lpformat: Pcwstr, lpdatestr: Pwstr, cchdate: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_getDateFormatW(locale, dwflags, lpdate?.value?.toCPointer<ByteVar>(), lpformat?.value?.toCPointer<ByteVar>(), lpdatestr?.value?.toCPointer<ByteVar>(), cchdate)
 
-public actual fun GetDistanceOfClosestLanguageInList(pszlanguage: PCWSTR, pszlanguageslist: PCWSTR, wchlistdelimiter: UShort, pclosestdistance: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_GetDistanceOfClosestLanguageInList(pszlanguage.toCPointer<ByteVar>(), pszlanguageslist.toCPointer<ByteVar>(), wchlistdelimiter, pclosestdistance.toCPointer<ByteVar>())
+public actual fun getDistanceOfClosestLanguageInList(pszlanguage: Pcwstr, pszlanguageslist: Pcwstr, wchlistdelimiter: UShort, pclosestdistance: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_getDistanceOfClosestLanguageInList(pszlanguage?.value?.toCPointer<ByteVar>(), pszlanguageslist?.value?.toCPointer<ByteVar>(), wchlistdelimiter, pclosestdistance?.value?.toCPointer<ByteVar>())
 
-public actual fun GetDurationFormat(locale: UInt, dwflags: UInt, lpduration: Long, ullduration: ULong, lpformat: PCWSTR, lpdurationstr: PWSTR, cchduration: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_GetDurationFormat(locale, dwflags, lpduration.toCPointer<ByteVar>(), ullduration, lpformat.toCPointer<ByteVar>(), lpdurationstr.toCPointer<ByteVar>(), cchduration)
+public actual fun getDurationFormat(locale: UInt, dwflags: UInt, lpduration: COpaquePointer?, ullduration: ULong, lpformat: Pcwstr, lpdurationstr: Pwstr, cchduration: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_getDurationFormat(locale, dwflags, lpduration?.value?.toCPointer<ByteVar>(), ullduration, lpformat?.value?.toCPointer<ByteVar>(), lpdurationstr?.value?.toCPointer<ByteVar>(), cchduration)
 
-public actual fun GetDurationFormatEx(lplocalename: PCWSTR, dwflags: UInt, lpduration: Long, ullduration: ULong, lpformat: PCWSTR, lpdurationstr: PWSTR, cchduration: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_GetDurationFormatEx(lplocalename.toCPointer<ByteVar>(), dwflags, lpduration.toCPointer<ByteVar>(), ullduration, lpformat.toCPointer<ByteVar>(), lpdurationstr.toCPointer<ByteVar>(), cchduration)
+public actual fun getDurationFormatEx(lplocalename: Pcwstr, dwflags: UInt, lpduration: COpaquePointer?, ullduration: ULong, lpformat: Pcwstr, lpdurationstr: Pwstr, cchduration: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_getDurationFormatEx(lplocalename?.value?.toCPointer<ByteVar>(), dwflags, lpduration?.value?.toCPointer<ByteVar>(), ullduration, lpformat?.value?.toCPointer<ByteVar>(), lpdurationstr?.value?.toCPointer<ByteVar>(), cchduration)
 
-public actual fun GetFileMUIInfo(dwflags: UInt, pcwszfilepath: PCWSTR, pfilemuiinfo: Long, pcbfilemuiinfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_GetFileMUIInfo(dwflags, pcwszfilepath.toCPointer<ByteVar>(), pfilemuiinfo.toCPointer<ByteVar>(), pcbfilemuiinfo.toCPointer<ByteVar>())
+public actual fun getFileMUIInfo(dwflags: UInt, pcwszfilepath: Pcwstr, pfilemuiinfo: COpaquePointer?, pcbfilemuiinfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_getFileMUIInfo(dwflags, pcwszfilepath?.value?.toCPointer<ByteVar>(), pfilemuiinfo?.value?.toCPointer<ByteVar>(), pcbfilemuiinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun GetFileMUIPath(dwflags: UInt, pcwszfilepath: PCWSTR, pwszlanguage: PWSTR, pcchlanguage: Long, pwszfilemuipath: PWSTR, pcchfilemuipath: Long, pululenumerator: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_GetFileMUIPath(dwflags, pcwszfilepath.toCPointer<ByteVar>(), pwszlanguage.toCPointer<ByteVar>(), pcchlanguage.toCPointer<ByteVar>(), pwszfilemuipath.toCPointer<ByteVar>(), pcchfilemuipath.toCPointer<ByteVar>(), pululenumerator.toCPointer<ByteVar>())
+public actual fun getFileMUIPath(dwflags: UInt, pcwszfilepath: Pcwstr, pwszlanguage: Pwstr, pcchlanguage: COpaquePointer?, pwszfilemuipath: Pwstr, pcchfilemuipath: COpaquePointer?, pululenumerator: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_getFileMUIPath(dwflags, pcwszfilepath?.value?.toCPointer<ByteVar>(), pwszlanguage?.value?.toCPointer<ByteVar>(), pcchlanguage?.value?.toCPointer<ByteVar>(), pwszfilemuipath?.value?.toCPointer<ByteVar>(), pcchfilemuipath?.value?.toCPointer<ByteVar>(), pululenumerator?.value?.toCPointer<ByteVar>())
 
-public actual fun GetGeoInfoA(location: Int, geotype: SYSGEOTYPE, lpgeodata: PSTR, cchdata: Int, langid: UShort): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_GetGeoInfoA(location, geotype, lpgeodata.toCPointer<ByteVar>(), cchdata, langid)
+public actual fun getGeoInfoA(location: Int, geotype: Sysgeotype, lpgeodata: Pstr, cchdata: Int, langid: UShort): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_getGeoInfoA(location, geotype, lpgeodata?.value?.toCPointer<ByteVar>(), cchdata, langid)
 
-public actual fun GetGeoInfoEx(location: PCWSTR, geotype: SYSGEOTYPE, geodata: PWSTR, geodatacount: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_GetGeoInfoEx(location.toCPointer<ByteVar>(), geotype, geodata.toCPointer<ByteVar>(), geodatacount)
+public actual fun getGeoInfoEx(location: Pcwstr, geotype: Sysgeotype, geodata: Pwstr, geodatacount: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_getGeoInfoEx(location?.value?.toCPointer<ByteVar>(), geotype, geodata?.value?.toCPointer<ByteVar>(), geodatacount)
 
-public actual fun GetGeoInfoW(location: Int, geotype: SYSGEOTYPE, lpgeodata: PWSTR, cchdata: Int, langid: UShort): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_GetGeoInfoW(location, geotype, lpgeodata.toCPointer<ByteVar>(), cchdata, langid)
+public actual fun getGeoInfoW(location: Int, geotype: Sysgeotype, lpgeodata: Pwstr, cchdata: Int, langid: UShort): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_getGeoInfoW(location, geotype, lpgeodata?.value?.toCPointer<ByteVar>(), cchdata, langid)
 
-public actual fun GetLocaleInfoA(locale: UInt, lctype: UInt, lplcdata: PSTR, cchdata: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_GetLocaleInfoA(locale, lctype, lplcdata.toCPointer<ByteVar>(), cchdata)
+public actual fun getLocaleInfoA(locale: UInt, lctype: UInt, lplcdata: Pstr, cchdata: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_getLocaleInfoA(locale, lctype, lplcdata?.value?.toCPointer<ByteVar>(), cchdata)
 
-public actual fun GetLocaleInfoEx(lplocalename: PCWSTR, lctype: UInt, lplcdata: PWSTR, cchdata: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_GetLocaleInfoEx(lplocalename.toCPointer<ByteVar>(), lctype, lplcdata.toCPointer<ByteVar>(), cchdata)
+public actual fun getLocaleInfoEx(lplocalename: Pcwstr, lctype: UInt, lplcdata: Pwstr, cchdata: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_getLocaleInfoEx(lplocalename?.value?.toCPointer<ByteVar>(), lctype, lplcdata?.value?.toCPointer<ByteVar>(), cchdata)
 
-public actual fun GetLocaleInfoW(locale: UInt, lctype: UInt, lplcdata: PWSTR, cchdata: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_GetLocaleInfoW(locale, lctype, lplcdata.toCPointer<ByteVar>(), cchdata)
+public actual fun getLocaleInfoW(locale: UInt, lctype: UInt, lplcdata: Pwstr, cchdata: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_getLocaleInfoW(locale, lctype, lplcdata?.value?.toCPointer<ByteVar>(), cchdata)
 
-public actual fun GetNLSVersion(function: UInt, locale: UInt, lpversioninformation: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_GetNLSVersion(function, locale, lpversioninformation.toCPointer<ByteVar>())
+public actual fun getNLSVersion(function: UInt, locale: UInt, lpversioninformation: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_getNLSVersion(function, locale, lpversioninformation?.value?.toCPointer<ByteVar>())
 
-public actual fun GetNLSVersionEx(function: UInt, lplocalename: PCWSTR, lpversioninformation: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_GetNLSVersionEx(function, lplocalename.toCPointer<ByteVar>(), lpversioninformation.toCPointer<ByteVar>())
+public actual fun getNLSVersionEx(function: UInt, lplocalename: Pcwstr, lpversioninformation: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_getNLSVersionEx(function, lplocalename?.value?.toCPointer<ByteVar>(), lpversioninformation?.value?.toCPointer<ByteVar>())
 
-public actual fun GetNumberFormatA(locale: UInt, dwflags: UInt, lpvalue: PCSTR, lpformat: Long, lpnumberstr: PSTR, cchnumber: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_GetNumberFormatA(locale, dwflags, lpvalue.toCPointer<ByteVar>(), lpformat.toCPointer<ByteVar>(), lpnumberstr.toCPointer<ByteVar>(), cchnumber)
+public actual fun getNumberFormatA(locale: UInt, dwflags: UInt, lpvalue: Pcstr, lpformat: COpaquePointer?, lpnumberstr: Pstr, cchnumber: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_getNumberFormatA(locale, dwflags, lpvalue?.value?.toCPointer<ByteVar>(), lpformat?.value?.toCPointer<ByteVar>(), lpnumberstr?.value?.toCPointer<ByteVar>(), cchnumber)
 
-public actual fun GetNumberFormatEx(lplocalename: PCWSTR, dwflags: UInt, lpvalue: PCWSTR, lpformat: Long, lpnumberstr: PWSTR, cchnumber: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_GetNumberFormatEx(lplocalename.toCPointer<ByteVar>(), dwflags, lpvalue.toCPointer<ByteVar>(), lpformat.toCPointer<ByteVar>(), lpnumberstr.toCPointer<ByteVar>(), cchnumber)
+public actual fun getNumberFormatEx(lplocalename: Pcwstr, dwflags: UInt, lpvalue: Pcwstr, lpformat: COpaquePointer?, lpnumberstr: Pwstr, cchnumber: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_getNumberFormatEx(lplocalename?.value?.toCPointer<ByteVar>(), dwflags, lpvalue?.value?.toCPointer<ByteVar>(), lpformat?.value?.toCPointer<ByteVar>(), lpnumberstr?.value?.toCPointer<ByteVar>(), cchnumber)
 
-public actual fun GetNumberFormatW(locale: UInt, dwflags: UInt, lpvalue: PCWSTR, lpformat: Long, lpnumberstr: PWSTR, cchnumber: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_GetNumberFormatW(locale, dwflags, lpvalue.toCPointer<ByteVar>(), lpformat.toCPointer<ByteVar>(), lpnumberstr.toCPointer<ByteVar>(), cchnumber)
+public actual fun getNumberFormatW(locale: UInt, dwflags: UInt, lpvalue: Pcwstr, lpformat: COpaquePointer?, lpnumberstr: Pwstr, cchnumber: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_getNumberFormatW(locale, dwflags, lpvalue?.value?.toCPointer<ByteVar>(), lpformat?.value?.toCPointer<ByteVar>(), lpnumberstr?.value?.toCPointer<ByteVar>(), cchnumber)
 
-public actual fun GetOEMCP(): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_GetOEMCP()
+public actual fun getOEMCP(): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_getOEMCP()
 
-public actual fun GetProcessPreferredUILanguages(dwflags: UInt, pulnumlanguages: Long, pwszlanguagesbuffer: PWSTR, pcchlanguagesbuffer: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_GetProcessPreferredUILanguages(dwflags, pulnumlanguages.toCPointer<ByteVar>(), pwszlanguagesbuffer.toCPointer<ByteVar>(), pcchlanguagesbuffer.toCPointer<ByteVar>())
+public actual fun getProcessPreferredUILanguages(dwflags: UInt, pulnumlanguages: COpaquePointer?, pwszlanguagesbuffer: Pwstr, pcchlanguagesbuffer: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_getProcessPreferredUILanguages(dwflags, pulnumlanguages?.value?.toCPointer<ByteVar>(), pwszlanguagesbuffer?.value?.toCPointer<ByteVar>(), pcchlanguagesbuffer?.value?.toCPointer<ByteVar>())
 
-public actual fun GetStringScripts(dwflags: UInt, lpstring: PCWSTR, cchstring: Int, lpscripts: PWSTR, cchscripts: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_GetStringScripts(dwflags, lpstring.toCPointer<ByteVar>(), cchstring, lpscripts.toCPointer<ByteVar>(), cchscripts)
+public actual fun getStringScripts(dwflags: UInt, lpstring: Pcwstr, cchstring: Int, lpscripts: Pwstr, cchscripts: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_getStringScripts(dwflags, lpstring?.value?.toCPointer<ByteVar>(), cchstring, lpscripts?.value?.toCPointer<ByteVar>(), cchscripts)
 
-public actual fun GetStringTypeA(locale: UInt, dwinfotype: UInt, lpsrcstr: PCSTR, cchsrc: Int, lpchartype: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_GetStringTypeA(locale, dwinfotype, lpsrcstr.toCPointer<ByteVar>(), cchsrc, lpchartype.toCPointer<ByteVar>())
+public actual fun getStringTypeA(locale: UInt, dwinfotype: UInt, lpsrcstr: Pcstr, cchsrc: Int, lpchartype: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_getStringTypeA(locale, dwinfotype, lpsrcstr?.value?.toCPointer<ByteVar>(), cchsrc, lpchartype?.value?.toCPointer<ByteVar>())
 
-public actual fun GetStringTypeExA(locale: UInt, dwinfotype: UInt, lpsrcstr: PCSTR, cchsrc: Int, lpchartype: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_GetStringTypeExA(locale, dwinfotype, lpsrcstr.toCPointer<ByteVar>(), cchsrc, lpchartype.toCPointer<ByteVar>())
+public actual fun getStringTypeExA(locale: UInt, dwinfotype: UInt, lpsrcstr: Pcstr, cchsrc: Int, lpchartype: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_getStringTypeExA(locale, dwinfotype, lpsrcstr?.value?.toCPointer<ByteVar>(), cchsrc, lpchartype?.value?.toCPointer<ByteVar>())
 
-public actual fun GetStringTypeExW(locale: UInt, dwinfotype: UInt, lpsrcstr: PCWSTR, cchsrc: Int, lpchartype: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_GetStringTypeExW(locale, dwinfotype, lpsrcstr.toCPointer<ByteVar>(), cchsrc, lpchartype.toCPointer<ByteVar>())
+public actual fun getStringTypeExW(locale: UInt, dwinfotype: UInt, lpsrcstr: Pcwstr, cchsrc: Int, lpchartype: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_getStringTypeExW(locale, dwinfotype, lpsrcstr?.value?.toCPointer<ByteVar>(), cchsrc, lpchartype?.value?.toCPointer<ByteVar>())
 
-public actual fun GetStringTypeW(dwinfotype: UInt, lpsrcstr: PCWSTR, cchsrc: Int, lpchartype: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_GetStringTypeW(dwinfotype, lpsrcstr.toCPointer<ByteVar>(), cchsrc, lpchartype.toCPointer<ByteVar>())
+public actual fun getStringTypeW(dwinfotype: UInt, lpsrcstr: Pcwstr, cchsrc: Int, lpchartype: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_getStringTypeW(dwinfotype, lpsrcstr?.value?.toCPointer<ByteVar>(), cchsrc, lpchartype?.value?.toCPointer<ByteVar>())
 
-public actual fun GetSystemDefaultLCID(): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_GetSystemDefaultLCID()
+public actual fun getSystemDefaultLCID(): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_getSystemDefaultLCID()
 
-public actual fun GetSystemDefaultLangID(): UShort =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_GetSystemDefaultLangID()
+public actual fun getSystemDefaultLangID(): UShort =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_getSystemDefaultLangID()
 
-public actual fun GetSystemDefaultLocaleName(lplocalename: PWSTR, cchlocalename: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_GetSystemDefaultLocaleName(lplocalename.toCPointer<ByteVar>(), cchlocalename)
+public actual fun getSystemDefaultLocaleName(lplocalename: Pwstr, cchlocalename: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_getSystemDefaultLocaleName(lplocalename?.value?.toCPointer<ByteVar>(), cchlocalename)
 
-public actual fun GetSystemDefaultUILanguage(): UShort =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_GetSystemDefaultUILanguage()
+public actual fun getSystemDefaultUILanguage(): UShort =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_getSystemDefaultUILanguage()
 
-public actual fun GetSystemPreferredUILanguages(dwflags: UInt, pulnumlanguages: Long, pwszlanguagesbuffer: PWSTR, pcchlanguagesbuffer: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_GetSystemPreferredUILanguages(dwflags, pulnumlanguages.toCPointer<ByteVar>(), pwszlanguagesbuffer.toCPointer<ByteVar>(), pcchlanguagesbuffer.toCPointer<ByteVar>())
+public actual fun getSystemPreferredUILanguages(dwflags: UInt, pulnumlanguages: COpaquePointer?, pwszlanguagesbuffer: Pwstr, pcchlanguagesbuffer: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_getSystemPreferredUILanguages(dwflags, pulnumlanguages?.value?.toCPointer<ByteVar>(), pwszlanguagesbuffer?.value?.toCPointer<ByteVar>(), pcchlanguagesbuffer?.value?.toCPointer<ByteVar>())
 
-public actual fun GetTextCharset(hdc: HDC): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_GetTextCharset(hdc.toCPointer<ByteVar>())
+public actual fun getTextCharset(hdc: Hdc): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_getTextCharset(hdc?.value?.toCPointer<ByteVar>())
 
-public actual fun GetTextCharsetInfo(hdc: HDC, lpsig: Long, dwflags: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_GetTextCharsetInfo(hdc.toCPointer<ByteVar>(), lpsig.toCPointer<ByteVar>(), dwflags)
+public actual fun getTextCharsetInfo(hdc: Hdc, lpsig: COpaquePointer?, dwflags: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_getTextCharsetInfo(hdc?.value?.toCPointer<ByteVar>(), lpsig?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun GetThreadLocale(): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_GetThreadLocale()
+public actual fun getThreadLocale(): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_getThreadLocale()
 
-public actual fun GetThreadPreferredUILanguages(dwflags: UInt, pulnumlanguages: Long, pwszlanguagesbuffer: PWSTR, pcchlanguagesbuffer: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_GetThreadPreferredUILanguages(dwflags, pulnumlanguages.toCPointer<ByteVar>(), pwszlanguagesbuffer.toCPointer<ByteVar>(), pcchlanguagesbuffer.toCPointer<ByteVar>())
+public actual fun getThreadPreferredUILanguages(dwflags: UInt, pulnumlanguages: COpaquePointer?, pwszlanguagesbuffer: Pwstr, pcchlanguagesbuffer: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_getThreadPreferredUILanguages(dwflags, pulnumlanguages?.value?.toCPointer<ByteVar>(), pwszlanguagesbuffer?.value?.toCPointer<ByteVar>(), pcchlanguagesbuffer?.value?.toCPointer<ByteVar>())
 
-public actual fun GetThreadUILanguage(): UShort =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_GetThreadUILanguage()
+public actual fun getThreadUILanguage(): UShort =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_getThreadUILanguage()
 
-public actual fun GetTimeFormatA(locale: UInt, dwflags: UInt, lptime: Long, lpformat: PCSTR, lptimestr: PSTR, cchtime: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_GetTimeFormatA(locale, dwflags, lptime.toCPointer<ByteVar>(), lpformat.toCPointer<ByteVar>(), lptimestr.toCPointer<ByteVar>(), cchtime)
+public actual fun getTimeFormatA(locale: UInt, dwflags: UInt, lptime: COpaquePointer?, lpformat: Pcstr, lptimestr: Pstr, cchtime: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_getTimeFormatA(locale, dwflags, lptime?.value?.toCPointer<ByteVar>(), lpformat?.value?.toCPointer<ByteVar>(), lptimestr?.value?.toCPointer<ByteVar>(), cchtime)
 
-public actual fun GetTimeFormatEx(lplocalename: PCWSTR, dwflags: TIME_FORMAT_FLAGS, lptime: Long, lpformat: PCWSTR, lptimestr: PWSTR, cchtime: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_GetTimeFormatEx(lplocalename.toCPointer<ByteVar>(), dwflags, lptime.toCPointer<ByteVar>(), lpformat.toCPointer<ByteVar>(), lptimestr.toCPointer<ByteVar>(), cchtime)
+public actual fun getTimeFormatEx(lplocalename: Pcwstr, dwflags: TimeFormatFlags, lptime: COpaquePointer?, lpformat: Pcwstr, lptimestr: Pwstr, cchtime: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_getTimeFormatEx(lplocalename?.value?.toCPointer<ByteVar>(), dwflags, lptime?.value?.toCPointer<ByteVar>(), lpformat?.value?.toCPointer<ByteVar>(), lptimestr?.value?.toCPointer<ByteVar>(), cchtime)
 
-public actual fun GetTimeFormatW(locale: UInt, dwflags: UInt, lptime: Long, lpformat: PCWSTR, lptimestr: PWSTR, cchtime: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_GetTimeFormatW(locale, dwflags, lptime.toCPointer<ByteVar>(), lpformat.toCPointer<ByteVar>(), lptimestr.toCPointer<ByteVar>(), cchtime)
+public actual fun getTimeFormatW(locale: UInt, dwflags: UInt, lptime: COpaquePointer?, lpformat: Pcwstr, lptimestr: Pwstr, cchtime: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_getTimeFormatW(locale, dwflags, lptime?.value?.toCPointer<ByteVar>(), lpformat?.value?.toCPointer<ByteVar>(), lptimestr?.value?.toCPointer<ByteVar>(), cchtime)
 
-public actual fun GetUILanguageInfo(dwflags: UInt, pwmszlanguage: PCWSTR, pwszfallbacklanguages: PWSTR, pcchfallbacklanguages: Long, pattributes: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_GetUILanguageInfo(dwflags, pwmszlanguage.toCPointer<ByteVar>(), pwszfallbacklanguages.toCPointer<ByteVar>(), pcchfallbacklanguages.toCPointer<ByteVar>(), pattributes.toCPointer<ByteVar>())
+public actual fun getUILanguageInfo(dwflags: UInt, pwmszlanguage: Pcwstr, pwszfallbacklanguages: Pwstr, pcchfallbacklanguages: COpaquePointer?, pattributes: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_getUILanguageInfo(dwflags, pwmszlanguage?.value?.toCPointer<ByteVar>(), pwszfallbacklanguages?.value?.toCPointer<ByteVar>(), pcchfallbacklanguages?.value?.toCPointer<ByteVar>(), pattributes?.value?.toCPointer<ByteVar>())
 
-public actual fun GetUserDefaultGeoName(geoname: PWSTR, geonamecount: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_GetUserDefaultGeoName(geoname.toCPointer<ByteVar>(), geonamecount)
+public actual fun getUserDefaultGeoName(geoname: Pwstr, geonamecount: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_getUserDefaultGeoName(geoname?.value?.toCPointer<ByteVar>(), geonamecount)
 
-public actual fun GetUserDefaultLCID(): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_GetUserDefaultLCID()
+public actual fun getUserDefaultLCID(): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_getUserDefaultLCID()
 
-public actual fun GetUserDefaultLangID(): UShort =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_GetUserDefaultLangID()
+public actual fun getUserDefaultLangID(): UShort =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_getUserDefaultLangID()
 
-public actual fun GetUserDefaultLocaleName(lplocalename: PWSTR, cchlocalename: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_GetUserDefaultLocaleName(lplocalename.toCPointer<ByteVar>(), cchlocalename)
+public actual fun getUserDefaultLocaleName(lplocalename: Pwstr, cchlocalename: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_getUserDefaultLocaleName(lplocalename?.value?.toCPointer<ByteVar>(), cchlocalename)
 
-public actual fun GetUserDefaultUILanguage(): UShort =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_GetUserDefaultUILanguage()
+public actual fun getUserDefaultUILanguage(): UShort =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_getUserDefaultUILanguage()
 
-public actual fun GetUserGeoID(geoclass: SYSGEOCLASS): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_GetUserGeoID(geoclass)
+public actual fun getUserGeoID(geoclass: Sysgeoclass): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_getUserGeoID(geoclass)
 
-public actual fun GetUserPreferredUILanguages(dwflags: UInt, pulnumlanguages: Long, pwszlanguagesbuffer: PWSTR, pcchlanguagesbuffer: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_GetUserPreferredUILanguages(dwflags, pulnumlanguages.toCPointer<ByteVar>(), pwszlanguagesbuffer.toCPointer<ByteVar>(), pcchlanguagesbuffer.toCPointer<ByteVar>())
+public actual fun getUserPreferredUILanguages(dwflags: UInt, pulnumlanguages: COpaquePointer?, pwszlanguagesbuffer: Pwstr, pcchlanguagesbuffer: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_getUserPreferredUILanguages(dwflags, pulnumlanguages?.value?.toCPointer<ByteVar>(), pwszlanguagesbuffer?.value?.toCPointer<ByteVar>(), pcchlanguagesbuffer?.value?.toCPointer<ByteVar>())
 
-public actual fun IdnToAscii(dwflags: UInt, lpunicodecharstr: PCWSTR, cchunicodechar: Int, lpasciicharstr: PWSTR, cchasciichar: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_IdnToAscii(dwflags, lpunicodecharstr.toCPointer<ByteVar>(), cchunicodechar, lpasciicharstr.toCPointer<ByteVar>(), cchasciichar)
+public actual fun idnToAscii(dwflags: UInt, lpunicodecharstr: Pcwstr, cchunicodechar: Int, lpasciicharstr: Pwstr, cchasciichar: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_idnToAscii(dwflags, lpunicodecharstr?.value?.toCPointer<ByteVar>(), cchunicodechar, lpasciicharstr?.value?.toCPointer<ByteVar>(), cchasciichar)
 
-public actual fun IdnToNameprepUnicode(dwflags: UInt, lpunicodecharstr: PCWSTR, cchunicodechar: Int, lpnameprepcharstr: PWSTR, cchnameprepchar: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_IdnToNameprepUnicode(dwflags, lpunicodecharstr.toCPointer<ByteVar>(), cchunicodechar, lpnameprepcharstr.toCPointer<ByteVar>(), cchnameprepchar)
+public actual fun idnToNameprepUnicode(dwflags: UInt, lpunicodecharstr: Pcwstr, cchunicodechar: Int, lpnameprepcharstr: Pwstr, cchnameprepchar: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_idnToNameprepUnicode(dwflags, lpunicodecharstr?.value?.toCPointer<ByteVar>(), cchunicodechar, lpnameprepcharstr?.value?.toCPointer<ByteVar>(), cchnameprepchar)
 
-public actual fun IdnToUnicode(dwflags: UInt, lpasciicharstr: PCWSTR, cchasciichar: Int, lpunicodecharstr: PWSTR, cchunicodechar: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_IdnToUnicode(dwflags, lpasciicharstr.toCPointer<ByteVar>(), cchasciichar, lpunicodecharstr.toCPointer<ByteVar>(), cchunicodechar)
+public actual fun idnToUnicode(dwflags: UInt, lpasciicharstr: Pcwstr, cchasciichar: Int, lpunicodecharstr: Pwstr, cchunicodechar: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_idnToUnicode(dwflags, lpasciicharstr?.value?.toCPointer<ByteVar>(), cchasciichar, lpunicodecharstr?.value?.toCPointer<ByteVar>(), cchunicodechar)
 
-public actual fun IsCalendarLeapYear(calid: UInt, year: UInt, era: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_IsCalendarLeapYear(calid, year, era)
+public actual fun isCalendarLeapYear(calid: UInt, year: UInt, era: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_isCalendarLeapYear(calid, year, era)
 
-public actual fun IsDBCSLeadByte(testchar: UByte): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_IsDBCSLeadByte(testchar)
+public actual fun isDBCSLeadByte(testchar: UByte): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_isDBCSLeadByte(testchar)
 
-public actual fun IsDBCSLeadByteEx(codepage: UInt, testchar: UByte): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_IsDBCSLeadByteEx(codepage, testchar)
+public actual fun isDBCSLeadByteEx(codepage: UInt, testchar: UByte): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_isDBCSLeadByteEx(codepage, testchar)
 
-public actual fun IsNLSDefinedString(function: UInt, dwflags: UInt, lpversioninformation: Long, lpstring: PCWSTR, cchstr: Int): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_IsNLSDefinedString(function, dwflags, lpversioninformation.toCPointer<ByteVar>(), lpstring.toCPointer<ByteVar>(), cchstr)
+public actual fun isNLSDefinedString(function: UInt, dwflags: UInt, lpversioninformation: COpaquePointer?, lpstring: Pcwstr, cchstr: Int): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_isNLSDefinedString(function, dwflags, lpversioninformation?.value?.toCPointer<ByteVar>(), lpstring?.value?.toCPointer<ByteVar>(), cchstr)
 
-public actual fun IsNormalizedString(normform: NORM_FORM, lpstring: PCWSTR, cwlength: Int): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_IsNormalizedString(normform, lpstring.toCPointer<ByteVar>(), cwlength)
+public actual fun isNormalizedString(normform: NormForm, lpstring: Pcwstr, cwlength: Int): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_isNormalizedString(normform, lpstring?.value?.toCPointer<ByteVar>(), cwlength)
 
-public actual fun IsTextUnicode(lpv: Long, isize: Int, lpiresult: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_IsTextUnicode(lpv.toCPointer<ByteVar>(), isize, lpiresult.toCPointer<ByteVar>())
+public actual fun isTextUnicode(lpv: COpaquePointer?, isize: Int, lpiresult: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_isTextUnicode(lpv?.value?.toCPointer<ByteVar>(), isize, lpiresult?.value?.toCPointer<ByteVar>())
 
-public actual fun IsValidCodePage(codepage: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_IsValidCodePage(codepage)
+public actual fun isValidCodePage(codepage: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_isValidCodePage(codepage)
 
-public actual fun IsValidLanguageGroup(languagegroup: UInt, dwflags: ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_IsValidLanguageGroup(languagegroup, dwflags)
+public actual fun isValidLanguageGroup(languagegroup: UInt, dwflags: EnumSystemLanguageGroupsFlags): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_isValidLanguageGroup(languagegroup, dwflags)
 
-public actual fun IsValidLocale(locale: UInt, dwflags: IS_VALID_LOCALE_FLAGS): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_IsValidLocale(locale, dwflags)
+public actual fun isValidLocale(locale: UInt, dwflags: IsValidLocaleFlags): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_isValidLocale(locale, dwflags)
 
-public actual fun IsValidLocaleName(lplocalename: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_IsValidLocaleName(lplocalename.toCPointer<ByteVar>())
+public actual fun isValidLocaleName(lplocalename: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_isValidLocaleName(lplocalename?.value?.toCPointer<ByteVar>())
 
-public actual fun IsValidNLSVersion(function: UInt, lplocalename: PCWSTR, lpversioninformation: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_IsValidNLSVersion(function, lplocalename.toCPointer<ByteVar>(), lpversioninformation.toCPointer<ByteVar>())
+public actual fun isValidNLSVersion(function: UInt, lplocalename: Pcwstr, lpversioninformation: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_isValidNLSVersion(function, lplocalename?.value?.toCPointer<ByteVar>(), lpversioninformation?.value?.toCPointer<ByteVar>())
 
-public actual fun IsWellFormedTag(psztag: PCWSTR): UByte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_IsWellFormedTag(psztag.toCPointer<ByteVar>())
+public actual fun isWellFormedTag(psztag: Pcwstr): UByte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_isWellFormedTag(psztag?.value?.toCPointer<ByteVar>())
 
-public actual fun LCIDToLocaleName(locale: UInt, lpname: PWSTR, cchname: Int, dwflags: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_LCIDToLocaleName(locale, lpname.toCPointer<ByteVar>(), cchname, dwflags)
+public actual fun lCIDToLocaleName(locale: UInt, lpname: Pwstr, cchname: Int, dwflags: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_lCIDToLocaleName(locale, lpname?.value?.toCPointer<ByteVar>(), cchname, dwflags)
 
-public actual fun LCMapStringA(locale: UInt, dwmapflags: UInt, lpsrcstr: PCSTR, cchsrc: Int, lpdeststr: PSTR, cchdest: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_LCMapStringA(locale, dwmapflags, lpsrcstr.toCPointer<ByteVar>(), cchsrc, lpdeststr.toCPointer<ByteVar>(), cchdest)
+public actual fun lCMapStringA(locale: UInt, dwmapflags: UInt, lpsrcstr: Pcstr, cchsrc: Int, lpdeststr: Pstr, cchdest: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_lCMapStringA(locale, dwmapflags, lpsrcstr?.value?.toCPointer<ByteVar>(), cchsrc, lpdeststr?.value?.toCPointer<ByteVar>(), cchdest)
 
-public actual fun LCMapStringEx(lplocalename: PCWSTR, dwmapflags: UInt, lpsrcstr: PCWSTR, cchsrc: Int, lpdeststr: PWSTR, cchdest: Int, lpversioninformation: Long, lpreserved: Long, sorthandle: LPARAM): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_LCMapStringEx(lplocalename.toCPointer<ByteVar>(), dwmapflags, lpsrcstr.toCPointer<ByteVar>(), cchsrc, lpdeststr.toCPointer<ByteVar>(), cchdest, lpversioninformation.toCPointer<ByteVar>(), lpreserved.toCPointer<ByteVar>(), sorthandle)
+public actual fun lCMapStringEx(lplocalename: Pcwstr, dwmapflags: UInt, lpsrcstr: Pcwstr, cchsrc: Int, lpdeststr: Pwstr, cchdest: Int, lpversioninformation: COpaquePointer?, lpreserved: COpaquePointer?, sorthandle: Lparam): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_lCMapStringEx(lplocalename?.value?.toCPointer<ByteVar>(), dwmapflags, lpsrcstr?.value?.toCPointer<ByteVar>(), cchsrc, lpdeststr?.value?.toCPointer<ByteVar>(), cchdest, lpversioninformation?.value?.toCPointer<ByteVar>(), lpreserved?.value?.toCPointer<ByteVar>(), sorthandle)
 
-public actual fun LCMapStringW(locale: UInt, dwmapflags: UInt, lpsrcstr: PCWSTR, cchsrc: Int, lpdeststr: PWSTR, cchdest: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_LCMapStringW(locale, dwmapflags, lpsrcstr.toCPointer<ByteVar>(), cchsrc, lpdeststr.toCPointer<ByteVar>(), cchdest)
+public actual fun lCMapStringW(locale: UInt, dwmapflags: UInt, lpsrcstr: Pcwstr, cchsrc: Int, lpdeststr: Pwstr, cchdest: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_lCMapStringW(locale, dwmapflags, lpsrcstr?.value?.toCPointer<ByteVar>(), cchsrc, lpdeststr?.value?.toCPointer<ByteVar>(), cchdest)
 
-public actual fun LocaleNameToLCID(lpname: PCWSTR, dwflags: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_LocaleNameToLCID(lpname.toCPointer<ByteVar>(), dwflags)
+public actual fun localeNameToLCID(lpname: Pcwstr, dwflags: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_localeNameToLCID(lpname?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun MappingDoAction(pbag: Long, dwrangeindex: UInt, pszactionid: PCWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_MappingDoAction(pbag.toCPointer<ByteVar>(), dwrangeindex, pszactionid.toCPointer<ByteVar>())
+public actual fun mappingDoAction(pbag: COpaquePointer?, dwrangeindex: UInt, pszactionid: Pcwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_mappingDoAction(pbag?.value?.toCPointer<ByteVar>(), dwrangeindex, pszactionid?.value?.toCPointer<ByteVar>())
 
-public actual fun MappingFreePropertyBag(pbag: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_MappingFreePropertyBag(pbag.toCPointer<ByteVar>())
+public actual fun mappingFreePropertyBag(pbag: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_mappingFreePropertyBag(pbag?.value?.toCPointer<ByteVar>())
 
-public actual fun MappingFreeServices(pserviceinfo: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_MappingFreeServices(pserviceinfo.toCPointer<ByteVar>())
+public actual fun mappingFreeServices(pserviceinfo: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_mappingFreeServices(pserviceinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun MappingGetServices(poptions: Long, prgservices: Long, pdwservicescount: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_MappingGetServices(poptions.toCPointer<ByteVar>(), prgservices.toCPointer<ByteVar>(), pdwservicescount.toCPointer<ByteVar>())
+public actual fun mappingGetServices(poptions: COpaquePointer?, prgservices: COpaquePointer?, pdwservicescount: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_mappingGetServices(poptions?.value?.toCPointer<ByteVar>(), prgservices?.value?.toCPointer<ByteVar>(), pdwservicescount?.value?.toCPointer<ByteVar>())
 
-public actual fun MappingRecognizeText(pserviceinfo: Long, psztext: PCWSTR, dwlength: UInt, dwindex: UInt, poptions: Long, pbag: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_MappingRecognizeText(pserviceinfo.toCPointer<ByteVar>(), psztext.toCPointer<ByteVar>(), dwlength, dwindex, poptions.toCPointer<ByteVar>(), pbag.toCPointer<ByteVar>())
+public actual fun mappingRecognizeText(pserviceinfo: COpaquePointer?, psztext: Pcwstr, dwlength: UInt, dwindex: UInt, poptions: COpaquePointer?, pbag: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_mappingRecognizeText(pserviceinfo?.value?.toCPointer<ByteVar>(), psztext?.value?.toCPointer<ByteVar>(), dwlength, dwindex, poptions?.value?.toCPointer<ByteVar>(), pbag?.value?.toCPointer<ByteVar>())
 
-public actual fun MultiByteToWideChar(codepage: UInt, dwflags: MULTI_BYTE_TO_WIDE_CHAR_FLAGS, lpmultibytestr: PCSTR, cbmultibyte: Int, lpwidecharstr: PWSTR, cchwidechar: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_MultiByteToWideChar(codepage, dwflags, lpmultibytestr.toCPointer<ByteVar>(), cbmultibyte, lpwidecharstr.toCPointer<ByteVar>(), cchwidechar)
+public actual fun multiByteToWideChar(codepage: UInt, dwflags: MultiByteToWideCharFlags, lpmultibytestr: Pcstr, cbmultibyte: Int, lpwidecharstr: Pwstr, cchwidechar: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_multiByteToWideChar(codepage, dwflags, lpmultibytestr?.value?.toCPointer<ByteVar>(), cbmultibyte, lpwidecharstr?.value?.toCPointer<ByteVar>(), cchwidechar)
 
-public actual fun NormalizeString(normform: NORM_FORM, lpsrcstring: PCWSTR, cwsrclength: Int, lpdststring: PWSTR, cwdstlength: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_NormalizeString(normform, lpsrcstring.toCPointer<ByteVar>(), cwsrclength, lpdststring.toCPointer<ByteVar>(), cwdstlength)
+public actual fun normalizeString(normform: NormForm, lpsrcstring: Pcwstr, cwsrclength: Int, lpdststring: Pwstr, cwdstlength: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_normalizeString(normform, lpsrcstring?.value?.toCPointer<ByteVar>(), cwsrclength, lpdststring?.value?.toCPointer<ByteVar>(), cwdstlength)
 
-public actual fun NotifyUILanguageChange(dwflags: UInt, pcwstrnewlanguage: PCWSTR, pcwstrpreviouslanguage: PCWSTR, dwreserved: UInt, pdwstatusrtrn: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_NotifyUILanguageChange(dwflags, pcwstrnewlanguage.toCPointer<ByteVar>(), pcwstrpreviouslanguage.toCPointer<ByteVar>(), dwreserved, pdwstatusrtrn.toCPointer<ByteVar>())
+public actual fun notifyUILanguageChange(dwflags: UInt, pcwstrnewlanguage: Pcwstr, pcwstrpreviouslanguage: Pcwstr, dwreserved: UInt, pdwstatusrtrn: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_notifyUILanguageChange(dwflags, pcwstrnewlanguage?.value?.toCPointer<ByteVar>(), pcwstrpreviouslanguage?.value?.toCPointer<ByteVar>(), dwreserved, pdwstatusrtrn?.value?.toCPointer<ByteVar>())
 
-public actual fun ResolveLocaleName(lpnametoresolve: PCWSTR, lplocalename: PWSTR, cchlocalename: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ResolveLocaleName(lpnametoresolve.toCPointer<ByteVar>(), lplocalename.toCPointer<ByteVar>(), cchlocalename)
+public actual fun resolveLocaleName(lpnametoresolve: Pcwstr, lplocalename: Pwstr, cchlocalename: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_resolveLocaleName(lpnametoresolve?.value?.toCPointer<ByteVar>(), lplocalename?.value?.toCPointer<ByteVar>(), cchlocalename)
 
-public actual fun RestoreThreadPreferredUILanguages(snapshot: HSAVEDUILANGUAGES) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_RestoreThreadPreferredUILanguages(snapshot.toCPointer<ByteVar>())
+public actual fun restoreThreadPreferredUILanguages(snapshot: Hsaveduilanguages) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_restoreThreadPreferredUILanguages(snapshot?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ScriptApplyDigitSubstitution(psds: Long, psc: Long, pss: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ScriptApplyDigitSubstitution(psds.toCPointer<ByteVar>(), psc.toCPointer<ByteVar>(), pss.toCPointer<ByteVar>())
+public actual fun scriptApplyDigitSubstitution(psds: COpaquePointer?, psc: COpaquePointer?, pss: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_scriptApplyDigitSubstitution(psds?.value?.toCPointer<ByteVar>(), psc?.value?.toCPointer<ByteVar>(), pss?.value?.toCPointer<ByteVar>())
 
-public actual fun ScriptApplyLogicalWidth(pidx: Long, cchars: Int, cglyphs: Int, pwlogclust: Long, psva: Long, piadvance: Long, psa: Long, pabc: Long, pijustify: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ScriptApplyLogicalWidth(pidx.toCPointer<ByteVar>(), cchars, cglyphs, pwlogclust.toCPointer<ByteVar>(), psva.toCPointer<ByteVar>(), piadvance.toCPointer<ByteVar>(), psa.toCPointer<ByteVar>(), pabc.toCPointer<ByteVar>(), pijustify.toCPointer<ByteVar>())
+public actual fun scriptApplyLogicalWidth(pidx: COpaquePointer?, cchars: Int, cglyphs: Int, pwlogclust: COpaquePointer?, psva: COpaquePointer?, piadvance: COpaquePointer?, psa: COpaquePointer?, pabc: COpaquePointer?, pijustify: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_scriptApplyLogicalWidth(pidx?.value?.toCPointer<ByteVar>(), cchars, cglyphs, pwlogclust?.value?.toCPointer<ByteVar>(), psva?.value?.toCPointer<ByteVar>(), piadvance?.value?.toCPointer<ByteVar>(), psa?.value?.toCPointer<ByteVar>(), pabc?.value?.toCPointer<ByteVar>(), pijustify?.value?.toCPointer<ByteVar>())
 
-public actual fun ScriptBreak(pwcchars: PCWSTR, cchars: Int, psa: Long, psla: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ScriptBreak(pwcchars.toCPointer<ByteVar>(), cchars, psa.toCPointer<ByteVar>(), psla.toCPointer<ByteVar>())
+public actual fun scriptBreak(pwcchars: Pcwstr, cchars: Int, psa: COpaquePointer?, psla: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_scriptBreak(pwcchars?.value?.toCPointer<ByteVar>(), cchars, psa?.value?.toCPointer<ByteVar>(), psla?.value?.toCPointer<ByteVar>())
 
-public actual fun ScriptCPtoX(icp: Int, ftrailing: BOOL, cchars: Int, cglyphs: Int, pwlogclust: Long, psva: Long, piadvance: Long, psa: Long, pix: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ScriptCPtoX(icp, ftrailing, cchars, cglyphs, pwlogclust.toCPointer<ByteVar>(), psva.toCPointer<ByteVar>(), piadvance.toCPointer<ByteVar>(), psa.toCPointer<ByteVar>(), pix.toCPointer<ByteVar>())
+public actual fun scriptCPtoX(icp: Int, ftrailing: Bool, cchars: Int, cglyphs: Int, pwlogclust: COpaquePointer?, psva: COpaquePointer?, piadvance: COpaquePointer?, psa: COpaquePointer?, pix: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_scriptCPtoX(icp, ftrailing, cchars, cglyphs, pwlogclust?.value?.toCPointer<ByteVar>(), psva?.value?.toCPointer<ByteVar>(), piadvance?.value?.toCPointer<ByteVar>(), psa?.value?.toCPointer<ByteVar>(), pix?.value?.toCPointer<ByteVar>())
 
-public actual fun ScriptCacheGetHeight(hdc: HDC, psc: Long, tmheight: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ScriptCacheGetHeight(hdc.toCPointer<ByteVar>(), psc.toCPointer<ByteVar>(), tmheight.toCPointer<ByteVar>())
+public actual fun scriptCacheGetHeight(hdc: Hdc, psc: COpaquePointer?, tmheight: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_scriptCacheGetHeight(hdc?.value?.toCPointer<ByteVar>(), psc?.value?.toCPointer<ByteVar>(), tmheight?.value?.toCPointer<ByteVar>())
 
-public actual fun ScriptFreeCache(psc: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ScriptFreeCache(psc.toCPointer<ByteVar>())
+public actual fun scriptFreeCache(psc: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_scriptFreeCache(psc?.value?.toCPointer<ByteVar>())
 
-public actual fun ScriptGetCMap(hdc: HDC, psc: Long, pwcinchars: PCWSTR, cchars: Int, dwflags: UInt, pwoutglyphs: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ScriptGetCMap(hdc.toCPointer<ByteVar>(), psc.toCPointer<ByteVar>(), pwcinchars.toCPointer<ByteVar>(), cchars, dwflags, pwoutglyphs.toCPointer<ByteVar>())
+public actual fun scriptGetCMap(hdc: Hdc, psc: COpaquePointer?, pwcinchars: Pcwstr, cchars: Int, dwflags: UInt, pwoutglyphs: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_scriptGetCMap(hdc?.value?.toCPointer<ByteVar>(), psc?.value?.toCPointer<ByteVar>(), pwcinchars?.value?.toCPointer<ByteVar>(), cchars, dwflags, pwoutglyphs?.value?.toCPointer<ByteVar>())
 
-public actual fun ScriptGetFontAlternateGlyphs(hdc: HDC, psc: Long, psa: Long, tagscript: UInt, taglangsys: UInt, tagfeature: UInt, wglyphid: UShort, cmaxalternates: Int, palternateglyphs: Long, pcalternates: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ScriptGetFontAlternateGlyphs(hdc.toCPointer<ByteVar>(), psc.toCPointer<ByteVar>(), psa.toCPointer<ByteVar>(), tagscript, taglangsys, tagfeature, wglyphid, cmaxalternates, palternateglyphs.toCPointer<ByteVar>(), pcalternates.toCPointer<ByteVar>())
+public actual fun scriptGetFontAlternateGlyphs(hdc: Hdc, psc: COpaquePointer?, psa: COpaquePointer?, tagscript: UInt, taglangsys: UInt, tagfeature: UInt, wglyphid: UShort, cmaxalternates: Int, palternateglyphs: COpaquePointer?, pcalternates: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_scriptGetFontAlternateGlyphs(hdc?.value?.toCPointer<ByteVar>(), psc?.value?.toCPointer<ByteVar>(), psa?.value?.toCPointer<ByteVar>(), tagscript, taglangsys, tagfeature, wglyphid, cmaxalternates, palternateglyphs?.value?.toCPointer<ByteVar>(), pcalternates?.value?.toCPointer<ByteVar>())
 
-public actual fun ScriptGetFontFeatureTags(hdc: HDC, psc: Long, psa: Long, tagscript: UInt, taglangsys: UInt, cmaxtags: Int, pfeaturetags: Long, pctags: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ScriptGetFontFeatureTags(hdc.toCPointer<ByteVar>(), psc.toCPointer<ByteVar>(), psa.toCPointer<ByteVar>(), tagscript, taglangsys, cmaxtags, pfeaturetags.toCPointer<ByteVar>(), pctags.toCPointer<ByteVar>())
+public actual fun scriptGetFontFeatureTags(hdc: Hdc, psc: COpaquePointer?, psa: COpaquePointer?, tagscript: UInt, taglangsys: UInt, cmaxtags: Int, pfeaturetags: COpaquePointer?, pctags: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_scriptGetFontFeatureTags(hdc?.value?.toCPointer<ByteVar>(), psc?.value?.toCPointer<ByteVar>(), psa?.value?.toCPointer<ByteVar>(), tagscript, taglangsys, cmaxtags, pfeaturetags?.value?.toCPointer<ByteVar>(), pctags?.value?.toCPointer<ByteVar>())
 
-public actual fun ScriptGetFontLanguageTags(hdc: HDC, psc: Long, psa: Long, tagscript: UInt, cmaxtags: Int, plangsystags: Long, pctags: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ScriptGetFontLanguageTags(hdc.toCPointer<ByteVar>(), psc.toCPointer<ByteVar>(), psa.toCPointer<ByteVar>(), tagscript, cmaxtags, plangsystags.toCPointer<ByteVar>(), pctags.toCPointer<ByteVar>())
+public actual fun scriptGetFontLanguageTags(hdc: Hdc, psc: COpaquePointer?, psa: COpaquePointer?, tagscript: UInt, cmaxtags: Int, plangsystags: COpaquePointer?, pctags: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_scriptGetFontLanguageTags(hdc?.value?.toCPointer<ByteVar>(), psc?.value?.toCPointer<ByteVar>(), psa?.value?.toCPointer<ByteVar>(), tagscript, cmaxtags, plangsystags?.value?.toCPointer<ByteVar>(), pctags?.value?.toCPointer<ByteVar>())
 
-public actual fun ScriptGetFontProperties(hdc: HDC, psc: Long, sfp: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ScriptGetFontProperties(hdc.toCPointer<ByteVar>(), psc.toCPointer<ByteVar>(), sfp.toCPointer<ByteVar>())
+public actual fun scriptGetFontProperties(hdc: Hdc, psc: COpaquePointer?, sfp: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_scriptGetFontProperties(hdc?.value?.toCPointer<ByteVar>(), psc?.value?.toCPointer<ByteVar>(), sfp?.value?.toCPointer<ByteVar>())
 
-public actual fun ScriptGetFontScriptTags(hdc: HDC, psc: Long, psa: Long, cmaxtags: Int, pscripttags: Long, pctags: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ScriptGetFontScriptTags(hdc.toCPointer<ByteVar>(), psc.toCPointer<ByteVar>(), psa.toCPointer<ByteVar>(), cmaxtags, pscripttags.toCPointer<ByteVar>(), pctags.toCPointer<ByteVar>())
+public actual fun scriptGetFontScriptTags(hdc: Hdc, psc: COpaquePointer?, psa: COpaquePointer?, cmaxtags: Int, pscripttags: COpaquePointer?, pctags: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_scriptGetFontScriptTags(hdc?.value?.toCPointer<ByteVar>(), psc?.value?.toCPointer<ByteVar>(), psa?.value?.toCPointer<ByteVar>(), cmaxtags, pscripttags?.value?.toCPointer<ByteVar>(), pctags?.value?.toCPointer<ByteVar>())
 
-public actual fun ScriptGetGlyphABCWidth(hdc: HDC, psc: Long, wglyph: UShort, pabc: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ScriptGetGlyphABCWidth(hdc.toCPointer<ByteVar>(), psc.toCPointer<ByteVar>(), wglyph, pabc.toCPointer<ByteVar>())
+public actual fun scriptGetGlyphABCWidth(hdc: Hdc, psc: COpaquePointer?, wglyph: UShort, pabc: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_scriptGetGlyphABCWidth(hdc?.value?.toCPointer<ByteVar>(), psc?.value?.toCPointer<ByteVar>(), wglyph, pabc?.value?.toCPointer<ByteVar>())
 
-public actual fun ScriptGetLogicalWidths(psa: Long, cchars: Int, cglyphs: Int, piglyphwidth: Long, pwlogclust: Long, psva: Long, pidx: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ScriptGetLogicalWidths(psa.toCPointer<ByteVar>(), cchars, cglyphs, piglyphwidth.toCPointer<ByteVar>(), pwlogclust.toCPointer<ByteVar>(), psva.toCPointer<ByteVar>(), pidx.toCPointer<ByteVar>())
+public actual fun scriptGetLogicalWidths(psa: COpaquePointer?, cchars: Int, cglyphs: Int, piglyphwidth: COpaquePointer?, pwlogclust: COpaquePointer?, psva: COpaquePointer?, pidx: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_scriptGetLogicalWidths(psa?.value?.toCPointer<ByteVar>(), cchars, cglyphs, piglyphwidth?.value?.toCPointer<ByteVar>(), pwlogclust?.value?.toCPointer<ByteVar>(), psva?.value?.toCPointer<ByteVar>(), pidx?.value?.toCPointer<ByteVar>())
 
-public actual fun ScriptGetProperties(ppsp: Long, pinumscripts: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ScriptGetProperties(ppsp.toCPointer<ByteVar>(), pinumscripts.toCPointer<ByteVar>())
+public actual fun scriptGetProperties(ppsp: COpaquePointer?, pinumscripts: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_scriptGetProperties(ppsp?.value?.toCPointer<ByteVar>(), pinumscripts?.value?.toCPointer<ByteVar>())
 
-public actual fun ScriptIsComplex(pwcinchars: PCWSTR, cinchars: Int, dwflags: SCRIPT_IS_COMPLEX_FLAGS): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ScriptIsComplex(pwcinchars.toCPointer<ByteVar>(), cinchars, dwflags)
+public actual fun scriptIsComplex(pwcinchars: Pcwstr, cinchars: Int, dwflags: ScriptIsComplexFlags): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_scriptIsComplex(pwcinchars?.value?.toCPointer<ByteVar>(), cinchars, dwflags)
 
-public actual fun ScriptItemize(pwcinchars: PCWSTR, cinchars: Int, cmaxitems: Int, pscontrol: Long, psstate: Long, pitems: Long, pcitems: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ScriptItemize(pwcinchars.toCPointer<ByteVar>(), cinchars, cmaxitems, pscontrol.toCPointer<ByteVar>(), psstate.toCPointer<ByteVar>(), pitems.toCPointer<ByteVar>(), pcitems.toCPointer<ByteVar>())
+public actual fun scriptItemize(pwcinchars: Pcwstr, cinchars: Int, cmaxitems: Int, pscontrol: COpaquePointer?, psstate: COpaquePointer?, pitems: COpaquePointer?, pcitems: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_scriptItemize(pwcinchars?.value?.toCPointer<ByteVar>(), cinchars, cmaxitems, pscontrol?.value?.toCPointer<ByteVar>(), psstate?.value?.toCPointer<ByteVar>(), pitems?.value?.toCPointer<ByteVar>(), pcitems?.value?.toCPointer<ByteVar>())
 
-public actual fun ScriptItemizeOpenType(pwcinchars: PCWSTR, cinchars: Int, cmaxitems: Int, pscontrol: Long, psstate: Long, pitems: Long, pscripttags: Long, pcitems: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ScriptItemizeOpenType(pwcinchars.toCPointer<ByteVar>(), cinchars, cmaxitems, pscontrol.toCPointer<ByteVar>(), psstate.toCPointer<ByteVar>(), pitems.toCPointer<ByteVar>(), pscripttags.toCPointer<ByteVar>(), pcitems.toCPointer<ByteVar>())
+public actual fun scriptItemizeOpenType(pwcinchars: Pcwstr, cinchars: Int, cmaxitems: Int, pscontrol: COpaquePointer?, psstate: COpaquePointer?, pitems: COpaquePointer?, pscripttags: COpaquePointer?, pcitems: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_scriptItemizeOpenType(pwcinchars?.value?.toCPointer<ByteVar>(), cinchars, cmaxitems, pscontrol?.value?.toCPointer<ByteVar>(), psstate?.value?.toCPointer<ByteVar>(), pitems?.value?.toCPointer<ByteVar>(), pscripttags?.value?.toCPointer<ByteVar>(), pcitems?.value?.toCPointer<ByteVar>())
 
-public actual fun ScriptJustify(psva: Long, piadvance: Long, cglyphs: Int, idx: Int, iminkashida: Int, pijustify: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ScriptJustify(psva.toCPointer<ByteVar>(), piadvance.toCPointer<ByteVar>(), cglyphs, idx, iminkashida, pijustify.toCPointer<ByteVar>())
+public actual fun scriptJustify(psva: COpaquePointer?, piadvance: COpaquePointer?, cglyphs: Int, idx: Int, iminkashida: Int, pijustify: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_scriptJustify(psva?.value?.toCPointer<ByteVar>(), piadvance?.value?.toCPointer<ByteVar>(), cglyphs, idx, iminkashida, pijustify?.value?.toCPointer<ByteVar>())
 
-public actual fun ScriptLayout(cruns: Int, pblevel: Long, pivisualtological: Long, pilogicaltovisual: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ScriptLayout(cruns, pblevel.toCPointer<ByteVar>(), pivisualtological.toCPointer<ByteVar>(), pilogicaltovisual.toCPointer<ByteVar>())
+public actual fun scriptLayout(cruns: Int, pblevel: COpaquePointer?, pivisualtological: COpaquePointer?, pilogicaltovisual: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_scriptLayout(cruns, pblevel?.value?.toCPointer<ByteVar>(), pivisualtological?.value?.toCPointer<ByteVar>(), pilogicaltovisual?.value?.toCPointer<ByteVar>())
 
-public actual fun ScriptPlace(hdc: HDC, psc: Long, pwglyphs: Long, cglyphs: Int, psva: Long, psa: Long, piadvance: Long, pgoffset: Long, pabc: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ScriptPlace(hdc.toCPointer<ByteVar>(), psc.toCPointer<ByteVar>(), pwglyphs.toCPointer<ByteVar>(), cglyphs, psva.toCPointer<ByteVar>(), psa.toCPointer<ByteVar>(), piadvance.toCPointer<ByteVar>(), pgoffset.toCPointer<ByteVar>(), pabc.toCPointer<ByteVar>())
+public actual fun scriptPlace(hdc: Hdc, psc: COpaquePointer?, pwglyphs: COpaquePointer?, cglyphs: Int, psva: COpaquePointer?, psa: COpaquePointer?, piadvance: COpaquePointer?, pgoffset: COpaquePointer?, pabc: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_scriptPlace(hdc?.value?.toCPointer<ByteVar>(), psc?.value?.toCPointer<ByteVar>(), pwglyphs?.value?.toCPointer<ByteVar>(), cglyphs, psva?.value?.toCPointer<ByteVar>(), psa?.value?.toCPointer<ByteVar>(), piadvance?.value?.toCPointer<ByteVar>(), pgoffset?.value?.toCPointer<ByteVar>(), pabc?.value?.toCPointer<ByteVar>())
 
-public actual fun ScriptPlaceOpenType(hdc: HDC, psc: Long, psa: Long, tagscript: UInt, taglangsys: UInt, rcrangechars: Long, rprangeproperties: Long, cranges: Int, pwcchars: PCWSTR, pwlogclust: Long, pcharprops: Long, cchars: Int, pwglyphs: Long, pglyphprops: Long, cglyphs: Int, piadvance: Long, pgoffset: Long, pabc: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ScriptPlaceOpenType(hdc.toCPointer<ByteVar>(), psc.toCPointer<ByteVar>(), psa.toCPointer<ByteVar>(), tagscript, taglangsys, rcrangechars.toCPointer<ByteVar>(), rprangeproperties.toCPointer<ByteVar>(), cranges, pwcchars.toCPointer<ByteVar>(), pwlogclust.toCPointer<ByteVar>(), pcharprops.toCPointer<ByteVar>(), cchars, pwglyphs.toCPointer<ByteVar>(), pglyphprops.toCPointer<ByteVar>(), cglyphs, piadvance.toCPointer<ByteVar>(), pgoffset.toCPointer<ByteVar>(), pabc.toCPointer<ByteVar>())
+public actual fun scriptPlaceOpenType(hdc: Hdc, psc: COpaquePointer?, psa: COpaquePointer?, tagscript: UInt, taglangsys: UInt, rcrangechars: COpaquePointer?, rprangeproperties: COpaquePointer?, cranges: Int, pwcchars: Pcwstr, pwlogclust: COpaquePointer?, pcharprops: COpaquePointer?, cchars: Int, pwglyphs: COpaquePointer?, pglyphprops: COpaquePointer?, cglyphs: Int, piadvance: COpaquePointer?, pgoffset: COpaquePointer?, pabc: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_scriptPlaceOpenType(hdc?.value?.toCPointer<ByteVar>(), psc?.value?.toCPointer<ByteVar>(), psa?.value?.toCPointer<ByteVar>(), tagscript, taglangsys, rcrangechars?.value?.toCPointer<ByteVar>(), rprangeproperties?.value?.toCPointer<ByteVar>(), cranges, pwcchars?.value?.toCPointer<ByteVar>(), pwlogclust?.value?.toCPointer<ByteVar>(), pcharprops?.value?.toCPointer<ByteVar>(), cchars, pwglyphs?.value?.toCPointer<ByteVar>(), pglyphprops?.value?.toCPointer<ByteVar>(), cglyphs, piadvance?.value?.toCPointer<ByteVar>(), pgoffset?.value?.toCPointer<ByteVar>(), pabc?.value?.toCPointer<ByteVar>())
 
-public actual fun ScriptPositionSingleGlyph(hdc: HDC, psc: Long, psa: Long, tagscript: UInt, taglangsys: UInt, tagfeature: UInt, lparameter: Int, wglyphid: UShort, iadvance: Int, goffset: GOFFSET, pioutadvance: Long, poutgoffset: Long): HRESULT =
+public actual fun scriptPositionSingleGlyph(hdc: Hdc, psc: COpaquePointer?, psa: COpaquePointer?, tagscript: UInt, taglangsys: UInt, tagfeature: UInt, lparameter: Int, wglyphid: UShort, iadvance: Int, goffset: Goffset, pioutadvance: COpaquePointer?, poutgoffset: COpaquePointer?): Hresult =
     0
 
-public actual fun ScriptRecordDigitSubstitution(locale: UInt, psds: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ScriptRecordDigitSubstitution(locale, psds.toCPointer<ByteVar>())
+public actual fun scriptRecordDigitSubstitution(locale: UInt, psds: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_scriptRecordDigitSubstitution(locale, psds?.value?.toCPointer<ByteVar>())
 
-public actual fun ScriptShape(hdc: HDC, psc: Long, pwcchars: PCWSTR, cchars: Int, cmaxglyphs: Int, psa: Long, pwoutglyphs: Long, pwlogclust: Long, psva: Long, pcglyphs: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ScriptShape(hdc.toCPointer<ByteVar>(), psc.toCPointer<ByteVar>(), pwcchars.toCPointer<ByteVar>(), cchars, cmaxglyphs, psa.toCPointer<ByteVar>(), pwoutglyphs.toCPointer<ByteVar>(), pwlogclust.toCPointer<ByteVar>(), psva.toCPointer<ByteVar>(), pcglyphs.toCPointer<ByteVar>())
+public actual fun scriptShape(hdc: Hdc, psc: COpaquePointer?, pwcchars: Pcwstr, cchars: Int, cmaxglyphs: Int, psa: COpaquePointer?, pwoutglyphs: COpaquePointer?, pwlogclust: COpaquePointer?, psva: COpaquePointer?, pcglyphs: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_scriptShape(hdc?.value?.toCPointer<ByteVar>(), psc?.value?.toCPointer<ByteVar>(), pwcchars?.value?.toCPointer<ByteVar>(), cchars, cmaxglyphs, psa?.value?.toCPointer<ByteVar>(), pwoutglyphs?.value?.toCPointer<ByteVar>(), pwlogclust?.value?.toCPointer<ByteVar>(), psva?.value?.toCPointer<ByteVar>(), pcglyphs?.value?.toCPointer<ByteVar>())
 
-public actual fun ScriptShapeOpenType(hdc: HDC, psc: Long, psa: Long, tagscript: UInt, taglangsys: UInt, rcrangechars: Long, rprangeproperties: Long, cranges: Int, pwcchars: PCWSTR, cchars: Int, cmaxglyphs: Int, pwlogclust: Long, pcharprops: Long, pwoutglyphs: Long, poutglyphprops: Long, pcglyphs: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ScriptShapeOpenType(hdc.toCPointer<ByteVar>(), psc.toCPointer<ByteVar>(), psa.toCPointer<ByteVar>(), tagscript, taglangsys, rcrangechars.toCPointer<ByteVar>(), rprangeproperties.toCPointer<ByteVar>(), cranges, pwcchars.toCPointer<ByteVar>(), cchars, cmaxglyphs, pwlogclust.toCPointer<ByteVar>(), pcharprops.toCPointer<ByteVar>(), pwoutglyphs.toCPointer<ByteVar>(), poutglyphprops.toCPointer<ByteVar>(), pcglyphs.toCPointer<ByteVar>())
+public actual fun scriptShapeOpenType(hdc: Hdc, psc: COpaquePointer?, psa: COpaquePointer?, tagscript: UInt, taglangsys: UInt, rcrangechars: COpaquePointer?, rprangeproperties: COpaquePointer?, cranges: Int, pwcchars: Pcwstr, cchars: Int, cmaxglyphs: Int, pwlogclust: COpaquePointer?, pcharprops: COpaquePointer?, pwoutglyphs: COpaquePointer?, poutglyphprops: COpaquePointer?, pcglyphs: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_scriptShapeOpenType(hdc?.value?.toCPointer<ByteVar>(), psc?.value?.toCPointer<ByteVar>(), psa?.value?.toCPointer<ByteVar>(), tagscript, taglangsys, rcrangechars?.value?.toCPointer<ByteVar>(), rprangeproperties?.value?.toCPointer<ByteVar>(), cranges, pwcchars?.value?.toCPointer<ByteVar>(), cchars, cmaxglyphs, pwlogclust?.value?.toCPointer<ByteVar>(), pcharprops?.value?.toCPointer<ByteVar>(), pwoutglyphs?.value?.toCPointer<ByteVar>(), poutglyphprops?.value?.toCPointer<ByteVar>(), pcglyphs?.value?.toCPointer<ByteVar>())
 
-public actual fun ScriptStringAnalyse(hdc: HDC, pstring: Long, cstring: Int, cglyphs: Int, icharset: Int, dwflags: UInt, ireqwidth: Int, pscontrol: Long, psstate: Long, pidx: Long, ptabdef: Long, pbinclass: Long, pssa: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ScriptStringAnalyse(hdc.toCPointer<ByteVar>(), pstring.toCPointer<ByteVar>(), cstring, cglyphs, icharset, dwflags, ireqwidth, pscontrol.toCPointer<ByteVar>(), psstate.toCPointer<ByteVar>(), pidx.toCPointer<ByteVar>(), ptabdef.toCPointer<ByteVar>(), pbinclass.toCPointer<ByteVar>(), pssa.toCPointer<ByteVar>())
+public actual fun scriptStringAnalyse(hdc: Hdc, pstring: COpaquePointer?, cstring: Int, cglyphs: Int, icharset: Int, dwflags: UInt, ireqwidth: Int, pscontrol: COpaquePointer?, psstate: COpaquePointer?, pidx: COpaquePointer?, ptabdef: COpaquePointer?, pbinclass: COpaquePointer?, pssa: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_scriptStringAnalyse(hdc?.value?.toCPointer<ByteVar>(), pstring?.value?.toCPointer<ByteVar>(), cstring, cglyphs, icharset, dwflags, ireqwidth, pscontrol?.value?.toCPointer<ByteVar>(), psstate?.value?.toCPointer<ByteVar>(), pidx?.value?.toCPointer<ByteVar>(), ptabdef?.value?.toCPointer<ByteVar>(), pbinclass?.value?.toCPointer<ByteVar>(), pssa?.value?.toCPointer<ByteVar>())
 
-public actual fun ScriptStringCPtoX(ssa: Long, icp: Int, ftrailing: BOOL, px: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ScriptStringCPtoX(ssa.toCPointer<ByteVar>(), icp, ftrailing, px.toCPointer<ByteVar>())
+public actual fun scriptStringCPtoX(ssa: COpaquePointer?, icp: Int, ftrailing: Bool, px: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_scriptStringCPtoX(ssa?.value?.toCPointer<ByteVar>(), icp, ftrailing, px?.value?.toCPointer<ByteVar>())
 
-public actual fun ScriptStringFree(pssa: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ScriptStringFree(pssa.toCPointer<ByteVar>())
+public actual fun scriptStringFree(pssa: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_scriptStringFree(pssa?.value?.toCPointer<ByteVar>())
 
-public actual fun ScriptStringGetLogicalWidths(ssa: Long, pidx: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ScriptStringGetLogicalWidths(ssa.toCPointer<ByteVar>(), pidx.toCPointer<ByteVar>())
+public actual fun scriptStringGetLogicalWidths(ssa: COpaquePointer?, pidx: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_scriptStringGetLogicalWidths(ssa?.value?.toCPointer<ByteVar>(), pidx?.value?.toCPointer<ByteVar>())
 
-public actual fun ScriptStringGetOrder(ssa: Long, puorder: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ScriptStringGetOrder(ssa.toCPointer<ByteVar>(), puorder.toCPointer<ByteVar>())
+public actual fun scriptStringGetOrder(ssa: COpaquePointer?, puorder: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_scriptStringGetOrder(ssa?.value?.toCPointer<ByteVar>(), puorder?.value?.toCPointer<ByteVar>())
 
-public actual fun ScriptStringOut(ssa: Long, ix: Int, iy: Int, uoptions: ETO_OPTIONS, prc: Long, iminsel: Int, imaxsel: Int, fdisabled: BOOL): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ScriptStringOut(ssa.toCPointer<ByteVar>(), ix, iy, uoptions, prc.toCPointer<ByteVar>(), iminsel, imaxsel, fdisabled)
+public actual fun scriptStringOut(ssa: COpaquePointer?, ix: Int, iy: Int, uoptions: EtoOptions, prc: COpaquePointer?, iminsel: Int, imaxsel: Int, fdisabled: Bool): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_scriptStringOut(ssa?.value?.toCPointer<ByteVar>(), ix, iy, uoptions, prc?.value?.toCPointer<ByteVar>(), iminsel, imaxsel, fdisabled)
 
-public actual fun ScriptStringValidate(ssa: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ScriptStringValidate(ssa.toCPointer<ByteVar>())
+public actual fun scriptStringValidate(ssa: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_scriptStringValidate(ssa?.value?.toCPointer<ByteVar>())
 
-public actual fun ScriptStringXtoCP(ssa: Long, ix: Int, pich: Long, pitrailing: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ScriptStringXtoCP(ssa.toCPointer<ByteVar>(), ix, pich.toCPointer<ByteVar>(), pitrailing.toCPointer<ByteVar>())
+public actual fun scriptStringXtoCP(ssa: COpaquePointer?, ix: Int, pich: COpaquePointer?, pitrailing: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_scriptStringXtoCP(ssa?.value?.toCPointer<ByteVar>(), ix, pich?.value?.toCPointer<ByteVar>(), pitrailing?.value?.toCPointer<ByteVar>())
 
-public actual fun ScriptString_pLogAttr(ssa: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ScriptString_pLogAttr(ssa.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun scriptStringPLogAttr(ssa: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_scriptStringPLogAttr(ssa?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ScriptString_pSize(ssa: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ScriptString_pSize(ssa.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun scriptStringPSize(ssa: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_scriptStringPSize(ssa?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ScriptString_pcOutChars(ssa: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ScriptString_pcOutChars(ssa.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun scriptStringPcOutChars(ssa: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_scriptStringPcOutChars(ssa?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ScriptSubstituteSingleGlyph(hdc: HDC, psc: Long, psa: Long, tagscript: UInt, taglangsys: UInt, tagfeature: UInt, lparameter: Int, wglyphid: UShort, pwoutglyphid: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ScriptSubstituteSingleGlyph(hdc.toCPointer<ByteVar>(), psc.toCPointer<ByteVar>(), psa.toCPointer<ByteVar>(), tagscript, taglangsys, tagfeature, lparameter, wglyphid, pwoutglyphid.toCPointer<ByteVar>())
+public actual fun scriptSubstituteSingleGlyph(hdc: Hdc, psc: COpaquePointer?, psa: COpaquePointer?, tagscript: UInt, taglangsys: UInt, tagfeature: UInt, lparameter: Int, wglyphid: UShort, pwoutglyphid: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_scriptSubstituteSingleGlyph(hdc?.value?.toCPointer<ByteVar>(), psc?.value?.toCPointer<ByteVar>(), psa?.value?.toCPointer<ByteVar>(), tagscript, taglangsys, tagfeature, lparameter, wglyphid, pwoutglyphid?.value?.toCPointer<ByteVar>())
 
-public actual fun ScriptTextOut(hdc: HDC, psc: Long, x: Int, y: Int, fuoptions: UInt, lprc: Long, psa: Long, pwcreserved: PCWSTR, ireserved: Int, pwglyphs: Long, cglyphs: Int, piadvance: Long, pijustify: Long, pgoffset: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ScriptTextOut(hdc.toCPointer<ByteVar>(), psc.toCPointer<ByteVar>(), x, y, fuoptions, lprc.toCPointer<ByteVar>(), psa.toCPointer<ByteVar>(), pwcreserved.toCPointer<ByteVar>(), ireserved, pwglyphs.toCPointer<ByteVar>(), cglyphs, piadvance.toCPointer<ByteVar>(), pijustify.toCPointer<ByteVar>(), pgoffset.toCPointer<ByteVar>())
+public actual fun scriptTextOut(hdc: Hdc, psc: COpaquePointer?, x: Int, y: Int, fuoptions: UInt, lprc: COpaquePointer?, psa: COpaquePointer?, pwcreserved: Pcwstr, ireserved: Int, pwglyphs: COpaquePointer?, cglyphs: Int, piadvance: COpaquePointer?, pijustify: COpaquePointer?, pgoffset: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_scriptTextOut(hdc?.value?.toCPointer<ByteVar>(), psc?.value?.toCPointer<ByteVar>(), x, y, fuoptions, lprc?.value?.toCPointer<ByteVar>(), psa?.value?.toCPointer<ByteVar>(), pwcreserved?.value?.toCPointer<ByteVar>(), ireserved, pwglyphs?.value?.toCPointer<ByteVar>(), cglyphs, piadvance?.value?.toCPointer<ByteVar>(), pijustify?.value?.toCPointer<ByteVar>(), pgoffset?.value?.toCPointer<ByteVar>())
 
-public actual fun ScriptXtoCP(ix: Int, cchars: Int, cglyphs: Int, pwlogclust: Long, psva: Long, piadvance: Long, psa: Long, picp: Long, pitrailing: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ScriptXtoCP(ix, cchars, cglyphs, pwlogclust.toCPointer<ByteVar>(), psva.toCPointer<ByteVar>(), piadvance.toCPointer<ByteVar>(), psa.toCPointer<ByteVar>(), picp.toCPointer<ByteVar>(), pitrailing.toCPointer<ByteVar>())
+public actual fun scriptXtoCP(ix: Int, cchars: Int, cglyphs: Int, pwlogclust: COpaquePointer?, psva: COpaquePointer?, piadvance: COpaquePointer?, psa: COpaquePointer?, picp: COpaquePointer?, pitrailing: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_scriptXtoCP(ix, cchars, cglyphs, pwlogclust?.value?.toCPointer<ByteVar>(), psva?.value?.toCPointer<ByteVar>(), piadvance?.value?.toCPointer<ByteVar>(), psa?.value?.toCPointer<ByteVar>(), picp?.value?.toCPointer<ByteVar>(), pitrailing?.value?.toCPointer<ByteVar>())
 
-public actual fun SetCalendarInfoA(locale: UInt, calendar: UInt, caltype: UInt, lpcaldata: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_SetCalendarInfoA(locale, calendar, caltype, lpcaldata.toCPointer<ByteVar>())
+public actual fun setCalendarInfoA(locale: UInt, calendar: UInt, caltype: UInt, lpcaldata: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_setCalendarInfoA(locale, calendar, caltype, lpcaldata?.value?.toCPointer<ByteVar>())
 
-public actual fun SetCalendarInfoW(locale: UInt, calendar: UInt, caltype: UInt, lpcaldata: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_SetCalendarInfoW(locale, calendar, caltype, lpcaldata.toCPointer<ByteVar>())
+public actual fun setCalendarInfoW(locale: UInt, calendar: UInt, caltype: UInt, lpcaldata: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_setCalendarInfoW(locale, calendar, caltype, lpcaldata?.value?.toCPointer<ByteVar>())
 
-public actual fun SetLocaleInfoA(locale: UInt, lctype: UInt, lplcdata: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_SetLocaleInfoA(locale, lctype, lplcdata.toCPointer<ByteVar>())
+public actual fun setLocaleInfoA(locale: UInt, lctype: UInt, lplcdata: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_setLocaleInfoA(locale, lctype, lplcdata?.value?.toCPointer<ByteVar>())
 
-public actual fun SetLocaleInfoW(locale: UInt, lctype: UInt, lplcdata: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_SetLocaleInfoW(locale, lctype, lplcdata.toCPointer<ByteVar>())
+public actual fun setLocaleInfoW(locale: UInt, lctype: UInt, lplcdata: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_setLocaleInfoW(locale, lctype, lplcdata?.value?.toCPointer<ByteVar>())
 
-public actual fun SetProcessPreferredUILanguages(dwflags: UInt, pwszlanguagesbuffer: PCWSTR, pulnumlanguages: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_SetProcessPreferredUILanguages(dwflags, pwszlanguagesbuffer.toCPointer<ByteVar>(), pulnumlanguages.toCPointer<ByteVar>())
+public actual fun setProcessPreferredUILanguages(dwflags: UInt, pwszlanguagesbuffer: Pcwstr, pulnumlanguages: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_setProcessPreferredUILanguages(dwflags, pwszlanguagesbuffer?.value?.toCPointer<ByteVar>(), pulnumlanguages?.value?.toCPointer<ByteVar>())
 
-public actual fun SetThreadLocale(locale: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_SetThreadLocale(locale)
+public actual fun setThreadLocale(locale: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_setThreadLocale(locale)
 
-public actual fun SetThreadPreferredUILanguages(dwflags: UInt, pwszlanguagesbuffer: PCWSTR, pulnumlanguages: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_SetThreadPreferredUILanguages(dwflags, pwszlanguagesbuffer.toCPointer<ByteVar>(), pulnumlanguages.toCPointer<ByteVar>())
+public actual fun setThreadPreferredUILanguages(dwflags: UInt, pwszlanguagesbuffer: Pcwstr, pulnumlanguages: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_setThreadPreferredUILanguages(dwflags, pwszlanguagesbuffer?.value?.toCPointer<ByteVar>(), pulnumlanguages?.value?.toCPointer<ByteVar>())
 
-public actual fun SetThreadPreferredUILanguages2(flags: UInt, languages: PCWSTR, numlanguagesset: Long, snapshot: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_SetThreadPreferredUILanguages2(flags, languages.toCPointer<ByteVar>(), numlanguagesset.toCPointer<ByteVar>(), snapshot.toCPointer<ByteVar>())
+public actual fun setThreadPreferredUILanguages2(flags: UInt, languages: Pcwstr, numlanguagesset: COpaquePointer?, snapshot: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_setThreadPreferredUILanguages2(flags, languages?.value?.toCPointer<ByteVar>(), numlanguagesset?.value?.toCPointer<ByteVar>(), snapshot?.value?.toCPointer<ByteVar>())
 
-public actual fun SetThreadUILanguage(langid: UShort): UShort =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_SetThreadUILanguage(langid)
+public actual fun setThreadUILanguage(langid: UShort): UShort =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_setThreadUILanguage(langid)
 
-public actual fun SetUserGeoID(geoid: Int): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_SetUserGeoID(geoid)
+public actual fun setUserGeoID(geoid: Int): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_setUserGeoID(geoid)
 
-public actual fun SetUserGeoName(geoname: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_SetUserGeoName(geoname.toCPointer<ByteVar>())
+public actual fun setUserGeoName(geoname: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_setUserGeoName(geoname?.value?.toCPointer<ByteVar>())
 
-public actual fun TranslateCharsetInfo(lpsrc: Long, lpcs: Long, dwflags: TRANSLATE_CHARSET_INFO_FLAGS): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_TranslateCharsetInfo(lpsrc.toCPointer<ByteVar>(), lpcs.toCPointer<ByteVar>(), dwflags)
+public actual fun translateCharsetInfo(lpsrc: COpaquePointer?, lpcs: COpaquePointer?, dwflags: TranslateCharsetInfoFlags): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_translateCharsetInfo(lpsrc?.value?.toCPointer<ByteVar>(), lpcs?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun UCNV_FROM_U_CALLBACK_ESCAPE(context: Long, fromuargs: Long, codeunits: Long, length: Int, codepoint: Int, reason: UConverterCallbackReason, err: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_UCNV_FROM_U_CALLBACK_ESCAPE(context.toCPointer<ByteVar>(), fromuargs.toCPointer<ByteVar>(), codeunits.toCPointer<ByteVar>(), length, codepoint, reason, err.toCPointer<ByteVar>())
+public actual fun ucnvFromUCallbackEscape(context: COpaquePointer?, fromuargs: COpaquePointer?, codeunits: COpaquePointer?, length: Int, codepoint: Int, reason: UConverterCallbackReason, err: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvFromUCallbackEscape(context?.value?.toCPointer<ByteVar>(), fromuargs?.value?.toCPointer<ByteVar>(), codeunits?.value?.toCPointer<ByteVar>(), length, codepoint, reason, err?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun UCNV_FROM_U_CALLBACK_SKIP(context: Long, fromuargs: Long, codeunits: Long, length: Int, codepoint: Int, reason: UConverterCallbackReason, err: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_UCNV_FROM_U_CALLBACK_SKIP(context.toCPointer<ByteVar>(), fromuargs.toCPointer<ByteVar>(), codeunits.toCPointer<ByteVar>(), length, codepoint, reason, err.toCPointer<ByteVar>())
+public actual fun ucnvFromUCallbackSkip(context: COpaquePointer?, fromuargs: COpaquePointer?, codeunits: COpaquePointer?, length: Int, codepoint: Int, reason: UConverterCallbackReason, err: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvFromUCallbackSkip(context?.value?.toCPointer<ByteVar>(), fromuargs?.value?.toCPointer<ByteVar>(), codeunits?.value?.toCPointer<ByteVar>(), length, codepoint, reason, err?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun UCNV_FROM_U_CALLBACK_STOP(context: Long, fromuargs: Long, codeunits: Long, length: Int, codepoint: Int, reason: UConverterCallbackReason, err: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_UCNV_FROM_U_CALLBACK_STOP(context.toCPointer<ByteVar>(), fromuargs.toCPointer<ByteVar>(), codeunits.toCPointer<ByteVar>(), length, codepoint, reason, err.toCPointer<ByteVar>())
+public actual fun ucnvFromUCallbackStop(context: COpaquePointer?, fromuargs: COpaquePointer?, codeunits: COpaquePointer?, length: Int, codepoint: Int, reason: UConverterCallbackReason, err: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvFromUCallbackStop(context?.value?.toCPointer<ByteVar>(), fromuargs?.value?.toCPointer<ByteVar>(), codeunits?.value?.toCPointer<ByteVar>(), length, codepoint, reason, err?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun UCNV_FROM_U_CALLBACK_SUBSTITUTE(context: Long, fromuargs: Long, codeunits: Long, length: Int, codepoint: Int, reason: UConverterCallbackReason, err: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_UCNV_FROM_U_CALLBACK_SUBSTITUTE(context.toCPointer<ByteVar>(), fromuargs.toCPointer<ByteVar>(), codeunits.toCPointer<ByteVar>(), length, codepoint, reason, err.toCPointer<ByteVar>())
+public actual fun ucnvFromUCallbackSubstitute(context: COpaquePointer?, fromuargs: COpaquePointer?, codeunits: COpaquePointer?, length: Int, codepoint: Int, reason: UConverterCallbackReason, err: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvFromUCallbackSubstitute(context?.value?.toCPointer<ByteVar>(), fromuargs?.value?.toCPointer<ByteVar>(), codeunits?.value?.toCPointer<ByteVar>(), length, codepoint, reason, err?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun UCNV_TO_U_CALLBACK_ESCAPE(context: Long, touargs: Long, codeunits: PCSTR, length: Int, reason: UConverterCallbackReason, err: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_UCNV_TO_U_CALLBACK_ESCAPE(context.toCPointer<ByteVar>(), touargs.toCPointer<ByteVar>(), codeunits.toCPointer<ByteVar>(), length, reason, err.toCPointer<ByteVar>())
+public actual fun ucnvToUCallbackEscape(context: COpaquePointer?, touargs: COpaquePointer?, codeunits: Pcstr, length: Int, reason: UConverterCallbackReason, err: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvToUCallbackEscape(context?.value?.toCPointer<ByteVar>(), touargs?.value?.toCPointer<ByteVar>(), codeunits?.value?.toCPointer<ByteVar>(), length, reason, err?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun UCNV_TO_U_CALLBACK_SKIP(context: Long, touargs: Long, codeunits: PCSTR, length: Int, reason: UConverterCallbackReason, err: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_UCNV_TO_U_CALLBACK_SKIP(context.toCPointer<ByteVar>(), touargs.toCPointer<ByteVar>(), codeunits.toCPointer<ByteVar>(), length, reason, err.toCPointer<ByteVar>())
+public actual fun ucnvToUCallbackSkip(context: COpaquePointer?, touargs: COpaquePointer?, codeunits: Pcstr, length: Int, reason: UConverterCallbackReason, err: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvToUCallbackSkip(context?.value?.toCPointer<ByteVar>(), touargs?.value?.toCPointer<ByteVar>(), codeunits?.value?.toCPointer<ByteVar>(), length, reason, err?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun UCNV_TO_U_CALLBACK_STOP(context: Long, touargs: Long, codeunits: PCSTR, length: Int, reason: UConverterCallbackReason, err: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_UCNV_TO_U_CALLBACK_STOP(context.toCPointer<ByteVar>(), touargs.toCPointer<ByteVar>(), codeunits.toCPointer<ByteVar>(), length, reason, err.toCPointer<ByteVar>())
+public actual fun ucnvToUCallbackStop(context: COpaquePointer?, touargs: COpaquePointer?, codeunits: Pcstr, length: Int, reason: UConverterCallbackReason, err: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvToUCallbackStop(context?.value?.toCPointer<ByteVar>(), touargs?.value?.toCPointer<ByteVar>(), codeunits?.value?.toCPointer<ByteVar>(), length, reason, err?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun UCNV_TO_U_CALLBACK_SUBSTITUTE(context: Long, touargs: Long, codeunits: PCSTR, length: Int, reason: UConverterCallbackReason, err: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_UCNV_TO_U_CALLBACK_SUBSTITUTE(context.toCPointer<ByteVar>(), touargs.toCPointer<ByteVar>(), codeunits.toCPointer<ByteVar>(), length, reason, err.toCPointer<ByteVar>())
+public actual fun ucnvToUCallbackSubstitute(context: COpaquePointer?, touargs: COpaquePointer?, codeunits: Pcstr, length: Int, reason: UConverterCallbackReason, err: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvToUCallbackSubstitute(context?.value?.toCPointer<ByteVar>(), touargs?.value?.toCPointer<ByteVar>(), codeunits?.value?.toCPointer<ByteVar>(), length, reason, err?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun UpdateCalendarDayOfWeek(lpcaldatetime: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_UpdateCalendarDayOfWeek(lpcaldatetime.toCPointer<ByteVar>())
+public actual fun updateCalendarDayOfWeek(lpcaldatetime: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_updateCalendarDayOfWeek(lpcaldatetime?.value?.toCPointer<ByteVar>())
 
-public actual fun VerifyScripts(dwflags: UInt, lplocalescripts: PCWSTR, cchlocalescripts: Int, lptestscripts: PCWSTR, cchtestscripts: Int): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_VerifyScripts(dwflags, lplocalescripts.toCPointer<ByteVar>(), cchlocalescripts, lptestscripts.toCPointer<ByteVar>(), cchtestscripts)
+public actual fun verifyScripts(dwflags: UInt, lplocalescripts: Pcwstr, cchlocalescripts: Int, lptestscripts: Pcwstr, cchtestscripts: Int): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_verifyScripts(dwflags, lplocalescripts?.value?.toCPointer<ByteVar>(), cchlocalescripts, lptestscripts?.value?.toCPointer<ByteVar>(), cchtestscripts)
 
-public actual fun WideCharToMultiByte(codepage: UInt, dwflags: UInt, lpwidecharstr: PCWSTR, cchwidechar: Int, lpmultibytestr: PSTR, cbmultibyte: Int, lpdefaultchar: PCSTR, lpuseddefaultchar: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_WideCharToMultiByte(codepage, dwflags, lpwidecharstr.toCPointer<ByteVar>(), cchwidechar, lpmultibytestr.toCPointer<ByteVar>(), cbmultibyte, lpdefaultchar.toCPointer<ByteVar>(), lpuseddefaultchar.toCPointer<ByteVar>())
+public actual fun wideCharToMultiByte(codepage: UInt, dwflags: UInt, lpwidecharstr: Pcwstr, cchwidechar: Int, lpmultibytestr: Pstr, cbmultibyte: Int, lpdefaultchar: Pcstr, lpuseddefaultchar: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_wideCharToMultiByte(codepage, dwflags, lpwidecharstr?.value?.toCPointer<ByteVar>(), cchwidechar, lpmultibytestr?.value?.toCPointer<ByteVar>(), cbmultibyte, lpdefaultchar?.value?.toCPointer<ByteVar>(), lpuseddefaultchar?.value?.toCPointer<ByteVar>())
 
-public actual fun lstrcatA(lpstring1: PSTR, lpstring2: PCSTR): PSTR =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_lstrcatA(lpstring1.toCPointer<ByteVar>(), lpstring2.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun lstrcatA(lpstring1: Pstr, lpstring2: Pcstr): Pstr =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_lstrcatA(lpstring1?.value?.toCPointer<ByteVar>(), lpstring2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun lstrcatW(lpstring1: PWSTR, lpstring2: PCWSTR): PWSTR =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_lstrcatW(lpstring1.toCPointer<ByteVar>(), lpstring2.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun lstrcatW(lpstring1: Pwstr, lpstring2: Pcwstr): Pwstr =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_lstrcatW(lpstring1?.value?.toCPointer<ByteVar>(), lpstring2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun lstrcmpA(lpstring1: PCSTR, lpstring2: PCSTR): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_lstrcmpA(lpstring1.toCPointer<ByteVar>(), lpstring2.toCPointer<ByteVar>())
+public actual fun lstrcmpA(lpstring1: Pcstr, lpstring2: Pcstr): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_lstrcmpA(lpstring1?.value?.toCPointer<ByteVar>(), lpstring2?.value?.toCPointer<ByteVar>())
 
-public actual fun lstrcmpW(lpstring1: PCWSTR, lpstring2: PCWSTR): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_lstrcmpW(lpstring1.toCPointer<ByteVar>(), lpstring2.toCPointer<ByteVar>())
+public actual fun lstrcmpW(lpstring1: Pcwstr, lpstring2: Pcwstr): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_lstrcmpW(lpstring1?.value?.toCPointer<ByteVar>(), lpstring2?.value?.toCPointer<ByteVar>())
 
-public actual fun lstrcmpiA(lpstring1: PCSTR, lpstring2: PCSTR): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_lstrcmpiA(lpstring1.toCPointer<ByteVar>(), lpstring2.toCPointer<ByteVar>())
+public actual fun lstrcmpiA(lpstring1: Pcstr, lpstring2: Pcstr): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_lstrcmpiA(lpstring1?.value?.toCPointer<ByteVar>(), lpstring2?.value?.toCPointer<ByteVar>())
 
-public actual fun lstrcmpiW(lpstring1: PCWSTR, lpstring2: PCWSTR): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_lstrcmpiW(lpstring1.toCPointer<ByteVar>(), lpstring2.toCPointer<ByteVar>())
+public actual fun lstrcmpiW(lpstring1: Pcwstr, lpstring2: Pcwstr): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_lstrcmpiW(lpstring1?.value?.toCPointer<ByteVar>(), lpstring2?.value?.toCPointer<ByteVar>())
 
-public actual fun lstrcpyA(lpstring1: PSTR, lpstring2: PCSTR): PSTR =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_lstrcpyA(lpstring1.toCPointer<ByteVar>(), lpstring2.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun lstrcpyA(lpstring1: Pstr, lpstring2: Pcstr): Pstr =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_lstrcpyA(lpstring1?.value?.toCPointer<ByteVar>(), lpstring2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun lstrcpyW(lpstring1: PWSTR, lpstring2: PCWSTR): PWSTR =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_lstrcpyW(lpstring1.toCPointer<ByteVar>(), lpstring2.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun lstrcpyW(lpstring1: Pwstr, lpstring2: Pcwstr): Pwstr =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_lstrcpyW(lpstring1?.value?.toCPointer<ByteVar>(), lpstring2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun lstrcpynA(lpstring1: PSTR, lpstring2: PCSTR, imaxlength: Int): PSTR =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_lstrcpynA(lpstring1.toCPointer<ByteVar>(), lpstring2.toCPointer<ByteVar>(), imaxlength)?.toLong() ?: 0L
+public actual fun lstrcpynA(lpstring1: Pstr, lpstring2: Pcstr, imaxlength: Int): Pstr =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_lstrcpynA(lpstring1?.value?.toCPointer<ByteVar>(), lpstring2?.value?.toCPointer<ByteVar>(), imaxlength)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun lstrcpynW(lpstring1: PWSTR, lpstring2: PCWSTR, imaxlength: Int): PWSTR =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_lstrcpynW(lpstring1.toCPointer<ByteVar>(), lpstring2.toCPointer<ByteVar>(), imaxlength)?.toLong() ?: 0L
+public actual fun lstrcpynW(lpstring1: Pwstr, lpstring2: Pcwstr, imaxlength: Int): Pwstr =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_lstrcpynW(lpstring1?.value?.toCPointer<ByteVar>(), lpstring2?.value?.toCPointer<ByteVar>(), imaxlength)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun lstrlenA(lpstring: PCSTR): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_lstrlenA(lpstring.toCPointer<ByteVar>())
+public actual fun lstrlenA(lpstring: Pcstr): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_lstrlenA(lpstring?.value?.toCPointer<ByteVar>())
 
-public actual fun lstrlenW(lpstring: PCWSTR): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_lstrlenW(lpstring.toCPointer<ByteVar>())
+public actual fun lstrlenW(lpstring: Pcwstr): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_lstrlenW(lpstring?.value?.toCPointer<ByteVar>())
 
-public actual fun u_UCharsToChars(us: Long, cs: PCSTR, length: Int) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_UCharsToChars(us.toCPointer<ByteVar>(), cs.toCPointer<ByteVar>(), length)
+public actual fun uUcharsToChars(us: COpaquePointer?, cs: Pcstr, length: Int) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uUcharsToChars(us?.value?.toCPointer<ByteVar>(), cs?.value?.toCPointer<ByteVar>(), length)
 }
 
-public actual fun u_austrcpy(dst: PCSTR, src: Long): PSTR =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_austrcpy(dst.toCPointer<ByteVar>(), src.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uAustrcpy(dst: Pcstr, src: COpaquePointer?): Pstr =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uAustrcpy(dst?.value?.toCPointer<ByteVar>(), src?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun u_austrncpy(dst: PCSTR, src: Long, n: Int): PSTR =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_austrncpy(dst.toCPointer<ByteVar>(), src.toCPointer<ByteVar>(), n)?.toLong() ?: 0L
+public actual fun uAustrncpy(dst: Pcstr, src: COpaquePointer?, n: Int): Pstr =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uAustrncpy(dst?.value?.toCPointer<ByteVar>(), src?.value?.toCPointer<ByteVar>(), n)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun u_catclose(catd: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_catclose(catd.toCPointer<ByteVar>())
+public actual fun uCatclose(catd: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uCatclose(catd?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun u_catgets(catd: Long, set_num: Int, msg_num: Int, s: Long, len: Long, ec: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_catgets(catd.toCPointer<ByteVar>(), set_num, msg_num, s.toCPointer<ByteVar>(), len.toCPointer<ByteVar>(), ec.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uCatgets(catd: COpaquePointer?, setNum: Int, msgNum: Int, s: COpaquePointer?, len: COpaquePointer?, ec: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uCatgets(catd?.value?.toCPointer<ByteVar>(), setNum, msgNum, s?.value?.toCPointer<ByteVar>(), len?.value?.toCPointer<ByteVar>(), ec?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun u_catopen(name: PCSTR, locale: PCSTR, ec: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_catopen(name.toCPointer<ByteVar>(), locale.toCPointer<ByteVar>(), ec.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uCatopen(name: Pcstr, locale: Pcstr, ec: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uCatopen(name?.value?.toCPointer<ByteVar>(), locale?.value?.toCPointer<ByteVar>(), ec?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun u_charAge(c: Int, versionarray: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_charAge(c, versionarray.toCPointer<ByteVar>())
+public actual fun uCharAge(c: Int, versionarray: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uCharAge(c, versionarray?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun u_charDigitValue(c: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_charDigitValue(c)
+public actual fun uCharDigitValue(c: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uCharDigitValue(c)
 
-public actual fun u_charDirection(c: Int): UCharDirection =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_charDirection(c)
+public actual fun uCharDirection(c: Int): UCharDirection =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uCharDirection(c)
 
-public actual fun u_charFromName(namechoice: UCharNameChoice, name: PCSTR, perrorcode: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_charFromName(namechoice, name.toCPointer<ByteVar>(), perrorcode.toCPointer<ByteVar>())
+public actual fun uCharFromName(namechoice: UCharNameChoice, name: Pcstr, perrorcode: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uCharFromName(namechoice, name?.value?.toCPointer<ByteVar>(), perrorcode?.value?.toCPointer<ByteVar>())
 
-public actual fun u_charMirror(c: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_charMirror(c)
+public actual fun uCharMirror(c: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uCharMirror(c)
 
-public actual fun u_charName(code: Int, namechoice: UCharNameChoice, buffer: PCSTR, bufferlength: Int, perrorcode: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_charName(code, namechoice, buffer.toCPointer<ByteVar>(), bufferlength, perrorcode.toCPointer<ByteVar>())
+public actual fun uCharName(code: Int, namechoice: UCharNameChoice, buffer: Pcstr, bufferlength: Int, perrorcode: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uCharName(code, namechoice, buffer?.value?.toCPointer<ByteVar>(), bufferlength, perrorcode?.value?.toCPointer<ByteVar>())
 
-public actual fun u_charType(c: Int): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_charType(c)
+public actual fun uCharType(c: Int): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uCharType(c)
 
-public actual fun u_charsToUChars(cs: PCSTR, us: Long, length: Int) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_charsToUChars(cs.toCPointer<ByteVar>(), us.toCPointer<ByteVar>(), length)
+public actual fun uCharsToUchars(cs: Pcstr, us: COpaquePointer?, length: Int) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uCharsToUchars(cs?.value?.toCPointer<ByteVar>(), us?.value?.toCPointer<ByteVar>(), length)
 }
 
-public actual fun u_cleanup() {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_cleanup()
+public actual fun uCleanup() {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uCleanup()
 }
 
-public actual fun u_countChar32(s: Long, length: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_countChar32(s.toCPointer<ByteVar>(), length)
+public actual fun uCountChar32(s: COpaquePointer?, length: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uCountChar32(s?.value?.toCPointer<ByteVar>(), length)
 
-public actual fun u_digit(ch: Int, radix: Byte): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_digit(ch, radix)
+public actual fun uDigit(ch: Int, radix: Byte): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uDigit(ch, radix)
 
-public actual fun u_enumCharNames(start: Int, limit: Int, fn: Long, context: Long, namechoice: UCharNameChoice, perrorcode: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_enumCharNames(start, limit, fn.toCPointer<ByteVar>(), context.toCPointer<ByteVar>(), namechoice, perrorcode.toCPointer<ByteVar>())
+public actual fun uEnumCharNames(start: Int, limit: Int, fn: COpaquePointer?, context: COpaquePointer?, namechoice: UCharNameChoice, perrorcode: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uEnumCharNames(start, limit, fn?.value?.toCPointer<ByteVar>(), context?.value?.toCPointer<ByteVar>(), namechoice, perrorcode?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun u_enumCharTypes(enumrange: Long, context: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_enumCharTypes(enumrange.toCPointer<ByteVar>(), context.toCPointer<ByteVar>())
+public actual fun uEnumCharTypes(enumrange: COpaquePointer?, context: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uEnumCharTypes(enumrange?.value?.toCPointer<ByteVar>(), context?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun u_errorName(code: UErrorCode): PCSTR =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_errorName(code)?.toLong() ?: 0L
+public actual fun uErrorName(code: UErrorCode): Pcstr =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uErrorName(code)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun u_foldCase(c: Int, options: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_foldCase(c, options)
+public actual fun uFoldCase(c: Int, options: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uFoldCase(c, options)
 
-public actual fun u_forDigit(digit: Int, radix: Byte): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_forDigit(digit, radix)
+public actual fun uForDigit(digit: Int, radix: Byte): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uForDigit(digit, radix)
 
-public actual fun u_formatMessage(locale: PCSTR, pattern: Long, patternlength: Int, result: Long, resultlength: Int, status: Long): Int =
-    0
+public actual fun uFormatMessage(locale: Pcstr, pattern: COpaquePointer?, patternlength: Int, result: COpaquePointer?, resultlength: Int, status: COpaquePointer?, vararg variadicArgs: Long): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uFormatMessage(locale?.value?.toCPointer<ByteVar>(), pattern?.value?.toCPointer<ByteVar>(), patternlength, result?.value?.toCPointer<ByteVar>(), resultlength, status?.value?.toCPointer<ByteVar>(), variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
 
-public actual fun u_formatMessageWithError(locale: PCSTR, pattern: Long, patternlength: Int, result: Long, resultlength: Int, parseerror: Long, status: Long): Int =
-    0
+public actual fun uFormatMessageWithError(locale: Pcstr, pattern: COpaquePointer?, patternlength: Int, result: COpaquePointer?, resultlength: Int, parseerror: COpaquePointer?, status: COpaquePointer?, vararg variadicArgs: Long): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uFormatMessageWithError(locale?.value?.toCPointer<ByteVar>(), pattern?.value?.toCPointer<ByteVar>(), patternlength, result?.value?.toCPointer<ByteVar>(), resultlength, parseerror?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>(), variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
 
-public actual fun u_getBidiPairedBracket(c: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_getBidiPairedBracket(c)
+public actual fun uGetBidiPairedBracket(c: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uGetBidiPairedBracket(c)
 
-public actual fun u_getBinaryPropertySet(property: UProperty, perrorcode: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_getBinaryPropertySet(property, perrorcode.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uGetBinaryPropertySet(property: UProperty, perrorcode: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uGetBinaryPropertySet(property, perrorcode?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun u_getCombiningClass(c: Int): UByte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_getCombiningClass(c)
+public actual fun uGetCombiningClass(c: Int): UByte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uGetCombiningClass(c)
 
-public actual fun u_getDataVersion(dataversionfillin: Long, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_getDataVersion(dataversionfillin.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun uGetDataVersion(dataversionfillin: COpaquePointer?, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uGetDataVersion(dataversionfillin?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun u_getFC_NFKC_Closure(c: Int, dest: Long, destcapacity: Int, perrorcode: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_getFC_NFKC_Closure(c, dest.toCPointer<ByteVar>(), destcapacity, perrorcode.toCPointer<ByteVar>())
+public actual fun uGetFcNfkcClosure(c: Int, dest: COpaquePointer?, destcapacity: Int, perrorcode: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uGetFcNfkcClosure(c, dest?.value?.toCPointer<ByteVar>(), destcapacity, perrorcode?.value?.toCPointer<ByteVar>())
 
-public actual fun u_getIntPropertyMap(property: UProperty, perrorcode: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_getIntPropertyMap(property, perrorcode.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uGetIntPropertyMap(property: UProperty, perrorcode: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uGetIntPropertyMap(property, perrorcode?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun u_getIntPropertyMaxValue(which: UProperty): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_getIntPropertyMaxValue(which)
+public actual fun uGetIntPropertyMaxValue(which: UProperty): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uGetIntPropertyMaxValue(which)
 
-public actual fun u_getIntPropertyMinValue(which: UProperty): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_getIntPropertyMinValue(which)
+public actual fun uGetIntPropertyMinValue(which: UProperty): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uGetIntPropertyMinValue(which)
 
-public actual fun u_getIntPropertyValue(c: Int, which: UProperty): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_getIntPropertyValue(c, which)
+public actual fun uGetIntPropertyValue(c: Int, which: UProperty): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uGetIntPropertyValue(c, which)
 
-public actual fun u_getNumericValue(c: Int): Double =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_getNumericValue(c)
+public actual fun uGetNumericValue(c: Int): Double =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uGetNumericValue(c)
 
-public actual fun u_getPropertyEnum(alias: PCSTR): UProperty =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_getPropertyEnum(alias.toCPointer<ByteVar>())
+public actual fun uGetPropertyEnum(alias: Pcstr): UProperty =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uGetPropertyEnum(alias?.value?.toCPointer<ByteVar>())
 
-public actual fun u_getPropertyName(property: UProperty, namechoice: UPropertyNameChoice): PCSTR =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_getPropertyName(property, namechoice)?.toLong() ?: 0L
+public actual fun uGetPropertyName(property: UProperty, namechoice: UPropertyNameChoice): Pcstr =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uGetPropertyName(property, namechoice)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun u_getPropertyValueEnum(property: UProperty, alias: PCSTR): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_getPropertyValueEnum(property, alias.toCPointer<ByteVar>())
+public actual fun uGetPropertyValueEnum(property: UProperty, alias: Pcstr): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uGetPropertyValueEnum(property, alias?.value?.toCPointer<ByteVar>())
 
-public actual fun u_getPropertyValueName(property: UProperty, value: Int, namechoice: UPropertyNameChoice): PCSTR =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_getPropertyValueName(property, value, namechoice)?.toLong() ?: 0L
+public actual fun uGetPropertyValueName(property: UProperty, value: Int, namechoice: UPropertyNameChoice): Pcstr =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uGetPropertyValueName(property, value, namechoice)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun u_getUnicodeVersion(versionarray: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_getUnicodeVersion(versionarray.toCPointer<ByteVar>())
+public actual fun uGetUnicodeVersion(versionarray: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uGetUnicodeVersion(versionarray?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun u_getVersion(versionarray: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_getVersion(versionarray.toCPointer<ByteVar>())
+public actual fun uGetVersion(versionarray: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uGetVersion(versionarray?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun u_hasBinaryProperty(c: Int, which: UProperty): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_hasBinaryProperty(c, which)
+public actual fun uHasBinaryProperty(c: Int, which: UProperty): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uHasBinaryProperty(c, which)
 
-public actual fun u_init(status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_init(status.toCPointer<ByteVar>())
+public actual fun uInit(status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uInit(status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun u_isIDIgnorable(c: Int): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_isIDIgnorable(c)
+public actual fun uIsIdignorable(c: Int): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uIsIdignorable(c)
 
-public actual fun u_isIDPart(c: Int): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_isIDPart(c)
+public actual fun uIsIdpart(c: Int): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uIsIdpart(c)
 
-public actual fun u_isIDStart(c: Int): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_isIDStart(c)
+public actual fun uIsIdstart(c: Int): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uIsIdstart(c)
 
-public actual fun u_isISOControl(c: Int): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_isISOControl(c)
+public actual fun uIsIsocontrol(c: Int): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uIsIsocontrol(c)
 
-public actual fun u_isJavaIDPart(c: Int): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_isJavaIDPart(c)
+public actual fun uIsJavaIdpart(c: Int): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uIsJavaIdpart(c)
 
-public actual fun u_isJavaIDStart(c: Int): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_isJavaIDStart(c)
+public actual fun uIsJavaIdstart(c: Int): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uIsJavaIdstart(c)
 
-public actual fun u_isJavaSpaceChar(c: Int): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_isJavaSpaceChar(c)
+public actual fun uIsJavaSpaceChar(c: Int): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uIsJavaSpaceChar(c)
 
-public actual fun u_isMirrored(c: Int): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_isMirrored(c)
+public actual fun uIsMirrored(c: Int): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uIsMirrored(c)
 
-public actual fun u_isUAlphabetic(c: Int): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_isUAlphabetic(c)
+public actual fun uIsUalphabetic(c: Int): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uIsUalphabetic(c)
 
-public actual fun u_isULowercase(c: Int): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_isULowercase(c)
+public actual fun uIsUlowercase(c: Int): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uIsUlowercase(c)
 
-public actual fun u_isUUppercase(c: Int): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_isUUppercase(c)
+public actual fun uIsUuppercase(c: Int): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uIsUuppercase(c)
 
-public actual fun u_isUWhiteSpace(c: Int): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_isUWhiteSpace(c)
+public actual fun uIsUwhiteSpace(c: Int): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uIsUwhiteSpace(c)
 
-public actual fun u_isWhitespace(c: Int): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_isWhitespace(c)
+public actual fun uIsWhitespace(c: Int): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uIsWhitespace(c)
 
-public actual fun u_isalnum(c: Int): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_isalnum(c)
+public actual fun uIsalnum(c: Int): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uIsalnum(c)
 
-public actual fun u_isalpha(c: Int): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_isalpha(c)
+public actual fun uIsalpha(c: Int): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uIsalpha(c)
 
-public actual fun u_isbase(c: Int): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_isbase(c)
+public actual fun uIsbase(c: Int): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uIsbase(c)
 
-public actual fun u_isblank(c: Int): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_isblank(c)
+public actual fun uIsblank(c: Int): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uIsblank(c)
 
-public actual fun u_iscntrl(c: Int): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_iscntrl(c)
+public actual fun uIscntrl(c: Int): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uIscntrl(c)
 
-public actual fun u_isdefined(c: Int): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_isdefined(c)
+public actual fun uIsdefined(c: Int): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uIsdefined(c)
 
-public actual fun u_isdigit(c: Int): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_isdigit(c)
+public actual fun uIsdigit(c: Int): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uIsdigit(c)
 
-public actual fun u_isgraph(c: Int): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_isgraph(c)
+public actual fun uIsgraph(c: Int): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uIsgraph(c)
 
-public actual fun u_islower(c: Int): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_islower(c)
+public actual fun uIslower(c: Int): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uIslower(c)
 
-public actual fun u_isprint(c: Int): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_isprint(c)
+public actual fun uIsprint(c: Int): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uIsprint(c)
 
-public actual fun u_ispunct(c: Int): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_ispunct(c)
+public actual fun uIspunct(c: Int): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uIspunct(c)
 
-public actual fun u_isspace(c: Int): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_isspace(c)
+public actual fun uIsspace(c: Int): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uIsspace(c)
 
-public actual fun u_istitle(c: Int): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_istitle(c)
+public actual fun uIstitle(c: Int): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uIstitle(c)
 
-public actual fun u_isupper(c: Int): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_isupper(c)
+public actual fun uIsupper(c: Int): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uIsupper(c)
 
-public actual fun u_isxdigit(c: Int): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_isxdigit(c)
+public actual fun uIsxdigit(c: Int): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uIsxdigit(c)
 
-public actual fun u_memcasecmp(s1: Long, s2: Long, length: Int, options: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_memcasecmp(s1.toCPointer<ByteVar>(), s2.toCPointer<ByteVar>(), length, options)
+public actual fun uMemcasecmp(s1: COpaquePointer?, s2: COpaquePointer?, length: Int, options: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uMemcasecmp(s1?.value?.toCPointer<ByteVar>(), s2?.value?.toCPointer<ByteVar>(), length, options)
 
-public actual fun u_memchr(s: Long, c: UShort, count: Int): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_memchr(s.toCPointer<ByteVar>(), c, count)?.toLong() ?: 0L
+public actual fun uMemchr(s: COpaquePointer?, c: UShort, count: Int): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uMemchr(s?.value?.toCPointer<ByteVar>(), c, count)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun u_memchr32(s: Long, c: Int, count: Int): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_memchr32(s.toCPointer<ByteVar>(), c, count)?.toLong() ?: 0L
+public actual fun uMemchr32(s: COpaquePointer?, c: Int, count: Int): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uMemchr32(s?.value?.toCPointer<ByteVar>(), c, count)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun u_memcmp(buf1: Long, buf2: Long, count: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_memcmp(buf1.toCPointer<ByteVar>(), buf2.toCPointer<ByteVar>(), count)
+public actual fun uMemcmp(buf1: COpaquePointer?, buf2: COpaquePointer?, count: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uMemcmp(buf1?.value?.toCPointer<ByteVar>(), buf2?.value?.toCPointer<ByteVar>(), count)
 
-public actual fun u_memcmpCodePointOrder(s1: Long, s2: Long, count: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_memcmpCodePointOrder(s1.toCPointer<ByteVar>(), s2.toCPointer<ByteVar>(), count)
+public actual fun uMemcmpCodePointOrder(s1: COpaquePointer?, s2: COpaquePointer?, count: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uMemcmpCodePointOrder(s1?.value?.toCPointer<ByteVar>(), s2?.value?.toCPointer<ByteVar>(), count)
 
-public actual fun u_memcpy(dest: Long, src: Long, count: Int): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_memcpy(dest.toCPointer<ByteVar>(), src.toCPointer<ByteVar>(), count)?.toLong() ?: 0L
+public actual fun uMemcpy(dest: COpaquePointer?, src: COpaquePointer?, count: Int): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uMemcpy(dest?.value?.toCPointer<ByteVar>(), src?.value?.toCPointer<ByteVar>(), count)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun u_memmove(dest: Long, src: Long, count: Int): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_memmove(dest.toCPointer<ByteVar>(), src.toCPointer<ByteVar>(), count)?.toLong() ?: 0L
+public actual fun uMemmove(dest: COpaquePointer?, src: COpaquePointer?, count: Int): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uMemmove(dest?.value?.toCPointer<ByteVar>(), src?.value?.toCPointer<ByteVar>(), count)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun u_memrchr(s: Long, c: UShort, count: Int): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_memrchr(s.toCPointer<ByteVar>(), c, count)?.toLong() ?: 0L
+public actual fun uMemrchr(s: COpaquePointer?, c: UShort, count: Int): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uMemrchr(s?.value?.toCPointer<ByteVar>(), c, count)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun u_memrchr32(s: Long, c: Int, count: Int): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_memrchr32(s.toCPointer<ByteVar>(), c, count)?.toLong() ?: 0L
+public actual fun uMemrchr32(s: COpaquePointer?, c: Int, count: Int): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uMemrchr32(s?.value?.toCPointer<ByteVar>(), c, count)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun u_memset(dest: Long, c: UShort, count: Int): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_memset(dest.toCPointer<ByteVar>(), c, count)?.toLong() ?: 0L
+public actual fun uMemset(dest: COpaquePointer?, c: UShort, count: Int): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uMemset(dest?.value?.toCPointer<ByteVar>(), c, count)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun u_parseMessage(locale: PCSTR, pattern: Long, patternlength: Int, source: Long, sourcelength: Int, status: Long) {
+public actual fun uParseMessage(locale: Pcstr, pattern: COpaquePointer?, patternlength: Int, source: COpaquePointer?, sourcelength: Int, status: COpaquePointer?, vararg variadicArgs: Long) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uParseMessage(locale?.value?.toCPointer<ByteVar>(), pattern?.value?.toCPointer<ByteVar>(), patternlength, source?.value?.toCPointer<ByteVar>(), sourcelength, status?.value?.toCPointer<ByteVar>(), variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
 }
 
-public actual fun u_parseMessageWithError(locale: PCSTR, pattern: Long, patternlength: Int, source: Long, sourcelength: Int, parseerror: Long, status: Long) {
+public actual fun uParseMessageWithError(locale: Pcstr, pattern: COpaquePointer?, patternlength: Int, source: COpaquePointer?, sourcelength: Int, parseerror: COpaquePointer?, status: COpaquePointer?, vararg variadicArgs: Long) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uParseMessageWithError(locale?.value?.toCPointer<ByteVar>(), pattern?.value?.toCPointer<ByteVar>(), patternlength, source?.value?.toCPointer<ByteVar>(), sourcelength, parseerror?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>(), variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
 }
 
-public actual fun u_setMemoryFunctions(context: Long, a: Long, r: Long, f: Long, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_setMemoryFunctions(context.toCPointer<ByteVar>(), a.toCPointer<ByteVar>(), r.toCPointer<ByteVar>(), f.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun uSetMemoryFunctions(context: COpaquePointer?, a: COpaquePointer?, r: COpaquePointer?, f: COpaquePointer?, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uSetMemoryFunctions(context?.value?.toCPointer<ByteVar>(), a?.value?.toCPointer<ByteVar>(), r?.value?.toCPointer<ByteVar>(), f?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun u_shapeArabic(source: Long, sourcelength: Int, dest: Long, destsize: Int, options: UInt, perrorcode: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_shapeArabic(source.toCPointer<ByteVar>(), sourcelength, dest.toCPointer<ByteVar>(), destsize, options, perrorcode.toCPointer<ByteVar>())
+public actual fun uShapeArabic(source: COpaquePointer?, sourcelength: Int, dest: COpaquePointer?, destsize: Int, options: UInt, perrorcode: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uShapeArabic(source?.value?.toCPointer<ByteVar>(), sourcelength, dest?.value?.toCPointer<ByteVar>(), destsize, options, perrorcode?.value?.toCPointer<ByteVar>())
 
-public actual fun u_strCaseCompare(s1: Long, length1: Int, s2: Long, length2: Int, options: UInt, perrorcode: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_strCaseCompare(s1.toCPointer<ByteVar>(), length1, s2.toCPointer<ByteVar>(), length2, options, perrorcode.toCPointer<ByteVar>())
+public actual fun uStrCaseCompare(s1: COpaquePointer?, length1: Int, s2: COpaquePointer?, length2: Int, options: UInt, perrorcode: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uStrCaseCompare(s1?.value?.toCPointer<ByteVar>(), length1, s2?.value?.toCPointer<ByteVar>(), length2, options, perrorcode?.value?.toCPointer<ByteVar>())
 
-public actual fun u_strCompare(s1: Long, length1: Int, s2: Long, length2: Int, codepointorder: Byte): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_strCompare(s1.toCPointer<ByteVar>(), length1, s2.toCPointer<ByteVar>(), length2, codepointorder)
+public actual fun uStrCompare(s1: COpaquePointer?, length1: Int, s2: COpaquePointer?, length2: Int, codepointorder: Byte): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uStrCompare(s1?.value?.toCPointer<ByteVar>(), length1, s2?.value?.toCPointer<ByteVar>(), length2, codepointorder)
 
-public actual fun u_strCompareIter(iter1: Long, iter2: Long, codepointorder: Byte): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_strCompareIter(iter1.toCPointer<ByteVar>(), iter2.toCPointer<ByteVar>(), codepointorder)
+public actual fun uStrCompareIter(iter1: COpaquePointer?, iter2: COpaquePointer?, codepointorder: Byte): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uStrCompareIter(iter1?.value?.toCPointer<ByteVar>(), iter2?.value?.toCPointer<ByteVar>(), codepointorder)
 
-public actual fun u_strFindFirst(s: Long, length: Int, substring: Long, sublength: Int): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_strFindFirst(s.toCPointer<ByteVar>(), length, substring.toCPointer<ByteVar>(), sublength)?.toLong() ?: 0L
+public actual fun uStrFindFirst(s: COpaquePointer?, length: Int, substring: COpaquePointer?, sublength: Int): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uStrFindFirst(s?.value?.toCPointer<ByteVar>(), length, substring?.value?.toCPointer<ByteVar>(), sublength)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun u_strFindLast(s: Long, length: Int, substring: Long, sublength: Int): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_strFindLast(s.toCPointer<ByteVar>(), length, substring.toCPointer<ByteVar>(), sublength)?.toLong() ?: 0L
+public actual fun uStrFindLast(s: COpaquePointer?, length: Int, substring: COpaquePointer?, sublength: Int): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uStrFindLast(s?.value?.toCPointer<ByteVar>(), length, substring?.value?.toCPointer<ByteVar>(), sublength)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun u_strFoldCase(dest: Long, destcapacity: Int, src: Long, srclength: Int, options: UInt, perrorcode: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_strFoldCase(dest.toCPointer<ByteVar>(), destcapacity, src.toCPointer<ByteVar>(), srclength, options, perrorcode.toCPointer<ByteVar>())
+public actual fun uStrFoldCase(dest: COpaquePointer?, destcapacity: Int, src: COpaquePointer?, srclength: Int, options: UInt, perrorcode: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uStrFoldCase(dest?.value?.toCPointer<ByteVar>(), destcapacity, src?.value?.toCPointer<ByteVar>(), srclength, options, perrorcode?.value?.toCPointer<ByteVar>())
 
-public actual fun u_strFromJavaModifiedUTF8WithSub(dest: Long, destcapacity: Int, pdestlength: Long, src: PCSTR, srclength: Int, subchar: Int, pnumsubstitutions: Long, perrorcode: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_strFromJavaModifiedUTF8WithSub(dest.toCPointer<ByteVar>(), destcapacity, pdestlength.toCPointer<ByteVar>(), src.toCPointer<ByteVar>(), srclength, subchar, pnumsubstitutions.toCPointer<ByteVar>(), perrorcode.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uStrFromJavaModifiedUtf8WithSub(dest: COpaquePointer?, destcapacity: Int, pdestlength: COpaquePointer?, src: Pcstr, srclength: Int, subchar: Int, pnumsubstitutions: COpaquePointer?, perrorcode: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uStrFromJavaModifiedUtf8WithSub(dest?.value?.toCPointer<ByteVar>(), destcapacity, pdestlength?.value?.toCPointer<ByteVar>(), src?.value?.toCPointer<ByteVar>(), srclength, subchar, pnumsubstitutions?.value?.toCPointer<ByteVar>(), perrorcode?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun u_strFromUTF32(dest: Long, destcapacity: Int, pdestlength: Long, src: Long, srclength: Int, perrorcode: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_strFromUTF32(dest.toCPointer<ByteVar>(), destcapacity, pdestlength.toCPointer<ByteVar>(), src.toCPointer<ByteVar>(), srclength, perrorcode.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uStrFromUtf32(dest: COpaquePointer?, destcapacity: Int, pdestlength: COpaquePointer?, src: COpaquePointer?, srclength: Int, perrorcode: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uStrFromUtf32(dest?.value?.toCPointer<ByteVar>(), destcapacity, pdestlength?.value?.toCPointer<ByteVar>(), src?.value?.toCPointer<ByteVar>(), srclength, perrorcode?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun u_strFromUTF32WithSub(dest: Long, destcapacity: Int, pdestlength: Long, src: Long, srclength: Int, subchar: Int, pnumsubstitutions: Long, perrorcode: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_strFromUTF32WithSub(dest.toCPointer<ByteVar>(), destcapacity, pdestlength.toCPointer<ByteVar>(), src.toCPointer<ByteVar>(), srclength, subchar, pnumsubstitutions.toCPointer<ByteVar>(), perrorcode.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uStrFromUtf32WithSub(dest: COpaquePointer?, destcapacity: Int, pdestlength: COpaquePointer?, src: COpaquePointer?, srclength: Int, subchar: Int, pnumsubstitutions: COpaquePointer?, perrorcode: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uStrFromUtf32WithSub(dest?.value?.toCPointer<ByteVar>(), destcapacity, pdestlength?.value?.toCPointer<ByteVar>(), src?.value?.toCPointer<ByteVar>(), srclength, subchar, pnumsubstitutions?.value?.toCPointer<ByteVar>(), perrorcode?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun u_strFromUTF8(dest: Long, destcapacity: Int, pdestlength: Long, src: PCSTR, srclength: Int, perrorcode: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_strFromUTF8(dest.toCPointer<ByteVar>(), destcapacity, pdestlength.toCPointer<ByteVar>(), src.toCPointer<ByteVar>(), srclength, perrorcode.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uStrFromUtf8(dest: COpaquePointer?, destcapacity: Int, pdestlength: COpaquePointer?, src: Pcstr, srclength: Int, perrorcode: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uStrFromUtf8(dest?.value?.toCPointer<ByteVar>(), destcapacity, pdestlength?.value?.toCPointer<ByteVar>(), src?.value?.toCPointer<ByteVar>(), srclength, perrorcode?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun u_strFromUTF8Lenient(dest: Long, destcapacity: Int, pdestlength: Long, src: PCSTR, srclength: Int, perrorcode: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_strFromUTF8Lenient(dest.toCPointer<ByteVar>(), destcapacity, pdestlength.toCPointer<ByteVar>(), src.toCPointer<ByteVar>(), srclength, perrorcode.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uStrFromUtf8Lenient(dest: COpaquePointer?, destcapacity: Int, pdestlength: COpaquePointer?, src: Pcstr, srclength: Int, perrorcode: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uStrFromUtf8Lenient(dest?.value?.toCPointer<ByteVar>(), destcapacity, pdestlength?.value?.toCPointer<ByteVar>(), src?.value?.toCPointer<ByteVar>(), srclength, perrorcode?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun u_strFromUTF8WithSub(dest: Long, destcapacity: Int, pdestlength: Long, src: PCSTR, srclength: Int, subchar: Int, pnumsubstitutions: Long, perrorcode: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_strFromUTF8WithSub(dest.toCPointer<ByteVar>(), destcapacity, pdestlength.toCPointer<ByteVar>(), src.toCPointer<ByteVar>(), srclength, subchar, pnumsubstitutions.toCPointer<ByteVar>(), perrorcode.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uStrFromUtf8WithSub(dest: COpaquePointer?, destcapacity: Int, pdestlength: COpaquePointer?, src: Pcstr, srclength: Int, subchar: Int, pnumsubstitutions: COpaquePointer?, perrorcode: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uStrFromUtf8WithSub(dest?.value?.toCPointer<ByteVar>(), destcapacity, pdestlength?.value?.toCPointer<ByteVar>(), src?.value?.toCPointer<ByteVar>(), srclength, subchar, pnumsubstitutions?.value?.toCPointer<ByteVar>(), perrorcode?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun u_strFromWCS(dest: Long, destcapacity: Int, pdestlength: Long, src: PCWSTR, srclength: Int, perrorcode: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_strFromWCS(dest.toCPointer<ByteVar>(), destcapacity, pdestlength.toCPointer<ByteVar>(), src.toCPointer<ByteVar>(), srclength, perrorcode.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uStrFromWcs(dest: COpaquePointer?, destcapacity: Int, pdestlength: COpaquePointer?, src: Pcwstr, srclength: Int, perrorcode: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uStrFromWcs(dest?.value?.toCPointer<ByteVar>(), destcapacity, pdestlength?.value?.toCPointer<ByteVar>(), src?.value?.toCPointer<ByteVar>(), srclength, perrorcode?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun u_strHasMoreChar32Than(s: Long, length: Int, number: Int): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_strHasMoreChar32Than(s.toCPointer<ByteVar>(), length, number)
+public actual fun uStrHasMoreChar32Than(s: COpaquePointer?, length: Int, number: Int): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uStrHasMoreChar32Than(s?.value?.toCPointer<ByteVar>(), length, number)
 
-public actual fun u_strToJavaModifiedUTF8(dest: PCSTR, destcapacity: Int, pdestlength: Long, src: Long, srclength: Int, perrorcode: Long): PSTR =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_strToJavaModifiedUTF8(dest.toCPointer<ByteVar>(), destcapacity, pdestlength.toCPointer<ByteVar>(), src.toCPointer<ByteVar>(), srclength, perrorcode.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uStrToJavaModifiedUtf8(dest: Pcstr, destcapacity: Int, pdestlength: COpaquePointer?, src: COpaquePointer?, srclength: Int, perrorcode: COpaquePointer?): Pstr =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uStrToJavaModifiedUtf8(dest?.value?.toCPointer<ByteVar>(), destcapacity, pdestlength?.value?.toCPointer<ByteVar>(), src?.value?.toCPointer<ByteVar>(), srclength, perrorcode?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun u_strToLower(dest: Long, destcapacity: Int, src: Long, srclength: Int, locale: PCSTR, perrorcode: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_strToLower(dest.toCPointer<ByteVar>(), destcapacity, src.toCPointer<ByteVar>(), srclength, locale.toCPointer<ByteVar>(), perrorcode.toCPointer<ByteVar>())
+public actual fun uStrToLower(dest: COpaquePointer?, destcapacity: Int, src: COpaquePointer?, srclength: Int, locale: Pcstr, perrorcode: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uStrToLower(dest?.value?.toCPointer<ByteVar>(), destcapacity, src?.value?.toCPointer<ByteVar>(), srclength, locale?.value?.toCPointer<ByteVar>(), perrorcode?.value?.toCPointer<ByteVar>())
 
-public actual fun u_strToTitle(dest: Long, destcapacity: Int, src: Long, srclength: Int, titleiter: Long, locale: PCSTR, perrorcode: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_strToTitle(dest.toCPointer<ByteVar>(), destcapacity, src.toCPointer<ByteVar>(), srclength, titleiter.toCPointer<ByteVar>(), locale.toCPointer<ByteVar>(), perrorcode.toCPointer<ByteVar>())
+public actual fun uStrToTitle(dest: COpaquePointer?, destcapacity: Int, src: COpaquePointer?, srclength: Int, titleiter: COpaquePointer?, locale: Pcstr, perrorcode: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uStrToTitle(dest?.value?.toCPointer<ByteVar>(), destcapacity, src?.value?.toCPointer<ByteVar>(), srclength, titleiter?.value?.toCPointer<ByteVar>(), locale?.value?.toCPointer<ByteVar>(), perrorcode?.value?.toCPointer<ByteVar>())
 
-public actual fun u_strToUTF32(dest: Long, destcapacity: Int, pdestlength: Long, src: Long, srclength: Int, perrorcode: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_strToUTF32(dest.toCPointer<ByteVar>(), destcapacity, pdestlength.toCPointer<ByteVar>(), src.toCPointer<ByteVar>(), srclength, perrorcode.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uStrToUtf32(dest: COpaquePointer?, destcapacity: Int, pdestlength: COpaquePointer?, src: COpaquePointer?, srclength: Int, perrorcode: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uStrToUtf32(dest?.value?.toCPointer<ByteVar>(), destcapacity, pdestlength?.value?.toCPointer<ByteVar>(), src?.value?.toCPointer<ByteVar>(), srclength, perrorcode?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun u_strToUTF32WithSub(dest: Long, destcapacity: Int, pdestlength: Long, src: Long, srclength: Int, subchar: Int, pnumsubstitutions: Long, perrorcode: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_strToUTF32WithSub(dest.toCPointer<ByteVar>(), destcapacity, pdestlength.toCPointer<ByteVar>(), src.toCPointer<ByteVar>(), srclength, subchar, pnumsubstitutions.toCPointer<ByteVar>(), perrorcode.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uStrToUtf32WithSub(dest: COpaquePointer?, destcapacity: Int, pdestlength: COpaquePointer?, src: COpaquePointer?, srclength: Int, subchar: Int, pnumsubstitutions: COpaquePointer?, perrorcode: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uStrToUtf32WithSub(dest?.value?.toCPointer<ByteVar>(), destcapacity, pdestlength?.value?.toCPointer<ByteVar>(), src?.value?.toCPointer<ByteVar>(), srclength, subchar, pnumsubstitutions?.value?.toCPointer<ByteVar>(), perrorcode?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun u_strToUTF8(dest: PCSTR, destcapacity: Int, pdestlength: Long, src: Long, srclength: Int, perrorcode: Long): PSTR =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_strToUTF8(dest.toCPointer<ByteVar>(), destcapacity, pdestlength.toCPointer<ByteVar>(), src.toCPointer<ByteVar>(), srclength, perrorcode.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uStrToUtf8(dest: Pcstr, destcapacity: Int, pdestlength: COpaquePointer?, src: COpaquePointer?, srclength: Int, perrorcode: COpaquePointer?): Pstr =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uStrToUtf8(dest?.value?.toCPointer<ByteVar>(), destcapacity, pdestlength?.value?.toCPointer<ByteVar>(), src?.value?.toCPointer<ByteVar>(), srclength, perrorcode?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun u_strToUTF8WithSub(dest: PCSTR, destcapacity: Int, pdestlength: Long, src: Long, srclength: Int, subchar: Int, pnumsubstitutions: Long, perrorcode: Long): PSTR =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_strToUTF8WithSub(dest.toCPointer<ByteVar>(), destcapacity, pdestlength.toCPointer<ByteVar>(), src.toCPointer<ByteVar>(), srclength, subchar, pnumsubstitutions.toCPointer<ByteVar>(), perrorcode.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uStrToUtf8WithSub(dest: Pcstr, destcapacity: Int, pdestlength: COpaquePointer?, src: COpaquePointer?, srclength: Int, subchar: Int, pnumsubstitutions: COpaquePointer?, perrorcode: COpaquePointer?): Pstr =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uStrToUtf8WithSub(dest?.value?.toCPointer<ByteVar>(), destcapacity, pdestlength?.value?.toCPointer<ByteVar>(), src?.value?.toCPointer<ByteVar>(), srclength, subchar, pnumsubstitutions?.value?.toCPointer<ByteVar>(), perrorcode?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun u_strToUpper(dest: Long, destcapacity: Int, src: Long, srclength: Int, locale: PCSTR, perrorcode: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_strToUpper(dest.toCPointer<ByteVar>(), destcapacity, src.toCPointer<ByteVar>(), srclength, locale.toCPointer<ByteVar>(), perrorcode.toCPointer<ByteVar>())
+public actual fun uStrToUpper(dest: COpaquePointer?, destcapacity: Int, src: COpaquePointer?, srclength: Int, locale: Pcstr, perrorcode: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uStrToUpper(dest?.value?.toCPointer<ByteVar>(), destcapacity, src?.value?.toCPointer<ByteVar>(), srclength, locale?.value?.toCPointer<ByteVar>(), perrorcode?.value?.toCPointer<ByteVar>())
 
-public actual fun u_strToWCS(dest: PCWSTR, destcapacity: Int, pdestlength: Long, src: Long, srclength: Int, perrorcode: Long): PWSTR =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_strToWCS(dest.toCPointer<ByteVar>(), destcapacity, pdestlength.toCPointer<ByteVar>(), src.toCPointer<ByteVar>(), srclength, perrorcode.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uStrToWcs(dest: Pcwstr, destcapacity: Int, pdestlength: COpaquePointer?, src: COpaquePointer?, srclength: Int, perrorcode: COpaquePointer?): Pwstr =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uStrToWcs(dest?.value?.toCPointer<ByteVar>(), destcapacity, pdestlength?.value?.toCPointer<ByteVar>(), src?.value?.toCPointer<ByteVar>(), srclength, perrorcode?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun u_strcasecmp(s1: Long, s2: Long, options: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_strcasecmp(s1.toCPointer<ByteVar>(), s2.toCPointer<ByteVar>(), options)
+public actual fun uStrcasecmp(s1: COpaquePointer?, s2: COpaquePointer?, options: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uStrcasecmp(s1?.value?.toCPointer<ByteVar>(), s2?.value?.toCPointer<ByteVar>(), options)
 
-public actual fun u_strcat(dst: Long, src: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_strcat(dst.toCPointer<ByteVar>(), src.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uStrcat(dst: COpaquePointer?, src: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uStrcat(dst?.value?.toCPointer<ByteVar>(), src?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun u_strchr(s: Long, c: UShort): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_strchr(s.toCPointer<ByteVar>(), c)?.toLong() ?: 0L
+public actual fun uStrchr(s: COpaquePointer?, c: UShort): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uStrchr(s?.value?.toCPointer<ByteVar>(), c)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun u_strchr32(s: Long, c: Int): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_strchr32(s.toCPointer<ByteVar>(), c)?.toLong() ?: 0L
+public actual fun uStrchr32(s: COpaquePointer?, c: Int): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uStrchr32(s?.value?.toCPointer<ByteVar>(), c)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun u_strcmp(s1: Long, s2: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_strcmp(s1.toCPointer<ByteVar>(), s2.toCPointer<ByteVar>())
+public actual fun uStrcmp(s1: COpaquePointer?, s2: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uStrcmp(s1?.value?.toCPointer<ByteVar>(), s2?.value?.toCPointer<ByteVar>())
 
-public actual fun u_strcmpCodePointOrder(s1: Long, s2: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_strcmpCodePointOrder(s1.toCPointer<ByteVar>(), s2.toCPointer<ByteVar>())
+public actual fun uStrcmpCodePointOrder(s1: COpaquePointer?, s2: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uStrcmpCodePointOrder(s1?.value?.toCPointer<ByteVar>(), s2?.value?.toCPointer<ByteVar>())
 
-public actual fun u_strcpy(dst: Long, src: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_strcpy(dst.toCPointer<ByteVar>(), src.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uStrcpy(dst: COpaquePointer?, src: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uStrcpy(dst?.value?.toCPointer<ByteVar>(), src?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun u_strcspn(string: Long, matchset: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_strcspn(string.toCPointer<ByteVar>(), matchset.toCPointer<ByteVar>())
+public actual fun uStrcspn(string: COpaquePointer?, matchset: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uStrcspn(string?.value?.toCPointer<ByteVar>(), matchset?.value?.toCPointer<ByteVar>())
 
-public actual fun u_strlen(s: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_strlen(s.toCPointer<ByteVar>())
+public actual fun uStrlen(s: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uStrlen(s?.value?.toCPointer<ByteVar>())
 
-public actual fun u_strncasecmp(s1: Long, s2: Long, n: Int, options: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_strncasecmp(s1.toCPointer<ByteVar>(), s2.toCPointer<ByteVar>(), n, options)
+public actual fun uStrncasecmp(s1: COpaquePointer?, s2: COpaquePointer?, n: Int, options: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uStrncasecmp(s1?.value?.toCPointer<ByteVar>(), s2?.value?.toCPointer<ByteVar>(), n, options)
 
-public actual fun u_strncat(dst: Long, src: Long, n: Int): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_strncat(dst.toCPointer<ByteVar>(), src.toCPointer<ByteVar>(), n)?.toLong() ?: 0L
+public actual fun uStrncat(dst: COpaquePointer?, src: COpaquePointer?, n: Int): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uStrncat(dst?.value?.toCPointer<ByteVar>(), src?.value?.toCPointer<ByteVar>(), n)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun u_strncmp(ucs1: Long, ucs2: Long, n: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_strncmp(ucs1.toCPointer<ByteVar>(), ucs2.toCPointer<ByteVar>(), n)
+public actual fun uStrncmp(ucs1: COpaquePointer?, ucs2: COpaquePointer?, n: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uStrncmp(ucs1?.value?.toCPointer<ByteVar>(), ucs2?.value?.toCPointer<ByteVar>(), n)
 
-public actual fun u_strncmpCodePointOrder(s1: Long, s2: Long, n: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_strncmpCodePointOrder(s1.toCPointer<ByteVar>(), s2.toCPointer<ByteVar>(), n)
+public actual fun uStrncmpCodePointOrder(s1: COpaquePointer?, s2: COpaquePointer?, n: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uStrncmpCodePointOrder(s1?.value?.toCPointer<ByteVar>(), s2?.value?.toCPointer<ByteVar>(), n)
 
-public actual fun u_strncpy(dst: Long, src: Long, n: Int): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_strncpy(dst.toCPointer<ByteVar>(), src.toCPointer<ByteVar>(), n)?.toLong() ?: 0L
+public actual fun uStrncpy(dst: COpaquePointer?, src: COpaquePointer?, n: Int): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uStrncpy(dst?.value?.toCPointer<ByteVar>(), src?.value?.toCPointer<ByteVar>(), n)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun u_strpbrk(string: Long, matchset: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_strpbrk(string.toCPointer<ByteVar>(), matchset.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uStrpbrk(string: COpaquePointer?, matchset: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uStrpbrk(string?.value?.toCPointer<ByteVar>(), matchset?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun u_strrchr(s: Long, c: UShort): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_strrchr(s.toCPointer<ByteVar>(), c)?.toLong() ?: 0L
+public actual fun uStrrchr(s: COpaquePointer?, c: UShort): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uStrrchr(s?.value?.toCPointer<ByteVar>(), c)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun u_strrchr32(s: Long, c: Int): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_strrchr32(s.toCPointer<ByteVar>(), c)?.toLong() ?: 0L
+public actual fun uStrrchr32(s: COpaquePointer?, c: Int): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uStrrchr32(s?.value?.toCPointer<ByteVar>(), c)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun u_strrstr(s: Long, substring: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_strrstr(s.toCPointer<ByteVar>(), substring.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uStrrstr(s: COpaquePointer?, substring: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uStrrstr(s?.value?.toCPointer<ByteVar>(), substring?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun u_strspn(string: Long, matchset: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_strspn(string.toCPointer<ByteVar>(), matchset.toCPointer<ByteVar>())
+public actual fun uStrspn(string: COpaquePointer?, matchset: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uStrspn(string?.value?.toCPointer<ByteVar>(), matchset?.value?.toCPointer<ByteVar>())
 
-public actual fun u_strstr(s: Long, substring: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_strstr(s.toCPointer<ByteVar>(), substring.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uStrstr(s: COpaquePointer?, substring: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uStrstr(s?.value?.toCPointer<ByteVar>(), substring?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun u_strtok_r(src: Long, delim: Long, savestate: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_strtok_r(src.toCPointer<ByteVar>(), delim.toCPointer<ByteVar>(), savestate.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uStrtokR(src: COpaquePointer?, delim: COpaquePointer?, savestate: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uStrtokR(src?.value?.toCPointer<ByteVar>(), delim?.value?.toCPointer<ByteVar>(), savestate?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun u_tolower(c: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_tolower(c)
+public actual fun uTolower(c: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uTolower(c)
 
-public actual fun u_totitle(c: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_totitle(c)
+public actual fun uTotitle(c: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uTotitle(c)
 
-public actual fun u_toupper(c: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_toupper(c)
+public actual fun uToupper(c: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uToupper(c)
 
-public actual fun u_uastrcpy(dst: Long, src: PCSTR): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_uastrcpy(dst.toCPointer<ByteVar>(), src.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uUastrcpy(dst: COpaquePointer?, src: Pcstr): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uUastrcpy(dst?.value?.toCPointer<ByteVar>(), src?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun u_uastrncpy(dst: Long, src: PCSTR, n: Int): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_uastrncpy(dst.toCPointer<ByteVar>(), src.toCPointer<ByteVar>(), n)?.toLong() ?: 0L
+public actual fun uUastrncpy(dst: COpaquePointer?, src: Pcstr, n: Int): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uUastrncpy(dst?.value?.toCPointer<ByteVar>(), src?.value?.toCPointer<ByteVar>(), n)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun u_unescape(src: PCSTR, dest: Long, destcapacity: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_unescape(src.toCPointer<ByteVar>(), dest.toCPointer<ByteVar>(), destcapacity)
+public actual fun uUnescape(src: Pcstr, dest: COpaquePointer?, destcapacity: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uUnescape(src?.value?.toCPointer<ByteVar>(), dest?.value?.toCPointer<ByteVar>(), destcapacity)
 
-public actual fun u_unescapeAt(charat: UNESCAPE_CHAR_AT, offset: Long, length: Int, context: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_unescapeAt(charat.toLong().toCPointer<ByteVar>(), offset.toCPointer<ByteVar>(), length, context.toCPointer<ByteVar>())
+public actual fun uUnescapeAt(charat: UnescapeCharAt, offset: COpaquePointer?, length: Int, context: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uUnescapeAt(0L.toCPointer<ByteVar>(), offset?.value?.toCPointer<ByteVar>(), length, context?.value?.toCPointer<ByteVar>())
 
-public actual fun u_versionFromString(versionarray: Long, versionstring: PCSTR) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_versionFromString(versionarray.toCPointer<ByteVar>(), versionstring.toCPointer<ByteVar>())
+public actual fun uVersionFromString(versionarray: COpaquePointer?, versionstring: Pcstr) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uVersionFromString(versionarray?.value?.toCPointer<ByteVar>(), versionstring?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun u_versionFromUString(versionarray: Long, versionstring: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_versionFromUString(versionarray.toCPointer<ByteVar>(), versionstring.toCPointer<ByteVar>())
+public actual fun uVersionFromUstring(versionarray: COpaquePointer?, versionstring: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uVersionFromUstring(versionarray?.value?.toCPointer<ByteVar>(), versionstring?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun u_versionToString(versionarray: Long, versionstring: PCSTR) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_versionToString(versionarray.toCPointer<ByteVar>(), versionstring.toCPointer<ByteVar>())
+public actual fun uVersionToString(versionarray: COpaquePointer?, versionstring: Pcstr) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uVersionToString(versionarray?.value?.toCPointer<ByteVar>(), versionstring?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun u_vformatMessage(locale: PCSTR, pattern: Long, patternlength: Int, result: Long, resultlength: Int, ap: Long, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_vformatMessage(locale.toCPointer<ByteVar>(), pattern.toCPointer<ByteVar>(), patternlength, result.toCPointer<ByteVar>(), resultlength, ap.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun uVformatMessage(locale: Pcstr, pattern: COpaquePointer?, patternlength: Int, result: COpaquePointer?, resultlength: Int, ap: COpaquePointer?, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uVformatMessage(locale?.value?.toCPointer<ByteVar>(), pattern?.value?.toCPointer<ByteVar>(), patternlength, result?.value?.toCPointer<ByteVar>(), resultlength, ap?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun u_vformatMessageWithError(locale: PCSTR, pattern: Long, patternlength: Int, result: Long, resultlength: Int, parseerror: Long, ap: Long, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_vformatMessageWithError(locale.toCPointer<ByteVar>(), pattern.toCPointer<ByteVar>(), patternlength, result.toCPointer<ByteVar>(), resultlength, parseerror.toCPointer<ByteVar>(), ap.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun uVformatMessageWithError(locale: Pcstr, pattern: COpaquePointer?, patternlength: Int, result: COpaquePointer?, resultlength: Int, parseerror: COpaquePointer?, ap: COpaquePointer?, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uVformatMessageWithError(locale?.value?.toCPointer<ByteVar>(), pattern?.value?.toCPointer<ByteVar>(), patternlength, result?.value?.toCPointer<ByteVar>(), resultlength, parseerror?.value?.toCPointer<ByteVar>(), ap?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun u_vparseMessage(locale: PCSTR, pattern: Long, patternlength: Int, source: Long, sourcelength: Int, ap: Long, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_vparseMessage(locale.toCPointer<ByteVar>(), pattern.toCPointer<ByteVar>(), patternlength, source.toCPointer<ByteVar>(), sourcelength, ap.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun uVparseMessage(locale: Pcstr, pattern: COpaquePointer?, patternlength: Int, source: COpaquePointer?, sourcelength: Int, ap: COpaquePointer?, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uVparseMessage(locale?.value?.toCPointer<ByteVar>(), pattern?.value?.toCPointer<ByteVar>(), patternlength, source?.value?.toCPointer<ByteVar>(), sourcelength, ap?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun u_vparseMessageWithError(locale: PCSTR, pattern: Long, patternlength: Int, source: Long, sourcelength: Int, ap: Long, parseerror: Long, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_u_vparseMessageWithError(locale.toCPointer<ByteVar>(), pattern.toCPointer<ByteVar>(), patternlength, source.toCPointer<ByteVar>(), sourcelength, ap.toCPointer<ByteVar>(), parseerror.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun uVparseMessageWithError(locale: Pcstr, pattern: COpaquePointer?, patternlength: Int, source: COpaquePointer?, sourcelength: Int, ap: COpaquePointer?, parseerror: COpaquePointer?, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uVparseMessageWithError(locale?.value?.toCPointer<ByteVar>(), pattern?.value?.toCPointer<ByteVar>(), patternlength, source?.value?.toCPointer<ByteVar>(), sourcelength, ap?.value?.toCPointer<ByteVar>(), parseerror?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ubidi_close(pbidi: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidi_close(pbidi.toCPointer<ByteVar>())
+public actual fun ubidiClose(pbidi: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidiClose(pbidi?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ubidi_countParagraphs(pbidi: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidi_countParagraphs(pbidi.toCPointer<ByteVar>())
+public actual fun ubidiCountParagraphs(pbidi: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidiCountParagraphs(pbidi?.value?.toCPointer<ByteVar>())
 
-public actual fun ubidi_countRuns(pbidi: Long, perrorcode: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidi_countRuns(pbidi.toCPointer<ByteVar>(), perrorcode.toCPointer<ByteVar>())
+public actual fun ubidiCountRuns(pbidi: COpaquePointer?, perrorcode: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidiCountRuns(pbidi?.value?.toCPointer<ByteVar>(), perrorcode?.value?.toCPointer<ByteVar>())
 
-public actual fun ubidi_getBaseDirection(text: Long, length: Int): UBiDiDirection =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidi_getBaseDirection(text.toCPointer<ByteVar>(), length)
+public actual fun ubidiGetBaseDirection(text: COpaquePointer?, length: Int): UBiDiDirection =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidiGetBaseDirection(text?.value?.toCPointer<ByteVar>(), length)
 
-public actual fun ubidi_getClassCallback(pbidi: Long, fn: Long, context: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidi_getClassCallback(pbidi.toCPointer<ByteVar>(), fn.toCPointer<ByteVar>(), context.toCPointer<ByteVar>())
+public actual fun ubidiGetClassCallback(pbidi: COpaquePointer?, fn: COpaquePointer?, context: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidiGetClassCallback(pbidi?.value?.toCPointer<ByteVar>(), fn?.value?.toCPointer<ByteVar>(), context?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ubidi_getCustomizedClass(pbidi: Long, c: Int): UCharDirection =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidi_getCustomizedClass(pbidi.toCPointer<ByteVar>(), c)
+public actual fun ubidiGetCustomizedClass(pbidi: COpaquePointer?, c: Int): UCharDirection =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidiGetCustomizedClass(pbidi?.value?.toCPointer<ByteVar>(), c)
 
-public actual fun ubidi_getDirection(pbidi: Long): UBiDiDirection =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidi_getDirection(pbidi.toCPointer<ByteVar>())
+public actual fun ubidiGetDirection(pbidi: COpaquePointer?): UBiDiDirection =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidiGetDirection(pbidi?.value?.toCPointer<ByteVar>())
 
-public actual fun ubidi_getLength(pbidi: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidi_getLength(pbidi.toCPointer<ByteVar>())
+public actual fun ubidiGetLength(pbidi: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidiGetLength(pbidi?.value?.toCPointer<ByteVar>())
 
-public actual fun ubidi_getLevelAt(pbidi: Long, charindex: Int): UByte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidi_getLevelAt(pbidi.toCPointer<ByteVar>(), charindex)
+public actual fun ubidiGetLevelAt(pbidi: COpaquePointer?, charindex: Int): UByte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidiGetLevelAt(pbidi?.value?.toCPointer<ByteVar>(), charindex)
 
-public actual fun ubidi_getLevels(pbidi: Long, perrorcode: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidi_getLevels(pbidi.toCPointer<ByteVar>(), perrorcode.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ubidiGetLevels(pbidi: COpaquePointer?, perrorcode: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidiGetLevels(pbidi?.value?.toCPointer<ByteVar>(), perrorcode?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ubidi_getLogicalIndex(pbidi: Long, visualindex: Int, perrorcode: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidi_getLogicalIndex(pbidi.toCPointer<ByteVar>(), visualindex, perrorcode.toCPointer<ByteVar>())
+public actual fun ubidiGetLogicalIndex(pbidi: COpaquePointer?, visualindex: Int, perrorcode: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidiGetLogicalIndex(pbidi?.value?.toCPointer<ByteVar>(), visualindex, perrorcode?.value?.toCPointer<ByteVar>())
 
-public actual fun ubidi_getLogicalMap(pbidi: Long, indexmap: Long, perrorcode: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidi_getLogicalMap(pbidi.toCPointer<ByteVar>(), indexmap.toCPointer<ByteVar>(), perrorcode.toCPointer<ByteVar>())
+public actual fun ubidiGetLogicalMap(pbidi: COpaquePointer?, indexmap: COpaquePointer?, perrorcode: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidiGetLogicalMap(pbidi?.value?.toCPointer<ByteVar>(), indexmap?.value?.toCPointer<ByteVar>(), perrorcode?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ubidi_getLogicalRun(pbidi: Long, logicalposition: Int, plogicallimit: Long, plevel: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidi_getLogicalRun(pbidi.toCPointer<ByteVar>(), logicalposition, plogicallimit.toCPointer<ByteVar>(), plevel.toCPointer<ByteVar>())
+public actual fun ubidiGetLogicalRun(pbidi: COpaquePointer?, logicalposition: Int, plogicallimit: COpaquePointer?, plevel: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidiGetLogicalRun(pbidi?.value?.toCPointer<ByteVar>(), logicalposition, plogicallimit?.value?.toCPointer<ByteVar>(), plevel?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ubidi_getParaLevel(pbidi: Long): UByte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidi_getParaLevel(pbidi.toCPointer<ByteVar>())
+public actual fun ubidiGetParaLevel(pbidi: COpaquePointer?): UByte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidiGetParaLevel(pbidi?.value?.toCPointer<ByteVar>())
 
-public actual fun ubidi_getParagraph(pbidi: Long, charindex: Int, pparastart: Long, pparalimit: Long, pparalevel: Long, perrorcode: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidi_getParagraph(pbidi.toCPointer<ByteVar>(), charindex, pparastart.toCPointer<ByteVar>(), pparalimit.toCPointer<ByteVar>(), pparalevel.toCPointer<ByteVar>(), perrorcode.toCPointer<ByteVar>())
+public actual fun ubidiGetParagraph(pbidi: COpaquePointer?, charindex: Int, pparastart: COpaquePointer?, pparalimit: COpaquePointer?, pparalevel: COpaquePointer?, perrorcode: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidiGetParagraph(pbidi?.value?.toCPointer<ByteVar>(), charindex, pparastart?.value?.toCPointer<ByteVar>(), pparalimit?.value?.toCPointer<ByteVar>(), pparalevel?.value?.toCPointer<ByteVar>(), perrorcode?.value?.toCPointer<ByteVar>())
 
-public actual fun ubidi_getParagraphByIndex(pbidi: Long, paraindex: Int, pparastart: Long, pparalimit: Long, pparalevel: Long, perrorcode: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidi_getParagraphByIndex(pbidi.toCPointer<ByteVar>(), paraindex, pparastart.toCPointer<ByteVar>(), pparalimit.toCPointer<ByteVar>(), pparalevel.toCPointer<ByteVar>(), perrorcode.toCPointer<ByteVar>())
+public actual fun ubidiGetParagraphByIndex(pbidi: COpaquePointer?, paraindex: Int, pparastart: COpaquePointer?, pparalimit: COpaquePointer?, pparalevel: COpaquePointer?, perrorcode: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidiGetParagraphByIndex(pbidi?.value?.toCPointer<ByteVar>(), paraindex, pparastart?.value?.toCPointer<ByteVar>(), pparalimit?.value?.toCPointer<ByteVar>(), pparalevel?.value?.toCPointer<ByteVar>(), perrorcode?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ubidi_getProcessedLength(pbidi: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidi_getProcessedLength(pbidi.toCPointer<ByteVar>())
+public actual fun ubidiGetProcessedLength(pbidi: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidiGetProcessedLength(pbidi?.value?.toCPointer<ByteVar>())
 
-public actual fun ubidi_getReorderingMode(pbidi: Long): UBiDiReorderingMode =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidi_getReorderingMode(pbidi.toCPointer<ByteVar>())
+public actual fun ubidiGetReorderingMode(pbidi: COpaquePointer?): UBiDiReorderingMode =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidiGetReorderingMode(pbidi?.value?.toCPointer<ByteVar>())
 
-public actual fun ubidi_getReorderingOptions(pbidi: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidi_getReorderingOptions(pbidi.toCPointer<ByteVar>())
+public actual fun ubidiGetReorderingOptions(pbidi: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidiGetReorderingOptions(pbidi?.value?.toCPointer<ByteVar>())
 
-public actual fun ubidi_getResultLength(pbidi: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidi_getResultLength(pbidi.toCPointer<ByteVar>())
+public actual fun ubidiGetResultLength(pbidi: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidiGetResultLength(pbidi?.value?.toCPointer<ByteVar>())
 
-public actual fun ubidi_getText(pbidi: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidi_getText(pbidi.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ubidiGetText(pbidi: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidiGetText(pbidi?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ubidi_getVisualIndex(pbidi: Long, logicalindex: Int, perrorcode: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidi_getVisualIndex(pbidi.toCPointer<ByteVar>(), logicalindex, perrorcode.toCPointer<ByteVar>())
+public actual fun ubidiGetVisualIndex(pbidi: COpaquePointer?, logicalindex: Int, perrorcode: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidiGetVisualIndex(pbidi?.value?.toCPointer<ByteVar>(), logicalindex, perrorcode?.value?.toCPointer<ByteVar>())
 
-public actual fun ubidi_getVisualMap(pbidi: Long, indexmap: Long, perrorcode: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidi_getVisualMap(pbidi.toCPointer<ByteVar>(), indexmap.toCPointer<ByteVar>(), perrorcode.toCPointer<ByteVar>())
+public actual fun ubidiGetVisualMap(pbidi: COpaquePointer?, indexmap: COpaquePointer?, perrorcode: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidiGetVisualMap(pbidi?.value?.toCPointer<ByteVar>(), indexmap?.value?.toCPointer<ByteVar>(), perrorcode?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ubidi_getVisualRun(pbidi: Long, runindex: Int, plogicalstart: Long, plength: Long): UBiDiDirection =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidi_getVisualRun(pbidi.toCPointer<ByteVar>(), runindex, plogicalstart.toCPointer<ByteVar>(), plength.toCPointer<ByteVar>())
+public actual fun ubidiGetVisualRun(pbidi: COpaquePointer?, runindex: Int, plogicalstart: COpaquePointer?, plength: COpaquePointer?): UBiDiDirection =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidiGetVisualRun(pbidi?.value?.toCPointer<ByteVar>(), runindex, plogicalstart?.value?.toCPointer<ByteVar>(), plength?.value?.toCPointer<ByteVar>())
 
-public actual fun ubidi_invertMap(srcmap: Long, destmap: Long, length: Int) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidi_invertMap(srcmap.toCPointer<ByteVar>(), destmap.toCPointer<ByteVar>(), length)
+public actual fun ubidiInvertMap(srcmap: COpaquePointer?, destmap: COpaquePointer?, length: Int) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidiInvertMap(srcmap?.value?.toCPointer<ByteVar>(), destmap?.value?.toCPointer<ByteVar>(), length)
 }
 
-public actual fun ubidi_isInverse(pbidi: Long): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidi_isInverse(pbidi.toCPointer<ByteVar>())
+public actual fun ubidiIsInverse(pbidi: COpaquePointer?): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidiIsInverse(pbidi?.value?.toCPointer<ByteVar>())
 
-public actual fun ubidi_isOrderParagraphsLTR(pbidi: Long): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidi_isOrderParagraphsLTR(pbidi.toCPointer<ByteVar>())
+public actual fun ubidiIsOrderParagraphsLtr(pbidi: COpaquePointer?): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidiIsOrderParagraphsLtr(pbidi?.value?.toCPointer<ByteVar>())
 
-public actual fun ubidi_open(): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidi_open()?.toLong() ?: 0L
+public actual fun ubidiOpen(): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidiOpen()?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ubidi_openSized(maxlength: Int, maxruncount: Int, perrorcode: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidi_openSized(maxlength, maxruncount, perrorcode.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ubidiOpenSized(maxlength: Int, maxruncount: Int, perrorcode: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidiOpenSized(maxlength, maxruncount, perrorcode?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ubidi_orderParagraphsLTR(pbidi: Long, orderparagraphsltr: Byte) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidi_orderParagraphsLTR(pbidi.toCPointer<ByteVar>(), orderparagraphsltr)
+public actual fun ubidiOrderParagraphsLtr(pbidi: COpaquePointer?, orderparagraphsltr: Byte) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidiOrderParagraphsLtr(pbidi?.value?.toCPointer<ByteVar>(), orderparagraphsltr)
 }
 
-public actual fun ubidi_reorderLogical(levels: Long, length: Int, indexmap: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidi_reorderLogical(levels.toCPointer<ByteVar>(), length, indexmap.toCPointer<ByteVar>())
+public actual fun ubidiReorderLogical(levels: COpaquePointer?, length: Int, indexmap: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidiReorderLogical(levels?.value?.toCPointer<ByteVar>(), length, indexmap?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ubidi_reorderVisual(levels: Long, length: Int, indexmap: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidi_reorderVisual(levels.toCPointer<ByteVar>(), length, indexmap.toCPointer<ByteVar>())
+public actual fun ubidiReorderVisual(levels: COpaquePointer?, length: Int, indexmap: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidiReorderVisual(levels?.value?.toCPointer<ByteVar>(), length, indexmap?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ubidi_setClassCallback(pbidi: Long, newfn: UBiDiClassCallback, newcontext: Long, oldfn: Long, oldcontext: Long, perrorcode: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidi_setClassCallback(pbidi.toCPointer<ByteVar>(), newfn.toLong().toCPointer<ByteVar>(), newcontext.toCPointer<ByteVar>(), oldfn.toCPointer<ByteVar>(), oldcontext.toCPointer<ByteVar>(), perrorcode.toCPointer<ByteVar>())
+public actual fun ubidiSetClassCallback(pbidi: COpaquePointer?, newfn: UBiDiClassCallback, newcontext: COpaquePointer?, oldfn: COpaquePointer?, oldcontext: COpaquePointer?, perrorcode: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidiSetClassCallback(pbidi?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), newcontext?.value?.toCPointer<ByteVar>(), oldfn?.value?.toCPointer<ByteVar>(), oldcontext?.value?.toCPointer<ByteVar>(), perrorcode?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ubidi_setContext(pbidi: Long, prologue: Long, prolength: Int, epilogue: Long, epilength: Int, perrorcode: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidi_setContext(pbidi.toCPointer<ByteVar>(), prologue.toCPointer<ByteVar>(), prolength, epilogue.toCPointer<ByteVar>(), epilength, perrorcode.toCPointer<ByteVar>())
+public actual fun ubidiSetContext(pbidi: COpaquePointer?, prologue: COpaquePointer?, prolength: Int, epilogue: COpaquePointer?, epilength: Int, perrorcode: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidiSetContext(pbidi?.value?.toCPointer<ByteVar>(), prologue?.value?.toCPointer<ByteVar>(), prolength, epilogue?.value?.toCPointer<ByteVar>(), epilength, perrorcode?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ubidi_setInverse(pbidi: Long, isinverse: Byte) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidi_setInverse(pbidi.toCPointer<ByteVar>(), isinverse)
+public actual fun ubidiSetInverse(pbidi: COpaquePointer?, isinverse: Byte) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidiSetInverse(pbidi?.value?.toCPointer<ByteVar>(), isinverse)
 }
 
-public actual fun ubidi_setLine(pparabidi: Long, start: Int, limit: Int, plinebidi: Long, perrorcode: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidi_setLine(pparabidi.toCPointer<ByteVar>(), start, limit, plinebidi.toCPointer<ByteVar>(), perrorcode.toCPointer<ByteVar>())
+public actual fun ubidiSetLine(pparabidi: COpaquePointer?, start: Int, limit: Int, plinebidi: COpaquePointer?, perrorcode: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidiSetLine(pparabidi?.value?.toCPointer<ByteVar>(), start, limit, plinebidi?.value?.toCPointer<ByteVar>(), perrorcode?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ubidi_setPara(pbidi: Long, text: Long, length: Int, paralevel: UByte, embeddinglevels: Long, perrorcode: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidi_setPara(pbidi.toCPointer<ByteVar>(), text.toCPointer<ByteVar>(), length, paralevel, embeddinglevels.toCPointer<ByteVar>(), perrorcode.toCPointer<ByteVar>())
+public actual fun ubidiSetPara(pbidi: COpaquePointer?, text: COpaquePointer?, length: Int, paralevel: UByte, embeddinglevels: COpaquePointer?, perrorcode: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidiSetPara(pbidi?.value?.toCPointer<ByteVar>(), text?.value?.toCPointer<ByteVar>(), length, paralevel, embeddinglevels?.value?.toCPointer<ByteVar>(), perrorcode?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ubidi_setReorderingMode(pbidi: Long, reorderingmode: UBiDiReorderingMode) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidi_setReorderingMode(pbidi.toCPointer<ByteVar>(), reorderingmode)
+public actual fun ubidiSetReorderingMode(pbidi: COpaquePointer?, reorderingmode: UBiDiReorderingMode) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidiSetReorderingMode(pbidi?.value?.toCPointer<ByteVar>(), reorderingmode)
 }
 
-public actual fun ubidi_setReorderingOptions(pbidi: Long, reorderingoptions: UInt) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidi_setReorderingOptions(pbidi.toCPointer<ByteVar>(), reorderingoptions)
+public actual fun ubidiSetReorderingOptions(pbidi: COpaquePointer?, reorderingoptions: UInt) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidiSetReorderingOptions(pbidi?.value?.toCPointer<ByteVar>(), reorderingoptions)
 }
 
-public actual fun ubidi_writeReordered(pbidi: Long, dest: Long, destsize: Int, options: UShort, perrorcode: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidi_writeReordered(pbidi.toCPointer<ByteVar>(), dest.toCPointer<ByteVar>(), destsize, options, perrorcode.toCPointer<ByteVar>())
+public actual fun ubidiWriteReordered(pbidi: COpaquePointer?, dest: COpaquePointer?, destsize: Int, options: UShort, perrorcode: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidiWriteReordered(pbidi?.value?.toCPointer<ByteVar>(), dest?.value?.toCPointer<ByteVar>(), destsize, options, perrorcode?.value?.toCPointer<ByteVar>())
 
-public actual fun ubidi_writeReverse(src: Long, srclength: Int, dest: Long, destsize: Int, options: UShort, perrorcode: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidi_writeReverse(src.toCPointer<ByteVar>(), srclength, dest.toCPointer<ByteVar>(), destsize, options, perrorcode.toCPointer<ByteVar>())
+public actual fun ubidiWriteReverse(src: COpaquePointer?, srclength: Int, dest: COpaquePointer?, destsize: Int, options: UShort, perrorcode: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubidiWriteReverse(src?.value?.toCPointer<ByteVar>(), srclength, dest?.value?.toCPointer<ByteVar>(), destsize, options, perrorcode?.value?.toCPointer<ByteVar>())
 
-public actual fun ubiditransform_close(pbiditransform: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubiditransform_close(pbiditransform.toCPointer<ByteVar>())
+public actual fun ubiditransformClose(pbiditransform: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubiditransformClose(pbiditransform?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ubiditransform_open(perrorcode: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubiditransform_open(perrorcode.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ubiditransformOpen(perrorcode: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubiditransformOpen(perrorcode?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ubiditransform_transform(pbiditransform: Long, src: Long, srclength: Int, dest: Long, destsize: Int, inparalevel: UByte, inorder: UBiDiOrder, outparalevel: UByte, outorder: UBiDiOrder, domirroring: UBiDiMirroring, shapingoptions: UInt, perrorcode: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubiditransform_transform(pbiditransform.toCPointer<ByteVar>(), src.toCPointer<ByteVar>(), srclength, dest.toCPointer<ByteVar>(), destsize, inparalevel, inorder, outparalevel, outorder, domirroring, shapingoptions, perrorcode.toCPointer<ByteVar>())
+public actual fun ubiditransformTransform(pbiditransform: COpaquePointer?, src: COpaquePointer?, srclength: Int, dest: COpaquePointer?, destsize: Int, inparalevel: UByte, inorder: UBiDiOrder, outparalevel: UByte, outorder: UBiDiOrder, domirroring: UBiDiMirroring, shapingoptions: UInt, perrorcode: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubiditransformTransform(pbiditransform?.value?.toCPointer<ByteVar>(), src?.value?.toCPointer<ByteVar>(), srclength, dest?.value?.toCPointer<ByteVar>(), destsize, inparalevel, inorder, outparalevel, outorder, domirroring, shapingoptions, perrorcode?.value?.toCPointer<ByteVar>())
 
-public actual fun ublock_getCode(c: Int): UBlockCode =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ublock_getCode(c)
+public actual fun ublockGetCode(c: Int): UBlockCode =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ublockGetCode(c)
 
-public actual fun ubrk_close(bi: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubrk_close(bi.toCPointer<ByteVar>())
+public actual fun ubrkClose(bi: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubrkClose(bi?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ubrk_countAvailable(): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubrk_countAvailable()
+public actual fun ubrkCountAvailable(): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubrkCountAvailable()
 
-public actual fun ubrk_current(bi: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubrk_current(bi.toCPointer<ByteVar>())
+public actual fun ubrkCurrent(bi: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubrkCurrent(bi?.value?.toCPointer<ByteVar>())
 
-public actual fun ubrk_first(bi: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubrk_first(bi.toCPointer<ByteVar>())
+public actual fun ubrkFirst(bi: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubrkFirst(bi?.value?.toCPointer<ByteVar>())
 
-public actual fun ubrk_following(bi: Long, offset: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubrk_following(bi.toCPointer<ByteVar>(), offset)
+public actual fun ubrkFollowing(bi: COpaquePointer?, offset: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubrkFollowing(bi?.value?.toCPointer<ByteVar>(), offset)
 
-public actual fun ubrk_getAvailable(index: Int): PCSTR =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubrk_getAvailable(index)?.toLong() ?: 0L
+public actual fun ubrkGetAvailable(index: Int): Pcstr =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubrkGetAvailable(index)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ubrk_getBinaryRules(bi: Long, binaryrules: Long, rulescapacity: Int, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubrk_getBinaryRules(bi.toCPointer<ByteVar>(), binaryrules.toCPointer<ByteVar>(), rulescapacity, status.toCPointer<ByteVar>())
+public actual fun ubrkGetBinaryRules(bi: COpaquePointer?, binaryrules: COpaquePointer?, rulescapacity: Int, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubrkGetBinaryRules(bi?.value?.toCPointer<ByteVar>(), binaryrules?.value?.toCPointer<ByteVar>(), rulescapacity, status?.value?.toCPointer<ByteVar>())
 
-public actual fun ubrk_getLocaleByType(bi: Long, type: ULocDataLocaleType, status: Long): PCSTR =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubrk_getLocaleByType(bi.toCPointer<ByteVar>(), type, status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ubrkGetLocaleByType(bi: COpaquePointer?, type: ULocDataLocaleType, status: COpaquePointer?): Pcstr =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubrkGetLocaleByType(bi?.value?.toCPointer<ByteVar>(), type, status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ubrk_getRuleStatus(bi: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubrk_getRuleStatus(bi.toCPointer<ByteVar>())
+public actual fun ubrkGetRuleStatus(bi: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubrkGetRuleStatus(bi?.value?.toCPointer<ByteVar>())
 
-public actual fun ubrk_getRuleStatusVec(bi: Long, fillinvec: Long, capacity: Int, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubrk_getRuleStatusVec(bi.toCPointer<ByteVar>(), fillinvec.toCPointer<ByteVar>(), capacity, status.toCPointer<ByteVar>())
+public actual fun ubrkGetRuleStatusVec(bi: COpaquePointer?, fillinvec: COpaquePointer?, capacity: Int, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubrkGetRuleStatusVec(bi?.value?.toCPointer<ByteVar>(), fillinvec?.value?.toCPointer<ByteVar>(), capacity, status?.value?.toCPointer<ByteVar>())
 
-public actual fun ubrk_isBoundary(bi: Long, offset: Int): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubrk_isBoundary(bi.toCPointer<ByteVar>(), offset)
+public actual fun ubrkIsBoundary(bi: COpaquePointer?, offset: Int): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubrkIsBoundary(bi?.value?.toCPointer<ByteVar>(), offset)
 
-public actual fun ubrk_last(bi: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubrk_last(bi.toCPointer<ByteVar>())
+public actual fun ubrkLast(bi: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubrkLast(bi?.value?.toCPointer<ByteVar>())
 
-public actual fun ubrk_next(bi: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubrk_next(bi.toCPointer<ByteVar>())
+public actual fun ubrkNext(bi: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubrkNext(bi?.value?.toCPointer<ByteVar>())
 
-public actual fun ubrk_open(type: UBreakIteratorType, locale: PCSTR, text: Long, textlength: Int, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubrk_open(type, locale.toCPointer<ByteVar>(), text.toCPointer<ByteVar>(), textlength, status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ubrkOpen(type: UBreakIteratorType, locale: Pcstr, text: COpaquePointer?, textlength: Int, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubrkOpen(type, locale?.value?.toCPointer<ByteVar>(), text?.value?.toCPointer<ByteVar>(), textlength, status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ubrk_openBinaryRules(binaryrules: Long, ruleslength: Int, text: Long, textlength: Int, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubrk_openBinaryRules(binaryrules.toCPointer<ByteVar>(), ruleslength, text.toCPointer<ByteVar>(), textlength, status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ubrkOpenBinaryRules(binaryrules: COpaquePointer?, ruleslength: Int, text: COpaquePointer?, textlength: Int, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubrkOpenBinaryRules(binaryrules?.value?.toCPointer<ByteVar>(), ruleslength, text?.value?.toCPointer<ByteVar>(), textlength, status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ubrk_openRules(rules: Long, ruleslength: Int, text: Long, textlength: Int, parseerr: Long, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubrk_openRules(rules.toCPointer<ByteVar>(), ruleslength, text.toCPointer<ByteVar>(), textlength, parseerr.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ubrkOpenRules(rules: COpaquePointer?, ruleslength: Int, text: COpaquePointer?, textlength: Int, parseerr: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubrkOpenRules(rules?.value?.toCPointer<ByteVar>(), ruleslength, text?.value?.toCPointer<ByteVar>(), textlength, parseerr?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ubrk_preceding(bi: Long, offset: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubrk_preceding(bi.toCPointer<ByteVar>(), offset)
+public actual fun ubrkPreceding(bi: COpaquePointer?, offset: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubrkPreceding(bi?.value?.toCPointer<ByteVar>(), offset)
 
-public actual fun ubrk_previous(bi: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubrk_previous(bi.toCPointer<ByteVar>())
+public actual fun ubrkPrevious(bi: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubrkPrevious(bi?.value?.toCPointer<ByteVar>())
 
-public actual fun ubrk_refreshUText(bi: Long, text: Long, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubrk_refreshUText(bi.toCPointer<ByteVar>(), text.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun ubrkRefreshUtext(bi: COpaquePointer?, text: COpaquePointer?, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubrkRefreshUtext(bi?.value?.toCPointer<ByteVar>(), text?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ubrk_safeClone(bi: Long, stackbuffer: Long, pbuffersize: Long, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubrk_safeClone(bi.toCPointer<ByteVar>(), stackbuffer.toCPointer<ByteVar>(), pbuffersize.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ubrkSafeClone(bi: COpaquePointer?, stackbuffer: COpaquePointer?, pbuffersize: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubrkSafeClone(bi?.value?.toCPointer<ByteVar>(), stackbuffer?.value?.toCPointer<ByteVar>(), pbuffersize?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ubrk_setText(bi: Long, text: Long, textlength: Int, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubrk_setText(bi.toCPointer<ByteVar>(), text.toCPointer<ByteVar>(), textlength, status.toCPointer<ByteVar>())
+public actual fun ubrkSetText(bi: COpaquePointer?, text: COpaquePointer?, textlength: Int, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubrkSetText(bi?.value?.toCPointer<ByteVar>(), text?.value?.toCPointer<ByteVar>(), textlength, status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ubrk_setUText(bi: Long, text: Long, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubrk_setUText(bi.toCPointer<ByteVar>(), text.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun ubrkSetUtext(bi: COpaquePointer?, text: COpaquePointer?, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ubrkSetUtext(bi?.value?.toCPointer<ByteVar>(), text?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ucal_add(cal: Long, field: UCalendarDateFields, amount: Int, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucal_add(cal.toCPointer<ByteVar>(), field, amount, status.toCPointer<ByteVar>())
+public actual fun ucalAdd(cal: COpaquePointer?, field: UCalendarDateFields, amount: Int, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucalAdd(cal?.value?.toCPointer<ByteVar>(), field, amount, status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ucal_clear(calendar: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucal_clear(calendar.toCPointer<ByteVar>())
+public actual fun ucalClear(calendar: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucalClear(calendar?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ucal_clearField(cal: Long, field: UCalendarDateFields) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucal_clearField(cal.toCPointer<ByteVar>(), field)
+public actual fun ucalClearField(cal: COpaquePointer?, field: UCalendarDateFields) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucalClearField(cal?.value?.toCPointer<ByteVar>(), field)
 }
 
-public actual fun ucal_clone(cal: Long, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucal_clone(cal.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ucalClone(cal: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucalClone(cal?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ucal_close(cal: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucal_close(cal.toCPointer<ByteVar>())
+public actual fun ucalClose(cal: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucalClose(cal?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ucal_countAvailable(): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucal_countAvailable()
+public actual fun ucalCountAvailable(): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucalCountAvailable()
 
-public actual fun ucal_equivalentTo(cal1: Long, cal2: Long): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucal_equivalentTo(cal1.toCPointer<ByteVar>(), cal2.toCPointer<ByteVar>())
+public actual fun ucalEquivalentTo(cal1: COpaquePointer?, cal2: COpaquePointer?): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucalEquivalentTo(cal1?.value?.toCPointer<ByteVar>(), cal2?.value?.toCPointer<ByteVar>())
 
-public actual fun ucal_get(cal: Long, field: UCalendarDateFields, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucal_get(cal.toCPointer<ByteVar>(), field, status.toCPointer<ByteVar>())
+public actual fun ucalGet(cal: COpaquePointer?, field: UCalendarDateFields, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucalGet(cal?.value?.toCPointer<ByteVar>(), field, status?.value?.toCPointer<ByteVar>())
 
-public actual fun ucal_getAttribute(cal: Long, attr: UCalendarAttribute): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucal_getAttribute(cal.toCPointer<ByteVar>(), attr)
+public actual fun ucalGetAttribute(cal: COpaquePointer?, attr: UCalendarAttribute): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucalGetAttribute(cal?.value?.toCPointer<ByteVar>(), attr)
 
-public actual fun ucal_getAvailable(localeindex: Int): PCSTR =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucal_getAvailable(localeindex)?.toLong() ?: 0L
+public actual fun ucalGetAvailable(localeindex: Int): Pcstr =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucalGetAvailable(localeindex)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ucal_getCanonicalTimeZoneID(id: Long, len: Int, result: Long, resultcapacity: Int, issystemid: Long, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucal_getCanonicalTimeZoneID(id.toCPointer<ByteVar>(), len, result.toCPointer<ByteVar>(), resultcapacity, issystemid.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun ucalGetCanonicalTimeZoneId(id: COpaquePointer?, len: Int, result: COpaquePointer?, resultcapacity: Int, issystemid: COpaquePointer?, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucalGetCanonicalTimeZoneId(id?.value?.toCPointer<ByteVar>(), len, result?.value?.toCPointer<ByteVar>(), resultcapacity, issystemid?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun ucal_getDSTSavings(zoneid: Long, ec: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucal_getDSTSavings(zoneid.toCPointer<ByteVar>(), ec.toCPointer<ByteVar>())
+public actual fun ucalGetDstsavings(zoneid: COpaquePointer?, ec: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucalGetDstsavings(zoneid?.value?.toCPointer<ByteVar>(), ec?.value?.toCPointer<ByteVar>())
 
-public actual fun ucal_getDayOfWeekType(cal: Long, dayofweek: UCalendarDaysOfWeek, status: Long): UCalendarWeekdayType =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucal_getDayOfWeekType(cal.toCPointer<ByteVar>(), dayofweek, status.toCPointer<ByteVar>())
+public actual fun ucalGetDayOfWeekType(cal: COpaquePointer?, dayofweek: UCalendarDaysOfWeek, status: COpaquePointer?): UCalendarWeekdayType =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucalGetDayOfWeekType(cal?.value?.toCPointer<ByteVar>(), dayofweek, status?.value?.toCPointer<ByteVar>())
 
-public actual fun ucal_getDefaultTimeZone(result: Long, resultcapacity: Int, ec: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucal_getDefaultTimeZone(result.toCPointer<ByteVar>(), resultcapacity, ec.toCPointer<ByteVar>())
+public actual fun ucalGetDefaultTimeZone(result: COpaquePointer?, resultcapacity: Int, ec: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucalGetDefaultTimeZone(result?.value?.toCPointer<ByteVar>(), resultcapacity, ec?.value?.toCPointer<ByteVar>())
 
-public actual fun ucal_getFieldDifference(cal: Long, target: Double, field: UCalendarDateFields, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucal_getFieldDifference(cal.toCPointer<ByteVar>(), target, field, status.toCPointer<ByteVar>())
+public actual fun ucalGetFieldDifference(cal: COpaquePointer?, target: Double, field: UCalendarDateFields, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucalGetFieldDifference(cal?.value?.toCPointer<ByteVar>(), target, field, status?.value?.toCPointer<ByteVar>())
 
-public actual fun ucal_getGregorianChange(cal: Long, perrorcode: Long): Double =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucal_getGregorianChange(cal.toCPointer<ByteVar>(), perrorcode.toCPointer<ByteVar>())
+public actual fun ucalGetGregorianChange(cal: COpaquePointer?, perrorcode: COpaquePointer?): Double =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucalGetGregorianChange(cal?.value?.toCPointer<ByteVar>(), perrorcode?.value?.toCPointer<ByteVar>())
 
-public actual fun ucal_getHostTimeZone(result: Long, resultcapacity: Int, ec: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucal_getHostTimeZone(result.toCPointer<ByteVar>(), resultcapacity, ec.toCPointer<ByteVar>())
+public actual fun ucalGetHostTimeZone(result: COpaquePointer?, resultcapacity: Int, ec: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucalGetHostTimeZone(result?.value?.toCPointer<ByteVar>(), resultcapacity, ec?.value?.toCPointer<ByteVar>())
 
-public actual fun ucal_getKeywordValuesForLocale(key: PCSTR, locale: PCSTR, commonlyused: Byte, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucal_getKeywordValuesForLocale(key.toCPointer<ByteVar>(), locale.toCPointer<ByteVar>(), commonlyused, status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ucalGetKeywordValuesForLocale(key: Pcstr, locale: Pcstr, commonlyused: Byte, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucalGetKeywordValuesForLocale(key?.value?.toCPointer<ByteVar>(), locale?.value?.toCPointer<ByteVar>(), commonlyused, status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ucal_getLimit(cal: Long, field: UCalendarDateFields, type: UCalendarLimitType, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucal_getLimit(cal.toCPointer<ByteVar>(), field, type, status.toCPointer<ByteVar>())
+public actual fun ucalGetLimit(cal: COpaquePointer?, field: UCalendarDateFields, type: UCalendarLimitType, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucalGetLimit(cal?.value?.toCPointer<ByteVar>(), field, type, status?.value?.toCPointer<ByteVar>())
 
-public actual fun ucal_getLocaleByType(cal: Long, type: ULocDataLocaleType, status: Long): PCSTR =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucal_getLocaleByType(cal.toCPointer<ByteVar>(), type, status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ucalGetLocaleByType(cal: COpaquePointer?, type: ULocDataLocaleType, status: COpaquePointer?): Pcstr =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucalGetLocaleByType(cal?.value?.toCPointer<ByteVar>(), type, status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ucal_getMillis(cal: Long, status: Long): Double =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucal_getMillis(cal.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun ucalGetMillis(cal: COpaquePointer?, status: COpaquePointer?): Double =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucalGetMillis(cal?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun ucal_getNow(): Double =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucal_getNow()
+public actual fun ucalGetNow(): Double =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucalGetNow()
 
-public actual fun ucal_getTZDataVersion(status: Long): PCSTR =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucal_getTZDataVersion(status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ucalGetTzdataVersion(status: COpaquePointer?): Pcstr =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucalGetTzdataVersion(status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ucal_getTimeZoneDisplayName(cal: Long, type: UCalendarDisplayNameType, locale: PCSTR, result: Long, resultlength: Int, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucal_getTimeZoneDisplayName(cal.toCPointer<ByteVar>(), type, locale.toCPointer<ByteVar>(), result.toCPointer<ByteVar>(), resultlength, status.toCPointer<ByteVar>())
+public actual fun ucalGetTimeZoneDisplayName(cal: COpaquePointer?, type: UCalendarDisplayNameType, locale: Pcstr, result: COpaquePointer?, resultlength: Int, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucalGetTimeZoneDisplayName(cal?.value?.toCPointer<ByteVar>(), type, locale?.value?.toCPointer<ByteVar>(), result?.value?.toCPointer<ByteVar>(), resultlength, status?.value?.toCPointer<ByteVar>())
 
-public actual fun ucal_getTimeZoneID(cal: Long, result: Long, resultlength: Int, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucal_getTimeZoneID(cal.toCPointer<ByteVar>(), result.toCPointer<ByteVar>(), resultlength, status.toCPointer<ByteVar>())
+public actual fun ucalGetTimeZoneId(cal: COpaquePointer?, result: COpaquePointer?, resultlength: Int, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucalGetTimeZoneId(cal?.value?.toCPointer<ByteVar>(), result?.value?.toCPointer<ByteVar>(), resultlength, status?.value?.toCPointer<ByteVar>())
 
-public actual fun ucal_getTimeZoneIDForWindowsID(winid: Long, len: Int, region: PCSTR, id: Long, idcapacity: Int, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucal_getTimeZoneIDForWindowsID(winid.toCPointer<ByteVar>(), len, region.toCPointer<ByteVar>(), id.toCPointer<ByteVar>(), idcapacity, status.toCPointer<ByteVar>())
+public actual fun ucalGetTimeZoneIdforWindowsId(winid: COpaquePointer?, len: Int, region: Pcstr, id: COpaquePointer?, idcapacity: Int, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucalGetTimeZoneIdforWindowsId(winid?.value?.toCPointer<ByteVar>(), len, region?.value?.toCPointer<ByteVar>(), id?.value?.toCPointer<ByteVar>(), idcapacity, status?.value?.toCPointer<ByteVar>())
 
-public actual fun ucal_getTimeZoneTransitionDate(cal: Long, type: UTimeZoneTransitionType, transition: Long, status: Long): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucal_getTimeZoneTransitionDate(cal.toCPointer<ByteVar>(), type, transition.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun ucalGetTimeZoneTransitionDate(cal: COpaquePointer?, type: UTimeZoneTransitionType, transition: COpaquePointer?, status: COpaquePointer?): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucalGetTimeZoneTransitionDate(cal?.value?.toCPointer<ByteVar>(), type, transition?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun ucal_getType(cal: Long, status: Long): PCSTR =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucal_getType(cal.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ucalGetType(cal: COpaquePointer?, status: COpaquePointer?): Pcstr =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucalGetType(cal?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ucal_getWeekendTransition(cal: Long, dayofweek: UCalendarDaysOfWeek, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucal_getWeekendTransition(cal.toCPointer<ByteVar>(), dayofweek, status.toCPointer<ByteVar>())
+public actual fun ucalGetWeekendTransition(cal: COpaquePointer?, dayofweek: UCalendarDaysOfWeek, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucalGetWeekendTransition(cal?.value?.toCPointer<ByteVar>(), dayofweek, status?.value?.toCPointer<ByteVar>())
 
-public actual fun ucal_getWindowsTimeZoneID(id: Long, len: Int, winid: Long, winidcapacity: Int, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucal_getWindowsTimeZoneID(id.toCPointer<ByteVar>(), len, winid.toCPointer<ByteVar>(), winidcapacity, status.toCPointer<ByteVar>())
+public actual fun ucalGetWindowsTimeZoneId(id: COpaquePointer?, len: Int, winid: COpaquePointer?, winidcapacity: Int, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucalGetWindowsTimeZoneId(id?.value?.toCPointer<ByteVar>(), len, winid?.value?.toCPointer<ByteVar>(), winidcapacity, status?.value?.toCPointer<ByteVar>())
 
-public actual fun ucal_inDaylightTime(cal: Long, status: Long): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucal_inDaylightTime(cal.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun ucalInDaylightTime(cal: COpaquePointer?, status: COpaquePointer?): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucalInDaylightTime(cal?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun ucal_isSet(cal: Long, field: UCalendarDateFields): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucal_isSet(cal.toCPointer<ByteVar>(), field)
+public actual fun ucalIsSet(cal: COpaquePointer?, field: UCalendarDateFields): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucalIsSet(cal?.value?.toCPointer<ByteVar>(), field)
 
-public actual fun ucal_isWeekend(cal: Long, date: Double, status: Long): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucal_isWeekend(cal.toCPointer<ByteVar>(), date, status.toCPointer<ByteVar>())
+public actual fun ucalIsWeekend(cal: COpaquePointer?, date: Double, status: COpaquePointer?): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucalIsWeekend(cal?.value?.toCPointer<ByteVar>(), date, status?.value?.toCPointer<ByteVar>())
 
-public actual fun ucal_open(zoneid: Long, len: Int, locale: PCSTR, type: UCalendarType, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucal_open(zoneid.toCPointer<ByteVar>(), len, locale.toCPointer<ByteVar>(), type, status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ucalOpen(zoneid: COpaquePointer?, len: Int, locale: Pcstr, type: UCalendarType, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucalOpen(zoneid?.value?.toCPointer<ByteVar>(), len, locale?.value?.toCPointer<ByteVar>(), type, status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ucal_openCountryTimeZones(country: PCSTR, ec: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucal_openCountryTimeZones(country.toCPointer<ByteVar>(), ec.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ucalOpenCountryTimeZones(country: Pcstr, ec: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucalOpenCountryTimeZones(country?.value?.toCPointer<ByteVar>(), ec?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ucal_openTimeZoneIDEnumeration(zonetype: USystemTimeZoneType, region: PCSTR, rawoffset: Long, ec: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucal_openTimeZoneIDEnumeration(zonetype, region.toCPointer<ByteVar>(), rawoffset.toCPointer<ByteVar>(), ec.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ucalOpenTimeZoneIdenumeration(zonetype: USystemTimeZoneType, region: Pcstr, rawoffset: COpaquePointer?, ec: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucalOpenTimeZoneIdenumeration(zonetype, region?.value?.toCPointer<ByteVar>(), rawoffset?.value?.toCPointer<ByteVar>(), ec?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ucal_openTimeZones(ec: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucal_openTimeZones(ec.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ucalOpenTimeZones(ec: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucalOpenTimeZones(ec?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ucal_roll(cal: Long, field: UCalendarDateFields, amount: Int, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucal_roll(cal.toCPointer<ByteVar>(), field, amount, status.toCPointer<ByteVar>())
+public actual fun ucalRoll(cal: COpaquePointer?, field: UCalendarDateFields, amount: Int, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucalRoll(cal?.value?.toCPointer<ByteVar>(), field, amount, status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ucal_set(cal: Long, field: UCalendarDateFields, value: Int) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucal_set(cal.toCPointer<ByteVar>(), field, value)
+public actual fun ucalSet(cal: COpaquePointer?, field: UCalendarDateFields, value: Int) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucalSet(cal?.value?.toCPointer<ByteVar>(), field, value)
 }
 
-public actual fun ucal_setAttribute(cal: Long, attr: UCalendarAttribute, newvalue: Int) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucal_setAttribute(cal.toCPointer<ByteVar>(), attr, newvalue)
+public actual fun ucalSetAttribute(cal: COpaquePointer?, attr: UCalendarAttribute, newvalue: Int) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucalSetAttribute(cal?.value?.toCPointer<ByteVar>(), attr, newvalue)
 }
 
-public actual fun ucal_setDate(cal: Long, year: Int, month: Int, date: Int, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucal_setDate(cal.toCPointer<ByteVar>(), year, month, date, status.toCPointer<ByteVar>())
+public actual fun ucalSetDate(cal: COpaquePointer?, year: Int, month: Int, date: Int, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucalSetDate(cal?.value?.toCPointer<ByteVar>(), year, month, date, status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ucal_setDateTime(cal: Long, year: Int, month: Int, date: Int, hour: Int, minute: Int, second: Int, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucal_setDateTime(cal.toCPointer<ByteVar>(), year, month, date, hour, minute, second, status.toCPointer<ByteVar>())
+public actual fun ucalSetDateTime(cal: COpaquePointer?, year: Int, month: Int, date: Int, hour: Int, minute: Int, second: Int, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucalSetDateTime(cal?.value?.toCPointer<ByteVar>(), year, month, date, hour, minute, second, status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ucal_setDefaultTimeZone(zoneid: Long, ec: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucal_setDefaultTimeZone(zoneid.toCPointer<ByteVar>(), ec.toCPointer<ByteVar>())
+public actual fun ucalSetDefaultTimeZone(zoneid: COpaquePointer?, ec: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucalSetDefaultTimeZone(zoneid?.value?.toCPointer<ByteVar>(), ec?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ucal_setGregorianChange(cal: Long, date: Double, perrorcode: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucal_setGregorianChange(cal.toCPointer<ByteVar>(), date, perrorcode.toCPointer<ByteVar>())
+public actual fun ucalSetGregorianChange(cal: COpaquePointer?, date: Double, perrorcode: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucalSetGregorianChange(cal?.value?.toCPointer<ByteVar>(), date, perrorcode?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ucal_setMillis(cal: Long, datetime: Double, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucal_setMillis(cal.toCPointer<ByteVar>(), datetime, status.toCPointer<ByteVar>())
+public actual fun ucalSetMillis(cal: COpaquePointer?, datetime: Double, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucalSetMillis(cal?.value?.toCPointer<ByteVar>(), datetime, status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ucal_setTimeZone(cal: Long, zoneid: Long, len: Int, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucal_setTimeZone(cal.toCPointer<ByteVar>(), zoneid.toCPointer<ByteVar>(), len, status.toCPointer<ByteVar>())
+public actual fun ucalSetTimeZone(cal: COpaquePointer?, zoneid: COpaquePointer?, len: Int, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucalSetTimeZone(cal?.value?.toCPointer<ByteVar>(), zoneid?.value?.toCPointer<ByteVar>(), len, status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ucasemap_close(csm: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucasemap_close(csm.toCPointer<ByteVar>())
+public actual fun ucasemapClose(csm: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucasemapClose(csm?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ucasemap_getBreakIterator(csm: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucasemap_getBreakIterator(csm.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ucasemapGetBreakIterator(csm: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucasemapGetBreakIterator(csm?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ucasemap_getLocale(csm: Long): PCSTR =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucasemap_getLocale(csm.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ucasemapGetLocale(csm: COpaquePointer?): Pcstr =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucasemapGetLocale(csm?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ucasemap_getOptions(csm: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucasemap_getOptions(csm.toCPointer<ByteVar>())
+public actual fun ucasemapGetOptions(csm: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucasemapGetOptions(csm?.value?.toCPointer<ByteVar>())
 
-public actual fun ucasemap_open(locale: PCSTR, options: UInt, perrorcode: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucasemap_open(locale.toCPointer<ByteVar>(), options, perrorcode.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ucasemapOpen(locale: Pcstr, options: UInt, perrorcode: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucasemapOpen(locale?.value?.toCPointer<ByteVar>(), options, perrorcode?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ucasemap_setBreakIterator(csm: Long, itertoadopt: Long, perrorcode: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucasemap_setBreakIterator(csm.toCPointer<ByteVar>(), itertoadopt.toCPointer<ByteVar>(), perrorcode.toCPointer<ByteVar>())
+public actual fun ucasemapSetBreakIterator(csm: COpaquePointer?, itertoadopt: COpaquePointer?, perrorcode: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucasemapSetBreakIterator(csm?.value?.toCPointer<ByteVar>(), itertoadopt?.value?.toCPointer<ByteVar>(), perrorcode?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ucasemap_setLocale(csm: Long, locale: PCSTR, perrorcode: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucasemap_setLocale(csm.toCPointer<ByteVar>(), locale.toCPointer<ByteVar>(), perrorcode.toCPointer<ByteVar>())
+public actual fun ucasemapSetLocale(csm: COpaquePointer?, locale: Pcstr, perrorcode: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucasemapSetLocale(csm?.value?.toCPointer<ByteVar>(), locale?.value?.toCPointer<ByteVar>(), perrorcode?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ucasemap_setOptions(csm: Long, options: UInt, perrorcode: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucasemap_setOptions(csm.toCPointer<ByteVar>(), options, perrorcode.toCPointer<ByteVar>())
+public actual fun ucasemapSetOptions(csm: COpaquePointer?, options: UInt, perrorcode: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucasemapSetOptions(csm?.value?.toCPointer<ByteVar>(), options, perrorcode?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ucasemap_toTitle(csm: Long, dest: Long, destcapacity: Int, src: Long, srclength: Int, perrorcode: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucasemap_toTitle(csm.toCPointer<ByteVar>(), dest.toCPointer<ByteVar>(), destcapacity, src.toCPointer<ByteVar>(), srclength, perrorcode.toCPointer<ByteVar>())
+public actual fun ucasemapToTitle(csm: COpaquePointer?, dest: COpaquePointer?, destcapacity: Int, src: COpaquePointer?, srclength: Int, perrorcode: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucasemapToTitle(csm?.value?.toCPointer<ByteVar>(), dest?.value?.toCPointer<ByteVar>(), destcapacity, src?.value?.toCPointer<ByteVar>(), srclength, perrorcode?.value?.toCPointer<ByteVar>())
 
-public actual fun ucasemap_utf8FoldCase(csm: Long, dest: PCSTR, destcapacity: Int, src: PCSTR, srclength: Int, perrorcode: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucasemap_utf8FoldCase(csm.toCPointer<ByteVar>(), dest.toCPointer<ByteVar>(), destcapacity, src.toCPointer<ByteVar>(), srclength, perrorcode.toCPointer<ByteVar>())
+public actual fun ucasemapUtf8FoldCase(csm: COpaquePointer?, dest: Pcstr, destcapacity: Int, src: Pcstr, srclength: Int, perrorcode: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucasemapUtf8FoldCase(csm?.value?.toCPointer<ByteVar>(), dest?.value?.toCPointer<ByteVar>(), destcapacity, src?.value?.toCPointer<ByteVar>(), srclength, perrorcode?.value?.toCPointer<ByteVar>())
 
-public actual fun ucasemap_utf8ToLower(csm: Long, dest: PCSTR, destcapacity: Int, src: PCSTR, srclength: Int, perrorcode: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucasemap_utf8ToLower(csm.toCPointer<ByteVar>(), dest.toCPointer<ByteVar>(), destcapacity, src.toCPointer<ByteVar>(), srclength, perrorcode.toCPointer<ByteVar>())
+public actual fun ucasemapUtf8ToLower(csm: COpaquePointer?, dest: Pcstr, destcapacity: Int, src: Pcstr, srclength: Int, perrorcode: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucasemapUtf8ToLower(csm?.value?.toCPointer<ByteVar>(), dest?.value?.toCPointer<ByteVar>(), destcapacity, src?.value?.toCPointer<ByteVar>(), srclength, perrorcode?.value?.toCPointer<ByteVar>())
 
-public actual fun ucasemap_utf8ToTitle(csm: Long, dest: PCSTR, destcapacity: Int, src: PCSTR, srclength: Int, perrorcode: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucasemap_utf8ToTitle(csm.toCPointer<ByteVar>(), dest.toCPointer<ByteVar>(), destcapacity, src.toCPointer<ByteVar>(), srclength, perrorcode.toCPointer<ByteVar>())
+public actual fun ucasemapUtf8ToTitle(csm: COpaquePointer?, dest: Pcstr, destcapacity: Int, src: Pcstr, srclength: Int, perrorcode: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucasemapUtf8ToTitle(csm?.value?.toCPointer<ByteVar>(), dest?.value?.toCPointer<ByteVar>(), destcapacity, src?.value?.toCPointer<ByteVar>(), srclength, perrorcode?.value?.toCPointer<ByteVar>())
 
-public actual fun ucasemap_utf8ToUpper(csm: Long, dest: PCSTR, destcapacity: Int, src: PCSTR, srclength: Int, perrorcode: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucasemap_utf8ToUpper(csm.toCPointer<ByteVar>(), dest.toCPointer<ByteVar>(), destcapacity, src.toCPointer<ByteVar>(), srclength, perrorcode.toCPointer<ByteVar>())
+public actual fun ucasemapUtf8ToUpper(csm: COpaquePointer?, dest: Pcstr, destcapacity: Int, src: Pcstr, srclength: Int, perrorcode: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucasemapUtf8ToUpper(csm?.value?.toCPointer<ByteVar>(), dest?.value?.toCPointer<ByteVar>(), destcapacity, src?.value?.toCPointer<ByteVar>(), srclength, perrorcode?.value?.toCPointer<ByteVar>())
 
-public actual fun ucfpos_close(ucfpos: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucfpos_close(ucfpos.toCPointer<ByteVar>())
+public actual fun ucfposClose(ucfpos: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucfposClose(ucfpos?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ucfpos_constrainCategory(ucfpos: Long, category: Int, ec: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucfpos_constrainCategory(ucfpos.toCPointer<ByteVar>(), category, ec.toCPointer<ByteVar>())
+public actual fun ucfposConstrainCategory(ucfpos: COpaquePointer?, category: Int, ec: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucfposConstrainCategory(ucfpos?.value?.toCPointer<ByteVar>(), category, ec?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ucfpos_constrainField(ucfpos: Long, category: Int, field: Int, ec: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucfpos_constrainField(ucfpos.toCPointer<ByteVar>(), category, field, ec.toCPointer<ByteVar>())
+public actual fun ucfposConstrainField(ucfpos: COpaquePointer?, category: Int, field: Int, ec: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucfposConstrainField(ucfpos?.value?.toCPointer<ByteVar>(), category, field, ec?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ucfpos_getCategory(ucfpos: Long, ec: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucfpos_getCategory(ucfpos.toCPointer<ByteVar>(), ec.toCPointer<ByteVar>())
+public actual fun ucfposGetCategory(ucfpos: COpaquePointer?, ec: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucfposGetCategory(ucfpos?.value?.toCPointer<ByteVar>(), ec?.value?.toCPointer<ByteVar>())
 
-public actual fun ucfpos_getField(ucfpos: Long, ec: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucfpos_getField(ucfpos.toCPointer<ByteVar>(), ec.toCPointer<ByteVar>())
+public actual fun ucfposGetField(ucfpos: COpaquePointer?, ec: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucfposGetField(ucfpos?.value?.toCPointer<ByteVar>(), ec?.value?.toCPointer<ByteVar>())
 
-public actual fun ucfpos_getIndexes(ucfpos: Long, pstart: Long, plimit: Long, ec: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucfpos_getIndexes(ucfpos.toCPointer<ByteVar>(), pstart.toCPointer<ByteVar>(), plimit.toCPointer<ByteVar>(), ec.toCPointer<ByteVar>())
+public actual fun ucfposGetIndexes(ucfpos: COpaquePointer?, pstart: COpaquePointer?, plimit: COpaquePointer?, ec: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucfposGetIndexes(ucfpos?.value?.toCPointer<ByteVar>(), pstart?.value?.toCPointer<ByteVar>(), plimit?.value?.toCPointer<ByteVar>(), ec?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ucfpos_getInt64IterationContext(ucfpos: Long, ec: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucfpos_getInt64IterationContext(ucfpos.toCPointer<ByteVar>(), ec.toCPointer<ByteVar>())
+public actual fun ucfposGetInt64IterationContext(ucfpos: COpaquePointer?, ec: COpaquePointer?): Long =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucfposGetInt64IterationContext(ucfpos?.value?.toCPointer<ByteVar>(), ec?.value?.toCPointer<ByteVar>())
 
-public actual fun ucfpos_matchesField(ucfpos: Long, category: Int, field: Int, ec: Long): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucfpos_matchesField(ucfpos.toCPointer<ByteVar>(), category, field, ec.toCPointer<ByteVar>())
+public actual fun ucfposMatchesField(ucfpos: COpaquePointer?, category: Int, field: Int, ec: COpaquePointer?): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucfposMatchesField(ucfpos?.value?.toCPointer<ByteVar>(), category, field, ec?.value?.toCPointer<ByteVar>())
 
-public actual fun ucfpos_open(ec: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucfpos_open(ec.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ucfposOpen(ec: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucfposOpen(ec?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ucfpos_reset(ucfpos: Long, ec: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucfpos_reset(ucfpos.toCPointer<ByteVar>(), ec.toCPointer<ByteVar>())
+public actual fun ucfposReset(ucfpos: COpaquePointer?, ec: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucfposReset(ucfpos?.value?.toCPointer<ByteVar>(), ec?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ucfpos_setInt64IterationContext(ucfpos: Long, context: Long, ec: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucfpos_setInt64IterationContext(ucfpos.toCPointer<ByteVar>(), context, ec.toCPointer<ByteVar>())
+public actual fun ucfposSetInt64IterationContext(ucfpos: COpaquePointer?, context: Long, ec: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucfposSetInt64IterationContext(ucfpos?.value?.toCPointer<ByteVar>(), context, ec?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ucfpos_setState(ucfpos: Long, category: Int, field: Int, start: Int, limit: Int, ec: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucfpos_setState(ucfpos.toCPointer<ByteVar>(), category, field, start, limit, ec.toCPointer<ByteVar>())
+public actual fun ucfposSetState(ucfpos: COpaquePointer?, category: Int, field: Int, start: Int, limit: Int, ec: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucfposSetState(ucfpos?.value?.toCPointer<ByteVar>(), category, field, start, limit, ec?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ucnv_cbFromUWriteBytes(args: Long, source: PCSTR, length: Int, offsetindex: Int, err: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnv_cbFromUWriteBytes(args.toCPointer<ByteVar>(), source.toCPointer<ByteVar>(), length, offsetindex, err.toCPointer<ByteVar>())
+public actual fun ucnvCbFromUwriteBytes(args: COpaquePointer?, source: Pcstr, length: Int, offsetindex: Int, err: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvCbFromUwriteBytes(args?.value?.toCPointer<ByteVar>(), source?.value?.toCPointer<ByteVar>(), length, offsetindex, err?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ucnv_cbFromUWriteSub(args: Long, offsetindex: Int, err: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnv_cbFromUWriteSub(args.toCPointer<ByteVar>(), offsetindex, err.toCPointer<ByteVar>())
+public actual fun ucnvCbFromUwriteSub(args: COpaquePointer?, offsetindex: Int, err: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvCbFromUwriteSub(args?.value?.toCPointer<ByteVar>(), offsetindex, err?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ucnv_cbFromUWriteUChars(args: Long, source: Long, sourcelimit: Long, offsetindex: Int, err: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnv_cbFromUWriteUChars(args.toCPointer<ByteVar>(), source.toCPointer<ByteVar>(), sourcelimit.toCPointer<ByteVar>(), offsetindex, err.toCPointer<ByteVar>())
+public actual fun ucnvCbFromUwriteUchars(args: COpaquePointer?, source: COpaquePointer?, sourcelimit: COpaquePointer?, offsetindex: Int, err: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvCbFromUwriteUchars(args?.value?.toCPointer<ByteVar>(), source?.value?.toCPointer<ByteVar>(), sourcelimit?.value?.toCPointer<ByteVar>(), offsetindex, err?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ucnv_cbToUWriteSub(args: Long, offsetindex: Int, err: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnv_cbToUWriteSub(args.toCPointer<ByteVar>(), offsetindex, err.toCPointer<ByteVar>())
+public actual fun ucnvCbToUwriteSub(args: COpaquePointer?, offsetindex: Int, err: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvCbToUwriteSub(args?.value?.toCPointer<ByteVar>(), offsetindex, err?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ucnv_cbToUWriteUChars(args: Long, source: Long, length: Int, offsetindex: Int, err: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnv_cbToUWriteUChars(args.toCPointer<ByteVar>(), source.toCPointer<ByteVar>(), length, offsetindex, err.toCPointer<ByteVar>())
+public actual fun ucnvCbToUwriteUchars(args: COpaquePointer?, source: COpaquePointer?, length: Int, offsetindex: Int, err: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvCbToUwriteUchars(args?.value?.toCPointer<ByteVar>(), source?.value?.toCPointer<ByteVar>(), length, offsetindex, err?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ucnv_close(converter: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnv_close(converter.toCPointer<ByteVar>())
+public actual fun ucnvClose(converter: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvClose(converter?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ucnv_compareNames(name1: PCSTR, name2: PCSTR): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnv_compareNames(name1.toCPointer<ByteVar>(), name2.toCPointer<ByteVar>())
+public actual fun ucnvCompareNames(name1: Pcstr, name2: Pcstr): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvCompareNames(name1?.value?.toCPointer<ByteVar>(), name2?.value?.toCPointer<ByteVar>())
 
-public actual fun ucnv_convert(toconvertername: PCSTR, fromconvertername: PCSTR, target: PCSTR, targetcapacity: Int, source: PCSTR, sourcelength: Int, perrorcode: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnv_convert(toconvertername.toCPointer<ByteVar>(), fromconvertername.toCPointer<ByteVar>(), target.toCPointer<ByteVar>(), targetcapacity, source.toCPointer<ByteVar>(), sourcelength, perrorcode.toCPointer<ByteVar>())
+public actual fun ucnvConvert(toconvertername: Pcstr, fromconvertername: Pcstr, target: Pcstr, targetcapacity: Int, source: Pcstr, sourcelength: Int, perrorcode: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvConvert(toconvertername?.value?.toCPointer<ByteVar>(), fromconvertername?.value?.toCPointer<ByteVar>(), target?.value?.toCPointer<ByteVar>(), targetcapacity, source?.value?.toCPointer<ByteVar>(), sourcelength, perrorcode?.value?.toCPointer<ByteVar>())
 
-public actual fun ucnv_convertEx(targetcnv: Long, sourcecnv: Long, target: Long, targetlimit: PCSTR, source: Long, sourcelimit: PCSTR, pivotstart: Long, pivotsource: Long, pivottarget: Long, pivotlimit: Long, reset: Byte, flush: Byte, perrorcode: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnv_convertEx(targetcnv.toCPointer<ByteVar>(), sourcecnv.toCPointer<ByteVar>(), target.toCPointer<ByteVar>(), targetlimit.toCPointer<ByteVar>(), source.toCPointer<ByteVar>(), sourcelimit.toCPointer<ByteVar>(), pivotstart.toCPointer<ByteVar>(), pivotsource.toCPointer<ByteVar>(), pivottarget.toCPointer<ByteVar>(), pivotlimit.toCPointer<ByteVar>(), reset, flush, perrorcode.toCPointer<ByteVar>())
+public actual fun ucnvConvertEx(targetcnv: COpaquePointer?, sourcecnv: COpaquePointer?, target: COpaquePointer?, targetlimit: Pcstr, source: COpaquePointer?, sourcelimit: Pcstr, pivotstart: COpaquePointer?, pivotsource: COpaquePointer?, pivottarget: COpaquePointer?, pivotlimit: COpaquePointer?, reset: Byte, flush: Byte, perrorcode: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvConvertEx(targetcnv?.value?.toCPointer<ByteVar>(), sourcecnv?.value?.toCPointer<ByteVar>(), target?.value?.toCPointer<ByteVar>(), targetlimit?.value?.toCPointer<ByteVar>(), source?.value?.toCPointer<ByteVar>(), sourcelimit?.value?.toCPointer<ByteVar>(), pivotstart?.value?.toCPointer<ByteVar>(), pivotsource?.value?.toCPointer<ByteVar>(), pivottarget?.value?.toCPointer<ByteVar>(), pivotlimit?.value?.toCPointer<ByteVar>(), reset, flush, perrorcode?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ucnv_countAliases(alias: PCSTR, perrorcode: Long): UShort =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnv_countAliases(alias.toCPointer<ByteVar>(), perrorcode.toCPointer<ByteVar>())
+public actual fun ucnvCountAliases(alias: Pcstr, perrorcode: COpaquePointer?): UShort =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvCountAliases(alias?.value?.toCPointer<ByteVar>(), perrorcode?.value?.toCPointer<ByteVar>())
 
-public actual fun ucnv_countAvailable(): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnv_countAvailable()
+public actual fun ucnvCountAvailable(): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvCountAvailable()
 
-public actual fun ucnv_countStandards(): UShort =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnv_countStandards()
+public actual fun ucnvCountStandards(): UShort =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvCountStandards()
 
-public actual fun ucnv_detectUnicodeSignature(source: PCSTR, sourcelength: Int, signaturelength: Long, perrorcode: Long): PCSTR =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnv_detectUnicodeSignature(source.toCPointer<ByteVar>(), sourcelength, signaturelength.toCPointer<ByteVar>(), perrorcode.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ucnvDetectUnicodeSignature(source: Pcstr, sourcelength: Int, signaturelength: COpaquePointer?, perrorcode: COpaquePointer?): Pcstr =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvDetectUnicodeSignature(source?.value?.toCPointer<ByteVar>(), sourcelength, signaturelength?.value?.toCPointer<ByteVar>(), perrorcode?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ucnv_fixFileSeparator(cnv: Long, source: Long, sourcelen: Int) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnv_fixFileSeparator(cnv.toCPointer<ByteVar>(), source.toCPointer<ByteVar>(), sourcelen)
+public actual fun ucnvFixFileSeparator(cnv: COpaquePointer?, source: COpaquePointer?, sourcelen: Int) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvFixFileSeparator(cnv?.value?.toCPointer<ByteVar>(), source?.value?.toCPointer<ByteVar>(), sourcelen)
 }
 
-public actual fun ucnv_flushCache(): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnv_flushCache()
+public actual fun ucnvFlushCache(): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvFlushCache()
 
-public actual fun ucnv_fromAlgorithmic(cnv: Long, algorithmictype: UConverterType, target: PCSTR, targetcapacity: Int, source: PCSTR, sourcelength: Int, perrorcode: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnv_fromAlgorithmic(cnv.toCPointer<ByteVar>(), algorithmictype, target.toCPointer<ByteVar>(), targetcapacity, source.toCPointer<ByteVar>(), sourcelength, perrorcode.toCPointer<ByteVar>())
+public actual fun ucnvFromAlgorithmic(cnv: COpaquePointer?, algorithmictype: UConverterType, target: Pcstr, targetcapacity: Int, source: Pcstr, sourcelength: Int, perrorcode: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvFromAlgorithmic(cnv?.value?.toCPointer<ByteVar>(), algorithmictype, target?.value?.toCPointer<ByteVar>(), targetcapacity, source?.value?.toCPointer<ByteVar>(), sourcelength, perrorcode?.value?.toCPointer<ByteVar>())
 
-public actual fun ucnv_fromUChars(cnv: Long, dest: PCSTR, destcapacity: Int, src: Long, srclength: Int, perrorcode: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnv_fromUChars(cnv.toCPointer<ByteVar>(), dest.toCPointer<ByteVar>(), destcapacity, src.toCPointer<ByteVar>(), srclength, perrorcode.toCPointer<ByteVar>())
+public actual fun ucnvFromUchars(cnv: COpaquePointer?, dest: Pcstr, destcapacity: Int, src: COpaquePointer?, srclength: Int, perrorcode: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvFromUchars(cnv?.value?.toCPointer<ByteVar>(), dest?.value?.toCPointer<ByteVar>(), destcapacity, src?.value?.toCPointer<ByteVar>(), srclength, perrorcode?.value?.toCPointer<ByteVar>())
 
-public actual fun ucnv_fromUCountPending(cnv: Long, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnv_fromUCountPending(cnv.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun ucnvFromUcountPending(cnv: COpaquePointer?, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvFromUcountPending(cnv?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun ucnv_fromUnicode(converter: Long, target: Long, targetlimit: PCSTR, source: Long, sourcelimit: Long, offsets: Long, flush: Byte, err: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnv_fromUnicode(converter.toCPointer<ByteVar>(), target.toCPointer<ByteVar>(), targetlimit.toCPointer<ByteVar>(), source.toCPointer<ByteVar>(), sourcelimit.toCPointer<ByteVar>(), offsets.toCPointer<ByteVar>(), flush, err.toCPointer<ByteVar>())
+public actual fun ucnvFromUnicode(converter: COpaquePointer?, target: COpaquePointer?, targetlimit: Pcstr, source: COpaquePointer?, sourcelimit: COpaquePointer?, offsets: COpaquePointer?, flush: Byte, err: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvFromUnicode(converter?.value?.toCPointer<ByteVar>(), target?.value?.toCPointer<ByteVar>(), targetlimit?.value?.toCPointer<ByteVar>(), source?.value?.toCPointer<ByteVar>(), sourcelimit?.value?.toCPointer<ByteVar>(), offsets?.value?.toCPointer<ByteVar>(), flush, err?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ucnv_getAlias(alias: PCSTR, n: UShort, perrorcode: Long): PCSTR =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnv_getAlias(alias.toCPointer<ByteVar>(), n, perrorcode.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ucnvGetAlias(alias: Pcstr, n: UShort, perrorcode: COpaquePointer?): Pcstr =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvGetAlias(alias?.value?.toCPointer<ByteVar>(), n, perrorcode?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ucnv_getAliases(alias: PCSTR, aliases: Long, perrorcode: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnv_getAliases(alias.toCPointer<ByteVar>(), aliases.toCPointer<ByteVar>(), perrorcode.toCPointer<ByteVar>())
+public actual fun ucnvGetAliases(alias: Pcstr, aliases: COpaquePointer?, perrorcode: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvGetAliases(alias?.value?.toCPointer<ByteVar>(), aliases?.value?.toCPointer<ByteVar>(), perrorcode?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ucnv_getAvailableName(n: Int): PCSTR =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnv_getAvailableName(n)?.toLong() ?: 0L
+public actual fun ucnvGetAvailableName(n: Int): Pcstr =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvGetAvailableName(n)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ucnv_getCCSID(converter: Long, err: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnv_getCCSID(converter.toCPointer<ByteVar>(), err.toCPointer<ByteVar>())
+public actual fun ucnvGetCcsid(converter: COpaquePointer?, err: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvGetCcsid(converter?.value?.toCPointer<ByteVar>(), err?.value?.toCPointer<ByteVar>())
 
-public actual fun ucnv_getCanonicalName(alias: PCSTR, standard: PCSTR, perrorcode: Long): PCSTR =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnv_getCanonicalName(alias.toCPointer<ByteVar>(), standard.toCPointer<ByteVar>(), perrorcode.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ucnvGetCanonicalName(alias: Pcstr, standard: Pcstr, perrorcode: COpaquePointer?): Pcstr =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvGetCanonicalName(alias?.value?.toCPointer<ByteVar>(), standard?.value?.toCPointer<ByteVar>(), perrorcode?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ucnv_getDefaultName(): PCSTR =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnv_getDefaultName()?.toLong() ?: 0L
+public actual fun ucnvGetDefaultName(): Pcstr =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvGetDefaultName()?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ucnv_getDisplayName(converter: Long, displaylocale: PCSTR, displayname: Long, displaynamecapacity: Int, err: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnv_getDisplayName(converter.toCPointer<ByteVar>(), displaylocale.toCPointer<ByteVar>(), displayname.toCPointer<ByteVar>(), displaynamecapacity, err.toCPointer<ByteVar>())
+public actual fun ucnvGetDisplayName(converter: COpaquePointer?, displaylocale: Pcstr, displayname: COpaquePointer?, displaynamecapacity: Int, err: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvGetDisplayName(converter?.value?.toCPointer<ByteVar>(), displaylocale?.value?.toCPointer<ByteVar>(), displayname?.value?.toCPointer<ByteVar>(), displaynamecapacity, err?.value?.toCPointer<ByteVar>())
 
-public actual fun ucnv_getFromUCallBack(converter: Long, action: Long, context: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnv_getFromUCallBack(converter.toCPointer<ByteVar>(), action.toCPointer<ByteVar>(), context.toCPointer<ByteVar>())
+public actual fun ucnvGetFromUcallBack(converter: COpaquePointer?, action: COpaquePointer?, context: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvGetFromUcallBack(converter?.value?.toCPointer<ByteVar>(), action?.value?.toCPointer<ByteVar>(), context?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ucnv_getInvalidChars(converter: Long, errbytes: PCSTR, len: Long, err: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnv_getInvalidChars(converter.toCPointer<ByteVar>(), errbytes.toCPointer<ByteVar>(), len.toCPointer<ByteVar>(), err.toCPointer<ByteVar>())
+public actual fun ucnvGetInvalidChars(converter: COpaquePointer?, errbytes: Pcstr, len: COpaquePointer?, err: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvGetInvalidChars(converter?.value?.toCPointer<ByteVar>(), errbytes?.value?.toCPointer<ByteVar>(), len?.value?.toCPointer<ByteVar>(), err?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ucnv_getInvalidUChars(converter: Long, erruchars: Long, len: Long, err: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnv_getInvalidUChars(converter.toCPointer<ByteVar>(), erruchars.toCPointer<ByteVar>(), len.toCPointer<ByteVar>(), err.toCPointer<ByteVar>())
+public actual fun ucnvGetInvalidUchars(converter: COpaquePointer?, erruchars: COpaquePointer?, len: COpaquePointer?, err: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvGetInvalidUchars(converter?.value?.toCPointer<ByteVar>(), erruchars?.value?.toCPointer<ByteVar>(), len?.value?.toCPointer<ByteVar>(), err?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ucnv_getMaxCharSize(converter: Long): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnv_getMaxCharSize(converter.toCPointer<ByteVar>())
+public actual fun ucnvGetMaxCharSize(converter: COpaquePointer?): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvGetMaxCharSize(converter?.value?.toCPointer<ByteVar>())
 
-public actual fun ucnv_getMinCharSize(converter: Long): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnv_getMinCharSize(converter.toCPointer<ByteVar>())
+public actual fun ucnvGetMinCharSize(converter: COpaquePointer?): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvGetMinCharSize(converter?.value?.toCPointer<ByteVar>())
 
-public actual fun ucnv_getName(converter: Long, err: Long): PCSTR =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnv_getName(converter.toCPointer<ByteVar>(), err.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ucnvGetName(converter: COpaquePointer?, err: COpaquePointer?): Pcstr =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvGetName(converter?.value?.toCPointer<ByteVar>(), err?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ucnv_getNextUChar(converter: Long, source: Long, sourcelimit: PCSTR, err: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnv_getNextUChar(converter.toCPointer<ByteVar>(), source.toCPointer<ByteVar>(), sourcelimit.toCPointer<ByteVar>(), err.toCPointer<ByteVar>())
+public actual fun ucnvGetNextUchar(converter: COpaquePointer?, source: COpaquePointer?, sourcelimit: Pcstr, err: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvGetNextUchar(converter?.value?.toCPointer<ByteVar>(), source?.value?.toCPointer<ByteVar>(), sourcelimit?.value?.toCPointer<ByteVar>(), err?.value?.toCPointer<ByteVar>())
 
-public actual fun ucnv_getPlatform(converter: Long, err: Long): UConverterPlatform =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnv_getPlatform(converter.toCPointer<ByteVar>(), err.toCPointer<ByteVar>())
+public actual fun ucnvGetPlatform(converter: COpaquePointer?, err: COpaquePointer?): UConverterPlatform =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvGetPlatform(converter?.value?.toCPointer<ByteVar>(), err?.value?.toCPointer<ByteVar>())
 
-public actual fun ucnv_getStandard(n: UShort, perrorcode: Long): PCSTR =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnv_getStandard(n, perrorcode.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ucnvGetStandard(n: UShort, perrorcode: COpaquePointer?): Pcstr =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvGetStandard(n, perrorcode?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ucnv_getStandardName(name: PCSTR, standard: PCSTR, perrorcode: Long): PCSTR =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnv_getStandardName(name.toCPointer<ByteVar>(), standard.toCPointer<ByteVar>(), perrorcode.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ucnvGetStandardName(name: Pcstr, standard: Pcstr, perrorcode: COpaquePointer?): Pcstr =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvGetStandardName(name?.value?.toCPointer<ByteVar>(), standard?.value?.toCPointer<ByteVar>(), perrorcode?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ucnv_getStarters(converter: Long, starters: Long, err: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnv_getStarters(converter.toCPointer<ByteVar>(), starters.toCPointer<ByteVar>(), err.toCPointer<ByteVar>())
+public actual fun ucnvGetStarters(converter: COpaquePointer?, starters: COpaquePointer?, err: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvGetStarters(converter?.value?.toCPointer<ByteVar>(), starters?.value?.toCPointer<ByteVar>(), err?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ucnv_getSubstChars(converter: Long, subchars: PCSTR, len: Long, err: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnv_getSubstChars(converter.toCPointer<ByteVar>(), subchars.toCPointer<ByteVar>(), len.toCPointer<ByteVar>(), err.toCPointer<ByteVar>())
+public actual fun ucnvGetSubstChars(converter: COpaquePointer?, subchars: Pcstr, len: COpaquePointer?, err: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvGetSubstChars(converter?.value?.toCPointer<ByteVar>(), subchars?.value?.toCPointer<ByteVar>(), len?.value?.toCPointer<ByteVar>(), err?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ucnv_getToUCallBack(converter: Long, action: Long, context: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnv_getToUCallBack(converter.toCPointer<ByteVar>(), action.toCPointer<ByteVar>(), context.toCPointer<ByteVar>())
+public actual fun ucnvGetToUcallBack(converter: COpaquePointer?, action: COpaquePointer?, context: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvGetToUcallBack(converter?.value?.toCPointer<ByteVar>(), action?.value?.toCPointer<ByteVar>(), context?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ucnv_getType(converter: Long): UConverterType =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnv_getType(converter.toCPointer<ByteVar>())
+public actual fun ucnvGetType(converter: COpaquePointer?): UConverterType =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvGetType(converter?.value?.toCPointer<ByteVar>())
 
-public actual fun ucnv_getUnicodeSet(cnv: Long, setfillin: Long, whichset: UConverterUnicodeSet, perrorcode: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnv_getUnicodeSet(cnv.toCPointer<ByteVar>(), setfillin.toCPointer<ByteVar>(), whichset, perrorcode.toCPointer<ByteVar>())
+public actual fun ucnvGetUnicodeSet(cnv: COpaquePointer?, setfillin: COpaquePointer?, whichset: UConverterUnicodeSet, perrorcode: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvGetUnicodeSet(cnv?.value?.toCPointer<ByteVar>(), setfillin?.value?.toCPointer<ByteVar>(), whichset, perrorcode?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ucnv_isAmbiguous(cnv: Long): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnv_isAmbiguous(cnv.toCPointer<ByteVar>())
+public actual fun ucnvIsAmbiguous(cnv: COpaquePointer?): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvIsAmbiguous(cnv?.value?.toCPointer<ByteVar>())
 
-public actual fun ucnv_isFixedWidth(cnv: Long, status: Long): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnv_isFixedWidth(cnv.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun ucnvIsFixedWidth(cnv: COpaquePointer?, status: COpaquePointer?): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvIsFixedWidth(cnv?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun ucnv_open(convertername: PCSTR, err: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnv_open(convertername.toCPointer<ByteVar>(), err.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ucnvOpen(convertername: Pcstr, err: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvOpen(convertername?.value?.toCPointer<ByteVar>(), err?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ucnv_openAllNames(perrorcode: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnv_openAllNames(perrorcode.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ucnvOpenAllNames(perrorcode: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvOpenAllNames(perrorcode?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ucnv_openCCSID(codepage: Int, platform: UConverterPlatform, err: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnv_openCCSID(codepage, platform, err.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ucnvOpenCcsid(codepage: Int, platform: UConverterPlatform, err: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvOpenCcsid(codepage, platform, err?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ucnv_openPackage(packagename: PCSTR, convertername: PCSTR, err: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnv_openPackage(packagename.toCPointer<ByteVar>(), convertername.toCPointer<ByteVar>(), err.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ucnvOpenPackage(packagename: Pcstr, convertername: Pcstr, err: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvOpenPackage(packagename?.value?.toCPointer<ByteVar>(), convertername?.value?.toCPointer<ByteVar>(), err?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ucnv_openStandardNames(convname: PCSTR, standard: PCSTR, perrorcode: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnv_openStandardNames(convname.toCPointer<ByteVar>(), standard.toCPointer<ByteVar>(), perrorcode.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ucnvOpenStandardNames(convname: Pcstr, standard: Pcstr, perrorcode: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvOpenStandardNames(convname?.value?.toCPointer<ByteVar>(), standard?.value?.toCPointer<ByteVar>(), perrorcode?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ucnv_openU(name: Long, err: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnv_openU(name.toCPointer<ByteVar>(), err.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ucnvOpenU(name: COpaquePointer?, err: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvOpenU(name?.value?.toCPointer<ByteVar>(), err?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ucnv_reset(converter: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnv_reset(converter.toCPointer<ByteVar>())
+public actual fun ucnvReset(converter: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvReset(converter?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ucnv_resetFromUnicode(converter: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnv_resetFromUnicode(converter.toCPointer<ByteVar>())
+public actual fun ucnvResetFromUnicode(converter: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvResetFromUnicode(converter?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ucnv_resetToUnicode(converter: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnv_resetToUnicode(converter.toCPointer<ByteVar>())
+public actual fun ucnvResetToUnicode(converter: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvResetToUnicode(converter?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ucnv_safeClone(cnv: Long, stackbuffer: Long, pbuffersize: Long, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnv_safeClone(cnv.toCPointer<ByteVar>(), stackbuffer.toCPointer<ByteVar>(), pbuffersize.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ucnvSafeClone(cnv: COpaquePointer?, stackbuffer: COpaquePointer?, pbuffersize: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvSafeClone(cnv?.value?.toCPointer<ByteVar>(), stackbuffer?.value?.toCPointer<ByteVar>(), pbuffersize?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ucnv_setDefaultName(name: PCSTR) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnv_setDefaultName(name.toCPointer<ByteVar>())
+public actual fun ucnvSetDefaultName(name: Pcstr) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvSetDefaultName(name?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ucnv_setFallback(cnv: Long, usesfallback: Byte) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnv_setFallback(cnv.toCPointer<ByteVar>(), usesfallback)
+public actual fun ucnvSetFallback(cnv: COpaquePointer?, usesfallback: Byte) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvSetFallback(cnv?.value?.toCPointer<ByteVar>(), usesfallback)
 }
 
-public actual fun ucnv_setFromUCallBack(converter: Long, newaction: UConverterFromUCallback, newcontext: Long, oldaction: Long, oldcontext: Long, err: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnv_setFromUCallBack(converter.toCPointer<ByteVar>(), newaction.toLong().toCPointer<ByteVar>(), newcontext.toCPointer<ByteVar>(), oldaction.toCPointer<ByteVar>(), oldcontext.toCPointer<ByteVar>(), err.toCPointer<ByteVar>())
+public actual fun ucnvSetFromUcallBack(converter: COpaquePointer?, newaction: UConverterFromUCallback, newcontext: COpaquePointer?, oldaction: COpaquePointer?, oldcontext: COpaquePointer?, err: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvSetFromUcallBack(converter?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), newcontext?.value?.toCPointer<ByteVar>(), oldaction?.value?.toCPointer<ByteVar>(), oldcontext?.value?.toCPointer<ByteVar>(), err?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ucnv_setSubstChars(converter: Long, subchars: PCSTR, len: Byte, err: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnv_setSubstChars(converter.toCPointer<ByteVar>(), subchars.toCPointer<ByteVar>(), len, err.toCPointer<ByteVar>())
+public actual fun ucnvSetSubstChars(converter: COpaquePointer?, subchars: Pcstr, len: Byte, err: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvSetSubstChars(converter?.value?.toCPointer<ByteVar>(), subchars?.value?.toCPointer<ByteVar>(), len, err?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ucnv_setSubstString(cnv: Long, s: Long, length: Int, err: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnv_setSubstString(cnv.toCPointer<ByteVar>(), s.toCPointer<ByteVar>(), length, err.toCPointer<ByteVar>())
+public actual fun ucnvSetSubstString(cnv: COpaquePointer?, s: COpaquePointer?, length: Int, err: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvSetSubstString(cnv?.value?.toCPointer<ByteVar>(), s?.value?.toCPointer<ByteVar>(), length, err?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ucnv_setToUCallBack(converter: Long, newaction: UConverterToUCallback, newcontext: Long, oldaction: Long, oldcontext: Long, err: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnv_setToUCallBack(converter.toCPointer<ByteVar>(), newaction.toLong().toCPointer<ByteVar>(), newcontext.toCPointer<ByteVar>(), oldaction.toCPointer<ByteVar>(), oldcontext.toCPointer<ByteVar>(), err.toCPointer<ByteVar>())
+public actual fun ucnvSetToUcallBack(converter: COpaquePointer?, newaction: UConverterToUCallback, newcontext: COpaquePointer?, oldaction: COpaquePointer?, oldcontext: COpaquePointer?, err: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvSetToUcallBack(converter?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), newcontext?.value?.toCPointer<ByteVar>(), oldaction?.value?.toCPointer<ByteVar>(), oldcontext?.value?.toCPointer<ByteVar>(), err?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ucnv_toAlgorithmic(algorithmictype: UConverterType, cnv: Long, target: PCSTR, targetcapacity: Int, source: PCSTR, sourcelength: Int, perrorcode: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnv_toAlgorithmic(algorithmictype, cnv.toCPointer<ByteVar>(), target.toCPointer<ByteVar>(), targetcapacity, source.toCPointer<ByteVar>(), sourcelength, perrorcode.toCPointer<ByteVar>())
+public actual fun ucnvToAlgorithmic(algorithmictype: UConverterType, cnv: COpaquePointer?, target: Pcstr, targetcapacity: Int, source: Pcstr, sourcelength: Int, perrorcode: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvToAlgorithmic(algorithmictype, cnv?.value?.toCPointer<ByteVar>(), target?.value?.toCPointer<ByteVar>(), targetcapacity, source?.value?.toCPointer<ByteVar>(), sourcelength, perrorcode?.value?.toCPointer<ByteVar>())
 
-public actual fun ucnv_toUChars(cnv: Long, dest: Long, destcapacity: Int, src: PCSTR, srclength: Int, perrorcode: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnv_toUChars(cnv.toCPointer<ByteVar>(), dest.toCPointer<ByteVar>(), destcapacity, src.toCPointer<ByteVar>(), srclength, perrorcode.toCPointer<ByteVar>())
+public actual fun ucnvToUchars(cnv: COpaquePointer?, dest: COpaquePointer?, destcapacity: Int, src: Pcstr, srclength: Int, perrorcode: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvToUchars(cnv?.value?.toCPointer<ByteVar>(), dest?.value?.toCPointer<ByteVar>(), destcapacity, src?.value?.toCPointer<ByteVar>(), srclength, perrorcode?.value?.toCPointer<ByteVar>())
 
-public actual fun ucnv_toUCountPending(cnv: Long, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnv_toUCountPending(cnv.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun ucnvToUcountPending(cnv: COpaquePointer?, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvToUcountPending(cnv?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun ucnv_toUnicode(converter: Long, target: Long, targetlimit: Long, source: Long, sourcelimit: PCSTR, offsets: Long, flush: Byte, err: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnv_toUnicode(converter.toCPointer<ByteVar>(), target.toCPointer<ByteVar>(), targetlimit.toCPointer<ByteVar>(), source.toCPointer<ByteVar>(), sourcelimit.toCPointer<ByteVar>(), offsets.toCPointer<ByteVar>(), flush, err.toCPointer<ByteVar>())
+public actual fun ucnvToUnicode(converter: COpaquePointer?, target: COpaquePointer?, targetlimit: COpaquePointer?, source: COpaquePointer?, sourcelimit: Pcstr, offsets: COpaquePointer?, flush: Byte, err: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvToUnicode(converter?.value?.toCPointer<ByteVar>(), target?.value?.toCPointer<ByteVar>(), targetlimit?.value?.toCPointer<ByteVar>(), source?.value?.toCPointer<ByteVar>(), sourcelimit?.value?.toCPointer<ByteVar>(), offsets?.value?.toCPointer<ByteVar>(), flush, err?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ucnv_usesFallback(cnv: Long): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnv_usesFallback(cnv.toCPointer<ByteVar>())
+public actual fun ucnvUsesFallback(cnv: COpaquePointer?): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvUsesFallback(cnv?.value?.toCPointer<ByteVar>())
 
-public actual fun ucnvsel_close(sel: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvsel_close(sel.toCPointer<ByteVar>())
+public actual fun ucnvselClose(sel: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvselClose(sel?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ucnvsel_open(converterlist: Long, converterlistsize: Int, excludedcodepoints: Long, whichset: UConverterUnicodeSet, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvsel_open(converterlist.toCPointer<ByteVar>(), converterlistsize, excludedcodepoints.toCPointer<ByteVar>(), whichset, status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ucnvselOpen(converterlist: COpaquePointer?, converterlistsize: Int, excludedcodepoints: COpaquePointer?, whichset: UConverterUnicodeSet, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvselOpen(converterlist?.value?.toCPointer<ByteVar>(), converterlistsize, excludedcodepoints?.value?.toCPointer<ByteVar>(), whichset, status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ucnvsel_openFromSerialized(buffer: Long, length: Int, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvsel_openFromSerialized(buffer.toCPointer<ByteVar>(), length, status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ucnvselOpenFromSerialized(buffer: COpaquePointer?, length: Int, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvselOpenFromSerialized(buffer?.value?.toCPointer<ByteVar>(), length, status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ucnvsel_selectForString(sel: Long, s: Long, length: Int, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvsel_selectForString(sel.toCPointer<ByteVar>(), s.toCPointer<ByteVar>(), length, status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ucnvselSelectForString(sel: COpaquePointer?, s: COpaquePointer?, length: Int, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvselSelectForString(sel?.value?.toCPointer<ByteVar>(), s?.value?.toCPointer<ByteVar>(), length, status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ucnvsel_selectForUTF8(sel: Long, s: PCSTR, length: Int, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvsel_selectForUTF8(sel.toCPointer<ByteVar>(), s.toCPointer<ByteVar>(), length, status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ucnvselSelectForUtf8(sel: COpaquePointer?, s: Pcstr, length: Int, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvselSelectForUtf8(sel?.value?.toCPointer<ByteVar>(), s?.value?.toCPointer<ByteVar>(), length, status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ucnvsel_serialize(sel: Long, buffer: Long, buffercapacity: Int, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvsel_serialize(sel.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>(), buffercapacity, status.toCPointer<ByteVar>())
+public actual fun ucnvselSerialize(sel: COpaquePointer?, buffer: COpaquePointer?, buffercapacity: Int, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucnvselSerialize(sel?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), buffercapacity, status?.value?.toCPointer<ByteVar>())
 
-public actual fun ucol_cloneBinary(coll: Long, buffer: Long, capacity: Int, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucol_cloneBinary(coll.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>(), capacity, status.toCPointer<ByteVar>())
+public actual fun ucolCloneBinary(coll: COpaquePointer?, buffer: COpaquePointer?, capacity: Int, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucolCloneBinary(coll?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), capacity, status?.value?.toCPointer<ByteVar>())
 
-public actual fun ucol_close(coll: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucol_close(coll.toCPointer<ByteVar>())
+public actual fun ucolClose(coll: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucolClose(coll?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ucol_closeElements(elems: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucol_closeElements(elems.toCPointer<ByteVar>())
+public actual fun ucolCloseElements(elems: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucolCloseElements(elems?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ucol_countAvailable(): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucol_countAvailable()
+public actual fun ucolCountAvailable(): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucolCountAvailable()
 
-public actual fun ucol_equal(coll: Long, source: Long, sourcelength: Int, target: Long, targetlength: Int): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucol_equal(coll.toCPointer<ByteVar>(), source.toCPointer<ByteVar>(), sourcelength, target.toCPointer<ByteVar>(), targetlength)
+public actual fun ucolEqual(coll: COpaquePointer?, source: COpaquePointer?, sourcelength: Int, target: COpaquePointer?, targetlength: Int): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucolEqual(coll?.value?.toCPointer<ByteVar>(), source?.value?.toCPointer<ByteVar>(), sourcelength, target?.value?.toCPointer<ByteVar>(), targetlength)
 
-public actual fun ucol_getAttribute(coll: Long, attr: UColAttribute, status: Long): UColAttributeValue =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucol_getAttribute(coll.toCPointer<ByteVar>(), attr, status.toCPointer<ByteVar>())
+public actual fun ucolGetAttribute(coll: COpaquePointer?, attr: UColAttribute, status: COpaquePointer?): UColAttributeValue =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucolGetAttribute(coll?.value?.toCPointer<ByteVar>(), attr, status?.value?.toCPointer<ByteVar>())
 
-public actual fun ucol_getAvailable(localeindex: Int): PCSTR =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucol_getAvailable(localeindex)?.toLong() ?: 0L
+public actual fun ucolGetAvailable(localeindex: Int): Pcstr =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucolGetAvailable(localeindex)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ucol_getBound(source: Long, sourcelength: Int, boundtype: UColBoundMode, nooflevels: UInt, result: Long, resultlength: Int, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucol_getBound(source.toCPointer<ByteVar>(), sourcelength, boundtype, nooflevels, result.toCPointer<ByteVar>(), resultlength, status.toCPointer<ByteVar>())
+public actual fun ucolGetBound(source: COpaquePointer?, sourcelength: Int, boundtype: UColBoundMode, nooflevels: UInt, result: COpaquePointer?, resultlength: Int, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucolGetBound(source?.value?.toCPointer<ByteVar>(), sourcelength, boundtype, nooflevels, result?.value?.toCPointer<ByteVar>(), resultlength, status?.value?.toCPointer<ByteVar>())
 
-public actual fun ucol_getContractionsAndExpansions(coll: Long, contractions: Long, expansions: Long, addprefixes: Byte, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucol_getContractionsAndExpansions(coll.toCPointer<ByteVar>(), contractions.toCPointer<ByteVar>(), expansions.toCPointer<ByteVar>(), addprefixes, status.toCPointer<ByteVar>())
+public actual fun ucolGetContractionsAndExpansions(coll: COpaquePointer?, contractions: COpaquePointer?, expansions: COpaquePointer?, addprefixes: Byte, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucolGetContractionsAndExpansions(coll?.value?.toCPointer<ByteVar>(), contractions?.value?.toCPointer<ByteVar>(), expansions?.value?.toCPointer<ByteVar>(), addprefixes, status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ucol_getDisplayName(objloc: PCSTR, disploc: PCSTR, result: Long, resultlength: Int, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucol_getDisplayName(objloc.toCPointer<ByteVar>(), disploc.toCPointer<ByteVar>(), result.toCPointer<ByteVar>(), resultlength, status.toCPointer<ByteVar>())
+public actual fun ucolGetDisplayName(objloc: Pcstr, disploc: Pcstr, result: COpaquePointer?, resultlength: Int, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucolGetDisplayName(objloc?.value?.toCPointer<ByteVar>(), disploc?.value?.toCPointer<ByteVar>(), result?.value?.toCPointer<ByteVar>(), resultlength, status?.value?.toCPointer<ByteVar>())
 
-public actual fun ucol_getEquivalentReorderCodes(reordercode: Int, dest: Long, destcapacity: Int, perrorcode: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucol_getEquivalentReorderCodes(reordercode, dest.toCPointer<ByteVar>(), destcapacity, perrorcode.toCPointer<ByteVar>())
+public actual fun ucolGetEquivalentReorderCodes(reordercode: Int, dest: COpaquePointer?, destcapacity: Int, perrorcode: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucolGetEquivalentReorderCodes(reordercode, dest?.value?.toCPointer<ByteVar>(), destcapacity, perrorcode?.value?.toCPointer<ByteVar>())
 
-public actual fun ucol_getFunctionalEquivalent(result: PCSTR, resultcapacity: Int, keyword: PCSTR, locale: PCSTR, isavailable: Long, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucol_getFunctionalEquivalent(result.toCPointer<ByteVar>(), resultcapacity, keyword.toCPointer<ByteVar>(), locale.toCPointer<ByteVar>(), isavailable.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun ucolGetFunctionalEquivalent(result: Pcstr, resultcapacity: Int, keyword: Pcstr, locale: Pcstr, isavailable: COpaquePointer?, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucolGetFunctionalEquivalent(result?.value?.toCPointer<ByteVar>(), resultcapacity, keyword?.value?.toCPointer<ByteVar>(), locale?.value?.toCPointer<ByteVar>(), isavailable?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun ucol_getKeywordValues(keyword: PCSTR, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucol_getKeywordValues(keyword.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ucolGetKeywordValues(keyword: Pcstr, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucolGetKeywordValues(keyword?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ucol_getKeywordValuesForLocale(key: PCSTR, locale: PCSTR, commonlyused: Byte, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucol_getKeywordValuesForLocale(key.toCPointer<ByteVar>(), locale.toCPointer<ByteVar>(), commonlyused, status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ucolGetKeywordValuesForLocale(key: Pcstr, locale: Pcstr, commonlyused: Byte, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucolGetKeywordValuesForLocale(key?.value?.toCPointer<ByteVar>(), locale?.value?.toCPointer<ByteVar>(), commonlyused, status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ucol_getKeywords(status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucol_getKeywords(status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ucolGetKeywords(status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucolGetKeywords(status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ucol_getLocaleByType(coll: Long, type: ULocDataLocaleType, status: Long): PCSTR =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucol_getLocaleByType(coll.toCPointer<ByteVar>(), type, status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ucolGetLocaleByType(coll: COpaquePointer?, type: ULocDataLocaleType, status: COpaquePointer?): Pcstr =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucolGetLocaleByType(coll?.value?.toCPointer<ByteVar>(), type, status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ucol_getMaxExpansion(elems: Long, order: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucol_getMaxExpansion(elems.toCPointer<ByteVar>(), order)
+public actual fun ucolGetMaxExpansion(elems: COpaquePointer?, order: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucolGetMaxExpansion(elems?.value?.toCPointer<ByteVar>(), order)
 
-public actual fun ucol_getMaxVariable(coll: Long): UColReorderCode =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucol_getMaxVariable(coll.toCPointer<ByteVar>())
+public actual fun ucolGetMaxVariable(coll: COpaquePointer?): UColReorderCode =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucolGetMaxVariable(coll?.value?.toCPointer<ByteVar>())
 
-public actual fun ucol_getOffset(elems: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucol_getOffset(elems.toCPointer<ByteVar>())
+public actual fun ucolGetOffset(elems: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucolGetOffset(elems?.value?.toCPointer<ByteVar>())
 
-public actual fun ucol_getReorderCodes(coll: Long, dest: Long, destcapacity: Int, perrorcode: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucol_getReorderCodes(coll.toCPointer<ByteVar>(), dest.toCPointer<ByteVar>(), destcapacity, perrorcode.toCPointer<ByteVar>())
+public actual fun ucolGetReorderCodes(coll: COpaquePointer?, dest: COpaquePointer?, destcapacity: Int, perrorcode: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucolGetReorderCodes(coll?.value?.toCPointer<ByteVar>(), dest?.value?.toCPointer<ByteVar>(), destcapacity, perrorcode?.value?.toCPointer<ByteVar>())
 
-public actual fun ucol_getRules(coll: Long, length: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucol_getRules(coll.toCPointer<ByteVar>(), length.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ucolGetRules(coll: COpaquePointer?, length: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucolGetRules(coll?.value?.toCPointer<ByteVar>(), length?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ucol_getRulesEx(coll: Long, delta: UColRuleOption, buffer: Long, bufferlen: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucol_getRulesEx(coll.toCPointer<ByteVar>(), delta, buffer.toCPointer<ByteVar>(), bufferlen)
+public actual fun ucolGetRulesEx(coll: COpaquePointer?, delta: UColRuleOption, buffer: COpaquePointer?, bufferlen: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucolGetRulesEx(coll?.value?.toCPointer<ByteVar>(), delta, buffer?.value?.toCPointer<ByteVar>(), bufferlen)
 
-public actual fun ucol_getSortKey(coll: Long, source: Long, sourcelength: Int, result: Long, resultlength: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucol_getSortKey(coll.toCPointer<ByteVar>(), source.toCPointer<ByteVar>(), sourcelength, result.toCPointer<ByteVar>(), resultlength)
+public actual fun ucolGetSortKey(coll: COpaquePointer?, source: COpaquePointer?, sourcelength: Int, result: COpaquePointer?, resultlength: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucolGetSortKey(coll?.value?.toCPointer<ByteVar>(), source?.value?.toCPointer<ByteVar>(), sourcelength, result?.value?.toCPointer<ByteVar>(), resultlength)
 
-public actual fun ucol_getStrength(coll: Long): UColAttributeValue =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucol_getStrength(coll.toCPointer<ByteVar>())
+public actual fun ucolGetStrength(coll: COpaquePointer?): UColAttributeValue =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucolGetStrength(coll?.value?.toCPointer<ByteVar>())
 
-public actual fun ucol_getTailoredSet(coll: Long, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucol_getTailoredSet(coll.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ucolGetTailoredSet(coll: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucolGetTailoredSet(coll?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ucol_getUCAVersion(coll: Long, info: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucol_getUCAVersion(coll.toCPointer<ByteVar>(), info.toCPointer<ByteVar>())
+public actual fun ucolGetUcaversion(coll: COpaquePointer?, info: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucolGetUcaversion(coll?.value?.toCPointer<ByteVar>(), info?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ucol_getVariableTop(coll: Long, status: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucol_getVariableTop(coll.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun ucolGetVariableTop(coll: COpaquePointer?, status: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucolGetVariableTop(coll?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun ucol_getVersion(coll: Long, info: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucol_getVersion(coll.toCPointer<ByteVar>(), info.toCPointer<ByteVar>())
+public actual fun ucolGetVersion(coll: COpaquePointer?, info: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucolGetVersion(coll?.value?.toCPointer<ByteVar>(), info?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ucol_greater(coll: Long, source: Long, sourcelength: Int, target: Long, targetlength: Int): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucol_greater(coll.toCPointer<ByteVar>(), source.toCPointer<ByteVar>(), sourcelength, target.toCPointer<ByteVar>(), targetlength)
+public actual fun ucolGreater(coll: COpaquePointer?, source: COpaquePointer?, sourcelength: Int, target: COpaquePointer?, targetlength: Int): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucolGreater(coll?.value?.toCPointer<ByteVar>(), source?.value?.toCPointer<ByteVar>(), sourcelength, target?.value?.toCPointer<ByteVar>(), targetlength)
 
-public actual fun ucol_greaterOrEqual(coll: Long, source: Long, sourcelength: Int, target: Long, targetlength: Int): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucol_greaterOrEqual(coll.toCPointer<ByteVar>(), source.toCPointer<ByteVar>(), sourcelength, target.toCPointer<ByteVar>(), targetlength)
+public actual fun ucolGreaterOrEqual(coll: COpaquePointer?, source: COpaquePointer?, sourcelength: Int, target: COpaquePointer?, targetlength: Int): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucolGreaterOrEqual(coll?.value?.toCPointer<ByteVar>(), source?.value?.toCPointer<ByteVar>(), sourcelength, target?.value?.toCPointer<ByteVar>(), targetlength)
 
-public actual fun ucol_keyHashCode(key: Long, length: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucol_keyHashCode(key.toCPointer<ByteVar>(), length)
+public actual fun ucolKeyHashCode(key: COpaquePointer?, length: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucolKeyHashCode(key?.value?.toCPointer<ByteVar>(), length)
 
-public actual fun ucol_mergeSortkeys(src1: Long, src1length: Int, src2: Long, src2length: Int, dest: Long, destcapacity: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucol_mergeSortkeys(src1.toCPointer<ByteVar>(), src1length, src2.toCPointer<ByteVar>(), src2length, dest.toCPointer<ByteVar>(), destcapacity)
+public actual fun ucolMergeSortkeys(src1: COpaquePointer?, src1length: Int, src2: COpaquePointer?, src2length: Int, dest: COpaquePointer?, destcapacity: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucolMergeSortkeys(src1?.value?.toCPointer<ByteVar>(), src1length, src2?.value?.toCPointer<ByteVar>(), src2length, dest?.value?.toCPointer<ByteVar>(), destcapacity)
 
-public actual fun ucol_next(elems: Long, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucol_next(elems.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun ucolNext(elems: COpaquePointer?, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucolNext(elems?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun ucol_nextSortKeyPart(coll: Long, iter: Long, state: Long, dest: Long, count: Int, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucol_nextSortKeyPart(coll.toCPointer<ByteVar>(), iter.toCPointer<ByteVar>(), state.toCPointer<ByteVar>(), dest.toCPointer<ByteVar>(), count, status.toCPointer<ByteVar>())
+public actual fun ucolNextSortKeyPart(coll: COpaquePointer?, iter: COpaquePointer?, state: COpaquePointer?, dest: COpaquePointer?, count: Int, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucolNextSortKeyPart(coll?.value?.toCPointer<ByteVar>(), iter?.value?.toCPointer<ByteVar>(), state?.value?.toCPointer<ByteVar>(), dest?.value?.toCPointer<ByteVar>(), count, status?.value?.toCPointer<ByteVar>())
 
-public actual fun ucol_open(loc: PCSTR, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucol_open(loc.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ucolOpen(loc: Pcstr, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucolOpen(loc?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ucol_openAvailableLocales(status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucol_openAvailableLocales(status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ucolOpenAvailableLocales(status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucolOpenAvailableLocales(status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ucol_openBinary(bin: Long, length: Int, base: Long, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucol_openBinary(bin.toCPointer<ByteVar>(), length, base.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ucolOpenBinary(bin: COpaquePointer?, length: Int, base: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucolOpenBinary(bin?.value?.toCPointer<ByteVar>(), length, base?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ucol_openElements(coll: Long, text: Long, textlength: Int, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucol_openElements(coll.toCPointer<ByteVar>(), text.toCPointer<ByteVar>(), textlength, status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ucolOpenElements(coll: COpaquePointer?, text: COpaquePointer?, textlength: Int, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucolOpenElements(coll?.value?.toCPointer<ByteVar>(), text?.value?.toCPointer<ByteVar>(), textlength, status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ucol_openRules(rules: Long, ruleslength: Int, normalizationmode: UColAttributeValue, strength: UColAttributeValue, parseerror: Long, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucol_openRules(rules.toCPointer<ByteVar>(), ruleslength, normalizationmode, strength, parseerror.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ucolOpenRules(rules: COpaquePointer?, ruleslength: Int, normalizationmode: UColAttributeValue, strength: UColAttributeValue, parseerror: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucolOpenRules(rules?.value?.toCPointer<ByteVar>(), ruleslength, normalizationmode, strength, parseerror?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ucol_previous(elems: Long, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucol_previous(elems.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun ucolPrevious(elems: COpaquePointer?, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucolPrevious(elems?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun ucol_primaryOrder(order: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucol_primaryOrder(order)
+public actual fun ucolPrimaryOrder(order: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucolPrimaryOrder(order)
 
-public actual fun ucol_reset(elems: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucol_reset(elems.toCPointer<ByteVar>())
+public actual fun ucolReset(elems: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucolReset(elems?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ucol_safeClone(coll: Long, stackbuffer: Long, pbuffersize: Long, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucol_safeClone(coll.toCPointer<ByteVar>(), stackbuffer.toCPointer<ByteVar>(), pbuffersize.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ucolSafeClone(coll: COpaquePointer?, stackbuffer: COpaquePointer?, pbuffersize: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucolSafeClone(coll?.value?.toCPointer<ByteVar>(), stackbuffer?.value?.toCPointer<ByteVar>(), pbuffersize?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ucol_secondaryOrder(order: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucol_secondaryOrder(order)
+public actual fun ucolSecondaryOrder(order: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucolSecondaryOrder(order)
 
-public actual fun ucol_setAttribute(coll: Long, attr: UColAttribute, value: UColAttributeValue, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucol_setAttribute(coll.toCPointer<ByteVar>(), attr, value, status.toCPointer<ByteVar>())
+public actual fun ucolSetAttribute(coll: COpaquePointer?, attr: UColAttribute, value: UColAttributeValue, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucolSetAttribute(coll?.value?.toCPointer<ByteVar>(), attr, value, status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ucol_setMaxVariable(coll: Long, group: UColReorderCode, perrorcode: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucol_setMaxVariable(coll.toCPointer<ByteVar>(), group, perrorcode.toCPointer<ByteVar>())
+public actual fun ucolSetMaxVariable(coll: COpaquePointer?, group: UColReorderCode, perrorcode: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucolSetMaxVariable(coll?.value?.toCPointer<ByteVar>(), group, perrorcode?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ucol_setOffset(elems: Long, offset: Int, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucol_setOffset(elems.toCPointer<ByteVar>(), offset, status.toCPointer<ByteVar>())
+public actual fun ucolSetOffset(elems: COpaquePointer?, offset: Int, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucolSetOffset(elems?.value?.toCPointer<ByteVar>(), offset, status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ucol_setReorderCodes(coll: Long, reordercodes: Long, reordercodeslength: Int, perrorcode: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucol_setReorderCodes(coll.toCPointer<ByteVar>(), reordercodes.toCPointer<ByteVar>(), reordercodeslength, perrorcode.toCPointer<ByteVar>())
+public actual fun ucolSetReorderCodes(coll: COpaquePointer?, reordercodes: COpaquePointer?, reordercodeslength: Int, perrorcode: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucolSetReorderCodes(coll?.value?.toCPointer<ByteVar>(), reordercodes?.value?.toCPointer<ByteVar>(), reordercodeslength, perrorcode?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ucol_setStrength(coll: Long, strength: UColAttributeValue) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucol_setStrength(coll.toCPointer<ByteVar>(), strength)
+public actual fun ucolSetStrength(coll: COpaquePointer?, strength: UColAttributeValue) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucolSetStrength(coll?.value?.toCPointer<ByteVar>(), strength)
 }
 
-public actual fun ucol_setText(elems: Long, text: Long, textlength: Int, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucol_setText(elems.toCPointer<ByteVar>(), text.toCPointer<ByteVar>(), textlength, status.toCPointer<ByteVar>())
+public actual fun ucolSetText(elems: COpaquePointer?, text: COpaquePointer?, textlength: Int, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucolSetText(elems?.value?.toCPointer<ByteVar>(), text?.value?.toCPointer<ByteVar>(), textlength, status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ucol_strcoll(coll: Long, source: Long, sourcelength: Int, target: Long, targetlength: Int): UCollationResult =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucol_strcoll(coll.toCPointer<ByteVar>(), source.toCPointer<ByteVar>(), sourcelength, target.toCPointer<ByteVar>(), targetlength)
+public actual fun ucolStrcoll(coll: COpaquePointer?, source: COpaquePointer?, sourcelength: Int, target: COpaquePointer?, targetlength: Int): UCollationResult =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucolStrcoll(coll?.value?.toCPointer<ByteVar>(), source?.value?.toCPointer<ByteVar>(), sourcelength, target?.value?.toCPointer<ByteVar>(), targetlength)
 
-public actual fun ucol_strcollIter(coll: Long, siter: Long, titer: Long, status: Long): UCollationResult =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucol_strcollIter(coll.toCPointer<ByteVar>(), siter.toCPointer<ByteVar>(), titer.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun ucolStrcollIter(coll: COpaquePointer?, siter: COpaquePointer?, titer: COpaquePointer?, status: COpaquePointer?): UCollationResult =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucolStrcollIter(coll?.value?.toCPointer<ByteVar>(), siter?.value?.toCPointer<ByteVar>(), titer?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun ucol_strcollUTF8(coll: Long, source: PCSTR, sourcelength: Int, target: PCSTR, targetlength: Int, status: Long): UCollationResult =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucol_strcollUTF8(coll.toCPointer<ByteVar>(), source.toCPointer<ByteVar>(), sourcelength, target.toCPointer<ByteVar>(), targetlength, status.toCPointer<ByteVar>())
+public actual fun ucolStrcollUtf8(coll: COpaquePointer?, source: Pcstr, sourcelength: Int, target: Pcstr, targetlength: Int, status: COpaquePointer?): UCollationResult =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucolStrcollUtf8(coll?.value?.toCPointer<ByteVar>(), source?.value?.toCPointer<ByteVar>(), sourcelength, target?.value?.toCPointer<ByteVar>(), targetlength, status?.value?.toCPointer<ByteVar>())
 
-public actual fun ucol_tertiaryOrder(order: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucol_tertiaryOrder(order)
+public actual fun ucolTertiaryOrder(order: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucolTertiaryOrder(order)
 
-public actual fun ucpmap_get(map: Long, c: Int): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucpmap_get(map.toCPointer<ByteVar>(), c)
+public actual fun ucpmapGet(map: COpaquePointer?, c: Int): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucpmapGet(map?.value?.toCPointer<ByteVar>(), c)
 
-public actual fun ucpmap_getRange(map: Long, start: Int, option: UCPMapRangeOption, surrogatevalue: UInt, filter: Long, context: Long, pvalue: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucpmap_getRange(map.toCPointer<ByteVar>(), start, option, surrogatevalue, filter.toCPointer<ByteVar>(), context.toCPointer<ByteVar>(), pvalue.toCPointer<ByteVar>())
+public actual fun ucpmapGetRange(map: COpaquePointer?, start: Int, option: UCPMapRangeOption, surrogatevalue: UInt, filter: COpaquePointer?, context: COpaquePointer?, pvalue: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucpmapGetRange(map?.value?.toCPointer<ByteVar>(), start, option, surrogatevalue, filter?.value?.toCPointer<ByteVar>(), context?.value?.toCPointer<ByteVar>(), pvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun ucptrie_close(trie: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucptrie_close(trie.toCPointer<ByteVar>())
+public actual fun ucptrieClose(trie: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucptrieClose(trie?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ucptrie_get(trie: Long, c: Int): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucptrie_get(trie.toCPointer<ByteVar>(), c)
+public actual fun ucptrieGet(trie: COpaquePointer?, c: Int): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucptrieGet(trie?.value?.toCPointer<ByteVar>(), c)
 
-public actual fun ucptrie_getRange(trie: Long, start: Int, option: UCPMapRangeOption, surrogatevalue: UInt, filter: Long, context: Long, pvalue: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucptrie_getRange(trie.toCPointer<ByteVar>(), start, option, surrogatevalue, filter.toCPointer<ByteVar>(), context.toCPointer<ByteVar>(), pvalue.toCPointer<ByteVar>())
+public actual fun ucptrieGetRange(trie: COpaquePointer?, start: Int, option: UCPMapRangeOption, surrogatevalue: UInt, filter: COpaquePointer?, context: COpaquePointer?, pvalue: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucptrieGetRange(trie?.value?.toCPointer<ByteVar>(), start, option, surrogatevalue, filter?.value?.toCPointer<ByteVar>(), context?.value?.toCPointer<ByteVar>(), pvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun ucptrie_getType(trie: Long): UCPTrieType =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucptrie_getType(trie.toCPointer<ByteVar>())
+public actual fun ucptrieGetType(trie: COpaquePointer?): UCPTrieType =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucptrieGetType(trie?.value?.toCPointer<ByteVar>())
 
-public actual fun ucptrie_getValueWidth(trie: Long): UCPTrieValueWidth =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucptrie_getValueWidth(trie.toCPointer<ByteVar>())
+public actual fun ucptrieGetValueWidth(trie: COpaquePointer?): UCPTrieValueWidth =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucptrieGetValueWidth(trie?.value?.toCPointer<ByteVar>())
 
-public actual fun ucptrie_internalSmallIndex(trie: Long, c: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucptrie_internalSmallIndex(trie.toCPointer<ByteVar>(), c)
+public actual fun ucptrieInternalSmallIndex(trie: COpaquePointer?, c: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucptrieInternalSmallIndex(trie?.value?.toCPointer<ByteVar>(), c)
 
-public actual fun ucptrie_internalSmallU8Index(trie: Long, lt1: Int, t2: UByte, t3: UByte): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucptrie_internalSmallU8Index(trie.toCPointer<ByteVar>(), lt1, t2, t3)
+public actual fun ucptrieInternalSmallU8Index(trie: COpaquePointer?, lt1: Int, t2: UByte, t3: UByte): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucptrieInternalSmallU8Index(trie?.value?.toCPointer<ByteVar>(), lt1, t2, t3)
 
-public actual fun ucptrie_internalU8PrevIndex(trie: Long, c: Int, start: Long, src: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucptrie_internalU8PrevIndex(trie.toCPointer<ByteVar>(), c, start.toCPointer<ByteVar>(), src.toCPointer<ByteVar>())
+public actual fun ucptrieInternalU8PrevIndex(trie: COpaquePointer?, c: Int, start: COpaquePointer?, src: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucptrieInternalU8PrevIndex(trie?.value?.toCPointer<ByteVar>(), c, start?.value?.toCPointer<ByteVar>(), src?.value?.toCPointer<ByteVar>())
 
-public actual fun ucptrie_openFromBinary(type: UCPTrieType, valuewidth: UCPTrieValueWidth, data: Long, length: Int, pactuallength: Long, perrorcode: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucptrie_openFromBinary(type, valuewidth, data.toCPointer<ByteVar>(), length, pactuallength.toCPointer<ByteVar>(), perrorcode.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ucptrieOpenFromBinary(type: UCPTrieType, valuewidth: UCPTrieValueWidth, data: COpaquePointer?, length: Int, pactuallength: COpaquePointer?, perrorcode: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucptrieOpenFromBinary(type, valuewidth, data?.value?.toCPointer<ByteVar>(), length, pactuallength?.value?.toCPointer<ByteVar>(), perrorcode?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ucptrie_toBinary(trie: Long, data: Long, capacity: Int, perrorcode: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucptrie_toBinary(trie.toCPointer<ByteVar>(), data.toCPointer<ByteVar>(), capacity, perrorcode.toCPointer<ByteVar>())
+public actual fun ucptrieToBinary(trie: COpaquePointer?, data: COpaquePointer?, capacity: Int, perrorcode: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucptrieToBinary(trie?.value?.toCPointer<ByteVar>(), data?.value?.toCPointer<ByteVar>(), capacity, perrorcode?.value?.toCPointer<ByteVar>())
 
-public actual fun ucsdet_close(ucsd: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucsdet_close(ucsd.toCPointer<ByteVar>())
+public actual fun ucsdetClose(ucsd: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucsdetClose(ucsd?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ucsdet_detect(ucsd: Long, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucsdet_detect(ucsd.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ucsdetDetect(ucsd: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucsdetDetect(ucsd?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ucsdet_detectAll(ucsd: Long, matchesfound: Long, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucsdet_detectAll(ucsd.toCPointer<ByteVar>(), matchesfound.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ucsdetDetectAll(ucsd: COpaquePointer?, matchesfound: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucsdetDetectAll(ucsd?.value?.toCPointer<ByteVar>(), matchesfound?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ucsdet_enableInputFilter(ucsd: Long, filter: Byte): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucsdet_enableInputFilter(ucsd.toCPointer<ByteVar>(), filter)
+public actual fun ucsdetEnableInputFilter(ucsd: COpaquePointer?, filter: Byte): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucsdetEnableInputFilter(ucsd?.value?.toCPointer<ByteVar>(), filter)
 
-public actual fun ucsdet_getAllDetectableCharsets(ucsd: Long, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucsdet_getAllDetectableCharsets(ucsd.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ucsdetGetAllDetectableCharsets(ucsd: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucsdetGetAllDetectableCharsets(ucsd?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ucsdet_getConfidence(ucsm: Long, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucsdet_getConfidence(ucsm.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun ucsdetGetConfidence(ucsm: COpaquePointer?, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucsdetGetConfidence(ucsm?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun ucsdet_getLanguage(ucsm: Long, status: Long): PCSTR =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucsdet_getLanguage(ucsm.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ucsdetGetLanguage(ucsm: COpaquePointer?, status: COpaquePointer?): Pcstr =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucsdetGetLanguage(ucsm?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ucsdet_getName(ucsm: Long, status: Long): PCSTR =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucsdet_getName(ucsm.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ucsdetGetName(ucsm: COpaquePointer?, status: COpaquePointer?): Pcstr =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucsdetGetName(ucsm?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ucsdet_getUChars(ucsm: Long, buf: Long, cap: Int, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucsdet_getUChars(ucsm.toCPointer<ByteVar>(), buf.toCPointer<ByteVar>(), cap, status.toCPointer<ByteVar>())
+public actual fun ucsdetGetUchars(ucsm: COpaquePointer?, buf: COpaquePointer?, cap: Int, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucsdetGetUchars(ucsm?.value?.toCPointer<ByteVar>(), buf?.value?.toCPointer<ByteVar>(), cap, status?.value?.toCPointer<ByteVar>())
 
-public actual fun ucsdet_isInputFilterEnabled(ucsd: Long): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucsdet_isInputFilterEnabled(ucsd.toCPointer<ByteVar>())
+public actual fun ucsdetIsInputFilterEnabled(ucsd: COpaquePointer?): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucsdetIsInputFilterEnabled(ucsd?.value?.toCPointer<ByteVar>())
 
-public actual fun ucsdet_open(status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucsdet_open(status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ucsdetOpen(status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucsdetOpen(status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ucsdet_setDeclaredEncoding(ucsd: Long, encoding: PCSTR, length: Int, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucsdet_setDeclaredEncoding(ucsd.toCPointer<ByteVar>(), encoding.toCPointer<ByteVar>(), length, status.toCPointer<ByteVar>())
+public actual fun ucsdetSetDeclaredEncoding(ucsd: COpaquePointer?, encoding: Pcstr, length: Int, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucsdetSetDeclaredEncoding(ucsd?.value?.toCPointer<ByteVar>(), encoding?.value?.toCPointer<ByteVar>(), length, status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ucsdet_setText(ucsd: Long, textin: PCSTR, len: Int, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucsdet_setText(ucsd.toCPointer<ByteVar>(), textin.toCPointer<ByteVar>(), len, status.toCPointer<ByteVar>())
+public actual fun ucsdetSetText(ucsd: COpaquePointer?, textin: Pcstr, len: Int, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucsdetSetText(ucsd?.value?.toCPointer<ByteVar>(), textin?.value?.toCPointer<ByteVar>(), len, status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ucurr_countCurrencies(locale: PCSTR, date: Double, ec: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucurr_countCurrencies(locale.toCPointer<ByteVar>(), date, ec.toCPointer<ByteVar>())
+public actual fun ucurrCountCurrencies(locale: Pcstr, date: Double, ec: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucurrCountCurrencies(locale?.value?.toCPointer<ByteVar>(), date, ec?.value?.toCPointer<ByteVar>())
 
-public actual fun ucurr_forLocale(locale: PCSTR, buff: Long, buffcapacity: Int, ec: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucurr_forLocale(locale.toCPointer<ByteVar>(), buff.toCPointer<ByteVar>(), buffcapacity, ec.toCPointer<ByteVar>())
+public actual fun ucurrForLocale(locale: Pcstr, buff: COpaquePointer?, buffcapacity: Int, ec: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucurrForLocale(locale?.value?.toCPointer<ByteVar>(), buff?.value?.toCPointer<ByteVar>(), buffcapacity, ec?.value?.toCPointer<ByteVar>())
 
-public actual fun ucurr_forLocaleAndDate(locale: PCSTR, date: Double, index: Int, buff: Long, buffcapacity: Int, ec: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucurr_forLocaleAndDate(locale.toCPointer<ByteVar>(), date, index, buff.toCPointer<ByteVar>(), buffcapacity, ec.toCPointer<ByteVar>())
+public actual fun ucurrForLocaleAndDate(locale: Pcstr, date: Double, index: Int, buff: COpaquePointer?, buffcapacity: Int, ec: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucurrForLocaleAndDate(locale?.value?.toCPointer<ByteVar>(), date, index, buff?.value?.toCPointer<ByteVar>(), buffcapacity, ec?.value?.toCPointer<ByteVar>())
 
-public actual fun ucurr_getDefaultFractionDigits(currency: Long, ec: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucurr_getDefaultFractionDigits(currency.toCPointer<ByteVar>(), ec.toCPointer<ByteVar>())
+public actual fun ucurrGetDefaultFractionDigits(currency: COpaquePointer?, ec: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucurrGetDefaultFractionDigits(currency?.value?.toCPointer<ByteVar>(), ec?.value?.toCPointer<ByteVar>())
 
-public actual fun ucurr_getDefaultFractionDigitsForUsage(currency: Long, usage: UCurrencyUsage, ec: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucurr_getDefaultFractionDigitsForUsage(currency.toCPointer<ByteVar>(), usage, ec.toCPointer<ByteVar>())
+public actual fun ucurrGetDefaultFractionDigitsForUsage(currency: COpaquePointer?, usage: UCurrencyUsage, ec: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucurrGetDefaultFractionDigitsForUsage(currency?.value?.toCPointer<ByteVar>(), usage, ec?.value?.toCPointer<ByteVar>())
 
-public actual fun ucurr_getKeywordValuesForLocale(key: PCSTR, locale: PCSTR, commonlyused: Byte, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucurr_getKeywordValuesForLocale(key.toCPointer<ByteVar>(), locale.toCPointer<ByteVar>(), commonlyused, status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ucurrGetKeywordValuesForLocale(key: Pcstr, locale: Pcstr, commonlyused: Byte, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucurrGetKeywordValuesForLocale(key?.value?.toCPointer<ByteVar>(), locale?.value?.toCPointer<ByteVar>(), commonlyused, status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ucurr_getName(currency: Long, locale: PCSTR, namestyle: UCurrNameStyle, ischoiceformat: Long, len: Long, ec: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucurr_getName(currency.toCPointer<ByteVar>(), locale.toCPointer<ByteVar>(), namestyle, ischoiceformat.toCPointer<ByteVar>(), len.toCPointer<ByteVar>(), ec.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ucurrGetName(currency: COpaquePointer?, locale: Pcstr, namestyle: UCurrNameStyle, ischoiceformat: COpaquePointer?, len: COpaquePointer?, ec: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucurrGetName(currency?.value?.toCPointer<ByteVar>(), locale?.value?.toCPointer<ByteVar>(), namestyle, ischoiceformat?.value?.toCPointer<ByteVar>(), len?.value?.toCPointer<ByteVar>(), ec?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ucurr_getNumericCode(currency: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucurr_getNumericCode(currency.toCPointer<ByteVar>())
+public actual fun ucurrGetNumericCode(currency: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucurrGetNumericCode(currency?.value?.toCPointer<ByteVar>())
 
-public actual fun ucurr_getPluralName(currency: Long, locale: PCSTR, ischoiceformat: Long, pluralcount: PCSTR, len: Long, ec: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucurr_getPluralName(currency.toCPointer<ByteVar>(), locale.toCPointer<ByteVar>(), ischoiceformat.toCPointer<ByteVar>(), pluralcount.toCPointer<ByteVar>(), len.toCPointer<ByteVar>(), ec.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ucurrGetPluralName(currency: COpaquePointer?, locale: Pcstr, ischoiceformat: COpaquePointer?, pluralcount: Pcstr, len: COpaquePointer?, ec: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucurrGetPluralName(currency?.value?.toCPointer<ByteVar>(), locale?.value?.toCPointer<ByteVar>(), ischoiceformat?.value?.toCPointer<ByteVar>(), pluralcount?.value?.toCPointer<ByteVar>(), len?.value?.toCPointer<ByteVar>(), ec?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ucurr_getRoundingIncrement(currency: Long, ec: Long): Double =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucurr_getRoundingIncrement(currency.toCPointer<ByteVar>(), ec.toCPointer<ByteVar>())
+public actual fun ucurrGetRoundingIncrement(currency: COpaquePointer?, ec: COpaquePointer?): Double =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucurrGetRoundingIncrement(currency?.value?.toCPointer<ByteVar>(), ec?.value?.toCPointer<ByteVar>())
 
-public actual fun ucurr_getRoundingIncrementForUsage(currency: Long, usage: UCurrencyUsage, ec: Long): Double =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucurr_getRoundingIncrementForUsage(currency.toCPointer<ByteVar>(), usage, ec.toCPointer<ByteVar>())
+public actual fun ucurrGetRoundingIncrementForUsage(currency: COpaquePointer?, usage: UCurrencyUsage, ec: COpaquePointer?): Double =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucurrGetRoundingIncrementForUsage(currency?.value?.toCPointer<ByteVar>(), usage, ec?.value?.toCPointer<ByteVar>())
 
-public actual fun ucurr_isAvailable(isocode: Long, from: Double, to: Double, errorcode: Long): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucurr_isAvailable(isocode.toCPointer<ByteVar>(), from, to, errorcode.toCPointer<ByteVar>())
+public actual fun ucurrIsAvailable(isocode: COpaquePointer?, from: Double, to: Double, errorcode: COpaquePointer?): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucurrIsAvailable(isocode?.value?.toCPointer<ByteVar>(), from, to, errorcode?.value?.toCPointer<ByteVar>())
 
-public actual fun ucurr_openISOCurrencies(currtype: UInt, perrorcode: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucurr_openISOCurrencies(currtype, perrorcode.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ucurrOpenIsocurrencies(currtype: UInt, perrorcode: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucurrOpenIsocurrencies(currtype, perrorcode?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ucurr_register(isocode: Long, locale: PCSTR, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucurr_register(isocode.toCPointer<ByteVar>(), locale.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ucurrRegister(isocode: COpaquePointer?, locale: Pcstr, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucurrRegister(isocode?.value?.toCPointer<ByteVar>(), locale?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ucurr_unregister(key: Long, status: Long): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucurr_unregister(key.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun ucurrUnregister(key: COpaquePointer?, status: COpaquePointer?): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ucurrUnregister(key?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun udat_adoptNumberFormat(fmt: Long, numberformattoadopt: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udat_adoptNumberFormat(fmt.toCPointer<ByteVar>(), numberformattoadopt.toCPointer<ByteVar>())
+public actual fun udatAdoptNumberFormat(fmt: COpaquePointer?, numberformattoadopt: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatAdoptNumberFormat(fmt?.value?.toCPointer<ByteVar>(), numberformattoadopt?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun udat_adoptNumberFormatForFields(fmt: Long, fields: Long, numberformattoset: Long, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udat_adoptNumberFormatForFields(fmt.toCPointer<ByteVar>(), fields.toCPointer<ByteVar>(), numberformattoset.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun udatAdoptNumberFormatForFields(fmt: COpaquePointer?, fields: COpaquePointer?, numberformattoset: COpaquePointer?, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatAdoptNumberFormatForFields(fmt?.value?.toCPointer<ByteVar>(), fields?.value?.toCPointer<ByteVar>(), numberformattoset?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun udat_applyPattern(format: Long, localized: Byte, pattern: Long, patternlength: Int) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udat_applyPattern(format.toCPointer<ByteVar>(), localized, pattern.toCPointer<ByteVar>(), patternlength)
+public actual fun udatApplyPattern(format: COpaquePointer?, localized: Byte, pattern: COpaquePointer?, patternlength: Int) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatApplyPattern(format?.value?.toCPointer<ByteVar>(), localized, pattern?.value?.toCPointer<ByteVar>(), patternlength)
 }
 
-public actual fun udat_clone(fmt: Long, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udat_clone(fmt.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun udatClone(fmt: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatClone(fmt?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun udat_close(format: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udat_close(format.toCPointer<ByteVar>())
+public actual fun udatClose(format: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatClose(format?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun udat_countAvailable(): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udat_countAvailable()
+public actual fun udatCountAvailable(): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatCountAvailable()
 
-public actual fun udat_countSymbols(fmt: Long, type: UDateFormatSymbolType): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udat_countSymbols(fmt.toCPointer<ByteVar>(), type)
+public actual fun udatCountSymbols(fmt: COpaquePointer?, type: UDateFormatSymbolType): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatCountSymbols(fmt?.value?.toCPointer<ByteVar>(), type)
 
-public actual fun udat_format(format: Long, datetoformat: Double, result: Long, resultlength: Int, position: Long, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udat_format(format.toCPointer<ByteVar>(), datetoformat, result.toCPointer<ByteVar>(), resultlength, position.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun udatFormat(format: COpaquePointer?, datetoformat: Double, result: COpaquePointer?, resultlength: Int, position: COpaquePointer?, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatFormat(format?.value?.toCPointer<ByteVar>(), datetoformat, result?.value?.toCPointer<ByteVar>(), resultlength, position?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun udat_formatCalendar(format: Long, calendar: Long, result: Long, capacity: Int, position: Long, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udat_formatCalendar(format.toCPointer<ByteVar>(), calendar.toCPointer<ByteVar>(), result.toCPointer<ByteVar>(), capacity, position.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun udatFormatCalendar(format: COpaquePointer?, calendar: COpaquePointer?, result: COpaquePointer?, capacity: Int, position: COpaquePointer?, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatFormatCalendar(format?.value?.toCPointer<ByteVar>(), calendar?.value?.toCPointer<ByteVar>(), result?.value?.toCPointer<ByteVar>(), capacity, position?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun udat_formatCalendarForFields(format: Long, calendar: Long, result: Long, capacity: Int, fpositer: Long, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udat_formatCalendarForFields(format.toCPointer<ByteVar>(), calendar.toCPointer<ByteVar>(), result.toCPointer<ByteVar>(), capacity, fpositer.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun udatFormatCalendarForFields(format: COpaquePointer?, calendar: COpaquePointer?, result: COpaquePointer?, capacity: Int, fpositer: COpaquePointer?, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatFormatCalendarForFields(format?.value?.toCPointer<ByteVar>(), calendar?.value?.toCPointer<ByteVar>(), result?.value?.toCPointer<ByteVar>(), capacity, fpositer?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun udat_formatForFields(format: Long, datetoformat: Double, result: Long, resultlength: Int, fpositer: Long, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udat_formatForFields(format.toCPointer<ByteVar>(), datetoformat, result.toCPointer<ByteVar>(), resultlength, fpositer.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun udatFormatForFields(format: COpaquePointer?, datetoformat: Double, result: COpaquePointer?, resultlength: Int, fpositer: COpaquePointer?, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatFormatForFields(format?.value?.toCPointer<ByteVar>(), datetoformat, result?.value?.toCPointer<ByteVar>(), resultlength, fpositer?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun udat_get2DigitYearStart(fmt: Long, status: Long): Double =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udat_get2DigitYearStart(fmt.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun udatGet2DigitYearStart(fmt: COpaquePointer?, status: COpaquePointer?): Double =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatGet2DigitYearStart(fmt?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun udat_getAvailable(localeindex: Int): PCSTR =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udat_getAvailable(localeindex)?.toLong() ?: 0L
+public actual fun udatGetAvailable(localeindex: Int): Pcstr =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatGetAvailable(localeindex)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun udat_getBooleanAttribute(fmt: Long, attr: UDateFormatBooleanAttribute, status: Long): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udat_getBooleanAttribute(fmt.toCPointer<ByteVar>(), attr, status.toCPointer<ByteVar>())
+public actual fun udatGetBooleanAttribute(fmt: COpaquePointer?, attr: UDateFormatBooleanAttribute, status: COpaquePointer?): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatGetBooleanAttribute(fmt?.value?.toCPointer<ByteVar>(), attr, status?.value?.toCPointer<ByteVar>())
 
-public actual fun udat_getCalendar(fmt: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udat_getCalendar(fmt.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun udatGetCalendar(fmt: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatGetCalendar(fmt?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun udat_getContext(fmt: Long, type: UDisplayContextType, status: Long): UDisplayContext =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udat_getContext(fmt.toCPointer<ByteVar>(), type, status.toCPointer<ByteVar>())
+public actual fun udatGetContext(fmt: COpaquePointer?, type: UDisplayContextType, status: COpaquePointer?): UDisplayContext =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatGetContext(fmt?.value?.toCPointer<ByteVar>(), type, status?.value?.toCPointer<ByteVar>())
 
-public actual fun udat_getLocaleByType(fmt: Long, type: ULocDataLocaleType, status: Long): PCSTR =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udat_getLocaleByType(fmt.toCPointer<ByteVar>(), type, status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun udatGetLocaleByType(fmt: COpaquePointer?, type: ULocDataLocaleType, status: COpaquePointer?): Pcstr =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatGetLocaleByType(fmt?.value?.toCPointer<ByteVar>(), type, status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun udat_getNumberFormat(fmt: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udat_getNumberFormat(fmt.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun udatGetNumberFormat(fmt: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatGetNumberFormat(fmt?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun udat_getNumberFormatForField(fmt: Long, field: UShort): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udat_getNumberFormatForField(fmt.toCPointer<ByteVar>(), field)?.toLong() ?: 0L
+public actual fun udatGetNumberFormatForField(fmt: COpaquePointer?, field: UShort): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatGetNumberFormatForField(fmt?.value?.toCPointer<ByteVar>(), field)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun udat_getSymbols(fmt: Long, type: UDateFormatSymbolType, symbolindex: Int, result: Long, resultlength: Int, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udat_getSymbols(fmt.toCPointer<ByteVar>(), type, symbolindex, result.toCPointer<ByteVar>(), resultlength, status.toCPointer<ByteVar>())
+public actual fun udatGetSymbols(fmt: COpaquePointer?, type: UDateFormatSymbolType, symbolindex: Int, result: COpaquePointer?, resultlength: Int, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatGetSymbols(fmt?.value?.toCPointer<ByteVar>(), type, symbolindex, result?.value?.toCPointer<ByteVar>(), resultlength, status?.value?.toCPointer<ByteVar>())
 
-public actual fun udat_isLenient(fmt: Long): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udat_isLenient(fmt.toCPointer<ByteVar>())
+public actual fun udatIsLenient(fmt: COpaquePointer?): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatIsLenient(fmt?.value?.toCPointer<ByteVar>())
 
-public actual fun udat_open(timestyle: UDateFormatStyle, datestyle: UDateFormatStyle, locale: PCSTR, tzid: Long, tzidlength: Int, pattern: Long, patternlength: Int, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udat_open(timestyle, datestyle, locale.toCPointer<ByteVar>(), tzid.toCPointer<ByteVar>(), tzidlength, pattern.toCPointer<ByteVar>(), patternlength, status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun udatOpen(timestyle: UDateFormatStyle, datestyle: UDateFormatStyle, locale: Pcstr, tzid: COpaquePointer?, tzidlength: Int, pattern: COpaquePointer?, patternlength: Int, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatOpen(timestyle, datestyle, locale?.value?.toCPointer<ByteVar>(), tzid?.value?.toCPointer<ByteVar>(), tzidlength, pattern?.value?.toCPointer<ByteVar>(), patternlength, status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun udat_parse(format: Long, text: Long, textlength: Int, parsepos: Long, status: Long): Double =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udat_parse(format.toCPointer<ByteVar>(), text.toCPointer<ByteVar>(), textlength, parsepos.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun udatParse(format: COpaquePointer?, text: COpaquePointer?, textlength: Int, parsepos: COpaquePointer?, status: COpaquePointer?): Double =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatParse(format?.value?.toCPointer<ByteVar>(), text?.value?.toCPointer<ByteVar>(), textlength, parsepos?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun udat_parseCalendar(format: Long, calendar: Long, text: Long, textlength: Int, parsepos: Long, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udat_parseCalendar(format.toCPointer<ByteVar>(), calendar.toCPointer<ByteVar>(), text.toCPointer<ByteVar>(), textlength, parsepos.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun udatParseCalendar(format: COpaquePointer?, calendar: COpaquePointer?, text: COpaquePointer?, textlength: Int, parsepos: COpaquePointer?, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatParseCalendar(format?.value?.toCPointer<ByteVar>(), calendar?.value?.toCPointer<ByteVar>(), text?.value?.toCPointer<ByteVar>(), textlength, parsepos?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun udat_set2DigitYearStart(fmt: Long, d: Double, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udat_set2DigitYearStart(fmt.toCPointer<ByteVar>(), d, status.toCPointer<ByteVar>())
+public actual fun udatSet2DigitYearStart(fmt: COpaquePointer?, d: Double, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatSet2DigitYearStart(fmt?.value?.toCPointer<ByteVar>(), d, status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun udat_setBooleanAttribute(fmt: Long, attr: UDateFormatBooleanAttribute, newvalue: Byte, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udat_setBooleanAttribute(fmt.toCPointer<ByteVar>(), attr, newvalue, status.toCPointer<ByteVar>())
+public actual fun udatSetBooleanAttribute(fmt: COpaquePointer?, attr: UDateFormatBooleanAttribute, newvalue: Byte, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatSetBooleanAttribute(fmt?.value?.toCPointer<ByteVar>(), attr, newvalue, status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun udat_setCalendar(fmt: Long, calendartoset: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udat_setCalendar(fmt.toCPointer<ByteVar>(), calendartoset.toCPointer<ByteVar>())
+public actual fun udatSetCalendar(fmt: COpaquePointer?, calendartoset: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatSetCalendar(fmt?.value?.toCPointer<ByteVar>(), calendartoset?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun udat_setContext(fmt: Long, value: UDisplayContext, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udat_setContext(fmt.toCPointer<ByteVar>(), value, status.toCPointer<ByteVar>())
+public actual fun udatSetContext(fmt: COpaquePointer?, value: UDisplayContext, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatSetContext(fmt?.value?.toCPointer<ByteVar>(), value, status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun udat_setLenient(fmt: Long, islenient: Byte) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udat_setLenient(fmt.toCPointer<ByteVar>(), islenient)
+public actual fun udatSetLenient(fmt: COpaquePointer?, islenient: Byte) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatSetLenient(fmt?.value?.toCPointer<ByteVar>(), islenient)
 }
 
-public actual fun udat_setNumberFormat(fmt: Long, numberformattoset: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udat_setNumberFormat(fmt.toCPointer<ByteVar>(), numberformattoset.toCPointer<ByteVar>())
+public actual fun udatSetNumberFormat(fmt: COpaquePointer?, numberformattoset: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatSetNumberFormat(fmt?.value?.toCPointer<ByteVar>(), numberformattoset?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun udat_setSymbols(format: Long, type: UDateFormatSymbolType, symbolindex: Int, value: Long, valuelength: Int, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udat_setSymbols(format.toCPointer<ByteVar>(), type, symbolindex, value.toCPointer<ByteVar>(), valuelength, status.toCPointer<ByteVar>())
+public actual fun udatSetSymbols(format: COpaquePointer?, type: UDateFormatSymbolType, symbolindex: Int, value: COpaquePointer?, valuelength: Int, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatSetSymbols(format?.value?.toCPointer<ByteVar>(), type, symbolindex, value?.value?.toCPointer<ByteVar>(), valuelength, status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun udat_toCalendarDateField(field: UDateFormatField): UCalendarDateFields =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udat_toCalendarDateField(field)
+public actual fun udatToCalendarDateField(field: UDateFormatField): UCalendarDateFields =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatToCalendarDateField(field)
 
-public actual fun udat_toPattern(fmt: Long, localized: Byte, result: Long, resultlength: Int, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udat_toPattern(fmt.toCPointer<ByteVar>(), localized, result.toCPointer<ByteVar>(), resultlength, status.toCPointer<ByteVar>())
+public actual fun udatToPattern(fmt: COpaquePointer?, localized: Byte, result: COpaquePointer?, resultlength: Int, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatToPattern(fmt?.value?.toCPointer<ByteVar>(), localized, result?.value?.toCPointer<ByteVar>(), resultlength, status?.value?.toCPointer<ByteVar>())
 
-public actual fun udatpg_addPattern(dtpg: Long, pattern: Long, patternlength: Int, override: Byte, conflictingpattern: Long, capacity: Int, plength: Long, perrorcode: Long): UDateTimePatternConflict =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatpg_addPattern(dtpg.toCPointer<ByteVar>(), pattern.toCPointer<ByteVar>(), patternlength, override, conflictingpattern.toCPointer<ByteVar>(), capacity, plength.toCPointer<ByteVar>(), perrorcode.toCPointer<ByteVar>())
+public actual fun udatpgAddPattern(dtpg: COpaquePointer?, pattern: COpaquePointer?, patternlength: Int, override: Byte, conflictingpattern: COpaquePointer?, capacity: Int, plength: COpaquePointer?, perrorcode: COpaquePointer?): UDateTimePatternConflict =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatpgAddPattern(dtpg?.value?.toCPointer<ByteVar>(), pattern?.value?.toCPointer<ByteVar>(), patternlength, override, conflictingpattern?.value?.toCPointer<ByteVar>(), capacity, plength?.value?.toCPointer<ByteVar>(), perrorcode?.value?.toCPointer<ByteVar>())
 
-public actual fun udatpg_clone(dtpg: Long, perrorcode: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatpg_clone(dtpg.toCPointer<ByteVar>(), perrorcode.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun udatpgClone(dtpg: COpaquePointer?, perrorcode: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatpgClone(dtpg?.value?.toCPointer<ByteVar>(), perrorcode?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun udatpg_close(dtpg: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatpg_close(dtpg.toCPointer<ByteVar>())
+public actual fun udatpgClose(dtpg: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatpgClose(dtpg?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun udatpg_getAppendItemFormat(dtpg: Long, field: UDateTimePatternField, plength: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatpg_getAppendItemFormat(dtpg.toCPointer<ByteVar>(), field, plength.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun udatpgGetAppendItemFormat(dtpg: COpaquePointer?, field: UDateTimePatternField, plength: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatpgGetAppendItemFormat(dtpg?.value?.toCPointer<ByteVar>(), field, plength?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun udatpg_getAppendItemName(dtpg: Long, field: UDateTimePatternField, plength: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatpg_getAppendItemName(dtpg.toCPointer<ByteVar>(), field, plength.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun udatpgGetAppendItemName(dtpg: COpaquePointer?, field: UDateTimePatternField, plength: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatpgGetAppendItemName(dtpg?.value?.toCPointer<ByteVar>(), field, plength?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun udatpg_getBaseSkeleton(unuseddtpg: Long, pattern: Long, length: Int, baseskeleton: Long, capacity: Int, perrorcode: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatpg_getBaseSkeleton(unuseddtpg.toCPointer<ByteVar>(), pattern.toCPointer<ByteVar>(), length, baseskeleton.toCPointer<ByteVar>(), capacity, perrorcode.toCPointer<ByteVar>())
+public actual fun udatpgGetBaseSkeleton(unuseddtpg: COpaquePointer?, pattern: COpaquePointer?, length: Int, baseskeleton: COpaquePointer?, capacity: Int, perrorcode: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatpgGetBaseSkeleton(unuseddtpg?.value?.toCPointer<ByteVar>(), pattern?.value?.toCPointer<ByteVar>(), length, baseskeleton?.value?.toCPointer<ByteVar>(), capacity, perrorcode?.value?.toCPointer<ByteVar>())
 
-public actual fun udatpg_getBestPattern(dtpg: Long, skeleton: Long, length: Int, bestpattern: Long, capacity: Int, perrorcode: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatpg_getBestPattern(dtpg.toCPointer<ByteVar>(), skeleton.toCPointer<ByteVar>(), length, bestpattern.toCPointer<ByteVar>(), capacity, perrorcode.toCPointer<ByteVar>())
+public actual fun udatpgGetBestPattern(dtpg: COpaquePointer?, skeleton: COpaquePointer?, length: Int, bestpattern: COpaquePointer?, capacity: Int, perrorcode: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatpgGetBestPattern(dtpg?.value?.toCPointer<ByteVar>(), skeleton?.value?.toCPointer<ByteVar>(), length, bestpattern?.value?.toCPointer<ByteVar>(), capacity, perrorcode?.value?.toCPointer<ByteVar>())
 
-public actual fun udatpg_getBestPatternWithOptions(dtpg: Long, skeleton: Long, length: Int, options: UDateTimePatternMatchOptions, bestpattern: Long, capacity: Int, perrorcode: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatpg_getBestPatternWithOptions(dtpg.toCPointer<ByteVar>(), skeleton.toCPointer<ByteVar>(), length, options, bestpattern.toCPointer<ByteVar>(), capacity, perrorcode.toCPointer<ByteVar>())
+public actual fun udatpgGetBestPatternWithOptions(dtpg: COpaquePointer?, skeleton: COpaquePointer?, length: Int, options: UDateTimePatternMatchOptions, bestpattern: COpaquePointer?, capacity: Int, perrorcode: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatpgGetBestPatternWithOptions(dtpg?.value?.toCPointer<ByteVar>(), skeleton?.value?.toCPointer<ByteVar>(), length, options, bestpattern?.value?.toCPointer<ByteVar>(), capacity, perrorcode?.value?.toCPointer<ByteVar>())
 
-public actual fun udatpg_getDateTimeFormat(dtpg: Long, plength: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatpg_getDateTimeFormat(dtpg.toCPointer<ByteVar>(), plength.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun udatpgGetDateTimeFormat(dtpg: COpaquePointer?, plength: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatpgGetDateTimeFormat(dtpg?.value?.toCPointer<ByteVar>(), plength?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun udatpg_getDecimal(dtpg: Long, plength: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatpg_getDecimal(dtpg.toCPointer<ByteVar>(), plength.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun udatpgGetDecimal(dtpg: COpaquePointer?, plength: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatpgGetDecimal(dtpg?.value?.toCPointer<ByteVar>(), plength?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun udatpg_getFieldDisplayName(dtpg: Long, field: UDateTimePatternField, width: UDateTimePGDisplayWidth, fieldname: Long, capacity: Int, perrorcode: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatpg_getFieldDisplayName(dtpg.toCPointer<ByteVar>(), field, width, fieldname.toCPointer<ByteVar>(), capacity, perrorcode.toCPointer<ByteVar>())
+public actual fun udatpgGetFieldDisplayName(dtpg: COpaquePointer?, field: UDateTimePatternField, width: UDateTimePGDisplayWidth, fieldname: COpaquePointer?, capacity: Int, perrorcode: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatpgGetFieldDisplayName(dtpg?.value?.toCPointer<ByteVar>(), field, width, fieldname?.value?.toCPointer<ByteVar>(), capacity, perrorcode?.value?.toCPointer<ByteVar>())
 
-public actual fun udatpg_getPatternForSkeleton(dtpg: Long, skeleton: Long, skeletonlength: Int, plength: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatpg_getPatternForSkeleton(dtpg.toCPointer<ByteVar>(), skeleton.toCPointer<ByteVar>(), skeletonlength, plength.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun udatpgGetPatternForSkeleton(dtpg: COpaquePointer?, skeleton: COpaquePointer?, skeletonlength: Int, plength: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatpgGetPatternForSkeleton(dtpg?.value?.toCPointer<ByteVar>(), skeleton?.value?.toCPointer<ByteVar>(), skeletonlength, plength?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun udatpg_getSkeleton(unuseddtpg: Long, pattern: Long, length: Int, skeleton: Long, capacity: Int, perrorcode: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatpg_getSkeleton(unuseddtpg.toCPointer<ByteVar>(), pattern.toCPointer<ByteVar>(), length, skeleton.toCPointer<ByteVar>(), capacity, perrorcode.toCPointer<ByteVar>())
+public actual fun udatpgGetSkeleton(unuseddtpg: COpaquePointer?, pattern: COpaquePointer?, length: Int, skeleton: COpaquePointer?, capacity: Int, perrorcode: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatpgGetSkeleton(unuseddtpg?.value?.toCPointer<ByteVar>(), pattern?.value?.toCPointer<ByteVar>(), length, skeleton?.value?.toCPointer<ByteVar>(), capacity, perrorcode?.value?.toCPointer<ByteVar>())
 
-public actual fun udatpg_open(locale: PCSTR, perrorcode: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatpg_open(locale.toCPointer<ByteVar>(), perrorcode.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun udatpgOpen(locale: Pcstr, perrorcode: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatpgOpen(locale?.value?.toCPointer<ByteVar>(), perrorcode?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun udatpg_openBaseSkeletons(dtpg: Long, perrorcode: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatpg_openBaseSkeletons(dtpg.toCPointer<ByteVar>(), perrorcode.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun udatpgOpenBaseSkeletons(dtpg: COpaquePointer?, perrorcode: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatpgOpenBaseSkeletons(dtpg?.value?.toCPointer<ByteVar>(), perrorcode?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun udatpg_openEmpty(perrorcode: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatpg_openEmpty(perrorcode.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun udatpgOpenEmpty(perrorcode: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatpgOpenEmpty(perrorcode?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun udatpg_openSkeletons(dtpg: Long, perrorcode: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatpg_openSkeletons(dtpg.toCPointer<ByteVar>(), perrorcode.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun udatpgOpenSkeletons(dtpg: COpaquePointer?, perrorcode: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatpgOpenSkeletons(dtpg?.value?.toCPointer<ByteVar>(), perrorcode?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun udatpg_replaceFieldTypes(dtpg: Long, pattern: Long, patternlength: Int, skeleton: Long, skeletonlength: Int, dest: Long, destcapacity: Int, perrorcode: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatpg_replaceFieldTypes(dtpg.toCPointer<ByteVar>(), pattern.toCPointer<ByteVar>(), patternlength, skeleton.toCPointer<ByteVar>(), skeletonlength, dest.toCPointer<ByteVar>(), destcapacity, perrorcode.toCPointer<ByteVar>())
+public actual fun udatpgReplaceFieldTypes(dtpg: COpaquePointer?, pattern: COpaquePointer?, patternlength: Int, skeleton: COpaquePointer?, skeletonlength: Int, dest: COpaquePointer?, destcapacity: Int, perrorcode: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatpgReplaceFieldTypes(dtpg?.value?.toCPointer<ByteVar>(), pattern?.value?.toCPointer<ByteVar>(), patternlength, skeleton?.value?.toCPointer<ByteVar>(), skeletonlength, dest?.value?.toCPointer<ByteVar>(), destcapacity, perrorcode?.value?.toCPointer<ByteVar>())
 
-public actual fun udatpg_replaceFieldTypesWithOptions(dtpg: Long, pattern: Long, patternlength: Int, skeleton: Long, skeletonlength: Int, options: UDateTimePatternMatchOptions, dest: Long, destcapacity: Int, perrorcode: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatpg_replaceFieldTypesWithOptions(dtpg.toCPointer<ByteVar>(), pattern.toCPointer<ByteVar>(), patternlength, skeleton.toCPointer<ByteVar>(), skeletonlength, options, dest.toCPointer<ByteVar>(), destcapacity, perrorcode.toCPointer<ByteVar>())
+public actual fun udatpgReplaceFieldTypesWithOptions(dtpg: COpaquePointer?, pattern: COpaquePointer?, patternlength: Int, skeleton: COpaquePointer?, skeletonlength: Int, options: UDateTimePatternMatchOptions, dest: COpaquePointer?, destcapacity: Int, perrorcode: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatpgReplaceFieldTypesWithOptions(dtpg?.value?.toCPointer<ByteVar>(), pattern?.value?.toCPointer<ByteVar>(), patternlength, skeleton?.value?.toCPointer<ByteVar>(), skeletonlength, options, dest?.value?.toCPointer<ByteVar>(), destcapacity, perrorcode?.value?.toCPointer<ByteVar>())
 
-public actual fun udatpg_setAppendItemFormat(dtpg: Long, field: UDateTimePatternField, value: Long, length: Int) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatpg_setAppendItemFormat(dtpg.toCPointer<ByteVar>(), field, value.toCPointer<ByteVar>(), length)
+public actual fun udatpgSetAppendItemFormat(dtpg: COpaquePointer?, field: UDateTimePatternField, value: COpaquePointer?, length: Int) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatpgSetAppendItemFormat(dtpg?.value?.toCPointer<ByteVar>(), field, value?.value?.toCPointer<ByteVar>(), length)
 }
 
-public actual fun udatpg_setAppendItemName(dtpg: Long, field: UDateTimePatternField, value: Long, length: Int) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatpg_setAppendItemName(dtpg.toCPointer<ByteVar>(), field, value.toCPointer<ByteVar>(), length)
+public actual fun udatpgSetAppendItemName(dtpg: COpaquePointer?, field: UDateTimePatternField, value: COpaquePointer?, length: Int) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatpgSetAppendItemName(dtpg?.value?.toCPointer<ByteVar>(), field, value?.value?.toCPointer<ByteVar>(), length)
 }
 
-public actual fun udatpg_setDateTimeFormat(dtpg: Long, dtformat: Long, length: Int) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatpg_setDateTimeFormat(dtpg.toCPointer<ByteVar>(), dtformat.toCPointer<ByteVar>(), length)
+public actual fun udatpgSetDateTimeFormat(dtpg: COpaquePointer?, dtformat: COpaquePointer?, length: Int) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatpgSetDateTimeFormat(dtpg?.value?.toCPointer<ByteVar>(), dtformat?.value?.toCPointer<ByteVar>(), length)
 }
 
-public actual fun udatpg_setDecimal(dtpg: Long, decimal: Long, length: Int) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatpg_setDecimal(dtpg.toCPointer<ByteVar>(), decimal.toCPointer<ByteVar>(), length)
+public actual fun udatpgSetDecimal(dtpg: COpaquePointer?, decimal: COpaquePointer?, length: Int) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udatpgSetDecimal(dtpg?.value?.toCPointer<ByteVar>(), decimal?.value?.toCPointer<ByteVar>(), length)
 }
 
-public actual fun udtitvfmt_close(formatter: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udtitvfmt_close(formatter.toCPointer<ByteVar>())
+public actual fun udtitvfmtClose(formatter: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udtitvfmtClose(formatter?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun udtitvfmt_closeResult(uresult: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udtitvfmt_closeResult(uresult.toCPointer<ByteVar>())
+public actual fun udtitvfmtCloseResult(uresult: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udtitvfmtCloseResult(uresult?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun udtitvfmt_format(formatter: Long, fromdate: Double, todate: Double, result: Long, resultcapacity: Int, position: Long, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udtitvfmt_format(formatter.toCPointer<ByteVar>(), fromdate, todate, result.toCPointer<ByteVar>(), resultcapacity, position.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun udtitvfmtFormat(formatter: COpaquePointer?, fromdate: Double, todate: Double, result: COpaquePointer?, resultcapacity: Int, position: COpaquePointer?, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udtitvfmtFormat(formatter?.value?.toCPointer<ByteVar>(), fromdate, todate, result?.value?.toCPointer<ByteVar>(), resultcapacity, position?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun udtitvfmt_open(locale: PCSTR, skeleton: Long, skeletonlength: Int, tzid: Long, tzidlength: Int, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udtitvfmt_open(locale.toCPointer<ByteVar>(), skeleton.toCPointer<ByteVar>(), skeletonlength, tzid.toCPointer<ByteVar>(), tzidlength, status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun udtitvfmtOpen(locale: Pcstr, skeleton: COpaquePointer?, skeletonlength: Int, tzid: COpaquePointer?, tzidlength: Int, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udtitvfmtOpen(locale?.value?.toCPointer<ByteVar>(), skeleton?.value?.toCPointer<ByteVar>(), skeletonlength, tzid?.value?.toCPointer<ByteVar>(), tzidlength, status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun udtitvfmt_openResult(ec: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udtitvfmt_openResult(ec.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun udtitvfmtOpenResult(ec: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udtitvfmtOpenResult(ec?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun udtitvfmt_resultAsValue(uresult: Long, ec: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udtitvfmt_resultAsValue(uresult.toCPointer<ByteVar>(), ec.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun udtitvfmtResultAsValue(uresult: COpaquePointer?, ec: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_udtitvfmtResultAsValue(uresult?.value?.toCPointer<ByteVar>(), ec?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun uenum_close(en: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uenum_close(en.toCPointer<ByteVar>())
+public actual fun uenumClose(en: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uenumClose(en?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun uenum_count(en: Long, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uenum_count(en.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun uenumCount(en: COpaquePointer?, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uenumCount(en?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun uenum_next(en: Long, resultlength: Long, status: Long): PCSTR =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uenum_next(en.toCPointer<ByteVar>(), resultlength.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uenumNext(en: COpaquePointer?, resultlength: COpaquePointer?, status: COpaquePointer?): Pcstr =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uenumNext(en?.value?.toCPointer<ByteVar>(), resultlength?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun uenum_openCharStringsEnumeration(strings: Long, count: Int, ec: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uenum_openCharStringsEnumeration(strings.toCPointer<ByteVar>(), count, ec.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uenumOpenCharStringsEnumeration(strings: COpaquePointer?, count: Int, ec: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uenumOpenCharStringsEnumeration(strings?.value?.toCPointer<ByteVar>(), count, ec?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun uenum_openUCharStringsEnumeration(strings: Long, count: Int, ec: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uenum_openUCharStringsEnumeration(strings.toCPointer<ByteVar>(), count, ec.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uenumOpenUcharStringsEnumeration(strings: COpaquePointer?, count: Int, ec: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uenumOpenUcharStringsEnumeration(strings?.value?.toCPointer<ByteVar>(), count, ec?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun uenum_reset(en: Long, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uenum_reset(en.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun uenumReset(en: COpaquePointer?, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uenumReset(en?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun uenum_unext(en: Long, resultlength: Long, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uenum_unext(en.toCPointer<ByteVar>(), resultlength.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uenumUnext(en: COpaquePointer?, resultlength: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uenumUnext(en?.value?.toCPointer<ByteVar>(), resultlength?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ufieldpositer_close(fpositer: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ufieldpositer_close(fpositer.toCPointer<ByteVar>())
+public actual fun ufieldpositerClose(fpositer: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ufieldpositerClose(fpositer?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ufieldpositer_next(fpositer: Long, beginindex: Long, endindex: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ufieldpositer_next(fpositer.toCPointer<ByteVar>(), beginindex.toCPointer<ByteVar>(), endindex.toCPointer<ByteVar>())
+public actual fun ufieldpositerNext(fpositer: COpaquePointer?, beginindex: COpaquePointer?, endindex: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ufieldpositerNext(fpositer?.value?.toCPointer<ByteVar>(), beginindex?.value?.toCPointer<ByteVar>(), endindex?.value?.toCPointer<ByteVar>())
 
-public actual fun ufieldpositer_open(status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ufieldpositer_open(status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ufieldpositerOpen(status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ufieldpositerOpen(status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ufmt_close(fmt: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ufmt_close(fmt.toCPointer<ByteVar>())
+public actual fun ufmtClose(fmt: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ufmtClose(fmt?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ufmt_getArrayItemByIndex(fmt: Long, n: Int, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ufmt_getArrayItemByIndex(fmt.toCPointer<ByteVar>(), n, status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ufmtGetArrayItemByIndex(fmt: COpaquePointer?, n: Int, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ufmtGetArrayItemByIndex(fmt?.value?.toCPointer<ByteVar>(), n, status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ufmt_getArrayLength(fmt: Long, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ufmt_getArrayLength(fmt.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun ufmtGetArrayLength(fmt: COpaquePointer?, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ufmtGetArrayLength(fmt?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun ufmt_getDate(fmt: Long, status: Long): Double =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ufmt_getDate(fmt.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun ufmtGetDate(fmt: COpaquePointer?, status: COpaquePointer?): Double =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ufmtGetDate(fmt?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun ufmt_getDecNumChars(fmt: Long, len: Long, status: Long): PCSTR =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ufmt_getDecNumChars(fmt.toCPointer<ByteVar>(), len.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ufmtGetDecNumChars(fmt: COpaquePointer?, len: COpaquePointer?, status: COpaquePointer?): Pcstr =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ufmtGetDecNumChars(fmt?.value?.toCPointer<ByteVar>(), len?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ufmt_getDouble(fmt: Long, status: Long): Double =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ufmt_getDouble(fmt.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun ufmtGetDouble(fmt: COpaquePointer?, status: COpaquePointer?): Double =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ufmtGetDouble(fmt?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun ufmt_getInt64(fmt: Long, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ufmt_getInt64(fmt.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun ufmtGetInt64(fmt: COpaquePointer?, status: COpaquePointer?): Long =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ufmtGetInt64(fmt?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun ufmt_getLong(fmt: Long, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ufmt_getLong(fmt.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun ufmtGetLong(fmt: COpaquePointer?, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ufmtGetLong(fmt?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun ufmt_getObject(fmt: Long, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ufmt_getObject(fmt.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ufmtGetObject(fmt: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ufmtGetObject(fmt?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ufmt_getType(fmt: Long, status: Long): UFormattableType =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ufmt_getType(fmt.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun ufmtGetType(fmt: COpaquePointer?, status: COpaquePointer?): UFormattableType =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ufmtGetType(fmt?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun ufmt_getUChars(fmt: Long, len: Long, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ufmt_getUChars(fmt.toCPointer<ByteVar>(), len.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ufmtGetUchars(fmt: COpaquePointer?, len: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ufmtGetUchars(fmt?.value?.toCPointer<ByteVar>(), len?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ufmt_isNumeric(fmt: Long): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ufmt_isNumeric(fmt.toCPointer<ByteVar>())
+public actual fun ufmtIsNumeric(fmt: COpaquePointer?): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ufmtIsNumeric(fmt?.value?.toCPointer<ByteVar>())
 
-public actual fun ufmt_open(status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ufmt_open(status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ufmtOpen(status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ufmtOpen(status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ufmtval_getString(ufmtval: Long, plength: Long, ec: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ufmtval_getString(ufmtval.toCPointer<ByteVar>(), plength.toCPointer<ByteVar>(), ec.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ufmtvalGetString(ufmtval: COpaquePointer?, plength: COpaquePointer?, ec: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ufmtvalGetString(ufmtval?.value?.toCPointer<ByteVar>(), plength?.value?.toCPointer<ByteVar>(), ec?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ufmtval_nextPosition(ufmtval: Long, ucfpos: Long, ec: Long): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ufmtval_nextPosition(ufmtval.toCPointer<ByteVar>(), ucfpos.toCPointer<ByteVar>(), ec.toCPointer<ByteVar>())
+public actual fun ufmtvalNextPosition(ufmtval: COpaquePointer?, ucfpos: COpaquePointer?, ec: COpaquePointer?): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ufmtvalNextPosition(ufmtval?.value?.toCPointer<ByteVar>(), ucfpos?.value?.toCPointer<ByteVar>(), ec?.value?.toCPointer<ByteVar>())
 
-public actual fun ugender_getInstance(locale: PCSTR, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ugender_getInstance(locale.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ugenderGetInstance(locale: Pcstr, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ugenderGetInstance(locale?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ugender_getListGender(genderinfo: Long, genders: Long, size: Int, status: Long): UGender =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ugender_getListGender(genderinfo.toCPointer<ByteVar>(), genders.toCPointer<ByteVar>(), size, status.toCPointer<ByteVar>())
+public actual fun ugenderGetListGender(genderinfo: COpaquePointer?, genders: COpaquePointer?, size: Int, status: COpaquePointer?): UGender =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ugenderGetListGender(genderinfo?.value?.toCPointer<ByteVar>(), genders?.value?.toCPointer<ByteVar>(), size, status?.value?.toCPointer<ByteVar>())
 
-public actual fun uidna_close(idna: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uidna_close(idna.toCPointer<ByteVar>())
+public actual fun uidnaClose(idna: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uidnaClose(idna?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun uidna_labelToASCII(idna: Long, label: Long, length: Int, dest: Long, capacity: Int, pinfo: Long, perrorcode: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uidna_labelToASCII(idna.toCPointer<ByteVar>(), label.toCPointer<ByteVar>(), length, dest.toCPointer<ByteVar>(), capacity, pinfo.toCPointer<ByteVar>(), perrorcode.toCPointer<ByteVar>())
+public actual fun uidnaLabelToAscii(idna: COpaquePointer?, label: COpaquePointer?, length: Int, dest: COpaquePointer?, capacity: Int, pinfo: COpaquePointer?, perrorcode: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uidnaLabelToAscii(idna?.value?.toCPointer<ByteVar>(), label?.value?.toCPointer<ByteVar>(), length, dest?.value?.toCPointer<ByteVar>(), capacity, pinfo?.value?.toCPointer<ByteVar>(), perrorcode?.value?.toCPointer<ByteVar>())
 
-public actual fun uidna_labelToASCII_UTF8(idna: Long, label: PCSTR, length: Int, dest: PCSTR, capacity: Int, pinfo: Long, perrorcode: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uidna_labelToASCII_UTF8(idna.toCPointer<ByteVar>(), label.toCPointer<ByteVar>(), length, dest.toCPointer<ByteVar>(), capacity, pinfo.toCPointer<ByteVar>(), perrorcode.toCPointer<ByteVar>())
+public actual fun uidnaLabelToAsciiUtf8(idna: COpaquePointer?, label: Pcstr, length: Int, dest: Pcstr, capacity: Int, pinfo: COpaquePointer?, perrorcode: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uidnaLabelToAsciiUtf8(idna?.value?.toCPointer<ByteVar>(), label?.value?.toCPointer<ByteVar>(), length, dest?.value?.toCPointer<ByteVar>(), capacity, pinfo?.value?.toCPointer<ByteVar>(), perrorcode?.value?.toCPointer<ByteVar>())
 
-public actual fun uidna_labelToUnicode(idna: Long, label: Long, length: Int, dest: Long, capacity: Int, pinfo: Long, perrorcode: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uidna_labelToUnicode(idna.toCPointer<ByteVar>(), label.toCPointer<ByteVar>(), length, dest.toCPointer<ByteVar>(), capacity, pinfo.toCPointer<ByteVar>(), perrorcode.toCPointer<ByteVar>())
+public actual fun uidnaLabelToUnicode(idna: COpaquePointer?, label: COpaquePointer?, length: Int, dest: COpaquePointer?, capacity: Int, pinfo: COpaquePointer?, perrorcode: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uidnaLabelToUnicode(idna?.value?.toCPointer<ByteVar>(), label?.value?.toCPointer<ByteVar>(), length, dest?.value?.toCPointer<ByteVar>(), capacity, pinfo?.value?.toCPointer<ByteVar>(), perrorcode?.value?.toCPointer<ByteVar>())
 
-public actual fun uidna_labelToUnicodeUTF8(idna: Long, label: PCSTR, length: Int, dest: PCSTR, capacity: Int, pinfo: Long, perrorcode: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uidna_labelToUnicodeUTF8(idna.toCPointer<ByteVar>(), label.toCPointer<ByteVar>(), length, dest.toCPointer<ByteVar>(), capacity, pinfo.toCPointer<ByteVar>(), perrorcode.toCPointer<ByteVar>())
+public actual fun uidnaLabelToUnicodeUtf8(idna: COpaquePointer?, label: Pcstr, length: Int, dest: Pcstr, capacity: Int, pinfo: COpaquePointer?, perrorcode: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uidnaLabelToUnicodeUtf8(idna?.value?.toCPointer<ByteVar>(), label?.value?.toCPointer<ByteVar>(), length, dest?.value?.toCPointer<ByteVar>(), capacity, pinfo?.value?.toCPointer<ByteVar>(), perrorcode?.value?.toCPointer<ByteVar>())
 
-public actual fun uidna_nameToASCII(idna: Long, name: Long, length: Int, dest: Long, capacity: Int, pinfo: Long, perrorcode: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uidna_nameToASCII(idna.toCPointer<ByteVar>(), name.toCPointer<ByteVar>(), length, dest.toCPointer<ByteVar>(), capacity, pinfo.toCPointer<ByteVar>(), perrorcode.toCPointer<ByteVar>())
+public actual fun uidnaNameToAscii(idna: COpaquePointer?, name: COpaquePointer?, length: Int, dest: COpaquePointer?, capacity: Int, pinfo: COpaquePointer?, perrorcode: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uidnaNameToAscii(idna?.value?.toCPointer<ByteVar>(), name?.value?.toCPointer<ByteVar>(), length, dest?.value?.toCPointer<ByteVar>(), capacity, pinfo?.value?.toCPointer<ByteVar>(), perrorcode?.value?.toCPointer<ByteVar>())
 
-public actual fun uidna_nameToASCII_UTF8(idna: Long, name: PCSTR, length: Int, dest: PCSTR, capacity: Int, pinfo: Long, perrorcode: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uidna_nameToASCII_UTF8(idna.toCPointer<ByteVar>(), name.toCPointer<ByteVar>(), length, dest.toCPointer<ByteVar>(), capacity, pinfo.toCPointer<ByteVar>(), perrorcode.toCPointer<ByteVar>())
+public actual fun uidnaNameToAsciiUtf8(idna: COpaquePointer?, name: Pcstr, length: Int, dest: Pcstr, capacity: Int, pinfo: COpaquePointer?, perrorcode: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uidnaNameToAsciiUtf8(idna?.value?.toCPointer<ByteVar>(), name?.value?.toCPointer<ByteVar>(), length, dest?.value?.toCPointer<ByteVar>(), capacity, pinfo?.value?.toCPointer<ByteVar>(), perrorcode?.value?.toCPointer<ByteVar>())
 
-public actual fun uidna_nameToUnicode(idna: Long, name: Long, length: Int, dest: Long, capacity: Int, pinfo: Long, perrorcode: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uidna_nameToUnicode(idna.toCPointer<ByteVar>(), name.toCPointer<ByteVar>(), length, dest.toCPointer<ByteVar>(), capacity, pinfo.toCPointer<ByteVar>(), perrorcode.toCPointer<ByteVar>())
+public actual fun uidnaNameToUnicode(idna: COpaquePointer?, name: COpaquePointer?, length: Int, dest: COpaquePointer?, capacity: Int, pinfo: COpaquePointer?, perrorcode: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uidnaNameToUnicode(idna?.value?.toCPointer<ByteVar>(), name?.value?.toCPointer<ByteVar>(), length, dest?.value?.toCPointer<ByteVar>(), capacity, pinfo?.value?.toCPointer<ByteVar>(), perrorcode?.value?.toCPointer<ByteVar>())
 
-public actual fun uidna_nameToUnicodeUTF8(idna: Long, name: PCSTR, length: Int, dest: PCSTR, capacity: Int, pinfo: Long, perrorcode: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uidna_nameToUnicodeUTF8(idna.toCPointer<ByteVar>(), name.toCPointer<ByteVar>(), length, dest.toCPointer<ByteVar>(), capacity, pinfo.toCPointer<ByteVar>(), perrorcode.toCPointer<ByteVar>())
+public actual fun uidnaNameToUnicodeUtf8(idna: COpaquePointer?, name: Pcstr, length: Int, dest: Pcstr, capacity: Int, pinfo: COpaquePointer?, perrorcode: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uidnaNameToUnicodeUtf8(idna?.value?.toCPointer<ByteVar>(), name?.value?.toCPointer<ByteVar>(), length, dest?.value?.toCPointer<ByteVar>(), capacity, pinfo?.value?.toCPointer<ByteVar>(), perrorcode?.value?.toCPointer<ByteVar>())
 
-public actual fun uidna_openUTS46(options: UInt, perrorcode: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uidna_openUTS46(options, perrorcode.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uidnaOpenUts46(options: UInt, perrorcode: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uidnaOpenUts46(options, perrorcode?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun uiter_current32(iter: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uiter_current32(iter.toCPointer<ByteVar>())
+public actual fun uiterCurrent32(iter: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uiterCurrent32(iter?.value?.toCPointer<ByteVar>())
 
-public actual fun uiter_getState(iter: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uiter_getState(iter.toCPointer<ByteVar>())
+public actual fun uiterGetState(iter: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uiterGetState(iter?.value?.toCPointer<ByteVar>())
 
-public actual fun uiter_next32(iter: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uiter_next32(iter.toCPointer<ByteVar>())
+public actual fun uiterNext32(iter: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uiterNext32(iter?.value?.toCPointer<ByteVar>())
 
-public actual fun uiter_previous32(iter: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uiter_previous32(iter.toCPointer<ByteVar>())
+public actual fun uiterPrevious32(iter: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uiterPrevious32(iter?.value?.toCPointer<ByteVar>())
 
-public actual fun uiter_setState(iter: Long, state: UInt, perrorcode: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uiter_setState(iter.toCPointer<ByteVar>(), state, perrorcode.toCPointer<ByteVar>())
+public actual fun uiterSetState(iter: COpaquePointer?, state: UInt, perrorcode: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uiterSetState(iter?.value?.toCPointer<ByteVar>(), state, perrorcode?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun uiter_setString(iter: Long, s: Long, length: Int) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uiter_setString(iter.toCPointer<ByteVar>(), s.toCPointer<ByteVar>(), length)
+public actual fun uiterSetString(iter: COpaquePointer?, s: COpaquePointer?, length: Int) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uiterSetString(iter?.value?.toCPointer<ByteVar>(), s?.value?.toCPointer<ByteVar>(), length)
 }
 
-public actual fun uiter_setUTF16BE(iter: Long, s: PCSTR, length: Int) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uiter_setUTF16BE(iter.toCPointer<ByteVar>(), s.toCPointer<ByteVar>(), length)
+public actual fun uiterSetUtf16Be(iter: COpaquePointer?, s: Pcstr, length: Int) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uiterSetUtf16Be(iter?.value?.toCPointer<ByteVar>(), s?.value?.toCPointer<ByteVar>(), length)
 }
 
-public actual fun uiter_setUTF8(iter: Long, s: PCSTR, length: Int) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uiter_setUTF8(iter.toCPointer<ByteVar>(), s.toCPointer<ByteVar>(), length)
+public actual fun uiterSetUtf8(iter: COpaquePointer?, s: Pcstr, length: Int) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uiterSetUtf8(iter?.value?.toCPointer<ByteVar>(), s?.value?.toCPointer<ByteVar>(), length)
 }
 
-public actual fun uldn_close(ldn: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uldn_close(ldn.toCPointer<ByteVar>())
+public actual fun uldnClose(ldn: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uldnClose(ldn?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun uldn_getContext(ldn: Long, type: UDisplayContextType, perrorcode: Long): UDisplayContext =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uldn_getContext(ldn.toCPointer<ByteVar>(), type, perrorcode.toCPointer<ByteVar>())
+public actual fun uldnGetContext(ldn: COpaquePointer?, type: UDisplayContextType, perrorcode: COpaquePointer?): UDisplayContext =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uldnGetContext(ldn?.value?.toCPointer<ByteVar>(), type, perrorcode?.value?.toCPointer<ByteVar>())
 
-public actual fun uldn_getDialectHandling(ldn: Long): UDialectHandling =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uldn_getDialectHandling(ldn.toCPointer<ByteVar>())
+public actual fun uldnGetDialectHandling(ldn: COpaquePointer?): UDialectHandling =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uldnGetDialectHandling(ldn?.value?.toCPointer<ByteVar>())
 
-public actual fun uldn_getLocale(ldn: Long): PCSTR =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uldn_getLocale(ldn.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uldnGetLocale(ldn: COpaquePointer?): Pcstr =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uldnGetLocale(ldn?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun uldn_keyDisplayName(ldn: Long, key: PCSTR, result: Long, maxresultsize: Int, perrorcode: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uldn_keyDisplayName(ldn.toCPointer<ByteVar>(), key.toCPointer<ByteVar>(), result.toCPointer<ByteVar>(), maxresultsize, perrorcode.toCPointer<ByteVar>())
+public actual fun uldnKeyDisplayName(ldn: COpaquePointer?, key: Pcstr, result: COpaquePointer?, maxresultsize: Int, perrorcode: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uldnKeyDisplayName(ldn?.value?.toCPointer<ByteVar>(), key?.value?.toCPointer<ByteVar>(), result?.value?.toCPointer<ByteVar>(), maxresultsize, perrorcode?.value?.toCPointer<ByteVar>())
 
-public actual fun uldn_keyValueDisplayName(ldn: Long, key: PCSTR, value: PCSTR, result: Long, maxresultsize: Int, perrorcode: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uldn_keyValueDisplayName(ldn.toCPointer<ByteVar>(), key.toCPointer<ByteVar>(), value.toCPointer<ByteVar>(), result.toCPointer<ByteVar>(), maxresultsize, perrorcode.toCPointer<ByteVar>())
+public actual fun uldnKeyValueDisplayName(ldn: COpaquePointer?, key: Pcstr, value: Pcstr, result: COpaquePointer?, maxresultsize: Int, perrorcode: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uldnKeyValueDisplayName(ldn?.value?.toCPointer<ByteVar>(), key?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>(), result?.value?.toCPointer<ByteVar>(), maxresultsize, perrorcode?.value?.toCPointer<ByteVar>())
 
-public actual fun uldn_languageDisplayName(ldn: Long, lang: PCSTR, result: Long, maxresultsize: Int, perrorcode: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uldn_languageDisplayName(ldn.toCPointer<ByteVar>(), lang.toCPointer<ByteVar>(), result.toCPointer<ByteVar>(), maxresultsize, perrorcode.toCPointer<ByteVar>())
+public actual fun uldnLanguageDisplayName(ldn: COpaquePointer?, lang: Pcstr, result: COpaquePointer?, maxresultsize: Int, perrorcode: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uldnLanguageDisplayName(ldn?.value?.toCPointer<ByteVar>(), lang?.value?.toCPointer<ByteVar>(), result?.value?.toCPointer<ByteVar>(), maxresultsize, perrorcode?.value?.toCPointer<ByteVar>())
 
-public actual fun uldn_localeDisplayName(ldn: Long, locale: PCSTR, result: Long, maxresultsize: Int, perrorcode: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uldn_localeDisplayName(ldn.toCPointer<ByteVar>(), locale.toCPointer<ByteVar>(), result.toCPointer<ByteVar>(), maxresultsize, perrorcode.toCPointer<ByteVar>())
+public actual fun uldnLocaleDisplayName(ldn: COpaquePointer?, locale: Pcstr, result: COpaquePointer?, maxresultsize: Int, perrorcode: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uldnLocaleDisplayName(ldn?.value?.toCPointer<ByteVar>(), locale?.value?.toCPointer<ByteVar>(), result?.value?.toCPointer<ByteVar>(), maxresultsize, perrorcode?.value?.toCPointer<ByteVar>())
 
-public actual fun uldn_open(locale: PCSTR, dialecthandling: UDialectHandling, perrorcode: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uldn_open(locale.toCPointer<ByteVar>(), dialecthandling, perrorcode.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uldnOpen(locale: Pcstr, dialecthandling: UDialectHandling, perrorcode: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uldnOpen(locale?.value?.toCPointer<ByteVar>(), dialecthandling, perrorcode?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun uldn_openForContext(locale: PCSTR, contexts: Long, length: Int, perrorcode: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uldn_openForContext(locale.toCPointer<ByteVar>(), contexts.toCPointer<ByteVar>(), length, perrorcode.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uldnOpenForContext(locale: Pcstr, contexts: COpaquePointer?, length: Int, perrorcode: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uldnOpenForContext(locale?.value?.toCPointer<ByteVar>(), contexts?.value?.toCPointer<ByteVar>(), length, perrorcode?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun uldn_regionDisplayName(ldn: Long, region: PCSTR, result: Long, maxresultsize: Int, perrorcode: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uldn_regionDisplayName(ldn.toCPointer<ByteVar>(), region.toCPointer<ByteVar>(), result.toCPointer<ByteVar>(), maxresultsize, perrorcode.toCPointer<ByteVar>())
+public actual fun uldnRegionDisplayName(ldn: COpaquePointer?, region: Pcstr, result: COpaquePointer?, maxresultsize: Int, perrorcode: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uldnRegionDisplayName(ldn?.value?.toCPointer<ByteVar>(), region?.value?.toCPointer<ByteVar>(), result?.value?.toCPointer<ByteVar>(), maxresultsize, perrorcode?.value?.toCPointer<ByteVar>())
 
-public actual fun uldn_scriptCodeDisplayName(ldn: Long, scriptcode: UScriptCode, result: Long, maxresultsize: Int, perrorcode: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uldn_scriptCodeDisplayName(ldn.toCPointer<ByteVar>(), scriptcode, result.toCPointer<ByteVar>(), maxresultsize, perrorcode.toCPointer<ByteVar>())
+public actual fun uldnScriptCodeDisplayName(ldn: COpaquePointer?, scriptcode: UScriptCode, result: COpaquePointer?, maxresultsize: Int, perrorcode: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uldnScriptCodeDisplayName(ldn?.value?.toCPointer<ByteVar>(), scriptcode, result?.value?.toCPointer<ByteVar>(), maxresultsize, perrorcode?.value?.toCPointer<ByteVar>())
 
-public actual fun uldn_scriptDisplayName(ldn: Long, script: PCSTR, result: Long, maxresultsize: Int, perrorcode: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uldn_scriptDisplayName(ldn.toCPointer<ByteVar>(), script.toCPointer<ByteVar>(), result.toCPointer<ByteVar>(), maxresultsize, perrorcode.toCPointer<ByteVar>())
+public actual fun uldnScriptDisplayName(ldn: COpaquePointer?, script: Pcstr, result: COpaquePointer?, maxresultsize: Int, perrorcode: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uldnScriptDisplayName(ldn?.value?.toCPointer<ByteVar>(), script?.value?.toCPointer<ByteVar>(), result?.value?.toCPointer<ByteVar>(), maxresultsize, perrorcode?.value?.toCPointer<ByteVar>())
 
-public actual fun uldn_variantDisplayName(ldn: Long, variant: PCSTR, result: Long, maxresultsize: Int, perrorcode: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uldn_variantDisplayName(ldn.toCPointer<ByteVar>(), variant.toCPointer<ByteVar>(), result.toCPointer<ByteVar>(), maxresultsize, perrorcode.toCPointer<ByteVar>())
+public actual fun uldnVariantDisplayName(ldn: COpaquePointer?, variant: Pcstr, result: COpaquePointer?, maxresultsize: Int, perrorcode: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uldnVariantDisplayName(ldn?.value?.toCPointer<ByteVar>(), variant?.value?.toCPointer<ByteVar>(), result?.value?.toCPointer<ByteVar>(), maxresultsize, perrorcode?.value?.toCPointer<ByteVar>())
 
-public actual fun ulistfmt_close(listfmt: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulistfmt_close(listfmt.toCPointer<ByteVar>())
+public actual fun ulistfmtClose(listfmt: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulistfmtClose(listfmt?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ulistfmt_closeResult(uresult: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulistfmt_closeResult(uresult.toCPointer<ByteVar>())
+public actual fun ulistfmtCloseResult(uresult: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulistfmtCloseResult(uresult?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ulistfmt_format(listfmt: Long, strings: Long, stringlengths: Long, stringcount: Int, result: Long, resultcapacity: Int, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulistfmt_format(listfmt.toCPointer<ByteVar>(), strings.toCPointer<ByteVar>(), stringlengths.toCPointer<ByteVar>(), stringcount, result.toCPointer<ByteVar>(), resultcapacity, status.toCPointer<ByteVar>())
+public actual fun ulistfmtFormat(listfmt: COpaquePointer?, strings: COpaquePointer?, stringlengths: COpaquePointer?, stringcount: Int, result: COpaquePointer?, resultcapacity: Int, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulistfmtFormat(listfmt?.value?.toCPointer<ByteVar>(), strings?.value?.toCPointer<ByteVar>(), stringlengths?.value?.toCPointer<ByteVar>(), stringcount, result?.value?.toCPointer<ByteVar>(), resultcapacity, status?.value?.toCPointer<ByteVar>())
 
-public actual fun ulistfmt_formatStringsToResult(listfmt: Long, strings: Long, stringlengths: Long, stringcount: Int, uresult: Long, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulistfmt_formatStringsToResult(listfmt.toCPointer<ByteVar>(), strings.toCPointer<ByteVar>(), stringlengths.toCPointer<ByteVar>(), stringcount, uresult.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun ulistfmtFormatStringsToResult(listfmt: COpaquePointer?, strings: COpaquePointer?, stringlengths: COpaquePointer?, stringcount: Int, uresult: COpaquePointer?, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulistfmtFormatStringsToResult(listfmt?.value?.toCPointer<ByteVar>(), strings?.value?.toCPointer<ByteVar>(), stringlengths?.value?.toCPointer<ByteVar>(), stringcount, uresult?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ulistfmt_open(locale: PCSTR, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulistfmt_open(locale.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ulistfmtOpen(locale: Pcstr, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulistfmtOpen(locale?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ulistfmt_openForType(locale: PCSTR, type: UListFormatterType, width: UListFormatterWidth, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulistfmt_openForType(locale.toCPointer<ByteVar>(), type, width, status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ulistfmtOpenForType(locale: Pcstr, type: UListFormatterType, width: UListFormatterWidth, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulistfmtOpenForType(locale?.value?.toCPointer<ByteVar>(), type, width, status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ulistfmt_openResult(ec: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulistfmt_openResult(ec.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ulistfmtOpenResult(ec: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulistfmtOpenResult(ec?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ulistfmt_resultAsValue(uresult: Long, ec: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulistfmt_resultAsValue(uresult.toCPointer<ByteVar>(), ec.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ulistfmtResultAsValue(uresult: COpaquePointer?, ec: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulistfmtResultAsValue(uresult?.value?.toCPointer<ByteVar>(), ec?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun uloc_acceptLanguage(result: PCSTR, resultavailable: Int, outresult: Long, acceptlist: Long, acceptlistcount: Int, availablelocales: Long, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uloc_acceptLanguage(result.toCPointer<ByteVar>(), resultavailable, outresult.toCPointer<ByteVar>(), acceptlist.toCPointer<ByteVar>(), acceptlistcount, availablelocales.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun ulocAcceptLanguage(result: Pcstr, resultavailable: Int, outresult: COpaquePointer?, acceptlist: COpaquePointer?, acceptlistcount: Int, availablelocales: COpaquePointer?, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulocAcceptLanguage(result?.value?.toCPointer<ByteVar>(), resultavailable, outresult?.value?.toCPointer<ByteVar>(), acceptlist?.value?.toCPointer<ByteVar>(), acceptlistcount, availablelocales?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun uloc_acceptLanguageFromHTTP(result: PCSTR, resultavailable: Int, outresult: Long, httpacceptlanguage: PCSTR, availablelocales: Long, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uloc_acceptLanguageFromHTTP(result.toCPointer<ByteVar>(), resultavailable, outresult.toCPointer<ByteVar>(), httpacceptlanguage.toCPointer<ByteVar>(), availablelocales.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun ulocAcceptLanguageFromHttp(result: Pcstr, resultavailable: Int, outresult: COpaquePointer?, httpacceptlanguage: Pcstr, availablelocales: COpaquePointer?, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulocAcceptLanguageFromHttp(result?.value?.toCPointer<ByteVar>(), resultavailable, outresult?.value?.toCPointer<ByteVar>(), httpacceptlanguage?.value?.toCPointer<ByteVar>(), availablelocales?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun uloc_addLikelySubtags(localeid: PCSTR, maximizedlocaleid: PCSTR, maximizedlocaleidcapacity: Int, err: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uloc_addLikelySubtags(localeid.toCPointer<ByteVar>(), maximizedlocaleid.toCPointer<ByteVar>(), maximizedlocaleidcapacity, err.toCPointer<ByteVar>())
+public actual fun ulocAddLikelySubtags(localeid: Pcstr, maximizedlocaleid: Pcstr, maximizedlocaleidcapacity: Int, err: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulocAddLikelySubtags(localeid?.value?.toCPointer<ByteVar>(), maximizedlocaleid?.value?.toCPointer<ByteVar>(), maximizedlocaleidcapacity, err?.value?.toCPointer<ByteVar>())
 
-public actual fun uloc_canonicalize(localeid: PCSTR, name: PCSTR, namecapacity: Int, err: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uloc_canonicalize(localeid.toCPointer<ByteVar>(), name.toCPointer<ByteVar>(), namecapacity, err.toCPointer<ByteVar>())
+public actual fun ulocCanonicalize(localeid: Pcstr, name: Pcstr, namecapacity: Int, err: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulocCanonicalize(localeid?.value?.toCPointer<ByteVar>(), name?.value?.toCPointer<ByteVar>(), namecapacity, err?.value?.toCPointer<ByteVar>())
 
-public actual fun uloc_countAvailable(): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uloc_countAvailable()
+public actual fun ulocCountAvailable(): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulocCountAvailable()
 
-public actual fun uloc_forLanguageTag(langtag: PCSTR, localeid: PCSTR, localeidcapacity: Int, parsedlength: Long, err: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uloc_forLanguageTag(langtag.toCPointer<ByteVar>(), localeid.toCPointer<ByteVar>(), localeidcapacity, parsedlength.toCPointer<ByteVar>(), err.toCPointer<ByteVar>())
+public actual fun ulocForLanguageTag(langtag: Pcstr, localeid: Pcstr, localeidcapacity: Int, parsedlength: COpaquePointer?, err: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulocForLanguageTag(langtag?.value?.toCPointer<ByteVar>(), localeid?.value?.toCPointer<ByteVar>(), localeidcapacity, parsedlength?.value?.toCPointer<ByteVar>(), err?.value?.toCPointer<ByteVar>())
 
-public actual fun uloc_getAvailable(n: Int): PCSTR =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uloc_getAvailable(n)?.toLong() ?: 0L
+public actual fun ulocGetAvailable(n: Int): Pcstr =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulocGetAvailable(n)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun uloc_getBaseName(localeid: PCSTR, name: PCSTR, namecapacity: Int, err: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uloc_getBaseName(localeid.toCPointer<ByteVar>(), name.toCPointer<ByteVar>(), namecapacity, err.toCPointer<ByteVar>())
+public actual fun ulocGetBaseName(localeid: Pcstr, name: Pcstr, namecapacity: Int, err: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulocGetBaseName(localeid?.value?.toCPointer<ByteVar>(), name?.value?.toCPointer<ByteVar>(), namecapacity, err?.value?.toCPointer<ByteVar>())
 
-public actual fun uloc_getCharacterOrientation(localeid: PCSTR, status: Long): ULayoutType =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uloc_getCharacterOrientation(localeid.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun ulocGetCharacterOrientation(localeid: Pcstr, status: COpaquePointer?): ULayoutType =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulocGetCharacterOrientation(localeid?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun uloc_getCountry(localeid: PCSTR, country: PCSTR, countrycapacity: Int, err: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uloc_getCountry(localeid.toCPointer<ByteVar>(), country.toCPointer<ByteVar>(), countrycapacity, err.toCPointer<ByteVar>())
+public actual fun ulocGetCountry(localeid: Pcstr, country: Pcstr, countrycapacity: Int, err: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulocGetCountry(localeid?.value?.toCPointer<ByteVar>(), country?.value?.toCPointer<ByteVar>(), countrycapacity, err?.value?.toCPointer<ByteVar>())
 
-public actual fun uloc_getDefault(): PCSTR =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uloc_getDefault()?.toLong() ?: 0L
+public actual fun ulocGetDefault(): Pcstr =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulocGetDefault()?.let { COpaquePointer(it.toLong()) }
 
-public actual fun uloc_getDisplayCountry(locale: PCSTR, displaylocale: PCSTR, country: Long, countrycapacity: Int, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uloc_getDisplayCountry(locale.toCPointer<ByteVar>(), displaylocale.toCPointer<ByteVar>(), country.toCPointer<ByteVar>(), countrycapacity, status.toCPointer<ByteVar>())
+public actual fun ulocGetDisplayCountry(locale: Pcstr, displaylocale: Pcstr, country: COpaquePointer?, countrycapacity: Int, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulocGetDisplayCountry(locale?.value?.toCPointer<ByteVar>(), displaylocale?.value?.toCPointer<ByteVar>(), country?.value?.toCPointer<ByteVar>(), countrycapacity, status?.value?.toCPointer<ByteVar>())
 
-public actual fun uloc_getDisplayKeyword(keyword: PCSTR, displaylocale: PCSTR, dest: Long, destcapacity: Int, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uloc_getDisplayKeyword(keyword.toCPointer<ByteVar>(), displaylocale.toCPointer<ByteVar>(), dest.toCPointer<ByteVar>(), destcapacity, status.toCPointer<ByteVar>())
+public actual fun ulocGetDisplayKeyword(keyword: Pcstr, displaylocale: Pcstr, dest: COpaquePointer?, destcapacity: Int, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulocGetDisplayKeyword(keyword?.value?.toCPointer<ByteVar>(), displaylocale?.value?.toCPointer<ByteVar>(), dest?.value?.toCPointer<ByteVar>(), destcapacity, status?.value?.toCPointer<ByteVar>())
 
-public actual fun uloc_getDisplayKeywordValue(locale: PCSTR, keyword: PCSTR, displaylocale: PCSTR, dest: Long, destcapacity: Int, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uloc_getDisplayKeywordValue(locale.toCPointer<ByteVar>(), keyword.toCPointer<ByteVar>(), displaylocale.toCPointer<ByteVar>(), dest.toCPointer<ByteVar>(), destcapacity, status.toCPointer<ByteVar>())
+public actual fun ulocGetDisplayKeywordValue(locale: Pcstr, keyword: Pcstr, displaylocale: Pcstr, dest: COpaquePointer?, destcapacity: Int, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulocGetDisplayKeywordValue(locale?.value?.toCPointer<ByteVar>(), keyword?.value?.toCPointer<ByteVar>(), displaylocale?.value?.toCPointer<ByteVar>(), dest?.value?.toCPointer<ByteVar>(), destcapacity, status?.value?.toCPointer<ByteVar>())
 
-public actual fun uloc_getDisplayLanguage(locale: PCSTR, displaylocale: PCSTR, language: Long, languagecapacity: Int, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uloc_getDisplayLanguage(locale.toCPointer<ByteVar>(), displaylocale.toCPointer<ByteVar>(), language.toCPointer<ByteVar>(), languagecapacity, status.toCPointer<ByteVar>())
+public actual fun ulocGetDisplayLanguage(locale: Pcstr, displaylocale: Pcstr, language: COpaquePointer?, languagecapacity: Int, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulocGetDisplayLanguage(locale?.value?.toCPointer<ByteVar>(), displaylocale?.value?.toCPointer<ByteVar>(), language?.value?.toCPointer<ByteVar>(), languagecapacity, status?.value?.toCPointer<ByteVar>())
 
-public actual fun uloc_getDisplayName(localeid: PCSTR, inlocaleid: PCSTR, result: Long, maxresultsize: Int, err: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uloc_getDisplayName(localeid.toCPointer<ByteVar>(), inlocaleid.toCPointer<ByteVar>(), result.toCPointer<ByteVar>(), maxresultsize, err.toCPointer<ByteVar>())
+public actual fun ulocGetDisplayName(localeid: Pcstr, inlocaleid: Pcstr, result: COpaquePointer?, maxresultsize: Int, err: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulocGetDisplayName(localeid?.value?.toCPointer<ByteVar>(), inlocaleid?.value?.toCPointer<ByteVar>(), result?.value?.toCPointer<ByteVar>(), maxresultsize, err?.value?.toCPointer<ByteVar>())
 
-public actual fun uloc_getDisplayScript(locale: PCSTR, displaylocale: PCSTR, script: Long, scriptcapacity: Int, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uloc_getDisplayScript(locale.toCPointer<ByteVar>(), displaylocale.toCPointer<ByteVar>(), script.toCPointer<ByteVar>(), scriptcapacity, status.toCPointer<ByteVar>())
+public actual fun ulocGetDisplayScript(locale: Pcstr, displaylocale: Pcstr, script: COpaquePointer?, scriptcapacity: Int, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulocGetDisplayScript(locale?.value?.toCPointer<ByteVar>(), displaylocale?.value?.toCPointer<ByteVar>(), script?.value?.toCPointer<ByteVar>(), scriptcapacity, status?.value?.toCPointer<ByteVar>())
 
-public actual fun uloc_getDisplayVariant(locale: PCSTR, displaylocale: PCSTR, variant: Long, variantcapacity: Int, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uloc_getDisplayVariant(locale.toCPointer<ByteVar>(), displaylocale.toCPointer<ByteVar>(), variant.toCPointer<ByteVar>(), variantcapacity, status.toCPointer<ByteVar>())
+public actual fun ulocGetDisplayVariant(locale: Pcstr, displaylocale: Pcstr, variant: COpaquePointer?, variantcapacity: Int, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulocGetDisplayVariant(locale?.value?.toCPointer<ByteVar>(), displaylocale?.value?.toCPointer<ByteVar>(), variant?.value?.toCPointer<ByteVar>(), variantcapacity, status?.value?.toCPointer<ByteVar>())
 
-public actual fun uloc_getISO3Country(localeid: PCSTR): PCSTR =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uloc_getISO3Country(localeid.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ulocGetIso3Country(localeid: Pcstr): Pcstr =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulocGetIso3Country(localeid?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun uloc_getISO3Language(localeid: PCSTR): PCSTR =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uloc_getISO3Language(localeid.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ulocGetIso3Language(localeid: Pcstr): Pcstr =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulocGetIso3Language(localeid?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun uloc_getISOCountries(): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uloc_getISOCountries()?.toLong() ?: 0L
+public actual fun ulocGetIsocountries(): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulocGetIsocountries()?.let { COpaquePointer(it.toLong()) }
 
-public actual fun uloc_getISOLanguages(): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uloc_getISOLanguages()?.toLong() ?: 0L
+public actual fun ulocGetIsolanguages(): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulocGetIsolanguages()?.let { COpaquePointer(it.toLong()) }
 
-public actual fun uloc_getKeywordValue(localeid: PCSTR, keywordname: PCSTR, buffer: PCSTR, buffercapacity: Int, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uloc_getKeywordValue(localeid.toCPointer<ByteVar>(), keywordname.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>(), buffercapacity, status.toCPointer<ByteVar>())
+public actual fun ulocGetKeywordValue(localeid: Pcstr, keywordname: Pcstr, buffer: Pcstr, buffercapacity: Int, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulocGetKeywordValue(localeid?.value?.toCPointer<ByteVar>(), keywordname?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), buffercapacity, status?.value?.toCPointer<ByteVar>())
 
-public actual fun uloc_getLCID(localeid: PCSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uloc_getLCID(localeid.toCPointer<ByteVar>())
+public actual fun ulocGetLcid(localeid: Pcstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulocGetLcid(localeid?.value?.toCPointer<ByteVar>())
 
-public actual fun uloc_getLanguage(localeid: PCSTR, language: PCSTR, languagecapacity: Int, err: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uloc_getLanguage(localeid.toCPointer<ByteVar>(), language.toCPointer<ByteVar>(), languagecapacity, err.toCPointer<ByteVar>())
+public actual fun ulocGetLanguage(localeid: Pcstr, language: Pcstr, languagecapacity: Int, err: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulocGetLanguage(localeid?.value?.toCPointer<ByteVar>(), language?.value?.toCPointer<ByteVar>(), languagecapacity, err?.value?.toCPointer<ByteVar>())
 
-public actual fun uloc_getLineOrientation(localeid: PCSTR, status: Long): ULayoutType =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uloc_getLineOrientation(localeid.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun ulocGetLineOrientation(localeid: Pcstr, status: COpaquePointer?): ULayoutType =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulocGetLineOrientation(localeid?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun uloc_getLocaleForLCID(hostid: UInt, locale: PCSTR, localecapacity: Int, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uloc_getLocaleForLCID(hostid, locale.toCPointer<ByteVar>(), localecapacity, status.toCPointer<ByteVar>())
+public actual fun ulocGetLocaleForLcid(hostid: UInt, locale: Pcstr, localecapacity: Int, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulocGetLocaleForLcid(hostid, locale?.value?.toCPointer<ByteVar>(), localecapacity, status?.value?.toCPointer<ByteVar>())
 
-public actual fun uloc_getName(localeid: PCSTR, name: PCSTR, namecapacity: Int, err: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uloc_getName(localeid.toCPointer<ByteVar>(), name.toCPointer<ByteVar>(), namecapacity, err.toCPointer<ByteVar>())
+public actual fun ulocGetName(localeid: Pcstr, name: Pcstr, namecapacity: Int, err: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulocGetName(localeid?.value?.toCPointer<ByteVar>(), name?.value?.toCPointer<ByteVar>(), namecapacity, err?.value?.toCPointer<ByteVar>())
 
-public actual fun uloc_getParent(localeid: PCSTR, parent: PCSTR, parentcapacity: Int, err: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uloc_getParent(localeid.toCPointer<ByteVar>(), parent.toCPointer<ByteVar>(), parentcapacity, err.toCPointer<ByteVar>())
+public actual fun ulocGetParent(localeid: Pcstr, parent: Pcstr, parentcapacity: Int, err: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulocGetParent(localeid?.value?.toCPointer<ByteVar>(), parent?.value?.toCPointer<ByteVar>(), parentcapacity, err?.value?.toCPointer<ByteVar>())
 
-public actual fun uloc_getScript(localeid: PCSTR, script: PCSTR, scriptcapacity: Int, err: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uloc_getScript(localeid.toCPointer<ByteVar>(), script.toCPointer<ByteVar>(), scriptcapacity, err.toCPointer<ByteVar>())
+public actual fun ulocGetScript(localeid: Pcstr, script: Pcstr, scriptcapacity: Int, err: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulocGetScript(localeid?.value?.toCPointer<ByteVar>(), script?.value?.toCPointer<ByteVar>(), scriptcapacity, err?.value?.toCPointer<ByteVar>())
 
-public actual fun uloc_getVariant(localeid: PCSTR, variant: PCSTR, variantcapacity: Int, err: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uloc_getVariant(localeid.toCPointer<ByteVar>(), variant.toCPointer<ByteVar>(), variantcapacity, err.toCPointer<ByteVar>())
+public actual fun ulocGetVariant(localeid: Pcstr, variant: Pcstr, variantcapacity: Int, err: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulocGetVariant(localeid?.value?.toCPointer<ByteVar>(), variant?.value?.toCPointer<ByteVar>(), variantcapacity, err?.value?.toCPointer<ByteVar>())
 
-public actual fun uloc_isRightToLeft(locale: PCSTR): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uloc_isRightToLeft(locale.toCPointer<ByteVar>())
+public actual fun ulocIsRightToLeft(locale: Pcstr): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulocIsRightToLeft(locale?.value?.toCPointer<ByteVar>())
 
-public actual fun uloc_minimizeSubtags(localeid: PCSTR, minimizedlocaleid: PCSTR, minimizedlocaleidcapacity: Int, err: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uloc_minimizeSubtags(localeid.toCPointer<ByteVar>(), minimizedlocaleid.toCPointer<ByteVar>(), minimizedlocaleidcapacity, err.toCPointer<ByteVar>())
+public actual fun ulocMinimizeSubtags(localeid: Pcstr, minimizedlocaleid: Pcstr, minimizedlocaleidcapacity: Int, err: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulocMinimizeSubtags(localeid?.value?.toCPointer<ByteVar>(), minimizedlocaleid?.value?.toCPointer<ByteVar>(), minimizedlocaleidcapacity, err?.value?.toCPointer<ByteVar>())
 
-public actual fun uloc_openAvailableByType(type: ULocAvailableType, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uloc_openAvailableByType(type, status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ulocOpenAvailableByType(type: ULocAvailableType, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulocOpenAvailableByType(type, status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun uloc_openKeywords(localeid: PCSTR, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uloc_openKeywords(localeid.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ulocOpenKeywords(localeid: Pcstr, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulocOpenKeywords(localeid?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun uloc_setDefault(localeid: PCSTR, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uloc_setDefault(localeid.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun ulocSetDefault(localeid: Pcstr, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulocSetDefault(localeid?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun uloc_setKeywordValue(keywordname: PCSTR, keywordvalue: PCSTR, buffer: PCSTR, buffercapacity: Int, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uloc_setKeywordValue(keywordname.toCPointer<ByteVar>(), keywordvalue.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>(), buffercapacity, status.toCPointer<ByteVar>())
+public actual fun ulocSetKeywordValue(keywordname: Pcstr, keywordvalue: Pcstr, buffer: Pcstr, buffercapacity: Int, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulocSetKeywordValue(keywordname?.value?.toCPointer<ByteVar>(), keywordvalue?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), buffercapacity, status?.value?.toCPointer<ByteVar>())
 
-public actual fun uloc_toLanguageTag(localeid: PCSTR, langtag: PCSTR, langtagcapacity: Int, strict: Byte, err: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uloc_toLanguageTag(localeid.toCPointer<ByteVar>(), langtag.toCPointer<ByteVar>(), langtagcapacity, strict, err.toCPointer<ByteVar>())
+public actual fun ulocToLanguageTag(localeid: Pcstr, langtag: Pcstr, langtagcapacity: Int, strict: Byte, err: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulocToLanguageTag(localeid?.value?.toCPointer<ByteVar>(), langtag?.value?.toCPointer<ByteVar>(), langtagcapacity, strict, err?.value?.toCPointer<ByteVar>())
 
-public actual fun uloc_toLegacyKey(keyword: PCSTR): PCSTR =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uloc_toLegacyKey(keyword.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ulocToLegacyKey(keyword: Pcstr): Pcstr =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulocToLegacyKey(keyword?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun uloc_toLegacyType(keyword: PCSTR, value: PCSTR): PCSTR =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uloc_toLegacyType(keyword.toCPointer<ByteVar>(), value.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ulocToLegacyType(keyword: Pcstr, value: Pcstr): Pcstr =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulocToLegacyType(keyword?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun uloc_toUnicodeLocaleKey(keyword: PCSTR): PCSTR =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uloc_toUnicodeLocaleKey(keyword.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ulocToUnicodeLocaleKey(keyword: Pcstr): Pcstr =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulocToUnicodeLocaleKey(keyword?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun uloc_toUnicodeLocaleType(keyword: PCSTR, value: PCSTR): PCSTR =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uloc_toUnicodeLocaleType(keyword.toCPointer<ByteVar>(), value.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ulocToUnicodeLocaleType(keyword: Pcstr, value: Pcstr): Pcstr =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulocToUnicodeLocaleType(keyword?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ulocdata_close(uld: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulocdata_close(uld.toCPointer<ByteVar>())
+public actual fun ulocdataClose(uld: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulocdataClose(uld?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ulocdata_getCLDRVersion(versionarray: Long, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulocdata_getCLDRVersion(versionarray.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun ulocdataGetCldrversion(versionarray: COpaquePointer?, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulocdataGetCldrversion(versionarray?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ulocdata_getDelimiter(uld: Long, type: ULocaleDataDelimiterType, result: Long, resultlength: Int, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulocdata_getDelimiter(uld.toCPointer<ByteVar>(), type, result.toCPointer<ByteVar>(), resultlength, status.toCPointer<ByteVar>())
+public actual fun ulocdataGetDelimiter(uld: COpaquePointer?, type: ULocaleDataDelimiterType, result: COpaquePointer?, resultlength: Int, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulocdataGetDelimiter(uld?.value?.toCPointer<ByteVar>(), type, result?.value?.toCPointer<ByteVar>(), resultlength, status?.value?.toCPointer<ByteVar>())
 
-public actual fun ulocdata_getExemplarSet(uld: Long, fillin: Long, options: UInt, extype: ULocaleDataExemplarSetType, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulocdata_getExemplarSet(uld.toCPointer<ByteVar>(), fillin.toCPointer<ByteVar>(), options, extype, status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ulocdataGetExemplarSet(uld: COpaquePointer?, fillin: COpaquePointer?, options: UInt, extype: ULocaleDataExemplarSetType, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulocdataGetExemplarSet(uld?.value?.toCPointer<ByteVar>(), fillin?.value?.toCPointer<ByteVar>(), options, extype, status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ulocdata_getLocaleDisplayPattern(uld: Long, pattern: Long, patterncapacity: Int, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulocdata_getLocaleDisplayPattern(uld.toCPointer<ByteVar>(), pattern.toCPointer<ByteVar>(), patterncapacity, status.toCPointer<ByteVar>())
+public actual fun ulocdataGetLocaleDisplayPattern(uld: COpaquePointer?, pattern: COpaquePointer?, patterncapacity: Int, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulocdataGetLocaleDisplayPattern(uld?.value?.toCPointer<ByteVar>(), pattern?.value?.toCPointer<ByteVar>(), patterncapacity, status?.value?.toCPointer<ByteVar>())
 
-public actual fun ulocdata_getLocaleSeparator(uld: Long, separator: Long, separatorcapacity: Int, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulocdata_getLocaleSeparator(uld.toCPointer<ByteVar>(), separator.toCPointer<ByteVar>(), separatorcapacity, status.toCPointer<ByteVar>())
+public actual fun ulocdataGetLocaleSeparator(uld: COpaquePointer?, separator: COpaquePointer?, separatorcapacity: Int, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulocdataGetLocaleSeparator(uld?.value?.toCPointer<ByteVar>(), separator?.value?.toCPointer<ByteVar>(), separatorcapacity, status?.value?.toCPointer<ByteVar>())
 
-public actual fun ulocdata_getMeasurementSystem(localeid: PCSTR, status: Long): UMeasurementSystem =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulocdata_getMeasurementSystem(localeid.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun ulocdataGetMeasurementSystem(localeid: Pcstr, status: COpaquePointer?): UMeasurementSystem =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulocdataGetMeasurementSystem(localeid?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun ulocdata_getNoSubstitute(uld: Long): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulocdata_getNoSubstitute(uld.toCPointer<ByteVar>())
+public actual fun ulocdataGetNoSubstitute(uld: COpaquePointer?): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulocdataGetNoSubstitute(uld?.value?.toCPointer<ByteVar>())
 
-public actual fun ulocdata_getPaperSize(localeid: PCSTR, height: Long, width: Long, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulocdata_getPaperSize(localeid.toCPointer<ByteVar>(), height.toCPointer<ByteVar>(), width.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun ulocdataGetPaperSize(localeid: Pcstr, height: COpaquePointer?, width: COpaquePointer?, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulocdataGetPaperSize(localeid?.value?.toCPointer<ByteVar>(), height?.value?.toCPointer<ByteVar>(), width?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ulocdata_open(localeid: PCSTR, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulocdata_open(localeid.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ulocdataOpen(localeid: Pcstr, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulocdataOpen(localeid?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ulocdata_setNoSubstitute(uld: Long, setting: Byte) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulocdata_setNoSubstitute(uld.toCPointer<ByteVar>(), setting)
+public actual fun ulocdataSetNoSubstitute(uld: COpaquePointer?, setting: Byte) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ulocdataSetNoSubstitute(uld?.value?.toCPointer<ByteVar>(), setting)
 }
 
-public actual fun umsg_applyPattern(fmt: Long, pattern: Long, patternlength: Int, parseerror: Long, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_umsg_applyPattern(fmt.toCPointer<ByteVar>(), pattern.toCPointer<ByteVar>(), patternlength, parseerror.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun umsgApplyPattern(fmt: COpaquePointer?, pattern: COpaquePointer?, patternlength: Int, parseerror: COpaquePointer?, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_umsgApplyPattern(fmt?.value?.toCPointer<ByteVar>(), pattern?.value?.toCPointer<ByteVar>(), patternlength, parseerror?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun umsg_autoQuoteApostrophe(pattern: Long, patternlength: Int, dest: Long, destcapacity: Int, ec: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_umsg_autoQuoteApostrophe(pattern.toCPointer<ByteVar>(), patternlength, dest.toCPointer<ByteVar>(), destcapacity, ec.toCPointer<ByteVar>())
+public actual fun umsgAutoQuoteApostrophe(pattern: COpaquePointer?, patternlength: Int, dest: COpaquePointer?, destcapacity: Int, ec: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_umsgAutoQuoteApostrophe(pattern?.value?.toCPointer<ByteVar>(), patternlength, dest?.value?.toCPointer<ByteVar>(), destcapacity, ec?.value?.toCPointer<ByteVar>())
 
-public actual fun umsg_clone(fmt: Long, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_umsg_clone(fmt.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun umsgClone(fmt: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_umsgClone(fmt?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun umsg_close(format: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_umsg_close(format.toCPointer<ByteVar>())
+public actual fun umsgClose(format: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_umsgClose(format?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun umsg_format(fmt: Long, result: Long, resultlength: Int, status: Long): Int =
-    0
+public actual fun umsgFormat(fmt: COpaquePointer?, result: COpaquePointer?, resultlength: Int, status: COpaquePointer?, vararg variadicArgs: Long): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_umsgFormat(fmt?.value?.toCPointer<ByteVar>(), result?.value?.toCPointer<ByteVar>(), resultlength, status?.value?.toCPointer<ByteVar>(), variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
 
-public actual fun umsg_getLocale(fmt: Long): PCSTR =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_umsg_getLocale(fmt.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun umsgGetLocale(fmt: COpaquePointer?): Pcstr =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_umsgGetLocale(fmt?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun umsg_open(pattern: Long, patternlength: Int, locale: PCSTR, parseerror: Long, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_umsg_open(pattern.toCPointer<ByteVar>(), patternlength, locale.toCPointer<ByteVar>(), parseerror.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun umsgOpen(pattern: COpaquePointer?, patternlength: Int, locale: Pcstr, parseerror: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_umsgOpen(pattern?.value?.toCPointer<ByteVar>(), patternlength, locale?.value?.toCPointer<ByteVar>(), parseerror?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun umsg_parse(fmt: Long, source: Long, sourcelength: Int, count: Long, status: Long) {
+public actual fun umsgParse(fmt: COpaquePointer?, source: COpaquePointer?, sourcelength: Int, count: COpaquePointer?, status: COpaquePointer?, vararg variadicArgs: Long) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_umsgParse(fmt?.value?.toCPointer<ByteVar>(), source?.value?.toCPointer<ByteVar>(), sourcelength, count?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>(), variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
 }
 
-public actual fun umsg_setLocale(fmt: Long, locale: PCSTR) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_umsg_setLocale(fmt.toCPointer<ByteVar>(), locale.toCPointer<ByteVar>())
+public actual fun umsgSetLocale(fmt: COpaquePointer?, locale: Pcstr) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_umsgSetLocale(fmt?.value?.toCPointer<ByteVar>(), locale?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun umsg_toPattern(fmt: Long, result: Long, resultlength: Int, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_umsg_toPattern(fmt.toCPointer<ByteVar>(), result.toCPointer<ByteVar>(), resultlength, status.toCPointer<ByteVar>())
+public actual fun umsgToPattern(fmt: COpaquePointer?, result: COpaquePointer?, resultlength: Int, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_umsgToPattern(fmt?.value?.toCPointer<ByteVar>(), result?.value?.toCPointer<ByteVar>(), resultlength, status?.value?.toCPointer<ByteVar>())
 
-public actual fun umsg_vformat(fmt: Long, result: Long, resultlength: Int, ap: Long, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_umsg_vformat(fmt.toCPointer<ByteVar>(), result.toCPointer<ByteVar>(), resultlength, ap.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun umsgVformat(fmt: COpaquePointer?, result: COpaquePointer?, resultlength: Int, ap: COpaquePointer?, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_umsgVformat(fmt?.value?.toCPointer<ByteVar>(), result?.value?.toCPointer<ByteVar>(), resultlength, ap?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun umsg_vparse(fmt: Long, source: Long, sourcelength: Int, count: Long, ap: Long, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_umsg_vparse(fmt.toCPointer<ByteVar>(), source.toCPointer<ByteVar>(), sourcelength, count.toCPointer<ByteVar>(), ap.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun umsgVparse(fmt: COpaquePointer?, source: COpaquePointer?, sourcelength: Int, count: COpaquePointer?, ap: COpaquePointer?, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_umsgVparse(fmt?.value?.toCPointer<ByteVar>(), source?.value?.toCPointer<ByteVar>(), sourcelength, count?.value?.toCPointer<ByteVar>(), ap?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun umutablecptrie_buildImmutable(trie: Long, type: UCPTrieType, valuewidth: UCPTrieValueWidth, perrorcode: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_umutablecptrie_buildImmutable(trie.toCPointer<ByteVar>(), type, valuewidth, perrorcode.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun umutablecptrieBuildImmutable(trie: COpaquePointer?, type: UCPTrieType, valuewidth: UCPTrieValueWidth, perrorcode: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_umutablecptrieBuildImmutable(trie?.value?.toCPointer<ByteVar>(), type, valuewidth, perrorcode?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun umutablecptrie_clone(other: Long, perrorcode: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_umutablecptrie_clone(other.toCPointer<ByteVar>(), perrorcode.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun umutablecptrieClone(other: COpaquePointer?, perrorcode: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_umutablecptrieClone(other?.value?.toCPointer<ByteVar>(), perrorcode?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun umutablecptrie_close(trie: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_umutablecptrie_close(trie.toCPointer<ByteVar>())
+public actual fun umutablecptrieClose(trie: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_umutablecptrieClose(trie?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun umutablecptrie_fromUCPMap(map: Long, perrorcode: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_umutablecptrie_fromUCPMap(map.toCPointer<ByteVar>(), perrorcode.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun umutablecptrieFromUcpmap(map: COpaquePointer?, perrorcode: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_umutablecptrieFromUcpmap(map?.value?.toCPointer<ByteVar>(), perrorcode?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun umutablecptrie_fromUCPTrie(trie: Long, perrorcode: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_umutablecptrie_fromUCPTrie(trie.toCPointer<ByteVar>(), perrorcode.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun umutablecptrieFromUcptrie(trie: COpaquePointer?, perrorcode: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_umutablecptrieFromUcptrie(trie?.value?.toCPointer<ByteVar>(), perrorcode?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun umutablecptrie_get(trie: Long, c: Int): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_umutablecptrie_get(trie.toCPointer<ByteVar>(), c)
+public actual fun umutablecptrieGet(trie: COpaquePointer?, c: Int): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_umutablecptrieGet(trie?.value?.toCPointer<ByteVar>(), c)
 
-public actual fun umutablecptrie_getRange(trie: Long, start: Int, option: UCPMapRangeOption, surrogatevalue: UInt, filter: Long, context: Long, pvalue: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_umutablecptrie_getRange(trie.toCPointer<ByteVar>(), start, option, surrogatevalue, filter.toCPointer<ByteVar>(), context.toCPointer<ByteVar>(), pvalue.toCPointer<ByteVar>())
+public actual fun umutablecptrieGetRange(trie: COpaquePointer?, start: Int, option: UCPMapRangeOption, surrogatevalue: UInt, filter: COpaquePointer?, context: COpaquePointer?, pvalue: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_umutablecptrieGetRange(trie?.value?.toCPointer<ByteVar>(), start, option, surrogatevalue, filter?.value?.toCPointer<ByteVar>(), context?.value?.toCPointer<ByteVar>(), pvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun umutablecptrie_open(initialvalue: UInt, errorvalue: UInt, perrorcode: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_umutablecptrie_open(initialvalue, errorvalue, perrorcode.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun umutablecptrieOpen(initialvalue: UInt, errorvalue: UInt, perrorcode: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_umutablecptrieOpen(initialvalue, errorvalue, perrorcode?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun umutablecptrie_set(trie: Long, c: Int, value: UInt, perrorcode: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_umutablecptrie_set(trie.toCPointer<ByteVar>(), c, value, perrorcode.toCPointer<ByteVar>())
+public actual fun umutablecptrieSet(trie: COpaquePointer?, c: Int, value: UInt, perrorcode: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_umutablecptrieSet(trie?.value?.toCPointer<ByteVar>(), c, value, perrorcode?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun umutablecptrie_setRange(trie: Long, start: Int, end: Int, value: UInt, perrorcode: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_umutablecptrie_setRange(trie.toCPointer<ByteVar>(), start, end, value, perrorcode.toCPointer<ByteVar>())
+public actual fun umutablecptrieSetRange(trie: COpaquePointer?, start: Int, end: Int, value: UInt, perrorcode: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_umutablecptrieSetRange(trie?.value?.toCPointer<ByteVar>(), start, end, value, perrorcode?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun unorm2_append(norm2: Long, first: Long, firstlength: Int, firstcapacity: Int, second: Long, secondlength: Int, perrorcode: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unorm2_append(norm2.toCPointer<ByteVar>(), first.toCPointer<ByteVar>(), firstlength, firstcapacity, second.toCPointer<ByteVar>(), secondlength, perrorcode.toCPointer<ByteVar>())
+public actual fun unorm2Append(norm2: COpaquePointer?, first: COpaquePointer?, firstlength: Int, firstcapacity: Int, second: COpaquePointer?, secondlength: Int, perrorcode: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unorm2Append(norm2?.value?.toCPointer<ByteVar>(), first?.value?.toCPointer<ByteVar>(), firstlength, firstcapacity, second?.value?.toCPointer<ByteVar>(), secondlength, perrorcode?.value?.toCPointer<ByteVar>())
 
-public actual fun unorm2_close(norm2: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unorm2_close(norm2.toCPointer<ByteVar>())
+public actual fun unorm2Close(norm2: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unorm2Close(norm2?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun unorm2_composePair(norm2: Long, a: Int, b: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unorm2_composePair(norm2.toCPointer<ByteVar>(), a, b)
+public actual fun unorm2ComposePair(norm2: COpaquePointer?, a: Int, b: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unorm2ComposePair(norm2?.value?.toCPointer<ByteVar>(), a, b)
 
-public actual fun unorm2_getCombiningClass(norm2: Long, c: Int): UByte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unorm2_getCombiningClass(norm2.toCPointer<ByteVar>(), c)
+public actual fun unorm2GetCombiningClass(norm2: COpaquePointer?, c: Int): UByte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unorm2GetCombiningClass(norm2?.value?.toCPointer<ByteVar>(), c)
 
-public actual fun unorm2_getDecomposition(norm2: Long, c: Int, decomposition: Long, capacity: Int, perrorcode: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unorm2_getDecomposition(norm2.toCPointer<ByteVar>(), c, decomposition.toCPointer<ByteVar>(), capacity, perrorcode.toCPointer<ByteVar>())
+public actual fun unorm2GetDecomposition(norm2: COpaquePointer?, c: Int, decomposition: COpaquePointer?, capacity: Int, perrorcode: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unorm2GetDecomposition(norm2?.value?.toCPointer<ByteVar>(), c, decomposition?.value?.toCPointer<ByteVar>(), capacity, perrorcode?.value?.toCPointer<ByteVar>())
 
-public actual fun unorm2_getInstance(packagename: PCSTR, name: PCSTR, mode: UNormalization2Mode, perrorcode: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unorm2_getInstance(packagename.toCPointer<ByteVar>(), name.toCPointer<ByteVar>(), mode, perrorcode.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun unorm2GetInstance(packagename: Pcstr, name: Pcstr, mode: UNormalization2Mode, perrorcode: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unorm2GetInstance(packagename?.value?.toCPointer<ByteVar>(), name?.value?.toCPointer<ByteVar>(), mode, perrorcode?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun unorm2_getNFCInstance(perrorcode: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unorm2_getNFCInstance(perrorcode.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun unorm2GetNfcinstance(perrorcode: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unorm2GetNfcinstance(perrorcode?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun unorm2_getNFDInstance(perrorcode: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unorm2_getNFDInstance(perrorcode.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun unorm2GetNfdinstance(perrorcode: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unorm2GetNfdinstance(perrorcode?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun unorm2_getNFKCCasefoldInstance(perrorcode: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unorm2_getNFKCCasefoldInstance(perrorcode.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun unorm2GetNfkccasefoldInstance(perrorcode: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unorm2GetNfkccasefoldInstance(perrorcode?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun unorm2_getNFKCInstance(perrorcode: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unorm2_getNFKCInstance(perrorcode.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun unorm2GetNfkcinstance(perrorcode: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unorm2GetNfkcinstance(perrorcode?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun unorm2_getNFKDInstance(perrorcode: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unorm2_getNFKDInstance(perrorcode.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun unorm2GetNfkdinstance(perrorcode: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unorm2GetNfkdinstance(perrorcode?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun unorm2_getRawDecomposition(norm2: Long, c: Int, decomposition: Long, capacity: Int, perrorcode: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unorm2_getRawDecomposition(norm2.toCPointer<ByteVar>(), c, decomposition.toCPointer<ByteVar>(), capacity, perrorcode.toCPointer<ByteVar>())
+public actual fun unorm2GetRawDecomposition(norm2: COpaquePointer?, c: Int, decomposition: COpaquePointer?, capacity: Int, perrorcode: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unorm2GetRawDecomposition(norm2?.value?.toCPointer<ByteVar>(), c, decomposition?.value?.toCPointer<ByteVar>(), capacity, perrorcode?.value?.toCPointer<ByteVar>())
 
-public actual fun unorm2_hasBoundaryAfter(norm2: Long, c: Int): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unorm2_hasBoundaryAfter(norm2.toCPointer<ByteVar>(), c)
+public actual fun unorm2HasBoundaryAfter(norm2: COpaquePointer?, c: Int): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unorm2HasBoundaryAfter(norm2?.value?.toCPointer<ByteVar>(), c)
 
-public actual fun unorm2_hasBoundaryBefore(norm2: Long, c: Int): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unorm2_hasBoundaryBefore(norm2.toCPointer<ByteVar>(), c)
+public actual fun unorm2HasBoundaryBefore(norm2: COpaquePointer?, c: Int): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unorm2HasBoundaryBefore(norm2?.value?.toCPointer<ByteVar>(), c)
 
-public actual fun unorm2_isInert(norm2: Long, c: Int): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unorm2_isInert(norm2.toCPointer<ByteVar>(), c)
+public actual fun unorm2IsInert(norm2: COpaquePointer?, c: Int): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unorm2IsInert(norm2?.value?.toCPointer<ByteVar>(), c)
 
-public actual fun unorm2_isNormalized(norm2: Long, s: Long, length: Int, perrorcode: Long): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unorm2_isNormalized(norm2.toCPointer<ByteVar>(), s.toCPointer<ByteVar>(), length, perrorcode.toCPointer<ByteVar>())
+public actual fun unorm2IsNormalized(norm2: COpaquePointer?, s: COpaquePointer?, length: Int, perrorcode: COpaquePointer?): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unorm2IsNormalized(norm2?.value?.toCPointer<ByteVar>(), s?.value?.toCPointer<ByteVar>(), length, perrorcode?.value?.toCPointer<ByteVar>())
 
-public actual fun unorm2_normalize(norm2: Long, src: Long, length: Int, dest: Long, capacity: Int, perrorcode: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unorm2_normalize(norm2.toCPointer<ByteVar>(), src.toCPointer<ByteVar>(), length, dest.toCPointer<ByteVar>(), capacity, perrorcode.toCPointer<ByteVar>())
+public actual fun unorm2Normalize(norm2: COpaquePointer?, src: COpaquePointer?, length: Int, dest: COpaquePointer?, capacity: Int, perrorcode: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unorm2Normalize(norm2?.value?.toCPointer<ByteVar>(), src?.value?.toCPointer<ByteVar>(), length, dest?.value?.toCPointer<ByteVar>(), capacity, perrorcode?.value?.toCPointer<ByteVar>())
 
-public actual fun unorm2_normalizeSecondAndAppend(norm2: Long, first: Long, firstlength: Int, firstcapacity: Int, second: Long, secondlength: Int, perrorcode: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unorm2_normalizeSecondAndAppend(norm2.toCPointer<ByteVar>(), first.toCPointer<ByteVar>(), firstlength, firstcapacity, second.toCPointer<ByteVar>(), secondlength, perrorcode.toCPointer<ByteVar>())
+public actual fun unorm2NormalizeSecondAndAppend(norm2: COpaquePointer?, first: COpaquePointer?, firstlength: Int, firstcapacity: Int, second: COpaquePointer?, secondlength: Int, perrorcode: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unorm2NormalizeSecondAndAppend(norm2?.value?.toCPointer<ByteVar>(), first?.value?.toCPointer<ByteVar>(), firstlength, firstcapacity, second?.value?.toCPointer<ByteVar>(), secondlength, perrorcode?.value?.toCPointer<ByteVar>())
 
-public actual fun unorm2_openFiltered(norm2: Long, filterset: Long, perrorcode: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unorm2_openFiltered(norm2.toCPointer<ByteVar>(), filterset.toCPointer<ByteVar>(), perrorcode.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun unorm2OpenFiltered(norm2: COpaquePointer?, filterset: COpaquePointer?, perrorcode: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unorm2OpenFiltered(norm2?.value?.toCPointer<ByteVar>(), filterset?.value?.toCPointer<ByteVar>(), perrorcode?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun unorm2_quickCheck(norm2: Long, s: Long, length: Int, perrorcode: Long): UNormalizationCheckResult =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unorm2_quickCheck(norm2.toCPointer<ByteVar>(), s.toCPointer<ByteVar>(), length, perrorcode.toCPointer<ByteVar>())
+public actual fun unorm2QuickCheck(norm2: COpaquePointer?, s: COpaquePointer?, length: Int, perrorcode: COpaquePointer?): UNormalizationCheckResult =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unorm2QuickCheck(norm2?.value?.toCPointer<ByteVar>(), s?.value?.toCPointer<ByteVar>(), length, perrorcode?.value?.toCPointer<ByteVar>())
 
-public actual fun unorm2_spanQuickCheckYes(norm2: Long, s: Long, length: Int, perrorcode: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unorm2_spanQuickCheckYes(norm2.toCPointer<ByteVar>(), s.toCPointer<ByteVar>(), length, perrorcode.toCPointer<ByteVar>())
+public actual fun unorm2SpanQuickCheckYes(norm2: COpaquePointer?, s: COpaquePointer?, length: Int, perrorcode: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unorm2SpanQuickCheckYes(norm2?.value?.toCPointer<ByteVar>(), s?.value?.toCPointer<ByteVar>(), length, perrorcode?.value?.toCPointer<ByteVar>())
 
-public actual fun unorm_compare(s1: Long, length1: Int, s2: Long, length2: Int, options: UInt, perrorcode: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unorm_compare(s1.toCPointer<ByteVar>(), length1, s2.toCPointer<ByteVar>(), length2, options, perrorcode.toCPointer<ByteVar>())
+public actual fun unormCompare(s1: COpaquePointer?, length1: Int, s2: COpaquePointer?, length2: Int, options: UInt, perrorcode: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unormCompare(s1?.value?.toCPointer<ByteVar>(), length1, s2?.value?.toCPointer<ByteVar>(), length2, options, perrorcode?.value?.toCPointer<ByteVar>())
 
-public actual fun unum_applyPattern(format: Long, localized: Byte, pattern: Long, patternlength: Int, parseerror: Long, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unum_applyPattern(format.toCPointer<ByteVar>(), localized, pattern.toCPointer<ByteVar>(), patternlength, parseerror.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun unumApplyPattern(format: COpaquePointer?, localized: Byte, pattern: COpaquePointer?, patternlength: Int, parseerror: COpaquePointer?, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumApplyPattern(format?.value?.toCPointer<ByteVar>(), localized, pattern?.value?.toCPointer<ByteVar>(), patternlength, parseerror?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun unum_clone(fmt: Long, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unum_clone(fmt.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun unumClone(fmt: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumClone(fmt?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun unum_close(fmt: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unum_close(fmt.toCPointer<ByteVar>())
+public actual fun unumClose(fmt: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumClose(fmt?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun unum_countAvailable(): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unum_countAvailable()
+public actual fun unumCountAvailable(): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumCountAvailable()
 
-public actual fun unum_format(fmt: Long, number: Int, result: Long, resultlength: Int, pos: Long, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unum_format(fmt.toCPointer<ByteVar>(), number, result.toCPointer<ByteVar>(), resultlength, pos.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun unumFormat(fmt: COpaquePointer?, number: Int, result: COpaquePointer?, resultlength: Int, pos: COpaquePointer?, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumFormat(fmt?.value?.toCPointer<ByteVar>(), number, result?.value?.toCPointer<ByteVar>(), resultlength, pos?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun unum_formatDecimal(fmt: Long, number: PCSTR, length: Int, result: Long, resultlength: Int, pos: Long, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unum_formatDecimal(fmt.toCPointer<ByteVar>(), number.toCPointer<ByteVar>(), length, result.toCPointer<ByteVar>(), resultlength, pos.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun unumFormatDecimal(fmt: COpaquePointer?, number: Pcstr, length: Int, result: COpaquePointer?, resultlength: Int, pos: COpaquePointer?, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumFormatDecimal(fmt?.value?.toCPointer<ByteVar>(), number?.value?.toCPointer<ByteVar>(), length, result?.value?.toCPointer<ByteVar>(), resultlength, pos?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun unum_formatDouble(fmt: Long, number: Double, result: Long, resultlength: Int, pos: Long, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unum_formatDouble(fmt.toCPointer<ByteVar>(), number, result.toCPointer<ByteVar>(), resultlength, pos.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun unumFormatDouble(fmt: COpaquePointer?, number: Double, result: COpaquePointer?, resultlength: Int, pos: COpaquePointer?, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumFormatDouble(fmt?.value?.toCPointer<ByteVar>(), number, result?.value?.toCPointer<ByteVar>(), resultlength, pos?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun unum_formatDoubleCurrency(fmt: Long, number: Double, currency: Long, result: Long, resultlength: Int, pos: Long, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unum_formatDoubleCurrency(fmt.toCPointer<ByteVar>(), number, currency.toCPointer<ByteVar>(), result.toCPointer<ByteVar>(), resultlength, pos.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun unumFormatDoubleCurrency(fmt: COpaquePointer?, number: Double, currency: COpaquePointer?, result: COpaquePointer?, resultlength: Int, pos: COpaquePointer?, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumFormatDoubleCurrency(fmt?.value?.toCPointer<ByteVar>(), number, currency?.value?.toCPointer<ByteVar>(), result?.value?.toCPointer<ByteVar>(), resultlength, pos?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun unum_formatDoubleForFields(format: Long, number: Double, result: Long, resultlength: Int, fpositer: Long, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unum_formatDoubleForFields(format.toCPointer<ByteVar>(), number, result.toCPointer<ByteVar>(), resultlength, fpositer.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun unumFormatDoubleForFields(format: COpaquePointer?, number: Double, result: COpaquePointer?, resultlength: Int, fpositer: COpaquePointer?, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumFormatDoubleForFields(format?.value?.toCPointer<ByteVar>(), number, result?.value?.toCPointer<ByteVar>(), resultlength, fpositer?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun unum_formatInt64(fmt: Long, number: Long, result: Long, resultlength: Int, pos: Long, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unum_formatInt64(fmt.toCPointer<ByteVar>(), number, result.toCPointer<ByteVar>(), resultlength, pos.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun unumFormatInt64(fmt: COpaquePointer?, number: Long, result: COpaquePointer?, resultlength: Int, pos: COpaquePointer?, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumFormatInt64(fmt?.value?.toCPointer<ByteVar>(), number, result?.value?.toCPointer<ByteVar>(), resultlength, pos?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun unum_formatUFormattable(fmt: Long, number: Long, result: Long, resultlength: Int, pos: Long, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unum_formatUFormattable(fmt.toCPointer<ByteVar>(), number.toCPointer<ByteVar>(), result.toCPointer<ByteVar>(), resultlength, pos.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun unumFormatUformattable(fmt: COpaquePointer?, number: COpaquePointer?, result: COpaquePointer?, resultlength: Int, pos: COpaquePointer?, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumFormatUformattable(fmt?.value?.toCPointer<ByteVar>(), number?.value?.toCPointer<ByteVar>(), result?.value?.toCPointer<ByteVar>(), resultlength, pos?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun unum_getAttribute(fmt: Long, attr: UNumberFormatAttribute): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unum_getAttribute(fmt.toCPointer<ByteVar>(), attr)
+public actual fun unumGetAttribute(fmt: COpaquePointer?, attr: UNumberFormatAttribute): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumGetAttribute(fmt?.value?.toCPointer<ByteVar>(), attr)
 
-public actual fun unum_getAvailable(localeindex: Int): PCSTR =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unum_getAvailable(localeindex)?.toLong() ?: 0L
+public actual fun unumGetAvailable(localeindex: Int): Pcstr =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumGetAvailable(localeindex)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun unum_getContext(fmt: Long, type: UDisplayContextType, status: Long): UDisplayContext =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unum_getContext(fmt.toCPointer<ByteVar>(), type, status.toCPointer<ByteVar>())
+public actual fun unumGetContext(fmt: COpaquePointer?, type: UDisplayContextType, status: COpaquePointer?): UDisplayContext =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumGetContext(fmt?.value?.toCPointer<ByteVar>(), type, status?.value?.toCPointer<ByteVar>())
 
-public actual fun unum_getDoubleAttribute(fmt: Long, attr: UNumberFormatAttribute): Double =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unum_getDoubleAttribute(fmt.toCPointer<ByteVar>(), attr)
+public actual fun unumGetDoubleAttribute(fmt: COpaquePointer?, attr: UNumberFormatAttribute): Double =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumGetDoubleAttribute(fmt?.value?.toCPointer<ByteVar>(), attr)
 
-public actual fun unum_getLocaleByType(fmt: Long, type: ULocDataLocaleType, status: Long): PCSTR =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unum_getLocaleByType(fmt.toCPointer<ByteVar>(), type, status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun unumGetLocaleByType(fmt: COpaquePointer?, type: ULocDataLocaleType, status: COpaquePointer?): Pcstr =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumGetLocaleByType(fmt?.value?.toCPointer<ByteVar>(), type, status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun unum_getSymbol(fmt: Long, symbol: UNumberFormatSymbol, buffer: Long, size: Int, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unum_getSymbol(fmt.toCPointer<ByteVar>(), symbol, buffer.toCPointer<ByteVar>(), size, status.toCPointer<ByteVar>())
+public actual fun unumGetSymbol(fmt: COpaquePointer?, symbol: UNumberFormatSymbol, buffer: COpaquePointer?, size: Int, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumGetSymbol(fmt?.value?.toCPointer<ByteVar>(), symbol, buffer?.value?.toCPointer<ByteVar>(), size, status?.value?.toCPointer<ByteVar>())
 
-public actual fun unum_getTextAttribute(fmt: Long, tag: UNumberFormatTextAttribute, result: Long, resultlength: Int, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unum_getTextAttribute(fmt.toCPointer<ByteVar>(), tag, result.toCPointer<ByteVar>(), resultlength, status.toCPointer<ByteVar>())
+public actual fun unumGetTextAttribute(fmt: COpaquePointer?, tag: UNumberFormatTextAttribute, result: COpaquePointer?, resultlength: Int, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumGetTextAttribute(fmt?.value?.toCPointer<ByteVar>(), tag, result?.value?.toCPointer<ByteVar>(), resultlength, status?.value?.toCPointer<ByteVar>())
 
-public actual fun unum_open(style: UNumberFormatStyle, pattern: Long, patternlength: Int, locale: PCSTR, parseerr: Long, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unum_open(style, pattern.toCPointer<ByteVar>(), patternlength, locale.toCPointer<ByteVar>(), parseerr.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun unumOpen(style: UNumberFormatStyle, pattern: COpaquePointer?, patternlength: Int, locale: Pcstr, parseerr: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumOpen(style, pattern?.value?.toCPointer<ByteVar>(), patternlength, locale?.value?.toCPointer<ByteVar>(), parseerr?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun unum_parse(fmt: Long, text: Long, textlength: Int, parsepos: Long, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unum_parse(fmt.toCPointer<ByteVar>(), text.toCPointer<ByteVar>(), textlength, parsepos.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun unumParse(fmt: COpaquePointer?, text: COpaquePointer?, textlength: Int, parsepos: COpaquePointer?, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumParse(fmt?.value?.toCPointer<ByteVar>(), text?.value?.toCPointer<ByteVar>(), textlength, parsepos?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun unum_parseDecimal(fmt: Long, text: Long, textlength: Int, parsepos: Long, outbuf: PCSTR, outbuflength: Int, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unum_parseDecimal(fmt.toCPointer<ByteVar>(), text.toCPointer<ByteVar>(), textlength, parsepos.toCPointer<ByteVar>(), outbuf.toCPointer<ByteVar>(), outbuflength, status.toCPointer<ByteVar>())
+public actual fun unumParseDecimal(fmt: COpaquePointer?, text: COpaquePointer?, textlength: Int, parsepos: COpaquePointer?, outbuf: Pcstr, outbuflength: Int, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumParseDecimal(fmt?.value?.toCPointer<ByteVar>(), text?.value?.toCPointer<ByteVar>(), textlength, parsepos?.value?.toCPointer<ByteVar>(), outbuf?.value?.toCPointer<ByteVar>(), outbuflength, status?.value?.toCPointer<ByteVar>())
 
-public actual fun unum_parseDouble(fmt: Long, text: Long, textlength: Int, parsepos: Long, status: Long): Double =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unum_parseDouble(fmt.toCPointer<ByteVar>(), text.toCPointer<ByteVar>(), textlength, parsepos.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun unumParseDouble(fmt: COpaquePointer?, text: COpaquePointer?, textlength: Int, parsepos: COpaquePointer?, status: COpaquePointer?): Double =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumParseDouble(fmt?.value?.toCPointer<ByteVar>(), text?.value?.toCPointer<ByteVar>(), textlength, parsepos?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun unum_parseDoubleCurrency(fmt: Long, text: Long, textlength: Int, parsepos: Long, currency: Long, status: Long): Double =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unum_parseDoubleCurrency(fmt.toCPointer<ByteVar>(), text.toCPointer<ByteVar>(), textlength, parsepos.toCPointer<ByteVar>(), currency.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun unumParseDoubleCurrency(fmt: COpaquePointer?, text: COpaquePointer?, textlength: Int, parsepos: COpaquePointer?, currency: COpaquePointer?, status: COpaquePointer?): Double =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumParseDoubleCurrency(fmt?.value?.toCPointer<ByteVar>(), text?.value?.toCPointer<ByteVar>(), textlength, parsepos?.value?.toCPointer<ByteVar>(), currency?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun unum_parseInt64(fmt: Long, text: Long, textlength: Int, parsepos: Long, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unum_parseInt64(fmt.toCPointer<ByteVar>(), text.toCPointer<ByteVar>(), textlength, parsepos.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun unumParseInt64(fmt: COpaquePointer?, text: COpaquePointer?, textlength: Int, parsepos: COpaquePointer?, status: COpaquePointer?): Long =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumParseInt64(fmt?.value?.toCPointer<ByteVar>(), text?.value?.toCPointer<ByteVar>(), textlength, parsepos?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun unum_parseToUFormattable(fmt: Long, result: Long, text: Long, textlength: Int, parsepos: Long, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unum_parseToUFormattable(fmt.toCPointer<ByteVar>(), result.toCPointer<ByteVar>(), text.toCPointer<ByteVar>(), textlength, parsepos.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun unumParseToUformattable(fmt: COpaquePointer?, result: COpaquePointer?, text: COpaquePointer?, textlength: Int, parsepos: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumParseToUformattable(fmt?.value?.toCPointer<ByteVar>(), result?.value?.toCPointer<ByteVar>(), text?.value?.toCPointer<ByteVar>(), textlength, parsepos?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun unum_setAttribute(fmt: Long, attr: UNumberFormatAttribute, newvalue: Int) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unum_setAttribute(fmt.toCPointer<ByteVar>(), attr, newvalue)
+public actual fun unumSetAttribute(fmt: COpaquePointer?, attr: UNumberFormatAttribute, newvalue: Int) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumSetAttribute(fmt?.value?.toCPointer<ByteVar>(), attr, newvalue)
 }
 
-public actual fun unum_setContext(fmt: Long, value: UDisplayContext, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unum_setContext(fmt.toCPointer<ByteVar>(), value, status.toCPointer<ByteVar>())
+public actual fun unumSetContext(fmt: COpaquePointer?, value: UDisplayContext, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumSetContext(fmt?.value?.toCPointer<ByteVar>(), value, status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun unum_setDoubleAttribute(fmt: Long, attr: UNumberFormatAttribute, newvalue: Double) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unum_setDoubleAttribute(fmt.toCPointer<ByteVar>(), attr, newvalue)
+public actual fun unumSetDoubleAttribute(fmt: COpaquePointer?, attr: UNumberFormatAttribute, newvalue: Double) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumSetDoubleAttribute(fmt?.value?.toCPointer<ByteVar>(), attr, newvalue)
 }
 
-public actual fun unum_setSymbol(fmt: Long, symbol: UNumberFormatSymbol, value: Long, length: Int, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unum_setSymbol(fmt.toCPointer<ByteVar>(), symbol, value.toCPointer<ByteVar>(), length, status.toCPointer<ByteVar>())
+public actual fun unumSetSymbol(fmt: COpaquePointer?, symbol: UNumberFormatSymbol, value: COpaquePointer?, length: Int, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumSetSymbol(fmt?.value?.toCPointer<ByteVar>(), symbol, value?.value?.toCPointer<ByteVar>(), length, status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun unum_setTextAttribute(fmt: Long, tag: UNumberFormatTextAttribute, newvalue: Long, newvaluelength: Int, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unum_setTextAttribute(fmt.toCPointer<ByteVar>(), tag, newvalue.toCPointer<ByteVar>(), newvaluelength, status.toCPointer<ByteVar>())
+public actual fun unumSetTextAttribute(fmt: COpaquePointer?, tag: UNumberFormatTextAttribute, newvalue: COpaquePointer?, newvaluelength: Int, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumSetTextAttribute(fmt?.value?.toCPointer<ByteVar>(), tag, newvalue?.value?.toCPointer<ByteVar>(), newvaluelength, status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun unum_toPattern(fmt: Long, ispatternlocalized: Byte, result: Long, resultlength: Int, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unum_toPattern(fmt.toCPointer<ByteVar>(), ispatternlocalized, result.toCPointer<ByteVar>(), resultlength, status.toCPointer<ByteVar>())
+public actual fun unumToPattern(fmt: COpaquePointer?, ispatternlocalized: Byte, result: COpaquePointer?, resultlength: Int, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumToPattern(fmt?.value?.toCPointer<ByteVar>(), ispatternlocalized, result?.value?.toCPointer<ByteVar>(), resultlength, status?.value?.toCPointer<ByteVar>())
 
-public actual fun unumf_close(uformatter: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumf_close(uformatter.toCPointer<ByteVar>())
+public actual fun unumfClose(uformatter: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumfClose(uformatter?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun unumf_closeResult(uresult: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumf_closeResult(uresult.toCPointer<ByteVar>())
+public actual fun unumfCloseResult(uresult: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumfCloseResult(uresult?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun unumf_formatDecimal(uformatter: Long, value: PCSTR, valuelen: Int, uresult: Long, ec: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumf_formatDecimal(uformatter.toCPointer<ByteVar>(), value.toCPointer<ByteVar>(), valuelen, uresult.toCPointer<ByteVar>(), ec.toCPointer<ByteVar>())
+public actual fun unumfFormatDecimal(uformatter: COpaquePointer?, value: Pcstr, valuelen: Int, uresult: COpaquePointer?, ec: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumfFormatDecimal(uformatter?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>(), valuelen, uresult?.value?.toCPointer<ByteVar>(), ec?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun unumf_formatDouble(uformatter: Long, value: Double, uresult: Long, ec: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumf_formatDouble(uformatter.toCPointer<ByteVar>(), value, uresult.toCPointer<ByteVar>(), ec.toCPointer<ByteVar>())
+public actual fun unumfFormatDouble(uformatter: COpaquePointer?, value: Double, uresult: COpaquePointer?, ec: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumfFormatDouble(uformatter?.value?.toCPointer<ByteVar>(), value, uresult?.value?.toCPointer<ByteVar>(), ec?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun unumf_formatInt(uformatter: Long, value: Long, uresult: Long, ec: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumf_formatInt(uformatter.toCPointer<ByteVar>(), value, uresult.toCPointer<ByteVar>(), ec.toCPointer<ByteVar>())
+public actual fun unumfFormatInt(uformatter: COpaquePointer?, value: Long, uresult: COpaquePointer?, ec: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumfFormatInt(uformatter?.value?.toCPointer<ByteVar>(), value, uresult?.value?.toCPointer<ByteVar>(), ec?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun unumf_openForSkeletonAndLocale(skeleton: Long, skeletonlen: Int, locale: PCSTR, ec: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumf_openForSkeletonAndLocale(skeleton.toCPointer<ByteVar>(), skeletonlen, locale.toCPointer<ByteVar>(), ec.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun unumfOpenForSkeletonAndLocale(skeleton: COpaquePointer?, skeletonlen: Int, locale: Pcstr, ec: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumfOpenForSkeletonAndLocale(skeleton?.value?.toCPointer<ByteVar>(), skeletonlen, locale?.value?.toCPointer<ByteVar>(), ec?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun unumf_openForSkeletonAndLocaleWithError(skeleton: Long, skeletonlen: Int, locale: PCSTR, perror: Long, ec: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumf_openForSkeletonAndLocaleWithError(skeleton.toCPointer<ByteVar>(), skeletonlen, locale.toCPointer<ByteVar>(), perror.toCPointer<ByteVar>(), ec.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun unumfOpenForSkeletonAndLocaleWithError(skeleton: COpaquePointer?, skeletonlen: Int, locale: Pcstr, perror: COpaquePointer?, ec: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumfOpenForSkeletonAndLocaleWithError(skeleton?.value?.toCPointer<ByteVar>(), skeletonlen, locale?.value?.toCPointer<ByteVar>(), perror?.value?.toCPointer<ByteVar>(), ec?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun unumf_openResult(ec: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumf_openResult(ec.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun unumfOpenResult(ec: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumfOpenResult(ec?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun unumf_resultAsValue(uresult: Long, ec: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumf_resultAsValue(uresult.toCPointer<ByteVar>(), ec.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun unumfResultAsValue(uresult: COpaquePointer?, ec: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumfResultAsValue(uresult?.value?.toCPointer<ByteVar>(), ec?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun unumf_resultGetAllFieldPositions(uresult: Long, ufpositer: Long, ec: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumf_resultGetAllFieldPositions(uresult.toCPointer<ByteVar>(), ufpositer.toCPointer<ByteVar>(), ec.toCPointer<ByteVar>())
+public actual fun unumfResultGetAllFieldPositions(uresult: COpaquePointer?, ufpositer: COpaquePointer?, ec: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumfResultGetAllFieldPositions(uresult?.value?.toCPointer<ByteVar>(), ufpositer?.value?.toCPointer<ByteVar>(), ec?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun unumf_resultNextFieldPosition(uresult: Long, ufpos: Long, ec: Long): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumf_resultNextFieldPosition(uresult.toCPointer<ByteVar>(), ufpos.toCPointer<ByteVar>(), ec.toCPointer<ByteVar>())
+public actual fun unumfResultNextFieldPosition(uresult: COpaquePointer?, ufpos: COpaquePointer?, ec: COpaquePointer?): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumfResultNextFieldPosition(uresult?.value?.toCPointer<ByteVar>(), ufpos?.value?.toCPointer<ByteVar>(), ec?.value?.toCPointer<ByteVar>())
 
-public actual fun unumf_resultToString(uresult: Long, buffer: Long, buffercapacity: Int, ec: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumf_resultToString(uresult.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>(), buffercapacity, ec.toCPointer<ByteVar>())
+public actual fun unumfResultToString(uresult: COpaquePointer?, buffer: COpaquePointer?, buffercapacity: Int, ec: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumfResultToString(uresult?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), buffercapacity, ec?.value?.toCPointer<ByteVar>())
 
-public actual fun unumsys_close(unumsys: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumsys_close(unumsys.toCPointer<ByteVar>())
+public actual fun unumsysClose(unumsys: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumsysClose(unumsys?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun unumsys_getDescription(unumsys: Long, result: Long, resultlength: Int, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumsys_getDescription(unumsys.toCPointer<ByteVar>(), result.toCPointer<ByteVar>(), resultlength, status.toCPointer<ByteVar>())
+public actual fun unumsysGetDescription(unumsys: COpaquePointer?, result: COpaquePointer?, resultlength: Int, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumsysGetDescription(unumsys?.value?.toCPointer<ByteVar>(), result?.value?.toCPointer<ByteVar>(), resultlength, status?.value?.toCPointer<ByteVar>())
 
-public actual fun unumsys_getName(unumsys: Long): PCSTR =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumsys_getName(unumsys.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun unumsysGetName(unumsys: COpaquePointer?): Pcstr =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumsysGetName(unumsys?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun unumsys_getRadix(unumsys: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumsys_getRadix(unumsys.toCPointer<ByteVar>())
+public actual fun unumsysGetRadix(unumsys: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumsysGetRadix(unumsys?.value?.toCPointer<ByteVar>())
 
-public actual fun unumsys_isAlgorithmic(unumsys: Long): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumsys_isAlgorithmic(unumsys.toCPointer<ByteVar>())
+public actual fun unumsysIsAlgorithmic(unumsys: COpaquePointer?): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumsysIsAlgorithmic(unumsys?.value?.toCPointer<ByteVar>())
 
-public actual fun unumsys_open(locale: PCSTR, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumsys_open(locale.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun unumsysOpen(locale: Pcstr, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumsysOpen(locale?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun unumsys_openAvailableNames(status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumsys_openAvailableNames(status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun unumsysOpenAvailableNames(status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumsysOpenAvailableNames(status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun unumsys_openByName(name: PCSTR, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumsys_openByName(name.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun unumsysOpenByName(name: Pcstr, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_unumsysOpenByName(name?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun uplrules_close(uplrules: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uplrules_close(uplrules.toCPointer<ByteVar>())
+public actual fun uplrulesClose(uplrules: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uplrulesClose(uplrules?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun uplrules_getKeywords(uplrules: Long, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uplrules_getKeywords(uplrules.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uplrulesGetKeywords(uplrules: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uplrulesGetKeywords(uplrules?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun uplrules_open(locale: PCSTR, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uplrules_open(locale.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uplrulesOpen(locale: Pcstr, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uplrulesOpen(locale?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun uplrules_openForType(locale: PCSTR, type: UPluralType, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uplrules_openForType(locale.toCPointer<ByteVar>(), type, status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uplrulesOpenForType(locale: Pcstr, type: UPluralType, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uplrulesOpenForType(locale?.value?.toCPointer<ByteVar>(), type, status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun uplrules_select(uplrules: Long, number: Double, keyword: Long, capacity: Int, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uplrules_select(uplrules.toCPointer<ByteVar>(), number, keyword.toCPointer<ByteVar>(), capacity, status.toCPointer<ByteVar>())
+public actual fun uplrulesSelect(uplrules: COpaquePointer?, number: Double, keyword: COpaquePointer?, capacity: Int, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uplrulesSelect(uplrules?.value?.toCPointer<ByteVar>(), number, keyword?.value?.toCPointer<ByteVar>(), capacity, status?.value?.toCPointer<ByteVar>())
 
-public actual fun uplrules_selectFormatted(uplrules: Long, number: Long, keyword: Long, capacity: Int, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uplrules_selectFormatted(uplrules.toCPointer<ByteVar>(), number.toCPointer<ByteVar>(), keyword.toCPointer<ByteVar>(), capacity, status.toCPointer<ByteVar>())
+public actual fun uplrulesSelectFormatted(uplrules: COpaquePointer?, number: COpaquePointer?, keyword: COpaquePointer?, capacity: Int, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uplrulesSelectFormatted(uplrules?.value?.toCPointer<ByteVar>(), number?.value?.toCPointer<ByteVar>(), keyword?.value?.toCPointer<ByteVar>(), capacity, status?.value?.toCPointer<ByteVar>())
 
-public actual fun uregex_appendReplacement(regexp: Long, replacementtext: Long, replacementlength: Int, destbuf: Long, destcapacity: Long, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregex_appendReplacement(regexp.toCPointer<ByteVar>(), replacementtext.toCPointer<ByteVar>(), replacementlength, destbuf.toCPointer<ByteVar>(), destcapacity.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun uregexAppendReplacement(regexp: COpaquePointer?, replacementtext: COpaquePointer?, replacementlength: Int, destbuf: COpaquePointer?, destcapacity: COpaquePointer?, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregexAppendReplacement(regexp?.value?.toCPointer<ByteVar>(), replacementtext?.value?.toCPointer<ByteVar>(), replacementlength, destbuf?.value?.toCPointer<ByteVar>(), destcapacity?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun uregex_appendReplacementUText(regexp: Long, replacementtext: Long, dest: Long, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregex_appendReplacementUText(regexp.toCPointer<ByteVar>(), replacementtext.toCPointer<ByteVar>(), dest.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun uregexAppendReplacementUtext(regexp: COpaquePointer?, replacementtext: COpaquePointer?, dest: COpaquePointer?, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregexAppendReplacementUtext(regexp?.value?.toCPointer<ByteVar>(), replacementtext?.value?.toCPointer<ByteVar>(), dest?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun uregex_appendTail(regexp: Long, destbuf: Long, destcapacity: Long, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregex_appendTail(regexp.toCPointer<ByteVar>(), destbuf.toCPointer<ByteVar>(), destcapacity.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun uregexAppendTail(regexp: COpaquePointer?, destbuf: COpaquePointer?, destcapacity: COpaquePointer?, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregexAppendTail(regexp?.value?.toCPointer<ByteVar>(), destbuf?.value?.toCPointer<ByteVar>(), destcapacity?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun uregex_appendTailUText(regexp: Long, dest: Long, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregex_appendTailUText(regexp.toCPointer<ByteVar>(), dest.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uregexAppendTailUtext(regexp: COpaquePointer?, dest: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregexAppendTailUtext(regexp?.value?.toCPointer<ByteVar>(), dest?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun uregex_clone(regexp: Long, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregex_clone(regexp.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uregexClone(regexp: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregexClone(regexp?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun uregex_close(regexp: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregex_close(regexp.toCPointer<ByteVar>())
+public actual fun uregexClose(regexp: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregexClose(regexp?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun uregex_end(regexp: Long, groupnum: Int, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregex_end(regexp.toCPointer<ByteVar>(), groupnum, status.toCPointer<ByteVar>())
+public actual fun uregexEnd(regexp: COpaquePointer?, groupnum: Int, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregexEnd(regexp?.value?.toCPointer<ByteVar>(), groupnum, status?.value?.toCPointer<ByteVar>())
 
-public actual fun uregex_end64(regexp: Long, groupnum: Int, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregex_end64(regexp.toCPointer<ByteVar>(), groupnum, status.toCPointer<ByteVar>())
+public actual fun uregexEnd64(regexp: COpaquePointer?, groupnum: Int, status: COpaquePointer?): Long =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregexEnd64(regexp?.value?.toCPointer<ByteVar>(), groupnum, status?.value?.toCPointer<ByteVar>())
 
-public actual fun uregex_find(regexp: Long, startindex: Int, status: Long): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregex_find(regexp.toCPointer<ByteVar>(), startindex, status.toCPointer<ByteVar>())
+public actual fun uregexFind(regexp: COpaquePointer?, startindex: Int, status: COpaquePointer?): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregexFind(regexp?.value?.toCPointer<ByteVar>(), startindex, status?.value?.toCPointer<ByteVar>())
 
-public actual fun uregex_find64(regexp: Long, startindex: Long, status: Long): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregex_find64(regexp.toCPointer<ByteVar>(), startindex, status.toCPointer<ByteVar>())
+public actual fun uregexFind64(regexp: COpaquePointer?, startindex: Long, status: COpaquePointer?): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregexFind64(regexp?.value?.toCPointer<ByteVar>(), startindex, status?.value?.toCPointer<ByteVar>())
 
-public actual fun uregex_findNext(regexp: Long, status: Long): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregex_findNext(regexp.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun uregexFindNext(regexp: COpaquePointer?, status: COpaquePointer?): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregexFindNext(regexp?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun uregex_flags(regexp: Long, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregex_flags(regexp.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun uregexFlags(regexp: COpaquePointer?, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregexFlags(regexp?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun uregex_getFindProgressCallback(regexp: Long, callback: Long, context: Long, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregex_getFindProgressCallback(regexp.toCPointer<ByteVar>(), callback.toCPointer<ByteVar>(), context.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun uregexGetFindProgressCallback(regexp: COpaquePointer?, callback: COpaquePointer?, context: COpaquePointer?, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregexGetFindProgressCallback(regexp?.value?.toCPointer<ByteVar>(), callback?.value?.toCPointer<ByteVar>(), context?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun uregex_getMatchCallback(regexp: Long, callback: Long, context: Long, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregex_getMatchCallback(regexp.toCPointer<ByteVar>(), callback.toCPointer<ByteVar>(), context.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun uregexGetMatchCallback(regexp: COpaquePointer?, callback: COpaquePointer?, context: COpaquePointer?, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregexGetMatchCallback(regexp?.value?.toCPointer<ByteVar>(), callback?.value?.toCPointer<ByteVar>(), context?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun uregex_getStackLimit(regexp: Long, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregex_getStackLimit(regexp.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun uregexGetStackLimit(regexp: COpaquePointer?, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregexGetStackLimit(regexp?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun uregex_getText(regexp: Long, textlength: Long, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregex_getText(regexp.toCPointer<ByteVar>(), textlength.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uregexGetText(regexp: COpaquePointer?, textlength: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregexGetText(regexp?.value?.toCPointer<ByteVar>(), textlength?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun uregex_getTimeLimit(regexp: Long, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregex_getTimeLimit(regexp.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun uregexGetTimeLimit(regexp: COpaquePointer?, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregexGetTimeLimit(regexp?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun uregex_getUText(regexp: Long, dest: Long, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregex_getUText(regexp.toCPointer<ByteVar>(), dest.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uregexGetUtext(regexp: COpaquePointer?, dest: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregexGetUtext(regexp?.value?.toCPointer<ByteVar>(), dest?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun uregex_group(regexp: Long, groupnum: Int, dest: Long, destcapacity: Int, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregex_group(regexp.toCPointer<ByteVar>(), groupnum, dest.toCPointer<ByteVar>(), destcapacity, status.toCPointer<ByteVar>())
+public actual fun uregexGroup(regexp: COpaquePointer?, groupnum: Int, dest: COpaquePointer?, destcapacity: Int, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregexGroup(regexp?.value?.toCPointer<ByteVar>(), groupnum, dest?.value?.toCPointer<ByteVar>(), destcapacity, status?.value?.toCPointer<ByteVar>())
 
-public actual fun uregex_groupCount(regexp: Long, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregex_groupCount(regexp.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun uregexGroupCount(regexp: COpaquePointer?, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregexGroupCount(regexp?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun uregex_groupNumberFromCName(regexp: Long, groupname: PCSTR, namelength: Int, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregex_groupNumberFromCName(regexp.toCPointer<ByteVar>(), groupname.toCPointer<ByteVar>(), namelength, status.toCPointer<ByteVar>())
+public actual fun uregexGroupNumberFromCname(regexp: COpaquePointer?, groupname: Pcstr, namelength: Int, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregexGroupNumberFromCname(regexp?.value?.toCPointer<ByteVar>(), groupname?.value?.toCPointer<ByteVar>(), namelength, status?.value?.toCPointer<ByteVar>())
 
-public actual fun uregex_groupNumberFromName(regexp: Long, groupname: Long, namelength: Int, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregex_groupNumberFromName(regexp.toCPointer<ByteVar>(), groupname.toCPointer<ByteVar>(), namelength, status.toCPointer<ByteVar>())
+public actual fun uregexGroupNumberFromName(regexp: COpaquePointer?, groupname: COpaquePointer?, namelength: Int, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregexGroupNumberFromName(regexp?.value?.toCPointer<ByteVar>(), groupname?.value?.toCPointer<ByteVar>(), namelength, status?.value?.toCPointer<ByteVar>())
 
-public actual fun uregex_groupUText(regexp: Long, groupnum: Int, dest: Long, grouplength: Long, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregex_groupUText(regexp.toCPointer<ByteVar>(), groupnum, dest.toCPointer<ByteVar>(), grouplength.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uregexGroupUtext(regexp: COpaquePointer?, groupnum: Int, dest: COpaquePointer?, grouplength: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregexGroupUtext(regexp?.value?.toCPointer<ByteVar>(), groupnum, dest?.value?.toCPointer<ByteVar>(), grouplength?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun uregex_hasAnchoringBounds(regexp: Long, status: Long): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregex_hasAnchoringBounds(regexp.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun uregexHasAnchoringBounds(regexp: COpaquePointer?, status: COpaquePointer?): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregexHasAnchoringBounds(regexp?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun uregex_hasTransparentBounds(regexp: Long, status: Long): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregex_hasTransparentBounds(regexp.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun uregexHasTransparentBounds(regexp: COpaquePointer?, status: COpaquePointer?): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregexHasTransparentBounds(regexp?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun uregex_hitEnd(regexp: Long, status: Long): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregex_hitEnd(regexp.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun uregexHitEnd(regexp: COpaquePointer?, status: COpaquePointer?): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregexHitEnd(regexp?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun uregex_lookingAt(regexp: Long, startindex: Int, status: Long): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregex_lookingAt(regexp.toCPointer<ByteVar>(), startindex, status.toCPointer<ByteVar>())
+public actual fun uregexLookingAt(regexp: COpaquePointer?, startindex: Int, status: COpaquePointer?): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregexLookingAt(regexp?.value?.toCPointer<ByteVar>(), startindex, status?.value?.toCPointer<ByteVar>())
 
-public actual fun uregex_lookingAt64(regexp: Long, startindex: Long, status: Long): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregex_lookingAt64(regexp.toCPointer<ByteVar>(), startindex, status.toCPointer<ByteVar>())
+public actual fun uregexLookingAt64(regexp: COpaquePointer?, startindex: Long, status: COpaquePointer?): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregexLookingAt64(regexp?.value?.toCPointer<ByteVar>(), startindex, status?.value?.toCPointer<ByteVar>())
 
-public actual fun uregex_matches(regexp: Long, startindex: Int, status: Long): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregex_matches(regexp.toCPointer<ByteVar>(), startindex, status.toCPointer<ByteVar>())
+public actual fun uregexMatches(regexp: COpaquePointer?, startindex: Int, status: COpaquePointer?): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregexMatches(regexp?.value?.toCPointer<ByteVar>(), startindex, status?.value?.toCPointer<ByteVar>())
 
-public actual fun uregex_matches64(regexp: Long, startindex: Long, status: Long): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregex_matches64(regexp.toCPointer<ByteVar>(), startindex, status.toCPointer<ByteVar>())
+public actual fun uregexMatches64(regexp: COpaquePointer?, startindex: Long, status: COpaquePointer?): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregexMatches64(regexp?.value?.toCPointer<ByteVar>(), startindex, status?.value?.toCPointer<ByteVar>())
 
-public actual fun uregex_open(pattern: Long, patternlength: Int, flags: UInt, pe: Long, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregex_open(pattern.toCPointer<ByteVar>(), patternlength, flags, pe.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uregexOpen(pattern: COpaquePointer?, patternlength: Int, flags: UInt, pe: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregexOpen(pattern?.value?.toCPointer<ByteVar>(), patternlength, flags, pe?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun uregex_openC(pattern: PCSTR, flags: UInt, pe: Long, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregex_openC(pattern.toCPointer<ByteVar>(), flags, pe.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uregexOpenC(pattern: Pcstr, flags: UInt, pe: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregexOpenC(pattern?.value?.toCPointer<ByteVar>(), flags, pe?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun uregex_openUText(pattern: Long, flags: UInt, pe: Long, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregex_openUText(pattern.toCPointer<ByteVar>(), flags, pe.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uregexOpenUtext(pattern: COpaquePointer?, flags: UInt, pe: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregexOpenUtext(pattern?.value?.toCPointer<ByteVar>(), flags, pe?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun uregex_pattern(regexp: Long, patlength: Long, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregex_pattern(regexp.toCPointer<ByteVar>(), patlength.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uregexPattern(regexp: COpaquePointer?, patlength: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregexPattern(regexp?.value?.toCPointer<ByteVar>(), patlength?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun uregex_patternUText(regexp: Long, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregex_patternUText(regexp.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uregexPatternUtext(regexp: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregexPatternUtext(regexp?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun uregex_refreshUText(regexp: Long, text: Long, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregex_refreshUText(regexp.toCPointer<ByteVar>(), text.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun uregexRefreshUtext(regexp: COpaquePointer?, text: COpaquePointer?, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregexRefreshUtext(regexp?.value?.toCPointer<ByteVar>(), text?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun uregex_regionEnd(regexp: Long, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregex_regionEnd(regexp.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun uregexRegionEnd(regexp: COpaquePointer?, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregexRegionEnd(regexp?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun uregex_regionEnd64(regexp: Long, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregex_regionEnd64(regexp.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun uregexRegionEnd64(regexp: COpaquePointer?, status: COpaquePointer?): Long =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregexRegionEnd64(regexp?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun uregex_regionStart(regexp: Long, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregex_regionStart(regexp.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun uregexRegionStart(regexp: COpaquePointer?, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregexRegionStart(regexp?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun uregex_regionStart64(regexp: Long, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregex_regionStart64(regexp.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun uregexRegionStart64(regexp: COpaquePointer?, status: COpaquePointer?): Long =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregexRegionStart64(regexp?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun uregex_replaceAll(regexp: Long, replacementtext: Long, replacementlength: Int, destbuf: Long, destcapacity: Int, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregex_replaceAll(regexp.toCPointer<ByteVar>(), replacementtext.toCPointer<ByteVar>(), replacementlength, destbuf.toCPointer<ByteVar>(), destcapacity, status.toCPointer<ByteVar>())
+public actual fun uregexReplaceAll(regexp: COpaquePointer?, replacementtext: COpaquePointer?, replacementlength: Int, destbuf: COpaquePointer?, destcapacity: Int, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregexReplaceAll(regexp?.value?.toCPointer<ByteVar>(), replacementtext?.value?.toCPointer<ByteVar>(), replacementlength, destbuf?.value?.toCPointer<ByteVar>(), destcapacity, status?.value?.toCPointer<ByteVar>())
 
-public actual fun uregex_replaceAllUText(regexp: Long, replacement: Long, dest: Long, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregex_replaceAllUText(regexp.toCPointer<ByteVar>(), replacement.toCPointer<ByteVar>(), dest.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uregexReplaceAllUtext(regexp: COpaquePointer?, replacement: COpaquePointer?, dest: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregexReplaceAllUtext(regexp?.value?.toCPointer<ByteVar>(), replacement?.value?.toCPointer<ByteVar>(), dest?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun uregex_replaceFirst(regexp: Long, replacementtext: Long, replacementlength: Int, destbuf: Long, destcapacity: Int, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregex_replaceFirst(regexp.toCPointer<ByteVar>(), replacementtext.toCPointer<ByteVar>(), replacementlength, destbuf.toCPointer<ByteVar>(), destcapacity, status.toCPointer<ByteVar>())
+public actual fun uregexReplaceFirst(regexp: COpaquePointer?, replacementtext: COpaquePointer?, replacementlength: Int, destbuf: COpaquePointer?, destcapacity: Int, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregexReplaceFirst(regexp?.value?.toCPointer<ByteVar>(), replacementtext?.value?.toCPointer<ByteVar>(), replacementlength, destbuf?.value?.toCPointer<ByteVar>(), destcapacity, status?.value?.toCPointer<ByteVar>())
 
-public actual fun uregex_replaceFirstUText(regexp: Long, replacement: Long, dest: Long, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregex_replaceFirstUText(regexp.toCPointer<ByteVar>(), replacement.toCPointer<ByteVar>(), dest.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uregexReplaceFirstUtext(regexp: COpaquePointer?, replacement: COpaquePointer?, dest: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregexReplaceFirstUtext(regexp?.value?.toCPointer<ByteVar>(), replacement?.value?.toCPointer<ByteVar>(), dest?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun uregex_requireEnd(regexp: Long, status: Long): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregex_requireEnd(regexp.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun uregexRequireEnd(regexp: COpaquePointer?, status: COpaquePointer?): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregexRequireEnd(regexp?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun uregex_reset(regexp: Long, index: Int, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregex_reset(regexp.toCPointer<ByteVar>(), index, status.toCPointer<ByteVar>())
+public actual fun uregexReset(regexp: COpaquePointer?, index: Int, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregexReset(regexp?.value?.toCPointer<ByteVar>(), index, status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun uregex_reset64(regexp: Long, index: Long, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregex_reset64(regexp.toCPointer<ByteVar>(), index, status.toCPointer<ByteVar>())
+public actual fun uregexReset64(regexp: COpaquePointer?, index: Long, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregexReset64(regexp?.value?.toCPointer<ByteVar>(), index, status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun uregex_setFindProgressCallback(regexp: Long, callback: URegexFindProgressCallback, context: Long, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregex_setFindProgressCallback(regexp.toCPointer<ByteVar>(), callback.toLong().toCPointer<ByteVar>(), context.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun uregexSetFindProgressCallback(regexp: COpaquePointer?, callback: URegexFindProgressCallback, context: COpaquePointer?, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregexSetFindProgressCallback(regexp?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), context?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun uregex_setMatchCallback(regexp: Long, callback: URegexMatchCallback, context: Long, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregex_setMatchCallback(regexp.toCPointer<ByteVar>(), callback.toLong().toCPointer<ByteVar>(), context.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun uregexSetMatchCallback(regexp: COpaquePointer?, callback: URegexMatchCallback, context: COpaquePointer?, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregexSetMatchCallback(regexp?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), context?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun uregex_setRegion(regexp: Long, regionstart: Int, regionlimit: Int, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregex_setRegion(regexp.toCPointer<ByteVar>(), regionstart, regionlimit, status.toCPointer<ByteVar>())
+public actual fun uregexSetRegion(regexp: COpaquePointer?, regionstart: Int, regionlimit: Int, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregexSetRegion(regexp?.value?.toCPointer<ByteVar>(), regionstart, regionlimit, status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun uregex_setRegion64(regexp: Long, regionstart: Long, regionlimit: Long, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregex_setRegion64(regexp.toCPointer<ByteVar>(), regionstart, regionlimit, status.toCPointer<ByteVar>())
+public actual fun uregexSetRegion64(regexp: COpaquePointer?, regionstart: Long, regionlimit: Long, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregexSetRegion64(regexp?.value?.toCPointer<ByteVar>(), regionstart, regionlimit, status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun uregex_setRegionAndStart(regexp: Long, regionstart: Long, regionlimit: Long, startindex: Long, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregex_setRegionAndStart(regexp.toCPointer<ByteVar>(), regionstart, regionlimit, startindex, status.toCPointer<ByteVar>())
+public actual fun uregexSetRegionAndStart(regexp: COpaquePointer?, regionstart: Long, regionlimit: Long, startindex: Long, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregexSetRegionAndStart(regexp?.value?.toCPointer<ByteVar>(), regionstart, regionlimit, startindex, status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun uregex_setStackLimit(regexp: Long, limit: Int, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregex_setStackLimit(regexp.toCPointer<ByteVar>(), limit, status.toCPointer<ByteVar>())
+public actual fun uregexSetStackLimit(regexp: COpaquePointer?, limit: Int, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregexSetStackLimit(regexp?.value?.toCPointer<ByteVar>(), limit, status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun uregex_setText(regexp: Long, text: Long, textlength: Int, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregex_setText(regexp.toCPointer<ByteVar>(), text.toCPointer<ByteVar>(), textlength, status.toCPointer<ByteVar>())
+public actual fun uregexSetText(regexp: COpaquePointer?, text: COpaquePointer?, textlength: Int, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregexSetText(regexp?.value?.toCPointer<ByteVar>(), text?.value?.toCPointer<ByteVar>(), textlength, status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun uregex_setTimeLimit(regexp: Long, limit: Int, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregex_setTimeLimit(regexp.toCPointer<ByteVar>(), limit, status.toCPointer<ByteVar>())
+public actual fun uregexSetTimeLimit(regexp: COpaquePointer?, limit: Int, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregexSetTimeLimit(regexp?.value?.toCPointer<ByteVar>(), limit, status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun uregex_setUText(regexp: Long, text: Long, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregex_setUText(regexp.toCPointer<ByteVar>(), text.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun uregexSetUtext(regexp: COpaquePointer?, text: COpaquePointer?, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregexSetUtext(regexp?.value?.toCPointer<ByteVar>(), text?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun uregex_split(regexp: Long, destbuf: Long, destcapacity: Int, requiredcapacity: Long, destfields: Long, destfieldscapacity: Int, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregex_split(regexp.toCPointer<ByteVar>(), destbuf.toCPointer<ByteVar>(), destcapacity, requiredcapacity.toCPointer<ByteVar>(), destfields.toCPointer<ByteVar>(), destfieldscapacity, status.toCPointer<ByteVar>())
+public actual fun uregexSplit(regexp: COpaquePointer?, destbuf: COpaquePointer?, destcapacity: Int, requiredcapacity: COpaquePointer?, destfields: COpaquePointer?, destfieldscapacity: Int, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregexSplit(regexp?.value?.toCPointer<ByteVar>(), destbuf?.value?.toCPointer<ByteVar>(), destcapacity, requiredcapacity?.value?.toCPointer<ByteVar>(), destfields?.value?.toCPointer<ByteVar>(), destfieldscapacity, status?.value?.toCPointer<ByteVar>())
 
-public actual fun uregex_splitUText(regexp: Long, destfields: Long, destfieldscapacity: Int, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregex_splitUText(regexp.toCPointer<ByteVar>(), destfields.toCPointer<ByteVar>(), destfieldscapacity, status.toCPointer<ByteVar>())
+public actual fun uregexSplitUtext(regexp: COpaquePointer?, destfields: COpaquePointer?, destfieldscapacity: Int, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregexSplitUtext(regexp?.value?.toCPointer<ByteVar>(), destfields?.value?.toCPointer<ByteVar>(), destfieldscapacity, status?.value?.toCPointer<ByteVar>())
 
-public actual fun uregex_start(regexp: Long, groupnum: Int, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregex_start(regexp.toCPointer<ByteVar>(), groupnum, status.toCPointer<ByteVar>())
+public actual fun uregexStart(regexp: COpaquePointer?, groupnum: Int, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregexStart(regexp?.value?.toCPointer<ByteVar>(), groupnum, status?.value?.toCPointer<ByteVar>())
 
-public actual fun uregex_start64(regexp: Long, groupnum: Int, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregex_start64(regexp.toCPointer<ByteVar>(), groupnum, status.toCPointer<ByteVar>())
+public actual fun uregexStart64(regexp: COpaquePointer?, groupnum: Int, status: COpaquePointer?): Long =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregexStart64(regexp?.value?.toCPointer<ByteVar>(), groupnum, status?.value?.toCPointer<ByteVar>())
 
-public actual fun uregex_useAnchoringBounds(regexp: Long, b: Byte, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregex_useAnchoringBounds(regexp.toCPointer<ByteVar>(), b, status.toCPointer<ByteVar>())
+public actual fun uregexUseAnchoringBounds(regexp: COpaquePointer?, b: Byte, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregexUseAnchoringBounds(regexp?.value?.toCPointer<ByteVar>(), b, status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun uregex_useTransparentBounds(regexp: Long, b: Byte, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregex_useTransparentBounds(regexp.toCPointer<ByteVar>(), b, status.toCPointer<ByteVar>())
+public actual fun uregexUseTransparentBounds(regexp: COpaquePointer?, b: Byte, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregexUseTransparentBounds(regexp?.value?.toCPointer<ByteVar>(), b, status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun uregion_areEqual(uregion: Long, otherregion: Long): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregion_areEqual(uregion.toCPointer<ByteVar>(), otherregion.toCPointer<ByteVar>())
+public actual fun uregionAreEqual(uregion: COpaquePointer?, otherregion: COpaquePointer?): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregionAreEqual(uregion?.value?.toCPointer<ByteVar>(), otherregion?.value?.toCPointer<ByteVar>())
 
-public actual fun uregion_contains(uregion: Long, otherregion: Long): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregion_contains(uregion.toCPointer<ByteVar>(), otherregion.toCPointer<ByteVar>())
+public actual fun uregionContains(uregion: COpaquePointer?, otherregion: COpaquePointer?): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregionContains(uregion?.value?.toCPointer<ByteVar>(), otherregion?.value?.toCPointer<ByteVar>())
 
-public actual fun uregion_getAvailable(type: URegionType, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregion_getAvailable(type, status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uregionGetAvailable(type: URegionType, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregionGetAvailable(type, status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun uregion_getContainedRegions(uregion: Long, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregion_getContainedRegions(uregion.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uregionGetContainedRegions(uregion: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregionGetContainedRegions(uregion?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun uregion_getContainedRegionsOfType(uregion: Long, type: URegionType, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregion_getContainedRegionsOfType(uregion.toCPointer<ByteVar>(), type, status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uregionGetContainedRegionsOfType(uregion: COpaquePointer?, type: URegionType, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregionGetContainedRegionsOfType(uregion?.value?.toCPointer<ByteVar>(), type, status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun uregion_getContainingRegion(uregion: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregion_getContainingRegion(uregion.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uregionGetContainingRegion(uregion: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregionGetContainingRegion(uregion?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun uregion_getContainingRegionOfType(uregion: Long, type: URegionType): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregion_getContainingRegionOfType(uregion.toCPointer<ByteVar>(), type)?.toLong() ?: 0L
+public actual fun uregionGetContainingRegionOfType(uregion: COpaquePointer?, type: URegionType): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregionGetContainingRegionOfType(uregion?.value?.toCPointer<ByteVar>(), type)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun uregion_getNumericCode(uregion: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregion_getNumericCode(uregion.toCPointer<ByteVar>())
+public actual fun uregionGetNumericCode(uregion: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregionGetNumericCode(uregion?.value?.toCPointer<ByteVar>())
 
-public actual fun uregion_getPreferredValues(uregion: Long, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregion_getPreferredValues(uregion.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uregionGetPreferredValues(uregion: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregionGetPreferredValues(uregion?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun uregion_getRegionCode(uregion: Long): PCSTR =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregion_getRegionCode(uregion.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uregionGetRegionCode(uregion: COpaquePointer?): Pcstr =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregionGetRegionCode(uregion?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun uregion_getRegionFromCode(regioncode: PCSTR, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregion_getRegionFromCode(regioncode.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uregionGetRegionFromCode(regioncode: Pcstr, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregionGetRegionFromCode(regioncode?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun uregion_getRegionFromNumericCode(code: Int, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregion_getRegionFromNumericCode(code, status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uregionGetRegionFromNumericCode(code: Int, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregionGetRegionFromNumericCode(code, status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun uregion_getType(uregion: Long): URegionType =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregion_getType(uregion.toCPointer<ByteVar>())
+public actual fun uregionGetType(uregion: COpaquePointer?): URegionType =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uregionGetType(uregion?.value?.toCPointer<ByteVar>())
 
-public actual fun ureldatefmt_close(reldatefmt: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ureldatefmt_close(reldatefmt.toCPointer<ByteVar>())
+public actual fun ureldatefmtClose(reldatefmt: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ureldatefmtClose(reldatefmt?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ureldatefmt_closeResult(ufrdt: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ureldatefmt_closeResult(ufrdt.toCPointer<ByteVar>())
+public actual fun ureldatefmtCloseResult(ufrdt: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ureldatefmtCloseResult(ufrdt?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ureldatefmt_combineDateAndTime(reldatefmt: Long, relativedatestring: Long, relativedatestringlen: Int, timestring: Long, timestringlen: Int, result: Long, resultcapacity: Int, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ureldatefmt_combineDateAndTime(reldatefmt.toCPointer<ByteVar>(), relativedatestring.toCPointer<ByteVar>(), relativedatestringlen, timestring.toCPointer<ByteVar>(), timestringlen, result.toCPointer<ByteVar>(), resultcapacity, status.toCPointer<ByteVar>())
+public actual fun ureldatefmtCombineDateAndTime(reldatefmt: COpaquePointer?, relativedatestring: COpaquePointer?, relativedatestringlen: Int, timestring: COpaquePointer?, timestringlen: Int, result: COpaquePointer?, resultcapacity: Int, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ureldatefmtCombineDateAndTime(reldatefmt?.value?.toCPointer<ByteVar>(), relativedatestring?.value?.toCPointer<ByteVar>(), relativedatestringlen, timestring?.value?.toCPointer<ByteVar>(), timestringlen, result?.value?.toCPointer<ByteVar>(), resultcapacity, status?.value?.toCPointer<ByteVar>())
 
-public actual fun ureldatefmt_format(reldatefmt: Long, offset: Double, unit: URelativeDateTimeUnit, result: Long, resultcapacity: Int, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ureldatefmt_format(reldatefmt.toCPointer<ByteVar>(), offset, unit, result.toCPointer<ByteVar>(), resultcapacity, status.toCPointer<ByteVar>())
+public actual fun ureldatefmtFormat(reldatefmt: COpaquePointer?, offset: Double, unit: URelativeDateTimeUnit, result: COpaquePointer?, resultcapacity: Int, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ureldatefmtFormat(reldatefmt?.value?.toCPointer<ByteVar>(), offset, unit, result?.value?.toCPointer<ByteVar>(), resultcapacity, status?.value?.toCPointer<ByteVar>())
 
-public actual fun ureldatefmt_formatNumeric(reldatefmt: Long, offset: Double, unit: URelativeDateTimeUnit, result: Long, resultcapacity: Int, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ureldatefmt_formatNumeric(reldatefmt.toCPointer<ByteVar>(), offset, unit, result.toCPointer<ByteVar>(), resultcapacity, status.toCPointer<ByteVar>())
+public actual fun ureldatefmtFormatNumeric(reldatefmt: COpaquePointer?, offset: Double, unit: URelativeDateTimeUnit, result: COpaquePointer?, resultcapacity: Int, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ureldatefmtFormatNumeric(reldatefmt?.value?.toCPointer<ByteVar>(), offset, unit, result?.value?.toCPointer<ByteVar>(), resultcapacity, status?.value?.toCPointer<ByteVar>())
 
-public actual fun ureldatefmt_formatNumericToResult(reldatefmt: Long, offset: Double, unit: URelativeDateTimeUnit, result: Long, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ureldatefmt_formatNumericToResult(reldatefmt.toCPointer<ByteVar>(), offset, unit, result.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun ureldatefmtFormatNumericToResult(reldatefmt: COpaquePointer?, offset: Double, unit: URelativeDateTimeUnit, result: COpaquePointer?, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ureldatefmtFormatNumericToResult(reldatefmt?.value?.toCPointer<ByteVar>(), offset, unit, result?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ureldatefmt_formatToResult(reldatefmt: Long, offset: Double, unit: URelativeDateTimeUnit, result: Long, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ureldatefmt_formatToResult(reldatefmt.toCPointer<ByteVar>(), offset, unit, result.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun ureldatefmtFormatToResult(reldatefmt: COpaquePointer?, offset: Double, unit: URelativeDateTimeUnit, result: COpaquePointer?, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ureldatefmtFormatToResult(reldatefmt?.value?.toCPointer<ByteVar>(), offset, unit, result?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ureldatefmt_open(locale: PCSTR, nftoadopt: Long, width: UDateRelativeDateTimeFormatterStyle, capitalizationcontext: UDisplayContext, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ureldatefmt_open(locale.toCPointer<ByteVar>(), nftoadopt.toCPointer<ByteVar>(), width, capitalizationcontext, status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ureldatefmtOpen(locale: Pcstr, nftoadopt: COpaquePointer?, width: UDateRelativeDateTimeFormatterStyle, capitalizationcontext: UDisplayContext, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ureldatefmtOpen(locale?.value?.toCPointer<ByteVar>(), nftoadopt?.value?.toCPointer<ByteVar>(), width, capitalizationcontext, status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ureldatefmt_openResult(ec: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ureldatefmt_openResult(ec.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ureldatefmtOpenResult(ec: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ureldatefmtOpenResult(ec?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ureldatefmt_resultAsValue(ufrdt: Long, ec: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ureldatefmt_resultAsValue(ufrdt.toCPointer<ByteVar>(), ec.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ureldatefmtResultAsValue(ufrdt: COpaquePointer?, ec: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ureldatefmtResultAsValue(ufrdt?.value?.toCPointer<ByteVar>(), ec?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ures_close(resourcebundle: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ures_close(resourcebundle.toCPointer<ByteVar>())
+public actual fun uresClose(resourcebundle: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uresClose(resourcebundle?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ures_getBinary(resourcebundle: Long, len: Long, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ures_getBinary(resourcebundle.toCPointer<ByteVar>(), len.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uresGetBinary(resourcebundle: COpaquePointer?, len: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uresGetBinary(resourcebundle?.value?.toCPointer<ByteVar>(), len?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ures_getByIndex(resourcebundle: Long, indexr: Int, fillin: Long, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ures_getByIndex(resourcebundle.toCPointer<ByteVar>(), indexr, fillin.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uresGetByIndex(resourcebundle: COpaquePointer?, indexr: Int, fillin: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uresGetByIndex(resourcebundle?.value?.toCPointer<ByteVar>(), indexr, fillin?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ures_getByKey(resourcebundle: Long, key: PCSTR, fillin: Long, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ures_getByKey(resourcebundle.toCPointer<ByteVar>(), key.toCPointer<ByteVar>(), fillin.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uresGetByKey(resourcebundle: COpaquePointer?, key: Pcstr, fillin: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uresGetByKey(resourcebundle?.value?.toCPointer<ByteVar>(), key?.value?.toCPointer<ByteVar>(), fillin?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ures_getInt(resourcebundle: Long, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ures_getInt(resourcebundle.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun uresGetInt(resourcebundle: COpaquePointer?, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uresGetInt(resourcebundle?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun ures_getIntVector(resourcebundle: Long, len: Long, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ures_getIntVector(resourcebundle.toCPointer<ByteVar>(), len.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uresGetIntVector(resourcebundle: COpaquePointer?, len: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uresGetIntVector(resourcebundle?.value?.toCPointer<ByteVar>(), len?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ures_getKey(resourcebundle: Long): PCSTR =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ures_getKey(resourcebundle.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uresGetKey(resourcebundle: COpaquePointer?): Pcstr =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uresGetKey(resourcebundle?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ures_getLocaleByType(resourcebundle: Long, type: ULocDataLocaleType, status: Long): PCSTR =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ures_getLocaleByType(resourcebundle.toCPointer<ByteVar>(), type, status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uresGetLocaleByType(resourcebundle: COpaquePointer?, type: ULocDataLocaleType, status: COpaquePointer?): Pcstr =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uresGetLocaleByType(resourcebundle?.value?.toCPointer<ByteVar>(), type, status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ures_getNextResource(resourcebundle: Long, fillin: Long, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ures_getNextResource(resourcebundle.toCPointer<ByteVar>(), fillin.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uresGetNextResource(resourcebundle: COpaquePointer?, fillin: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uresGetNextResource(resourcebundle?.value?.toCPointer<ByteVar>(), fillin?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ures_getNextString(resourcebundle: Long, len: Long, key: Long, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ures_getNextString(resourcebundle.toCPointer<ByteVar>(), len.toCPointer<ByteVar>(), key.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uresGetNextString(resourcebundle: COpaquePointer?, len: COpaquePointer?, key: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uresGetNextString(resourcebundle?.value?.toCPointer<ByteVar>(), len?.value?.toCPointer<ByteVar>(), key?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ures_getSize(resourcebundle: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ures_getSize(resourcebundle.toCPointer<ByteVar>())
+public actual fun uresGetSize(resourcebundle: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uresGetSize(resourcebundle?.value?.toCPointer<ByteVar>())
 
-public actual fun ures_getString(resourcebundle: Long, len: Long, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ures_getString(resourcebundle.toCPointer<ByteVar>(), len.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uresGetString(resourcebundle: COpaquePointer?, len: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uresGetString(resourcebundle?.value?.toCPointer<ByteVar>(), len?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ures_getStringByIndex(resourcebundle: Long, indexs: Int, len: Long, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ures_getStringByIndex(resourcebundle.toCPointer<ByteVar>(), indexs, len.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uresGetStringByIndex(resourcebundle: COpaquePointer?, indexs: Int, len: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uresGetStringByIndex(resourcebundle?.value?.toCPointer<ByteVar>(), indexs, len?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ures_getStringByKey(resb: Long, key: PCSTR, len: Long, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ures_getStringByKey(resb.toCPointer<ByteVar>(), key.toCPointer<ByteVar>(), len.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uresGetStringByKey(resb: COpaquePointer?, key: Pcstr, len: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uresGetStringByKey(resb?.value?.toCPointer<ByteVar>(), key?.value?.toCPointer<ByteVar>(), len?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ures_getType(resourcebundle: Long): UResType =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ures_getType(resourcebundle.toCPointer<ByteVar>())
+public actual fun uresGetType(resourcebundle: COpaquePointer?): UResType =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uresGetType(resourcebundle?.value?.toCPointer<ByteVar>())
 
-public actual fun ures_getUInt(resourcebundle: Long, status: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ures_getUInt(resourcebundle.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun uresGetUint(resourcebundle: COpaquePointer?, status: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uresGetUint(resourcebundle?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun ures_getUTF8String(resb: Long, dest: PCSTR, length: Long, forcecopy: Byte, status: Long): PCSTR =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ures_getUTF8String(resb.toCPointer<ByteVar>(), dest.toCPointer<ByteVar>(), length.toCPointer<ByteVar>(), forcecopy, status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uresGetUtf8String(resb: COpaquePointer?, dest: Pcstr, length: COpaquePointer?, forcecopy: Byte, status: COpaquePointer?): Pcstr =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uresGetUtf8String(resb?.value?.toCPointer<ByteVar>(), dest?.value?.toCPointer<ByteVar>(), length?.value?.toCPointer<ByteVar>(), forcecopy, status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ures_getUTF8StringByIndex(resb: Long, stringindex: Int, dest: PCSTR, plength: Long, forcecopy: Byte, status: Long): PCSTR =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ures_getUTF8StringByIndex(resb.toCPointer<ByteVar>(), stringindex, dest.toCPointer<ByteVar>(), plength.toCPointer<ByteVar>(), forcecopy, status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uresGetUtf8StringByIndex(resb: COpaquePointer?, stringindex: Int, dest: Pcstr, plength: COpaquePointer?, forcecopy: Byte, status: COpaquePointer?): Pcstr =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uresGetUtf8StringByIndex(resb?.value?.toCPointer<ByteVar>(), stringindex, dest?.value?.toCPointer<ByteVar>(), plength?.value?.toCPointer<ByteVar>(), forcecopy, status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ures_getUTF8StringByKey(resb: Long, key: PCSTR, dest: PCSTR, plength: Long, forcecopy: Byte, status: Long): PCSTR =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ures_getUTF8StringByKey(resb.toCPointer<ByteVar>(), key.toCPointer<ByteVar>(), dest.toCPointer<ByteVar>(), plength.toCPointer<ByteVar>(), forcecopy, status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uresGetUtf8StringByKey(resb: COpaquePointer?, key: Pcstr, dest: Pcstr, plength: COpaquePointer?, forcecopy: Byte, status: COpaquePointer?): Pcstr =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uresGetUtf8StringByKey(resb?.value?.toCPointer<ByteVar>(), key?.value?.toCPointer<ByteVar>(), dest?.value?.toCPointer<ByteVar>(), plength?.value?.toCPointer<ByteVar>(), forcecopy, status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ures_getVersion(resb: Long, versioninfo: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ures_getVersion(resb.toCPointer<ByteVar>(), versioninfo.toCPointer<ByteVar>())
+public actual fun uresGetVersion(resb: COpaquePointer?, versioninfo: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uresGetVersion(resb?.value?.toCPointer<ByteVar>(), versioninfo?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ures_hasNext(resourcebundle: Long): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ures_hasNext(resourcebundle.toCPointer<ByteVar>())
+public actual fun uresHasNext(resourcebundle: COpaquePointer?): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uresHasNext(resourcebundle?.value?.toCPointer<ByteVar>())
 
-public actual fun ures_open(packagename: PCSTR, locale: PCSTR, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ures_open(packagename.toCPointer<ByteVar>(), locale.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uresOpen(packagename: Pcstr, locale: Pcstr, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uresOpen(packagename?.value?.toCPointer<ByteVar>(), locale?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ures_openAvailableLocales(packagename: PCSTR, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ures_openAvailableLocales(packagename.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uresOpenAvailableLocales(packagename: Pcstr, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uresOpenAvailableLocales(packagename?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ures_openDirect(packagename: PCSTR, locale: PCSTR, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ures_openDirect(packagename.toCPointer<ByteVar>(), locale.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uresOpenDirect(packagename: Pcstr, locale: Pcstr, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uresOpenDirect(packagename?.value?.toCPointer<ByteVar>(), locale?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ures_openU(packagename: Long, locale: PCSTR, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ures_openU(packagename.toCPointer<ByteVar>(), locale.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uresOpenU(packagename: COpaquePointer?, locale: Pcstr, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uresOpenU(packagename?.value?.toCPointer<ByteVar>(), locale?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ures_resetIterator(resourcebundle: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_ures_resetIterator(resourcebundle.toCPointer<ByteVar>())
+public actual fun uresResetIterator(resourcebundle: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uresResetIterator(resourcebundle?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun uscript_breaksBetweenLetters(script: UScriptCode): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uscript_breaksBetweenLetters(script)
+public actual fun uscriptBreaksBetweenLetters(script: UScriptCode): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uscriptBreaksBetweenLetters(script)
 
-public actual fun uscript_getCode(nameorabbrorlocale: PCSTR, fillin: Long, capacity: Int, err: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uscript_getCode(nameorabbrorlocale.toCPointer<ByteVar>(), fillin.toCPointer<ByteVar>(), capacity, err.toCPointer<ByteVar>())
+public actual fun uscriptGetCode(nameorabbrorlocale: Pcstr, fillin: COpaquePointer?, capacity: Int, err: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uscriptGetCode(nameorabbrorlocale?.value?.toCPointer<ByteVar>(), fillin?.value?.toCPointer<ByteVar>(), capacity, err?.value?.toCPointer<ByteVar>())
 
-public actual fun uscript_getName(scriptcode: UScriptCode): PCSTR =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uscript_getName(scriptcode)?.toLong() ?: 0L
+public actual fun uscriptGetName(scriptcode: UScriptCode): Pcstr =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uscriptGetName(scriptcode)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun uscript_getSampleString(script: UScriptCode, dest: Long, capacity: Int, perrorcode: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uscript_getSampleString(script, dest.toCPointer<ByteVar>(), capacity, perrorcode.toCPointer<ByteVar>())
+public actual fun uscriptGetSampleString(script: UScriptCode, dest: COpaquePointer?, capacity: Int, perrorcode: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uscriptGetSampleString(script, dest?.value?.toCPointer<ByteVar>(), capacity, perrorcode?.value?.toCPointer<ByteVar>())
 
-public actual fun uscript_getScript(codepoint: Int, err: Long): UScriptCode =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uscript_getScript(codepoint, err.toCPointer<ByteVar>())
+public actual fun uscriptGetScript(codepoint: Int, err: COpaquePointer?): UScriptCode =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uscriptGetScript(codepoint, err?.value?.toCPointer<ByteVar>())
 
-public actual fun uscript_getScriptExtensions(c: Int, scripts: Long, capacity: Int, errorcode: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uscript_getScriptExtensions(c, scripts.toCPointer<ByteVar>(), capacity, errorcode.toCPointer<ByteVar>())
+public actual fun uscriptGetScriptExtensions(c: Int, scripts: COpaquePointer?, capacity: Int, errorcode: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uscriptGetScriptExtensions(c, scripts?.value?.toCPointer<ByteVar>(), capacity, errorcode?.value?.toCPointer<ByteVar>())
 
-public actual fun uscript_getShortName(scriptcode: UScriptCode): PCSTR =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uscript_getShortName(scriptcode)?.toLong() ?: 0L
+public actual fun uscriptGetShortName(scriptcode: UScriptCode): Pcstr =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uscriptGetShortName(scriptcode)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun uscript_getUsage(script: UScriptCode): UScriptUsage =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uscript_getUsage(script)
+public actual fun uscriptGetUsage(script: UScriptCode): UScriptUsage =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uscriptGetUsage(script)
 
-public actual fun uscript_hasScript(c: Int, sc: UScriptCode): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uscript_hasScript(c, sc)
+public actual fun uscriptHasScript(c: Int, sc: UScriptCode): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uscriptHasScript(c, sc)
 
-public actual fun uscript_isCased(script: UScriptCode): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uscript_isCased(script)
+public actual fun uscriptIsCased(script: UScriptCode): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uscriptIsCased(script)
 
-public actual fun uscript_isRightToLeft(script: UScriptCode): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uscript_isRightToLeft(script)
+public actual fun uscriptIsRightToLeft(script: UScriptCode): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uscriptIsRightToLeft(script)
 
-public actual fun usearch_close(searchiter: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usearch_close(searchiter.toCPointer<ByteVar>())
+public actual fun usearchClose(searchiter: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usearchClose(searchiter?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun usearch_first(strsrch: Long, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usearch_first(strsrch.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun usearchFirst(strsrch: COpaquePointer?, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usearchFirst(strsrch?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun usearch_following(strsrch: Long, position: Int, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usearch_following(strsrch.toCPointer<ByteVar>(), position, status.toCPointer<ByteVar>())
+public actual fun usearchFollowing(strsrch: COpaquePointer?, position: Int, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usearchFollowing(strsrch?.value?.toCPointer<ByteVar>(), position, status?.value?.toCPointer<ByteVar>())
 
-public actual fun usearch_getAttribute(strsrch: Long, attribute: USearchAttribute): USearchAttributeValue =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usearch_getAttribute(strsrch.toCPointer<ByteVar>(), attribute)
+public actual fun usearchGetAttribute(strsrch: COpaquePointer?, attribute: USearchAttribute): USearchAttributeValue =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usearchGetAttribute(strsrch?.value?.toCPointer<ByteVar>(), attribute)
 
-public actual fun usearch_getBreakIterator(strsrch: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usearch_getBreakIterator(strsrch.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun usearchGetBreakIterator(strsrch: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usearchGetBreakIterator(strsrch?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun usearch_getCollator(strsrch: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usearch_getCollator(strsrch.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun usearchGetCollator(strsrch: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usearchGetCollator(strsrch?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun usearch_getMatchedLength(strsrch: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usearch_getMatchedLength(strsrch.toCPointer<ByteVar>())
+public actual fun usearchGetMatchedLength(strsrch: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usearchGetMatchedLength(strsrch?.value?.toCPointer<ByteVar>())
 
-public actual fun usearch_getMatchedStart(strsrch: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usearch_getMatchedStart(strsrch.toCPointer<ByteVar>())
+public actual fun usearchGetMatchedStart(strsrch: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usearchGetMatchedStart(strsrch?.value?.toCPointer<ByteVar>())
 
-public actual fun usearch_getMatchedText(strsrch: Long, result: Long, resultcapacity: Int, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usearch_getMatchedText(strsrch.toCPointer<ByteVar>(), result.toCPointer<ByteVar>(), resultcapacity, status.toCPointer<ByteVar>())
+public actual fun usearchGetMatchedText(strsrch: COpaquePointer?, result: COpaquePointer?, resultcapacity: Int, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usearchGetMatchedText(strsrch?.value?.toCPointer<ByteVar>(), result?.value?.toCPointer<ByteVar>(), resultcapacity, status?.value?.toCPointer<ByteVar>())
 
-public actual fun usearch_getOffset(strsrch: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usearch_getOffset(strsrch.toCPointer<ByteVar>())
+public actual fun usearchGetOffset(strsrch: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usearchGetOffset(strsrch?.value?.toCPointer<ByteVar>())
 
-public actual fun usearch_getPattern(strsrch: Long, length: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usearch_getPattern(strsrch.toCPointer<ByteVar>(), length.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun usearchGetPattern(strsrch: COpaquePointer?, length: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usearchGetPattern(strsrch?.value?.toCPointer<ByteVar>(), length?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun usearch_getText(strsrch: Long, length: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usearch_getText(strsrch.toCPointer<ByteVar>(), length.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun usearchGetText(strsrch: COpaquePointer?, length: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usearchGetText(strsrch?.value?.toCPointer<ByteVar>(), length?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun usearch_last(strsrch: Long, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usearch_last(strsrch.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun usearchLast(strsrch: COpaquePointer?, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usearchLast(strsrch?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun usearch_next(strsrch: Long, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usearch_next(strsrch.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun usearchNext(strsrch: COpaquePointer?, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usearchNext(strsrch?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun usearch_open(pattern: Long, patternlength: Int, text: Long, textlength: Int, locale: PCSTR, breakiter: Long, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usearch_open(pattern.toCPointer<ByteVar>(), patternlength, text.toCPointer<ByteVar>(), textlength, locale.toCPointer<ByteVar>(), breakiter.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun usearchOpen(pattern: COpaquePointer?, patternlength: Int, text: COpaquePointer?, textlength: Int, locale: Pcstr, breakiter: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usearchOpen(pattern?.value?.toCPointer<ByteVar>(), patternlength, text?.value?.toCPointer<ByteVar>(), textlength, locale?.value?.toCPointer<ByteVar>(), breakiter?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun usearch_openFromCollator(pattern: Long, patternlength: Int, text: Long, textlength: Int, collator: Long, breakiter: Long, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usearch_openFromCollator(pattern.toCPointer<ByteVar>(), patternlength, text.toCPointer<ByteVar>(), textlength, collator.toCPointer<ByteVar>(), breakiter.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun usearchOpenFromCollator(pattern: COpaquePointer?, patternlength: Int, text: COpaquePointer?, textlength: Int, collator: COpaquePointer?, breakiter: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usearchOpenFromCollator(pattern?.value?.toCPointer<ByteVar>(), patternlength, text?.value?.toCPointer<ByteVar>(), textlength, collator?.value?.toCPointer<ByteVar>(), breakiter?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun usearch_preceding(strsrch: Long, position: Int, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usearch_preceding(strsrch.toCPointer<ByteVar>(), position, status.toCPointer<ByteVar>())
+public actual fun usearchPreceding(strsrch: COpaquePointer?, position: Int, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usearchPreceding(strsrch?.value?.toCPointer<ByteVar>(), position, status?.value?.toCPointer<ByteVar>())
 
-public actual fun usearch_previous(strsrch: Long, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usearch_previous(strsrch.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun usearchPrevious(strsrch: COpaquePointer?, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usearchPrevious(strsrch?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun usearch_reset(strsrch: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usearch_reset(strsrch.toCPointer<ByteVar>())
+public actual fun usearchReset(strsrch: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usearchReset(strsrch?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun usearch_setAttribute(strsrch: Long, attribute: USearchAttribute, value: USearchAttributeValue, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usearch_setAttribute(strsrch.toCPointer<ByteVar>(), attribute, value, status.toCPointer<ByteVar>())
+public actual fun usearchSetAttribute(strsrch: COpaquePointer?, attribute: USearchAttribute, value: USearchAttributeValue, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usearchSetAttribute(strsrch?.value?.toCPointer<ByteVar>(), attribute, value, status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun usearch_setBreakIterator(strsrch: Long, breakiter: Long, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usearch_setBreakIterator(strsrch.toCPointer<ByteVar>(), breakiter.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun usearchSetBreakIterator(strsrch: COpaquePointer?, breakiter: COpaquePointer?, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usearchSetBreakIterator(strsrch?.value?.toCPointer<ByteVar>(), breakiter?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun usearch_setCollator(strsrch: Long, collator: Long, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usearch_setCollator(strsrch.toCPointer<ByteVar>(), collator.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun usearchSetCollator(strsrch: COpaquePointer?, collator: COpaquePointer?, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usearchSetCollator(strsrch?.value?.toCPointer<ByteVar>(), collator?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun usearch_setOffset(strsrch: Long, position: Int, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usearch_setOffset(strsrch.toCPointer<ByteVar>(), position, status.toCPointer<ByteVar>())
+public actual fun usearchSetOffset(strsrch: COpaquePointer?, position: Int, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usearchSetOffset(strsrch?.value?.toCPointer<ByteVar>(), position, status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun usearch_setPattern(strsrch: Long, pattern: Long, patternlength: Int, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usearch_setPattern(strsrch.toCPointer<ByteVar>(), pattern.toCPointer<ByteVar>(), patternlength, status.toCPointer<ByteVar>())
+public actual fun usearchSetPattern(strsrch: COpaquePointer?, pattern: COpaquePointer?, patternlength: Int, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usearchSetPattern(strsrch?.value?.toCPointer<ByteVar>(), pattern?.value?.toCPointer<ByteVar>(), patternlength, status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun usearch_setText(strsrch: Long, text: Long, textlength: Int, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usearch_setText(strsrch.toCPointer<ByteVar>(), text.toCPointer<ByteVar>(), textlength, status.toCPointer<ByteVar>())
+public actual fun usearchSetText(strsrch: COpaquePointer?, text: COpaquePointer?, textlength: Int, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usearchSetText(strsrch?.value?.toCPointer<ByteVar>(), text?.value?.toCPointer<ByteVar>(), textlength, status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun uset_add(set: Long, c: Int) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uset_add(set.toCPointer<ByteVar>(), c)
+public actual fun usetAdd(set: COpaquePointer?, c: Int) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usetAdd(set?.value?.toCPointer<ByteVar>(), c)
 }
 
-public actual fun uset_addAll(set: Long, additionalset: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uset_addAll(set.toCPointer<ByteVar>(), additionalset.toCPointer<ByteVar>())
+public actual fun usetAddAll(set: COpaquePointer?, additionalset: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usetAddAll(set?.value?.toCPointer<ByteVar>(), additionalset?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun uset_addAllCodePoints(set: Long, str: Long, strlen: Int) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uset_addAllCodePoints(set.toCPointer<ByteVar>(), str.toCPointer<ByteVar>(), strlen)
+public actual fun usetAddAllCodePoints(set: COpaquePointer?, str: COpaquePointer?, strlen: Int) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usetAddAllCodePoints(set?.value?.toCPointer<ByteVar>(), str?.value?.toCPointer<ByteVar>(), strlen)
 }
 
-public actual fun uset_addRange(set: Long, start: Int, end: Int) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uset_addRange(set.toCPointer<ByteVar>(), start, end)
+public actual fun usetAddRange(set: COpaquePointer?, start: Int, end: Int) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usetAddRange(set?.value?.toCPointer<ByteVar>(), start, end)
 }
 
-public actual fun uset_addString(set: Long, str: Long, strlen: Int) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uset_addString(set.toCPointer<ByteVar>(), str.toCPointer<ByteVar>(), strlen)
+public actual fun usetAddString(set: COpaquePointer?, str: COpaquePointer?, strlen: Int) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usetAddString(set?.value?.toCPointer<ByteVar>(), str?.value?.toCPointer<ByteVar>(), strlen)
 }
 
-public actual fun uset_applyIntPropertyValue(set: Long, prop: UProperty, value: Int, ec: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uset_applyIntPropertyValue(set.toCPointer<ByteVar>(), prop, value, ec.toCPointer<ByteVar>())
+public actual fun usetApplyIntPropertyValue(set: COpaquePointer?, prop: UProperty, value: Int, ec: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usetApplyIntPropertyValue(set?.value?.toCPointer<ByteVar>(), prop, value, ec?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun uset_applyPattern(set: Long, pattern: Long, patternlength: Int, options: UInt, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uset_applyPattern(set.toCPointer<ByteVar>(), pattern.toCPointer<ByteVar>(), patternlength, options, status.toCPointer<ByteVar>())
+public actual fun usetApplyPattern(set: COpaquePointer?, pattern: COpaquePointer?, patternlength: Int, options: UInt, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usetApplyPattern(set?.value?.toCPointer<ByteVar>(), pattern?.value?.toCPointer<ByteVar>(), patternlength, options, status?.value?.toCPointer<ByteVar>())
 
-public actual fun uset_applyPropertyAlias(set: Long, prop: Long, proplength: Int, value: Long, valuelength: Int, ec: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uset_applyPropertyAlias(set.toCPointer<ByteVar>(), prop.toCPointer<ByteVar>(), proplength, value.toCPointer<ByteVar>(), valuelength, ec.toCPointer<ByteVar>())
+public actual fun usetApplyPropertyAlias(set: COpaquePointer?, prop: COpaquePointer?, proplength: Int, value: COpaquePointer?, valuelength: Int, ec: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usetApplyPropertyAlias(set?.value?.toCPointer<ByteVar>(), prop?.value?.toCPointer<ByteVar>(), proplength, value?.value?.toCPointer<ByteVar>(), valuelength, ec?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun uset_charAt(set: Long, charindex: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uset_charAt(set.toCPointer<ByteVar>(), charindex)
+public actual fun usetCharAt(set: COpaquePointer?, charindex: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usetCharAt(set?.value?.toCPointer<ByteVar>(), charindex)
 
-public actual fun uset_clear(set: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uset_clear(set.toCPointer<ByteVar>())
+public actual fun usetClear(set: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usetClear(set?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun uset_clone(set: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uset_clone(set.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun usetClone(set: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usetClone(set?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun uset_cloneAsThawed(set: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uset_cloneAsThawed(set.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun usetCloneAsThawed(set: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usetCloneAsThawed(set?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun uset_close(set: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uset_close(set.toCPointer<ByteVar>())
+public actual fun usetClose(set: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usetClose(set?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun uset_closeOver(set: Long, attributes: Int) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uset_closeOver(set.toCPointer<ByteVar>(), attributes)
+public actual fun usetCloseOver(set: COpaquePointer?, attributes: Int) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usetCloseOver(set?.value?.toCPointer<ByteVar>(), attributes)
 }
 
-public actual fun uset_compact(set: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uset_compact(set.toCPointer<ByteVar>())
+public actual fun usetCompact(set: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usetCompact(set?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun uset_complement(set: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uset_complement(set.toCPointer<ByteVar>())
+public actual fun usetComplement(set: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usetComplement(set?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun uset_complementAll(set: Long, complement: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uset_complementAll(set.toCPointer<ByteVar>(), complement.toCPointer<ByteVar>())
+public actual fun usetComplementAll(set: COpaquePointer?, complement: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usetComplementAll(set?.value?.toCPointer<ByteVar>(), complement?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun uset_contains(set: Long, c: Int): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uset_contains(set.toCPointer<ByteVar>(), c)
+public actual fun usetContains(set: COpaquePointer?, c: Int): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usetContains(set?.value?.toCPointer<ByteVar>(), c)
 
-public actual fun uset_containsAll(set1: Long, set2: Long): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uset_containsAll(set1.toCPointer<ByteVar>(), set2.toCPointer<ByteVar>())
+public actual fun usetContainsAll(set1: COpaquePointer?, set2: COpaquePointer?): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usetContainsAll(set1?.value?.toCPointer<ByteVar>(), set2?.value?.toCPointer<ByteVar>())
 
-public actual fun uset_containsAllCodePoints(set: Long, str: Long, strlen: Int): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uset_containsAllCodePoints(set.toCPointer<ByteVar>(), str.toCPointer<ByteVar>(), strlen)
+public actual fun usetContainsAllCodePoints(set: COpaquePointer?, str: COpaquePointer?, strlen: Int): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usetContainsAllCodePoints(set?.value?.toCPointer<ByteVar>(), str?.value?.toCPointer<ByteVar>(), strlen)
 
-public actual fun uset_containsNone(set1: Long, set2: Long): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uset_containsNone(set1.toCPointer<ByteVar>(), set2.toCPointer<ByteVar>())
+public actual fun usetContainsNone(set1: COpaquePointer?, set2: COpaquePointer?): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usetContainsNone(set1?.value?.toCPointer<ByteVar>(), set2?.value?.toCPointer<ByteVar>())
 
-public actual fun uset_containsRange(set: Long, start: Int, end: Int): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uset_containsRange(set.toCPointer<ByteVar>(), start, end)
+public actual fun usetContainsRange(set: COpaquePointer?, start: Int, end: Int): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usetContainsRange(set?.value?.toCPointer<ByteVar>(), start, end)
 
-public actual fun uset_containsSome(set1: Long, set2: Long): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uset_containsSome(set1.toCPointer<ByteVar>(), set2.toCPointer<ByteVar>())
+public actual fun usetContainsSome(set1: COpaquePointer?, set2: COpaquePointer?): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usetContainsSome(set1?.value?.toCPointer<ByteVar>(), set2?.value?.toCPointer<ByteVar>())
 
-public actual fun uset_containsString(set: Long, str: Long, strlen: Int): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uset_containsString(set.toCPointer<ByteVar>(), str.toCPointer<ByteVar>(), strlen)
+public actual fun usetContainsString(set: COpaquePointer?, str: COpaquePointer?, strlen: Int): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usetContainsString(set?.value?.toCPointer<ByteVar>(), str?.value?.toCPointer<ByteVar>(), strlen)
 
-public actual fun uset_equals(set1: Long, set2: Long): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uset_equals(set1.toCPointer<ByteVar>(), set2.toCPointer<ByteVar>())
+public actual fun usetEquals(set1: COpaquePointer?, set2: COpaquePointer?): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usetEquals(set1?.value?.toCPointer<ByteVar>(), set2?.value?.toCPointer<ByteVar>())
 
-public actual fun uset_freeze(set: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uset_freeze(set.toCPointer<ByteVar>())
+public actual fun usetFreeze(set: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usetFreeze(set?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun uset_getItem(set: Long, itemindex: Int, start: Long, end: Long, str: Long, strcapacity: Int, ec: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uset_getItem(set.toCPointer<ByteVar>(), itemindex, start.toCPointer<ByteVar>(), end.toCPointer<ByteVar>(), str.toCPointer<ByteVar>(), strcapacity, ec.toCPointer<ByteVar>())
+public actual fun usetGetItem(set: COpaquePointer?, itemindex: Int, start: COpaquePointer?, end: COpaquePointer?, str: COpaquePointer?, strcapacity: Int, ec: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usetGetItem(set?.value?.toCPointer<ByteVar>(), itemindex, start?.value?.toCPointer<ByteVar>(), end?.value?.toCPointer<ByteVar>(), str?.value?.toCPointer<ByteVar>(), strcapacity, ec?.value?.toCPointer<ByteVar>())
 
-public actual fun uset_getItemCount(set: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uset_getItemCount(set.toCPointer<ByteVar>())
+public actual fun usetGetItemCount(set: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usetGetItemCount(set?.value?.toCPointer<ByteVar>())
 
-public actual fun uset_getSerializedRange(set: Long, rangeindex: Int, pstart: Long, pend: Long): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uset_getSerializedRange(set.toCPointer<ByteVar>(), rangeindex, pstart.toCPointer<ByteVar>(), pend.toCPointer<ByteVar>())
+public actual fun usetGetSerializedRange(set: COpaquePointer?, rangeindex: Int, pstart: COpaquePointer?, pend: COpaquePointer?): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usetGetSerializedRange(set?.value?.toCPointer<ByteVar>(), rangeindex, pstart?.value?.toCPointer<ByteVar>(), pend?.value?.toCPointer<ByteVar>())
 
-public actual fun uset_getSerializedRangeCount(set: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uset_getSerializedRangeCount(set.toCPointer<ByteVar>())
+public actual fun usetGetSerializedRangeCount(set: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usetGetSerializedRangeCount(set?.value?.toCPointer<ByteVar>())
 
-public actual fun uset_getSerializedSet(fillset: Long, src: Long, srclength: Int): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uset_getSerializedSet(fillset.toCPointer<ByteVar>(), src.toCPointer<ByteVar>(), srclength)
+public actual fun usetGetSerializedSet(fillset: COpaquePointer?, src: COpaquePointer?, srclength: Int): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usetGetSerializedSet(fillset?.value?.toCPointer<ByteVar>(), src?.value?.toCPointer<ByteVar>(), srclength)
 
-public actual fun uset_indexOf(set: Long, c: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uset_indexOf(set.toCPointer<ByteVar>(), c)
+public actual fun usetIndexOf(set: COpaquePointer?, c: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usetIndexOf(set?.value?.toCPointer<ByteVar>(), c)
 
-public actual fun uset_isEmpty(set: Long): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uset_isEmpty(set.toCPointer<ByteVar>())
+public actual fun usetIsEmpty(set: COpaquePointer?): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usetIsEmpty(set?.value?.toCPointer<ByteVar>())
 
-public actual fun uset_isFrozen(set: Long): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uset_isFrozen(set.toCPointer<ByteVar>())
+public actual fun usetIsFrozen(set: COpaquePointer?): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usetIsFrozen(set?.value?.toCPointer<ByteVar>())
 
-public actual fun uset_open(start: Int, end: Int): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uset_open(start, end)?.toLong() ?: 0L
+public actual fun usetOpen(start: Int, end: Int): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usetOpen(start, end)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun uset_openEmpty(): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uset_openEmpty()?.toLong() ?: 0L
+public actual fun usetOpenEmpty(): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usetOpenEmpty()?.let { COpaquePointer(it.toLong()) }
 
-public actual fun uset_openPattern(pattern: Long, patternlength: Int, ec: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uset_openPattern(pattern.toCPointer<ByteVar>(), patternlength, ec.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun usetOpenPattern(pattern: COpaquePointer?, patternlength: Int, ec: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usetOpenPattern(pattern?.value?.toCPointer<ByteVar>(), patternlength, ec?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun uset_openPatternOptions(pattern: Long, patternlength: Int, options: UInt, ec: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uset_openPatternOptions(pattern.toCPointer<ByteVar>(), patternlength, options, ec.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun usetOpenPatternOptions(pattern: COpaquePointer?, patternlength: Int, options: UInt, ec: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usetOpenPatternOptions(pattern?.value?.toCPointer<ByteVar>(), patternlength, options, ec?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun uset_remove(set: Long, c: Int) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uset_remove(set.toCPointer<ByteVar>(), c)
+public actual fun usetRemove(set: COpaquePointer?, c: Int) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usetRemove(set?.value?.toCPointer<ByteVar>(), c)
 }
 
-public actual fun uset_removeAll(set: Long, removeset: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uset_removeAll(set.toCPointer<ByteVar>(), removeset.toCPointer<ByteVar>())
+public actual fun usetRemoveAll(set: COpaquePointer?, removeset: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usetRemoveAll(set?.value?.toCPointer<ByteVar>(), removeset?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun uset_removeAllStrings(set: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uset_removeAllStrings(set.toCPointer<ByteVar>())
+public actual fun usetRemoveAllStrings(set: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usetRemoveAllStrings(set?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun uset_removeRange(set: Long, start: Int, end: Int) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uset_removeRange(set.toCPointer<ByteVar>(), start, end)
+public actual fun usetRemoveRange(set: COpaquePointer?, start: Int, end: Int) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usetRemoveRange(set?.value?.toCPointer<ByteVar>(), start, end)
 }
 
-public actual fun uset_removeString(set: Long, str: Long, strlen: Int) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uset_removeString(set.toCPointer<ByteVar>(), str.toCPointer<ByteVar>(), strlen)
+public actual fun usetRemoveString(set: COpaquePointer?, str: COpaquePointer?, strlen: Int) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usetRemoveString(set?.value?.toCPointer<ByteVar>(), str?.value?.toCPointer<ByteVar>(), strlen)
 }
 
-public actual fun uset_resemblesPattern(pattern: Long, patternlength: Int, pos: Int): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uset_resemblesPattern(pattern.toCPointer<ByteVar>(), patternlength, pos)
+public actual fun usetResemblesPattern(pattern: COpaquePointer?, patternlength: Int, pos: Int): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usetResemblesPattern(pattern?.value?.toCPointer<ByteVar>(), patternlength, pos)
 
-public actual fun uset_retain(set: Long, start: Int, end: Int) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uset_retain(set.toCPointer<ByteVar>(), start, end)
+public actual fun usetRetain(set: COpaquePointer?, start: Int, end: Int) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usetRetain(set?.value?.toCPointer<ByteVar>(), start, end)
 }
 
-public actual fun uset_retainAll(set: Long, retain: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uset_retainAll(set.toCPointer<ByteVar>(), retain.toCPointer<ByteVar>())
+public actual fun usetRetainAll(set: COpaquePointer?, retain: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usetRetainAll(set?.value?.toCPointer<ByteVar>(), retain?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun uset_serialize(set: Long, dest: Long, destcapacity: Int, perrorcode: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uset_serialize(set.toCPointer<ByteVar>(), dest.toCPointer<ByteVar>(), destcapacity, perrorcode.toCPointer<ByteVar>())
+public actual fun usetSerialize(set: COpaquePointer?, dest: COpaquePointer?, destcapacity: Int, perrorcode: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usetSerialize(set?.value?.toCPointer<ByteVar>(), dest?.value?.toCPointer<ByteVar>(), destcapacity, perrorcode?.value?.toCPointer<ByteVar>())
 
-public actual fun uset_serializedContains(set: Long, c: Int): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uset_serializedContains(set.toCPointer<ByteVar>(), c)
+public actual fun usetSerializedContains(set: COpaquePointer?, c: Int): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usetSerializedContains(set?.value?.toCPointer<ByteVar>(), c)
 
-public actual fun uset_set(set: Long, start: Int, end: Int) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uset_set(set.toCPointer<ByteVar>(), start, end)
+public actual fun usetSet(set: COpaquePointer?, start: Int, end: Int) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usetSet(set?.value?.toCPointer<ByteVar>(), start, end)
 }
 
-public actual fun uset_setSerializedToOne(fillset: Long, c: Int) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uset_setSerializedToOne(fillset.toCPointer<ByteVar>(), c)
+public actual fun usetSetSerializedToOne(fillset: COpaquePointer?, c: Int) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usetSetSerializedToOne(fillset?.value?.toCPointer<ByteVar>(), c)
 }
 
-public actual fun uset_size(set: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uset_size(set.toCPointer<ByteVar>())
+public actual fun usetSize(set: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usetSize(set?.value?.toCPointer<ByteVar>())
 
-public actual fun uset_span(set: Long, s: Long, length: Int, spancondition: USetSpanCondition): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uset_span(set.toCPointer<ByteVar>(), s.toCPointer<ByteVar>(), length, spancondition)
+public actual fun usetSpan(set: COpaquePointer?, s: COpaquePointer?, length: Int, spancondition: USetSpanCondition): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usetSpan(set?.value?.toCPointer<ByteVar>(), s?.value?.toCPointer<ByteVar>(), length, spancondition)
 
-public actual fun uset_spanBack(set: Long, s: Long, length: Int, spancondition: USetSpanCondition): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uset_spanBack(set.toCPointer<ByteVar>(), s.toCPointer<ByteVar>(), length, spancondition)
+public actual fun usetSpanBack(set: COpaquePointer?, s: COpaquePointer?, length: Int, spancondition: USetSpanCondition): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usetSpanBack(set?.value?.toCPointer<ByteVar>(), s?.value?.toCPointer<ByteVar>(), length, spancondition)
 
-public actual fun uset_spanBackUTF8(set: Long, s: PCSTR, length: Int, spancondition: USetSpanCondition): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uset_spanBackUTF8(set.toCPointer<ByteVar>(), s.toCPointer<ByteVar>(), length, spancondition)
+public actual fun usetSpanBackUtf8(set: COpaquePointer?, s: Pcstr, length: Int, spancondition: USetSpanCondition): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usetSpanBackUtf8(set?.value?.toCPointer<ByteVar>(), s?.value?.toCPointer<ByteVar>(), length, spancondition)
 
-public actual fun uset_spanUTF8(set: Long, s: PCSTR, length: Int, spancondition: USetSpanCondition): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uset_spanUTF8(set.toCPointer<ByteVar>(), s.toCPointer<ByteVar>(), length, spancondition)
+public actual fun usetSpanUtf8(set: COpaquePointer?, s: Pcstr, length: Int, spancondition: USetSpanCondition): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usetSpanUtf8(set?.value?.toCPointer<ByteVar>(), s?.value?.toCPointer<ByteVar>(), length, spancondition)
 
-public actual fun uset_toPattern(set: Long, result: Long, resultcapacity: Int, escapeunprintable: Byte, ec: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uset_toPattern(set.toCPointer<ByteVar>(), result.toCPointer<ByteVar>(), resultcapacity, escapeunprintable, ec.toCPointer<ByteVar>())
+public actual fun usetToPattern(set: COpaquePointer?, result: COpaquePointer?, resultcapacity: Int, escapeunprintable: Byte, ec: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usetToPattern(set?.value?.toCPointer<ByteVar>(), result?.value?.toCPointer<ByteVar>(), resultcapacity, escapeunprintable, ec?.value?.toCPointer<ByteVar>())
 
-public actual fun uspoof_areConfusable(sc: Long, id1: Long, length1: Int, id2: Long, length2: Int, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uspoof_areConfusable(sc.toCPointer<ByteVar>(), id1.toCPointer<ByteVar>(), length1, id2.toCPointer<ByteVar>(), length2, status.toCPointer<ByteVar>())
+public actual fun uspoofAreConfusable(sc: COpaquePointer?, id1: COpaquePointer?, length1: Int, id2: COpaquePointer?, length2: Int, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uspoofAreConfusable(sc?.value?.toCPointer<ByteVar>(), id1?.value?.toCPointer<ByteVar>(), length1, id2?.value?.toCPointer<ByteVar>(), length2, status?.value?.toCPointer<ByteVar>())
 
-public actual fun uspoof_areConfusableUTF8(sc: Long, id1: PCSTR, length1: Int, id2: PCSTR, length2: Int, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uspoof_areConfusableUTF8(sc.toCPointer<ByteVar>(), id1.toCPointer<ByteVar>(), length1, id2.toCPointer<ByteVar>(), length2, status.toCPointer<ByteVar>())
+public actual fun uspoofAreConfusableUtf8(sc: COpaquePointer?, id1: Pcstr, length1: Int, id2: Pcstr, length2: Int, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uspoofAreConfusableUtf8(sc?.value?.toCPointer<ByteVar>(), id1?.value?.toCPointer<ByteVar>(), length1, id2?.value?.toCPointer<ByteVar>(), length2, status?.value?.toCPointer<ByteVar>())
 
-public actual fun uspoof_check(sc: Long, id: Long, length: Int, position: Long, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uspoof_check(sc.toCPointer<ByteVar>(), id.toCPointer<ByteVar>(), length, position.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun uspoofCheck(sc: COpaquePointer?, id: COpaquePointer?, length: Int, position: COpaquePointer?, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uspoofCheck(sc?.value?.toCPointer<ByteVar>(), id?.value?.toCPointer<ByteVar>(), length, position?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun uspoof_check2(sc: Long, id: Long, length: Int, checkresult: Long, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uspoof_check2(sc.toCPointer<ByteVar>(), id.toCPointer<ByteVar>(), length, checkresult.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun uspoofCheck2(sc: COpaquePointer?, id: COpaquePointer?, length: Int, checkresult: COpaquePointer?, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uspoofCheck2(sc?.value?.toCPointer<ByteVar>(), id?.value?.toCPointer<ByteVar>(), length, checkresult?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun uspoof_check2UTF8(sc: Long, id: PCSTR, length: Int, checkresult: Long, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uspoof_check2UTF8(sc.toCPointer<ByteVar>(), id.toCPointer<ByteVar>(), length, checkresult.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun uspoofCheck2Utf8(sc: COpaquePointer?, id: Pcstr, length: Int, checkresult: COpaquePointer?, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uspoofCheck2Utf8(sc?.value?.toCPointer<ByteVar>(), id?.value?.toCPointer<ByteVar>(), length, checkresult?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun uspoof_checkUTF8(sc: Long, id: PCSTR, length: Int, position: Long, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uspoof_checkUTF8(sc.toCPointer<ByteVar>(), id.toCPointer<ByteVar>(), length, position.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun uspoofCheckUtf8(sc: COpaquePointer?, id: Pcstr, length: Int, position: COpaquePointer?, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uspoofCheckUtf8(sc?.value?.toCPointer<ByteVar>(), id?.value?.toCPointer<ByteVar>(), length, position?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun uspoof_clone(sc: Long, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uspoof_clone(sc.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uspoofClone(sc: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uspoofClone(sc?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun uspoof_close(sc: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uspoof_close(sc.toCPointer<ByteVar>())
+public actual fun uspoofClose(sc: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uspoofClose(sc?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun uspoof_closeCheckResult(checkresult: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uspoof_closeCheckResult(checkresult.toCPointer<ByteVar>())
+public actual fun uspoofCloseCheckResult(checkresult: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uspoofCloseCheckResult(checkresult?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun uspoof_getAllowedChars(sc: Long, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uspoof_getAllowedChars(sc.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uspoofGetAllowedChars(sc: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uspoofGetAllowedChars(sc?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun uspoof_getAllowedLocales(sc: Long, status: Long): PCSTR =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uspoof_getAllowedLocales(sc.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uspoofGetAllowedLocales(sc: COpaquePointer?, status: COpaquePointer?): Pcstr =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uspoofGetAllowedLocales(sc?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun uspoof_getCheckResultChecks(checkresult: Long, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uspoof_getCheckResultChecks(checkresult.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun uspoofGetCheckResultChecks(checkresult: COpaquePointer?, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uspoofGetCheckResultChecks(checkresult?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun uspoof_getCheckResultNumerics(checkresult: Long, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uspoof_getCheckResultNumerics(checkresult.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uspoofGetCheckResultNumerics(checkresult: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uspoofGetCheckResultNumerics(checkresult?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun uspoof_getCheckResultRestrictionLevel(checkresult: Long, status: Long): URestrictionLevel =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uspoof_getCheckResultRestrictionLevel(checkresult.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun uspoofGetCheckResultRestrictionLevel(checkresult: COpaquePointer?, status: COpaquePointer?): URestrictionLevel =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uspoofGetCheckResultRestrictionLevel(checkresult?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun uspoof_getChecks(sc: Long, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uspoof_getChecks(sc.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun uspoofGetChecks(sc: COpaquePointer?, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uspoofGetChecks(sc?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun uspoof_getInclusionSet(status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uspoof_getInclusionSet(status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uspoofGetInclusionSet(status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uspoofGetInclusionSet(status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun uspoof_getRecommendedSet(status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uspoof_getRecommendedSet(status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uspoofGetRecommendedSet(status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uspoofGetRecommendedSet(status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun uspoof_getRestrictionLevel(sc: Long): URestrictionLevel =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uspoof_getRestrictionLevel(sc.toCPointer<ByteVar>())
+public actual fun uspoofGetRestrictionLevel(sc: COpaquePointer?): URestrictionLevel =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uspoofGetRestrictionLevel(sc?.value?.toCPointer<ByteVar>())
 
-public actual fun uspoof_getSkeleton(sc: Long, type: UInt, id: Long, length: Int, dest: Long, destcapacity: Int, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uspoof_getSkeleton(sc.toCPointer<ByteVar>(), type, id.toCPointer<ByteVar>(), length, dest.toCPointer<ByteVar>(), destcapacity, status.toCPointer<ByteVar>())
+public actual fun uspoofGetSkeleton(sc: COpaquePointer?, type: UInt, id: COpaquePointer?, length: Int, dest: COpaquePointer?, destcapacity: Int, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uspoofGetSkeleton(sc?.value?.toCPointer<ByteVar>(), type, id?.value?.toCPointer<ByteVar>(), length, dest?.value?.toCPointer<ByteVar>(), destcapacity, status?.value?.toCPointer<ByteVar>())
 
-public actual fun uspoof_getSkeletonUTF8(sc: Long, type: UInt, id: PCSTR, length: Int, dest: PCSTR, destcapacity: Int, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uspoof_getSkeletonUTF8(sc.toCPointer<ByteVar>(), type, id.toCPointer<ByteVar>(), length, dest.toCPointer<ByteVar>(), destcapacity, status.toCPointer<ByteVar>())
+public actual fun uspoofGetSkeletonUtf8(sc: COpaquePointer?, type: UInt, id: Pcstr, length: Int, dest: Pcstr, destcapacity: Int, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uspoofGetSkeletonUtf8(sc?.value?.toCPointer<ByteVar>(), type, id?.value?.toCPointer<ByteVar>(), length, dest?.value?.toCPointer<ByteVar>(), destcapacity, status?.value?.toCPointer<ByteVar>())
 
-public actual fun uspoof_open(status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uspoof_open(status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uspoofOpen(status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uspoofOpen(status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun uspoof_openCheckResult(status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uspoof_openCheckResult(status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uspoofOpenCheckResult(status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uspoofOpenCheckResult(status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun uspoof_openFromSerialized(data: Long, length: Int, pactuallength: Long, perrorcode: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uspoof_openFromSerialized(data.toCPointer<ByteVar>(), length, pactuallength.toCPointer<ByteVar>(), perrorcode.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uspoofOpenFromSerialized(data: COpaquePointer?, length: Int, pactuallength: COpaquePointer?, perrorcode: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uspoofOpenFromSerialized(data?.value?.toCPointer<ByteVar>(), length, pactuallength?.value?.toCPointer<ByteVar>(), perrorcode?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun uspoof_openFromSource(confusables: PCSTR, confusableslen: Int, confusableswholescript: PCSTR, confusableswholescriptlen: Int, errtype: Long, pe: Long, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uspoof_openFromSource(confusables.toCPointer<ByteVar>(), confusableslen, confusableswholescript.toCPointer<ByteVar>(), confusableswholescriptlen, errtype.toCPointer<ByteVar>(), pe.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun uspoofOpenFromSource(confusables: Pcstr, confusableslen: Int, confusableswholescript: Pcstr, confusableswholescriptlen: Int, errtype: COpaquePointer?, pe: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uspoofOpenFromSource(confusables?.value?.toCPointer<ByteVar>(), confusableslen, confusableswholescript?.value?.toCPointer<ByteVar>(), confusableswholescriptlen, errtype?.value?.toCPointer<ByteVar>(), pe?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun uspoof_serialize(sc: Long, data: Long, capacity: Int, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uspoof_serialize(sc.toCPointer<ByteVar>(), data.toCPointer<ByteVar>(), capacity, status.toCPointer<ByteVar>())
+public actual fun uspoofSerialize(sc: COpaquePointer?, data: COpaquePointer?, capacity: Int, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uspoofSerialize(sc?.value?.toCPointer<ByteVar>(), data?.value?.toCPointer<ByteVar>(), capacity, status?.value?.toCPointer<ByteVar>())
 
-public actual fun uspoof_setAllowedChars(sc: Long, chars: Long, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uspoof_setAllowedChars(sc.toCPointer<ByteVar>(), chars.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun uspoofSetAllowedChars(sc: COpaquePointer?, chars: COpaquePointer?, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uspoofSetAllowedChars(sc?.value?.toCPointer<ByteVar>(), chars?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun uspoof_setAllowedLocales(sc: Long, localeslist: PCSTR, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uspoof_setAllowedLocales(sc.toCPointer<ByteVar>(), localeslist.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun uspoofSetAllowedLocales(sc: COpaquePointer?, localeslist: Pcstr, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uspoofSetAllowedLocales(sc?.value?.toCPointer<ByteVar>(), localeslist?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun uspoof_setChecks(sc: Long, checks: Int, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uspoof_setChecks(sc.toCPointer<ByteVar>(), checks, status.toCPointer<ByteVar>())
+public actual fun uspoofSetChecks(sc: COpaquePointer?, checks: Int, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uspoofSetChecks(sc?.value?.toCPointer<ByteVar>(), checks, status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun uspoof_setRestrictionLevel(sc: Long, restrictionlevel: URestrictionLevel) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uspoof_setRestrictionLevel(sc.toCPointer<ByteVar>(), restrictionlevel)
+public actual fun uspoofSetRestrictionLevel(sc: COpaquePointer?, restrictionlevel: URestrictionLevel) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_uspoofSetRestrictionLevel(sc?.value?.toCPointer<ByteVar>(), restrictionlevel)
 }
 
-public actual fun usprep_close(profile: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usprep_close(profile.toCPointer<ByteVar>())
+public actual fun usprepClose(profile: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usprepClose(profile?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun usprep_open(path: PCSTR, filename: PCSTR, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usprep_open(path.toCPointer<ByteVar>(), filename.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun usprepOpen(path: Pcstr, filename: Pcstr, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usprepOpen(path?.value?.toCPointer<ByteVar>(), filename?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun usprep_openByType(type: UStringPrepProfileType, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usprep_openByType(type, status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun usprepOpenByType(type: UStringPrepProfileType, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usprepOpenByType(type, status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun usprep_prepare(prep: Long, src: Long, srclength: Int, dest: Long, destcapacity: Int, options: Int, parseerror: Long, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usprep_prepare(prep.toCPointer<ByteVar>(), src.toCPointer<ByteVar>(), srclength, dest.toCPointer<ByteVar>(), destcapacity, options, parseerror.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun usprepPrepare(prep: COpaquePointer?, src: COpaquePointer?, srclength: Int, dest: COpaquePointer?, destcapacity: Int, options: Int, parseerror: COpaquePointer?, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_usprepPrepare(prep?.value?.toCPointer<ByteVar>(), src?.value?.toCPointer<ByteVar>(), srclength, dest?.value?.toCPointer<ByteVar>(), destcapacity, options, parseerror?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 
-public actual fun utext_char32At(ut: Long, nativeindex: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utext_char32At(ut.toCPointer<ByteVar>(), nativeindex)
+public actual fun utextChar32At(ut: COpaquePointer?, nativeindex: Long): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utextChar32At(ut?.value?.toCPointer<ByteVar>(), nativeindex)
 
-public actual fun utext_clone(dest: Long, src: Long, deep: Byte, readonly: Byte, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utext_clone(dest.toCPointer<ByteVar>(), src.toCPointer<ByteVar>(), deep, readonly, status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun utextClone(dest: COpaquePointer?, src: COpaquePointer?, deep: Byte, readonly: Byte, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utextClone(dest?.value?.toCPointer<ByteVar>(), src?.value?.toCPointer<ByteVar>(), deep, readonly, status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun utext_close(ut: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utext_close(ut.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun utextClose(ut: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utextClose(ut?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun utext_copy(ut: Long, nativestart: Long, nativelimit: Long, destindex: Long, move: Byte, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utext_copy(ut.toCPointer<ByteVar>(), nativestart, nativelimit, destindex, move, status.toCPointer<ByteVar>())
+public actual fun utextCopy(ut: COpaquePointer?, nativestart: Long, nativelimit: Long, destindex: Long, move: Byte, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utextCopy(ut?.value?.toCPointer<ByteVar>(), nativestart, nativelimit, destindex, move, status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun utext_current32(ut: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utext_current32(ut.toCPointer<ByteVar>())
+public actual fun utextCurrent32(ut: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utextCurrent32(ut?.value?.toCPointer<ByteVar>())
 
-public actual fun utext_equals(a: Long, b: Long): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utext_equals(a.toCPointer<ByteVar>(), b.toCPointer<ByteVar>())
+public actual fun utextEquals(a: COpaquePointer?, b: COpaquePointer?): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utextEquals(a?.value?.toCPointer<ByteVar>(), b?.value?.toCPointer<ByteVar>())
 
-public actual fun utext_extract(ut: Long, nativestart: Long, nativelimit: Long, dest: Long, destcapacity: Int, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utext_extract(ut.toCPointer<ByteVar>(), nativestart, nativelimit, dest.toCPointer<ByteVar>(), destcapacity, status.toCPointer<ByteVar>())
+public actual fun utextExtract(ut: COpaquePointer?, nativestart: Long, nativelimit: Long, dest: COpaquePointer?, destcapacity: Int, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utextExtract(ut?.value?.toCPointer<ByteVar>(), nativestart, nativelimit, dest?.value?.toCPointer<ByteVar>(), destcapacity, status?.value?.toCPointer<ByteVar>())
 
-public actual fun utext_freeze(ut: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utext_freeze(ut.toCPointer<ByteVar>())
+public actual fun utextFreeze(ut: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utextFreeze(ut?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun utext_getNativeIndex(ut: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utext_getNativeIndex(ut.toCPointer<ByteVar>())
+public actual fun utextGetNativeIndex(ut: COpaquePointer?): Long =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utextGetNativeIndex(ut?.value?.toCPointer<ByteVar>())
 
-public actual fun utext_getPreviousNativeIndex(ut: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utext_getPreviousNativeIndex(ut.toCPointer<ByteVar>())
+public actual fun utextGetPreviousNativeIndex(ut: COpaquePointer?): Long =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utextGetPreviousNativeIndex(ut?.value?.toCPointer<ByteVar>())
 
-public actual fun utext_hasMetaData(ut: Long): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utext_hasMetaData(ut.toCPointer<ByteVar>())
+public actual fun utextHasMetaData(ut: COpaquePointer?): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utextHasMetaData(ut?.value?.toCPointer<ByteVar>())
 
-public actual fun utext_isLengthExpensive(ut: Long): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utext_isLengthExpensive(ut.toCPointer<ByteVar>())
+public actual fun utextIsLengthExpensive(ut: COpaquePointer?): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utextIsLengthExpensive(ut?.value?.toCPointer<ByteVar>())
 
-public actual fun utext_isWritable(ut: Long): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utext_isWritable(ut.toCPointer<ByteVar>())
+public actual fun utextIsWritable(ut: COpaquePointer?): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utextIsWritable(ut?.value?.toCPointer<ByteVar>())
 
-public actual fun utext_moveIndex32(ut: Long, delta: Int): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utext_moveIndex32(ut.toCPointer<ByteVar>(), delta)
+public actual fun utextMoveIndex32(ut: COpaquePointer?, delta: Int): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utextMoveIndex32(ut?.value?.toCPointer<ByteVar>(), delta)
 
-public actual fun utext_nativeLength(ut: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utext_nativeLength(ut.toCPointer<ByteVar>())
+public actual fun utextNativeLength(ut: COpaquePointer?): Long =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utextNativeLength(ut?.value?.toCPointer<ByteVar>())
 
-public actual fun utext_next32(ut: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utext_next32(ut.toCPointer<ByteVar>())
+public actual fun utextNext32(ut: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utextNext32(ut?.value?.toCPointer<ByteVar>())
 
-public actual fun utext_next32From(ut: Long, nativeindex: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utext_next32From(ut.toCPointer<ByteVar>(), nativeindex)
+public actual fun utextNext32From(ut: COpaquePointer?, nativeindex: Long): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utextNext32From(ut?.value?.toCPointer<ByteVar>(), nativeindex)
 
-public actual fun utext_openUChars(ut: Long, s: Long, length: Long, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utext_openUChars(ut.toCPointer<ByteVar>(), s.toCPointer<ByteVar>(), length, status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun utextOpenUchars(ut: COpaquePointer?, s: COpaquePointer?, length: Long, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utextOpenUchars(ut?.value?.toCPointer<ByteVar>(), s?.value?.toCPointer<ByteVar>(), length, status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun utext_openUTF8(ut: Long, s: PCSTR, length: Long, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utext_openUTF8(ut.toCPointer<ByteVar>(), s.toCPointer<ByteVar>(), length, status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun utextOpenUtf8(ut: COpaquePointer?, s: Pcstr, length: Long, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utextOpenUtf8(ut?.value?.toCPointer<ByteVar>(), s?.value?.toCPointer<ByteVar>(), length, status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun utext_previous32(ut: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utext_previous32(ut.toCPointer<ByteVar>())
+public actual fun utextPrevious32(ut: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utextPrevious32(ut?.value?.toCPointer<ByteVar>())
 
-public actual fun utext_previous32From(ut: Long, nativeindex: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utext_previous32From(ut.toCPointer<ByteVar>(), nativeindex)
+public actual fun utextPrevious32From(ut: COpaquePointer?, nativeindex: Long): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utextPrevious32From(ut?.value?.toCPointer<ByteVar>(), nativeindex)
 
-public actual fun utext_replace(ut: Long, nativestart: Long, nativelimit: Long, replacementtext: Long, replacementlength: Int, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utext_replace(ut.toCPointer<ByteVar>(), nativestart, nativelimit, replacementtext.toCPointer<ByteVar>(), replacementlength, status.toCPointer<ByteVar>())
+public actual fun utextReplace(ut: COpaquePointer?, nativestart: Long, nativelimit: Long, replacementtext: COpaquePointer?, replacementlength: Int, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utextReplace(ut?.value?.toCPointer<ByteVar>(), nativestart, nativelimit, replacementtext?.value?.toCPointer<ByteVar>(), replacementlength, status?.value?.toCPointer<ByteVar>())
 
-public actual fun utext_setNativeIndex(ut: Long, nativeindex: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utext_setNativeIndex(ut.toCPointer<ByteVar>(), nativeindex)
+public actual fun utextSetNativeIndex(ut: COpaquePointer?, nativeindex: Long) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utextSetNativeIndex(ut?.value?.toCPointer<ByteVar>(), nativeindex)
 }
 
-public actual fun utext_setup(ut: Long, extraspace: Int, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utext_setup(ut.toCPointer<ByteVar>(), extraspace, status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun utextSetup(ut: COpaquePointer?, extraspace: Int, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utextSetup(ut?.value?.toCPointer<ByteVar>(), extraspace, status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun utf8_appendCharSafeBody(s: Long, i: Int, length: Int, c: Int, piserror: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utf8_appendCharSafeBody(s.toCPointer<ByteVar>(), i, length, c, piserror.toCPointer<ByteVar>())
+public actual fun utf8AppendCharSafeBody(s: COpaquePointer?, i: Int, length: Int, c: Int, piserror: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utf8AppendCharSafeBody(s?.value?.toCPointer<ByteVar>(), i, length, c, piserror?.value?.toCPointer<ByteVar>())
 
-public actual fun utf8_back1SafeBody(s: Long, start: Int, i: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utf8_back1SafeBody(s.toCPointer<ByteVar>(), start, i)
+public actual fun utf8Back1SafeBody(s: COpaquePointer?, start: Int, i: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utf8Back1SafeBody(s?.value?.toCPointer<ByteVar>(), start, i)
 
-public actual fun utf8_nextCharSafeBody(s: Long, pi: Long, length: Int, c: Int, strict: Byte): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utf8_nextCharSafeBody(s.toCPointer<ByteVar>(), pi.toCPointer<ByteVar>(), length, c, strict)
+public actual fun utf8NextCharSafeBody(s: COpaquePointer?, pi: COpaquePointer?, length: Int, c: Int, strict: Byte): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utf8NextCharSafeBody(s?.value?.toCPointer<ByteVar>(), pi?.value?.toCPointer<ByteVar>(), length, c, strict)
 
-public actual fun utf8_prevCharSafeBody(s: Long, start: Int, pi: Long, c: Int, strict: Byte): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utf8_prevCharSafeBody(s.toCPointer<ByteVar>(), start, pi.toCPointer<ByteVar>(), c, strict)
+public actual fun utf8PrevCharSafeBody(s: COpaquePointer?, start: Int, pi: COpaquePointer?, c: Int, strict: Byte): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utf8PrevCharSafeBody(s?.value?.toCPointer<ByteVar>(), start, pi?.value?.toCPointer<ByteVar>(), c, strict)
 
-public actual fun utmscale_fromInt64(othertime: Long, timescale: UDateTimeScale, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utmscale_fromInt64(othertime, timescale, status.toCPointer<ByteVar>())
+public actual fun utmscaleFromInt64(othertime: Long, timescale: UDateTimeScale, status: COpaquePointer?): Long =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utmscaleFromInt64(othertime, timescale, status?.value?.toCPointer<ByteVar>())
 
-public actual fun utmscale_getTimeScaleValue(timescale: UDateTimeScale, value: UTimeScaleValue, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utmscale_getTimeScaleValue(timescale, value, status.toCPointer<ByteVar>())
+public actual fun utmscaleGetTimeScaleValue(timescale: UDateTimeScale, value: UTimeScaleValue, status: COpaquePointer?): Long =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utmscaleGetTimeScaleValue(timescale, value, status?.value?.toCPointer<ByteVar>())
 
-public actual fun utmscale_toInt64(universaltime: Long, timescale: UDateTimeScale, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utmscale_toInt64(universaltime, timescale, status.toCPointer<ByteVar>())
+public actual fun utmscaleToInt64(universaltime: Long, timescale: UDateTimeScale, status: COpaquePointer?): Long =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utmscaleToInt64(universaltime, timescale, status?.value?.toCPointer<ByteVar>())
 
-public actual fun utrace_format(outbuf: PCSTR, capacity: Int, indent: Int, fmt: PCSTR): Int =
-    0
+public actual fun utraceFormat(outbuf: Pcstr, capacity: Int, indent: Int, fmt: Pcstr, vararg variadicArgs: Long): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utraceFormat(outbuf?.value?.toCPointer<ByteVar>(), capacity, indent, fmt?.value?.toCPointer<ByteVar>(), variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
 
-public actual fun utrace_functionName(fnnumber: Int): PCSTR =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utrace_functionName(fnnumber)?.toLong() ?: 0L
+public actual fun utraceFunctionName(fnnumber: Int): Pcstr =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utraceFunctionName(fnnumber)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun utrace_getFunctions(context: Long, e: Long, x: Long, d: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utrace_getFunctions(context.toCPointer<ByteVar>(), e.toCPointer<ByteVar>(), x.toCPointer<ByteVar>(), d.toCPointer<ByteVar>())
+public actual fun utraceGetFunctions(context: COpaquePointer?, e: COpaquePointer?, x: COpaquePointer?, d: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utraceGetFunctions(context?.value?.toCPointer<ByteVar>(), e?.value?.toCPointer<ByteVar>(), x?.value?.toCPointer<ByteVar>(), d?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun utrace_getLevel(): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utrace_getLevel()
+public actual fun utraceGetLevel(): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utraceGetLevel()
 
-public actual fun utrace_setFunctions(context: Long, e: UTraceEntry, x: UTraceExit, d: UTraceData) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utrace_setFunctions(context.toCPointer<ByteVar>(), e.toLong().toCPointer<ByteVar>(), x.toLong().toCPointer<ByteVar>(), d.toLong().toCPointer<ByteVar>())
+public actual fun utraceSetFunctions(context: COpaquePointer?, e: UTraceEntry, x: UTraceExit, d: UTraceData) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utraceSetFunctions(context?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 }
 
-public actual fun utrace_setLevel(tracelevel: Int) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utrace_setLevel(tracelevel)
+public actual fun utraceSetLevel(tracelevel: Int) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utraceSetLevel(tracelevel)
 }
 
-public actual fun utrace_vformat(outbuf: PCSTR, capacity: Int, indent: Int, fmt: PCSTR, args: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utrace_vformat(outbuf.toCPointer<ByteVar>(), capacity, indent, fmt.toCPointer<ByteVar>(), args.toCPointer<ByteVar>())
+public actual fun utraceVformat(outbuf: Pcstr, capacity: Int, indent: Int, fmt: Pcstr, args: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utraceVformat(outbuf?.value?.toCPointer<ByteVar>(), capacity, indent, fmt?.value?.toCPointer<ByteVar>(), args?.value?.toCPointer<ByteVar>())
 
-public actual fun utrans_clone(trans: Long, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utrans_clone(trans.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun utransClone(trans: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utransClone(trans?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun utrans_close(trans: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utrans_close(trans.toCPointer<ByteVar>())
+public actual fun utransClose(trans: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utransClose(trans?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun utrans_countAvailableIDs(): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utrans_countAvailableIDs()
+public actual fun utransCountAvailableIds(): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utransCountAvailableIds()
 
-public actual fun utrans_getSourceSet(trans: Long, ignorefilter: Byte, fillin: Long, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utrans_getSourceSet(trans.toCPointer<ByteVar>(), ignorefilter, fillin.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun utransGetSourceSet(trans: COpaquePointer?, ignorefilter: Byte, fillin: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utransGetSourceSet(trans?.value?.toCPointer<ByteVar>(), ignorefilter, fillin?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun utrans_getUnicodeID(trans: Long, resultlength: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utrans_getUnicodeID(trans.toCPointer<ByteVar>(), resultlength.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun utransGetUnicodeId(trans: COpaquePointer?, resultlength: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utransGetUnicodeId(trans?.value?.toCPointer<ByteVar>(), resultlength?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun utrans_openIDs(perrorcode: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utrans_openIDs(perrorcode.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun utransOpenIds(perrorcode: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utransOpenIds(perrorcode?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun utrans_openInverse(trans: Long, status: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utrans_openInverse(trans.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun utransOpenInverse(trans: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utransOpenInverse(trans?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun utrans_openU(id: Long, idlength: Int, dir: UTransDirection, rules: Long, ruleslength: Int, parseerror: Long, perrorcode: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utrans_openU(id.toCPointer<ByteVar>(), idlength, dir, rules.toCPointer<ByteVar>(), ruleslength, parseerror.toCPointer<ByteVar>(), perrorcode.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun utransOpenU(id: COpaquePointer?, idlength: Int, dir: UTransDirection, rules: COpaquePointer?, ruleslength: Int, parseerror: COpaquePointer?, perrorcode: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utransOpenU(id?.value?.toCPointer<ByteVar>(), idlength, dir, rules?.value?.toCPointer<ByteVar>(), ruleslength, parseerror?.value?.toCPointer<ByteVar>(), perrorcode?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun utrans_register(adoptedtrans: Long, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utrans_register(adoptedtrans.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun utransRegister(adoptedtrans: COpaquePointer?, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utransRegister(adoptedtrans?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun utrans_setFilter(trans: Long, filterpattern: Long, filterpatternlen: Int, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utrans_setFilter(trans.toCPointer<ByteVar>(), filterpattern.toCPointer<ByteVar>(), filterpatternlen, status.toCPointer<ByteVar>())
+public actual fun utransSetFilter(trans: COpaquePointer?, filterpattern: COpaquePointer?, filterpatternlen: Int, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utransSetFilter(trans?.value?.toCPointer<ByteVar>(), filterpattern?.value?.toCPointer<ByteVar>(), filterpatternlen, status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun utrans_toRules(trans: Long, escapeunprintable: Byte, result: Long, resultlength: Int, status: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utrans_toRules(trans.toCPointer<ByteVar>(), escapeunprintable, result.toCPointer<ByteVar>(), resultlength, status.toCPointer<ByteVar>())
+public actual fun utransToRules(trans: COpaquePointer?, escapeunprintable: Byte, result: COpaquePointer?, resultlength: Int, status: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utransToRules(trans?.value?.toCPointer<ByteVar>(), escapeunprintable, result?.value?.toCPointer<ByteVar>(), resultlength, status?.value?.toCPointer<ByteVar>())
 
-public actual fun utrans_trans(trans: Long, rep: Long, repfunc: Long, start: Int, limit: Long, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utrans_trans(trans.toCPointer<ByteVar>(), rep.toCPointer<ByteVar>(), repfunc.toCPointer<ByteVar>(), start, limit.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun utransTrans(trans: COpaquePointer?, rep: COpaquePointer?, repfunc: COpaquePointer?, start: Int, limit: COpaquePointer?, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utransTrans(trans?.value?.toCPointer<ByteVar>(), rep?.value?.toCPointer<ByteVar>(), repfunc?.value?.toCPointer<ByteVar>(), start, limit?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun utrans_transIncremental(trans: Long, rep: Long, repfunc: Long, pos: Long, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utrans_transIncremental(trans.toCPointer<ByteVar>(), rep.toCPointer<ByteVar>(), repfunc.toCPointer<ByteVar>(), pos.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun utransTransIncremental(trans: COpaquePointer?, rep: COpaquePointer?, repfunc: COpaquePointer?, pos: COpaquePointer?, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utransTransIncremental(trans?.value?.toCPointer<ByteVar>(), rep?.value?.toCPointer<ByteVar>(), repfunc?.value?.toCPointer<ByteVar>(), pos?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun utrans_transIncrementalUChars(trans: Long, text: Long, textlength: Long, textcapacity: Int, pos: Long, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utrans_transIncrementalUChars(trans.toCPointer<ByteVar>(), text.toCPointer<ByteVar>(), textlength.toCPointer<ByteVar>(), textcapacity, pos.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun utransTransIncrementalUchars(trans: COpaquePointer?, text: COpaquePointer?, textlength: COpaquePointer?, textcapacity: Int, pos: COpaquePointer?, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utransTransIncrementalUchars(trans?.value?.toCPointer<ByteVar>(), text?.value?.toCPointer<ByteVar>(), textlength?.value?.toCPointer<ByteVar>(), textcapacity, pos?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun utrans_transUChars(trans: Long, text: Long, textlength: Long, textcapacity: Int, start: Int, limit: Long, status: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utrans_transUChars(trans.toCPointer<ByteVar>(), text.toCPointer<ByteVar>(), textlength.toCPointer<ByteVar>(), textcapacity, start, limit.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun utransTransUchars(trans: COpaquePointer?, text: COpaquePointer?, textlength: COpaquePointer?, textcapacity: Int, start: Int, limit: COpaquePointer?, status: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utransTransUchars(trans?.value?.toCPointer<ByteVar>(), text?.value?.toCPointer<ByteVar>(), textlength?.value?.toCPointer<ByteVar>(), textcapacity, start, limit?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun utrans_unregisterID(id: Long, idlength: Int) {
-    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utrans_unregisterID(id.toCPointer<ByteVar>(), idlength)
+public actual fun utransUnregisterId(id: COpaquePointer?, idlength: Int) {
+    io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssys_windows_win32_globalization_utransUnregisterId(id?.value?.toCPointer<ByteVar>(), idlength)
 }

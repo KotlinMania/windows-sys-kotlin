@@ -2,664 +2,665 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.graphics.printing
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HDC
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hdc
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun AbortPrinter(hprinter: PRINTER_HANDLE): BOOL =
+public actual fun abortPrinter(hprinter: PrinterHandle): Bool =
     0
 
-public actual fun AddFormA(hprinter: PRINTER_HANDLE, level: UInt, pform: Long): BOOL =
+public actual fun addFormA(hprinter: PrinterHandle, level: UInt, pform: COpaquePointer?): Bool =
     0
 
-public actual fun AddFormW(hprinter: PRINTER_HANDLE, level: UInt, pform: Long): BOOL =
+public actual fun addFormW(hprinter: PrinterHandle, level: UInt, pform: COpaquePointer?): Bool =
     0
 
-public actual fun AddJobA(hprinter: PRINTER_HANDLE, level: UInt, pdata: Long, cbbuf: UInt, pcbneeded: Long): BOOL =
+public actual fun addJobA(hprinter: PrinterHandle, level: UInt, pdata: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?): Bool =
     0
 
-public actual fun AddJobW(hprinter: PRINTER_HANDLE, level: UInt, pdata: Long, cbbuf: UInt, pcbneeded: Long): BOOL =
+public actual fun addJobW(hprinter: PrinterHandle, level: UInt, pdata: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?): Bool =
     0
 
-public actual fun AddMonitorA(pname: PCSTR, level: UInt, pmonitors: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_AddMonitorA(pname.toCPointer<ByteVar>(), level, pmonitors.toCPointer<ByteVar>())
+public actual fun addMonitorA(pname: Pcstr, level: UInt, pmonitors: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_addMonitorA(pname?.value?.toCPointer<ByteVar>(), level, pmonitors?.value?.toCPointer<ByteVar>())
 
-public actual fun AddMonitorW(pname: PCWSTR, level: UInt, pmonitors: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_AddMonitorW(pname.toCPointer<ByteVar>(), level, pmonitors.toCPointer<ByteVar>())
+public actual fun addMonitorW(pname: Pcwstr, level: UInt, pmonitors: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_addMonitorW(pname?.value?.toCPointer<ByteVar>(), level, pmonitors?.value?.toCPointer<ByteVar>())
 
-public actual fun AddPortA(pname: PCSTR, hwnd: HWND, pmonitorname: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_AddPortA(pname.toCPointer<ByteVar>(), hwnd.toCPointer<ByteVar>(), pmonitorname.toCPointer<ByteVar>())
+public actual fun addPortA(pname: Pcstr, hwnd: Hwnd, pmonitorname: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_addPortA(pname?.value?.toCPointer<ByteVar>(), hwnd?.value?.toCPointer<ByteVar>(), pmonitorname?.value?.toCPointer<ByteVar>())
 
-public actual fun AddPortW(pname: PCWSTR, hwnd: HWND, pmonitorname: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_AddPortW(pname.toCPointer<ByteVar>(), hwnd.toCPointer<ByteVar>(), pmonitorname.toCPointer<ByteVar>())
+public actual fun addPortW(pname: Pcwstr, hwnd: Hwnd, pmonitorname: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_addPortW(pname?.value?.toCPointer<ByteVar>(), hwnd?.value?.toCPointer<ByteVar>(), pmonitorname?.value?.toCPointer<ByteVar>())
 
-public actual fun AddPrintDeviceObject(hprinter: PRINTER_HANDLE, phdeviceobject: Long): HRESULT =
+public actual fun addPrintDeviceObject(hprinter: PrinterHandle, phdeviceobject: COpaquePointer?): Hresult =
     0
 
-public actual fun AddPrintProcessorA(pname: PCSTR, penvironment: PCSTR, ppathname: PCSTR, pprintprocessorname: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_AddPrintProcessorA(pname.toCPointer<ByteVar>(), penvironment.toCPointer<ByteVar>(), ppathname.toCPointer<ByteVar>(), pprintprocessorname.toCPointer<ByteVar>())
+public actual fun addPrintProcessorA(pname: Pcstr, penvironment: Pcstr, ppathname: Pcstr, pprintprocessorname: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_addPrintProcessorA(pname?.value?.toCPointer<ByteVar>(), penvironment?.value?.toCPointer<ByteVar>(), ppathname?.value?.toCPointer<ByteVar>(), pprintprocessorname?.value?.toCPointer<ByteVar>())
 
-public actual fun AddPrintProcessorW(pname: PCWSTR, penvironment: PCWSTR, ppathname: PCWSTR, pprintprocessorname: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_AddPrintProcessorW(pname.toCPointer<ByteVar>(), penvironment.toCPointer<ByteVar>(), ppathname.toCPointer<ByteVar>(), pprintprocessorname.toCPointer<ByteVar>())
+public actual fun addPrintProcessorW(pname: Pcwstr, penvironment: Pcwstr, ppathname: Pcwstr, pprintprocessorname: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_addPrintProcessorW(pname?.value?.toCPointer<ByteVar>(), penvironment?.value?.toCPointer<ByteVar>(), ppathname?.value?.toCPointer<ByteVar>(), pprintprocessorname?.value?.toCPointer<ByteVar>())
 
-public actual fun AddPrintProvidorA(pname: PCSTR, level: UInt, pprovidorinfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_AddPrintProvidorA(pname.toCPointer<ByteVar>(), level, pprovidorinfo.toCPointer<ByteVar>())
+public actual fun addPrintProvidorA(pname: Pcstr, level: UInt, pprovidorinfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_addPrintProvidorA(pname?.value?.toCPointer<ByteVar>(), level, pprovidorinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun AddPrintProvidorW(pname: PCWSTR, level: UInt, pprovidorinfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_AddPrintProvidorW(pname.toCPointer<ByteVar>(), level, pprovidorinfo.toCPointer<ByteVar>())
+public actual fun addPrintProvidorW(pname: Pcwstr, level: UInt, pprovidorinfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_addPrintProvidorW(pname?.value?.toCPointer<ByteVar>(), level, pprovidorinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun AddPrinterA(pname: PCSTR, level: UInt, pprinter: Long): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_AddPrinterA(pname.toCPointer<ByteVar>(), level, pprinter.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun addPrinterA(pname: Pcstr, level: UInt, pprinter: COpaquePointer?): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_addPrinterA(pname?.value?.toCPointer<ByteVar>(), level, pprinter?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun AddPrinterConnection2A(hwnd: HWND, pszname: PCSTR, dwlevel: UInt, pconnectioninfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_AddPrinterConnection2A(hwnd.toCPointer<ByteVar>(), pszname.toCPointer<ByteVar>(), dwlevel, pconnectioninfo.toCPointer<ByteVar>())
+public actual fun addPrinterConnection2A(hwnd: Hwnd, pszname: Pcstr, dwlevel: UInt, pconnectioninfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_addPrinterConnection2A(hwnd?.value?.toCPointer<ByteVar>(), pszname?.value?.toCPointer<ByteVar>(), dwlevel, pconnectioninfo?.value?.toCPointer<ByteVar>())
 
-public actual fun AddPrinterConnection2W(hwnd: HWND, pszname: PCWSTR, dwlevel: UInt, pconnectioninfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_AddPrinterConnection2W(hwnd.toCPointer<ByteVar>(), pszname.toCPointer<ByteVar>(), dwlevel, pconnectioninfo.toCPointer<ByteVar>())
+public actual fun addPrinterConnection2W(hwnd: Hwnd, pszname: Pcwstr, dwlevel: UInt, pconnectioninfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_addPrinterConnection2W(hwnd?.value?.toCPointer<ByteVar>(), pszname?.value?.toCPointer<ByteVar>(), dwlevel, pconnectioninfo?.value?.toCPointer<ByteVar>())
 
-public actual fun AddPrinterConnectionA(pname: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_AddPrinterConnectionA(pname.toCPointer<ByteVar>())
+public actual fun addPrinterConnectionA(pname: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_addPrinterConnectionA(pname?.value?.toCPointer<ByteVar>())
 
-public actual fun AddPrinterConnectionW(pname: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_AddPrinterConnectionW(pname.toCPointer<ByteVar>())
+public actual fun addPrinterConnectionW(pname: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_addPrinterConnectionW(pname?.value?.toCPointer<ByteVar>())
 
-public actual fun AddPrinterDriverA(pname: PCSTR, level: UInt, pdriverinfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_AddPrinterDriverA(pname.toCPointer<ByteVar>(), level, pdriverinfo.toCPointer<ByteVar>())
+public actual fun addPrinterDriverA(pname: Pcstr, level: UInt, pdriverinfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_addPrinterDriverA(pname?.value?.toCPointer<ByteVar>(), level, pdriverinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun AddPrinterDriverExA(pname: PCSTR, level: UInt, lpbdriverinfo: Long, dwfilecopyflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_AddPrinterDriverExA(pname.toCPointer<ByteVar>(), level, lpbdriverinfo.toCPointer<ByteVar>(), dwfilecopyflags)
+public actual fun addPrinterDriverExA(pname: Pcstr, level: UInt, lpbdriverinfo: COpaquePointer?, dwfilecopyflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_addPrinterDriverExA(pname?.value?.toCPointer<ByteVar>(), level, lpbdriverinfo?.value?.toCPointer<ByteVar>(), dwfilecopyflags)
 
-public actual fun AddPrinterDriverExW(pname: PCWSTR, level: UInt, lpbdriverinfo: Long, dwfilecopyflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_AddPrinterDriverExW(pname.toCPointer<ByteVar>(), level, lpbdriverinfo.toCPointer<ByteVar>(), dwfilecopyflags)
+public actual fun addPrinterDriverExW(pname: Pcwstr, level: UInt, lpbdriverinfo: COpaquePointer?, dwfilecopyflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_addPrinterDriverExW(pname?.value?.toCPointer<ByteVar>(), level, lpbdriverinfo?.value?.toCPointer<ByteVar>(), dwfilecopyflags)
 
-public actual fun AddPrinterDriverW(pname: PCWSTR, level: UInt, pdriverinfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_AddPrinterDriverW(pname.toCPointer<ByteVar>(), level, pdriverinfo.toCPointer<ByteVar>())
+public actual fun addPrinterDriverW(pname: Pcwstr, level: UInt, pdriverinfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_addPrinterDriverW(pname?.value?.toCPointer<ByteVar>(), level, pdriverinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun AddPrinterW(pname: PCWSTR, level: UInt, pprinter: Long): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_AddPrinterW(pname.toCPointer<ByteVar>(), level, pprinter.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun addPrinterW(pname: Pcwstr, level: UInt, pprinter: COpaquePointer?): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_addPrinterW(pname?.value?.toCPointer<ByteVar>(), level, pprinter?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun AdvancedDocumentPropertiesA(hwnd: HWND, hprinter: PRINTER_HANDLE, pdevicename: PCSTR, pdevmodeoutput: Long, pdevmodeinput: Long): Int =
+public actual fun advancedDocumentPropertiesA(hwnd: Hwnd, hprinter: PrinterHandle, pdevicename: Pcstr, pdevmodeoutput: COpaquePointer?, pdevmodeinput: COpaquePointer?): Int =
     0
 
-public actual fun AdvancedDocumentPropertiesW(hwnd: HWND, hprinter: PRINTER_HANDLE, pdevicename: PCWSTR, pdevmodeoutput: Long, pdevmodeinput: Long): Int =
+public actual fun advancedDocumentPropertiesW(hwnd: Hwnd, hprinter: PrinterHandle, pdevicename: Pcwstr, pdevmodeoutput: COpaquePointer?, pdevmodeinput: COpaquePointer?): Int =
     0
 
-public actual fun AppendPrinterNotifyInfoData(pinfodest: Long, pdatasrc: Long, fdwflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_AppendPrinterNotifyInfoData(pinfodest.toCPointer<ByteVar>(), pdatasrc.toCPointer<ByteVar>(), fdwflags)
+public actual fun appendPrinterNotifyInfoData(pinfodest: COpaquePointer?, pdatasrc: COpaquePointer?, fdwflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_appendPrinterNotifyInfoData(pinfodest?.value?.toCPointer<ByteVar>(), pdatasrc?.value?.toCPointer<ByteVar>(), fdwflags)
 
-public actual fun CallRouterFindFirstPrinterChangeNotification(hprinterrpc: HANDLE, fdwfilterflags: UInt, fdwoptions: UInt, hnotify: HANDLE, pprinternotifyoptions: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_CallRouterFindFirstPrinterChangeNotification(hprinterrpc.toCPointer<ByteVar>(), fdwfilterflags, fdwoptions, hnotify.toCPointer<ByteVar>(), pprinternotifyoptions.toCPointer<ByteVar>())
+public actual fun callRouterFindFirstPrinterChangeNotification(hprinterrpc: Handle, fdwfilterflags: UInt, fdwoptions: UInt, hnotify: Handle, pprinternotifyoptions: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_callRouterFindFirstPrinterChangeNotification(hprinterrpc?.value?.toCPointer<ByteVar>(), fdwfilterflags, fdwoptions, hnotify?.value?.toCPointer<ByteVar>(), pprinternotifyoptions?.value?.toCPointer<ByteVar>())
 
-public actual fun ClosePrinter(hprinter: PRINTER_HANDLE): BOOL =
+public actual fun closePrinter(hprinter: PrinterHandle): Bool =
     0
 
-public actual fun CloseSpoolFileHandle(hprinter: PRINTER_HANDLE, hspoolfile: HANDLE): BOOL =
+public actual fun closeSpoolFileHandle(hprinter: PrinterHandle, hspoolfile: Handle): Bool =
     0
 
-public actual fun CommitSpoolData(hprinter: PRINTER_HANDLE, hspoolfile: HANDLE, cbcommit: UInt): HANDLE =
-    0L
+public actual fun commitSpoolData(hprinter: PrinterHandle, hspoolfile: Handle, cbcommit: UInt): Handle =
+    null
 
-public actual fun CommonPropertySheetUIA(hwndowner: HWND, pfnpropsheetui: PFNPROPSHEETUI, lparam: LPARAM, presult: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_CommonPropertySheetUIA(hwndowner.toCPointer<ByteVar>(), pfnpropsheetui.toLong().toCPointer<ByteVar>(), lparam, presult.toCPointer<ByteVar>())
+public actual fun commonPropertySheetUIA(hwndowner: Hwnd, pfnpropsheetui: Pfnpropsheetui, lparam: Lparam, presult: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_commonPropertySheetUIA(hwndowner?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lparam, presult?.value?.toCPointer<ByteVar>())
 
-public actual fun CommonPropertySheetUIW(hwndowner: HWND, pfnpropsheetui: PFNPROPSHEETUI, lparam: LPARAM, presult: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_CommonPropertySheetUIW(hwndowner.toCPointer<ByteVar>(), pfnpropsheetui.toLong().toCPointer<ByteVar>(), lparam, presult.toCPointer<ByteVar>())
+public actual fun commonPropertySheetUIW(hwndowner: Hwnd, pfnpropsheetui: Pfnpropsheetui, lparam: Lparam, presult: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_commonPropertySheetUIW(hwndowner?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lparam, presult?.value?.toCPointer<ByteVar>())
 
-public actual fun ConfigurePortA(pname: PCSTR, hwnd: HWND, pportname: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_ConfigurePortA(pname.toCPointer<ByteVar>(), hwnd.toCPointer<ByteVar>(), pportname.toCPointer<ByteVar>())
+public actual fun configurePortA(pname: Pcstr, hwnd: Hwnd, pportname: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_configurePortA(pname?.value?.toCPointer<ByteVar>(), hwnd?.value?.toCPointer<ByteVar>(), pportname?.value?.toCPointer<ByteVar>())
 
-public actual fun ConfigurePortW(pname: PCWSTR, hwnd: HWND, pportname: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_ConfigurePortW(pname.toCPointer<ByteVar>(), hwnd.toCPointer<ByteVar>(), pportname.toCPointer<ByteVar>())
+public actual fun configurePortW(pname: Pcwstr, hwnd: Hwnd, pportname: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_configurePortW(pname?.value?.toCPointer<ByteVar>(), hwnd?.value?.toCPointer<ByteVar>(), pportname?.value?.toCPointer<ByteVar>())
 
-public actual fun ConnectToPrinterDlg(hwnd: HWND, flags: UInt): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_ConnectToPrinterDlg(hwnd.toCPointer<ByteVar>(), flags)?.toLong() ?: 0L
+public actual fun connectToPrinterDlg(hwnd: Hwnd, flags: UInt): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_connectToPrinterDlg(hwnd?.value?.toCPointer<ByteVar>(), flags)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CorePrinterDriverInstalledA(pszserver: PCSTR, pszenvironment: PCSTR, coredriverguid: GUID, ftdriverdate: FILETIME, dwldriverversion: ULong, pbdriverinstalled: Long): HRESULT =
+public actual fun corePrinterDriverInstalledA(pszserver: Pcstr, pszenvironment: Pcstr, coredriverguid: Guid, ftdriverdate: Filetime, dwldriverversion: ULong, pbdriverinstalled: COpaquePointer?): Hresult =
     0
 
-public actual fun CorePrinterDriverInstalledW(pszserver: PCWSTR, pszenvironment: PCWSTR, coredriverguid: GUID, ftdriverdate: FILETIME, dwldriverversion: ULong, pbdriverinstalled: Long): HRESULT =
+public actual fun corePrinterDriverInstalledW(pszserver: Pcwstr, pszenvironment: Pcwstr, coredriverguid: Guid, ftdriverdate: Filetime, dwldriverversion: ULong, pbdriverinstalled: COpaquePointer?): Hresult =
     0
 
-public actual fun CreatePrintAsyncNotifyChannel(pszname: PCWSTR, pnotificationtype: Long, euserfilter: PrintAsyncNotifyUserFilter, econversationstyle: PrintAsyncNotifyConversationStyle, pcallback: Long, ppiasynchnotification: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_CreatePrintAsyncNotifyChannel(pszname.toCPointer<ByteVar>(), pnotificationtype.toCPointer<ByteVar>(), euserfilter, econversationstyle, pcallback.toCPointer<ByteVar>(), ppiasynchnotification.toCPointer<ByteVar>())
+public actual fun createPrintAsyncNotifyChannel(pszname: Pcwstr, pnotificationtype: COpaquePointer?, euserfilter: PrintAsyncNotifyUserFilter, econversationstyle: PrintAsyncNotifyConversationStyle, pcallback: COpaquePointer?, ppiasynchnotification: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_createPrintAsyncNotifyChannel(pszname?.value?.toCPointer<ByteVar>(), pnotificationtype?.value?.toCPointer<ByteVar>(), euserfilter, econversationstyle, pcallback?.value?.toCPointer<ByteVar>(), ppiasynchnotification?.value?.toCPointer<ByteVar>())
 
-public actual fun CreatePrinterIC(hprinter: PRINTER_HANDLE, pdevmode: Long): HANDLE =
-    0L
+public actual fun createPrinterIC(hprinter: PrinterHandle, pdevmode: COpaquePointer?): Handle =
+    null
 
-public actual fun DeleteFormA(hprinter: PRINTER_HANDLE, pformname: PCSTR): BOOL =
+public actual fun deleteFormA(hprinter: PrinterHandle, pformname: Pcstr): Bool =
     0
 
-public actual fun DeleteFormW(hprinter: PRINTER_HANDLE, pformname: PCWSTR): BOOL =
+public actual fun deleteFormW(hprinter: PrinterHandle, pformname: Pcwstr): Bool =
     0
 
-public actual fun DeleteJobNamedProperty(hprinter: PRINTER_HANDLE, jobid: UInt, pszname: PCWSTR): UInt =
+public actual fun deleteJobNamedProperty(hprinter: PrinterHandle, jobid: UInt, pszname: Pcwstr): UInt =
     0u
 
-public actual fun DeleteMonitorA(pname: PCSTR, penvironment: PCSTR, pmonitorname: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_DeleteMonitorA(pname.toCPointer<ByteVar>(), penvironment.toCPointer<ByteVar>(), pmonitorname.toCPointer<ByteVar>())
+public actual fun deleteMonitorA(pname: Pcstr, penvironment: Pcstr, pmonitorname: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_deleteMonitorA(pname?.value?.toCPointer<ByteVar>(), penvironment?.value?.toCPointer<ByteVar>(), pmonitorname?.value?.toCPointer<ByteVar>())
 
-public actual fun DeleteMonitorW(pname: PCWSTR, penvironment: PCWSTR, pmonitorname: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_DeleteMonitorW(pname.toCPointer<ByteVar>(), penvironment.toCPointer<ByteVar>(), pmonitorname.toCPointer<ByteVar>())
+public actual fun deleteMonitorW(pname: Pcwstr, penvironment: Pcwstr, pmonitorname: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_deleteMonitorW(pname?.value?.toCPointer<ByteVar>(), penvironment?.value?.toCPointer<ByteVar>(), pmonitorname?.value?.toCPointer<ByteVar>())
 
-public actual fun DeletePortA(pname: PCSTR, hwnd: HWND, pportname: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_DeletePortA(pname.toCPointer<ByteVar>(), hwnd.toCPointer<ByteVar>(), pportname.toCPointer<ByteVar>())
+public actual fun deletePortA(pname: Pcstr, hwnd: Hwnd, pportname: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_deletePortA(pname?.value?.toCPointer<ByteVar>(), hwnd?.value?.toCPointer<ByteVar>(), pportname?.value?.toCPointer<ByteVar>())
 
-public actual fun DeletePortW(pname: PCWSTR, hwnd: HWND, pportname: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_DeletePortW(pname.toCPointer<ByteVar>(), hwnd.toCPointer<ByteVar>(), pportname.toCPointer<ByteVar>())
+public actual fun deletePortW(pname: Pcwstr, hwnd: Hwnd, pportname: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_deletePortW(pname?.value?.toCPointer<ByteVar>(), hwnd?.value?.toCPointer<ByteVar>(), pportname?.value?.toCPointer<ByteVar>())
 
-public actual fun DeletePrintProcessorA(pname: PCSTR, penvironment: PCSTR, pprintprocessorname: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_DeletePrintProcessorA(pname.toCPointer<ByteVar>(), penvironment.toCPointer<ByteVar>(), pprintprocessorname.toCPointer<ByteVar>())
+public actual fun deletePrintProcessorA(pname: Pcstr, penvironment: Pcstr, pprintprocessorname: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_deletePrintProcessorA(pname?.value?.toCPointer<ByteVar>(), penvironment?.value?.toCPointer<ByteVar>(), pprintprocessorname?.value?.toCPointer<ByteVar>())
 
-public actual fun DeletePrintProcessorW(pname: PCWSTR, penvironment: PCWSTR, pprintprocessorname: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_DeletePrintProcessorW(pname.toCPointer<ByteVar>(), penvironment.toCPointer<ByteVar>(), pprintprocessorname.toCPointer<ByteVar>())
+public actual fun deletePrintProcessorW(pname: Pcwstr, penvironment: Pcwstr, pprintprocessorname: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_deletePrintProcessorW(pname?.value?.toCPointer<ByteVar>(), penvironment?.value?.toCPointer<ByteVar>(), pprintprocessorname?.value?.toCPointer<ByteVar>())
 
-public actual fun DeletePrintProvidorA(pname: PCSTR, penvironment: PCSTR, pprintprovidorname: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_DeletePrintProvidorA(pname.toCPointer<ByteVar>(), penvironment.toCPointer<ByteVar>(), pprintprovidorname.toCPointer<ByteVar>())
+public actual fun deletePrintProvidorA(pname: Pcstr, penvironment: Pcstr, pprintprovidorname: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_deletePrintProvidorA(pname?.value?.toCPointer<ByteVar>(), penvironment?.value?.toCPointer<ByteVar>(), pprintprovidorname?.value?.toCPointer<ByteVar>())
 
-public actual fun DeletePrintProvidorW(pname: PCWSTR, penvironment: PCWSTR, pprintprovidorname: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_DeletePrintProvidorW(pname.toCPointer<ByteVar>(), penvironment.toCPointer<ByteVar>(), pprintprovidorname.toCPointer<ByteVar>())
+public actual fun deletePrintProvidorW(pname: Pcwstr, penvironment: Pcwstr, pprintprovidorname: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_deletePrintProvidorW(pname?.value?.toCPointer<ByteVar>(), penvironment?.value?.toCPointer<ByteVar>(), pprintprovidorname?.value?.toCPointer<ByteVar>())
 
-public actual fun DeletePrinter(hprinter: PRINTER_HANDLE): BOOL =
+public actual fun deletePrinter(hprinter: PrinterHandle): Bool =
     0
 
-public actual fun DeletePrinterConnectionA(pname: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_DeletePrinterConnectionA(pname.toCPointer<ByteVar>())
+public actual fun deletePrinterConnectionA(pname: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_deletePrinterConnectionA(pname?.value?.toCPointer<ByteVar>())
 
-public actual fun DeletePrinterConnectionW(pname: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_DeletePrinterConnectionW(pname.toCPointer<ByteVar>())
+public actual fun deletePrinterConnectionW(pname: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_deletePrinterConnectionW(pname?.value?.toCPointer<ByteVar>())
 
-public actual fun DeletePrinterDataA(hprinter: PRINTER_HANDLE, pvaluename: PCSTR): UInt =
+public actual fun deletePrinterDataA(hprinter: PrinterHandle, pvaluename: Pcstr): UInt =
     0u
 
-public actual fun DeletePrinterDataExA(hprinter: PRINTER_HANDLE, pkeyname: PCSTR, pvaluename: PCSTR): UInt =
+public actual fun deletePrinterDataExA(hprinter: PrinterHandle, pkeyname: Pcstr, pvaluename: Pcstr): UInt =
     0u
 
-public actual fun DeletePrinterDataExW(hprinter: PRINTER_HANDLE, pkeyname: PCWSTR, pvaluename: PCWSTR): UInt =
+public actual fun deletePrinterDataExW(hprinter: PrinterHandle, pkeyname: Pcwstr, pvaluename: Pcwstr): UInt =
     0u
 
-public actual fun DeletePrinterDataW(hprinter: PRINTER_HANDLE, pvaluename: PCWSTR): UInt =
+public actual fun deletePrinterDataW(hprinter: PrinterHandle, pvaluename: Pcwstr): UInt =
     0u
 
-public actual fun DeletePrinterDriverA(pname: PCSTR, penvironment: PCSTR, pdrivername: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_DeletePrinterDriverA(pname.toCPointer<ByteVar>(), penvironment.toCPointer<ByteVar>(), pdrivername.toCPointer<ByteVar>())
+public actual fun deletePrinterDriverA(pname: Pcstr, penvironment: Pcstr, pdrivername: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_deletePrinterDriverA(pname?.value?.toCPointer<ByteVar>(), penvironment?.value?.toCPointer<ByteVar>(), pdrivername?.value?.toCPointer<ByteVar>())
 
-public actual fun DeletePrinterDriverExA(pname: PCSTR, penvironment: PCSTR, pdrivername: PCSTR, dwdeleteflag: UInt, dwversionflag: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_DeletePrinterDriverExA(pname.toCPointer<ByteVar>(), penvironment.toCPointer<ByteVar>(), pdrivername.toCPointer<ByteVar>(), dwdeleteflag, dwversionflag)
+public actual fun deletePrinterDriverExA(pname: Pcstr, penvironment: Pcstr, pdrivername: Pcstr, dwdeleteflag: UInt, dwversionflag: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_deletePrinterDriverExA(pname?.value?.toCPointer<ByteVar>(), penvironment?.value?.toCPointer<ByteVar>(), pdrivername?.value?.toCPointer<ByteVar>(), dwdeleteflag, dwversionflag)
 
-public actual fun DeletePrinterDriverExW(pname: PCWSTR, penvironment: PCWSTR, pdrivername: PCWSTR, dwdeleteflag: UInt, dwversionflag: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_DeletePrinterDriverExW(pname.toCPointer<ByteVar>(), penvironment.toCPointer<ByteVar>(), pdrivername.toCPointer<ByteVar>(), dwdeleteflag, dwversionflag)
+public actual fun deletePrinterDriverExW(pname: Pcwstr, penvironment: Pcwstr, pdrivername: Pcwstr, dwdeleteflag: UInt, dwversionflag: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_deletePrinterDriverExW(pname?.value?.toCPointer<ByteVar>(), penvironment?.value?.toCPointer<ByteVar>(), pdrivername?.value?.toCPointer<ByteVar>(), dwdeleteflag, dwversionflag)
 
-public actual fun DeletePrinterDriverPackageA(pszserver: PCSTR, pszinfpath: PCSTR, pszenvironment: PCSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_DeletePrinterDriverPackageA(pszserver.toCPointer<ByteVar>(), pszinfpath.toCPointer<ByteVar>(), pszenvironment.toCPointer<ByteVar>())
+public actual fun deletePrinterDriverPackageA(pszserver: Pcstr, pszinfpath: Pcstr, pszenvironment: Pcstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_deletePrinterDriverPackageA(pszserver?.value?.toCPointer<ByteVar>(), pszinfpath?.value?.toCPointer<ByteVar>(), pszenvironment?.value?.toCPointer<ByteVar>())
 
-public actual fun DeletePrinterDriverPackageW(pszserver: PCWSTR, pszinfpath: PCWSTR, pszenvironment: PCWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_DeletePrinterDriverPackageW(pszserver.toCPointer<ByteVar>(), pszinfpath.toCPointer<ByteVar>(), pszenvironment.toCPointer<ByteVar>())
+public actual fun deletePrinterDriverPackageW(pszserver: Pcwstr, pszinfpath: Pcwstr, pszenvironment: Pcwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_deletePrinterDriverPackageW(pszserver?.value?.toCPointer<ByteVar>(), pszinfpath?.value?.toCPointer<ByteVar>(), pszenvironment?.value?.toCPointer<ByteVar>())
 
-public actual fun DeletePrinterDriverW(pname: PCWSTR, penvironment: PCWSTR, pdrivername: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_DeletePrinterDriverW(pname.toCPointer<ByteVar>(), penvironment.toCPointer<ByteVar>(), pdrivername.toCPointer<ByteVar>())
+public actual fun deletePrinterDriverW(pname: Pcwstr, penvironment: Pcwstr, pdrivername: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_deletePrinterDriverW(pname?.value?.toCPointer<ByteVar>(), penvironment?.value?.toCPointer<ByteVar>(), pdrivername?.value?.toCPointer<ByteVar>())
 
-public actual fun DeletePrinterIC(hprinteric: HANDLE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_DeletePrinterIC(hprinteric.toCPointer<ByteVar>())
+public actual fun deletePrinterIC(hprinteric: Handle): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_deletePrinterIC(hprinteric?.value?.toCPointer<ByteVar>())
 
-public actual fun DeletePrinterKeyA(hprinter: PRINTER_HANDLE, pkeyname: PCSTR): UInt =
+public actual fun deletePrinterKeyA(hprinter: PrinterHandle, pkeyname: Pcstr): UInt =
     0u
 
-public actual fun DeletePrinterKeyW(hprinter: PRINTER_HANDLE, pkeyname: PCWSTR): UInt =
+public actual fun deletePrinterKeyW(hprinter: PrinterHandle, pkeyname: Pcwstr): UInt =
     0u
 
-public actual fun DevQueryPrint(hprinter: PRINTER_HANDLE, pdevmode: Long, presid: Long): BOOL =
+public actual fun devQueryPrint(hprinter: PrinterHandle, pdevmode: COpaquePointer?, presid: COpaquePointer?): Bool =
     0
 
-public actual fun DevQueryPrintEx(pdqpinfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_DevQueryPrintEx(pdqpinfo.toCPointer<ByteVar>())
+public actual fun devQueryPrintEx(pdqpinfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_devQueryPrintEx(pdqpinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DocumentPropertiesA(hwnd: HWND, hprinter: PRINTER_HANDLE, pdevicename: PCSTR, pdevmodeoutput: Long, pdevmodeinput: Long, fmode: UInt): Int =
+public actual fun documentPropertiesA(hwnd: Hwnd, hprinter: PrinterHandle, pdevicename: Pcstr, pdevmodeoutput: COpaquePointer?, pdevmodeinput: COpaquePointer?, fmode: UInt): Int =
     0
 
-public actual fun DocumentPropertiesW(hwnd: HWND, hprinter: PRINTER_HANDLE, pdevicename: PCWSTR, pdevmodeoutput: Long, pdevmodeinput: Long, fmode: UInt): Int =
+public actual fun documentPropertiesW(hwnd: Hwnd, hprinter: PrinterHandle, pdevicename: Pcwstr, pdevmodeoutput: COpaquePointer?, pdevmodeinput: COpaquePointer?, fmode: UInt): Int =
     0
 
-public actual fun EndDocPrinter(hprinter: PRINTER_HANDLE): BOOL =
+public actual fun endDocPrinter(hprinter: PrinterHandle): Bool =
     0
 
-public actual fun EndPagePrinter(hprinter: PRINTER_HANDLE): BOOL =
+public actual fun endPagePrinter(hprinter: PrinterHandle): Bool =
     0
 
-public actual fun EnumFormsA(hprinter: PRINTER_HANDLE, level: UInt, pform: Long, cbbuf: UInt, pcbneeded: Long, pcreturned: Long): BOOL =
+public actual fun enumFormsA(hprinter: PrinterHandle, level: UInt, pform: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?, pcreturned: COpaquePointer?): Bool =
     0
 
-public actual fun EnumFormsW(hprinter: PRINTER_HANDLE, level: UInt, pform: Long, cbbuf: UInt, pcbneeded: Long, pcreturned: Long): BOOL =
+public actual fun enumFormsW(hprinter: PrinterHandle, level: UInt, pform: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?, pcreturned: COpaquePointer?): Bool =
     0
 
-public actual fun EnumJobNamedProperties(hprinter: PRINTER_HANDLE, jobid: UInt, pcproperties: Long, ppproperties: Long): UInt =
+public actual fun enumJobNamedProperties(hprinter: PrinterHandle, jobid: UInt, pcproperties: COpaquePointer?, ppproperties: COpaquePointer?): UInt =
     0u
 
-public actual fun EnumJobsA(hprinter: PRINTER_HANDLE, firstjob: UInt, nojobs: UInt, level: UInt, pjob: Long, cbbuf: UInt, pcbneeded: Long, pcreturned: Long): BOOL =
+public actual fun enumJobsA(hprinter: PrinterHandle, firstjob: UInt, nojobs: UInt, level: UInt, pjob: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?, pcreturned: COpaquePointer?): Bool =
     0
 
-public actual fun EnumJobsW(hprinter: PRINTER_HANDLE, firstjob: UInt, nojobs: UInt, level: UInt, pjob: Long, cbbuf: UInt, pcbneeded: Long, pcreturned: Long): BOOL =
+public actual fun enumJobsW(hprinter: PrinterHandle, firstjob: UInt, nojobs: UInt, level: UInt, pjob: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?, pcreturned: COpaquePointer?): Bool =
     0
 
-public actual fun EnumMonitorsA(pname: PCSTR, level: UInt, pmonitor: Long, cbbuf: UInt, pcbneeded: Long, pcreturned: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_EnumMonitorsA(pname.toCPointer<ByteVar>(), level, pmonitor.toCPointer<ByteVar>(), cbbuf, pcbneeded.toCPointer<ByteVar>(), pcreturned.toCPointer<ByteVar>())
+public actual fun enumMonitorsA(pname: Pcstr, level: UInt, pmonitor: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?, pcreturned: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_enumMonitorsA(pname?.value?.toCPointer<ByteVar>(), level, pmonitor?.value?.toCPointer<ByteVar>(), cbbuf, pcbneeded?.value?.toCPointer<ByteVar>(), pcreturned?.value?.toCPointer<ByteVar>())
 
-public actual fun EnumMonitorsW(pname: PCWSTR, level: UInt, pmonitor: Long, cbbuf: UInt, pcbneeded: Long, pcreturned: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_EnumMonitorsW(pname.toCPointer<ByteVar>(), level, pmonitor.toCPointer<ByteVar>(), cbbuf, pcbneeded.toCPointer<ByteVar>(), pcreturned.toCPointer<ByteVar>())
+public actual fun enumMonitorsW(pname: Pcwstr, level: UInt, pmonitor: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?, pcreturned: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_enumMonitorsW(pname?.value?.toCPointer<ByteVar>(), level, pmonitor?.value?.toCPointer<ByteVar>(), cbbuf, pcbneeded?.value?.toCPointer<ByteVar>(), pcreturned?.value?.toCPointer<ByteVar>())
 
-public actual fun EnumPortsA(pname: PCSTR, level: UInt, pport: Long, cbbuf: UInt, pcbneeded: Long, pcreturned: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_EnumPortsA(pname.toCPointer<ByteVar>(), level, pport.toCPointer<ByteVar>(), cbbuf, pcbneeded.toCPointer<ByteVar>(), pcreturned.toCPointer<ByteVar>())
+public actual fun enumPortsA(pname: Pcstr, level: UInt, pport: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?, pcreturned: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_enumPortsA(pname?.value?.toCPointer<ByteVar>(), level, pport?.value?.toCPointer<ByteVar>(), cbbuf, pcbneeded?.value?.toCPointer<ByteVar>(), pcreturned?.value?.toCPointer<ByteVar>())
 
-public actual fun EnumPortsW(pname: PCWSTR, level: UInt, pport: Long, cbbuf: UInt, pcbneeded: Long, pcreturned: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_EnumPortsW(pname.toCPointer<ByteVar>(), level, pport.toCPointer<ByteVar>(), cbbuf, pcbneeded.toCPointer<ByteVar>(), pcreturned.toCPointer<ByteVar>())
+public actual fun enumPortsW(pname: Pcwstr, level: UInt, pport: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?, pcreturned: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_enumPortsW(pname?.value?.toCPointer<ByteVar>(), level, pport?.value?.toCPointer<ByteVar>(), cbbuf, pcbneeded?.value?.toCPointer<ByteVar>(), pcreturned?.value?.toCPointer<ByteVar>())
 
-public actual fun EnumPrintProcessorDatatypesA(pname: PCSTR, pprintprocessorname: PCSTR, level: UInt, pdatatypes: Long, cbbuf: UInt, pcbneeded: Long, pcreturned: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_EnumPrintProcessorDatatypesA(pname.toCPointer<ByteVar>(), pprintprocessorname.toCPointer<ByteVar>(), level, pdatatypes.toCPointer<ByteVar>(), cbbuf, pcbneeded.toCPointer<ByteVar>(), pcreturned.toCPointer<ByteVar>())
+public actual fun enumPrintProcessorDatatypesA(pname: Pcstr, pprintprocessorname: Pcstr, level: UInt, pdatatypes: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?, pcreturned: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_enumPrintProcessorDatatypesA(pname?.value?.toCPointer<ByteVar>(), pprintprocessorname?.value?.toCPointer<ByteVar>(), level, pdatatypes?.value?.toCPointer<ByteVar>(), cbbuf, pcbneeded?.value?.toCPointer<ByteVar>(), pcreturned?.value?.toCPointer<ByteVar>())
 
-public actual fun EnumPrintProcessorDatatypesW(pname: PCWSTR, pprintprocessorname: PCWSTR, level: UInt, pdatatypes: Long, cbbuf: UInt, pcbneeded: Long, pcreturned: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_EnumPrintProcessorDatatypesW(pname.toCPointer<ByteVar>(), pprintprocessorname.toCPointer<ByteVar>(), level, pdatatypes.toCPointer<ByteVar>(), cbbuf, pcbneeded.toCPointer<ByteVar>(), pcreturned.toCPointer<ByteVar>())
+public actual fun enumPrintProcessorDatatypesW(pname: Pcwstr, pprintprocessorname: Pcwstr, level: UInt, pdatatypes: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?, pcreturned: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_enumPrintProcessorDatatypesW(pname?.value?.toCPointer<ByteVar>(), pprintprocessorname?.value?.toCPointer<ByteVar>(), level, pdatatypes?.value?.toCPointer<ByteVar>(), cbbuf, pcbneeded?.value?.toCPointer<ByteVar>(), pcreturned?.value?.toCPointer<ByteVar>())
 
-public actual fun EnumPrintProcessorsA(pname: PCSTR, penvironment: PCSTR, level: UInt, pprintprocessorinfo: Long, cbbuf: UInt, pcbneeded: Long, pcreturned: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_EnumPrintProcessorsA(pname.toCPointer<ByteVar>(), penvironment.toCPointer<ByteVar>(), level, pprintprocessorinfo.toCPointer<ByteVar>(), cbbuf, pcbneeded.toCPointer<ByteVar>(), pcreturned.toCPointer<ByteVar>())
+public actual fun enumPrintProcessorsA(pname: Pcstr, penvironment: Pcstr, level: UInt, pprintprocessorinfo: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?, pcreturned: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_enumPrintProcessorsA(pname?.value?.toCPointer<ByteVar>(), penvironment?.value?.toCPointer<ByteVar>(), level, pprintprocessorinfo?.value?.toCPointer<ByteVar>(), cbbuf, pcbneeded?.value?.toCPointer<ByteVar>(), pcreturned?.value?.toCPointer<ByteVar>())
 
-public actual fun EnumPrintProcessorsW(pname: PCWSTR, penvironment: PCWSTR, level: UInt, pprintprocessorinfo: Long, cbbuf: UInt, pcbneeded: Long, pcreturned: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_EnumPrintProcessorsW(pname.toCPointer<ByteVar>(), penvironment.toCPointer<ByteVar>(), level, pprintprocessorinfo.toCPointer<ByteVar>(), cbbuf, pcbneeded.toCPointer<ByteVar>(), pcreturned.toCPointer<ByteVar>())
+public actual fun enumPrintProcessorsW(pname: Pcwstr, penvironment: Pcwstr, level: UInt, pprintprocessorinfo: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?, pcreturned: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_enumPrintProcessorsW(pname?.value?.toCPointer<ByteVar>(), penvironment?.value?.toCPointer<ByteVar>(), level, pprintprocessorinfo?.value?.toCPointer<ByteVar>(), cbbuf, pcbneeded?.value?.toCPointer<ByteVar>(), pcreturned?.value?.toCPointer<ByteVar>())
 
-public actual fun EnumPrinterDataA(hprinter: PRINTER_HANDLE, dwindex: UInt, pvaluename: PSTR, cbvaluename: UInt, pcbvaluename: Long, ptype: Long, pdata: Long, cbdata: UInt, pcbdata: Long): UInt =
+public actual fun enumPrinterDataA(hprinter: PrinterHandle, dwindex: UInt, pvaluename: Pstr, cbvaluename: UInt, pcbvaluename: COpaquePointer?, ptype: COpaquePointer?, pdata: COpaquePointer?, cbdata: UInt, pcbdata: COpaquePointer?): UInt =
     0u
 
-public actual fun EnumPrinterDataExA(hprinter: PRINTER_HANDLE, pkeyname: PCSTR, penumvalues: Long, cbenumvalues: UInt, pcbenumvalues: Long, pnenumvalues: Long): UInt =
+public actual fun enumPrinterDataExA(hprinter: PrinterHandle, pkeyname: Pcstr, penumvalues: COpaquePointer?, cbenumvalues: UInt, pcbenumvalues: COpaquePointer?, pnenumvalues: COpaquePointer?): UInt =
     0u
 
-public actual fun EnumPrinterDataExW(hprinter: PRINTER_HANDLE, pkeyname: PCWSTR, penumvalues: Long, cbenumvalues: UInt, pcbenumvalues: Long, pnenumvalues: Long): UInt =
+public actual fun enumPrinterDataExW(hprinter: PrinterHandle, pkeyname: Pcwstr, penumvalues: COpaquePointer?, cbenumvalues: UInt, pcbenumvalues: COpaquePointer?, pnenumvalues: COpaquePointer?): UInt =
     0u
 
-public actual fun EnumPrinterDataW(hprinter: PRINTER_HANDLE, dwindex: UInt, pvaluename: PWSTR, cbvaluename: UInt, pcbvaluename: Long, ptype: Long, pdata: Long, cbdata: UInt, pcbdata: Long): UInt =
+public actual fun enumPrinterDataW(hprinter: PrinterHandle, dwindex: UInt, pvaluename: Pwstr, cbvaluename: UInt, pcbvaluename: COpaquePointer?, ptype: COpaquePointer?, pdata: COpaquePointer?, cbdata: UInt, pcbdata: COpaquePointer?): UInt =
     0u
 
-public actual fun EnumPrinterDriversA(pname: PCSTR, penvironment: PCSTR, level: UInt, pdriverinfo: Long, cbbuf: UInt, pcbneeded: Long, pcreturned: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_EnumPrinterDriversA(pname.toCPointer<ByteVar>(), penvironment.toCPointer<ByteVar>(), level, pdriverinfo.toCPointer<ByteVar>(), cbbuf, pcbneeded.toCPointer<ByteVar>(), pcreturned.toCPointer<ByteVar>())
+public actual fun enumPrinterDriversA(pname: Pcstr, penvironment: Pcstr, level: UInt, pdriverinfo: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?, pcreturned: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_enumPrinterDriversA(pname?.value?.toCPointer<ByteVar>(), penvironment?.value?.toCPointer<ByteVar>(), level, pdriverinfo?.value?.toCPointer<ByteVar>(), cbbuf, pcbneeded?.value?.toCPointer<ByteVar>(), pcreturned?.value?.toCPointer<ByteVar>())
 
-public actual fun EnumPrinterDriversW(pname: PCWSTR, penvironment: PCWSTR, level: UInt, pdriverinfo: Long, cbbuf: UInt, pcbneeded: Long, pcreturned: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_EnumPrinterDriversW(pname.toCPointer<ByteVar>(), penvironment.toCPointer<ByteVar>(), level, pdriverinfo.toCPointer<ByteVar>(), cbbuf, pcbneeded.toCPointer<ByteVar>(), pcreturned.toCPointer<ByteVar>())
+public actual fun enumPrinterDriversW(pname: Pcwstr, penvironment: Pcwstr, level: UInt, pdriverinfo: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?, pcreturned: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_enumPrinterDriversW(pname?.value?.toCPointer<ByteVar>(), penvironment?.value?.toCPointer<ByteVar>(), level, pdriverinfo?.value?.toCPointer<ByteVar>(), cbbuf, pcbneeded?.value?.toCPointer<ByteVar>(), pcreturned?.value?.toCPointer<ByteVar>())
 
-public actual fun EnumPrinterKeyA(hprinter: PRINTER_HANDLE, pkeyname: PCSTR, psubkey: PSTR, cbsubkey: UInt, pcbsubkey: Long): UInt =
+public actual fun enumPrinterKeyA(hprinter: PrinterHandle, pkeyname: Pcstr, psubkey: Pstr, cbsubkey: UInt, pcbsubkey: COpaquePointer?): UInt =
     0u
 
-public actual fun EnumPrinterKeyW(hprinter: PRINTER_HANDLE, pkeyname: PCWSTR, psubkey: PWSTR, cbsubkey: UInt, pcbsubkey: Long): UInt =
+public actual fun enumPrinterKeyW(hprinter: PrinterHandle, pkeyname: Pcwstr, psubkey: Pwstr, cbsubkey: UInt, pcbsubkey: COpaquePointer?): UInt =
     0u
 
-public actual fun EnumPrintersA(flags: UInt, name: PCSTR, level: UInt, pprinterenum: Long, cbbuf: UInt, pcbneeded: Long, pcreturned: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_EnumPrintersA(flags, name.toCPointer<ByteVar>(), level, pprinterenum.toCPointer<ByteVar>(), cbbuf, pcbneeded.toCPointer<ByteVar>(), pcreturned.toCPointer<ByteVar>())
+public actual fun enumPrintersA(flags: UInt, name: Pcstr, level: UInt, pprinterenum: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?, pcreturned: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_enumPrintersA(flags, name?.value?.toCPointer<ByteVar>(), level, pprinterenum?.value?.toCPointer<ByteVar>(), cbbuf, pcbneeded?.value?.toCPointer<ByteVar>(), pcreturned?.value?.toCPointer<ByteVar>())
 
-public actual fun EnumPrintersW(flags: UInt, name: PCWSTR, level: UInt, pprinterenum: Long, cbbuf: UInt, pcbneeded: Long, pcreturned: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_EnumPrintersW(flags, name.toCPointer<ByteVar>(), level, pprinterenum.toCPointer<ByteVar>(), cbbuf, pcbneeded.toCPointer<ByteVar>(), pcreturned.toCPointer<ByteVar>())
+public actual fun enumPrintersW(flags: UInt, name: Pcwstr, level: UInt, pprinterenum: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?, pcreturned: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_enumPrintersW(flags, name?.value?.toCPointer<ByteVar>(), level, pprinterenum?.value?.toCPointer<ByteVar>(), cbbuf, pcbneeded?.value?.toCPointer<ByteVar>(), pcreturned?.value?.toCPointer<ByteVar>())
 
-public actual fun ExtDeviceMode(hwnd: HWND, hinst: HANDLE, pdevmodeoutput: Long, pdevicename: PCSTR, pport: PCSTR, pdevmodeinput: Long, pprofile: PCSTR, fmode: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_ExtDeviceMode(hwnd.toCPointer<ByteVar>(), hinst.toCPointer<ByteVar>(), pdevmodeoutput.toCPointer<ByteVar>(), pdevicename.toCPointer<ByteVar>(), pport.toCPointer<ByteVar>(), pdevmodeinput.toCPointer<ByteVar>(), pprofile.toCPointer<ByteVar>(), fmode)
+public actual fun extDeviceMode(hwnd: Hwnd, hinst: Handle, pdevmodeoutput: COpaquePointer?, pdevicename: Pcstr, pport: Pcstr, pdevmodeinput: COpaquePointer?, pprofile: Pcstr, fmode: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_extDeviceMode(hwnd?.value?.toCPointer<ByteVar>(), hinst?.value?.toCPointer<ByteVar>(), pdevmodeoutput?.value?.toCPointer<ByteVar>(), pdevicename?.value?.toCPointer<ByteVar>(), pport?.value?.toCPointer<ByteVar>(), pdevmodeinput?.value?.toCPointer<ByteVar>(), pprofile?.value?.toCPointer<ByteVar>(), fmode)
 
-public actual fun FindClosePrinterChangeNotification(hchange: HANDLE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_FindClosePrinterChangeNotification(hchange.toCPointer<ByteVar>())
+public actual fun findClosePrinterChangeNotification(hchange: Handle): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_findClosePrinterChangeNotification(hchange?.value?.toCPointer<ByteVar>())
 
-public actual fun FindFirstPrinterChangeNotification(hprinter: PRINTER_HANDLE, fdwfilter: UInt, fdwoptions: UInt, pprinternotifyoptions: Long): HANDLE =
-    0L
+public actual fun findFirstPrinterChangeNotification(hprinter: PrinterHandle, fdwfilter: UInt, fdwoptions: UInt, pprinternotifyoptions: COpaquePointer?): Handle =
+    null
 
-public actual fun FindNextPrinterChangeNotification(hchange: HANDLE, pdwchange: Long, pvreserved: Long, ppprinternotifyinfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_FindNextPrinterChangeNotification(hchange.toCPointer<ByteVar>(), pdwchange.toCPointer<ByteVar>(), pvreserved.toCPointer<ByteVar>(), ppprinternotifyinfo.toCPointer<ByteVar>())
+public actual fun findNextPrinterChangeNotification(hchange: Handle, pdwchange: COpaquePointer?, pvreserved: COpaquePointer?, ppprinternotifyinfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_findNextPrinterChangeNotification(hchange?.value?.toCPointer<ByteVar>(), pdwchange?.value?.toCPointer<ByteVar>(), pvreserved?.value?.toCPointer<ByteVar>(), ppprinternotifyinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun FlushPrinter(hprinter: PRINTER_HANDLE, pbuf: Long, cbbuf: UInt, pcwritten: Long, csleep: UInt): BOOL =
+public actual fun flushPrinter(hprinter: PrinterHandle, pbuf: COpaquePointer?, cbbuf: UInt, pcwritten: COpaquePointer?, csleep: UInt): Bool =
     0
 
-public actual fun FreePrintNamedPropertyArray(cproperties: UInt, ppproperties: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_FreePrintNamedPropertyArray(cproperties, ppproperties.toCPointer<ByteVar>())
+public actual fun freePrintNamedPropertyArray(cproperties: UInt, ppproperties: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_freePrintNamedPropertyArray(cproperties, ppproperties?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun FreePrintPropertyValue(pvalue: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_FreePrintPropertyValue(pvalue.toCPointer<ByteVar>())
+public actual fun freePrintPropertyValue(pvalue: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_freePrintPropertyValue(pvalue?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun FreePrinterNotifyInfo(pprinternotifyinfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_FreePrinterNotifyInfo(pprinternotifyinfo.toCPointer<ByteVar>())
+public actual fun freePrinterNotifyInfo(pprinternotifyinfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_freePrinterNotifyInfo(pprinternotifyinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun GdiDeleteSpoolFileHandle(spoolfilehandle: HANDLE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_GdiDeleteSpoolFileHandle(spoolfilehandle.toCPointer<ByteVar>())
+public actual fun gdiDeleteSpoolFileHandle(spoolfilehandle: Handle): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_gdiDeleteSpoolFileHandle(spoolfilehandle?.value?.toCPointer<ByteVar>())
 
-public actual fun GdiEndDocEMF(spoolfilehandle: HANDLE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_GdiEndDocEMF(spoolfilehandle.toCPointer<ByteVar>())
+public actual fun gdiEndDocEMF(spoolfilehandle: Handle): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_gdiEndDocEMF(spoolfilehandle?.value?.toCPointer<ByteVar>())
 
-public actual fun GdiEndPageEMF(spoolfilehandle: HANDLE, dwoptimization: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_GdiEndPageEMF(spoolfilehandle.toCPointer<ByteVar>(), dwoptimization)
+public actual fun gdiEndPageEMF(spoolfilehandle: Handle, dwoptimization: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_gdiEndPageEMF(spoolfilehandle?.value?.toCPointer<ByteVar>(), dwoptimization)
 
-public actual fun GdiGetDC(spoolfilehandle: HANDLE): HDC =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_GdiGetDC(spoolfilehandle.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun gdiGetDC(spoolfilehandle: Handle): Hdc =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_gdiGetDC(spoolfilehandle?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun GdiGetDevmodeForPage(spoolfilehandle: HANDLE, dwpagenumber: UInt, pcurrdm: Long, plastdm: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_GdiGetDevmodeForPage(spoolfilehandle.toCPointer<ByteVar>(), dwpagenumber, pcurrdm.toCPointer<ByteVar>(), plastdm.toCPointer<ByteVar>())
+public actual fun gdiGetDevmodeForPage(spoolfilehandle: Handle, dwpagenumber: UInt, pcurrdm: COpaquePointer?, plastdm: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_gdiGetDevmodeForPage(spoolfilehandle?.value?.toCPointer<ByteVar>(), dwpagenumber, pcurrdm?.value?.toCPointer<ByteVar>(), plastdm?.value?.toCPointer<ByteVar>())
 
-public actual fun GdiGetPageCount(spoolfilehandle: HANDLE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_GdiGetPageCount(spoolfilehandle.toCPointer<ByteVar>())
+public actual fun gdiGetPageCount(spoolfilehandle: Handle): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_gdiGetPageCount(spoolfilehandle?.value?.toCPointer<ByteVar>())
 
-public actual fun GdiGetPageHandle(spoolfilehandle: HANDLE, page: UInt, pdwpagetype: Long): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_GdiGetPageHandle(spoolfilehandle.toCPointer<ByteVar>(), page, pdwpagetype.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun gdiGetPageHandle(spoolfilehandle: Handle, page: UInt, pdwpagetype: COpaquePointer?): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_gdiGetPageHandle(spoolfilehandle?.value?.toCPointer<ByteVar>(), page, pdwpagetype?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun GdiGetSpoolFileHandle(pwszprintername: PCWSTR, pdevmode: Long, pwszdocname: PCWSTR): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_GdiGetSpoolFileHandle(pwszprintername.toCPointer<ByteVar>(), pdevmode.toCPointer<ByteVar>(), pwszdocname.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun gdiGetSpoolFileHandle(pwszprintername: Pcwstr, pdevmode: COpaquePointer?, pwszdocname: Pcwstr): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_gdiGetSpoolFileHandle(pwszprintername?.value?.toCPointer<ByteVar>(), pdevmode?.value?.toCPointer<ByteVar>(), pwszdocname?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun GdiPlayPageEMF(spoolfilehandle: HANDLE, hemf: HANDLE, prectdocument: Long, prectborder: Long, prectclip: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_GdiPlayPageEMF(spoolfilehandle.toCPointer<ByteVar>(), hemf.toCPointer<ByteVar>(), prectdocument.toCPointer<ByteVar>(), prectborder.toCPointer<ByteVar>(), prectclip.toCPointer<ByteVar>())
+public actual fun gdiPlayPageEMF(spoolfilehandle: Handle, hemf: Handle, prectdocument: COpaquePointer?, prectborder: COpaquePointer?, prectclip: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_gdiPlayPageEMF(spoolfilehandle?.value?.toCPointer<ByteVar>(), hemf?.value?.toCPointer<ByteVar>(), prectdocument?.value?.toCPointer<ByteVar>(), prectborder?.value?.toCPointer<ByteVar>(), prectclip?.value?.toCPointer<ByteVar>())
 
-public actual fun GdiResetDCEMF(spoolfilehandle: HANDLE, pcurrdm: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_GdiResetDCEMF(spoolfilehandle.toCPointer<ByteVar>(), pcurrdm.toCPointer<ByteVar>())
+public actual fun gdiResetDCEMF(spoolfilehandle: Handle, pcurrdm: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_gdiResetDCEMF(spoolfilehandle?.value?.toCPointer<ByteVar>(), pcurrdm?.value?.toCPointer<ByteVar>())
 
-public actual fun GdiStartDocEMF(spoolfilehandle: HANDLE, pdocinfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_GdiStartDocEMF(spoolfilehandle.toCPointer<ByteVar>(), pdocinfo.toCPointer<ByteVar>())
+public actual fun gdiStartDocEMF(spoolfilehandle: Handle, pdocinfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_gdiStartDocEMF(spoolfilehandle?.value?.toCPointer<ByteVar>(), pdocinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun GdiStartPageEMF(spoolfilehandle: HANDLE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_GdiStartPageEMF(spoolfilehandle.toCPointer<ByteVar>())
+public actual fun gdiStartPageEMF(spoolfilehandle: Handle): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_gdiStartPageEMF(spoolfilehandle?.value?.toCPointer<ByteVar>())
 
-public actual fun GenerateCopyFilePaths(pszprintername: PCWSTR, pszdirectory: PCWSTR, psplclientinfo: Long, dwlevel: UInt, pszsourcedir: PWSTR, pcchsourcedirsize: Long, psztargetdir: PWSTR, pcchtargetdirsize: Long, dwflags: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_GenerateCopyFilePaths(pszprintername.toCPointer<ByteVar>(), pszdirectory.toCPointer<ByteVar>(), psplclientinfo.toCPointer<ByteVar>(), dwlevel, pszsourcedir.toCPointer<ByteVar>(), pcchsourcedirsize.toCPointer<ByteVar>(), psztargetdir.toCPointer<ByteVar>(), pcchtargetdirsize.toCPointer<ByteVar>(), dwflags)
+public actual fun generateCopyFilePaths(pszprintername: Pcwstr, pszdirectory: Pcwstr, psplclientinfo: COpaquePointer?, dwlevel: UInt, pszsourcedir: Pwstr, pcchsourcedirsize: COpaquePointer?, psztargetdir: Pwstr, pcchtargetdirsize: COpaquePointer?, dwflags: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_generateCopyFilePaths(pszprintername?.value?.toCPointer<ByteVar>(), pszdirectory?.value?.toCPointer<ByteVar>(), psplclientinfo?.value?.toCPointer<ByteVar>(), dwlevel, pszsourcedir?.value?.toCPointer<ByteVar>(), pcchsourcedirsize?.value?.toCPointer<ByteVar>(), psztargetdir?.value?.toCPointer<ByteVar>(), pcchtargetdirsize?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun GetCPSUIUserData(hdlg: HWND): ULong =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_GetCPSUIUserData(hdlg.toCPointer<ByteVar>())
+public actual fun getCPSUIUserData(hdlg: Hwnd): ULong =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_getCPSUIUserData(hdlg?.value?.toCPointer<ByteVar>())
 
-public actual fun GetCorePrinterDriversA(pszserver: PCSTR, pszenvironment: PCSTR, pszzcoredriverdependencies: PCSTR, ccoreprinterdrivers: UInt, pcoreprinterdrivers: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_GetCorePrinterDriversA(pszserver.toCPointer<ByteVar>(), pszenvironment.toCPointer<ByteVar>(), pszzcoredriverdependencies.toCPointer<ByteVar>(), ccoreprinterdrivers, pcoreprinterdrivers.toCPointer<ByteVar>())
+public actual fun getCorePrinterDriversA(pszserver: Pcstr, pszenvironment: Pcstr, pszzcoredriverdependencies: Pcstr, ccoreprinterdrivers: UInt, pcoreprinterdrivers: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_getCorePrinterDriversA(pszserver?.value?.toCPointer<ByteVar>(), pszenvironment?.value?.toCPointer<ByteVar>(), pszzcoredriverdependencies?.value?.toCPointer<ByteVar>(), ccoreprinterdrivers, pcoreprinterdrivers?.value?.toCPointer<ByteVar>())
 
-public actual fun GetCorePrinterDriversW(pszserver: PCWSTR, pszenvironment: PCWSTR, pszzcoredriverdependencies: PCWSTR, ccoreprinterdrivers: UInt, pcoreprinterdrivers: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_GetCorePrinterDriversW(pszserver.toCPointer<ByteVar>(), pszenvironment.toCPointer<ByteVar>(), pszzcoredriverdependencies.toCPointer<ByteVar>(), ccoreprinterdrivers, pcoreprinterdrivers.toCPointer<ByteVar>())
+public actual fun getCorePrinterDriversW(pszserver: Pcwstr, pszenvironment: Pcwstr, pszzcoredriverdependencies: Pcwstr, ccoreprinterdrivers: UInt, pcoreprinterdrivers: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_getCorePrinterDriversW(pszserver?.value?.toCPointer<ByteVar>(), pszenvironment?.value?.toCPointer<ByteVar>(), pszzcoredriverdependencies?.value?.toCPointer<ByteVar>(), ccoreprinterdrivers, pcoreprinterdrivers?.value?.toCPointer<ByteVar>())
 
-public actual fun GetDefaultPrinterA(pszbuffer: PSTR, pcchbuffer: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_GetDefaultPrinterA(pszbuffer.toCPointer<ByteVar>(), pcchbuffer.toCPointer<ByteVar>())
+public actual fun getDefaultPrinterA(pszbuffer: Pstr, pcchbuffer: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_getDefaultPrinterA(pszbuffer?.value?.toCPointer<ByteVar>(), pcchbuffer?.value?.toCPointer<ByteVar>())
 
-public actual fun GetDefaultPrinterW(pszbuffer: PWSTR, pcchbuffer: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_GetDefaultPrinterW(pszbuffer.toCPointer<ByteVar>(), pcchbuffer.toCPointer<ByteVar>())
+public actual fun getDefaultPrinterW(pszbuffer: Pwstr, pcchbuffer: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_getDefaultPrinterW(pszbuffer?.value?.toCPointer<ByteVar>(), pcchbuffer?.value?.toCPointer<ByteVar>())
 
-public actual fun GetFormA(hprinter: PRINTER_HANDLE, pformname: PCSTR, level: UInt, pform: Long, cbbuf: UInt, pcbneeded: Long): BOOL =
+public actual fun getFormA(hprinter: PrinterHandle, pformname: Pcstr, level: UInt, pform: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?): Bool =
     0
 
-public actual fun GetFormW(hprinter: PRINTER_HANDLE, pformname: PCWSTR, level: UInt, pform: Long, cbbuf: UInt, pcbneeded: Long): BOOL =
+public actual fun getFormW(hprinter: PrinterHandle, pformname: Pcwstr, level: UInt, pform: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?): Bool =
     0
 
-public actual fun GetJobA(hprinter: PRINTER_HANDLE, jobid: UInt, level: UInt, pjob: Long, cbbuf: UInt, pcbneeded: Long): BOOL =
+public actual fun getJobA(hprinter: PrinterHandle, jobid: UInt, level: UInt, pjob: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?): Bool =
     0
 
-public actual fun GetJobAttributes(pprintername: PCWSTR, pdevmode: Long, pattributeinfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_GetJobAttributes(pprintername.toCPointer<ByteVar>(), pdevmode.toCPointer<ByteVar>(), pattributeinfo.toCPointer<ByteVar>())
+public actual fun getJobAttributes(pprintername: Pcwstr, pdevmode: COpaquePointer?, pattributeinfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_getJobAttributes(pprintername?.value?.toCPointer<ByteVar>(), pdevmode?.value?.toCPointer<ByteVar>(), pattributeinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun GetJobAttributesEx(pprintername: PCWSTR, pdevmode: Long, dwlevel: UInt, pattributeinfo: Long, nsize: UInt, dwflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_GetJobAttributesEx(pprintername.toCPointer<ByteVar>(), pdevmode.toCPointer<ByteVar>(), dwlevel, pattributeinfo.toCPointer<ByteVar>(), nsize, dwflags)
+public actual fun getJobAttributesEx(pprintername: Pcwstr, pdevmode: COpaquePointer?, dwlevel: UInt, pattributeinfo: COpaquePointer?, nsize: UInt, dwflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_getJobAttributesEx(pprintername?.value?.toCPointer<ByteVar>(), pdevmode?.value?.toCPointer<ByteVar>(), dwlevel, pattributeinfo?.value?.toCPointer<ByteVar>(), nsize, dwflags)
 
-public actual fun GetJobNamedPropertyValue(hprinter: PRINTER_HANDLE, jobid: UInt, pszname: PCWSTR, pvalue: Long): UInt =
+public actual fun getJobNamedPropertyValue(hprinter: PrinterHandle, jobid: UInt, pszname: Pcwstr, pvalue: COpaquePointer?): UInt =
     0u
 
-public actual fun GetJobW(hprinter: PRINTER_HANDLE, jobid: UInt, level: UInt, pjob: Long, cbbuf: UInt, pcbneeded: Long): BOOL =
+public actual fun getJobW(hprinter: PrinterHandle, jobid: UInt, level: UInt, pjob: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?): Bool =
     0
 
-public actual fun GetPrintExecutionData(pdata: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_GetPrintExecutionData(pdata.toCPointer<ByteVar>())
+public actual fun getPrintExecutionData(pdata: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_getPrintExecutionData(pdata?.value?.toCPointer<ByteVar>())
 
-public actual fun GetPrintOutputInfo(hwnd: HWND, pszprinter: PCWSTR, phfile: Long, ppszoutputfile: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_GetPrintOutputInfo(hwnd.toCPointer<ByteVar>(), pszprinter.toCPointer<ByteVar>(), phfile.toCPointer<ByteVar>(), ppszoutputfile.toCPointer<ByteVar>())
+public actual fun getPrintOutputInfo(hwnd: Hwnd, pszprinter: Pcwstr, phfile: COpaquePointer?, ppszoutputfile: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_getPrintOutputInfo(hwnd?.value?.toCPointer<ByteVar>(), pszprinter?.value?.toCPointer<ByteVar>(), phfile?.value?.toCPointer<ByteVar>(), ppszoutputfile?.value?.toCPointer<ByteVar>())
 
-public actual fun GetPrintProcessorDirectoryA(pname: PCSTR, penvironment: PCSTR, level: UInt, pprintprocessorinfo: Long, cbbuf: UInt, pcbneeded: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_GetPrintProcessorDirectoryA(pname.toCPointer<ByteVar>(), penvironment.toCPointer<ByteVar>(), level, pprintprocessorinfo.toCPointer<ByteVar>(), cbbuf, pcbneeded.toCPointer<ByteVar>())
+public actual fun getPrintProcessorDirectoryA(pname: Pcstr, penvironment: Pcstr, level: UInt, pprintprocessorinfo: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_getPrintProcessorDirectoryA(pname?.value?.toCPointer<ByteVar>(), penvironment?.value?.toCPointer<ByteVar>(), level, pprintprocessorinfo?.value?.toCPointer<ByteVar>(), cbbuf, pcbneeded?.value?.toCPointer<ByteVar>())
 
-public actual fun GetPrintProcessorDirectoryW(pname: PCWSTR, penvironment: PCWSTR, level: UInt, pprintprocessorinfo: Long, cbbuf: UInt, pcbneeded: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_GetPrintProcessorDirectoryW(pname.toCPointer<ByteVar>(), penvironment.toCPointer<ByteVar>(), level, pprintprocessorinfo.toCPointer<ByteVar>(), cbbuf, pcbneeded.toCPointer<ByteVar>())
+public actual fun getPrintProcessorDirectoryW(pname: Pcwstr, penvironment: Pcwstr, level: UInt, pprintprocessorinfo: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_getPrintProcessorDirectoryW(pname?.value?.toCPointer<ByteVar>(), penvironment?.value?.toCPointer<ByteVar>(), level, pprintprocessorinfo?.value?.toCPointer<ByteVar>(), cbbuf, pcbneeded?.value?.toCPointer<ByteVar>())
 
-public actual fun GetPrinterA(hprinter: PRINTER_HANDLE, level: UInt, pprinter: Long, cbbuf: UInt, pcbneeded: Long): BOOL =
+public actual fun getPrinterA(hprinter: PrinterHandle, level: UInt, pprinter: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?): Bool =
     0
 
-public actual fun GetPrinterDataA(hprinter: PRINTER_HANDLE, pvaluename: PCSTR, ptype: Long, pdata: Long, nsize: UInt, pcbneeded: Long): UInt =
+public actual fun getPrinterDataA(hprinter: PrinterHandle, pvaluename: Pcstr, ptype: COpaquePointer?, pdata: COpaquePointer?, nsize: UInt, pcbneeded: COpaquePointer?): UInt =
     0u
 
-public actual fun GetPrinterDataExA(hprinter: PRINTER_HANDLE, pkeyname: PCSTR, pvaluename: PCSTR, ptype: Long, pdata: Long, nsize: UInt, pcbneeded: Long): UInt =
+public actual fun getPrinterDataExA(hprinter: PrinterHandle, pkeyname: Pcstr, pvaluename: Pcstr, ptype: COpaquePointer?, pdata: COpaquePointer?, nsize: UInt, pcbneeded: COpaquePointer?): UInt =
     0u
 
-public actual fun GetPrinterDataExW(hprinter: PRINTER_HANDLE, pkeyname: PCWSTR, pvaluename: PCWSTR, ptype: Long, pdata: Long, nsize: UInt, pcbneeded: Long): UInt =
+public actual fun getPrinterDataExW(hprinter: PrinterHandle, pkeyname: Pcwstr, pvaluename: Pcwstr, ptype: COpaquePointer?, pdata: COpaquePointer?, nsize: UInt, pcbneeded: COpaquePointer?): UInt =
     0u
 
-public actual fun GetPrinterDataW(hprinter: PRINTER_HANDLE, pvaluename: PCWSTR, ptype: Long, pdata: Long, nsize: UInt, pcbneeded: Long): UInt =
+public actual fun getPrinterDataW(hprinter: PrinterHandle, pvaluename: Pcwstr, ptype: COpaquePointer?, pdata: COpaquePointer?, nsize: UInt, pcbneeded: COpaquePointer?): UInt =
     0u
 
-public actual fun GetPrinterDriver2A(hwnd: HWND, hprinter: PRINTER_HANDLE, penvironment: PCSTR, level: UInt, pdriverinfo: Long, cbbuf: UInt, pcbneeded: Long): BOOL =
+public actual fun getPrinterDriver2A(hwnd: Hwnd, hprinter: PrinterHandle, penvironment: Pcstr, level: UInt, pdriverinfo: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?): Bool =
     0
 
-public actual fun GetPrinterDriver2W(hwnd: HWND, hprinter: PRINTER_HANDLE, penvironment: PCWSTR, level: UInt, pdriverinfo: Long, cbbuf: UInt, pcbneeded: Long): BOOL =
+public actual fun getPrinterDriver2W(hwnd: Hwnd, hprinter: PrinterHandle, penvironment: Pcwstr, level: UInt, pdriverinfo: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?): Bool =
     0
 
-public actual fun GetPrinterDriverA(hprinter: PRINTER_HANDLE, penvironment: PCSTR, level: UInt, pdriverinfo: Long, cbbuf: UInt, pcbneeded: Long): BOOL =
+public actual fun getPrinterDriverA(hprinter: PrinterHandle, penvironment: Pcstr, level: UInt, pdriverinfo: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?): Bool =
     0
 
-public actual fun GetPrinterDriverDirectoryA(pname: PCSTR, penvironment: PCSTR, level: UInt, pdriverdirectory: Long, cbbuf: UInt, pcbneeded: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_GetPrinterDriverDirectoryA(pname.toCPointer<ByteVar>(), penvironment.toCPointer<ByteVar>(), level, pdriverdirectory.toCPointer<ByteVar>(), cbbuf, pcbneeded.toCPointer<ByteVar>())
+public actual fun getPrinterDriverDirectoryA(pname: Pcstr, penvironment: Pcstr, level: UInt, pdriverdirectory: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_getPrinterDriverDirectoryA(pname?.value?.toCPointer<ByteVar>(), penvironment?.value?.toCPointer<ByteVar>(), level, pdriverdirectory?.value?.toCPointer<ByteVar>(), cbbuf, pcbneeded?.value?.toCPointer<ByteVar>())
 
-public actual fun GetPrinterDriverDirectoryW(pname: PCWSTR, penvironment: PCWSTR, level: UInt, pdriverdirectory: Long, cbbuf: UInt, pcbneeded: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_GetPrinterDriverDirectoryW(pname.toCPointer<ByteVar>(), penvironment.toCPointer<ByteVar>(), level, pdriverdirectory.toCPointer<ByteVar>(), cbbuf, pcbneeded.toCPointer<ByteVar>())
+public actual fun getPrinterDriverDirectoryW(pname: Pcwstr, penvironment: Pcwstr, level: UInt, pdriverdirectory: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_getPrinterDriverDirectoryW(pname?.value?.toCPointer<ByteVar>(), penvironment?.value?.toCPointer<ByteVar>(), level, pdriverdirectory?.value?.toCPointer<ByteVar>(), cbbuf, pcbneeded?.value?.toCPointer<ByteVar>())
 
-public actual fun GetPrinterDriverPackagePathA(pszserver: PCSTR, pszenvironment: PCSTR, pszlanguage: PCSTR, pszpackageid: PCSTR, pszdriverpackagecab: PSTR, cchdriverpackagecab: UInt, pcchrequiredsize: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_GetPrinterDriverPackagePathA(pszserver.toCPointer<ByteVar>(), pszenvironment.toCPointer<ByteVar>(), pszlanguage.toCPointer<ByteVar>(), pszpackageid.toCPointer<ByteVar>(), pszdriverpackagecab.toCPointer<ByteVar>(), cchdriverpackagecab, pcchrequiredsize.toCPointer<ByteVar>())
+public actual fun getPrinterDriverPackagePathA(pszserver: Pcstr, pszenvironment: Pcstr, pszlanguage: Pcstr, pszpackageid: Pcstr, pszdriverpackagecab: Pstr, cchdriverpackagecab: UInt, pcchrequiredsize: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_getPrinterDriverPackagePathA(pszserver?.value?.toCPointer<ByteVar>(), pszenvironment?.value?.toCPointer<ByteVar>(), pszlanguage?.value?.toCPointer<ByteVar>(), pszpackageid?.value?.toCPointer<ByteVar>(), pszdriverpackagecab?.value?.toCPointer<ByteVar>(), cchdriverpackagecab, pcchrequiredsize?.value?.toCPointer<ByteVar>())
 
-public actual fun GetPrinterDriverPackagePathW(pszserver: PCWSTR, pszenvironment: PCWSTR, pszlanguage: PCWSTR, pszpackageid: PCWSTR, pszdriverpackagecab: PWSTR, cchdriverpackagecab: UInt, pcchrequiredsize: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_GetPrinterDriverPackagePathW(pszserver.toCPointer<ByteVar>(), pszenvironment.toCPointer<ByteVar>(), pszlanguage.toCPointer<ByteVar>(), pszpackageid.toCPointer<ByteVar>(), pszdriverpackagecab.toCPointer<ByteVar>(), cchdriverpackagecab, pcchrequiredsize.toCPointer<ByteVar>())
+public actual fun getPrinterDriverPackagePathW(pszserver: Pcwstr, pszenvironment: Pcwstr, pszlanguage: Pcwstr, pszpackageid: Pcwstr, pszdriverpackagecab: Pwstr, cchdriverpackagecab: UInt, pcchrequiredsize: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_getPrinterDriverPackagePathW(pszserver?.value?.toCPointer<ByteVar>(), pszenvironment?.value?.toCPointer<ByteVar>(), pszlanguage?.value?.toCPointer<ByteVar>(), pszpackageid?.value?.toCPointer<ByteVar>(), pszdriverpackagecab?.value?.toCPointer<ByteVar>(), cchdriverpackagecab, pcchrequiredsize?.value?.toCPointer<ByteVar>())
 
-public actual fun GetPrinterDriverW(hprinter: PRINTER_HANDLE, penvironment: PCWSTR, level: UInt, pdriverinfo: Long, cbbuf: UInt, pcbneeded: Long): BOOL =
+public actual fun getPrinterDriverW(hprinter: PrinterHandle, penvironment: Pcwstr, level: UInt, pdriverinfo: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?): Bool =
     0
 
-public actual fun GetPrinterW(hprinter: PRINTER_HANDLE, level: UInt, pprinter: Long, cbbuf: UInt, pcbneeded: Long): BOOL =
+public actual fun getPrinterW(hprinter: PrinterHandle, level: UInt, pprinter: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?): Bool =
     0
 
-public actual fun GetSpoolFileHandle(hprinter: PRINTER_HANDLE): HANDLE =
-    0L
+public actual fun getSpoolFileHandle(hprinter: PrinterHandle): Handle =
+    null
 
-public actual fun ImpersonatePrinterClient(htoken: HANDLE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_ImpersonatePrinterClient(htoken.toCPointer<ByteVar>())
+public actual fun impersonatePrinterClient(htoken: Handle): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_impersonatePrinterClient(htoken?.value?.toCPointer<ByteVar>())
 
-public actual fun InstallPrinterDriverFromPackageA(pszserver: PCSTR, pszinfpath: PCSTR, pszdrivername: PCSTR, pszenvironment: PCSTR, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_InstallPrinterDriverFromPackageA(pszserver.toCPointer<ByteVar>(), pszinfpath.toCPointer<ByteVar>(), pszdrivername.toCPointer<ByteVar>(), pszenvironment.toCPointer<ByteVar>(), dwflags)
+public actual fun installPrinterDriverFromPackageA(pszserver: Pcstr, pszinfpath: Pcstr, pszdrivername: Pcstr, pszenvironment: Pcstr, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_installPrinterDriverFromPackageA(pszserver?.value?.toCPointer<ByteVar>(), pszinfpath?.value?.toCPointer<ByteVar>(), pszdrivername?.value?.toCPointer<ByteVar>(), pszenvironment?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun InstallPrinterDriverFromPackageW(pszserver: PCWSTR, pszinfpath: PCWSTR, pszdrivername: PCWSTR, pszenvironment: PCWSTR, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_InstallPrinterDriverFromPackageW(pszserver.toCPointer<ByteVar>(), pszinfpath.toCPointer<ByteVar>(), pszdrivername.toCPointer<ByteVar>(), pszenvironment.toCPointer<ByteVar>(), dwflags)
+public actual fun installPrinterDriverFromPackageW(pszserver: Pcwstr, pszinfpath: Pcwstr, pszdrivername: Pcwstr, pszenvironment: Pcwstr, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_installPrinterDriverFromPackageW(pszserver?.value?.toCPointer<ByteVar>(), pszinfpath?.value?.toCPointer<ByteVar>(), pszdrivername?.value?.toCPointer<ByteVar>(), pszenvironment?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun IsValidDevmodeA(pdevmode: Long, devmodesize: ULong): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_IsValidDevmodeA(pdevmode.toCPointer<ByteVar>(), devmodesize)
+public actual fun isValidDevmodeA(pdevmode: COpaquePointer?, devmodesize: ULong): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_isValidDevmodeA(pdevmode?.value?.toCPointer<ByteVar>(), devmodesize)
 
-public actual fun IsValidDevmodeW(pdevmode: Long, devmodesize: ULong): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_IsValidDevmodeW(pdevmode.toCPointer<ByteVar>(), devmodesize)
+public actual fun isValidDevmodeW(pdevmode: COpaquePointer?, devmodesize: ULong): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_isValidDevmodeW(pdevmode?.value?.toCPointer<ByteVar>(), devmodesize)
 
-public actual fun OpenPrinter2A(pprintername: PCSTR, phprinter: Long, pdefault: Long, poptions: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_OpenPrinter2A(pprintername.toCPointer<ByteVar>(), phprinter.toCPointer<ByteVar>(), pdefault.toCPointer<ByteVar>(), poptions.toCPointer<ByteVar>())
+public actual fun openPrinter2A(pprintername: Pcstr, phprinter: COpaquePointer?, pdefault: COpaquePointer?, poptions: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_openPrinter2A(pprintername?.value?.toCPointer<ByteVar>(), phprinter?.value?.toCPointer<ByteVar>(), pdefault?.value?.toCPointer<ByteVar>(), poptions?.value?.toCPointer<ByteVar>())
 
-public actual fun OpenPrinter2W(pprintername: PCWSTR, phprinter: Long, pdefault: Long, poptions: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_OpenPrinter2W(pprintername.toCPointer<ByteVar>(), phprinter.toCPointer<ByteVar>(), pdefault.toCPointer<ByteVar>(), poptions.toCPointer<ByteVar>())
+public actual fun openPrinter2W(pprintername: Pcwstr, phprinter: COpaquePointer?, pdefault: COpaquePointer?, poptions: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_openPrinter2W(pprintername?.value?.toCPointer<ByteVar>(), phprinter?.value?.toCPointer<ByteVar>(), pdefault?.value?.toCPointer<ByteVar>(), poptions?.value?.toCPointer<ByteVar>())
 
-public actual fun OpenPrinterA(pprintername: PCSTR, phprinter: Long, pdefault: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_OpenPrinterA(pprintername.toCPointer<ByteVar>(), phprinter.toCPointer<ByteVar>(), pdefault.toCPointer<ByteVar>())
+public actual fun openPrinterA(pprintername: Pcstr, phprinter: COpaquePointer?, pdefault: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_openPrinterA(pprintername?.value?.toCPointer<ByteVar>(), phprinter?.value?.toCPointer<ByteVar>(), pdefault?.value?.toCPointer<ByteVar>())
 
-public actual fun OpenPrinterW(pprintername: PCWSTR, phprinter: Long, pdefault: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_OpenPrinterW(pprintername.toCPointer<ByteVar>(), phprinter.toCPointer<ByteVar>(), pdefault.toCPointer<ByteVar>())
+public actual fun openPrinterW(pprintername: Pcwstr, phprinter: COpaquePointer?, pdefault: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_openPrinterW(pprintername?.value?.toCPointer<ByteVar>(), phprinter?.value?.toCPointer<ByteVar>(), pdefault?.value?.toCPointer<ByteVar>())
 
-public actual fun PartialReplyPrinterChangeNotification(hprinter: PRINTER_HANDLE, pdatasrc: Long): BOOL =
+public actual fun partialReplyPrinterChangeNotification(hprinter: PrinterHandle, pdatasrc: COpaquePointer?): Bool =
     0
 
-public actual fun PlayGdiScriptOnPrinterIC(hprinteric: HANDLE, pin: Long, cin: UInt, pout: Long, cout: UInt, ul: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_PlayGdiScriptOnPrinterIC(hprinteric.toCPointer<ByteVar>(), pin.toCPointer<ByteVar>(), cin, pout.toCPointer<ByteVar>(), cout, ul)
+public actual fun playGdiScriptOnPrinterIC(hprinteric: Handle, pin: COpaquePointer?, cin: UInt, pout: COpaquePointer?, cout: UInt, ul: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_playGdiScriptOnPrinterIC(hprinteric?.value?.toCPointer<ByteVar>(), pin?.value?.toCPointer<ByteVar>(), cin, pout?.value?.toCPointer<ByteVar>(), cout, ul)
 
-public actual fun PrinterMessageBoxA(hprinter: PRINTER_HANDLE, error: UInt, hwnd: HWND, ptext: PCSTR, pcaption: PCSTR, dwtype: UInt): UInt =
+public actual fun printerMessageBoxA(hprinter: PrinterHandle, error: UInt, hwnd: Hwnd, ptext: Pcstr, pcaption: Pcstr, dwtype: UInt): UInt =
     0u
 
-public actual fun PrinterMessageBoxW(hprinter: PRINTER_HANDLE, error: UInt, hwnd: HWND, ptext: PCWSTR, pcaption: PCWSTR, dwtype: UInt): UInt =
+public actual fun printerMessageBoxW(hprinter: PrinterHandle, error: UInt, hwnd: Hwnd, ptext: Pcwstr, pcaption: Pcwstr, dwtype: UInt): UInt =
     0u
 
-public actual fun PrinterProperties(hwnd: HWND, hprinter: PRINTER_HANDLE): BOOL =
+public actual fun printerProperties(hwnd: Hwnd, hprinter: PrinterHandle): Bool =
     0
 
-public actual fun ProvidorFindClosePrinterChangeNotification(hprinter: PRINTER_HANDLE): BOOL =
+public actual fun providorFindClosePrinterChangeNotification(hprinter: PrinterHandle): Bool =
     0
 
-public actual fun ProvidorFindFirstPrinterChangeNotification(hprinter: PRINTER_HANDLE, fdwflags: UInt, fdwoptions: UInt, hnotify: HANDLE, pprinternotifyoptions: Long, pvreserved1: Long): BOOL =
+public actual fun providorFindFirstPrinterChangeNotification(hprinter: PrinterHandle, fdwflags: UInt, fdwoptions: UInt, hnotify: Handle, pprinternotifyoptions: COpaquePointer?, pvreserved1: COpaquePointer?): Bool =
     0
 
-public actual fun ReadPrinter(hprinter: PRINTER_HANDLE, pbuf: Long, cbbuf: UInt, pnobytesread: Long): BOOL =
+public actual fun readPrinter(hprinter: PrinterHandle, pbuf: COpaquePointer?, cbbuf: UInt, pnobytesread: COpaquePointer?): Bool =
     0
 
-public actual fun RegisterForPrintAsyncNotifications(pszname: PCWSTR, pnotificationtype: Long, euserfilter: PrintAsyncNotifyUserFilter, econversationstyle: PrintAsyncNotifyConversationStyle, pcallback: Long, phnotify: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_RegisterForPrintAsyncNotifications(pszname.toCPointer<ByteVar>(), pnotificationtype.toCPointer<ByteVar>(), euserfilter, econversationstyle, pcallback.toCPointer<ByteVar>(), phnotify.toCPointer<ByteVar>())
+public actual fun registerForPrintAsyncNotifications(pszname: Pcwstr, pnotificationtype: COpaquePointer?, euserfilter: PrintAsyncNotifyUserFilter, econversationstyle: PrintAsyncNotifyConversationStyle, pcallback: COpaquePointer?, phnotify: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_registerForPrintAsyncNotifications(pszname?.value?.toCPointer<ByteVar>(), pnotificationtype?.value?.toCPointer<ByteVar>(), euserfilter, econversationstyle, pcallback?.value?.toCPointer<ByteVar>(), phnotify?.value?.toCPointer<ByteVar>())
 
-public actual fun RemovePrintDeviceObject(hdeviceobject: HANDLE): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_RemovePrintDeviceObject(hdeviceobject.toCPointer<ByteVar>())
+public actual fun removePrintDeviceObject(hdeviceobject: Handle): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_removePrintDeviceObject(hdeviceobject?.value?.toCPointer<ByteVar>())
 
-public actual fun ReplyPrinterChangeNotification(hprinter: PRINTER_HANDLE, fdwchangeflags: UInt, pdwresult: Long, pprinternotifyinfo: Long): BOOL =
+public actual fun replyPrinterChangeNotification(hprinter: PrinterHandle, fdwchangeflags: UInt, pdwresult: COpaquePointer?, pprinternotifyinfo: COpaquePointer?): Bool =
     0
 
-public actual fun ReplyPrinterChangeNotificationEx(hnotify: HANDLE, dwcolor: UInt, fdwflags: UInt, pdwresult: Long, pprinternotifyinfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_ReplyPrinterChangeNotificationEx(hnotify.toCPointer<ByteVar>(), dwcolor, fdwflags, pdwresult.toCPointer<ByteVar>(), pprinternotifyinfo.toCPointer<ByteVar>())
+public actual fun replyPrinterChangeNotificationEx(hnotify: Handle, dwcolor: UInt, fdwflags: UInt, pdwresult: COpaquePointer?, pprinternotifyinfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_replyPrinterChangeNotificationEx(hnotify?.value?.toCPointer<ByteVar>(), dwcolor, fdwflags, pdwresult?.value?.toCPointer<ByteVar>(), pprinternotifyinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun ReportJobProcessingProgress(printerhandle: HANDLE, jobid: UInt, joboperation: EPrintXPSJobOperation, jobprogress: EPrintXPSJobProgress): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_ReportJobProcessingProgress(printerhandle.toCPointer<ByteVar>(), jobid, joboperation, jobprogress)
+public actual fun reportJobProcessingProgress(printerhandle: Handle, jobid: UInt, joboperation: EPrintXPSJobOperation, jobprogress: EPrintXPSJobProgress): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_reportJobProcessingProgress(printerhandle?.value?.toCPointer<ByteVar>(), jobid, joboperation, jobprogress)
 
-public actual fun ResetPrinterA(hprinter: PRINTER_HANDLE, pdefault: Long): BOOL =
+public actual fun resetPrinterA(hprinter: PrinterHandle, pdefault: COpaquePointer?): Bool =
     0
 
-public actual fun ResetPrinterW(hprinter: PRINTER_HANDLE, pdefault: Long): BOOL =
+public actual fun resetPrinterW(hprinter: PrinterHandle, pdefault: COpaquePointer?): Bool =
     0
 
-public actual fun RevertToPrinterSelf(): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_RevertToPrinterSelf()?.toLong() ?: 0L
+public actual fun revertToPrinterSelf(): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_revertToPrinterSelf()?.let { COpaquePointer(it.toLong()) }
 
-public actual fun RouterAllocBidiMem(numbytes: ULong): Long =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_RouterAllocBidiMem(numbytes)?.toLong() ?: 0L
+public actual fun routerAllocBidiMem(numbytes: ULong): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_routerAllocBidiMem(numbytes)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun RouterAllocBidiResponseContainer(count: UInt): Long =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_RouterAllocBidiResponseContainer(count)?.toLong() ?: 0L
+public actual fun routerAllocBidiResponseContainer(count: UInt): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_routerAllocBidiResponseContainer(count)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun RouterAllocPrinterNotifyInfo(cprinternotifyinfodata: UInt): Long =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_RouterAllocPrinterNotifyInfo(cprinternotifyinfodata)?.toLong() ?: 0L
+public actual fun routerAllocPrinterNotifyInfo(cprinternotifyinfodata: UInt): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_routerAllocPrinterNotifyInfo(cprinternotifyinfodata)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun RouterFreeBidiMem(pmempointer: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_RouterFreeBidiMem(pmempointer.toCPointer<ByteVar>())
+public actual fun routerFreeBidiMem(pmempointer: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_routerFreeBidiMem(pmempointer?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun RouterFreeBidiResponseContainer(pdata: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_RouterFreeBidiResponseContainer(pdata.toCPointer<ByteVar>())
+public actual fun routerFreeBidiResponseContainer(pdata: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_routerFreeBidiResponseContainer(pdata?.value?.toCPointer<ByteVar>())
 
-public actual fun RouterFreePrinterNotifyInfo(pinfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_RouterFreePrinterNotifyInfo(pinfo.toCPointer<ByteVar>())
+public actual fun routerFreePrinterNotifyInfo(pinfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_routerFreePrinterNotifyInfo(pinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun ScheduleJob(hprinter: PRINTER_HANDLE, jobid: UInt): BOOL =
+public actual fun scheduleJob(hprinter: PrinterHandle, jobid: UInt): Bool =
     0
 
-public actual fun SetCPSUIUserData(hdlg: HWND, cpsuiuserdata: ULong): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_SetCPSUIUserData(hdlg.toCPointer<ByteVar>(), cpsuiuserdata)
+public actual fun setCPSUIUserData(hdlg: Hwnd, cpsuiuserdata: ULong): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_setCPSUIUserData(hdlg?.value?.toCPointer<ByteVar>(), cpsuiuserdata)
 
-public actual fun SetDefaultPrinterA(pszprinter: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_SetDefaultPrinterA(pszprinter.toCPointer<ByteVar>())
+public actual fun setDefaultPrinterA(pszprinter: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_setDefaultPrinterA(pszprinter?.value?.toCPointer<ByteVar>())
 
-public actual fun SetDefaultPrinterW(pszprinter: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_SetDefaultPrinterW(pszprinter.toCPointer<ByteVar>())
+public actual fun setDefaultPrinterW(pszprinter: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_setDefaultPrinterW(pszprinter?.value?.toCPointer<ByteVar>())
 
-public actual fun SetFormA(hprinter: PRINTER_HANDLE, pformname: PCSTR, level: UInt, pform: Long): BOOL =
+public actual fun setFormA(hprinter: PrinterHandle, pformname: Pcstr, level: UInt, pform: COpaquePointer?): Bool =
     0
 
-public actual fun SetFormW(hprinter: PRINTER_HANDLE, pformname: PCWSTR, level: UInt, pform: Long): BOOL =
+public actual fun setFormW(hprinter: PrinterHandle, pformname: Pcwstr, level: UInt, pform: COpaquePointer?): Bool =
     0
 
-public actual fun SetJobA(hprinter: PRINTER_HANDLE, jobid: UInt, level: UInt, pjob: Long, command: UInt): BOOL =
+public actual fun setJobA(hprinter: PrinterHandle, jobid: UInt, level: UInt, pjob: COpaquePointer?, command: UInt): Bool =
     0
 
-public actual fun SetJobNamedProperty(hprinter: PRINTER_HANDLE, jobid: UInt, pproperty: Long): UInt =
+public actual fun setJobNamedProperty(hprinter: PrinterHandle, jobid: UInt, pproperty: COpaquePointer?): UInt =
     0u
 
-public actual fun SetJobW(hprinter: PRINTER_HANDLE, jobid: UInt, level: UInt, pjob: Long, command: UInt): BOOL =
+public actual fun setJobW(hprinter: PrinterHandle, jobid: UInt, level: UInt, pjob: COpaquePointer?, command: UInt): Bool =
     0
 
-public actual fun SetPortA(pname: PCSTR, pportname: PCSTR, dwlevel: UInt, pportinfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_SetPortA(pname.toCPointer<ByteVar>(), pportname.toCPointer<ByteVar>(), dwlevel, pportinfo.toCPointer<ByteVar>())
+public actual fun setPortA(pname: Pcstr, pportname: Pcstr, dwlevel: UInt, pportinfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_setPortA(pname?.value?.toCPointer<ByteVar>(), pportname?.value?.toCPointer<ByteVar>(), dwlevel, pportinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun SetPortW(pname: PCWSTR, pportname: PCWSTR, dwlevel: UInt, pportinfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_SetPortW(pname.toCPointer<ByteVar>(), pportname.toCPointer<ByteVar>(), dwlevel, pportinfo.toCPointer<ByteVar>())
+public actual fun setPortW(pname: Pcwstr, pportname: Pcwstr, dwlevel: UInt, pportinfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_setPortW(pname?.value?.toCPointer<ByteVar>(), pportname?.value?.toCPointer<ByteVar>(), dwlevel, pportinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun SetPrinterA(hprinter: PRINTER_HANDLE, level: UInt, pprinter: Long, command: UInt): BOOL =
+public actual fun setPrinterA(hprinter: PrinterHandle, level: UInt, pprinter: COpaquePointer?, command: UInt): Bool =
     0
 
-public actual fun SetPrinterDataA(hprinter: PRINTER_HANDLE, pvaluename: PCSTR, type: UInt, pdata: Long, cbdata: UInt): UInt =
+public actual fun setPrinterDataA(hprinter: PrinterHandle, pvaluename: Pcstr, type: UInt, pdata: COpaquePointer?, cbdata: UInt): UInt =
     0u
 
-public actual fun SetPrinterDataExA(hprinter: PRINTER_HANDLE, pkeyname: PCSTR, pvaluename: PCSTR, type: UInt, pdata: Long, cbdata: UInt): UInt =
+public actual fun setPrinterDataExA(hprinter: PrinterHandle, pkeyname: Pcstr, pvaluename: Pcstr, type: UInt, pdata: COpaquePointer?, cbdata: UInt): UInt =
     0u
 
-public actual fun SetPrinterDataExW(hprinter: PRINTER_HANDLE, pkeyname: PCWSTR, pvaluename: PCWSTR, type: UInt, pdata: Long, cbdata: UInt): UInt =
+public actual fun setPrinterDataExW(hprinter: PrinterHandle, pkeyname: Pcwstr, pvaluename: Pcwstr, type: UInt, pdata: COpaquePointer?, cbdata: UInt): UInt =
     0u
 
-public actual fun SetPrinterDataW(hprinter: PRINTER_HANDLE, pvaluename: PCWSTR, type: UInt, pdata: Long, cbdata: UInt): UInt =
+public actual fun setPrinterDataW(hprinter: PrinterHandle, pvaluename: Pcwstr, type: UInt, pdata: COpaquePointer?, cbdata: UInt): UInt =
     0u
 
-public actual fun SetPrinterW(hprinter: PRINTER_HANDLE, level: UInt, pprinter: Long, command: UInt): BOOL =
+public actual fun setPrinterW(hprinter: PrinterHandle, level: UInt, pprinter: COpaquePointer?, command: UInt): Bool =
     0
 
-public actual fun SplIsSessionZero(hprinter: PRINTER_HANDLE, jobid: UInt, pissessionzero: Long): UInt =
+public actual fun splIsSessionZero(hprinter: PrinterHandle, jobid: UInt, pissessionzero: COpaquePointer?): UInt =
     0u
 
-public actual fun SplPromptUIInUsersSession(hprinter: PRINTER_HANDLE, jobid: UInt, puiparams: Long, presponse: Long): BOOL =
+public actual fun splPromptUIInUsersSession(hprinter: PrinterHandle, jobid: UInt, puiparams: COpaquePointer?, presponse: COpaquePointer?): Bool =
     0
 
-public actual fun SpoolerCopyFileEvent(pszprintername: PCWSTR, pszkey: PCWSTR, dwcopyfileevent: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_SpoolerCopyFileEvent(pszprintername.toCPointer<ByteVar>(), pszkey.toCPointer<ByteVar>(), dwcopyfileevent)
+public actual fun spoolerCopyFileEvent(pszprintername: Pcwstr, pszkey: Pcwstr, dwcopyfileevent: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_spoolerCopyFileEvent(pszprintername?.value?.toCPointer<ByteVar>(), pszkey?.value?.toCPointer<ByteVar>(), dwcopyfileevent)
 
-public actual fun SpoolerFindClosePrinterChangeNotification(hprinter: PRINTER_HANDLE): BOOL =
+public actual fun spoolerFindClosePrinterChangeNotification(hprinter: PrinterHandle): Bool =
     0
 
-public actual fun SpoolerFindFirstPrinterChangeNotification(hprinter: PRINTER_HANDLE, fdwfilterflags: UInt, fdwoptions: UInt, pprinternotifyoptions: Long, pvreserved: Long, pnotificationconfig: Long, phnotify: Long, phevent: Long): BOOL =
+public actual fun spoolerFindFirstPrinterChangeNotification(hprinter: PrinterHandle, fdwfilterflags: UInt, fdwoptions: UInt, pprinternotifyoptions: COpaquePointer?, pvreserved: COpaquePointer?, pnotificationconfig: COpaquePointer?, phnotify: COpaquePointer?, phevent: COpaquePointer?): Bool =
     0
 
-public actual fun SpoolerFindNextPrinterChangeNotification(hprinter: PRINTER_HANDLE, pfdwchange: Long, pprinternotifyoptions: Long, ppprinternotifyinfo: Long): BOOL =
+public actual fun spoolerFindNextPrinterChangeNotification(hprinter: PrinterHandle, pfdwchange: COpaquePointer?, pprinternotifyoptions: COpaquePointer?, ppprinternotifyinfo: COpaquePointer?): Bool =
     0
 
-public actual fun SpoolerFreePrinterNotifyInfo(pinfo: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_SpoolerFreePrinterNotifyInfo(pinfo.toCPointer<ByteVar>())
+public actual fun spoolerFreePrinterNotifyInfo(pinfo: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_spoolerFreePrinterNotifyInfo(pinfo?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun SpoolerRefreshPrinterChangeNotification(hprinter: PRINTER_HANDLE, dwcolor: UInt, poptions: Long, ppinfo: Long): BOOL =
+public actual fun spoolerRefreshPrinterChangeNotification(hprinter: PrinterHandle, dwcolor: UInt, poptions: COpaquePointer?, ppinfo: COpaquePointer?): Bool =
     0
 
-public actual fun StartDocPrinterA(hprinter: PRINTER_HANDLE, level: UInt, pdocinfo: Long): UInt =
+public actual fun startDocPrinterA(hprinter: PrinterHandle, level: UInt, pdocinfo: COpaquePointer?): UInt =
     0u
 
-public actual fun StartDocPrinterW(hprinter: PRINTER_HANDLE, level: UInt, pdocinfo: Long): UInt =
+public actual fun startDocPrinterW(hprinter: PrinterHandle, level: UInt, pdocinfo: COpaquePointer?): UInt =
     0u
 
-public actual fun StartPagePrinter(hprinter: PRINTER_HANDLE): BOOL =
+public actual fun startPagePrinter(hprinter: PrinterHandle): Bool =
     0
 
-public actual fun UnRegisterForPrintAsyncNotifications(param0: HANDLE): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_UnRegisterForPrintAsyncNotifications(param0.toCPointer<ByteVar>())
+public actual fun unRegisterForPrintAsyncNotifications(param0: Handle): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_unRegisterForPrintAsyncNotifications(param0?.value?.toCPointer<ByteVar>())
 
-public actual fun UpdatePrintDeviceObject(hprinter: PRINTER_HANDLE, hdeviceobject: HANDLE): HRESULT =
+public actual fun updatePrintDeviceObject(hprinter: PrinterHandle, hdeviceobject: Handle): Hresult =
     0
 
-public actual fun UploadPrinterDriverPackageA(pszserver: PCSTR, pszinfpath: PCSTR, pszenvironment: PCSTR, dwflags: UInt, hwnd: HWND, pszdestinfpath: PSTR, pcchdestinfpath: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_UploadPrinterDriverPackageA(pszserver.toCPointer<ByteVar>(), pszinfpath.toCPointer<ByteVar>(), pszenvironment.toCPointer<ByteVar>(), dwflags, hwnd.toCPointer<ByteVar>(), pszdestinfpath.toCPointer<ByteVar>(), pcchdestinfpath.toCPointer<ByteVar>())
+public actual fun uploadPrinterDriverPackageA(pszserver: Pcstr, pszinfpath: Pcstr, pszenvironment: Pcstr, dwflags: UInt, hwnd: Hwnd, pszdestinfpath: Pstr, pcchdestinfpath: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_uploadPrinterDriverPackageA(pszserver?.value?.toCPointer<ByteVar>(), pszinfpath?.value?.toCPointer<ByteVar>(), pszenvironment?.value?.toCPointer<ByteVar>(), dwflags, hwnd?.value?.toCPointer<ByteVar>(), pszdestinfpath?.value?.toCPointer<ByteVar>(), pcchdestinfpath?.value?.toCPointer<ByteVar>())
 
-public actual fun UploadPrinterDriverPackageW(pszserver: PCWSTR, pszinfpath: PCWSTR, pszenvironment: PCWSTR, dwflags: UInt, hwnd: HWND, pszdestinfpath: PWSTR, pcchdestinfpath: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_UploadPrinterDriverPackageW(pszserver.toCPointer<ByteVar>(), pszinfpath.toCPointer<ByteVar>(), pszenvironment.toCPointer<ByteVar>(), dwflags, hwnd.toCPointer<ByteVar>(), pszdestinfpath.toCPointer<ByteVar>(), pcchdestinfpath.toCPointer<ByteVar>())
+public actual fun uploadPrinterDriverPackageW(pszserver: Pcwstr, pszinfpath: Pcwstr, pszenvironment: Pcwstr, dwflags: UInt, hwnd: Hwnd, pszdestinfpath: Pwstr, pcchdestinfpath: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_uploadPrinterDriverPackageW(pszserver?.value?.toCPointer<ByteVar>(), pszinfpath?.value?.toCPointer<ByteVar>(), pszenvironment?.value?.toCPointer<ByteVar>(), dwflags, hwnd?.value?.toCPointer<ByteVar>(), pszdestinfpath?.value?.toCPointer<ByteVar>(), pcchdestinfpath?.value?.toCPointer<ByteVar>())
 
-public actual fun WaitForPrinterChange(hprinter: PRINTER_HANDLE, flags: UInt): UInt =
+public actual fun waitForPrinterChange(hprinter: PrinterHandle, flags: UInt): UInt =
     0u
 
-public actual fun WritePrinter(hprinter: PRINTER_HANDLE, pbuf: Long, cbbuf: UInt, pcwritten: Long): BOOL =
+public actual fun writePrinter(hprinter: PrinterHandle, pbuf: COpaquePointer?, cbbuf: UInt, pcwritten: COpaquePointer?): Bool =
     0
 
-public actual fun XcvDataW(hxcv: HANDLE, pszdataname: PCWSTR, pinputdata: Long, cbinputdata: UInt, poutputdata: Long, cboutputdata: UInt, pcboutputneeded: Long, pdwstatus: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_XcvDataW(hxcv.toCPointer<ByteVar>(), pszdataname.toCPointer<ByteVar>(), pinputdata.toCPointer<ByteVar>(), cbinputdata, poutputdata.toCPointer<ByteVar>(), cboutputdata, pcboutputneeded.toCPointer<ByteVar>(), pdwstatus.toCPointer<ByteVar>())
+public actual fun xcvDataW(hxcv: Handle, pszdataname: Pcwstr, pinputdata: COpaquePointer?, cbinputdata: UInt, poutputdata: COpaquePointer?, cboutputdata: UInt, pcboutputneeded: COpaquePointer?, pdwstatus: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.cinterop.windowssys_windows_win32_graphics_printing_xcvDataW(hxcv?.value?.toCPointer<ByteVar>(), pszdataname?.value?.toCPointer<ByteVar>(), pinputdata?.value?.toCPointer<ByteVar>(), cbinputdata, poutputdata?.value?.toCPointer<ByteVar>(), cboutputdata, pcboutputneeded?.value?.toCPointer<ByteVar>(), pdwstatus?.value?.toCPointer<ByteVar>())

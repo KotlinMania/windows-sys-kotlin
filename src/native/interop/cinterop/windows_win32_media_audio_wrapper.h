@@ -9,18 +9,18 @@
 extern "C" {
 #endif
 
-int32_t windowssys_windows_win32_media_audio_ActivateAudioInterfaceAsync(void* deviceinterfacepath, void* riid, void* activationparams, void* completionhandler, void* activationoperation);
-int32_t windowssys_windows_win32_media_audio_CoRegisterMessageFilter(void* lpmessagefilter, void* lplpmessagefilter);
-int32_t windowssys_windows_win32_media_audio_CreateCaptureAudioStateMonitor(void* audiostatemonitor);
-int32_t windowssys_windows_win32_media_audio_CreateCaptureAudioStateMonitorForCategory(int32_t category, void* audiostatemonitor);
-int32_t windowssys_windows_win32_media_audio_CreateCaptureAudioStateMonitorForCategoryAndDeviceId(int32_t category, void* deviceid, void* audiostatemonitor);
-int32_t windowssys_windows_win32_media_audio_CreateCaptureAudioStateMonitorForCategoryAndDeviceRole(int32_t category, int32_t role, void* audiostatemonitor);
-int32_t windowssys_windows_win32_media_audio_CreateRenderAudioStateMonitor(void* audiostatemonitor);
-int32_t windowssys_windows_win32_media_audio_CreateRenderAudioStateMonitorForCategory(int32_t category, void* audiostatemonitor);
-int32_t windowssys_windows_win32_media_audio_CreateRenderAudioStateMonitorForCategoryAndDeviceId(int32_t category, void* deviceid, void* audiostatemonitor);
-int32_t windowssys_windows_win32_media_audio_CreateRenderAudioStateMonitorForCategoryAndDeviceRole(int32_t category, int32_t role, void* audiostatemonitor);
-int32_t windowssys_windows_win32_media_audio_PlaySoundA(void* pszsound, void* hmod, uint32_t fdwsound);
-int32_t windowssys_windows_win32_media_audio_PlaySoundW(void* pszsound, void* hmod, uint32_t fdwsound);
+int32_t windowssys_windows_win32_media_audio_activateAudioInterfaceAsync(void* deviceinterfacepath, void* riid, void* activationparams, void* completionhandler, void* activationoperation);
+int32_t windowssys_windows_win32_media_audio_coRegisterMessageFilter(void* lpmessagefilter, void* lplpmessagefilter);
+int32_t windowssys_windows_win32_media_audio_createCaptureAudioStateMonitor(void* audiostatemonitor);
+int32_t windowssys_windows_win32_media_audio_createCaptureAudioStateMonitorForCategory(int32_t category, void* audiostatemonitor);
+int32_t windowssys_windows_win32_media_audio_createCaptureAudioStateMonitorForCategoryAndDeviceId(int32_t category, void* deviceid, void* audiostatemonitor);
+int32_t windowssys_windows_win32_media_audio_createCaptureAudioStateMonitorForCategoryAndDeviceRole(int32_t category, int32_t role, void* audiostatemonitor);
+int32_t windowssys_windows_win32_media_audio_createRenderAudioStateMonitor(void* audiostatemonitor);
+int32_t windowssys_windows_win32_media_audio_createRenderAudioStateMonitorForCategory(int32_t category, void* audiostatemonitor);
+int32_t windowssys_windows_win32_media_audio_createRenderAudioStateMonitorForCategoryAndDeviceId(int32_t category, void* deviceid, void* audiostatemonitor);
+int32_t windowssys_windows_win32_media_audio_createRenderAudioStateMonitorForCategoryAndDeviceRole(int32_t category, int32_t role, void* audiostatemonitor);
+int32_t windowssys_windows_win32_media_audio_playSoundA(void* pszsound, void* hmod, uint32_t fdwsound);
+int32_t windowssys_windows_win32_media_audio_playSoundW(void* pszsound, void* hmod, uint32_t fdwsound);
 uint32_t windowssys_windows_win32_media_audio_acmDriverAddA(void* phadid, void* hinstmodule, int64_t lparam, uint32_t dwpriority, uint32_t fdwadd);
 uint32_t windowssys_windows_win32_media_audio_acmDriverAddW(void* phadid, void* hinstmodule, int64_t lparam, uint32_t dwpriority, uint32_t fdwadd);
 uint32_t windowssys_windows_win32_media_audio_acmDriverClose(void* had, uint32_t fdwclose);

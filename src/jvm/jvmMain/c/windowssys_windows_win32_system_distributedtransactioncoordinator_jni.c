@@ -18,7 +18,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_distributedtransactioncoordinator_WindowsWin32SystemDistributedtransactioncoordinatorJniBridge_windowssys_1windows_1win32_1system_1distributedtransactioncoordinator_1DtcGetTransactionManager(JNIEnv* km_env, jclass km_clazz, jlong i_pszhost, jlong i_psztmname, jlong i_riid, jint i_dwreserved1, jshort i_wcbreserved2, jlong i_pvreserved2, jlong o_ppvobject) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_distributedtransactioncoordinator_WindowsWin32SystemDistributedtransactioncoordinatorJniBridge_windowssys_1windows_1win32_1system_1distributedtransactioncoordinator_1dtcGetTransactionManager(JNIEnv* km_env, jclass km_clazz, jlong i_pszhost, jlong i_psztmname, jlong i_riid, jint i_dwreserved1, jshort i_wcbreserved2, jlong i_pvreserved2, jlong o_ppvobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -42,7 +42,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_distributedtransactioncoordinator_WindowsWin32SystemDistributedtransactioncoordinatorJniBridge_windowssys_1windows_1win32_1system_1distributedtransactioncoordinator_1DtcGetTransactionManagerC(JNIEnv* km_env, jclass km_clazz, jlong i_pszhost, jlong i_psztmname, jlong i_riid, jint i_dwreserved1, jshort i_wcbreserved2, jlong i_pvreserved2, jlong o_ppvobject) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_distributedtransactioncoordinator_WindowsWin32SystemDistributedtransactioncoordinatorJniBridge_windowssys_1windows_1win32_1system_1distributedtransactioncoordinator_1dtcGetTransactionManagerC(JNIEnv* km_env, jclass km_clazz, jlong i_pszhost, jlong i_psztmname, jlong i_riid, jint i_dwreserved1, jshort i_wcbreserved2, jlong i_pvreserved2, jlong o_ppvobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -66,7 +66,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_distributedtransactioncoordinator_WindowsWin32SystemDistributedtransactioncoordinatorJniBridge_windowssys_1windows_1win32_1system_1distributedtransactioncoordinator_1DtcGetTransactionManagerExA(JNIEnv* km_env, jclass km_clazz, jlong i_pszhost, jlong i_psztmname, jlong i_riid, jint i_grfoptions, jlong i_pvconfigparams, jlong o_ppvobject) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_distributedtransactioncoordinator_WindowsWin32SystemDistributedtransactioncoordinatorJniBridge_windowssys_1windows_1win32_1system_1distributedtransactioncoordinator_1dtcGetTransactionManagerExA(JNIEnv* km_env, jclass km_clazz, jlong i_pszhost, jlong i_psztmname, jlong i_riid, jint i_grfoptions, jlong i_pvconfigparams, jlong o_ppvobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -89,7 +89,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_distributedtransactioncoordinator_WindowsWin32SystemDistributedtransactioncoordinatorJniBridge_windowssys_1windows_1win32_1system_1distributedtransactioncoordinator_1DtcGetTransactionManagerExW(JNIEnv* km_env, jclass km_clazz, jlong i_pwszhost, jlong i_pwsztmname, jlong i_riid, jint i_grfoptions, jlong i_pvconfigparams, jlong o_ppvobject) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_distributedtransactioncoordinator_WindowsWin32SystemDistributedtransactioncoordinatorJniBridge_windowssys_1windows_1win32_1system_1distributedtransactioncoordinator_1dtcGetTransactionManagerExW(JNIEnv* km_env, jclass km_clazz, jlong i_pwszhost, jlong i_pwsztmname, jlong i_riid, jint i_grfoptions, jlong i_pvconfigparams, jlong o_ppvobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

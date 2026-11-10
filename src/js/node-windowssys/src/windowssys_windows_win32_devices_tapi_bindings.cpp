@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_GetTnefStreamCodepage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_tapi_getTnefStreamCodepage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpstream = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpulcodepage = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -73,7 +73,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_GetTnefStreamCodepage_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_OpenTnefStream_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_tapi_openTnefStream_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpvsupport = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpstream = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -103,7 +103,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_OpenTnefStream_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_OpenTnefStreamEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_tapi_openTnefStreamEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpvsupport = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpstream = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6050,9 +6050,9 @@ static Napi::Value windowssys_windows_win32_devices_tapi_tapiRequestMediaCallW_n
 }
 
 static void register_windows_win32_devices_tapi_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_devices_tapi_GetTnefStreamCodepage", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_GetTnefStreamCodepage_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_OpenTnefStream", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_OpenTnefStream_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_OpenTnefStreamEx", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_OpenTnefStreamEx_napi));
+    exports.Set("windowssys_windows_win32_devices_tapi_getTnefStreamCodepage", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_getTnefStreamCodepage_napi));
+    exports.Set("windowssys_windows_win32_devices_tapi_openTnefStream", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_openTnefStream_napi));
+    exports.Set("windowssys_windows_win32_devices_tapi_openTnefStreamEx", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_openTnefStreamEx_napi));
     exports.Set("windowssys_windows_win32_devices_tapi_lineAccept", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineAccept_napi));
     exports.Set("windowssys_windows_win32_devices_tapi_lineAddProvider", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineAddProvider_napi));
     exports.Set("windowssys_windows_win32_devices_tapi_lineAddProviderA", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineAddProviderA_napi));

@@ -1,21 +1,23 @@
 package io.github.kotlinmania.windowssys.windows.win32.storage.compression
 
-public typealias COMPRESSOR_HANDLE = Long
+import io.github.kotlinmania.windowssys.COpaquePointer
 
-public typealias COMPRESS_ALGORITHM = UInt
+public typealias CompressorHandle = COpaquePointer?
 
-public typealias COMPRESS_INFORMATION_CLASS = Int
+public typealias CompressAlgorithm = UInt
 
-public typealias DECOMPRESSOR_HANDLE = Long
+public typealias CompressInformationClass = Int
 
-public fun interface PFN_COMPRESS_ALLOCATEFn {
-    public operator fun invoke(usercontext: Long, size: ULong): Long
+public typealias DecompressorHandle = COpaquePointer?
+
+public fun interface PfnCompressAllocateFn {
+    public operator fun invoke(usercontext: COpaquePointer?, size: ULong): COpaquePointer?
 }
 
-public typealias PFN_COMPRESS_ALLOCATE = PFN_COMPRESS_ALLOCATEFn?
+public typealias PfnCompressAllocate = PfnCompressAllocateFn?
 
-public fun interface PFN_COMPRESS_FREEFn {
-    public operator fun invoke(usercontext: Long, memory: Long)
+public fun interface PfnCompressFreeFn {
+    public operator fun invoke(usercontext: COpaquePointer?, memory: COpaquePointer?)
 }
 
-public typealias PFN_COMPRESS_FREE = PFN_COMPRESS_FREEFn?
+public typealias PfnCompressFree = PfnCompressFreeFn?

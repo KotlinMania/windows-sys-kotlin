@@ -2,129 +2,130 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.devices.sensors
 
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun CollectionsListAllocateBufferAndSerialize(sourcecollection: Long, ptargetbuffersizeinbytes: Long, ptargetbuffer: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_CollectionsListAllocateBufferAndSerialize(sourcecollection.toCPointer<ByteVar>(), ptargetbuffersizeinbytes.toCPointer<ByteVar>(), ptargetbuffer.toCPointer<ByteVar>())
+public actual fun collectionsListAllocateBufferAndSerialize(sourcecollection: COpaquePointer?, ptargetbuffersizeinbytes: COpaquePointer?, ptargetbuffer: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_collectionsListAllocateBufferAndSerialize(sourcecollection?.value?.toCPointer<ByteVar>(), ptargetbuffersizeinbytes?.value?.toCPointer<ByteVar>(), ptargetbuffer?.value?.toCPointer<ByteVar>())
 
-public actual fun CollectionsListCopyAndMarshall(target: Long, source: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_CollectionsListCopyAndMarshall(target.toCPointer<ByteVar>(), source.toCPointer<ByteVar>())
+public actual fun collectionsListCopyAndMarshall(target: COpaquePointer?, source: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_collectionsListCopyAndMarshall(target?.value?.toCPointer<ByteVar>(), source?.value?.toCPointer<ByteVar>())
 
-public actual fun CollectionsListDeserializeFromBuffer(sourcebuffersizeinbytes: UInt, sourcebuffer: Long, targetcollection: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_CollectionsListDeserializeFromBuffer(sourcebuffersizeinbytes, sourcebuffer.toCPointer<ByteVar>(), targetcollection.toCPointer<ByteVar>())
+public actual fun collectionsListDeserializeFromBuffer(sourcebuffersizeinbytes: UInt, sourcebuffer: COpaquePointer?, targetcollection: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_collectionsListDeserializeFromBuffer(sourcebuffersizeinbytes, sourcebuffer?.value?.toCPointer<ByteVar>(), targetcollection?.value?.toCPointer<ByteVar>())
 
-public actual fun CollectionsListGetFillableCount(buffersizebytes: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_CollectionsListGetFillableCount(buffersizebytes)
+public actual fun collectionsListGetFillableCount(buffersizebytes: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_collectionsListGetFillableCount(buffersizebytes)
 
-public actual fun CollectionsListGetMarshalledSize(collection: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_CollectionsListGetMarshalledSize(collection.toCPointer<ByteVar>())
+public actual fun collectionsListGetMarshalledSize(collection: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_collectionsListGetMarshalledSize(collection?.value?.toCPointer<ByteVar>())
 
-public actual fun CollectionsListGetMarshalledSizeWithoutSerialization(collection: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_CollectionsListGetMarshalledSizeWithoutSerialization(collection.toCPointer<ByteVar>())
+public actual fun collectionsListGetMarshalledSizeWithoutSerialization(collection: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_collectionsListGetMarshalledSizeWithoutSerialization(collection?.value?.toCPointer<ByteVar>())
 
-public actual fun CollectionsListGetSerializedSize(collection: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_CollectionsListGetSerializedSize(collection.toCPointer<ByteVar>())
+public actual fun collectionsListGetSerializedSize(collection: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_collectionsListGetSerializedSize(collection?.value?.toCPointer<ByteVar>())
 
-public actual fun CollectionsListMarshall(target: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_CollectionsListMarshall(target.toCPointer<ByteVar>())
+public actual fun collectionsListMarshall(target: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_collectionsListMarshall(target?.value?.toCPointer<ByteVar>())
 
-public actual fun CollectionsListSerializeToBuffer(sourcecollection: Long, targetbuffersizeinbytes: UInt, targetbuffer: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_CollectionsListSerializeToBuffer(sourcecollection.toCPointer<ByteVar>(), targetbuffersizeinbytes, targetbuffer.toCPointer<ByteVar>())
+public actual fun collectionsListSerializeToBuffer(sourcecollection: COpaquePointer?, targetbuffersizeinbytes: UInt, targetbuffer: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_collectionsListSerializeToBuffer(sourcecollection?.value?.toCPointer<ByteVar>(), targetbuffersizeinbytes, targetbuffer?.value?.toCPointer<ByteVar>())
 
-public actual fun CollectionsListSortSubscribedActivitiesByConfidence(thresholds: Long, pcollection: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_CollectionsListSortSubscribedActivitiesByConfidence(thresholds.toCPointer<ByteVar>(), pcollection.toCPointer<ByteVar>())
+public actual fun collectionsListSortSubscribedActivitiesByConfidence(thresholds: COpaquePointer?, pcollection: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_collectionsListSortSubscribedActivitiesByConfidence(thresholds?.value?.toCPointer<ByteVar>(), pcollection?.value?.toCPointer<ByteVar>())
 
-public actual fun CollectionsListUpdateMarshalledPointer(collection: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_CollectionsListUpdateMarshalledPointer(collection.toCPointer<ByteVar>())
+public actual fun collectionsListUpdateMarshalledPointer(collection: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_collectionsListUpdateMarshalledPointer(collection?.value?.toCPointer<ByteVar>())
 
-public actual fun EvaluateActivityThresholds(newsample: Long, oldsample: Long, thresholds: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_EvaluateActivityThresholds(newsample.toCPointer<ByteVar>(), oldsample.toCPointer<ByteVar>(), thresholds.toCPointer<ByteVar>())
+public actual fun evaluateActivityThresholds(newsample: COpaquePointer?, oldsample: COpaquePointer?, thresholds: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_evaluateActivityThresholds(newsample?.value?.toCPointer<ByteVar>(), oldsample?.value?.toCPointer<ByteVar>(), thresholds?.value?.toCPointer<ByteVar>())
 
-public actual fun GetPerformanceTime(timems: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_GetPerformanceTime(timems.toCPointer<ByteVar>())
+public actual fun getPerformanceTime(timems: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_getPerformanceTime(timems?.value?.toCPointer<ByteVar>())
 
-public actual fun InitPropVariantFromCLSIDArray(members: Long, size: UInt, ppropvar: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_InitPropVariantFromCLSIDArray(members.toCPointer<ByteVar>(), size, ppropvar.toCPointer<ByteVar>())
+public actual fun initPropVariantFromCLSIDArray(members: COpaquePointer?, size: UInt, ppropvar: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_initPropVariantFromCLSIDArray(members?.value?.toCPointer<ByteVar>(), size, ppropvar?.value?.toCPointer<ByteVar>())
 
-public actual fun InitPropVariantFromFloat(fltval: Float, ppropvar: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_InitPropVariantFromFloat(fltval, ppropvar.toCPointer<ByteVar>())
+public actual fun initPropVariantFromFloat(fltval: Float, ppropvar: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_initPropVariantFromFloat(fltval, ppropvar?.value?.toCPointer<ByteVar>())
 
-public actual fun IsCollectionListSame(lista: Long, listb: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_IsCollectionListSame(lista.toCPointer<ByteVar>(), listb.toCPointer<ByteVar>())
+public actual fun isCollectionListSame(lista: COpaquePointer?, listb: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_isCollectionListSame(lista?.value?.toCPointer<ByteVar>(), listb?.value?.toCPointer<ByteVar>())
 
-public actual fun IsGUIDPresentInList(guidarray: Long, arraylength: UInt, guidelem: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_IsGUIDPresentInList(guidarray.toCPointer<ByteVar>(), arraylength, guidelem.toCPointer<ByteVar>())
+public actual fun isGUIDPresentInList(guidarray: COpaquePointer?, arraylength: UInt, guidelem: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_isGUIDPresentInList(guidarray?.value?.toCPointer<ByteVar>(), arraylength, guidelem?.value?.toCPointer<ByteVar>())
 
-public actual fun IsKeyPresentInCollectionList(plist: Long, pkey: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_IsKeyPresentInCollectionList(plist.toCPointer<ByteVar>(), pkey.toCPointer<ByteVar>())
+public actual fun isKeyPresentInCollectionList(plist: COpaquePointer?, pkey: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_isKeyPresentInCollectionList(plist?.value?.toCPointer<ByteVar>(), pkey?.value?.toCPointer<ByteVar>())
 
-public actual fun IsKeyPresentInPropertyList(plist: Long, pkey: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_IsKeyPresentInPropertyList(plist.toCPointer<ByteVar>(), pkey.toCPointer<ByteVar>())
+public actual fun isKeyPresentInPropertyList(plist: COpaquePointer?, pkey: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_isKeyPresentInPropertyList(plist?.value?.toCPointer<ByteVar>(), pkey?.value?.toCPointer<ByteVar>())
 
-public actual fun IsSensorSubscribed(subscriptionlist: Long, currenttype: GUID): Boolean =
+public actual fun isSensorSubscribed(subscriptionlist: COpaquePointer?, currenttype: Guid): Boolean =
     false
 
-public actual fun PropKeyFindKeyGetBool(plist: Long, pkey: Long, pretvalue: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_PropKeyFindKeyGetBool(plist.toCPointer<ByteVar>(), pkey.toCPointer<ByteVar>(), pretvalue.toCPointer<ByteVar>())
+public actual fun propKeyFindKeyGetBool(plist: COpaquePointer?, pkey: COpaquePointer?, pretvalue: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_propKeyFindKeyGetBool(plist?.value?.toCPointer<ByteVar>(), pkey?.value?.toCPointer<ByteVar>(), pretvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun PropKeyFindKeyGetDouble(plist: Long, pkey: Long, pretvalue: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_PropKeyFindKeyGetDouble(plist.toCPointer<ByteVar>(), pkey.toCPointer<ByteVar>(), pretvalue.toCPointer<ByteVar>())
+public actual fun propKeyFindKeyGetDouble(plist: COpaquePointer?, pkey: COpaquePointer?, pretvalue: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_propKeyFindKeyGetDouble(plist?.value?.toCPointer<ByteVar>(), pkey?.value?.toCPointer<ByteVar>(), pretvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun PropKeyFindKeyGetFileTime(plist: Long, pkey: Long, pretvalue: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_PropKeyFindKeyGetFileTime(plist.toCPointer<ByteVar>(), pkey.toCPointer<ByteVar>(), pretvalue.toCPointer<ByteVar>())
+public actual fun propKeyFindKeyGetFileTime(plist: COpaquePointer?, pkey: COpaquePointer?, pretvalue: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_propKeyFindKeyGetFileTime(plist?.value?.toCPointer<ByteVar>(), pkey?.value?.toCPointer<ByteVar>(), pretvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun PropKeyFindKeyGetFloat(plist: Long, pkey: Long, pretvalue: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_PropKeyFindKeyGetFloat(plist.toCPointer<ByteVar>(), pkey.toCPointer<ByteVar>(), pretvalue.toCPointer<ByteVar>())
+public actual fun propKeyFindKeyGetFloat(plist: COpaquePointer?, pkey: COpaquePointer?, pretvalue: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_propKeyFindKeyGetFloat(plist?.value?.toCPointer<ByteVar>(), pkey?.value?.toCPointer<ByteVar>(), pretvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun PropKeyFindKeyGetGuid(plist: Long, pkey: Long, pretvalue: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_PropKeyFindKeyGetGuid(plist.toCPointer<ByteVar>(), pkey.toCPointer<ByteVar>(), pretvalue.toCPointer<ByteVar>())
+public actual fun propKeyFindKeyGetGuid(plist: COpaquePointer?, pkey: COpaquePointer?, pretvalue: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_propKeyFindKeyGetGuid(plist?.value?.toCPointer<ByteVar>(), pkey?.value?.toCPointer<ByteVar>(), pretvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun PropKeyFindKeyGetInt32(plist: Long, pkey: Long, pretvalue: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_PropKeyFindKeyGetInt32(plist.toCPointer<ByteVar>(), pkey.toCPointer<ByteVar>(), pretvalue.toCPointer<ByteVar>())
+public actual fun propKeyFindKeyGetInt32(plist: COpaquePointer?, pkey: COpaquePointer?, pretvalue: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_propKeyFindKeyGetInt32(plist?.value?.toCPointer<ByteVar>(), pkey?.value?.toCPointer<ByteVar>(), pretvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun PropKeyFindKeyGetInt64(plist: Long, pkey: Long, pretvalue: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_PropKeyFindKeyGetInt64(plist.toCPointer<ByteVar>(), pkey.toCPointer<ByteVar>(), pretvalue.toCPointer<ByteVar>())
+public actual fun propKeyFindKeyGetInt64(plist: COpaquePointer?, pkey: COpaquePointer?, pretvalue: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_propKeyFindKeyGetInt64(plist?.value?.toCPointer<ByteVar>(), pkey?.value?.toCPointer<ByteVar>(), pretvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun PropKeyFindKeyGetNthInt64(plist: Long, pkey: Long, occurrence: UInt, pretvalue: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_PropKeyFindKeyGetNthInt64(plist.toCPointer<ByteVar>(), pkey.toCPointer<ByteVar>(), occurrence, pretvalue.toCPointer<ByteVar>())
+public actual fun propKeyFindKeyGetNthInt64(plist: COpaquePointer?, pkey: COpaquePointer?, occurrence: UInt, pretvalue: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_propKeyFindKeyGetNthInt64(plist?.value?.toCPointer<ByteVar>(), pkey?.value?.toCPointer<ByteVar>(), occurrence, pretvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun PropKeyFindKeyGetNthUlong(plist: Long, pkey: Long, occurrence: UInt, pretvalue: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_PropKeyFindKeyGetNthUlong(plist.toCPointer<ByteVar>(), pkey.toCPointer<ByteVar>(), occurrence, pretvalue.toCPointer<ByteVar>())
+public actual fun propKeyFindKeyGetNthUlong(plist: COpaquePointer?, pkey: COpaquePointer?, occurrence: UInt, pretvalue: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_propKeyFindKeyGetNthUlong(plist?.value?.toCPointer<ByteVar>(), pkey?.value?.toCPointer<ByteVar>(), occurrence, pretvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun PropKeyFindKeyGetNthUshort(plist: Long, pkey: Long, occurrence: UInt, pretvalue: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_PropKeyFindKeyGetNthUshort(plist.toCPointer<ByteVar>(), pkey.toCPointer<ByteVar>(), occurrence, pretvalue.toCPointer<ByteVar>())
+public actual fun propKeyFindKeyGetNthUshort(plist: COpaquePointer?, pkey: COpaquePointer?, occurrence: UInt, pretvalue: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_propKeyFindKeyGetNthUshort(plist?.value?.toCPointer<ByteVar>(), pkey?.value?.toCPointer<ByteVar>(), occurrence, pretvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun PropKeyFindKeyGetPropVariant(plist: Long, pkey: Long, typecheck: Boolean, pvalue: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_PropKeyFindKeyGetPropVariant(plist.toCPointer<ByteVar>(), pkey.toCPointer<ByteVar>(), typecheck, pvalue.toCPointer<ByteVar>())
+public actual fun propKeyFindKeyGetPropVariant(plist: COpaquePointer?, pkey: COpaquePointer?, typecheck: Boolean, pvalue: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_propKeyFindKeyGetPropVariant(plist?.value?.toCPointer<ByteVar>(), pkey?.value?.toCPointer<ByteVar>(), typecheck, pvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun PropKeyFindKeyGetUlong(plist: Long, pkey: Long, pretvalue: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_PropKeyFindKeyGetUlong(plist.toCPointer<ByteVar>(), pkey.toCPointer<ByteVar>(), pretvalue.toCPointer<ByteVar>())
+public actual fun propKeyFindKeyGetUlong(plist: COpaquePointer?, pkey: COpaquePointer?, pretvalue: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_propKeyFindKeyGetUlong(plist?.value?.toCPointer<ByteVar>(), pkey?.value?.toCPointer<ByteVar>(), pretvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun PropKeyFindKeyGetUshort(plist: Long, pkey: Long, pretvalue: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_PropKeyFindKeyGetUshort(plist.toCPointer<ByteVar>(), pkey.toCPointer<ByteVar>(), pretvalue.toCPointer<ByteVar>())
+public actual fun propKeyFindKeyGetUshort(plist: COpaquePointer?, pkey: COpaquePointer?, pretvalue: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_propKeyFindKeyGetUshort(plist?.value?.toCPointer<ByteVar>(), pkey?.value?.toCPointer<ByteVar>(), pretvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun PropKeyFindKeySetPropVariant(plist: Long, pkey: Long, typecheck: Boolean, pvalue: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_PropKeyFindKeySetPropVariant(plist.toCPointer<ByteVar>(), pkey.toCPointer<ByteVar>(), typecheck, pvalue.toCPointer<ByteVar>())
+public actual fun propKeyFindKeySetPropVariant(plist: COpaquePointer?, pkey: COpaquePointer?, typecheck: Boolean, pvalue: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_propKeyFindKeySetPropVariant(plist?.value?.toCPointer<ByteVar>(), pkey?.value?.toCPointer<ByteVar>(), typecheck, pvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun PropVariantGetInformation(propvariantvalue: Long, propvariantoffset: Long, propvariantsize: Long, propvariantpointer: Long, remappedtype: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_PropVariantGetInformation(propvariantvalue.toCPointer<ByteVar>(), propvariantoffset.toCPointer<ByteVar>(), propvariantsize.toCPointer<ByteVar>(), propvariantpointer.toCPointer<ByteVar>(), remappedtype.toCPointer<ByteVar>())
+public actual fun propVariantGetInformation(propvariantvalue: COpaquePointer?, propvariantoffset: COpaquePointer?, propvariantsize: COpaquePointer?, propvariantpointer: COpaquePointer?, remappedtype: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_propVariantGetInformation(propvariantvalue?.value?.toCPointer<ByteVar>(), propvariantoffset?.value?.toCPointer<ByteVar>(), propvariantsize?.value?.toCPointer<ByteVar>(), propvariantpointer?.value?.toCPointer<ByteVar>(), remappedtype?.value?.toCPointer<ByteVar>())
 
-public actual fun PropertiesListCopy(target: Long, source: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_PropertiesListCopy(target.toCPointer<ByteVar>(), source.toCPointer<ByteVar>())
+public actual fun propertiesListCopy(target: COpaquePointer?, source: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_propertiesListCopy(target?.value?.toCPointer<ByteVar>(), source?.value?.toCPointer<ByteVar>())
 
-public actual fun PropertiesListGetFillableCount(buffersizebytes: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_PropertiesListGetFillableCount(buffersizebytes)
+public actual fun propertiesListGetFillableCount(buffersizebytes: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_propertiesListGetFillableCount(buffersizebytes)
 
-public actual fun SensorCollectionGetAt(index: UInt, psensorslist: Long, pkey: Long, pvalue: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_SensorCollectionGetAt(index, psensorslist.toCPointer<ByteVar>(), pkey.toCPointer<ByteVar>(), pvalue.toCPointer<ByteVar>())
+public actual fun sensorCollectionGetAt(index: UInt, psensorslist: COpaquePointer?, pkey: COpaquePointer?, pvalue: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_sensorCollectionGetAt(index, psensorslist?.value?.toCPointer<ByteVar>(), pkey?.value?.toCPointer<ByteVar>(), pvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun SerializationBufferAllocate(sizeinbytes: UInt, pbuffer: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_SerializationBufferAllocate(sizeinbytes, pbuffer.toCPointer<ByteVar>())
+public actual fun serializationBufferAllocate(sizeinbytes: UInt, pbuffer: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_serializationBufferAllocate(sizeinbytes, pbuffer?.value?.toCPointer<ByteVar>())
 
-public actual fun SerializationBufferFree(buffer: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_SerializationBufferFree(buffer.toCPointer<ByteVar>())
+public actual fun serializationBufferFree(buffer: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssys_windows_win32_devices_sensors_serializationBufferFree(buffer?.value?.toCPointer<ByteVar>())
 }

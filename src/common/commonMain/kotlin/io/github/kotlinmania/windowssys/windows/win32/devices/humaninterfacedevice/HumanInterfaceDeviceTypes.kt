@@ -1,105 +1,106 @@
 package io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
 
-public typealias GPIOBUTTONS_BUTTON_TYPE = Int
+public typealias GpiobuttonsButtonType = Int
 
-public typealias HIDP_KEYBOARD_DIRECTION = Int
+public typealias HidpKeyboardDirection = Int
 
-public typealias HIDP_REPORT_TYPE = Int
+public typealias HidpReportType = Int
 
-public fun interface LPDICONFIGUREDEVICESCALLBACKFn {
-    public operator fun invoke(param0: Long, param1: Long): BOOL
+public fun interface LpdiconfiguredevicescallbackFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: COpaquePointer?): Bool
 }
 
-public typealias LPDICONFIGUREDEVICESCALLBACK = LPDICONFIGUREDEVICESCALLBACKFn?
+public typealias Lpdiconfiguredevicescallback = LpdiconfiguredevicescallbackFn?
 
-public fun interface LPDIENUMCREATEDEFFECTOBJECTSCALLBACKFn {
-    public operator fun invoke(param0: Long, param1: Long): BOOL
+public fun interface LpdienumcreatedeffectobjectscallbackFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: COpaquePointer?): Bool
 }
 
-public typealias LPDIENUMCREATEDEFFECTOBJECTSCALLBACK = LPDIENUMCREATEDEFFECTOBJECTSCALLBACKFn?
+public typealias Lpdienumcreatedeffectobjectscallback = LpdienumcreatedeffectobjectscallbackFn?
 
-public fun interface LPDIENUMDEVICEOBJECTSCALLBACKAFn {
-    public operator fun invoke(param0: Long, param1: Long): BOOL
+public fun interface LpdienumdeviceobjectscallbackaFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: COpaquePointer?): Bool
 }
 
-public typealias LPDIENUMDEVICEOBJECTSCALLBACKA = LPDIENUMDEVICEOBJECTSCALLBACKAFn?
+public typealias Lpdienumdeviceobjectscallbacka = LpdienumdeviceobjectscallbackaFn?
 
-public fun interface LPDIENUMDEVICEOBJECTSCALLBACKWFn {
-    public operator fun invoke(param0: Long, param1: Long): BOOL
+public fun interface LpdienumdeviceobjectscallbackwFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: COpaquePointer?): Bool
 }
 
-public typealias LPDIENUMDEVICEOBJECTSCALLBACKW = LPDIENUMDEVICEOBJECTSCALLBACKWFn?
+public typealias Lpdienumdeviceobjectscallbackw = LpdienumdeviceobjectscallbackwFn?
 
-public fun interface LPDIENUMDEVICESBYSEMANTICSCBAFn {
-    public operator fun invoke(param0: Long, param1: Long, param2: UInt, param3: UInt, param4: Long): BOOL
+public fun interface LpdienumdevicesbysemanticscbaFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: COpaquePointer?, param2: UInt, param3: UInt, param4: COpaquePointer?): Bool
 }
 
-public typealias LPDIENUMDEVICESBYSEMANTICSCBA = LPDIENUMDEVICESBYSEMANTICSCBAFn?
+public typealias Lpdienumdevicesbysemanticscba = LpdienumdevicesbysemanticscbaFn?
 
-public fun interface LPDIENUMDEVICESBYSEMANTICSCBWFn {
-    public operator fun invoke(param0: Long, param1: Long, param2: UInt, param3: UInt, param4: Long): BOOL
+public fun interface LpdienumdevicesbysemanticscbwFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: COpaquePointer?, param2: UInt, param3: UInt, param4: COpaquePointer?): Bool
 }
 
-public typealias LPDIENUMDEVICESBYSEMANTICSCBW = LPDIENUMDEVICESBYSEMANTICSCBWFn?
+public typealias Lpdienumdevicesbysemanticscbw = LpdienumdevicesbysemanticscbwFn?
 
-public fun interface LPDIENUMDEVICESCALLBACKAFn {
-    public operator fun invoke(param0: Long, param1: Long): BOOL
+public fun interface LpdienumdevicescallbackaFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: COpaquePointer?): Bool
 }
 
-public typealias LPDIENUMDEVICESCALLBACKA = LPDIENUMDEVICESCALLBACKAFn?
+public typealias Lpdienumdevicescallbacka = LpdienumdevicescallbackaFn?
 
-public fun interface LPDIENUMDEVICESCALLBACKWFn {
-    public operator fun invoke(param0: Long, param1: Long): BOOL
+public fun interface LpdienumdevicescallbackwFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: COpaquePointer?): Bool
 }
 
-public typealias LPDIENUMDEVICESCALLBACKW = LPDIENUMDEVICESCALLBACKWFn?
+public typealias Lpdienumdevicescallbackw = LpdienumdevicescallbackwFn?
 
-public fun interface LPDIENUMEFFECTSCALLBACKAFn {
-    public operator fun invoke(param0: Long, param1: Long): BOOL
+public fun interface LpdienumeffectscallbackaFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: COpaquePointer?): Bool
 }
 
-public typealias LPDIENUMEFFECTSCALLBACKA = LPDIENUMEFFECTSCALLBACKAFn?
+public typealias Lpdienumeffectscallbacka = LpdienumeffectscallbackaFn?
 
-public fun interface LPDIENUMEFFECTSCALLBACKWFn {
-    public operator fun invoke(param0: Long, param1: Long): BOOL
+public fun interface LpdienumeffectscallbackwFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: COpaquePointer?): Bool
 }
 
-public typealias LPDIENUMEFFECTSCALLBACKW = LPDIENUMEFFECTSCALLBACKWFn?
+public typealias Lpdienumeffectscallbackw = LpdienumeffectscallbackwFn?
 
-public fun interface LPDIENUMEFFECTSINFILECALLBACKFn {
-    public operator fun invoke(param0: Long, param1: Long): BOOL
+public fun interface LpdienumeffectsinfilecallbackFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: COpaquePointer?): Bool
 }
 
-public typealias LPDIENUMEFFECTSINFILECALLBACK = LPDIENUMEFFECTSINFILECALLBACKFn?
+public typealias Lpdienumeffectsinfilecallback = LpdienumeffectsinfilecallbackFn?
 
-public fun interface LPDIJOYTYPECALLBACKFn {
-    public operator fun invoke(param0: PCWSTR, param1: Long): BOOL
+public fun interface LpdijoytypecallbackFn {
+    public operator fun invoke(param0: Pcwstr, param1: COpaquePointer?): Bool
 }
 
-public typealias LPDIJOYTYPECALLBACK = LPDIJOYTYPECALLBACKFn?
+public typealias Lpdijoytypecallback = LpdijoytypecallbackFn?
 
-public fun interface LPFNSHOWJOYCPLFn {
-    public operator fun invoke(hwnd: HWND)
+public fun interface LpfnshowjoycplFn {
+    public operator fun invoke(hwnd: Hwnd)
 }
 
-public typealias LPFNSHOWJOYCPL = LPFNSHOWJOYCPLFn?
+public typealias Lpfnshowjoycpl = LpfnshowjoycplFn?
 
-public fun interface PFN_HidP_GetVersionInternalFn {
-    public operator fun invoke(version: Long): NTSTATUS
+public fun interface PfnHidPGetVersionInternalFn {
+    public operator fun invoke(version: COpaquePointer?): Ntstatus
 }
 
-public typealias PFN_HidP_GetVersionInternal = PFN_HidP_GetVersionInternalFn?
+public typealias PfnHidPGetVersionInternal = PfnHidPGetVersionInternalFn?
 
-public fun interface PHIDP_INSERT_SCANCODESFn {
-    public operator fun invoke(context: Long, newscancodes: PCSTR, length: UInt): Boolean
+public fun interface PhidpInsertScancodesFn {
+    public operator fun invoke(context: COpaquePointer?, newscancodes: Pcstr, length: UInt): Boolean
 }
 
-public typealias PHIDP_INSERT_SCANCODES = PHIDP_INSERT_SCANCODESFn?
+public typealias PhidpInsertScancodes = PhidpInsertScancodesFn?
 
-public typealias PHIDP_PREPARSED_DATA = Long
+public typealias PhidpPreparsedData = Long

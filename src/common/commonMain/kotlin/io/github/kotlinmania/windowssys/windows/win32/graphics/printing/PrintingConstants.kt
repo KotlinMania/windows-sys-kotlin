@@ -1,9 +1,9 @@
 package io.github.kotlinmania.windowssys.windows.win32.graphics.printing
 
 import io.github.kotlinmania.windowssys.U128
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.w
 
 public val ALREADY_REGISTERED: PrintAsyncNotifyError = 15
@@ -34,31 +34,31 @@ public val BIDI_ACCESS_ADMINISTRATOR: UInt = 1u
 
 public val BIDI_ACCESS_USER: UInt = 2u
 
-public val BIDI_ACTION_ENUM_SCHEMA: PCWSTR = w("EnumSchema")
+public val BIDI_ACTION_ENUM_SCHEMA: Pcwstr = w("EnumSchema")
 
-public val BIDI_ACTION_GET: PCWSTR = w("Get")
+public val BIDI_ACTION_GET: Pcwstr = w("Get")
 
-public val BIDI_ACTION_GET_ALL: PCWSTR = w("GetAll")
+public val BIDI_ACTION_GET_ALL: Pcwstr = w("GetAll")
 
-public val BIDI_ACTION_GET_WITH_ARGUMENT: PCWSTR = w("GetWithArgument")
+public val BIDI_ACTION_GET_WITH_ARGUMENT: Pcwstr = w("GetWithArgument")
 
-public val BIDI_ACTION_SET: PCWSTR = w("Set")
+public val BIDI_ACTION_SET: Pcwstr = w("Set")
 
-public val BIDI_BLOB: BIDI_TYPE = 7
+public val BIDI_BLOB: BidiType = 7
 
-public val BIDI_BOOL: BIDI_TYPE = 3
+public val BIDI_BOOL: BidiType = 3
 
-public val BIDI_ENUM: BIDI_TYPE = 6
+public val BIDI_ENUM: BidiType = 6
 
-public val BIDI_FLOAT: BIDI_TYPE = 2
+public val BIDI_FLOAT: BidiType = 2
 
-public val BIDI_INT: BIDI_TYPE = 1
+public val BIDI_INT: BidiType = 1
 
-public val BIDI_NULL: BIDI_TYPE = 0
+public val BIDI_NULL: BidiType = 0
 
-public val BIDI_STRING: BIDI_TYPE = 4
+public val BIDI_STRING: BidiType = 4
 
-public val BIDI_TEXT: BIDI_TYPE = 5
+public val BIDI_TEXT: BidiType = 5
 
 public val BOOKLET_EDGE_LEFT: UInt = 0u
 
@@ -68,11 +68,11 @@ public val BOOKLET_PRINT: UInt = 2u
 
 public val BORDER_PRINT: UInt = 0u
 
-public val BidiRequest: GUID = GUID.from_u128(U128(0xb9162a2345f947ccuL, 0x80f5fe0fe9b9e1a2uL))
+public val BIDI_REQUEST: Guid = Guid.fromU128(U128(0xb9162a2345f947ccuL, 0x80f5fe0fe9b9e1a2uL))
 
-public val BidiRequestContainer: GUID = GUID.from_u128(U128(0xfc5b8a24db054a01uL, 0x838822edf6c2bbbauL))
+public val BIDI_REQUEST_CONTAINER: Guid = Guid.fromU128(U128(0xfc5b8a24db054a01uL, 0x838822edf6c2bbbauL))
 
-public val BidiSpl: GUID = GUID.from_u128(U128(0x2a614240a4c54c33uL, 0xbd871bc709331639uL))
+public val BIDI_SPL: Guid = Guid.fromU128(U128(0x2a614240a4c54c33uL, 0xbd871bc709331639uL))
 
 public val CC_BIG5: Int = -10
 
@@ -140,17 +140,17 @@ public val CHKBOXS_OFF_ON: UInt = 2u
 
 public val CHKBOXS_OFF_PDATA: UInt = 5u
 
-public val CLSID_OEMPTPROVIDER: GUID = GUID.from_u128(U128(0x9172389245d248e2uL, 0x9ec9562379daf992uL))
+public val CLSID_OEMPTPROVIDER: Guid = Guid.fromU128(U128(0x9172389245d248e2uL, 0x9ec9562379daf992uL))
 
-public val CLSID_OEMRENDER: GUID = GUID.from_u128(U128(0x6d6abf269f3811d1uL, 0x882a00c04fb961ecuL))
+public val CLSID_OEMRENDER: Guid = Guid.fromU128(U128(0x6d6abf269f3811d1uL, 0x882a00c04fb961ecuL))
 
-public val CLSID_OEMUI: GUID = GUID.from_u128(U128(0xabce80d79f4611d1uL, 0x882a00c04fb961ecuL))
+public val CLSID_OEMUI: Guid = Guid.fromU128(U128(0xabce80d79f4611d1uL, 0x882a00c04fb961ecuL))
 
-public val CLSID_OEMUIMXDC: GUID = GUID.from_u128(U128(0x4e1443005b434288uL, 0x932a5e4dd6d82beduL))
+public val CLSID_OEMUIMXDC: Guid = Guid.fromU128(U128(0x4e1443005b434288uL, 0x932a5e4dd6d82beduL))
 
-public val CLSID_PTPROVIDER: GUID = GUID.from_u128(U128(0x46ac151b84904531uL, 0x96cc55bf2bf19e11uL))
+public val CLSID_PTPROVIDER: Guid = Guid.fromU128(U128(0x46ac151b84904531uL, 0x96cc55bf2bf19e11uL))
 
-public val CLSID_XPSRASTERIZER_FACTORY: GUID = GUID.from_u128(U128(0x503e79bf1d094764uL, 0x9d721eb0c65967c6uL))
+public val CLSID_XPSRASTERIZER_FACTORY: Guid = Guid.fromU128(U128(0x503e79bf1d094764uL, 0x9d721eb0c65967c6uL))
 
 public val COLOR_OPTIMIZATION: UInt = 1u
 
@@ -294,13 +294,13 @@ public val CUSTOMPARAM_WIDTH: UInt = 0u
 
 public val CUSTOMPARAM_WIDTHOFFSET: UInt = 2u
 
-public val Compression_Fast: EXpsCompressionOptions = 3
+public val COMPRESSION_FAST: EXpsCompressionOptions = 3
 
-public val Compression_Normal: EXpsCompressionOptions = 1
+public val COMPRESSION_NORMAL: EXpsCompressionOptions = 1
 
-public val Compression_NotCompressed: EXpsCompressionOptions = 0
+public val COMPRESSION_NOT_COMPRESSED: EXpsCompressionOptions = 0
 
-public val Compression_Small: EXpsCompressionOptions = 2
+public val COMPRESSION_SMALL: EXpsCompressionOptions = 2
 
 public val DEF_PRIORITY: UInt = 1u
 
@@ -954,7 +954,7 @@ public val FG_CANCHANGE: UInt = 128u
 
 public val FILL_WITH_DEFAULTS: UInt = 1u
 
-public val FMTID_PrinterPropertyBag: GUID = GUID.from_u128(U128(0x75f9adca097d45c3uL, 0xa6e4bab29e276f3euL))
+public val FMTID_PRINTER_PROPERTY_BAG: Guid = Guid.fromU128(U128(0x75f9adca097d45c3uL, 0xa6e4bab29e276f3euL))
 
 public val FNT_INFO_CURRENTFONTID: UInt = 10u
 
@@ -1010,17 +1010,17 @@ public val FORM_PRINTER: UInt = 2u
 
 public val FORM_USER: UInt = 0u
 
-public val FinalPageCount: PageCountType = 0
+public val FINAL_PAGE_COUNT: PageCountType = 0
 
-public val Font_Normal: EXpsFontOptions = 0
+public val FONT_NORMAL: EXpsFontOptions = 0
 
-public val Font_Obfusticate: EXpsFontOptions = 1
+public val FONT_OBFUSTICATE: EXpsFontOptions = 1
 
 public val GPD_OEMCUSTOMDATA: UInt = 1u
 
-public val GUID_DEVINTERFACE_IPPUSB_PRINT: GUID = GUID.from_u128(U128(0xf2f40381f46d4e51uL, 0xbce762de6cf2d098uL))
+public val GUID_DEVINTERFACE_IPPUSB_PRINT: Guid = Guid.fromU128(U128(0xf2f40381f46d4e51uL, 0xbce762de6cf2d098uL))
 
-public val GUID_DEVINTERFACE_USBPRINT: GUID = GUID.from_u128(U128(0x28d78fad5a1211d1uL, 0xae5b0000f803a8c2uL))
+public val GUID_DEVINTERFACE_USBPRINT: Guid = Guid.fromU128(U128(0x28d78fad5a1211d1uL, 0xae5b0000f803a8c2uL))
 
 public val IDI_CPSUI_ADVANCE: UInt = 64058u
 
@@ -1488,11 +1488,11 @@ public val IDS_CPSUI_PORTRAIT: UInt = 64753u
 
 public val IDS_CPSUI_POSTER: UInt = 64874u
 
-public val IDS_CPSUI_POSTER_2x2: UInt = 64875u
+public val IDS_CPSUI_POSTER_2X2: UInt = 64875u
 
-public val IDS_CPSUI_POSTER_3x3: UInt = 64876u
+public val IDS_CPSUI_POSTER_3X3: UInt = 64876u
 
-public val IDS_CPSUI_POSTER_4x4: UInt = 64877u
+public val IDS_CPSUI_POSTER_4X4: UInt = 64877u
 
 public val IDS_CPSUI_PRESENTATION: UInt = 64763u
 
@@ -1678,7 +1678,7 @@ public val IOCTL_USBPRINT_VENDOR_SET_COMMAND: UInt = 2228280u
 
 public val IPDFP_COPY_ALL_FILES: UInt = 1u
 
-public val IntermediatePageCount: PageCountType = 1
+public val INTERMEDIATE_PAGE_COUNT: PageCountType = 1
 
 public val JOB_ACCESS_ADMINISTER: UInt = 16u
 
@@ -1830,7 +1830,7 @@ public val MAX_SNMP_COMMUNITY_STR_LEN: UInt = 33u
 
 public val MIN_PRIORITY: UInt = 1u
 
-public val MS_PRINT_JOB_OUTPUT_FILE: PCWSTR = w("MsPrintJobOutputFile")
+public val MS_PRINT_JOB_OUTPUT_FILE: Pcwstr = w("MsPrintJobOutputFile")
 
 public val MTYPE_ADD: UInt = 64u
 
@@ -1882,57 +1882,57 @@ public val MXDCOP_SET_XPSPASSTHRU_MODE: UInt = 32u
 
 public val MXDC_ESCAPE: UInt = 4122u
 
-public val MXDC_IMAGETYPE_JPEGHIGH_COMPRESSION: MXDC_IMAGE_TYPE_ENUMS = 1
+public val MXDC_IMAGETYPE_JPEGHIGH_COMPRESSION: MxdcImageTypeEnums = 1
 
-public val MXDC_IMAGETYPE_JPEGLOW_COMPRESSION: MXDC_IMAGE_TYPE_ENUMS = 3
+public val MXDC_IMAGETYPE_JPEGLOW_COMPRESSION: MxdcImageTypeEnums = 3
 
-public val MXDC_IMAGETYPE_JPEGMEDIUM_COMPRESSION: MXDC_IMAGE_TYPE_ENUMS = 2
+public val MXDC_IMAGETYPE_JPEGMEDIUM_COMPRESSION: MxdcImageTypeEnums = 2
 
-public val MXDC_IMAGETYPE_PNG: MXDC_IMAGE_TYPE_ENUMS = 4
+public val MXDC_IMAGETYPE_PNG: MxdcImageTypeEnums = 4
 
-public val MXDC_LANDSCAPE_ROTATE_COUNTERCLOCKWISE_270_DEGREES: MXDC_LANDSCAPE_ROTATION_ENUMS = -90
+public val MXDC_LANDSCAPE_ROTATE_COUNTERCLOCKWISE_270_DEGREES: MxdcLandscapeRotationEnums = -90
 
-public val MXDC_LANDSCAPE_ROTATE_COUNTERCLOCKWISE_90_DEGREES: MXDC_LANDSCAPE_ROTATION_ENUMS = 90
+public val MXDC_LANDSCAPE_ROTATE_COUNTERCLOCKWISE_90_DEGREES: MxdcLandscapeRotationEnums = 90
 
-public val MXDC_LANDSCAPE_ROTATE_NONE: MXDC_LANDSCAPE_ROTATION_ENUMS = 0
+public val MXDC_LANDSCAPE_ROTATE_NONE: MxdcLandscapeRotationEnums = 0
 
-public val MXDC_RESOURCE_DICTIONARY: MXDC_S0_PAGE_ENUMS = 5
+public val MXDC_RESOURCE_DICTIONARY: MxdcS0PageEnums = 5
 
-public val MXDC_RESOURCE_ICC_PROFILE: MXDC_S0_PAGE_ENUMS = 6
+public val MXDC_RESOURCE_ICC_PROFILE: MxdcS0PageEnums = 6
 
-public val MXDC_RESOURCE_JPEG: MXDC_S0_PAGE_ENUMS = 1
+public val MXDC_RESOURCE_JPEG: MxdcS0PageEnums = 1
 
-public val MXDC_RESOURCE_JPEG_THUMBNAIL: MXDC_S0_PAGE_ENUMS = 7
+public val MXDC_RESOURCE_JPEG_THUMBNAIL: MxdcS0PageEnums = 7
 
-public val MXDC_RESOURCE_MAX: MXDC_S0_PAGE_ENUMS = 9
+public val MXDC_RESOURCE_MAX: MxdcS0PageEnums = 9
 
-public val MXDC_RESOURCE_PNG: MXDC_S0_PAGE_ENUMS = 2
+public val MXDC_RESOURCE_PNG: MxdcS0PageEnums = 2
 
-public val MXDC_RESOURCE_PNG_THUMBNAIL: MXDC_S0_PAGE_ENUMS = 8
+public val MXDC_RESOURCE_PNG_THUMBNAIL: MxdcS0PageEnums = 8
 
-public val MXDC_RESOURCE_TIFF: MXDC_S0_PAGE_ENUMS = 3
+public val MXDC_RESOURCE_TIFF: MxdcS0PageEnums = 3
 
-public val MXDC_RESOURCE_TTF: MXDC_S0_PAGE_ENUMS = 0
+public val MXDC_RESOURCE_TTF: MxdcS0PageEnums = 0
 
-public val MXDC_RESOURCE_WDP: MXDC_S0_PAGE_ENUMS = 4
+public val MXDC_RESOURCE_WDP: MxdcS0PageEnums = 4
 
 public val NORMAL_PRINT: UInt = 0u
 
-public val NOTIFICATION_COMMAND_CONTEXT_ACQUIRE: NOTIFICATION_CALLBACK_COMMANDS = 1
+public val NOTIFICATION_COMMAND_CONTEXT_ACQUIRE: NotificationCallbackCommands = 1
 
-public val NOTIFICATION_COMMAND_CONTEXT_RELEASE: NOTIFICATION_CALLBACK_COMMANDS = 2
+public val NOTIFICATION_COMMAND_CONTEXT_RELEASE: NotificationCallbackCommands = 2
 
-public val NOTIFICATION_COMMAND_NOTIFY: NOTIFICATION_CALLBACK_COMMANDS = 0
+public val NOTIFICATION_COMMAND_NOTIFY: NotificationCallbackCommands = 0
 
-public val NOTIFICATION_CONFIG_ASYNC_CHANNEL: NOTIFICATION_CONFIG_FLAGS = 8
+public val NOTIFICATION_CONFIG_ASYNC_CHANNEL: NotificationConfigFlags = 8
 
-public val NOTIFICATION_CONFIG_CREATE_EVENT: NOTIFICATION_CONFIG_FLAGS = 1
+public val NOTIFICATION_CONFIG_CREATE_EVENT: NotificationConfigFlags = 1
 
-public val NOTIFICATION_CONFIG_EVENT_TRIGGER: NOTIFICATION_CONFIG_FLAGS = 4
+public val NOTIFICATION_CONFIG_EVENT_TRIGGER: NotificationConfigFlags = 4
 
-public val NOTIFICATION_CONFIG_REGISTER_CALLBACK: NOTIFICATION_CONFIG_FLAGS = 2
+public val NOTIFICATION_CONFIG_REGISTER_CALLBACK: NotificationConfigFlags = 2
 
-public val NOTIFICATION_RELEASE: GUID = GUID.from_u128(U128(0xba9a5027a70e4ae7uL, 0x9b7deb3e06ad4157uL))
+public val NOTIFICATION_RELEASE: Guid = Guid.fromU128(U128(0xba9a5027a70e4ae7uL, 0x9b7deb3e06ad4157uL))
 
 public val NOT_REGISTERED: PrintAsyncNotifyError = 13
 
@@ -2152,13 +2152,13 @@ public val PPCAPS_RIGHT_THEN_DOWN: UInt = 1u
 
 public val PPCAPS_SQUARE_SCALING: UInt = 1u
 
-public val PRINTER_ACCESS_ADMINISTER: PRINTER_ACCESS_RIGHTS = 4u
+public val PRINTER_ACCESS_ADMINISTER: PrinterAccessRights = 4u
 
-public val PRINTER_ACCESS_MANAGE_LIMITED: PRINTER_ACCESS_RIGHTS = 64u
+public val PRINTER_ACCESS_MANAGE_LIMITED: PrinterAccessRights = 64u
 
-public val PRINTER_ACCESS_USE: PRINTER_ACCESS_RIGHTS = 8u
+public val PRINTER_ACCESS_USE: PrinterAccessRights = 8u
 
-public val PRINTER_ALL_ACCESS: PRINTER_ACCESS_RIGHTS = 983052u
+public val PRINTER_ALL_ACCESS: PrinterAccessRights = 983052u
 
 public val PRINTER_ATTRIBUTE_DEFAULT: UInt = 4u
 
@@ -2274,7 +2274,7 @@ public val PRINTER_CONTROL_RESUME: UInt = 2u
 
 public val PRINTER_CONTROL_SET_STATUS: UInt = 4u
 
-public val PRINTER_DELETE: PRINTER_ACCESS_RIGHTS = 65536u
+public val PRINTER_DELETE: PrinterAccessRights = 65536u
 
 public val PRINTER_DRIVER_CATEGORY_3D: UInt = 4096u
 
@@ -2384,13 +2384,13 @@ public val PRINTER_EVENT_FLAG_NO_UI: UInt = 1u
 
 public val PRINTER_EVENT_INITIALIZE: UInt = 3u
 
-public val PRINTER_EXECUTE: PRINTER_ACCESS_RIGHTS = 131080u
+public val PRINTER_EXECUTE: PrinterAccessRights = 131080u
 
-public val PRINTER_EXTENSION_DETAILEDREASON_PRINTER_STATUS: GUID = GUID.from_u128(U128(0x5d5a1704dfd14181uL, 0x8eee815c86edad31uL))
+public val PRINTER_EXTENSION_DETAILEDREASON_PRINTER_STATUS: Guid = Guid.fromU128(U128(0x5d5a1704dfd14181uL, 0x8eee815c86edad31uL))
 
-public val PRINTER_EXTENSION_REASON_DRIVER_EVENT: GUID = GUID.from_u128(U128(0x23bb132863de4293uL, 0x915ba6a23d929acbuL))
+public val PRINTER_EXTENSION_REASON_DRIVER_EVENT: Guid = Guid.fromU128(U128(0x23bb132863de4293uL, 0x915ba6a23d929acbuL))
 
-public val PRINTER_EXTENSION_REASON_PRINT_PREFERENCES: GUID = GUID.from_u128(U128(0xec8f261f267c469fuL, 0xb5d63933023c29ccuL))
+public val PRINTER_EXTENSION_REASON_PRINT_PREFERENCES: Guid = Guid.fromU128(U128(0xec8f261f267c469fuL, 0xb5d63933023c29ccuL))
 
 public val PRINTER_NOTIFY_CATEGORY_3D: UInt = 8192u
 
@@ -2470,25 +2470,25 @@ public val PRINTER_NOTIFY_TYPE: UInt = 0u
 
 public val PRINTER_OEMINTF_VERSION: UInt = 65536u
 
-public val PRINTER_OPTION_CACHE: PRINTER_OPTION_FLAGS = 2
+public val PRINTER_OPTION_CACHE: PrinterOptionFlags = 2
 
-public val PRINTER_OPTION_CLIENT_CHANGE: PRINTER_OPTION_FLAGS = 4
+public val PRINTER_OPTION_CLIENT_CHANGE: PrinterOptionFlags = 4
 
-public val PRINTER_OPTION_NO_CACHE: PRINTER_OPTION_FLAGS = 1
+public val PRINTER_OPTION_NO_CACHE: PrinterOptionFlags = 1
 
-public val PRINTER_OPTION_NO_CLIENT_DATA: PRINTER_OPTION_FLAGS = 8
+public val PRINTER_OPTION_NO_CLIENT_DATA: PrinterOptionFlags = 8
 
-public val PRINTER_READ: PRINTER_ACCESS_RIGHTS = 131080u
+public val PRINTER_READ: PrinterAccessRights = 131080u
 
-public val PRINTER_READ_CONTROL: PRINTER_ACCESS_RIGHTS = 131072u
+public val PRINTER_READ_CONTROL: PrinterAccessRights = 131072u
 
-public val PRINTER_STANDARD_RIGHTS_EXECUTE: PRINTER_ACCESS_RIGHTS = 131072u
+public val PRINTER_STANDARD_RIGHTS_EXECUTE: PrinterAccessRights = 131072u
 
-public val PRINTER_STANDARD_RIGHTS_READ: PRINTER_ACCESS_RIGHTS = 131072u
+public val PRINTER_STANDARD_RIGHTS_READ: PrinterAccessRights = 131072u
 
-public val PRINTER_STANDARD_RIGHTS_REQUIRED: PRINTER_ACCESS_RIGHTS = 983040u
+public val PRINTER_STANDARD_RIGHTS_REQUIRED: PrinterAccessRights = 983040u
 
-public val PRINTER_STANDARD_RIGHTS_WRITE: PRINTER_ACCESS_RIGHTS = 131072u
+public val PRINTER_STANDARD_RIGHTS_WRITE: PrinterAccessRights = 131072u
 
 public val PRINTER_STATUS_BUSY: UInt = 512u
 
@@ -2544,27 +2544,27 @@ public val PRINTER_STATUS_WAITING: UInt = 8192u
 
 public val PRINTER_STATUS_WARMING_UP: UInt = 65536u
 
-public val PRINTER_SYNCHRONIZE: PRINTER_ACCESS_RIGHTS = 1048576u
+public val PRINTER_SYNCHRONIZE: PrinterAccessRights = 1048576u
 
-public val PRINTER_WRITE: PRINTER_ACCESS_RIGHTS = 131080u
+public val PRINTER_WRITE: PrinterAccessRights = 131080u
 
-public val PRINTER_WRITE_DAC: PRINTER_ACCESS_RIGHTS = 262144u
+public val PRINTER_WRITE_DAC: PrinterAccessRights = 262144u
 
-public val PRINTER_WRITE_OWNER: PRINTER_ACCESS_RIGHTS = 524288u
+public val PRINTER_WRITE_OWNER: PrinterAccessRights = 524288u
 
-public val PRINT_APP_BIDI_NOTIFY_CHANNEL: GUID = GUID.from_u128(U128(0x2abad223b9944acauL, 0x82fc4571b1b585acuL))
+public val PRINT_APP_BIDI_NOTIFY_CHANNEL: Guid = Guid.fromU128(U128(0x2abad223b9944acauL, 0x82fc4571b1b585acuL))
 
-public val PRINT_EXECUTION_CONTEXT_APPLICATION: PRINT_EXECUTION_CONTEXT = 0
+public val PRINT_EXECUTION_CONTEXT_APPLICATION: PrintExecutionContext = 0
 
-public val PRINT_EXECUTION_CONTEXT_FILTER_PIPELINE: PRINT_EXECUTION_CONTEXT = 3
+public val PRINT_EXECUTION_CONTEXT_FILTER_PIPELINE: PrintExecutionContext = 3
 
-public val PRINT_EXECUTION_CONTEXT_SPOOLER_ISOLATION_HOST: PRINT_EXECUTION_CONTEXT = 2
+public val PRINT_EXECUTION_CONTEXT_SPOOLER_ISOLATION_HOST: PrintExecutionContext = 2
 
-public val PRINT_EXECUTION_CONTEXT_SPOOLER_SERVICE: PRINT_EXECUTION_CONTEXT = 1
+public val PRINT_EXECUTION_CONTEXT_SPOOLER_SERVICE: PrintExecutionContext = 1
 
-public val PRINT_EXECUTION_CONTEXT_WOW64: PRINT_EXECUTION_CONTEXT = 4
+public val PRINT_EXECUTION_CONTEXT_WOW64: PrintExecutionContext = 4
 
-public val PRINT_PORT_MONITOR_NOTIFY_CHANNEL: GUID = GUID.from_u128(U128(0x25df3b0e74a947f5uL, 0x80ce79b4b1eb5c58uL))
+public val PRINT_PORT_MONITOR_NOTIFY_CHANNEL: Guid = Guid.fromU128(U128(0x25df3b0e74a947f5uL, 0x80ce79b4b1eb5c58uL))
 
 public val PROPSHEETUI_INFO_VERSION: UInt = 256u
 
@@ -2612,9 +2612,9 @@ public val PSUIPAGEINSERT_PFNPROPSHEETUI: UInt = 2u
 
 public val PSUIPAGEINSERT_PROPSHEETPAGE: UInt = 3u
 
-public val PTSHIM_DEFAULT: SHIMOPTS = 0
+public val PTSHIM_DEFAULT: Shimopts = 0
 
-public val PTSHIM_NOSNAPSHOT: SHIMOPTS = 1
+public val PTSHIM_NOSNAPSHOT: Shimopts = 1
 
 public val PUSHBUTTON_TYPE_CALLBACK: UInt = 1u
 
@@ -2624,59 +2624,59 @@ public val PUSHBUTTON_TYPE_HTCLRADJ: UInt = 2u
 
 public val PUSHBUTTON_TYPE_HTSETUP: UInt = 3u
 
-public val PrintJobStatus_BlockedDeviceQueue: PrintJobStatus = 512
+public val PRINT_JOB_STATUS_BLOCKED_DEVICE_QUEUE: PrintJobStatus = 512
 
-public val PrintJobStatus_Complete: PrintJobStatus = 4096
+public val PRINT_JOB_STATUS_COMPLETE: PrintJobStatus = 4096
 
-public val PrintJobStatus_Deleted: PrintJobStatus = 256
+public val PRINT_JOB_STATUS_DELETED: PrintJobStatus = 256
 
-public val PrintJobStatus_Deleting: PrintJobStatus = 4
+public val PRINT_JOB_STATUS_DELETING: PrintJobStatus = 4
 
-public val PrintJobStatus_Error: PrintJobStatus = 2
+public val PRINT_JOB_STATUS_ERROR: PrintJobStatus = 2
 
-public val PrintJobStatus_Offline: PrintJobStatus = 32
+public val PRINT_JOB_STATUS_OFFLINE: PrintJobStatus = 32
 
-public val PrintJobStatus_PaperOut: PrintJobStatus = 64
+public val PRINT_JOB_STATUS_PAPER_OUT: PrintJobStatus = 64
 
-public val PrintJobStatus_Paused: PrintJobStatus = 1
+public val PRINT_JOB_STATUS_PAUSED: PrintJobStatus = 1
 
-public val PrintJobStatus_Printed: PrintJobStatus = 128
+public val PRINT_JOB_STATUS_PRINTED: PrintJobStatus = 128
 
-public val PrintJobStatus_Printing: PrintJobStatus = 16
+public val PRINT_JOB_STATUS_PRINTING: PrintJobStatus = 16
 
-public val PrintJobStatus_Restarted: PrintJobStatus = 2048
+public val PRINT_JOB_STATUS_RESTARTED: PrintJobStatus = 2048
 
-public val PrintJobStatus_Retained: PrintJobStatus = 8192
+public val PRINT_JOB_STATUS_RETAINED: PrintJobStatus = 8192
 
-public val PrintJobStatus_Spooling: PrintJobStatus = 8
+public val PRINT_JOB_STATUS_SPOOLING: PrintJobStatus = 8
 
-public val PrintJobStatus_UserIntervention: PrintJobStatus = 1024
+public val PRINT_JOB_STATUS_USER_INTERVENTION: PrintJobStatus = 1024
 
-public val PrintSchemaAsyncOperation: GUID = GUID.from_u128(U128(0x43b2f83d10f248abuL, 0x831b55fdbdbd34a4uL))
+public val PRINT_SCHEMA_ASYNC_OPERATION: Guid = Guid.fromU128(U128(0x43b2f83d10f248abuL, 0x831b55fdbdbd34a4uL))
 
-public val PrintSchemaConstrainedSetting_Admin: PrintSchemaConstrainedSetting = 2
+public val PRINT_SCHEMA_CONSTRAINED_SETTING_ADMIN: PrintSchemaConstrainedSetting = 2
 
-public val PrintSchemaConstrainedSetting_Device: PrintSchemaConstrainedSetting = 3
+public val PRINT_SCHEMA_CONSTRAINED_SETTING_DEVICE: PrintSchemaConstrainedSetting = 3
 
-public val PrintSchemaConstrainedSetting_None: PrintSchemaConstrainedSetting = 0
+public val PRINT_SCHEMA_CONSTRAINED_SETTING_NONE: PrintSchemaConstrainedSetting = 0
 
-public val PrintSchemaConstrainedSetting_PrintTicket: PrintSchemaConstrainedSetting = 1
+public val PRINT_SCHEMA_CONSTRAINED_SETTING_PRINT_TICKET: PrintSchemaConstrainedSetting = 1
 
-public val PrintSchemaParameterDataType_Integer: PrintSchemaParameterDataType = 0
+public val PRINT_SCHEMA_PARAMETER_DATA_TYPE_INTEGER: PrintSchemaParameterDataType = 0
 
-public val PrintSchemaParameterDataType_NumericString: PrintSchemaParameterDataType = 1
+public val PRINT_SCHEMA_PARAMETER_DATA_TYPE_NUMERIC_STRING: PrintSchemaParameterDataType = 1
 
-public val PrintSchemaParameterDataType_String: PrintSchemaParameterDataType = 2
+public val PRINT_SCHEMA_PARAMETER_DATA_TYPE_STRING: PrintSchemaParameterDataType = 2
 
-public val PrintSchemaSelectionType_PickMany: PrintSchemaSelectionType = 1
+public val PRINT_SCHEMA_SELECTION_TYPE_PICK_MANY: PrintSchemaSelectionType = 1
 
-public val PrintSchemaSelectionType_PickOne: PrintSchemaSelectionType = 0
+public val PRINT_SCHEMA_SELECTION_TYPE_PICK_ONE: PrintSchemaSelectionType = 0
 
-public val PrinterExtensionManager: GUID = GUID.from_u128(U128(0x331b60da9e904dd0uL, 0x9c84eac4e659b61fuL))
+public val PRINTER_EXTENSION_MANAGER: Guid = Guid.fromU128(U128(0x331b60da9e904dd0uL, 0x9c84eac4e659b61fuL))
 
-public val PrinterQueue: GUID = GUID.from_u128(U128(0xeb54c230798c4c9euL, 0xb46129fad04039b1uL))
+public val PRINTER_QUEUE: Guid = Guid.fromU128(U128(0xeb54c230798c4c9euL, 0xb46129fad04039b1uL))
 
-public val PrinterQueueView: GUID = GUID.from_u128(U128(0xeb54c231798c4c9euL, 0xb46129fad04039b1uL))
+public val PRINTER_QUEUE_VIEW: Guid = Guid.fromU128(U128(0xeb54c231798c4c9euL, 0xb46129fad04039b1uL))
 
 public val QCP_DEVICEPROFILE: UInt = 0u
 
@@ -2702,21 +2702,21 @@ public val ROUTER_SUCCESS: UInt = 1u
 
 public val ROUTER_UNKNOWN: UInt = 0u
 
-public val SERVER_ACCESS_ADMINISTER: PRINTER_ACCESS_RIGHTS = 1u
+public val SERVER_ACCESS_ADMINISTER: PrinterAccessRights = 1u
 
-public val SERVER_ACCESS_ENUMERATE: PRINTER_ACCESS_RIGHTS = 2u
+public val SERVER_ACCESS_ENUMERATE: PrinterAccessRights = 2u
 
-public val SERVER_ALL_ACCESS: PRINTER_ACCESS_RIGHTS = 983043u
+public val SERVER_ALL_ACCESS: PrinterAccessRights = 983043u
 
-public val SERVER_EXECUTE: PRINTER_ACCESS_RIGHTS = 131074u
+public val SERVER_EXECUTE: PrinterAccessRights = 131074u
 
 public val SERVER_NOTIFY_FIELD_PRINT_DRIVER_ISOLATION_GROUP: UInt = 0u
 
 public val SERVER_NOTIFY_TYPE: UInt = 2u
 
-public val SERVER_READ: PRINTER_ACCESS_RIGHTS = 131074u
+public val SERVER_READ: PrinterAccessRights = 131074u
 
-public val SERVER_WRITE: PRINTER_ACCESS_RIGHTS = 131075u
+public val SERVER_WRITE: PrinterAccessRights = 131075u
 
 public val SETOPTIONS_FLAG_KEEP_CONFLICT: UInt = 2u
 
@@ -2730,173 +2730,173 @@ public val SETOPTIONS_RESULT_NO_CONFLICT: UInt = 0u
 
 public val SPLCLIENT_INFO_INTERNAL_LEVEL: UInt = 100u
 
-public val SPLDS_ASSET_NUMBER: PCWSTR = w("assetNumber")
+public val SPLDS_ASSET_NUMBER: Pcwstr = w("assetNumber")
 
-public val SPLDS_BYTES_PER_MINUTE: PCWSTR = w("bytesPerMinute")
+public val SPLDS_BYTES_PER_MINUTE: Pcwstr = w("bytesPerMinute")
 
-public val SPLDS_DESCRIPTION: PCWSTR = w("description")
+public val SPLDS_DESCRIPTION: Pcwstr = w("description")
 
-public val SPLDS_DRIVER_KEY: PCWSTR = w("DsDriver")
+public val SPLDS_DRIVER_KEY: Pcwstr = w("DsDriver")
 
-public val SPLDS_DRIVER_NAME: PCWSTR = w("driverName")
+public val SPLDS_DRIVER_NAME: Pcwstr = w("driverName")
 
-public val SPLDS_DRIVER_VERSION: PCWSTR = w("driverVersion")
+public val SPLDS_DRIVER_VERSION: Pcwstr = w("driverVersion")
 
-public val SPLDS_FLAGS: PCWSTR = w("flags")
+public val SPLDS_FLAGS: Pcwstr = w("flags")
 
-public val SPLDS_LOCATION: PCWSTR = w("location")
+public val SPLDS_LOCATION: Pcwstr = w("location")
 
-public val SPLDS_PORT_NAME: PCWSTR = w("portName")
+public val SPLDS_PORT_NAME: Pcwstr = w("portName")
 
-public val SPLDS_PRINTER_CLASS: PCWSTR = w("printQueue")
+public val SPLDS_PRINTER_CLASS: Pcwstr = w("printQueue")
 
-public val SPLDS_PRINTER_LOCATIONS: PCWSTR = w("printerLocations")
+public val SPLDS_PRINTER_LOCATIONS: Pcwstr = w("printerLocations")
 
-public val SPLDS_PRINTER_MODEL: PCWSTR = w("printerModel")
+public val SPLDS_PRINTER_MODEL: Pcwstr = w("printerModel")
 
-public val SPLDS_PRINTER_NAME: PCWSTR = w("printerName")
+public val SPLDS_PRINTER_NAME: Pcwstr = w("printerName")
 
-public val SPLDS_PRINTER_NAME_ALIASES: PCWSTR = w("printerNameAliases")
+public val SPLDS_PRINTER_NAME_ALIASES: Pcwstr = w("printerNameAliases")
 
-public val SPLDS_PRINT_ATTRIBUTES: PCWSTR = w("printAttributes")
+public val SPLDS_PRINT_ATTRIBUTES: Pcwstr = w("printAttributes")
 
-public val SPLDS_PRINT_BIN_NAMES: PCWSTR = w("printBinNames")
+public val SPLDS_PRINT_BIN_NAMES: Pcwstr = w("printBinNames")
 
-public val SPLDS_PRINT_COLLATE: PCWSTR = w("printCollate")
+public val SPLDS_PRINT_COLLATE: Pcwstr = w("printCollate")
 
-public val SPLDS_PRINT_COLOR: PCWSTR = w("printColor")
+public val SPLDS_PRINT_COLOR: Pcwstr = w("printColor")
 
-public val SPLDS_PRINT_DUPLEX_SUPPORTED: PCWSTR = w("printDuplexSupported")
+public val SPLDS_PRINT_DUPLEX_SUPPORTED: Pcwstr = w("printDuplexSupported")
 
-public val SPLDS_PRINT_END_TIME: PCWSTR = w("printEndTime")
+public val SPLDS_PRINT_END_TIME: Pcwstr = w("printEndTime")
 
-public val SPLDS_PRINT_KEEP_PRINTED_JOBS: PCWSTR = w("printKeepPrintedJobs")
+public val SPLDS_PRINT_KEEP_PRINTED_JOBS: Pcwstr = w("printKeepPrintedJobs")
 
-public val SPLDS_PRINT_LANGUAGE: PCWSTR = w("printLanguage")
+public val SPLDS_PRINT_LANGUAGE: Pcwstr = w("printLanguage")
 
-public val SPLDS_PRINT_MAC_ADDRESS: PCWSTR = w("printMACAddress")
+public val SPLDS_PRINT_MAC_ADDRESS: Pcwstr = w("printMACAddress")
 
-public val SPLDS_PRINT_MAX_RESOLUTION_SUPPORTED: PCWSTR = w("printMaxResolutionSupported")
+public val SPLDS_PRINT_MAX_RESOLUTION_SUPPORTED: Pcwstr = w("printMaxResolutionSupported")
 
-public val SPLDS_PRINT_MAX_X_EXTENT: PCWSTR = w("printMaxXExtent")
+public val SPLDS_PRINT_MAX_X_EXTENT: Pcwstr = w("printMaxXExtent")
 
-public val SPLDS_PRINT_MAX_Y_EXTENT: PCWSTR = w("printMaxYExtent")
+public val SPLDS_PRINT_MAX_Y_EXTENT: Pcwstr = w("printMaxYExtent")
 
-public val SPLDS_PRINT_MEDIA_READY: PCWSTR = w("printMediaReady")
+public val SPLDS_PRINT_MEDIA_READY: Pcwstr = w("printMediaReady")
 
-public val SPLDS_PRINT_MEDIA_SUPPORTED: PCWSTR = w("printMediaSupported")
+public val SPLDS_PRINT_MEDIA_SUPPORTED: Pcwstr = w("printMediaSupported")
 
-public val SPLDS_PRINT_MEMORY: PCWSTR = w("printMemory")
+public val SPLDS_PRINT_MEMORY: Pcwstr = w("printMemory")
 
-public val SPLDS_PRINT_MIN_X_EXTENT: PCWSTR = w("printMinXExtent")
+public val SPLDS_PRINT_MIN_X_EXTENT: Pcwstr = w("printMinXExtent")
 
-public val SPLDS_PRINT_MIN_Y_EXTENT: PCWSTR = w("printMinYExtent")
+public val SPLDS_PRINT_MIN_Y_EXTENT: Pcwstr = w("printMinYExtent")
 
-public val SPLDS_PRINT_NETWORK_ADDRESS: PCWSTR = w("printNetworkAddress")
+public val SPLDS_PRINT_NETWORK_ADDRESS: Pcwstr = w("printNetworkAddress")
 
-public val SPLDS_PRINT_NOTIFY: PCWSTR = w("printNotify")
+public val SPLDS_PRINT_NOTIFY: Pcwstr = w("printNotify")
 
-public val SPLDS_PRINT_NUMBER_UP: PCWSTR = w("printNumberUp")
+public val SPLDS_PRINT_NUMBER_UP: Pcwstr = w("printNumberUp")
 
-public val SPLDS_PRINT_ORIENTATIONS_SUPPORTED: PCWSTR = w("printOrientationsSupported")
+public val SPLDS_PRINT_ORIENTATIONS_SUPPORTED: Pcwstr = w("printOrientationsSupported")
 
-public val SPLDS_PRINT_OWNER: PCWSTR = w("printOwner")
+public val SPLDS_PRINT_OWNER: Pcwstr = w("printOwner")
 
-public val SPLDS_PRINT_PAGES_PER_MINUTE: PCWSTR = w("printPagesPerMinute")
+public val SPLDS_PRINT_PAGES_PER_MINUTE: Pcwstr = w("printPagesPerMinute")
 
-public val SPLDS_PRINT_RATE: PCWSTR = w("printRate")
+public val SPLDS_PRINT_RATE: Pcwstr = w("printRate")
 
-public val SPLDS_PRINT_RATE_UNIT: PCWSTR = w("printRateUnit")
+public val SPLDS_PRINT_RATE_UNIT: Pcwstr = w("printRateUnit")
 
-public val SPLDS_PRINT_SEPARATOR_FILE: PCWSTR = w("printSeparatorFile")
+public val SPLDS_PRINT_SEPARATOR_FILE: Pcwstr = w("printSeparatorFile")
 
-public val SPLDS_PRINT_SHARE_NAME: PCWSTR = w("printShareName")
+public val SPLDS_PRINT_SHARE_NAME: Pcwstr = w("printShareName")
 
-public val SPLDS_PRINT_SPOOLING: PCWSTR = w("printSpooling")
+public val SPLDS_PRINT_SPOOLING: Pcwstr = w("printSpooling")
 
-public val SPLDS_PRINT_STAPLING_SUPPORTED: PCWSTR = w("printStaplingSupported")
+public val SPLDS_PRINT_STAPLING_SUPPORTED: Pcwstr = w("printStaplingSupported")
 
-public val SPLDS_PRINT_START_TIME: PCWSTR = w("printStartTime")
+public val SPLDS_PRINT_START_TIME: Pcwstr = w("printStartTime")
 
-public val SPLDS_PRINT_STATUS: PCWSTR = w("printStatus")
+public val SPLDS_PRINT_STATUS: Pcwstr = w("printStatus")
 
-public val SPLDS_PRIORITY: PCWSTR = w("priority")
+public val SPLDS_PRIORITY: Pcwstr = w("priority")
 
-public val SPLDS_SERVER_NAME: PCWSTR = w("serverName")
+public val SPLDS_SERVER_NAME: Pcwstr = w("serverName")
 
-public val SPLDS_SHORT_SERVER_NAME: PCWSTR = w("shortServerName")
+public val SPLDS_SHORT_SERVER_NAME: Pcwstr = w("shortServerName")
 
-public val SPLDS_SPOOLER_KEY: PCWSTR = w("DsSpooler")
+public val SPLDS_SPOOLER_KEY: Pcwstr = w("DsSpooler")
 
-public val SPLDS_UNC_NAME: PCWSTR = w("uNCName")
+public val SPLDS_UNC_NAME: Pcwstr = w("uNCName")
 
-public val SPLDS_URL: PCWSTR = w("url")
+public val SPLDS_URL: Pcwstr = w("url")
 
-public val SPLDS_USER_KEY: PCWSTR = w("DsUser")
+public val SPLDS_USER_KEY: Pcwstr = w("DsUser")
 
-public val SPLDS_VERSION_NUMBER: PCWSTR = w("versionNumber")
+public val SPLDS_VERSION_NUMBER: Pcwstr = w("versionNumber")
 
-public val SPLPRINTER_USER_MODE_PRINTER_DRIVER: PCWSTR = w("SPLUserModePrinterDriver")
+public val SPLPRINTER_USER_MODE_PRINTER_DRIVER: Pcwstr = w("SPLUserModePrinterDriver")
 
-public val SPLREG_ALLOW_USER_MANAGEFORMS: PCWSTR = w("AllowUserManageForms")
+public val SPLREG_ALLOW_USER_MANAGEFORMS: Pcwstr = w("AllowUserManageForms")
 
-public val SPLREG_ARCHITECTURE: PCWSTR = w("Architecture")
+public val SPLREG_ARCHITECTURE: Pcwstr = w("Architecture")
 
-public val SPLREG_BEEP_ENABLED: PCWSTR = w("BeepEnabled")
+public val SPLREG_BEEP_ENABLED: Pcwstr = w("BeepEnabled")
 
-public val SPLREG_DEFAULT_SPOOL_DIRECTORY: PCWSTR = w("DefaultSpoolDirectory")
+public val SPLREG_DEFAULT_SPOOL_DIRECTORY: Pcwstr = w("DefaultSpoolDirectory")
 
-public val SPLREG_DNS_MACHINE_NAME: PCWSTR = w("DNSMachineName")
+public val SPLREG_DNS_MACHINE_NAME: Pcwstr = w("DNSMachineName")
 
-public val SPLREG_DS_PRESENT: PCWSTR = w("DsPresent")
+public val SPLREG_DS_PRESENT: Pcwstr = w("DsPresent")
 
-public val SPLREG_DS_PRESENT_FOR_USER: PCWSTR = w("DsPresentForUser")
+public val SPLREG_DS_PRESENT_FOR_USER: Pcwstr = w("DsPresentForUser")
 
-public val SPLREG_EVENT_LOG: PCWSTR = w("EventLog")
+public val SPLREG_EVENT_LOG: Pcwstr = w("EventLog")
 
-public val SPLREG_MAJOR_VERSION: PCWSTR = w("MajorVersion")
+public val SPLREG_MAJOR_VERSION: Pcwstr = w("MajorVersion")
 
-public val SPLREG_MINOR_VERSION: PCWSTR = w("MinorVersion")
+public val SPLREG_MINOR_VERSION: Pcwstr = w("MinorVersion")
 
-public val SPLREG_NET_POPUP: PCWSTR = w("NetPopup")
+public val SPLREG_NET_POPUP: Pcwstr = w("NetPopup")
 
-public val SPLREG_NET_POPUP_TO_COMPUTER: PCWSTR = w("NetPopupToComputer")
+public val SPLREG_NET_POPUP_TO_COMPUTER: Pcwstr = w("NetPopupToComputer")
 
-public val SPLREG_OS_VERSION: PCWSTR = w("OSVersion")
+public val SPLREG_OS_VERSION: Pcwstr = w("OSVersion")
 
-public val SPLREG_OS_VERSIONEX: PCWSTR = w("OSVersionEx")
+public val SPLREG_OS_VERSIONEX: Pcwstr = w("OSVersionEx")
 
-public val SPLREG_PORT_THREAD_PRIORITY: PCWSTR = w("PortThreadPriority")
+public val SPLREG_PORT_THREAD_PRIORITY: Pcwstr = w("PortThreadPriority")
 
-public val SPLREG_PORT_THREAD_PRIORITY_DEFAULT: PCWSTR = w("PortThreadPriorityDefault")
+public val SPLREG_PORT_THREAD_PRIORITY_DEFAULT: Pcwstr = w("PortThreadPriorityDefault")
 
-public val SPLREG_PRINT_DRIVER_ISOLATION_EXECUTION_POLICY: PCWSTR = w("PrintDriverIsolationExecutionPolicy")
+public val SPLREG_PRINT_DRIVER_ISOLATION_EXECUTION_POLICY: Pcwstr = w("PrintDriverIsolationExecutionPolicy")
 
-public val SPLREG_PRINT_DRIVER_ISOLATION_GROUPS: PCWSTR = w("PrintDriverIsolationGroups")
+public val SPLREG_PRINT_DRIVER_ISOLATION_GROUPS: Pcwstr = w("PrintDriverIsolationGroups")
 
-public val SPLREG_PRINT_DRIVER_ISOLATION_IDLE_TIMEOUT: PCWSTR = w("PrintDriverIsolationIdleTimeout")
+public val SPLREG_PRINT_DRIVER_ISOLATION_IDLE_TIMEOUT: Pcwstr = w("PrintDriverIsolationIdleTimeout")
 
-public val SPLREG_PRINT_DRIVER_ISOLATION_MAX_OBJECTS_BEFORE_RECYCLE: PCWSTR = w("PrintDriverIsolationMaxobjsBeforeRecycle")
+public val SPLREG_PRINT_DRIVER_ISOLATION_MAX_OBJECTS_BEFORE_RECYCLE: Pcwstr = w("PrintDriverIsolationMaxobjsBeforeRecycle")
 
-public val SPLREG_PRINT_DRIVER_ISOLATION_OVERRIDE_POLICY: PCWSTR = w("PrintDriverIsolationOverrideCompat")
+public val SPLREG_PRINT_DRIVER_ISOLATION_OVERRIDE_POLICY: Pcwstr = w("PrintDriverIsolationOverrideCompat")
 
-public val SPLREG_PRINT_DRIVER_ISOLATION_TIME_BEFORE_RECYCLE: PCWSTR = w("PrintDriverIsolationTimeBeforeRecycle")
+public val SPLREG_PRINT_DRIVER_ISOLATION_TIME_BEFORE_RECYCLE: Pcwstr = w("PrintDriverIsolationTimeBeforeRecycle")
 
-public val SPLREG_PRINT_QUEUE_V4_DRIVER_DIRECTORY: PCWSTR = w("PrintQueueV4DriverDirectory")
+public val SPLREG_PRINT_QUEUE_V4_DRIVER_DIRECTORY: Pcwstr = w("PrintQueueV4DriverDirectory")
 
-public val SPLREG_REMOTE_FAX: PCWSTR = w("RemoteFax")
+public val SPLREG_REMOTE_FAX: Pcwstr = w("RemoteFax")
 
-public val SPLREG_RESTART_JOB_ON_POOL_ENABLED: PCWSTR = w("RestartJobOnPoolEnabled")
+public val SPLREG_RESTART_JOB_ON_POOL_ENABLED: Pcwstr = w("RestartJobOnPoolEnabled")
 
-public val SPLREG_RESTART_JOB_ON_POOL_ERROR: PCWSTR = w("RestartJobOnPoolError")
+public val SPLREG_RESTART_JOB_ON_POOL_ERROR: Pcwstr = w("RestartJobOnPoolError")
 
-public val SPLREG_RETRY_POPUP: PCWSTR = w("RetryPopup")
+public val SPLREG_RETRY_POPUP: Pcwstr = w("RetryPopup")
 
-public val SPLREG_SCHEDULER_THREAD_PRIORITY: PCWSTR = w("SchedulerThreadPriority")
+public val SPLREG_SCHEDULER_THREAD_PRIORITY: Pcwstr = w("SchedulerThreadPriority")
 
-public val SPLREG_SCHEDULER_THREAD_PRIORITY_DEFAULT: PCWSTR = w("SchedulerThreadPriorityDefault")
+public val SPLREG_SCHEDULER_THREAD_PRIORITY_DEFAULT: Pcwstr = w("SchedulerThreadPriorityDefault")
 
-public val SPLREG_WEBSHAREMGMT: PCWSTR = w("WebShareMgmt")
+public val SPLREG_WEBSHAREMGMT: Pcwstr = w("WebShareMgmt")
 
 public val SPOOL_FILE_PERSISTENT: UInt = 1u
 
@@ -2920,7 +2920,7 @@ public val STRING_NONE: UInt = 1u
 
 public val S_CONFLICT_RESOLVED: UInt = 262146u
 
-public val S_DEVCAP_OUTPUT_FULL_REPLACEMENT: HRESULT = 0x4DC01u.toInt()
+public val S_DEVCAP_OUTPUT_FULL_REPLACEMENT: Hresult = 0x4DC01u.toInt()
 
 public val S_NO_CONFLICT: UInt = 262145u
 

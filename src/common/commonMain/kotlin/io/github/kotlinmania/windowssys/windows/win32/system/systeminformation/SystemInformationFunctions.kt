@@ -1,135 +1,136 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.systeminformation
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 
-public expect fun DnsHostnameToComputerNameExW(hostname: PCWSTR, computername: PWSTR, nsize: Long): BOOL
+public expect fun dnsHostnameToComputerNameExW(hostname: Pcwstr, computername: Pwstr, nsize: COpaquePointer?): Bool
 
-public expect fun EnumSystemFirmwareTables(firmwaretableprovidersignature: FIRMWARE_TABLE_PROVIDER, pfirmwaretableenumbuffer: Long, buffersize: UInt): UInt
+public expect fun enumSystemFirmwareTables(firmwaretableprovidersignature: FirmwareTableProvider, pfirmwaretableenumbuffer: COpaquePointer?, buffersize: UInt): UInt
 
-public expect fun GetComputerNameExA(nametype: COMPUTER_NAME_FORMAT, lpbuffer: PSTR, nsize: Long): BOOL
+public expect fun getComputerNameExA(nametype: ComputerNameFormat, lpbuffer: Pstr, nsize: COpaquePointer?): Bool
 
-public expect fun GetComputerNameExW(nametype: COMPUTER_NAME_FORMAT, lpbuffer: PWSTR, nsize: Long): BOOL
+public expect fun getComputerNameExW(nametype: ComputerNameFormat, lpbuffer: Pwstr, nsize: COpaquePointer?): Bool
 
-public expect fun GetDeveloperDriveEnablementState(): DEVELOPER_DRIVE_ENABLEMENT_STATE
+public expect fun getDeveloperDriveEnablementState(): DeveloperDriveEnablementState
 
-public expect fun GetFirmwareType(firmwaretype: Long): BOOL
+public expect fun getFirmwareType(firmwaretype: COpaquePointer?): Bool
 
-public expect fun GetIntegratedDisplaySize(sizeininches: Long): HRESULT
+public expect fun getIntegratedDisplaySize(sizeininches: COpaquePointer?): Hresult
 
-public expect fun GetLocalTime(lpsystemtime: Long)
+public expect fun getLocalTime(lpsystemtime: COpaquePointer?)
 
-public expect fun GetLogicalProcessorInformation(buffer: Long, returnedlength: Long): BOOL
+public expect fun getLogicalProcessorInformation(buffer: COpaquePointer?, returnedlength: COpaquePointer?): Bool
 
-public expect fun GetLogicalProcessorInformationEx(relationshiptype: LOGICAL_PROCESSOR_RELATIONSHIP, buffer: Long, returnedlength: Long): BOOL
+public expect fun getLogicalProcessorInformationEx(relationshiptype: LogicalProcessorRelationship, buffer: COpaquePointer?, returnedlength: COpaquePointer?): Bool
 
-public expect fun GetNativeSystemInfo(lpsysteminfo: Long)
+public expect fun getNativeSystemInfo(lpsysteminfo: COpaquePointer?)
 
-public expect fun GetOsManufacturingMode(pbenabled: Long): BOOL
+public expect fun getOsManufacturingMode(pbenabled: COpaquePointer?): Bool
 
-public expect fun GetOsSafeBootMode(flags: Long): BOOL
+public expect fun getOsSafeBootMode(flags: COpaquePointer?): Bool
 
-public expect fun GetPhysicallyInstalledSystemMemory(totalmemoryinkilobytes: Long): BOOL
+public expect fun getPhysicallyInstalledSystemMemory(totalmemoryinkilobytes: COpaquePointer?): Bool
 
-public expect fun GetProcessorSystemCycleTime(group: UShort, buffer: Long, returnedlength: Long): BOOL
+public expect fun getProcessorSystemCycleTime(group: UShort, buffer: COpaquePointer?, returnedlength: COpaquePointer?): Bool
 
-public expect fun GetProductInfo(dwosmajorversion: UInt, dwosminorversion: UInt, dwspmajorversion: UInt, dwspminorversion: UInt, pdwreturnedproducttype: Long): BOOL
+public expect fun getProductInfo(dwosmajorversion: UInt, dwosminorversion: UInt, dwspmajorversion: UInt, dwspminorversion: UInt, pdwreturnedproducttype: COpaquePointer?): Bool
 
-public expect fun GetSystemCpuSetInformation(information: Long, bufferlength: UInt, returnedlength: Long, process: HANDLE, flags: UInt): BOOL
+public expect fun getSystemCpuSetInformation(information: COpaquePointer?, bufferlength: UInt, returnedlength: COpaquePointer?, process: Handle, flags: UInt): Bool
 
-public expect fun GetSystemDEPPolicy(): DEP_SYSTEM_POLICY_TYPE
+public expect fun getSystemDEPPolicy(): DepSystemPolicyType
 
-public expect fun GetSystemDirectoryA(lpbuffer: PSTR, usize: UInt): UInt
+public expect fun getSystemDirectoryA(lpbuffer: Pstr, usize: UInt): UInt
 
-public expect fun GetSystemDirectoryW(lpbuffer: PWSTR, usize: UInt): UInt
+public expect fun getSystemDirectoryW(lpbuffer: Pwstr, usize: UInt): UInt
 
-public expect fun GetSystemFirmwareTable(firmwaretableprovidersignature: FIRMWARE_TABLE_PROVIDER, firmwaretableid: UInt, pfirmwaretablebuffer: Long, buffersize: UInt): UInt
+public expect fun getSystemFirmwareTable(firmwaretableprovidersignature: FirmwareTableProvider, firmwaretableid: UInt, pfirmwaretablebuffer: COpaquePointer?, buffersize: UInt): UInt
 
-public expect fun GetSystemInfo(lpsysteminfo: Long)
+public expect fun getSystemInfo(lpsysteminfo: COpaquePointer?)
 
-public expect fun GetSystemLeapSecondInformation(enabled: Long, flags: Long): BOOL
+public expect fun getSystemLeapSecondInformation(enabled: COpaquePointer?, flags: COpaquePointer?): Bool
 
-public expect fun GetSystemTime(lpsystemtime: Long)
+public expect fun getSystemTime(lpsystemtime: COpaquePointer?)
 
-public expect fun GetSystemTimeAdjustment(lptimeadjustment: Long, lptimeincrement: Long, lptimeadjustmentdisabled: Long): BOOL
+public expect fun getSystemTimeAdjustment(lptimeadjustment: COpaquePointer?, lptimeincrement: COpaquePointer?, lptimeadjustmentdisabled: COpaquePointer?): Bool
 
-public expect fun GetSystemTimeAdjustmentPrecise(lptimeadjustment: Long, lptimeincrement: Long, lptimeadjustmentdisabled: Long): BOOL
+public expect fun getSystemTimeAdjustmentPrecise(lptimeadjustment: COpaquePointer?, lptimeincrement: COpaquePointer?, lptimeadjustmentdisabled: COpaquePointer?): Bool
 
-public expect fun GetSystemTimeAsFileTime(lpsystemtimeasfiletime: Long)
+public expect fun getSystemTimeAsFileTime(lpsystemtimeasfiletime: COpaquePointer?)
 
-public expect fun GetSystemTimePreciseAsFileTime(lpsystemtimeasfiletime: Long)
+public expect fun getSystemTimePreciseAsFileTime(lpsystemtimeasfiletime: COpaquePointer?)
 
-public expect fun GetSystemWindowsDirectoryA(lpbuffer: PSTR, usize: UInt): UInt
+public expect fun getSystemWindowsDirectoryA(lpbuffer: Pstr, usize: UInt): UInt
 
-public expect fun GetSystemWindowsDirectoryW(lpbuffer: PWSTR, usize: UInt): UInt
+public expect fun getSystemWindowsDirectoryW(lpbuffer: Pwstr, usize: UInt): UInt
 
-public expect fun GetSystemWow64Directory2A(lpbuffer: PSTR, usize: UInt, imagefilemachinetype: IMAGE_FILE_MACHINE): UInt
+public expect fun getSystemWow64Directory2A(lpbuffer: Pstr, usize: UInt, imagefilemachinetype: ImageFileMachine): UInt
 
-public expect fun GetSystemWow64Directory2W(lpbuffer: PWSTR, usize: UInt, imagefilemachinetype: IMAGE_FILE_MACHINE): UInt
+public expect fun getSystemWow64Directory2W(lpbuffer: Pwstr, usize: UInt, imagefilemachinetype: ImageFileMachine): UInt
 
-public expect fun GetSystemWow64DirectoryA(lpbuffer: PSTR, usize: UInt): UInt
+public expect fun getSystemWow64DirectoryA(lpbuffer: Pstr, usize: UInt): UInt
 
-public expect fun GetSystemWow64DirectoryW(lpbuffer: PWSTR, usize: UInt): UInt
+public expect fun getSystemWow64DirectoryW(lpbuffer: Pwstr, usize: UInt): UInt
 
-public expect fun GetTickCount(): UInt
+public expect fun getTickCount(): UInt
 
-public expect fun GetTickCount64(): ULong
+public expect fun getTickCount64(): ULong
 
-public expect fun GetVersion(): UInt
+public expect fun getVersion(): UInt
 
-public expect fun GetVersionExA(lpversioninformation: Long): BOOL
+public expect fun getVersionExA(lpversioninformation: COpaquePointer?): Bool
 
-public expect fun GetVersionExW(lpversioninformation: Long): BOOL
+public expect fun getVersionExW(lpversioninformation: COpaquePointer?): Bool
 
-public expect fun GetWindowsDirectoryA(lpbuffer: PSTR, usize: UInt): UInt
+public expect fun getWindowsDirectoryA(lpbuffer: Pstr, usize: UInt): UInt
 
-public expect fun GetWindowsDirectoryW(lpbuffer: PWSTR, usize: UInt): UInt
+public expect fun getWindowsDirectoryW(lpbuffer: Pwstr, usize: UInt): UInt
 
-public expect fun GlobalMemoryStatus(lpbuffer: Long)
+public expect fun globalMemoryStatus(lpbuffer: COpaquePointer?)
 
-public expect fun GlobalMemoryStatusEx(lpbuffer: Long): BOOL
+public expect fun globalMemoryStatusEx(lpbuffer: COpaquePointer?): Bool
 
-public expect fun IsUserCetAvailableInEnvironment(usercetenvironment: USER_CET_ENVIRONMENT): BOOL
+public expect fun isUserCetAvailableInEnvironment(usercetenvironment: UserCetEnvironment): Bool
 
-public expect fun IsWow64GuestMachineSupported(wowguestmachine: IMAGE_FILE_MACHINE, machineissupported: Long): HRESULT
+public expect fun isWow64GuestMachineSupported(wowguestmachine: ImageFileMachine, machineissupported: COpaquePointer?): Hresult
 
-public expect fun RtlConvertDeviceFamilyInfoToString(puldevicefamilybuffersize: Long, puldeviceformbuffersize: Long, devicefamily: PWSTR, deviceform: PWSTR): UInt
+public expect fun rtlConvertDeviceFamilyInfoToString(puldevicefamilybuffersize: COpaquePointer?, puldeviceformbuffersize: COpaquePointer?, devicefamily: Pwstr, deviceform: Pwstr): UInt
 
-public expect fun RtlGetDeviceFamilyInfoEnum(pulluapinfo: Long, puldevicefamily: Long, puldeviceform: Long)
+public expect fun rtlGetDeviceFamilyInfoEnum(pulluapinfo: COpaquePointer?, puldevicefamily: COpaquePointer?, puldeviceform: COpaquePointer?)
 
-public expect fun RtlGetProductInfo(osmajorversion: UInt, osminorversion: UInt, spmajorversion: UInt, spminorversion: UInt, returnedproducttype: Long): Boolean
+public expect fun rtlGetProductInfo(osmajorversion: UInt, osminorversion: UInt, spmajorversion: UInt, spminorversion: UInt, returnedproducttype: COpaquePointer?): Boolean
 
-public expect fun RtlGetSystemGlobalData(dataid: RTL_SYSTEM_GLOBAL_DATA_ID, buffer: Long, size: UInt): UInt
+public expect fun rtlGetSystemGlobalData(dataid: RtlSystemGlobalDataId, buffer: COpaquePointer?, size: UInt): UInt
 
-public expect fun RtlOsDeploymentState(flags: UInt): OS_DEPLOYEMENT_STATE_VALUES
+public expect fun rtlOsDeploymentState(flags: UInt): OsDeployementStateValues
 
-public expect fun RtlSwitchedVVI(versioninfo: Long, typemask: UInt, conditionmask: ULong): UInt
+public expect fun rtlSwitchedVVI(versioninfo: COpaquePointer?, typemask: UInt, conditionmask: ULong): UInt
 
-public expect fun SetComputerNameA(lpcomputername: PCSTR): BOOL
+public expect fun setComputerNameA(lpcomputername: Pcstr): Bool
 
-public expect fun SetComputerNameEx2W(nametype: COMPUTER_NAME_FORMAT, flags: UInt, lpbuffer: PCWSTR): BOOL
+public expect fun setComputerNameEx2W(nametype: ComputerNameFormat, flags: UInt, lpbuffer: Pcwstr): Bool
 
-public expect fun SetComputerNameExA(nametype: COMPUTER_NAME_FORMAT, lpbuffer: PCSTR): BOOL
+public expect fun setComputerNameExA(nametype: ComputerNameFormat, lpbuffer: Pcstr): Bool
 
-public expect fun SetComputerNameExW(nametype: COMPUTER_NAME_FORMAT, lpbuffer: PCWSTR): BOOL
+public expect fun setComputerNameExW(nametype: ComputerNameFormat, lpbuffer: Pcwstr): Bool
 
-public expect fun SetComputerNameW(lpcomputername: PCWSTR): BOOL
+public expect fun setComputerNameW(lpcomputername: Pcwstr): Bool
 
-public expect fun SetLocalTime(lpsystemtime: Long): BOOL
+public expect fun setLocalTime(lpsystemtime: COpaquePointer?): Bool
 
-public expect fun SetSystemTime(lpsystemtime: Long): BOOL
+public expect fun setSystemTime(lpsystemtime: COpaquePointer?): Bool
 
-public expect fun SetSystemTimeAdjustment(dwtimeadjustment: UInt, btimeadjustmentdisabled: BOOL): BOOL
+public expect fun setSystemTimeAdjustment(dwtimeadjustment: UInt, btimeadjustmentdisabled: Bool): Bool
 
-public expect fun SetSystemTimeAdjustmentPrecise(dwtimeadjustment: ULong, btimeadjustmentdisabled: BOOL): BOOL
+public expect fun setSystemTimeAdjustmentPrecise(dwtimeadjustment: ULong, btimeadjustmentdisabled: Bool): Bool
 
-public expect fun VerSetConditionMask(conditionmask: ULong, typemask: VER_FLAGS, condition: UByte): ULong
+public expect fun verSetConditionMask(conditionmask: ULong, typemask: VerFlags, condition: UByte): ULong
 
-public expect fun VerifyVersionInfoA(lpversioninformation: Long, dwtypemask: VER_FLAGS, dwlconditionmask: ULong): BOOL
+public expect fun verifyVersionInfoA(lpversioninformation: COpaquePointer?, dwtypemask: VerFlags, dwlconditionmask: ULong): Bool
 
-public expect fun VerifyVersionInfoW(lpversioninformation: Long, dwtypemask: VER_FLAGS, dwlconditionmask: ULong): BOOL
+public expect fun verifyVersionInfoW(lpversioninformation: COpaquePointer?, dwtypemask: VerFlags, dwlconditionmask: ULong): Bool

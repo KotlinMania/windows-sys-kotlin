@@ -1,24 +1,24 @@
 package io.github.kotlinmania.windowssys.windows.win32.devices.pwm
 
-public data class PWM_CONTROLLER_GET_ACTUAL_PERIOD_OUTPUT(public var ActualPeriod: ULong = 0uL)
+public data class PwmControllerGetActualPeriodOutput(public var actualPeriod: ULong = 0uL)
 
-public data class PWM_CONTROLLER_INFO(
-    public var Size: ULong = 0uL,
-    public var PinCount: UInt = 0u,
-    public var MinimumPeriod: ULong = 0uL,
-    public var MaximumPeriod: ULong = 0uL,
+public data class PwmControllerInfo(
+    public var size: Int = 0,
+    public var pinCount: UInt = 0u,
+    public var minimumPeriod: ULong = 0uL,
+    public var maximumPeriod: ULong = 0uL,
 )
 
-public data class PWM_CONTROLLER_SET_DESIRED_PERIOD_INPUT(public var DesiredPeriod: ULong = 0uL)
+public data class PwmControllerSetDesiredPeriodInput(public var desiredPeriod: ULong = 0uL)
 
-public data class PWM_CONTROLLER_SET_DESIRED_PERIOD_OUTPUT(public var ActualPeriod: ULong = 0uL)
+public data class PwmControllerSetDesiredPeriodOutput(public var actualPeriod: ULong = 0uL)
 
-public data class PWM_PIN_GET_ACTIVE_DUTY_CYCLE_PERCENTAGE_OUTPUT(public var Percentage: ULong = 0uL)
+public data class PwmPinGetActiveDutyCyclePercentageOutput(public var percentage: ULong = 0uL)
 
-public data class PWM_PIN_GET_POLARITY_OUTPUT(public var Polarity: PWM_POLARITY = 0)
+public data class PwmPinGetPolarityOutput(public var polarity: PwmPolarity = 0)
 
-public data class PWM_PIN_IS_STARTED_OUTPUT(public var IsStarted: Boolean = false)
+public data class PwmPinIsStartedOutput(public var isStarted: Boolean = false)
 
-public data class PWM_PIN_SET_ACTIVE_DUTY_CYCLE_PERCENTAGE_INPUT(public var Percentage: ULong = 0uL)
+public data class PwmPinSetActiveDutyCyclePercentageInput(public var percentage: ULong = 0uL)
 
-public data class PWM_PIN_SET_POLARITY_INPUT(public var Polarity: PWM_POLARITY = 0)
+public data class PwmPinSetPolarityInput(public var polarity: PwmPolarity = 0)

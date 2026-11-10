@@ -1,13 +1,14 @@
 package io.github.kotlinmania.windowssys.windows.win32.ui.accessibility
 
-import io.github.kotlinmania.windowssys.core.BSTR
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LRESULT
-import io.github.kotlinmania.windowssys.windows.win32.foundation.POINT
-import io.github.kotlinmania.windowssys.windows.win32.foundation.WPARAM
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bstr
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lresult
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Point
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Wparam
 
-public typealias ACC_UTILITY_STATE_FLAGS = UInt
+public typealias AccUtilityStateFlags = UInt
 
 public typealias ActiveEnd = Int
 
@@ -45,55 +46,55 @@ public typealias FillType = Int
 
 public typealias FlowDirections = Int
 
-public typealias HIGHCONTRASTW_FLAGS = UInt
+public typealias HighcontrastwFlags = UInt
 
-public typealias HUIAEVENT = Long
+public typealias Huiaevent = COpaquePointer?
 
-public typealias HUIANODE = Long
+public typealias Huianode = COpaquePointer?
 
-public typealias HUIAPATTERNOBJECT = Long
+public typealias Huiapatternobject = COpaquePointer?
 
-public typealias HUIATEXTRANGE = Long
+public typealias Huiatextrange = COpaquePointer?
 
-public typealias HWINEVENTHOOK = Long
+public typealias Hwineventhook = COpaquePointer?
 
 public typealias HorizontalTextAlignment = Int
 
-public fun interface LPFNACCESSIBLECHILDRENFn {
-    public operator fun invoke(pacccontainer: Long, ichildstart: Int, cchildren: Int, rgvarchildren: Long, pcobtained: Long): HRESULT
+public fun interface LpfnaccessiblechildrenFn {
+    public operator fun invoke(pacccontainer: COpaquePointer?, ichildstart: Int, cchildren: Int, rgvarchildren: COpaquePointer?, pcobtained: COpaquePointer?): Hresult
 }
 
-public typealias LPFNACCESSIBLECHILDREN = LPFNACCESSIBLECHILDRENFn?
+public typealias Lpfnaccessiblechildren = LpfnaccessiblechildrenFn?
 
-public fun interface LPFNACCESSIBLEOBJECTFROMPOINTFn {
-    public operator fun invoke(ptscreen: POINT, ppacc: Long, pvarchild: Long): HRESULT
+public fun interface LpfnaccessibleobjectfrompointFn {
+    public operator fun invoke(ptscreen: Point, ppacc: COpaquePointer?, pvarchild: COpaquePointer?): Hresult
 }
 
-public typealias LPFNACCESSIBLEOBJECTFROMPOINT = LPFNACCESSIBLEOBJECTFROMPOINTFn?
+public typealias Lpfnaccessibleobjectfrompoint = LpfnaccessibleobjectfrompointFn?
 
-public fun interface LPFNACCESSIBLEOBJECTFROMWINDOWFn {
-    public operator fun invoke(hwnd: HWND, dwid: UInt, riid: Long, ppvobject: Long): HRESULT
+public fun interface LpfnaccessibleobjectfromwindowFn {
+    public operator fun invoke(hwnd: Hwnd, dwid: UInt, riid: COpaquePointer?, ppvobject: COpaquePointer?): Hresult
 }
 
-public typealias LPFNACCESSIBLEOBJECTFROMWINDOW = LPFNACCESSIBLEOBJECTFROMWINDOWFn?
+public typealias Lpfnaccessibleobjectfromwindow = LpfnaccessibleobjectfromwindowFn?
 
-public fun interface LPFNCREATESTDACCESSIBLEOBJECTFn {
-    public operator fun invoke(hwnd: HWND, idobject: Int, riid: Long, ppvobject: Long): HRESULT
+public fun interface LpfncreatestdaccessibleobjectFn {
+    public operator fun invoke(hwnd: Hwnd, idobject: Int, riid: COpaquePointer?, ppvobject: COpaquePointer?): Hresult
 }
 
-public typealias LPFNCREATESTDACCESSIBLEOBJECT = LPFNCREATESTDACCESSIBLEOBJECTFn?
+public typealias Lpfncreatestdaccessibleobject = LpfncreatestdaccessibleobjectFn?
 
-public fun interface LPFNLRESULTFROMOBJECTFn {
-    public operator fun invoke(riid: Long, wparam: WPARAM, punk: Long): LRESULT
+public fun interface LpfnlresultfromobjectFn {
+    public operator fun invoke(riid: COpaquePointer?, wparam: Wparam, punk: COpaquePointer?): Lresult
 }
 
-public typealias LPFNLRESULTFROMOBJECT = LPFNLRESULTFROMOBJECTFn?
+public typealias Lpfnlresultfromobject = LpfnlresultfromobjectFn?
 
-public fun interface LPFNOBJECTFROMLRESULTFn {
-    public operator fun invoke(lresult: LRESULT, riid: Long, wparam: WPARAM, ppvobject: Long): HRESULT
+public fun interface LpfnobjectfromlresultFn {
+    public operator fun invoke(lresult: Lresult, riid: COpaquePointer?, wparam: Wparam, ppvobject: COpaquePointer?): Hresult
 }
 
-public typealias LPFNOBJECTFROMLRESULT = LPFNOBJECTFROMLRESULTFn?
+public typealias Lpfnobjectfromlresult = LpfnobjectfromlresultFn?
 
 public typealias LiveSetting = Int
 
@@ -117,17 +118,17 @@ public typealias ProviderType = Int
 
 public typealias RowOrColumnMajor = Int
 
-public typealias SERIALKEYS_FLAGS = UInt
+public typealias SerialkeysFlags = UInt
 
-public typealias SOUNDSENTRY_FLAGS = UInt
+public typealias SoundsentryFlags = UInt
 
-public typealias SOUNDSENTRY_TEXT_EFFECT = UInt
+public typealias SoundsentryTextEffect = UInt
 
-public typealias SOUNDSENTRY_WINDOWS_EFFECT = UInt
+public typealias SoundsentryWindowsEffect = UInt
 
-public typealias SOUND_SENTRY_GRAPHICS_EFFECT = UInt
+public typealias SoundSentryGraphicsEffect = UInt
 
-public typealias STICKYKEYS_FLAGS = UInt
+public typealias StickykeysFlags = UInt
 
 public typealias SayAsInterpretAs = Int
 
@@ -153,49 +154,49 @@ public typealias TreeScope = Int
 
 public typealias TreeTraversalOptions = Int
 
-public typealias UIA_ANNOTATIONTYPE = Int
+public typealias UiaAnnotationtype = Int
 
-public typealias UIA_CHANGE_ID = Int
+public typealias UiaChangeId = Int
 
-public typealias UIA_CONTROLTYPE_ID = Int
+public typealias UiaControltypeId = Int
 
-public typealias UIA_EVENT_ID = Int
+public typealias UiaEventId = Int
 
-public typealias UIA_HEADINGLEVEL_ID = Int
+public typealias UiaHeadinglevelId = Int
 
-public typealias UIA_LANDMARKTYPE_ID = Int
+public typealias UiaLandmarktypeId = Int
 
-public typealias UIA_METADATA_ID = Int
+public typealias UiaMetadataId = Int
 
-public typealias UIA_PATTERN_ID = Int
+public typealias UiaPatternId = Int
 
-public typealias UIA_PROPERTY_ID = Int
+public typealias UiaPropertyId = Int
 
-public typealias UIA_STYLE_ID = Int
+public typealias UiaStyleId = Int
 
-public typealias UIA_TEXTATTRIBUTE_ID = Int
+public typealias UiaTextattributeId = Int
 
 public typealias UIAutomationType = Int
 
 public fun interface UiaEventCallbackFn {
-    public operator fun invoke(pargs: Long, prequesteddata: Long, ptreestructure: BSTR)
+    public operator fun invoke(pargs: COpaquePointer?, prequesteddata: COpaquePointer?, ptreestructure: Bstr)
 }
 
 public typealias UiaEventCallback = UiaEventCallbackFn?
 
 public fun interface UiaProviderCallbackFn {
-    public operator fun invoke(hwnd: HWND, providertype: ProviderType): Long
+    public operator fun invoke(hwnd: Hwnd, providertype: ProviderType): COpaquePointer?
 }
 
 public typealias UiaProviderCallback = UiaProviderCallbackFn?
 
 public typealias VisualEffects = Int
 
-public fun interface WINEVENTPROCFn {
-    public operator fun invoke(hwineventhook: HWINEVENTHOOK, event: UInt, hwnd: HWND, idobject: Int, idchild: Int, ideventthread: UInt, dwmseventtime: UInt)
+public fun interface WineventprocFn {
+    public operator fun invoke(hwineventhook: Hwineventhook, event: UInt, hwnd: Hwnd, idobject: Int, idchild: Int, ideventthread: UInt, dwmseventtime: UInt)
 }
 
-public typealias WINEVENTPROC = WINEVENTPROCFn?
+public typealias Wineventproc = WineventprocFn?
 
 public typealias WindowInteractionState = Int
 

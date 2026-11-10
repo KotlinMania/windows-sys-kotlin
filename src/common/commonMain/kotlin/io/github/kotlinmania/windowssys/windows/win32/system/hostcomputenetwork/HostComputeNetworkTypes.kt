@@ -1,16 +1,17 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.hostcomputenetwork
 
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
 
-public typealias HCN_NOTIFICATIONS = Int
+public typealias HcnNotifications = Int
 
-public fun interface HCN_NOTIFICATION_CALLBACKFn {
-    public operator fun invoke(notificationtype: UInt, context: Long, notificationstatus: HRESULT, notificationdata: PCWSTR)
+public fun interface HcnNotificationCallbackFn {
+    public operator fun invoke(notificationtype: UInt, context: COpaquePointer?, notificationstatus: Hresult, notificationdata: Pcwstr)
 }
 
-public typealias HCN_NOTIFICATION_CALLBACK = HCN_NOTIFICATION_CALLBACKFn?
+public typealias HcnNotificationCallback = HcnNotificationCallbackFn?
 
-public typealias HCN_PORT_ACCESS = Int
+public typealias HcnPortAccess = Int
 
-public typealias HCN_PORT_PROTOCOL = Int
+public typealias HcnPortProtocol = Int

@@ -1,159 +1,160 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.com
 
-import io.github.kotlinmania.windowssys.core.HRESULT
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Hresult
 
-public typealias ADVANCED_FEATURE_FLAGS = UShort
+public typealias AdvancedFeatureFlags = UShort
 
-public typealias ADVF = Int
+public typealias Advf = Int
 
-public typealias APTTYPE = Int
+public typealias Apttype = Int
 
-public typealias APTTYPEQUALIFIER = Int
+public typealias Apttypequalifier = Int
 
 public typealias ApplicationType = Int
 
-public typealias BINDINFOF = Int
+public typealias Bindinfof = Int
 
-public typealias BIND_FLAGS = Int
+public typealias BindFlags = Int
 
-public typealias CALLCONV = Int
+public typealias Callconv = Int
 
-public typealias CALLTYPE = Int
+public typealias Calltype = Int
 
-public typealias CLSCTX = UInt
+public typealias Clsctx = UInt
 
-public typealias COINIT = Int
+public typealias Coinit = Int
 
-public typealias COINITBASE = Int
+public typealias Coinitbase = Int
 
-public typealias COMSD = Int
+public typealias Comsd = Int
 
-public typealias COWAIT_FLAGS = Int
+public typealias CowaitFlags = Int
 
-public typealias CO_DEVICE_CATALOG_COOKIE = Long
+public typealias CoDeviceCatalogCookie = COpaquePointer?
 
-public typealias CO_MARSHALING_CONTEXT_ATTRIBUTES = Int
+public typealias CoMarshalingContextAttributes = Int
 
-public typealias CO_MTA_USAGE_COOKIE = Long
+public typealias CoMtaUsageCookie = COpaquePointer?
 
-public typealias CWMO_FLAGS = Int
+public typealias CwmoFlags = Int
 
-public typealias DATADIR = Int
+public typealias Datadir = Int
 
-public typealias DCOM_CALL_STATE = Int
+public typealias DcomCallState = Int
 
-public typealias DESCKIND = Int
+public typealias Desckind = Int
 
-public typealias DISPATCH_FLAGS = UShort
+public typealias DispatchFlags = UShort
 
-public typealias DVASPECT = UInt
+public typealias Dvaspect = UInt
 
-public typealias EOLE_AUTHENTICATION_CAPABILITIES = Int
+public typealias EoleAuthenticationCapabilities = Int
 
-public typealias EXTCONN = Int
+public typealias Extconn = Int
 
-public typealias FUNCFLAGS = UShort
+public typealias Funcflags = UShort
 
-public typealias FUNCKIND = Int
+public typealias Funckind = Int
 
-public typealias GLOBALOPT_EH_VALUES = Int
+public typealias GlobaloptEhValues = Int
 
-public typealias GLOBALOPT_PROPERTIES = Int
+public typealias GlobaloptProperties = Int
 
-public typealias GLOBALOPT_RO_FLAGS = Int
+public typealias GlobaloptRoFlags = Int
 
-public typealias GLOBALOPT_RPCTP_VALUES = Int
+public typealias GlobaloptRpctpValues = Int
 
-public typealias GLOBALOPT_UNMARSHALING_POLICY_VALUES = Int
+public typealias GlobaloptUnmarshalingPolicyValues = Int
 
-public typealias IDLFLAGS = UShort
+public typealias Idlflags = UShort
 
-public typealias IMPLTYPEFLAGS = Int
+public typealias Impltypeflags = Int
 
-public typealias INVOKEKIND = Int
+public typealias Invokekind = Int
 
-public typealias LOCKTYPE = Int
+public typealias Locktype = Int
 
-public fun interface LPEXCEPFINO_DEFERRED_FILLINFn {
-    public operator fun invoke(pexcepinfo: Long): HRESULT
+public fun interface LpexcepfinoDeferredFillinFn {
+    public operator fun invoke(pexcepinfo: COpaquePointer?): Hresult
 }
 
-public typealias LPEXCEPFINO_DEFERRED_FILLIN = LPEXCEPFINO_DEFERRED_FILLINFn?
+public typealias LpexcepfinoDeferredFillin = LpexcepfinoDeferredFillinFn?
 
-public fun interface LPFNCANUNLOADNOWFn {
-    public operator fun invoke(): HRESULT
+public fun interface LpfncanunloadnowFn {
+    public operator fun invoke(): Hresult
 }
 
-public typealias LPFNCANUNLOADNOW = LPFNCANUNLOADNOWFn?
+public typealias Lpfncanunloadnow = LpfncanunloadnowFn?
 
-public fun interface LPFNGETCLASSOBJECTFn {
-    public operator fun invoke(param0: Long, param1: Long, param2: Long): HRESULT
+public fun interface LpfngetclassobjectFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): Hresult
 }
 
-public typealias LPFNGETCLASSOBJECT = LPFNGETCLASSOBJECTFn?
+public typealias Lpfngetclassobject = LpfngetclassobjectFn?
 
-public typealias MEMCTX = Int
+public typealias Memctx = Int
 
-public typealias MKRREDUCE = Int
+public typealias Mkrreduce = Int
 
-public typealias MKSYS = Int
+public typealias Mksys = Int
 
-public typealias MSHCTX = Int
+public typealias Mshctx = Int
 
-public typealias MSHLFLAGS = Int
+public typealias Mshlflags = Int
 
-public typealias MachineGlobalObjectTableRegistrationToken = Long
+public typealias MachineGlobalObjectTableRegistrationToken = COpaquePointer?
 
-public typealias PENDINGMSG = Int
+public typealias Pendingmsg = Int
 
-public typealias PENDINGTYPE = Int
+public typealias Pendingtype = Int
 
-public fun interface PFNCONTEXTCALLFn {
-    public operator fun invoke(pparam: Long): HRESULT
+public fun interface PfncontextcallFn {
+    public operator fun invoke(pparam: COpaquePointer?): Hresult
 }
 
-public typealias PFNCONTEXTCALL = PFNCONTEXTCALLFn?
+public typealias Pfncontextcall = PfncontextcallFn?
 
-public typealias REGCLS = Int
+public typealias Regcls = Int
 
-public typealias ROT_FLAGS = UInt
+public typealias RotFlags = UInt
 
-public typealias RPCOPT_PROPERTIES = Int
+public typealias RpcoptProperties = Int
 
-public typealias RPCOPT_SERVER_LOCALITY_VALUES = Int
+public typealias RpcoptServerLocalityValues = Int
 
-public typealias RPC_C_AUTHN_LEVEL = UInt
+public typealias RpcCAuthnLevel = UInt
 
-public typealias RPC_C_IMP_LEVEL = UInt
+public typealias RpcCImpLevel = UInt
 
-public typealias SERVERCALL = Int
+public typealias Servercall = Int
 
-public typealias STATFLAG = Int
+public typealias Statflag = Int
 
-public typealias STGC = Int
+public typealias Stgc = Int
 
-public typealias STGM = UInt
+public typealias Stgm = UInt
 
-public typealias STGTY = Int
+public typealias Stgty = Int
 
-public typealias STREAM_SEEK = UInt
+public typealias StreamSeek = UInt
 
-public typealias SYSKIND = Int
+public typealias Syskind = Int
 
 public typealias ShutdownType = Int
 
-public typealias THDTYPE = Int
+public typealias Thdtype = Int
 
-public typealias TYMED = Int
+public typealias Tymed = Int
 
-public typealias TYPEKIND = Int
+public typealias Typekind = Int
 
-public typealias TYSPEC = Int
+public typealias Tyspec = Int
 
-public typealias URI_CREATE_FLAGS = UInt
+public typealias UriCreateFlags = UInt
 
-public typealias Uri_PROPERTY = Int
+public typealias UriProperty = Int
 
-public typealias VARFLAGS = UShort
+public typealias Varflags = UShort
 
-public typealias VARKIND = Int
+public typealias Varkind = Int

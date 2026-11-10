@@ -1,20 +1,21 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.rpc
 
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
 
-public expect fun UuidCreateSequential(uuid: Long): RPC_STATUS
+public expect fun uuidCreateSequential(uuid: COpaquePointer?): RpcStatus
 
-public expect fun UuidEqual(uuid1: Long, uuid2: Long, status: Long): Int
+public expect fun uuidEqual(uuid1: COpaquePointer?, uuid2: COpaquePointer?, status: COpaquePointer?): Int
 
-public expect fun UuidFromStringA(stringuuid: PCSTR, uuid: Long): RPC_STATUS
+public expect fun uuidFromStringA(stringuuid: Pcstr, uuid: COpaquePointer?): RpcStatus
 
-public expect fun UuidFromStringW(stringuuid: PCWSTR, uuid: Long): RPC_STATUS
+public expect fun uuidFromStringW(stringuuid: Pcwstr, uuid: COpaquePointer?): RpcStatus
 
-public expect fun UuidHash(uuid: Long, status: Long): UShort
+public expect fun uuidHash(uuid: COpaquePointer?, status: COpaquePointer?): UShort
 
-public expect fun UuidIsNil(uuid: Long, status: Long): Int
+public expect fun uuidIsNil(uuid: COpaquePointer?, status: COpaquePointer?): Int
 
-public expect fun UuidToStringA(uuid: Long, stringuuid: Long): RPC_STATUS
+public expect fun uuidToStringA(uuid: COpaquePointer?, stringuuid: COpaquePointer?): RpcStatus
 
-public expect fun UuidToStringW(uuid: Long, stringuuid: Long): RPC_STATUS
+public expect fun uuidToStringW(uuid: COpaquePointer?, stringuuid: COpaquePointer?): RpcStatus

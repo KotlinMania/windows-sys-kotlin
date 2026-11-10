@@ -2,127 +2,134 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters
 
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FILE_INFO_BY_HANDLE_CLASS
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FileInfoByHandleClass
 
 private val _windowsWin32StorageCloudfiltersNapiAddon: dynamic =
-    js("(function() { if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var req = (new Function('t', 'return typeof require === t ? require : null'))('function'); if (!req) return null; var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; for (var d = 0; d < 8; d++) { var c1 = path.resolve(dir, 'build/node-ffi/windows_sys_native.node'); if (fs.existsSync(c1)) return req(c1); var c2 = path.resolve(dir, 'src/js/node-windows_sys/build/Release/windows_sys_native.node'); if (fs.existsSync(c2)) return req(c2); var c3 = path.resolve(dir, 'src/js/node-windows_sys/build/Debug/windows_sys_native.node'); if (fs.existsSync(c3)) return req(c3); var c4 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Release/windows_sys_native.node'); if (fs.existsSync(c4)) return req(c4); var c5 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Debug/windows_sys_native.node'); if (fs.existsSync(c5)) return req(c5); var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } return null; })()")
+    js("(function() { if (typeof globalThis !== 'undefined' && typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys; if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) return null; try { var pkg = req('@kotlinmania/windowssys-native-bindings'); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = pkg; return pkg; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { var loaded = req(c); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = loaded; return loaded; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = null; return null; })()")
 
-public actual fun CfCloseHandle(filehandle: HANDLE) {
+public actual fun cfCloseHandle(filehandle: Handle) {
     if (_windowsWin32StorageCloudfiltersNapiAddon != null) {
-        _windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_CfCloseHandle(filehandle.toString())
+        _windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_cfCloseHandle((filehandle?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun CfConnectSyncRoot(syncrootpath: PCWSTR, callbacktable: Long, callbackcontext: Long, connectflags: CF_CONNECT_FLAGS, connectionkey: Long): HRESULT =
-    if (_windowsWin32StorageCloudfiltersNapiAddon != null) (_windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_CfConnectSyncRoot(syncrootpath.toString(), callbacktable.toString(), callbackcontext.toString(), connectflags, connectionkey.toString()) as Int) else 0
+public actual fun cfConnectSyncRoot(syncrootpath: Pcwstr, callbacktable: COpaquePointer?, callbackcontext: COpaquePointer?, connectflags: CfConnectFlags, connectionkey: COpaquePointer?): Hresult =
+    if (_windowsWin32StorageCloudfiltersNapiAddon != null) (_windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_cfConnectSyncRoot((syncrootpath?.value ?: 0L).toString(), (callbacktable?.value ?: 0L).toString(), (callbackcontext?.value ?: 0L).toString(), connectflags, (connectionkey?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CfConvertToPlaceholder(filehandle: HANDLE, fileidentity: Long, fileidentitylength: UInt, convertflags: CF_CONVERT_FLAGS, convertusn: Long, overlapped: Long): HRESULT =
-    if (_windowsWin32StorageCloudfiltersNapiAddon != null) (_windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_CfConvertToPlaceholder(filehandle.toString(), fileidentity.toString(), fileidentitylength.toInt(), convertflags, convertusn.toString(), overlapped.toString()) as Int) else 0
+public actual fun cfConvertToPlaceholder(filehandle: Handle, fileidentity: COpaquePointer?, fileidentitylength: UInt, convertflags: CfConvertFlags, convertusn: COpaquePointer?, overlapped: COpaquePointer?): Hresult =
+    if (_windowsWin32StorageCloudfiltersNapiAddon != null) (_windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_cfConvertToPlaceholder((filehandle?.value ?: 0L).toString(), (fileidentity?.value ?: 0L).toString(), fileidentitylength.toInt(), convertflags, (convertusn?.value ?: 0L).toString(), (overlapped?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CfCreatePlaceholders(basedirectorypath: PCWSTR, placeholderarray: Long, placeholdercount: UInt, createflags: CF_CREATE_FLAGS, entriesprocessed: Long): HRESULT =
-    if (_windowsWin32StorageCloudfiltersNapiAddon != null) (_windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_CfCreatePlaceholders(basedirectorypath.toString(), placeholderarray.toString(), placeholdercount.toInt(), createflags, entriesprocessed.toString()) as Int) else 0
+public actual fun cfCreatePlaceholders(basedirectorypath: Pcwstr, placeholderarray: COpaquePointer?, placeholdercount: UInt, createflags: CfCreateFlags, entriesprocessed: COpaquePointer?): Hresult =
+    if (_windowsWin32StorageCloudfiltersNapiAddon != null) (_windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_cfCreatePlaceholders((basedirectorypath?.value ?: 0L).toString(), (placeholderarray?.value ?: 0L).toString(), placeholdercount.toInt(), createflags, (entriesprocessed?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CfDehydratePlaceholder(filehandle: HANDLE, startingoffset: Long, length: Long, dehydrateflags: CF_DEHYDRATE_FLAGS, overlapped: Long): HRESULT =
-    if (_windowsWin32StorageCloudfiltersNapiAddon != null) (_windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_CfDehydratePlaceholder(filehandle.toString(), startingoffset.toString(), length.toString(), dehydrateflags, overlapped.toString()) as Int) else 0
+public actual fun cfDehydratePlaceholder(filehandle: Handle, startingoffset: Long, length: Long, dehydrateflags: CfDehydrateFlags, overlapped: COpaquePointer?): Hresult =
+    if (_windowsWin32StorageCloudfiltersNapiAddon != null) (_windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_cfDehydratePlaceholder((filehandle?.value ?: 0L).toString(), startingoffset.toString(), length.toString(), dehydrateflags, (overlapped?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CfDisconnectSyncRoot(connectionkey: CF_CONNECTION_KEY): HRESULT =
-    if (_windowsWin32StorageCloudfiltersNapiAddon != null) (_windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_CfDisconnectSyncRoot(connectionkey.toString()) as Int) else 0
+public actual fun cfDisconnectSyncRoot(connectionkey: CfConnectionKey): Hresult =
+    if (_windowsWin32StorageCloudfiltersNapiAddon != null) (_windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_cfDisconnectSyncRoot(connectionkey.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CfExecute(opinfo: Long, opparams: Long): HRESULT =
-    if (_windowsWin32StorageCloudfiltersNapiAddon != null) (_windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_CfExecute(opinfo.toString(), opparams.toString()) as Int) else 0
+public actual fun cfExecute(opinfo: COpaquePointer?, opparams: COpaquePointer?): Hresult =
+    if (_windowsWin32StorageCloudfiltersNapiAddon != null) (_windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_cfExecute((opinfo?.value ?: 0L).toString(), (opparams?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CfGetCorrelationVector(filehandle: HANDLE, correlationvector: Long): HRESULT =
-    if (_windowsWin32StorageCloudfiltersNapiAddon != null) (_windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_CfGetCorrelationVector(filehandle.toString(), correlationvector.toString()) as Int) else 0
+public actual fun cfGetCorrelationVector(filehandle: Handle, correlationvector: COpaquePointer?): Hresult =
+    if (_windowsWin32StorageCloudfiltersNapiAddon != null) (_windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_cfGetCorrelationVector((filehandle?.value ?: 0L).toString(), (correlationvector?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CfGetPlaceholderInfo(filehandle: HANDLE, infoclass: CF_PLACEHOLDER_INFO_CLASS, infobuffer: Long, infobufferlength: UInt, returnedlength: Long): HRESULT =
-    if (_windowsWin32StorageCloudfiltersNapiAddon != null) (_windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_CfGetPlaceholderInfo(filehandle.toString(), infoclass, infobuffer.toString(), infobufferlength.toInt(), returnedlength.toString()) as Int) else 0
+public actual fun cfGetPlaceholderInfo(filehandle: Handle, infoclass: CfPlaceholderInfoClass, infobuffer: COpaquePointer?, infobufferlength: UInt, returnedlength: COpaquePointer?): Hresult =
+    if (_windowsWin32StorageCloudfiltersNapiAddon != null) (_windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_cfGetPlaceholderInfo((filehandle?.value ?: 0L).toString(), infoclass, (infobuffer?.value ?: 0L).toString(), infobufferlength.toInt(), (returnedlength?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CfGetPlaceholderRangeInfo(filehandle: HANDLE, infoclass: CF_PLACEHOLDER_RANGE_INFO_CLASS, startingoffset: Long, length: Long, infobuffer: Long, infobufferlength: UInt, returnedlength: Long): HRESULT =
-    if (_windowsWin32StorageCloudfiltersNapiAddon != null) (_windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_CfGetPlaceholderRangeInfo(filehandle.toString(), infoclass, startingoffset.toString(), length.toString(), infobuffer.toString(), infobufferlength.toInt(), returnedlength.toString()) as Int) else 0
+public actual fun cfGetPlaceholderRangeInfo(filehandle: Handle, infoclass: CfPlaceholderRangeInfoClass, startingoffset: Long, length: Long, infobuffer: COpaquePointer?, infobufferlength: UInt, returnedlength: COpaquePointer?): Hresult =
+    if (_windowsWin32StorageCloudfiltersNapiAddon != null) (_windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_cfGetPlaceholderRangeInfo((filehandle?.value ?: 0L).toString(), infoclass, startingoffset.toString(), length.toString(), (infobuffer?.value ?: 0L).toString(), infobufferlength.toInt(), (returnedlength?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CfGetPlaceholderRangeInfoForHydration(connectionkey: CF_CONNECTION_KEY, transferkey: Long, fileid: Long, infoclass: CF_PLACEHOLDER_RANGE_INFO_CLASS, startingoffset: Long, rangelength: Long, infobuffer: Long, infobuffersize: UInt, infobufferwritten: Long): HRESULT =
-    if (_windowsWin32StorageCloudfiltersNapiAddon != null) (_windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_CfGetPlaceholderRangeInfoForHydration(connectionkey.toString(), transferkey.toString(), fileid.toString(), infoclass, startingoffset.toString(), rangelength.toString(), infobuffer.toString(), infobuffersize.toInt(), infobufferwritten.toString()) as Int) else 0
+public actual fun cfGetPlaceholderRangeInfoForHydration(connectionkey: CfConnectionKey, transferkey: Long, fileid: Long, infoclass: CfPlaceholderRangeInfoClass, startingoffset: Long, rangelength: Long, infobuffer: COpaquePointer?, infobuffersize: UInt, infobufferwritten: COpaquePointer?): Hresult =
+    if (_windowsWin32StorageCloudfiltersNapiAddon != null) (_windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_cfGetPlaceholderRangeInfoForHydration(connectionkey.toString(), transferkey.toString(), fileid.toString(), infoclass, startingoffset.toString(), rangelength.toString(), (infobuffer?.value ?: 0L).toString(), infobuffersize.toInt(), (infobufferwritten?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CfGetPlaceholderStateFromAttributeTag(fileattributes: UInt, reparsetag: UInt): CF_PLACEHOLDER_STATE =
-    if (_windowsWin32StorageCloudfiltersNapiAddon != null) (_windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_CfGetPlaceholderStateFromAttributeTag(fileattributes.toInt(), reparsetag.toInt()) as Int).toUInt() else 0u
+public actual fun cfGetPlaceholderStateFromAttributeTag(fileattributes: UInt, reparsetag: UInt): CfPlaceholderState =
+    if (_windowsWin32StorageCloudfiltersNapiAddon != null) (_windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_cfGetPlaceholderStateFromAttributeTag(fileattributes.toInt(), reparsetag.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CfGetPlaceholderStateFromFileInfo(infobuffer: Long, infoclass: FILE_INFO_BY_HANDLE_CLASS): CF_PLACEHOLDER_STATE =
-    if (_windowsWin32StorageCloudfiltersNapiAddon != null) (_windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_CfGetPlaceholderStateFromFileInfo(infobuffer.toString(), infoclass) as Int).toUInt() else 0u
+public actual fun cfGetPlaceholderStateFromFileInfo(infobuffer: COpaquePointer?, infoclass: FileInfoByHandleClass): CfPlaceholderState =
+    if (_windowsWin32StorageCloudfiltersNapiAddon != null) (_windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_cfGetPlaceholderStateFromFileInfo((infobuffer?.value ?: 0L).toString(), infoclass) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CfGetPlaceholderStateFromFindData(finddata: Long): CF_PLACEHOLDER_STATE =
-    if (_windowsWin32StorageCloudfiltersNapiAddon != null) (_windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_CfGetPlaceholderStateFromFindData(finddata.toString()) as Int).toUInt() else 0u
+public actual fun cfGetPlaceholderStateFromFindData(finddata: COpaquePointer?): CfPlaceholderState =
+    if (_windowsWin32StorageCloudfiltersNapiAddon != null) (_windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_cfGetPlaceholderStateFromFindData((finddata?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CfGetPlatformInfo(platformversion: Long): HRESULT =
-    if (_windowsWin32StorageCloudfiltersNapiAddon != null) (_windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_CfGetPlatformInfo(platformversion.toString()) as Int) else 0
+public actual fun cfGetPlatformInfo(platformversion: COpaquePointer?): Hresult =
+    if (_windowsWin32StorageCloudfiltersNapiAddon != null) (_windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_cfGetPlatformInfo((platformversion?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CfGetSyncRootInfoByHandle(filehandle: HANDLE, infoclass: CF_SYNC_ROOT_INFO_CLASS, infobuffer: Long, infobufferlength: UInt, returnedlength: Long): HRESULT =
-    if (_windowsWin32StorageCloudfiltersNapiAddon != null) (_windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_CfGetSyncRootInfoByHandle(filehandle.toString(), infoclass, infobuffer.toString(), infobufferlength.toInt(), returnedlength.toString()) as Int) else 0
+public actual fun cfGetSyncRootInfoByHandle(filehandle: Handle, infoclass: CfSyncRootInfoClass, infobuffer: COpaquePointer?, infobufferlength: UInt, returnedlength: COpaquePointer?): Hresult =
+    if (_windowsWin32StorageCloudfiltersNapiAddon != null) (_windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_cfGetSyncRootInfoByHandle((filehandle?.value ?: 0L).toString(), infoclass, (infobuffer?.value ?: 0L).toString(), infobufferlength.toInt(), (returnedlength?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CfGetSyncRootInfoByPath(filepath: PCWSTR, infoclass: CF_SYNC_ROOT_INFO_CLASS, infobuffer: Long, infobufferlength: UInt, returnedlength: Long): HRESULT =
-    if (_windowsWin32StorageCloudfiltersNapiAddon != null) (_windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_CfGetSyncRootInfoByPath(filepath.toString(), infoclass, infobuffer.toString(), infobufferlength.toInt(), returnedlength.toString()) as Int) else 0
+public actual fun cfGetSyncRootInfoByPath(filepath: Pcwstr, infoclass: CfSyncRootInfoClass, infobuffer: COpaquePointer?, infobufferlength: UInt, returnedlength: COpaquePointer?): Hresult =
+    if (_windowsWin32StorageCloudfiltersNapiAddon != null) (_windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_cfGetSyncRootInfoByPath((filepath?.value ?: 0L).toString(), infoclass, (infobuffer?.value ?: 0L).toString(), infobufferlength.toInt(), (returnedlength?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CfGetTransferKey(filehandle: HANDLE, transferkey: Long): HRESULT =
-    if (_windowsWin32StorageCloudfiltersNapiAddon != null) (_windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_CfGetTransferKey(filehandle.toString(), transferkey.toString()) as Int) else 0
+public actual fun cfGetTransferKey(filehandle: Handle, transferkey: COpaquePointer?): Hresult =
+    if (_windowsWin32StorageCloudfiltersNapiAddon != null) (_windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_cfGetTransferKey((filehandle?.value ?: 0L).toString(), (transferkey?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CfGetWin32HandleFromProtectedHandle(protectedhandle: HANDLE): HANDLE =
-    if (_windowsWin32StorageCloudfiltersNapiAddon != null) (_windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_CfGetWin32HandleFromProtectedHandle(protectedhandle.toString()) as String).toLong() else 0L
+public actual fun cfGetWin32HandleFromProtectedHandle(protectedhandle: Handle): Handle =
+    if (_windowsWin32StorageCloudfiltersNapiAddon != null) (_windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_cfGetWin32HandleFromProtectedHandle((protectedhandle?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CfHydratePlaceholder(filehandle: HANDLE, startingoffset: Long, length: Long, hydrateflags: CF_HYDRATE_FLAGS, overlapped: Long): HRESULT =
-    if (_windowsWin32StorageCloudfiltersNapiAddon != null) (_windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_CfHydratePlaceholder(filehandle.toString(), startingoffset.toString(), length.toString(), hydrateflags, overlapped.toString()) as Int) else 0
+public actual fun cfHydratePlaceholder(filehandle: Handle, startingoffset: Long, length: Long, hydrateflags: CfHydrateFlags, overlapped: COpaquePointer?): Hresult =
+    if (_windowsWin32StorageCloudfiltersNapiAddon != null) (_windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_cfHydratePlaceholder((filehandle?.value ?: 0L).toString(), startingoffset.toString(), length.toString(), hydrateflags, (overlapped?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CfOpenFileWithOplock(filepath: PCWSTR, flags: CF_OPEN_FILE_FLAGS, protectedhandle: Long): HRESULT =
-    if (_windowsWin32StorageCloudfiltersNapiAddon != null) (_windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_CfOpenFileWithOplock(filepath.toString(), flags, protectedhandle.toString()) as Int) else 0
+public actual fun cfOpenFileWithOplock(filepath: Pcwstr, flags: CfOpenFileFlags, protectedhandle: COpaquePointer?): Hresult =
+    if (_windowsWin32StorageCloudfiltersNapiAddon != null) (_windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_cfOpenFileWithOplock((filepath?.value ?: 0L).toString(), flags, (protectedhandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CfQuerySyncProviderStatus(connectionkey: CF_CONNECTION_KEY, providerstatus: Long): HRESULT =
-    if (_windowsWin32StorageCloudfiltersNapiAddon != null) (_windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_CfQuerySyncProviderStatus(connectionkey.toString(), providerstatus.toString()) as Int) else 0
+public actual fun cfQuerySyncProviderStatus(connectionkey: CfConnectionKey, providerstatus: COpaquePointer?): Hresult =
+    if (_windowsWin32StorageCloudfiltersNapiAddon != null) (_windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_cfQuerySyncProviderStatus(connectionkey.toString(), (providerstatus?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CfReferenceProtectedHandle(protectedhandle: HANDLE): Boolean =
-    if (_windowsWin32StorageCloudfiltersNapiAddon != null) (_windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_CfReferenceProtectedHandle(protectedhandle.toString()) as Boolean) else false
+public actual fun cfReferenceProtectedHandle(protectedhandle: Handle): Boolean =
+    if (_windowsWin32StorageCloudfiltersNapiAddon != null) (_windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_cfReferenceProtectedHandle((protectedhandle?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CfRegisterSyncRoot(syncrootpath: PCWSTR, registration: Long, policies: Long, registerflags: CF_REGISTER_FLAGS): HRESULT =
-    if (_windowsWin32StorageCloudfiltersNapiAddon != null) (_windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_CfRegisterSyncRoot(syncrootpath.toString(), registration.toString(), policies.toString(), registerflags) as Int) else 0
+public actual fun cfRegisterSyncRoot(syncrootpath: Pcwstr, registration: COpaquePointer?, policies: COpaquePointer?, registerflags: CfRegisterFlags): Hresult =
+    if (_windowsWin32StorageCloudfiltersNapiAddon != null) (_windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_cfRegisterSyncRoot((syncrootpath?.value ?: 0L).toString(), (registration?.value ?: 0L).toString(), (policies?.value ?: 0L).toString(), registerflags) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CfReleaseProtectedHandle(protectedhandle: HANDLE) {
+public actual fun cfReleaseProtectedHandle(protectedhandle: Handle) {
     if (_windowsWin32StorageCloudfiltersNapiAddon != null) {
-        _windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_CfReleaseProtectedHandle(protectedhandle.toString())
+        _windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_cfReleaseProtectedHandle((protectedhandle?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun CfReleaseTransferKey(filehandle: HANDLE, transferkey: Long) {
+public actual fun cfReleaseTransferKey(filehandle: Handle, transferkey: COpaquePointer?) {
     if (_windowsWin32StorageCloudfiltersNapiAddon != null) {
-        _windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_CfReleaseTransferKey(filehandle.toString(), transferkey.toString())
+        _windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_cfReleaseTransferKey((filehandle?.value ?: 0L).toString(), (transferkey?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun CfReportProviderProgress(connectionkey: CF_CONNECTION_KEY, transferkey: Long, providerprogresstotal: Long, providerprogresscompleted: Long): HRESULT =
-    if (_windowsWin32StorageCloudfiltersNapiAddon != null) (_windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_CfReportProviderProgress(connectionkey.toString(), transferkey.toString(), providerprogresstotal.toString(), providerprogresscompleted.toString()) as Int) else 0
+public actual fun cfReportProviderProgress(connectionkey: CfConnectionKey, transferkey: Long, providerprogresstotal: Long, providerprogresscompleted: Long): Hresult =
+    if (_windowsWin32StorageCloudfiltersNapiAddon != null) (_windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_cfReportProviderProgress(connectionkey.toString(), transferkey.toString(), providerprogresstotal.toString(), providerprogresscompleted.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CfReportProviderProgress2(connectionkey: CF_CONNECTION_KEY, transferkey: Long, requestkey: Long, providerprogresstotal: Long, providerprogresscompleted: Long, targetsessionid: UInt): HRESULT =
-    if (_windowsWin32StorageCloudfiltersNapiAddon != null) (_windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_CfReportProviderProgress2(connectionkey.toString(), transferkey.toString(), requestkey.toString(), providerprogresstotal.toString(), providerprogresscompleted.toString(), targetsessionid.toInt()) as Int) else 0
+public actual fun cfReportProviderProgress2(connectionkey: CfConnectionKey, transferkey: Long, requestkey: Long, providerprogresstotal: Long, providerprogresscompleted: Long, targetsessionid: UInt): Hresult =
+    if (_windowsWin32StorageCloudfiltersNapiAddon != null) (_windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_cfReportProviderProgress2(connectionkey.toString(), transferkey.toString(), requestkey.toString(), providerprogresstotal.toString(), providerprogresscompleted.toString(), targetsessionid.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CfReportSyncStatus(syncrootpath: PCWSTR, syncstatus: Long): HRESULT =
-    if (_windowsWin32StorageCloudfiltersNapiAddon != null) (_windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_CfReportSyncStatus(syncrootpath.toString(), syncstatus.toString()) as Int) else 0
+public actual fun cfReportSyncStatus(syncrootpath: Pcwstr, syncstatus: COpaquePointer?): Hresult =
+    if (_windowsWin32StorageCloudfiltersNapiAddon != null) (_windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_cfReportSyncStatus((syncrootpath?.value ?: 0L).toString(), (syncstatus?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CfRevertPlaceholder(filehandle: HANDLE, revertflags: CF_REVERT_FLAGS, overlapped: Long): HRESULT =
-    if (_windowsWin32StorageCloudfiltersNapiAddon != null) (_windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_CfRevertPlaceholder(filehandle.toString(), revertflags, overlapped.toString()) as Int) else 0
+public actual fun cfRevertPlaceholder(filehandle: Handle, revertflags: CfRevertFlags, overlapped: COpaquePointer?): Hresult =
+    if (_windowsWin32StorageCloudfiltersNapiAddon != null) (_windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_cfRevertPlaceholder((filehandle?.value ?: 0L).toString(), revertflags, (overlapped?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CfSetCorrelationVector(filehandle: HANDLE, correlationvector: Long): HRESULT =
-    if (_windowsWin32StorageCloudfiltersNapiAddon != null) (_windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_CfSetCorrelationVector(filehandle.toString(), correlationvector.toString()) as Int) else 0
+public actual fun cfSetCorrelationVector(filehandle: Handle, correlationvector: COpaquePointer?): Hresult =
+    if (_windowsWin32StorageCloudfiltersNapiAddon != null) (_windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_cfSetCorrelationVector((filehandle?.value ?: 0L).toString(), (correlationvector?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CfSetInSyncState(filehandle: HANDLE, insyncstate: CF_IN_SYNC_STATE, insyncflags: CF_SET_IN_SYNC_FLAGS, insyncusn: Long): HRESULT =
-    if (_windowsWin32StorageCloudfiltersNapiAddon != null) (_windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_CfSetInSyncState(filehandle.toString(), insyncstate, insyncflags, insyncusn.toString()) as Int) else 0
+public actual fun cfSetInSyncState(filehandle: Handle, insyncstate: CfInSyncState, insyncflags: CfSetInSyncFlags, insyncusn: COpaquePointer?): Hresult =
+    if (_windowsWin32StorageCloudfiltersNapiAddon != null) (_windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_cfSetInSyncState((filehandle?.value ?: 0L).toString(), insyncstate, insyncflags, (insyncusn?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CfSetPinState(filehandle: HANDLE, pinstate: CF_PIN_STATE, pinflags: CF_SET_PIN_FLAGS, overlapped: Long): HRESULT =
-    if (_windowsWin32StorageCloudfiltersNapiAddon != null) (_windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_CfSetPinState(filehandle.toString(), pinstate, pinflags, overlapped.toString()) as Int) else 0
+public actual fun cfSetPinState(filehandle: Handle, pinstate: CfPinState, pinflags: CfSetPinFlags, overlapped: COpaquePointer?): Hresult =
+    if (_windowsWin32StorageCloudfiltersNapiAddon != null) (_windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_cfSetPinState((filehandle?.value ?: 0L).toString(), pinstate, pinflags, (overlapped?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CfUnregisterSyncRoot(syncrootpath: PCWSTR): HRESULT =
-    if (_windowsWin32StorageCloudfiltersNapiAddon != null) (_windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_CfUnregisterSyncRoot(syncrootpath.toString()) as Int) else 0
+public actual fun cfUnregisterSyncRoot(syncrootpath: Pcwstr): Hresult =
+    if (_windowsWin32StorageCloudfiltersNapiAddon != null) (_windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_cfUnregisterSyncRoot((syncrootpath?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CfUpdatePlaceholder(filehandle: HANDLE, fsmetadata: Long, fileidentity: Long, fileidentitylength: UInt, dehydraterangearray: Long, dehydraterangecount: UInt, updateflags: CF_UPDATE_FLAGS, updateusn: Long, overlapped: Long): HRESULT =
-    if (_windowsWin32StorageCloudfiltersNapiAddon != null) (_windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_CfUpdatePlaceholder(filehandle.toString(), fsmetadata.toString(), fileidentity.toString(), fileidentitylength.toInt(), dehydraterangearray.toString(), dehydraterangecount.toInt(), updateflags, updateusn.toString(), overlapped.toString()) as Int) else 0
+public actual fun cfUpdatePlaceholder(filehandle: Handle, fsmetadata: COpaquePointer?, fileidentity: COpaquePointer?, fileidentitylength: UInt, dehydraterangearray: COpaquePointer?, dehydraterangecount: UInt, updateflags: CfUpdateFlags, updateusn: COpaquePointer?, overlapped: COpaquePointer?): Hresult =
+    if (_windowsWin32StorageCloudfiltersNapiAddon != null) (_windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_cfUpdatePlaceholder((filehandle?.value ?: 0L).toString(), (fsmetadata?.value ?: 0L).toString(), (fileidentity?.value ?: 0L).toString(), fileidentitylength.toInt(), (dehydraterangearray?.value ?: 0L).toString(), dehydraterangecount.toInt(), updateflags, (updateusn?.value ?: 0L).toString(), (overlapped?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CfUpdateSyncProviderStatus(connectionkey: CF_CONNECTION_KEY, providerstatus: CF_SYNC_PROVIDER_STATUS): HRESULT =
-    if (_windowsWin32StorageCloudfiltersNapiAddon != null) (_windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_CfUpdateSyncProviderStatus(connectionkey.toString(), providerstatus.toInt()) as Int) else 0
+public actual fun cfUpdateSyncProviderStatus(connectionkey: CfConnectionKey, providerstatus: CfSyncProviderStatus): Hresult =
+    if (_windowsWin32StorageCloudfiltersNapiAddon != null) (_windowsWin32StorageCloudfiltersNapiAddon.windowssys_windows_win32_storage_cloudfilters_cfUpdateSyncProviderStatus(connectionkey.toString(), providerstatus.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")

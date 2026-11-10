@@ -2,1237 +2,1242 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networking.clustering
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.security.OBJECT_SECURITY_INFORMATION
-import io.github.kotlinmania.windowssys.windows.win32.security.PSECURITY_DESCRIPTOR
-import io.github.kotlinmania.windowssys.windows.win32.system.registry.HKEY
-import io.github.kotlinmania.windowssys.windows.win32.system.services.SC_HANDLE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.security.ObjectSecurityInformation
+import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
+import io.github.kotlinmania.windowssys.windows.win32.system.registry.Hkey
+import io.github.kotlinmania.windowssys.windows.win32.system.services.ScHandle
 
 private val _windowsWin32NetworkingClusteringNapiAddon: dynamic =
-    js("(function() { if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var req = (new Function('t', 'return typeof require === t ? require : null'))('function'); if (!req) return null; var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; for (var d = 0; d < 8; d++) { var c1 = path.resolve(dir, 'build/node-ffi/windows_sys_native.node'); if (fs.existsSync(c1)) return req(c1); var c2 = path.resolve(dir, 'src/js/node-windows_sys/build/Release/windows_sys_native.node'); if (fs.existsSync(c2)) return req(c2); var c3 = path.resolve(dir, 'src/js/node-windows_sys/build/Debug/windows_sys_native.node'); if (fs.existsSync(c3)) return req(c3); var c4 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Release/windows_sys_native.node'); if (fs.existsSync(c4)) return req(c4); var c5 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Debug/windows_sys_native.node'); if (fs.existsSync(c5)) return req(c5); var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } return null; })()")
+    js("(function() { if (typeof globalThis !== 'undefined' && typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys; if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) return null; try { var pkg = req('@kotlinmania/windowssys-native-bindings'); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = pkg; return pkg; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { var loaded = req(c); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = loaded; return loaded; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = null; return null; })()")
 
-public actual fun AddClusterGroupDependency(hdependentgroup: HGROUP, hprovidergroup: HGROUP): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_AddClusterGroupDependency(hdependentgroup.toString(), hprovidergroup.toString()) as Int).toUInt() else 0u
+public actual fun addClusterGroupDependency(hdependentgroup: Hgroup, hprovidergroup: Hgroup): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_addClusterGroupDependency(hdependentgroup.toString(), hprovidergroup.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AddClusterGroupDependencyEx(hdependentgroup: HGROUP, hprovidergroup: HGROUP, lpszreason: PCWSTR): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_AddClusterGroupDependencyEx(hdependentgroup.toString(), hprovidergroup.toString(), lpszreason.toString()) as Int).toUInt() else 0u
+public actual fun addClusterGroupDependencyEx(hdependentgroup: Hgroup, hprovidergroup: Hgroup, lpszreason: Pcwstr): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_addClusterGroupDependencyEx(hdependentgroup.toString(), hprovidergroup.toString(), (lpszreason?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AddClusterGroupSetDependency(hdependentgroupset: HGROUPSET, hprovidergroupset: HGROUPSET): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_AddClusterGroupSetDependency(hdependentgroupset.toString(), hprovidergroupset.toString()) as Int).toUInt() else 0u
+public actual fun addClusterGroupSetDependency(hdependentgroupset: Hgroupset, hprovidergroupset: Hgroupset): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_addClusterGroupSetDependency(hdependentgroupset.toString(), hprovidergroupset.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AddClusterGroupSetDependencyEx(hdependentgroupset: HGROUPSET, hprovidergroupset: HGROUPSET, lpszreason: PCWSTR): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_AddClusterGroupSetDependencyEx(hdependentgroupset.toString(), hprovidergroupset.toString(), lpszreason.toString()) as Int).toUInt() else 0u
+public actual fun addClusterGroupSetDependencyEx(hdependentgroupset: Hgroupset, hprovidergroupset: Hgroupset, lpszreason: Pcwstr): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_addClusterGroupSetDependencyEx(hdependentgroupset.toString(), hprovidergroupset.toString(), (lpszreason?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AddClusterGroupToGroupSetDependency(hdependentgroup: HGROUP, hprovidergroupset: HGROUPSET): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_AddClusterGroupToGroupSetDependency(hdependentgroup.toString(), hprovidergroupset.toString()) as Int).toUInt() else 0u
+public actual fun addClusterGroupToGroupSetDependency(hdependentgroup: Hgroup, hprovidergroupset: Hgroupset): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_addClusterGroupToGroupSetDependency(hdependentgroup.toString(), hprovidergroupset.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AddClusterGroupToGroupSetDependencyEx(hdependentgroup: HGROUP, hprovidergroupset: HGROUPSET, lpszreason: PCWSTR): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_AddClusterGroupToGroupSetDependencyEx(hdependentgroup.toString(), hprovidergroupset.toString(), lpszreason.toString()) as Int).toUInt() else 0u
+public actual fun addClusterGroupToGroupSetDependencyEx(hdependentgroup: Hgroup, hprovidergroupset: Hgroupset, lpszreason: Pcwstr): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_addClusterGroupToGroupSetDependencyEx(hdependentgroup.toString(), hprovidergroupset.toString(), (lpszreason?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AddClusterNode(hcluster: HCLUSTER, lpsznodename: PCWSTR, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: Long): HNODE =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_AddClusterNode(hcluster.toString(), lpsznodename.toString(), pfnprogresscallback.toLong().toString(), pvcallbackarg.toString()) as String).toLong() else 0L
+public actual fun addClusterNode(hcluster: Hcluster, lpsznodename: Pcwstr, pfnprogresscallback: PclusterSetupProgressCallback, pvcallbackarg: COpaquePointer?): Hnode =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_addClusterNode(hcluster.toString(), (lpsznodename?.value ?: 0L).toString(), 0L.toString(), (pvcallbackarg?.value ?: 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AddClusterNodeEx(hcluster: HCLUSTER, lpsznodename: PCWSTR, dwflags: UInt, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: Long): HNODE =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_AddClusterNodeEx(hcluster.toString(), lpsznodename.toString(), dwflags.toInt(), pfnprogresscallback.toLong().toString(), pvcallbackarg.toString()) as String).toLong() else 0L
+public actual fun addClusterNodeEx(hcluster: Hcluster, lpsznodename: Pcwstr, dwflags: UInt, pfnprogresscallback: PclusterSetupProgressCallback, pvcallbackarg: COpaquePointer?): Hnode =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_addClusterNodeEx(hcluster.toString(), (lpsznodename?.value ?: 0L).toString(), dwflags.toInt(), 0L.toString(), (pvcallbackarg?.value ?: 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AddClusterResourceDependency(hresource: HRESOURCE, hdependson: HRESOURCE): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_AddClusterResourceDependency(hresource.toString(), hdependson.toString()) as Int).toUInt() else 0u
+public actual fun addClusterResourceDependency(hresource: Hresource, hdependson: Hresource): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_addClusterResourceDependency(hresource.toString(), hdependson.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AddClusterResourceDependencyEx(hresource: HRESOURCE, hdependson: HRESOURCE, lpszreason: PCWSTR): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_AddClusterResourceDependencyEx(hresource.toString(), hdependson.toString(), lpszreason.toString()) as Int).toUInt() else 0u
+public actual fun addClusterResourceDependencyEx(hresource: Hresource, hdependson: Hresource, lpszreason: Pcwstr): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_addClusterResourceDependencyEx(hresource.toString(), hdependson.toString(), (lpszreason?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AddClusterResourceNode(hresource: HRESOURCE, hnode: HNODE): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_AddClusterResourceNode(hresource.toString(), hnode.toString()) as Int).toUInt() else 0u
+public actual fun addClusterResourceNode(hresource: Hresource, hnode: Hnode): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_addClusterResourceNode(hresource.toString(), hnode.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AddClusterResourceNodeEx(hresource: HRESOURCE, hnode: HNODE, lpszreason: PCWSTR): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_AddClusterResourceNodeEx(hresource.toString(), hnode.toString(), lpszreason.toString()) as Int).toUInt() else 0u
+public actual fun addClusterResourceNodeEx(hresource: Hresource, hnode: Hnode, lpszreason: Pcwstr): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_addClusterResourceNodeEx(hresource.toString(), hnode.toString(), (lpszreason?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AddClusterStorageNode(hcluster: HCLUSTER, lpsznodename: PCWSTR, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: Long, lpszclusterstoragenodedescription: PCWSTR, lpszclusterstoragenodelocation: PCWSTR): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_AddClusterStorageNode(hcluster.toString(), lpsznodename.toString(), pfnprogresscallback.toLong().toString(), pvcallbackarg.toString(), lpszclusterstoragenodedescription.toString(), lpszclusterstoragenodelocation.toString()) as Int).toUInt() else 0u
+public actual fun addClusterStorageNode(hcluster: Hcluster, lpsznodename: Pcwstr, pfnprogresscallback: PclusterSetupProgressCallback, pvcallbackarg: COpaquePointer?, lpszclusterstoragenodedescription: Pcwstr, lpszclusterstoragenodelocation: Pcwstr): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_addClusterStorageNode(hcluster.toString(), (lpsznodename?.value ?: 0L).toString(), 0L.toString(), (pvcallbackarg?.value ?: 0L).toString(), (lpszclusterstoragenodedescription?.value ?: 0L).toString(), (lpszclusterstoragenodelocation?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AddCrossClusterGroupSetDependency(hdependentgroupset: HGROUPSET, lpremoteclustername: PCWSTR, lpremotegroupsetname: PCWSTR): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_AddCrossClusterGroupSetDependency(hdependentgroupset.toString(), lpremoteclustername.toString(), lpremotegroupsetname.toString()) as Int).toUInt() else 0u
+public actual fun addCrossClusterGroupSetDependency(hdependentgroupset: Hgroupset, lpremoteclustername: Pcwstr, lpremotegroupsetname: Pcwstr): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_addCrossClusterGroupSetDependency(hdependentgroupset.toString(), (lpremoteclustername?.value ?: 0L).toString(), (lpremotegroupsetname?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AddResourceToClusterSharedVolumes(hresource: HRESOURCE): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_AddResourceToClusterSharedVolumes(hresource.toString()) as Int).toUInt() else 0u
+public actual fun addResourceToClusterSharedVolumes(hresource: Hresource): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_addResourceToClusterSharedVolumes(hresource.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BackupClusterDatabase(hcluster: HCLUSTER, lpszpathname: PCWSTR): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_BackupClusterDatabase(hcluster.toString(), lpszpathname.toString()) as Int).toUInt() else 0u
+public actual fun backupClusterDatabase(hcluster: Hcluster, lpszpathname: Pcwstr): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_backupClusterDatabase(hcluster.toString(), (lpszpathname?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CanResourceBeDependent(hresource: HRESOURCE, hresourcedependent: HRESOURCE): BOOL =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_CanResourceBeDependent(hresource.toString(), hresourcedependent.toString()) as Int) else 0
+public actual fun canResourceBeDependent(hresource: Hresource, hresourcedependent: Hresource): Bool =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_canResourceBeDependent(hresource.toString(), hresourcedependent.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CancelClusterGroupOperation(hgroup: HGROUP, dwcancelflags_reserved: UInt): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_CancelClusterGroupOperation(hgroup.toString(), dwcancelflags_reserved.toInt()) as Int).toUInt() else 0u
+public actual fun cancelClusterGroupOperation(hgroup: Hgroup, dwcancelflagsReserved: UInt): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_cancelClusterGroupOperation(hgroup.toString(), dwcancelflagsReserved.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ChangeClusterResourceGroup(hresource: HRESOURCE, hgroup: HGROUP): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ChangeClusterResourceGroup(hresource.toString(), hgroup.toString()) as Int).toUInt() else 0u
+public actual fun changeClusterResourceGroup(hresource: Hresource, hgroup: Hgroup): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_changeClusterResourceGroup(hresource.toString(), hgroup.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ChangeClusterResourceGroupEx(hresource: HRESOURCE, hgroup: HGROUP, flags: ULong): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ChangeClusterResourceGroupEx(hresource.toString(), hgroup.toString(), flags.toString()) as Int).toUInt() else 0u
+public actual fun changeClusterResourceGroupEx(hresource: Hresource, hgroup: Hgroup, flags: ULong): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_changeClusterResourceGroupEx(hresource.toString(), hgroup.toString(), flags.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ChangeClusterResourceGroupEx2(hresource: HRESOURCE, hgroup: HGROUP, flags: ULong, lpszreason: PCWSTR): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ChangeClusterResourceGroupEx2(hresource.toString(), hgroup.toString(), flags.toString(), lpszreason.toString()) as Int).toUInt() else 0u
+public actual fun changeClusterResourceGroupEx2(hresource: Hresource, hgroup: Hgroup, flags: ULong, lpszreason: Pcwstr): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_changeClusterResourceGroupEx2(hresource.toString(), hgroup.toString(), flags.toString(), (lpszreason?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CloseCluster(hcluster: HCLUSTER): BOOL =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_CloseCluster(hcluster.toString()) as Int) else 0
+public actual fun closeCluster(hcluster: Hcluster): Bool =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_closeCluster(hcluster.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CloseClusterCryptProvider(hcluscryptprovider: HCLUSCRYPTPROVIDER): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_CloseClusterCryptProvider(hcluscryptprovider.toString()) as Int).toUInt() else 0u
+public actual fun closeClusterCryptProvider(hcluscryptprovider: Hcluscryptprovider): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_closeClusterCryptProvider(hcluscryptprovider.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CloseClusterGroup(hgroup: HGROUP): BOOL =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_CloseClusterGroup(hgroup.toString()) as Int) else 0
+public actual fun closeClusterGroup(hgroup: Hgroup): Bool =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_closeClusterGroup(hgroup.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CloseClusterGroupSet(hgroupset: HGROUPSET): BOOL =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_CloseClusterGroupSet(hgroupset.toString()) as Int) else 0
+public actual fun closeClusterGroupSet(hgroupset: Hgroupset): Bool =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_closeClusterGroupSet(hgroupset.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CloseClusterNetInterface(hnetinterface: HNETINTERFACE): BOOL =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_CloseClusterNetInterface(hnetinterface.toString()) as Int) else 0
+public actual fun closeClusterNetInterface(hnetinterface: Hnetinterface): Bool =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_closeClusterNetInterface(hnetinterface.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CloseClusterNetwork(hnetwork: HNETWORK): BOOL =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_CloseClusterNetwork(hnetwork.toString()) as Int) else 0
+public actual fun closeClusterNetwork(hnetwork: Hnetwork): Bool =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_closeClusterNetwork(hnetwork.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CloseClusterNode(hnode: HNODE): BOOL =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_CloseClusterNode(hnode.toString()) as Int) else 0
+public actual fun closeClusterNode(hnode: Hnode): Bool =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_closeClusterNode(hnode.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CloseClusterNotifyPort(hchange: HCHANGE): BOOL =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_CloseClusterNotifyPort(hchange.toString()) as Int) else 0
+public actual fun closeClusterNotifyPort(hchange: Hchange): Bool =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_closeClusterNotifyPort(hchange.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CloseClusterResource(hresource: HRESOURCE): BOOL =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_CloseClusterResource(hresource.toString()) as Int) else 0
+public actual fun closeClusterResource(hresource: Hresource): Bool =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_closeClusterResource(hresource.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusAddClusterHealthFault(hcluster: HCLUSTER, failure: Long, param2: UInt): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusAddClusterHealthFault(hcluster.toString(), failure.toString(), param2.toInt()) as Int).toUInt() else 0u
+public actual fun clusAddClusterHealthFault(hcluster: Hcluster, failure: COpaquePointer?, param2: UInt): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusAddClusterHealthFault(hcluster.toString(), (failure?.value ?: 0L).toString(), param2.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusGetClusterHealthFaults(hcluster: HCLUSTER, objects: Long, flags: UInt): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusGetClusterHealthFaults(hcluster.toString(), objects.toString(), flags.toInt()) as Int).toUInt() else 0u
+public actual fun clusGetClusterHealthFaults(hcluster: Hcluster, objects: COpaquePointer?, flags: UInt): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusGetClusterHealthFaults(hcluster.toString(), (objects?.value ?: 0L).toString(), flags.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusRemoveClusterHealthFault(hcluster: HCLUSTER, id: PCWSTR, flags: UInt): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusRemoveClusterHealthFault(hcluster.toString(), id.toString(), flags.toInt()) as Int).toUInt() else 0u
+public actual fun clusRemoveClusterHealthFault(hcluster: Hcluster, id: Pcwstr, flags: UInt): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusRemoveClusterHealthFault(hcluster.toString(), (id?.value ?: 0L).toString(), flags.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusWorkerCheckTerminate(lpworker: Long): BOOL =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusWorkerCheckTerminate(lpworker.toString()) as Int) else 0
+public actual fun clusWorkerCheckTerminate(lpworker: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusWorkerCheckTerminate((lpworker?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusWorkerCreate(lpworker: Long, lpstartaddress: PWORKER_START_ROUTINE, lpparameter: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusWorkerCreate(lpworker.toString(), lpstartaddress.toLong().toString(), lpparameter.toString()) as Int).toUInt() else 0u
+public actual fun clusWorkerCreate(lpworker: COpaquePointer?, lpstartaddress: PworkerStartRoutine, lpparameter: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusWorkerCreate((lpworker?.value ?: 0L).toString(), 0L.toString(), (lpparameter?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusWorkerTerminate(lpworker: Long) {
+public actual fun clusWorkerTerminate(lpworker: COpaquePointer?) {
     if (_windowsWin32NetworkingClusteringNapiAddon != null) {
-        _windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusWorkerTerminate(lpworker.toString())
+        _windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusWorkerTerminate((lpworker?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ClusWorkerTerminateEx(clusworker: Long, timeoutinmilliseconds: UInt, waitonly: BOOL): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusWorkerTerminateEx(clusworker.toString(), timeoutinmilliseconds.toInt(), waitonly) as Int).toUInt() else 0u
+public actual fun clusWorkerTerminateEx(clusworker: COpaquePointer?, timeoutinmilliseconds: UInt, waitonly: Bool): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusWorkerTerminateEx((clusworker?.value ?: 0L).toString(), timeoutinmilliseconds.toInt(), waitonly) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusWorkersTerminate(clusworkers: Long, clusworkerscount: ULong, timeoutinmilliseconds: UInt, waitonly: BOOL): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusWorkersTerminate(clusworkers.toString(), clusworkerscount.toString(), timeoutinmilliseconds.toInt(), waitonly) as Int).toUInt() else 0u
+public actual fun clusWorkersTerminate(clusworkers: COpaquePointer?, clusworkerscount: ULong, timeoutinmilliseconds: UInt, waitonly: Bool): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusWorkersTerminate((clusworkers?.value ?: 0L).toString(), clusworkerscount.toString(), timeoutinmilliseconds.toInt(), waitonly) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusapiSetReasonHandler(lphandler: Long): Long =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusapiSetReasonHandler(lphandler.toString()) as String).toLong() else 0L
+public actual fun clusapiSetReasonHandler(lphandler: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusapiSetReasonHandler((lphandler?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterAddGroupToAffinityRule(hcluster: HCLUSTER, rulename: PCWSTR, hgroup: HGROUP): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterAddGroupToAffinityRule(hcluster.toString(), rulename.toString(), hgroup.toString()) as Int).toUInt() else 0u
+public actual fun clusterAddGroupToAffinityRule(hcluster: Hcluster, rulename: Pcwstr, hgroup: Hgroup): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterAddGroupToAffinityRule(hcluster.toString(), (rulename?.value ?: 0L).toString(), hgroup.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterAddGroupToGroupSet(hgroupset: HGROUPSET, hgroup: HGROUP): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterAddGroupToGroupSet(hgroupset.toString(), hgroup.toString()) as Int).toUInt() else 0u
+public actual fun clusterAddGroupToGroupSet(hgroupset: Hgroupset, hgroup: Hgroup): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterAddGroupToGroupSet(hgroupset.toString(), hgroup.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterAddGroupToGroupSetWithDomains(hgroupset: HGROUPSET, hgroup: HGROUP, faultdomain: UInt, updatedomain: UInt): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterAddGroupToGroupSetWithDomains(hgroupset.toString(), hgroup.toString(), faultdomain.toInt(), updatedomain.toInt()) as Int).toUInt() else 0u
+public actual fun clusterAddGroupToGroupSetWithDomains(hgroupset: Hgroupset, hgroup: Hgroup, faultdomain: UInt, updatedomain: UInt): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterAddGroupToGroupSetWithDomains(hgroupset.toString(), hgroup.toString(), faultdomain.toInt(), updatedomain.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterAddGroupToGroupSetWithDomainsEx(hgroupset: HGROUPSET, hgroup: HGROUP, faultdomain: UInt, updatedomain: UInt, lpszreason: PCWSTR): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterAddGroupToGroupSetWithDomainsEx(hgroupset.toString(), hgroup.toString(), faultdomain.toInt(), updatedomain.toInt(), lpszreason.toString()) as Int).toUInt() else 0u
+public actual fun clusterAddGroupToGroupSetWithDomainsEx(hgroupset: Hgroupset, hgroup: Hgroup, faultdomain: UInt, updatedomain: UInt, lpszreason: Pcwstr): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterAddGroupToGroupSetWithDomainsEx(hgroupset.toString(), hgroup.toString(), faultdomain.toInt(), updatedomain.toInt(), (lpszreason?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterAffinityRuleControl(hcluster: HCLUSTER, affinityrulename: PCWSTR, hhostnode: HNODE, dwcontrolcode: UInt, lpinbuffer: Long, cbinbuffersize: UInt, lpoutbuffer: Long, cboutbuffersize: UInt, lpbytesreturned: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterAffinityRuleControl(hcluster.toString(), affinityrulename.toString(), hhostnode.toString(), dwcontrolcode.toInt(), lpinbuffer.toString(), cbinbuffersize.toInt(), lpoutbuffer.toString(), cboutbuffersize.toInt(), lpbytesreturned.toString()) as Int).toUInt() else 0u
+public actual fun clusterAffinityRuleControl(hcluster: Hcluster, affinityrulename: Pcwstr, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt, lpoutbuffer: COpaquePointer?, cboutbuffersize: UInt, lpbytesreturned: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterAffinityRuleControl(hcluster.toString(), (affinityrulename?.value ?: 0L).toString(), hhostnode.toString(), dwcontrolcode.toInt(), (lpinbuffer?.value ?: 0L).toString(), cbinbuffersize.toInt(), (lpoutbuffer?.value ?: 0L).toString(), cboutbuffersize.toInt(), (lpbytesreturned?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterClearBackupStateForSharedVolume(lpszvolumepathname: PCWSTR): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterClearBackupStateForSharedVolume(lpszvolumepathname.toString()) as Int).toUInt() else 0u
+public actual fun clusterClearBackupStateForSharedVolume(lpszvolumepathname: Pcwstr): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterClearBackupStateForSharedVolume((lpszvolumepathname?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterCloseEnum(henum: HCLUSENUM): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterCloseEnum(henum.toString()) as Int).toUInt() else 0u
+public actual fun clusterCloseEnum(henum: Hclusenum): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterCloseEnum(henum.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterCloseEnumEx(hclusterenum: HCLUSENUMEX): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterCloseEnumEx(hclusterenum.toString()) as Int).toUInt() else 0u
+public actual fun clusterCloseEnumEx(hclusterenum: Hclusenumex): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterCloseEnumEx(hclusterenum.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterControl(hcluster: HCLUSTER, hhostnode: HNODE, dwcontrolcode: UInt, lpinbuffer: Long, ninbuffersize: UInt, lpoutbuffer: Long, noutbuffersize: UInt, lpbytesreturned: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterControl(hcluster.toString(), hhostnode.toString(), dwcontrolcode.toInt(), lpinbuffer.toString(), ninbuffersize.toInt(), lpoutbuffer.toString(), noutbuffersize.toInt(), lpbytesreturned.toString()) as Int).toUInt() else 0u
+public actual fun clusterControl(hcluster: Hcluster, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterControl(hcluster.toString(), hhostnode.toString(), dwcontrolcode.toInt(), (lpinbuffer?.value ?: 0L).toString(), ninbuffersize.toInt(), (lpoutbuffer?.value ?: 0L).toString(), noutbuffersize.toInt(), (lpbytesreturned?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterControlEx(hcluster: HCLUSTER, hhostnode: HNODE, dwcontrolcode: UInt, lpinbuffer: Long, ninbuffersize: UInt, lpoutbuffer: Long, noutbuffersize: UInt, lpbytesreturned: Long, lpszreason: PCWSTR): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterControlEx(hcluster.toString(), hhostnode.toString(), dwcontrolcode.toInt(), lpinbuffer.toString(), ninbuffersize.toInt(), lpoutbuffer.toString(), noutbuffersize.toInt(), lpbytesreturned.toString(), lpszreason.toString()) as Int).toUInt() else 0u
+public actual fun clusterControlEx(hcluster: Hcluster, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?, lpszreason: Pcwstr): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterControlEx(hcluster.toString(), hhostnode.toString(), dwcontrolcode.toInt(), (lpinbuffer?.value ?: 0L).toString(), ninbuffersize.toInt(), (lpoutbuffer?.value ?: 0L).toString(), noutbuffersize.toInt(), (lpbytesreturned?.value ?: 0L).toString(), (lpszreason?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterCreateAffinityRule(hcluster: HCLUSTER, rulename: PCWSTR, ruletype: CLUS_AFFINITY_RULE_TYPE): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterCreateAffinityRule(hcluster.toString(), rulename.toString(), ruletype) as Int).toUInt() else 0u
+public actual fun clusterCreateAffinityRule(hcluster: Hcluster, rulename: Pcwstr, ruletype: ClusAffinityRuleType): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterCreateAffinityRule(hcluster.toString(), (rulename?.value ?: 0L).toString(), ruletype) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterDecrypt(hcluscryptprovider: HCLUSCRYPTPROVIDER, pcryptinput: Long, cbcryptinput: UInt, ppcryptoutput: Long, pcbcryptoutput: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterDecrypt(hcluscryptprovider.toString(), pcryptinput.toString(), cbcryptinput.toInt(), ppcryptoutput.toString(), pcbcryptoutput.toString()) as Int).toUInt() else 0u
+public actual fun clusterDecrypt(hcluscryptprovider: Hcluscryptprovider, pcryptinput: COpaquePointer?, cbcryptinput: UInt, ppcryptoutput: COpaquePointer?, pcbcryptoutput: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterDecrypt(hcluscryptprovider.toString(), (pcryptinput?.value ?: 0L).toString(), cbcryptinput.toInt(), (ppcryptoutput?.value ?: 0L).toString(), (pcbcryptoutput?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterEncrypt(hcluscryptprovider: HCLUSCRYPTPROVIDER, pdata: Long, cbdata: UInt, ppdata: Long, pcbdata: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterEncrypt(hcluscryptprovider.toString(), pdata.toString(), cbdata.toInt(), ppdata.toString(), pcbdata.toString()) as Int).toUInt() else 0u
+public actual fun clusterEncrypt(hcluscryptprovider: Hcluscryptprovider, pdata: COpaquePointer?, cbdata: UInt, ppdata: COpaquePointer?, pcbdata: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterEncrypt(hcluscryptprovider.toString(), (pdata?.value ?: 0L).toString(), cbdata.toInt(), (ppdata?.value ?: 0L).toString(), (pcbdata?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterEnum(henum: HCLUSENUM, dwindex: UInt, lpdwtype: Long, lpszname: PWSTR, lpcchname: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterEnum(henum.toString(), dwindex.toInt(), lpdwtype.toString(), lpszname.toString(), lpcchname.toString()) as Int).toUInt() else 0u
+public actual fun clusterEnum(henum: Hclusenum, dwindex: UInt, lpdwtype: COpaquePointer?, lpszname: Pwstr, lpcchname: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterEnum(henum.toString(), dwindex.toInt(), (lpdwtype?.value ?: 0L).toString(), (lpszname?.value ?: 0L).toString(), (lpcchname?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterEnumEx(hclusterenum: HCLUSENUMEX, dwindex: UInt, pitem: Long, cbitem: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterEnumEx(hclusterenum.toString(), dwindex.toInt(), pitem.toString(), cbitem.toString()) as Int).toUInt() else 0u
+public actual fun clusterEnumEx(hclusterenum: Hclusenumex, dwindex: UInt, pitem: COpaquePointer?, cbitem: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterEnumEx(hclusterenum.toString(), dwindex.toInt(), (pitem?.value ?: 0L).toString(), (cbitem?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterGetEnumCount(henum: HCLUSENUM): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterGetEnumCount(henum.toString()) as Int).toUInt() else 0u
+public actual fun clusterGetEnumCount(henum: Hclusenum): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterGetEnumCount(henum.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterGetEnumCountEx(hclusterenum: HCLUSENUMEX): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterGetEnumCountEx(hclusterenum.toString()) as Int).toUInt() else 0u
+public actual fun clusterGetEnumCountEx(hclusterenum: Hclusenumex): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterGetEnumCountEx(hclusterenum.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterGetVolumeNameForVolumeMountPoint(lpszvolumemountpoint: PCWSTR, lpszvolumename: PWSTR, cchbufferlength: UInt): BOOL =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterGetVolumeNameForVolumeMountPoint(lpszvolumemountpoint.toString(), lpszvolumename.toString(), cchbufferlength.toInt()) as Int) else 0
+public actual fun clusterGetVolumeNameForVolumeMountPoint(lpszvolumemountpoint: Pcwstr, lpszvolumename: Pwstr, cchbufferlength: UInt): Bool =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterGetVolumeNameForVolumeMountPoint((lpszvolumemountpoint?.value ?: 0L).toString(), (lpszvolumename?.value ?: 0L).toString(), cchbufferlength.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterGetVolumePathName(lpszfilename: PCWSTR, lpszvolumepathname: PWSTR, cchbufferlength: UInt): BOOL =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterGetVolumePathName(lpszfilename.toString(), lpszvolumepathname.toString(), cchbufferlength.toInt()) as Int) else 0
+public actual fun clusterGetVolumePathName(lpszfilename: Pcwstr, lpszvolumepathname: Pwstr, cchbufferlength: UInt): Bool =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterGetVolumePathName((lpszfilename?.value ?: 0L).toString(), (lpszvolumepathname?.value ?: 0L).toString(), cchbufferlength.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterGroupCloseEnum(hgroupenum: HGROUPENUM): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterGroupCloseEnum(hgroupenum.toString()) as Int).toUInt() else 0u
+public actual fun clusterGroupCloseEnum(hgroupenum: Hgroupenum): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterGroupCloseEnum(hgroupenum.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterGroupCloseEnumEx(hgroupenumex: HGROUPENUMEX): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterGroupCloseEnumEx(hgroupenumex.toString()) as Int).toUInt() else 0u
+public actual fun clusterGroupCloseEnumEx(hgroupenumex: Hgroupenumex): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterGroupCloseEnumEx(hgroupenumex.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterGroupControl(hgroup: HGROUP, hhostnode: HNODE, dwcontrolcode: UInt, lpinbuffer: Long, ninbuffersize: UInt, lpoutbuffer: Long, noutbuffersize: UInt, lpbytesreturned: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterGroupControl(hgroup.toString(), hhostnode.toString(), dwcontrolcode.toInt(), lpinbuffer.toString(), ninbuffersize.toInt(), lpoutbuffer.toString(), noutbuffersize.toInt(), lpbytesreturned.toString()) as Int).toUInt() else 0u
+public actual fun clusterGroupControl(hgroup: Hgroup, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterGroupControl(hgroup.toString(), hhostnode.toString(), dwcontrolcode.toInt(), (lpinbuffer?.value ?: 0L).toString(), ninbuffersize.toInt(), (lpoutbuffer?.value ?: 0L).toString(), noutbuffersize.toInt(), (lpbytesreturned?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterGroupControlEx(hgroup: HGROUP, hhostnode: HNODE, dwcontrolcode: UInt, lpinbuffer: Long, ninbuffersize: UInt, lpoutbuffer: Long, noutbuffersize: UInt, lpbytesreturned: Long, lpszreason: PCWSTR): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterGroupControlEx(hgroup.toString(), hhostnode.toString(), dwcontrolcode.toInt(), lpinbuffer.toString(), ninbuffersize.toInt(), lpoutbuffer.toString(), noutbuffersize.toInt(), lpbytesreturned.toString(), lpszreason.toString()) as Int).toUInt() else 0u
+public actual fun clusterGroupControlEx(hgroup: Hgroup, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?, lpszreason: Pcwstr): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterGroupControlEx(hgroup.toString(), hhostnode.toString(), dwcontrolcode.toInt(), (lpinbuffer?.value ?: 0L).toString(), ninbuffersize.toInt(), (lpoutbuffer?.value ?: 0L).toString(), noutbuffersize.toInt(), (lpbytesreturned?.value ?: 0L).toString(), (lpszreason?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterGroupEnum(hgroupenum: HGROUPENUM, dwindex: UInt, lpdwtype: Long, lpszresourcename: PWSTR, lpcchname: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterGroupEnum(hgroupenum.toString(), dwindex.toInt(), lpdwtype.toString(), lpszresourcename.toString(), lpcchname.toString()) as Int).toUInt() else 0u
+public actual fun clusterGroupEnum(hgroupenum: Hgroupenum, dwindex: UInt, lpdwtype: COpaquePointer?, lpszresourcename: Pwstr, lpcchname: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterGroupEnum(hgroupenum.toString(), dwindex.toInt(), (lpdwtype?.value ?: 0L).toString(), (lpszresourcename?.value ?: 0L).toString(), (lpcchname?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterGroupEnumEx(hgroupenumex: HGROUPENUMEX, dwindex: UInt, pitem: Long, cbitem: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterGroupEnumEx(hgroupenumex.toString(), dwindex.toInt(), pitem.toString(), cbitem.toString()) as Int).toUInt() else 0u
+public actual fun clusterGroupEnumEx(hgroupenumex: Hgroupenumex, dwindex: UInt, pitem: COpaquePointer?, cbitem: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterGroupEnumEx(hgroupenumex.toString(), dwindex.toInt(), (pitem?.value ?: 0L).toString(), (cbitem?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterGroupGetEnumCount(hgroupenum: HGROUPENUM): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterGroupGetEnumCount(hgroupenum.toString()) as Int).toUInt() else 0u
+public actual fun clusterGroupGetEnumCount(hgroupenum: Hgroupenum): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterGroupGetEnumCount(hgroupenum.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterGroupGetEnumCountEx(hgroupenumex: HGROUPENUMEX): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterGroupGetEnumCountEx(hgroupenumex.toString()) as Int).toUInt() else 0u
+public actual fun clusterGroupGetEnumCountEx(hgroupenumex: Hgroupenumex): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterGroupGetEnumCountEx(hgroupenumex.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterGroupOpenEnum(hgroup: HGROUP, dwtype: UInt): HGROUPENUM =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterGroupOpenEnum(hgroup.toString(), dwtype.toInt()) as String).toLong() else 0L
+public actual fun clusterGroupOpenEnum(hgroup: Hgroup, dwtype: UInt): Hgroupenum =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterGroupOpenEnum(hgroup.toString(), dwtype.toInt()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterGroupOpenEnumEx(hcluster: HCLUSTER, lpszproperties: PCWSTR, cbproperties: UInt, lpszroproperties: PCWSTR, cbroproperties: UInt, dwflags: UInt): HGROUPENUMEX =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterGroupOpenEnumEx(hcluster.toString(), lpszproperties.toString(), cbproperties.toInt(), lpszroproperties.toString(), cbroproperties.toInt(), dwflags.toInt()) as String).toLong() else 0L
+public actual fun clusterGroupOpenEnumEx(hcluster: Hcluster, lpszproperties: Pcwstr, cbproperties: UInt, lpszroproperties: Pcwstr, cbroproperties: UInt, dwflags: UInt): Hgroupenumex =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterGroupOpenEnumEx(hcluster.toString(), (lpszproperties?.value ?: 0L).toString(), cbproperties.toInt(), (lpszroproperties?.value ?: 0L).toString(), cbroproperties.toInt(), dwflags.toInt()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterGroupSetCloseEnum(hgroupsetenum: HGROUPSETENUM): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterGroupSetCloseEnum(hgroupsetenum.toString()) as Int).toUInt() else 0u
+public actual fun clusterGroupSetCloseEnum(hgroupsetenum: Hgroupsetenum): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterGroupSetCloseEnum(hgroupsetenum.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterGroupSetControl(hgroupset: HGROUPSET, hhostnode: HNODE, dwcontrolcode: UInt, lpinbuffer: Long, cbinbuffersize: UInt, lpoutbuffer: Long, cboutbuffersize: UInt, lpbytesreturned: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterGroupSetControl(hgroupset.toString(), hhostnode.toString(), dwcontrolcode.toInt(), lpinbuffer.toString(), cbinbuffersize.toInt(), lpoutbuffer.toString(), cboutbuffersize.toInt(), lpbytesreturned.toString()) as Int).toUInt() else 0u
+public actual fun clusterGroupSetControl(hgroupset: Hgroupset, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt, lpoutbuffer: COpaquePointer?, cboutbuffersize: UInt, lpbytesreturned: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterGroupSetControl(hgroupset.toString(), hhostnode.toString(), dwcontrolcode.toInt(), (lpinbuffer?.value ?: 0L).toString(), cbinbuffersize.toInt(), (lpoutbuffer?.value ?: 0L).toString(), cboutbuffersize.toInt(), (lpbytesreturned?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterGroupSetControlEx(hgroupset: HGROUPSET, hhostnode: HNODE, dwcontrolcode: UInt, lpinbuffer: Long, cbinbuffersize: UInt, lpoutbuffer: Long, cboutbuffersize: UInt, lpbytesreturned: Long, lpszreason: PCWSTR): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterGroupSetControlEx(hgroupset.toString(), hhostnode.toString(), dwcontrolcode.toInt(), lpinbuffer.toString(), cbinbuffersize.toInt(), lpoutbuffer.toString(), cboutbuffersize.toInt(), lpbytesreturned.toString(), lpszreason.toString()) as Int).toUInt() else 0u
+public actual fun clusterGroupSetControlEx(hgroupset: Hgroupset, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt, lpoutbuffer: COpaquePointer?, cboutbuffersize: UInt, lpbytesreturned: COpaquePointer?, lpszreason: Pcwstr): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterGroupSetControlEx(hgroupset.toString(), hhostnode.toString(), dwcontrolcode.toInt(), (lpinbuffer?.value ?: 0L).toString(), cbinbuffersize.toInt(), (lpoutbuffer?.value ?: 0L).toString(), cboutbuffersize.toInt(), (lpbytesreturned?.value ?: 0L).toString(), (lpszreason?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterGroupSetEnum(hgroupsetenum: HGROUPSETENUM, dwindex: UInt, lpszname: PWSTR, lpcchname: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterGroupSetEnum(hgroupsetenum.toString(), dwindex.toInt(), lpszname.toString(), lpcchname.toString()) as Int).toUInt() else 0u
+public actual fun clusterGroupSetEnum(hgroupsetenum: Hgroupsetenum, dwindex: UInt, lpszname: Pwstr, lpcchname: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterGroupSetEnum(hgroupsetenum.toString(), dwindex.toInt(), (lpszname?.value ?: 0L).toString(), (lpcchname?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterGroupSetGetEnumCount(hgroupsetenum: HGROUPSETENUM): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterGroupSetGetEnumCount(hgroupsetenum.toString()) as Int).toUInt() else 0u
+public actual fun clusterGroupSetGetEnumCount(hgroupsetenum: Hgroupsetenum): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterGroupSetGetEnumCount(hgroupsetenum.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterGroupSetOpenEnum(hcluster: HCLUSTER): HGROUPSETENUM =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterGroupSetOpenEnum(hcluster.toString()) as String).toLong() else 0L
+public actual fun clusterGroupSetOpenEnum(hcluster: Hcluster): Hgroupsetenum =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterGroupSetOpenEnum(hcluster.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterIsPathOnSharedVolume(lpszpathname: PCWSTR): BOOL =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterIsPathOnSharedVolume(lpszpathname.toString()) as Int) else 0
+public actual fun clusterIsPathOnSharedVolume(lpszpathname: Pcwstr): Bool =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterIsPathOnSharedVolume((lpszpathname?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterNetInterfaceCloseEnum(hnetinterfaceenum: HNETINTERFACEENUM): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterNetInterfaceCloseEnum(hnetinterfaceenum.toString()) as Int).toUInt() else 0u
+public actual fun clusterNetInterfaceCloseEnum(hnetinterfaceenum: Hnetinterfaceenum): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterNetInterfaceCloseEnum(hnetinterfaceenum.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterNetInterfaceControl(hnetinterface: HNETINTERFACE, hhostnode: HNODE, dwcontrolcode: UInt, lpinbuffer: Long, ninbuffersize: UInt, lpoutbuffer: Long, noutbuffersize: UInt, lpbytesreturned: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterNetInterfaceControl(hnetinterface.toString(), hhostnode.toString(), dwcontrolcode.toInt(), lpinbuffer.toString(), ninbuffersize.toInt(), lpoutbuffer.toString(), noutbuffersize.toInt(), lpbytesreturned.toString()) as Int).toUInt() else 0u
+public actual fun clusterNetInterfaceControl(hnetinterface: Hnetinterface, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterNetInterfaceControl(hnetinterface.toString(), hhostnode.toString(), dwcontrolcode.toInt(), (lpinbuffer?.value ?: 0L).toString(), ninbuffersize.toInt(), (lpoutbuffer?.value ?: 0L).toString(), noutbuffersize.toInt(), (lpbytesreturned?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterNetInterfaceControlEx(hnetinterface: HNETINTERFACE, hhostnode: HNODE, dwcontrolcode: UInt, lpinbuffer: Long, ninbuffersize: UInt, lpoutbuffer: Long, noutbuffersize: UInt, lpbytesreturned: Long, lpszreason: PCWSTR): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterNetInterfaceControlEx(hnetinterface.toString(), hhostnode.toString(), dwcontrolcode.toInt(), lpinbuffer.toString(), ninbuffersize.toInt(), lpoutbuffer.toString(), noutbuffersize.toInt(), lpbytesreturned.toString(), lpszreason.toString()) as Int).toUInt() else 0u
+public actual fun clusterNetInterfaceControlEx(hnetinterface: Hnetinterface, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?, lpszreason: Pcwstr): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterNetInterfaceControlEx(hnetinterface.toString(), hhostnode.toString(), dwcontrolcode.toInt(), (lpinbuffer?.value ?: 0L).toString(), ninbuffersize.toInt(), (lpoutbuffer?.value ?: 0L).toString(), noutbuffersize.toInt(), (lpbytesreturned?.value ?: 0L).toString(), (lpszreason?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterNetInterfaceEnum(hnetinterfaceenum: HNETINTERFACEENUM, dwindex: UInt, lpszname: PWSTR, lpcchname: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterNetInterfaceEnum(hnetinterfaceenum.toString(), dwindex.toInt(), lpszname.toString(), lpcchname.toString()) as Int).toUInt() else 0u
+public actual fun clusterNetInterfaceEnum(hnetinterfaceenum: Hnetinterfaceenum, dwindex: UInt, lpszname: Pwstr, lpcchname: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterNetInterfaceEnum(hnetinterfaceenum.toString(), dwindex.toInt(), (lpszname?.value ?: 0L).toString(), (lpcchname?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterNetInterfaceOpenEnum(hcluster: HCLUSTER, lpsznodename: PCWSTR, lpsznetworkname: PCWSTR): HNETINTERFACEENUM =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterNetInterfaceOpenEnum(hcluster.toString(), lpsznodename.toString(), lpsznetworkname.toString()) as String).toLong() else 0L
+public actual fun clusterNetInterfaceOpenEnum(hcluster: Hcluster, lpsznodename: Pcwstr, lpsznetworkname: Pcwstr): Hnetinterfaceenum =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterNetInterfaceOpenEnum(hcluster.toString(), (lpsznodename?.value ?: 0L).toString(), (lpsznetworkname?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterNetworkCloseEnum(hnetworkenum: HNETWORKENUM): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterNetworkCloseEnum(hnetworkenum.toString()) as Int).toUInt() else 0u
+public actual fun clusterNetworkCloseEnum(hnetworkenum: Hnetworkenum): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterNetworkCloseEnum(hnetworkenum.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterNetworkControl(hnetwork: HNETWORK, hhostnode: HNODE, dwcontrolcode: UInt, lpinbuffer: Long, ninbuffersize: UInt, lpoutbuffer: Long, noutbuffersize: UInt, lpbytesreturned: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterNetworkControl(hnetwork.toString(), hhostnode.toString(), dwcontrolcode.toInt(), lpinbuffer.toString(), ninbuffersize.toInt(), lpoutbuffer.toString(), noutbuffersize.toInt(), lpbytesreturned.toString()) as Int).toUInt() else 0u
+public actual fun clusterNetworkControl(hnetwork: Hnetwork, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterNetworkControl(hnetwork.toString(), hhostnode.toString(), dwcontrolcode.toInt(), (lpinbuffer?.value ?: 0L).toString(), ninbuffersize.toInt(), (lpoutbuffer?.value ?: 0L).toString(), noutbuffersize.toInt(), (lpbytesreturned?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterNetworkControlEx(hnetwork: HNETWORK, hhostnode: HNODE, dwcontrolcode: UInt, lpinbuffer: Long, ninbuffersize: UInt, lpoutbuffer: Long, noutbuffersize: UInt, lpbytesreturned: Long, lpszreason: PCWSTR): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterNetworkControlEx(hnetwork.toString(), hhostnode.toString(), dwcontrolcode.toInt(), lpinbuffer.toString(), ninbuffersize.toInt(), lpoutbuffer.toString(), noutbuffersize.toInt(), lpbytesreturned.toString(), lpszreason.toString()) as Int).toUInt() else 0u
+public actual fun clusterNetworkControlEx(hnetwork: Hnetwork, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?, lpszreason: Pcwstr): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterNetworkControlEx(hnetwork.toString(), hhostnode.toString(), dwcontrolcode.toInt(), (lpinbuffer?.value ?: 0L).toString(), ninbuffersize.toInt(), (lpoutbuffer?.value ?: 0L).toString(), noutbuffersize.toInt(), (lpbytesreturned?.value ?: 0L).toString(), (lpszreason?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterNetworkEnum(hnetworkenum: HNETWORKENUM, dwindex: UInt, lpdwtype: Long, lpszname: PWSTR, lpcchname: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterNetworkEnum(hnetworkenum.toString(), dwindex.toInt(), lpdwtype.toString(), lpszname.toString(), lpcchname.toString()) as Int).toUInt() else 0u
+public actual fun clusterNetworkEnum(hnetworkenum: Hnetworkenum, dwindex: UInt, lpdwtype: COpaquePointer?, lpszname: Pwstr, lpcchname: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterNetworkEnum(hnetworkenum.toString(), dwindex.toInt(), (lpdwtype?.value ?: 0L).toString(), (lpszname?.value ?: 0L).toString(), (lpcchname?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterNetworkGetEnumCount(hnetworkenum: HNETWORKENUM): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterNetworkGetEnumCount(hnetworkenum.toString()) as Int).toUInt() else 0u
+public actual fun clusterNetworkGetEnumCount(hnetworkenum: Hnetworkenum): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterNetworkGetEnumCount(hnetworkenum.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterNetworkOpenEnum(hnetwork: HNETWORK, dwtype: UInt): HNETWORKENUM =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterNetworkOpenEnum(hnetwork.toString(), dwtype.toInt()) as String).toLong() else 0L
+public actual fun clusterNetworkOpenEnum(hnetwork: Hnetwork, dwtype: UInt): Hnetworkenum =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterNetworkOpenEnum(hnetwork.toString(), dwtype.toInt()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterNodeCloseEnum(hnodeenum: HNODEENUM): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterNodeCloseEnum(hnodeenum.toString()) as Int).toUInt() else 0u
+public actual fun clusterNodeCloseEnum(hnodeenum: Hnodeenum): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterNodeCloseEnum(hnodeenum.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterNodeCloseEnumEx(hnodeenum: HNODEENUMEX): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterNodeCloseEnumEx(hnodeenum.toString()) as Int).toUInt() else 0u
+public actual fun clusterNodeCloseEnumEx(hnodeenum: Hnodeenumex): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterNodeCloseEnumEx(hnodeenum.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterNodeControl(hnode: HNODE, hhostnode: HNODE, dwcontrolcode: UInt, lpinbuffer: Long, ninbuffersize: UInt, lpoutbuffer: Long, noutbuffersize: UInt, lpbytesreturned: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterNodeControl(hnode.toString(), hhostnode.toString(), dwcontrolcode.toInt(), lpinbuffer.toString(), ninbuffersize.toInt(), lpoutbuffer.toString(), noutbuffersize.toInt(), lpbytesreturned.toString()) as Int).toUInt() else 0u
+public actual fun clusterNodeControl(hnode: Hnode, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterNodeControl(hnode.toString(), hhostnode.toString(), dwcontrolcode.toInt(), (lpinbuffer?.value ?: 0L).toString(), ninbuffersize.toInt(), (lpoutbuffer?.value ?: 0L).toString(), noutbuffersize.toInt(), (lpbytesreturned?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterNodeControlEx(hnode: HNODE, hhostnode: HNODE, dwcontrolcode: UInt, lpinbuffer: Long, ninbuffersize: UInt, lpoutbuffer: Long, noutbuffersize: UInt, lpbytesreturned: Long, lpszreason: PCWSTR): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterNodeControlEx(hnode.toString(), hhostnode.toString(), dwcontrolcode.toInt(), lpinbuffer.toString(), ninbuffersize.toInt(), lpoutbuffer.toString(), noutbuffersize.toInt(), lpbytesreturned.toString(), lpszreason.toString()) as Int).toUInt() else 0u
+public actual fun clusterNodeControlEx(hnode: Hnode, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?, lpszreason: Pcwstr): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterNodeControlEx(hnode.toString(), hhostnode.toString(), dwcontrolcode.toInt(), (lpinbuffer?.value ?: 0L).toString(), ninbuffersize.toInt(), (lpoutbuffer?.value ?: 0L).toString(), noutbuffersize.toInt(), (lpbytesreturned?.value ?: 0L).toString(), (lpszreason?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterNodeEnum(hnodeenum: HNODEENUM, dwindex: UInt, lpdwtype: Long, lpszname: PWSTR, lpcchname: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterNodeEnum(hnodeenum.toString(), dwindex.toInt(), lpdwtype.toString(), lpszname.toString(), lpcchname.toString()) as Int).toUInt() else 0u
+public actual fun clusterNodeEnum(hnodeenum: Hnodeenum, dwindex: UInt, lpdwtype: COpaquePointer?, lpszname: Pwstr, lpcchname: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterNodeEnum(hnodeenum.toString(), dwindex.toInt(), (lpdwtype?.value ?: 0L).toString(), (lpszname?.value ?: 0L).toString(), (lpcchname?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterNodeEnumEx(hnodeenum: HNODEENUMEX, dwindex: UInt, pitem: Long, cbitem: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterNodeEnumEx(hnodeenum.toString(), dwindex.toInt(), pitem.toString(), cbitem.toString()) as Int).toUInt() else 0u
+public actual fun clusterNodeEnumEx(hnodeenum: Hnodeenumex, dwindex: UInt, pitem: COpaquePointer?, cbitem: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterNodeEnumEx(hnodeenum.toString(), dwindex.toInt(), (pitem?.value ?: 0L).toString(), (cbitem?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterNodeGetEnumCount(hnodeenum: HNODEENUM): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterNodeGetEnumCount(hnodeenum.toString()) as Int).toUInt() else 0u
+public actual fun clusterNodeGetEnumCount(hnodeenum: Hnodeenum): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterNodeGetEnumCount(hnodeenum.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterNodeGetEnumCountEx(hnodeenum: HNODEENUMEX): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterNodeGetEnumCountEx(hnodeenum.toString()) as Int).toUInt() else 0u
+public actual fun clusterNodeGetEnumCountEx(hnodeenum: Hnodeenumex): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterNodeGetEnumCountEx(hnodeenum.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterNodeOpenEnum(hnode: HNODE, dwtype: UInt): HNODEENUM =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterNodeOpenEnum(hnode.toString(), dwtype.toInt()) as String).toLong() else 0L
+public actual fun clusterNodeOpenEnum(hnode: Hnode, dwtype: UInt): Hnodeenum =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterNodeOpenEnum(hnode.toString(), dwtype.toInt()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterNodeOpenEnumEx(hnode: HNODE, dwtype: UInt, poptions: Long): HNODEENUMEX =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterNodeOpenEnumEx(hnode.toString(), dwtype.toInt(), poptions.toString()) as String).toLong() else 0L
+public actual fun clusterNodeOpenEnumEx(hnode: Hnode, dwtype: UInt, poptions: COpaquePointer?): Hnodeenumex =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterNodeOpenEnumEx(hnode.toString(), dwtype.toInt(), (poptions?.value ?: 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterNodeReplacement(hcluster: HCLUSTER, lpsznodenamecurrent: PCWSTR, lpsznodenamenew: PCWSTR): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterNodeReplacement(hcluster.toString(), lpsznodenamecurrent.toString(), lpsznodenamenew.toString()) as Int).toUInt() else 0u
+public actual fun clusterNodeReplacement(hcluster: Hcluster, lpsznodenamecurrent: Pcwstr, lpsznodenamenew: Pcwstr): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterNodeReplacement(hcluster.toString(), (lpsznodenamecurrent?.value ?: 0L).toString(), (lpsznodenamenew?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterOpenEnum(hcluster: HCLUSTER, dwtype: UInt): HCLUSENUM =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterOpenEnum(hcluster.toString(), dwtype.toInt()) as String).toLong() else 0L
+public actual fun clusterOpenEnum(hcluster: Hcluster, dwtype: UInt): Hclusenum =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterOpenEnum(hcluster.toString(), dwtype.toInt()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterOpenEnumEx(hcluster: HCLUSTER, dwtype: UInt, poptions: Long): HCLUSENUMEX =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterOpenEnumEx(hcluster.toString(), dwtype.toInt(), poptions.toString()) as String).toLong() else 0L
+public actual fun clusterOpenEnumEx(hcluster: Hcluster, dwtype: UInt, poptions: COpaquePointer?): Hclusenumex =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterOpenEnumEx(hcluster.toString(), dwtype.toInt(), (poptions?.value ?: 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterPrepareSharedVolumeForBackup(lpszfilename: PCWSTR, lpszvolumepathname: PWSTR, lpcchvolumepathname: Long, lpszvolumename: PWSTR, lpcchvolumename: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterPrepareSharedVolumeForBackup(lpszfilename.toString(), lpszvolumepathname.toString(), lpcchvolumepathname.toString(), lpszvolumename.toString(), lpcchvolumename.toString()) as Int).toUInt() else 0u
+public actual fun clusterPrepareSharedVolumeForBackup(lpszfilename: Pcwstr, lpszvolumepathname: Pwstr, lpcchvolumepathname: COpaquePointer?, lpszvolumename: Pwstr, lpcchvolumename: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterPrepareSharedVolumeForBackup((lpszfilename?.value ?: 0L).toString(), (lpszvolumepathname?.value ?: 0L).toString(), (lpcchvolumepathname?.value ?: 0L).toString(), (lpszvolumename?.value ?: 0L).toString(), (lpcchvolumename?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterRegBatchAddCommand(hregbatch: HREGBATCH, dwcommand: CLUSTER_REG_COMMAND, wzname: PCWSTR, dwoptions: UInt, lpdata: Long, cbdata: UInt): Int =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterRegBatchAddCommand(hregbatch.toString(), dwcommand, wzname.toString(), dwoptions.toInt(), lpdata.toString(), cbdata.toInt()) as Int) else 0
+public actual fun clusterRegBatchAddCommand(hregbatch: Hregbatch, dwcommand: ClusterRegCommand, wzname: Pcwstr, dwoptions: UInt, lpdata: COpaquePointer?, cbdata: UInt): Int =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterRegBatchAddCommand(hregbatch.toString(), dwcommand, (wzname?.value ?: 0L).toString(), dwoptions.toInt(), (lpdata?.value ?: 0L).toString(), cbdata.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterRegBatchCloseNotification(hbatchnotification: HREGBATCHNOTIFICATION): Int =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterRegBatchCloseNotification(hbatchnotification.toString()) as Int) else 0
+public actual fun clusterRegBatchCloseNotification(hbatchnotification: Hregbatchnotification): Int =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterRegBatchCloseNotification(hbatchnotification.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterRegBatchReadCommand(hbatchnotification: HREGBATCHNOTIFICATION, pbatchcommand: Long): Int =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterRegBatchReadCommand(hbatchnotification.toString(), pbatchcommand.toString()) as Int) else 0
+public actual fun clusterRegBatchReadCommand(hbatchnotification: Hregbatchnotification, pbatchcommand: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterRegBatchReadCommand(hbatchnotification.toString(), (pbatchcommand?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterRegCloseBatch(hregbatch: HREGBATCH, bcommit: BOOL, failedcommandnumber: Long): Int =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterRegCloseBatch(hregbatch.toString(), bcommit, failedcommandnumber.toString()) as Int) else 0
+public actual fun clusterRegCloseBatch(hregbatch: Hregbatch, bcommit: Bool, failedcommandnumber: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterRegCloseBatch(hregbatch.toString(), bcommit, (failedcommandnumber?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterRegCloseBatchEx(hregbatch: HREGBATCH, flags: UInt, failedcommandnumber: Long): Int =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterRegCloseBatchEx(hregbatch.toString(), flags.toInt(), failedcommandnumber.toString()) as Int) else 0
+public actual fun clusterRegCloseBatchEx(hregbatch: Hregbatch, flags: UInt, failedcommandnumber: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterRegCloseBatchEx(hregbatch.toString(), flags.toInt(), (failedcommandnumber?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterRegCloseBatchNotifyPort(hbatchnotifyport: HREGBATCHPORT): Int =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterRegCloseBatchNotifyPort(hbatchnotifyport.toString()) as Int) else 0
+public actual fun clusterRegCloseBatchNotifyPort(hbatchnotifyport: Hregbatchport): Int =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterRegCloseBatchNotifyPort(hbatchnotifyport.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterRegCloseKey(hkey: HKEY): Int =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterRegCloseKey(hkey.toString()) as Int) else 0
+public actual fun clusterRegCloseKey(hkey: Hkey): Int =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterRegCloseKey((hkey?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterRegCloseReadBatch(hregreadbatch: HREGREADBATCH, phregreadbatchreply: Long): Int =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterRegCloseReadBatch(hregreadbatch.toString(), phregreadbatchreply.toString()) as Int) else 0
+public actual fun clusterRegCloseReadBatch(hregreadbatch: Hregreadbatch, phregreadbatchreply: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterRegCloseReadBatch(hregreadbatch.toString(), (phregreadbatchreply?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterRegCloseReadBatchEx(hregreadbatch: HREGREADBATCH, flags: UInt, phregreadbatchreply: Long): Int =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterRegCloseReadBatchEx(hregreadbatch.toString(), flags.toInt(), phregreadbatchreply.toString()) as Int) else 0
+public actual fun clusterRegCloseReadBatchEx(hregreadbatch: Hregreadbatch, flags: UInt, phregreadbatchreply: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterRegCloseReadBatchEx(hregreadbatch.toString(), flags.toInt(), (phregreadbatchreply?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterRegCloseReadBatchReply(hregreadbatchreply: HREGREADBATCHREPLY): Int =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterRegCloseReadBatchReply(hregreadbatchreply.toString()) as Int) else 0
+public actual fun clusterRegCloseReadBatchReply(hregreadbatchreply: Hregreadbatchreply): Int =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterRegCloseReadBatchReply(hregreadbatchreply.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterRegCreateBatch(hkey: HKEY, phregbatch: Long): Int =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterRegCreateBatch(hkey.toString(), phregbatch.toString()) as Int) else 0
+public actual fun clusterRegCreateBatch(hkey: Hkey, phregbatch: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterRegCreateBatch((hkey?.value ?: 0L).toString(), (phregbatch?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterRegCreateBatchNotifyPort(hkey: HKEY, phbatchnotifyport: Long): Int =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterRegCreateBatchNotifyPort(hkey.toString(), phbatchnotifyport.toString()) as Int) else 0
+public actual fun clusterRegCreateBatchNotifyPort(hkey: Hkey, phbatchnotifyport: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterRegCreateBatchNotifyPort((hkey?.value ?: 0L).toString(), (phbatchnotifyport?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterRegCreateKey(hkey: HKEY, lpszsubkey: PCWSTR, dwoptions: UInt, samdesired: UInt, lpsecurityattributes: Long, phkresult: Long, lpdwdisposition: Long): Int =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterRegCreateKey(hkey.toString(), lpszsubkey.toString(), dwoptions.toInt(), samdesired.toInt(), lpsecurityattributes.toString(), phkresult.toString(), lpdwdisposition.toString()) as Int) else 0
+public actual fun clusterRegCreateKey(hkey: Hkey, lpszsubkey: Pcwstr, dwoptions: UInt, samdesired: UInt, lpsecurityattributes: COpaquePointer?, phkresult: COpaquePointer?, lpdwdisposition: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterRegCreateKey((hkey?.value ?: 0L).toString(), (lpszsubkey?.value ?: 0L).toString(), dwoptions.toInt(), samdesired.toInt(), (lpsecurityattributes?.value ?: 0L).toString(), (phkresult?.value ?: 0L).toString(), (lpdwdisposition?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterRegCreateKeyEx(hkey: HKEY, lpsubkey: PCWSTR, dwoptions: UInt, samdesired: UInt, lpsecurityattributes: Long, phkresult: Long, lpdwdisposition: Long, lpszreason: PCWSTR): Int =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterRegCreateKeyEx(hkey.toString(), lpsubkey.toString(), dwoptions.toInt(), samdesired.toInt(), lpsecurityattributes.toString(), phkresult.toString(), lpdwdisposition.toString(), lpszreason.toString()) as Int) else 0
+public actual fun clusterRegCreateKeyEx(hkey: Hkey, lpsubkey: Pcwstr, dwoptions: UInt, samdesired: UInt, lpsecurityattributes: COpaquePointer?, phkresult: COpaquePointer?, lpdwdisposition: COpaquePointer?, lpszreason: Pcwstr): Int =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterRegCreateKeyEx((hkey?.value ?: 0L).toString(), (lpsubkey?.value ?: 0L).toString(), dwoptions.toInt(), samdesired.toInt(), (lpsecurityattributes?.value ?: 0L).toString(), (phkresult?.value ?: 0L).toString(), (lpdwdisposition?.value ?: 0L).toString(), (lpszreason?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterRegCreateReadBatch(hkey: HKEY, phregreadbatch: Long): Int =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterRegCreateReadBatch(hkey.toString(), phregreadbatch.toString()) as Int) else 0
+public actual fun clusterRegCreateReadBatch(hkey: Hkey, phregreadbatch: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterRegCreateReadBatch((hkey?.value ?: 0L).toString(), (phregreadbatch?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterRegDeleteKey(hkey: HKEY, lpszsubkey: PCWSTR): Int =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterRegDeleteKey(hkey.toString(), lpszsubkey.toString()) as Int) else 0
+public actual fun clusterRegDeleteKey(hkey: Hkey, lpszsubkey: Pcwstr): Int =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterRegDeleteKey((hkey?.value ?: 0L).toString(), (lpszsubkey?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterRegDeleteKeyEx(hkey: HKEY, lpsubkey: PCWSTR, lpszreason: PCWSTR): Int =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterRegDeleteKeyEx(hkey.toString(), lpsubkey.toString(), lpszreason.toString()) as Int) else 0
+public actual fun clusterRegDeleteKeyEx(hkey: Hkey, lpsubkey: Pcwstr, lpszreason: Pcwstr): Int =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterRegDeleteKeyEx((hkey?.value ?: 0L).toString(), (lpsubkey?.value ?: 0L).toString(), (lpszreason?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterRegDeleteValue(hkey: HKEY, lpszvaluename: PCWSTR): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterRegDeleteValue(hkey.toString(), lpszvaluename.toString()) as Int).toUInt() else 0u
+public actual fun clusterRegDeleteValue(hkey: Hkey, lpszvaluename: Pcwstr): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterRegDeleteValue((hkey?.value ?: 0L).toString(), (lpszvaluename?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterRegDeleteValueEx(hkey: HKEY, lpszvaluename: PCWSTR, lpszreason: PCWSTR): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterRegDeleteValueEx(hkey.toString(), lpszvaluename.toString(), lpszreason.toString()) as Int).toUInt() else 0u
+public actual fun clusterRegDeleteValueEx(hkey: Hkey, lpszvaluename: Pcwstr, lpszreason: Pcwstr): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterRegDeleteValueEx((hkey?.value ?: 0L).toString(), (lpszvaluename?.value ?: 0L).toString(), (lpszreason?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterRegEnumKey(hkey: HKEY, dwindex: UInt, lpszname: PWSTR, lpcchname: Long, lpftlastwritetime: Long): Int =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterRegEnumKey(hkey.toString(), dwindex.toInt(), lpszname.toString(), lpcchname.toString(), lpftlastwritetime.toString()) as Int) else 0
+public actual fun clusterRegEnumKey(hkey: Hkey, dwindex: UInt, lpszname: Pwstr, lpcchname: COpaquePointer?, lpftlastwritetime: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterRegEnumKey((hkey?.value ?: 0L).toString(), dwindex.toInt(), (lpszname?.value ?: 0L).toString(), (lpcchname?.value ?: 0L).toString(), (lpftlastwritetime?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterRegEnumValue(hkey: HKEY, dwindex: UInt, lpszvaluename: PWSTR, lpcchvaluename: Long, lpdwtype: Long, lpdata: Long, lpcbdata: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterRegEnumValue(hkey.toString(), dwindex.toInt(), lpszvaluename.toString(), lpcchvaluename.toString(), lpdwtype.toString(), lpdata.toString(), lpcbdata.toString()) as Int).toUInt() else 0u
+public actual fun clusterRegEnumValue(hkey: Hkey, dwindex: UInt, lpszvaluename: Pwstr, lpcchvaluename: COpaquePointer?, lpdwtype: COpaquePointer?, lpdata: COpaquePointer?, lpcbdata: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterRegEnumValue((hkey?.value ?: 0L).toString(), dwindex.toInt(), (lpszvaluename?.value ?: 0L).toString(), (lpcchvaluename?.value ?: 0L).toString(), (lpdwtype?.value ?: 0L).toString(), (lpdata?.value ?: 0L).toString(), (lpcbdata?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterRegGetBatchNotification(hbatchnotify: HREGBATCHPORT, phbatchnotification: Long): Int =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterRegGetBatchNotification(hbatchnotify.toString(), phbatchnotification.toString()) as Int) else 0
+public actual fun clusterRegGetBatchNotification(hbatchnotify: Hregbatchport, phbatchnotification: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterRegGetBatchNotification(hbatchnotify.toString(), (phbatchnotification?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterRegGetKeySecurity(hkey: HKEY, requestedinformation: UInt, psecuritydescriptor: PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor: Long): Int =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterRegGetKeySecurity(hkey.toString(), requestedinformation.toInt(), psecuritydescriptor.toString(), lpcbsecuritydescriptor.toString()) as Int) else 0
+public actual fun clusterRegGetKeySecurity(hkey: Hkey, requestedinformation: UInt, psecuritydescriptor: PsecurityDescriptor, lpcbsecuritydescriptor: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterRegGetKeySecurity((hkey?.value ?: 0L).toString(), requestedinformation.toInt(), (psecuritydescriptor?.value ?: 0L).toString(), (lpcbsecuritydescriptor?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterRegOpenKey(hkey: HKEY, lpszsubkey: PCWSTR, samdesired: UInt, phkresult: Long): Int =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterRegOpenKey(hkey.toString(), lpszsubkey.toString(), samdesired.toInt(), phkresult.toString()) as Int) else 0
+public actual fun clusterRegOpenKey(hkey: Hkey, lpszsubkey: Pcwstr, samdesired: UInt, phkresult: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterRegOpenKey((hkey?.value ?: 0L).toString(), (lpszsubkey?.value ?: 0L).toString(), samdesired.toInt(), (phkresult?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterRegQueryInfoKey(hkey: HKEY, lpcsubkeys: Long, lpcchmaxsubkeylen: Long, lpcvalues: Long, lpcchmaxvaluenamelen: Long, lpcbmaxvaluelen: Long, lpcbsecuritydescriptor: Long, lpftlastwritetime: Long): Int =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterRegQueryInfoKey(hkey.toString(), lpcsubkeys.toString(), lpcchmaxsubkeylen.toString(), lpcvalues.toString(), lpcchmaxvaluenamelen.toString(), lpcbmaxvaluelen.toString(), lpcbsecuritydescriptor.toString(), lpftlastwritetime.toString()) as Int) else 0
+public actual fun clusterRegQueryInfoKey(hkey: Hkey, lpcsubkeys: COpaquePointer?, lpcchmaxsubkeylen: COpaquePointer?, lpcvalues: COpaquePointer?, lpcchmaxvaluenamelen: COpaquePointer?, lpcbmaxvaluelen: COpaquePointer?, lpcbsecuritydescriptor: COpaquePointer?, lpftlastwritetime: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterRegQueryInfoKey((hkey?.value ?: 0L).toString(), (lpcsubkeys?.value ?: 0L).toString(), (lpcchmaxsubkeylen?.value ?: 0L).toString(), (lpcvalues?.value ?: 0L).toString(), (lpcchmaxvaluenamelen?.value ?: 0L).toString(), (lpcbmaxvaluelen?.value ?: 0L).toString(), (lpcbsecuritydescriptor?.value ?: 0L).toString(), (lpftlastwritetime?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterRegQueryValue(hkey: HKEY, lpszvaluename: PCWSTR, lpdwvaluetype: Long, lpdata: Long, lpcbdata: Long): Int =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterRegQueryValue(hkey.toString(), lpszvaluename.toString(), lpdwvaluetype.toString(), lpdata.toString(), lpcbdata.toString()) as Int) else 0
+public actual fun clusterRegQueryValue(hkey: Hkey, lpszvaluename: Pcwstr, lpdwvaluetype: COpaquePointer?, lpdata: COpaquePointer?, lpcbdata: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterRegQueryValue((hkey?.value ?: 0L).toString(), (lpszvaluename?.value ?: 0L).toString(), (lpdwvaluetype?.value ?: 0L).toString(), (lpdata?.value ?: 0L).toString(), (lpcbdata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterRegReadBatchAddCommand(hregreadbatch: HREGREADBATCH, wzsubkeyname: PCWSTR, wzvaluename: PCWSTR): Int =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterRegReadBatchAddCommand(hregreadbatch.toString(), wzsubkeyname.toString(), wzvaluename.toString()) as Int) else 0
+public actual fun clusterRegReadBatchAddCommand(hregreadbatch: Hregreadbatch, wzsubkeyname: Pcwstr, wzvaluename: Pcwstr): Int =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterRegReadBatchAddCommand(hregreadbatch.toString(), (wzsubkeyname?.value ?: 0L).toString(), (wzvaluename?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterRegReadBatchReplyNextCommand(hregreadbatchreply: HREGREADBATCHREPLY, pbatchcommand: Long): Int =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterRegReadBatchReplyNextCommand(hregreadbatchreply.toString(), pbatchcommand.toString()) as Int) else 0
+public actual fun clusterRegReadBatchReplyNextCommand(hregreadbatchreply: Hregreadbatchreply, pbatchcommand: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterRegReadBatchReplyNextCommand(hregreadbatchreply.toString(), (pbatchcommand?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterRegSetKeySecurity(hkey: HKEY, securityinformation: UInt, psecuritydescriptor: PSECURITY_DESCRIPTOR): Int =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterRegSetKeySecurity(hkey.toString(), securityinformation.toInt(), psecuritydescriptor.toString()) as Int) else 0
+public actual fun clusterRegSetKeySecurity(hkey: Hkey, securityinformation: UInt, psecuritydescriptor: PsecurityDescriptor): Int =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterRegSetKeySecurity((hkey?.value ?: 0L).toString(), securityinformation.toInt(), (psecuritydescriptor?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterRegSetKeySecurityEx(hkey: HKEY, securityinformation: OBJECT_SECURITY_INFORMATION, psecuritydescriptor: PSECURITY_DESCRIPTOR, lpszreason: PCWSTR): Int =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterRegSetKeySecurityEx(hkey.toString(), securityinformation.toInt(), psecuritydescriptor.toString(), lpszreason.toString()) as Int) else 0
+public actual fun clusterRegSetKeySecurityEx(hkey: Hkey, securityinformation: ObjectSecurityInformation, psecuritydescriptor: PsecurityDescriptor, lpszreason: Pcwstr): Int =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterRegSetKeySecurityEx((hkey?.value ?: 0L).toString(), securityinformation.toInt(), (psecuritydescriptor?.value ?: 0L).toString(), (lpszreason?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterRegSetValue(hkey: HKEY, lpszvaluename: PCWSTR, dwtype: UInt, lpdata: Long, cbdata: UInt): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterRegSetValue(hkey.toString(), lpszvaluename.toString(), dwtype.toInt(), lpdata.toString(), cbdata.toInt()) as Int).toUInt() else 0u
+public actual fun clusterRegSetValue(hkey: Hkey, lpszvaluename: Pcwstr, dwtype: UInt, lpdata: COpaquePointer?, cbdata: UInt): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterRegSetValue((hkey?.value ?: 0L).toString(), (lpszvaluename?.value ?: 0L).toString(), dwtype.toInt(), (lpdata?.value ?: 0L).toString(), cbdata.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterRegSetValueEx(hkey: HKEY, lpszvaluename: PCWSTR, dwtype: UInt, lpdata: Long, cbdata: UInt, lpszreason: PCWSTR): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterRegSetValueEx(hkey.toString(), lpszvaluename.toString(), dwtype.toInt(), lpdata.toString(), cbdata.toInt(), lpszreason.toString()) as Int).toUInt() else 0u
+public actual fun clusterRegSetValueEx(hkey: Hkey, lpszvaluename: Pcwstr, dwtype: UInt, lpdata: COpaquePointer?, cbdata: UInt, lpszreason: Pcwstr): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterRegSetValueEx((hkey?.value ?: 0L).toString(), (lpszvaluename?.value ?: 0L).toString(), dwtype.toInt(), (lpdata?.value ?: 0L).toString(), cbdata.toInt(), (lpszreason?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterRegSyncDatabase(hcluster: HCLUSTER, flags: UInt): Int =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterRegSyncDatabase(hcluster.toString(), flags.toInt()) as Int) else 0
+public actual fun clusterRegSyncDatabase(hcluster: Hcluster, flags: UInt): Int =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterRegSyncDatabase(hcluster.toString(), flags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterRemoveAffinityRule(hcluster: HCLUSTER, rulename: PCWSTR): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterRemoveAffinityRule(hcluster.toString(), rulename.toString()) as Int).toUInt() else 0u
+public actual fun clusterRemoveAffinityRule(hcluster: Hcluster, rulename: Pcwstr): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterRemoveAffinityRule(hcluster.toString(), (rulename?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterRemoveGroupFromAffinityRule(hcluster: HCLUSTER, rulename: PCWSTR, hgroup: HGROUP): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterRemoveGroupFromAffinityRule(hcluster.toString(), rulename.toString(), hgroup.toString()) as Int).toUInt() else 0u
+public actual fun clusterRemoveGroupFromAffinityRule(hcluster: Hcluster, rulename: Pcwstr, hgroup: Hgroup): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterRemoveGroupFromAffinityRule(hcluster.toString(), (rulename?.value ?: 0L).toString(), hgroup.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterRemoveGroupFromGroupSet(hgroup: HGROUP): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterRemoveGroupFromGroupSet(hgroup.toString()) as Int).toUInt() else 0u
+public actual fun clusterRemoveGroupFromGroupSet(hgroup: Hgroup): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterRemoveGroupFromGroupSet(hgroup.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterRemoveGroupFromGroupSetEx(hgroup: HGROUP, lpszreason: PCWSTR): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterRemoveGroupFromGroupSetEx(hgroup.toString(), lpszreason.toString()) as Int).toUInt() else 0u
+public actual fun clusterRemoveGroupFromGroupSetEx(hgroup: Hgroup, lpszreason: Pcwstr): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterRemoveGroupFromGroupSetEx(hgroup.toString(), (lpszreason?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterResourceCloseEnum(hresenum: HRESENUM): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterResourceCloseEnum(hresenum.toString()) as Int).toUInt() else 0u
+public actual fun clusterResourceCloseEnum(hresenum: Hresenum): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterResourceCloseEnum(hresenum.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterResourceCloseEnumEx(hresourceenumex: HRESENUMEX): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterResourceCloseEnumEx(hresourceenumex.toString()) as Int).toUInt() else 0u
+public actual fun clusterResourceCloseEnumEx(hresourceenumex: Hresenumex): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterResourceCloseEnumEx(hresourceenumex.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterResourceControl(hresource: HRESOURCE, hhostnode: HNODE, dwcontrolcode: UInt, lpinbuffer: Long, cbinbuffersize: UInt, lpoutbuffer: Long, cboutbuffersize: UInt, lpbytesreturned: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterResourceControl(hresource.toString(), hhostnode.toString(), dwcontrolcode.toInt(), lpinbuffer.toString(), cbinbuffersize.toInt(), lpoutbuffer.toString(), cboutbuffersize.toInt(), lpbytesreturned.toString()) as Int).toUInt() else 0u
+public actual fun clusterResourceControl(hresource: Hresource, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt, lpoutbuffer: COpaquePointer?, cboutbuffersize: UInt, lpbytesreturned: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterResourceControl(hresource.toString(), hhostnode.toString(), dwcontrolcode.toInt(), (lpinbuffer?.value ?: 0L).toString(), cbinbuffersize.toInt(), (lpoutbuffer?.value ?: 0L).toString(), cboutbuffersize.toInt(), (lpbytesreturned?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterResourceControlAsUser(hresource: HRESOURCE, hhostnode: HNODE, dwcontrolcode: UInt, lpinbuffer: Long, cbinbuffersize: UInt, lpoutbuffer: Long, cboutbuffersize: UInt, lpbytesreturned: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterResourceControlAsUser(hresource.toString(), hhostnode.toString(), dwcontrolcode.toInt(), lpinbuffer.toString(), cbinbuffersize.toInt(), lpoutbuffer.toString(), cboutbuffersize.toInt(), lpbytesreturned.toString()) as Int).toUInt() else 0u
+public actual fun clusterResourceControlAsUser(hresource: Hresource, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt, lpoutbuffer: COpaquePointer?, cboutbuffersize: UInt, lpbytesreturned: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterResourceControlAsUser(hresource.toString(), hhostnode.toString(), dwcontrolcode.toInt(), (lpinbuffer?.value ?: 0L).toString(), cbinbuffersize.toInt(), (lpoutbuffer?.value ?: 0L).toString(), cboutbuffersize.toInt(), (lpbytesreturned?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterResourceControlAsUserEx(hresource: HRESOURCE, hhostnode: HNODE, dwcontrolcode: UInt, lpinbuffer: Long, cbinbuffersize: UInt, lpoutbuffer: Long, cboutbuffersize: UInt, lpbytesreturned: Long, lpszreason: PCWSTR): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterResourceControlAsUserEx(hresource.toString(), hhostnode.toString(), dwcontrolcode.toInt(), lpinbuffer.toString(), cbinbuffersize.toInt(), lpoutbuffer.toString(), cboutbuffersize.toInt(), lpbytesreturned.toString(), lpszreason.toString()) as Int).toUInt() else 0u
+public actual fun clusterResourceControlAsUserEx(hresource: Hresource, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt, lpoutbuffer: COpaquePointer?, cboutbuffersize: UInt, lpbytesreturned: COpaquePointer?, lpszreason: Pcwstr): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterResourceControlAsUserEx(hresource.toString(), hhostnode.toString(), dwcontrolcode.toInt(), (lpinbuffer?.value ?: 0L).toString(), cbinbuffersize.toInt(), (lpoutbuffer?.value ?: 0L).toString(), cboutbuffersize.toInt(), (lpbytesreturned?.value ?: 0L).toString(), (lpszreason?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterResourceControlEx(hresource: HRESOURCE, hhostnode: HNODE, dwcontrolcode: UInt, lpinbuffer: Long, cbinbuffersize: UInt, lpoutbuffer: Long, cboutbuffersize: UInt, lpbytesreturned: Long, lpszreason: PCWSTR): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterResourceControlEx(hresource.toString(), hhostnode.toString(), dwcontrolcode.toInt(), lpinbuffer.toString(), cbinbuffersize.toInt(), lpoutbuffer.toString(), cboutbuffersize.toInt(), lpbytesreturned.toString(), lpszreason.toString()) as Int).toUInt() else 0u
+public actual fun clusterResourceControlEx(hresource: Hresource, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt, lpoutbuffer: COpaquePointer?, cboutbuffersize: UInt, lpbytesreturned: COpaquePointer?, lpszreason: Pcwstr): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterResourceControlEx(hresource.toString(), hhostnode.toString(), dwcontrolcode.toInt(), (lpinbuffer?.value ?: 0L).toString(), cbinbuffersize.toInt(), (lpoutbuffer?.value ?: 0L).toString(), cboutbuffersize.toInt(), (lpbytesreturned?.value ?: 0L).toString(), (lpszreason?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterResourceEnum(hresenum: HRESENUM, dwindex: UInt, lpdwtype: Long, lpszname: PWSTR, lpcchname: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterResourceEnum(hresenum.toString(), dwindex.toInt(), lpdwtype.toString(), lpszname.toString(), lpcchname.toString()) as Int).toUInt() else 0u
+public actual fun clusterResourceEnum(hresenum: Hresenum, dwindex: UInt, lpdwtype: COpaquePointer?, lpszname: Pwstr, lpcchname: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterResourceEnum(hresenum.toString(), dwindex.toInt(), (lpdwtype?.value ?: 0L).toString(), (lpszname?.value ?: 0L).toString(), (lpcchname?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterResourceEnumEx(hresourceenumex: HRESENUMEX, dwindex: UInt, pitem: Long, cbitem: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterResourceEnumEx(hresourceenumex.toString(), dwindex.toInt(), pitem.toString(), cbitem.toString()) as Int).toUInt() else 0u
+public actual fun clusterResourceEnumEx(hresourceenumex: Hresenumex, dwindex: UInt, pitem: COpaquePointer?, cbitem: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterResourceEnumEx(hresourceenumex.toString(), dwindex.toInt(), (pitem?.value ?: 0L).toString(), (cbitem?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterResourceGetEnumCount(hresenum: HRESENUM): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterResourceGetEnumCount(hresenum.toString()) as Int).toUInt() else 0u
+public actual fun clusterResourceGetEnumCount(hresenum: Hresenum): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterResourceGetEnumCount(hresenum.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterResourceGetEnumCountEx(hresourceenumex: HRESENUMEX): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterResourceGetEnumCountEx(hresourceenumex.toString()) as Int).toUInt() else 0u
+public actual fun clusterResourceGetEnumCountEx(hresourceenumex: Hresenumex): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterResourceGetEnumCountEx(hresourceenumex.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterResourceOpenEnum(hresource: HRESOURCE, dwtype: UInt): HRESENUM =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterResourceOpenEnum(hresource.toString(), dwtype.toInt()) as String).toLong() else 0L
+public actual fun clusterResourceOpenEnum(hresource: Hresource, dwtype: UInt): Hresenum =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterResourceOpenEnum(hresource.toString(), dwtype.toInt()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterResourceOpenEnumEx(hcluster: HCLUSTER, lpszproperties: PCWSTR, cbproperties: UInt, lpszroproperties: PCWSTR, cbroproperties: UInt, dwflags: UInt): HRESENUMEX =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterResourceOpenEnumEx(hcluster.toString(), lpszproperties.toString(), cbproperties.toInt(), lpszroproperties.toString(), cbroproperties.toInt(), dwflags.toInt()) as String).toLong() else 0L
+public actual fun clusterResourceOpenEnumEx(hcluster: Hcluster, lpszproperties: Pcwstr, cbproperties: UInt, lpszroproperties: Pcwstr, cbroproperties: UInt, dwflags: UInt): Hresenumex =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterResourceOpenEnumEx(hcluster.toString(), (lpszproperties?.value ?: 0L).toString(), cbproperties.toInt(), (lpszroproperties?.value ?: 0L).toString(), cbroproperties.toInt(), dwflags.toInt()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterResourceTypeCloseEnum(hrestypeenum: HRESTYPEENUM): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterResourceTypeCloseEnum(hrestypeenum.toString()) as Int).toUInt() else 0u
+public actual fun clusterResourceTypeCloseEnum(hrestypeenum: Hrestypeenum): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterResourceTypeCloseEnum(hrestypeenum.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterResourceTypeControl(hcluster: HCLUSTER, lpszresourcetypename: PCWSTR, hhostnode: HNODE, dwcontrolcode: UInt, lpinbuffer: Long, ninbuffersize: UInt, lpoutbuffer: Long, noutbuffersize: UInt, lpbytesreturned: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterResourceTypeControl(hcluster.toString(), lpszresourcetypename.toString(), hhostnode.toString(), dwcontrolcode.toInt(), lpinbuffer.toString(), ninbuffersize.toInt(), lpoutbuffer.toString(), noutbuffersize.toInt(), lpbytesreturned.toString()) as Int).toUInt() else 0u
+public actual fun clusterResourceTypeControl(hcluster: Hcluster, lpszresourcetypename: Pcwstr, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterResourceTypeControl(hcluster.toString(), (lpszresourcetypename?.value ?: 0L).toString(), hhostnode.toString(), dwcontrolcode.toInt(), (lpinbuffer?.value ?: 0L).toString(), ninbuffersize.toInt(), (lpoutbuffer?.value ?: 0L).toString(), noutbuffersize.toInt(), (lpbytesreturned?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterResourceTypeControlAsUser(hcluster: HCLUSTER, lpszresourcetypename: PCWSTR, hhostnode: HNODE, dwcontrolcode: UInt, lpinbuffer: Long, ninbuffersize: UInt, lpoutbuffer: Long, noutbuffersize: UInt, lpbytesreturned: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterResourceTypeControlAsUser(hcluster.toString(), lpszresourcetypename.toString(), hhostnode.toString(), dwcontrolcode.toInt(), lpinbuffer.toString(), ninbuffersize.toInt(), lpoutbuffer.toString(), noutbuffersize.toInt(), lpbytesreturned.toString()) as Int).toUInt() else 0u
+public actual fun clusterResourceTypeControlAsUser(hcluster: Hcluster, lpszresourcetypename: Pcwstr, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterResourceTypeControlAsUser(hcluster.toString(), (lpszresourcetypename?.value ?: 0L).toString(), hhostnode.toString(), dwcontrolcode.toInt(), (lpinbuffer?.value ?: 0L).toString(), ninbuffersize.toInt(), (lpoutbuffer?.value ?: 0L).toString(), noutbuffersize.toInt(), (lpbytesreturned?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterResourceTypeControlAsUserEx(hcluster: HCLUSTER, lpszresourcetypename: PCWSTR, hhostnode: HNODE, dwcontrolcode: UInt, lpinbuffer: Long, ninbuffersize: UInt, lpoutbuffer: Long, noutbuffersize: UInt, lpbytesreturned: Long, lpszreason: PCWSTR): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterResourceTypeControlAsUserEx(hcluster.toString(), lpszresourcetypename.toString(), hhostnode.toString(), dwcontrolcode.toInt(), lpinbuffer.toString(), ninbuffersize.toInt(), lpoutbuffer.toString(), noutbuffersize.toInt(), lpbytesreturned.toString(), lpszreason.toString()) as Int).toUInt() else 0u
+public actual fun clusterResourceTypeControlAsUserEx(hcluster: Hcluster, lpszresourcetypename: Pcwstr, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?, lpszreason: Pcwstr): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterResourceTypeControlAsUserEx(hcluster.toString(), (lpszresourcetypename?.value ?: 0L).toString(), hhostnode.toString(), dwcontrolcode.toInt(), (lpinbuffer?.value ?: 0L).toString(), ninbuffersize.toInt(), (lpoutbuffer?.value ?: 0L).toString(), noutbuffersize.toInt(), (lpbytesreturned?.value ?: 0L).toString(), (lpszreason?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterResourceTypeControlEx(hcluster: HCLUSTER, lpszresourcetypename: PCWSTR, hhostnode: HNODE, dwcontrolcode: UInt, lpinbuffer: Long, ninbuffersize: UInt, lpoutbuffer: Long, noutbuffersize: UInt, lpbytesreturned: Long, lpszreason: PCWSTR): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterResourceTypeControlEx(hcluster.toString(), lpszresourcetypename.toString(), hhostnode.toString(), dwcontrolcode.toInt(), lpinbuffer.toString(), ninbuffersize.toInt(), lpoutbuffer.toString(), noutbuffersize.toInt(), lpbytesreturned.toString(), lpszreason.toString()) as Int).toUInt() else 0u
+public actual fun clusterResourceTypeControlEx(hcluster: Hcluster, lpszresourcetypename: Pcwstr, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?, lpszreason: Pcwstr): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterResourceTypeControlEx(hcluster.toString(), (lpszresourcetypename?.value ?: 0L).toString(), hhostnode.toString(), dwcontrolcode.toInt(), (lpinbuffer?.value ?: 0L).toString(), ninbuffersize.toInt(), (lpoutbuffer?.value ?: 0L).toString(), noutbuffersize.toInt(), (lpbytesreturned?.value ?: 0L).toString(), (lpszreason?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterResourceTypeEnum(hrestypeenum: HRESTYPEENUM, dwindex: UInt, lpdwtype: Long, lpszname: PWSTR, lpcchname: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterResourceTypeEnum(hrestypeenum.toString(), dwindex.toInt(), lpdwtype.toString(), lpszname.toString(), lpcchname.toString()) as Int).toUInt() else 0u
+public actual fun clusterResourceTypeEnum(hrestypeenum: Hrestypeenum, dwindex: UInt, lpdwtype: COpaquePointer?, lpszname: Pwstr, lpcchname: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterResourceTypeEnum(hrestypeenum.toString(), dwindex.toInt(), (lpdwtype?.value ?: 0L).toString(), (lpszname?.value ?: 0L).toString(), (lpcchname?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterResourceTypeGetEnumCount(hrestypeenum: HRESTYPEENUM): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterResourceTypeGetEnumCount(hrestypeenum.toString()) as Int).toUInt() else 0u
+public actual fun clusterResourceTypeGetEnumCount(hrestypeenum: Hrestypeenum): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterResourceTypeGetEnumCount(hrestypeenum.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterResourceTypeOpenEnum(hcluster: HCLUSTER, lpszresourcetypename: PCWSTR, dwtype: UInt): HRESTYPEENUM =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterResourceTypeOpenEnum(hcluster.toString(), lpszresourcetypename.toString(), dwtype.toInt()) as String).toLong() else 0L
+public actual fun clusterResourceTypeOpenEnum(hcluster: Hcluster, lpszresourcetypename: Pcwstr, dwtype: UInt): Hrestypeenum =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterResourceTypeOpenEnum(hcluster.toString(), (lpszresourcetypename?.value ?: 0L).toString(), dwtype.toInt()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterSetAccountAccess(hcluster: HCLUSTER, szaccountsid: PCWSTR, dwaccess: UInt, dwcontroltype: UInt): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterSetAccountAccess(hcluster.toString(), szaccountsid.toString(), dwaccess.toInt(), dwcontroltype.toInt()) as Int).toUInt() else 0u
+public actual fun clusterSetAccountAccess(hcluster: Hcluster, szaccountsid: Pcwstr, dwaccess: UInt, dwcontroltype: UInt): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterSetAccountAccess(hcluster.toString(), (szaccountsid?.value ?: 0L).toString(), dwaccess.toInt(), dwcontroltype.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterSharedVolumeSetSnapshotState(guidsnapshotset: GUID, lpszvolumename: PCWSTR, state: CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE): UInt =
-    0u
+public actual fun clusterSharedVolumeSetSnapshotState(guidsnapshotset: Guid, lpszvolumename: Pcwstr, state: ClusterSharedVolumeSnapshotState): UInt =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClusterUpgradeFunctionalLevel(hcluster: HCLUSTER, perform: BOOL, pfnprogresscallback: PCLUSTER_UPGRADE_PROGRESS_CALLBACK, pvcallbackarg: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ClusterUpgradeFunctionalLevel(hcluster.toString(), perform, pfnprogresscallback.toLong().toString(), pvcallbackarg.toString()) as Int).toUInt() else 0u
+public actual fun clusterUpgradeFunctionalLevel(hcluster: Hcluster, perform: Bool, pfnprogresscallback: PclusterUpgradeProgressCallback, pvcallbackarg: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_clusterUpgradeFunctionalLevel(hcluster.toString(), perform, 0L.toString(), (pvcallbackarg?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateCluster(pconfig: Long, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: Long): HCLUSTER =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_CreateCluster(pconfig.toString(), pfnprogresscallback.toLong().toString(), pvcallbackarg.toString()) as String).toLong() else 0L
+public actual fun createCluster(pconfig: COpaquePointer?, pfnprogresscallback: PclusterSetupProgressCallback, pvcallbackarg: COpaquePointer?): Hcluster =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_createCluster((pconfig?.value ?: 0L).toString(), 0L.toString(), (pvcallbackarg?.value ?: 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateClusterAvailabilitySet(hcluster: HCLUSTER, lpavailabilitysetname: PCWSTR, pavailabilitysetconfig: Long): HGROUPSET =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_CreateClusterAvailabilitySet(hcluster.toString(), lpavailabilitysetname.toString(), pavailabilitysetconfig.toString()) as String).toLong() else 0L
+public actual fun createClusterAvailabilitySet(hcluster: Hcluster, lpavailabilitysetname: Pcwstr, pavailabilitysetconfig: COpaquePointer?): Hgroupset =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_createClusterAvailabilitySet(hcluster.toString(), (lpavailabilitysetname?.value ?: 0L).toString(), (pavailabilitysetconfig?.value ?: 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateClusterGroup(hcluster: HCLUSTER, lpszgroupname: PCWSTR): HGROUP =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_CreateClusterGroup(hcluster.toString(), lpszgroupname.toString()) as String).toLong() else 0L
+public actual fun createClusterGroup(hcluster: Hcluster, lpszgroupname: Pcwstr): Hgroup =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_createClusterGroup(hcluster.toString(), (lpszgroupname?.value ?: 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateClusterGroupEx(hcluster: HCLUSTER, lpszgroupname: PCWSTR, pgroupinfo: Long): HGROUP =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_CreateClusterGroupEx(hcluster.toString(), lpszgroupname.toString(), pgroupinfo.toString()) as String).toLong() else 0L
+public actual fun createClusterGroupEx(hcluster: Hcluster, lpszgroupname: Pcwstr, pgroupinfo: COpaquePointer?): Hgroup =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_createClusterGroupEx(hcluster.toString(), (lpszgroupname?.value ?: 0L).toString(), (pgroupinfo?.value ?: 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateClusterGroupSet(hcluster: HCLUSTER, groupsetname: PCWSTR): HGROUPSET =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_CreateClusterGroupSet(hcluster.toString(), groupsetname.toString()) as String).toLong() else 0L
+public actual fun createClusterGroupSet(hcluster: Hcluster, groupsetname: Pcwstr): Hgroupset =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_createClusterGroupSet(hcluster.toString(), (groupsetname?.value ?: 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateClusterNameAccount(hcluster: HCLUSTER, pconfig: Long, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_CreateClusterNameAccount(hcluster.toString(), pconfig.toString(), pfnprogresscallback.toLong().toString(), pvcallbackarg.toString()) as Int).toUInt() else 0u
+public actual fun createClusterNameAccount(hcluster: Hcluster, pconfig: COpaquePointer?, pfnprogresscallback: PclusterSetupProgressCallback, pvcallbackarg: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_createClusterNameAccount(hcluster.toString(), (pconfig?.value ?: 0L).toString(), 0L.toString(), (pvcallbackarg?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateClusterNotifyPort(hchange: HCHANGE, hcluster: HCLUSTER, dwfilter: UInt, dwnotifykey: ULong): HCHANGE =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_CreateClusterNotifyPort(hchange.toString(), hcluster.toString(), dwfilter.toInt(), dwnotifykey.toString()) as String).toLong() else 0L
+public actual fun createClusterNotifyPort(hchange: Hchange, hcluster: Hcluster, dwfilter: UInt, dwnotifykey: ULong): Hchange =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_createClusterNotifyPort(hchange.toString(), hcluster.toString(), dwfilter.toInt(), dwnotifykey.toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateClusterNotifyPortV2(hchange: HCHANGE, hcluster: HCLUSTER, filters: Long, dwfiltercount: UInt, dwnotifykey: ULong): HCHANGE =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_CreateClusterNotifyPortV2(hchange.toString(), hcluster.toString(), filters.toString(), dwfiltercount.toInt(), dwnotifykey.toString()) as String).toLong() else 0L
+public actual fun createClusterNotifyPortV2(hchange: Hchange, hcluster: Hcluster, filters: COpaquePointer?, dwfiltercount: UInt, dwnotifykey: ULong): Hchange =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_createClusterNotifyPortV2(hchange.toString(), hcluster.toString(), (filters?.value ?: 0L).toString(), dwfiltercount.toInt(), dwnotifykey.toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateClusterResource(hgroup: HGROUP, lpszresourcename: PCWSTR, lpszresourcetype: PCWSTR, dwflags: UInt): HRESOURCE =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_CreateClusterResource(hgroup.toString(), lpszresourcename.toString(), lpszresourcetype.toString(), dwflags.toInt()) as String).toLong() else 0L
+public actual fun createClusterResource(hgroup: Hgroup, lpszresourcename: Pcwstr, lpszresourcetype: Pcwstr, dwflags: UInt): Hresource =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_createClusterResource(hgroup.toString(), (lpszresourcename?.value ?: 0L).toString(), (lpszresourcetype?.value ?: 0L).toString(), dwflags.toInt()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateClusterResourceEx(hgroup: HGROUP, lpszresourcename: PCWSTR, lpszresourcetype: PCWSTR, dwflags: UInt, lpszreason: PCWSTR): HRESOURCE =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_CreateClusterResourceEx(hgroup.toString(), lpszresourcename.toString(), lpszresourcetype.toString(), dwflags.toInt(), lpszreason.toString()) as String).toLong() else 0L
+public actual fun createClusterResourceEx(hgroup: Hgroup, lpszresourcename: Pcwstr, lpszresourcetype: Pcwstr, dwflags: UInt, lpszreason: Pcwstr): Hresource =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_createClusterResourceEx(hgroup.toString(), (lpszresourcename?.value ?: 0L).toString(), (lpszresourcetype?.value ?: 0L).toString(), dwflags.toInt(), (lpszreason?.value ?: 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateClusterResourceType(hcluster: HCLUSTER, lpszresourcetypename: PCWSTR, lpszdisplayname: PCWSTR, lpszresourcetypedll: PCWSTR, dwlooksalivepollinterval: UInt, dwisalivepollinterval: UInt): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_CreateClusterResourceType(hcluster.toString(), lpszresourcetypename.toString(), lpszdisplayname.toString(), lpszresourcetypedll.toString(), dwlooksalivepollinterval.toInt(), dwisalivepollinterval.toInt()) as Int).toUInt() else 0u
+public actual fun createClusterResourceType(hcluster: Hcluster, lpszresourcetypename: Pcwstr, lpszdisplayname: Pcwstr, lpszresourcetypedll: Pcwstr, dwlooksalivepollinterval: UInt, dwisalivepollinterval: UInt): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_createClusterResourceType(hcluster.toString(), (lpszresourcetypename?.value ?: 0L).toString(), (lpszdisplayname?.value ?: 0L).toString(), (lpszresourcetypedll?.value ?: 0L).toString(), dwlooksalivepollinterval.toInt(), dwisalivepollinterval.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateClusterResourceTypeEx(hcluster: HCLUSTER, lpszresourcetypename: PCWSTR, lpszdisplayname: PCWSTR, lpszresourcetypedll: PCWSTR, dwlooksalivepollinterval: UInt, dwisalivepollinterval: UInt, lpszreason: PCWSTR): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_CreateClusterResourceTypeEx(hcluster.toString(), lpszresourcetypename.toString(), lpszdisplayname.toString(), lpszresourcetypedll.toString(), dwlooksalivepollinterval.toInt(), dwisalivepollinterval.toInt(), lpszreason.toString()) as Int).toUInt() else 0u
+public actual fun createClusterResourceTypeEx(hcluster: Hcluster, lpszresourcetypename: Pcwstr, lpszdisplayname: Pcwstr, lpszresourcetypedll: Pcwstr, dwlooksalivepollinterval: UInt, dwisalivepollinterval: UInt, lpszreason: Pcwstr): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_createClusterResourceTypeEx(hcluster.toString(), (lpszresourcetypename?.value ?: 0L).toString(), (lpszdisplayname?.value ?: 0L).toString(), (lpszresourcetypedll?.value ?: 0L).toString(), dwlooksalivepollinterval.toInt(), dwisalivepollinterval.toInt(), (lpszreason?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeleteClusterGroup(hgroup: HGROUP): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_DeleteClusterGroup(hgroup.toString()) as Int).toUInt() else 0u
+public actual fun deleteClusterGroup(hgroup: Hgroup): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_deleteClusterGroup(hgroup.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeleteClusterGroupEx(hgroup: HGROUP, lpszreason: PCWSTR): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_DeleteClusterGroupEx(hgroup.toString(), lpszreason.toString()) as Int).toUInt() else 0u
+public actual fun deleteClusterGroupEx(hgroup: Hgroup, lpszreason: Pcwstr): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_deleteClusterGroupEx(hgroup.toString(), (lpszreason?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeleteClusterGroupSet(hgroupset: HGROUPSET): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_DeleteClusterGroupSet(hgroupset.toString()) as Int).toUInt() else 0u
+public actual fun deleteClusterGroupSet(hgroupset: Hgroupset): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_deleteClusterGroupSet(hgroupset.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeleteClusterGroupSetEx(hgroupset: HGROUPSET, lpszreason: PCWSTR): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_DeleteClusterGroupSetEx(hgroupset.toString(), lpszreason.toString()) as Int).toUInt() else 0u
+public actual fun deleteClusterGroupSetEx(hgroupset: Hgroupset, lpszreason: Pcwstr): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_deleteClusterGroupSetEx(hgroupset.toString(), (lpszreason?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeleteClusterResource(hresource: HRESOURCE): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_DeleteClusterResource(hresource.toString()) as Int).toUInt() else 0u
+public actual fun deleteClusterResource(hresource: Hresource): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_deleteClusterResource(hresource.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeleteClusterResourceEx(hresource: HRESOURCE, lpszreason: PCWSTR): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_DeleteClusterResourceEx(hresource.toString(), lpszreason.toString()) as Int).toUInt() else 0u
+public actual fun deleteClusterResourceEx(hresource: Hresource, lpszreason: Pcwstr): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_deleteClusterResourceEx(hresource.toString(), (lpszreason?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeleteClusterResourceType(hcluster: HCLUSTER, lpszresourcetypename: PCWSTR): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_DeleteClusterResourceType(hcluster.toString(), lpszresourcetypename.toString()) as Int).toUInt() else 0u
+public actual fun deleteClusterResourceType(hcluster: Hcluster, lpszresourcetypename: Pcwstr): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_deleteClusterResourceType(hcluster.toString(), (lpszresourcetypename?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeleteClusterResourceTypeEx(hcluster: HCLUSTER, lpsztypename: PCWSTR, lpszreason: PCWSTR): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_DeleteClusterResourceTypeEx(hcluster.toString(), lpsztypename.toString(), lpszreason.toString()) as Int).toUInt() else 0u
+public actual fun deleteClusterResourceTypeEx(hcluster: Hcluster, lpsztypename: Pcwstr, lpszreason: Pcwstr): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_deleteClusterResourceTypeEx(hcluster.toString(), (lpsztypename?.value ?: 0L).toString(), (lpszreason?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DestroyCluster(hcluster: HCLUSTER, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: Long, fdeletevirtualcomputerobjects: BOOL): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_DestroyCluster(hcluster.toString(), pfnprogresscallback.toLong().toString(), pvcallbackarg.toString(), fdeletevirtualcomputerobjects) as Int).toUInt() else 0u
+public actual fun destroyCluster(hcluster: Hcluster, pfnprogresscallback: PclusterSetupProgressCallback, pvcallbackarg: COpaquePointer?, fdeletevirtualcomputerobjects: Bool): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_destroyCluster(hcluster.toString(), 0L.toString(), (pvcallbackarg?.value ?: 0L).toString(), fdeletevirtualcomputerobjects) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DestroyClusterGroup(hgroup: HGROUP): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_DestroyClusterGroup(hgroup.toString()) as Int).toUInt() else 0u
+public actual fun destroyClusterGroup(hgroup: Hgroup): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_destroyClusterGroup(hgroup.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DestroyClusterGroupEx(hgroup: HGROUP, lpszreason: PCWSTR): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_DestroyClusterGroupEx(hgroup.toString(), lpszreason.toString()) as Int).toUInt() else 0u
+public actual fun destroyClusterGroupEx(hgroup: Hgroup, lpszreason: Pcwstr): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_destroyClusterGroupEx(hgroup.toString(), (lpszreason?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DetermineCNOResTypeFromCluster(hcluster: HCLUSTER, pcnorestype: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_DetermineCNOResTypeFromCluster(hcluster.toString(), pcnorestype.toString()) as Int).toUInt() else 0u
+public actual fun determineCNOResTypeFromCluster(hcluster: Hcluster, pcnorestype: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_determineCNOResTypeFromCluster(hcluster.toString(), (pcnorestype?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DetermineCNOResTypeFromNodelist(cnodes: UInt, ppsznodenames: Long, pcnorestype: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_DetermineCNOResTypeFromNodelist(cnodes.toInt(), ppsznodenames.toString(), pcnorestype.toString()) as Int).toUInt() else 0u
+public actual fun determineCNOResTypeFromNodelist(cnodes: UInt, ppsznodenames: COpaquePointer?, pcnorestype: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_determineCNOResTypeFromNodelist(cnodes.toInt(), (ppsznodenames?.value ?: 0L).toString(), (pcnorestype?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DetermineClusterCloudTypeFromCluster(hcluster: HCLUSTER, pcloudtype: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_DetermineClusterCloudTypeFromCluster(hcluster.toString(), pcloudtype.toString()) as Int).toUInt() else 0u
+public actual fun determineClusterCloudTypeFromCluster(hcluster: Hcluster, pcloudtype: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_determineClusterCloudTypeFromCluster(hcluster.toString(), (pcloudtype?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DetermineClusterCloudTypeFromNodelist(cnodes: UInt, ppsznodenames: Long, pcloudtype: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_DetermineClusterCloudTypeFromNodelist(cnodes.toInt(), ppsznodenames.toString(), pcloudtype.toString()) as Int).toUInt() else 0u
+public actual fun determineClusterCloudTypeFromNodelist(cnodes: UInt, ppsznodenames: COpaquePointer?, pcloudtype: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_determineClusterCloudTypeFromNodelist(cnodes.toInt(), (ppsznodenames?.value ?: 0L).toString(), (pcloudtype?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EvictClusterNode(hnode: HNODE): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_EvictClusterNode(hnode.toString()) as Int).toUInt() else 0u
+public actual fun evictClusterNode(hnode: Hnode): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_evictClusterNode(hnode.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EvictClusterNodeEx(hnode: HNODE, dwtimeout: UInt, phrcleanupstatus: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_EvictClusterNodeEx(hnode.toString(), dwtimeout.toInt(), phrcleanupstatus.toString()) as Int).toUInt() else 0u
+public actual fun evictClusterNodeEx(hnode: Hnode, dwtimeout: UInt, phrcleanupstatus: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_evictClusterNodeEx(hnode.toString(), dwtimeout.toInt(), (phrcleanupstatus?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EvictClusterNodeEx2(hnode: HNODE, dwtimeout: UInt, phrcleanupstatus: Long, lpszreason: PCWSTR): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_EvictClusterNodeEx2(hnode.toString(), dwtimeout.toInt(), phrcleanupstatus.toString(), lpszreason.toString()) as Int).toUInt() else 0u
+public actual fun evictClusterNodeEx2(hnode: Hnode, dwtimeout: UInt, phrcleanupstatus: COpaquePointer?, lpszreason: Pcwstr): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_evictClusterNodeEx2(hnode.toString(), dwtimeout.toInt(), (phrcleanupstatus?.value ?: 0L).toString(), (lpszreason?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FailClusterResource(hresource: HRESOURCE): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_FailClusterResource(hresource.toString()) as Int).toUInt() else 0u
+public actual fun failClusterResource(hresource: Hresource): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_failClusterResource(hresource.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FailClusterResourceEx(hresource: HRESOURCE, lpszreason: PCWSTR): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_FailClusterResourceEx(hresource.toString(), lpszreason.toString()) as Int).toUInt() else 0u
+public actual fun failClusterResourceEx(hresource: Hresource, lpszreason: Pcwstr): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_failClusterResourceEx(hresource.toString(), (lpszreason?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FreeClusterCrypt(pcryptinfo: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_FreeClusterCrypt(pcryptinfo.toString()) as Int).toUInt() else 0u
+public actual fun freeClusterCrypt(pcryptinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_freeClusterCrypt((pcryptinfo?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FreeClusterHealthFault(clusterhealthfault: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_FreeClusterHealthFault(clusterhealthfault.toString()) as Int).toUInt() else 0u
+public actual fun freeClusterHealthFault(clusterhealthfault: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_freeClusterHealthFault((clusterhealthfault?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FreeClusterHealthFaultArray(clusterhealthfaultarray: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_FreeClusterHealthFaultArray(clusterhealthfaultarray.toString()) as Int).toUInt() else 0u
+public actual fun freeClusterHealthFaultArray(clusterhealthfaultarray: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_freeClusterHealthFaultArray((clusterhealthfaultarray?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetClusterFromGroup(hgroup: HGROUP): HCLUSTER =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_GetClusterFromGroup(hgroup.toString()) as String).toLong() else 0L
+public actual fun getClusterFromGroup(hgroup: Hgroup): Hcluster =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_getClusterFromGroup(hgroup.toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetClusterFromNetInterface(hnetinterface: HNETINTERFACE): HCLUSTER =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_GetClusterFromNetInterface(hnetinterface.toString()) as String).toLong() else 0L
+public actual fun getClusterFromNetInterface(hnetinterface: Hnetinterface): Hcluster =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_getClusterFromNetInterface(hnetinterface.toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetClusterFromNetwork(hnetwork: HNETWORK): HCLUSTER =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_GetClusterFromNetwork(hnetwork.toString()) as String).toLong() else 0L
+public actual fun getClusterFromNetwork(hnetwork: Hnetwork): Hcluster =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_getClusterFromNetwork(hnetwork.toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetClusterFromNode(hnode: HNODE): HCLUSTER =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_GetClusterFromNode(hnode.toString()) as String).toLong() else 0L
+public actual fun getClusterFromNode(hnode: Hnode): Hcluster =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_getClusterFromNode(hnode.toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetClusterFromResource(hresource: HRESOURCE): HCLUSTER =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_GetClusterFromResource(hresource.toString()) as String).toLong() else 0L
+public actual fun getClusterFromResource(hresource: Hresource): Hcluster =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_getClusterFromResource(hresource.toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetClusterGroupKey(hgroup: HGROUP, samdesired: UInt): HKEY =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_GetClusterGroupKey(hgroup.toString(), samdesired.toInt()) as String).toLong() else 0L
+public actual fun getClusterGroupKey(hgroup: Hgroup, samdesired: UInt): Hkey =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_getClusterGroupKey(hgroup.toString(), samdesired.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetClusterGroupState(hgroup: HGROUP, lpsznodename: PWSTR, lpcchnodename: Long): CLUSTER_GROUP_STATE =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_GetClusterGroupState(hgroup.toString(), lpsznodename.toString(), lpcchnodename.toString()) as Int) else 0
+public actual fun getClusterGroupState(hgroup: Hgroup, lpsznodename: Pwstr, lpcchnodename: COpaquePointer?): ClusterGroupState =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_getClusterGroupState(hgroup.toString(), (lpsznodename?.value ?: 0L).toString(), (lpcchnodename?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetClusterInformation(hcluster: HCLUSTER, lpszclustername: PWSTR, lpcchclustername: Long, lpclusterinfo: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_GetClusterInformation(hcluster.toString(), lpszclustername.toString(), lpcchclustername.toString(), lpclusterinfo.toString()) as Int).toUInt() else 0u
+public actual fun getClusterInformation(hcluster: Hcluster, lpszclustername: Pwstr, lpcchclustername: COpaquePointer?, lpclusterinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_getClusterInformation(hcluster.toString(), (lpszclustername?.value ?: 0L).toString(), (lpcchclustername?.value ?: 0L).toString(), (lpclusterinfo?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetClusterKey(hcluster: HCLUSTER, samdesired: UInt): HKEY =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_GetClusterKey(hcluster.toString(), samdesired.toInt()) as String).toLong() else 0L
+public actual fun getClusterKey(hcluster: Hcluster, samdesired: UInt): Hkey =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_getClusterKey(hcluster.toString(), samdesired.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetClusterNetInterface(hcluster: HCLUSTER, lpsznodename: PCWSTR, lpsznetworkname: PCWSTR, lpszinterfacename: PWSTR, lpcchinterfacename: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_GetClusterNetInterface(hcluster.toString(), lpsznodename.toString(), lpsznetworkname.toString(), lpszinterfacename.toString(), lpcchinterfacename.toString()) as Int).toUInt() else 0u
+public actual fun getClusterNetInterface(hcluster: Hcluster, lpsznodename: Pcwstr, lpsznetworkname: Pcwstr, lpszinterfacename: Pwstr, lpcchinterfacename: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_getClusterNetInterface(hcluster.toString(), (lpsznodename?.value ?: 0L).toString(), (lpsznetworkname?.value ?: 0L).toString(), (lpszinterfacename?.value ?: 0L).toString(), (lpcchinterfacename?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetClusterNetInterfaceKey(hnetinterface: HNETINTERFACE, samdesired: UInt): HKEY =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_GetClusterNetInterfaceKey(hnetinterface.toString(), samdesired.toInt()) as String).toLong() else 0L
+public actual fun getClusterNetInterfaceKey(hnetinterface: Hnetinterface, samdesired: UInt): Hkey =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_getClusterNetInterfaceKey(hnetinterface.toString(), samdesired.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetClusterNetInterfaceState(hnetinterface: HNETINTERFACE): CLUSTER_NETINTERFACE_STATE =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_GetClusterNetInterfaceState(hnetinterface.toString()) as Int) else 0
+public actual fun getClusterNetInterfaceState(hnetinterface: Hnetinterface): ClusterNetinterfaceState =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_getClusterNetInterfaceState(hnetinterface.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetClusterNetworkId(hnetwork: HNETWORK, lpsznetworkid: PWSTR, lpcchname: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_GetClusterNetworkId(hnetwork.toString(), lpsznetworkid.toString(), lpcchname.toString()) as Int).toUInt() else 0u
+public actual fun getClusterNetworkId(hnetwork: Hnetwork, lpsznetworkid: Pwstr, lpcchname: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_getClusterNetworkId(hnetwork.toString(), (lpsznetworkid?.value ?: 0L).toString(), (lpcchname?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetClusterNetworkKey(hnetwork: HNETWORK, samdesired: UInt): HKEY =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_GetClusterNetworkKey(hnetwork.toString(), samdesired.toInt()) as String).toLong() else 0L
+public actual fun getClusterNetworkKey(hnetwork: Hnetwork, samdesired: UInt): Hkey =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_getClusterNetworkKey(hnetwork.toString(), samdesired.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetClusterNetworkState(hnetwork: HNETWORK): CLUSTER_NETWORK_STATE =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_GetClusterNetworkState(hnetwork.toString()) as Int) else 0
+public actual fun getClusterNetworkState(hnetwork: Hnetwork): ClusterNetworkState =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_getClusterNetworkState(hnetwork.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetClusterNodeId(hnode: HNODE, lpsznodeid: PWSTR, lpcchname: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_GetClusterNodeId(hnode.toString(), lpsznodeid.toString(), lpcchname.toString()) as Int).toUInt() else 0u
+public actual fun getClusterNodeId(hnode: Hnode, lpsznodeid: Pwstr, lpcchname: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_getClusterNodeId(hnode.toString(), (lpsznodeid?.value ?: 0L).toString(), (lpcchname?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetClusterNodeKey(hnode: HNODE, samdesired: UInt): HKEY =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_GetClusterNodeKey(hnode.toString(), samdesired.toInt()) as String).toLong() else 0L
+public actual fun getClusterNodeKey(hnode: Hnode, samdesired: UInt): Hkey =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_getClusterNodeKey(hnode.toString(), samdesired.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetClusterNodeState(hnode: HNODE): CLUSTER_NODE_STATE =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_GetClusterNodeState(hnode.toString()) as Int) else 0
+public actual fun getClusterNodeState(hnode: Hnode): ClusterNodeState =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_getClusterNodeState(hnode.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetClusterNotify(hchange: HCHANGE, lpdwnotifykey: Long, lpdwfiltertype: Long, lpszname: PWSTR, lpcchname: Long, dwmilliseconds: UInt): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_GetClusterNotify(hchange.toString(), lpdwnotifykey.toString(), lpdwfiltertype.toString(), lpszname.toString(), lpcchname.toString(), dwmilliseconds.toInt()) as Int).toUInt() else 0u
+public actual fun getClusterNotify(hchange: Hchange, lpdwnotifykey: COpaquePointer?, lpdwfiltertype: COpaquePointer?, lpszname: Pwstr, lpcchname: COpaquePointer?, dwmilliseconds: UInt): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_getClusterNotify(hchange.toString(), (lpdwnotifykey?.value ?: 0L).toString(), (lpdwfiltertype?.value ?: 0L).toString(), (lpszname?.value ?: 0L).toString(), (lpcchname?.value ?: 0L).toString(), dwmilliseconds.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetClusterNotifyV2(hchange: HCHANGE, lpdwnotifykey: Long, pfilterandtype: Long, buffer: Long, lpbbuffersize: Long, lpszobjectid: PWSTR, lpcchobjectid: Long, lpszparentid: PWSTR, lpcchparentid: Long, lpszname: PWSTR, lpcchname: Long, lpsztype: PWSTR, lpcchtype: Long, dwmilliseconds: UInt): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_GetClusterNotifyV2(hchange.toString(), lpdwnotifykey.toString(), pfilterandtype.toString(), buffer.toString(), lpbbuffersize.toString(), lpszobjectid.toString(), lpcchobjectid.toString(), lpszparentid.toString(), lpcchparentid.toString(), lpszname.toString(), lpcchname.toString(), lpsztype.toString(), lpcchtype.toString(), dwmilliseconds.toInt()) as Int).toUInt() else 0u
+public actual fun getClusterNotifyV2(hchange: Hchange, lpdwnotifykey: COpaquePointer?, pfilterandtype: COpaquePointer?, buffer: COpaquePointer?, lpbbuffersize: COpaquePointer?, lpszobjectid: Pwstr, lpcchobjectid: COpaquePointer?, lpszparentid: Pwstr, lpcchparentid: COpaquePointer?, lpszname: Pwstr, lpcchname: COpaquePointer?, lpsztype: Pwstr, lpcchtype: COpaquePointer?, dwmilliseconds: UInt): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_getClusterNotifyV2(hchange.toString(), (lpdwnotifykey?.value ?: 0L).toString(), (pfilterandtype?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString(), (lpbbuffersize?.value ?: 0L).toString(), (lpszobjectid?.value ?: 0L).toString(), (lpcchobjectid?.value ?: 0L).toString(), (lpszparentid?.value ?: 0L).toString(), (lpcchparentid?.value ?: 0L).toString(), (lpszname?.value ?: 0L).toString(), (lpcchname?.value ?: 0L).toString(), (lpsztype?.value ?: 0L).toString(), (lpcchtype?.value ?: 0L).toString(), dwmilliseconds.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetClusterQuorumResource(hcluster: HCLUSTER, lpszresourcename: PWSTR, lpcchresourcename: Long, lpszdevicename: PWSTR, lpcchdevicename: Long, lpdwmaxquorumlogsize: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_GetClusterQuorumResource(hcluster.toString(), lpszresourcename.toString(), lpcchresourcename.toString(), lpszdevicename.toString(), lpcchdevicename.toString(), lpdwmaxquorumlogsize.toString()) as Int).toUInt() else 0u
+public actual fun getClusterQuorumResource(hcluster: Hcluster, lpszresourcename: Pwstr, lpcchresourcename: COpaquePointer?, lpszdevicename: Pwstr, lpcchdevicename: COpaquePointer?, lpdwmaxquorumlogsize: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_getClusterQuorumResource(hcluster.toString(), (lpszresourcename?.value ?: 0L).toString(), (lpcchresourcename?.value ?: 0L).toString(), (lpszdevicename?.value ?: 0L).toString(), (lpcchdevicename?.value ?: 0L).toString(), (lpdwmaxquorumlogsize?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetClusterResourceDependencyExpression(hresource: HRESOURCE, lpszdependencyexpression: PWSTR, lpcchdependencyexpression: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_GetClusterResourceDependencyExpression(hresource.toString(), lpszdependencyexpression.toString(), lpcchdependencyexpression.toString()) as Int).toUInt() else 0u
+public actual fun getClusterResourceDependencyExpression(hresource: Hresource, lpszdependencyexpression: Pwstr, lpcchdependencyexpression: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_getClusterResourceDependencyExpression(hresource.toString(), (lpszdependencyexpression?.value ?: 0L).toString(), (lpcchdependencyexpression?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetClusterResourceKey(hresource: HRESOURCE, samdesired: UInt): HKEY =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_GetClusterResourceKey(hresource.toString(), samdesired.toInt()) as String).toLong() else 0L
+public actual fun getClusterResourceKey(hresource: Hresource, samdesired: UInt): Hkey =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_getClusterResourceKey(hresource.toString(), samdesired.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetClusterResourceNetworkName(hresource: HRESOURCE, lpbuffer: PWSTR, nsize: Long): BOOL =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_GetClusterResourceNetworkName(hresource.toString(), lpbuffer.toString(), nsize.toString()) as Int) else 0
+public actual fun getClusterResourceNetworkName(hresource: Hresource, lpbuffer: Pwstr, nsize: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_getClusterResourceNetworkName(hresource.toString(), (lpbuffer?.value ?: 0L).toString(), (nsize?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetClusterResourceState(hresource: HRESOURCE, lpsznodename: PWSTR, lpcchnodename: Long, lpszgroupname: PWSTR, lpcchgroupname: Long): CLUSTER_RESOURCE_STATE =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_GetClusterResourceState(hresource.toString(), lpsznodename.toString(), lpcchnodename.toString(), lpszgroupname.toString(), lpcchgroupname.toString()) as Int) else 0
+public actual fun getClusterResourceState(hresource: Hresource, lpsznodename: Pwstr, lpcchnodename: COpaquePointer?, lpszgroupname: Pwstr, lpcchgroupname: COpaquePointer?): ClusterResourceState =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_getClusterResourceState(hresource.toString(), (lpsznodename?.value ?: 0L).toString(), (lpcchnodename?.value ?: 0L).toString(), (lpszgroupname?.value ?: 0L).toString(), (lpcchgroupname?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetClusterResourceTypeKey(hcluster: HCLUSTER, lpsztypename: PCWSTR, samdesired: UInt): HKEY =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_GetClusterResourceTypeKey(hcluster.toString(), lpsztypename.toString(), samdesired.toInt()) as String).toLong() else 0L
+public actual fun getClusterResourceTypeKey(hcluster: Hcluster, lpsztypename: Pcwstr, samdesired: UInt): Hkey =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_getClusterResourceTypeKey(hcluster.toString(), (lpsztypename?.value ?: 0L).toString(), samdesired.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetNodeCloudTypeDW(ppsznodename: PCWSTR, nodecloudtype: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_GetNodeCloudTypeDW(ppsznodename.toString(), nodecloudtype.toString()) as Int).toUInt() else 0u
+public actual fun getNodeCloudTypeDW(ppsznodename: Pcwstr, nodecloudtype: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_getNodeCloudTypeDW((ppsznodename?.value ?: 0L).toString(), (nodecloudtype?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetNodeClusterState(lpsznodename: PCWSTR, pdwclusterstate: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_GetNodeClusterState(lpsznodename.toString(), pdwclusterstate.toString()) as Int).toUInt() else 0u
+public actual fun getNodeClusterState(lpsznodename: Pcwstr, pdwclusterstate: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_getNodeClusterState((lpsznodename?.value ?: 0L).toString(), (pdwclusterstate?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetNotifyEventHandle(hchange: HCHANGE, lphtargetevent: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_GetNotifyEventHandle(hchange.toString(), lphtargetevent.toString()) as Int).toUInt() else 0u
+public actual fun getNotifyEventHandle(hchange: Hchange, lphtargetevent: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_getNotifyEventHandle(hchange.toString(), (lphtargetevent?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InitializeClusterHealthFault(clusterhealthfault: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_InitializeClusterHealthFault(clusterhealthfault.toString()) as Int).toUInt() else 0u
+public actual fun initializeClusterHealthFault(clusterhealthfault: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_initializeClusterHealthFault((clusterhealthfault?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InitializeClusterHealthFaultArray(clusterhealthfaultarray: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_InitializeClusterHealthFaultArray(clusterhealthfaultarray.toString()) as Int).toUInt() else 0u
+public actual fun initializeClusterHealthFaultArray(clusterhealthfaultarray: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_initializeClusterHealthFaultArray((clusterhealthfaultarray?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IsFileOnClusterSharedVolume(lpszpathname: PCWSTR, pbfileisonsharedvolume: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_IsFileOnClusterSharedVolume(lpszpathname.toString(), pbfileisonsharedvolume.toString()) as Int).toUInt() else 0u
+public actual fun isFileOnClusterSharedVolume(lpszpathname: Pcwstr, pbfileisonsharedvolume: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_isFileOnClusterSharedVolume((lpszpathname?.value ?: 0L).toString(), (pbfileisonsharedvolume?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MoveClusterGroup(hgroup: HGROUP, hdestinationnode: HNODE): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_MoveClusterGroup(hgroup.toString(), hdestinationnode.toString()) as Int).toUInt() else 0u
+public actual fun moveClusterGroup(hgroup: Hgroup, hdestinationnode: Hnode): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_moveClusterGroup(hgroup.toString(), hdestinationnode.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MoveClusterGroupEx(hgroup: HGROUP, hdestinationnode: HNODE, dwmoveflags: UInt, lpinbuffer: Long, cbinbuffersize: UInt): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_MoveClusterGroupEx(hgroup.toString(), hdestinationnode.toString(), dwmoveflags.toInt(), lpinbuffer.toString(), cbinbuffersize.toInt()) as Int).toUInt() else 0u
+public actual fun moveClusterGroupEx(hgroup: Hgroup, hdestinationnode: Hnode, dwmoveflags: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_moveClusterGroupEx(hgroup.toString(), hdestinationnode.toString(), dwmoveflags.toInt(), (lpinbuffer?.value ?: 0L).toString(), cbinbuffersize.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MoveClusterGroupEx2(hgroup: HGROUP, hdestinationnode: HNODE, dwmoveflags: UInt, lpinbuffer: Long, cbinbuffersize: UInt, lpszreason: PCWSTR): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_MoveClusterGroupEx2(hgroup.toString(), hdestinationnode.toString(), dwmoveflags.toInt(), lpinbuffer.toString(), cbinbuffersize.toInt(), lpszreason.toString()) as Int).toUInt() else 0u
+public actual fun moveClusterGroupEx2(hgroup: Hgroup, hdestinationnode: Hnode, dwmoveflags: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt, lpszreason: Pcwstr): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_moveClusterGroupEx2(hgroup.toString(), hdestinationnode.toString(), dwmoveflags.toInt(), (lpinbuffer?.value ?: 0L).toString(), cbinbuffersize.toInt(), (lpszreason?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OfflineClusterGroup(hgroup: HGROUP): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_OfflineClusterGroup(hgroup.toString()) as Int).toUInt() else 0u
+public actual fun offlineClusterGroup(hgroup: Hgroup): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_offlineClusterGroup(hgroup.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OfflineClusterGroupEx(hgroup: HGROUP, dwofflineflags: UInt, lpinbuffer: Long, cbinbuffersize: UInt): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_OfflineClusterGroupEx(hgroup.toString(), dwofflineflags.toInt(), lpinbuffer.toString(), cbinbuffersize.toInt()) as Int).toUInt() else 0u
+public actual fun offlineClusterGroupEx(hgroup: Hgroup, dwofflineflags: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_offlineClusterGroupEx(hgroup.toString(), dwofflineflags.toInt(), (lpinbuffer?.value ?: 0L).toString(), cbinbuffersize.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OfflineClusterGroupEx2(hgroup: HGROUP, dwofflineflags: UInt, lpinbuffer: Long, cbinbuffersize: UInt, lpszreason: PCWSTR): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_OfflineClusterGroupEx2(hgroup.toString(), dwofflineflags.toInt(), lpinbuffer.toString(), cbinbuffersize.toInt(), lpszreason.toString()) as Int).toUInt() else 0u
+public actual fun offlineClusterGroupEx2(hgroup: Hgroup, dwofflineflags: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt, lpszreason: Pcwstr): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_offlineClusterGroupEx2(hgroup.toString(), dwofflineflags.toInt(), (lpinbuffer?.value ?: 0L).toString(), cbinbuffersize.toInt(), (lpszreason?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OfflineClusterResource(hresource: HRESOURCE): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_OfflineClusterResource(hresource.toString()) as Int).toUInt() else 0u
+public actual fun offlineClusterResource(hresource: Hresource): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_offlineClusterResource(hresource.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OfflineClusterResourceEx(hresource: HRESOURCE, dwofflineflags: UInt, lpinbuffer: Long, cbinbuffersize: UInt): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_OfflineClusterResourceEx(hresource.toString(), dwofflineflags.toInt(), lpinbuffer.toString(), cbinbuffersize.toInt()) as Int).toUInt() else 0u
+public actual fun offlineClusterResourceEx(hresource: Hresource, dwofflineflags: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_offlineClusterResourceEx(hresource.toString(), dwofflineflags.toInt(), (lpinbuffer?.value ?: 0L).toString(), cbinbuffersize.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OfflineClusterResourceEx2(hresource: HRESOURCE, dwofflineflags: UInt, lpinbuffer: Long, cbinbuffersize: UInt, lpszreason: PCWSTR): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_OfflineClusterResourceEx2(hresource.toString(), dwofflineflags.toInt(), lpinbuffer.toString(), cbinbuffersize.toInt(), lpszreason.toString()) as Int).toUInt() else 0u
+public actual fun offlineClusterResourceEx2(hresource: Hresource, dwofflineflags: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt, lpszreason: Pcwstr): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_offlineClusterResourceEx2(hresource.toString(), dwofflineflags.toInt(), (lpinbuffer?.value ?: 0L).toString(), cbinbuffersize.toInt(), (lpszreason?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OnlineClusterGroup(hgroup: HGROUP, hdestinationnode: HNODE): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_OnlineClusterGroup(hgroup.toString(), hdestinationnode.toString()) as Int).toUInt() else 0u
+public actual fun onlineClusterGroup(hgroup: Hgroup, hdestinationnode: Hnode): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_onlineClusterGroup(hgroup.toString(), hdestinationnode.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OnlineClusterGroupEx(hgroup: HGROUP, hdestinationnode: HNODE, dwonlineflags: UInt, lpinbuffer: Long, cbinbuffersize: UInt): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_OnlineClusterGroupEx(hgroup.toString(), hdestinationnode.toString(), dwonlineflags.toInt(), lpinbuffer.toString(), cbinbuffersize.toInt()) as Int).toUInt() else 0u
+public actual fun onlineClusterGroupEx(hgroup: Hgroup, hdestinationnode: Hnode, dwonlineflags: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_onlineClusterGroupEx(hgroup.toString(), hdestinationnode.toString(), dwonlineflags.toInt(), (lpinbuffer?.value ?: 0L).toString(), cbinbuffersize.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OnlineClusterGroupEx2(hgroup: HGROUP, hdestinationnode: HNODE, dwonlineflags: UInt, lpinbuffer: Long, cbinbuffersize: UInt, lpszreason: PCWSTR): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_OnlineClusterGroupEx2(hgroup.toString(), hdestinationnode.toString(), dwonlineflags.toInt(), lpinbuffer.toString(), cbinbuffersize.toInt(), lpszreason.toString()) as Int).toUInt() else 0u
+public actual fun onlineClusterGroupEx2(hgroup: Hgroup, hdestinationnode: Hnode, dwonlineflags: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt, lpszreason: Pcwstr): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_onlineClusterGroupEx2(hgroup.toString(), hdestinationnode.toString(), dwonlineflags.toInt(), (lpinbuffer?.value ?: 0L).toString(), cbinbuffersize.toInt(), (lpszreason?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OnlineClusterResource(hresource: HRESOURCE): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_OnlineClusterResource(hresource.toString()) as Int).toUInt() else 0u
+public actual fun onlineClusterResource(hresource: Hresource): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_onlineClusterResource(hresource.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OnlineClusterResourceEx(hresource: HRESOURCE, dwonlineflags: UInt, lpinbuffer: Long, cbinbuffersize: UInt): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_OnlineClusterResourceEx(hresource.toString(), dwonlineflags.toInt(), lpinbuffer.toString(), cbinbuffersize.toInt()) as Int).toUInt() else 0u
+public actual fun onlineClusterResourceEx(hresource: Hresource, dwonlineflags: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_onlineClusterResourceEx(hresource.toString(), dwonlineflags.toInt(), (lpinbuffer?.value ?: 0L).toString(), cbinbuffersize.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OnlineClusterResourceEx2(hresource: HRESOURCE, dwonlineflags: UInt, lpinbuffer: Long, cbinbuffersize: UInt, lpszreason: PCWSTR): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_OnlineClusterResourceEx2(hresource.toString(), dwonlineflags.toInt(), lpinbuffer.toString(), cbinbuffersize.toInt(), lpszreason.toString()) as Int).toUInt() else 0u
+public actual fun onlineClusterResourceEx2(hresource: Hresource, dwonlineflags: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt, lpszreason: Pcwstr): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_onlineClusterResourceEx2(hresource.toString(), dwonlineflags.toInt(), (lpinbuffer?.value ?: 0L).toString(), cbinbuffersize.toInt(), (lpszreason?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OpenCluster(lpszclustername: PCWSTR): HCLUSTER =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_OpenCluster(lpszclustername.toString()) as String).toLong() else 0L
+public actual fun openCluster(lpszclustername: Pcwstr): Hcluster =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_openCluster((lpszclustername?.value ?: 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OpenClusterCryptProvider(lpszresource: PCWSTR, lpszprovider: Long, dwtype: UInt, dwflags: UInt): HCLUSCRYPTPROVIDER =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_OpenClusterCryptProvider(lpszresource.toString(), lpszprovider.toString(), dwtype.toInt(), dwflags.toInt()) as String).toLong() else 0L
+public actual fun openClusterCryptProvider(lpszresource: Pcwstr, lpszprovider: COpaquePointer?, dwtype: UInt, dwflags: UInt): Hcluscryptprovider =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_openClusterCryptProvider((lpszresource?.value ?: 0L).toString(), (lpszprovider?.value ?: 0L).toString(), dwtype.toInt(), dwflags.toInt()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OpenClusterCryptProviderEx(lpszresource: PCWSTR, lpszkeyname: PCWSTR, lpszprovider: Long, dwtype: UInt, dwflags: UInt): HCLUSCRYPTPROVIDER =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_OpenClusterCryptProviderEx(lpszresource.toString(), lpszkeyname.toString(), lpszprovider.toString(), dwtype.toInt(), dwflags.toInt()) as String).toLong() else 0L
+public actual fun openClusterCryptProviderEx(lpszresource: Pcwstr, lpszkeyname: Pcwstr, lpszprovider: COpaquePointer?, dwtype: UInt, dwflags: UInt): Hcluscryptprovider =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_openClusterCryptProviderEx((lpszresource?.value ?: 0L).toString(), (lpszkeyname?.value ?: 0L).toString(), (lpszprovider?.value ?: 0L).toString(), dwtype.toInt(), dwflags.toInt()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OpenClusterEx(lpszclustername: PCWSTR, desiredaccess: UInt, grantedaccess: Long): HCLUSTER =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_OpenClusterEx(lpszclustername.toString(), desiredaccess.toInt(), grantedaccess.toString()) as String).toLong() else 0L
+public actual fun openClusterEx(lpszclustername: Pcwstr, desiredaccess: UInt, grantedaccess: COpaquePointer?): Hcluster =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_openClusterEx((lpszclustername?.value ?: 0L).toString(), desiredaccess.toInt(), (grantedaccess?.value ?: 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OpenClusterGroup(hcluster: HCLUSTER, lpszgroupname: PCWSTR): HGROUP =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_OpenClusterGroup(hcluster.toString(), lpszgroupname.toString()) as String).toLong() else 0L
+public actual fun openClusterGroup(hcluster: Hcluster, lpszgroupname: Pcwstr): Hgroup =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_openClusterGroup(hcluster.toString(), (lpszgroupname?.value ?: 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OpenClusterGroupEx(hcluster: HCLUSTER, lpszgroupname: PCWSTR, dwdesiredaccess: UInt, lpdwgrantedaccess: Long): HGROUP =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_OpenClusterGroupEx(hcluster.toString(), lpszgroupname.toString(), dwdesiredaccess.toInt(), lpdwgrantedaccess.toString()) as String).toLong() else 0L
+public actual fun openClusterGroupEx(hcluster: Hcluster, lpszgroupname: Pcwstr, dwdesiredaccess: UInt, lpdwgrantedaccess: COpaquePointer?): Hgroup =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_openClusterGroupEx(hcluster.toString(), (lpszgroupname?.value ?: 0L).toString(), dwdesiredaccess.toInt(), (lpdwgrantedaccess?.value ?: 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OpenClusterGroupSet(hcluster: HCLUSTER, lpszgroupsetname: PCWSTR): HGROUPSET =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_OpenClusterGroupSet(hcluster.toString(), lpszgroupsetname.toString()) as String).toLong() else 0L
+public actual fun openClusterGroupSet(hcluster: Hcluster, lpszgroupsetname: Pcwstr): Hgroupset =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_openClusterGroupSet(hcluster.toString(), (lpszgroupsetname?.value ?: 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OpenClusterNetInterface(hcluster: HCLUSTER, lpszinterfacename: PCWSTR): HNETINTERFACE =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_OpenClusterNetInterface(hcluster.toString(), lpszinterfacename.toString()) as String).toLong() else 0L
+public actual fun openClusterNetInterface(hcluster: Hcluster, lpszinterfacename: Pcwstr): Hnetinterface =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_openClusterNetInterface(hcluster.toString(), (lpszinterfacename?.value ?: 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OpenClusterNetInterfaceEx(hcluster: HCLUSTER, lpszinterfacename: PCWSTR, dwdesiredaccess: UInt, lpdwgrantedaccess: Long): HNETINTERFACE =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_OpenClusterNetInterfaceEx(hcluster.toString(), lpszinterfacename.toString(), dwdesiredaccess.toInt(), lpdwgrantedaccess.toString()) as String).toLong() else 0L
+public actual fun openClusterNetInterfaceEx(hcluster: Hcluster, lpszinterfacename: Pcwstr, dwdesiredaccess: UInt, lpdwgrantedaccess: COpaquePointer?): Hnetinterface =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_openClusterNetInterfaceEx(hcluster.toString(), (lpszinterfacename?.value ?: 0L).toString(), dwdesiredaccess.toInt(), (lpdwgrantedaccess?.value ?: 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OpenClusterNetwork(hcluster: HCLUSTER, lpsznetworkname: PCWSTR): HNETWORK =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_OpenClusterNetwork(hcluster.toString(), lpsznetworkname.toString()) as String).toLong() else 0L
+public actual fun openClusterNetwork(hcluster: Hcluster, lpsznetworkname: Pcwstr): Hnetwork =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_openClusterNetwork(hcluster.toString(), (lpsznetworkname?.value ?: 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OpenClusterNetworkEx(hcluster: HCLUSTER, lpsznetworkname: PCWSTR, dwdesiredaccess: UInt, lpdwgrantedaccess: Long): HNETWORK =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_OpenClusterNetworkEx(hcluster.toString(), lpsznetworkname.toString(), dwdesiredaccess.toInt(), lpdwgrantedaccess.toString()) as String).toLong() else 0L
+public actual fun openClusterNetworkEx(hcluster: Hcluster, lpsznetworkname: Pcwstr, dwdesiredaccess: UInt, lpdwgrantedaccess: COpaquePointer?): Hnetwork =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_openClusterNetworkEx(hcluster.toString(), (lpsznetworkname?.value ?: 0L).toString(), dwdesiredaccess.toInt(), (lpdwgrantedaccess?.value ?: 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OpenClusterNode(hcluster: HCLUSTER, lpsznodename: PCWSTR): HNODE =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_OpenClusterNode(hcluster.toString(), lpsznodename.toString()) as String).toLong() else 0L
+public actual fun openClusterNode(hcluster: Hcluster, lpsznodename: Pcwstr): Hnode =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_openClusterNode(hcluster.toString(), (lpsznodename?.value ?: 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OpenClusterNodeById(hcluster: HCLUSTER, nodeid: UInt): HNODE =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_OpenClusterNodeById(hcluster.toString(), nodeid.toInt()) as String).toLong() else 0L
+public actual fun openClusterNodeById(hcluster: Hcluster, nodeid: UInt): Hnode =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_openClusterNodeById(hcluster.toString(), nodeid.toInt()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OpenClusterNodeEx(hcluster: HCLUSTER, lpsznodename: PCWSTR, dwdesiredaccess: UInt, lpdwgrantedaccess: Long): HNODE =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_OpenClusterNodeEx(hcluster.toString(), lpsznodename.toString(), dwdesiredaccess.toInt(), lpdwgrantedaccess.toString()) as String).toLong() else 0L
+public actual fun openClusterNodeEx(hcluster: Hcluster, lpsznodename: Pcwstr, dwdesiredaccess: UInt, lpdwgrantedaccess: COpaquePointer?): Hnode =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_openClusterNodeEx(hcluster.toString(), (lpsznodename?.value ?: 0L).toString(), dwdesiredaccess.toInt(), (lpdwgrantedaccess?.value ?: 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OpenClusterResource(hcluster: HCLUSTER, lpszresourcename: PCWSTR): HRESOURCE =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_OpenClusterResource(hcluster.toString(), lpszresourcename.toString()) as String).toLong() else 0L
+public actual fun openClusterResource(hcluster: Hcluster, lpszresourcename: Pcwstr): Hresource =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_openClusterResource(hcluster.toString(), (lpszresourcename?.value ?: 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OpenClusterResourceEx(hcluster: HCLUSTER, lpszresourcename: PCWSTR, dwdesiredaccess: UInt, lpdwgrantedaccess: Long): HRESOURCE =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_OpenClusterResourceEx(hcluster.toString(), lpszresourcename.toString(), dwdesiredaccess.toInt(), lpdwgrantedaccess.toString()) as String).toLong() else 0L
+public actual fun openClusterResourceEx(hcluster: Hcluster, lpszresourcename: Pcwstr, dwdesiredaccess: UInt, lpdwgrantedaccess: COpaquePointer?): Hresource =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_openClusterResourceEx(hcluster.toString(), (lpszresourcename?.value ?: 0L).toString(), dwdesiredaccess.toInt(), (lpdwgrantedaccess?.value ?: 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PauseClusterNode(hnode: HNODE): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_PauseClusterNode(hnode.toString()) as Int).toUInt() else 0u
+public actual fun pauseClusterNode(hnode: Hnode): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_pauseClusterNode(hnode.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PauseClusterNodeEx(hnode: HNODE, bdrainnode: BOOL, dwpauseflags: UInt, hnodedraintarget: HNODE): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_PauseClusterNodeEx(hnode.toString(), bdrainnode, dwpauseflags.toInt(), hnodedraintarget.toString()) as Int).toUInt() else 0u
+public actual fun pauseClusterNodeEx(hnode: Hnode, bdrainnode: Bool, dwpauseflags: UInt, hnodedraintarget: Hnode): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_pauseClusterNodeEx(hnode.toString(), bdrainnode, dwpauseflags.toInt(), hnodedraintarget.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PauseClusterNodeEx2(hnode: HNODE, bdrainnode: BOOL, dwpauseflags: UInt, hnodedraintarget: HNODE, lpszreason: PCWSTR): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_PauseClusterNodeEx2(hnode.toString(), bdrainnode, dwpauseflags.toInt(), hnodedraintarget.toString(), lpszreason.toString()) as Int).toUInt() else 0u
+public actual fun pauseClusterNodeEx2(hnode: Hnode, bdrainnode: Bool, dwpauseflags: UInt, hnodedraintarget: Hnode, lpszreason: Pcwstr): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_pauseClusterNodeEx2(hnode.toString(), bdrainnode, dwpauseflags.toInt(), hnodedraintarget.toString(), (lpszreason?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun QueryAppInstanceVersion(appinstanceid: Long, instanceversionhigh: Long, instanceversionlow: Long, versionstatus: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_QueryAppInstanceVersion(appinstanceid.toString(), instanceversionhigh.toString(), instanceversionlow.toString(), versionstatus.toString()) as Int).toUInt() else 0u
+public actual fun queryAppInstanceVersion(appinstanceid: COpaquePointer?, instanceversionhigh: COpaquePointer?, instanceversionlow: COpaquePointer?, versionstatus: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_queryAppInstanceVersion((appinstanceid?.value ?: 0L).toString(), (instanceversionhigh?.value ?: 0L).toString(), (instanceversionlow?.value ?: 0L).toString(), (versionstatus?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RegisterAppInstance(processhandle: HANDLE, appinstanceid: Long, childreninheritappinstance: BOOL): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_RegisterAppInstance(processhandle.toString(), appinstanceid.toString(), childreninheritappinstance) as Int).toUInt() else 0u
+public actual fun registerAppInstance(processhandle: Handle, appinstanceid: COpaquePointer?, childreninheritappinstance: Bool): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_registerAppInstance((processhandle?.value ?: 0L).toString(), (appinstanceid?.value ?: 0L).toString(), childreninheritappinstance) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RegisterAppInstanceVersion(appinstanceid: Long, instanceversionhigh: ULong, instanceversionlow: ULong): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_RegisterAppInstanceVersion(appinstanceid.toString(), instanceversionhigh.toString(), instanceversionlow.toString()) as Int).toUInt() else 0u
+public actual fun registerAppInstanceVersion(appinstanceid: COpaquePointer?, instanceversionhigh: ULong, instanceversionlow: ULong): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_registerAppInstanceVersion((appinstanceid?.value ?: 0L).toString(), instanceversionhigh.toString(), instanceversionlow.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RegisterClusterNotify(hchange: HCHANGE, dwfiltertype: UInt, hobject: HANDLE, dwnotifykey: ULong): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_RegisterClusterNotify(hchange.toString(), dwfiltertype.toInt(), hobject.toString(), dwnotifykey.toString()) as Int).toUInt() else 0u
+public actual fun registerClusterNotify(hchange: Hchange, dwfiltertype: UInt, hobject: Handle, dwnotifykey: ULong): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_registerClusterNotify(hchange.toString(), dwfiltertype.toInt(), (hobject?.value ?: 0L).toString(), dwnotifykey.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RegisterClusterNotifyV2(hchange: HCHANGE, filter: NOTIFY_FILTER_AND_TYPE, hobject: HANDLE, dwnotifykey: ULong): UInt =
-    0u
+public actual fun registerClusterNotifyV2(hchange: Hchange, filter: NotifyFilterAndType, hobject: Handle, dwnotifykey: ULong): UInt =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RegisterClusterResourceTypeNotifyV2(hchange: HCHANGE, hcluster: HCLUSTER, flags: Long, restypename: PCWSTR, dwnotifykey: ULong): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_RegisterClusterResourceTypeNotifyV2(hchange.toString(), hcluster.toString(), flags.toString(), restypename.toString(), dwnotifykey.toString()) as Int).toUInt() else 0u
+public actual fun registerClusterResourceTypeNotifyV2(hchange: Hchange, hcluster: Hcluster, flags: Long, restypename: Pcwstr, dwnotifykey: ULong): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_registerClusterResourceTypeNotifyV2(hchange.toString(), hcluster.toString(), flags.toString(), (restypename?.value ?: 0L).toString(), dwnotifykey.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RemoveClusterGroupDependency(hgroup: HGROUP, hdependson: HGROUP): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_RemoveClusterGroupDependency(hgroup.toString(), hdependson.toString()) as Int).toUInt() else 0u
+public actual fun removeClusterGroupDependency(hgroup: Hgroup, hdependson: Hgroup): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_removeClusterGroupDependency(hgroup.toString(), hdependson.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RemoveClusterGroupDependencyEx(hgroup: HGROUP, hdependson: HGROUP, lpszreason: PCWSTR): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_RemoveClusterGroupDependencyEx(hgroup.toString(), hdependson.toString(), lpszreason.toString()) as Int).toUInt() else 0u
+public actual fun removeClusterGroupDependencyEx(hgroup: Hgroup, hdependson: Hgroup, lpszreason: Pcwstr): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_removeClusterGroupDependencyEx(hgroup.toString(), hdependson.toString(), (lpszreason?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RemoveClusterGroupSetDependency(hgroupset: HGROUPSET, hdependson: HGROUPSET): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_RemoveClusterGroupSetDependency(hgroupset.toString(), hdependson.toString()) as Int).toUInt() else 0u
+public actual fun removeClusterGroupSetDependency(hgroupset: Hgroupset, hdependson: Hgroupset): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_removeClusterGroupSetDependency(hgroupset.toString(), hdependson.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RemoveClusterGroupSetDependencyEx(hgroupset: HGROUPSET, hdependson: HGROUPSET, lpszreason: PCWSTR): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_RemoveClusterGroupSetDependencyEx(hgroupset.toString(), hdependson.toString(), lpszreason.toString()) as Int).toUInt() else 0u
+public actual fun removeClusterGroupSetDependencyEx(hgroupset: Hgroupset, hdependson: Hgroupset, lpszreason: Pcwstr): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_removeClusterGroupSetDependencyEx(hgroupset.toString(), hdependson.toString(), (lpszreason?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RemoveClusterGroupToGroupSetDependency(hgroup: HGROUP, hdependson: HGROUPSET): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_RemoveClusterGroupToGroupSetDependency(hgroup.toString(), hdependson.toString()) as Int).toUInt() else 0u
+public actual fun removeClusterGroupToGroupSetDependency(hgroup: Hgroup, hdependson: Hgroupset): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_removeClusterGroupToGroupSetDependency(hgroup.toString(), hdependson.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RemoveClusterGroupToGroupSetDependencyEx(hgroup: HGROUP, hdependson: HGROUPSET, lpszreason: PCWSTR): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_RemoveClusterGroupToGroupSetDependencyEx(hgroup.toString(), hdependson.toString(), lpszreason.toString()) as Int).toUInt() else 0u
+public actual fun removeClusterGroupToGroupSetDependencyEx(hgroup: Hgroup, hdependson: Hgroupset, lpszreason: Pcwstr): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_removeClusterGroupToGroupSetDependencyEx(hgroup.toString(), hdependson.toString(), (lpszreason?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RemoveClusterNameAccount(hcluster: HCLUSTER, bdeletecomputerobjects: BOOL): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_RemoveClusterNameAccount(hcluster.toString(), bdeletecomputerobjects) as Int).toUInt() else 0u
+public actual fun removeClusterNameAccount(hcluster: Hcluster, bdeletecomputerobjects: Bool): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_removeClusterNameAccount(hcluster.toString(), bdeletecomputerobjects) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RemoveClusterResourceDependency(hresource: HRESOURCE, hdependson: HRESOURCE): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_RemoveClusterResourceDependency(hresource.toString(), hdependson.toString()) as Int).toUInt() else 0u
+public actual fun removeClusterResourceDependency(hresource: Hresource, hdependson: Hresource): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_removeClusterResourceDependency(hresource.toString(), hdependson.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RemoveClusterResourceDependencyEx(hresource: HRESOURCE, hdependson: HRESOURCE, lpszreason: PCWSTR): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_RemoveClusterResourceDependencyEx(hresource.toString(), hdependson.toString(), lpszreason.toString()) as Int).toUInt() else 0u
+public actual fun removeClusterResourceDependencyEx(hresource: Hresource, hdependson: Hresource, lpszreason: Pcwstr): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_removeClusterResourceDependencyEx(hresource.toString(), hdependson.toString(), (lpszreason?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RemoveClusterResourceNode(hresource: HRESOURCE, hnode: HNODE): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_RemoveClusterResourceNode(hresource.toString(), hnode.toString()) as Int).toUInt() else 0u
+public actual fun removeClusterResourceNode(hresource: Hresource, hnode: Hnode): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_removeClusterResourceNode(hresource.toString(), hnode.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RemoveClusterResourceNodeEx(hresource: HRESOURCE, hnode: HNODE, lpszreason: PCWSTR): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_RemoveClusterResourceNodeEx(hresource.toString(), hnode.toString(), lpszreason.toString()) as Int).toUInt() else 0u
+public actual fun removeClusterResourceNodeEx(hresource: Hresource, hnode: Hnode, lpszreason: Pcwstr): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_removeClusterResourceNodeEx(hresource.toString(), hnode.toString(), (lpszreason?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RemoveClusterStorageNode(hcluster: HCLUSTER, lpszclusterstorageenclosurename: PCWSTR, dwtimeout: UInt, dwflags: UInt): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_RemoveClusterStorageNode(hcluster.toString(), lpszclusterstorageenclosurename.toString(), dwtimeout.toInt(), dwflags.toInt()) as Int).toUInt() else 0u
+public actual fun removeClusterStorageNode(hcluster: Hcluster, lpszclusterstorageenclosurename: Pcwstr, dwtimeout: UInt, dwflags: UInt): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_removeClusterStorageNode(hcluster.toString(), (lpszclusterstorageenclosurename?.value ?: 0L).toString(), dwtimeout.toInt(), dwflags.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RemoveCrossClusterGroupSetDependency(hdependentgroupset: HGROUPSET, lpremoteclustername: PCWSTR, lpremotegroupsetname: PCWSTR): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_RemoveCrossClusterGroupSetDependency(hdependentgroupset.toString(), lpremoteclustername.toString(), lpremotegroupsetname.toString()) as Int).toUInt() else 0u
+public actual fun removeCrossClusterGroupSetDependency(hdependentgroupset: Hgroupset, lpremoteclustername: Pcwstr, lpremotegroupsetname: Pcwstr): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_removeCrossClusterGroupSetDependency(hdependentgroupset.toString(), (lpremoteclustername?.value ?: 0L).toString(), (lpremotegroupsetname?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RemoveResourceFromClusterSharedVolumes(hresource: HRESOURCE): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_RemoveResourceFromClusterSharedVolumes(hresource.toString()) as Int).toUInt() else 0u
+public actual fun removeResourceFromClusterSharedVolumes(hresource: Hresource): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_removeResourceFromClusterSharedVolumes(hresource.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilAddUnknownProperties(hkeyclusterkey: HKEY, ppropertytable: Long, poutpropertylist: Long, pcboutpropertylistsize: UInt, pcbbytesreturned: Long, pcbrequired: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilAddUnknownProperties(hkeyclusterkey.toString(), ppropertytable.toString(), poutpropertylist.toString(), pcboutpropertylistsize.toInt(), pcbbytesreturned.toString(), pcbrequired.toString()) as Int).toUInt() else 0u
+public actual fun resUtilAddUnknownProperties(hkeyclusterkey: Hkey, ppropertytable: COpaquePointer?, poutpropertylist: COpaquePointer?, pcboutpropertylistsize: UInt, pcbbytesreturned: COpaquePointer?, pcbrequired: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilAddUnknownProperties((hkeyclusterkey?.value ?: 0L).toString(), (ppropertytable?.value ?: 0L).toString(), (poutpropertylist?.value ?: 0L).toString(), pcboutpropertylistsize.toInt(), (pcbbytesreturned?.value ?: 0L).toString(), (pcbrequired?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilCreateDirectoryTree(pszpath: PCWSTR): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilCreateDirectoryTree(pszpath.toString()) as Int).toUInt() else 0u
+public actual fun resUtilCreateDirectoryTree(pszpath: Pcwstr): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilCreateDirectoryTree((pszpath?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilDupGroup(group: HGROUP, copy: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilDupGroup(group.toString(), copy.toString()) as Int).toUInt() else 0u
+public actual fun resUtilDupGroup(group: Hgroup, copy: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilDupGroup(group.toString(), (copy?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilDupParameterBlock(poutparams: Long, pinparams: Long, ppropertytable: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilDupParameterBlock(poutparams.toString(), pinparams.toString(), ppropertytable.toString()) as Int).toUInt() else 0u
+public actual fun resUtilDupParameterBlock(poutparams: COpaquePointer?, pinparams: COpaquePointer?, ppropertytable: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilDupParameterBlock((poutparams?.value ?: 0L).toString(), (pinparams?.value ?: 0L).toString(), (ppropertytable?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilDupResource(group: HRESOURCE, copy: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilDupResource(group.toString(), copy.toString()) as Int).toUInt() else 0u
+public actual fun resUtilDupResource(group: Hresource, copy: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilDupResource(group.toString(), (copy?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilDupString(pszinstring: PCWSTR): PWSTR =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilDupString(pszinstring.toString()) as String).toLong() else 0L
+public actual fun resUtilDupString(pszinstring: Pcwstr): Pwstr =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilDupString((pszinstring?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilEnumGroups(hcluster: HCLUSTER, hself: HGROUP, prescallback: LPGROUP_CALLBACK_EX, pparameter: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilEnumGroups(hcluster.toString(), hself.toString(), prescallback.toLong().toString(), pparameter.toString()) as Int).toUInt() else 0u
+public actual fun resUtilEnumGroups(hcluster: Hcluster, hself: Hgroup, prescallback: LpgroupCallbackEx, pparameter: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilEnumGroups(hcluster.toString(), hself.toString(), 0L.toString(), (pparameter?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilEnumGroupsEx(hcluster: HCLUSTER, hself: HGROUP, grouptype: CLUSGROUP_TYPE, prescallback: LPGROUP_CALLBACK_EX, pparameter: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilEnumGroupsEx(hcluster.toString(), hself.toString(), grouptype, prescallback.toLong().toString(), pparameter.toString()) as Int).toUInt() else 0u
+public actual fun resUtilEnumGroupsEx(hcluster: Hcluster, hself: Hgroup, grouptype: ClusgroupType, prescallback: LpgroupCallbackEx, pparameter: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilEnumGroupsEx(hcluster.toString(), hself.toString(), grouptype, 0L.toString(), (pparameter?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilEnumPrivateProperties(hkeyclusterkey: HKEY, pszoutproperties: PWSTR, cboutpropertiessize: UInt, pcbbytesreturned: Long, pcbrequired: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilEnumPrivateProperties(hkeyclusterkey.toString(), pszoutproperties.toString(), cboutpropertiessize.toInt(), pcbbytesreturned.toString(), pcbrequired.toString()) as Int).toUInt() else 0u
+public actual fun resUtilEnumPrivateProperties(hkeyclusterkey: Hkey, pszoutproperties: Pwstr, cboutpropertiessize: UInt, pcbbytesreturned: COpaquePointer?, pcbrequired: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilEnumPrivateProperties((hkeyclusterkey?.value ?: 0L).toString(), (pszoutproperties?.value ?: 0L).toString(), cboutpropertiessize.toInt(), (pcbbytesreturned?.value ?: 0L).toString(), (pcbrequired?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilEnumProperties(ppropertytable: Long, pszoutproperties: PWSTR, cboutpropertiessize: UInt, pcbbytesreturned: Long, pcbrequired: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilEnumProperties(ppropertytable.toString(), pszoutproperties.toString(), cboutpropertiessize.toInt(), pcbbytesreturned.toString(), pcbrequired.toString()) as Int).toUInt() else 0u
+public actual fun resUtilEnumProperties(ppropertytable: COpaquePointer?, pszoutproperties: Pwstr, cboutpropertiessize: UInt, pcbbytesreturned: COpaquePointer?, pcbrequired: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilEnumProperties((ppropertytable?.value ?: 0L).toString(), (pszoutproperties?.value ?: 0L).toString(), cboutpropertiessize.toInt(), (pcbbytesreturned?.value ?: 0L).toString(), (pcbrequired?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilEnumResources(hself: HRESOURCE, lpszrestypename: PCWSTR, prescallback: LPRESOURCE_CALLBACK, pparameter: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilEnumResources(hself.toString(), lpszrestypename.toString(), prescallback.toLong().toString(), pparameter.toString()) as Int).toUInt() else 0u
+public actual fun resUtilEnumResources(hself: Hresource, lpszrestypename: Pcwstr, prescallback: LpresourceCallback, pparameter: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilEnumResources(hself.toString(), (lpszrestypename?.value ?: 0L).toString(), 0L.toString(), (pparameter?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilEnumResourcesEx(hcluster: HCLUSTER, hself: HRESOURCE, lpszrestypename: PCWSTR, prescallback: LPRESOURCE_CALLBACK_EX, pparameter: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilEnumResourcesEx(hcluster.toString(), hself.toString(), lpszrestypename.toString(), prescallback.toLong().toString(), pparameter.toString()) as Int).toUInt() else 0u
+public actual fun resUtilEnumResourcesEx(hcluster: Hcluster, hself: Hresource, lpszrestypename: Pcwstr, prescallback: LpresourceCallbackEx, pparameter: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilEnumResourcesEx(hcluster.toString(), hself.toString(), (lpszrestypename?.value ?: 0L).toString(), 0L.toString(), (pparameter?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilEnumResourcesEx2(hcluster: HCLUSTER, hself: HRESOURCE, lpszrestypename: PCWSTR, prescallback: LPRESOURCE_CALLBACK_EX, pparameter: Long, dwdesiredaccess: UInt): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilEnumResourcesEx2(hcluster.toString(), hself.toString(), lpszrestypename.toString(), prescallback.toLong().toString(), pparameter.toString(), dwdesiredaccess.toInt()) as Int).toUInt() else 0u
+public actual fun resUtilEnumResourcesEx2(hcluster: Hcluster, hself: Hresource, lpszrestypename: Pcwstr, prescallback: LpresourceCallbackEx, pparameter: COpaquePointer?, dwdesiredaccess: UInt): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilEnumResourcesEx2(hcluster.toString(), hself.toString(), (lpszrestypename?.value ?: 0L).toString(), 0L.toString(), (pparameter?.value ?: 0L).toString(), dwdesiredaccess.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilExpandEnvironmentStrings(pszsrc: PCWSTR): PWSTR =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilExpandEnvironmentStrings(pszsrc.toString()) as String).toLong() else 0L
+public actual fun resUtilExpandEnvironmentStrings(pszsrc: Pcwstr): Pwstr =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilExpandEnvironmentStrings((pszsrc?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilFindBinaryProperty(ppropertylist: Long, cbpropertylistsize: UInt, pszpropertyname: PCWSTR, pbpropertyvalue: Long, pcbpropertyvaluesize: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilFindBinaryProperty(ppropertylist.toString(), cbpropertylistsize.toInt(), pszpropertyname.toString(), pbpropertyvalue.toString(), pcbpropertyvaluesize.toString()) as Int).toUInt() else 0u
+public actual fun resUtilFindBinaryProperty(ppropertylist: COpaquePointer?, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, pbpropertyvalue: COpaquePointer?, pcbpropertyvaluesize: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilFindBinaryProperty((ppropertylist?.value ?: 0L).toString(), cbpropertylistsize.toInt(), (pszpropertyname?.value ?: 0L).toString(), (pbpropertyvalue?.value ?: 0L).toString(), (pcbpropertyvaluesize?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilFindDependentDiskResourceDriveLetter(hcluster: HCLUSTER, hresource: HRESOURCE, pszdriveletter: PWSTR, pcchdriveletter: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilFindDependentDiskResourceDriveLetter(hcluster.toString(), hresource.toString(), pszdriveletter.toString(), pcchdriveletter.toString()) as Int).toUInt() else 0u
+public actual fun resUtilFindDependentDiskResourceDriveLetter(hcluster: Hcluster, hresource: Hresource, pszdriveletter: Pwstr, pcchdriveletter: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilFindDependentDiskResourceDriveLetter(hcluster.toString(), hresource.toString(), (pszdriveletter?.value ?: 0L).toString(), (pcchdriveletter?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilFindDwordProperty(ppropertylist: Long, cbpropertylistsize: UInt, pszpropertyname: PCWSTR, pdwpropertyvalue: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilFindDwordProperty(ppropertylist.toString(), cbpropertylistsize.toInt(), pszpropertyname.toString(), pdwpropertyvalue.toString()) as Int).toUInt() else 0u
+public actual fun resUtilFindDwordProperty(ppropertylist: COpaquePointer?, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, pdwpropertyvalue: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilFindDwordProperty((ppropertylist?.value ?: 0L).toString(), cbpropertylistsize.toInt(), (pszpropertyname?.value ?: 0L).toString(), (pdwpropertyvalue?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilFindExpandSzProperty(ppropertylist: Long, cbpropertylistsize: UInt, pszpropertyname: PCWSTR, pszpropertyvalue: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilFindExpandSzProperty(ppropertylist.toString(), cbpropertylistsize.toInt(), pszpropertyname.toString(), pszpropertyvalue.toString()) as Int).toUInt() else 0u
+public actual fun resUtilFindExpandSzProperty(ppropertylist: COpaquePointer?, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, pszpropertyvalue: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilFindExpandSzProperty((ppropertylist?.value ?: 0L).toString(), cbpropertylistsize.toInt(), (pszpropertyname?.value ?: 0L).toString(), (pszpropertyvalue?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilFindExpandedSzProperty(ppropertylist: Long, cbpropertylistsize: UInt, pszpropertyname: PCWSTR, pszpropertyvalue: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilFindExpandedSzProperty(ppropertylist.toString(), cbpropertylistsize.toInt(), pszpropertyname.toString(), pszpropertyvalue.toString()) as Int).toUInt() else 0u
+public actual fun resUtilFindExpandedSzProperty(ppropertylist: COpaquePointer?, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, pszpropertyvalue: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilFindExpandedSzProperty((ppropertylist?.value ?: 0L).toString(), cbpropertylistsize.toInt(), (pszpropertyname?.value ?: 0L).toString(), (pszpropertyvalue?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilFindFileTimeProperty(ppropertylist: Long, cbpropertylistsize: UInt, pszpropertyname: PCWSTR, pftpropertyvalue: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilFindFileTimeProperty(ppropertylist.toString(), cbpropertylistsize.toInt(), pszpropertyname.toString(), pftpropertyvalue.toString()) as Int).toUInt() else 0u
+public actual fun resUtilFindFileTimeProperty(ppropertylist: COpaquePointer?, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, pftpropertyvalue: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilFindFileTimeProperty((ppropertylist?.value ?: 0L).toString(), cbpropertylistsize.toInt(), (pszpropertyname?.value ?: 0L).toString(), (pftpropertyvalue?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilFindLongProperty(ppropertylist: Long, cbpropertylistsize: UInt, pszpropertyname: PCWSTR, plpropertyvalue: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilFindLongProperty(ppropertylist.toString(), cbpropertylistsize.toInt(), pszpropertyname.toString(), plpropertyvalue.toString()) as Int).toUInt() else 0u
+public actual fun resUtilFindLongProperty(ppropertylist: COpaquePointer?, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, plpropertyvalue: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilFindLongProperty((ppropertylist?.value ?: 0L).toString(), cbpropertylistsize.toInt(), (pszpropertyname?.value ?: 0L).toString(), (plpropertyvalue?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilFindMultiSzProperty(ppropertylist: Long, cbpropertylistsize: UInt, pszpropertyname: PCWSTR, pszpropertyvalue: Long, pcbpropertyvaluesize: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilFindMultiSzProperty(ppropertylist.toString(), cbpropertylistsize.toInt(), pszpropertyname.toString(), pszpropertyvalue.toString(), pcbpropertyvaluesize.toString()) as Int).toUInt() else 0u
+public actual fun resUtilFindMultiSzProperty(ppropertylist: COpaquePointer?, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, pszpropertyvalue: COpaquePointer?, pcbpropertyvaluesize: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilFindMultiSzProperty((ppropertylist?.value ?: 0L).toString(), cbpropertylistsize.toInt(), (pszpropertyname?.value ?: 0L).toString(), (pszpropertyvalue?.value ?: 0L).toString(), (pcbpropertyvaluesize?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilFindSzProperty(ppropertylist: Long, cbpropertylistsize: UInt, pszpropertyname: PCWSTR, pszpropertyvalue: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilFindSzProperty(ppropertylist.toString(), cbpropertylistsize.toInt(), pszpropertyname.toString(), pszpropertyvalue.toString()) as Int).toUInt() else 0u
+public actual fun resUtilFindSzProperty(ppropertylist: COpaquePointer?, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, pszpropertyvalue: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilFindSzProperty((ppropertylist?.value ?: 0L).toString(), cbpropertylistsize.toInt(), (pszpropertyname?.value ?: 0L).toString(), (pszpropertyvalue?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilFindULargeIntegerProperty(ppropertylist: Long, cbpropertylistsize: UInt, pszpropertyname: PCWSTR, plpropertyvalue: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilFindULargeIntegerProperty(ppropertylist.toString(), cbpropertylistsize.toInt(), pszpropertyname.toString(), plpropertyvalue.toString()) as Int).toUInt() else 0u
+public actual fun resUtilFindULargeIntegerProperty(ppropertylist: COpaquePointer?, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, plpropertyvalue: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilFindULargeIntegerProperty((ppropertylist?.value ?: 0L).toString(), cbpropertylistsize.toInt(), (pszpropertyname?.value ?: 0L).toString(), (plpropertyvalue?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilFreeEnvironment(lpenvironment: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilFreeEnvironment(lpenvironment.toString()) as Int).toUInt() else 0u
+public actual fun resUtilFreeEnvironment(lpenvironment: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilFreeEnvironment((lpenvironment?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilFreeParameterBlock(poutparams: Long, pinparams: Long, ppropertytable: Long) {
+public actual fun resUtilFreeParameterBlock(poutparams: COpaquePointer?, pinparams: COpaquePointer?, ppropertytable: COpaquePointer?) {
     if (_windowsWin32NetworkingClusteringNapiAddon != null) {
-        _windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilFreeParameterBlock(poutparams.toString(), pinparams.toString(), ppropertytable.toString())
+        _windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilFreeParameterBlock((poutparams?.value ?: 0L).toString(), (pinparams?.value ?: 0L).toString(), (ppropertytable?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ResUtilGetAllProperties(hkeyclusterkey: HKEY, ppropertytable: Long, poutpropertylist: Long, cboutpropertylistsize: UInt, pcbbytesreturned: Long, pcbrequired: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilGetAllProperties(hkeyclusterkey.toString(), ppropertytable.toString(), poutpropertylist.toString(), cboutpropertylistsize.toInt(), pcbbytesreturned.toString(), pcbrequired.toString()) as Int).toUInt() else 0u
+public actual fun resUtilGetAllProperties(hkeyclusterkey: Hkey, ppropertytable: COpaquePointer?, poutpropertylist: COpaquePointer?, cboutpropertylistsize: UInt, pcbbytesreturned: COpaquePointer?, pcbrequired: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilGetAllProperties((hkeyclusterkey?.value ?: 0L).toString(), (ppropertytable?.value ?: 0L).toString(), (poutpropertylist?.value ?: 0L).toString(), cboutpropertylistsize.toInt(), (pcbbytesreturned?.value ?: 0L).toString(), (pcbrequired?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilGetBinaryProperty(ppboutvalue: Long, pcboutvaluesize: Long, pvaluestruct: Long, pboldvalue: Long, cboldvaluesize: UInt, pppropertylist: Long, pcbpropertylistsize: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilGetBinaryProperty(ppboutvalue.toString(), pcboutvaluesize.toString(), pvaluestruct.toString(), pboldvalue.toString(), cboldvaluesize.toInt(), pppropertylist.toString(), pcbpropertylistsize.toString()) as Int).toUInt() else 0u
+public actual fun resUtilGetBinaryProperty(ppboutvalue: COpaquePointer?, pcboutvaluesize: COpaquePointer?, pvaluestruct: COpaquePointer?, pboldvalue: COpaquePointer?, cboldvaluesize: UInt, pppropertylist: COpaquePointer?, pcbpropertylistsize: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilGetBinaryProperty((ppboutvalue?.value ?: 0L).toString(), (pcboutvaluesize?.value ?: 0L).toString(), (pvaluestruct?.value ?: 0L).toString(), (pboldvalue?.value ?: 0L).toString(), cboldvaluesize.toInt(), (pppropertylist?.value ?: 0L).toString(), (pcbpropertylistsize?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilGetBinaryValue(hkeyclusterkey: HKEY, pszvaluename: PCWSTR, ppboutvalue: Long, pcboutvaluesize: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilGetBinaryValue(hkeyclusterkey.toString(), pszvaluename.toString(), ppboutvalue.toString(), pcboutvaluesize.toString()) as Int).toUInt() else 0u
+public actual fun resUtilGetBinaryValue(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, ppboutvalue: COpaquePointer?, pcboutvaluesize: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilGetBinaryValue((hkeyclusterkey?.value ?: 0L).toString(), (pszvaluename?.value ?: 0L).toString(), (ppboutvalue?.value ?: 0L).toString(), (pcboutvaluesize?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilGetClusterGroupType(hgroup: HGROUP, grouptype: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilGetClusterGroupType(hgroup.toString(), grouptype.toString()) as Int).toUInt() else 0u
+public actual fun resUtilGetClusterGroupType(hgroup: Hgroup, grouptype: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilGetClusterGroupType(hgroup.toString(), (grouptype?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilGetClusterId(hcluster: HCLUSTER, guid: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilGetClusterId(hcluster.toString(), guid.toString()) as Int).toUInt() else 0u
+public actual fun resUtilGetClusterId(hcluster: Hcluster, guid: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilGetClusterId(hcluster.toString(), (guid?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilGetClusterRoleState(hcluster: HCLUSTER, eclusterrole: CLUSTER_ROLE): CLUSTER_ROLE_STATE =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilGetClusterRoleState(hcluster.toString(), eclusterrole) as Int) else 0
+public actual fun resUtilGetClusterRoleState(hcluster: Hcluster, eclusterrole: ClusterRole): ClusterRoleState =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilGetClusterRoleState(hcluster.toString(), eclusterrole) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilGetCoreClusterResources(hcluster: HCLUSTER, phclusternameresource: Long, phclusteripaddressresource: Long, phclusterquorumresource: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilGetCoreClusterResources(hcluster.toString(), phclusternameresource.toString(), phclusteripaddressresource.toString(), phclusterquorumresource.toString()) as Int).toUInt() else 0u
+public actual fun resUtilGetCoreClusterResources(hcluster: Hcluster, phclusternameresource: COpaquePointer?, phclusteripaddressresource: COpaquePointer?, phclusterquorumresource: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilGetCoreClusterResources(hcluster.toString(), (phclusternameresource?.value ?: 0L).toString(), (phclusteripaddressresource?.value ?: 0L).toString(), (phclusterquorumresource?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilGetCoreClusterResourcesEx(hclusterin: HCLUSTER, phclusternameresourceout: Long, phclusterquorumresourceout: Long, dwdesiredaccess: UInt): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilGetCoreClusterResourcesEx(hclusterin.toString(), phclusternameresourceout.toString(), phclusterquorumresourceout.toString(), dwdesiredaccess.toInt()) as Int).toUInt() else 0u
+public actual fun resUtilGetCoreClusterResourcesEx(hclusterin: Hcluster, phclusternameresourceout: COpaquePointer?, phclusterquorumresourceout: COpaquePointer?, dwdesiredaccess: UInt): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilGetCoreClusterResourcesEx(hclusterin.toString(), (phclusternameresourceout?.value ?: 0L).toString(), (phclusterquorumresourceout?.value ?: 0L).toString(), dwdesiredaccess.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilGetCoreGroup(hcluster: HCLUSTER): HGROUP =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilGetCoreGroup(hcluster.toString()) as String).toLong() else 0L
+public actual fun resUtilGetCoreGroup(hcluster: Hcluster): Hgroup =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilGetCoreGroup(hcluster.toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilGetDwordProperty(pdwoutvalue: Long, pvaluestruct: Long, dwoldvalue: UInt, dwminimum: UInt, dwmaximum: UInt, pppropertylist: Long, pcbpropertylistsize: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilGetDwordProperty(pdwoutvalue.toString(), pvaluestruct.toString(), dwoldvalue.toInt(), dwminimum.toInt(), dwmaximum.toInt(), pppropertylist.toString(), pcbpropertylistsize.toString()) as Int).toUInt() else 0u
+public actual fun resUtilGetDwordProperty(pdwoutvalue: COpaquePointer?, pvaluestruct: COpaquePointer?, dwoldvalue: UInt, dwminimum: UInt, dwmaximum: UInt, pppropertylist: COpaquePointer?, pcbpropertylistsize: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilGetDwordProperty((pdwoutvalue?.value ?: 0L).toString(), (pvaluestruct?.value ?: 0L).toString(), dwoldvalue.toInt(), dwminimum.toInt(), dwmaximum.toInt(), (pppropertylist?.value ?: 0L).toString(), (pcbpropertylistsize?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilGetDwordValue(hkeyclusterkey: HKEY, pszvaluename: PCWSTR, pdwoutvalue: Long, dwdefaultvalue: UInt): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilGetDwordValue(hkeyclusterkey.toString(), pszvaluename.toString(), pdwoutvalue.toString(), dwdefaultvalue.toInt()) as Int).toUInt() else 0u
+public actual fun resUtilGetDwordValue(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, pdwoutvalue: COpaquePointer?, dwdefaultvalue: UInt): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilGetDwordValue((hkeyclusterkey?.value ?: 0L).toString(), (pszvaluename?.value ?: 0L).toString(), (pdwoutvalue?.value ?: 0L).toString(), dwdefaultvalue.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilGetEnvironmentWithNetName(hresource: HRESOURCE): Long =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilGetEnvironmentWithNetName(hresource.toString()) as String).toLong() else 0L
+public actual fun resUtilGetEnvironmentWithNetName(hresource: Hresource): COpaquePointer? =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilGetEnvironmentWithNetName(hresource.toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilGetFileTimeProperty(pftoutvalue: Long, pvaluestruct: Long, ftoldvalue: FILETIME, ftminimum: FILETIME, ftmaximum: FILETIME, pppropertylist: Long, pcbpropertylistsize: Long): UInt =
-    0u
+public actual fun resUtilGetFileTimeProperty(pftoutvalue: COpaquePointer?, pvaluestruct: COpaquePointer?, ftoldvalue: Filetime, ftminimum: Filetime, ftmaximum: Filetime, pppropertylist: COpaquePointer?, pcbpropertylistsize: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilGetLongProperty(ploutvalue: Long, pvaluestruct: Long, loldvalue: Int, lminimum: Int, lmaximum: Int, pppropertylist: Long, pcbpropertylistsize: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilGetLongProperty(ploutvalue.toString(), pvaluestruct.toString(), loldvalue, lminimum, lmaximum, pppropertylist.toString(), pcbpropertylistsize.toString()) as Int).toUInt() else 0u
+public actual fun resUtilGetLongProperty(ploutvalue: COpaquePointer?, pvaluestruct: COpaquePointer?, loldvalue: Int, lminimum: Int, lmaximum: Int, pppropertylist: COpaquePointer?, pcbpropertylistsize: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilGetLongProperty((ploutvalue?.value ?: 0L).toString(), (pvaluestruct?.value ?: 0L).toString(), loldvalue, lminimum, lmaximum, (pppropertylist?.value ?: 0L).toString(), (pcbpropertylistsize?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilGetMultiSzProperty(ppszoutvalue: Long, pcboutvaluesize: Long, pvaluestruct: Long, pszoldvalue: PCWSTR, cboldvaluesize: UInt, pppropertylist: Long, pcbpropertylistsize: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilGetMultiSzProperty(ppszoutvalue.toString(), pcboutvaluesize.toString(), pvaluestruct.toString(), pszoldvalue.toString(), cboldvaluesize.toInt(), pppropertylist.toString(), pcbpropertylistsize.toString()) as Int).toUInt() else 0u
+public actual fun resUtilGetMultiSzProperty(ppszoutvalue: COpaquePointer?, pcboutvaluesize: COpaquePointer?, pvaluestruct: COpaquePointer?, pszoldvalue: Pcwstr, cboldvaluesize: UInt, pppropertylist: COpaquePointer?, pcbpropertylistsize: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilGetMultiSzProperty((ppszoutvalue?.value ?: 0L).toString(), (pcboutvaluesize?.value ?: 0L).toString(), (pvaluestruct?.value ?: 0L).toString(), (pszoldvalue?.value ?: 0L).toString(), cboldvaluesize.toInt(), (pppropertylist?.value ?: 0L).toString(), (pcbpropertylistsize?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilGetPrivateProperties(hkeyclusterkey: HKEY, poutpropertylist: Long, cboutpropertylistsize: UInt, pcbbytesreturned: Long, pcbrequired: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilGetPrivateProperties(hkeyclusterkey.toString(), poutpropertylist.toString(), cboutpropertylistsize.toInt(), pcbbytesreturned.toString(), pcbrequired.toString()) as Int).toUInt() else 0u
+public actual fun resUtilGetPrivateProperties(hkeyclusterkey: Hkey, poutpropertylist: COpaquePointer?, cboutpropertylistsize: UInt, pcbbytesreturned: COpaquePointer?, pcbrequired: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilGetPrivateProperties((hkeyclusterkey?.value ?: 0L).toString(), (poutpropertylist?.value ?: 0L).toString(), cboutpropertylistsize.toInt(), (pcbbytesreturned?.value ?: 0L).toString(), (pcbrequired?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilGetProperties(hkeyclusterkey: HKEY, ppropertytable: Long, poutpropertylist: Long, cboutpropertylistsize: UInt, pcbbytesreturned: Long, pcbrequired: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilGetProperties(hkeyclusterkey.toString(), ppropertytable.toString(), poutpropertylist.toString(), cboutpropertylistsize.toInt(), pcbbytesreturned.toString(), pcbrequired.toString()) as Int).toUInt() else 0u
+public actual fun resUtilGetProperties(hkeyclusterkey: Hkey, ppropertytable: COpaquePointer?, poutpropertylist: COpaquePointer?, cboutpropertylistsize: UInt, pcbbytesreturned: COpaquePointer?, pcbrequired: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilGetProperties((hkeyclusterkey?.value ?: 0L).toString(), (ppropertytable?.value ?: 0L).toString(), (poutpropertylist?.value ?: 0L).toString(), cboutpropertylistsize.toInt(), (pcbbytesreturned?.value ?: 0L).toString(), (pcbrequired?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilGetPropertiesToParameterBlock(hkeyclusterkey: HKEY, ppropertytable: Long, poutparams: Long, bcheckforrequiredproperties: BOOL, psznameofpropinerror: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilGetPropertiesToParameterBlock(hkeyclusterkey.toString(), ppropertytable.toString(), poutparams.toString(), bcheckforrequiredproperties, psznameofpropinerror.toString()) as Int).toUInt() else 0u
+public actual fun resUtilGetPropertiesToParameterBlock(hkeyclusterkey: Hkey, ppropertytable: COpaquePointer?, poutparams: COpaquePointer?, bcheckforrequiredproperties: Bool, psznameofpropinerror: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilGetPropertiesToParameterBlock((hkeyclusterkey?.value ?: 0L).toString(), (ppropertytable?.value ?: 0L).toString(), (poutparams?.value ?: 0L).toString(), bcheckforrequiredproperties, (psznameofpropinerror?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilGetProperty(hkeyclusterkey: HKEY, ppropertytableitem: Long, poutpropertyitem: Long, pcboutpropertyitemsize: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilGetProperty(hkeyclusterkey.toString(), ppropertytableitem.toString(), poutpropertyitem.toString(), pcboutpropertyitemsize.toString()) as Int).toUInt() else 0u
+public actual fun resUtilGetProperty(hkeyclusterkey: Hkey, ppropertytableitem: COpaquePointer?, poutpropertyitem: COpaquePointer?, pcboutpropertyitemsize: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilGetProperty((hkeyclusterkey?.value ?: 0L).toString(), (ppropertytableitem?.value ?: 0L).toString(), (poutpropertyitem?.value ?: 0L).toString(), (pcboutpropertyitemsize?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilGetPropertyFormats(ppropertytable: Long, poutpropertyformatlist: Long, cbpropertyformatlistsize: UInt, pcbbytesreturned: Long, pcbrequired: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilGetPropertyFormats(ppropertytable.toString(), poutpropertyformatlist.toString(), cbpropertyformatlistsize.toInt(), pcbbytesreturned.toString(), pcbrequired.toString()) as Int).toUInt() else 0u
+public actual fun resUtilGetPropertyFormats(ppropertytable: COpaquePointer?, poutpropertyformatlist: COpaquePointer?, cbpropertyformatlistsize: UInt, pcbbytesreturned: COpaquePointer?, pcbrequired: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilGetPropertyFormats((ppropertytable?.value ?: 0L).toString(), (poutpropertyformatlist?.value ?: 0L).toString(), cbpropertyformatlistsize.toInt(), (pcbbytesreturned?.value ?: 0L).toString(), (pcbrequired?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilGetPropertySize(hkeyclusterkey: HKEY, ppropertytableitem: Long, pcboutpropertylistsize: Long, pnpropertycount: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilGetPropertySize(hkeyclusterkey.toString(), ppropertytableitem.toString(), pcboutpropertylistsize.toString(), pnpropertycount.toString()) as Int).toUInt() else 0u
+public actual fun resUtilGetPropertySize(hkeyclusterkey: Hkey, ppropertytableitem: COpaquePointer?, pcboutpropertylistsize: COpaquePointer?, pnpropertycount: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilGetPropertySize((hkeyclusterkey?.value ?: 0L).toString(), (ppropertytableitem?.value ?: 0L).toString(), (pcboutpropertylistsize?.value ?: 0L).toString(), (pnpropertycount?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilGetQwordValue(hkeyclusterkey: HKEY, pszvaluename: PCWSTR, pqwoutvalue: Long, qwdefaultvalue: ULong): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilGetQwordValue(hkeyclusterkey.toString(), pszvaluename.toString(), pqwoutvalue.toString(), qwdefaultvalue.toString()) as Int).toUInt() else 0u
+public actual fun resUtilGetQwordValue(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, pqwoutvalue: COpaquePointer?, qwdefaultvalue: ULong): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilGetQwordValue((hkeyclusterkey?.value ?: 0L).toString(), (pszvaluename?.value ?: 0L).toString(), (pqwoutvalue?.value ?: 0L).toString(), qwdefaultvalue.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilGetResourceDependency(hself: HANDLE, lpszresourcetype: PCWSTR): HRESOURCE =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilGetResourceDependency(hself.toString(), lpszresourcetype.toString()) as String).toLong() else 0L
+public actual fun resUtilGetResourceDependency(hself: Handle, lpszresourcetype: Pcwstr): Hresource =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilGetResourceDependency((hself?.value ?: 0L).toString(), (lpszresourcetype?.value ?: 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilGetResourceDependencyByClass(hcluster: HCLUSTER, hself: HANDLE, prci: Long, brecurse: BOOL): HRESOURCE =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilGetResourceDependencyByClass(hcluster.toString(), hself.toString(), prci.toString(), brecurse) as String).toLong() else 0L
+public actual fun resUtilGetResourceDependencyByClass(hcluster: Hcluster, hself: Handle, prci: COpaquePointer?, brecurse: Bool): Hresource =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilGetResourceDependencyByClass(hcluster.toString(), (hself?.value ?: 0L).toString(), (prci?.value ?: 0L).toString(), brecurse) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilGetResourceDependencyByClassEx(hcluster: HCLUSTER, hself: HANDLE, prci: Long, brecurse: BOOL, dwdesiredaccess: UInt): HRESOURCE =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilGetResourceDependencyByClassEx(hcluster.toString(), hself.toString(), prci.toString(), brecurse, dwdesiredaccess.toInt()) as String).toLong() else 0L
+public actual fun resUtilGetResourceDependencyByClassEx(hcluster: Hcluster, hself: Handle, prci: COpaquePointer?, brecurse: Bool, dwdesiredaccess: UInt): Hresource =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilGetResourceDependencyByClassEx(hcluster.toString(), (hself?.value ?: 0L).toString(), (prci?.value ?: 0L).toString(), brecurse, dwdesiredaccess.toInt()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilGetResourceDependencyByName(hcluster: HCLUSTER, hself: HANDLE, lpszresourcetype: PCWSTR, brecurse: BOOL): HRESOURCE =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilGetResourceDependencyByName(hcluster.toString(), hself.toString(), lpszresourcetype.toString(), brecurse) as String).toLong() else 0L
+public actual fun resUtilGetResourceDependencyByName(hcluster: Hcluster, hself: Handle, lpszresourcetype: Pcwstr, brecurse: Bool): Hresource =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilGetResourceDependencyByName(hcluster.toString(), (hself?.value ?: 0L).toString(), (lpszresourcetype?.value ?: 0L).toString(), brecurse) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilGetResourceDependencyByNameEx(hcluster: HCLUSTER, hself: HANDLE, lpszresourcetype: PCWSTR, brecurse: BOOL, dwdesiredaccess: UInt): HRESOURCE =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilGetResourceDependencyByNameEx(hcluster.toString(), hself.toString(), lpszresourcetype.toString(), brecurse, dwdesiredaccess.toInt()) as String).toLong() else 0L
+public actual fun resUtilGetResourceDependencyByNameEx(hcluster: Hcluster, hself: Handle, lpszresourcetype: Pcwstr, brecurse: Bool, dwdesiredaccess: UInt): Hresource =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilGetResourceDependencyByNameEx(hcluster.toString(), (hself?.value ?: 0L).toString(), (lpszresourcetype?.value ?: 0L).toString(), brecurse, dwdesiredaccess.toInt()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilGetResourceDependencyEx(hself: HANDLE, lpszresourcetype: PCWSTR, dwdesiredaccess: UInt): HRESOURCE =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilGetResourceDependencyEx(hself.toString(), lpszresourcetype.toString(), dwdesiredaccess.toInt()) as String).toLong() else 0L
+public actual fun resUtilGetResourceDependencyEx(hself: Handle, lpszresourcetype: Pcwstr, dwdesiredaccess: UInt): Hresource =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilGetResourceDependencyEx((hself?.value ?: 0L).toString(), (lpszresourcetype?.value ?: 0L).toString(), dwdesiredaccess.toInt()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilGetResourceDependentIPAddressProps(hresource: HRESOURCE, pszaddress: PWSTR, pcchaddress: Long, pszsubnetmask: PWSTR, pcchsubnetmask: Long, psznetwork: PWSTR, pcchnetwork: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilGetResourceDependentIPAddressProps(hresource.toString(), pszaddress.toString(), pcchaddress.toString(), pszsubnetmask.toString(), pcchsubnetmask.toString(), psznetwork.toString(), pcchnetwork.toString()) as Int).toUInt() else 0u
+public actual fun resUtilGetResourceDependentIPAddressProps(hresource: Hresource, pszaddress: Pwstr, pcchaddress: COpaquePointer?, pszsubnetmask: Pwstr, pcchsubnetmask: COpaquePointer?, psznetwork: Pwstr, pcchnetwork: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilGetResourceDependentIPAddressProps(hresource.toString(), (pszaddress?.value ?: 0L).toString(), (pcchaddress?.value ?: 0L).toString(), (pszsubnetmask?.value ?: 0L).toString(), (pcchsubnetmask?.value ?: 0L).toString(), (psznetwork?.value ?: 0L).toString(), (pcchnetwork?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilGetResourceName(hresource: HRESOURCE, pszresourcename: PWSTR, pcchresourcenameinout: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilGetResourceName(hresource.toString(), pszresourcename.toString(), pcchresourcenameinout.toString()) as Int).toUInt() else 0u
+public actual fun resUtilGetResourceName(hresource: Hresource, pszresourcename: Pwstr, pcchresourcenameinout: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilGetResourceName(hresource.toString(), (pszresourcename?.value ?: 0L).toString(), (pcchresourcenameinout?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilGetResourceNameDependency(lpszresourcename: PCWSTR, lpszresourcetype: PCWSTR): HRESOURCE =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilGetResourceNameDependency(lpszresourcename.toString(), lpszresourcetype.toString()) as String).toLong() else 0L
+public actual fun resUtilGetResourceNameDependency(lpszresourcename: Pcwstr, lpszresourcetype: Pcwstr): Hresource =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilGetResourceNameDependency((lpszresourcename?.value ?: 0L).toString(), (lpszresourcetype?.value ?: 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilGetResourceNameDependencyEx(lpszresourcename: PCWSTR, lpszresourcetype: PCWSTR, dwdesiredaccess: UInt): HRESOURCE =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilGetResourceNameDependencyEx(lpszresourcename.toString(), lpszresourcetype.toString(), dwdesiredaccess.toInt()) as String).toLong() else 0L
+public actual fun resUtilGetResourceNameDependencyEx(lpszresourcename: Pcwstr, lpszresourcetype: Pcwstr, dwdesiredaccess: UInt): Hresource =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilGetResourceNameDependencyEx((lpszresourcename?.value ?: 0L).toString(), (lpszresourcetype?.value ?: 0L).toString(), dwdesiredaccess.toInt()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilGetSzProperty(ppszoutvalue: Long, pvaluestruct: Long, pszoldvalue: PCWSTR, pppropertylist: Long, pcbpropertylistsize: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilGetSzProperty(ppszoutvalue.toString(), pvaluestruct.toString(), pszoldvalue.toString(), pppropertylist.toString(), pcbpropertylistsize.toString()) as Int).toUInt() else 0u
+public actual fun resUtilGetSzProperty(ppszoutvalue: COpaquePointer?, pvaluestruct: COpaquePointer?, pszoldvalue: Pcwstr, pppropertylist: COpaquePointer?, pcbpropertylistsize: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilGetSzProperty((ppszoutvalue?.value ?: 0L).toString(), (pvaluestruct?.value ?: 0L).toString(), (pszoldvalue?.value ?: 0L).toString(), (pppropertylist?.value ?: 0L).toString(), (pcbpropertylistsize?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilGetSzValue(hkeyclusterkey: HKEY, pszvaluename: PCWSTR): PWSTR =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilGetSzValue(hkeyclusterkey.toString(), pszvaluename.toString()) as String).toLong() else 0L
+public actual fun resUtilGetSzValue(hkeyclusterkey: Hkey, pszvaluename: Pcwstr): Pwstr =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilGetSzValue((hkeyclusterkey?.value ?: 0L).toString(), (pszvaluename?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilGroupsEqual(hself: HGROUP, hgroup: HGROUP, pequal: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilGroupsEqual(hself.toString(), hgroup.toString(), pequal.toString()) as Int).toUInt() else 0u
+public actual fun resUtilGroupsEqual(hself: Hgroup, hgroup: Hgroup, pequal: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilGroupsEqual(hself.toString(), hgroup.toString(), (pequal?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilIsPathValid(pszpath: PCWSTR): BOOL =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilIsPathValid(pszpath.toString()) as Int) else 0
+public actual fun resUtilIsPathValid(pszpath: Pcwstr): Bool =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilIsPathValid((pszpath?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilIsResourceClassEqual(prci: Long, hresource: HRESOURCE): BOOL =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilIsResourceClassEqual(prci.toString(), hresource.toString()) as Int) else 0
+public actual fun resUtilIsResourceClassEqual(prci: COpaquePointer?, hresource: Hresource): Bool =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilIsResourceClassEqual((prci?.value ?: 0L).toString(), hresource.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilLeftPaxosIsLessThanRight(left: Long, right: Long): BOOL =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilLeftPaxosIsLessThanRight(left.toString(), right.toString()) as Int) else 0
+public actual fun resUtilLeftPaxosIsLessThanRight(left: COpaquePointer?, right: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilLeftPaxosIsLessThanRight((left?.value ?: 0L).toString(), (right?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilNodeEnum(hcluster: HCLUSTER, pnodecallback: LPNODE_CALLBACK, pparameter: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilNodeEnum(hcluster.toString(), pnodecallback.toLong().toString(), pparameter.toString()) as Int).toUInt() else 0u
+public actual fun resUtilNodeEnum(hcluster: Hcluster, pnodecallback: LpnodeCallback, pparameter: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilNodeEnum(hcluster.toString(), 0L.toString(), (pparameter?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilPaxosComparer(left: Long, right: Long): BOOL =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilPaxosComparer(left.toString(), right.toString()) as Int) else 0
+public actual fun resUtilPaxosComparer(left: COpaquePointer?, right: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilPaxosComparer((left?.value ?: 0L).toString(), (right?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilPropertyListFromParameterBlock(ppropertytable: Long, poutpropertylist: Long, pcboutpropertylistsize: Long, pinparams: Long, pcbbytesreturned: Long, pcbrequired: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilPropertyListFromParameterBlock(ppropertytable.toString(), poutpropertylist.toString(), pcboutpropertylistsize.toString(), pinparams.toString(), pcbbytesreturned.toString(), pcbrequired.toString()) as Int).toUInt() else 0u
+public actual fun resUtilPropertyListFromParameterBlock(ppropertytable: COpaquePointer?, poutpropertylist: COpaquePointer?, pcboutpropertylistsize: COpaquePointer?, pinparams: COpaquePointer?, pcbbytesreturned: COpaquePointer?, pcbrequired: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilPropertyListFromParameterBlock((ppropertytable?.value ?: 0L).toString(), (poutpropertylist?.value ?: 0L).toString(), (pcboutpropertylistsize?.value ?: 0L).toString(), (pinparams?.value ?: 0L).toString(), (pcbbytesreturned?.value ?: 0L).toString(), (pcbrequired?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilRemoveResourceServiceEnvironment(pszservicename: PCWSTR, pfnlogevent: PLOG_EVENT_ROUTINE, hresourcehandle: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilRemoveResourceServiceEnvironment(pszservicename.toString(), pfnlogevent.toLong().toString(), hresourcehandle.toString()) as Int).toUInt() else 0u
+public actual fun resUtilRemoveResourceServiceEnvironment(pszservicename: Pcwstr, pfnlogevent: PlogEventRoutine, hresourcehandle: Long): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilRemoveResourceServiceEnvironment((pszservicename?.value ?: 0L).toString(), 0L.toString(), hresourcehandle.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilResourceDepEnum(hself: HRESOURCE, enumtype: UInt, prescallback: LPRESOURCE_CALLBACK_EX, pparameter: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilResourceDepEnum(hself.toString(), enumtype.toInt(), prescallback.toLong().toString(), pparameter.toString()) as Int).toUInt() else 0u
+public actual fun resUtilResourceDepEnum(hself: Hresource, enumtype: UInt, prescallback: LpresourceCallbackEx, pparameter: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilResourceDepEnum(hself.toString(), enumtype.toInt(), 0L.toString(), (pparameter?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilResourceTypesEqual(lpszresourcetypename: PCWSTR, hresource: HRESOURCE): BOOL =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilResourceTypesEqual(lpszresourcetypename.toString(), hresource.toString()) as Int) else 0
+public actual fun resUtilResourceTypesEqual(lpszresourcetypename: Pcwstr, hresource: Hresource): Bool =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilResourceTypesEqual((lpszresourcetypename?.value ?: 0L).toString(), hresource.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilResourcesEqual(hself: HRESOURCE, hresource: HRESOURCE): BOOL =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilResourcesEqual(hself.toString(), hresource.toString()) as Int) else 0
+public actual fun resUtilResourcesEqual(hself: Hresource, hresource: Hresource): Bool =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilResourcesEqual(hself.toString(), hresource.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilSetBinaryValue(hkeyclusterkey: HKEY, pszvaluename: PCWSTR, pbnewvalue: Long, cbnewvaluesize: UInt, ppboutvalue: Long, pcboutvaluesize: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilSetBinaryValue(hkeyclusterkey.toString(), pszvaluename.toString(), pbnewvalue.toString(), cbnewvaluesize.toInt(), ppboutvalue.toString(), pcboutvaluesize.toString()) as Int).toUInt() else 0u
+public actual fun resUtilSetBinaryValue(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, pbnewvalue: COpaquePointer?, cbnewvaluesize: UInt, ppboutvalue: COpaquePointer?, pcboutvaluesize: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilSetBinaryValue((hkeyclusterkey?.value ?: 0L).toString(), (pszvaluename?.value ?: 0L).toString(), (pbnewvalue?.value ?: 0L).toString(), cbnewvaluesize.toInt(), (ppboutvalue?.value ?: 0L).toString(), (pcboutvaluesize?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilSetDwordValue(hkeyclusterkey: HKEY, pszvaluename: PCWSTR, dwnewvalue: UInt, pdwoutvalue: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilSetDwordValue(hkeyclusterkey.toString(), pszvaluename.toString(), dwnewvalue.toInt(), pdwoutvalue.toString()) as Int).toUInt() else 0u
+public actual fun resUtilSetDwordValue(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, dwnewvalue: UInt, pdwoutvalue: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilSetDwordValue((hkeyclusterkey?.value ?: 0L).toString(), (pszvaluename?.value ?: 0L).toString(), dwnewvalue.toInt(), (pdwoutvalue?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilSetExpandSzValue(hkeyclusterkey: HKEY, pszvaluename: PCWSTR, psznewvalue: PCWSTR, ppszoutstring: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilSetExpandSzValue(hkeyclusterkey.toString(), pszvaluename.toString(), psznewvalue.toString(), ppszoutstring.toString()) as Int).toUInt() else 0u
+public actual fun resUtilSetExpandSzValue(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, psznewvalue: Pcwstr, ppszoutstring: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilSetExpandSzValue((hkeyclusterkey?.value ?: 0L).toString(), (pszvaluename?.value ?: 0L).toString(), (psznewvalue?.value ?: 0L).toString(), (ppszoutstring?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilSetMultiSzValue(hkeyclusterkey: HKEY, pszvaluename: PCWSTR, psznewvalue: PCWSTR, cbnewvaluesize: UInt, ppszoutvalue: Long, pcboutvaluesize: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilSetMultiSzValue(hkeyclusterkey.toString(), pszvaluename.toString(), psznewvalue.toString(), cbnewvaluesize.toInt(), ppszoutvalue.toString(), pcboutvaluesize.toString()) as Int).toUInt() else 0u
+public actual fun resUtilSetMultiSzValue(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, psznewvalue: Pcwstr, cbnewvaluesize: UInt, ppszoutvalue: COpaquePointer?, pcboutvaluesize: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilSetMultiSzValue((hkeyclusterkey?.value ?: 0L).toString(), (pszvaluename?.value ?: 0L).toString(), (psznewvalue?.value ?: 0L).toString(), cbnewvaluesize.toInt(), (ppszoutvalue?.value ?: 0L).toString(), (pcboutvaluesize?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilSetPrivatePropertyList(hkeyclusterkey: HKEY, pinpropertylist: Long, cbinpropertylistsize: UInt): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilSetPrivatePropertyList(hkeyclusterkey.toString(), pinpropertylist.toString(), cbinpropertylistsize.toInt()) as Int).toUInt() else 0u
+public actual fun resUtilSetPrivatePropertyList(hkeyclusterkey: Hkey, pinpropertylist: COpaquePointer?, cbinpropertylistsize: UInt): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilSetPrivatePropertyList((hkeyclusterkey?.value ?: 0L).toString(), (pinpropertylist?.value ?: 0L).toString(), cbinpropertylistsize.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilSetPropertyParameterBlock(hkeyclusterkey: HKEY, ppropertytable: Long, reserved: Long, pinparams: Long, pinpropertylist: Long, cbinpropertylistsize: UInt, poutparams: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilSetPropertyParameterBlock(hkeyclusterkey.toString(), ppropertytable.toString(), reserved.toString(), pinparams.toString(), pinpropertylist.toString(), cbinpropertylistsize.toInt(), poutparams.toString()) as Int).toUInt() else 0u
+public actual fun resUtilSetPropertyParameterBlock(hkeyclusterkey: Hkey, ppropertytable: COpaquePointer?, reserved: COpaquePointer?, pinparams: COpaquePointer?, pinpropertylist: COpaquePointer?, cbinpropertylistsize: UInt, poutparams: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilSetPropertyParameterBlock((hkeyclusterkey?.value ?: 0L).toString(), (ppropertytable?.value ?: 0L).toString(), (reserved?.value ?: 0L).toString(), (pinparams?.value ?: 0L).toString(), (pinpropertylist?.value ?: 0L).toString(), cbinpropertylistsize.toInt(), (poutparams?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilSetPropertyParameterBlockEx(hkeyclusterkey: HKEY, ppropertytable: Long, reserved: Long, pinparams: Long, pinpropertylist: Long, cbinpropertylistsize: UInt, bforcewrite: BOOL, poutparams: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilSetPropertyParameterBlockEx(hkeyclusterkey.toString(), ppropertytable.toString(), reserved.toString(), pinparams.toString(), pinpropertylist.toString(), cbinpropertylistsize.toInt(), bforcewrite, poutparams.toString()) as Int).toUInt() else 0u
+public actual fun resUtilSetPropertyParameterBlockEx(hkeyclusterkey: Hkey, ppropertytable: COpaquePointer?, reserved: COpaquePointer?, pinparams: COpaquePointer?, pinpropertylist: COpaquePointer?, cbinpropertylistsize: UInt, bforcewrite: Bool, poutparams: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilSetPropertyParameterBlockEx((hkeyclusterkey?.value ?: 0L).toString(), (ppropertytable?.value ?: 0L).toString(), (reserved?.value ?: 0L).toString(), (pinparams?.value ?: 0L).toString(), (pinpropertylist?.value ?: 0L).toString(), cbinpropertylistsize.toInt(), bforcewrite, (poutparams?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilSetPropertyTable(hkeyclusterkey: HKEY, ppropertytable: Long, reserved: Long, ballowunknownproperties: BOOL, pinpropertylist: Long, cbinpropertylistsize: UInt, poutparams: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilSetPropertyTable(hkeyclusterkey.toString(), ppropertytable.toString(), reserved.toString(), ballowunknownproperties, pinpropertylist.toString(), cbinpropertylistsize.toInt(), poutparams.toString()) as Int).toUInt() else 0u
+public actual fun resUtilSetPropertyTable(hkeyclusterkey: Hkey, ppropertytable: COpaquePointer?, reserved: COpaquePointer?, ballowunknownproperties: Bool, pinpropertylist: COpaquePointer?, cbinpropertylistsize: UInt, poutparams: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilSetPropertyTable((hkeyclusterkey?.value ?: 0L).toString(), (ppropertytable?.value ?: 0L).toString(), (reserved?.value ?: 0L).toString(), ballowunknownproperties, (pinpropertylist?.value ?: 0L).toString(), cbinpropertylistsize.toInt(), (poutparams?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilSetPropertyTableEx(hkeyclusterkey: HKEY, ppropertytable: Long, reserved: Long, ballowunknownproperties: BOOL, pinpropertylist: Long, cbinpropertylistsize: UInt, bforcewrite: BOOL, poutparams: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilSetPropertyTableEx(hkeyclusterkey.toString(), ppropertytable.toString(), reserved.toString(), ballowunknownproperties, pinpropertylist.toString(), cbinpropertylistsize.toInt(), bforcewrite, poutparams.toString()) as Int).toUInt() else 0u
+public actual fun resUtilSetPropertyTableEx(hkeyclusterkey: Hkey, ppropertytable: COpaquePointer?, reserved: COpaquePointer?, ballowunknownproperties: Bool, pinpropertylist: COpaquePointer?, cbinpropertylistsize: UInt, bforcewrite: Bool, poutparams: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilSetPropertyTableEx((hkeyclusterkey?.value ?: 0L).toString(), (ppropertytable?.value ?: 0L).toString(), (reserved?.value ?: 0L).toString(), ballowunknownproperties, (pinpropertylist?.value ?: 0L).toString(), cbinpropertylistsize.toInt(), bforcewrite, (poutparams?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilSetQwordValue(hkeyclusterkey: HKEY, pszvaluename: PCWSTR, qwnewvalue: ULong, pqwoutvalue: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilSetQwordValue(hkeyclusterkey.toString(), pszvaluename.toString(), qwnewvalue.toString(), pqwoutvalue.toString()) as Int).toUInt() else 0u
+public actual fun resUtilSetQwordValue(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, qwnewvalue: ULong, pqwoutvalue: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilSetQwordValue((hkeyclusterkey?.value ?: 0L).toString(), (pszvaluename?.value ?: 0L).toString(), qwnewvalue.toString(), (pqwoutvalue?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilSetResourceServiceEnvironment(pszservicename: PCWSTR, hresource: HRESOURCE, pfnlogevent: PLOG_EVENT_ROUTINE, hresourcehandle: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilSetResourceServiceEnvironment(pszservicename.toString(), hresource.toString(), pfnlogevent.toLong().toString(), hresourcehandle.toString()) as Int).toUInt() else 0u
+public actual fun resUtilSetResourceServiceEnvironment(pszservicename: Pcwstr, hresource: Hresource, pfnlogevent: PlogEventRoutine, hresourcehandle: Long): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilSetResourceServiceEnvironment((pszservicename?.value ?: 0L).toString(), hresource.toString(), 0L.toString(), hresourcehandle.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilSetResourceServiceStartParameters(pszservicename: PCWSTR, schscmhandle: SC_HANDLE, phservice: Long, pfnlogevent: PLOG_EVENT_ROUTINE, hresourcehandle: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilSetResourceServiceStartParameters(pszservicename.toString(), schscmhandle.toString(), phservice.toString(), pfnlogevent.toLong().toString(), hresourcehandle.toString()) as Int).toUInt() else 0u
+public actual fun resUtilSetResourceServiceStartParameters(pszservicename: Pcwstr, schscmhandle: ScHandle, phservice: COpaquePointer?, pfnlogevent: PlogEventRoutine, hresourcehandle: Long): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilSetResourceServiceStartParameters((pszservicename?.value ?: 0L).toString(), (schscmhandle?.value ?: 0L).toString(), (phservice?.value ?: 0L).toString(), 0L.toString(), hresourcehandle.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilSetResourceServiceStartParametersEx(pszservicename: PCWSTR, schscmhandle: SC_HANDLE, phservice: Long, dwdesiredaccess: UInt, pfnlogevent: PLOG_EVENT_ROUTINE, hresourcehandle: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilSetResourceServiceStartParametersEx(pszservicename.toString(), schscmhandle.toString(), phservice.toString(), dwdesiredaccess.toInt(), pfnlogevent.toLong().toString(), hresourcehandle.toString()) as Int).toUInt() else 0u
+public actual fun resUtilSetResourceServiceStartParametersEx(pszservicename: Pcwstr, schscmhandle: ScHandle, phservice: COpaquePointer?, dwdesiredaccess: UInt, pfnlogevent: PlogEventRoutine, hresourcehandle: Long): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilSetResourceServiceStartParametersEx((pszservicename?.value ?: 0L).toString(), (schscmhandle?.value ?: 0L).toString(), (phservice?.value ?: 0L).toString(), dwdesiredaccess.toInt(), 0L.toString(), hresourcehandle.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilSetSzValue(hkeyclusterkey: HKEY, pszvaluename: PCWSTR, psznewvalue: PCWSTR, ppszoutstring: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilSetSzValue(hkeyclusterkey.toString(), pszvaluename.toString(), psznewvalue.toString(), ppszoutstring.toString()) as Int).toUInt() else 0u
+public actual fun resUtilSetSzValue(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, psznewvalue: Pcwstr, ppszoutstring: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilSetSzValue((hkeyclusterkey?.value ?: 0L).toString(), (pszvaluename?.value ?: 0L).toString(), (psznewvalue?.value ?: 0L).toString(), (ppszoutstring?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilSetUnknownProperties(hkeyclusterkey: HKEY, ppropertytable: Long, pinpropertylist: Long, cbinpropertylistsize: UInt): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilSetUnknownProperties(hkeyclusterkey.toString(), ppropertytable.toString(), pinpropertylist.toString(), cbinpropertylistsize.toInt()) as Int).toUInt() else 0u
+public actual fun resUtilSetUnknownProperties(hkeyclusterkey: Hkey, ppropertytable: COpaquePointer?, pinpropertylist: COpaquePointer?, cbinpropertylistsize: UInt): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilSetUnknownProperties((hkeyclusterkey?.value ?: 0L).toString(), (ppropertytable?.value ?: 0L).toString(), (pinpropertylist?.value ?: 0L).toString(), cbinpropertylistsize.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilSetValueEx(hkeyclusterkey: HKEY, valuename: PCWSTR, valuetype: UInt, valuedata: Long, valuesize: UInt, flags: UInt): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilSetValueEx(hkeyclusterkey.toString(), valuename.toString(), valuetype.toInt(), valuedata.toString(), valuesize.toInt(), flags.toInt()) as Int).toUInt() else 0u
+public actual fun resUtilSetValueEx(hkeyclusterkey: Hkey, valuename: Pcwstr, valuetype: UInt, valuedata: COpaquePointer?, valuesize: UInt, flags: UInt): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilSetValueEx((hkeyclusterkey?.value ?: 0L).toString(), (valuename?.value ?: 0L).toString(), valuetype.toInt(), (valuedata?.value ?: 0L).toString(), valuesize.toInt(), flags.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilStartResourceService(pszservicename: PCWSTR, phservicehandle: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilStartResourceService(pszservicename.toString(), phservicehandle.toString()) as Int).toUInt() else 0u
+public actual fun resUtilStartResourceService(pszservicename: Pcwstr, phservicehandle: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilStartResourceService((pszservicename?.value ?: 0L).toString(), (phservicehandle?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilStopResourceService(pszservicename: PCWSTR): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilStopResourceService(pszservicename.toString()) as Int).toUInt() else 0u
+public actual fun resUtilStopResourceService(pszservicename: Pcwstr): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilStopResourceService((pszservicename?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilStopService(hservicehandle: SC_HANDLE): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilStopService(hservicehandle.toString()) as Int).toUInt() else 0u
+public actual fun resUtilStopService(hservicehandle: ScHandle): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilStopService((hservicehandle?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilTerminateServiceProcessFromResDll(dwservicepid: UInt, boffline: BOOL, pdwresourcestate: Long, pfnlogevent: PLOG_EVENT_ROUTINE, hresourcehandle: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilTerminateServiceProcessFromResDll(dwservicepid.toInt(), boffline, pdwresourcestate.toString(), pfnlogevent.toLong().toString(), hresourcehandle.toString()) as Int).toUInt() else 0u
+public actual fun resUtilTerminateServiceProcessFromResDll(dwservicepid: UInt, boffline: Bool, pdwresourcestate: COpaquePointer?, pfnlogevent: PlogEventRoutine, hresourcehandle: Long): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilTerminateServiceProcessFromResDll(dwservicepid.toInt(), boffline, (pdwresourcestate?.value ?: 0L).toString(), 0L.toString(), hresourcehandle.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilVerifyPrivatePropertyList(pinpropertylist: Long, cbinpropertylistsize: UInt): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilVerifyPrivatePropertyList(pinpropertylist.toString(), cbinpropertylistsize.toInt()) as Int).toUInt() else 0u
+public actual fun resUtilVerifyPrivatePropertyList(pinpropertylist: COpaquePointer?, cbinpropertylistsize: UInt): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilVerifyPrivatePropertyList((pinpropertylist?.value ?: 0L).toString(), cbinpropertylistsize.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilVerifyPropertyTable(ppropertytable: Long, reserved: Long, ballowunknownproperties: BOOL, pinpropertylist: Long, cbinpropertylistsize: UInt, poutparams: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilVerifyPropertyTable(ppropertytable.toString(), reserved.toString(), ballowunknownproperties, pinpropertylist.toString(), cbinpropertylistsize.toInt(), poutparams.toString()) as Int).toUInt() else 0u
+public actual fun resUtilVerifyPropertyTable(ppropertytable: COpaquePointer?, reserved: COpaquePointer?, ballowunknownproperties: Bool, pinpropertylist: COpaquePointer?, cbinpropertylistsize: UInt, poutparams: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilVerifyPropertyTable((ppropertytable?.value ?: 0L).toString(), (reserved?.value ?: 0L).toString(), ballowunknownproperties, (pinpropertylist?.value ?: 0L).toString(), cbinpropertylistsize.toInt(), (poutparams?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilVerifyResourceService(pszservicename: PCWSTR): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilVerifyResourceService(pszservicename.toString()) as Int).toUInt() else 0u
+public actual fun resUtilVerifyResourceService(pszservicename: Pcwstr): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilVerifyResourceService((pszservicename?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilVerifyService(hservicehandle: SC_HANDLE): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilVerifyService(hservicehandle.toString()) as Int).toUInt() else 0u
+public actual fun resUtilVerifyService(hservicehandle: ScHandle): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilVerifyService((hservicehandle?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilVerifyShutdownSafe(flags: UInt, reason: UInt, presult: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilVerifyShutdownSafe(flags.toInt(), reason.toInt(), presult.toString()) as Int).toUInt() else 0u
+public actual fun resUtilVerifyShutdownSafe(flags: UInt, reason: UInt, presult: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilVerifyShutdownSafe(flags.toInt(), reason.toInt(), (presult?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResUtilsDeleteKeyTree(key: HKEY, keyname: PCWSTR, treatnokeyaserror: BOOL): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResUtilsDeleteKeyTree(key.toString(), keyname.toString(), treatnokeyaserror) as Int).toUInt() else 0u
+public actual fun resUtilsDeleteKeyTree(key: Hkey, keyname: Pcwstr, treatnokeyaserror: Bool): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resUtilsDeleteKeyTree((key?.value ?: 0L).toString(), (keyname?.value ?: 0L).toString(), treatnokeyaserror) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResetAllAppInstanceVersions(): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResetAllAppInstanceVersions() as Int).toUInt() else 0u
+public actual fun resetAllAppInstanceVersions(): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resetAllAppInstanceVersions() as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RestartClusterResource(hresource: HRESOURCE, dwflags: UInt): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_RestartClusterResource(hresource.toString(), dwflags.toInt()) as Int).toUInt() else 0u
+public actual fun restartClusterResource(hresource: Hresource, dwflags: UInt): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_restartClusterResource(hresource.toString(), dwflags.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RestartClusterResourceEx(hresource: HRESOURCE, dwflags: UInt, lpszreason: PCWSTR): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_RestartClusterResourceEx(hresource.toString(), dwflags.toInt(), lpszreason.toString()) as Int).toUInt() else 0u
+public actual fun restartClusterResourceEx(hresource: Hresource, dwflags: UInt, lpszreason: Pcwstr): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_restartClusterResourceEx(hresource.toString(), dwflags.toInt(), (lpszreason?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RestoreClusterDatabase(lpszpathname: PCWSTR, bforce: BOOL, lpszquorumdriveletter: PCWSTR): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_RestoreClusterDatabase(lpszpathname.toString(), bforce, lpszquorumdriveletter.toString()) as Int).toUInt() else 0u
+public actual fun restoreClusterDatabase(lpszpathname: Pcwstr, bforce: Bool, lpszquorumdriveletter: Pcwstr): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_restoreClusterDatabase((lpszpathname?.value ?: 0L).toString(), bforce, (lpszquorumdriveletter?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResumeClusterNode(hnode: HNODE): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResumeClusterNode(hnode.toString()) as Int).toUInt() else 0u
+public actual fun resumeClusterNode(hnode: Hnode): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resumeClusterNode(hnode.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResumeClusterNodeEx(hnode: HNODE, eresumefailbacktype: CLUSTER_NODE_RESUME_FAILBACK_TYPE, dwresumeflagsreserved: UInt): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResumeClusterNodeEx(hnode.toString(), eresumefailbacktype, dwresumeflagsreserved.toInt()) as Int).toUInt() else 0u
+public actual fun resumeClusterNodeEx(hnode: Hnode, eresumefailbacktype: ClusterNodeResumeFailbackType, dwresumeflagsreserved: UInt): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resumeClusterNodeEx(hnode.toString(), eresumefailbacktype, dwresumeflagsreserved.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResumeClusterNodeEx2(hnode: HNODE, eresumefailbacktype: CLUSTER_NODE_RESUME_FAILBACK_TYPE, dwresumeflagsreserved: UInt, lpszreason: PCWSTR): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_ResumeClusterNodeEx2(hnode.toString(), eresumefailbacktype, dwresumeflagsreserved.toInt(), lpszreason.toString()) as Int).toUInt() else 0u
+public actual fun resumeClusterNodeEx2(hnode: Hnode, eresumefailbacktype: ClusterNodeResumeFailbackType, dwresumeflagsreserved: UInt, lpszreason: Pcwstr): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_resumeClusterNodeEx2(hnode.toString(), eresumefailbacktype, dwresumeflagsreserved.toInt(), (lpszreason?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetAppInstanceCsvFlags(processhandle: HANDLE, mask: UInt, flags: UInt): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_SetAppInstanceCsvFlags(processhandle.toString(), mask.toInt(), flags.toInt()) as Int).toUInt() else 0u
+public actual fun setAppInstanceCsvFlags(processhandle: Handle, mask: UInt, flags: UInt): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_setAppInstanceCsvFlags((processhandle?.value ?: 0L).toString(), mask.toInt(), flags.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetClusterGroupName(hgroup: HGROUP, lpszgroupname: PCWSTR): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_SetClusterGroupName(hgroup.toString(), lpszgroupname.toString()) as Int).toUInt() else 0u
+public actual fun setClusterGroupName(hgroup: Hgroup, lpszgroupname: Pcwstr): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_setClusterGroupName(hgroup.toString(), (lpszgroupname?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetClusterGroupNameEx(hgroup: HGROUP, lpszgroupname: PCWSTR, lpszreason: PCWSTR): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_SetClusterGroupNameEx(hgroup.toString(), lpszgroupname.toString(), lpszreason.toString()) as Int).toUInt() else 0u
+public actual fun setClusterGroupNameEx(hgroup: Hgroup, lpszgroupname: Pcwstr, lpszreason: Pcwstr): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_setClusterGroupNameEx(hgroup.toString(), (lpszgroupname?.value ?: 0L).toString(), (lpszreason?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetClusterGroupNodeList(hgroup: HGROUP, nodecount: UInt, nodelist: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_SetClusterGroupNodeList(hgroup.toString(), nodecount.toInt(), nodelist.toString()) as Int).toUInt() else 0u
+public actual fun setClusterGroupNodeList(hgroup: Hgroup, nodecount: UInt, nodelist: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_setClusterGroupNodeList(hgroup.toString(), nodecount.toInt(), (nodelist?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetClusterGroupNodeListEx(hgroup: HGROUP, nodecount: UInt, nodelist: Long, lpszreason: PCWSTR): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_SetClusterGroupNodeListEx(hgroup.toString(), nodecount.toInt(), nodelist.toString(), lpszreason.toString()) as Int).toUInt() else 0u
+public actual fun setClusterGroupNodeListEx(hgroup: Hgroup, nodecount: UInt, nodelist: COpaquePointer?, lpszreason: Pcwstr): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_setClusterGroupNodeListEx(hgroup.toString(), nodecount.toInt(), (nodelist?.value ?: 0L).toString(), (lpszreason?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetClusterGroupSetDependencyExpression(hgroupset: HGROUPSET, lpszdependencyexprssion: PCWSTR): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_SetClusterGroupSetDependencyExpression(hgroupset.toString(), lpszdependencyexprssion.toString()) as Int).toUInt() else 0u
+public actual fun setClusterGroupSetDependencyExpression(hgroupset: Hgroupset, lpszdependencyexprssion: Pcwstr): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_setClusterGroupSetDependencyExpression(hgroupset.toString(), (lpszdependencyexprssion?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetClusterGroupSetDependencyExpressionEx(hgroupset: HGROUPSET, lpszdependencyexpression: PCWSTR, lpszreason: PCWSTR): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_SetClusterGroupSetDependencyExpressionEx(hgroupset.toString(), lpszdependencyexpression.toString(), lpszreason.toString()) as Int).toUInt() else 0u
+public actual fun setClusterGroupSetDependencyExpressionEx(hgroupset: Hgroupset, lpszdependencyexpression: Pcwstr, lpszreason: Pcwstr): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_setClusterGroupSetDependencyExpressionEx(hgroupset.toString(), (lpszdependencyexpression?.value ?: 0L).toString(), (lpszreason?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetClusterName(hcluster: HCLUSTER, lpsznewclustername: PCWSTR): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_SetClusterName(hcluster.toString(), lpsznewclustername.toString()) as Int).toUInt() else 0u
+public actual fun setClusterName(hcluster: Hcluster, lpsznewclustername: Pcwstr): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_setClusterName(hcluster.toString(), (lpsznewclustername?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetClusterNameEx(hcluster: HCLUSTER, lpsznewclustername: PCWSTR, lpszreason: PCWSTR): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_SetClusterNameEx(hcluster.toString(), lpsznewclustername.toString(), lpszreason.toString()) as Int).toUInt() else 0u
+public actual fun setClusterNameEx(hcluster: Hcluster, lpsznewclustername: Pcwstr, lpszreason: Pcwstr): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_setClusterNameEx(hcluster.toString(), (lpsznewclustername?.value ?: 0L).toString(), (lpszreason?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetClusterNetworkName(hnetwork: HNETWORK, lpszname: PCWSTR): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_SetClusterNetworkName(hnetwork.toString(), lpszname.toString()) as Int).toUInt() else 0u
+public actual fun setClusterNetworkName(hnetwork: Hnetwork, lpszname: Pcwstr): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_setClusterNetworkName(hnetwork.toString(), (lpszname?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetClusterNetworkNameEx(hnetwork: HNETWORK, lpszname: PCWSTR, lpszreason: PCWSTR): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_SetClusterNetworkNameEx(hnetwork.toString(), lpszname.toString(), lpszreason.toString()) as Int).toUInt() else 0u
+public actual fun setClusterNetworkNameEx(hnetwork: Hnetwork, lpszname: Pcwstr, lpszreason: Pcwstr): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_setClusterNetworkNameEx(hnetwork.toString(), (lpszname?.value ?: 0L).toString(), (lpszreason?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetClusterNetworkPriorityOrder(hcluster: HCLUSTER, networkcount: UInt, networklist: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_SetClusterNetworkPriorityOrder(hcluster.toString(), networkcount.toInt(), networklist.toString()) as Int).toUInt() else 0u
+public actual fun setClusterNetworkPriorityOrder(hcluster: Hcluster, networkcount: UInt, networklist: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_setClusterNetworkPriorityOrder(hcluster.toString(), networkcount.toInt(), (networklist?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetClusterQuorumResource(hresource: HRESOURCE, lpszdevicename: PCWSTR, dwmaxquologsize: UInt): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_SetClusterQuorumResource(hresource.toString(), lpszdevicename.toString(), dwmaxquologsize.toInt()) as Int).toUInt() else 0u
+public actual fun setClusterQuorumResource(hresource: Hresource, lpszdevicename: Pcwstr, dwmaxquologsize: UInt): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_setClusterQuorumResource(hresource.toString(), (lpszdevicename?.value ?: 0L).toString(), dwmaxquologsize.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetClusterQuorumResourceEx(hresource: HRESOURCE, lpszdevicename: PCWSTR, dwmaxquorumlogsize: UInt, lpszreason: PCWSTR): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_SetClusterQuorumResourceEx(hresource.toString(), lpszdevicename.toString(), dwmaxquorumlogsize.toInt(), lpszreason.toString()) as Int).toUInt() else 0u
+public actual fun setClusterQuorumResourceEx(hresource: Hresource, lpszdevicename: Pcwstr, dwmaxquorumlogsize: UInt, lpszreason: Pcwstr): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_setClusterQuorumResourceEx(hresource.toString(), (lpszdevicename?.value ?: 0L).toString(), dwmaxquorumlogsize.toInt(), (lpszreason?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetClusterResourceDependencyExpression(hresource: HRESOURCE, lpszdependencyexpression: PCWSTR): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_SetClusterResourceDependencyExpression(hresource.toString(), lpszdependencyexpression.toString()) as Int).toUInt() else 0u
+public actual fun setClusterResourceDependencyExpression(hresource: Hresource, lpszdependencyexpression: Pcwstr): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_setClusterResourceDependencyExpression(hresource.toString(), (lpszdependencyexpression?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetClusterResourceName(hresource: HRESOURCE, lpszresourcename: PCWSTR): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_SetClusterResourceName(hresource.toString(), lpszresourcename.toString()) as Int).toUInt() else 0u
+public actual fun setClusterResourceName(hresource: Hresource, lpszresourcename: Pcwstr): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_setClusterResourceName(hresource.toString(), (lpszresourcename?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetClusterResourceNameEx(hresource: HRESOURCE, lpszresourcename: PCWSTR, lpszreason: PCWSTR): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_SetClusterResourceNameEx(hresource.toString(), lpszresourcename.toString(), lpszreason.toString()) as Int).toUInt() else 0u
+public actual fun setClusterResourceNameEx(hresource: Hresource, lpszresourcename: Pcwstr, lpszreason: Pcwstr): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_setClusterResourceNameEx(hresource.toString(), (lpszresourcename?.value ?: 0L).toString(), (lpszreason?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetClusterServiceAccountPassword(lpszclustername: PCWSTR, lpsznewpassword: PCWSTR, dwflags: UInt, lpreturnstatusbuffer: Long, lpcbreturnstatusbuffersize: Long): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_SetClusterServiceAccountPassword(lpszclustername.toString(), lpsznewpassword.toString(), dwflags.toInt(), lpreturnstatusbuffer.toString(), lpcbreturnstatusbuffersize.toString()) as Int).toUInt() else 0u
+public actual fun setClusterServiceAccountPassword(lpszclustername: Pcwstr, lpsznewpassword: Pcwstr, dwflags: UInt, lpreturnstatusbuffer: COpaquePointer?, lpcbreturnstatusbuffersize: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_setClusterServiceAccountPassword((lpszclustername?.value ?: 0L).toString(), (lpsznewpassword?.value ?: 0L).toString(), dwflags.toInt(), (lpreturnstatusbuffer?.value ?: 0L).toString(), (lpcbreturnstatusbuffersize?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetGroupDependencyExpression(hgroup: HGROUP, lpszdependencyexpression: PCWSTR): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_SetGroupDependencyExpression(hgroup.toString(), lpszdependencyexpression.toString()) as Int).toUInt() else 0u
+public actual fun setGroupDependencyExpression(hgroup: Hgroup, lpszdependencyexpression: Pcwstr): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_setGroupDependencyExpression(hgroup.toString(), (lpszdependencyexpression?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetGroupDependencyExpressionEx(hgroup: HGROUP, lpszdependencyexpression: PCWSTR, lpszreason: PCWSTR): UInt =
-    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_SetGroupDependencyExpressionEx(hgroup.toString(), lpszdependencyexpression.toString(), lpszreason.toString()) as Int).toUInt() else 0u
+public actual fun setGroupDependencyExpressionEx(hgroup: Hgroup, lpszdependencyexpression: Pcwstr, lpszreason: Pcwstr): UInt =
+    if (_windowsWin32NetworkingClusteringNapiAddon != null) (_windowsWin32NetworkingClusteringNapiAddon.windowssys_windows_win32_networking_clustering_setGroupDependencyExpressionEx(hgroup.toString(), (lpszdependencyexpression?.value ?: 0L).toString(), (lpszreason?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")

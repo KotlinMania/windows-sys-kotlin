@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_pointer_EnableMouseInPointer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_pointer_enableMouseInPointer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t fenable = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -69,7 +69,7 @@ static Napi::Value windowssys_windows_win32_ui_input_pointer_EnableMouseInPointe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_pointer_GetPointerCursorId_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_pointer_getPointerCursorId_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t pointerid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* cursorid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -89,7 +89,7 @@ static Napi::Value windowssys_windows_win32_ui_input_pointer_GetPointerCursorId_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_pointer_GetPointerDevice_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_pointer_getPointerDevice_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* device = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pointerdevice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -109,7 +109,7 @@ static Napi::Value windowssys_windows_win32_ui_input_pointer_GetPointerDevice_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_pointer_GetPointerDeviceCursors_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_pointer_getPointerDeviceCursors_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* device = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* cursorcount = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -131,7 +131,7 @@ static Napi::Value windowssys_windows_win32_ui_input_pointer_GetPointerDeviceCur
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_pointer_GetPointerDeviceProperties_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_pointer_getPointerDeviceProperties_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* device = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* propertycount = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -153,7 +153,7 @@ static Napi::Value windowssys_windows_win32_ui_input_pointer_GetPointerDevicePro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_pointer_GetPointerDeviceRects_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_pointer_getPointerDeviceRects_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* device = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pointerdevicerect = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -175,7 +175,7 @@ static Napi::Value windowssys_windows_win32_ui_input_pointer_GetPointerDeviceRec
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_pointer_GetPointerDevices_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_pointer_getPointerDevices_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* devicecount = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pointerdevices = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -195,7 +195,7 @@ static Napi::Value windowssys_windows_win32_ui_input_pointer_GetPointerDevices_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_pointer_GetPointerFrameInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_pointer_getPointerFrameInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t pointerid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pointercount = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -217,7 +217,7 @@ static Napi::Value windowssys_windows_win32_ui_input_pointer_GetPointerFrameInfo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_pointer_GetPointerFrameInfoHistory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_pointer_getPointerFrameInfoHistory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t pointerid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* entriescount = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -241,7 +241,7 @@ static Napi::Value windowssys_windows_win32_ui_input_pointer_GetPointerFrameInfo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_pointer_GetPointerFramePenInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_pointer_getPointerFramePenInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t pointerid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pointercount = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -263,7 +263,7 @@ static Napi::Value windowssys_windows_win32_ui_input_pointer_GetPointerFramePenI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_pointer_GetPointerFramePenInfoHistory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_pointer_getPointerFramePenInfoHistory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t pointerid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* entriescount = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -287,7 +287,7 @@ static Napi::Value windowssys_windows_win32_ui_input_pointer_GetPointerFramePenI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_pointer_GetPointerFrameTouchInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_pointer_getPointerFrameTouchInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t pointerid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pointercount = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -309,7 +309,7 @@ static Napi::Value windowssys_windows_win32_ui_input_pointer_GetPointerFrameTouc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_pointer_GetPointerFrameTouchInfoHistory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_pointer_getPointerFrameTouchInfoHistory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t pointerid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* entriescount = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -333,7 +333,7 @@ static Napi::Value windowssys_windows_win32_ui_input_pointer_GetPointerFrameTouc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_pointer_GetPointerInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_pointer_getPointerInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t pointerid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pointerinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -353,7 +353,7 @@ static Napi::Value windowssys_windows_win32_ui_input_pointer_GetPointerInfo_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_pointer_GetPointerInfoHistory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_pointer_getPointerInfoHistory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t pointerid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* entriescount = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -375,7 +375,7 @@ static Napi::Value windowssys_windows_win32_ui_input_pointer_GetPointerInfoHisto
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_pointer_GetPointerInputTransform_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_pointer_getPointerInputTransform_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t pointerid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t historycount = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -397,7 +397,7 @@ static Napi::Value windowssys_windows_win32_ui_input_pointer_GetPointerInputTran
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_pointer_GetPointerPenInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_pointer_getPointerPenInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t pointerid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* peninfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -417,7 +417,7 @@ static Napi::Value windowssys_windows_win32_ui_input_pointer_GetPointerPenInfo_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_pointer_GetPointerPenInfoHistory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_pointer_getPointerPenInfoHistory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t pointerid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* entriescount = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -439,7 +439,7 @@ static Napi::Value windowssys_windows_win32_ui_input_pointer_GetPointerPenInfoHi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_pointer_GetPointerTouchInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_pointer_getPointerTouchInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t pointerid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* touchinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -459,7 +459,7 @@ static Napi::Value windowssys_windows_win32_ui_input_pointer_GetPointerTouchInfo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_pointer_GetPointerTouchInfoHistory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_pointer_getPointerTouchInfoHistory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t pointerid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* entriescount = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -481,7 +481,7 @@ static Napi::Value windowssys_windows_win32_ui_input_pointer_GetPointerTouchInfo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_pointer_GetPointerType_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_pointer_getPointerType_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t pointerid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pointertype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -501,7 +501,7 @@ static Napi::Value windowssys_windows_win32_ui_input_pointer_GetPointerType_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_pointer_GetRawPointerDeviceData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_pointer_getRawPointerDeviceData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t pointerid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t historycount = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -527,7 +527,7 @@ static Napi::Value windowssys_windows_win32_ui_input_pointer_GetRawPointerDevice
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_pointer_GetUnpredictedMessagePos_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_pointer_getUnpredictedMessagePos_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -543,7 +543,7 @@ static Napi::Value windowssys_windows_win32_ui_input_pointer_GetUnpredictedMessa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_pointer_InitializeTouchInjection_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_pointer_initializeTouchInjection_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t maxcount = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwmode = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -563,7 +563,7 @@ static Napi::Value windowssys_windows_win32_ui_input_pointer_InitializeTouchInje
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_pointer_InjectSyntheticPointerInput_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_pointer_injectSyntheticPointerInput_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* device = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pointerinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -585,7 +585,7 @@ static Napi::Value windowssys_windows_win32_ui_input_pointer_InjectSyntheticPoin
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_pointer_InjectTouchInput_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_pointer_injectTouchInput_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t count = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* contacts = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -605,7 +605,7 @@ static Napi::Value windowssys_windows_win32_ui_input_pointer_InjectTouchInput_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_pointer_IsMouseInPointerEnabled_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_pointer_isMouseInPointerEnabled_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -621,7 +621,7 @@ static Napi::Value windowssys_windows_win32_ui_input_pointer_IsMouseInPointerEna
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_pointer_SkipPointerFrameMessages_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_pointer_skipPointerFrameMessages_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t pointerid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -640,34 +640,34 @@ static Napi::Value windowssys_windows_win32_ui_input_pointer_SkipPointerFrameMes
 }
 
 static void register_windows_win32_ui_input_pointer_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_ui_input_pointer_EnableMouseInPointer", Napi::Function::New(env, windowssys_windows_win32_ui_input_pointer_EnableMouseInPointer_napi));
-    exports.Set("windowssys_windows_win32_ui_input_pointer_GetPointerCursorId", Napi::Function::New(env, windowssys_windows_win32_ui_input_pointer_GetPointerCursorId_napi));
-    exports.Set("windowssys_windows_win32_ui_input_pointer_GetPointerDevice", Napi::Function::New(env, windowssys_windows_win32_ui_input_pointer_GetPointerDevice_napi));
-    exports.Set("windowssys_windows_win32_ui_input_pointer_GetPointerDeviceCursors", Napi::Function::New(env, windowssys_windows_win32_ui_input_pointer_GetPointerDeviceCursors_napi));
-    exports.Set("windowssys_windows_win32_ui_input_pointer_GetPointerDeviceProperties", Napi::Function::New(env, windowssys_windows_win32_ui_input_pointer_GetPointerDeviceProperties_napi));
-    exports.Set("windowssys_windows_win32_ui_input_pointer_GetPointerDeviceRects", Napi::Function::New(env, windowssys_windows_win32_ui_input_pointer_GetPointerDeviceRects_napi));
-    exports.Set("windowssys_windows_win32_ui_input_pointer_GetPointerDevices", Napi::Function::New(env, windowssys_windows_win32_ui_input_pointer_GetPointerDevices_napi));
-    exports.Set("windowssys_windows_win32_ui_input_pointer_GetPointerFrameInfo", Napi::Function::New(env, windowssys_windows_win32_ui_input_pointer_GetPointerFrameInfo_napi));
-    exports.Set("windowssys_windows_win32_ui_input_pointer_GetPointerFrameInfoHistory", Napi::Function::New(env, windowssys_windows_win32_ui_input_pointer_GetPointerFrameInfoHistory_napi));
-    exports.Set("windowssys_windows_win32_ui_input_pointer_GetPointerFramePenInfo", Napi::Function::New(env, windowssys_windows_win32_ui_input_pointer_GetPointerFramePenInfo_napi));
-    exports.Set("windowssys_windows_win32_ui_input_pointer_GetPointerFramePenInfoHistory", Napi::Function::New(env, windowssys_windows_win32_ui_input_pointer_GetPointerFramePenInfoHistory_napi));
-    exports.Set("windowssys_windows_win32_ui_input_pointer_GetPointerFrameTouchInfo", Napi::Function::New(env, windowssys_windows_win32_ui_input_pointer_GetPointerFrameTouchInfo_napi));
-    exports.Set("windowssys_windows_win32_ui_input_pointer_GetPointerFrameTouchInfoHistory", Napi::Function::New(env, windowssys_windows_win32_ui_input_pointer_GetPointerFrameTouchInfoHistory_napi));
-    exports.Set("windowssys_windows_win32_ui_input_pointer_GetPointerInfo", Napi::Function::New(env, windowssys_windows_win32_ui_input_pointer_GetPointerInfo_napi));
-    exports.Set("windowssys_windows_win32_ui_input_pointer_GetPointerInfoHistory", Napi::Function::New(env, windowssys_windows_win32_ui_input_pointer_GetPointerInfoHistory_napi));
-    exports.Set("windowssys_windows_win32_ui_input_pointer_GetPointerInputTransform", Napi::Function::New(env, windowssys_windows_win32_ui_input_pointer_GetPointerInputTransform_napi));
-    exports.Set("windowssys_windows_win32_ui_input_pointer_GetPointerPenInfo", Napi::Function::New(env, windowssys_windows_win32_ui_input_pointer_GetPointerPenInfo_napi));
-    exports.Set("windowssys_windows_win32_ui_input_pointer_GetPointerPenInfoHistory", Napi::Function::New(env, windowssys_windows_win32_ui_input_pointer_GetPointerPenInfoHistory_napi));
-    exports.Set("windowssys_windows_win32_ui_input_pointer_GetPointerTouchInfo", Napi::Function::New(env, windowssys_windows_win32_ui_input_pointer_GetPointerTouchInfo_napi));
-    exports.Set("windowssys_windows_win32_ui_input_pointer_GetPointerTouchInfoHistory", Napi::Function::New(env, windowssys_windows_win32_ui_input_pointer_GetPointerTouchInfoHistory_napi));
-    exports.Set("windowssys_windows_win32_ui_input_pointer_GetPointerType", Napi::Function::New(env, windowssys_windows_win32_ui_input_pointer_GetPointerType_napi));
-    exports.Set("windowssys_windows_win32_ui_input_pointer_GetRawPointerDeviceData", Napi::Function::New(env, windowssys_windows_win32_ui_input_pointer_GetRawPointerDeviceData_napi));
-    exports.Set("windowssys_windows_win32_ui_input_pointer_GetUnpredictedMessagePos", Napi::Function::New(env, windowssys_windows_win32_ui_input_pointer_GetUnpredictedMessagePos_napi));
-    exports.Set("windowssys_windows_win32_ui_input_pointer_InitializeTouchInjection", Napi::Function::New(env, windowssys_windows_win32_ui_input_pointer_InitializeTouchInjection_napi));
-    exports.Set("windowssys_windows_win32_ui_input_pointer_InjectSyntheticPointerInput", Napi::Function::New(env, windowssys_windows_win32_ui_input_pointer_InjectSyntheticPointerInput_napi));
-    exports.Set("windowssys_windows_win32_ui_input_pointer_InjectTouchInput", Napi::Function::New(env, windowssys_windows_win32_ui_input_pointer_InjectTouchInput_napi));
-    exports.Set("windowssys_windows_win32_ui_input_pointer_IsMouseInPointerEnabled", Napi::Function::New(env, windowssys_windows_win32_ui_input_pointer_IsMouseInPointerEnabled_napi));
-    exports.Set("windowssys_windows_win32_ui_input_pointer_SkipPointerFrameMessages", Napi::Function::New(env, windowssys_windows_win32_ui_input_pointer_SkipPointerFrameMessages_napi));
+    exports.Set("windowssys_windows_win32_ui_input_pointer_enableMouseInPointer", Napi::Function::New(env, windowssys_windows_win32_ui_input_pointer_enableMouseInPointer_napi));
+    exports.Set("windowssys_windows_win32_ui_input_pointer_getPointerCursorId", Napi::Function::New(env, windowssys_windows_win32_ui_input_pointer_getPointerCursorId_napi));
+    exports.Set("windowssys_windows_win32_ui_input_pointer_getPointerDevice", Napi::Function::New(env, windowssys_windows_win32_ui_input_pointer_getPointerDevice_napi));
+    exports.Set("windowssys_windows_win32_ui_input_pointer_getPointerDeviceCursors", Napi::Function::New(env, windowssys_windows_win32_ui_input_pointer_getPointerDeviceCursors_napi));
+    exports.Set("windowssys_windows_win32_ui_input_pointer_getPointerDeviceProperties", Napi::Function::New(env, windowssys_windows_win32_ui_input_pointer_getPointerDeviceProperties_napi));
+    exports.Set("windowssys_windows_win32_ui_input_pointer_getPointerDeviceRects", Napi::Function::New(env, windowssys_windows_win32_ui_input_pointer_getPointerDeviceRects_napi));
+    exports.Set("windowssys_windows_win32_ui_input_pointer_getPointerDevices", Napi::Function::New(env, windowssys_windows_win32_ui_input_pointer_getPointerDevices_napi));
+    exports.Set("windowssys_windows_win32_ui_input_pointer_getPointerFrameInfo", Napi::Function::New(env, windowssys_windows_win32_ui_input_pointer_getPointerFrameInfo_napi));
+    exports.Set("windowssys_windows_win32_ui_input_pointer_getPointerFrameInfoHistory", Napi::Function::New(env, windowssys_windows_win32_ui_input_pointer_getPointerFrameInfoHistory_napi));
+    exports.Set("windowssys_windows_win32_ui_input_pointer_getPointerFramePenInfo", Napi::Function::New(env, windowssys_windows_win32_ui_input_pointer_getPointerFramePenInfo_napi));
+    exports.Set("windowssys_windows_win32_ui_input_pointer_getPointerFramePenInfoHistory", Napi::Function::New(env, windowssys_windows_win32_ui_input_pointer_getPointerFramePenInfoHistory_napi));
+    exports.Set("windowssys_windows_win32_ui_input_pointer_getPointerFrameTouchInfo", Napi::Function::New(env, windowssys_windows_win32_ui_input_pointer_getPointerFrameTouchInfo_napi));
+    exports.Set("windowssys_windows_win32_ui_input_pointer_getPointerFrameTouchInfoHistory", Napi::Function::New(env, windowssys_windows_win32_ui_input_pointer_getPointerFrameTouchInfoHistory_napi));
+    exports.Set("windowssys_windows_win32_ui_input_pointer_getPointerInfo", Napi::Function::New(env, windowssys_windows_win32_ui_input_pointer_getPointerInfo_napi));
+    exports.Set("windowssys_windows_win32_ui_input_pointer_getPointerInfoHistory", Napi::Function::New(env, windowssys_windows_win32_ui_input_pointer_getPointerInfoHistory_napi));
+    exports.Set("windowssys_windows_win32_ui_input_pointer_getPointerInputTransform", Napi::Function::New(env, windowssys_windows_win32_ui_input_pointer_getPointerInputTransform_napi));
+    exports.Set("windowssys_windows_win32_ui_input_pointer_getPointerPenInfo", Napi::Function::New(env, windowssys_windows_win32_ui_input_pointer_getPointerPenInfo_napi));
+    exports.Set("windowssys_windows_win32_ui_input_pointer_getPointerPenInfoHistory", Napi::Function::New(env, windowssys_windows_win32_ui_input_pointer_getPointerPenInfoHistory_napi));
+    exports.Set("windowssys_windows_win32_ui_input_pointer_getPointerTouchInfo", Napi::Function::New(env, windowssys_windows_win32_ui_input_pointer_getPointerTouchInfo_napi));
+    exports.Set("windowssys_windows_win32_ui_input_pointer_getPointerTouchInfoHistory", Napi::Function::New(env, windowssys_windows_win32_ui_input_pointer_getPointerTouchInfoHistory_napi));
+    exports.Set("windowssys_windows_win32_ui_input_pointer_getPointerType", Napi::Function::New(env, windowssys_windows_win32_ui_input_pointer_getPointerType_napi));
+    exports.Set("windowssys_windows_win32_ui_input_pointer_getRawPointerDeviceData", Napi::Function::New(env, windowssys_windows_win32_ui_input_pointer_getRawPointerDeviceData_napi));
+    exports.Set("windowssys_windows_win32_ui_input_pointer_getUnpredictedMessagePos", Napi::Function::New(env, windowssys_windows_win32_ui_input_pointer_getUnpredictedMessagePos_napi));
+    exports.Set("windowssys_windows_win32_ui_input_pointer_initializeTouchInjection", Napi::Function::New(env, windowssys_windows_win32_ui_input_pointer_initializeTouchInjection_napi));
+    exports.Set("windowssys_windows_win32_ui_input_pointer_injectSyntheticPointerInput", Napi::Function::New(env, windowssys_windows_win32_ui_input_pointer_injectSyntheticPointerInput_napi));
+    exports.Set("windowssys_windows_win32_ui_input_pointer_injectTouchInput", Napi::Function::New(env, windowssys_windows_win32_ui_input_pointer_injectTouchInput_napi));
+    exports.Set("windowssys_windows_win32_ui_input_pointer_isMouseInPointerEnabled", Napi::Function::New(env, windowssys_windows_win32_ui_input_pointer_isMouseInPointerEnabled_napi));
+    exports.Set("windowssys_windows_win32_ui_input_pointer_skipPointerFrameMessages", Napi::Function::New(env, windowssys_windows_win32_ui_input_pointer_skipPointerFrameMessages_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_ui_input_pointer_napi, nullptr };

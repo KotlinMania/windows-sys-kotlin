@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_graphics_dwm_DwmAttachMilContent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_dwm_dwmAttachMilContent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -69,7 +69,7 @@ static Napi::Value windowssys_windows_win32_graphics_dwm_DwmAttachMilContent_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_dwm_DwmDefWindowProc_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_dwm_dwmDefWindowProc_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t msg = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -95,7 +95,7 @@ static Napi::Value windowssys_windows_win32_graphics_dwm_DwmDefWindowProc_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_dwm_DwmDetachMilContent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_dwm_dwmDetachMilContent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -113,7 +113,7 @@ static Napi::Value windowssys_windows_win32_graphics_dwm_DwmDetachMilContent_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_dwm_DwmEnableBlurBehindWindow_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_dwm_dwmEnableBlurBehindWindow_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pblurbehind = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -133,7 +133,7 @@ static Napi::Value windowssys_windows_win32_graphics_dwm_DwmEnableBlurBehindWind
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_dwm_DwmEnableComposition_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_dwm_dwmEnableComposition_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t ucompositionaction = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -151,7 +151,7 @@ static Napi::Value windowssys_windows_win32_graphics_dwm_DwmEnableComposition_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_dwm_DwmEnableMMCSS_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_dwm_dwmEnableMMCSS_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t fenablemmcss = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -169,7 +169,7 @@ static Napi::Value windowssys_windows_win32_graphics_dwm_DwmEnableMMCSS_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_dwm_DwmExtendFrameIntoClientArea_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_dwm_dwmExtendFrameIntoClientArea_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pmarinset = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -189,7 +189,7 @@ static Napi::Value windowssys_windows_win32_graphics_dwm_DwmExtendFrameIntoClien
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_dwm_DwmFlush_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_dwm_dwmFlush_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -205,7 +205,7 @@ static Napi::Value windowssys_windows_win32_graphics_dwm_DwmFlush_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_dwm_DwmGetColorizationColor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_dwm_dwmGetColorizationColor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcrcolorization = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pfopaqueblend = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -225,7 +225,7 @@ static Napi::Value windowssys_windows_win32_graphics_dwm_DwmGetColorizationColor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_dwm_DwmGetCompositionTimingInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_dwm_dwmGetCompositionTimingInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ptiminginfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -245,7 +245,7 @@ static Napi::Value windowssys_windows_win32_graphics_dwm_DwmGetCompositionTiming
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_dwm_DwmGetGraphicsStreamClient_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_dwm_dwmGetGraphicsStreamClient_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t uindex = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pclientuuid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -265,7 +265,7 @@ static Napi::Value windowssys_windows_win32_graphics_dwm_DwmGetGraphicsStreamCli
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_dwm_DwmGetGraphicsStreamTransformHint_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_dwm_dwmGetGraphicsStreamTransformHint_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t uindex = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* ptransform = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -285,7 +285,7 @@ static Napi::Value windowssys_windows_win32_graphics_dwm_DwmGetGraphicsStreamTra
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_dwm_DwmGetTransportAttributes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_dwm_dwmGetTransportAttributes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pfisremoting = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pfisconnected = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -307,7 +307,7 @@ static Napi::Value windowssys_windows_win32_graphics_dwm_DwmGetTransportAttribut
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_dwm_DwmGetUnmetTabRequirements_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_dwm_dwmGetUnmetTabRequirements_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* appwindow = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* value = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -327,7 +327,7 @@ static Napi::Value windowssys_windows_win32_graphics_dwm_DwmGetUnmetTabRequireme
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_dwm_DwmGetWindowAttribute_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_dwm_dwmGetWindowAttribute_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwattribute = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -351,7 +351,7 @@ static Napi::Value windowssys_windows_win32_graphics_dwm_DwmGetWindowAttribute_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_dwm_DwmInvalidateIconicBitmaps_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_dwm_dwmInvalidateIconicBitmaps_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -369,7 +369,7 @@ static Napi::Value windowssys_windows_win32_graphics_dwm_DwmInvalidateIconicBitm
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_dwm_DwmIsCompositionEnabled_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_dwm_dwmIsCompositionEnabled_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pfenabled = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -387,7 +387,7 @@ static Napi::Value windowssys_windows_win32_graphics_dwm_DwmIsCompositionEnabled
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_dwm_DwmModifyPreviousDxFrameDuration_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_dwm_dwmModifyPreviousDxFrameDuration_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t crefreshes = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -409,7 +409,7 @@ static Napi::Value windowssys_windows_win32_graphics_dwm_DwmModifyPreviousDxFram
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_dwm_DwmQueryThumbnailSourceSize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_dwm_dwmQueryThumbnailSourceSize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hthumbnail = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* psize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -429,7 +429,7 @@ static Napi::Value windowssys_windows_win32_graphics_dwm_DwmQueryThumbnailSource
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_dwm_DwmRegisterThumbnail_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_dwm_dwmRegisterThumbnail_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnddestination = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hwndsource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -451,7 +451,7 @@ static Napi::Value windowssys_windows_win32_graphics_dwm_DwmRegisterThumbnail_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_dwm_DwmRenderGesture_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_dwm_dwmRenderGesture_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t gt = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t ccontacts = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -475,7 +475,7 @@ static Napi::Value windowssys_windows_win32_graphics_dwm_DwmRenderGesture_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_dwm_DwmSetDxFrameDuration_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_dwm_dwmSetDxFrameDuration_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t crefreshes = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -495,7 +495,7 @@ static Napi::Value windowssys_windows_win32_graphics_dwm_DwmSetDxFrameDuration_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_dwm_DwmSetIconicLivePreviewBitmap_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_dwm_dwmSetIconicLivePreviewBitmap_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hbmp = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -519,7 +519,7 @@ static Napi::Value windowssys_windows_win32_graphics_dwm_DwmSetIconicLivePreview
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_dwm_DwmSetIconicThumbnail_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_dwm_dwmSetIconicThumbnail_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hbmp = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -541,7 +541,7 @@ static Napi::Value windowssys_windows_win32_graphics_dwm_DwmSetIconicThumbnail_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_dwm_DwmSetPresentParameters_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_dwm_dwmSetPresentParameters_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppresentparams = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -561,7 +561,7 @@ static Napi::Value windowssys_windows_win32_graphics_dwm_DwmSetPresentParameters
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_dwm_DwmSetWindowAttribute_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_dwm_dwmSetWindowAttribute_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwattribute = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -585,7 +585,7 @@ static Napi::Value windowssys_windows_win32_graphics_dwm_DwmSetWindowAttribute_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_dwm_DwmShowContact_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_dwm_dwmShowContact_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwpointerid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t eshowcontact = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -605,7 +605,7 @@ static Napi::Value windowssys_windows_win32_graphics_dwm_DwmShowContact_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_dwm_DwmTransitionOwnedWindow_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_dwm_dwmTransitionOwnedWindow_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t target = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -625,7 +625,7 @@ static Napi::Value windowssys_windows_win32_graphics_dwm_DwmTransitionOwnedWindo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_dwm_DwmUnregisterThumbnail_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_dwm_dwmUnregisterThumbnail_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hthumbnailid = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -643,7 +643,7 @@ static Napi::Value windowssys_windows_win32_graphics_dwm_DwmUnregisterThumbnail_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_dwm_DwmUpdateThumbnailProperties_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_dwm_dwmUpdateThumbnailProperties_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hthumbnailid = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* ptnproperties = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -664,36 +664,36 @@ static Napi::Value windowssys_windows_win32_graphics_dwm_DwmUpdateThumbnailPrope
 }
 
 static void register_windows_win32_graphics_dwm_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_graphics_dwm_DwmAttachMilContent", Napi::Function::New(env, windowssys_windows_win32_graphics_dwm_DwmAttachMilContent_napi));
-    exports.Set("windowssys_windows_win32_graphics_dwm_DwmDefWindowProc", Napi::Function::New(env, windowssys_windows_win32_graphics_dwm_DwmDefWindowProc_napi));
-    exports.Set("windowssys_windows_win32_graphics_dwm_DwmDetachMilContent", Napi::Function::New(env, windowssys_windows_win32_graphics_dwm_DwmDetachMilContent_napi));
-    exports.Set("windowssys_windows_win32_graphics_dwm_DwmEnableBlurBehindWindow", Napi::Function::New(env, windowssys_windows_win32_graphics_dwm_DwmEnableBlurBehindWindow_napi));
-    exports.Set("windowssys_windows_win32_graphics_dwm_DwmEnableComposition", Napi::Function::New(env, windowssys_windows_win32_graphics_dwm_DwmEnableComposition_napi));
-    exports.Set("windowssys_windows_win32_graphics_dwm_DwmEnableMMCSS", Napi::Function::New(env, windowssys_windows_win32_graphics_dwm_DwmEnableMMCSS_napi));
-    exports.Set("windowssys_windows_win32_graphics_dwm_DwmExtendFrameIntoClientArea", Napi::Function::New(env, windowssys_windows_win32_graphics_dwm_DwmExtendFrameIntoClientArea_napi));
-    exports.Set("windowssys_windows_win32_graphics_dwm_DwmFlush", Napi::Function::New(env, windowssys_windows_win32_graphics_dwm_DwmFlush_napi));
-    exports.Set("windowssys_windows_win32_graphics_dwm_DwmGetColorizationColor", Napi::Function::New(env, windowssys_windows_win32_graphics_dwm_DwmGetColorizationColor_napi));
-    exports.Set("windowssys_windows_win32_graphics_dwm_DwmGetCompositionTimingInfo", Napi::Function::New(env, windowssys_windows_win32_graphics_dwm_DwmGetCompositionTimingInfo_napi));
-    exports.Set("windowssys_windows_win32_graphics_dwm_DwmGetGraphicsStreamClient", Napi::Function::New(env, windowssys_windows_win32_graphics_dwm_DwmGetGraphicsStreamClient_napi));
-    exports.Set("windowssys_windows_win32_graphics_dwm_DwmGetGraphicsStreamTransformHint", Napi::Function::New(env, windowssys_windows_win32_graphics_dwm_DwmGetGraphicsStreamTransformHint_napi));
-    exports.Set("windowssys_windows_win32_graphics_dwm_DwmGetTransportAttributes", Napi::Function::New(env, windowssys_windows_win32_graphics_dwm_DwmGetTransportAttributes_napi));
-    exports.Set("windowssys_windows_win32_graphics_dwm_DwmGetUnmetTabRequirements", Napi::Function::New(env, windowssys_windows_win32_graphics_dwm_DwmGetUnmetTabRequirements_napi));
-    exports.Set("windowssys_windows_win32_graphics_dwm_DwmGetWindowAttribute", Napi::Function::New(env, windowssys_windows_win32_graphics_dwm_DwmGetWindowAttribute_napi));
-    exports.Set("windowssys_windows_win32_graphics_dwm_DwmInvalidateIconicBitmaps", Napi::Function::New(env, windowssys_windows_win32_graphics_dwm_DwmInvalidateIconicBitmaps_napi));
-    exports.Set("windowssys_windows_win32_graphics_dwm_DwmIsCompositionEnabled", Napi::Function::New(env, windowssys_windows_win32_graphics_dwm_DwmIsCompositionEnabled_napi));
-    exports.Set("windowssys_windows_win32_graphics_dwm_DwmModifyPreviousDxFrameDuration", Napi::Function::New(env, windowssys_windows_win32_graphics_dwm_DwmModifyPreviousDxFrameDuration_napi));
-    exports.Set("windowssys_windows_win32_graphics_dwm_DwmQueryThumbnailSourceSize", Napi::Function::New(env, windowssys_windows_win32_graphics_dwm_DwmQueryThumbnailSourceSize_napi));
-    exports.Set("windowssys_windows_win32_graphics_dwm_DwmRegisterThumbnail", Napi::Function::New(env, windowssys_windows_win32_graphics_dwm_DwmRegisterThumbnail_napi));
-    exports.Set("windowssys_windows_win32_graphics_dwm_DwmRenderGesture", Napi::Function::New(env, windowssys_windows_win32_graphics_dwm_DwmRenderGesture_napi));
-    exports.Set("windowssys_windows_win32_graphics_dwm_DwmSetDxFrameDuration", Napi::Function::New(env, windowssys_windows_win32_graphics_dwm_DwmSetDxFrameDuration_napi));
-    exports.Set("windowssys_windows_win32_graphics_dwm_DwmSetIconicLivePreviewBitmap", Napi::Function::New(env, windowssys_windows_win32_graphics_dwm_DwmSetIconicLivePreviewBitmap_napi));
-    exports.Set("windowssys_windows_win32_graphics_dwm_DwmSetIconicThumbnail", Napi::Function::New(env, windowssys_windows_win32_graphics_dwm_DwmSetIconicThumbnail_napi));
-    exports.Set("windowssys_windows_win32_graphics_dwm_DwmSetPresentParameters", Napi::Function::New(env, windowssys_windows_win32_graphics_dwm_DwmSetPresentParameters_napi));
-    exports.Set("windowssys_windows_win32_graphics_dwm_DwmSetWindowAttribute", Napi::Function::New(env, windowssys_windows_win32_graphics_dwm_DwmSetWindowAttribute_napi));
-    exports.Set("windowssys_windows_win32_graphics_dwm_DwmShowContact", Napi::Function::New(env, windowssys_windows_win32_graphics_dwm_DwmShowContact_napi));
-    exports.Set("windowssys_windows_win32_graphics_dwm_DwmTransitionOwnedWindow", Napi::Function::New(env, windowssys_windows_win32_graphics_dwm_DwmTransitionOwnedWindow_napi));
-    exports.Set("windowssys_windows_win32_graphics_dwm_DwmUnregisterThumbnail", Napi::Function::New(env, windowssys_windows_win32_graphics_dwm_DwmUnregisterThumbnail_napi));
-    exports.Set("windowssys_windows_win32_graphics_dwm_DwmUpdateThumbnailProperties", Napi::Function::New(env, windowssys_windows_win32_graphics_dwm_DwmUpdateThumbnailProperties_napi));
+    exports.Set("windowssys_windows_win32_graphics_dwm_dwmAttachMilContent", Napi::Function::New(env, windowssys_windows_win32_graphics_dwm_dwmAttachMilContent_napi));
+    exports.Set("windowssys_windows_win32_graphics_dwm_dwmDefWindowProc", Napi::Function::New(env, windowssys_windows_win32_graphics_dwm_dwmDefWindowProc_napi));
+    exports.Set("windowssys_windows_win32_graphics_dwm_dwmDetachMilContent", Napi::Function::New(env, windowssys_windows_win32_graphics_dwm_dwmDetachMilContent_napi));
+    exports.Set("windowssys_windows_win32_graphics_dwm_dwmEnableBlurBehindWindow", Napi::Function::New(env, windowssys_windows_win32_graphics_dwm_dwmEnableBlurBehindWindow_napi));
+    exports.Set("windowssys_windows_win32_graphics_dwm_dwmEnableComposition", Napi::Function::New(env, windowssys_windows_win32_graphics_dwm_dwmEnableComposition_napi));
+    exports.Set("windowssys_windows_win32_graphics_dwm_dwmEnableMMCSS", Napi::Function::New(env, windowssys_windows_win32_graphics_dwm_dwmEnableMMCSS_napi));
+    exports.Set("windowssys_windows_win32_graphics_dwm_dwmExtendFrameIntoClientArea", Napi::Function::New(env, windowssys_windows_win32_graphics_dwm_dwmExtendFrameIntoClientArea_napi));
+    exports.Set("windowssys_windows_win32_graphics_dwm_dwmFlush", Napi::Function::New(env, windowssys_windows_win32_graphics_dwm_dwmFlush_napi));
+    exports.Set("windowssys_windows_win32_graphics_dwm_dwmGetColorizationColor", Napi::Function::New(env, windowssys_windows_win32_graphics_dwm_dwmGetColorizationColor_napi));
+    exports.Set("windowssys_windows_win32_graphics_dwm_dwmGetCompositionTimingInfo", Napi::Function::New(env, windowssys_windows_win32_graphics_dwm_dwmGetCompositionTimingInfo_napi));
+    exports.Set("windowssys_windows_win32_graphics_dwm_dwmGetGraphicsStreamClient", Napi::Function::New(env, windowssys_windows_win32_graphics_dwm_dwmGetGraphicsStreamClient_napi));
+    exports.Set("windowssys_windows_win32_graphics_dwm_dwmGetGraphicsStreamTransformHint", Napi::Function::New(env, windowssys_windows_win32_graphics_dwm_dwmGetGraphicsStreamTransformHint_napi));
+    exports.Set("windowssys_windows_win32_graphics_dwm_dwmGetTransportAttributes", Napi::Function::New(env, windowssys_windows_win32_graphics_dwm_dwmGetTransportAttributes_napi));
+    exports.Set("windowssys_windows_win32_graphics_dwm_dwmGetUnmetTabRequirements", Napi::Function::New(env, windowssys_windows_win32_graphics_dwm_dwmGetUnmetTabRequirements_napi));
+    exports.Set("windowssys_windows_win32_graphics_dwm_dwmGetWindowAttribute", Napi::Function::New(env, windowssys_windows_win32_graphics_dwm_dwmGetWindowAttribute_napi));
+    exports.Set("windowssys_windows_win32_graphics_dwm_dwmInvalidateIconicBitmaps", Napi::Function::New(env, windowssys_windows_win32_graphics_dwm_dwmInvalidateIconicBitmaps_napi));
+    exports.Set("windowssys_windows_win32_graphics_dwm_dwmIsCompositionEnabled", Napi::Function::New(env, windowssys_windows_win32_graphics_dwm_dwmIsCompositionEnabled_napi));
+    exports.Set("windowssys_windows_win32_graphics_dwm_dwmModifyPreviousDxFrameDuration", Napi::Function::New(env, windowssys_windows_win32_graphics_dwm_dwmModifyPreviousDxFrameDuration_napi));
+    exports.Set("windowssys_windows_win32_graphics_dwm_dwmQueryThumbnailSourceSize", Napi::Function::New(env, windowssys_windows_win32_graphics_dwm_dwmQueryThumbnailSourceSize_napi));
+    exports.Set("windowssys_windows_win32_graphics_dwm_dwmRegisterThumbnail", Napi::Function::New(env, windowssys_windows_win32_graphics_dwm_dwmRegisterThumbnail_napi));
+    exports.Set("windowssys_windows_win32_graphics_dwm_dwmRenderGesture", Napi::Function::New(env, windowssys_windows_win32_graphics_dwm_dwmRenderGesture_napi));
+    exports.Set("windowssys_windows_win32_graphics_dwm_dwmSetDxFrameDuration", Napi::Function::New(env, windowssys_windows_win32_graphics_dwm_dwmSetDxFrameDuration_napi));
+    exports.Set("windowssys_windows_win32_graphics_dwm_dwmSetIconicLivePreviewBitmap", Napi::Function::New(env, windowssys_windows_win32_graphics_dwm_dwmSetIconicLivePreviewBitmap_napi));
+    exports.Set("windowssys_windows_win32_graphics_dwm_dwmSetIconicThumbnail", Napi::Function::New(env, windowssys_windows_win32_graphics_dwm_dwmSetIconicThumbnail_napi));
+    exports.Set("windowssys_windows_win32_graphics_dwm_dwmSetPresentParameters", Napi::Function::New(env, windowssys_windows_win32_graphics_dwm_dwmSetPresentParameters_napi));
+    exports.Set("windowssys_windows_win32_graphics_dwm_dwmSetWindowAttribute", Napi::Function::New(env, windowssys_windows_win32_graphics_dwm_dwmSetWindowAttribute_napi));
+    exports.Set("windowssys_windows_win32_graphics_dwm_dwmShowContact", Napi::Function::New(env, windowssys_windows_win32_graphics_dwm_dwmShowContact_napi));
+    exports.Set("windowssys_windows_win32_graphics_dwm_dwmTransitionOwnedWindow", Napi::Function::New(env, windowssys_windows_win32_graphics_dwm_dwmTransitionOwnedWindow_napi));
+    exports.Set("windowssys_windows_win32_graphics_dwm_dwmUnregisterThumbnail", Napi::Function::New(env, windowssys_windows_win32_graphics_dwm_dwmUnregisterThumbnail_napi));
+    exports.Set("windowssys_windows_win32_graphics_dwm_dwmUpdateThumbnailProperties", Napi::Function::New(env, windowssys_windows_win32_graphics_dwm_dwmUpdateThumbnailProperties_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_graphics_dwm_napi, nullptr };

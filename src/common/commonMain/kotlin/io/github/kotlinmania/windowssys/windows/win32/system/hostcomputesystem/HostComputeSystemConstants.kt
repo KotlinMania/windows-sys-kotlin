@@ -1,125 +1,125 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.hostcomputesystem
 
-public val HcsCreateOptions_1: HCS_CREATE_OPTIONS = 65536
+public val HCS_CREATE_OPTIONS_1: HcsCreateOptions = 65536
 
-public val HcsEventGroupOperationInfo: HCS_EVENT_TYPE = -1073741823
+public val HCS_EVENT_GROUP_OPERATION_INFO: HcsEventType = -1073741823
 
-public val HcsEventGroupVmLifecycle: HCS_EVENT_TYPE = -2147483646
+public val HCS_EVENT_GROUP_VM_LIFECYCLE: HcsEventType = -2147483646
 
-public val HcsEventInvalid: HCS_EVENT_TYPE = 0
+public val HCS_EVENT_INVALID: HcsEventType = 0
 
-public val HcsEventOperationCallback: HCS_EVENT_TYPE = 16777216
+public val HCS_EVENT_OPERATION_CALLBACK: HcsEventType = 16777216
 
-public val HcsEventOptionEnableOperationCallbacks: HCS_EVENT_OPTIONS = 1
+public val HCS_EVENT_OPTION_ENABLE_OPERATION_CALLBACKS: HcsEventOptions = 1
 
-public val HcsEventOptionEnableVmLifecycle: HCS_EVENT_OPTIONS = 2
+public val HCS_EVENT_OPTION_ENABLE_VM_LIFECYCLE: HcsEventOptions = 2
 
-public val HcsEventOptionNone: HCS_EVENT_OPTIONS = 0
+public val HCS_EVENT_OPTION_NONE: HcsEventOptions = 0
 
-public val HcsEventProcessExited: HCS_EVENT_TYPE = 65536
+public val HCS_EVENT_PROCESS_EXITED: HcsEventType = 65536
 
-public val HcsEventServiceDisconnect: HCS_EVENT_TYPE = 33554432
+public val HCS_EVENT_SERVICE_DISCONNECT: HcsEventType = 33554432
 
-public val HcsEventSystemCrashInitiated: HCS_EVENT_TYPE = 2
+public val HCS_EVENT_SYSTEM_CRASH_INITIATED: HcsEventType = 2
 
-public val HcsEventSystemCrashReport: HCS_EVENT_TYPE = 3
+public val HCS_EVENT_SYSTEM_CRASH_REPORT: HcsEventType = 3
 
-public val HcsEventSystemExited: HCS_EVENT_TYPE = 1
+public val HCS_EVENT_SYSTEM_EXITED: HcsEventType = 1
 
-public val HcsEventSystemGuestConnectionClosed: HCS_EVENT_TYPE = 6
+public val HCS_EVENT_SYSTEM_GUEST_CONNECTION_CLOSED: HcsEventType = 6
 
-public val HcsEventSystemRdpEnhancedModeStateChanged: HCS_EVENT_TYPE = 4
+public val HCS_EVENT_SYSTEM_RDP_ENHANCED_MODE_STATE_CHANGED: HcsEventType = 4
 
-public val HcsEventSystemSiloJobCreated: HCS_EVENT_TYPE = 5
+public val HCS_EVENT_SYSTEM_SILO_JOB_CREATED: HcsEventType = 5
 
-public val HcsNotificationFlagFailure: HCS_NOTIFICATION_FLAGS = -2147483648
+public val HCS_NOTIFICATION_FLAG_FAILURE: HcsNotificationFlags = -2147483648.toInt()
 
-public val HcsNotificationFlagSuccess: HCS_NOTIFICATION_FLAGS = 0
+public val HCS_NOTIFICATION_FLAG_SUCCESS: HcsNotificationFlags = 0
 
-public val HcsNotificationFlagsReserved: HCS_NOTIFICATIONS = -268435456
+public val HCS_NOTIFICATION_FLAGS_RESERVED: HcsNotifications = -268435456
 
-public val HcsNotificationInvalid: HCS_NOTIFICATIONS = 0
+public val HCS_NOTIFICATION_INVALID: HcsNotifications = 0
 
-public val HcsNotificationOperationProgressUpdate: HCS_NOTIFICATIONS = 256
+public val HCS_NOTIFICATION_OPERATION_PROGRESS_UPDATE: HcsNotifications = 256
 
-public val HcsNotificationProcessExited: HCS_NOTIFICATIONS = 65536
+public val HCS_NOTIFICATION_PROCESS_EXITED: HcsNotifications = 65536
 
-public val HcsNotificationServiceDisconnect: HCS_NOTIFICATIONS = 16777216
+public val HCS_NOTIFICATION_SERVICE_DISCONNECT: HcsNotifications = 16777216
 
-public val HcsNotificationSystemCrashInitiated: HCS_NOTIFICATIONS = 13
+public val HCS_NOTIFICATION_SYSTEM_CRASH_INITIATED: HcsNotifications = 13
 
-public val HcsNotificationSystemCrashReport: HCS_NOTIFICATIONS = 6
+public val HCS_NOTIFICATION_SYSTEM_CRASH_REPORT: HcsNotifications = 6
 
-public val HcsNotificationSystemCreateCompleted: HCS_NOTIFICATIONS = 2
+public val HCS_NOTIFICATION_SYSTEM_CREATE_COMPLETED: HcsNotifications = 2
 
-public val HcsNotificationSystemExited: HCS_NOTIFICATIONS = 1
+public val HCS_NOTIFICATION_SYSTEM_EXITED: HcsNotifications = 1
 
-public val HcsNotificationSystemGetPropertiesCompleted: HCS_NOTIFICATIONS = 11
+public val HCS_NOTIFICATION_SYSTEM_GET_PROPERTIES_COMPLETED: HcsNotifications = 11
 
-public val HcsNotificationSystemGuestConnectionClosed: HCS_NOTIFICATIONS = 14
+public val HCS_NOTIFICATION_SYSTEM_GUEST_CONNECTION_CLOSED: HcsNotifications = 14
 
-public val HcsNotificationSystemModifyCompleted: HCS_NOTIFICATIONS = 12
+public val HCS_NOTIFICATION_SYSTEM_MODIFY_COMPLETED: HcsNotifications = 12
 
-public val HcsNotificationSystemOperationCompletion: HCS_NOTIFICATIONS = 15
+public val HCS_NOTIFICATION_SYSTEM_OPERATION_COMPLETION: HcsNotifications = 15
 
-public val HcsNotificationSystemPassThru: HCS_NOTIFICATIONS = 16
+public val HCS_NOTIFICATION_SYSTEM_PASS_THRU: HcsNotifications = 16
 
-public val HcsNotificationSystemPauseCompleted: HCS_NOTIFICATIONS = 4
+public val HCS_NOTIFICATION_SYSTEM_PAUSE_COMPLETED: HcsNotifications = 4
 
-public val HcsNotificationSystemRdpEnhancedModeStateChanged: HCS_NOTIFICATIONS = 9
+public val HCS_NOTIFICATION_SYSTEM_RDP_ENHANCED_MODE_STATE_CHANGED: HcsNotifications = 9
 
-public val HcsNotificationSystemResumeCompleted: HCS_NOTIFICATIONS = 5
+public val HCS_NOTIFICATION_SYSTEM_RESUME_COMPLETED: HcsNotifications = 5
 
-public val HcsNotificationSystemSaveCompleted: HCS_NOTIFICATIONS = 8
+public val HCS_NOTIFICATION_SYSTEM_SAVE_COMPLETED: HcsNotifications = 8
 
-public val HcsNotificationSystemShutdownCompleted: HCS_NOTIFICATIONS = 10
+public val HCS_NOTIFICATION_SYSTEM_SHUTDOWN_COMPLETED: HcsNotifications = 10
 
-public val HcsNotificationSystemShutdownFailed: HCS_NOTIFICATIONS = 10
+public val HCS_NOTIFICATION_SYSTEM_SHUTDOWN_FAILED: HcsNotifications = 10
 
-public val HcsNotificationSystemSiloJobCreated: HCS_NOTIFICATIONS = 7
+public val HCS_NOTIFICATION_SYSTEM_SILO_JOB_CREATED: HcsNotifications = 7
 
-public val HcsNotificationSystemStartCompleted: HCS_NOTIFICATIONS = 3
+public val HCS_NOTIFICATION_SYSTEM_START_COMPLETED: HcsNotifications = 3
 
-public val HcsOperationOptionNone: HCS_OPERATION_OPTIONS = 0
+public val HCS_OPERATION_OPTION_NONE: HcsOperationOptions = 0
 
-public val HcsOperationOptionProgressUpdate: HCS_OPERATION_OPTIONS = 1
+public val HCS_OPERATION_OPTION_PROGRESS_UPDATE: HcsOperationOptions = 1
 
-public val HcsOperationTypeCrash: HCS_OPERATION_TYPE = 15
+public val HCS_OPERATION_TYPE_CRASH: HcsOperationType = 15
 
-public val HcsOperationTypeCreate: HCS_OPERATION_TYPE = 1
+public val HCS_OPERATION_TYPE_CREATE: HcsOperationType = 1
 
-public val HcsOperationTypeCreateProcess: HCS_OPERATION_TYPE = 10
+public val HCS_OPERATION_TYPE_CREATE_PROCESS: HcsOperationType = 10
 
-public val HcsOperationTypeEnumerate: HCS_OPERATION_TYPE = 0
+public val HCS_OPERATION_TYPE_ENUMERATE: HcsOperationType = 0
 
-public val HcsOperationTypeGetProcessInfo: HCS_OPERATION_TYPE = 12
+public val HCS_OPERATION_TYPE_GET_PROCESS_INFO: HcsOperationType = 12
 
-public val HcsOperationTypeGetProcessProperties: HCS_OPERATION_TYPE = 13
+public val HCS_OPERATION_TYPE_GET_PROCESS_PROPERTIES: HcsOperationType = 13
 
-public val HcsOperationTypeGetProperties: HCS_OPERATION_TYPE = 9
+public val HCS_OPERATION_TYPE_GET_PROPERTIES: HcsOperationType = 9
 
-public val HcsOperationTypeModify: HCS_OPERATION_TYPE = 8
+public val HCS_OPERATION_TYPE_MODIFY: HcsOperationType = 8
 
-public val HcsOperationTypeModifyProcess: HCS_OPERATION_TYPE = 14
+public val HCS_OPERATION_TYPE_MODIFY_PROCESS: HcsOperationType = 14
 
-public val HcsOperationTypeNone: HCS_OPERATION_TYPE = -1
+public val HCS_OPERATION_TYPE_NONE: HcsOperationType = -1
 
-public val HcsOperationTypePause: HCS_OPERATION_TYPE = 4
+public val HCS_OPERATION_TYPE_PAUSE: HcsOperationType = 4
 
-public val HcsOperationTypeResume: HCS_OPERATION_TYPE = 5
+public val HCS_OPERATION_TYPE_RESUME: HcsOperationType = 5
 
-public val HcsOperationTypeSave: HCS_OPERATION_TYPE = 6
+public val HCS_OPERATION_TYPE_SAVE: HcsOperationType = 6
 
-public val HcsOperationTypeShutdown: HCS_OPERATION_TYPE = 3
+public val HCS_OPERATION_TYPE_SHUTDOWN: HcsOperationType = 3
 
-public val HcsOperationTypeSignalProcess: HCS_OPERATION_TYPE = 11
+public val HCS_OPERATION_TYPE_SIGNAL_PROCESS: HcsOperationType = 11
 
-public val HcsOperationTypeStart: HCS_OPERATION_TYPE = 2
+public val HCS_OPERATION_TYPE_START: HcsOperationType = 2
 
-public val HcsOperationTypeTerminate: HCS_OPERATION_TYPE = 7
+public val HCS_OPERATION_TYPE_TERMINATE: HcsOperationType = 7
 
-public val HcsResourceTypeFile: HCS_RESOURCE_TYPE = 1
+public val HCS_RESOURCE_TYPE_FILE: HcsResourceType = 1
 
-public val HcsResourceTypeJob: HCS_RESOURCE_TYPE = 2
+public val HCS_RESOURCE_TYPE_JOB: HcsResourceType = 2
 
-public val HcsResourceTypeNone: HCS_RESOURCE_TYPE = 0
+public val HCS_RESOURCE_TYPE_NONE: HcsResourceType = 0

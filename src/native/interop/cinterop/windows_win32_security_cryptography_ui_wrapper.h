@@ -9,16 +9,16 @@
 extern "C" {
 #endif
 
-int32_t windowssys_windows_win32_security_cryptography_ui_CertSelectionGetSerializedBlob(void* pcsi, void* ppoutbuffer, void* puloutbuffersize);
-int32_t windowssys_windows_win32_security_cryptography_ui_CryptUIDlgCertMgr(void* pcryptuicertmgr);
-void* windowssys_windows_win32_security_cryptography_ui_CryptUIDlgSelectCertificateFromStore(void* hcertstore, void* hwnd, void* pwsztitle, void* pwszdisplaystring, uint32_t dwdontusecolumn, uint32_t dwflags, void* pvreserved);
-int32_t windowssys_windows_win32_security_cryptography_ui_CryptUIDlgViewCertificateA(void* pcertviewinfo, void* pfpropertieschanged);
-int32_t windowssys_windows_win32_security_cryptography_ui_CryptUIDlgViewCertificateW(void* pcertviewinfo, void* pfpropertieschanged);
-int32_t windowssys_windows_win32_security_cryptography_ui_CryptUIDlgViewContext(uint32_t dwcontexttype, void* pvcontext, void* hwnd, void* pwsztitle, uint32_t dwflags, void* pvreserved);
-int32_t windowssys_windows_win32_security_cryptography_ui_CryptUIWizDigitalSign(uint32_t dwflags, void* hwndparent, void* pwszwizardtitle, void* pdigitalsigninfo, void* ppsigncontext);
-int32_t windowssys_windows_win32_security_cryptography_ui_CryptUIWizExport(uint32_t dwflags, void* hwndparent, void* pwszwizardtitle, void* pexportinfo, void* pvoid);
-int32_t windowssys_windows_win32_security_cryptography_ui_CryptUIWizFreeDigitalSignContext(void* psigncontext);
-int32_t windowssys_windows_win32_security_cryptography_ui_CryptUIWizImport(uint32_t dwflags, void* hwndparent, void* pwszwizardtitle, void* pimportsrc, void* hdestcertstore);
+int32_t windowssys_windows_win32_security_cryptography_ui_certSelectionGetSerializedBlob(void* pcsi, void* ppoutbuffer, void* puloutbuffersize);
+int32_t windowssys_windows_win32_security_cryptography_ui_cryptUIDlgCertMgr(void* pcryptuicertmgr);
+void* windowssys_windows_win32_security_cryptography_ui_cryptUIDlgSelectCertificateFromStore(void* hcertstore, void* hwnd, void* pwsztitle, void* pwszdisplaystring, uint32_t dwdontusecolumn, uint32_t dwflags, void* pvreserved);
+int32_t windowssys_windows_win32_security_cryptography_ui_cryptUIDlgViewCertificateA(void* pcertviewinfo, void* pfpropertieschanged);
+int32_t windowssys_windows_win32_security_cryptography_ui_cryptUIDlgViewCertificateW(void* pcertviewinfo, void* pfpropertieschanged);
+int32_t windowssys_windows_win32_security_cryptography_ui_cryptUIDlgViewContext(uint32_t dwcontexttype, void* pvcontext, void* hwnd, void* pwsztitle, uint32_t dwflags, void* pvreserved);
+int32_t windowssys_windows_win32_security_cryptography_ui_cryptUIWizDigitalSign(uint32_t dwflags, void* hwndparent, void* pwszwizardtitle, void* pdigitalsigninfo, void* ppsigncontext);
+int32_t windowssys_windows_win32_security_cryptography_ui_cryptUIWizExport(uint32_t dwflags, void* hwndparent, void* pwszwizardtitle, void* pexportinfo, void* pvoid);
+int32_t windowssys_windows_win32_security_cryptography_ui_cryptUIWizFreeDigitalSignContext(void* psigncontext);
+int32_t windowssys_windows_win32_security_cryptography_ui_cryptUIWizImport(uint32_t dwflags, void* hwndparent, void* pwszwizardtitle, void* pimportsrc, void* hdestcertstore);
 
 #ifdef __cplusplus
 }

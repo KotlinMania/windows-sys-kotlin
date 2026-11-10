@@ -1,27 +1,27 @@
 package io.github.kotlinmania.windowssys.windows.win32.devices.communication
 
-public typealias CLEAR_COMM_ERROR_FLAGS = UInt
+public typealias ClearCommErrorFlags = UInt
 
-public typealias COMMPROP_STOP_PARITY = UShort
+public typealias CommpropStopParity = UShort
 
-public typealias COMM_EVENT_MASK = UInt
+public typealias CommEventMask = UInt
 
-public typealias DCB_PARITY = UByte
+public typealias DcbParity = UByte
 
-public typealias DCB_STOP_BITS = UByte
+public typealias DcbStopBits = UByte
 
-public typealias ESCAPE_COMM_FUNCTION = UInt
+public typealias EscapeCommFunction = UInt
 
-public typealias MODEMDEVCAPS_DIAL_OPTIONS = UInt
+public typealias ModemdevcapsDialOptions = UInt
 
-public typealias MODEMDEVCAPS_SPEAKER_MODE = UInt
+public typealias ModemdevcapsSpeakerMode = UInt
 
-public typealias MODEMDEVCAPS_SPEAKER_VOLUME = UInt
+public typealias ModemdevcapsSpeakerVolume = UInt
 
-public typealias MODEMSETTINGS_SPEAKER_MODE = UInt
+public typealias ModemsettingsSpeakerMode = UInt
 
-public typealias MODEM_SPEAKER_VOLUME = UInt
+public typealias ModemSpeakerVolume = UInt
 
-public typealias MODEM_STATUS_FLAGS = UInt
+public typealias ModemStatusFlags = UInt
 
-public typealias PURGE_COMM_FLAGS = UInt
+public typealias PurgeCommFlags = UInt

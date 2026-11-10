@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmAssociateContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immAssociateContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -71,7 +71,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmAssociateContext_nap
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmAssociateContextEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immAssociateContextEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -93,7 +93,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmAssociateContextEx_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmConfigureIMEA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immConfigureIMEA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -117,7 +117,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmConfigureIMEA_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmConfigureIMEW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immConfigureIMEW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -141,7 +141,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmConfigureIMEW_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmCreateContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immCreateContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
@@ -157,7 +157,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmCreateContext_napi(c
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmCreateIMCC_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immCreateIMCC_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t param0 = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -175,7 +175,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmCreateIMCC_napi(cons
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmCreateSoftKeyboard_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immCreateSoftKeyboard_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t param0 = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -199,7 +199,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmCreateSoftKeyboard_n
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmDestroyContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immDestroyContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -217,7 +217,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmDestroyContext_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmDestroyIMCC_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immDestroyIMCC_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -235,7 +235,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmDestroyIMCC_napi(con
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmDestroySoftKeyboard_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immDestroySoftKeyboard_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -253,7 +253,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmDestroySoftKeyboard_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmDisableIME_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immDisableIME_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t param0 = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -271,7 +271,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmDisableIME_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmDisableLegacyIME_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immDisableLegacyIME_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -287,7 +287,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmDisableLegacyIME_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmDisableTextFrameService_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immDisableTextFrameService_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t idthread = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -305,7 +305,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmDisableTextFrameServ
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmEnumInputContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immEnumInputContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t idthread = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpfn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -327,7 +327,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmEnumInputContext_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmEnumRegisterWordA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immEnumRegisterWordA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -355,7 +355,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmEnumRegisterWordA_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmEnumRegisterWordW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immEnumRegisterWordW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -383,7 +383,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmEnumRegisterWordW_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmEscapeA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immEscapeA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -407,7 +407,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmEscapeA_napi(const N
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmEscapeW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immEscapeW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -431,7 +431,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmEscapeW_napi(const N
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmGenerateMessage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immGenerateMessage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -449,7 +449,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmGenerateMessage_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmGetCandidateListA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immGetCandidateListA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t deindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -473,7 +473,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmGetCandidateListA_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmGetCandidateListCountA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immGetCandidateListCountA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpdwlistcount = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -493,7 +493,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmGetCandidateListCoun
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmGetCandidateListCountW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immGetCandidateListCountW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpdwlistcount = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -513,7 +513,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmGetCandidateListCoun
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmGetCandidateListW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immGetCandidateListW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t deindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -537,7 +537,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmGetCandidateListW_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmGetCandidateWindow_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immGetCandidateWindow_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t param1 = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -559,7 +559,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmGetCandidateWindow_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmGetCompositionFontA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immGetCompositionFontA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lplf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -579,7 +579,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmGetCompositionFontA_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmGetCompositionFontW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immGetCompositionFontW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lplf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -599,7 +599,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmGetCompositionFontW_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmGetCompositionStringA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immGetCompositionStringA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t param1 = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -623,7 +623,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmGetCompositionString
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmGetCompositionStringW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immGetCompositionStringW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t param1 = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -647,7 +647,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmGetCompositionString
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmGetCompositionWindow_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immGetCompositionWindow_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpcompform = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -667,7 +667,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmGetCompositionWindow
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmGetContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immGetContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -685,7 +685,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmGetContext_napi(cons
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmGetConversionListA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immGetConversionListA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -713,7 +713,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmGetConversionListA_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmGetConversionListW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immGetConversionListW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -741,7 +741,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmGetConversionListW_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmGetConversionStatus_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immGetConversionStatus_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpfdwconversion = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -763,7 +763,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmGetConversionStatus_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmGetDefaultIMEWnd_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immGetDefaultIMEWnd_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -781,7 +781,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmGetDefaultIMEWnd_nap
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmGetDescriptionA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immGetDescriptionA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszdescription = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -803,7 +803,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmGetDescriptionA_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmGetDescriptionW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immGetDescriptionW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszdescription = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -825,7 +825,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmGetDescriptionW_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmGetGuideLineA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immGetGuideLineA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -849,7 +849,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmGetGuideLineA_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmGetGuideLineW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immGetGuideLineW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -873,7 +873,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmGetGuideLineW_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmGetHotKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immGetHotKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t param0 = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpumodifiers = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -897,7 +897,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmGetHotKey_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmGetIMCCLockCount_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immGetIMCCLockCount_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -915,7 +915,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmGetIMCCLockCount_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmGetIMCCSize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immGetIMCCSize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -933,7 +933,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmGetIMCCSize_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmGetIMCLockCount_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immGetIMCLockCount_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -951,7 +951,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmGetIMCLockCount_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmGetIMEFileNameA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immGetIMEFileNameA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -973,7 +973,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmGetIMEFileNameA_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmGetIMEFileNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immGetIMEFileNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -995,7 +995,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmGetIMEFileNameW_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmGetImeMenuItemsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immGetImeMenuItemsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t param1 = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1023,7 +1023,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmGetImeMenuItemsA_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmGetImeMenuItemsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immGetImeMenuItemsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t param1 = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1051,7 +1051,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmGetImeMenuItemsW_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmGetOpenStatus_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immGetOpenStatus_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1069,7 +1069,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmGetOpenStatus_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmGetProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immGetProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t param1 = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1089,7 +1089,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmGetProperty_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmGetRegisterWordStyleA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immGetRegisterWordStyleA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t nitem = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1111,7 +1111,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmGetRegisterWordStyle
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmGetRegisterWordStyleW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immGetRegisterWordStyleW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t nitem = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1133,7 +1133,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmGetRegisterWordStyle
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmGetStatusWindowPos_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immGetStatusWindowPos_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpptpos = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1153,7 +1153,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmGetStatusWindowPos_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmGetVirtualKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immGetVirtualKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1171,7 +1171,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmGetVirtualKey_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmInstallIMEA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immInstallIMEA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszimefilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszlayouttext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1191,7 +1191,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmInstallIMEA_napi(con
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmInstallIMEW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immInstallIMEW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszimefilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszlayouttext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1211,7 +1211,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmInstallIMEW_napi(con
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmIsIME_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immIsIME_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1229,7 +1229,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmIsIME_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmIsUIMessageA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immIsUIMessageA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t param1 = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1253,7 +1253,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmIsUIMessageA_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmIsUIMessageW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immIsUIMessageW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t param1 = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1277,7 +1277,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmIsUIMessageW_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmLockIMC_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immLockIMC_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1295,7 +1295,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmLockIMC_napi(const N
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmLockIMCC_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immLockIMCC_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1313,7 +1313,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmLockIMCC_napi(const 
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmNotifyIME_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immNotifyIME_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwaction = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1337,7 +1337,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmNotifyIME_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmReSizeIMCC_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immReSizeIMCC_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t param1 = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1357,7 +1357,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmReSizeIMCC_napi(cons
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmRegisterWordA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immRegisterWordA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszreading = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1381,7 +1381,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmRegisterWordA_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmRegisterWordW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immRegisterWordW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszreading = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1405,7 +1405,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmRegisterWordW_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmReleaseContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immReleaseContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1425,7 +1425,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmReleaseContext_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmRequestMessageA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immRequestMessageA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t param1 = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -1447,7 +1447,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmRequestMessageA_napi
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmRequestMessageW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immRequestMessageW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t param1 = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -1469,7 +1469,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmRequestMessageW_napi
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmSetCandidateWindow_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immSetCandidateWindow_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpcandidate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1489,7 +1489,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmSetCandidateWindow_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmSetCompositionFontA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immSetCompositionFontA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lplf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1509,7 +1509,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmSetCompositionFontA_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmSetCompositionFontW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immSetCompositionFontW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lplf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1529,7 +1529,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmSetCompositionFontW_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmSetCompositionStringA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immSetCompositionStringA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1557,7 +1557,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmSetCompositionString
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmSetCompositionStringW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immSetCompositionStringW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1585,7 +1585,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmSetCompositionString
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmSetCompositionWindow_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immSetCompositionWindow_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpcompform = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1605,7 +1605,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmSetCompositionWindow
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmSetConversionStatus_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immSetConversionStatus_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t param1 = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1627,7 +1627,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmSetConversionStatus_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmSetHotKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immSetHotKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t param0 = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t param1 = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1651,7 +1651,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmSetHotKey_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmSetOpenStatus_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immSetOpenStatus_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t param1 = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1671,7 +1671,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmSetOpenStatus_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmSetStatusWindowPos_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immSetStatusWindowPos_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpptpos = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1691,7 +1691,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmSetStatusWindowPos_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmShowSoftKeyboard_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immShowSoftKeyboard_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t param1 = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1711,7 +1711,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmShowSoftKeyboard_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmSimulateHotKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immSimulateHotKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t param1 = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1731,7 +1731,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmSimulateHotKey_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmUnlockIMC_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immUnlockIMC_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1749,7 +1749,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmUnlockIMC_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmUnlockIMCC_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immUnlockIMCC_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1767,7 +1767,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmUnlockIMCC_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmUnregisterWordA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immUnregisterWordA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszreading = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1791,7 +1791,7 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmUnregisterWordA_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_ime_ImmUnregisterWordW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_ime_immUnregisterWordW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszreading = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1816,88 +1816,88 @@ static Napi::Value windowssys_windows_win32_ui_input_ime_ImmUnregisterWordW_napi
 }
 
 static void register_windows_win32_ui_input_ime_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmAssociateContext", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmAssociateContext_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmAssociateContextEx", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmAssociateContextEx_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmConfigureIMEA", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmConfigureIMEA_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmConfigureIMEW", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmConfigureIMEW_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmCreateContext", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmCreateContext_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmCreateIMCC", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmCreateIMCC_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmCreateSoftKeyboard", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmCreateSoftKeyboard_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmDestroyContext", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmDestroyContext_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmDestroyIMCC", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmDestroyIMCC_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmDestroySoftKeyboard", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmDestroySoftKeyboard_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmDisableIME", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmDisableIME_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmDisableLegacyIME", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmDisableLegacyIME_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmDisableTextFrameService", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmDisableTextFrameService_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmEnumInputContext", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmEnumInputContext_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmEnumRegisterWordA", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmEnumRegisterWordA_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmEnumRegisterWordW", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmEnumRegisterWordW_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmEscapeA", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmEscapeA_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmEscapeW", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmEscapeW_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmGenerateMessage", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmGenerateMessage_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmGetCandidateListA", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmGetCandidateListA_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmGetCandidateListCountA", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmGetCandidateListCountA_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmGetCandidateListCountW", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmGetCandidateListCountW_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmGetCandidateListW", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmGetCandidateListW_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmGetCandidateWindow", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmGetCandidateWindow_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmGetCompositionFontA", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmGetCompositionFontA_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmGetCompositionFontW", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmGetCompositionFontW_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmGetCompositionStringA", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmGetCompositionStringA_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmGetCompositionStringW", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmGetCompositionStringW_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmGetCompositionWindow", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmGetCompositionWindow_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmGetContext", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmGetContext_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmGetConversionListA", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmGetConversionListA_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmGetConversionListW", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmGetConversionListW_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmGetConversionStatus", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmGetConversionStatus_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmGetDefaultIMEWnd", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmGetDefaultIMEWnd_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmGetDescriptionA", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmGetDescriptionA_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmGetDescriptionW", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmGetDescriptionW_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmGetGuideLineA", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmGetGuideLineA_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmGetGuideLineW", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmGetGuideLineW_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmGetHotKey", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmGetHotKey_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmGetIMCCLockCount", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmGetIMCCLockCount_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmGetIMCCSize", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmGetIMCCSize_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmGetIMCLockCount", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmGetIMCLockCount_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmGetIMEFileNameA", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmGetIMEFileNameA_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmGetIMEFileNameW", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmGetIMEFileNameW_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmGetImeMenuItemsA", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmGetImeMenuItemsA_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmGetImeMenuItemsW", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmGetImeMenuItemsW_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmGetOpenStatus", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmGetOpenStatus_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmGetProperty", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmGetProperty_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmGetRegisterWordStyleA", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmGetRegisterWordStyleA_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmGetRegisterWordStyleW", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmGetRegisterWordStyleW_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmGetStatusWindowPos", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmGetStatusWindowPos_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmGetVirtualKey", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmGetVirtualKey_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmInstallIMEA", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmInstallIMEA_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmInstallIMEW", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmInstallIMEW_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmIsIME", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmIsIME_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmIsUIMessageA", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmIsUIMessageA_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmIsUIMessageW", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmIsUIMessageW_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmLockIMC", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmLockIMC_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmLockIMCC", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmLockIMCC_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmNotifyIME", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmNotifyIME_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmReSizeIMCC", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmReSizeIMCC_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmRegisterWordA", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmRegisterWordA_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmRegisterWordW", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmRegisterWordW_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmReleaseContext", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmReleaseContext_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmRequestMessageA", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmRequestMessageA_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmRequestMessageW", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmRequestMessageW_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmSetCandidateWindow", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmSetCandidateWindow_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmSetCompositionFontA", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmSetCompositionFontA_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmSetCompositionFontW", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmSetCompositionFontW_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmSetCompositionStringA", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmSetCompositionStringA_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmSetCompositionStringW", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmSetCompositionStringW_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmSetCompositionWindow", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmSetCompositionWindow_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmSetConversionStatus", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmSetConversionStatus_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmSetHotKey", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmSetHotKey_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmSetOpenStatus", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmSetOpenStatus_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmSetStatusWindowPos", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmSetStatusWindowPos_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmShowSoftKeyboard", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmShowSoftKeyboard_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmSimulateHotKey", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmSimulateHotKey_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmUnlockIMC", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmUnlockIMC_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmUnlockIMCC", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmUnlockIMCC_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmUnregisterWordA", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmUnregisterWordA_napi));
-    exports.Set("windowssys_windows_win32_ui_input_ime_ImmUnregisterWordW", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_ImmUnregisterWordW_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immAssociateContext", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immAssociateContext_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immAssociateContextEx", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immAssociateContextEx_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immConfigureIMEA", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immConfigureIMEA_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immConfigureIMEW", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immConfigureIMEW_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immCreateContext", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immCreateContext_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immCreateIMCC", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immCreateIMCC_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immCreateSoftKeyboard", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immCreateSoftKeyboard_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immDestroyContext", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immDestroyContext_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immDestroyIMCC", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immDestroyIMCC_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immDestroySoftKeyboard", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immDestroySoftKeyboard_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immDisableIME", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immDisableIME_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immDisableLegacyIME", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immDisableLegacyIME_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immDisableTextFrameService", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immDisableTextFrameService_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immEnumInputContext", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immEnumInputContext_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immEnumRegisterWordA", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immEnumRegisterWordA_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immEnumRegisterWordW", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immEnumRegisterWordW_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immEscapeA", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immEscapeA_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immEscapeW", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immEscapeW_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immGenerateMessage", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immGenerateMessage_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immGetCandidateListA", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immGetCandidateListA_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immGetCandidateListCountA", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immGetCandidateListCountA_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immGetCandidateListCountW", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immGetCandidateListCountW_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immGetCandidateListW", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immGetCandidateListW_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immGetCandidateWindow", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immGetCandidateWindow_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immGetCompositionFontA", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immGetCompositionFontA_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immGetCompositionFontW", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immGetCompositionFontW_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immGetCompositionStringA", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immGetCompositionStringA_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immGetCompositionStringW", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immGetCompositionStringW_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immGetCompositionWindow", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immGetCompositionWindow_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immGetContext", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immGetContext_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immGetConversionListA", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immGetConversionListA_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immGetConversionListW", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immGetConversionListW_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immGetConversionStatus", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immGetConversionStatus_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immGetDefaultIMEWnd", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immGetDefaultIMEWnd_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immGetDescriptionA", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immGetDescriptionA_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immGetDescriptionW", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immGetDescriptionW_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immGetGuideLineA", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immGetGuideLineA_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immGetGuideLineW", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immGetGuideLineW_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immGetHotKey", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immGetHotKey_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immGetIMCCLockCount", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immGetIMCCLockCount_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immGetIMCCSize", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immGetIMCCSize_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immGetIMCLockCount", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immGetIMCLockCount_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immGetIMEFileNameA", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immGetIMEFileNameA_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immGetIMEFileNameW", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immGetIMEFileNameW_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immGetImeMenuItemsA", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immGetImeMenuItemsA_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immGetImeMenuItemsW", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immGetImeMenuItemsW_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immGetOpenStatus", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immGetOpenStatus_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immGetProperty", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immGetProperty_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immGetRegisterWordStyleA", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immGetRegisterWordStyleA_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immGetRegisterWordStyleW", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immGetRegisterWordStyleW_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immGetStatusWindowPos", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immGetStatusWindowPos_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immGetVirtualKey", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immGetVirtualKey_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immInstallIMEA", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immInstallIMEA_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immInstallIMEW", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immInstallIMEW_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immIsIME", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immIsIME_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immIsUIMessageA", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immIsUIMessageA_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immIsUIMessageW", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immIsUIMessageW_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immLockIMC", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immLockIMC_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immLockIMCC", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immLockIMCC_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immNotifyIME", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immNotifyIME_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immReSizeIMCC", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immReSizeIMCC_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immRegisterWordA", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immRegisterWordA_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immRegisterWordW", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immRegisterWordW_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immReleaseContext", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immReleaseContext_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immRequestMessageA", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immRequestMessageA_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immRequestMessageW", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immRequestMessageW_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immSetCandidateWindow", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immSetCandidateWindow_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immSetCompositionFontA", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immSetCompositionFontA_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immSetCompositionFontW", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immSetCompositionFontW_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immSetCompositionStringA", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immSetCompositionStringA_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immSetCompositionStringW", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immSetCompositionStringW_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immSetCompositionWindow", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immSetCompositionWindow_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immSetConversionStatus", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immSetConversionStatus_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immSetHotKey", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immSetHotKey_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immSetOpenStatus", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immSetOpenStatus_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immSetStatusWindowPos", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immSetStatusWindowPos_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immShowSoftKeyboard", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immShowSoftKeyboard_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immSimulateHotKey", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immSimulateHotKey_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immUnlockIMC", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immUnlockIMC_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immUnlockIMCC", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immUnlockIMCC_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immUnregisterWordA", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immUnregisterWordA_napi));
+    exports.Set("windowssys_windows_win32_ui_input_ime_immUnregisterWordW", Napi::Function::New(env, windowssys_windows_win32_ui_input_ime_immUnregisterWordW_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_ui_input_ime_napi, nullptr };

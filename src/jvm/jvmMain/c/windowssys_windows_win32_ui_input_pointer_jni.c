@@ -18,7 +18,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssys_1windows_1win32_1ui_1input_1pointer_1EnableMouseInPointer(JNIEnv* km_env, jclass km_clazz, jint fenable) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssys_1windows_1win32_1ui_1input_1pointer_1enableMouseInPointer(JNIEnv* km_env, jclass km_clazz, jint fenable) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -36,7 +36,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssys_1windows_1win32_1ui_1input_1pointer_1GetPointerCursorId(JNIEnv* km_env, jclass km_clazz, jint pointerid, jlong cursorid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssys_1windows_1win32_1ui_1input_1pointer_1getPointerCursorId(JNIEnv* km_env, jclass km_clazz, jint pointerid, jlong cursorid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -55,7 +55,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssys_1windows_1win32_1ui_1input_1pointer_1GetPointerDevice(JNIEnv* km_env, jclass km_clazz, jlong device, jlong pointerdevice) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssys_1windows_1win32_1ui_1input_1pointer_1getPointerDevice(JNIEnv* km_env, jclass km_clazz, jlong device, jlong pointerdevice) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -74,7 +74,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssys_1windows_1win32_1ui_1input_1pointer_1GetPointerDeviceCursors(JNIEnv* km_env, jclass km_clazz, jlong device, jlong cursorcount, jlong devicecursors) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssys_1windows_1win32_1ui_1input_1pointer_1getPointerDeviceCursors(JNIEnv* km_env, jclass km_clazz, jlong device, jlong cursorcount, jlong devicecursors) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -94,7 +94,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssys_1windows_1win32_1ui_1input_1pointer_1GetPointerDeviceProperties(JNIEnv* km_env, jclass km_clazz, jlong device, jlong propertycount, jlong pointerproperties) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssys_1windows_1win32_1ui_1input_1pointer_1getPointerDeviceProperties(JNIEnv* km_env, jclass km_clazz, jlong device, jlong propertycount, jlong pointerproperties) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -114,7 +114,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssys_1windows_1win32_1ui_1input_1pointer_1GetPointerDeviceRects(JNIEnv* km_env, jclass km_clazz, jlong device, jlong pointerdevicerect, jlong displayrect) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssys_1windows_1win32_1ui_1input_1pointer_1getPointerDeviceRects(JNIEnv* km_env, jclass km_clazz, jlong device, jlong pointerdevicerect, jlong displayrect) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -134,7 +134,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssys_1windows_1win32_1ui_1input_1pointer_1GetPointerDevices(JNIEnv* km_env, jclass km_clazz, jlong devicecount, jlong pointerdevices) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssys_1windows_1win32_1ui_1input_1pointer_1getPointerDevices(JNIEnv* km_env, jclass km_clazz, jlong devicecount, jlong pointerdevices) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -153,7 +153,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssys_1windows_1win32_1ui_1input_1pointer_1GetPointerFrameInfo(JNIEnv* km_env, jclass km_clazz, jint pointerid, jlong pointercount, jlong pointerinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssys_1windows_1win32_1ui_1input_1pointer_1getPointerFrameInfo(JNIEnv* km_env, jclass km_clazz, jint pointerid, jlong pointercount, jlong pointerinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -173,7 +173,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssys_1windows_1win32_1ui_1input_1pointer_1GetPointerFrameInfoHistory(JNIEnv* km_env, jclass km_clazz, jint pointerid, jlong entriescount, jlong pointercount, jlong pointerinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssys_1windows_1win32_1ui_1input_1pointer_1getPointerFrameInfoHistory(JNIEnv* km_env, jclass km_clazz, jint pointerid, jlong entriescount, jlong pointercount, jlong pointerinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -194,7 +194,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssys_1windows_1win32_1ui_1input_1pointer_1GetPointerFramePenInfo(JNIEnv* km_env, jclass km_clazz, jint pointerid, jlong pointercount, jlong peninfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssys_1windows_1win32_1ui_1input_1pointer_1getPointerFramePenInfo(JNIEnv* km_env, jclass km_clazz, jint pointerid, jlong pointercount, jlong peninfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -214,7 +214,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssys_1windows_1win32_1ui_1input_1pointer_1GetPointerFramePenInfoHistory(JNIEnv* km_env, jclass km_clazz, jint pointerid, jlong entriescount, jlong pointercount, jlong peninfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssys_1windows_1win32_1ui_1input_1pointer_1getPointerFramePenInfoHistory(JNIEnv* km_env, jclass km_clazz, jint pointerid, jlong entriescount, jlong pointercount, jlong peninfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -235,7 +235,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssys_1windows_1win32_1ui_1input_1pointer_1GetPointerFrameTouchInfo(JNIEnv* km_env, jclass km_clazz, jint pointerid, jlong pointercount, jlong touchinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssys_1windows_1win32_1ui_1input_1pointer_1getPointerFrameTouchInfo(JNIEnv* km_env, jclass km_clazz, jint pointerid, jlong pointercount, jlong touchinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -255,7 +255,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssys_1windows_1win32_1ui_1input_1pointer_1GetPointerFrameTouchInfoHistory(JNIEnv* km_env, jclass km_clazz, jint pointerid, jlong entriescount, jlong pointercount, jlong touchinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssys_1windows_1win32_1ui_1input_1pointer_1getPointerFrameTouchInfoHistory(JNIEnv* km_env, jclass km_clazz, jint pointerid, jlong entriescount, jlong pointercount, jlong touchinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -276,7 +276,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssys_1windows_1win32_1ui_1input_1pointer_1GetPointerInfo(JNIEnv* km_env, jclass km_clazz, jint pointerid, jlong pointerinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssys_1windows_1win32_1ui_1input_1pointer_1getPointerInfo(JNIEnv* km_env, jclass km_clazz, jint pointerid, jlong pointerinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -295,7 +295,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssys_1windows_1win32_1ui_1input_1pointer_1GetPointerInfoHistory(JNIEnv* km_env, jclass km_clazz, jint pointerid, jlong entriescount, jlong pointerinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssys_1windows_1win32_1ui_1input_1pointer_1getPointerInfoHistory(JNIEnv* km_env, jclass km_clazz, jint pointerid, jlong entriescount, jlong pointerinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -315,7 +315,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssys_1windows_1win32_1ui_1input_1pointer_1GetPointerInputTransform(JNIEnv* km_env, jclass km_clazz, jint pointerid, jint historycount, jlong inputtransform) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssys_1windows_1win32_1ui_1input_1pointer_1getPointerInputTransform(JNIEnv* km_env, jclass km_clazz, jint pointerid, jint historycount, jlong inputtransform) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -335,7 +335,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssys_1windows_1win32_1ui_1input_1pointer_1GetPointerPenInfo(JNIEnv* km_env, jclass km_clazz, jint pointerid, jlong peninfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssys_1windows_1win32_1ui_1input_1pointer_1getPointerPenInfo(JNIEnv* km_env, jclass km_clazz, jint pointerid, jlong peninfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -354,7 +354,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssys_1windows_1win32_1ui_1input_1pointer_1GetPointerPenInfoHistory(JNIEnv* km_env, jclass km_clazz, jint pointerid, jlong entriescount, jlong peninfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssys_1windows_1win32_1ui_1input_1pointer_1getPointerPenInfoHistory(JNIEnv* km_env, jclass km_clazz, jint pointerid, jlong entriescount, jlong peninfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -374,7 +374,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssys_1windows_1win32_1ui_1input_1pointer_1GetPointerTouchInfo(JNIEnv* km_env, jclass km_clazz, jint pointerid, jlong touchinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssys_1windows_1win32_1ui_1input_1pointer_1getPointerTouchInfo(JNIEnv* km_env, jclass km_clazz, jint pointerid, jlong touchinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -393,7 +393,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssys_1windows_1win32_1ui_1input_1pointer_1GetPointerTouchInfoHistory(JNIEnv* km_env, jclass km_clazz, jint pointerid, jlong entriescount, jlong touchinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssys_1windows_1win32_1ui_1input_1pointer_1getPointerTouchInfoHistory(JNIEnv* km_env, jclass km_clazz, jint pointerid, jlong entriescount, jlong touchinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -413,7 +413,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssys_1windows_1win32_1ui_1input_1pointer_1GetPointerType(JNIEnv* km_env, jclass km_clazz, jint pointerid, jlong pointertype) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssys_1windows_1win32_1ui_1input_1pointer_1getPointerType(JNIEnv* km_env, jclass km_clazz, jint pointerid, jlong pointertype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -432,7 +432,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssys_1windows_1win32_1ui_1input_1pointer_1GetRawPointerDeviceData(JNIEnv* km_env, jclass km_clazz, jint pointerid, jint historycount, jint propertiescount, jlong pproperties, jlong pvalues) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssys_1windows_1win32_1ui_1input_1pointer_1getRawPointerDeviceData(JNIEnv* km_env, jclass km_clazz, jint pointerid, jint historycount, jint propertiescount, jlong pproperties, jlong pvalues) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -454,7 +454,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssys_1windows_1win32_1ui_1input_1pointer_1GetUnpredictedMessagePos(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssys_1windows_1win32_1ui_1input_1pointer_1getUnpredictedMessagePos(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -471,7 +471,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssys_1windows_1win32_1ui_1input_1pointer_1InitializeTouchInjection(JNIEnv* km_env, jclass km_clazz, jint maxcount, jint dwmode) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssys_1windows_1win32_1ui_1input_1pointer_1initializeTouchInjection(JNIEnv* km_env, jclass km_clazz, jint maxcount, jint dwmode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -490,7 +490,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssys_1windows_1win32_1ui_1input_1pointer_1InjectSyntheticPointerInput(JNIEnv* km_env, jclass km_clazz, jlong device, jlong pointerinfo, jint count) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssys_1windows_1win32_1ui_1input_1pointer_1injectSyntheticPointerInput(JNIEnv* km_env, jclass km_clazz, jlong device, jlong pointerinfo, jint count) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -510,7 +510,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssys_1windows_1win32_1ui_1input_1pointer_1InjectTouchInput(JNIEnv* km_env, jclass km_clazz, jint count, jlong contacts) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssys_1windows_1win32_1ui_1input_1pointer_1injectTouchInput(JNIEnv* km_env, jclass km_clazz, jint count, jlong contacts) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -529,7 +529,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssys_1windows_1win32_1ui_1input_1pointer_1IsMouseInPointerEnabled(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssys_1windows_1win32_1ui_1input_1pointer_1isMouseInPointerEnabled(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -546,7 +546,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssys_1windows_1win32_1ui_1input_1pointer_1SkipPointerFrameMessages(JNIEnv* km_env, jclass km_clazz, jint pointerid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssys_1windows_1win32_1ui_1input_1pointer_1skipPointerFrameMessages(JNIEnv* km_env, jclass km_clazz, jint pointerid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

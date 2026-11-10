@@ -2,511 +2,639 @@
 
 package io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis
 
-import io.github.kotlinmania.windowssys.windows.win32.foundation.UNICODE_STRING
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.windows.win32.foundation.UnicodeString
 
 private val _windowsWdkNetworkmanagementNdisNapiAddon: dynamic =
-    js("(function() { if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var req = (new Function('t', 'return typeof require === t ? require : null'))('function'); if (!req) return null; var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; for (var d = 0; d < 8; d++) { var c1 = path.resolve(dir, 'build/node-ffi/windows_sys_native.node'); if (fs.existsSync(c1)) return req(c1); var c2 = path.resolve(dir, 'src/js/node-windows_sys/build/Release/windows_sys_native.node'); if (fs.existsSync(c2)) return req(c2); var c3 = path.resolve(dir, 'src/js/node-windows_sys/build/Debug/windows_sys_native.node'); if (fs.existsSync(c3)) return req(c3); var c4 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Release/windows_sys_native.node'); if (fs.existsSync(c4)) return req(c4); var c5 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Debug/windows_sys_native.node'); if (fs.existsSync(c5)) return req(c5); var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } return null; })()")
+    js("(function() { if (typeof globalThis !== 'undefined' && typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys; if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) return null; try { var pkg = req('@kotlinmania/windowssys-native-bindings'); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = pkg; return pkg; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { var loaded = req(c); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = loaded; return loaded; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = null; return null; })()")
 
-public actual fun NdisAcquireReadWriteLock(lock: Long, fwrite: Boolean, lockstate: Long) {
+public actual fun ndisAcquireReadWriteLock(lock: COpaquePointer?, fwrite: Boolean, lockstate: COpaquePointer?) {
     if (_windowsWdkNetworkmanagementNdisNapiAddon != null) {
-        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisAcquireReadWriteLock(lock.toString(), fwrite, lockstate.toString())
+        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisAcquireReadWriteLock((lock?.value ?: 0L).toString(), fwrite, (lockstate?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun NdisAllocateMemoryWithTag(virtualaddress: Long, length: UInt, tag: UInt): Int =
-    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisAllocateMemoryWithTag(virtualaddress.toString(), length.toInt(), tag.toInt()) as Int) else 0
+public actual fun ndisAllocateMemoryWithTag(virtualaddress: COpaquePointer?, length: UInt, tag: UInt): Int =
+    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisAllocateMemoryWithTag((virtualaddress?.value ?: 0L).toString(), length.toInt(), tag.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NdisCancelTimer(timer: Long, timercancelled: Long) {
+public actual fun ndisCancelTimer(timer: COpaquePointer?, timercancelled: COpaquePointer?) {
     if (_windowsWdkNetworkmanagementNdisNapiAddon != null) {
-        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisCancelTimer(timer.toString(), timercancelled.toString())
+        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisCancelTimer((timer?.value ?: 0L).toString(), (timercancelled?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun NdisClAddParty(ndisvchandle: Long, protocolpartycontext: Long, callparameters: Long, ndispartyhandle: Long): Int =
-    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisClAddParty(ndisvchandle.toString(), protocolpartycontext.toString(), callparameters.toString(), ndispartyhandle.toString()) as Int) else 0
+public actual fun ndisClAddParty(ndisvchandle: COpaquePointer?, protocolpartycontext: COpaquePointer?, callparameters: COpaquePointer?, ndispartyhandle: COpaquePointer?): Int =
+    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisClAddParty((ndisvchandle?.value ?: 0L).toString(), (protocolpartycontext?.value ?: 0L).toString(), (callparameters?.value ?: 0L).toString(), (ndispartyhandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NdisClCloseAddressFamily(ndisafhandle: Long): Int =
-    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisClCloseAddressFamily(ndisafhandle.toString()) as Int) else 0
+public actual fun ndisClCloseAddressFamily(ndisafhandle: COpaquePointer?): Int =
+    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisClCloseAddressFamily((ndisafhandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NdisClCloseCall(ndisvchandle: Long, ndispartyhandle: Long, buffer: Long, size: UInt): Int =
-    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisClCloseCall(ndisvchandle.toString(), ndispartyhandle.toString(), buffer.toString(), size.toInt()) as Int) else 0
+public actual fun ndisClCloseCall(ndisvchandle: COpaquePointer?, ndispartyhandle: COpaquePointer?, buffer: COpaquePointer?, size: UInt): Int =
+    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisClCloseCall((ndisvchandle?.value ?: 0L).toString(), (ndispartyhandle?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString(), size.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NdisClDeregisterSap(ndissaphandle: Long): Int =
-    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisClDeregisterSap(ndissaphandle.toString()) as Int) else 0
+public actual fun ndisClDeregisterSap(ndissaphandle: COpaquePointer?): Int =
+    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisClDeregisterSap((ndissaphandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NdisClDropParty(ndispartyhandle: Long, buffer: Long, size: UInt): Int =
-    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisClDropParty(ndispartyhandle.toString(), buffer.toString(), size.toInt()) as Int) else 0
+public actual fun ndisClDropParty(ndispartyhandle: COpaquePointer?, buffer: COpaquePointer?, size: UInt): Int =
+    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisClDropParty((ndispartyhandle?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString(), size.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NdisClGetProtocolVcContextFromTapiCallId(tapicallid: UNICODE_STRING, protocolvccontext: Long): Int =
-    0
+public actual fun ndisClGetProtocolVcContextFromTapiCallId(tapicallid: UnicodeString, protocolvccontext: COpaquePointer?): Int =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NdisClIncomingCallComplete(status: Int, ndisvchandle: Long, callparameters: Long) {
+public actual fun ndisClIncomingCallComplete(status: Int, ndisvchandle: COpaquePointer?, callparameters: COpaquePointer?) {
     if (_windowsWdkNetworkmanagementNdisNapiAddon != null) {
-        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisClIncomingCallComplete(status, ndisvchandle.toString(), callparameters.toString())
+        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisClIncomingCallComplete(status, (ndisvchandle?.value ?: 0L).toString(), (callparameters?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun NdisClMakeCall(ndisvchandle: Long, callparameters: Long, protocolpartycontext: Long, ndispartyhandle: Long): Int =
-    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisClMakeCall(ndisvchandle.toString(), callparameters.toString(), protocolpartycontext.toString(), ndispartyhandle.toString()) as Int) else 0
+public actual fun ndisClMakeCall(ndisvchandle: COpaquePointer?, callparameters: COpaquePointer?, protocolpartycontext: COpaquePointer?, ndispartyhandle: COpaquePointer?): Int =
+    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisClMakeCall((ndisvchandle?.value ?: 0L).toString(), (callparameters?.value ?: 0L).toString(), (protocolpartycontext?.value ?: 0L).toString(), (ndispartyhandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NdisClModifyCallQoS(ndisvchandle: Long, callparameters: Long): Int =
-    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisClModifyCallQoS(ndisvchandle.toString(), callparameters.toString()) as Int) else 0
+public actual fun ndisClModifyCallQoS(ndisvchandle: COpaquePointer?, callparameters: COpaquePointer?): Int =
+    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisClModifyCallQoS((ndisvchandle?.value ?: 0L).toString(), (callparameters?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NdisClRegisterSap(ndisafhandle: Long, protocolsapcontext: Long, sap: Long, ndissaphandle: Long): Int =
-    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisClRegisterSap(ndisafhandle.toString(), protocolsapcontext.toString(), sap.toString(), ndissaphandle.toString()) as Int) else 0
+public actual fun ndisClRegisterSap(ndisafhandle: COpaquePointer?, protocolsapcontext: COpaquePointer?, sap: COpaquePointer?, ndissaphandle: COpaquePointer?): Int =
+    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisClRegisterSap((ndisafhandle?.value ?: 0L).toString(), (protocolsapcontext?.value ?: 0L).toString(), (sap?.value ?: 0L).toString(), (ndissaphandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NdisCloseConfiguration(configurationhandle: Long) {
+public actual fun ndisCloseConfiguration(configurationhandle: COpaquePointer?) {
     if (_windowsWdkNetworkmanagementNdisNapiAddon != null) {
-        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisCloseConfiguration(configurationhandle.toString())
+        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisCloseConfiguration((configurationhandle?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun NdisCloseFile(filehandle: Long) {
+public actual fun ndisCloseFile(filehandle: COpaquePointer?) {
     if (_windowsWdkNetworkmanagementNdisNapiAddon != null) {
-        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisCloseFile(filehandle.toString())
+        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisCloseFile((filehandle?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun NdisCmActivateVc(ndisvchandle: Long, callparameters: Long): Int =
-    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisCmActivateVc(ndisvchandle.toString(), callparameters.toString()) as Int) else 0
+public actual fun ndisCmActivateVc(ndisvchandle: COpaquePointer?, callparameters: COpaquePointer?): Int =
+    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisCmActivateVc((ndisvchandle?.value ?: 0L).toString(), (callparameters?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NdisCmAddPartyComplete(status: Int, ndispartyhandle: Long, callmgrpartycontext: Long, callparameters: Long) {
+public actual fun ndisCmAddPartyComplete(status: Int, ndispartyhandle: COpaquePointer?, callmgrpartycontext: COpaquePointer?, callparameters: COpaquePointer?) {
     if (_windowsWdkNetworkmanagementNdisNapiAddon != null) {
-        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisCmAddPartyComplete(status, ndispartyhandle.toString(), callmgrpartycontext.toString(), callparameters.toString())
+        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisCmAddPartyComplete(status, (ndispartyhandle?.value ?: 0L).toString(), (callmgrpartycontext?.value ?: 0L).toString(), (callparameters?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun NdisCmCloseAddressFamilyComplete(status: Int, ndisafhandle: Long) {
+public actual fun ndisCmCloseAddressFamilyComplete(status: Int, ndisafhandle: COpaquePointer?) {
     if (_windowsWdkNetworkmanagementNdisNapiAddon != null) {
-        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisCmCloseAddressFamilyComplete(status, ndisafhandle.toString())
+        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisCmCloseAddressFamilyComplete(status, (ndisafhandle?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun NdisCmCloseCallComplete(status: Int, ndisvchandle: Long, ndispartyhandle: Long) {
+public actual fun ndisCmCloseCallComplete(status: Int, ndisvchandle: COpaquePointer?, ndispartyhandle: COpaquePointer?) {
     if (_windowsWdkNetworkmanagementNdisNapiAddon != null) {
-        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisCmCloseCallComplete(status, ndisvchandle.toString(), ndispartyhandle.toString())
+        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisCmCloseCallComplete(status, (ndisvchandle?.value ?: 0L).toString(), (ndispartyhandle?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun NdisCmDeactivateVc(ndisvchandle: Long): Int =
-    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisCmDeactivateVc(ndisvchandle.toString()) as Int) else 0
+public actual fun ndisCmDeactivateVc(ndisvchandle: COpaquePointer?): Int =
+    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisCmDeactivateVc((ndisvchandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NdisCmDeregisterSapComplete(status: Int, ndissaphandle: Long) {
+public actual fun ndisCmDeregisterSapComplete(status: Int, ndissaphandle: COpaquePointer?) {
     if (_windowsWdkNetworkmanagementNdisNapiAddon != null) {
-        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisCmDeregisterSapComplete(status, ndissaphandle.toString())
+        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisCmDeregisterSapComplete(status, (ndissaphandle?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun NdisCmDispatchCallConnected(ndisvchandle: Long) {
+public actual fun ndisCmDispatchCallConnected(ndisvchandle: COpaquePointer?) {
     if (_windowsWdkNetworkmanagementNdisNapiAddon != null) {
-        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisCmDispatchCallConnected(ndisvchandle.toString())
+        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisCmDispatchCallConnected((ndisvchandle?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun NdisCmDispatchIncomingCall(ndissaphandle: Long, ndisvchandle: Long, callparameters: Long): Int =
-    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisCmDispatchIncomingCall(ndissaphandle.toString(), ndisvchandle.toString(), callparameters.toString()) as Int) else 0
+public actual fun ndisCmDispatchIncomingCall(ndissaphandle: COpaquePointer?, ndisvchandle: COpaquePointer?, callparameters: COpaquePointer?): Int =
+    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisCmDispatchIncomingCall((ndissaphandle?.value ?: 0L).toString(), (ndisvchandle?.value ?: 0L).toString(), (callparameters?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NdisCmDispatchIncomingCallQoSChange(ndisvchandle: Long, callparameters: Long) {
+public actual fun ndisCmDispatchIncomingCallQoSChange(ndisvchandle: COpaquePointer?, callparameters: COpaquePointer?) {
     if (_windowsWdkNetworkmanagementNdisNapiAddon != null) {
-        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisCmDispatchIncomingCallQoSChange(ndisvchandle.toString(), callparameters.toString())
+        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisCmDispatchIncomingCallQoSChange((ndisvchandle?.value ?: 0L).toString(), (callparameters?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun NdisCmDispatchIncomingCloseCall(closestatus: Int, ndisvchandle: Long, buffer: Long, size: UInt) {
+public actual fun ndisCmDispatchIncomingCloseCall(closestatus: Int, ndisvchandle: COpaquePointer?, buffer: COpaquePointer?, size: UInt) {
     if (_windowsWdkNetworkmanagementNdisNapiAddon != null) {
-        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisCmDispatchIncomingCloseCall(closestatus, ndisvchandle.toString(), buffer.toString(), size.toInt())
+        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisCmDispatchIncomingCloseCall(closestatus, (ndisvchandle?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString(), size.toInt())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun NdisCmDispatchIncomingDropParty(dropstatus: Int, ndispartyhandle: Long, buffer: Long, size: UInt) {
+public actual fun ndisCmDispatchIncomingDropParty(dropstatus: Int, ndispartyhandle: COpaquePointer?, buffer: COpaquePointer?, size: UInt) {
     if (_windowsWdkNetworkmanagementNdisNapiAddon != null) {
-        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisCmDispatchIncomingDropParty(dropstatus, ndispartyhandle.toString(), buffer.toString(), size.toInt())
+        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisCmDispatchIncomingDropParty(dropstatus, (ndispartyhandle?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString(), size.toInt())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun NdisCmDropPartyComplete(status: Int, ndispartyhandle: Long) {
+public actual fun ndisCmDropPartyComplete(status: Int, ndispartyhandle: COpaquePointer?) {
     if (_windowsWdkNetworkmanagementNdisNapiAddon != null) {
-        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisCmDropPartyComplete(status, ndispartyhandle.toString())
+        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisCmDropPartyComplete(status, (ndispartyhandle?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun NdisCmMakeCallComplete(status: Int, ndisvchandle: Long, ndispartyhandle: Long, callmgrpartycontext: Long, callparameters: Long) {
+public actual fun ndisCmMakeCallComplete(status: Int, ndisvchandle: COpaquePointer?, ndispartyhandle: COpaquePointer?, callmgrpartycontext: COpaquePointer?, callparameters: COpaquePointer?) {
     if (_windowsWdkNetworkmanagementNdisNapiAddon != null) {
-        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisCmMakeCallComplete(status, ndisvchandle.toString(), ndispartyhandle.toString(), callmgrpartycontext.toString(), callparameters.toString())
+        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisCmMakeCallComplete(status, (ndisvchandle?.value ?: 0L).toString(), (ndispartyhandle?.value ?: 0L).toString(), (callmgrpartycontext?.value ?: 0L).toString(), (callparameters?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun NdisCmModifyCallQoSComplete(status: Int, ndisvchandle: Long, callparameters: Long) {
+public actual fun ndisCmModifyCallQoSComplete(status: Int, ndisvchandle: COpaquePointer?, callparameters: COpaquePointer?) {
     if (_windowsWdkNetworkmanagementNdisNapiAddon != null) {
-        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisCmModifyCallQoSComplete(status, ndisvchandle.toString(), callparameters.toString())
+        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisCmModifyCallQoSComplete(status, (ndisvchandle?.value ?: 0L).toString(), (callparameters?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun NdisCmOpenAddressFamilyComplete(status: Int, ndisafhandle: Long, callmgrafcontext: Long) {
+public actual fun ndisCmOpenAddressFamilyComplete(status: Int, ndisafhandle: COpaquePointer?, callmgrafcontext: COpaquePointer?) {
     if (_windowsWdkNetworkmanagementNdisNapiAddon != null) {
-        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisCmOpenAddressFamilyComplete(status, ndisafhandle.toString(), callmgrafcontext.toString())
+        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisCmOpenAddressFamilyComplete(status, (ndisafhandle?.value ?: 0L).toString(), (callmgrafcontext?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun NdisCmRegisterSapComplete(status: Int, ndissaphandle: Long, callmgrsapcontext: Long) {
+public actual fun ndisCmRegisterSapComplete(status: Int, ndissaphandle: COpaquePointer?, callmgrsapcontext: COpaquePointer?) {
     if (_windowsWdkNetworkmanagementNdisNapiAddon != null) {
-        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisCmRegisterSapComplete(status, ndissaphandle.toString(), callmgrsapcontext.toString())
+        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisCmRegisterSapComplete(status, (ndissaphandle?.value ?: 0L).toString(), (callmgrsapcontext?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun NdisCoAssignInstanceName(ndisvchandle: Long, baseinstancename: Long, vcinstancename: Long): Int =
-    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisCoAssignInstanceName(ndisvchandle.toString(), baseinstancename.toString(), vcinstancename.toString()) as Int) else 0
+public actual fun ndisCoAssignInstanceName(ndisvchandle: COpaquePointer?, baseinstancename: COpaquePointer?, vcinstancename: COpaquePointer?): Int =
+    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisCoAssignInstanceName((ndisvchandle?.value ?: 0L).toString(), (baseinstancename?.value ?: 0L).toString(), (vcinstancename?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NdisCoCreateVc(ndisbindinghandle: Long, ndisafhandle: Long, protocolvccontext: Long, ndisvchandle: Long): Int =
-    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisCoCreateVc(ndisbindinghandle.toString(), ndisafhandle.toString(), protocolvccontext.toString(), ndisvchandle.toString()) as Int) else 0
+public actual fun ndisCoCreateVc(ndisbindinghandle: COpaquePointer?, ndisafhandle: COpaquePointer?, protocolvccontext: COpaquePointer?, ndisvchandle: COpaquePointer?): Int =
+    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisCoCreateVc((ndisbindinghandle?.value ?: 0L).toString(), (ndisafhandle?.value ?: 0L).toString(), (protocolvccontext?.value ?: 0L).toString(), (ndisvchandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NdisCoDeleteVc(ndisvchandle: Long): Int =
-    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisCoDeleteVc(ndisvchandle.toString()) as Int) else 0
+public actual fun ndisCoDeleteVc(ndisvchandle: COpaquePointer?): Int =
+    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisCoDeleteVc((ndisvchandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NdisCoGetTapiCallId(ndisvchandle: Long, tapicallid: Long): Int =
-    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisCoGetTapiCallId(ndisvchandle.toString(), tapicallid.toString()) as Int) else 0
+public actual fun ndisCoGetTapiCallId(ndisvchandle: COpaquePointer?, tapicallid: COpaquePointer?): Int =
+    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisCoGetTapiCallId((ndisvchandle?.value ?: 0L).toString(), (tapicallid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NdisCompleteDmaTransfer(status: Long, ndisdmahandle: Long, buffer: Long, offset: UInt, length: UInt, writetodevice: Boolean) {
+public actual fun ndisCompleteDmaTransfer(status: COpaquePointer?, ndisdmahandle: COpaquePointer?, buffer: COpaquePointer?, offset: UInt, length: UInt, writetodevice: Boolean) {
     if (_windowsWdkNetworkmanagementNdisNapiAddon != null) {
-        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisCompleteDmaTransfer(status.toString(), ndisdmahandle.toString(), buffer.toString(), offset.toInt(), length.toInt(), writetodevice)
+        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisCompleteDmaTransfer((status?.value ?: 0L).toString(), (ndisdmahandle?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString(), offset.toInt(), length.toInt(), writetodevice)
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun NdisCopyBuffer(status: Long, buffer: Long, poolhandle: Long, memorydescriptor: Long, offset: UInt, length: UInt) {
+public actual fun ndisCopyBuffer(status: COpaquePointer?, buffer: COpaquePointer?, poolhandle: COpaquePointer?, memorydescriptor: COpaquePointer?, offset: UInt, length: UInt) {
     if (_windowsWdkNetworkmanagementNdisNapiAddon != null) {
-        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisCopyBuffer(status.toString(), buffer.toString(), poolhandle.toString(), memorydescriptor.toString(), offset.toInt(), length.toInt())
+        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisCopyBuffer((status?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString(), (poolhandle?.value ?: 0L).toString(), (memorydescriptor?.value ?: 0L).toString(), offset.toInt(), length.toInt())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun NdisDeregisterTdiCallBack() {
+public actual fun ndisDeregisterTdiCallBack() {
     if (_windowsWdkNetworkmanagementNdisNapiAddon != null) {
-        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisDeregisterTdiCallBack()
+        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisDeregisterTdiCallBack()
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun NdisFreeMemory(virtualaddress: Long, length: UInt, memoryflags: UInt) {
+public actual fun ndisFreeMemory(virtualaddress: COpaquePointer?, length: UInt, memoryflags: UInt) {
     if (_windowsWdkNetworkmanagementNdisNapiAddon != null) {
-        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisFreeMemory(virtualaddress.toString(), length.toInt(), memoryflags.toInt())
+        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisFreeMemory((virtualaddress?.value ?: 0L).toString(), length.toInt(), memoryflags.toInt())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun NdisGeneratePartialCancelId(): UByte =
-    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisGeneratePartialCancelId() as Int).toUByte() else 0u
+public actual fun ndisGeneratePartialCancelId(): UByte =
+    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisGeneratePartialCancelId() as Int).toUByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NdisGetCurrentProcessorCounts(pidlecount: Long, pkernelanduser: Long, pindex: Long) {
+public actual fun ndisGetCurrentProcessorCounts(pidlecount: COpaquePointer?, pkernelanduser: COpaquePointer?, pindex: COpaquePointer?) {
     if (_windowsWdkNetworkmanagementNdisNapiAddon != null) {
-        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisGetCurrentProcessorCounts(pidlecount.toString(), pkernelanduser.toString(), pindex.toString())
+        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisGetCurrentProcessorCounts((pidlecount?.value ?: 0L).toString(), (pkernelanduser?.value ?: 0L).toString(), (pindex?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun NdisGetCurrentProcessorCpuUsage(pcpuusage: Long) {
+public actual fun ndisGetCurrentProcessorCpuUsage(pcpuusage: COpaquePointer?) {
     if (_windowsWdkNetworkmanagementNdisNapiAddon != null) {
-        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisGetCurrentProcessorCpuUsage(pcpuusage.toString())
+        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisGetCurrentProcessorCpuUsage((pcpuusage?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun NdisGetRoutineAddress(ndisroutinename: Long): Long =
-    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisGetRoutineAddress(ndisroutinename.toString()) as String).toLong() else 0L
+public actual fun ndisGetRoutineAddress(ndisroutinename: COpaquePointer?): COpaquePointer? =
+    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisGetRoutineAddress((ndisroutinename?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NdisGetSharedDataAlignment(): UInt =
-    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisGetSharedDataAlignment() as Int).toUInt() else 0u
+public actual fun ndisGetSharedDataAlignment(): UInt =
+    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisGetSharedDataAlignment() as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NdisGetVersion(): UInt =
-    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisGetVersion() as Int).toUInt() else 0u
+public actual fun ndisGetVersion(): UInt =
+    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisGetVersion() as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NdisIMAssociateMiniport(driverhandle: Long, protocolhandle: Long) {
+public actual fun ndisIMAssociateMiniport(driverhandle: COpaquePointer?, protocolhandle: COpaquePointer?) {
     if (_windowsWdkNetworkmanagementNdisNapiAddon != null) {
-        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisIMAssociateMiniport(driverhandle.toString(), protocolhandle.toString())
+        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisIMAssociateMiniport((driverhandle?.value ?: 0L).toString(), (protocolhandle?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun NdisIMCancelInitializeDeviceInstance(driverhandle: Long, deviceinstance: Long): Int =
-    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisIMCancelInitializeDeviceInstance(driverhandle.toString(), deviceinstance.toString()) as Int) else 0
+public actual fun ndisIMCancelInitializeDeviceInstance(driverhandle: COpaquePointer?, deviceinstance: COpaquePointer?): Int =
+    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisIMCancelInitializeDeviceInstance((driverhandle?.value ?: 0L).toString(), (deviceinstance?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NdisIMDeInitializeDeviceInstance(ndisminiporthandle: Long): Int =
-    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisIMDeInitializeDeviceInstance(ndisminiporthandle.toString()) as Int) else 0
+public actual fun ndisIMDeInitializeDeviceInstance(ndisminiporthandle: COpaquePointer?): Int =
+    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisIMDeInitializeDeviceInstance((ndisminiporthandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NdisIMGetBindingContext(ndisbindinghandle: Long): Long =
-    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisIMGetBindingContext(ndisbindinghandle.toString()) as String).toLong() else 0L
+public actual fun ndisIMGetBindingContext(ndisbindinghandle: COpaquePointer?): COpaquePointer? =
+    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisIMGetBindingContext((ndisbindinghandle?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NdisIMInitializeDeviceInstanceEx(driverhandle: Long, driverinstance: Long, devicecontext: Long): Int =
-    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisIMInitializeDeviceInstanceEx(driverhandle.toString(), driverinstance.toString(), devicecontext.toString()) as Int) else 0
+public actual fun ndisIMInitializeDeviceInstanceEx(driverhandle: COpaquePointer?, driverinstance: COpaquePointer?, devicecontext: COpaquePointer?): Int =
+    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisIMInitializeDeviceInstanceEx((driverhandle?.value ?: 0L).toString(), (driverinstance?.value ?: 0L).toString(), (devicecontext?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NdisInitializeEvent(event: Long) {
+public actual fun ndisInitializeEvent(event: COpaquePointer?) {
     if (_windowsWdkNetworkmanagementNdisNapiAddon != null) {
-        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisInitializeEvent(event.toString())
+        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisInitializeEvent((event?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun NdisInitializeReadWriteLock(lock: Long) {
+public actual fun ndisInitializeReadWriteLock(lock: COpaquePointer?) {
     if (_windowsWdkNetworkmanagementNdisNapiAddon != null) {
-        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisInitializeReadWriteLock(lock.toString())
+        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisInitializeReadWriteLock((lock?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun NdisInitializeString(destination: Long, source: Long) {
+public actual fun ndisInitializeString(destination: COpaquePointer?, source: COpaquePointer?) {
     if (_windowsWdkNetworkmanagementNdisNapiAddon != null) {
-        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisInitializeString(destination.toString(), source.toString())
+        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisInitializeString((destination?.value ?: 0L).toString(), (source?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun NdisInitializeTimer(timer: Long, timerfunction: PNDIS_TIMER_FUNCTION, functioncontext: Long) {
+public actual fun ndisInitializeTimer(timer: COpaquePointer?, timerfunction: PndisTimerFunction, functioncontext: COpaquePointer?) {
     if (_windowsWdkNetworkmanagementNdisNapiAddon != null) {
-        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisInitializeTimer(timer.toString(), timerfunction.toLong().toString(), functioncontext.toString())
+        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisInitializeTimer((timer?.value ?: 0L).toString(), 0L.toString(), (functioncontext?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun NdisMAllocateSharedMemory(miniportadapterhandle: Long, length: UInt, cached: Boolean, virtualaddress: Long, physicaladdress: Long) {
+public actual fun ndisMAllocateSharedMemory(miniportadapterhandle: COpaquePointer?, length: UInt, cached: Boolean, virtualaddress: COpaquePointer?, physicaladdress: COpaquePointer?) {
     if (_windowsWdkNetworkmanagementNdisNapiAddon != null) {
-        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisMAllocateSharedMemory(miniportadapterhandle.toString(), length.toInt(), cached, virtualaddress.toString(), physicaladdress.toString())
+        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisMAllocateSharedMemory((miniportadapterhandle?.value ?: 0L).toString(), length.toInt(), cached, (virtualaddress?.value ?: 0L).toString(), (physicaladdress?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun NdisMAllocateSharedMemoryAsync(miniportadapterhandle: Long, length: UInt, cached: Boolean, context: Long): Int =
-    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisMAllocateSharedMemoryAsync(miniportadapterhandle.toString(), length.toInt(), cached, context.toString()) as Int) else 0
+public actual fun ndisMAllocateSharedMemoryAsync(miniportadapterhandle: COpaquePointer?, length: UInt, cached: Boolean, context: COpaquePointer?): Int =
+    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisMAllocateSharedMemoryAsync((miniportadapterhandle?.value ?: 0L).toString(), length.toInt(), cached, (context?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NdisMCancelTimer(timer: Long, timercancelled: Long) {
+public actual fun ndisMCancelTimer(timer: COpaquePointer?, timercancelled: COpaquePointer?) {
     if (_windowsWdkNetworkmanagementNdisNapiAddon != null) {
-        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisMCancelTimer(timer.toString(), timercancelled.toString())
+        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisMCancelTimer((timer?.value ?: 0L).toString(), (timercancelled?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun NdisMCloseLog(loghandle: Long) {
+public actual fun ndisMCloseLog(loghandle: COpaquePointer?) {
     if (_windowsWdkNetworkmanagementNdisNapiAddon != null) {
-        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisMCloseLog(loghandle.toString())
+        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisMCloseLog((loghandle?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun NdisMCmActivateVc(ndisvchandle: Long, callparameters: Long): Int =
-    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisMCmActivateVc(ndisvchandle.toString(), callparameters.toString()) as Int) else 0
+public actual fun ndisMCmActivateVc(ndisvchandle: COpaquePointer?, callparameters: COpaquePointer?): Int =
+    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisMCmActivateVc((ndisvchandle?.value ?: 0L).toString(), (callparameters?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NdisMCmCreateVc(miniportadapterhandle: Long, ndisafhandle: Long, miniportvccontext: Long, ndisvchandle: Long): Int =
-    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisMCmCreateVc(miniportadapterhandle.toString(), ndisafhandle.toString(), miniportvccontext.toString(), ndisvchandle.toString()) as Int) else 0
+public actual fun ndisMCmCreateVc(miniportadapterhandle: COpaquePointer?, ndisafhandle: COpaquePointer?, miniportvccontext: COpaquePointer?, ndisvchandle: COpaquePointer?): Int =
+    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisMCmCreateVc((miniportadapterhandle?.value ?: 0L).toString(), (ndisafhandle?.value ?: 0L).toString(), (miniportvccontext?.value ?: 0L).toString(), (ndisvchandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NdisMCmDeactivateVc(ndisvchandle: Long): Int =
-    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisMCmDeactivateVc(ndisvchandle.toString()) as Int) else 0
+public actual fun ndisMCmDeactivateVc(ndisvchandle: COpaquePointer?): Int =
+    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisMCmDeactivateVc((ndisvchandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NdisMCmDeleteVc(ndisvchandle: Long): Int =
-    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisMCmDeleteVc(ndisvchandle.toString()) as Int) else 0
+public actual fun ndisMCmDeleteVc(ndisvchandle: COpaquePointer?): Int =
+    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisMCmDeleteVc((ndisvchandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NdisMCmRegisterAddressFamily(miniportadapterhandle: Long, addressfamily: Long, cmcharacteristics: Long, sizeofcmcharacteristics: UInt): Int =
-    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisMCmRegisterAddressFamily(miniportadapterhandle.toString(), addressfamily.toString(), cmcharacteristics.toString(), sizeofcmcharacteristics.toInt()) as Int) else 0
+public actual fun ndisMCmRegisterAddressFamily(miniportadapterhandle: COpaquePointer?, addressfamily: COpaquePointer?, cmcharacteristics: COpaquePointer?, sizeofcmcharacteristics: UInt): Int =
+    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisMCmRegisterAddressFamily((miniportadapterhandle?.value ?: 0L).toString(), (addressfamily?.value ?: 0L).toString(), (cmcharacteristics?.value ?: 0L).toString(), sizeofcmcharacteristics.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NdisMCoActivateVcComplete(status: Int, ndisvchandle: Long, callparameters: Long) {
+public actual fun ndisMCoActivateVcComplete(status: Int, ndisvchandle: COpaquePointer?, callparameters: COpaquePointer?) {
     if (_windowsWdkNetworkmanagementNdisNapiAddon != null) {
-        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisMCoActivateVcComplete(status, ndisvchandle.toString(), callparameters.toString())
+        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisMCoActivateVcComplete(status, (ndisvchandle?.value ?: 0L).toString(), (callparameters?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun NdisMCoDeactivateVcComplete(status: Int, ndisvchandle: Long) {
+public actual fun ndisMCoDeactivateVcComplete(status: Int, ndisvchandle: COpaquePointer?) {
     if (_windowsWdkNetworkmanagementNdisNapiAddon != null) {
-        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisMCoDeactivateVcComplete(status, ndisvchandle.toString())
+        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisMCoDeactivateVcComplete(status, (ndisvchandle?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun NdisMCreateLog(miniportadapterhandle: Long, size: UInt, loghandle: Long): Int =
-    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisMCreateLog(miniportadapterhandle.toString(), size.toInt(), loghandle.toString()) as Int) else 0
+public actual fun ndisMCreateLog(miniportadapterhandle: COpaquePointer?, size: UInt, loghandle: COpaquePointer?): Int =
+    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisMCreateLog((miniportadapterhandle?.value ?: 0L).toString(), size.toInt(), (loghandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NdisMDeregisterDmaChannel(miniportdmahandle: Long) {
+public actual fun ndisMDeregisterDmaChannel(miniportdmahandle: COpaquePointer?) {
     if (_windowsWdkNetworkmanagementNdisNapiAddon != null) {
-        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisMDeregisterDmaChannel(miniportdmahandle.toString())
+        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisMDeregisterDmaChannel((miniportdmahandle?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun NdisMDeregisterIoPortRange(miniportadapterhandle: Long, initialport: UInt, numberofports: UInt, portoffset: Long) {
+public actual fun ndisMDeregisterIoPortRange(miniportadapterhandle: COpaquePointer?, initialport: UInt, numberofports: UInt, portoffset: COpaquePointer?) {
     if (_windowsWdkNetworkmanagementNdisNapiAddon != null) {
-        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisMDeregisterIoPortRange(miniportadapterhandle.toString(), initialport.toInt(), numberofports.toInt(), portoffset.toString())
+        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisMDeregisterIoPortRange((miniportadapterhandle?.value ?: 0L).toString(), initialport.toInt(), numberofports.toInt(), (portoffset?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun NdisMFlushLog(loghandle: Long) {
+public actual fun ndisMFlushLog(loghandle: COpaquePointer?) {
     if (_windowsWdkNetworkmanagementNdisNapiAddon != null) {
-        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisMFlushLog(loghandle.toString())
+        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisMFlushLog((loghandle?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun NdisMFreeSharedMemory(miniportadapterhandle: Long, length: UInt, cached: Boolean, virtualaddress: Long, physicaladdress: Long) {
+public actual fun ndisMFreeSharedMemory(miniportadapterhandle: COpaquePointer?, length: UInt, cached: Boolean, virtualaddress: COpaquePointer?, physicaladdress: Long) {
     if (_windowsWdkNetworkmanagementNdisNapiAddon != null) {
-        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisMFreeSharedMemory(miniportadapterhandle.toString(), length.toInt(), cached, virtualaddress.toString(), physicaladdress.toString())
+        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisMFreeSharedMemory((miniportadapterhandle?.value ?: 0L).toString(), length.toInt(), cached, (virtualaddress?.value ?: 0L).toString(), physicaladdress.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun NdisMGetDeviceProperty(miniportadapterhandle: Long, physicaldeviceobject: Long, functionaldeviceobject: Long, nextdeviceobject: Long, allocatedresources: Long, allocatedresourcestranslated: Long) {
+public actual fun ndisMGetDeviceProperty(miniportadapterhandle: COpaquePointer?, physicaldeviceobject: COpaquePointer?, functionaldeviceobject: COpaquePointer?, nextdeviceobject: COpaquePointer?, allocatedresources: COpaquePointer?, allocatedresourcestranslated: COpaquePointer?) {
     if (_windowsWdkNetworkmanagementNdisNapiAddon != null) {
-        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisMGetDeviceProperty(miniportadapterhandle.toString(), physicaldeviceobject.toString(), functionaldeviceobject.toString(), nextdeviceobject.toString(), allocatedresources.toString(), allocatedresourcestranslated.toString())
+        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisMGetDeviceProperty((miniportadapterhandle?.value ?: 0L).toString(), (physicaldeviceobject?.value ?: 0L).toString(), (functionaldeviceobject?.value ?: 0L).toString(), (nextdeviceobject?.value ?: 0L).toString(), (allocatedresources?.value ?: 0L).toString(), (allocatedresourcestranslated?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun NdisMGetDmaAlignment(miniportadapterhandle: Long): UInt =
-    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisMGetDmaAlignment(miniportadapterhandle.toString()) as Int).toUInt() else 0u
+public actual fun ndisMGetDmaAlignment(miniportadapterhandle: COpaquePointer?): UInt =
+    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisMGetDmaAlignment((miniportadapterhandle?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NdisMInitializeTimer(timer: Long, miniportadapterhandle: Long, timerfunction: PNDIS_TIMER_FUNCTION, functioncontext: Long) {
+public actual fun ndisMInitializeTimer(timer: COpaquePointer?, miniportadapterhandle: COpaquePointer?, timerfunction: PndisTimerFunction, functioncontext: COpaquePointer?) {
     if (_windowsWdkNetworkmanagementNdisNapiAddon != null) {
-        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisMInitializeTimer(timer.toString(), miniportadapterhandle.toString(), timerfunction.toLong().toString(), functioncontext.toString())
+        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisMInitializeTimer((timer?.value ?: 0L).toString(), (miniportadapterhandle?.value ?: 0L).toString(), 0L.toString(), (functioncontext?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun NdisMMapIoSpace(virtualaddress: Long, miniportadapterhandle: Long, physicaladdress: Long, length: UInt): Int =
-    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisMMapIoSpace(virtualaddress.toString(), miniportadapterhandle.toString(), physicaladdress.toString(), length.toInt()) as Int) else 0
+public actual fun ndisMMapIoSpace(virtualaddress: COpaquePointer?, miniportadapterhandle: COpaquePointer?, physicaladdress: Long, length: UInt): Int =
+    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisMMapIoSpace((virtualaddress?.value ?: 0L).toString(), (miniportadapterhandle?.value ?: 0L).toString(), physicaladdress.toString(), length.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NdisMQueryAdapterInstanceName(padapterinstancename: Long, miniporthandle: Long): Int =
-    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisMQueryAdapterInstanceName(padapterinstancename.toString(), miniporthandle.toString()) as Int) else 0
+public actual fun ndisMQueryAdapterInstanceName(padapterinstancename: COpaquePointer?, miniporthandle: COpaquePointer?): Int =
+    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisMQueryAdapterInstanceName((padapterinstancename?.value ?: 0L).toString(), (miniporthandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NdisMReadDmaCounter(miniportdmahandle: Long): UInt =
-    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisMReadDmaCounter(miniportdmahandle.toString()) as Int).toUInt() else 0u
+public actual fun ndisMReadDmaCounter(miniportdmahandle: COpaquePointer?): UInt =
+    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisMReadDmaCounter((miniportdmahandle?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NdisMRegisterDmaChannel(miniportdmahandle: Long, miniportadapterhandle: Long, dmachannel: UInt, dma32bitaddresses: Boolean, dmadescription: Long, maximumlength: UInt): Int =
-    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisMRegisterDmaChannel(miniportdmahandle.toString(), miniportadapterhandle.toString(), dmachannel.toInt(), dma32bitaddresses, dmadescription.toString(), maximumlength.toInt()) as Int) else 0
+public actual fun ndisMRegisterDmaChannel(miniportdmahandle: COpaquePointer?, miniportadapterhandle: COpaquePointer?, dmachannel: UInt, dma32bitaddresses: Boolean, dmadescription: COpaquePointer?, maximumlength: UInt): Int =
+    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisMRegisterDmaChannel((miniportdmahandle?.value ?: 0L).toString(), (miniportadapterhandle?.value ?: 0L).toString(), dmachannel.toInt(), dma32bitaddresses, (dmadescription?.value ?: 0L).toString(), maximumlength.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NdisMRegisterIoPortRange(portoffset: Long, miniportadapterhandle: Long, initialport: UInt, numberofports: UInt): Int =
-    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisMRegisterIoPortRange(portoffset.toString(), miniportadapterhandle.toString(), initialport.toInt(), numberofports.toInt()) as Int) else 0
+public actual fun ndisMRegisterIoPortRange(portoffset: COpaquePointer?, miniportadapterhandle: COpaquePointer?, initialport: UInt, numberofports: UInt): Int =
+    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisMRegisterIoPortRange((portoffset?.value ?: 0L).toString(), (miniportadapterhandle?.value ?: 0L).toString(), initialport.toInt(), numberofports.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NdisMRemoveMiniport(miniporthandle: Long): Int =
-    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisMRemoveMiniport(miniporthandle.toString()) as Int) else 0
+public actual fun ndisMRemoveMiniport(miniporthandle: COpaquePointer?): Int =
+    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisMRemoveMiniport((miniporthandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NdisMSetPeriodicTimer(timer: Long, millisecondperiod: UInt) {
+public actual fun ndisMSetPeriodicTimer(timer: COpaquePointer?, millisecondperiod: UInt) {
     if (_windowsWdkNetworkmanagementNdisNapiAddon != null) {
-        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisMSetPeriodicTimer(timer.toString(), millisecondperiod.toInt())
+        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisMSetPeriodicTimer((timer?.value ?: 0L).toString(), millisecondperiod.toInt())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun NdisMSleep(microsecondstosleep: UInt) {
+public actual fun ndisMSleep(microsecondstosleep: UInt) {
     if (_windowsWdkNetworkmanagementNdisNapiAddon != null) {
-        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisMSleep(microsecondstosleep.toInt())
+        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisMSleep(microsecondstosleep.toInt())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun NdisMUnmapIoSpace(miniportadapterhandle: Long, virtualaddress: Long, length: UInt) {
+public actual fun ndisMUnmapIoSpace(miniportadapterhandle: COpaquePointer?, virtualaddress: COpaquePointer?, length: UInt) {
     if (_windowsWdkNetworkmanagementNdisNapiAddon != null) {
-        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisMUnmapIoSpace(miniportadapterhandle.toString(), virtualaddress.toString(), length.toInt())
+        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisMUnmapIoSpace((miniportadapterhandle?.value ?: 0L).toString(), (virtualaddress?.value ?: 0L).toString(), length.toInt())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun NdisMWriteLogData(loghandle: Long, logbuffer: Long, logbuffersize: UInt): Int =
-    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisMWriteLogData(loghandle.toString(), logbuffer.toString(), logbuffersize.toInt()) as Int) else 0
+public actual fun ndisMWriteLogData(loghandle: COpaquePointer?, logbuffer: COpaquePointer?, logbuffersize: UInt): Int =
+    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisMWriteLogData((loghandle?.value ?: 0L).toString(), (logbuffer?.value ?: 0L).toString(), logbuffersize.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NdisMapFile(status: Long, mappedbuffer: Long, filehandle: Long) {
+public actual fun ndisMapFile(status: COpaquePointer?, mappedbuffer: COpaquePointer?, filehandle: COpaquePointer?) {
     if (_windowsWdkNetworkmanagementNdisNapiAddon != null) {
-        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisMapFile(status.toString(), mappedbuffer.toString(), filehandle.toString())
+        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisMapFile((status?.value ?: 0L).toString(), (mappedbuffer?.value ?: 0L).toString(), (filehandle?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun NdisOpenConfigurationKeyByIndex(status: Long, configurationhandle: Long, index: UInt, keyname: Long, keyhandle: Long) {
+public actual fun ndisOpenConfigurationKeyByIndex(status: COpaquePointer?, configurationhandle: COpaquePointer?, index: UInt, keyname: COpaquePointer?, keyhandle: COpaquePointer?) {
     if (_windowsWdkNetworkmanagementNdisNapiAddon != null) {
-        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisOpenConfigurationKeyByIndex(status.toString(), configurationhandle.toString(), index.toInt(), keyname.toString(), keyhandle.toString())
+        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisOpenConfigurationKeyByIndex((status?.value ?: 0L).toString(), (configurationhandle?.value ?: 0L).toString(), index.toInt(), (keyname?.value ?: 0L).toString(), (keyhandle?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun NdisOpenConfigurationKeyByName(status: Long, configurationhandle: Long, subkeyname: Long, subkeyhandle: Long) {
+public actual fun ndisOpenConfigurationKeyByName(status: COpaquePointer?, configurationhandle: COpaquePointer?, subkeyname: COpaquePointer?, subkeyhandle: COpaquePointer?) {
     if (_windowsWdkNetworkmanagementNdisNapiAddon != null) {
-        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisOpenConfigurationKeyByName(status.toString(), configurationhandle.toString(), subkeyname.toString(), subkeyhandle.toString())
+        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisOpenConfigurationKeyByName((status?.value ?: 0L).toString(), (configurationhandle?.value ?: 0L).toString(), (subkeyname?.value ?: 0L).toString(), (subkeyhandle?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun NdisOpenFile(status: Long, filehandle: Long, filelength: Long, filename: Long, highestacceptableaddress: Long) {
+public actual fun ndisOpenFile(status: COpaquePointer?, filehandle: COpaquePointer?, filelength: COpaquePointer?, filename: COpaquePointer?, highestacceptableaddress: Long) {
     if (_windowsWdkNetworkmanagementNdisNapiAddon != null) {
-        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisOpenFile(status.toString(), filehandle.toString(), filelength.toString(), filename.toString(), highestacceptableaddress.toString())
+        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisOpenFile((status?.value ?: 0L).toString(), (filehandle?.value ?: 0L).toString(), (filelength?.value ?: 0L).toString(), (filename?.value ?: 0L).toString(), highestacceptableaddress.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun NdisQueryAdapterInstanceName(padapterinstancename: Long, ndisbindinghandle: Long): Int =
-    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisQueryAdapterInstanceName(padapterinstancename.toString(), ndisbindinghandle.toString()) as Int) else 0
+public actual fun ndisQueryAdapterInstanceName(padapterinstancename: COpaquePointer?, ndisbindinghandle: COpaquePointer?): Int =
+    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisQueryAdapterInstanceName((padapterinstancename?.value ?: 0L).toString(), (ndisbindinghandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NdisQueryBindInstanceName(padapterinstancename: Long, bindingcontext: Long): Int =
-    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisQueryBindInstanceName(padapterinstancename.toString(), bindingcontext.toString()) as Int) else 0
+public actual fun ndisQueryBindInstanceName(padapterinstancename: COpaquePointer?, bindingcontext: COpaquePointer?): Int =
+    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisQueryBindInstanceName((padapterinstancename?.value ?: 0L).toString(), (bindingcontext?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NdisReEnumerateProtocolBindings(ndisprotocolhandle: Long) {
+public actual fun ndisReEnumerateProtocolBindings(ndisprotocolhandle: COpaquePointer?) {
     if (_windowsWdkNetworkmanagementNdisNapiAddon != null) {
-        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisReEnumerateProtocolBindings(ndisprotocolhandle.toString())
+        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisReEnumerateProtocolBindings((ndisprotocolhandle?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun NdisReadConfiguration(status: Long, parametervalue: Long, configurationhandle: Long, keyword: Long, parametertype: NDIS_PARAMETER_TYPE) {
+public actual fun ndisReadConfiguration(status: COpaquePointer?, parametervalue: COpaquePointer?, configurationhandle: COpaquePointer?, keyword: COpaquePointer?, parametertype: NdisParameterType) {
     if (_windowsWdkNetworkmanagementNdisNapiAddon != null) {
-        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisReadConfiguration(status.toString(), parametervalue.toString(), configurationhandle.toString(), keyword.toString(), parametertype)
+        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisReadConfiguration((status?.value ?: 0L).toString(), (parametervalue?.value ?: 0L).toString(), (configurationhandle?.value ?: 0L).toString(), (keyword?.value ?: 0L).toString(), parametertype)
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun NdisReadNetworkAddress(status: Long, networkaddress: Long, networkaddresslength: Long, configurationhandle: Long) {
+public actual fun ndisReadNetworkAddress(status: COpaquePointer?, networkaddress: COpaquePointer?, networkaddresslength: COpaquePointer?, configurationhandle: COpaquePointer?) {
     if (_windowsWdkNetworkmanagementNdisNapiAddon != null) {
-        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisReadNetworkAddress(status.toString(), networkaddress.toString(), networkaddresslength.toString(), configurationhandle.toString())
+        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisReadNetworkAddress((status?.value ?: 0L).toString(), (networkaddress?.value ?: 0L).toString(), (networkaddresslength?.value ?: 0L).toString(), (configurationhandle?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun NdisRegisterTdiCallBack(registercallback: TDI_REGISTER_CALLBACK, pnphandler: TDI_PNP_HANDLER) {
+public actual fun ndisRegisterTdiCallBack(registercallback: TdiRegisterCallback, pnphandler: TdiPnpHandler) {
     if (_windowsWdkNetworkmanagementNdisNapiAddon != null) {
-        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisRegisterTdiCallBack(registercallback.toLong().toString(), pnphandler.toLong().toString())
+        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisRegisterTdiCallBack(0L.toString(), 0L.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun NdisReleaseReadWriteLock(lock: Long, lockstate: Long) {
+public actual fun ndisReleaseReadWriteLock(lock: COpaquePointer?, lockstate: COpaquePointer?) {
     if (_windowsWdkNetworkmanagementNdisNapiAddon != null) {
-        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisReleaseReadWriteLock(lock.toString(), lockstate.toString())
+        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisReleaseReadWriteLock((lock?.value ?: 0L).toString(), (lockstate?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun NdisResetEvent(event: Long) {
+public actual fun ndisResetEvent(event: COpaquePointer?) {
     if (_windowsWdkNetworkmanagementNdisNapiAddon != null) {
-        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisResetEvent(event.toString())
+        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisResetEvent((event?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun NdisSetEvent(event: Long) {
+public actual fun ndisSetEvent(event: COpaquePointer?) {
     if (_windowsWdkNetworkmanagementNdisNapiAddon != null) {
-        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisSetEvent(event.toString())
+        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisSetEvent((event?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun NdisSetPeriodicTimer(ndistimer: Long, millisecondsperiod: UInt) {
+public actual fun ndisSetPeriodicTimer(ndistimer: COpaquePointer?, millisecondsperiod: UInt) {
     if (_windowsWdkNetworkmanagementNdisNapiAddon != null) {
-        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisSetPeriodicTimer(ndistimer.toString(), millisecondsperiod.toInt())
+        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisSetPeriodicTimer((ndistimer?.value ?: 0L).toString(), millisecondsperiod.toInt())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun NdisSetTimer(timer: Long, millisecondstodelay: UInt) {
+public actual fun ndisSetTimer(timer: COpaquePointer?, millisecondstodelay: UInt) {
     if (_windowsWdkNetworkmanagementNdisNapiAddon != null) {
-        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisSetTimer(timer.toString(), millisecondstodelay.toInt())
+        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisSetTimer((timer?.value ?: 0L).toString(), millisecondstodelay.toInt())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun NdisSetTimerEx(ndistimer: Long, millisecondstodelay: UInt, functioncontext: Long) {
+public actual fun ndisSetTimerEx(ndistimer: COpaquePointer?, millisecondstodelay: UInt, functioncontext: COpaquePointer?) {
     if (_windowsWdkNetworkmanagementNdisNapiAddon != null) {
-        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisSetTimerEx(ndistimer.toString(), millisecondstodelay.toInt(), functioncontext.toString())
+        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisSetTimerEx((ndistimer?.value ?: 0L).toString(), millisecondstodelay.toInt(), (functioncontext?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun NdisSetupDmaTransfer(status: Long, ndisdmahandle: Long, buffer: Long, offset: UInt, length: UInt, writetodevice: Boolean) {
+public actual fun ndisSetupDmaTransfer(status: COpaquePointer?, ndisdmahandle: COpaquePointer?, buffer: COpaquePointer?, offset: UInt, length: UInt, writetodevice: Boolean) {
     if (_windowsWdkNetworkmanagementNdisNapiAddon != null) {
-        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisSetupDmaTransfer(status.toString(), ndisdmahandle.toString(), buffer.toString(), offset.toInt(), length.toInt(), writetodevice)
+        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisSetupDmaTransfer((status?.value ?: 0L).toString(), (ndisdmahandle?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString(), offset.toInt(), length.toInt(), writetodevice)
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun NdisSystemProcessorCount(): Byte =
-    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisSystemProcessorCount() as Int).toByte() else 0
+public actual fun ndisSystemProcessorCount(): Byte =
+    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisSystemProcessorCount() as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NdisUnmapFile(filehandle: Long) {
+public actual fun ndisUnmapFile(filehandle: COpaquePointer?) {
     if (_windowsWdkNetworkmanagementNdisNapiAddon != null) {
-        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisUnmapFile(filehandle.toString())
+        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisUnmapFile((filehandle?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun NdisUpdateSharedMemory(ndisadapterhandle: Long, length: UInt, virtualaddress: Long, physicaladdress: Long) {
+public actual fun ndisUpdateSharedMemory(ndisadapterhandle: COpaquePointer?, length: UInt, virtualaddress: COpaquePointer?, physicaladdress: Long) {
     if (_windowsWdkNetworkmanagementNdisNapiAddon != null) {
-        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisUpdateSharedMemory(ndisadapterhandle.toString(), length.toInt(), virtualaddress.toString(), physicaladdress.toString())
+        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisUpdateSharedMemory((ndisadapterhandle?.value ?: 0L).toString(), length.toInt(), (virtualaddress?.value ?: 0L).toString(), physicaladdress.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun NdisWaitEvent(event: Long, mstowait: UInt): Boolean =
-    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisWaitEvent(event.toString(), mstowait.toInt()) as Boolean) else false
+public actual fun ndisWaitEvent(event: COpaquePointer?, mstowait: UInt): Boolean =
+    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisWaitEvent((event?.value ?: 0L).toString(), mstowait.toInt()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NdisWriteConfiguration(status: Long, configurationhandle: Long, keyword: Long, parametervalue: Long) {
+public actual fun ndisWriteConfiguration(status: COpaquePointer?, configurationhandle: COpaquePointer?, keyword: COpaquePointer?, parametervalue: COpaquePointer?) {
     if (_windowsWdkNetworkmanagementNdisNapiAddon != null) {
-        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisWriteConfiguration(status.toString(), configurationhandle.toString(), keyword.toString(), parametervalue.toString())
+        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisWriteConfiguration((status?.value ?: 0L).toString(), (configurationhandle?.value ?: 0L).toString(), (keyword?.value ?: 0L).toString(), (parametervalue?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun NdisWriteErrorLogEntry(ndisadapterhandle: Long, errorcode: UInt, numberoferrorvalues: UInt) {
+public actual fun ndisWriteErrorLogEntry(ndisadapterhandle: COpaquePointer?, errorcode: UInt, numberoferrorvalues: UInt, vararg variadicArgs: Long) {
+    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) {
+        _windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisWriteErrorLogEntry((ndisadapterhandle?.value ?: 0L).toString(), errorcode.toInt(), numberoferrorvalues.toInt(), variadicArgs.size.coerceAtMost(4), (if (variadicArgs.size > 0) variadicArgs[0] else 0L).toString(), (if (variadicArgs.size > 1) variadicArgs[1] else 0L).toString(), (if (variadicArgs.size > 2) variadicArgs[2] else 0L).toString(), (if (variadicArgs.size > 3) variadicArgs[3] else 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun NdisWriteEventLogEntry(loghandle: Long, eventcode: Int, uniqueeventvalue: UInt, numstrings: UShort, stringslist: Long, datasize: UInt, data: Long): Int =
-    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_NdisWriteEventLogEntry(loghandle.toString(), eventcode, uniqueeventvalue.toInt(), numstrings.toInt(), stringslist.toString(), datasize.toInt(), data.toString()) as Int) else 0
+public actual fun ndisWriteEventLogEntry(loghandle: COpaquePointer?, eventcode: Int, uniqueeventvalue: UInt, numstrings: UShort, stringslist: COpaquePointer?, datasize: UInt, data: COpaquePointer?): Int =
+    if (_windowsWdkNetworkmanagementNdisNapiAddon != null) (_windowsWdkNetworkmanagementNdisNapiAddon.windowssys_windows_wdk_networkmanagement_ndis_ndisWriteEventLogEntry((loghandle?.value ?: 0L).toString(), eventcode, uniqueeventvalue.toInt(), numstrings.toInt(), (stringslist?.value ?: 0L).toString(), datasize.toInt(), (data?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")

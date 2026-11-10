@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_AdjustWindowRect(void* lprect, uint32_t dwstyle, int32_t bmenu) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_adjustWindowRect(void* lprect, uint32_t dwstyle, int32_t bmenu) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -39,7 +39,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_AdjustWindowRect(void* l
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_AdjustWindowRectEx(void* lprect, uint32_t dwstyle, int32_t bmenu, uint32_t dwexstyle) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_adjustWindowRectEx(void* lprect, uint32_t dwstyle, int32_t bmenu, uint32_t dwexstyle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -64,7 +64,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_AdjustWindowRectEx(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_AllowSetForegroundWindow(uint32_t dwprocessid) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_allowSetForegroundWindow(uint32_t dwprocessid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -86,7 +86,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_AllowSetForegroundWindow
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_AnimateWindow(void* hwnd, uint32_t dwtime, uint32_t dwflags) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_animateWindow(void* hwnd, uint32_t dwtime, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -110,7 +110,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_AnimateWindow(void* hwnd
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_AnyPopup(void) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_anyPopup(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -131,7 +131,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_AnyPopup(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_AppendMenuA(void* hmenu, uint32_t uflags, uint64_t uidnewitem, void* lpnewitem) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_appendMenuA(void* hmenu, uint32_t uflags, uint64_t uidnewitem, void* lpnewitem) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -156,7 +156,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_AppendMenuA(void* hmenu,
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_AppendMenuW(void* hmenu, uint32_t uflags, uint64_t uidnewitem, void* lpnewitem) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_appendMenuW(void* hmenu, uint32_t uflags, uint64_t uidnewitem, void* lpnewitem) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -181,7 +181,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_AppendMenuW(void* hmenu,
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_windowsandmessaging_ArrangeIconicWindows(void* hwnd) {
+uint32_t windowssys_windows_win32_ui_windowsandmessaging_arrangeIconicWindows(void* hwnd) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -203,7 +203,7 @@ uint32_t windowssys_windows_win32_ui_windowsandmessaging_ArrangeIconicWindows(vo
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_BeginDeferWindowPos(int32_t nnumwindows) {
+void* windowssys_windows_win32_ui_windowsandmessaging_beginDeferWindowPos(int32_t nnumwindows) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -225,7 +225,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_BeginDeferWindowPos(int32_
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_BringWindowToTop(void* hwnd) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_bringWindowToTop(void* hwnd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -247,7 +247,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_BringWindowToTop(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_CalculatePopupWindowPosition(void* anchorpoint, void* windowsize, uint32_t flags, void* excluderect, void* popupwindowposition) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_calculatePopupWindowPosition(void* anchorpoint, void* windowsize, uint32_t flags, void* excluderect, void* popupwindowposition) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -273,7 +273,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_CalculatePopupWindowPosi
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_CallMsgFilterA(void* lpmsg, int32_t ncode) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_callMsgFilterA(void* lpmsg, int32_t ncode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -296,7 +296,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_CallMsgFilterA(void* lpm
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_CallMsgFilterW(void* lpmsg, int32_t ncode) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_callMsgFilterW(void* lpmsg, int32_t ncode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -319,7 +319,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_CallMsgFilterW(void* lpm
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_windowsandmessaging_CallNextHookEx(void* hhk, int32_t ncode, uint64_t wparam, int64_t lparam) {
+int64_t windowssys_windows_win32_ui_windowsandmessaging_callNextHookEx(void* hhk, int32_t ncode, uint64_t wparam, int64_t lparam) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, int32_t, uint64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -344,7 +344,7 @@ int64_t windowssys_windows_win32_ui_windowsandmessaging_CallNextHookEx(void* hhk
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_windowsandmessaging_CallWindowProcA(void* lpprevwndfunc, void* hwnd, uint32_t msg, uint64_t wparam, int64_t lparam) {
+int64_t windowssys_windows_win32_ui_windowsandmessaging_callWindowProcA(void* lpprevwndfunc, void* hwnd, uint32_t msg, uint64_t wparam, int64_t lparam) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -370,7 +370,7 @@ int64_t windowssys_windows_win32_ui_windowsandmessaging_CallWindowProcA(void* lp
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_windowsandmessaging_CallWindowProcW(void* lpprevwndfunc, void* hwnd, uint32_t msg, uint64_t wparam, int64_t lparam) {
+int64_t windowssys_windows_win32_ui_windowsandmessaging_callWindowProcW(void* lpprevwndfunc, void* hwnd, uint32_t msg, uint64_t wparam, int64_t lparam) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -396,7 +396,7 @@ int64_t windowssys_windows_win32_ui_windowsandmessaging_CallWindowProcW(void* lp
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_CancelShutdown(void) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_cancelShutdown(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -417,7 +417,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_CancelShutdown(void) {
 #endif
 }
 
-uint16_t windowssys_windows_win32_ui_windowsandmessaging_CascadeWindows(void* hwndparent, uint32_t whow, void* lprect, uint32_t ckids, void* lpkids) {
+uint16_t windowssys_windows_win32_ui_windowsandmessaging_cascadeWindows(void* hwndparent, uint32_t whow, void* lprect, uint32_t ckids, void* lpkids) {
 #ifdef _WIN32
     typedef uint16_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -443,7 +443,7 @@ uint16_t windowssys_windows_win32_ui_windowsandmessaging_CascadeWindows(void* hw
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_ChangeMenuA(void* hmenu, uint32_t cmd, void* lpsznewitem, uint32_t cmdinsert, uint32_t flags) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_changeMenuA(void* hmenu, uint32_t cmd, void* lpsznewitem, uint32_t cmdinsert, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -469,7 +469,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_ChangeMenuA(void* hmenu,
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_ChangeMenuW(void* hmenu, uint32_t cmd, void* lpsznewitem, uint32_t cmdinsert, uint32_t flags) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_changeMenuW(void* hmenu, uint32_t cmd, void* lpsznewitem, uint32_t cmdinsert, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -495,7 +495,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_ChangeMenuW(void* hmenu,
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_ChangeWindowMessageFilter(uint32_t message, uint32_t dwflag) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_changeWindowMessageFilter(uint32_t message, uint32_t dwflag) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -518,7 +518,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_ChangeWindowMessageFilte
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_ChangeWindowMessageFilterEx(void* hwnd, uint32_t message, uint32_t action, void* pchangefilterstruct) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_changeWindowMessageFilterEx(void* hwnd, uint32_t message, uint32_t action, void* pchangefilterstruct) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -543,7 +543,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_ChangeWindowMessageFilte
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_CharLowerA(void* lpsz) {
+void* windowssys_windows_win32_ui_windowsandmessaging_charLowerA(void* lpsz) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -565,7 +565,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_CharLowerA(void* lpsz) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_windowsandmessaging_CharLowerBuffA(void* lpsz, uint32_t cchlength) {
+uint32_t windowssys_windows_win32_ui_windowsandmessaging_charLowerBuffA(void* lpsz, uint32_t cchlength) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -588,7 +588,7 @@ uint32_t windowssys_windows_win32_ui_windowsandmessaging_CharLowerBuffA(void* lp
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_windowsandmessaging_CharLowerBuffW(void* lpsz, uint32_t cchlength) {
+uint32_t windowssys_windows_win32_ui_windowsandmessaging_charLowerBuffW(void* lpsz, uint32_t cchlength) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -611,7 +611,7 @@ uint32_t windowssys_windows_win32_ui_windowsandmessaging_CharLowerBuffW(void* lp
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_CharLowerW(void* lpsz) {
+void* windowssys_windows_win32_ui_windowsandmessaging_charLowerW(void* lpsz) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -633,7 +633,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_CharLowerW(void* lpsz) {
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_CharNextA(void* lpsz) {
+void* windowssys_windows_win32_ui_windowsandmessaging_charNextA(void* lpsz) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -655,7 +655,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_CharNextA(void* lpsz) {
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_CharNextExA(uint16_t codepage, void* lpcurrentchar, uint32_t dwflags) {
+void* windowssys_windows_win32_ui_windowsandmessaging_charNextExA(uint16_t codepage, void* lpcurrentchar, uint32_t dwflags) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint16_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -679,7 +679,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_CharNextExA(uint16_t codep
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_CharNextW(void* lpsz) {
+void* windowssys_windows_win32_ui_windowsandmessaging_charNextW(void* lpsz) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -701,7 +701,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_CharNextW(void* lpsz) {
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_CharPrevA(void* lpszstart, void* lpszcurrent) {
+void* windowssys_windows_win32_ui_windowsandmessaging_charPrevA(void* lpszstart, void* lpszcurrent) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -724,7 +724,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_CharPrevA(void* lpszstart,
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_CharPrevExA(uint16_t codepage, void* lpstart, void* lpcurrentchar, uint32_t dwflags) {
+void* windowssys_windows_win32_ui_windowsandmessaging_charPrevExA(uint16_t codepage, void* lpstart, void* lpcurrentchar, uint32_t dwflags) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint16_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -749,7 +749,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_CharPrevExA(uint16_t codep
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_CharPrevW(void* lpszstart, void* lpszcurrent) {
+void* windowssys_windows_win32_ui_windowsandmessaging_charPrevW(void* lpszstart, void* lpszcurrent) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -772,7 +772,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_CharPrevW(void* lpszstart,
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_CharToOemA(void* psrc, void* pdst) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_charToOemA(void* psrc, void* pdst) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -795,7 +795,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_CharToOemA(void* psrc, v
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_CharToOemBuffA(void* lpszsrc, void* lpszdst, uint32_t cchdstlength) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_charToOemBuffA(void* lpszsrc, void* lpszdst, uint32_t cchdstlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -819,7 +819,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_CharToOemBuffA(void* lps
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_CharToOemBuffW(void* lpszsrc, void* lpszdst, uint32_t cchdstlength) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_charToOemBuffW(void* lpszsrc, void* lpszdst, uint32_t cchdstlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -843,7 +843,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_CharToOemBuffW(void* lps
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_CharToOemW(void* psrc, void* pdst) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_charToOemW(void* psrc, void* pdst) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -866,7 +866,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_CharToOemW(void* psrc, v
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_CharUpperA(void* lpsz) {
+void* windowssys_windows_win32_ui_windowsandmessaging_charUpperA(void* lpsz) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -888,7 +888,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_CharUpperA(void* lpsz) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_windowsandmessaging_CharUpperBuffA(void* lpsz, uint32_t cchlength) {
+uint32_t windowssys_windows_win32_ui_windowsandmessaging_charUpperBuffA(void* lpsz, uint32_t cchlength) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -911,7 +911,7 @@ uint32_t windowssys_windows_win32_ui_windowsandmessaging_CharUpperBuffA(void* lp
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_windowsandmessaging_CharUpperBuffW(void* lpsz, uint32_t cchlength) {
+uint32_t windowssys_windows_win32_ui_windowsandmessaging_charUpperBuffW(void* lpsz, uint32_t cchlength) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -934,7 +934,7 @@ uint32_t windowssys_windows_win32_ui_windowsandmessaging_CharUpperBuffW(void* lp
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_CharUpperW(void* lpsz) {
+void* windowssys_windows_win32_ui_windowsandmessaging_charUpperW(void* lpsz) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -956,7 +956,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_CharUpperW(void* lpsz) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_windowsandmessaging_CheckMenuItem(void* hmenu, uint32_t uidcheckitem, uint32_t ucheck) {
+uint32_t windowssys_windows_win32_ui_windowsandmessaging_checkMenuItem(void* hmenu, uint32_t uidcheckitem, uint32_t ucheck) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -980,7 +980,7 @@ uint32_t windowssys_windows_win32_ui_windowsandmessaging_CheckMenuItem(void* hme
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_CheckMenuRadioItem(void* hmenu, uint32_t first, uint32_t last, uint32_t check, uint32_t flags) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_checkMenuRadioItem(void* hmenu, uint32_t first, uint32_t last, uint32_t check, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1006,7 +1006,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_CheckMenuRadioItem(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_ClipCursor(void* lprect) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_clipCursor(void* lprect) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1028,7 +1028,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_ClipCursor(void* lprect)
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_CloseWindow(void* hwnd) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_closeWindow(void* hwnd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1050,7 +1050,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_CloseWindow(void* hwnd) 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_CopyAcceleratorTableA(void* haccelsrc, void* lpacceldst, int32_t caccelentries) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_copyAcceleratorTableA(void* haccelsrc, void* lpacceldst, int32_t caccelentries) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1074,7 +1074,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_CopyAcceleratorTableA(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_CopyAcceleratorTableW(void* haccelsrc, void* lpacceldst, int32_t caccelentries) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_copyAcceleratorTableW(void* haccelsrc, void* lpacceldst, int32_t caccelentries) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1098,7 +1098,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_CopyAcceleratorTableW(vo
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_CopyIcon(void* hicon) {
+void* windowssys_windows_win32_ui_windowsandmessaging_copyIcon(void* hicon) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1120,7 +1120,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_CopyIcon(void* hicon) {
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_CopyImage(void* h, uint32_t type, int32_t cx, int32_t cy, uint32_t flags) {
+void* windowssys_windows_win32_ui_windowsandmessaging_copyImage(void* h, uint32_t type, int32_t cx, int32_t cy, uint32_t flags) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, int32_t, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1146,7 +1146,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_CopyImage(void* h, uint32_
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_CreateAcceleratorTableA(void* paccel, int32_t caccel) {
+void* windowssys_windows_win32_ui_windowsandmessaging_createAcceleratorTableA(void* paccel, int32_t caccel) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1169,7 +1169,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_CreateAcceleratorTableA(vo
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_CreateAcceleratorTableW(void* paccel, int32_t caccel) {
+void* windowssys_windows_win32_ui_windowsandmessaging_createAcceleratorTableW(void* paccel, int32_t caccel) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1192,7 +1192,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_CreateAcceleratorTableW(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_CreateCaret(void* hwnd, void* hbitmap, int32_t nwidth, int32_t nheight) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_createCaret(void* hwnd, void* hbitmap, int32_t nwidth, int32_t nheight) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1217,7 +1217,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_CreateCaret(void* hwnd, 
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_CreateCursor(void* hinst, int32_t xhotspot, int32_t yhotspot, int32_t nwidth, int32_t nheight, void* pvandplane, void* pvxorplane) {
+void* windowssys_windows_win32_ui_windowsandmessaging_createCursor(void* hinst, int32_t xhotspot, int32_t yhotspot, int32_t nwidth, int32_t nheight, void* pvandplane, void* pvxorplane) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, int32_t, int32_t, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1245,7 +1245,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_CreateCursor(void* hinst, 
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_CreateDialogIndirectParamA(void* hinstance, void* lptemplate, void* hwndparent, void* lpdialogfunc, int64_t dwinitparam) {
+void* windowssys_windows_win32_ui_windowsandmessaging_createDialogIndirectParamA(void* hinstance, void* lptemplate, void* hwndparent, void* lpdialogfunc, int64_t dwinitparam) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1271,7 +1271,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_CreateDialogIndirectParamA
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_CreateDialogIndirectParamW(void* hinstance, void* lptemplate, void* hwndparent, void* lpdialogfunc, int64_t dwinitparam) {
+void* windowssys_windows_win32_ui_windowsandmessaging_createDialogIndirectParamW(void* hinstance, void* lptemplate, void* hwndparent, void* lpdialogfunc, int64_t dwinitparam) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1297,7 +1297,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_CreateDialogIndirectParamW
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_CreateDialogParamA(void* hinstance, void* lptemplatename, void* hwndparent, void* lpdialogfunc, int64_t dwinitparam) {
+void* windowssys_windows_win32_ui_windowsandmessaging_createDialogParamA(void* hinstance, void* lptemplatename, void* hwndparent, void* lpdialogfunc, int64_t dwinitparam) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1323,7 +1323,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_CreateDialogParamA(void* h
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_CreateDialogParamW(void* hinstance, void* lptemplatename, void* hwndparent, void* lpdialogfunc, int64_t dwinitparam) {
+void* windowssys_windows_win32_ui_windowsandmessaging_createDialogParamW(void* hinstance, void* lptemplatename, void* hwndparent, void* lpdialogfunc, int64_t dwinitparam) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1349,7 +1349,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_CreateDialogParamW(void* h
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_CreateIcon(void* hinstance, int32_t nwidth, int32_t nheight, uint8_t cplanes, uint8_t cbitspixel, void* lpbandbits, void* lpbxorbits) {
+void* windowssys_windows_win32_ui_windowsandmessaging_createIcon(void* hinstance, int32_t nwidth, int32_t nheight, uint8_t cplanes, uint8_t cbitspixel, void* lpbandbits, void* lpbxorbits) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, int32_t, uint8_t, uint8_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1377,7 +1377,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_CreateIcon(void* hinstance
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_CreateIconFromResource(void* presbits, uint32_t dwressize, int32_t ficon, uint32_t dwver) {
+void* windowssys_windows_win32_ui_windowsandmessaging_createIconFromResource(void* presbits, uint32_t dwressize, int32_t ficon, uint32_t dwver) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1402,7 +1402,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_CreateIconFromResource(voi
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_CreateIconFromResourceEx(void* presbits, uint32_t dwressize, int32_t ficon, uint32_t dwver, int32_t cxdesired, int32_t cydesired, uint32_t flags) {
+void* windowssys_windows_win32_ui_windowsandmessaging_createIconFromResourceEx(void* presbits, uint32_t dwressize, int32_t ficon, uint32_t dwver, int32_t cxdesired, int32_t cydesired, uint32_t flags) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, int32_t, uint32_t, int32_t, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1430,7 +1430,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_CreateIconFromResourceEx(v
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_CreateIconIndirect(void* piconinfo) {
+void* windowssys_windows_win32_ui_windowsandmessaging_createIconIndirect(void* piconinfo) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1452,7 +1452,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_CreateIconIndirect(void* p
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_CreateMDIWindowA(void* lpclassname, void* lpwindowname, uint32_t dwstyle, int32_t x, int32_t y, int32_t nwidth, int32_t nheight, void* hwndparent, void* hinstance, int64_t lparam) {
+void* windowssys_windows_win32_ui_windowsandmessaging_createMDIWindowA(void* lpclassname, void* lpwindowname, uint32_t dwstyle, int32_t x, int32_t y, int32_t nwidth, int32_t nheight, void* hwndparent, void* hinstance, int64_t lparam) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint32_t, int32_t, int32_t, int32_t, int32_t, void*, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1483,7 +1483,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_CreateMDIWindowA(void* lpc
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_CreateMDIWindowW(void* lpclassname, void* lpwindowname, uint32_t dwstyle, int32_t x, int32_t y, int32_t nwidth, int32_t nheight, void* hwndparent, void* hinstance, int64_t lparam) {
+void* windowssys_windows_win32_ui_windowsandmessaging_createMDIWindowW(void* lpclassname, void* lpwindowname, uint32_t dwstyle, int32_t x, int32_t y, int32_t nwidth, int32_t nheight, void* hwndparent, void* hinstance, int64_t lparam) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint32_t, int32_t, int32_t, int32_t, int32_t, void*, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1514,7 +1514,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_CreateMDIWindowW(void* lpc
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_CreateMenu(void) {
+void* windowssys_windows_win32_ui_windowsandmessaging_createMenu(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -1535,7 +1535,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_CreateMenu(void) {
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_CreatePopupMenu(void) {
+void* windowssys_windows_win32_ui_windowsandmessaging_createPopupMenu(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -1556,7 +1556,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_CreatePopupMenu(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_CreateResourceIndexer(void* projectroot, void* extensiondllpath, void* ppresourceindexer) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_createResourceIndexer(void* projectroot, void* extensiondllpath, void* ppresourceindexer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1580,7 +1580,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_CreateResourceIndexer(vo
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_CreateWindowExA(uint32_t dwexstyle, void* lpclassname, void* lpwindowname, uint32_t dwstyle, int32_t x, int32_t y, int32_t nwidth, int32_t nheight, void* hwndparent, void* hmenu, void* hinstance, void* lpparam) {
+void* windowssys_windows_win32_ui_windowsandmessaging_createWindowExA(uint32_t dwexstyle, void* lpclassname, void* lpwindowname, uint32_t dwstyle, int32_t x, int32_t y, int32_t nwidth, int32_t nheight, void* hwndparent, void* hmenu, void* hinstance, void* lpparam) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t, void*, void*, uint32_t, int32_t, int32_t, int32_t, int32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1613,7 +1613,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_CreateWindowExA(uint32_t d
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_CreateWindowExW(uint32_t dwexstyle, void* lpclassname, void* lpwindowname, uint32_t dwstyle, int32_t x, int32_t y, int32_t nwidth, int32_t nheight, void* hwndparent, void* hmenu, void* hinstance, void* lpparam) {
+void* windowssys_windows_win32_ui_windowsandmessaging_createWindowExW(uint32_t dwexstyle, void* lpclassname, void* lpwindowname, uint32_t dwstyle, int32_t x, int32_t y, int32_t nwidth, int32_t nheight, void* hwndparent, void* hmenu, void* hinstance, void* lpparam) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t, void*, void*, uint32_t, int32_t, int32_t, int32_t, int32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1646,7 +1646,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_CreateWindowExW(uint32_t d
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_windowsandmessaging_DefDlgProcA(void* hdlg, uint32_t msg, uint64_t wparam, int64_t lparam) {
+int64_t windowssys_windows_win32_ui_windowsandmessaging_defDlgProcA(void* hdlg, uint32_t msg, uint64_t wparam, int64_t lparam) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, uint32_t, uint64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1671,7 +1671,7 @@ int64_t windowssys_windows_win32_ui_windowsandmessaging_DefDlgProcA(void* hdlg, 
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_windowsandmessaging_DefDlgProcW(void* hdlg, uint32_t msg, uint64_t wparam, int64_t lparam) {
+int64_t windowssys_windows_win32_ui_windowsandmessaging_defDlgProcW(void* hdlg, uint32_t msg, uint64_t wparam, int64_t lparam) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, uint32_t, uint64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1696,7 +1696,7 @@ int64_t windowssys_windows_win32_ui_windowsandmessaging_DefDlgProcW(void* hdlg, 
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_windowsandmessaging_DefFrameProcA(void* hwnd, void* hwndmdiclient, uint32_t umsg, uint64_t wparam, int64_t lparam) {
+int64_t windowssys_windows_win32_ui_windowsandmessaging_defFrameProcA(void* hwnd, void* hwndmdiclient, uint32_t umsg, uint64_t wparam, int64_t lparam) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1722,7 +1722,7 @@ int64_t windowssys_windows_win32_ui_windowsandmessaging_DefFrameProcA(void* hwnd
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_windowsandmessaging_DefFrameProcW(void* hwnd, void* hwndmdiclient, uint32_t umsg, uint64_t wparam, int64_t lparam) {
+int64_t windowssys_windows_win32_ui_windowsandmessaging_defFrameProcW(void* hwnd, void* hwndmdiclient, uint32_t umsg, uint64_t wparam, int64_t lparam) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1748,7 +1748,7 @@ int64_t windowssys_windows_win32_ui_windowsandmessaging_DefFrameProcW(void* hwnd
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_windowsandmessaging_DefMDIChildProcA(void* hwnd, uint32_t umsg, uint64_t wparam, int64_t lparam) {
+int64_t windowssys_windows_win32_ui_windowsandmessaging_defMDIChildProcA(void* hwnd, uint32_t umsg, uint64_t wparam, int64_t lparam) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, uint32_t, uint64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1773,7 +1773,7 @@ int64_t windowssys_windows_win32_ui_windowsandmessaging_DefMDIChildProcA(void* h
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_windowsandmessaging_DefMDIChildProcW(void* hwnd, uint32_t umsg, uint64_t wparam, int64_t lparam) {
+int64_t windowssys_windows_win32_ui_windowsandmessaging_defMDIChildProcW(void* hwnd, uint32_t umsg, uint64_t wparam, int64_t lparam) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, uint32_t, uint64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1798,7 +1798,7 @@ int64_t windowssys_windows_win32_ui_windowsandmessaging_DefMDIChildProcW(void* h
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_windowsandmessaging_DefWindowProcA(void* hwnd, uint32_t msg, uint64_t wparam, int64_t lparam) {
+int64_t windowssys_windows_win32_ui_windowsandmessaging_defWindowProcA(void* hwnd, uint32_t msg, uint64_t wparam, int64_t lparam) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, uint32_t, uint64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1823,7 +1823,7 @@ int64_t windowssys_windows_win32_ui_windowsandmessaging_DefWindowProcA(void* hwn
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_windowsandmessaging_DefWindowProcW(void* hwnd, uint32_t msg, uint64_t wparam, int64_t lparam) {
+int64_t windowssys_windows_win32_ui_windowsandmessaging_defWindowProcW(void* hwnd, uint32_t msg, uint64_t wparam, int64_t lparam) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, uint32_t, uint64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1848,7 +1848,7 @@ int64_t windowssys_windows_win32_ui_windowsandmessaging_DefWindowProcW(void* hwn
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_DeferWindowPos(void* hwinposinfo, void* hwnd, void* hwndinsertafter, int32_t x, int32_t y, int32_t cx, int32_t cy, uint32_t uflags) {
+void* windowssys_windows_win32_ui_windowsandmessaging_deferWindowPos(void* hwinposinfo, void* hwnd, void* hwndinsertafter, int32_t x, int32_t y, int32_t cx, int32_t cy, uint32_t uflags) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, int32_t, int32_t, int32_t, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1877,7 +1877,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_DeferWindowPos(void* hwinp
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_DeleteMenu(void* hmenu, uint32_t uposition, uint32_t uflags) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_deleteMenu(void* hmenu, uint32_t uposition, uint32_t uflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1901,7 +1901,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_DeleteMenu(void* hmenu, 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_DeregisterShellHookWindow(void* hwnd) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_deregisterShellHookWindow(void* hwnd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1923,7 +1923,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_DeregisterShellHookWindo
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_DestroyAcceleratorTable(void* haccel) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_destroyAcceleratorTable(void* haccel) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1945,7 +1945,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_DestroyAcceleratorTable(
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_DestroyCaret(void) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_destroyCaret(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -1966,7 +1966,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_DestroyCaret(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_DestroyCursor(void* hcursor) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_destroyCursor(void* hcursor) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1988,7 +1988,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_DestroyCursor(void* hcur
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_DestroyIcon(void* hicon) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_destroyIcon(void* hicon) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2010,7 +2010,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_DestroyIcon(void* hicon)
 #endif
 }
 
-void windowssys_windows_win32_ui_windowsandmessaging_DestroyIndexedResults(void* resourceuri, uint32_t qualifiercount, void* qualifiers) {
+void windowssys_windows_win32_ui_windowsandmessaging_destroyIndexedResults(void* resourceuri, uint32_t qualifiercount, void* qualifiers) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2033,7 +2033,7 @@ void windowssys_windows_win32_ui_windowsandmessaging_DestroyIndexedResults(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_DestroyMenu(void* hmenu) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_destroyMenu(void* hmenu) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2055,7 +2055,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_DestroyMenu(void* hmenu)
 #endif
 }
 
-void windowssys_windows_win32_ui_windowsandmessaging_DestroyResourceIndexer(void* resourceindexer) {
+void windowssys_windows_win32_ui_windowsandmessaging_destroyResourceIndexer(void* resourceindexer) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2076,7 +2076,7 @@ void windowssys_windows_win32_ui_windowsandmessaging_DestroyResourceIndexer(void
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_DestroyWindow(void* hwnd) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_destroyWindow(void* hwnd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2098,7 +2098,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_DestroyWindow(void* hwnd
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_windowsandmessaging_DialogBoxIndirectParamA(void* hinstance, void* hdialogtemplate, void* hwndparent, void* lpdialogfunc, int64_t dwinitparam) {
+int64_t windowssys_windows_win32_ui_windowsandmessaging_dialogBoxIndirectParamA(void* hinstance, void* hdialogtemplate, void* hwndparent, void* lpdialogfunc, int64_t dwinitparam) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, void*, void*, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2124,7 +2124,7 @@ int64_t windowssys_windows_win32_ui_windowsandmessaging_DialogBoxIndirectParamA(
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_windowsandmessaging_DialogBoxIndirectParamW(void* hinstance, void* hdialogtemplate, void* hwndparent, void* lpdialogfunc, int64_t dwinitparam) {
+int64_t windowssys_windows_win32_ui_windowsandmessaging_dialogBoxIndirectParamW(void* hinstance, void* hdialogtemplate, void* hwndparent, void* lpdialogfunc, int64_t dwinitparam) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, void*, void*, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2150,7 +2150,7 @@ int64_t windowssys_windows_win32_ui_windowsandmessaging_DialogBoxIndirectParamW(
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_windowsandmessaging_DialogBoxParamA(void* hinstance, void* lptemplatename, void* hwndparent, void* lpdialogfunc, int64_t dwinitparam) {
+int64_t windowssys_windows_win32_ui_windowsandmessaging_dialogBoxParamA(void* hinstance, void* lptemplatename, void* hwndparent, void* lpdialogfunc, int64_t dwinitparam) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, void*, void*, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2176,7 +2176,7 @@ int64_t windowssys_windows_win32_ui_windowsandmessaging_DialogBoxParamA(void* hi
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_windowsandmessaging_DialogBoxParamW(void* hinstance, void* lptemplatename, void* hwndparent, void* lpdialogfunc, int64_t dwinitparam) {
+int64_t windowssys_windows_win32_ui_windowsandmessaging_dialogBoxParamW(void* hinstance, void* lptemplatename, void* hwndparent, void* lpdialogfunc, int64_t dwinitparam) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, void*, void*, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2202,7 +2202,7 @@ int64_t windowssys_windows_win32_ui_windowsandmessaging_DialogBoxParamW(void* hi
 #endif
 }
 
-void windowssys_windows_win32_ui_windowsandmessaging_DisableProcessWindowsGhosting(void) {
+void windowssys_windows_win32_ui_windowsandmessaging_disableProcessWindowsGhosting(void) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -2222,7 +2222,7 @@ void windowssys_windows_win32_ui_windowsandmessaging_DisableProcessWindowsGhosti
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_windowsandmessaging_DispatchMessageA(void* lpmsg) {
+int64_t windowssys_windows_win32_ui_windowsandmessaging_dispatchMessageA(void* lpmsg) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2244,7 +2244,7 @@ int64_t windowssys_windows_win32_ui_windowsandmessaging_DispatchMessageA(void* l
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_windowsandmessaging_DispatchMessageW(void* lpmsg) {
+int64_t windowssys_windows_win32_ui_windowsandmessaging_dispatchMessageW(void* lpmsg) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2266,7 +2266,7 @@ int64_t windowssys_windows_win32_ui_windowsandmessaging_DispatchMessageW(void* l
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_windowsandmessaging_DragObject(void* hwndparent, void* hwndfrom, uint32_t fmt, uint64_t data, void* hcur) {
+uint32_t windowssys_windows_win32_ui_windowsandmessaging_dragObject(void* hwndparent, void* hwndfrom, uint32_t fmt, uint64_t data, void* hcur) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2292,7 +2292,7 @@ uint32_t windowssys_windows_win32_ui_windowsandmessaging_DragObject(void* hwndpa
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_DrawIcon(void* hdc, int32_t x, int32_t y, void* hicon) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_drawIcon(void* hdc, int32_t x, int32_t y, void* hicon) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2317,7 +2317,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_DrawIcon(void* hdc, int3
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_DrawIconEx(void* hdc, int32_t xleft, int32_t ytop, void* hicon, int32_t cxwidth, int32_t cywidth, uint32_t istepifanicur, void* hbrflickerfreedraw, uint32_t diflags) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_drawIconEx(void* hdc, int32_t xleft, int32_t ytop, void* hicon, int32_t cxwidth, int32_t cywidth, uint32_t istepifanicur, void* hbrflickerfreedraw, uint32_t diflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*, int32_t, int32_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2347,7 +2347,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_DrawIconEx(void* hdc, in
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_DrawMenuBar(void* hwnd) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_drawMenuBar(void* hwnd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2369,7 +2369,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_DrawMenuBar(void* hwnd) 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_EnableMenuItem(void* hmenu, uint32_t uidenableitem, uint32_t uenable) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_enableMenuItem(void* hmenu, uint32_t uidenableitem, uint32_t uenable) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2393,7 +2393,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_EnableMenuItem(void* hme
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_EndDeferWindowPos(void* hwinposinfo) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_endDeferWindowPos(void* hwinposinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2415,7 +2415,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_EndDeferWindowPos(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_EndDialog(void* hdlg, int64_t nresult) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_endDialog(void* hdlg, int64_t nresult) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2438,7 +2438,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_EndDialog(void* hdlg, in
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_EndMenu(void) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_endMenu(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -2459,7 +2459,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_EndMenu(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_EnumChildWindows(void* hwndparent, void* lpenumfunc, int64_t lparam) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_enumChildWindows(void* hwndparent, void* lpenumfunc, int64_t lparam) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2483,7 +2483,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_EnumChildWindows(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_EnumPropsA(void* hwnd, void* lpenumfunc) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_enumPropsA(void* hwnd, void* lpenumfunc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2506,7 +2506,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_EnumPropsA(void* hwnd, v
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_EnumPropsExA(void* hwnd, void* lpenumfunc, int64_t lparam) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_enumPropsExA(void* hwnd, void* lpenumfunc, int64_t lparam) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2530,7 +2530,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_EnumPropsExA(void* hwnd,
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_EnumPropsExW(void* hwnd, void* lpenumfunc, int64_t lparam) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_enumPropsExW(void* hwnd, void* lpenumfunc, int64_t lparam) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2554,7 +2554,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_EnumPropsExW(void* hwnd,
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_EnumPropsW(void* hwnd, void* lpenumfunc) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_enumPropsW(void* hwnd, void* lpenumfunc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2577,7 +2577,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_EnumPropsW(void* hwnd, v
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_EnumThreadWindows(uint32_t dwthreadid, void* lpfn, int64_t lparam) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_enumThreadWindows(uint32_t dwthreadid, void* lpfn, int64_t lparam) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2601,7 +2601,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_EnumThreadWindows(uint32
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_EnumWindows(void* lpenumfunc, int64_t lparam) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_enumWindows(void* lpenumfunc, int64_t lparam) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2624,7 +2624,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_EnumWindows(void* lpenum
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_FindWindowA(void* lpclassname, void* lpwindowname) {
+void* windowssys_windows_win32_ui_windowsandmessaging_findWindowA(void* lpclassname, void* lpwindowname) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2647,7 +2647,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_FindWindowA(void* lpclassn
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_FindWindowExA(void* hwndparent, void* hwndchildafter, void* lpszclass, void* lpszwindow) {
+void* windowssys_windows_win32_ui_windowsandmessaging_findWindowExA(void* hwndparent, void* hwndchildafter, void* lpszclass, void* lpszwindow) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2672,7 +2672,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_FindWindowExA(void* hwndpa
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_FindWindowExW(void* hwndparent, void* hwndchildafter, void* lpszclass, void* lpszwindow) {
+void* windowssys_windows_win32_ui_windowsandmessaging_findWindowExW(void* hwndparent, void* hwndchildafter, void* lpszclass, void* lpszwindow) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2697,7 +2697,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_FindWindowExW(void* hwndpa
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_FindWindowW(void* lpclassname, void* lpwindowname) {
+void* windowssys_windows_win32_ui_windowsandmessaging_findWindowW(void* lpclassname, void* lpwindowname) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2720,7 +2720,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_FindWindowW(void* lpclassn
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_FlashWindow(void* hwnd, int32_t binvert) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_flashWindow(void* hwnd, int32_t binvert) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2743,7 +2743,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_FlashWindow(void* hwnd, 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_FlashWindowEx(void* pfwi) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_flashWindowEx(void* pfwi) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2765,7 +2765,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_FlashWindowEx(void* pfwi
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_GetAltTabInfoA(void* hwnd, int32_t iitem, void* pati, void* pszitemtext, uint32_t cchitemtext) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_getAltTabInfoA(void* hwnd, int32_t iitem, void* pati, void* pszitemtext, uint32_t cchitemtext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2791,7 +2791,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_GetAltTabInfoA(void* hwn
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_GetAltTabInfoW(void* hwnd, int32_t iitem, void* pati, void* pszitemtext, uint32_t cchitemtext) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_getAltTabInfoW(void* hwnd, int32_t iitem, void* pati, void* pszitemtext, uint32_t cchitemtext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2817,7 +2817,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_GetAltTabInfoW(void* hwn
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_GetAncestor(void* hwnd, uint32_t gaflags) {
+void* windowssys_windows_win32_ui_windowsandmessaging_getAncestor(void* hwnd, uint32_t gaflags) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2840,7 +2840,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_GetAncestor(void* hwnd, ui
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_windowsandmessaging_GetCaretBlinkTime(void) {
+uint32_t windowssys_windows_win32_ui_windowsandmessaging_getCaretBlinkTime(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -2861,7 +2861,7 @@ uint32_t windowssys_windows_win32_ui_windowsandmessaging_GetCaretBlinkTime(void)
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_GetCaretPos(void* lppoint) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_getCaretPos(void* lppoint) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2883,7 +2883,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_GetCaretPos(void* lppoin
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_GetClassInfoA(void* hinstance, void* lpclassname, void* lpwndclass) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_getClassInfoA(void* hinstance, void* lpclassname, void* lpwndclass) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2907,7 +2907,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_GetClassInfoA(void* hins
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_GetClassInfoExA(void* hinstance, void* lpszclass, void* lpwcx) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_getClassInfoExA(void* hinstance, void* lpszclass, void* lpwcx) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2931,7 +2931,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_GetClassInfoExA(void* hi
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_GetClassInfoExW(void* hinstance, void* lpszclass, void* lpwcx) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_getClassInfoExW(void* hinstance, void* lpszclass, void* lpwcx) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2955,7 +2955,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_GetClassInfoExW(void* hi
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_GetClassInfoW(void* hinstance, void* lpclassname, void* lpwndclass) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_getClassInfoW(void* hinstance, void* lpclassname, void* lpwndclass) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2979,7 +2979,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_GetClassInfoW(void* hins
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_windowsandmessaging_GetClassLongA(void* hwnd, int32_t nindex) {
+uint32_t windowssys_windows_win32_ui_windowsandmessaging_getClassLongA(void* hwnd, int32_t nindex) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3002,7 +3002,7 @@ uint32_t windowssys_windows_win32_ui_windowsandmessaging_GetClassLongA(void* hwn
 #endif
 }
 
-uint64_t windowssys_windows_win32_ui_windowsandmessaging_GetClassLongPtrA(void* hwnd, int32_t nindex) {
+uint64_t windowssys_windows_win32_ui_windowsandmessaging_getClassLongPtrA(void* hwnd, int32_t nindex) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3025,7 +3025,7 @@ uint64_t windowssys_windows_win32_ui_windowsandmessaging_GetClassLongPtrA(void* 
 #endif
 }
 
-uint64_t windowssys_windows_win32_ui_windowsandmessaging_GetClassLongPtrW(void* hwnd, int32_t nindex) {
+uint64_t windowssys_windows_win32_ui_windowsandmessaging_getClassLongPtrW(void* hwnd, int32_t nindex) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3048,7 +3048,7 @@ uint64_t windowssys_windows_win32_ui_windowsandmessaging_GetClassLongPtrW(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_windowsandmessaging_GetClassLongW(void* hwnd, int32_t nindex) {
+uint32_t windowssys_windows_win32_ui_windowsandmessaging_getClassLongW(void* hwnd, int32_t nindex) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3071,7 +3071,7 @@ uint32_t windowssys_windows_win32_ui_windowsandmessaging_GetClassLongW(void* hwn
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_GetClassNameA(void* hwnd, void* lpclassname, int32_t nmaxcount) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_getClassNameA(void* hwnd, void* lpclassname, int32_t nmaxcount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3095,7 +3095,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_GetClassNameA(void* hwnd
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_GetClassNameW(void* hwnd, void* lpclassname, int32_t nmaxcount) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_getClassNameW(void* hwnd, void* lpclassname, int32_t nmaxcount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3119,7 +3119,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_GetClassNameW(void* hwnd
 #endif
 }
 
-uint16_t windowssys_windows_win32_ui_windowsandmessaging_GetClassWord(void* hwnd, int32_t nindex) {
+uint16_t windowssys_windows_win32_ui_windowsandmessaging_getClassWord(void* hwnd, int32_t nindex) {
 #ifdef _WIN32
     typedef uint16_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3142,7 +3142,7 @@ uint16_t windowssys_windows_win32_ui_windowsandmessaging_GetClassWord(void* hwnd
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_GetClientRect(void* hwnd, void* lprect) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_getClientRect(void* hwnd, void* lprect) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3165,7 +3165,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_GetClientRect(void* hwnd
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_GetClipCursor(void* lprect) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_getClipCursor(void* lprect) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3187,7 +3187,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_GetClipCursor(void* lpre
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_GetCursor(void) {
+void* windowssys_windows_win32_ui_windowsandmessaging_getCursor(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -3208,7 +3208,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_GetCursor(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_GetCursorInfo(void* pci) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_getCursorInfo(void* pci) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3230,7 +3230,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_GetCursorInfo(void* pci)
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_GetCursorPos(void* lppoint) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_getCursorPos(void* lppoint) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3252,7 +3252,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_GetCursorPos(void* lppoi
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_GetDesktopWindow(void) {
+void* windowssys_windows_win32_ui_windowsandmessaging_getDesktopWindow(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -3273,7 +3273,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_GetDesktopWindow(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_GetDialogBaseUnits(void) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_getDialogBaseUnits(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -3294,7 +3294,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_GetDialogBaseUnits(void)
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_GetDlgCtrlID(void* hwnd) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_getDlgCtrlID(void* hwnd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3316,7 +3316,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_GetDlgCtrlID(void* hwnd)
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_GetDlgItem(void* hdlg, int32_t niddlgitem) {
+void* windowssys_windows_win32_ui_windowsandmessaging_getDlgItem(void* hdlg, int32_t niddlgitem) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3339,7 +3339,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_GetDlgItem(void* hdlg, int
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_windowsandmessaging_GetDlgItemInt(void* hdlg, int32_t niddlgitem, void* lptranslated, int32_t bsigned) {
+uint32_t windowssys_windows_win32_ui_windowsandmessaging_getDlgItemInt(void* hdlg, int32_t niddlgitem, void* lptranslated, int32_t bsigned) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3364,7 +3364,7 @@ uint32_t windowssys_windows_win32_ui_windowsandmessaging_GetDlgItemInt(void* hdl
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_windowsandmessaging_GetDlgItemTextA(void* hdlg, int32_t niddlgitem, void* lpstring, int32_t cchmax) {
+uint32_t windowssys_windows_win32_ui_windowsandmessaging_getDlgItemTextA(void* hdlg, int32_t niddlgitem, void* lpstring, int32_t cchmax) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3389,7 +3389,7 @@ uint32_t windowssys_windows_win32_ui_windowsandmessaging_GetDlgItemTextA(void* h
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_windowsandmessaging_GetDlgItemTextW(void* hdlg, int32_t niddlgitem, void* lpstring, int32_t cchmax) {
+uint32_t windowssys_windows_win32_ui_windowsandmessaging_getDlgItemTextW(void* hdlg, int32_t niddlgitem, void* lpstring, int32_t cchmax) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3414,7 +3414,7 @@ uint32_t windowssys_windows_win32_ui_windowsandmessaging_GetDlgItemTextW(void* h
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_GetForegroundWindow(void) {
+void* windowssys_windows_win32_ui_windowsandmessaging_getForegroundWindow(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -3435,7 +3435,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_GetForegroundWindow(void) 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_GetGUIThreadInfo(uint32_t idthread, void* pgui) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_getGUIThreadInfo(uint32_t idthread, void* pgui) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3458,7 +3458,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_GetGUIThreadInfo(uint32_
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_GetIconInfo(void* hicon, void* piconinfo) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_getIconInfo(void* hicon, void* piconinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3481,7 +3481,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_GetIconInfo(void* hicon,
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_GetIconInfoExA(void* hicon, void* piconinfo) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_getIconInfoExA(void* hicon, void* piconinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3504,7 +3504,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_GetIconInfoExA(void* hic
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_GetIconInfoExW(void* hicon, void* piconinfo) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_getIconInfoExW(void* hicon, void* piconinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3527,7 +3527,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_GetIconInfoExW(void* hic
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_GetInputState(void) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_getInputState(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -3548,7 +3548,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_GetInputState(void) {
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_GetLastActivePopup(void* hwnd) {
+void* windowssys_windows_win32_ui_windowsandmessaging_getLastActivePopup(void* hwnd) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3570,7 +3570,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_GetLastActivePopup(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_GetLayeredWindowAttributes(void* hwnd, void* pcrkey, void* pbalpha, void* pdwflags) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_getLayeredWindowAttributes(void* hwnd, void* pcrkey, void* pbalpha, void* pdwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3595,7 +3595,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_GetLayeredWindowAttribut
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_GetMenu(void* hwnd) {
+void* windowssys_windows_win32_ui_windowsandmessaging_getMenu(void* hwnd) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3617,7 +3617,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_GetMenu(void* hwnd) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_GetMenuBarInfo(void* hwnd, int32_t idobject, int32_t iditem, void* pmbi) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_getMenuBarInfo(void* hwnd, int32_t idobject, int32_t iditem, void* pmbi) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3642,7 +3642,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_GetMenuBarInfo(void* hwn
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_GetMenuCheckMarkDimensions(void) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_getMenuCheckMarkDimensions(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -3663,7 +3663,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_GetMenuCheckMarkDimensio
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_windowsandmessaging_GetMenuDefaultItem(void* hmenu, uint32_t fbypos, uint32_t gmdiflags) {
+uint32_t windowssys_windows_win32_ui_windowsandmessaging_getMenuDefaultItem(void* hmenu, uint32_t fbypos, uint32_t gmdiflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3687,7 +3687,7 @@ uint32_t windowssys_windows_win32_ui_windowsandmessaging_GetMenuDefaultItem(void
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_GetMenuInfo(void* param0, void* param1) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_getMenuInfo(void* param0, void* param1) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3710,7 +3710,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_GetMenuInfo(void* param0
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_GetMenuItemCount(void* hmenu) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_getMenuItemCount(void* hmenu) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3732,7 +3732,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_GetMenuItemCount(void* h
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_windowsandmessaging_GetMenuItemID(void* hmenu, int32_t npos) {
+uint32_t windowssys_windows_win32_ui_windowsandmessaging_getMenuItemID(void* hmenu, int32_t npos) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3755,7 +3755,7 @@ uint32_t windowssys_windows_win32_ui_windowsandmessaging_GetMenuItemID(void* hme
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_GetMenuItemInfoA(void* hmenu, uint32_t item, int32_t fbyposition, void* lpmii) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_getMenuItemInfoA(void* hmenu, uint32_t item, int32_t fbyposition, void* lpmii) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3780,7 +3780,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_GetMenuItemInfoA(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_GetMenuItemInfoW(void* hmenu, uint32_t item, int32_t fbyposition, void* lpmii) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_getMenuItemInfoW(void* hmenu, uint32_t item, int32_t fbyposition, void* lpmii) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3805,7 +3805,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_GetMenuItemInfoW(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_GetMenuItemRect(void* hwnd, void* hmenu, uint32_t uitem, void* lprcitem) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_getMenuItemRect(void* hwnd, void* hmenu, uint32_t uitem, void* lprcitem) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3830,7 +3830,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_GetMenuItemRect(void* hw
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_windowsandmessaging_GetMenuState(void* hmenu, uint32_t uid, uint32_t uflags) {
+uint32_t windowssys_windows_win32_ui_windowsandmessaging_getMenuState(void* hmenu, uint32_t uid, uint32_t uflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3854,7 +3854,7 @@ uint32_t windowssys_windows_win32_ui_windowsandmessaging_GetMenuState(void* hmen
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_GetMenuStringA(void* hmenu, uint32_t uiditem, void* lpstring, int32_t cchmax, uint32_t flags) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_getMenuStringA(void* hmenu, uint32_t uiditem, void* lpstring, int32_t cchmax, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3880,7 +3880,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_GetMenuStringA(void* hme
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_GetMenuStringW(void* hmenu, uint32_t uiditem, void* lpstring, int32_t cchmax, uint32_t flags) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_getMenuStringW(void* hmenu, uint32_t uiditem, void* lpstring, int32_t cchmax, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3906,7 +3906,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_GetMenuStringW(void* hme
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_GetMessageA(void* lpmsg, void* hwnd, uint32_t wmsgfiltermin, uint32_t wmsgfiltermax) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_getMessageA(void* lpmsg, void* hwnd, uint32_t wmsgfiltermin, uint32_t wmsgfiltermax) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3931,7 +3931,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_GetMessageA(void* lpmsg,
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_windowsandmessaging_GetMessageExtraInfo(void) {
+int64_t windowssys_windows_win32_ui_windowsandmessaging_getMessageExtraInfo(void) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -3952,7 +3952,7 @@ int64_t windowssys_windows_win32_ui_windowsandmessaging_GetMessageExtraInfo(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_windowsandmessaging_GetMessagePos(void) {
+uint32_t windowssys_windows_win32_ui_windowsandmessaging_getMessagePos(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -3973,7 +3973,7 @@ uint32_t windowssys_windows_win32_ui_windowsandmessaging_GetMessagePos(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_GetMessageTime(void) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_getMessageTime(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -3994,7 +3994,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_GetMessageTime(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_GetMessageW(void* lpmsg, void* hwnd, uint32_t wmsgfiltermin, uint32_t wmsgfiltermax) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_getMessageW(void* lpmsg, void* hwnd, uint32_t wmsgfiltermin, uint32_t wmsgfiltermax) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4019,7 +4019,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_GetMessageW(void* lpmsg,
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_GetNextDlgGroupItem(void* hdlg, void* hctl, int32_t bprevious) {
+void* windowssys_windows_win32_ui_windowsandmessaging_getNextDlgGroupItem(void* hdlg, void* hctl, int32_t bprevious) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4043,7 +4043,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_GetNextDlgGroupItem(void* 
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_GetNextDlgTabItem(void* hdlg, void* hctl, int32_t bprevious) {
+void* windowssys_windows_win32_ui_windowsandmessaging_getNextDlgTabItem(void* hdlg, void* hctl, int32_t bprevious) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4067,7 +4067,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_GetNextDlgTabItem(void* hd
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_GetParent(void* hwnd) {
+void* windowssys_windows_win32_ui_windowsandmessaging_getParent(void* hwnd) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4089,7 +4089,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_GetParent(void* hwnd) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_GetPhysicalCursorPos(void* lppoint) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_getPhysicalCursorPos(void* lppoint) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4111,7 +4111,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_GetPhysicalCursorPos(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_GetProcessDefaultLayout(void* pdwdefaultlayout) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_getProcessDefaultLayout(void* pdwdefaultlayout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4133,7 +4133,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_GetProcessDefaultLayout(
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_GetPropA(void* hwnd, void* lpstring) {
+void* windowssys_windows_win32_ui_windowsandmessaging_getPropA(void* hwnd, void* lpstring) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4156,7 +4156,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_GetPropA(void* hwnd, void*
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_GetPropW(void* hwnd, void* lpstring) {
+void* windowssys_windows_win32_ui_windowsandmessaging_getPropW(void* hwnd, void* lpstring) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4179,7 +4179,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_GetPropW(void* hwnd, void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_windowsandmessaging_GetQueueStatus(uint32_t flags) {
+uint32_t windowssys_windows_win32_ui_windowsandmessaging_getQueueStatus(uint32_t flags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4201,7 +4201,7 @@ uint32_t windowssys_windows_win32_ui_windowsandmessaging_GetQueueStatus(uint32_t
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_GetScrollBarInfo(void* hwnd, int32_t idobject, void* psbi) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_getScrollBarInfo(void* hwnd, int32_t idobject, void* psbi) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4225,7 +4225,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_GetScrollBarInfo(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_GetScrollInfo(void* hwnd, int32_t nbar, void* lpsi) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_getScrollInfo(void* hwnd, int32_t nbar, void* lpsi) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4249,7 +4249,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_GetScrollInfo(void* hwnd
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_GetScrollPos(void* hwnd, int32_t nbar) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_getScrollPos(void* hwnd, int32_t nbar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4272,7 +4272,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_GetScrollPos(void* hwnd,
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_GetScrollRange(void* hwnd, int32_t nbar, void* lpminpos, void* lpmaxpos) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_getScrollRange(void* hwnd, int32_t nbar, void* lpminpos, void* lpmaxpos) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4297,7 +4297,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_GetScrollRange(void* hwn
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_GetShellWindow(void) {
+void* windowssys_windows_win32_ui_windowsandmessaging_getShellWindow(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -4318,7 +4318,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_GetShellWindow(void) {
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_GetSubMenu(void* hmenu, int32_t npos) {
+void* windowssys_windows_win32_ui_windowsandmessaging_getSubMenu(void* hmenu, int32_t npos) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4341,7 +4341,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_GetSubMenu(void* hmenu, in
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_GetSystemMenu(void* hwnd, int32_t brevert) {
+void* windowssys_windows_win32_ui_windowsandmessaging_getSystemMenu(void* hwnd, int32_t brevert) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4364,7 +4364,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_GetSystemMenu(void* hwnd, 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_GetSystemMetrics(int32_t nindex) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_getSystemMetrics(int32_t nindex) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4386,7 +4386,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_GetSystemMetrics(int32_t
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_GetTitleBarInfo(void* hwnd, void* pti) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_getTitleBarInfo(void* hwnd, void* pti) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4409,7 +4409,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_GetTitleBarInfo(void* hw
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_GetTopWindow(void* hwnd) {
+void* windowssys_windows_win32_ui_windowsandmessaging_getTopWindow(void* hwnd) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4431,7 +4431,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_GetTopWindow(void* hwnd) {
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_GetWindow(void* hwnd, uint32_t ucmd) {
+void* windowssys_windows_win32_ui_windowsandmessaging_getWindow(void* hwnd, uint32_t ucmd) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4454,7 +4454,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_GetWindow(void* hwnd, uint
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_GetWindowDisplayAffinity(void* hwnd, void* pdwaffinity) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_getWindowDisplayAffinity(void* hwnd, void* pdwaffinity) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4477,7 +4477,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_GetWindowDisplayAffinity
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_GetWindowInfo(void* hwnd, void* pwi) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_getWindowInfo(void* hwnd, void* pwi) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4500,7 +4500,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_GetWindowInfo(void* hwnd
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_GetWindowLongA(void* hwnd, int32_t nindex) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_getWindowLongA(void* hwnd, int32_t nindex) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4523,7 +4523,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_GetWindowLongA(void* hwn
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_windowsandmessaging_GetWindowLongPtrA(void* hwnd, int32_t nindex) {
+int64_t windowssys_windows_win32_ui_windowsandmessaging_getWindowLongPtrA(void* hwnd, int32_t nindex) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4546,7 +4546,7 @@ int64_t windowssys_windows_win32_ui_windowsandmessaging_GetWindowLongPtrA(void* 
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_windowsandmessaging_GetWindowLongPtrW(void* hwnd, int32_t nindex) {
+int64_t windowssys_windows_win32_ui_windowsandmessaging_getWindowLongPtrW(void* hwnd, int32_t nindex) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4569,7 +4569,7 @@ int64_t windowssys_windows_win32_ui_windowsandmessaging_GetWindowLongPtrW(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_GetWindowLongW(void* hwnd, int32_t nindex) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_getWindowLongW(void* hwnd, int32_t nindex) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4592,7 +4592,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_GetWindowLongW(void* hwn
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_windowsandmessaging_GetWindowModuleFileNameA(void* hwnd, void* pszfilename, uint32_t cchfilenamemax) {
+uint32_t windowssys_windows_win32_ui_windowsandmessaging_getWindowModuleFileNameA(void* hwnd, void* pszfilename, uint32_t cchfilenamemax) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4616,7 +4616,7 @@ uint32_t windowssys_windows_win32_ui_windowsandmessaging_GetWindowModuleFileName
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_windowsandmessaging_GetWindowModuleFileNameW(void* hwnd, void* pszfilename, uint32_t cchfilenamemax) {
+uint32_t windowssys_windows_win32_ui_windowsandmessaging_getWindowModuleFileNameW(void* hwnd, void* pszfilename, uint32_t cchfilenamemax) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4640,7 +4640,7 @@ uint32_t windowssys_windows_win32_ui_windowsandmessaging_GetWindowModuleFileName
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_GetWindowPlacement(void* hwnd, void* lpwndpl) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_getWindowPlacement(void* hwnd, void* lpwndpl) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4663,7 +4663,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_GetWindowPlacement(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_GetWindowRect(void* hwnd, void* lprect) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_getWindowRect(void* hwnd, void* lprect) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4686,7 +4686,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_GetWindowRect(void* hwnd
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_GetWindowTextA(void* hwnd, void* lpstring, int32_t nmaxcount) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_getWindowTextA(void* hwnd, void* lpstring, int32_t nmaxcount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4710,7 +4710,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_GetWindowTextA(void* hwn
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_GetWindowTextLengthA(void* hwnd) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_getWindowTextLengthA(void* hwnd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4732,7 +4732,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_GetWindowTextLengthA(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_GetWindowTextLengthW(void* hwnd) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_getWindowTextLengthW(void* hwnd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4754,7 +4754,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_GetWindowTextLengthW(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_GetWindowTextW(void* hwnd, void* lpstring, int32_t nmaxcount) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_getWindowTextW(void* hwnd, void* lpstring, int32_t nmaxcount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4778,7 +4778,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_GetWindowTextW(void* hwn
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_windowsandmessaging_GetWindowThreadProcessId(void* hwnd, void* lpdwprocessid) {
+uint32_t windowssys_windows_win32_ui_windowsandmessaging_getWindowThreadProcessId(void* hwnd, void* lpdwprocessid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4801,7 +4801,7 @@ uint32_t windowssys_windows_win32_ui_windowsandmessaging_GetWindowThreadProcessI
 #endif
 }
 
-uint16_t windowssys_windows_win32_ui_windowsandmessaging_GetWindowWord(void* hwnd, int32_t nindex) {
+uint16_t windowssys_windows_win32_ui_windowsandmessaging_getWindowWord(void* hwnd, int32_t nindex) {
 #ifdef _WIN32
     typedef uint16_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4824,7 +4824,7 @@ uint16_t windowssys_windows_win32_ui_windowsandmessaging_GetWindowWord(void* hwn
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_HideCaret(void* hwnd) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_hideCaret(void* hwnd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4846,7 +4846,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_HideCaret(void* hwnd) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_HiliteMenuItem(void* hwnd, void* hmenu, uint32_t uidhiliteitem, uint32_t uhilite) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_hiliteMenuItem(void* hwnd, void* hmenu, uint32_t uidhiliteitem, uint32_t uhilite) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4871,7 +4871,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_HiliteMenuItem(void* hwn
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_InSendMessage(void) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_inSendMessage(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -4892,7 +4892,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_InSendMessage(void) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_windowsandmessaging_InSendMessageEx(void* lpreserved) {
+uint32_t windowssys_windows_win32_ui_windowsandmessaging_inSendMessageEx(void* lpreserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4914,7 +4914,7 @@ uint32_t windowssys_windows_win32_ui_windowsandmessaging_InSendMessageEx(void* l
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_IndexFilePath(void* resourceindexer, void* filepath, void* ppresourceuri, void* pqualifiercount, void* ppqualifiers) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_indexFilePath(void* resourceindexer, void* filepath, void* ppresourceuri, void* pqualifiercount, void* ppqualifiers) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4940,7 +4940,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_IndexFilePath(void* reso
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_InheritWindowMonitor(void* hwnd, void* hwndinherit) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_inheritWindowMonitor(void* hwnd, void* hwndinherit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4963,7 +4963,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_InheritWindowMonitor(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_InsertMenuA(void* hmenu, uint32_t uposition, uint32_t uflags, uint64_t uidnewitem, void* lpnewitem) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_insertMenuA(void* hmenu, uint32_t uposition, uint32_t uflags, uint64_t uidnewitem, void* lpnewitem) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4989,7 +4989,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_InsertMenuA(void* hmenu,
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_InsertMenuItemA(void* hmenu, uint32_t item, int32_t fbyposition, void* lpmi) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_insertMenuItemA(void* hmenu, uint32_t item, int32_t fbyposition, void* lpmi) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5014,7 +5014,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_InsertMenuItemA(void* hm
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_InsertMenuItemW(void* hmenu, uint32_t item, int32_t fbyposition, void* lpmi) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_insertMenuItemW(void* hmenu, uint32_t item, int32_t fbyposition, void* lpmi) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5039,7 +5039,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_InsertMenuItemW(void* hm
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_InsertMenuW(void* hmenu, uint32_t uposition, uint32_t uflags, uint64_t uidnewitem, void* lpnewitem) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_insertMenuW(void* hmenu, uint32_t uposition, uint32_t uflags, uint64_t uidnewitem, void* lpnewitem) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5065,7 +5065,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_InsertMenuW(void* hmenu,
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_InternalGetWindowText(void* hwnd, void* pstring, int32_t cchmaxcount) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_internalGetWindowText(void* hwnd, void* pstring, int32_t cchmaxcount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5089,7 +5089,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_InternalGetWindowText(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_IsCharAlphaA(int8_t ch) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_isCharAlphaA(int8_t ch) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5111,7 +5111,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_IsCharAlphaA(int8_t ch) 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_IsCharAlphaNumericA(int8_t ch) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_isCharAlphaNumericA(int8_t ch) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5133,7 +5133,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_IsCharAlphaNumericA(int8
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_IsCharAlphaNumericW(uint16_t ch) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_isCharAlphaNumericW(uint16_t ch) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5155,7 +5155,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_IsCharAlphaNumericW(uint
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_IsCharAlphaW(uint16_t ch) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_isCharAlphaW(uint16_t ch) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5177,7 +5177,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_IsCharAlphaW(uint16_t ch
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_IsCharLowerA(int8_t ch) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_isCharLowerA(int8_t ch) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5199,7 +5199,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_IsCharLowerA(int8_t ch) 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_IsCharUpperA(int8_t ch) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_isCharUpperA(int8_t ch) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5221,7 +5221,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_IsCharUpperA(int8_t ch) 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_IsCharUpperW(uint16_t ch) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_isCharUpperW(uint16_t ch) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5243,7 +5243,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_IsCharUpperW(uint16_t ch
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_IsChild(void* hwndparent, void* hwnd) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_isChild(void* hwndparent, void* hwnd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5266,7 +5266,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_IsChild(void* hwndparent
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_IsDialogMessageA(void* hdlg, void* lpmsg) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_isDialogMessageA(void* hdlg, void* lpmsg) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5289,7 +5289,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_IsDialogMessageA(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_IsDialogMessageW(void* hdlg, void* lpmsg) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_isDialogMessageW(void* hdlg, void* lpmsg) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5312,7 +5312,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_IsDialogMessageW(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_IsGUIThread(int32_t bconvert) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_isGUIThread(int32_t bconvert) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5334,7 +5334,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_IsGUIThread(int32_t bcon
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_IsHungAppWindow(void* hwnd) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_isHungAppWindow(void* hwnd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5356,7 +5356,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_IsHungAppWindow(void* hw
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_IsIconic(void* hwnd) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_isIconic(void* hwnd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5378,7 +5378,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_IsIconic(void* hwnd) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_IsMenu(void* hmenu) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_isMenu(void* hmenu) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5400,7 +5400,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_IsMenu(void* hmenu) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_IsProcessDPIAware(void) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_isProcessDPIAware(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -5421,7 +5421,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_IsProcessDPIAware(void) 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_IsWindow(void* hwnd) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_isWindow(void* hwnd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5443,7 +5443,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_IsWindow(void* hwnd) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_IsWindowArranged(void* hwnd) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_isWindowArranged(void* hwnd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5465,7 +5465,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_IsWindowArranged(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_IsWindowUnicode(void* hwnd) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_isWindowUnicode(void* hwnd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5487,7 +5487,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_IsWindowUnicode(void* hw
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_IsWindowVisible(void* hwnd) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_isWindowVisible(void* hwnd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5509,7 +5509,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_IsWindowVisible(void* hw
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_IsWow64Message(void) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_isWow64Message(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -5530,7 +5530,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_IsWow64Message(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_IsZoomed(void* hwnd) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_isZoomed(void* hwnd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5552,7 +5552,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_IsZoomed(void* hwnd) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_KillTimer(void* hwnd, uint64_t uidevent) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_killTimer(void* hwnd, uint64_t uidevent) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5575,7 +5575,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_KillTimer(void* hwnd, ui
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_LoadAcceleratorsA(void* hinstance, void* lptablename) {
+void* windowssys_windows_win32_ui_windowsandmessaging_loadAcceleratorsA(void* hinstance, void* lptablename) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5598,7 +5598,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_LoadAcceleratorsA(void* hi
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_LoadAcceleratorsW(void* hinstance, void* lptablename) {
+void* windowssys_windows_win32_ui_windowsandmessaging_loadAcceleratorsW(void* hinstance, void* lptablename) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5621,7 +5621,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_LoadAcceleratorsW(void* hi
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_LoadCursorA(void* hinstance, void* lpcursorname) {
+void* windowssys_windows_win32_ui_windowsandmessaging_loadCursorA(void* hinstance, void* lpcursorname) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5644,7 +5644,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_LoadCursorA(void* hinstanc
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_LoadCursorFromFileA(void* lpfilename) {
+void* windowssys_windows_win32_ui_windowsandmessaging_loadCursorFromFileA(void* lpfilename) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5666,7 +5666,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_LoadCursorFromFileA(void* 
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_LoadCursorFromFileW(void* lpfilename) {
+void* windowssys_windows_win32_ui_windowsandmessaging_loadCursorFromFileW(void* lpfilename) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5688,7 +5688,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_LoadCursorFromFileW(void* 
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_LoadCursorW(void* hinstance, void* lpcursorname) {
+void* windowssys_windows_win32_ui_windowsandmessaging_loadCursorW(void* hinstance, void* lpcursorname) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5711,7 +5711,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_LoadCursorW(void* hinstanc
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_LoadIconA(void* hinstance, void* lpiconname) {
+void* windowssys_windows_win32_ui_windowsandmessaging_loadIconA(void* hinstance, void* lpiconname) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5734,7 +5734,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_LoadIconA(void* hinstance,
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_LoadIconW(void* hinstance, void* lpiconname) {
+void* windowssys_windows_win32_ui_windowsandmessaging_loadIconW(void* hinstance, void* lpiconname) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5757,7 +5757,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_LoadIconW(void* hinstance,
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_LoadImageA(void* hinst, void* name, uint32_t type, int32_t cx, int32_t cy, uint32_t fuload) {
+void* windowssys_windows_win32_ui_windowsandmessaging_loadImageA(void* hinst, void* name, uint32_t type, int32_t cx, int32_t cy, uint32_t fuload) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint32_t, int32_t, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5784,7 +5784,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_LoadImageA(void* hinst, vo
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_LoadImageW(void* hinst, void* name, uint32_t type, int32_t cx, int32_t cy, uint32_t fuload) {
+void* windowssys_windows_win32_ui_windowsandmessaging_loadImageW(void* hinst, void* name, uint32_t type, int32_t cx, int32_t cy, uint32_t fuload) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint32_t, int32_t, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5811,7 +5811,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_LoadImageW(void* hinst, vo
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_LoadMenuA(void* hinstance, void* lpmenuname) {
+void* windowssys_windows_win32_ui_windowsandmessaging_loadMenuA(void* hinstance, void* lpmenuname) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5834,7 +5834,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_LoadMenuA(void* hinstance,
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_LoadMenuIndirectA(void* lpmenutemplate) {
+void* windowssys_windows_win32_ui_windowsandmessaging_loadMenuIndirectA(void* lpmenutemplate) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5856,7 +5856,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_LoadMenuIndirectA(void* lp
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_LoadMenuIndirectW(void* lpmenutemplate) {
+void* windowssys_windows_win32_ui_windowsandmessaging_loadMenuIndirectW(void* lpmenutemplate) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5878,7 +5878,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_LoadMenuIndirectW(void* lp
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_LoadMenuW(void* hinstance, void* lpmenuname) {
+void* windowssys_windows_win32_ui_windowsandmessaging_loadMenuW(void* hinstance, void* lpmenuname) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5901,7 +5901,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_LoadMenuW(void* hinstance,
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_LoadStringA(void* hinstance, uint32_t uid, void* lpbuffer, int32_t cchbuffermax) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_loadStringA(void* hinstance, uint32_t uid, void* lpbuffer, int32_t cchbuffermax) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5926,7 +5926,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_LoadStringA(void* hinsta
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_LoadStringW(void* hinstance, uint32_t uid, void* lpbuffer, int32_t cchbuffermax) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_loadStringW(void* hinstance, uint32_t uid, void* lpbuffer, int32_t cchbuffermax) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5951,7 +5951,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_LoadStringW(void* hinsta
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_LockSetForegroundWindow(uint32_t ulockcode) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_lockSetForegroundWindow(uint32_t ulockcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5973,7 +5973,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_LockSetForegroundWindow(
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_LogicalToPhysicalPoint(void* hwnd, void* lppoint) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_logicalToPhysicalPoint(void* hwnd, void* lppoint) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5996,7 +5996,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_LogicalToPhysicalPoint(v
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_LookupIconIdFromDirectory(void* presbits, int32_t ficon) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_lookupIconIdFromDirectory(void* presbits, int32_t ficon) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6019,7 +6019,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_LookupIconIdFromDirector
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_LookupIconIdFromDirectoryEx(void* presbits, int32_t ficon, int32_t cxdesired, int32_t cydesired, uint32_t flags) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_lookupIconIdFromDirectoryEx(void* presbits, int32_t ficon, int32_t cxdesired, int32_t cydesired, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6045,7 +6045,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_LookupIconIdFromDirector
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_MapDialogRect(void* hdlg, void* lprect) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_mapDialogRect(void* hdlg, void* lprect) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6068,7 +6068,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_MapDialogRect(void* hdlg
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_MessageBoxA(void* hwnd, void* lptext, void* lpcaption, uint32_t utype) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_messageBoxA(void* hwnd, void* lptext, void* lpcaption, uint32_t utype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6093,7 +6093,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_MessageBoxA(void* hwnd, 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_MessageBoxExA(void* hwnd, void* lptext, void* lpcaption, uint32_t utype, uint16_t wlanguageid) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_messageBoxExA(void* hwnd, void* lptext, void* lpcaption, uint32_t utype, uint16_t wlanguageid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6119,7 +6119,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_MessageBoxExA(void* hwnd
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_MessageBoxExW(void* hwnd, void* lptext, void* lpcaption, uint32_t utype, uint16_t wlanguageid) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_messageBoxExW(void* hwnd, void* lptext, void* lpcaption, uint32_t utype, uint16_t wlanguageid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6145,7 +6145,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_MessageBoxExW(void* hwnd
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_MessageBoxIndirectA(void* lpmbp) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_messageBoxIndirectA(void* lpmbp) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6167,7 +6167,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_MessageBoxIndirectA(void
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_MessageBoxIndirectW(void* lpmbp) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_messageBoxIndirectW(void* lpmbp) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6189,7 +6189,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_MessageBoxIndirectW(void
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_MessageBoxW(void* hwnd, void* lptext, void* lpcaption, uint32_t utype) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_messageBoxW(void* hwnd, void* lptext, void* lpcaption, uint32_t utype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6214,7 +6214,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_MessageBoxW(void* hwnd, 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_ModifyMenuA(void* hmnu, uint32_t uposition, uint32_t uflags, uint64_t uidnewitem, void* lpnewitem) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_modifyMenuA(void* hmnu, uint32_t uposition, uint32_t uflags, uint64_t uidnewitem, void* lpnewitem) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6240,7 +6240,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_ModifyMenuA(void* hmnu, 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_ModifyMenuW(void* hmnu, uint32_t uposition, uint32_t uflags, uint64_t uidnewitem, void* lpnewitem) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_modifyMenuW(void* hmnu, uint32_t uposition, uint32_t uflags, uint64_t uidnewitem, void* lpnewitem) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6266,7 +6266,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_ModifyMenuW(void* hmnu, 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_MoveWindow(void* hwnd, int32_t x, int32_t y, int32_t nwidth, int32_t nheight, int32_t brepaint) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_moveWindow(void* hwnd, int32_t x, int32_t y, int32_t nwidth, int32_t nheight, int32_t brepaint) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, int32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6293,7 +6293,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_MoveWindow(void* hwnd, i
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_MrmCreateConfig(int32_t platformversion, void* defaultqualifiers, void* outputxmlfile) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_mrmCreateConfig(int32_t platformversion, void* defaultqualifiers, void* outputxmlfile) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6317,7 +6317,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_MrmCreateConfig(int32_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_MrmCreateConfigInMemory(int32_t platformversion, void* defaultqualifiers, void* outputxmldata, void* outputxmlsize) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_mrmCreateConfigInMemory(int32_t platformversion, void* defaultqualifiers, void* outputxmldata, void* outputxmlsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6342,7 +6342,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_MrmCreateConfigInMemory(
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_MrmCreateResourceIndexer(void* packagefamilyname, void* projectroot, int32_t platformversion, void* defaultqualifiers, void* indexer) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_mrmCreateResourceIndexer(void* packagefamilyname, void* projectroot, int32_t platformversion, void* defaultqualifiers, void* indexer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6368,7 +6368,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_MrmCreateResourceIndexer
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_MrmCreateResourceIndexerFromPreviousPriData(void* projectroot, int32_t platformversion, void* defaultqualifiers, void* pridata, uint32_t prisize, void* indexer) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_mrmCreateResourceIndexerFromPreviousPriData(void* projectroot, int32_t platformversion, void* defaultqualifiers, void* pridata, uint32_t prisize, void* indexer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6395,7 +6395,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_MrmCreateResourceIndexer
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_MrmCreateResourceIndexerFromPreviousPriFile(void* projectroot, int32_t platformversion, void* defaultqualifiers, void* prifile, void* indexer) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_mrmCreateResourceIndexerFromPreviousPriFile(void* projectroot, int32_t platformversion, void* defaultqualifiers, void* prifile, void* indexer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6421,7 +6421,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_MrmCreateResourceIndexer
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_MrmCreateResourceIndexerFromPreviousSchemaData(void* projectroot, int32_t platformversion, void* defaultqualifiers, void* schemaxmldata, uint32_t schemaxmlsize, void* indexer) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_mrmCreateResourceIndexerFromPreviousSchemaData(void* projectroot, int32_t platformversion, void* defaultqualifiers, void* schemaxmldata, uint32_t schemaxmlsize, void* indexer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6448,7 +6448,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_MrmCreateResourceIndexer
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_MrmCreateResourceIndexerFromPreviousSchemaFile(void* projectroot, int32_t platformversion, void* defaultqualifiers, void* schemafile, void* indexer) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_mrmCreateResourceIndexerFromPreviousSchemaFile(void* projectroot, int32_t platformversion, void* defaultqualifiers, void* schemafile, void* indexer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6474,7 +6474,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_MrmCreateResourceIndexer
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_MrmCreateResourceIndexerWithFlags(void* packagefamilyname, void* projectroot, int32_t platformversion, void* defaultqualifiers, int32_t flags, void* indexer) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_mrmCreateResourceIndexerWithFlags(void* packagefamilyname, void* projectroot, int32_t platformversion, void* defaultqualifiers, int32_t flags, void* indexer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6501,7 +6501,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_MrmCreateResourceIndexer
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_MrmDumpPriDataInMemory(void* inputpridata, uint32_t inputprisize, void* schemapridata, uint32_t schemaprisize, int32_t dumptype, void* outputxmldata, void* outputxmlsize) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_mrmDumpPriDataInMemory(void* inputpridata, uint32_t inputprisize, void* schemapridata, uint32_t schemaprisize, int32_t dumptype, void* outputxmldata, void* outputxmlsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6529,7 +6529,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_MrmDumpPriDataInMemory(v
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_MrmDumpPriFile(void* indexfilename, void* schemaprifile, int32_t dumptype, void* outputxmlfile) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_mrmDumpPriFile(void* indexfilename, void* schemaprifile, int32_t dumptype, void* outputxmlfile) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6554,7 +6554,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_MrmDumpPriFile(void* ind
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_MrmDumpPriFileInMemory(void* indexfilename, void* schemaprifile, int32_t dumptype, void* outputxmldata, void* outputxmlsize) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_mrmDumpPriFileInMemory(void* indexfilename, void* schemaprifile, int32_t dumptype, void* outputxmldata, void* outputxmlsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6580,7 +6580,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_MrmDumpPriFileInMemory(v
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_MrmFreeMemory(void* data) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_mrmFreeMemory(void* data) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6602,7 +6602,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_MrmFreeMemory(void* data
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_MrmGetPriFileContentChecksum(void* prifile, void* checksum) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_mrmGetPriFileContentChecksum(void* prifile, void* checksum) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6625,7 +6625,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_MrmGetPriFileContentChec
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_windowsandmessaging_MsgWaitForMultipleObjects(uint32_t ncount, void* phandles, int32_t fwaitall, uint32_t dwmilliseconds, uint32_t dwwakemask) {
+uint32_t windowssys_windows_win32_ui_windowsandmessaging_msgWaitForMultipleObjects(uint32_t ncount, void* phandles, int32_t fwaitall, uint32_t dwmilliseconds, uint32_t dwwakemask) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, int32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6651,7 +6651,7 @@ uint32_t windowssys_windows_win32_ui_windowsandmessaging_MsgWaitForMultipleObjec
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_windowsandmessaging_MsgWaitForMultipleObjectsEx(uint32_t ncount, void* phandles, uint32_t dwmilliseconds, uint32_t dwwakemask, uint32_t dwflags) {
+uint32_t windowssys_windows_win32_ui_windowsandmessaging_msgWaitForMultipleObjectsEx(uint32_t ncount, void* phandles, uint32_t dwmilliseconds, uint32_t dwwakemask, uint32_t dwflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6677,7 +6677,7 @@ uint32_t windowssys_windows_win32_ui_windowsandmessaging_MsgWaitForMultipleObjec
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_OemToCharA(void* psrc, void* pdst) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_oemToCharA(void* psrc, void* pdst) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6700,7 +6700,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_OemToCharA(void* psrc, v
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_OemToCharBuffA(void* lpszsrc, void* lpszdst, uint32_t cchdstlength) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_oemToCharBuffA(void* lpszsrc, void* lpszdst, uint32_t cchdstlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6724,7 +6724,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_OemToCharBuffA(void* lps
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_OemToCharBuffW(void* lpszsrc, void* lpszdst, uint32_t cchdstlength) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_oemToCharBuffW(void* lpszsrc, void* lpszdst, uint32_t cchdstlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6748,7 +6748,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_OemToCharBuffW(void* lps
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_OemToCharW(void* psrc, void* pdst) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_oemToCharW(void* psrc, void* pdst) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6771,7 +6771,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_OemToCharW(void* psrc, v
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_OpenIcon(void* hwnd) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_openIcon(void* hwnd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6793,7 +6793,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_OpenIcon(void* hwnd) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_PeekMessageA(void* lpmsg, void* hwnd, uint32_t wmsgfiltermin, uint32_t wmsgfiltermax, uint32_t wremovemsg) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_peekMessageA(void* lpmsg, void* hwnd, uint32_t wmsgfiltermin, uint32_t wmsgfiltermax, uint32_t wremovemsg) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6819,7 +6819,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_PeekMessageA(void* lpmsg
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_PeekMessageW(void* lpmsg, void* hwnd, uint32_t wmsgfiltermin, uint32_t wmsgfiltermax, uint32_t wremovemsg) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_peekMessageW(void* lpmsg, void* hwnd, uint32_t wmsgfiltermin, uint32_t wmsgfiltermax, uint32_t wremovemsg) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6845,7 +6845,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_PeekMessageW(void* lpmsg
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_PhysicalToLogicalPoint(void* hwnd, void* lppoint) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_physicalToLogicalPoint(void* hwnd, void* lppoint) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6868,7 +6868,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_PhysicalToLogicalPoint(v
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_PostMessageA(void* hwnd, uint32_t msg, uint64_t wparam, int64_t lparam) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_postMessageA(void* hwnd, uint32_t msg, uint64_t wparam, int64_t lparam) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6893,7 +6893,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_PostMessageA(void* hwnd,
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_PostMessageW(void* hwnd, uint32_t msg, uint64_t wparam, int64_t lparam) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_postMessageW(void* hwnd, uint32_t msg, uint64_t wparam, int64_t lparam) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6918,7 +6918,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_PostMessageW(void* hwnd,
 #endif
 }
 
-void windowssys_windows_win32_ui_windowsandmessaging_PostQuitMessage(int32_t nexitcode) {
+void windowssys_windows_win32_ui_windowsandmessaging_postQuitMessage(int32_t nexitcode) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6939,7 +6939,7 @@ void windowssys_windows_win32_ui_windowsandmessaging_PostQuitMessage(int32_t nex
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_PostThreadMessageA(uint32_t idthread, uint32_t msg, uint64_t wparam, int64_t lparam) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_postThreadMessageA(uint32_t idthread, uint32_t msg, uint64_t wparam, int64_t lparam) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6964,7 +6964,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_PostThreadMessageA(uint3
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_PostThreadMessageW(uint32_t idthread, uint32_t msg, uint64_t wparam, int64_t lparam) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_postThreadMessageW(uint32_t idthread, uint32_t msg, uint64_t wparam, int64_t lparam) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6989,7 +6989,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_PostThreadMessageW(uint3
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_windowsandmessaging_PrivateExtractIconsA(void* szfilename, int32_t niconindex, int32_t cxicon, int32_t cyicon, void* phicon, void* piconid, uint32_t nicons, uint32_t flags) {
+uint32_t windowssys_windows_win32_ui_windowsandmessaging_privateExtractIconsA(void* szfilename, int32_t niconindex, int32_t cxicon, int32_t cyicon, void* phicon, void* piconid, uint32_t nicons, uint32_t flags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, int32_t, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7018,7 +7018,7 @@ uint32_t windowssys_windows_win32_ui_windowsandmessaging_PrivateExtractIconsA(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_windowsandmessaging_PrivateExtractIconsW(void* szfilename, int32_t niconindex, int32_t cxicon, int32_t cyicon, void* phicon, void* piconid, uint32_t nicons, uint32_t flags) {
+uint32_t windowssys_windows_win32_ui_windowsandmessaging_privateExtractIconsW(void* szfilename, int32_t niconindex, int32_t cxicon, int32_t cyicon, void* phicon, void* piconid, uint32_t nicons, uint32_t flags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, int32_t, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7047,7 +7047,7 @@ uint32_t windowssys_windows_win32_ui_windowsandmessaging_PrivateExtractIconsW(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_windowsandmessaging_RealGetWindowClassA(void* hwnd, void* ptszclassname, uint32_t cchclassnamemax) {
+uint32_t windowssys_windows_win32_ui_windowsandmessaging_realGetWindowClassA(void* hwnd, void* ptszclassname, uint32_t cchclassnamemax) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7071,7 +7071,7 @@ uint32_t windowssys_windows_win32_ui_windowsandmessaging_RealGetWindowClassA(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_windowsandmessaging_RealGetWindowClassW(void* hwnd, void* ptszclassname, uint32_t cchclassnamemax) {
+uint32_t windowssys_windows_win32_ui_windowsandmessaging_realGetWindowClassW(void* hwnd, void* ptszclassname, uint32_t cchclassnamemax) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7095,7 +7095,7 @@ uint32_t windowssys_windows_win32_ui_windowsandmessaging_RealGetWindowClassW(voi
 #endif
 }
 
-uint16_t windowssys_windows_win32_ui_windowsandmessaging_RegisterClassA(void* lpwndclass) {
+uint16_t windowssys_windows_win32_ui_windowsandmessaging_registerClassA(void* lpwndclass) {
 #ifdef _WIN32
     typedef uint16_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7117,7 +7117,7 @@ uint16_t windowssys_windows_win32_ui_windowsandmessaging_RegisterClassA(void* lp
 #endif
 }
 
-uint16_t windowssys_windows_win32_ui_windowsandmessaging_RegisterClassExA(void* param0) {
+uint16_t windowssys_windows_win32_ui_windowsandmessaging_registerClassExA(void* param0) {
 #ifdef _WIN32
     typedef uint16_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7139,7 +7139,7 @@ uint16_t windowssys_windows_win32_ui_windowsandmessaging_RegisterClassExA(void* 
 #endif
 }
 
-uint16_t windowssys_windows_win32_ui_windowsandmessaging_RegisterClassExW(void* param0) {
+uint16_t windowssys_windows_win32_ui_windowsandmessaging_registerClassExW(void* param0) {
 #ifdef _WIN32
     typedef uint16_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7161,7 +7161,7 @@ uint16_t windowssys_windows_win32_ui_windowsandmessaging_RegisterClassExW(void* 
 #endif
 }
 
-uint16_t windowssys_windows_win32_ui_windowsandmessaging_RegisterClassW(void* lpwndclass) {
+uint16_t windowssys_windows_win32_ui_windowsandmessaging_registerClassW(void* lpwndclass) {
 #ifdef _WIN32
     typedef uint16_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7183,7 +7183,7 @@ uint16_t windowssys_windows_win32_ui_windowsandmessaging_RegisterClassW(void* lp
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_RegisterDeviceNotificationA(void* hrecipient, void* notificationfilter, uint32_t flags) {
+void* windowssys_windows_win32_ui_windowsandmessaging_registerDeviceNotificationA(void* hrecipient, void* notificationfilter, uint32_t flags) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7207,7 +7207,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_RegisterDeviceNotification
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_RegisterDeviceNotificationW(void* hrecipient, void* notificationfilter, uint32_t flags) {
+void* windowssys_windows_win32_ui_windowsandmessaging_registerDeviceNotificationW(void* hrecipient, void* notificationfilter, uint32_t flags) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7231,7 +7231,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_RegisterDeviceNotification
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_RegisterForTooltipDismissNotification(void* hwnd, int32_t tdflags) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_registerForTooltipDismissNotification(void* hwnd, int32_t tdflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7254,7 +7254,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_RegisterForTooltipDismis
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_RegisterShellHookWindow(void* hwnd) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_registerShellHookWindow(void* hwnd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7276,7 +7276,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_RegisterShellHookWindow(
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_windowsandmessaging_RegisterWindowMessageA(void* lpstring) {
+uint32_t windowssys_windows_win32_ui_windowsandmessaging_registerWindowMessageA(void* lpstring) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7298,7 +7298,7 @@ uint32_t windowssys_windows_win32_ui_windowsandmessaging_RegisterWindowMessageA(
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_windowsandmessaging_RegisterWindowMessageW(void* lpstring) {
+uint32_t windowssys_windows_win32_ui_windowsandmessaging_registerWindowMessageW(void* lpstring) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7320,7 +7320,7 @@ uint32_t windowssys_windows_win32_ui_windowsandmessaging_RegisterWindowMessageW(
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_RemoveMenu(void* hmenu, uint32_t uposition, uint32_t uflags) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_removeMenu(void* hmenu, uint32_t uposition, uint32_t uflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7344,7 +7344,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_RemoveMenu(void* hmenu, 
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_RemovePropA(void* hwnd, void* lpstring) {
+void* windowssys_windows_win32_ui_windowsandmessaging_removePropA(void* hwnd, void* lpstring) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7367,7 +7367,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_RemovePropA(void* hwnd, vo
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_RemovePropW(void* hwnd, void* lpstring) {
+void* windowssys_windows_win32_ui_windowsandmessaging_removePropW(void* hwnd, void* lpstring) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7390,7 +7390,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_RemovePropW(void* hwnd, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_ReplyMessage(int64_t lresult) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_replyMessage(int64_t lresult) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7412,7 +7412,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_ReplyMessage(int64_t lre
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_ScrollDC(void* hdc, int32_t dx, int32_t dy, void* lprcscroll, void* lprcclip, void* hrgnupdate, void* lprcupdate) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_scrollDC(void* hdc, int32_t dx, int32_t dy, void* lprcscroll, void* lprcclip, void* hrgnupdate, void* lprcupdate) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7440,7 +7440,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_ScrollDC(void* hdc, int3
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_ScrollWindow(void* hwnd, int32_t xamount, int32_t yamount, void* lprect, void* lpcliprect) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_scrollWindow(void* hwnd, int32_t xamount, int32_t yamount, void* lprect, void* lpcliprect) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7466,7 +7466,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_ScrollWindow(void* hwnd,
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_ScrollWindowEx(void* hwnd, int32_t dx, int32_t dy, void* prcscroll, void* prcclip, void* hrgnupdate, void* prcupdate, uint32_t flags) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_scrollWindowEx(void* hwnd, int32_t dx, int32_t dy, void* prcscroll, void* prcclip, void* hrgnupdate, void* prcupdate, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7495,7 +7495,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_ScrollWindowEx(void* hwn
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_windowsandmessaging_SendDlgItemMessageA(void* hdlg, int32_t niddlgitem, uint32_t msg, uint64_t wparam, int64_t lparam) {
+int64_t windowssys_windows_win32_ui_windowsandmessaging_sendDlgItemMessageA(void* hdlg, int32_t niddlgitem, uint32_t msg, uint64_t wparam, int64_t lparam) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, int32_t, uint32_t, uint64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7521,7 +7521,7 @@ int64_t windowssys_windows_win32_ui_windowsandmessaging_SendDlgItemMessageA(void
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_windowsandmessaging_SendDlgItemMessageW(void* hdlg, int32_t niddlgitem, uint32_t msg, uint64_t wparam, int64_t lparam) {
+int64_t windowssys_windows_win32_ui_windowsandmessaging_sendDlgItemMessageW(void* hdlg, int32_t niddlgitem, uint32_t msg, uint64_t wparam, int64_t lparam) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, int32_t, uint32_t, uint64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7547,7 +7547,7 @@ int64_t windowssys_windows_win32_ui_windowsandmessaging_SendDlgItemMessageW(void
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_windowsandmessaging_SendMessageA(void* hwnd, uint32_t msg, uint64_t wparam, int64_t lparam) {
+int64_t windowssys_windows_win32_ui_windowsandmessaging_sendMessageA(void* hwnd, uint32_t msg, uint64_t wparam, int64_t lparam) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, uint32_t, uint64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7572,7 +7572,7 @@ int64_t windowssys_windows_win32_ui_windowsandmessaging_SendMessageA(void* hwnd,
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_SendMessageCallbackA(void* hwnd, uint32_t msg, uint64_t wparam, int64_t lparam, void* lpresultcallback, uint64_t dwdata) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_sendMessageCallbackA(void* hwnd, uint32_t msg, uint64_t wparam, int64_t lparam, void* lpresultcallback, uint64_t dwdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint64_t, int64_t, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7599,7 +7599,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_SendMessageCallbackA(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_SendMessageCallbackW(void* hwnd, uint32_t msg, uint64_t wparam, int64_t lparam, void* lpresultcallback, uint64_t dwdata) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_sendMessageCallbackW(void* hwnd, uint32_t msg, uint64_t wparam, int64_t lparam, void* lpresultcallback, uint64_t dwdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint64_t, int64_t, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7626,7 +7626,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_SendMessageCallbackW(voi
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_windowsandmessaging_SendMessageTimeoutA(void* hwnd, uint32_t msg, uint64_t wparam, int64_t lparam, uint32_t fuflags, uint32_t utimeout, void* lpdwresult) {
+int64_t windowssys_windows_win32_ui_windowsandmessaging_sendMessageTimeoutA(void* hwnd, uint32_t msg, uint64_t wparam, int64_t lparam, uint32_t fuflags, uint32_t utimeout, void* lpdwresult) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, uint32_t, uint64_t, int64_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7654,7 +7654,7 @@ int64_t windowssys_windows_win32_ui_windowsandmessaging_SendMessageTimeoutA(void
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_windowsandmessaging_SendMessageTimeoutW(void* hwnd, uint32_t msg, uint64_t wparam, int64_t lparam, uint32_t fuflags, uint32_t utimeout, void* lpdwresult) {
+int64_t windowssys_windows_win32_ui_windowsandmessaging_sendMessageTimeoutW(void* hwnd, uint32_t msg, uint64_t wparam, int64_t lparam, uint32_t fuflags, uint32_t utimeout, void* lpdwresult) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, uint32_t, uint64_t, int64_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7682,7 +7682,7 @@ int64_t windowssys_windows_win32_ui_windowsandmessaging_SendMessageTimeoutW(void
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_windowsandmessaging_SendMessageW(void* hwnd, uint32_t msg, uint64_t wparam, int64_t lparam) {
+int64_t windowssys_windows_win32_ui_windowsandmessaging_sendMessageW(void* hwnd, uint32_t msg, uint64_t wparam, int64_t lparam) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, uint32_t, uint64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7707,7 +7707,7 @@ int64_t windowssys_windows_win32_ui_windowsandmessaging_SendMessageW(void* hwnd,
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_SendNotifyMessageA(void* hwnd, uint32_t msg, uint64_t wparam, int64_t lparam) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_sendNotifyMessageA(void* hwnd, uint32_t msg, uint64_t wparam, int64_t lparam) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7732,7 +7732,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_SendNotifyMessageA(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_SendNotifyMessageW(void* hwnd, uint32_t msg, uint64_t wparam, int64_t lparam) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_sendNotifyMessageW(void* hwnd, uint32_t msg, uint64_t wparam, int64_t lparam) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7757,7 +7757,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_SendNotifyMessageW(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_SetAdditionalForegroundBoostProcesses(void* toplevelwindow, uint32_t processhandlecount, void* processhandlearray) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_setAdditionalForegroundBoostProcesses(void* toplevelwindow, uint32_t processhandlecount, void* processhandlearray) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7781,7 +7781,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_SetAdditionalForegroundB
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_SetCaretBlinkTime(uint32_t umseconds) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_setCaretBlinkTime(uint32_t umseconds) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7803,7 +7803,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_SetCaretBlinkTime(uint32
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_SetCaretPos(int32_t x, int32_t y) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_setCaretPos(int32_t x, int32_t y) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7826,7 +7826,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_SetCaretPos(int32_t x, i
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_windowsandmessaging_SetClassLongA(void* hwnd, int32_t nindex, int32_t dwnewlong) {
+uint32_t windowssys_windows_win32_ui_windowsandmessaging_setClassLongA(void* hwnd, int32_t nindex, int32_t dwnewlong) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7850,7 +7850,7 @@ uint32_t windowssys_windows_win32_ui_windowsandmessaging_SetClassLongA(void* hwn
 #endif
 }
 
-uint64_t windowssys_windows_win32_ui_windowsandmessaging_SetClassLongPtrA(void* hwnd, int32_t nindex, int64_t dwnewlong) {
+uint64_t windowssys_windows_win32_ui_windowsandmessaging_setClassLongPtrA(void* hwnd, int32_t nindex, int64_t dwnewlong) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(void*, int32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7874,7 +7874,7 @@ uint64_t windowssys_windows_win32_ui_windowsandmessaging_SetClassLongPtrA(void* 
 #endif
 }
 
-uint64_t windowssys_windows_win32_ui_windowsandmessaging_SetClassLongPtrW(void* hwnd, int32_t nindex, int64_t dwnewlong) {
+uint64_t windowssys_windows_win32_ui_windowsandmessaging_setClassLongPtrW(void* hwnd, int32_t nindex, int64_t dwnewlong) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(void*, int32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7898,7 +7898,7 @@ uint64_t windowssys_windows_win32_ui_windowsandmessaging_SetClassLongPtrW(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_windowsandmessaging_SetClassLongW(void* hwnd, int32_t nindex, int32_t dwnewlong) {
+uint32_t windowssys_windows_win32_ui_windowsandmessaging_setClassLongW(void* hwnd, int32_t nindex, int32_t dwnewlong) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7922,7 +7922,7 @@ uint32_t windowssys_windows_win32_ui_windowsandmessaging_SetClassLongW(void* hwn
 #endif
 }
 
-uint16_t windowssys_windows_win32_ui_windowsandmessaging_SetClassWord(void* hwnd, int32_t nindex, uint16_t wnewword) {
+uint16_t windowssys_windows_win32_ui_windowsandmessaging_setClassWord(void* hwnd, int32_t nindex, uint16_t wnewword) {
 #ifdef _WIN32
     typedef uint16_t (__stdcall *km_fn_t)(void*, int32_t, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7946,7 +7946,7 @@ uint16_t windowssys_windows_win32_ui_windowsandmessaging_SetClassWord(void* hwnd
 #endif
 }
 
-uint64_t windowssys_windows_win32_ui_windowsandmessaging_SetCoalescableTimer(void* hwnd, uint64_t nidevent, uint32_t uelapse, void* lptimerfunc, uint32_t utolerancedelay) {
+uint64_t windowssys_windows_win32_ui_windowsandmessaging_setCoalescableTimer(void* hwnd, uint64_t nidevent, uint32_t uelapse, void* lptimerfunc, uint32_t utolerancedelay) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(void*, uint64_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7972,7 +7972,7 @@ uint64_t windowssys_windows_win32_ui_windowsandmessaging_SetCoalescableTimer(voi
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_SetCursor(void* hcursor) {
+void* windowssys_windows_win32_ui_windowsandmessaging_setCursor(void* hcursor) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7994,7 +7994,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_SetCursor(void* hcursor) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_SetCursorPos(int32_t x, int32_t y) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_setCursorPos(int32_t x, int32_t y) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8017,7 +8017,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_SetCursorPos(int32_t x, 
 #endif
 }
 
-void windowssys_windows_win32_ui_windowsandmessaging_SetDebugErrorLevel(uint32_t dwlevel) {
+void windowssys_windows_win32_ui_windowsandmessaging_setDebugErrorLevel(uint32_t dwlevel) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8038,7 +8038,7 @@ void windowssys_windows_win32_ui_windowsandmessaging_SetDebugErrorLevel(uint32_t
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_SetDlgItemInt(void* hdlg, int32_t niddlgitem, uint32_t uvalue, int32_t bsigned) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_setDlgItemInt(void* hdlg, int32_t niddlgitem, uint32_t uvalue, int32_t bsigned) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8063,7 +8063,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_SetDlgItemInt(void* hdlg
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_SetDlgItemTextA(void* hdlg, int32_t niddlgitem, void* lpstring) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_setDlgItemTextA(void* hdlg, int32_t niddlgitem, void* lpstring) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8087,7 +8087,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_SetDlgItemTextA(void* hd
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_SetDlgItemTextW(void* hdlg, int32_t niddlgitem, void* lpstring) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_setDlgItemTextW(void* hdlg, int32_t niddlgitem, void* lpstring) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8111,7 +8111,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_SetDlgItemTextW(void* hd
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_SetForegroundWindow(void* hwnd) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_setForegroundWindow(void* hwnd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8133,7 +8133,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_SetForegroundWindow(void
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_SetLayeredWindowAttributes(void* hwnd, uint32_t crkey, uint8_t balpha, uint32_t dwflags) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_setLayeredWindowAttributes(void* hwnd, uint32_t crkey, uint8_t balpha, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint8_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8158,7 +8158,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_SetLayeredWindowAttribut
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_SetMenu(void* hwnd, void* hmenu) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_setMenu(void* hwnd, void* hmenu) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8181,7 +8181,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_SetMenu(void* hwnd, void
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_SetMenuDefaultItem(void* hmenu, uint32_t uitem, uint32_t fbypos) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_setMenuDefaultItem(void* hmenu, uint32_t uitem, uint32_t fbypos) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8205,7 +8205,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_SetMenuDefaultItem(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_SetMenuInfo(void* param0, void* param1) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_setMenuInfo(void* param0, void* param1) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8228,7 +8228,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_SetMenuInfo(void* param0
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_SetMenuItemBitmaps(void* hmenu, uint32_t uposition, uint32_t uflags, void* hbitmapunchecked, void* hbitmapchecked) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_setMenuItemBitmaps(void* hmenu, uint32_t uposition, uint32_t uflags, void* hbitmapunchecked, void* hbitmapchecked) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8254,7 +8254,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_SetMenuItemBitmaps(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_SetMenuItemInfoA(void* hmenu, uint32_t item, int32_t fbypositon, void* lpmii) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_setMenuItemInfoA(void* hmenu, uint32_t item, int32_t fbypositon, void* lpmii) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8279,7 +8279,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_SetMenuItemInfoA(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_SetMenuItemInfoW(void* hmenu, uint32_t item, int32_t fbypositon, void* lpmii) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_setMenuItemInfoW(void* hmenu, uint32_t item, int32_t fbypositon, void* lpmii) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8304,7 +8304,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_SetMenuItemInfoW(void* h
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_windowsandmessaging_SetMessageExtraInfo(int64_t lparam) {
+int64_t windowssys_windows_win32_ui_windowsandmessaging_setMessageExtraInfo(int64_t lparam) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8326,7 +8326,7 @@ int64_t windowssys_windows_win32_ui_windowsandmessaging_SetMessageExtraInfo(int6
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_SetMessageQueue(int32_t cmessagesmax) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_setMessageQueue(int32_t cmessagesmax) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8348,7 +8348,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_SetMessageQueue(int32_t 
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_SetParent(void* hwndchild, void* hwndnewparent) {
+void* windowssys_windows_win32_ui_windowsandmessaging_setParent(void* hwndchild, void* hwndnewparent) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8371,7 +8371,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_SetParent(void* hwndchild,
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_SetPhysicalCursorPos(int32_t x, int32_t y) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_setPhysicalCursorPos(int32_t x, int32_t y) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8394,7 +8394,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_SetPhysicalCursorPos(int
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_SetProcessDPIAware(void) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_setProcessDPIAware(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -8415,7 +8415,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_SetProcessDPIAware(void)
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_SetProcessDefaultLayout(uint32_t dwdefaultlayout) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_setProcessDefaultLayout(uint32_t dwdefaultlayout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8437,7 +8437,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_SetProcessDefaultLayout(
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_SetPropA(void* hwnd, void* lpstring, void* hdata) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_setPropA(void* hwnd, void* lpstring, void* hdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8461,7 +8461,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_SetPropA(void* hwnd, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_SetPropW(void* hwnd, void* lpstring, void* hdata) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_setPropW(void* hwnd, void* lpstring, void* hdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8485,7 +8485,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_SetPropW(void* hwnd, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_SetSystemCursor(void* hcur, uint32_t id) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_setSystemCursor(void* hcur, uint32_t id) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8508,7 +8508,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_SetSystemCursor(void* hc
 #endif
 }
 
-uint64_t windowssys_windows_win32_ui_windowsandmessaging_SetTimer(void* hwnd, uint64_t nidevent, uint32_t uelapse, void* lptimerfunc) {
+uint64_t windowssys_windows_win32_ui_windowsandmessaging_setTimer(void* hwnd, uint64_t nidevent, uint32_t uelapse, void* lptimerfunc) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(void*, uint64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8533,7 +8533,7 @@ uint64_t windowssys_windows_win32_ui_windowsandmessaging_SetTimer(void* hwnd, ui
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_SetWindowDisplayAffinity(void* hwnd, uint32_t dwaffinity) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_setWindowDisplayAffinity(void* hwnd, uint32_t dwaffinity) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8556,7 +8556,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_SetWindowDisplayAffinity
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_SetWindowLongA(void* hwnd, int32_t nindex, int32_t dwnewlong) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_setWindowLongA(void* hwnd, int32_t nindex, int32_t dwnewlong) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8580,7 +8580,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_SetWindowLongA(void* hwn
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_windowsandmessaging_SetWindowLongPtrA(void* hwnd, int32_t nindex, int64_t dwnewlong) {
+int64_t windowssys_windows_win32_ui_windowsandmessaging_setWindowLongPtrA(void* hwnd, int32_t nindex, int64_t dwnewlong) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, int32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8604,7 +8604,7 @@ int64_t windowssys_windows_win32_ui_windowsandmessaging_SetWindowLongPtrA(void* 
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_windowsandmessaging_SetWindowLongPtrW(void* hwnd, int32_t nindex, int64_t dwnewlong) {
+int64_t windowssys_windows_win32_ui_windowsandmessaging_setWindowLongPtrW(void* hwnd, int32_t nindex, int64_t dwnewlong) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, int32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8628,7 +8628,7 @@ int64_t windowssys_windows_win32_ui_windowsandmessaging_SetWindowLongPtrW(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_SetWindowLongW(void* hwnd, int32_t nindex, int32_t dwnewlong) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_setWindowLongW(void* hwnd, int32_t nindex, int32_t dwnewlong) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8652,7 +8652,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_SetWindowLongW(void* hwn
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_SetWindowPlacement(void* hwnd, void* lpwndpl) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_setWindowPlacement(void* hwnd, void* lpwndpl) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8675,7 +8675,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_SetWindowPlacement(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_SetWindowPos(void* hwnd, void* hwndinsertafter, int32_t x, int32_t y, int32_t cx, int32_t cy, uint32_t uflags) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_setWindowPos(void* hwnd, void* hwndinsertafter, int32_t x, int32_t y, int32_t cx, int32_t cy, uint32_t uflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t, int32_t, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8703,7 +8703,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_SetWindowPos(void* hwnd,
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_SetWindowTextA(void* hwnd, void* lpstring) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_setWindowTextA(void* hwnd, void* lpstring) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8726,7 +8726,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_SetWindowTextA(void* hwn
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_SetWindowTextW(void* hwnd, void* lpstring) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_setWindowTextW(void* hwnd, void* lpstring) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8749,7 +8749,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_SetWindowTextW(void* hwn
 #endif
 }
 
-uint16_t windowssys_windows_win32_ui_windowsandmessaging_SetWindowWord(void* hwnd, int32_t nindex, uint16_t wnewword) {
+uint16_t windowssys_windows_win32_ui_windowsandmessaging_setWindowWord(void* hwnd, int32_t nindex, uint16_t wnewword) {
 #ifdef _WIN32
     typedef uint16_t (__stdcall *km_fn_t)(void*, int32_t, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8773,7 +8773,7 @@ uint16_t windowssys_windows_win32_ui_windowsandmessaging_SetWindowWord(void* hwn
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_SetWindowsHookA(int32_t nfiltertype, void* pfnfilterproc) {
+void* windowssys_windows_win32_ui_windowsandmessaging_setWindowsHookA(int32_t nfiltertype, void* pfnfilterproc) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8796,7 +8796,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_SetWindowsHookA(int32_t nf
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_SetWindowsHookExA(int32_t idhook, void* lpfn, void* hmod, uint32_t dwthreadid) {
+void* windowssys_windows_win32_ui_windowsandmessaging_setWindowsHookExA(int32_t idhook, void* lpfn, void* hmod, uint32_t dwthreadid) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8821,7 +8821,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_SetWindowsHookExA(int32_t 
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_SetWindowsHookExW(int32_t idhook, void* lpfn, void* hmod, uint32_t dwthreadid) {
+void* windowssys_windows_win32_ui_windowsandmessaging_setWindowsHookExW(int32_t idhook, void* lpfn, void* hmod, uint32_t dwthreadid) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8846,7 +8846,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_SetWindowsHookExW(int32_t 
 #endif
 }
 
-void* windowssys_windows_win32_ui_windowsandmessaging_SetWindowsHookW(int32_t nfiltertype, void* pfnfilterproc) {
+void* windowssys_windows_win32_ui_windowsandmessaging_setWindowsHookW(int32_t nfiltertype, void* pfnfilterproc) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8869,7 +8869,7 @@ void* windowssys_windows_win32_ui_windowsandmessaging_SetWindowsHookW(int32_t nf
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_ShowCaret(void* hwnd) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_showCaret(void* hwnd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8891,7 +8891,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_ShowCaret(void* hwnd) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_ShowCursor(int32_t bshow) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_showCursor(int32_t bshow) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8913,7 +8913,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_ShowCursor(int32_t bshow
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_ShowOwnedPopups(void* hwnd, int32_t fshow) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_showOwnedPopups(void* hwnd, int32_t fshow) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8936,7 +8936,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_ShowOwnedPopups(void* hw
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_ShowWindow(void* hwnd, int32_t ncmdshow) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_showWindow(void* hwnd, int32_t ncmdshow) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8959,7 +8959,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_ShowWindow(void* hwnd, i
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_ShowWindowAsync(void* hwnd, int32_t ncmdshow) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_showWindowAsync(void* hwnd, int32_t ncmdshow) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8982,7 +8982,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_ShowWindowAsync(void* hw
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_SoundSentry(void) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_soundSentry(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -9003,7 +9003,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_SoundSentry(void) {
 #endif
 }
 
-void windowssys_windows_win32_ui_windowsandmessaging_SwitchToThisWindow(void* hwnd, int32_t funknown) {
+void windowssys_windows_win32_ui_windowsandmessaging_switchToThisWindow(void* hwnd, int32_t funknown) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9025,7 +9025,7 @@ void windowssys_windows_win32_ui_windowsandmessaging_SwitchToThisWindow(void* hw
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_SystemParametersInfoA(uint32_t uiaction, uint32_t uiparam, void* pvparam, uint32_t fwinini) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_systemParametersInfoA(uint32_t uiaction, uint32_t uiparam, void* pvparam, uint32_t fwinini) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9050,7 +9050,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_SystemParametersInfoA(ui
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_SystemParametersInfoW(uint32_t uiaction, uint32_t uiparam, void* pvparam, uint32_t fwinini) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_systemParametersInfoW(uint32_t uiaction, uint32_t uiparam, void* pvparam, uint32_t fwinini) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9075,7 +9075,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_SystemParametersInfoW(ui
 #endif
 }
 
-uint16_t windowssys_windows_win32_ui_windowsandmessaging_TileWindows(void* hwndparent, uint32_t whow, void* lprect, uint32_t ckids, void* lpkids) {
+uint16_t windowssys_windows_win32_ui_windowsandmessaging_tileWindows(void* hwndparent, uint32_t whow, void* lprect, uint32_t ckids, void* lpkids) {
 #ifdef _WIN32
     typedef uint16_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9101,7 +9101,7 @@ uint16_t windowssys_windows_win32_ui_windowsandmessaging_TileWindows(void* hwndp
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_TrackPopupMenu(void* hmenu, uint32_t uflags, int32_t x, int32_t y, int32_t nreserved, void* hwnd, void* prcrect) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_trackPopupMenu(void* hmenu, uint32_t uflags, int32_t x, int32_t y, int32_t nreserved, void* hwnd, void* prcrect) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t, int32_t, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9129,7 +9129,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_TrackPopupMenu(void* hme
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_TrackPopupMenuEx(void* hmenu, uint32_t uflags, int32_t x, int32_t y, void* hwnd, void* lptpm) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_trackPopupMenuEx(void* hmenu, uint32_t uflags, int32_t x, int32_t y, void* hwnd, void* lptpm) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9156,7 +9156,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_TrackPopupMenuEx(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_TranslateAcceleratorA(void* hwnd, void* hacctable, void* lpmsg) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_translateAcceleratorA(void* hwnd, void* hacctable, void* lpmsg) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9180,7 +9180,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_TranslateAcceleratorA(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_TranslateAcceleratorW(void* hwnd, void* hacctable, void* lpmsg) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_translateAcceleratorW(void* hwnd, void* hacctable, void* lpmsg) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9204,7 +9204,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_TranslateAcceleratorW(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_TranslateMDISysAccel(void* hwndclient, void* lpmsg) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_translateMDISysAccel(void* hwndclient, void* lpmsg) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9227,7 +9227,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_TranslateMDISysAccel(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_TranslateMessage(void* lpmsg) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_translateMessage(void* lpmsg) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9249,7 +9249,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_TranslateMessage(void* l
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_UnhookWindowsHook(int32_t ncode, void* pfnfilterproc) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_unhookWindowsHook(int32_t ncode, void* pfnfilterproc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9272,7 +9272,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_UnhookWindowsHook(int32_
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_UnhookWindowsHookEx(void* hhk) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_unhookWindowsHookEx(void* hhk) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9294,7 +9294,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_UnhookWindowsHookEx(void
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_UnregisterClassA(void* lpclassname, void* hinstance) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_unregisterClassA(void* lpclassname, void* hinstance) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9317,7 +9317,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_UnregisterClassA(void* l
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_UnregisterClassW(void* lpclassname, void* hinstance) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_unregisterClassW(void* lpclassname, void* hinstance) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9340,7 +9340,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_UnregisterClassW(void* l
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_UnregisterDeviceNotification(void* handle) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_unregisterDeviceNotification(void* handle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9362,7 +9362,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_UnregisterDeviceNotifica
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_UpdateLayeredWindow(void* hwnd, void* hdcdst, void* pptdst, void* psize, void* hdcsrc, void* pptsrc, uint32_t crkey, void* pblend, uint32_t dwflags) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_updateLayeredWindow(void* hwnd, void* hdcdst, void* pptdst, void* psize, void* hdcsrc, void* pptsrc, uint32_t crkey, void* pblend, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9392,7 +9392,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_UpdateLayeredWindow(void
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_UpdateLayeredWindowIndirect(void* hwnd, void* pulwinfo) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_updateLayeredWindowIndirect(void* hwnd, void* pulwinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9415,7 +9415,7 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_UpdateLayeredWindowIndir
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_windowsandmessaging_WaitMessage(void) {
+int32_t windowssys_windows_win32_ui_windowsandmessaging_waitMessage(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -9431,6 +9431,74 @@ int32_t windowssys_windows_win32_ui_windowsandmessaging_WaitMessage(void) {
     errno = ENOSYS;
     return -1;
 #else
+    errno = ENOSYS;
+    return -1;
+#endif
+}
+
+int32_t windowssys_windows_win32_ui_windowsandmessaging_wsprintfA(void* param0, void* param1, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
+#ifdef _WIN32
+    typedef int32_t (*km_fn_t)(void*, void*, ...);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("user32.dll");
+        if (km_h_mod != NULL) {
+            km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "wsprintfA");
+        }
+    }
+    if (km_fn_ptr != NULL) {
+        switch (km_vac) {
+            case 0: return km_fn_ptr(param0, param1);
+            case 1: return km_fn_ptr(param0, param1, (intptr_t)km_va0);
+            case 2: return km_fn_ptr(param0, param1, (intptr_t)km_va0, (intptr_t)km_va1);
+            case 3: return km_fn_ptr(param0, param1, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2);
+            default: return km_fn_ptr(param0, param1, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2, (intptr_t)km_va3);
+        }
+    }
+    errno = ENOSYS;
+    return -1;
+#else
+    (void)param0;
+    (void)param1;
+    (void)km_vac;
+    (void)km_va0;
+    (void)km_va1;
+    (void)km_va2;
+    (void)km_va3;
+    errno = ENOSYS;
+    return -1;
+#endif
+}
+
+int32_t windowssys_windows_win32_ui_windowsandmessaging_wsprintfW(void* param0, void* param1, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
+#ifdef _WIN32
+    typedef int32_t (*km_fn_t)(void*, void*, ...);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("user32.dll");
+        if (km_h_mod != NULL) {
+            km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "wsprintfW");
+        }
+    }
+    if (km_fn_ptr != NULL) {
+        switch (km_vac) {
+            case 0: return km_fn_ptr(param0, param1);
+            case 1: return km_fn_ptr(param0, param1, (intptr_t)km_va0);
+            case 2: return km_fn_ptr(param0, param1, (intptr_t)km_va0, (intptr_t)km_va1);
+            case 3: return km_fn_ptr(param0, param1, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2);
+            default: return km_fn_ptr(param0, param1, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2, (intptr_t)km_va3);
+        }
+    }
+    errno = ENOSYS;
+    return -1;
+#else
+    (void)param0;
+    (void)param1;
+    (void)km_vac;
+    (void)km_va0;
+    (void)km_va1;
+    (void)km_va2;
+    (void)km_va3;
     errno = ENOSYS;
     return -1;
 #endif

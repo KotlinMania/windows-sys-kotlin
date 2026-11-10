@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_wdk_devices_humaninterfacedevice_VhfAsyncOperationComplete_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_devices_humaninterfacedevice_vhfAsyncOperationComplete_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* vhfoperationhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t completionstatus = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -71,7 +71,7 @@ static Napi::Value windowssys_windows_wdk_devices_humaninterfacedevice_VhfAsyncO
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_devices_humaninterfacedevice_VhfCreate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_devices_humaninterfacedevice_vhfCreate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* vhfconfig = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* vhfhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -91,7 +91,7 @@ static Napi::Value windowssys_windows_wdk_devices_humaninterfacedevice_VhfCreate
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_devices_humaninterfacedevice_VhfDelete_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_devices_humaninterfacedevice_vhfDelete_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* vhfhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     bool wait = km_info.Length() > 1 ? km_info[1].ToBoolean().Value() : false;
@@ -110,7 +110,7 @@ static Napi::Value windowssys_windows_wdk_devices_humaninterfacedevice_VhfDelete
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_devices_humaninterfacedevice_VhfReadReportSubmit_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_devices_humaninterfacedevice_vhfReadReportSubmit_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* vhfhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hidtransferpacket = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -130,7 +130,7 @@ static Napi::Value windowssys_windows_wdk_devices_humaninterfacedevice_VhfReadRe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_devices_humaninterfacedevice_VhfStart_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_devices_humaninterfacedevice_vhfStart_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* vhfhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -149,11 +149,11 @@ static Napi::Value windowssys_windows_wdk_devices_humaninterfacedevice_VhfStart_
 }
 
 static void register_windows_wdk_devices_humaninterfacedevice_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_wdk_devices_humaninterfacedevice_VhfAsyncOperationComplete", Napi::Function::New(env, windowssys_windows_wdk_devices_humaninterfacedevice_VhfAsyncOperationComplete_napi));
-    exports.Set("windowssys_windows_wdk_devices_humaninterfacedevice_VhfCreate", Napi::Function::New(env, windowssys_windows_wdk_devices_humaninterfacedevice_VhfCreate_napi));
-    exports.Set("windowssys_windows_wdk_devices_humaninterfacedevice_VhfDelete", Napi::Function::New(env, windowssys_windows_wdk_devices_humaninterfacedevice_VhfDelete_napi));
-    exports.Set("windowssys_windows_wdk_devices_humaninterfacedevice_VhfReadReportSubmit", Napi::Function::New(env, windowssys_windows_wdk_devices_humaninterfacedevice_VhfReadReportSubmit_napi));
-    exports.Set("windowssys_windows_wdk_devices_humaninterfacedevice_VhfStart", Napi::Function::New(env, windowssys_windows_wdk_devices_humaninterfacedevice_VhfStart_napi));
+    exports.Set("windowssys_windows_wdk_devices_humaninterfacedevice_vhfAsyncOperationComplete", Napi::Function::New(env, windowssys_windows_wdk_devices_humaninterfacedevice_vhfAsyncOperationComplete_napi));
+    exports.Set("windowssys_windows_wdk_devices_humaninterfacedevice_vhfCreate", Napi::Function::New(env, windowssys_windows_wdk_devices_humaninterfacedevice_vhfCreate_napi));
+    exports.Set("windowssys_windows_wdk_devices_humaninterfacedevice_vhfDelete", Napi::Function::New(env, windowssys_windows_wdk_devices_humaninterfacedevice_vhfDelete_napi));
+    exports.Set("windowssys_windows_wdk_devices_humaninterfacedevice_vhfReadReportSubmit", Napi::Function::New(env, windowssys_windows_wdk_devices_humaninterfacedevice_vhfReadReportSubmit_napi));
+    exports.Set("windowssys_windows_wdk_devices_humaninterfacedevice_vhfStart", Napi::Function::New(env, windowssys_windows_wdk_devices_humaninterfacedevice_vhfStart_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_wdk_devices_humaninterfacedevice_napi, nullptr };

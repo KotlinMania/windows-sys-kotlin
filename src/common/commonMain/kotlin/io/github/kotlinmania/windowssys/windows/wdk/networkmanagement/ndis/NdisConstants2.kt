@@ -1482,9 +1482,9 @@ public val OID_WWAN_VISIBLE_PROVIDERS: UInt = 234946824u
 
 public val OID_XBOX_ACC_RESERVED0: UInt = 4194304000u
 
-public val OriginalNetBufferList: NDIS_PER_PACKET_INFO = 9
+public val ORIGINAL_NET_BUFFER_LIST: NdisPerPacketInfo = 9
 
-public val OriginalPacketInfo: NDIS_PER_PACKET_INFO = 7
+public val ORIGINAL_PACKET_INFO: NdisPerPacketInfo = 7
 
 public val PD_BUFFER_ATTR_BUILT_IN_DATA_BUFFER: UInt = 1u
 
@@ -1498,7 +1498,7 @@ public val PD_BUFFER_MIN_TX_DATA_START_ALIGNMENT: UInt = 2u
 
 public val PERMANENT_VC: UInt = 1u
 
-public val PacketCancelId: NDIS_PER_PACKET_INFO = 8
+public val PACKET_CANCEL_ID: NdisPerPacketInfo = 8
 
 public val QUERY_CALL_PARAMETERS: UInt = 4u
 
@@ -1524,9 +1524,9 @@ public val STRINGFORMAT_DBCS: UInt = 2u
 
 public val STRINGFORMAT_UNICODE: UInt = 3u
 
-public val ScatterGatherListPacketInfo: NDIS_PER_PACKET_INFO = 5
+public val SCATTER_GATHER_LIST_PACKET_INFO: NdisPerPacketInfo = 5
 
-public val ShortPacketPaddingInfo: NDIS_PER_PACKET_INFO = 11
+public val SHORT_PACKET_PADDING_INFO: NdisPerPacketInfo = 11
 
 public val TIMED_SEND_CAPABLE: UInt = 16u
 
@@ -1536,36 +1536,36 @@ public val TRANSMIT_VC: UInt = 4u
 
 public val TRUNCATED_HASH_LEN: UInt = 12u
 
-public val TcpIpChecksumPacketInfo: NDIS_PER_PACKET_INFO = 0
+public val TCP_IP_CHECKSUM_PACKET_INFO: NdisPerPacketInfo = 0
 
-public val TcpLargeSendPacketInfo: NDIS_PER_PACKET_INFO = 2
+public val TCP_LARGE_SEND_PACKET_INFO: NdisPerPacketInfo = 2
 
 public val USE_TIME_STAMPS: UInt = 2u
 
 public val WAN_PROTOCOL_KEEPS_STATS: UInt = 1u
 
-public val fNDIS_GUID_ALLOW_READ: UInt = 32u
+public val F_NDIS_GUID_ALLOW_READ: UInt = 32u
 
-public val fNDIS_GUID_ALLOW_WRITE: UInt = 64u
+public val F_NDIS_GUID_ALLOW_WRITE: UInt = 64u
 
-public val fNDIS_GUID_ANSI_STRING: UInt = 4u
+public val F_NDIS_GUID_ANSI_STRING: UInt = 4u
 
-public val fNDIS_GUID_ARRAY: UInt = 16u
+public val F_NDIS_GUID_ARRAY: UInt = 16u
 
-public val fNDIS_GUID_METHOD: UInt = 128u
+public val F_NDIS_GUID_METHOD: UInt = 128u
 
-public val fNDIS_GUID_NDIS_RESERVED: UInt = 256u
+public val F_NDIS_GUID_NDIS_RESERVED: UInt = 256u
 
-public val fNDIS_GUID_SUPPORT_COMMON_HEADER: UInt = 512u
+public val F_NDIS_GUID_SUPPORT_COMMON_HEADER: UInt = 512u
 
-public val fNDIS_GUID_TO_OID: UInt = 1u
+public val F_NDIS_GUID_TO_OID: UInt = 1u
 
-public val fNDIS_GUID_TO_STATUS: UInt = 2u
+public val F_NDIS_GUID_TO_STATUS: UInt = 2u
 
-public val fNDIS_GUID_UNICODE_STRING: UInt = 8u
+public val F_NDIS_GUID_UNICODE_STRING: UInt = 8u
 
-public val fPACKET_ALLOCATED_BY_NDIS: UInt = 128u
+public val F_PACKET_ALLOCATED_BY_NDIS: UInt = 128u
 
-public val fPACKET_CONTAINS_MEDIA_SPECIFIC_INFO: UInt = 64u
+public val F_PACKET_CONTAINS_MEDIA_SPECIFIC_INFO: UInt = 64u
 
-public val fPACKET_WRAPPER_RESERVED: UInt = 63u
+public val F_PACKET_WRAPPER_RESERVED: UInt = 63u

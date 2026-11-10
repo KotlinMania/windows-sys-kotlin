@@ -18,7 +18,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_threading_WindowsWdkSystemThreadingJniBridge_windowssys_1windows_1wdk_1system_1threading_1NtCancelTimer(JNIEnv* km_env, jclass km_clazz, jlong timerhandle, jlong currentstate) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_threading_WindowsWdkSystemThreadingJniBridge_windowssys_1windows_1wdk_1system_1threading_1ntCancelTimer(JNIEnv* km_env, jclass km_clazz, jlong timerhandle, jlong currentstate) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -37,7 +37,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_threading_WindowsWdkSystemThreadingJniBridge_windowssys_1windows_1wdk_1system_1threading_1NtCreateTimer(JNIEnv* km_env, jclass km_clazz, jlong timerhandle, jint desiredaccess, jlong objectattributes, jint timertype) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_threading_WindowsWdkSystemThreadingJniBridge_windowssys_1windows_1wdk_1system_1threading_1ntCreateTimer(JNIEnv* km_env, jclass km_clazz, jlong timerhandle, jint desiredaccess, jlong objectattributes, jint timertype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -58,7 +58,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_threading_WindowsWdkSystemThreadingJniBridge_windowssys_1windows_1wdk_1system_1threading_1NtOpenEvent(JNIEnv* km_env, jclass km_clazz, jlong eventhandle, jint desiredaccess, jlong objectattributes) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_threading_WindowsWdkSystemThreadingJniBridge_windowssys_1windows_1wdk_1system_1threading_1ntOpenEvent(JNIEnv* km_env, jclass km_clazz, jlong eventhandle, jint desiredaccess, jlong objectattributes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -78,7 +78,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_threading_WindowsWdkSystemThreadingJniBridge_windowssys_1windows_1wdk_1system_1threading_1NtOpenProcess(JNIEnv* km_env, jclass km_clazz, jlong processhandle, jint desiredaccess, jlong objectattributes, jlong clientid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_threading_WindowsWdkSystemThreadingJniBridge_windowssys_1windows_1wdk_1system_1threading_1ntOpenProcess(JNIEnv* km_env, jclass km_clazz, jlong processhandle, jint desiredaccess, jlong objectattributes, jlong clientid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -99,7 +99,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_threading_WindowsWdkSystemThreadingJniBridge_windowssys_1windows_1wdk_1system_1threading_1NtOpenTimer(JNIEnv* km_env, jclass km_clazz, jlong timerhandle, jint desiredaccess, jlong objectattributes) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_threading_WindowsWdkSystemThreadingJniBridge_windowssys_1windows_1wdk_1system_1threading_1ntOpenTimer(JNIEnv* km_env, jclass km_clazz, jlong timerhandle, jint desiredaccess, jlong objectattributes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -119,7 +119,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_threading_WindowsWdkSystemThreadingJniBridge_windowssys_1windows_1wdk_1system_1threading_1NtQueryInformationProcess(JNIEnv* km_env, jclass km_clazz, jlong processhandle, jint processinformationclass, jlong processinformation, jint processinformationlength, jlong returnlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_threading_WindowsWdkSystemThreadingJniBridge_windowssys_1windows_1wdk_1system_1threading_1ntQueryInformationProcess(JNIEnv* km_env, jclass km_clazz, jlong processhandle, jint processinformationclass, jlong processinformation, jint processinformationlength, jlong returnlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -141,7 +141,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_threading_WindowsWdkSystemThreadingJniBridge_windowssys_1windows_1wdk_1system_1threading_1NtQueryInformationThread(JNIEnv* km_env, jclass km_clazz, jlong threadhandle, jint threadinformationclass, jlong threadinformation, jint threadinformationlength, jlong returnlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_threading_WindowsWdkSystemThreadingJniBridge_windowssys_1windows_1wdk_1system_1threading_1ntQueryInformationThread(JNIEnv* km_env, jclass km_clazz, jlong threadhandle, jint threadinformationclass, jlong threadinformation, jint threadinformationlength, jlong returnlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -163,7 +163,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_threading_WindowsWdkSystemThreadingJniBridge_windowssys_1windows_1wdk_1system_1threading_1NtSetInformationThread(JNIEnv* km_env, jclass km_clazz, jlong threadhandle, jint threadinformationclass, jlong threadinformation, jint threadinformationlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_threading_WindowsWdkSystemThreadingJniBridge_windowssys_1windows_1wdk_1system_1threading_1ntSetInformationThread(JNIEnv* km_env, jclass km_clazz, jlong threadhandle, jint threadinformationclass, jlong threadinformation, jint threadinformationlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -184,7 +184,31 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_threading_WindowsWdkSystemThreadingJniBridge_windowssys_1windows_1wdk_1system_1threading_1NtSetTimerEx(JNIEnv* km_env, jclass km_clazz, jlong timerhandle, jint timersetinformationclass, jlong timersetinformation, jint timersetinformationlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_threading_WindowsWdkSystemThreadingJniBridge_windowssys_1windows_1wdk_1system_1threading_1ntSetTimer(JNIEnv* km_env, jclass km_clazz, jlong timerhandle, jlong duetime, jlong timerapcroutine, jlong timercontext, jboolean resumetimer, jint period, jlong previousstate) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, bool, int32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NtSetTimer");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)timerhandle, (void*)(uintptr_t)duetime, (void*)(uintptr_t)timerapcroutine, (void*)(uintptr_t)timercontext, (bool)resumetimer, (int32_t)period, (void*)(uintptr_t)previousstate) : -1;
+#else
+    (void)timerhandle;
+    (void)duetime;
+    (void)timerapcroutine;
+    (void)timercontext;
+    (void)resumetimer;
+    (void)period;
+    (void)previousstate;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_threading_WindowsWdkSystemThreadingJniBridge_windowssys_1windows_1wdk_1system_1threading_1ntSetTimerEx(JNIEnv* km_env, jclass km_clazz, jlong timerhandle, jint timersetinformationclass, jlong timersetinformation, jint timersetinformationlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -205,7 +229,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_threading_WindowsWdkSystemThreadingJniBridge_windowssys_1windows_1wdk_1system_1threading_1NtTerminateProcess(JNIEnv* km_env, jclass km_clazz, jlong processhandle, jint exitstatus) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_threading_WindowsWdkSystemThreadingJniBridge_windowssys_1windows_1wdk_1system_1threading_1ntTerminateProcess(JNIEnv* km_env, jclass km_clazz, jlong processhandle, jint exitstatus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -224,7 +248,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_threading_WindowsWdkSystemThreadingJniBridge_windowssys_1windows_1wdk_1system_1threading_1NtWaitForSingleObject(JNIEnv* km_env, jclass km_clazz, jlong handle, jboolean alertable, jlong timeout) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_threading_WindowsWdkSystemThreadingJniBridge_windowssys_1windows_1wdk_1system_1threading_1ntWaitForSingleObject(JNIEnv* km_env, jclass km_clazz, jlong handle, jboolean alertable, jlong timeout) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -244,7 +268,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_threading_WindowsWdkSystemThreadingJniBridge_windowssys_1windows_1wdk_1system_1threading_1ZwCancelTimer(JNIEnv* km_env, jclass km_clazz, jlong timerhandle, jlong currentstate) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_threading_WindowsWdkSystemThreadingJniBridge_windowssys_1windows_1wdk_1system_1threading_1zwCancelTimer(JNIEnv* km_env, jclass km_clazz, jlong timerhandle, jlong currentstate) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -263,7 +287,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_threading_WindowsWdkSystemThreadingJniBridge_windowssys_1windows_1wdk_1system_1threading_1ZwCreateTimer(JNIEnv* km_env, jclass km_clazz, jlong timerhandle, jint desiredaccess, jlong objectattributes, jint timertype) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_threading_WindowsWdkSystemThreadingJniBridge_windowssys_1windows_1wdk_1system_1threading_1zwCreateTimer(JNIEnv* km_env, jclass km_clazz, jlong timerhandle, jint desiredaccess, jlong objectattributes, jint timertype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -284,7 +308,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_threading_WindowsWdkSystemThreadingJniBridge_windowssys_1windows_1wdk_1system_1threading_1ZwOpenEvent(JNIEnv* km_env, jclass km_clazz, jlong eventhandle, jint desiredaccess, jlong objectattributes) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_threading_WindowsWdkSystemThreadingJniBridge_windowssys_1windows_1wdk_1system_1threading_1zwOpenEvent(JNIEnv* km_env, jclass km_clazz, jlong eventhandle, jint desiredaccess, jlong objectattributes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -304,7 +328,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_threading_WindowsWdkSystemThreadingJniBridge_windowssys_1windows_1wdk_1system_1threading_1ZwOpenProcess(JNIEnv* km_env, jclass km_clazz, jlong processhandle, jint desiredaccess, jlong objectattributes, jlong clientid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_threading_WindowsWdkSystemThreadingJniBridge_windowssys_1windows_1wdk_1system_1threading_1zwOpenProcess(JNIEnv* km_env, jclass km_clazz, jlong processhandle, jint desiredaccess, jlong objectattributes, jlong clientid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -325,7 +349,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_threading_WindowsWdkSystemThreadingJniBridge_windowssys_1windows_1wdk_1system_1threading_1ZwOpenTimer(JNIEnv* km_env, jclass km_clazz, jlong timerhandle, jint desiredaccess, jlong objectattributes) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_threading_WindowsWdkSystemThreadingJniBridge_windowssys_1windows_1wdk_1system_1threading_1zwOpenTimer(JNIEnv* km_env, jclass km_clazz, jlong timerhandle, jint desiredaccess, jlong objectattributes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -345,7 +369,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_threading_WindowsWdkSystemThreadingJniBridge_windowssys_1windows_1wdk_1system_1threading_1ZwQueryInformationProcess(JNIEnv* km_env, jclass km_clazz, jlong processhandle, jint processinformationclass, jlong processinformation, jint processinformationlength, jlong returnlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_threading_WindowsWdkSystemThreadingJniBridge_windowssys_1windows_1wdk_1system_1threading_1zwQueryInformationProcess(JNIEnv* km_env, jclass km_clazz, jlong processhandle, jint processinformationclass, jlong processinformation, jint processinformationlength, jlong returnlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -367,7 +391,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_threading_WindowsWdkSystemThreadingJniBridge_windowssys_1windows_1wdk_1system_1threading_1ZwQueryInformationThread(JNIEnv* km_env, jclass km_clazz, jlong threadhandle, jint threadinformationclass, jlong threadinformation, jint threadinformationlength, jlong returnlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_threading_WindowsWdkSystemThreadingJniBridge_windowssys_1windows_1wdk_1system_1threading_1zwQueryInformationThread(JNIEnv* km_env, jclass km_clazz, jlong threadhandle, jint threadinformationclass, jlong threadinformation, jint threadinformationlength, jlong returnlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -389,7 +413,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_threading_WindowsWdkSystemThreadingJniBridge_windowssys_1windows_1wdk_1system_1threading_1ZwSetInformationThread(JNIEnv* km_env, jclass km_clazz, jlong threadhandle, jint threadinformationclass, jlong threadinformation, jint threadinformationlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_threading_WindowsWdkSystemThreadingJniBridge_windowssys_1windows_1wdk_1system_1threading_1zwSetInformationThread(JNIEnv* km_env, jclass km_clazz, jlong threadhandle, jint threadinformationclass, jlong threadinformation, jint threadinformationlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -410,7 +434,31 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_threading_WindowsWdkSystemThreadingJniBridge_windowssys_1windows_1wdk_1system_1threading_1ZwSetTimerEx(JNIEnv* km_env, jclass km_clazz, jlong timerhandle, jint timersetinformationclass, jlong timersetinformation, jint timersetinformationlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_threading_WindowsWdkSystemThreadingJniBridge_windowssys_1windows_1wdk_1system_1threading_1zwSetTimer(JNIEnv* km_env, jclass km_clazz, jlong timerhandle, jlong duetime, jlong timerapcroutine, jlong timercontext, jboolean resumetimer, jint period, jlong previousstate) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, bool, int32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ZwSetTimer");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)timerhandle, (void*)(uintptr_t)duetime, (void*)(uintptr_t)timerapcroutine, (void*)(uintptr_t)timercontext, (bool)resumetimer, (int32_t)period, (void*)(uintptr_t)previousstate) : -1;
+#else
+    (void)timerhandle;
+    (void)duetime;
+    (void)timerapcroutine;
+    (void)timercontext;
+    (void)resumetimer;
+    (void)period;
+    (void)previousstate;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_threading_WindowsWdkSystemThreadingJniBridge_windowssys_1windows_1wdk_1system_1threading_1zwSetTimerEx(JNIEnv* km_env, jclass km_clazz, jlong timerhandle, jint timersetinformationclass, jlong timersetinformation, jint timersetinformationlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -431,7 +479,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_threading_WindowsWdkSystemThreadingJniBridge_windowssys_1windows_1wdk_1system_1threading_1ZwTerminateProcess(JNIEnv* km_env, jclass km_clazz, jlong processhandle, jint exitstatus) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_threading_WindowsWdkSystemThreadingJniBridge_windowssys_1windows_1wdk_1system_1threading_1zwTerminateProcess(JNIEnv* km_env, jclass km_clazz, jlong processhandle, jint exitstatus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -450,7 +498,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_threading_WindowsWdkSystemThreadingJniBridge_windowssys_1windows_1wdk_1system_1threading_1ZwWaitForSingleObject(JNIEnv* km_env, jclass km_clazz, jlong handle, jboolean alertable, jlong timeout) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_threading_WindowsWdkSystemThreadingJniBridge_windowssys_1windows_1wdk_1system_1threading_1zwWaitForSingleObject(JNIEnv* km_env, jclass km_clazz, jlong handle, jboolean alertable, jlong timeout) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

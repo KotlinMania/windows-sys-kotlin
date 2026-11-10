@@ -8,139 +8,139 @@ public val AC_SRC_ALPHA: UInt = 1u
 
 public val AC_SRC_OVER: UInt = 0u
 
-public val AD_CLOCKWISE: ARC_DIRECTION = 2
+public val AD_CLOCKWISE: ArcDirection = 2
 
-public val AD_COUNTERCLOCKWISE: ARC_DIRECTION = 1
+public val AD_COUNTERCLOCKWISE: ArcDirection = 1
 
-public val ALTERNATE: CREATE_POLYGON_RGN_MODE = 1
+public val ALTERNATE: CreatePolygonRgnMode = 1
 
-public val ANSI_CHARSET: FONT_CHARSET = 0u
+public val ANSI_CHARSET: FontCharset = 0u.toUByte()
 
-public val ANSI_FIXED_FONT: GET_STOCK_OBJECT_FLAGS = 11
+public val ANSI_FIXED_FONT: GetStockObjectFlags = 11
 
-public val ANSI_VAR_FONT: GET_STOCK_OBJECT_FLAGS = 12
+public val ANSI_VAR_FONT: GetStockObjectFlags = 12
 
-public val ANTIALIASED_QUALITY: FONT_QUALITY = 4u
+public val ANTIALIASED_QUALITY: FontQuality = 4u.toUByte()
 
-public val ARABIC_CHARSET: FONT_CHARSET = 178u
+public val ARABIC_CHARSET: FontCharset = 178u.toUByte()
 
-public val ASPECTX: GET_DEVICE_CAPS_INDEX = 40u
+public val ASPECTX: GetDeviceCapsIndex = 40u
 
-public val ASPECTXY: GET_DEVICE_CAPS_INDEX = 44u
+public val ASPECTXY: GetDeviceCapsIndex = 44u
 
-public val ASPECTY: GET_DEVICE_CAPS_INDEX = 42u
+public val ASPECTY: GetDeviceCapsIndex = 42u
 
 public val ASPECT_FILTERING: UInt = 1u
 
-public val BALTIC_CHARSET: FONT_CHARSET = 186u
+public val BALTIC_CHARSET: FontCharset = 186u.toUByte()
 
 public val BANDINFO: UInt = 24u
 
-public val BDR_INNER: DRAWEDGE_FLAGS = 12u
+public val BDR_INNER: DrawedgeFlags = 12u
 
-public val BDR_OUTER: DRAWEDGE_FLAGS = 3u
+public val BDR_OUTER: DrawedgeFlags = 3u
 
-public val BDR_RAISED: DRAWEDGE_FLAGS = 5u
+public val BDR_RAISED: DrawedgeFlags = 5u
 
-public val BDR_RAISEDINNER: DRAWEDGE_FLAGS = 4u
+public val BDR_RAISEDINNER: DrawedgeFlags = 4u
 
-public val BDR_RAISEDOUTER: DRAWEDGE_FLAGS = 1u
+public val BDR_RAISEDOUTER: DrawedgeFlags = 1u
 
-public val BDR_SUNKEN: DRAWEDGE_FLAGS = 10u
+public val BDR_SUNKEN: DrawedgeFlags = 10u
 
-public val BDR_SUNKENINNER: DRAWEDGE_FLAGS = 8u
+public val BDR_SUNKENINNER: DrawedgeFlags = 8u
 
-public val BDR_SUNKENOUTER: DRAWEDGE_FLAGS = 2u
+public val BDR_SUNKENOUTER: DrawedgeFlags = 2u
 
 public val BEGIN_PATH: UInt = 4096u
 
-public val BF_ADJUST: DRAW_EDGE_FLAGS = 8192u
+public val BF_ADJUST: DrawEdgeFlags = 8192u
 
-public val BF_BOTTOM: DRAW_EDGE_FLAGS = 8u
+public val BF_BOTTOM: DrawEdgeFlags = 8u
 
-public val BF_BOTTOMLEFT: DRAW_EDGE_FLAGS = 9u
+public val BF_BOTTOMLEFT: DrawEdgeFlags = 9u
 
-public val BF_BOTTOMRIGHT: DRAW_EDGE_FLAGS = 12u
+public val BF_BOTTOMRIGHT: DrawEdgeFlags = 12u
 
-public val BF_DIAGONAL: DRAW_EDGE_FLAGS = 16u
+public val BF_DIAGONAL: DrawEdgeFlags = 16u
 
-public val BF_DIAGONAL_ENDBOTTOMLEFT: DRAW_EDGE_FLAGS = 25u
+public val BF_DIAGONAL_ENDBOTTOMLEFT: DrawEdgeFlags = 25u
 
-public val BF_DIAGONAL_ENDBOTTOMRIGHT: DRAW_EDGE_FLAGS = 28u
+public val BF_DIAGONAL_ENDBOTTOMRIGHT: DrawEdgeFlags = 28u
 
-public val BF_DIAGONAL_ENDTOPLEFT: DRAW_EDGE_FLAGS = 19u
+public val BF_DIAGONAL_ENDTOPLEFT: DrawEdgeFlags = 19u
 
-public val BF_DIAGONAL_ENDTOPRIGHT: DRAW_EDGE_FLAGS = 22u
+public val BF_DIAGONAL_ENDTOPRIGHT: DrawEdgeFlags = 22u
 
-public val BF_FLAT: DRAW_EDGE_FLAGS = 16384u
+public val BF_FLAT: DrawEdgeFlags = 16384u
 
-public val BF_LEFT: DRAW_EDGE_FLAGS = 1u
+public val BF_LEFT: DrawEdgeFlags = 1u
 
-public val BF_MIDDLE: DRAW_EDGE_FLAGS = 2048u
+public val BF_MIDDLE: DrawEdgeFlags = 2048u
 
-public val BF_MONO: DRAW_EDGE_FLAGS = 32768u
+public val BF_MONO: DrawEdgeFlags = 32768u
 
-public val BF_RECT: DRAW_EDGE_FLAGS = 15u
+public val BF_RECT: DrawEdgeFlags = 15u
 
-public val BF_RIGHT: DRAW_EDGE_FLAGS = 4u
+public val BF_RIGHT: DrawEdgeFlags = 4u
 
-public val BF_SOFT: DRAW_EDGE_FLAGS = 4096u
+public val BF_SOFT: DrawEdgeFlags = 4096u
 
-public val BF_TOP: DRAW_EDGE_FLAGS = 2u
+public val BF_TOP: DrawEdgeFlags = 2u
 
-public val BF_TOPLEFT: DRAW_EDGE_FLAGS = 3u
+public val BF_TOPLEFT: DrawEdgeFlags = 3u
 
-public val BF_TOPRIGHT: DRAW_EDGE_FLAGS = 6u
+public val BF_TOPRIGHT: DrawEdgeFlags = 6u
 
-public val BITSPIXEL: GET_DEVICE_CAPS_INDEX = 12u
+public val BITSPIXEL: GetDeviceCapsIndex = 12u
 
-public val BI_BITFIELDS: BI_COMPRESSION = 3u
+public val BI_BITFIELDS: BiCompression = 3u
 
-public val BI_JPEG: BI_COMPRESSION = 4u
+public val BI_JPEG: BiCompression = 4u
 
-public val BI_PNG: BI_COMPRESSION = 5u
+public val BI_PNG: BiCompression = 5u
 
-public val BI_RGB: BI_COMPRESSION = 0u
+public val BI_RGB: BiCompression = 0u
 
-public val BI_RLE4: BI_COMPRESSION = 2u
+public val BI_RLE4: BiCompression = 2u
 
-public val BI_RLE8: BI_COMPRESSION = 1u
+public val BI_RLE8: BiCompression = 1u
 
 public val BKMODE_LAST: UInt = 2u
 
-public val BLACKNESS: ROP_CODE = 66u
+public val BLACKNESS: RopCode = 66u
 
-public val BLACKONWHITE: STRETCH_BLT_MODE = 1
+public val BLACKONWHITE: StretchBltMode = 1
 
-public val BLACK_BRUSH: GET_STOCK_OBJECT_FLAGS = 4
+public val BLACK_BRUSH: GetStockObjectFlags = 4
 
-public val BLACK_PEN: GET_STOCK_OBJECT_FLAGS = 7
+public val BLACK_PEN: GetStockObjectFlags = 7
 
-public val BLTALIGNMENT: GET_DEVICE_CAPS_INDEX = 119u
+public val BLTALIGNMENT: GetDeviceCapsIndex = 119u
 
-public val BS_DIBPATTERN: BRUSH_STYLE = 5u
+public val BS_DIBPATTERN: BrushStyle = 5u
 
-public val BS_DIBPATTERN8X8: BRUSH_STYLE = 8u
+public val BS_DIBPATTERN8X8: BrushStyle = 8u
 
-public val BS_DIBPATTERNPT: BRUSH_STYLE = 6u
+public val BS_DIBPATTERNPT: BrushStyle = 6u
 
-public val BS_HATCHED: BRUSH_STYLE = 2u
+public val BS_HATCHED: BrushStyle = 2u
 
-public val BS_HOLLOW: BRUSH_STYLE = 1u
+public val BS_HOLLOW: BrushStyle = 1u
 
-public val BS_INDEXED: BRUSH_STYLE = 4u
+public val BS_INDEXED: BrushStyle = 4u
 
-public val BS_MONOPATTERN: BRUSH_STYLE = 9u
+public val BS_MONOPATTERN: BrushStyle = 9u
 
-public val BS_NULL: BRUSH_STYLE = 1u
+public val BS_NULL: BrushStyle = 1u
 
-public val BS_PATTERN: BRUSH_STYLE = 3u
+public val BS_PATTERN: BrushStyle = 3u
 
-public val BS_PATTERN8X8: BRUSH_STYLE = 7u
+public val BS_PATTERN8X8: BrushStyle = 7u
 
-public val BS_SOLID: BRUSH_STYLE = 0u
+public val BS_SOLID: BrushStyle = 0u
 
-public val CAPTUREBLT: ROP_CODE = 1073741824u
+public val CAPTUREBLT: RopCode = 1073741824u
 
 public val CA_LOG_FILTER: UInt = 2u
 
@@ -170,67 +170,67 @@ public val CC_WIDE: UInt = 16u
 
 public val CC_WIDESTYLED: UInt = 64u
 
-public val CDS_DISABLE_UNSAFE_MODES: CDS_TYPE = 512u
+public val CDS_DISABLE_UNSAFE_MODES: CdsType = 512u
 
-public val CDS_ENABLE_UNSAFE_MODES: CDS_TYPE = 256u
+public val CDS_ENABLE_UNSAFE_MODES: CdsType = 256u
 
-public val CDS_FULLSCREEN: CDS_TYPE = 4u
+public val CDS_FULLSCREEN: CdsType = 4u
 
-public val CDS_GLOBAL: CDS_TYPE = 8u
+public val CDS_GLOBAL: CdsType = 8u
 
-public val CDS_NORESET: CDS_TYPE = 268435456u
+public val CDS_NORESET: CdsType = 268435456u
 
-public val CDS_RESET: CDS_TYPE = 1073741824u
+public val CDS_RESET: CdsType = 1073741824u
 
-public val CDS_RESET_EX: CDS_TYPE = 536870912u
+public val CDS_RESET_EX: CdsType = 536870912u
 
-public val CDS_SET_PRIMARY: CDS_TYPE = 16u
+public val CDS_SET_PRIMARY: CdsType = 16u
 
-public val CDS_TEST: CDS_TYPE = 2u
+public val CDS_TEST: CdsType = 2u
 
-public val CDS_UPDATEREGISTRY: CDS_TYPE = 1u
+public val CDS_UPDATEREGISTRY: CdsType = 1u
 
-public val CDS_VIDEOPARAMETERS: CDS_TYPE = 32u
+public val CDS_VIDEOPARAMETERS: CdsType = 32u
 
 public val CHARSET_DEFAULT: UInt = 1u
 
 public val CHARSET_GLYPHIDX: UInt = 3u
 
-public val CHARSET_SYMBOL: EMBED_FONT_CHARSET = 2u
+public val CHARSET_SYMBOL: EmbedFontCharset = 2u
 
-public val CHARSET_UNICODE: EMBED_FONT_CHARSET = 1u
+public val CHARSET_UNICODE: EmbedFontCharset = 1u
 
 public val CHECKJPEGFORMAT: UInt = 4119u
 
 public val CHECKPNGFORMAT: UInt = 4120u
 
-public val CHINESEBIG5_CHARSET: FONT_CHARSET = 136u
+public val CHINESEBIG5_CHARSET: FontCharset = 136u.toUByte()
 
 public val CLEARTYPE_NATURAL_QUALITY: UInt = 6u
 
-public val CLEARTYPE_QUALITY: FONT_QUALITY = 5u
+public val CLEARTYPE_QUALITY: FontQuality = 5u.toUByte()
 
-public val CLIPCAPS: GET_DEVICE_CAPS_INDEX = 36u
+public val CLIPCAPS: GetDeviceCapsIndex = 36u
 
-public val CLIP_CHARACTER_PRECIS: FONT_CLIP_PRECISION = 1u
+public val CLIP_CHARACTER_PRECIS: FontClipPrecision = 1u.toUByte()
 
-public val CLIP_DEFAULT_PRECIS: FONT_CLIP_PRECISION = 0u
+public val CLIP_DEFAULT_PRECIS: FontClipPrecision = 0u.toUByte()
 
-public val CLIP_DFA_DISABLE: FONT_CLIP_PRECISION = 64u
+public val CLIP_DFA_DISABLE: FontClipPrecision = 64u.toUByte()
 
-public val CLIP_DFA_OVERRIDE: FONT_CLIP_PRECISION = 64u
+public val CLIP_DFA_OVERRIDE: FontClipPrecision = 64u.toUByte()
 
-public val CLIP_EMBEDDED: FONT_CLIP_PRECISION = 128u
+public val CLIP_EMBEDDED: FontClipPrecision = 128u.toUByte()
 
-public val CLIP_LH_ANGLES: FONT_CLIP_PRECISION = 16u
+public val CLIP_LH_ANGLES: FontClipPrecision = 16u.toUByte()
 
-public val CLIP_MASK: FONT_CLIP_PRECISION = 15u
+public val CLIP_MASK: FontClipPrecision = 15u.toUByte()
 
-public val CLIP_STROKE_PRECIS: FONT_CLIP_PRECISION = 2u
+public val CLIP_STROKE_PRECIS: FontClipPrecision = 2u.toUByte()
 
 public val CLIP_TO_PATH: UInt = 4097u
 
-public val CLIP_TT_ALWAYS: FONT_CLIP_PRECISION = 32u
+public val CLIP_TT_ALWAYS: FontClipPrecision = 32u.toUByte()
 
 public val CLOSECHANNEL: UInt = 4112u
 
@@ -250,85 +250,85 @@ public val CM_OUT_OF_GAMUT: UInt = 255u
 
 public val COLORMATCHTOTARGET_EMBEDED: UInt = 1u
 
-public val COLORMGMTCAPS: GET_DEVICE_CAPS_INDEX = 121u
+public val COLORMGMTCAPS: GetDeviceCapsIndex = 121u
 
-public val COLORONCOLOR: STRETCH_BLT_MODE = 3
+public val COLORONCOLOR: StretchBltMode = 3
 
-public val COLORRES: GET_DEVICE_CAPS_INDEX = 108u
+public val COLORRES: GetDeviceCapsIndex = 108u
 
-public val COLOR_3DDKSHADOW: SYS_COLOR_INDEX = 21
+public val COLOR_3DDKSHADOW: SysColorIndex = 21
 
-public val COLOR_3DFACE: SYS_COLOR_INDEX = 15
+public val COLOR_3DFACE: SysColorIndex = 15
 
-public val COLOR_3DHIGHLIGHT: SYS_COLOR_INDEX = 20
+public val COLOR_3DHIGHLIGHT: SysColorIndex = 20
 
-public val COLOR_3DHILIGHT: SYS_COLOR_INDEX = 20
+public val COLOR_3DHILIGHT: SysColorIndex = 20
 
-public val COLOR_3DLIGHT: SYS_COLOR_INDEX = 22
+public val COLOR_3DLIGHT: SysColorIndex = 22
 
-public val COLOR_3DSHADOW: SYS_COLOR_INDEX = 16
+public val COLOR_3DSHADOW: SysColorIndex = 16
 
-public val COLOR_ACTIVEBORDER: SYS_COLOR_INDEX = 10
+public val COLOR_ACTIVEBORDER: SysColorIndex = 10
 
-public val COLOR_ACTIVECAPTION: SYS_COLOR_INDEX = 2
+public val COLOR_ACTIVECAPTION: SysColorIndex = 2
 
-public val COLOR_APPWORKSPACE: SYS_COLOR_INDEX = 12
+public val COLOR_APPWORKSPACE: SysColorIndex = 12
 
-public val COLOR_BACKGROUND: SYS_COLOR_INDEX = 1
+public val COLOR_BACKGROUND: SysColorIndex = 1
 
-public val COLOR_BTNFACE: SYS_COLOR_INDEX = 15
+public val COLOR_BTNFACE: SysColorIndex = 15
 
-public val COLOR_BTNHIGHLIGHT: SYS_COLOR_INDEX = 20
+public val COLOR_BTNHIGHLIGHT: SysColorIndex = 20
 
-public val COLOR_BTNHILIGHT: SYS_COLOR_INDEX = 20
+public val COLOR_BTNHILIGHT: SysColorIndex = 20
 
-public val COLOR_BTNSHADOW: SYS_COLOR_INDEX = 16
+public val COLOR_BTNSHADOW: SysColorIndex = 16
 
-public val COLOR_BTNTEXT: SYS_COLOR_INDEX = 18
+public val COLOR_BTNTEXT: SysColorIndex = 18
 
-public val COLOR_CAPTIONTEXT: SYS_COLOR_INDEX = 9
+public val COLOR_CAPTIONTEXT: SysColorIndex = 9
 
-public val COLOR_DESKTOP: SYS_COLOR_INDEX = 1
+public val COLOR_DESKTOP: SysColorIndex = 1
 
-public val COLOR_GRADIENTACTIVECAPTION: SYS_COLOR_INDEX = 27
+public val COLOR_GRADIENTACTIVECAPTION: SysColorIndex = 27
 
-public val COLOR_GRADIENTINACTIVECAPTION: SYS_COLOR_INDEX = 28
+public val COLOR_GRADIENTINACTIVECAPTION: SysColorIndex = 28
 
-public val COLOR_GRAYTEXT: SYS_COLOR_INDEX = 17
+public val COLOR_GRAYTEXT: SysColorIndex = 17
 
-public val COLOR_HIGHLIGHT: SYS_COLOR_INDEX = 13
+public val COLOR_HIGHLIGHT: SysColorIndex = 13
 
-public val COLOR_HIGHLIGHTTEXT: SYS_COLOR_INDEX = 14
+public val COLOR_HIGHLIGHTTEXT: SysColorIndex = 14
 
-public val COLOR_HOTLIGHT: SYS_COLOR_INDEX = 26
+public val COLOR_HOTLIGHT: SysColorIndex = 26
 
-public val COLOR_INACTIVEBORDER: SYS_COLOR_INDEX = 11
+public val COLOR_INACTIVEBORDER: SysColorIndex = 11
 
-public val COLOR_INACTIVECAPTION: SYS_COLOR_INDEX = 3
+public val COLOR_INACTIVECAPTION: SysColorIndex = 3
 
-public val COLOR_INACTIVECAPTIONTEXT: SYS_COLOR_INDEX = 19
+public val COLOR_INACTIVECAPTIONTEXT: SysColorIndex = 19
 
-public val COLOR_INFOBK: SYS_COLOR_INDEX = 24
+public val COLOR_INFOBK: SysColorIndex = 24
 
-public val COLOR_INFOTEXT: SYS_COLOR_INDEX = 23
+public val COLOR_INFOTEXT: SysColorIndex = 23
 
-public val COLOR_MENU: SYS_COLOR_INDEX = 4
+public val COLOR_MENU: SysColorIndex = 4
 
-public val COLOR_MENUBAR: SYS_COLOR_INDEX = 30
+public val COLOR_MENUBAR: SysColorIndex = 30
 
-public val COLOR_MENUHILIGHT: SYS_COLOR_INDEX = 29
+public val COLOR_MENUHILIGHT: SysColorIndex = 29
 
-public val COLOR_MENUTEXT: SYS_COLOR_INDEX = 7
+public val COLOR_MENUTEXT: SysColorIndex = 7
 
-public val COLOR_SCROLLBAR: SYS_COLOR_INDEX = 0
+public val COLOR_SCROLLBAR: SysColorIndex = 0
 
-public val COLOR_WINDOW: SYS_COLOR_INDEX = 5
+public val COLOR_WINDOW: SysColorIndex = 5
 
-public val COLOR_WINDOWFRAME: SYS_COLOR_INDEX = 6
+public val COLOR_WINDOWFRAME: SysColorIndex = 6
 
-public val COLOR_WINDOWTEXT: SYS_COLOR_INDEX = 8
+public val COLOR_WINDOWTEXT: SysColorIndex = 8
 
-public val COMPLEXREGION: GDI_REGION_TYPE = 3
+public val COMPLEXREGION: GdiRegionType = 3
 
 public val CP_NONE: UInt = 0u
 
@@ -338,7 +338,7 @@ public val CP_REGION: UInt = 2u
 
 public val CREATECOLORSPACE_EMBEDED: UInt = 1u
 
-public val CURVECAPS: GET_DEVICE_CAPS_INDEX = 28u
+public val CURVECAPS: GetDeviceCapsIndex = 28u
 
 public val DCBA_FACEDOWNCENTER: UInt = 257u
 
@@ -356,13 +356,13 @@ public val DCBA_FACEUPNONE: UInt = 0u
 
 public val DCBA_FACEUPRIGHT: UInt = 3u
 
-public val DCB_ACCUMULATE: SET_BOUNDS_RECT_FLAGS = 2u
+public val DCB_ACCUMULATE: SetBoundsRectFlags = 2u
 
-public val DCB_DISABLE: SET_BOUNDS_RECT_FLAGS = 8u
+public val DCB_DISABLE: SetBoundsRectFlags = 8u
 
-public val DCB_ENABLE: SET_BOUNDS_RECT_FLAGS = 4u
+public val DCB_ENABLE: SetBoundsRectFlags = 4u
 
-public val DCB_RESET: SET_BOUNDS_RECT_FLAGS = 1u
+public val DCB_RESET: SetBoundsRectFlags = 1u
 
 public val DCTT_BITMAP: Int = 1
 
@@ -372,159 +372,159 @@ public val DCTT_DOWNLOAD_OUTLINE: Int = 8
 
 public val DCTT_SUBDEV: Int = 4
 
-public val DCX_CACHE: GET_DCX_FLAGS = 2u
+public val DCX_CACHE: GetDcxFlags = 2u
 
-public val DCX_CLIPCHILDREN: GET_DCX_FLAGS = 8u
+public val DCX_CLIPCHILDREN: GetDcxFlags = 8u
 
-public val DCX_CLIPSIBLINGS: GET_DCX_FLAGS = 16u
+public val DCX_CLIPSIBLINGS: GetDcxFlags = 16u
 
-public val DCX_EXCLUDERGN: GET_DCX_FLAGS = 64u
+public val DCX_EXCLUDERGN: GetDcxFlags = 64u
 
-public val DCX_INTERSECTRGN: GET_DCX_FLAGS = 128u
+public val DCX_INTERSECTRGN: GetDcxFlags = 128u
 
-public val DCX_INTERSECTUPDATE: GET_DCX_FLAGS = 512u
+public val DCX_INTERSECTUPDATE: GetDcxFlags = 512u
 
-public val DCX_LOCKWINDOWUPDATE: GET_DCX_FLAGS = 1024u
+public val DCX_LOCKWINDOWUPDATE: GetDcxFlags = 1024u
 
-public val DCX_NORESETATTRS: GET_DCX_FLAGS = 4u
+public val DCX_NORESETATTRS: GetDcxFlags = 4u
 
-public val DCX_PARENTCLIP: GET_DCX_FLAGS = 32u
+public val DCX_PARENTCLIP: GetDcxFlags = 32u
 
-public val DCX_VALIDATE: GET_DCX_FLAGS = 2097152u
+public val DCX_VALIDATE: GetDcxFlags = 2097152u
 
-public val DCX_WINDOW: GET_DCX_FLAGS = 1u
+public val DCX_WINDOW: GetDcxFlags = 1u
 
-public val DC_ACTIVE: DRAW_CAPTION_FLAGS = 1u
+public val DC_ACTIVE: DrawCaptionFlags = 1u
 
 public val DC_BINADJUST: UInt = 19u
 
-public val DC_BRUSH: GET_STOCK_OBJECT_FLAGS = 18
+public val DC_BRUSH: GetStockObjectFlags = 18
 
-public val DC_BUTTONS: DRAW_CAPTION_FLAGS = 4096u
+public val DC_BUTTONS: DrawCaptionFlags = 4096u
 
 public val DC_DATATYPE_PRODUCED: UInt = 21u
 
 public val DC_EMF_COMPLIANT: UInt = 20u
 
-public val DC_GRADIENT: DRAW_CAPTION_FLAGS = 32u
+public val DC_GRADIENT: DrawCaptionFlags = 32u
 
-public val DC_ICON: DRAW_CAPTION_FLAGS = 4u
+public val DC_ICON: DrawCaptionFlags = 4u
 
-public val DC_INBUTTON: DRAW_CAPTION_FLAGS = 16u
+public val DC_INBUTTON: DrawCaptionFlags = 16u
 
 public val DC_MANUFACTURER: UInt = 23u
 
 public val DC_MODEL: UInt = 24u
 
-public val DC_PEN: GET_STOCK_OBJECT_FLAGS = 19
+public val DC_PEN: GetStockObjectFlags = 19
 
-public val DC_SMALLCAP: DRAW_CAPTION_FLAGS = 2u
+public val DC_SMALLCAP: DrawCaptionFlags = 2u
 
-public val DC_TEXT: DRAW_CAPTION_FLAGS = 8u
+public val DC_TEXT: DrawCaptionFlags = 8u
 
-public val DEFAULT_CHARSET: FONT_CHARSET = 1u
+public val DEFAULT_CHARSET: FontCharset = 1u.toUByte()
 
-public val DEFAULT_GUI_FONT: GET_STOCK_OBJECT_FLAGS = 17
+public val DEFAULT_GUI_FONT: GetStockObjectFlags = 17
 
-public val DEFAULT_PALETTE: GET_STOCK_OBJECT_FLAGS = 15
+public val DEFAULT_PALETTE: GetStockObjectFlags = 15
 
-public val DEFAULT_PITCH: FONT_PITCH = 0u
+public val DEFAULT_PITCH: FontPitch = 0u.toUByte()
 
-public val DEFAULT_QUALITY: FONT_QUALITY = 0u
+public val DEFAULT_QUALITY: FontQuality = 0u.toUByte()
 
-public val DESKTOPHORZRES: GET_DEVICE_CAPS_INDEX = 118u
+public val DESKTOPHORZRES: GetDeviceCapsIndex = 118u
 
-public val DESKTOPVERTRES: GET_DEVICE_CAPS_INDEX = 117u
+public val DESKTOPVERTRES: GetDeviceCapsIndex = 117u
 
 public val DEVICEDATA: UInt = 19u
 
-public val DEVICE_DEFAULT_FONT: GET_STOCK_OBJECT_FLAGS = 14
+public val DEVICE_DEFAULT_FONT: GetStockObjectFlags = 14
 
 public val DEVICE_FONTTYPE: UInt = 2u
 
-public val DFCS_ADJUSTRECT: DFCS_STATE = 8192u
+public val DFCS_ADJUSTRECT: DfcsState = 8192u
 
-public val DFCS_BUTTON3STATE: DFCS_STATE = 8u
+public val DFCS_BUTTON3STATE: DfcsState = 8u
 
-public val DFCS_BUTTONCHECK: DFCS_STATE = 0u
+public val DFCS_BUTTONCHECK: DfcsState = 0u
 
-public val DFCS_BUTTONPUSH: DFCS_STATE = 16u
+public val DFCS_BUTTONPUSH: DfcsState = 16u
 
-public val DFCS_BUTTONRADIO: DFCS_STATE = 4u
+public val DFCS_BUTTONRADIO: DfcsState = 4u
 
-public val DFCS_BUTTONRADIOIMAGE: DFCS_STATE = 1u
+public val DFCS_BUTTONRADIOIMAGE: DfcsState = 1u
 
-public val DFCS_BUTTONRADIOMASK: DFCS_STATE = 2u
+public val DFCS_BUTTONRADIOMASK: DfcsState = 2u
 
-public val DFCS_CAPTIONCLOSE: DFCS_STATE = 0u
+public val DFCS_CAPTIONCLOSE: DfcsState = 0u
 
-public val DFCS_CAPTIONHELP: DFCS_STATE = 4u
+public val DFCS_CAPTIONHELP: DfcsState = 4u
 
-public val DFCS_CAPTIONMAX: DFCS_STATE = 2u
+public val DFCS_CAPTIONMAX: DfcsState = 2u
 
-public val DFCS_CAPTIONMIN: DFCS_STATE = 1u
+public val DFCS_CAPTIONMIN: DfcsState = 1u
 
-public val DFCS_CAPTIONRESTORE: DFCS_STATE = 3u
+public val DFCS_CAPTIONRESTORE: DfcsState = 3u
 
-public val DFCS_CHECKED: DFCS_STATE = 1024u
+public val DFCS_CHECKED: DfcsState = 1024u
 
-public val DFCS_FLAT: DFCS_STATE = 16384u
+public val DFCS_FLAT: DfcsState = 16384u
 
-public val DFCS_HOT: DFCS_STATE = 4096u
+public val DFCS_HOT: DfcsState = 4096u
 
-public val DFCS_INACTIVE: DFCS_STATE = 256u
+public val DFCS_INACTIVE: DfcsState = 256u
 
-public val DFCS_MENUARROW: DFCS_STATE = 0u
+public val DFCS_MENUARROW: DfcsState = 0u
 
-public val DFCS_MENUARROWRIGHT: DFCS_STATE = 4u
+public val DFCS_MENUARROWRIGHT: DfcsState = 4u
 
-public val DFCS_MENUBULLET: DFCS_STATE = 2u
+public val DFCS_MENUBULLET: DfcsState = 2u
 
-public val DFCS_MENUCHECK: DFCS_STATE = 1u
+public val DFCS_MENUCHECK: DfcsState = 1u
 
-public val DFCS_MONO: DFCS_STATE = 32768u
+public val DFCS_MONO: DfcsState = 32768u
 
-public val DFCS_PUSHED: DFCS_STATE = 512u
+public val DFCS_PUSHED: DfcsState = 512u
 
-public val DFCS_SCROLLCOMBOBOX: DFCS_STATE = 5u
+public val DFCS_SCROLLCOMBOBOX: DfcsState = 5u
 
-public val DFCS_SCROLLDOWN: DFCS_STATE = 1u
+public val DFCS_SCROLLDOWN: DfcsState = 1u
 
-public val DFCS_SCROLLLEFT: DFCS_STATE = 2u
+public val DFCS_SCROLLLEFT: DfcsState = 2u
 
-public val DFCS_SCROLLRIGHT: DFCS_STATE = 3u
+public val DFCS_SCROLLRIGHT: DfcsState = 3u
 
-public val DFCS_SCROLLSIZEGRIP: DFCS_STATE = 8u
+public val DFCS_SCROLLSIZEGRIP: DfcsState = 8u
 
-public val DFCS_SCROLLSIZEGRIPRIGHT: DFCS_STATE = 16u
+public val DFCS_SCROLLSIZEGRIPRIGHT: DfcsState = 16u
 
-public val DFCS_SCROLLUP: DFCS_STATE = 0u
+public val DFCS_SCROLLUP: DfcsState = 0u
 
-public val DFCS_TRANSPARENT: DFCS_STATE = 2048u
+public val DFCS_TRANSPARENT: DfcsState = 2048u
 
-public val DFC_BUTTON: DFC_TYPE = 4u
+public val DFC_BUTTON: DfcType = 4u
 
-public val DFC_CAPTION: DFC_TYPE = 1u
+public val DFC_CAPTION: DfcType = 1u
 
-public val DFC_MENU: DFC_TYPE = 2u
+public val DFC_MENU: DfcType = 2u
 
-public val DFC_POPUPMENU: DFC_TYPE = 5u
+public val DFC_POPUPMENU: DfcType = 5u
 
-public val DFC_SCROLL: DFC_TYPE = 3u
+public val DFC_SCROLL: DfcType = 3u
 
-public val DIB_PAL_COLORS: DIB_USAGE = 1u
+public val DIB_PAL_COLORS: DibUsage = 1u
 
-public val DIB_RGB_COLORS: DIB_USAGE = 0u
+public val DIB_RGB_COLORS: DibUsage = 0u
 
-public val DISPLAYCONFIG_COLOR_ENCODING_INTENSITY: DISPLAYCONFIG_COLOR_ENCODING = 4
+public val DISPLAYCONFIG_COLOR_ENCODING_INTENSITY: DisplayconfigColorEncoding = 4
 
-public val DISPLAYCONFIG_COLOR_ENCODING_RGB: DISPLAYCONFIG_COLOR_ENCODING = 0
+public val DISPLAYCONFIG_COLOR_ENCODING_RGB: DisplayconfigColorEncoding = 0
 
-public val DISPLAYCONFIG_COLOR_ENCODING_YCBCR420: DISPLAYCONFIG_COLOR_ENCODING = 3
+public val DISPLAYCONFIG_COLOR_ENCODING_YCBCR420: DisplayconfigColorEncoding = 3
 
-public val DISPLAYCONFIG_COLOR_ENCODING_YCBCR422: DISPLAYCONFIG_COLOR_ENCODING = 2
+public val DISPLAYCONFIG_COLOR_ENCODING_YCBCR422: DisplayconfigColorEncoding = 2
 
-public val DISPLAYCONFIG_COLOR_ENCODING_YCBCR444: DISPLAYCONFIG_COLOR_ENCODING = 1
+public val DISPLAYCONFIG_COLOR_ENCODING_YCBCR444: DisplayconfigColorEncoding = 1
 
 public val DISPLAYCONFIG_MAXPATH: UInt = 1024u
 
@@ -560,57 +560,57 @@ public val DISPLAYCONFIG_TARGET_IN_USE: UInt = 1u
 
 public val DISPLAYCONFIG_TARGET_IS_HMD: UInt = 32u
 
-public val DISPLAY_DEVICE_ACC_DRIVER: DISPLAY_DEVICE_STATE_FLAGS = 64u
+public val DISPLAY_DEVICE_ACC_DRIVER: DisplayDeviceStateFlags = 64u
 
-public val DISPLAY_DEVICE_ACTIVE: DISPLAY_DEVICE_STATE_FLAGS = 1u
+public val DISPLAY_DEVICE_ACTIVE: DisplayDeviceStateFlags = 1u
 
-public val DISPLAY_DEVICE_ATTACHED: DISPLAY_DEVICE_STATE_FLAGS = 2u
+public val DISPLAY_DEVICE_ATTACHED: DisplayDeviceStateFlags = 2u
 
-public val DISPLAY_DEVICE_ATTACHED_TO_DESKTOP: DISPLAY_DEVICE_STATE_FLAGS = 1u
+public val DISPLAY_DEVICE_ATTACHED_TO_DESKTOP: DisplayDeviceStateFlags = 1u
 
-public val DISPLAY_DEVICE_DISCONNECT: DISPLAY_DEVICE_STATE_FLAGS = 33554432u
+public val DISPLAY_DEVICE_DISCONNECT: DisplayDeviceStateFlags = 33554432u
 
-public val DISPLAY_DEVICE_MIRRORING_DRIVER: DISPLAY_DEVICE_STATE_FLAGS = 8u
+public val DISPLAY_DEVICE_MIRRORING_DRIVER: DisplayDeviceStateFlags = 8u
 
-public val DISPLAY_DEVICE_MODESPRUNED: DISPLAY_DEVICE_STATE_FLAGS = 134217728u
+public val DISPLAY_DEVICE_MODESPRUNED: DisplayDeviceStateFlags = 134217728u
 
-public val DISPLAY_DEVICE_MULTI_DRIVER: DISPLAY_DEVICE_STATE_FLAGS = 2u
+public val DISPLAY_DEVICE_MULTI_DRIVER: DisplayDeviceStateFlags = 2u
 
-public val DISPLAY_DEVICE_PRIMARY_DEVICE: DISPLAY_DEVICE_STATE_FLAGS = 4u
+public val DISPLAY_DEVICE_PRIMARY_DEVICE: DisplayDeviceStateFlags = 4u
 
-public val DISPLAY_DEVICE_RDPUDD: DISPLAY_DEVICE_STATE_FLAGS = 16777216u
+public val DISPLAY_DEVICE_RDPUDD: DisplayDeviceStateFlags = 16777216u
 
-public val DISPLAY_DEVICE_REMOTE: DISPLAY_DEVICE_STATE_FLAGS = 67108864u
+public val DISPLAY_DEVICE_REMOTE: DisplayDeviceStateFlags = 67108864u
 
-public val DISPLAY_DEVICE_REMOVABLE: DISPLAY_DEVICE_STATE_FLAGS = 32u
+public val DISPLAY_DEVICE_REMOVABLE: DisplayDeviceStateFlags = 32u
 
-public val DISPLAY_DEVICE_TS_COMPATIBLE: DISPLAY_DEVICE_STATE_FLAGS = 2097152u
+public val DISPLAY_DEVICE_TS_COMPATIBLE: DisplayDeviceStateFlags = 2097152u
 
-public val DISPLAY_DEVICE_UNSAFE_MODES_ON: DISPLAY_DEVICE_STATE_FLAGS = 524288u
+public val DISPLAY_DEVICE_UNSAFE_MODES_ON: DisplayDeviceStateFlags = 524288u
 
-public val DISPLAY_DEVICE_VGA_COMPATIBLE: DISPLAY_DEVICE_STATE_FLAGS = 16u
+public val DISPLAY_DEVICE_VGA_COMPATIBLE: DisplayDeviceStateFlags = 16u
 
-public val DISP_CHANGE_BADDUALVIEW: DISP_CHANGE = -6
+public val DISP_CHANGE_BADDUALVIEW: DispChange = -6
 
-public val DISP_CHANGE_BADFLAGS: DISP_CHANGE = -4
+public val DISP_CHANGE_BADFLAGS: DispChange = -4
 
-public val DISP_CHANGE_BADMODE: DISP_CHANGE = -2
+public val DISP_CHANGE_BADMODE: DispChange = -2
 
-public val DISP_CHANGE_BADPARAM: DISP_CHANGE = -5
+public val DISP_CHANGE_BADPARAM: DispChange = -5
 
-public val DISP_CHANGE_FAILED: DISP_CHANGE = -1
+public val DISP_CHANGE_FAILED: DispChange = -1
 
-public val DISP_CHANGE_NOTUPDATED: DISP_CHANGE = -3
+public val DISP_CHANGE_NOTUPDATED: DispChange = -3
 
-public val DISP_CHANGE_RESTART: DISP_CHANGE = 1
+public val DISP_CHANGE_RESTART: DispChange = 1
 
-public val DISP_CHANGE_SUCCESSFUL: DISP_CHANGE = 0
+public val DISP_CHANGE_SUCCESSFUL: DispChange = 0
 
 public val DI_APPBANDING: UInt = 1u
 
 public val DI_ROPS_READ_DESTINATION: UInt = 2u
 
-public val DKGRAY_BRUSH: GET_STOCK_OBJECT_FLAGS = 3
+public val DKGRAY_BRUSH: GetStockObjectFlags = 3
 
 public val DMBIN_AUTO: UInt = 7u
 
@@ -644,19 +644,19 @@ public val DMBIN_UPPER: UInt = 1u
 
 public val DMBIN_USER: UInt = 256u
 
-public val DMCOLLATE_FALSE: DEVMODE_COLLATE = 0
+public val DMCOLLATE_FALSE: DevmodeCollate = 0
 
-public val DMCOLLATE_TRUE: DEVMODE_COLLATE = 1
+public val DMCOLLATE_TRUE: DevmodeCollate = 1
 
-public val DMCOLOR_COLOR: DEVMODE_COLOR = 2
+public val DMCOLOR_COLOR: DevmodeColor = 2
 
-public val DMCOLOR_MONOCHROME: DEVMODE_COLOR = 1
+public val DMCOLOR_MONOCHROME: DevmodeColor = 1
 
-public val DMDFO_CENTER: DEVMODE_DISPLAY_FIXED_OUTPUT = 2u
+public val DMDFO_CENTER: DevmodeDisplayFixedOutput = 2u
 
-public val DMDFO_DEFAULT: DEVMODE_DISPLAY_FIXED_OUTPUT = 0u
+public val DMDFO_DEFAULT: DevmodeDisplayFixedOutput = 0u
 
-public val DMDFO_STRETCH: DEVMODE_DISPLAY_FIXED_OUTPUT = 1u
+public val DMDFO_STRETCH: DevmodeDisplayFixedOutput = 1u
 
 public val DMDISPLAYFLAGS_TEXTMODE: UInt = 4u
 
@@ -682,19 +682,19 @@ public val DMDITHER_RESERVED9: UInt = 9u
 
 public val DMDITHER_USER: UInt = 256u
 
-public val DMDO_180: DEVMODE_DISPLAY_ORIENTATION = 2u
+public val DMDO_180: DevmodeDisplayOrientation = 2u
 
-public val DMDO_270: DEVMODE_DISPLAY_ORIENTATION = 3u
+public val DMDO_270: DevmodeDisplayOrientation = 3u
 
-public val DMDO_90: DEVMODE_DISPLAY_ORIENTATION = 1u
+public val DMDO_90: DevmodeDisplayOrientation = 1u
 
-public val DMDO_DEFAULT: DEVMODE_DISPLAY_ORIENTATION = 0u
+public val DMDO_DEFAULT: DevmodeDisplayOrientation = 0u
 
-public val DMDUP_HORIZONTAL: DEVMODE_DUPLEX = 3
+public val DMDUP_HORIZONTAL: DevmodeDuplex = 3
 
-public val DMDUP_SIMPLEX: DEVMODE_DUPLEX = 1
+public val DMDUP_SIMPLEX: DevmodeDuplex = 1
 
-public val DMDUP_VERTICAL: DEVMODE_DUPLEX = 2
+public val DMDUP_VERTICAL: DevmodeDuplex = 2
 
 public val DMICMMETHOD_DEVICE: UInt = 4u
 
@@ -980,93 +980,93 @@ public val DMRES_LOW: Int = -2
 
 public val DMRES_MEDIUM: Int = -3
 
-public val DMTT_BITMAP: DEVMODE_TRUETYPE_OPTION = 1
+public val DMTT_BITMAP: DevmodeTruetypeOption = 1
 
-public val DMTT_DOWNLOAD: DEVMODE_TRUETYPE_OPTION = 2
+public val DMTT_DOWNLOAD: DevmodeTruetypeOption = 2
 
-public val DMTT_DOWNLOAD_OUTLINE: DEVMODE_TRUETYPE_OPTION = 4
+public val DMTT_DOWNLOAD_OUTLINE: DevmodeTruetypeOption = 4
 
-public val DMTT_SUBDEV: DEVMODE_TRUETYPE_OPTION = 3
+public val DMTT_SUBDEV: DevmodeTruetypeOption = 3
 
-public val DM_BITSPERPEL: DEVMODE_FIELD_FLAGS = 262144u
+public val DM_BITSPERPEL: DevmodeFieldFlags = 262144u
 
-public val DM_COLLATE: DEVMODE_FIELD_FLAGS = 32768u
+public val DM_COLLATE: DevmodeFieldFlags = 32768u
 
-public val DM_COLOR: DEVMODE_FIELD_FLAGS = 2048u
+public val DM_COLOR: DevmodeFieldFlags = 2048u
 
-public val DM_COPIES: DEVMODE_FIELD_FLAGS = 256u
+public val DM_COPIES: DevmodeFieldFlags = 256u
 
-public val DM_COPY: DEVMODE_FIELD_FLAGS = 2u
+public val DM_COPY: DevmodeFieldFlags = 2u
 
-public val DM_DEFAULTSOURCE: DEVMODE_FIELD_FLAGS = 512u
+public val DM_DEFAULTSOURCE: DevmodeFieldFlags = 512u
 
-public val DM_DISPLAYFIXEDOUTPUT: DEVMODE_FIELD_FLAGS = 536870912u
+public val DM_DISPLAYFIXEDOUTPUT: DevmodeFieldFlags = 536870912u
 
-public val DM_DISPLAYFLAGS: DEVMODE_FIELD_FLAGS = 2097152u
+public val DM_DISPLAYFLAGS: DevmodeFieldFlags = 2097152u
 
-public val DM_DISPLAYFREQUENCY: DEVMODE_FIELD_FLAGS = 4194304u
+public val DM_DISPLAYFREQUENCY: DevmodeFieldFlags = 4194304u
 
-public val DM_DISPLAYORIENTATION: DEVMODE_FIELD_FLAGS = 128u
+public val DM_DISPLAYORIENTATION: DevmodeFieldFlags = 128u
 
-public val DM_DITHERTYPE: DEVMODE_FIELD_FLAGS = 67108864u
+public val DM_DITHERTYPE: DevmodeFieldFlags = 67108864u
 
-public val DM_DUPLEX: DEVMODE_FIELD_FLAGS = 4096u
+public val DM_DUPLEX: DevmodeFieldFlags = 4096u
 
-public val DM_FORMNAME: DEVMODE_FIELD_FLAGS = 65536u
+public val DM_FORMNAME: DevmodeFieldFlags = 65536u
 
-public val DM_ICMINTENT: DEVMODE_FIELD_FLAGS = 16777216u
+public val DM_ICMINTENT: DevmodeFieldFlags = 16777216u
 
-public val DM_ICMMETHOD: DEVMODE_FIELD_FLAGS = 8388608u
+public val DM_ICMMETHOD: DevmodeFieldFlags = 8388608u
 
-public val DM_INTERLACED: DEVMODE_FIELD_FLAGS = 2u
+public val DM_INTERLACED: DevmodeFieldFlags = 2u
 
-public val DM_IN_BUFFER: DEVMODE_FIELD_FLAGS = 8u
+public val DM_IN_BUFFER: DevmodeFieldFlags = 8u
 
-public val DM_IN_PROMPT: DEVMODE_FIELD_FLAGS = 4u
+public val DM_IN_PROMPT: DevmodeFieldFlags = 4u
 
-public val DM_LOGPIXELS: DEVMODE_FIELD_FLAGS = 131072u
+public val DM_LOGPIXELS: DevmodeFieldFlags = 131072u
 
-public val DM_MEDIATYPE: DEVMODE_FIELD_FLAGS = 33554432u
+public val DM_MEDIATYPE: DevmodeFieldFlags = 33554432u
 
-public val DM_MODIFY: DEVMODE_FIELD_FLAGS = 8u
+public val DM_MODIFY: DevmodeFieldFlags = 8u
 
-public val DM_NUP: DEVMODE_FIELD_FLAGS = 64u
+public val DM_NUP: DevmodeFieldFlags = 64u
 
-public val DM_ORIENTATION: DEVMODE_FIELD_FLAGS = 1u
+public val DM_ORIENTATION: DevmodeFieldFlags = 1u
 
-public val DM_OUT_BUFFER: DEVMODE_FIELD_FLAGS = 2u
+public val DM_OUT_BUFFER: DevmodeFieldFlags = 2u
 
-public val DM_OUT_DEFAULT: DEVMODE_FIELD_FLAGS = 1u
+public val DM_OUT_DEFAULT: DevmodeFieldFlags = 1u
 
-public val DM_PANNINGHEIGHT: DEVMODE_FIELD_FLAGS = 268435456u
+public val DM_PANNINGHEIGHT: DevmodeFieldFlags = 268435456u
 
-public val DM_PANNINGWIDTH: DEVMODE_FIELD_FLAGS = 134217728u
+public val DM_PANNINGWIDTH: DevmodeFieldFlags = 134217728u
 
-public val DM_PAPERLENGTH: DEVMODE_FIELD_FLAGS = 4u
+public val DM_PAPERLENGTH: DevmodeFieldFlags = 4u
 
-public val DM_PAPERSIZE: DEVMODE_FIELD_FLAGS = 2u
+public val DM_PAPERSIZE: DevmodeFieldFlags = 2u
 
-public val DM_PAPERWIDTH: DEVMODE_FIELD_FLAGS = 8u
+public val DM_PAPERWIDTH: DevmodeFieldFlags = 8u
 
-public val DM_PELSHEIGHT: DEVMODE_FIELD_FLAGS = 1048576u
+public val DM_PELSHEIGHT: DevmodeFieldFlags = 1048576u
 
-public val DM_PELSWIDTH: DEVMODE_FIELD_FLAGS = 524288u
+public val DM_PELSWIDTH: DevmodeFieldFlags = 524288u
 
-public val DM_POSITION: DEVMODE_FIELD_FLAGS = 32u
+public val DM_POSITION: DevmodeFieldFlags = 32u
 
-public val DM_PRINTQUALITY: DEVMODE_FIELD_FLAGS = 1024u
+public val DM_PRINTQUALITY: DevmodeFieldFlags = 1024u
 
-public val DM_PROMPT: DEVMODE_FIELD_FLAGS = 4u
+public val DM_PROMPT: DevmodeFieldFlags = 4u
 
-public val DM_SCALE: DEVMODE_FIELD_FLAGS = 16u
+public val DM_SCALE: DevmodeFieldFlags = 16u
 
-public val DM_SPECVERSION: DEVMODE_FIELD_FLAGS = 1025u
+public val DM_SPECVERSION: DevmodeFieldFlags = 1025u
 
-public val DM_TTOPTION: DEVMODE_FIELD_FLAGS = 16384u
+public val DM_TTOPTION: DevmodeFieldFlags = 16384u
 
-public val DM_UPDATE: DEVMODE_FIELD_FLAGS = 1u
+public val DM_UPDATE: DevmodeFieldFlags = 1u
 
-public val DM_YRESOLUTION: DEVMODE_FIELD_FLAGS = 8192u
+public val DM_YRESOLUTION: DevmodeFieldFlags = 8192u
 
 public val DOWNLOADFACE: UInt = 514u
 
@@ -1074,77 +1074,77 @@ public val DOWNLOADHEADER: UInt = 4111u
 
 public val DRAFTMODE: UInt = 7u
 
-public val DRAFT_QUALITY: FONT_QUALITY = 1u
+public val DRAFT_QUALITY: FontQuality = 1u.toUByte()
 
 public val DRAWPATTERNRECT: UInt = 25u
 
-public val DRIVERVERSION: GET_DEVICE_CAPS_INDEX = 0u
+public val DRIVERVERSION: GetDeviceCapsIndex = 0u
 
-public val DSS_DISABLED: DRAWSTATE_FLAGS = 32u
+public val DSS_DISABLED: DrawstateFlags = 32u
 
-public val DSS_HIDEPREFIX: DRAWSTATE_FLAGS = 512u
+public val DSS_HIDEPREFIX: DrawstateFlags = 512u
 
-public val DSS_MONO: DRAWSTATE_FLAGS = 128u
+public val DSS_MONO: DrawstateFlags = 128u
 
-public val DSS_NORMAL: DRAWSTATE_FLAGS = 0u
+public val DSS_NORMAL: DrawstateFlags = 0u
 
-public val DSS_PREFIXONLY: DRAWSTATE_FLAGS = 1024u
+public val DSS_PREFIXONLY: DrawstateFlags = 1024u
 
-public val DSS_RIGHT: DRAWSTATE_FLAGS = 32768u
+public val DSS_RIGHT: DrawstateFlags = 32768u
 
-public val DSS_UNION: DRAWSTATE_FLAGS = 16u
+public val DSS_UNION: DrawstateFlags = 16u
 
-public val DSTINVERT: ROP_CODE = 5570569u
+public val DSTINVERT: RopCode = 5570569u
 
-public val DST_BITMAP: DRAWSTATE_FLAGS = 4u
+public val DST_BITMAP: DrawstateFlags = 4u
 
-public val DST_COMPLEX: DRAWSTATE_FLAGS = 0u
+public val DST_COMPLEX: DrawstateFlags = 0u
 
-public val DST_ICON: DRAWSTATE_FLAGS = 3u
+public val DST_ICON: DrawstateFlags = 3u
 
-public val DST_PREFIXTEXT: DRAWSTATE_FLAGS = 2u
+public val DST_PREFIXTEXT: DrawstateFlags = 2u
 
-public val DST_TEXT: DRAWSTATE_FLAGS = 1u
+public val DST_TEXT: DrawstateFlags = 1u
 
-public val DT_BOTTOM: DRAW_TEXT_FORMAT = 8u
+public val DT_BOTTOM: DrawTextFormat = 8u
 
-public val DT_CALCRECT: DRAW_TEXT_FORMAT = 1024u
+public val DT_CALCRECT: DrawTextFormat = 1024u
 
-public val DT_CENTER: DRAW_TEXT_FORMAT = 1u
+public val DT_CENTER: DrawTextFormat = 1u
 
 public val DT_CHARSTREAM: UInt = 4u
 
 public val DT_DISPFILE: UInt = 6u
 
-public val DT_EDITCONTROL: DRAW_TEXT_FORMAT = 8192u
+public val DT_EDITCONTROL: DrawTextFormat = 8192u
 
-public val DT_END_ELLIPSIS: DRAW_TEXT_FORMAT = 32768u
+public val DT_END_ELLIPSIS: DrawTextFormat = 32768u
 
-public val DT_EXPANDTABS: DRAW_TEXT_FORMAT = 64u
+public val DT_EXPANDTABS: DrawTextFormat = 64u
 
-public val DT_EXTERNALLEADING: DRAW_TEXT_FORMAT = 512u
+public val DT_EXTERNALLEADING: DrawTextFormat = 512u
 
-public val DT_HIDEPREFIX: DRAW_TEXT_FORMAT = 1048576u
+public val DT_HIDEPREFIX: DrawTextFormat = 1048576u
 
-public val DT_INTERNAL: DRAW_TEXT_FORMAT = 4096u
+public val DT_INTERNAL: DrawTextFormat = 4096u
 
-public val DT_LEFT: DRAW_TEXT_FORMAT = 0u
+public val DT_LEFT: DrawTextFormat = 0u
 
 public val DT_METAFILE: UInt = 5u
 
-public val DT_MODIFYSTRING: DRAW_TEXT_FORMAT = 65536u
+public val DT_MODIFYSTRING: DrawTextFormat = 65536u
 
-public val DT_NOCLIP: DRAW_TEXT_FORMAT = 256u
+public val DT_NOCLIP: DrawTextFormat = 256u
 
-public val DT_NOFULLWIDTHCHARBREAK: DRAW_TEXT_FORMAT = 524288u
+public val DT_NOFULLWIDTHCHARBREAK: DrawTextFormat = 524288u
 
-public val DT_NOPREFIX: DRAW_TEXT_FORMAT = 2048u
+public val DT_NOPREFIX: DrawTextFormat = 2048u
 
-public val DT_PATH_ELLIPSIS: DRAW_TEXT_FORMAT = 16384u
+public val DT_PATH_ELLIPSIS: DrawTextFormat = 16384u
 
 public val DT_PLOTTER: UInt = 0u
 
-public val DT_PREFIXONLY: DRAW_TEXT_FORMAT = 2097152u
+public val DT_PREFIXONLY: DrawTextFormat = 2097152u
 
 public val DT_RASCAMERA: UInt = 3u
 
@@ -1152,35 +1152,35 @@ public val DT_RASDISPLAY: UInt = 1u
 
 public val DT_RASPRINTER: UInt = 2u
 
-public val DT_RIGHT: DRAW_TEXT_FORMAT = 2u
+public val DT_RIGHT: DrawTextFormat = 2u
 
-public val DT_RTLREADING: DRAW_TEXT_FORMAT = 131072u
+public val DT_RTLREADING: DrawTextFormat = 131072u
 
-public val DT_SINGLELINE: DRAW_TEXT_FORMAT = 32u
+public val DT_SINGLELINE: DrawTextFormat = 32u
 
-public val DT_TABSTOP: DRAW_TEXT_FORMAT = 128u
+public val DT_TABSTOP: DrawTextFormat = 128u
 
-public val DT_TOP: DRAW_TEXT_FORMAT = 0u
+public val DT_TOP: DrawTextFormat = 0u
 
-public val DT_VCENTER: DRAW_TEXT_FORMAT = 4u
+public val DT_VCENTER: DrawTextFormat = 4u
 
-public val DT_WORDBREAK: DRAW_TEXT_FORMAT = 16u
+public val DT_WORDBREAK: DrawTextFormat = 16u
 
-public val DT_WORD_ELLIPSIS: DRAW_TEXT_FORMAT = 262144u
+public val DT_WORD_ELLIPSIS: DrawTextFormat = 262144u
 
-public val EASTEUROPE_CHARSET: FONT_CHARSET = 238u
+public val EASTEUROPE_CHARSET: FontCharset = 238u.toUByte()
 
-public val EDGE_BUMP: DRAWEDGE_FLAGS = 9u
+public val EDGE_BUMP: DrawedgeFlags = 9u
 
-public val EDGE_ETCHED: DRAWEDGE_FLAGS = 6u
+public val EDGE_ETCHED: DrawedgeFlags = 6u
 
-public val EDGE_RAISED: DRAWEDGE_FLAGS = 5u
+public val EDGE_RAISED: DrawedgeFlags = 5u
 
-public val EDGE_SUNKEN: DRAWEDGE_FLAGS = 10u
+public val EDGE_SUNKEN: DrawedgeFlags = 10u
 
-public val EDS_RAWMODE: ENUM_DISPLAY_SETTINGS_FLAGS = 2u
+public val EDS_RAWMODE: EnumDisplaySettingsFlags = 2u
 
-public val EDS_ROTATEDMODE: ENUM_DISPLAY_SETTINGS_FLAGS = 4u
+public val EDS_ROTATEDMODE: EnumDisplaySettingsFlags = 4u
 
 public val ELF_CULTURE_LATIN: UInt = 0u
 
@@ -1188,259 +1188,259 @@ public val ELF_VENDOR_SIZE: UInt = 4u
 
 public val ELF_VERSION: UInt = 0u
 
-public val EMBED_EDITABLE: EMBEDDED_FONT_PRIV_STATUS = 2u
+public val EMBED_EDITABLE: EmbeddedFontPrivStatus = 2u
 
-public val EMBED_INSTALLABLE: EMBEDDED_FONT_PRIV_STATUS = 3u
+public val EMBED_INSTALLABLE: EmbeddedFontPrivStatus = 3u
 
-public val EMBED_NOEMBEDDING: EMBEDDED_FONT_PRIV_STATUS = 4u
+public val EMBED_NOEMBEDDING: EmbeddedFontPrivStatus = 4u
 
-public val EMBED_PREVIEWPRINT: EMBEDDED_FONT_PRIV_STATUS = 1u
+public val EMBED_PREVIEWPRINT: EmbeddedFontPrivStatus = 1u
 
-public val EMR_ABORTPATH: ENHANCED_METAFILE_RECORD_TYPE = 68u
+public val EMR_ABORTPATH: EnhancedMetafileRecordType = 68u
 
-public val EMR_ALPHABLEND: ENHANCED_METAFILE_RECORD_TYPE = 114u
+public val EMR_ALPHABLEND: EnhancedMetafileRecordType = 114u
 
-public val EMR_ANGLEARC: ENHANCED_METAFILE_RECORD_TYPE = 41u
+public val EMR_ANGLEARC: EnhancedMetafileRecordType = 41u
 
-public val EMR_ARC: ENHANCED_METAFILE_RECORD_TYPE = 45u
+public val EMR_ARC: EnhancedMetafileRecordType = 45u
 
-public val EMR_ARCTO: ENHANCED_METAFILE_RECORD_TYPE = 55u
+public val EMR_ARCTO: EnhancedMetafileRecordType = 55u
 
-public val EMR_BEGINPATH: ENHANCED_METAFILE_RECORD_TYPE = 59u
+public val EMR_BEGINPATH: EnhancedMetafileRecordType = 59u
 
-public val EMR_BITBLT: ENHANCED_METAFILE_RECORD_TYPE = 76u
+public val EMR_BITBLT: EnhancedMetafileRecordType = 76u
 
-public val EMR_CHORD: ENHANCED_METAFILE_RECORD_TYPE = 46u
+public val EMR_CHORD: EnhancedMetafileRecordType = 46u
 
-public val EMR_CLOSEFIGURE: ENHANCED_METAFILE_RECORD_TYPE = 61u
+public val EMR_CLOSEFIGURE: EnhancedMetafileRecordType = 61u
 
-public val EMR_COLORCORRECTPALETTE: ENHANCED_METAFILE_RECORD_TYPE = 111u
+public val EMR_COLORCORRECTPALETTE: EnhancedMetafileRecordType = 111u
 
-public val EMR_COLORMATCHTOTARGETW: ENHANCED_METAFILE_RECORD_TYPE = 121u
+public val EMR_COLORMATCHTOTARGETW: EnhancedMetafileRecordType = 121u
 
-public val EMR_CREATEBRUSHINDIRECT: ENHANCED_METAFILE_RECORD_TYPE = 39u
+public val EMR_CREATEBRUSHINDIRECT: EnhancedMetafileRecordType = 39u
 
-public val EMR_CREATECOLORSPACE: ENHANCED_METAFILE_RECORD_TYPE = 99u
+public val EMR_CREATECOLORSPACE: EnhancedMetafileRecordType = 99u
 
-public val EMR_CREATECOLORSPACEW: ENHANCED_METAFILE_RECORD_TYPE = 122u
+public val EMR_CREATECOLORSPACEW: EnhancedMetafileRecordType = 122u
 
-public val EMR_CREATEDIBPATTERNBRUSHPT: ENHANCED_METAFILE_RECORD_TYPE = 94u
+public val EMR_CREATEDIBPATTERNBRUSHPT: EnhancedMetafileRecordType = 94u
 
-public val EMR_CREATEMONOBRUSH: ENHANCED_METAFILE_RECORD_TYPE = 93u
+public val EMR_CREATEMONOBRUSH: EnhancedMetafileRecordType = 93u
 
-public val EMR_CREATEPALETTE: ENHANCED_METAFILE_RECORD_TYPE = 49u
+public val EMR_CREATEPALETTE: EnhancedMetafileRecordType = 49u
 
-public val EMR_CREATEPEN: ENHANCED_METAFILE_RECORD_TYPE = 38u
+public val EMR_CREATEPEN: EnhancedMetafileRecordType = 38u
 
-public val EMR_DELETECOLORSPACE: ENHANCED_METAFILE_RECORD_TYPE = 101u
+public val EMR_DELETECOLORSPACE: EnhancedMetafileRecordType = 101u
 
-public val EMR_DELETEOBJECT: ENHANCED_METAFILE_RECORD_TYPE = 40u
+public val EMR_DELETEOBJECT: EnhancedMetafileRecordType = 40u
 
-public val EMR_ELLIPSE: ENHANCED_METAFILE_RECORD_TYPE = 42u
+public val EMR_ELLIPSE: EnhancedMetafileRecordType = 42u
 
-public val EMR_ENDPATH: ENHANCED_METAFILE_RECORD_TYPE = 60u
+public val EMR_ENDPATH: EnhancedMetafileRecordType = 60u
 
-public val EMR_EOF: ENHANCED_METAFILE_RECORD_TYPE = 14u
+public val EMR_EOF: EnhancedMetafileRecordType = 14u
 
-public val EMR_EXCLUDECLIPRECT: ENHANCED_METAFILE_RECORD_TYPE = 29u
+public val EMR_EXCLUDECLIPRECT: EnhancedMetafileRecordType = 29u
 
-public val EMR_EXTCREATEFONTINDIRECTW: ENHANCED_METAFILE_RECORD_TYPE = 82u
+public val EMR_EXTCREATEFONTINDIRECTW: EnhancedMetafileRecordType = 82u
 
-public val EMR_EXTCREATEPEN: ENHANCED_METAFILE_RECORD_TYPE = 95u
+public val EMR_EXTCREATEPEN: EnhancedMetafileRecordType = 95u
 
-public val EMR_EXTFLOODFILL: ENHANCED_METAFILE_RECORD_TYPE = 53u
+public val EMR_EXTFLOODFILL: EnhancedMetafileRecordType = 53u
 
-public val EMR_EXTSELECTCLIPRGN: ENHANCED_METAFILE_RECORD_TYPE = 75u
+public val EMR_EXTSELECTCLIPRGN: EnhancedMetafileRecordType = 75u
 
-public val EMR_EXTTEXTOUTA: ENHANCED_METAFILE_RECORD_TYPE = 83u
+public val EMR_EXTTEXTOUTA: EnhancedMetafileRecordType = 83u
 
-public val EMR_EXTTEXTOUTW: ENHANCED_METAFILE_RECORD_TYPE = 84u
+public val EMR_EXTTEXTOUTW: EnhancedMetafileRecordType = 84u
 
-public val EMR_FILLPATH: ENHANCED_METAFILE_RECORD_TYPE = 62u
+public val EMR_FILLPATH: EnhancedMetafileRecordType = 62u
 
-public val EMR_FILLRGN: ENHANCED_METAFILE_RECORD_TYPE = 71u
+public val EMR_FILLRGN: EnhancedMetafileRecordType = 71u
 
-public val EMR_FLATTENPATH: ENHANCED_METAFILE_RECORD_TYPE = 65u
+public val EMR_FLATTENPATH: EnhancedMetafileRecordType = 65u
 
-public val EMR_FRAMERGN: ENHANCED_METAFILE_RECORD_TYPE = 72u
+public val EMR_FRAMERGN: EnhancedMetafileRecordType = 72u
 
-public val EMR_GDICOMMENT: ENHANCED_METAFILE_RECORD_TYPE = 70u
+public val EMR_GDICOMMENT: EnhancedMetafileRecordType = 70u
 
-public val EMR_GLSBOUNDEDRECORD: ENHANCED_METAFILE_RECORD_TYPE = 103u
+public val EMR_GLSBOUNDEDRECORD: EnhancedMetafileRecordType = 103u
 
-public val EMR_GLSRECORD: ENHANCED_METAFILE_RECORD_TYPE = 102u
+public val EMR_GLSRECORD: EnhancedMetafileRecordType = 102u
 
-public val EMR_GRADIENTFILL: ENHANCED_METAFILE_RECORD_TYPE = 118u
+public val EMR_GRADIENTFILL: EnhancedMetafileRecordType = 118u
 
-public val EMR_HEADER: ENHANCED_METAFILE_RECORD_TYPE = 1u
+public val EMR_HEADER: EnhancedMetafileRecordType = 1u
 
-public val EMR_INTERSECTCLIPRECT: ENHANCED_METAFILE_RECORD_TYPE = 30u
+public val EMR_INTERSECTCLIPRECT: EnhancedMetafileRecordType = 30u
 
-public val EMR_INVERTRGN: ENHANCED_METAFILE_RECORD_TYPE = 73u
+public val EMR_INVERTRGN: EnhancedMetafileRecordType = 73u
 
-public val EMR_LINETO: ENHANCED_METAFILE_RECORD_TYPE = 54u
+public val EMR_LINETO: EnhancedMetafileRecordType = 54u
 
-public val EMR_MASKBLT: ENHANCED_METAFILE_RECORD_TYPE = 78u
+public val EMR_MASKBLT: EnhancedMetafileRecordType = 78u
 
-public val EMR_MAX: ENHANCED_METAFILE_RECORD_TYPE = 122u
+public val EMR_MAX: EnhancedMetafileRecordType = 122u
 
-public val EMR_MIN: ENHANCED_METAFILE_RECORD_TYPE = 1u
+public val EMR_MIN: EnhancedMetafileRecordType = 1u
 
-public val EMR_MODIFYWORLDTRANSFORM: ENHANCED_METAFILE_RECORD_TYPE = 36u
+public val EMR_MODIFYWORLDTRANSFORM: EnhancedMetafileRecordType = 36u
 
-public val EMR_MOVETOEX: ENHANCED_METAFILE_RECORD_TYPE = 27u
+public val EMR_MOVETOEX: EnhancedMetafileRecordType = 27u
 
-public val EMR_OFFSETCLIPRGN: ENHANCED_METAFILE_RECORD_TYPE = 26u
+public val EMR_OFFSETCLIPRGN: EnhancedMetafileRecordType = 26u
 
-public val EMR_PAINTRGN: ENHANCED_METAFILE_RECORD_TYPE = 74u
+public val EMR_PAINTRGN: EnhancedMetafileRecordType = 74u
 
-public val EMR_PIE: ENHANCED_METAFILE_RECORD_TYPE = 47u
+public val EMR_PIE: EnhancedMetafileRecordType = 47u
 
-public val EMR_PIXELFORMAT: ENHANCED_METAFILE_RECORD_TYPE = 104u
+public val EMR_PIXELFORMAT: EnhancedMetafileRecordType = 104u
 
-public val EMR_PLGBLT: ENHANCED_METAFILE_RECORD_TYPE = 79u
+public val EMR_PLGBLT: EnhancedMetafileRecordType = 79u
 
-public val EMR_POLYBEZIER: ENHANCED_METAFILE_RECORD_TYPE = 2u
+public val EMR_POLYBEZIER: EnhancedMetafileRecordType = 2u
 
-public val EMR_POLYBEZIER16: ENHANCED_METAFILE_RECORD_TYPE = 85u
+public val EMR_POLYBEZIER16: EnhancedMetafileRecordType = 85u
 
-public val EMR_POLYBEZIERTO: ENHANCED_METAFILE_RECORD_TYPE = 5u
+public val EMR_POLYBEZIERTO: EnhancedMetafileRecordType = 5u
 
-public val EMR_POLYBEZIERTO16: ENHANCED_METAFILE_RECORD_TYPE = 88u
+public val EMR_POLYBEZIERTO16: EnhancedMetafileRecordType = 88u
 
-public val EMR_POLYDRAW: ENHANCED_METAFILE_RECORD_TYPE = 56u
+public val EMR_POLYDRAW: EnhancedMetafileRecordType = 56u
 
-public val EMR_POLYDRAW16: ENHANCED_METAFILE_RECORD_TYPE = 92u
+public val EMR_POLYDRAW16: EnhancedMetafileRecordType = 92u
 
-public val EMR_POLYGON: ENHANCED_METAFILE_RECORD_TYPE = 3u
+public val EMR_POLYGON: EnhancedMetafileRecordType = 3u
 
-public val EMR_POLYGON16: ENHANCED_METAFILE_RECORD_TYPE = 86u
+public val EMR_POLYGON16: EnhancedMetafileRecordType = 86u
 
-public val EMR_POLYLINE: ENHANCED_METAFILE_RECORD_TYPE = 4u
+public val EMR_POLYLINE: EnhancedMetafileRecordType = 4u
 
-public val EMR_POLYLINE16: ENHANCED_METAFILE_RECORD_TYPE = 87u
+public val EMR_POLYLINE16: EnhancedMetafileRecordType = 87u
 
-public val EMR_POLYLINETO: ENHANCED_METAFILE_RECORD_TYPE = 6u
+public val EMR_POLYLINETO: EnhancedMetafileRecordType = 6u
 
-public val EMR_POLYLINETO16: ENHANCED_METAFILE_RECORD_TYPE = 89u
+public val EMR_POLYLINETO16: EnhancedMetafileRecordType = 89u
 
-public val EMR_POLYPOLYGON: ENHANCED_METAFILE_RECORD_TYPE = 8u
+public val EMR_POLYPOLYGON: EnhancedMetafileRecordType = 8u
 
-public val EMR_POLYPOLYGON16: ENHANCED_METAFILE_RECORD_TYPE = 91u
+public val EMR_POLYPOLYGON16: EnhancedMetafileRecordType = 91u
 
-public val EMR_POLYPOLYLINE: ENHANCED_METAFILE_RECORD_TYPE = 7u
+public val EMR_POLYPOLYLINE: EnhancedMetafileRecordType = 7u
 
-public val EMR_POLYPOLYLINE16: ENHANCED_METAFILE_RECORD_TYPE = 90u
+public val EMR_POLYPOLYLINE16: EnhancedMetafileRecordType = 90u
 
-public val EMR_POLYTEXTOUTA: ENHANCED_METAFILE_RECORD_TYPE = 96u
+public val EMR_POLYTEXTOUTA: EnhancedMetafileRecordType = 96u
 
-public val EMR_POLYTEXTOUTW: ENHANCED_METAFILE_RECORD_TYPE = 97u
+public val EMR_POLYTEXTOUTW: EnhancedMetafileRecordType = 97u
 
-public val EMR_REALIZEPALETTE: ENHANCED_METAFILE_RECORD_TYPE = 52u
+public val EMR_REALIZEPALETTE: EnhancedMetafileRecordType = 52u
 
-public val EMR_RECTANGLE: ENHANCED_METAFILE_RECORD_TYPE = 43u
+public val EMR_RECTANGLE: EnhancedMetafileRecordType = 43u
 
-public val EMR_RESERVED_105: ENHANCED_METAFILE_RECORD_TYPE = 105u
+public val EMR_RESERVED_105: EnhancedMetafileRecordType = 105u
 
-public val EMR_RESERVED_106: ENHANCED_METAFILE_RECORD_TYPE = 106u
+public val EMR_RESERVED_106: EnhancedMetafileRecordType = 106u
 
-public val EMR_RESERVED_107: ENHANCED_METAFILE_RECORD_TYPE = 107u
+public val EMR_RESERVED_107: EnhancedMetafileRecordType = 107u
 
-public val EMR_RESERVED_108: ENHANCED_METAFILE_RECORD_TYPE = 108u
+public val EMR_RESERVED_108: EnhancedMetafileRecordType = 108u
 
-public val EMR_RESERVED_109: ENHANCED_METAFILE_RECORD_TYPE = 109u
+public val EMR_RESERVED_109: EnhancedMetafileRecordType = 109u
 
-public val EMR_RESERVED_110: ENHANCED_METAFILE_RECORD_TYPE = 110u
+public val EMR_RESERVED_110: EnhancedMetafileRecordType = 110u
 
-public val EMR_RESERVED_117: ENHANCED_METAFILE_RECORD_TYPE = 117u
+public val EMR_RESERVED_117: EnhancedMetafileRecordType = 117u
 
-public val EMR_RESERVED_119: ENHANCED_METAFILE_RECORD_TYPE = 119u
+public val EMR_RESERVED_119: EnhancedMetafileRecordType = 119u
 
-public val EMR_RESERVED_120: ENHANCED_METAFILE_RECORD_TYPE = 120u
+public val EMR_RESERVED_120: EnhancedMetafileRecordType = 120u
 
-public val EMR_RESIZEPALETTE: ENHANCED_METAFILE_RECORD_TYPE = 51u
+public val EMR_RESIZEPALETTE: EnhancedMetafileRecordType = 51u
 
-public val EMR_RESTOREDC: ENHANCED_METAFILE_RECORD_TYPE = 34u
+public val EMR_RESTOREDC: EnhancedMetafileRecordType = 34u
 
-public val EMR_ROUNDRECT: ENHANCED_METAFILE_RECORD_TYPE = 44u
+public val EMR_ROUNDRECT: EnhancedMetafileRecordType = 44u
 
-public val EMR_SAVEDC: ENHANCED_METAFILE_RECORD_TYPE = 33u
+public val EMR_SAVEDC: EnhancedMetafileRecordType = 33u
 
-public val EMR_SCALEVIEWPORTEXTEX: ENHANCED_METAFILE_RECORD_TYPE = 31u
+public val EMR_SCALEVIEWPORTEXTEX: EnhancedMetafileRecordType = 31u
 
-public val EMR_SCALEWINDOWEXTEX: ENHANCED_METAFILE_RECORD_TYPE = 32u
+public val EMR_SCALEWINDOWEXTEX: EnhancedMetafileRecordType = 32u
 
-public val EMR_SELECTCLIPPATH: ENHANCED_METAFILE_RECORD_TYPE = 67u
+public val EMR_SELECTCLIPPATH: EnhancedMetafileRecordType = 67u
 
-public val EMR_SELECTOBJECT: ENHANCED_METAFILE_RECORD_TYPE = 37u
+public val EMR_SELECTOBJECT: EnhancedMetafileRecordType = 37u
 
-public val EMR_SELECTPALETTE: ENHANCED_METAFILE_RECORD_TYPE = 48u
+public val EMR_SELECTPALETTE: EnhancedMetafileRecordType = 48u
 
-public val EMR_SETARCDIRECTION: ENHANCED_METAFILE_RECORD_TYPE = 57u
+public val EMR_SETARCDIRECTION: EnhancedMetafileRecordType = 57u
 
-public val EMR_SETBKCOLOR: ENHANCED_METAFILE_RECORD_TYPE = 25u
+public val EMR_SETBKCOLOR: EnhancedMetafileRecordType = 25u
 
-public val EMR_SETBKMODE: ENHANCED_METAFILE_RECORD_TYPE = 18u
+public val EMR_SETBKMODE: EnhancedMetafileRecordType = 18u
 
-public val EMR_SETBRUSHORGEX: ENHANCED_METAFILE_RECORD_TYPE = 13u
+public val EMR_SETBRUSHORGEX: EnhancedMetafileRecordType = 13u
 
-public val EMR_SETCOLORADJUSTMENT: ENHANCED_METAFILE_RECORD_TYPE = 23u
+public val EMR_SETCOLORADJUSTMENT: EnhancedMetafileRecordType = 23u
 
-public val EMR_SETCOLORSPACE: ENHANCED_METAFILE_RECORD_TYPE = 100u
+public val EMR_SETCOLORSPACE: EnhancedMetafileRecordType = 100u
 
-public val EMR_SETDIBITSTODEVICE: ENHANCED_METAFILE_RECORD_TYPE = 80u
+public val EMR_SETDIBITSTODEVICE: EnhancedMetafileRecordType = 80u
 
-public val EMR_SETICMMODE: ENHANCED_METAFILE_RECORD_TYPE = 98u
+public val EMR_SETICMMODE: EnhancedMetafileRecordType = 98u
 
-public val EMR_SETICMPROFILEA: ENHANCED_METAFILE_RECORD_TYPE = 112u
+public val EMR_SETICMPROFILEA: EnhancedMetafileRecordType = 112u
 
-public val EMR_SETICMPROFILEW: ENHANCED_METAFILE_RECORD_TYPE = 113u
+public val EMR_SETICMPROFILEW: EnhancedMetafileRecordType = 113u
 
-public val EMR_SETLAYOUT: ENHANCED_METAFILE_RECORD_TYPE = 115u
+public val EMR_SETLAYOUT: EnhancedMetafileRecordType = 115u
 
-public val EMR_SETMAPMODE: ENHANCED_METAFILE_RECORD_TYPE = 17u
+public val EMR_SETMAPMODE: EnhancedMetafileRecordType = 17u
 
-public val EMR_SETMAPPERFLAGS: ENHANCED_METAFILE_RECORD_TYPE = 16u
+public val EMR_SETMAPPERFLAGS: EnhancedMetafileRecordType = 16u
 
-public val EMR_SETMETARGN: ENHANCED_METAFILE_RECORD_TYPE = 28u
+public val EMR_SETMETARGN: EnhancedMetafileRecordType = 28u
 
-public val EMR_SETMITERLIMIT: ENHANCED_METAFILE_RECORD_TYPE = 58u
+public val EMR_SETMITERLIMIT: EnhancedMetafileRecordType = 58u
 
-public val EMR_SETPALETTEENTRIES: ENHANCED_METAFILE_RECORD_TYPE = 50u
+public val EMR_SETPALETTEENTRIES: EnhancedMetafileRecordType = 50u
 
-public val EMR_SETPIXELV: ENHANCED_METAFILE_RECORD_TYPE = 15u
+public val EMR_SETPIXELV: EnhancedMetafileRecordType = 15u
 
-public val EMR_SETPOLYFILLMODE: ENHANCED_METAFILE_RECORD_TYPE = 19u
+public val EMR_SETPOLYFILLMODE: EnhancedMetafileRecordType = 19u
 
-public val EMR_SETROP2: ENHANCED_METAFILE_RECORD_TYPE = 20u
+public val EMR_SETROP2: EnhancedMetafileRecordType = 20u
 
-public val EMR_SETSTRETCHBLTMODE: ENHANCED_METAFILE_RECORD_TYPE = 21u
+public val EMR_SETSTRETCHBLTMODE: EnhancedMetafileRecordType = 21u
 
-public val EMR_SETTEXTALIGN: ENHANCED_METAFILE_RECORD_TYPE = 22u
+public val EMR_SETTEXTALIGN: EnhancedMetafileRecordType = 22u
 
-public val EMR_SETTEXTCOLOR: ENHANCED_METAFILE_RECORD_TYPE = 24u
+public val EMR_SETTEXTCOLOR: EnhancedMetafileRecordType = 24u
 
-public val EMR_SETVIEWPORTEXTEX: ENHANCED_METAFILE_RECORD_TYPE = 11u
+public val EMR_SETVIEWPORTEXTEX: EnhancedMetafileRecordType = 11u
 
-public val EMR_SETVIEWPORTORGEX: ENHANCED_METAFILE_RECORD_TYPE = 12u
+public val EMR_SETVIEWPORTORGEX: EnhancedMetafileRecordType = 12u
 
-public val EMR_SETWINDOWEXTEX: ENHANCED_METAFILE_RECORD_TYPE = 9u
+public val EMR_SETWINDOWEXTEX: EnhancedMetafileRecordType = 9u
 
-public val EMR_SETWINDOWORGEX: ENHANCED_METAFILE_RECORD_TYPE = 10u
+public val EMR_SETWINDOWORGEX: EnhancedMetafileRecordType = 10u
 
-public val EMR_SETWORLDTRANSFORM: ENHANCED_METAFILE_RECORD_TYPE = 35u
+public val EMR_SETWORLDTRANSFORM: EnhancedMetafileRecordType = 35u
 
-public val EMR_STRETCHBLT: ENHANCED_METAFILE_RECORD_TYPE = 77u
+public val EMR_STRETCHBLT: EnhancedMetafileRecordType = 77u
 
-public val EMR_STRETCHDIBITS: ENHANCED_METAFILE_RECORD_TYPE = 81u
+public val EMR_STRETCHDIBITS: EnhancedMetafileRecordType = 81u
 
-public val EMR_STROKEANDFILLPATH: ENHANCED_METAFILE_RECORD_TYPE = 63u
+public val EMR_STROKEANDFILLPATH: EnhancedMetafileRecordType = 63u
 
-public val EMR_STROKEPATH: ENHANCED_METAFILE_RECORD_TYPE = 64u
+public val EMR_STROKEPATH: EnhancedMetafileRecordType = 64u
 
-public val EMR_TRANSPARENTBLT: ENHANCED_METAFILE_RECORD_TYPE = 116u
+public val EMR_TRANSPARENTBLT: EnhancedMetafileRecordType = 116u
 
-public val EMR_WIDENPATH: ENHANCED_METAFILE_RECORD_TYPE = 66u
+public val EMR_WIDENPATH: EnhancedMetafileRecordType = 66u
 
 public val ENABLEDUPLEX: UInt = 28u
 
@@ -1462,9 +1462,9 @@ public val ENUMPAPERBINS: UInt = 31u
 
 public val ENUMPAPERMETRICS: UInt = 34u
 
-public val ENUM_CURRENT_SETTINGS: ENUM_DISPLAY_SETTINGS_MODE = 4294967295u
+public val ENUM_CURRENT_SETTINGS: EnumDisplaySettingsMode = 4294967295u
 
-public val ENUM_REGISTRY_SETTINGS: ENUM_DISPLAY_SETTINGS_MODE = 4294967294u
+public val ENUM_REGISTRY_SETTINGS: EnumDisplaySettingsMode = 4294967294u
 
 public val EPSPRINTING: UInt = 33u
 
@@ -1616,23 +1616,23 @@ public val ERR_WRITECONTROL: UInt = 1004u
 
 public val ERR_WRITEOUTOFBOUNDS: UInt = 1002u
 
-public val ETO_CLIPPED: ETO_OPTIONS = 4u
+public val ETO_CLIPPED: EtoOptions = 4u
 
-public val ETO_GLYPH_INDEX: ETO_OPTIONS = 16u
+public val ETO_GLYPH_INDEX: EtoOptions = 16u
 
-public val ETO_IGNORELANGUAGE: ETO_OPTIONS = 4096u
+public val ETO_IGNORELANGUAGE: EtoOptions = 4096u
 
-public val ETO_NUMERICSLATIN: ETO_OPTIONS = 2048u
+public val ETO_NUMERICSLATIN: EtoOptions = 2048u
 
-public val ETO_NUMERICSLOCAL: ETO_OPTIONS = 1024u
+public val ETO_NUMERICSLOCAL: EtoOptions = 1024u
 
-public val ETO_OPAQUE: ETO_OPTIONS = 2u
+public val ETO_OPAQUE: EtoOptions = 2u
 
-public val ETO_PDY: ETO_OPTIONS = 8192u
+public val ETO_PDY: EtoOptions = 8192u
 
-public val ETO_REVERSE_INDEX_MAP: ETO_OPTIONS = 65536u
+public val ETO_REVERSE_INDEX_MAP: EtoOptions = 65536u
 
-public val ETO_RTLREADING: ETO_OPTIONS = 128u
+public val ETO_RTLREADING: EtoOptions = 128u
 
 public val EXTTEXTOUT: UInt = 512u
 
@@ -1770,35 +1770,35 @@ public val FEATURESETTING_PROTOCOL: UInt = 6u
 
 public val FEATURESETTING_PSLEVEL: UInt = 2u
 
-public val FF_DECORATIVE: FONT_FAMILY = 80u
+public val FF_DECORATIVE: FontFamily = 80u.toUByte()
 
-public val FF_DONTCARE: FONT_FAMILY = 0u
+public val FF_DONTCARE: FontFamily = 0u.toUByte()
 
-public val FF_MODERN: FONT_FAMILY = 48u
+public val FF_MODERN: FontFamily = 48u.toUByte()
 
-public val FF_ROMAN: FONT_FAMILY = 16u
+public val FF_ROMAN: FontFamily = 16u.toUByte()
 
-public val FF_SCRIPT: FONT_FAMILY = 64u
+public val FF_SCRIPT: FontFamily = 64u.toUByte()
 
-public val FF_SWISS: FONT_FAMILY = 32u
+public val FF_SWISS: FontFamily = 32u.toUByte()
 
-public val FIXED_PITCH: FONT_PITCH = 1u
+public val FIXED_PITCH: FontPitch = 1u.toUByte()
 
 public val FLI_GLYPHS: Int = 262144
 
 public val FLI_MASK: UInt = 4155u
 
-public val FLOODFILLBORDER: EXT_FLOOD_FILL_TYPE = 0u
+public val FLOODFILLBORDER: ExtFloodFillType = 0u
 
-public val FLOODFILLSURFACE: EXT_FLOOD_FILL_TYPE = 1u
+public val FLOODFILLSURFACE: ExtFloodFillType = 1u
 
 public val FLUSHOUTPUT: UInt = 6u
 
 public val FONTMAPPER_MAX: UInt = 10u
 
-public val FR_NOT_ENUM: FONT_RESOURCE_CHARACTERISTICS = 32u
+public val FR_NOT_ENUM: FontResourceCharacteristics = 32u
 
-public val FR_PRIVATE: FONT_RESOURCE_CHARACTERISTICS = 16u
+public val FR_PRIVATE: FontResourceCharacteristics = 16u
 
 public val FS_ARABIC: Int = 64
 
@@ -1822,7 +1822,7 @@ public val FS_LATIN1: Int = 1
 
 public val FS_LATIN2: Int = 2
 
-public val FS_SYMBOL: Int = -2147483648
+public val FS_SYMBOL: Int = -2147483648.toInt()
 
 public val FS_THAI: Int = 65536
 
@@ -1832,37 +1832,37 @@ public val FS_VIETNAMESE: Int = 256
 
 public val FS_WANSUNG: Int = 524288
 
-public val FW_BLACK: FONT_WEIGHT = 900u
+public val FW_BLACK: FontWeight = 900u
 
-public val FW_BOLD: FONT_WEIGHT = 700u
+public val FW_BOLD: FontWeight = 700u
 
-public val FW_DEMIBOLD: FONT_WEIGHT = 600u
+public val FW_DEMIBOLD: FontWeight = 600u
 
-public val FW_DONTCARE: FONT_WEIGHT = 0u
+public val FW_DONTCARE: FontWeight = 0u
 
-public val FW_EXTRABOLD: FONT_WEIGHT = 800u
+public val FW_EXTRABOLD: FontWeight = 800u
 
-public val FW_EXTRALIGHT: FONT_WEIGHT = 200u
+public val FW_EXTRALIGHT: FontWeight = 200u
 
-public val FW_HEAVY: FONT_WEIGHT = 900u
+public val FW_HEAVY: FontWeight = 900u
 
-public val FW_LIGHT: FONT_WEIGHT = 300u
+public val FW_LIGHT: FontWeight = 300u
 
-public val FW_MEDIUM: FONT_WEIGHT = 500u
+public val FW_MEDIUM: FontWeight = 500u
 
-public val FW_NORMAL: FONT_WEIGHT = 400u
+public val FW_NORMAL: FontWeight = 400u
 
-public val FW_REGULAR: FONT_WEIGHT = 400u
+public val FW_REGULAR: FontWeight = 400u
 
-public val FW_SEMIBOLD: FONT_WEIGHT = 600u
+public val FW_SEMIBOLD: FontWeight = 600u
 
-public val FW_THIN: FONT_WEIGHT = 100u
+public val FW_THIN: FontWeight = 100u
 
-public val FW_ULTRABOLD: FONT_WEIGHT = 800u
+public val FW_ULTRABOLD: FontWeight = 800u
 
-public val FW_ULTRALIGHT: FONT_WEIGHT = 200u
+public val FW_ULTRALIGHT: FontWeight = 200u
 
-public val GB2312_CHARSET: FONT_CHARSET = 134u
+public val GB2312_CHARSET: FontCharset = 134u.toUByte()
 
 public val GCPCLASS_ARABIC: UInt = 2u
 
@@ -1894,41 +1894,41 @@ public val GCPGLYPH_LINKAFTER: UInt = 16384u
 
 public val GCPGLYPH_LINKBEFORE: UInt = 32768u
 
-public val GCP_CLASSIN: GET_CHARACTER_PLACEMENT_FLAGS = 524288u
+public val GCP_CLASSIN: GetCharacterPlacementFlags = 524288u
 
 public val GCP_DBCS: UInt = 1u
 
-public val GCP_DIACRITIC: GET_CHARACTER_PLACEMENT_FLAGS = 256u
+public val GCP_DIACRITIC: GetCharacterPlacementFlags = 256u
 
-public val GCP_DISPLAYZWG: GET_CHARACTER_PLACEMENT_FLAGS = 4194304u
+public val GCP_DISPLAYZWG: GetCharacterPlacementFlags = 4194304u
 
 public val GCP_ERROR: UInt = 32768u
 
-public val GCP_GLYPHSHAPE: GET_CHARACTER_PLACEMENT_FLAGS = 16u
+public val GCP_GLYPHSHAPE: GetCharacterPlacementFlags = 16u
 
-public val GCP_JUSTIFY: GET_CHARACTER_PLACEMENT_FLAGS = 65536u
+public val GCP_JUSTIFY: GetCharacterPlacementFlags = 65536u
 
 public val GCP_JUSTIFYIN: Int = 2097152
 
-public val GCP_KASHIDA: GET_CHARACTER_PLACEMENT_FLAGS = 1024u
+public val GCP_KASHIDA: GetCharacterPlacementFlags = 1024u
 
-public val GCP_LIGATE: GET_CHARACTER_PLACEMENT_FLAGS = 32u
+public val GCP_LIGATE: GetCharacterPlacementFlags = 32u
 
-public val GCP_MAXEXTENT: GET_CHARACTER_PLACEMENT_FLAGS = 1048576u
+public val GCP_MAXEXTENT: GetCharacterPlacementFlags = 1048576u
 
-public val GCP_NEUTRALOVERRIDE: GET_CHARACTER_PLACEMENT_FLAGS = 33554432u
+public val GCP_NEUTRALOVERRIDE: GetCharacterPlacementFlags = 33554432u
 
-public val GCP_NUMERICOVERRIDE: GET_CHARACTER_PLACEMENT_FLAGS = 16777216u
+public val GCP_NUMERICOVERRIDE: GetCharacterPlacementFlags = 16777216u
 
-public val GCP_NUMERICSLATIN: GET_CHARACTER_PLACEMENT_FLAGS = 67108864u
+public val GCP_NUMERICSLATIN: GetCharacterPlacementFlags = 67108864u
 
-public val GCP_NUMERICSLOCAL: GET_CHARACTER_PLACEMENT_FLAGS = 134217728u
+public val GCP_NUMERICSLOCAL: GetCharacterPlacementFlags = 134217728u
 
-public val GCP_REORDER: GET_CHARACTER_PLACEMENT_FLAGS = 2u
+public val GCP_REORDER: GetCharacterPlacementFlags = 2u
 
-public val GCP_SYMSWAPOFF: GET_CHARACTER_PLACEMENT_FLAGS = 8388608u
+public val GCP_SYMSWAPOFF: GetCharacterPlacementFlags = 8388608u
 
-public val GCP_USEKERNING: GET_CHARACTER_PLACEMENT_FLAGS = 8u
+public val GCP_USEKERNING: GetCharacterPlacementFlags = 8u
 
 public val GDICOMMENT_BEGINGROUP: UInt = 2u
 
@@ -1994,71 +1994,71 @@ public val GET_PS_FEATURESETTING: UInt = 4121u
 
 public val GGI_MARK_NONEXISTING_GLYPHS: UInt = 1u
 
-public val GGO_BEZIER: GET_GLYPH_OUTLINE_FORMAT = 3u
+public val GGO_BEZIER: GetGlyphOutlineFormat = 3u
 
-public val GGO_BITMAP: GET_GLYPH_OUTLINE_FORMAT = 1u
+public val GGO_BITMAP: GetGlyphOutlineFormat = 1u
 
-public val GGO_GLYPH_INDEX: GET_GLYPH_OUTLINE_FORMAT = 128u
+public val GGO_GLYPH_INDEX: GetGlyphOutlineFormat = 128u
 
-public val GGO_GRAY2_BITMAP: GET_GLYPH_OUTLINE_FORMAT = 4u
+public val GGO_GRAY2_BITMAP: GetGlyphOutlineFormat = 4u
 
-public val GGO_GRAY4_BITMAP: GET_GLYPH_OUTLINE_FORMAT = 5u
+public val GGO_GRAY4_BITMAP: GetGlyphOutlineFormat = 5u
 
-public val GGO_GRAY8_BITMAP: GET_GLYPH_OUTLINE_FORMAT = 6u
+public val GGO_GRAY8_BITMAP: GetGlyphOutlineFormat = 6u
 
-public val GGO_METRICS: GET_GLYPH_OUTLINE_FORMAT = 0u
+public val GGO_METRICS: GetGlyphOutlineFormat = 0u
 
-public val GGO_NATIVE: GET_GLYPH_OUTLINE_FORMAT = 2u
+public val GGO_NATIVE: GetGlyphOutlineFormat = 2u
 
-public val GGO_UNHINTED: GET_GLYPH_OUTLINE_FORMAT = 256u
+public val GGO_UNHINTED: GetGlyphOutlineFormat = 256u
 
-public val GM_ADVANCED: GRAPHICS_MODE = 2
+public val GM_ADVANCED: GraphicsMode = 2
 
-public val GM_COMPATIBLE: GRAPHICS_MODE = 1
+public val GM_COMPATIBLE: GraphicsMode = 1
 
 public val GM_LAST: UInt = 2u
 
 public val GRADIENT_FILL_OP_FLAG: UInt = 255u
 
-public val GRADIENT_FILL_RECT_H: GRADIENT_FILL = 0u
+public val GRADIENT_FILL_RECT_H: GradientFill = 0u
 
-public val GRADIENT_FILL_RECT_V: GRADIENT_FILL = 1u
+public val GRADIENT_FILL_RECT_V: GradientFill = 1u
 
-public val GRADIENT_FILL_TRIANGLE: GRADIENT_FILL = 2u
+public val GRADIENT_FILL_TRIANGLE: GradientFill = 2u
 
-public val GRAY_BRUSH: GET_STOCK_OBJECT_FLAGS = 2
+public val GRAY_BRUSH: GetStockObjectFlags = 2
 
-public val GREEK_CHARSET: FONT_CHARSET = 161u
+public val GREEK_CHARSET: FontCharset = 161u.toUByte()
 
 public val GS_8BIT_INDICES: UInt = 1u
 
-public val HALFTONE: STRETCH_BLT_MODE = 4
+public val HALFTONE: StretchBltMode = 4
 
-public val HANGEUL_CHARSET: FONT_CHARSET = 129u
+public val HANGEUL_CHARSET: FontCharset = 129u.toUByte()
 
-public val HANGUL_CHARSET: FONT_CHARSET = 129u
+public val HANGUL_CHARSET: FontCharset = 129u.toUByte()
 
-public val HEBREW_CHARSET: FONT_CHARSET = 177u
+public val HEBREW_CHARSET: FontCharset = 177u.toUByte()
 
-public val HOLLOW_BRUSH: GET_STOCK_OBJECT_FLAGS = 5
+public val HOLLOW_BRUSH: GetStockObjectFlags = 5
 
-public val HORZRES: GET_DEVICE_CAPS_INDEX = 8u
+public val HORZRES: GetDeviceCapsIndex = 8u
 
-public val HORZSIZE: GET_DEVICE_CAPS_INDEX = 4u
+public val HORZSIZE: GetDeviceCapsIndex = 4u
 
 public val HS_API_MAX: UInt = 12u
 
-public val HS_BDIAGONAL: HATCH_BRUSH_STYLE = 3
+public val HS_BDIAGONAL: HatchBrushStyle = 3
 
-public val HS_CROSS: HATCH_BRUSH_STYLE = 4
+public val HS_CROSS: HatchBrushStyle = 4
 
-public val HS_DIAGCROSS: HATCH_BRUSH_STYLE = 5
+public val HS_DIAGCROSS: HatchBrushStyle = 5
 
-public val HS_FDIAGONAL: HATCH_BRUSH_STYLE = 2
+public val HS_FDIAGONAL: HatchBrushStyle = 2
 
-public val HS_HORIZONTAL: HATCH_BRUSH_STYLE = 0
+public val HS_HORIZONTAL: HatchBrushStyle = 0
 
-public val HS_VERTICAL: HATCH_BRUSH_STYLE = 1
+public val HS_VERTICAL: HatchBrushStyle = 1
 
 public val ILLUMINANT_A: UInt = 1u
 
@@ -2088,13 +2088,13 @@ public val ILLUMINANT_NTSC: UInt = 3u
 
 public val ILLUMINANT_TUNGSTEN: UInt = 1u
 
-public val JOHAB_CHARSET: FONT_CHARSET = 130u
+public val JOHAB_CHARSET: FontCharset = 130u.toUByte()
 
-public val LAYOUT_BITMAPORIENTATIONPRESERVED: DC_LAYOUT = 8u
+public val LAYOUT_BITMAPORIENTATIONPRESERVED: DcLayout = 8u
 
 public val LAYOUT_BTT: UInt = 2u
 
-public val LAYOUT_RTL: DC_LAYOUT = 1u
+public val LAYOUT_RTL: DcLayout = 1u
 
 public val LAYOUT_VBH: UInt = 4u
 
@@ -2126,21 +2126,21 @@ public val LF_FACESIZE: UInt = 32u
 
 public val LF_FULLFACESIZE: UInt = 64u
 
-public val LICENSE_DEFAULT: FONT_LICENSE_PRIVS = 0u
+public val LICENSE_DEFAULT: FontLicensePrivs = 0u
 
-public val LICENSE_EDITABLE: FONT_LICENSE_PRIVS = 8u
+public val LICENSE_EDITABLE: FontLicensePrivs = 8u
 
-public val LICENSE_INSTALLABLE: FONT_LICENSE_PRIVS = 0u
+public val LICENSE_INSTALLABLE: FontLicensePrivs = 0u
 
-public val LICENSE_NOEMBEDDING: FONT_LICENSE_PRIVS = 2u
+public val LICENSE_NOEMBEDDING: FontLicensePrivs = 2u
 
-public val LICENSE_PREVIEWPRINT: FONT_LICENSE_PRIVS = 4u
+public val LICENSE_PREVIEWPRINT: FontLicensePrivs = 4u
 
-public val LINECAPS: GET_DEVICE_CAPS_INDEX = 30u
+public val LINECAPS: GetDeviceCapsIndex = 30u
 
-public val LOGPIXELSX: GET_DEVICE_CAPS_INDEX = 88u
+public val LOGPIXELSX: GetDeviceCapsIndex = 88u
 
-public val LOGPIXELSY: GET_DEVICE_CAPS_INDEX = 90u
+public val LOGPIXELSY: GetDeviceCapsIndex = 90u
 
 public val LPD_DOUBLEBUFFER: UInt = 1u
 
@@ -2166,15 +2166,15 @@ public val LPD_TYPE_COLORINDEX: UInt = 1u
 
 public val LPD_TYPE_RGBA: UInt = 0u
 
-public val LTGRAY_BRUSH: GET_STOCK_OBJECT_FLAGS = 1
+public val LTGRAY_BRUSH: GetStockObjectFlags = 1
 
-public val MAC_CHARSET: FONT_CHARSET = 77u
+public val MAC_CHARSET: FontCharset = 77u.toUByte()
 
 public val MAXSTRETCHBLTMODE: UInt = 4u
 
-public val MERGECOPY: ROP_CODE = 12583114u
+public val MERGECOPY: RopCode = 12583114u
 
-public val MERGEPAINT: ROP_CODE = 12255782u
+public val MERGEPAINT: RopCode = 12255782u
 
 public val METAFILE_DRIVER: UInt = 2049u
 
@@ -2322,41 +2322,41 @@ public val MILCORE_TS_QUERYVER_RESULT_FALSE: UInt = 0u
 
 public val MILCORE_TS_QUERYVER_RESULT_TRUE: UInt = 2147483647u
 
-public val MM_ANISOTROPIC: HDC_MAP_MODE = 8
+public val MM_ANISOTROPIC: HdcMapMode = 8
 
-public val MM_HIENGLISH: HDC_MAP_MODE = 5
+public val MM_HIENGLISH: HdcMapMode = 5
 
-public val MM_HIMETRIC: HDC_MAP_MODE = 3
+public val MM_HIMETRIC: HdcMapMode = 3
 
-public val MM_ISOTROPIC: HDC_MAP_MODE = 7
+public val MM_ISOTROPIC: HdcMapMode = 7
 
-public val MM_LOENGLISH: HDC_MAP_MODE = 4
+public val MM_LOENGLISH: HdcMapMode = 4
 
-public val MM_LOMETRIC: HDC_MAP_MODE = 2
+public val MM_LOMETRIC: HdcMapMode = 2
 
 public val MM_MAX_AXES_NAMELEN: UInt = 16u
 
 public val MM_MAX_NUMAXES: UInt = 16u
 
-public val MM_TEXT: HDC_MAP_MODE = 1
+public val MM_TEXT: HdcMapMode = 1
 
-public val MM_TWIPS: HDC_MAP_MODE = 6
+public val MM_TWIPS: HdcMapMode = 6
 
-public val MONITOR_DEFAULTTONEAREST: MONITOR_FROM_FLAGS = 2u
+public val MONITOR_DEFAULTTONEAREST: MonitorFromFlags = 2u
 
-public val MONITOR_DEFAULTTONULL: MONITOR_FROM_FLAGS = 0u
+public val MONITOR_DEFAULTTONULL: MonitorFromFlags = 0u
 
-public val MONITOR_DEFAULTTOPRIMARY: MONITOR_FROM_FLAGS = 1u
+public val MONITOR_DEFAULTTOPRIMARY: MonitorFromFlags = 1u
 
 public val MONO_FONT: UInt = 8u
 
 public val MOUSETRAILS: UInt = 39u
 
-public val MWT_IDENTITY: MODIFY_WORLD_TRANSFORM_MODE = 1u
+public val MWT_IDENTITY: ModifyWorldTransformMode = 1u
 
-public val MWT_LEFTMULTIPLY: MODIFY_WORLD_TRANSFORM_MODE = 2u
+public val MWT_LEFTMULTIPLY: ModifyWorldTransformMode = 2u
 
-public val MWT_RIGHTMULTIPLY: MODIFY_WORLD_TRANSFORM_MODE = 3u
+public val MWT_RIGHTMULTIPLY: ModifyWorldTransformMode = 3u
 
 public val NEWFRAME: UInt = 1u
 
@@ -2364,13 +2364,13 @@ public val NEWTRANSPARENT: UInt = 3u
 
 public val NEXTBAND: UInt = 3u
 
-public val NOMIRRORBITMAP: ROP_CODE = 2147483648u
+public val NOMIRRORBITMAP: RopCode = 2147483648u
 
-public val NONANTIALIASED_QUALITY: FONT_QUALITY = 3u
+public val NONANTIALIASED_QUALITY: FontQuality = 3u.toUByte()
 
-public val NOTSRCCOPY: ROP_CODE = 3342344u
+public val NOTSRCCOPY: RopCode = 3342344u
 
-public val NOTSRCERASE: ROP_CODE = 1114278u
+public val NOTSRCERASE: RopCode = 1114278u
 
 public val NTM_BOLD: Int = 32
 
@@ -2390,81 +2390,81 @@ public val NTM_TT_OPENTYPE: UInt = 262144u
 
 public val NTM_TYPE1: UInt = 1048576u
 
-public val NULLREGION: GDI_REGION_TYPE = 1
+public val NULLREGION: GdiRegionType = 1
 
-public val NULL_BRUSH: GET_STOCK_OBJECT_FLAGS = 5
+public val NULL_BRUSH: GetStockObjectFlags = 5
 
-public val NULL_PEN: GET_STOCK_OBJECT_FLAGS = 8
+public val NULL_PEN: GetStockObjectFlags = 8
 
-public val NUMBRUSHES: GET_DEVICE_CAPS_INDEX = 16u
+public val NUMBRUSHES: GetDeviceCapsIndex = 16u
 
-public val NUMCOLORS: GET_DEVICE_CAPS_INDEX = 24u
+public val NUMCOLORS: GetDeviceCapsIndex = 24u
 
-public val NUMFONTS: GET_DEVICE_CAPS_INDEX = 22u
+public val NUMFONTS: GetDeviceCapsIndex = 22u
 
-public val NUMMARKERS: GET_DEVICE_CAPS_INDEX = 20u
+public val NUMMARKERS: GetDeviceCapsIndex = 20u
 
-public val NUMPENS: GET_DEVICE_CAPS_INDEX = 18u
+public val NUMPENS: GetDeviceCapsIndex = 18u
 
-public val NUMRESERVED: GET_DEVICE_CAPS_INDEX = 106u
+public val NUMRESERVED: GetDeviceCapsIndex = 106u
 
-public val OBJ_BITMAP: OBJ_TYPE = 7
+public val OBJ_BITMAP: ObjType = 7
 
-public val OBJ_BRUSH: OBJ_TYPE = 2
+public val OBJ_BRUSH: ObjType = 2
 
-public val OBJ_COLORSPACE: OBJ_TYPE = 14
+public val OBJ_COLORSPACE: ObjType = 14
 
-public val OBJ_DC: OBJ_TYPE = 3
+public val OBJ_DC: ObjType = 3
 
-public val OBJ_ENHMETADC: OBJ_TYPE = 12
+public val OBJ_ENHMETADC: ObjType = 12
 
-public val OBJ_ENHMETAFILE: OBJ_TYPE = 13
+public val OBJ_ENHMETAFILE: ObjType = 13
 
-public val OBJ_EXTPEN: OBJ_TYPE = 11
+public val OBJ_EXTPEN: ObjType = 11
 
-public val OBJ_FONT: OBJ_TYPE = 6
+public val OBJ_FONT: ObjType = 6
 
-public val OBJ_MEMDC: OBJ_TYPE = 10
+public val OBJ_MEMDC: ObjType = 10
 
-public val OBJ_METADC: OBJ_TYPE = 4
+public val OBJ_METADC: ObjType = 4
 
-public val OBJ_METAFILE: OBJ_TYPE = 9
+public val OBJ_METAFILE: ObjType = 9
 
-public val OBJ_PAL: OBJ_TYPE = 5
+public val OBJ_PAL: ObjType = 5
 
-public val OBJ_PEN: OBJ_TYPE = 1
+public val OBJ_PEN: ObjType = 1
 
-public val OBJ_REGION: OBJ_TYPE = 8
+public val OBJ_REGION: ObjType = 8
 
-public val OEM_CHARSET: FONT_CHARSET = 255u
+public val OEM_CHARSET: FontCharset = 255u.toUByte()
 
-public val OEM_FIXED_FONT: GET_STOCK_OBJECT_FLAGS = 10
+public val OEM_FIXED_FONT: GetStockObjectFlags = 10
 
-public val OPAQUE: BACKGROUND_MODE = 2u
+public val OPAQUE: BackgroundMode = 2u
 
 public val OPENCHANNEL: UInt = 4110u
 
-public val OUT_CHARACTER_PRECIS: FONT_OUTPUT_PRECISION = 2u
+public val OUT_CHARACTER_PRECIS: FontOutputPrecision = 2u.toUByte()
 
-public val OUT_DEFAULT_PRECIS: FONT_OUTPUT_PRECISION = 0u
+public val OUT_DEFAULT_PRECIS: FontOutputPrecision = 0u.toUByte()
 
-public val OUT_DEVICE_PRECIS: FONT_OUTPUT_PRECISION = 5u
+public val OUT_DEVICE_PRECIS: FontOutputPrecision = 5u.toUByte()
 
-public val OUT_OUTLINE_PRECIS: FONT_OUTPUT_PRECISION = 8u
+public val OUT_OUTLINE_PRECIS: FontOutputPrecision = 8u.toUByte()
 
-public val OUT_PS_ONLY_PRECIS: FONT_OUTPUT_PRECISION = 10u
+public val OUT_PS_ONLY_PRECIS: FontOutputPrecision = 10u.toUByte()
 
-public val OUT_RASTER_PRECIS: FONT_OUTPUT_PRECISION = 6u
+public val OUT_RASTER_PRECIS: FontOutputPrecision = 6u.toUByte()
 
-public val OUT_SCREEN_OUTLINE_PRECIS: FONT_OUTPUT_PRECISION = 9u
+public val OUT_SCREEN_OUTLINE_PRECIS: FontOutputPrecision = 9u.toUByte()
 
-public val OUT_STRING_PRECIS: FONT_OUTPUT_PRECISION = 1u
+public val OUT_STRING_PRECIS: FontOutputPrecision = 1u.toUByte()
 
-public val OUT_STROKE_PRECIS: FONT_OUTPUT_PRECISION = 3u
+public val OUT_STROKE_PRECIS: FontOutputPrecision = 3u.toUByte()
 
-public val OUT_TT_ONLY_PRECIS: FONT_OUTPUT_PRECISION = 7u
+public val OUT_TT_ONLY_PRECIS: FontOutputPrecision = 7u.toUByte()
 
-public val OUT_TT_PRECIS: FONT_OUTPUT_PRECISION = 4u
+public val OUT_TT_PRECIS: FontOutputPrecision = 4u.toUByte()
 
 public val PANOSE_COUNT: UInt = 10u
 
@@ -2472,261 +2472,261 @@ public val PAN_ANY: UInt = 0u
 
 public val PAN_ARMSTYLE_INDEX: UInt = 6u
 
-public val PAN_ARM_ANY: PAN_ARM_STYLE = 0u
+public val PAN_ARM_ANY: PanArmStyle = 0u.toUByte()
 
-public val PAN_ARM_NO_FIT: PAN_ARM_STYLE = 1u
+public val PAN_ARM_NO_FIT: PanArmStyle = 1u.toUByte()
 
-public val PAN_BENT_ARMS_DOUBLE_SERIF: PAN_ARM_STYLE = 11u
+public val PAN_BENT_ARMS_DOUBLE_SERIF: PanArmStyle = 11u.toUByte()
 
-public val PAN_BENT_ARMS_HORZ: PAN_ARM_STYLE = 7u
+public val PAN_BENT_ARMS_HORZ: PanArmStyle = 7u.toUByte()
 
-public val PAN_BENT_ARMS_SINGLE_SERIF: PAN_ARM_STYLE = 10u
+public val PAN_BENT_ARMS_SINGLE_SERIF: PanArmStyle = 10u.toUByte()
 
-public val PAN_BENT_ARMS_VERT: PAN_ARM_STYLE = 9u
+public val PAN_BENT_ARMS_VERT: PanArmStyle = 9u.toUByte()
 
-public val PAN_BENT_ARMS_WEDGE: PAN_ARM_STYLE = 8u
+public val PAN_BENT_ARMS_WEDGE: PanArmStyle = 8u.toUByte()
 
-public val PAN_CONTRAST_ANY: PAN_CONTRAST = 0u
+public val PAN_CONTRAST_ANY: PanContrast = 0u.toUByte()
 
-public val PAN_CONTRAST_HIGH: PAN_CONTRAST = 8u
+public val PAN_CONTRAST_HIGH: PanContrast = 8u.toUByte()
 
-public val PAN_CONTRAST_INDEX: PAN_CONTRAST = 4u
+public val PAN_CONTRAST_INDEX: PanContrast = 4u.toUByte()
 
-public val PAN_CONTRAST_LOW: PAN_CONTRAST = 4u
+public val PAN_CONTRAST_LOW: PanContrast = 4u.toUByte()
 
-public val PAN_CONTRAST_MEDIUM: PAN_CONTRAST = 6u
+public val PAN_CONTRAST_MEDIUM: PanContrast = 6u.toUByte()
 
-public val PAN_CONTRAST_MEDIUM_HIGH: PAN_CONTRAST = 7u
+public val PAN_CONTRAST_MEDIUM_HIGH: PanContrast = 7u.toUByte()
 
-public val PAN_CONTRAST_MEDIUM_LOW: PAN_CONTRAST = 5u
+public val PAN_CONTRAST_MEDIUM_LOW: PanContrast = 5u.toUByte()
 
-public val PAN_CONTRAST_NONE: PAN_CONTRAST = 2u
+public val PAN_CONTRAST_NONE: PanContrast = 2u.toUByte()
 
-public val PAN_CONTRAST_NO_FIT: PAN_CONTRAST = 1u
+public val PAN_CONTRAST_NO_FIT: PanContrast = 1u.toUByte()
 
-public val PAN_CONTRAST_VERY_HIGH: PAN_CONTRAST = 9u
+public val PAN_CONTRAST_VERY_HIGH: PanContrast = 9u.toUByte()
 
-public val PAN_CONTRAST_VERY_LOW: PAN_CONTRAST = 3u
+public val PAN_CONTRAST_VERY_LOW: PanContrast = 3u.toUByte()
 
 public val PAN_CULTURE_LATIN: UInt = 0u
 
 public val PAN_FAMILYTYPE_INDEX: UInt = 0u
 
-public val PAN_FAMILY_ANY: PAN_FAMILY_TYPE = 0u
+public val PAN_FAMILY_ANY: PanFamilyType = 0u.toUByte()
 
-public val PAN_FAMILY_DECORATIVE: PAN_FAMILY_TYPE = 4u
+public val PAN_FAMILY_DECORATIVE: PanFamilyType = 4u.toUByte()
 
-public val PAN_FAMILY_NO_FIT: PAN_FAMILY_TYPE = 1u
+public val PAN_FAMILY_NO_FIT: PanFamilyType = 1u.toUByte()
 
-public val PAN_FAMILY_PICTORIAL: PAN_FAMILY_TYPE = 5u
+public val PAN_FAMILY_PICTORIAL: PanFamilyType = 5u.toUByte()
 
-public val PAN_FAMILY_SCRIPT: PAN_FAMILY_TYPE = 3u
+public val PAN_FAMILY_SCRIPT: PanFamilyType = 3u.toUByte()
 
-public val PAN_FAMILY_TEXT_DISPLAY: PAN_FAMILY_TYPE = 2u
+public val PAN_FAMILY_TEXT_DISPLAY: PanFamilyType = 2u.toUByte()
 
 public val PAN_LETTERFORM_INDEX: UInt = 7u
 
-public val PAN_LETT_FORM_ANY: PAN_LETT_FORM = 0u
+public val PAN_LETT_FORM_ANY: PanLettForm = 0u.toUByte()
 
-public val PAN_LETT_FORM_NO_FIT: PAN_LETT_FORM = 1u
+public val PAN_LETT_FORM_NO_FIT: PanLettForm = 1u.toUByte()
 
-public val PAN_LETT_NORMAL_BOXED: PAN_LETT_FORM = 4u
+public val PAN_LETT_NORMAL_BOXED: PanLettForm = 4u.toUByte()
 
-public val PAN_LETT_NORMAL_CONTACT: PAN_LETT_FORM = 2u
+public val PAN_LETT_NORMAL_CONTACT: PanLettForm = 2u.toUByte()
 
-public val PAN_LETT_NORMAL_FLATTENED: PAN_LETT_FORM = 5u
+public val PAN_LETT_NORMAL_FLATTENED: PanLettForm = 5u.toUByte()
 
-public val PAN_LETT_NORMAL_OFF_CENTER: PAN_LETT_FORM = 7u
+public val PAN_LETT_NORMAL_OFF_CENTER: PanLettForm = 7u.toUByte()
 
-public val PAN_LETT_NORMAL_ROUNDED: PAN_LETT_FORM = 6u
+public val PAN_LETT_NORMAL_ROUNDED: PanLettForm = 6u.toUByte()
 
-public val PAN_LETT_NORMAL_SQUARE: PAN_LETT_FORM = 8u
+public val PAN_LETT_NORMAL_SQUARE: PanLettForm = 8u.toUByte()
 
-public val PAN_LETT_NORMAL_WEIGHTED: PAN_LETT_FORM = 3u
+public val PAN_LETT_NORMAL_WEIGHTED: PanLettForm = 3u.toUByte()
 
-public val PAN_LETT_OBLIQUE_BOXED: PAN_LETT_FORM = 11u
+public val PAN_LETT_OBLIQUE_BOXED: PanLettForm = 11u.toUByte()
 
-public val PAN_LETT_OBLIQUE_CONTACT: PAN_LETT_FORM = 9u
+public val PAN_LETT_OBLIQUE_CONTACT: PanLettForm = 9u.toUByte()
 
-public val PAN_LETT_OBLIQUE_FLATTENED: PAN_LETT_FORM = 12u
+public val PAN_LETT_OBLIQUE_FLATTENED: PanLettForm = 12u.toUByte()
 
-public val PAN_LETT_OBLIQUE_OFF_CENTER: PAN_LETT_FORM = 14u
+public val PAN_LETT_OBLIQUE_OFF_CENTER: PanLettForm = 14u.toUByte()
 
-public val PAN_LETT_OBLIQUE_ROUNDED: PAN_LETT_FORM = 13u
+public val PAN_LETT_OBLIQUE_ROUNDED: PanLettForm = 13u.toUByte()
 
-public val PAN_LETT_OBLIQUE_SQUARE: PAN_LETT_FORM = 15u
+public val PAN_LETT_OBLIQUE_SQUARE: PanLettForm = 15u.toUByte()
 
-public val PAN_LETT_OBLIQUE_WEIGHTED: PAN_LETT_FORM = 10u
+public val PAN_LETT_OBLIQUE_WEIGHTED: PanLettForm = 10u.toUByte()
 
-public val PAN_MIDLINE_ANY: PAN_MIDLINE = 0u
+public val PAN_MIDLINE_ANY: PanMidline = 0u.toUByte()
 
-public val PAN_MIDLINE_CONSTANT_POINTED: PAN_MIDLINE = 9u
+public val PAN_MIDLINE_CONSTANT_POINTED: PanMidline = 9u.toUByte()
 
-public val PAN_MIDLINE_CONSTANT_SERIFED: PAN_MIDLINE = 10u
+public val PAN_MIDLINE_CONSTANT_SERIFED: PanMidline = 10u.toUByte()
 
-public val PAN_MIDLINE_CONSTANT_TRIMMED: PAN_MIDLINE = 8u
+public val PAN_MIDLINE_CONSTANT_TRIMMED: PanMidline = 8u.toUByte()
 
-public val PAN_MIDLINE_HIGH_POINTED: PAN_MIDLINE = 6u
+public val PAN_MIDLINE_HIGH_POINTED: PanMidline = 6u.toUByte()
 
-public val PAN_MIDLINE_HIGH_SERIFED: PAN_MIDLINE = 7u
+public val PAN_MIDLINE_HIGH_SERIFED: PanMidline = 7u.toUByte()
 
-public val PAN_MIDLINE_HIGH_TRIMMED: PAN_MIDLINE = 5u
+public val PAN_MIDLINE_HIGH_TRIMMED: PanMidline = 5u.toUByte()
 
-public val PAN_MIDLINE_INDEX: PAN_MIDLINE = 8u
+public val PAN_MIDLINE_INDEX: PanMidline = 8u.toUByte()
 
-public val PAN_MIDLINE_LOW_POINTED: PAN_MIDLINE = 12u
+public val PAN_MIDLINE_LOW_POINTED: PanMidline = 12u.toUByte()
 
-public val PAN_MIDLINE_LOW_SERIFED: PAN_MIDLINE = 13u
+public val PAN_MIDLINE_LOW_SERIFED: PanMidline = 13u.toUByte()
 
-public val PAN_MIDLINE_LOW_TRIMMED: PAN_MIDLINE = 11u
+public val PAN_MIDLINE_LOW_TRIMMED: PanMidline = 11u.toUByte()
 
-public val PAN_MIDLINE_NO_FIT: PAN_MIDLINE = 1u
+public val PAN_MIDLINE_NO_FIT: PanMidline = 1u.toUByte()
 
-public val PAN_MIDLINE_STANDARD_POINTED: PAN_MIDLINE = 3u
+public val PAN_MIDLINE_STANDARD_POINTED: PanMidline = 3u.toUByte()
 
-public val PAN_MIDLINE_STANDARD_SERIFED: PAN_MIDLINE = 4u
+public val PAN_MIDLINE_STANDARD_SERIFED: PanMidline = 4u.toUByte()
 
-public val PAN_MIDLINE_STANDARD_TRIMMED: PAN_MIDLINE = 2u
+public val PAN_MIDLINE_STANDARD_TRIMMED: PanMidline = 2u.toUByte()
 
 public val PAN_NO_FIT: UInt = 1u
 
 public val PAN_PROPORTION_INDEX: UInt = 3u
 
-public val PAN_PROP_ANY: PAN_PROPORTION = 0u
+public val PAN_PROP_ANY: PanProportion = 0u.toUByte()
 
-public val PAN_PROP_CONDENSED: PAN_PROPORTION = 6u
+public val PAN_PROP_CONDENSED: PanProportion = 6u.toUByte()
 
-public val PAN_PROP_EVEN_WIDTH: PAN_PROPORTION = 4u
+public val PAN_PROP_EVEN_WIDTH: PanProportion = 4u.toUByte()
 
-public val PAN_PROP_EXPANDED: PAN_PROPORTION = 5u
+public val PAN_PROP_EXPANDED: PanProportion = 5u.toUByte()
 
-public val PAN_PROP_MODERN: PAN_PROPORTION = 3u
+public val PAN_PROP_MODERN: PanProportion = 3u.toUByte()
 
-public val PAN_PROP_MONOSPACED: PAN_PROPORTION = 9u
+public val PAN_PROP_MONOSPACED: PanProportion = 9u.toUByte()
 
-public val PAN_PROP_NO_FIT: PAN_PROPORTION = 1u
+public val PAN_PROP_NO_FIT: PanProportion = 1u.toUByte()
 
-public val PAN_PROP_OLD_STYLE: PAN_PROPORTION = 2u
+public val PAN_PROP_OLD_STYLE: PanProportion = 2u.toUByte()
 
-public val PAN_PROP_VERY_CONDENSED: PAN_PROPORTION = 8u
+public val PAN_PROP_VERY_CONDENSED: PanProportion = 8u.toUByte()
 
-public val PAN_PROP_VERY_EXPANDED: PAN_PROPORTION = 7u
+public val PAN_PROP_VERY_EXPANDED: PanProportion = 7u.toUByte()
 
 public val PAN_SERIFSTYLE_INDEX: UInt = 1u
 
-public val PAN_SERIF_ANY: PAN_SERIF_STYLE = 0u
+public val PAN_SERIF_ANY: PanSerifStyle = 0u.toUByte()
 
-public val PAN_SERIF_BONE: PAN_SERIF_STYLE = 8u
+public val PAN_SERIF_BONE: PanSerifStyle = 8u.toUByte()
 
-public val PAN_SERIF_COVE: PAN_SERIF_STYLE = 2u
+public val PAN_SERIF_COVE: PanSerifStyle = 2u.toUByte()
 
-public val PAN_SERIF_EXAGGERATED: PAN_SERIF_STYLE = 9u
+public val PAN_SERIF_EXAGGERATED: PanSerifStyle = 9u.toUByte()
 
-public val PAN_SERIF_FLARED: PAN_SERIF_STYLE = 14u
+public val PAN_SERIF_FLARED: PanSerifStyle = 14u.toUByte()
 
-public val PAN_SERIF_NORMAL_SANS: PAN_SERIF_STYLE = 11u
+public val PAN_SERIF_NORMAL_SANS: PanSerifStyle = 11u.toUByte()
 
-public val PAN_SERIF_NO_FIT: PAN_SERIF_STYLE = 1u
+public val PAN_SERIF_NO_FIT: PanSerifStyle = 1u.toUByte()
 
-public val PAN_SERIF_OBTUSE_COVE: PAN_SERIF_STYLE = 3u
+public val PAN_SERIF_OBTUSE_COVE: PanSerifStyle = 3u.toUByte()
 
-public val PAN_SERIF_OBTUSE_SANS: PAN_SERIF_STYLE = 12u
+public val PAN_SERIF_OBTUSE_SANS: PanSerifStyle = 12u.toUByte()
 
-public val PAN_SERIF_OBTUSE_SQUARE_COVE: PAN_SERIF_STYLE = 5u
+public val PAN_SERIF_OBTUSE_SQUARE_COVE: PanSerifStyle = 5u.toUByte()
 
-public val PAN_SERIF_PERP_SANS: PAN_SERIF_STYLE = 13u
+public val PAN_SERIF_PERP_SANS: PanSerifStyle = 13u.toUByte()
 
-public val PAN_SERIF_ROUNDED: PAN_SERIF_STYLE = 15u
+public val PAN_SERIF_ROUNDED: PanSerifStyle = 15u.toUByte()
 
-public val PAN_SERIF_SQUARE: PAN_SERIF_STYLE = 6u
+public val PAN_SERIF_SQUARE: PanSerifStyle = 6u.toUByte()
 
-public val PAN_SERIF_SQUARE_COVE: PAN_SERIF_STYLE = 4u
+public val PAN_SERIF_SQUARE_COVE: PanSerifStyle = 4u.toUByte()
 
-public val PAN_SERIF_THIN: PAN_SERIF_STYLE = 7u
+public val PAN_SERIF_THIN: PanSerifStyle = 7u.toUByte()
 
-public val PAN_SERIF_TRIANGLE: PAN_SERIF_STYLE = 10u
+public val PAN_SERIF_TRIANGLE: PanSerifStyle = 10u.toUByte()
 
-public val PAN_STRAIGHT_ARMS_DOUBLE_SERIF: PAN_ARM_STYLE = 6u
+public val PAN_STRAIGHT_ARMS_DOUBLE_SERIF: PanArmStyle = 6u.toUByte()
 
-public val PAN_STRAIGHT_ARMS_HORZ: PAN_ARM_STYLE = 2u
+public val PAN_STRAIGHT_ARMS_HORZ: PanArmStyle = 2u.toUByte()
 
-public val PAN_STRAIGHT_ARMS_SINGLE_SERIF: PAN_ARM_STYLE = 5u
+public val PAN_STRAIGHT_ARMS_SINGLE_SERIF: PanArmStyle = 5u.toUByte()
 
-public val PAN_STRAIGHT_ARMS_VERT: PAN_ARM_STYLE = 4u
+public val PAN_STRAIGHT_ARMS_VERT: PanArmStyle = 4u.toUByte()
 
-public val PAN_STRAIGHT_ARMS_WEDGE: PAN_ARM_STYLE = 3u
+public val PAN_STRAIGHT_ARMS_WEDGE: PanArmStyle = 3u.toUByte()
 
 public val PAN_STROKEVARIATION_INDEX: UInt = 5u
 
-public val PAN_STROKE_ANY: PAN_STROKE_VARIATION = 0u
+public val PAN_STROKE_ANY: PanStrokeVariation = 0u.toUByte()
 
-public val PAN_STROKE_GRADUAL_DIAG: PAN_STROKE_VARIATION = 2u
+public val PAN_STROKE_GRADUAL_DIAG: PanStrokeVariation = 2u.toUByte()
 
-public val PAN_STROKE_GRADUAL_HORZ: PAN_STROKE_VARIATION = 5u
+public val PAN_STROKE_GRADUAL_HORZ: PanStrokeVariation = 5u.toUByte()
 
-public val PAN_STROKE_GRADUAL_TRAN: PAN_STROKE_VARIATION = 3u
+public val PAN_STROKE_GRADUAL_TRAN: PanStrokeVariation = 3u.toUByte()
 
-public val PAN_STROKE_GRADUAL_VERT: PAN_STROKE_VARIATION = 4u
+public val PAN_STROKE_GRADUAL_VERT: PanStrokeVariation = 4u.toUByte()
 
-public val PAN_STROKE_INSTANT_VERT: PAN_STROKE_VARIATION = 8u
+public val PAN_STROKE_INSTANT_VERT: PanStrokeVariation = 8u.toUByte()
 
-public val PAN_STROKE_NO_FIT: PAN_STROKE_VARIATION = 1u
+public val PAN_STROKE_NO_FIT: PanStrokeVariation = 1u.toUByte()
 
-public val PAN_STROKE_RAPID_HORZ: PAN_STROKE_VARIATION = 7u
+public val PAN_STROKE_RAPID_HORZ: PanStrokeVariation = 7u.toUByte()
 
-public val PAN_STROKE_RAPID_VERT: PAN_STROKE_VARIATION = 6u
+public val PAN_STROKE_RAPID_VERT: PanStrokeVariation = 6u.toUByte()
 
-public val PAN_WEIGHT_ANY: PAN_WEIGHT = 0u
+public val PAN_WEIGHT_ANY: PanWeight = 0u.toUByte()
 
-public val PAN_WEIGHT_BLACK: PAN_WEIGHT = 10u
+public val PAN_WEIGHT_BLACK: PanWeight = 10u.toUByte()
 
-public val PAN_WEIGHT_BOLD: PAN_WEIGHT = 8u
+public val PAN_WEIGHT_BOLD: PanWeight = 8u.toUByte()
 
-public val PAN_WEIGHT_BOOK: PAN_WEIGHT = 5u
+public val PAN_WEIGHT_BOOK: PanWeight = 5u.toUByte()
 
-public val PAN_WEIGHT_DEMI: PAN_WEIGHT = 7u
+public val PAN_WEIGHT_DEMI: PanWeight = 7u.toUByte()
 
-public val PAN_WEIGHT_HEAVY: PAN_WEIGHT = 9u
+public val PAN_WEIGHT_HEAVY: PanWeight = 9u.toUByte()
 
-public val PAN_WEIGHT_INDEX: PAN_WEIGHT = 2u
+public val PAN_WEIGHT_INDEX: PanWeight = 2u.toUByte()
 
-public val PAN_WEIGHT_LIGHT: PAN_WEIGHT = 3u
+public val PAN_WEIGHT_LIGHT: PanWeight = 3u.toUByte()
 
-public val PAN_WEIGHT_MEDIUM: PAN_WEIGHT = 6u
+public val PAN_WEIGHT_MEDIUM: PanWeight = 6u.toUByte()
 
-public val PAN_WEIGHT_NORD: PAN_WEIGHT = 11u
+public val PAN_WEIGHT_NORD: PanWeight = 11u.toUByte()
 
-public val PAN_WEIGHT_NO_FIT: PAN_WEIGHT = 1u
+public val PAN_WEIGHT_NO_FIT: PanWeight = 1u.toUByte()
 
-public val PAN_WEIGHT_THIN: PAN_WEIGHT = 4u
+public val PAN_WEIGHT_THIN: PanWeight = 4u.toUByte()
 
-public val PAN_WEIGHT_VERY_LIGHT: PAN_WEIGHT = 2u
+public val PAN_WEIGHT_VERY_LIGHT: PanWeight = 2u.toUByte()
 
-public val PAN_XHEIGHT_ANY: PAN_XHEIGHT = 0u
+public val PAN_XHEIGHT_ANY: PanXheight = 0u.toUByte()
 
-public val PAN_XHEIGHT_CONSTANT_LARGE: PAN_XHEIGHT = 4u
+public val PAN_XHEIGHT_CONSTANT_LARGE: PanXheight = 4u.toUByte()
 
-public val PAN_XHEIGHT_CONSTANT_SMALL: PAN_XHEIGHT = 2u
+public val PAN_XHEIGHT_CONSTANT_SMALL: PanXheight = 2u.toUByte()
 
-public val PAN_XHEIGHT_CONSTANT_STD: PAN_XHEIGHT = 3u
+public val PAN_XHEIGHT_CONSTANT_STD: PanXheight = 3u.toUByte()
 
-public val PAN_XHEIGHT_DUCKING_LARGE: PAN_XHEIGHT = 7u
+public val PAN_XHEIGHT_DUCKING_LARGE: PanXheight = 7u.toUByte()
 
-public val PAN_XHEIGHT_DUCKING_SMALL: PAN_XHEIGHT = 5u
+public val PAN_XHEIGHT_DUCKING_SMALL: PanXheight = 5u.toUByte()
 
-public val PAN_XHEIGHT_DUCKING_STD: PAN_XHEIGHT = 6u
+public val PAN_XHEIGHT_DUCKING_STD: PanXheight = 6u.toUByte()
 
-public val PAN_XHEIGHT_INDEX: PAN_XHEIGHT = 9u
+public val PAN_XHEIGHT_INDEX: PanXheight = 9u.toUByte()
 
-public val PAN_XHEIGHT_NO_FIT: PAN_XHEIGHT = 1u
+public val PAN_XHEIGHT_NO_FIT: PanXheight = 1u.toUByte()
 
 public val PASSTHROUGH: UInt = 19u
 
-public val PATCOPY: ROP_CODE = 15728673u
+public val PATCOPY: RopCode = 15728673u
 
-public val PATINVERT: ROP_CODE = 5898313u
+public val PATINVERT: RopCode = 5898313u
 
-public val PATPAINT: ROP_CODE = 16452105u
+public val PATPAINT: RopCode = 16452105u
 
 public val PC_EXPLICIT: UInt = 2u
 
@@ -2758,21 +2758,21 @@ public val PC_WIDESTYLED: UInt = 64u
 
 public val PC_WINDPOLYGON: UInt = 4u
 
-public val PDEVICESIZE: GET_DEVICE_CAPS_INDEX = 26u
+public val PDEVICESIZE: GetDeviceCapsIndex = 26u
 
-public val PHYSICALHEIGHT: GET_DEVICE_CAPS_INDEX = 111u
+public val PHYSICALHEIGHT: GetDeviceCapsIndex = 111u
 
-public val PHYSICALOFFSETX: GET_DEVICE_CAPS_INDEX = 112u
+public val PHYSICALOFFSETX: GetDeviceCapsIndex = 112u
 
-public val PHYSICALOFFSETY: GET_DEVICE_CAPS_INDEX = 113u
+public val PHYSICALOFFSETY: GetDeviceCapsIndex = 113u
 
-public val PHYSICALWIDTH: GET_DEVICE_CAPS_INDEX = 110u
+public val PHYSICALWIDTH: GetDeviceCapsIndex = 110u
 
-public val PLANES: GET_DEVICE_CAPS_INDEX = 14u
+public val PLANES: GetDeviceCapsIndex = 14u
 
 public val POLYFILL_LAST: UInt = 2u
 
-public val POLYGONALCAPS: GET_DEVICE_CAPS_INDEX = 32u
+public val POLYGONALCAPS: GetDeviceCapsIndex = 32u
 
 public val POSTSCRIPT_DATA: UInt = 37u
 
@@ -2792,7 +2792,7 @@ public val PRINTRATEUNIT_LPM: UInt = 3u
 
 public val PRINTRATEUNIT_PPM: UInt = 1u
 
-public val PROOF_QUALITY: FONT_QUALITY = 2u
+public val PROOF_QUALITY: FontQuality = 2u.toUByte()
 
 public val PR_JOBSTATUS: UInt = 0u
 
@@ -2810,47 +2810,47 @@ public val PSPROTOCOL_BINARY: UInt = 3u
 
 public val PSPROTOCOL_TBCP: UInt = 2u
 
-public val PS_ALTERNATE: PEN_STYLE = 8
+public val PS_ALTERNATE: PenStyle = 8
 
-public val PS_COSMETIC: PEN_STYLE = 0
+public val PS_COSMETIC: PenStyle = 0
 
-public val PS_DASH: PEN_STYLE = 1
+public val PS_DASH: PenStyle = 1
 
-public val PS_DASHDOT: PEN_STYLE = 3
+public val PS_DASHDOT: PenStyle = 3
 
-public val PS_DASHDOTDOT: PEN_STYLE = 4
+public val PS_DASHDOTDOT: PenStyle = 4
 
-public val PS_DOT: PEN_STYLE = 2
+public val PS_DOT: PenStyle = 2
 
-public val PS_ENDCAP_FLAT: PEN_STYLE = 512
+public val PS_ENDCAP_FLAT: PenStyle = 512
 
-public val PS_ENDCAP_MASK: PEN_STYLE = 3840
+public val PS_ENDCAP_MASK: PenStyle = 3840
 
-public val PS_ENDCAP_ROUND: PEN_STYLE = 0
+public val PS_ENDCAP_ROUND: PenStyle = 0
 
-public val PS_ENDCAP_SQUARE: PEN_STYLE = 256
+public val PS_ENDCAP_SQUARE: PenStyle = 256
 
-public val PS_GEOMETRIC: PEN_STYLE = 65536
+public val PS_GEOMETRIC: PenStyle = 65536
 
-public val PS_INSIDEFRAME: PEN_STYLE = 6
+public val PS_INSIDEFRAME: PenStyle = 6
 
-public val PS_JOIN_BEVEL: PEN_STYLE = 4096
+public val PS_JOIN_BEVEL: PenStyle = 4096
 
-public val PS_JOIN_MASK: PEN_STYLE = 61440
+public val PS_JOIN_MASK: PenStyle = 61440
 
-public val PS_JOIN_MITER: PEN_STYLE = 8192
+public val PS_JOIN_MITER: PenStyle = 8192
 
-public val PS_JOIN_ROUND: PEN_STYLE = 0
+public val PS_JOIN_ROUND: PenStyle = 0
 
-public val PS_NULL: PEN_STYLE = 5
+public val PS_NULL: PenStyle = 5
 
-public val PS_SOLID: PEN_STYLE = 0
+public val PS_SOLID: PenStyle = 0
 
-public val PS_STYLE_MASK: PEN_STYLE = 15
+public val PS_STYLE_MASK: PenStyle = 15
 
-public val PS_TYPE_MASK: PEN_STYLE = 983040
+public val PS_TYPE_MASK: PenStyle = 983040
 
-public val PS_USERSTYLE: PEN_STYLE = 7
+public val PS_USERSTYLE: PenStyle = 7
 
 public val PT_BEZIERTO: UInt = 4u
 
@@ -2874,41 +2874,41 @@ public val QUERYESCSUPPORT: UInt = 8u
 
 public val QUERYROPSUPPORT: UInt = 40u
 
-public val R2_BLACK: R2_MODE = 1
+public val R2_BLACK: R2Mode = 1
 
-public val R2_COPYPEN: R2_MODE = 13
+public val R2_COPYPEN: R2Mode = 13
 
-public val R2_LAST: R2_MODE = 16
+public val R2_LAST: R2Mode = 16
 
-public val R2_MASKNOTPEN: R2_MODE = 3
+public val R2_MASKNOTPEN: R2Mode = 3
 
-public val R2_MASKPEN: R2_MODE = 9
+public val R2_MASKPEN: R2Mode = 9
 
-public val R2_MASKPENNOT: R2_MODE = 5
+public val R2_MASKPENNOT: R2Mode = 5
 
-public val R2_MERGENOTPEN: R2_MODE = 12
+public val R2_MERGENOTPEN: R2Mode = 12
 
-public val R2_MERGEPEN: R2_MODE = 15
+public val R2_MERGEPEN: R2Mode = 15
 
-public val R2_MERGEPENNOT: R2_MODE = 14
+public val R2_MERGEPENNOT: R2Mode = 14
 
-public val R2_NOP: R2_MODE = 11
+public val R2_NOP: R2Mode = 11
 
-public val R2_NOT: R2_MODE = 6
+public val R2_NOT: R2Mode = 6
 
-public val R2_NOTCOPYPEN: R2_MODE = 4
+public val R2_NOTCOPYPEN: R2Mode = 4
 
-public val R2_NOTMASKPEN: R2_MODE = 8
+public val R2_NOTMASKPEN: R2Mode = 8
 
-public val R2_NOTMERGEPEN: R2_MODE = 2
+public val R2_NOTMERGEPEN: R2Mode = 2
 
-public val R2_NOTXORPEN: R2_MODE = 10
+public val R2_NOTXORPEN: R2Mode = 10
 
-public val R2_WHITE: R2_MODE = 16
+public val R2_WHITE: R2Mode = 16
 
-public val R2_XORPEN: R2_MODE = 7
+public val R2_XORPEN: R2Mode = 7
 
-public val RASTERCAPS: GET_DEVICE_CAPS_INDEX = 38u
+public val RASTERCAPS: GetDeviceCapsIndex = 38u
 
 public val RASTER_FONTTYPE: UInt = 1u
 
@@ -2946,51 +2946,51 @@ public val RC_STRETCHDIB: UInt = 8192u
 
 public val RDH_RECTANGLES: UInt = 1u
 
-public val RDW_ALLCHILDREN: REDRAW_WINDOW_FLAGS = 128u
+public val RDW_ALLCHILDREN: RedrawWindowFlags = 128u
 
-public val RDW_ERASE: REDRAW_WINDOW_FLAGS = 4u
+public val RDW_ERASE: RedrawWindowFlags = 4u
 
-public val RDW_ERASENOW: REDRAW_WINDOW_FLAGS = 512u
+public val RDW_ERASENOW: RedrawWindowFlags = 512u
 
-public val RDW_FRAME: REDRAW_WINDOW_FLAGS = 1024u
+public val RDW_FRAME: RedrawWindowFlags = 1024u
 
-public val RDW_INTERNALPAINT: REDRAW_WINDOW_FLAGS = 2u
+public val RDW_INTERNALPAINT: RedrawWindowFlags = 2u
 
-public val RDW_INVALIDATE: REDRAW_WINDOW_FLAGS = 1u
+public val RDW_INVALIDATE: RedrawWindowFlags = 1u
 
-public val RDW_NOCHILDREN: REDRAW_WINDOW_FLAGS = 64u
+public val RDW_NOCHILDREN: RedrawWindowFlags = 64u
 
-public val RDW_NOERASE: REDRAW_WINDOW_FLAGS = 32u
+public val RDW_NOERASE: RedrawWindowFlags = 32u
 
-public val RDW_NOFRAME: REDRAW_WINDOW_FLAGS = 2048u
+public val RDW_NOFRAME: RedrawWindowFlags = 2048u
 
-public val RDW_NOINTERNALPAINT: REDRAW_WINDOW_FLAGS = 16u
+public val RDW_NOINTERNALPAINT: RedrawWindowFlags = 16u
 
-public val RDW_UPDATENOW: REDRAW_WINDOW_FLAGS = 256u
+public val RDW_UPDATENOW: RedrawWindowFlags = 256u
 
-public val RDW_VALIDATE: REDRAW_WINDOW_FLAGS = 8u
+public val RDW_VALIDATE: RedrawWindowFlags = 8u
 
 public val RELATIVE: UInt = 2u
 
 public val RESTORE_CTM: UInt = 4100u
 
-public val RGN_AND: RGN_COMBINE_MODE = 1
+public val RGN_AND: RgnCombineMode = 1
 
-public val RGN_COPY: RGN_COMBINE_MODE = 5
+public val RGN_COPY: RgnCombineMode = 5
 
-public val RGN_DIFF: RGN_COMBINE_MODE = 4
+public val RGN_DIFF: RgnCombineMode = 4
 
-public val RGN_ERROR: GDI_REGION_TYPE = 0
+public val RGN_ERROR: GdiRegionType = 0
 
-public val RGN_MAX: RGN_COMBINE_MODE = 5
+public val RGN_MAX: RgnCombineMode = 5
 
-public val RGN_MIN: RGN_COMBINE_MODE = 1
+public val RGN_MIN: RgnCombineMode = 1
 
-public val RGN_OR: RGN_COMBINE_MODE = 2
+public val RGN_OR: RgnCombineMode = 2
 
-public val RGN_XOR: RGN_COMBINE_MODE = 3
+public val RGN_XOR: RgnCombineMode = 3
 
-public val RUSSIAN_CHARSET: FONT_CHARSET = 204u
+public val RUSSIAN_CHARSET: FontCharset = 204u.toUByte()
 
 public val SAVE_CTM: UInt = 4101u
 

@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int64_t windowssys_windows_win32_ui_input_DefRawInputProc(void* parawinput, int32_t ninput, uint32_t cbsizeheader) {
+int64_t windowssys_windows_win32_ui_input_defRawInputProc(void* parawinput, int32_t ninput, uint32_t cbsizeheader) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -39,7 +39,7 @@ int64_t windowssys_windows_win32_ui_input_DefRawInputProc(void* parawinput, int3
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_GetCIMSSM(void* inputmessagesource) {
+int32_t windowssys_windows_win32_ui_input_getCIMSSM(void* inputmessagesource) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -61,7 +61,7 @@ int32_t windowssys_windows_win32_ui_input_GetCIMSSM(void* inputmessagesource) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_GetCurrentInputMessageSource(void* inputmessagesource) {
+int32_t windowssys_windows_win32_ui_input_getCurrentInputMessageSource(void* inputmessagesource) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -83,7 +83,7 @@ int32_t windowssys_windows_win32_ui_input_GetCurrentInputMessageSource(void* inp
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_input_GetRawInputBuffer(void* pdata, void* pcbsize, uint32_t cbsizeheader) {
+uint32_t windowssys_windows_win32_ui_input_getRawInputBuffer(void* pdata, void* pcbsize, uint32_t cbsizeheader) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -107,7 +107,7 @@ uint32_t windowssys_windows_win32_ui_input_GetRawInputBuffer(void* pdata, void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_input_GetRawInputData(void* hrawinput, uint32_t uicommand, void* pdata, void* pcbsize, uint32_t cbsizeheader) {
+uint32_t windowssys_windows_win32_ui_input_getRawInputData(void* hrawinput, uint32_t uicommand, void* pdata, void* pcbsize, uint32_t cbsizeheader) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -133,7 +133,7 @@ uint32_t windowssys_windows_win32_ui_input_GetRawInputData(void* hrawinput, uint
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_input_GetRawInputDeviceInfoA(void* hdevice, uint32_t uicommand, void* pdata, void* pcbsize) {
+uint32_t windowssys_windows_win32_ui_input_getRawInputDeviceInfoA(void* hdevice, uint32_t uicommand, void* pdata, void* pcbsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -158,7 +158,7 @@ uint32_t windowssys_windows_win32_ui_input_GetRawInputDeviceInfoA(void* hdevice,
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_input_GetRawInputDeviceInfoW(void* hdevice, uint32_t uicommand, void* pdata, void* pcbsize) {
+uint32_t windowssys_windows_win32_ui_input_getRawInputDeviceInfoW(void* hdevice, uint32_t uicommand, void* pdata, void* pcbsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -183,7 +183,7 @@ uint32_t windowssys_windows_win32_ui_input_GetRawInputDeviceInfoW(void* hdevice,
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_input_GetRawInputDeviceList(void* prawinputdevicelist, void* puinumdevices, uint32_t cbsize) {
+uint32_t windowssys_windows_win32_ui_input_getRawInputDeviceList(void* prawinputdevicelist, void* puinumdevices, uint32_t cbsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -207,7 +207,7 @@ uint32_t windowssys_windows_win32_ui_input_GetRawInputDeviceList(void* prawinput
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_input_GetRegisteredRawInputDevices(void* prawinputdevices, void* puinumdevices, uint32_t cbsize) {
+uint32_t windowssys_windows_win32_ui_input_getRegisteredRawInputDevices(void* prawinputdevices, void* puinumdevices, uint32_t cbsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -231,7 +231,7 @@ uint32_t windowssys_windows_win32_ui_input_GetRegisteredRawInputDevices(void* pr
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_RegisterRawInputDevices(void* prawinputdevices, uint32_t uinumdevices, uint32_t cbsize) {
+int32_t windowssys_windows_win32_ui_input_registerRawInputDevices(void* prawinputdevices, uint32_t uinumdevices, uint32_t cbsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;

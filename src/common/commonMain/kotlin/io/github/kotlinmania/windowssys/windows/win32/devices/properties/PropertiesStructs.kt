@@ -1,17 +1,18 @@
 package io.github.kotlinmania.windowssys.windows.win32.devices.properties
 
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.DEVPROPKEY
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Devpropkey
 
-public data class DEVPROPCOMPKEY(
-    public var Key: DEVPROPKEY = DEVPROPKEY(),
-    public var Store: DEVPROPSTORE = 0,
-    public var LocaleName: PCWSTR = 0L,
+public data class Devpropcompkey(
+    public var key: Devpropkey = Devpropkey(),
+    public var store: Devpropstore = 0,
+    public var localeName: Pcwstr = null,
 )
 
-public data class DEVPROPERTY(
-    public var CompKey: DEVPROPCOMPKEY = DEVPROPCOMPKEY(),
-    public var Type: DEVPROPTYPE = 0u,
-    public var BufferSize: UInt = 0u,
-    public var Buffer: Long = 0L,
+public data class Devproperty(
+    public var compKey: Devpropcompkey = Devpropcompkey(),
+    public var type: Devproptype = 0u,
+    public var bufferSize: UInt = 0u,
+    public var buffer: COpaquePointer? = null,
 )

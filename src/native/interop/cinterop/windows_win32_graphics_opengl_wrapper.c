@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_graphics_opengl_ChoosePixelFormat(void* hdc, void* ppfd) {
+int32_t windowssys_windows_win32_graphics_opengl_choosePixelFormat(void* hdc, void* ppfd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -38,7 +38,7 @@ int32_t windowssys_windows_win32_graphics_opengl_ChoosePixelFormat(void* hdc, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_opengl_DescribePixelFormat(void* hdc, int32_t ipixelformat, uint32_t nbytes, void* ppfd) {
+int32_t windowssys_windows_win32_graphics_opengl_describePixelFormat(void* hdc, int32_t ipixelformat, uint32_t nbytes, void* ppfd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -63,7 +63,7 @@ int32_t windowssys_windows_win32_graphics_opengl_DescribePixelFormat(void* hdc, 
 #endif
 }
 
-uint32_t windowssys_windows_win32_graphics_opengl_GetEnhMetaFilePixelFormat(void* hemf, uint32_t cbbuffer, void* ppfd) {
+uint32_t windowssys_windows_win32_graphics_opengl_getEnhMetaFilePixelFormat(void* hemf, uint32_t cbbuffer, void* ppfd) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -87,7 +87,7 @@ uint32_t windowssys_windows_win32_graphics_opengl_GetEnhMetaFilePixelFormat(void
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_opengl_GetPixelFormat(void* hdc) {
+int32_t windowssys_windows_win32_graphics_opengl_getPixelFormat(void* hdc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -109,7 +109,7 @@ int32_t windowssys_windows_win32_graphics_opengl_GetPixelFormat(void* hdc) {
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_opengl_SetPixelFormat(void* hdc, int32_t format, void* ppfd) {
+int32_t windowssys_windows_win32_graphics_opengl_setPixelFormat(void* hdc, int32_t format, void* ppfd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -133,7 +133,7 @@ int32_t windowssys_windows_win32_graphics_opengl_SetPixelFormat(void* hdc, int32
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_opengl_SwapBuffers(void* param0) {
+int32_t windowssys_windows_win32_graphics_opengl_swapBuffers(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9069,6 +9069,28 @@ int32_t windowssys_windows_win32_graphics_opengl_wglGetLayerPaletteEntries(void*
     (void)param4;
     errno = ENOSYS;
     return -1;
+#endif
+}
+
+void* windowssys_windows_win32_graphics_opengl_wglGetProcAddress(void* param0) {
+#ifdef _WIN32
+    typedef void* (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("opengl32.dll");
+        if (km_h_mod != NULL) {
+            km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "wglGetProcAddress");
+        }
+    }
+    if (km_fn_ptr != NULL) {
+        return km_fn_ptr(param0);
+    }
+    errno = ENOSYS;
+    return NULL;
+#else
+    (void)param0;
+    errno = ENOSYS;
+    return NULL;
 #endif
 }
 

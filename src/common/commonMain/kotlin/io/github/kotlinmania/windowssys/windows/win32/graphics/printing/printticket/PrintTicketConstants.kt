@@ -14,12 +14,12 @@ public val S_PT_CONFLICT_RESOLVED: UInt = 262146u
 
 public val S_PT_NO_CONFLICT: UInt = 262145u
 
-public val kPTDocumentScope: EPrintTicketScope = 1
+public val K_PT_DOCUMENT_SCOPE: EPrintTicketScope = 1
 
-public val kPTJobScope: EPrintTicketScope = 2
+public val K_PT_JOB_SCOPE: EPrintTicketScope = 2
 
-public val kPTPageScope: EPrintTicketScope = 0
+public val K_PT_PAGE_SCOPE: EPrintTicketScope = 0
 
-public val kPrinterDefaultDevmode: EDefaultDevmodeType = 1
+public val K_PRINTER_DEFAULT_DEVMODE: EDefaultDevmodeType = 1
 
-public val kUserDefaultDevmode: EDefaultDevmodeType = 0
+public val K_USER_DEFAULT_DEVMODE: EDefaultDevmodeType = 0

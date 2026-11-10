@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpAddFilterV4_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpAddFilterV4_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* addfilterinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -73,7 +73,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpAddFilter
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpAddSecurityGroup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpAddSecurityGroup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pserver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -91,7 +91,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpAddSecuri
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpAddServer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpAddServer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* idinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -117,7 +117,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpAddServer
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpAddSubnetElement_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpAddSubnetElement_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t subnetaddress = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -139,7 +139,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpAddSubnet
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpAddSubnetElementV4_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpAddSubnetElementV4_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t subnetaddress = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -161,7 +161,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpAddSubnet
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpAddSubnetElementV5_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpAddSubnetElementV5_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t subnetaddress = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -183,7 +183,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpAddSubnet
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpAuditLogGetParams_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpAuditLogGetParams_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -211,7 +211,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpAuditLogG
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpAuditLogSetParams_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpAuditLogSetParams_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -239,7 +239,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpAuditLogS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpCApiCleanup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpCApiCleanup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
@@ -254,7 +254,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpCApiClean
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpCApiInitialize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpCApiInitialize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* version = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -272,7 +272,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpCApiIniti
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpCreateClass_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateClass_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t reservedmustbezero = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -294,7 +294,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpCreateCla
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpCreateClassV6_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateClassV6_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t reservedmustbezero = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -316,7 +316,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpCreateCla
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpCreateClientInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateClientInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* clientinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -336,7 +336,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpCreateCli
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpCreateClientInfoV4_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateClientInfoV4_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* clientinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -356,7 +356,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpCreateCli
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpCreateClientInfoVQ_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateClientInfoVQ_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* clientinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -376,7 +376,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpCreateCli
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpCreateOption_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateOption_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t optionid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -398,7 +398,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpCreateOpt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpCreateOptionV5_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateOptionV5_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -426,7 +426,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpCreateOpt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpCreateOptionV6_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateOptionV6_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -454,7 +454,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpCreateOpt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpCreateSubnet_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateSubnet_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t subnetaddress = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -476,7 +476,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpCreateSub
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpCreateSubnetVQ_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateSubnetVQ_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t subnetaddress = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -498,7 +498,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpCreateSub
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpDeRegisterParamChange_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpDeRegisterParamChange_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* reserved = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -520,7 +520,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpDeRegiste
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpDeleteClass_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteClass_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t reservedmustbezero = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -542,7 +542,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpDeleteCla
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpDeleteClassV6_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteClassV6_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t reservedmustbezero = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -564,7 +564,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpDeleteCla
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpDeleteClientInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteClientInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* clientinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -584,7 +584,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpDeleteCli
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpDeleteClientInfoV6_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteClientInfoV6_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* clientinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -604,7 +604,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpDeleteCli
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpDeleteFilterV4_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteFilterV4_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* deletefilterinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -624,7 +624,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpDeleteFil
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpDeleteServer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteServer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* idinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -650,7 +650,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpDeleteSer
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpDeleteSubnet_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteSubnet_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t subnetaddress = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -672,7 +672,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpDeleteSub
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpDeleteSuperScopeV4_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteSuperScopeV4_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* superscopename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -692,7 +692,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpDeleteSup
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpDsCleanup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpDsCleanup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
@@ -707,7 +707,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpDsCleanup
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpDsInit_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpDsInit_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -723,7 +723,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpDsInit_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumClasses_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumClasses_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t reservedmustbezero = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -753,7 +753,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumClass
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumClassesV6_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumClassesV6_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t reservedmustbezero = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -783,7 +783,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumClass
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumFilterV4_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumFilterV4_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* resumehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -813,7 +813,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumFilte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumOptionValues_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumOptionValues_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* scopeinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -843,7 +843,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumOptio
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumOptionValuesV5_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumOptionValuesV5_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -879,7 +879,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumOptio
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumOptionValuesV6_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumOptionValuesV6_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -915,7 +915,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumOptio
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumOptions_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumOptions_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* resumehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -943,7 +943,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumOptio
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumOptionsV5_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumOptionsV5_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -977,7 +977,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumOptio
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumOptionsV6_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumOptionsV6_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1011,7 +1011,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumOptio
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumServers_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumServers_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* idinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1037,7 +1037,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumServe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumSubnetClients_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetClients_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t subnetaddress = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1067,7 +1067,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumSubne
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumSubnetClientsFilterStatusInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetClientsFilterStatusInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t subnetaddress = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1097,7 +1097,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumSubne
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumSubnetClientsV4_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetClientsV4_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t subnetaddress = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1127,7 +1127,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumSubne
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumSubnetClientsV5_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetClientsV5_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t subnetaddress = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1157,7 +1157,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumSubne
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumSubnetClientsVQ_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetClientsVQ_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t subnetaddress = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1187,7 +1187,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumSubne
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumSubnetElements_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetElements_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t subnetaddress = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1219,7 +1219,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumSubne
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumSubnetElementsV4_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetElementsV4_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t subnetaddress = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1251,7 +1251,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumSubne
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumSubnetElementsV5_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetElementsV5_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t subnetaddress = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1283,7 +1283,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumSubne
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumSubnets_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnets_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* resumehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1311,7 +1311,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumSubne
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumSubnetsV6_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetsV6_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* resumehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1339,7 +1339,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumSubne
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpGetAllOptionValues_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpGetAllOptionValues_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1363,7 +1363,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpGetAllOpt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpGetAllOptionValuesV6_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpGetAllOptionValuesV6_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1387,7 +1387,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpGetAllOpt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpGetAllOptions_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpGetAllOptions_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1409,7 +1409,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpGetAllOpt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpGetAllOptionsV6_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpGetAllOptionsV6_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1431,7 +1431,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpGetAllOpt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpGetClassInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpGetClassInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t reservedmustbezero = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1455,7 +1455,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpGetClassI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpGetClientInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpGetClientInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* searchinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1477,7 +1477,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpGetClient
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpGetClientInfoV4_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpGetClientInfoV4_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* searchinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1499,7 +1499,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpGetClient
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpGetClientInfoV6_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpGetClientInfoV6_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* searchinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1521,7 +1521,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpGetClient
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpGetClientInfoVQ_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpGetClientInfoVQ_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* searchinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1543,7 +1543,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpGetClient
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpGetClientOptions_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpGetClientOptions_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t clientipaddress = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1567,7 +1567,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpGetClient
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpGetFilterV4_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpGetFilterV4_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* globalfilterinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1587,7 +1587,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpGetFilter
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpGetMibInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpGetMibInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* mibinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1607,7 +1607,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpGetMibInf
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpGetMibInfoV5_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpGetMibInfoV5_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* mibinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1627,7 +1627,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpGetMibInf
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpGetMibInfoV6_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpGetMibInfoV6_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* mibinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1647,7 +1647,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpGetMibInf
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpGetOptionInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpGetOptionInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t optionid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1669,7 +1669,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpGetOption
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpGetOptionInfoV5_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpGetOptionInfoV5_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1697,7 +1697,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpGetOption
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpGetOptionInfoV6_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpGetOptionInfoV6_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1725,7 +1725,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpGetOption
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpGetOptionValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpGetOptionValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t optionid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1749,7 +1749,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpGetOption
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpGetOptionValueV5_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpGetOptionValueV5_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1779,7 +1779,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpGetOption
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpGetOptionValueV6_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpGetOptionValueV6_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1809,7 +1809,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpGetOption
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpGetOriginalSubnetMask_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpGetOriginalSubnetMask_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* sadaptername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dwsubnetmask = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1829,7 +1829,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpGetOrigin
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpGetServerBindingInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpGetServerBindingInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1851,7 +1851,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpGetServer
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpGetServerBindingInfoV6_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpGetServerBindingInfoV6_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1873,7 +1873,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpGetServer
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpGetServerSpecificStrings_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpGetServerSpecificStrings_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* serverspecificstrings = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1893,7 +1893,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpGetServer
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpGetSubnetDelayOffer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpGetSubnetDelayOffer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t subnetaddress = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1915,7 +1915,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpGetSubnet
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpGetSubnetInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpGetSubnetInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t subnetaddress = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1937,7 +1937,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpGetSubnet
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpGetSubnetInfoVQ_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpGetSubnetInfoVQ_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t subnetaddress = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1959,7 +1959,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpGetSubnet
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpGetSuperScopeInfoV4_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpGetSuperScopeInfoV4_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* superscopetable = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1979,7 +1979,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpGetSuperS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpGetThreadOptions_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpGetThreadOptions_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pflags = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* reserved = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1999,7 +1999,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpGetThread
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpGetVersion_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpGetVersion_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* majorversion = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2021,7 +2021,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpGetVersio
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprAddV4PolicyCondition_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprAddV4PolicyCondition_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* policy = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t parentexpr = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2057,7 +2057,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprAddV4
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprAddV4PolicyExpr_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprAddV4PolicyExpr_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* policy = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t parentexpr = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2081,7 +2081,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprAddV4
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprAddV4PolicyRange_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprAddV4PolicyRange_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* policy = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* range = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2101,7 +2101,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprAddV4
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprCreateV4Policy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprCreateV4Policy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* policyname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t fglobalpolicy = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2133,7 +2133,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprCreat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprCreateV4PolicyEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprCreateV4PolicyEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* policyname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t fglobalpolicy = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2165,7 +2165,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprCreat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprFindV4DhcpProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprFindV4DhcpProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propertyarray = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t id = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2187,7 +2187,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprFindV
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprFreeV4DhcpProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprFreeV4DhcpProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* property = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2204,7 +2204,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprFreeV
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprFreeV4DhcpPropertyArray_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprFreeV4DhcpPropertyArray_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propertyarray = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2221,7 +2221,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprFreeV
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprFreeV4Policy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprFreeV4Policy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* policy = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2238,7 +2238,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprFreeV
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprFreeV4PolicyArray_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprFreeV4PolicyArray_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* policyarray = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2255,7 +2255,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprFreeV
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprFreeV4PolicyEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprFreeV4PolicyEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* policyex = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2272,7 +2272,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprFreeV
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprFreeV4PolicyExArray_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprFreeV4PolicyExArray_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* policyexarray = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2289,7 +2289,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprFreeV
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprIsV4PolicySingleUC_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprIsV4PolicySingleUC_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* policy = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2307,7 +2307,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprIsV4P
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprIsV4PolicyValid_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprIsV4PolicyValid_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppolicy = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2325,7 +2325,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprIsV4P
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprIsV4PolicyWellFormed_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprIsV4PolicyWellFormed_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppolicy = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2343,7 +2343,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprIsV4P
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprModifyV4PolicyExpr_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprModifyV4PolicyExpr_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* policy = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t arg_1_operator = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2363,7 +2363,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprModif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprResetV4PolicyExpr_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprResetV4PolicyExpr_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* policy = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2381,7 +2381,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprReset
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpModifyClass_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpModifyClass_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t reservedmustbezero = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2403,7 +2403,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpModifyCla
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpModifyClassV6_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpModifyClassV6_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t reservedmustbezero = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2425,7 +2425,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpModifyCla
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpRemoveDNSRegistrations_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveDNSRegistrations_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -2441,7 +2441,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpRemoveDNS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpRemoveOption_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveOption_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t optionid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2461,7 +2461,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpRemoveOpt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpRemoveOptionV5_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveOptionV5_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2487,7 +2487,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpRemoveOpt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpRemoveOptionV6_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveOptionV6_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2513,7 +2513,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpRemoveOpt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpRemoveOptionValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveOptionValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t optionid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2535,7 +2535,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpRemoveOpt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpRemoveOptionValueV5_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveOptionValueV5_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2563,7 +2563,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpRemoveOpt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpRemoveOptionValueV6_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveOptionValueV6_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2591,7 +2591,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpRemoveOpt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpRemoveSubnetElement_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveSubnetElement_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t subnetaddress = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2615,7 +2615,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpRemoveSub
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpRemoveSubnetElementV4_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveSubnetElementV4_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t subnetaddress = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2639,7 +2639,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpRemoveSub
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpRemoveSubnetElementV5_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveSubnetElementV5_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t subnetaddress = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2663,7 +2663,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpRemoveSub
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpRpcFreeMemory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpRpcFreeMemory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* bufferpointer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2680,7 +2680,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpRpcFreeMe
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpScanDatabase_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpScanDatabase_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t subnetaddress = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2704,7 +2704,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpScanDatab
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpServerAuditlogParamsFree_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpServerAuditlogParamsFree_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* configinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2721,7 +2721,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpServerAud
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpServerBackupDatabase_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpServerBackupDatabase_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* path = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2741,7 +2741,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpServerBac
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpServerGetConfig_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpServerGetConfig_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* configinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2761,7 +2761,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpServerGet
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpServerGetConfigV4_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpServerGetConfigV4_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* configinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2781,7 +2781,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpServerGet
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpServerGetConfigV6_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpServerGetConfigV6_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* scopeinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2803,7 +2803,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpServerGet
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpServerGetConfigVQ_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpServerGetConfigVQ_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* configinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2823,7 +2823,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpServerGet
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpServerQueryAttribute_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpServerQueryAttribute_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwreserved = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2847,7 +2847,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpServerQue
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpServerQueryAttributes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpServerQueryAttributes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwreserved = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2873,7 +2873,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpServerQue
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpServerQueryDnsRegCredentials_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpServerQueryDnsRegCredentials_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t unamesize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2899,7 +2899,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpServerQue
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpServerRedoAuthorization_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpServerRedoAuthorization_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwreserved = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2919,7 +2919,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpServerRed
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpServerRestoreDatabase_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpServerRestoreDatabase_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* path = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2939,7 +2939,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpServerRes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpServerSetConfig_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpServerSetConfig_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t fieldstoset = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2961,7 +2961,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpServerSet
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpServerSetConfigV4_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpServerSetConfigV4_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t fieldstoset = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2983,7 +2983,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpServerSet
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpServerSetConfigV6_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpServerSetConfigV6_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* scopeinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3007,7 +3007,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpServerSet
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpServerSetConfigVQ_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpServerSetConfigVQ_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t fieldstoset = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3029,7 +3029,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpServerSet
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpServerSetDnsRegCredentials_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpServerSetDnsRegCredentials_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* uname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3053,7 +3053,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpServerSet
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpServerSetDnsRegCredentialsV5_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpServerSetDnsRegCredentialsV5_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* uname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3077,7 +3077,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpServerSet
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpSetClientInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpSetClientInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* clientinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3097,7 +3097,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpSetClient
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpSetClientInfoV4_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpSetClientInfoV4_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* clientinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3117,7 +3117,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpSetClient
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpSetClientInfoV6_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpSetClientInfoV6_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* clientinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3137,7 +3137,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpSetClient
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpSetClientInfoVQ_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpSetClientInfoVQ_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* clientinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3157,7 +3157,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpSetClient
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpSetFilterV4_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpSetFilterV4_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* globalfilterinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3177,7 +3177,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpSetFilter
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpSetOptionInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOptionInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t optionid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3199,7 +3199,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpSetOption
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpSetOptionInfoV5_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOptionInfoV5_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3227,7 +3227,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpSetOption
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpSetOptionInfoV6_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOptionInfoV6_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3255,7 +3255,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpSetOption
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpSetOptionValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOptionValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t optionid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3279,7 +3279,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpSetOption
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpSetOptionValueV5_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOptionValueV5_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3309,7 +3309,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpSetOption
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpSetOptionValueV6_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOptionValueV6_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3339,7 +3339,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpSetOption
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpSetOptionValues_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOptionValues_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* scopeinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3361,7 +3361,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpSetOption
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpSetOptionValuesV5_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOptionValuesV5_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3389,7 +3389,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpSetOption
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpSetServerBindingInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpSetServerBindingInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3411,7 +3411,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpSetServer
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpSetServerBindingInfoV6_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpSetServerBindingInfoV6_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3433,7 +3433,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpSetServer
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpSetSubnetDelayOffer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpSetSubnetDelayOffer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t subnetaddress = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3455,7 +3455,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpSetSubnet
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpSetSubnetInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpSetSubnetInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t subnetaddress = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3477,7 +3477,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpSetSubnet
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpSetSubnetInfoVQ_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpSetSubnetInfoVQ_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t subnetaddress = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3499,7 +3499,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpSetSubnet
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpSetSuperScopeV4_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpSetSuperScopeV4_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t subnetaddress = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3523,7 +3523,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpSetSuperS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpSetThreadOptions_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpSetThreadOptions_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* reserved = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3543,7 +3543,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpSetThread
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpUndoRequestParams_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpUndoRequestParams_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* reserved = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3567,7 +3567,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpUndoReque
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4AddPolicyRange_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4AddPolicyRange_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t subnetaddress = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3591,7 +3591,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4AddPoli
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4CreateClientInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4CreateClientInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* clientinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3611,7 +3611,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4CreateC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4CreateClientInfoEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4CreateClientInfoEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* clientinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3631,7 +3631,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4CreateC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4CreatePolicy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4CreatePolicy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppolicy = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3651,7 +3651,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4CreateP
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4CreatePolicyEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4CreatePolicyEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* policyex = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3671,7 +3671,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4CreateP
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4DeletePolicy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4DeletePolicy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t fglobalpolicy = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3695,7 +3695,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4DeleteP
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4EnumPolicies_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4EnumPolicies_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* resumehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3727,7 +3727,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4EnumPol
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4EnumPoliciesEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4EnumPoliciesEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* resumehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3759,7 +3759,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4EnumPol
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4EnumSubnetClients_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4EnumSubnetClients_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t subnetaddress = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3789,7 +3789,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4EnumSub
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4EnumSubnetClientsEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4EnumSubnetClientsEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t subnetaddress = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3819,7 +3819,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4EnumSub
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4EnumSubnetReservations_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4EnumSubnetReservations_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t subnetaddress = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3849,7 +3849,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4EnumSub
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverAddScopeToRelationship_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverAddScopeToRelationship_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* prelationship = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3869,7 +3869,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4Failove
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverCreateRelationship_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverCreateRelationship_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* prelationship = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3889,7 +3889,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4Failove
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverDeleteRelationship_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverDeleteRelationship_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* prelationshipname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3909,7 +3909,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4Failove
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverDeleteScopeFromRelationship_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverDeleteScopeFromRelationship_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* prelationship = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3929,7 +3929,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4Failove
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverEnumRelationship_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverEnumRelationship_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* resumehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3957,7 +3957,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4Failove
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverGetAddressStatus_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverGetAddressStatus_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t subnetaddress = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3979,7 +3979,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4Failove
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverGetClientInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverGetClientInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* searchinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4001,7 +4001,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4Failove
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverGetRelationship_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverGetRelationship_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* prelationshipname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4023,7 +4023,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4Failove
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverGetScopeRelationship_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverGetScopeRelationship_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t scopeid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4045,7 +4045,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4Failove
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverGetScopeStatistics_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverGetScopeStatistics_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t scopeid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4067,7 +4067,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4Failove
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverGetSystemTime_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverGetSystemTime_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ptime = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4089,7 +4089,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4Failove
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverSetRelationship_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverSetRelationship_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4111,7 +4111,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4Failove
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverTriggerAddrAllocation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverTriggerAddrAllocation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pfailrelname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4131,7 +4131,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4Failove
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4GetAllOptionValues_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4GetAllOptionValues_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4155,7 +4155,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4GetAllO
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4GetClientInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4GetClientInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* searchinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4177,7 +4177,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4GetClie
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4GetClientInfoEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4GetClientInfoEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* searchinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4199,7 +4199,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4GetClie
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4GetFreeIPAddress_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4GetFreeIPAddress_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t scopeid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4227,7 +4227,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4GetFree
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4GetOptionValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4GetOptionValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4257,7 +4257,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4GetOpti
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4GetPolicy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4GetPolicy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t fglobalpolicy = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4283,7 +4283,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4GetPoli
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4GetPolicyEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4GetPolicyEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t globalpolicy = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4309,7 +4309,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4GetPoli
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4QueryPolicyEnforcement_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4QueryPolicyEnforcement_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t fglobalpolicy = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4333,7 +4333,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4QueryPo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4RemoveOptionValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4RemoveOptionValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4361,7 +4361,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4RemoveO
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4RemovePolicyRange_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4RemovePolicyRange_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t subnetaddress = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4385,7 +4385,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4RemoveP
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4SetOptionValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4SetOptionValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4415,7 +4415,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4SetOpti
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4SetOptionValues_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4SetOptionValues_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4443,7 +4443,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4SetOpti
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4SetPolicy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4SetPolicy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t fieldsmodified = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4471,7 +4471,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4SetPoli
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4SetPolicyEnforcement_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4SetPolicyEnforcement_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t fglobalpolicy = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4495,7 +4495,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4SetPoli
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4SetPolicyEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4SetPolicyEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t fieldsmodified = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4523,7 +4523,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV4SetPoli
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV6CreateClientInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV6CreateClientInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* clientinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4543,7 +4543,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV6CreateC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV6GetStatelessStatistics_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV6GetStatelessStatistics_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serveripaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* statelessstats = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4563,7 +4563,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_DhcpV6GetStat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_Dhcpv6CApiCleanup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpv6CApiCleanup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
@@ -4578,7 +4578,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_Dhcpv6CApiCle
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_Dhcpv6CApiInitialize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpv6CApiInitialize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* version = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4595,7 +4595,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_Dhcpv6CApiIni
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_Dhcpv6ReleasePrefix_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpv6ReleasePrefix_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* adaptername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* classid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4617,7 +4617,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_Dhcpv6Release
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_Dhcpv6RenewPrefix_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpv6RenewPrefix_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* adaptername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pclassid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4643,7 +4643,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_Dhcpv6RenewPr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_Dhcpv6RequestPrefix_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpv6RequestPrefix_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* adaptername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pclassid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4668,202 +4668,202 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_Dhcpv6Request
 }
 
 static void register_windows_win32_networkmanagement_dhcp_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpAddFilterV4", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpAddFilterV4_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpAddSecurityGroup", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpAddSecurityGroup_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpAddServer", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpAddServer_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpAddSubnetElement", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpAddSubnetElement_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpAddSubnetElementV4", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpAddSubnetElementV4_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpAddSubnetElementV5", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpAddSubnetElementV5_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpAuditLogGetParams", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpAuditLogGetParams_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpAuditLogSetParams", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpAuditLogSetParams_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpCApiCleanup", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpCApiCleanup_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpCApiInitialize", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpCApiInitialize_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpCreateClass", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpCreateClass_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpCreateClassV6", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpCreateClassV6_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpCreateClientInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpCreateClientInfo_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpCreateClientInfoV4", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpCreateClientInfoV4_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpCreateClientInfoVQ", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpCreateClientInfoVQ_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpCreateOption", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpCreateOption_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpCreateOptionV5", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpCreateOptionV5_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpCreateOptionV6", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpCreateOptionV6_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpCreateSubnet", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpCreateSubnet_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpCreateSubnetVQ", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpCreateSubnetVQ_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpDeRegisterParamChange", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpDeRegisterParamChange_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpDeleteClass", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpDeleteClass_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpDeleteClassV6", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpDeleteClassV6_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpDeleteClientInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpDeleteClientInfo_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpDeleteClientInfoV6", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpDeleteClientInfoV6_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpDeleteFilterV4", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpDeleteFilterV4_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpDeleteServer", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpDeleteServer_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpDeleteSubnet", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpDeleteSubnet_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpDeleteSuperScopeV4", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpDeleteSuperScopeV4_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpDsCleanup", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpDsCleanup_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpDsInit", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpDsInit_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumClasses", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumClasses_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumClassesV6", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumClassesV6_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumFilterV4", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumFilterV4_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumOptionValues", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumOptionValues_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumOptionValuesV5", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumOptionValuesV5_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumOptionValuesV6", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumOptionValuesV6_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumOptions", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumOptions_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumOptionsV5", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumOptionsV5_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumOptionsV6", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumOptionsV6_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumServers", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumServers_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumSubnetClients", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumSubnetClients_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumSubnetClientsFilterStatusInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumSubnetClientsFilterStatusInfo_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumSubnetClientsV4", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumSubnetClientsV4_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumSubnetClientsV5", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumSubnetClientsV5_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumSubnetClientsVQ", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumSubnetClientsVQ_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumSubnetElements", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumSubnetElements_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumSubnetElementsV4", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumSubnetElementsV4_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumSubnetElementsV5", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumSubnetElementsV5_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumSubnets", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumSubnets_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumSubnetsV6", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumSubnetsV6_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpGetAllOptionValues", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpGetAllOptionValues_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpGetAllOptionValuesV6", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpGetAllOptionValuesV6_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpGetAllOptions", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpGetAllOptions_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpGetAllOptionsV6", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpGetAllOptionsV6_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpGetClassInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpGetClassInfo_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpGetClientInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpGetClientInfo_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpGetClientInfoV4", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpGetClientInfoV4_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpGetClientInfoV6", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpGetClientInfoV6_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpGetClientInfoVQ", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpGetClientInfoVQ_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpGetClientOptions", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpGetClientOptions_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpGetFilterV4", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpGetFilterV4_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpGetMibInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpGetMibInfo_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpGetMibInfoV5", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpGetMibInfoV5_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpGetMibInfoV6", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpGetMibInfoV6_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpGetOptionInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpGetOptionInfo_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpGetOptionInfoV5", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpGetOptionInfoV5_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpGetOptionInfoV6", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpGetOptionInfoV6_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpGetOptionValue", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpGetOptionValue_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpGetOptionValueV5", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpGetOptionValueV5_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpGetOptionValueV6", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpGetOptionValueV6_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpGetOriginalSubnetMask", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpGetOriginalSubnetMask_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpGetServerBindingInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpGetServerBindingInfo_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpGetServerBindingInfoV6", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpGetServerBindingInfoV6_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpGetServerSpecificStrings", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpGetServerSpecificStrings_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpGetSubnetDelayOffer", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpGetSubnetDelayOffer_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpGetSubnetInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpGetSubnetInfo_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpGetSubnetInfoVQ", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpGetSubnetInfoVQ_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpGetSuperScopeInfoV4", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpGetSuperScopeInfoV4_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpGetThreadOptions", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpGetThreadOptions_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpGetVersion", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpGetVersion_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprAddV4PolicyCondition", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprAddV4PolicyCondition_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprAddV4PolicyExpr", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprAddV4PolicyExpr_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprAddV4PolicyRange", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprAddV4PolicyRange_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprCreateV4Policy", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprCreateV4Policy_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprCreateV4PolicyEx", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprCreateV4PolicyEx_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprFindV4DhcpProperty", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprFindV4DhcpProperty_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprFreeV4DhcpProperty", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprFreeV4DhcpProperty_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprFreeV4DhcpPropertyArray", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprFreeV4DhcpPropertyArray_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprFreeV4Policy", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprFreeV4Policy_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprFreeV4PolicyArray", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprFreeV4PolicyArray_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprFreeV4PolicyEx", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprFreeV4PolicyEx_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprFreeV4PolicyExArray", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprFreeV4PolicyExArray_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprIsV4PolicySingleUC", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprIsV4PolicySingleUC_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprIsV4PolicyValid", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprIsV4PolicyValid_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprIsV4PolicyWellFormed", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprIsV4PolicyWellFormed_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprModifyV4PolicyExpr", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprModifyV4PolicyExpr_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprResetV4PolicyExpr", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprResetV4PolicyExpr_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpModifyClass", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpModifyClass_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpModifyClassV6", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpModifyClassV6_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpRemoveDNSRegistrations", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpRemoveDNSRegistrations_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpRemoveOption", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpRemoveOption_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpRemoveOptionV5", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpRemoveOptionV5_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpRemoveOptionV6", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpRemoveOptionV6_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpRemoveOptionValue", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpRemoveOptionValue_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpRemoveOptionValueV5", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpRemoveOptionValueV5_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpRemoveOptionValueV6", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpRemoveOptionValueV6_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpRemoveSubnetElement", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpRemoveSubnetElement_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpRemoveSubnetElementV4", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpRemoveSubnetElementV4_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpRemoveSubnetElementV5", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpRemoveSubnetElementV5_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpRpcFreeMemory", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpRpcFreeMemory_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpScanDatabase", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpScanDatabase_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpServerAuditlogParamsFree", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpServerAuditlogParamsFree_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpServerBackupDatabase", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpServerBackupDatabase_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpServerGetConfig", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpServerGetConfig_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpServerGetConfigV4", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpServerGetConfigV4_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpServerGetConfigV6", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpServerGetConfigV6_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpServerGetConfigVQ", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpServerGetConfigVQ_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpServerQueryAttribute", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpServerQueryAttribute_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpServerQueryAttributes", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpServerQueryAttributes_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpServerQueryDnsRegCredentials", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpServerQueryDnsRegCredentials_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpServerRedoAuthorization", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpServerRedoAuthorization_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpServerRestoreDatabase", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpServerRestoreDatabase_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpServerSetConfig", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpServerSetConfig_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpServerSetConfigV4", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpServerSetConfigV4_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpServerSetConfigV6", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpServerSetConfigV6_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpServerSetConfigVQ", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpServerSetConfigVQ_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpServerSetDnsRegCredentials", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpServerSetDnsRegCredentials_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpServerSetDnsRegCredentialsV5", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpServerSetDnsRegCredentialsV5_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpSetClientInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpSetClientInfo_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpSetClientInfoV4", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpSetClientInfoV4_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpSetClientInfoV6", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpSetClientInfoV6_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpSetClientInfoVQ", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpSetClientInfoVQ_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpSetFilterV4", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpSetFilterV4_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpSetOptionInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpSetOptionInfo_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpSetOptionInfoV5", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpSetOptionInfoV5_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpSetOptionInfoV6", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpSetOptionInfoV6_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpSetOptionValue", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpSetOptionValue_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpSetOptionValueV5", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpSetOptionValueV5_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpSetOptionValueV6", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpSetOptionValueV6_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpSetOptionValues", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpSetOptionValues_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpSetOptionValuesV5", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpSetOptionValuesV5_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpSetServerBindingInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpSetServerBindingInfo_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpSetServerBindingInfoV6", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpSetServerBindingInfoV6_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpSetSubnetDelayOffer", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpSetSubnetDelayOffer_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpSetSubnetInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpSetSubnetInfo_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpSetSubnetInfoVQ", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpSetSubnetInfoVQ_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpSetSuperScopeV4", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpSetSuperScopeV4_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpSetThreadOptions", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpSetThreadOptions_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpUndoRequestParams", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpUndoRequestParams_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpV4AddPolicyRange", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpV4AddPolicyRange_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpV4CreateClientInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpV4CreateClientInfo_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpV4CreateClientInfoEx", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpV4CreateClientInfoEx_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpV4CreatePolicy", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpV4CreatePolicy_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpV4CreatePolicyEx", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpV4CreatePolicyEx_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpV4DeletePolicy", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpV4DeletePolicy_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpV4EnumPolicies", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpV4EnumPolicies_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpV4EnumPoliciesEx", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpV4EnumPoliciesEx_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpV4EnumSubnetClients", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpV4EnumSubnetClients_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpV4EnumSubnetClientsEx", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpV4EnumSubnetClientsEx_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpV4EnumSubnetReservations", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpV4EnumSubnetReservations_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverAddScopeToRelationship", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverAddScopeToRelationship_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverCreateRelationship", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverCreateRelationship_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverDeleteRelationship", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverDeleteRelationship_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverDeleteScopeFromRelationship", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverDeleteScopeFromRelationship_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverEnumRelationship", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverEnumRelationship_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverGetAddressStatus", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverGetAddressStatus_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverGetClientInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverGetClientInfo_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverGetRelationship", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverGetRelationship_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverGetScopeRelationship", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverGetScopeRelationship_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverGetScopeStatistics", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverGetScopeStatistics_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverGetSystemTime", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverGetSystemTime_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverSetRelationship", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverSetRelationship_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverTriggerAddrAllocation", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverTriggerAddrAllocation_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpV4GetAllOptionValues", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpV4GetAllOptionValues_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpV4GetClientInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpV4GetClientInfo_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpV4GetClientInfoEx", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpV4GetClientInfoEx_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpV4GetFreeIPAddress", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpV4GetFreeIPAddress_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpV4GetOptionValue", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpV4GetOptionValue_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpV4GetPolicy", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpV4GetPolicy_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpV4GetPolicyEx", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpV4GetPolicyEx_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpV4QueryPolicyEnforcement", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpV4QueryPolicyEnforcement_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpV4RemoveOptionValue", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpV4RemoveOptionValue_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpV4RemovePolicyRange", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpV4RemovePolicyRange_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpV4SetOptionValue", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpV4SetOptionValue_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpV4SetOptionValues", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpV4SetOptionValues_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpV4SetPolicy", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpV4SetPolicy_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpV4SetPolicyEnforcement", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpV4SetPolicyEnforcement_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpV4SetPolicyEx", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpV4SetPolicyEx_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpV6CreateClientInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpV6CreateClientInfo_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_DhcpV6GetStatelessStatistics", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_DhcpV6GetStatelessStatistics_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_Dhcpv6CApiCleanup", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_Dhcpv6CApiCleanup_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_Dhcpv6CApiInitialize", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_Dhcpv6CApiInitialize_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_Dhcpv6ReleasePrefix", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_Dhcpv6ReleasePrefix_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_Dhcpv6RenewPrefix", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_Dhcpv6RenewPrefix_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_Dhcpv6RequestPrefix", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_Dhcpv6RequestPrefix_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpAddFilterV4", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpAddFilterV4_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpAddSecurityGroup", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpAddSecurityGroup_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpAddServer", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpAddServer_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpAddSubnetElement", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpAddSubnetElement_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpAddSubnetElementV4", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpAddSubnetElementV4_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpAddSubnetElementV5", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpAddSubnetElementV5_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpAuditLogGetParams", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpAuditLogGetParams_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpAuditLogSetParams", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpAuditLogSetParams_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpCApiCleanup", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpCApiCleanup_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpCApiInitialize", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpCApiInitialize_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateClass", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateClass_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateClassV6", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateClassV6_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateClientInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateClientInfo_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateClientInfoV4", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateClientInfoV4_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateClientInfoVQ", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateClientInfoVQ_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateOption", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateOption_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateOptionV5", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateOptionV5_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateOptionV6", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateOptionV6_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateSubnet", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateSubnet_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateSubnetVQ", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateSubnetVQ_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpDeRegisterParamChange", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpDeRegisterParamChange_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteClass", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteClass_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteClassV6", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteClassV6_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteClientInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteClientInfo_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteClientInfoV6", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteClientInfoV6_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteFilterV4", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteFilterV4_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteServer", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteServer_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteSubnet", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteSubnet_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteSuperScopeV4", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteSuperScopeV4_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpDsCleanup", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpDsCleanup_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpDsInit", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpDsInit_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumClasses", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumClasses_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumClassesV6", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumClassesV6_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumFilterV4", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumFilterV4_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumOptionValues", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumOptionValues_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumOptionValuesV5", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumOptionValuesV5_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumOptionValuesV6", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumOptionValuesV6_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumOptions", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumOptions_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumOptionsV5", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumOptionsV5_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumOptionsV6", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumOptionsV6_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumServers", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumServers_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetClients", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetClients_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetClientsFilterStatusInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetClientsFilterStatusInfo_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetClientsV4", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetClientsV4_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetClientsV5", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetClientsV5_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetClientsVQ", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetClientsVQ_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetElements", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetElements_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetElementsV4", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetElementsV4_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetElementsV5", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetElementsV5_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnets", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnets_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetsV6", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetsV6_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpGetAllOptionValues", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpGetAllOptionValues_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpGetAllOptionValuesV6", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpGetAllOptionValuesV6_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpGetAllOptions", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpGetAllOptions_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpGetAllOptionsV6", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpGetAllOptionsV6_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpGetClassInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpGetClassInfo_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpGetClientInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpGetClientInfo_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpGetClientInfoV4", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpGetClientInfoV4_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpGetClientInfoV6", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpGetClientInfoV6_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpGetClientInfoVQ", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpGetClientInfoVQ_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpGetClientOptions", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpGetClientOptions_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpGetFilterV4", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpGetFilterV4_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpGetMibInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpGetMibInfo_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpGetMibInfoV5", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpGetMibInfoV5_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpGetMibInfoV6", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpGetMibInfoV6_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpGetOptionInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpGetOptionInfo_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpGetOptionInfoV5", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpGetOptionInfoV5_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpGetOptionInfoV6", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpGetOptionInfoV6_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpGetOptionValue", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpGetOptionValue_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpGetOptionValueV5", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpGetOptionValueV5_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpGetOptionValueV6", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpGetOptionValueV6_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpGetOriginalSubnetMask", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpGetOriginalSubnetMask_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpGetServerBindingInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpGetServerBindingInfo_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpGetServerBindingInfoV6", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpGetServerBindingInfoV6_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpGetServerSpecificStrings", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpGetServerSpecificStrings_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpGetSubnetDelayOffer", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpGetSubnetDelayOffer_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpGetSubnetInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpGetSubnetInfo_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpGetSubnetInfoVQ", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpGetSubnetInfoVQ_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpGetSuperScopeInfoV4", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpGetSuperScopeInfoV4_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpGetThreadOptions", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpGetThreadOptions_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpGetVersion", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpGetVersion_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprAddV4PolicyCondition", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprAddV4PolicyCondition_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprAddV4PolicyExpr", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprAddV4PolicyExpr_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprAddV4PolicyRange", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprAddV4PolicyRange_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprCreateV4Policy", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprCreateV4Policy_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprCreateV4PolicyEx", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprCreateV4PolicyEx_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprFindV4DhcpProperty", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprFindV4DhcpProperty_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprFreeV4DhcpProperty", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprFreeV4DhcpProperty_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprFreeV4DhcpPropertyArray", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprFreeV4DhcpPropertyArray_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprFreeV4Policy", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprFreeV4Policy_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprFreeV4PolicyArray", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprFreeV4PolicyArray_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprFreeV4PolicyEx", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprFreeV4PolicyEx_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprFreeV4PolicyExArray", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprFreeV4PolicyExArray_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprIsV4PolicySingleUC", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprIsV4PolicySingleUC_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprIsV4PolicyValid", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprIsV4PolicyValid_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprIsV4PolicyWellFormed", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprIsV4PolicyWellFormed_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprModifyV4PolicyExpr", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprModifyV4PolicyExpr_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprResetV4PolicyExpr", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprResetV4PolicyExpr_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpModifyClass", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpModifyClass_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpModifyClassV6", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpModifyClassV6_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveDNSRegistrations", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveDNSRegistrations_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveOption", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveOption_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveOptionV5", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveOptionV5_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveOptionV6", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveOptionV6_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveOptionValue", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveOptionValue_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveOptionValueV5", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveOptionValueV5_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveOptionValueV6", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveOptionValueV6_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveSubnetElement", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveSubnetElement_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveSubnetElementV4", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveSubnetElementV4_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveSubnetElementV5", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveSubnetElementV5_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpRpcFreeMemory", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpRpcFreeMemory_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpScanDatabase", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpScanDatabase_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpServerAuditlogParamsFree", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpServerAuditlogParamsFree_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpServerBackupDatabase", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpServerBackupDatabase_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpServerGetConfig", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpServerGetConfig_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpServerGetConfigV4", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpServerGetConfigV4_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpServerGetConfigV6", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpServerGetConfigV6_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpServerGetConfigVQ", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpServerGetConfigVQ_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpServerQueryAttribute", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpServerQueryAttribute_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpServerQueryAttributes", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpServerQueryAttributes_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpServerQueryDnsRegCredentials", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpServerQueryDnsRegCredentials_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpServerRedoAuthorization", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpServerRedoAuthorization_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpServerRestoreDatabase", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpServerRestoreDatabase_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpServerSetConfig", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpServerSetConfig_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpServerSetConfigV4", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpServerSetConfigV4_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpServerSetConfigV6", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpServerSetConfigV6_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpServerSetConfigVQ", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpServerSetConfigVQ_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpServerSetDnsRegCredentials", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpServerSetDnsRegCredentials_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpServerSetDnsRegCredentialsV5", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpServerSetDnsRegCredentialsV5_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpSetClientInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpSetClientInfo_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpSetClientInfoV4", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpSetClientInfoV4_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpSetClientInfoV6", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpSetClientInfoV6_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpSetClientInfoVQ", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpSetClientInfoVQ_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpSetFilterV4", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpSetFilterV4_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOptionInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOptionInfo_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOptionInfoV5", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOptionInfoV5_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOptionInfoV6", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOptionInfoV6_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOptionValue", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOptionValue_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOptionValueV5", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOptionValueV5_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOptionValueV6", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOptionValueV6_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOptionValues", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOptionValues_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOptionValuesV5", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOptionValuesV5_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpSetServerBindingInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpSetServerBindingInfo_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpSetServerBindingInfoV6", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpSetServerBindingInfoV6_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpSetSubnetDelayOffer", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpSetSubnetDelayOffer_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpSetSubnetInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpSetSubnetInfo_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpSetSubnetInfoVQ", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpSetSubnetInfoVQ_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpSetSuperScopeV4", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpSetSuperScopeV4_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpSetThreadOptions", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpSetThreadOptions_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpUndoRequestParams", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpUndoRequestParams_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpV4AddPolicyRange", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpV4AddPolicyRange_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpV4CreateClientInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpV4CreateClientInfo_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpV4CreateClientInfoEx", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpV4CreateClientInfoEx_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpV4CreatePolicy", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpV4CreatePolicy_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpV4CreatePolicyEx", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpV4CreatePolicyEx_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpV4DeletePolicy", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpV4DeletePolicy_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpV4EnumPolicies", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpV4EnumPolicies_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpV4EnumPoliciesEx", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpV4EnumPoliciesEx_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpV4EnumSubnetClients", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpV4EnumSubnetClients_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpV4EnumSubnetClientsEx", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpV4EnumSubnetClientsEx_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpV4EnumSubnetReservations", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpV4EnumSubnetReservations_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverAddScopeToRelationship", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverAddScopeToRelationship_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverCreateRelationship", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverCreateRelationship_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverDeleteRelationship", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverDeleteRelationship_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverDeleteScopeFromRelationship", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverDeleteScopeFromRelationship_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverEnumRelationship", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverEnumRelationship_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverGetAddressStatus", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverGetAddressStatus_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverGetClientInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverGetClientInfo_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverGetRelationship", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverGetRelationship_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverGetScopeRelationship", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverGetScopeRelationship_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverGetScopeStatistics", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverGetScopeStatistics_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverGetSystemTime", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverGetSystemTime_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverSetRelationship", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverSetRelationship_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverTriggerAddrAllocation", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverTriggerAddrAllocation_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpV4GetAllOptionValues", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpV4GetAllOptionValues_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpV4GetClientInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpV4GetClientInfo_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpV4GetClientInfoEx", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpV4GetClientInfoEx_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpV4GetFreeIPAddress", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpV4GetFreeIPAddress_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpV4GetOptionValue", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpV4GetOptionValue_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpV4GetPolicy", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpV4GetPolicy_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpV4GetPolicyEx", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpV4GetPolicyEx_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpV4QueryPolicyEnforcement", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpV4QueryPolicyEnforcement_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpV4RemoveOptionValue", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpV4RemoveOptionValue_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpV4RemovePolicyRange", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpV4RemovePolicyRange_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpV4SetOptionValue", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpV4SetOptionValue_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpV4SetOptionValues", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpV4SetOptionValues_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpV4SetPolicy", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpV4SetPolicy_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpV4SetPolicyEnforcement", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpV4SetPolicyEnforcement_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpV4SetPolicyEx", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpV4SetPolicyEx_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpV6CreateClientInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpV6CreateClientInfo_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpV6GetStatelessStatistics", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpV6GetStatelessStatistics_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpv6CApiCleanup", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpv6CApiCleanup_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpv6CApiInitialize", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpv6CApiInitialize_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpv6ReleasePrefix", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpv6ReleasePrefix_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpv6RenewPrefix", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpv6RenewPrefix_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_dhcp_dhcpv6RequestPrefix", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dhcp_dhcpv6RequestPrefix_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_networkmanagement_dhcp_napi, nullptr };

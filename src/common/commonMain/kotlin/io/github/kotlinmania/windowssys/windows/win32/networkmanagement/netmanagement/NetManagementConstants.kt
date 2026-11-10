@@ -1,8 +1,8 @@
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement
 
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.s
 import io.github.kotlinmania.windowssys.core.w
 
@@ -64,7 +64,7 @@ public val ACCESS_FAIL_WRITE: UInt = 512u
 
 public val ACCESS_GROUP: UInt = 32768u
 
-public val ACCESS_LETTERS: PCSTR = s("RWCXDAP         ")
+public val ACCESS_LETTERS: Pcstr = s("RWCXDAP         ")
 
 public val ACCESS_NONE: UInt = 0u
 
@@ -88,7 +88,7 @@ public val AE_ACCLIMITEXCD: UInt = 17u
 
 public val AE_ACCRESTRICT: UInt = 4u
 
-public val AE_ACLMOD_CONST: UInt = 12u
+public val AE_ACLMOD: UInt = 12u
 
 public val AE_ACLMODFAIL: UInt = 19u
 
@@ -106,13 +106,13 @@ public val AE_AUTODIS: UInt = 2u
 
 public val AE_BADPW: UInt = 1u
 
-public val AE_CLOSEFILE_CONST: UInt = 9u
+public val AE_CLOSEFILE: UInt = 9u
 
-public val AE_CONNREJ_CONST: UInt = 6u
+public val AE_CONNREJ: UInt = 6u
 
-public val AE_CONNSTART_CONST: UInt = 4u
+public val AE_CONNSTART: UInt = 4u
 
-public val AE_CONNSTOP_CONST: UInt = 5u
+public val AE_CONNSTOP: UInt = 5u
 
 public val AE_DELETE: UInt = 1u
 
@@ -136,15 +136,15 @@ public val AE_LIM_LOGONHOURS: UInt = 1u
 
 public val AE_LIM_UNKNOWN: UInt = 0u
 
-public val AE_LOCKOUT_CONST: UInt = 20u
+public val AE_LOCKOUT: UInt = 20u
 
 public val AE_MOD: UInt = 0u
 
 public val AE_NETLOGDENIED: UInt = 16u
 
-public val AE_NETLOGOFF_CONST: UInt = 15u
+public val AE_NETLOGOFF: UInt = 15u
 
-public val AE_NETLOGON_CONST: UInt = 14u
+public val AE_NETLOGON: UInt = 14u
 
 public val AE_NOACCESSPERM: UInt = 3u
 
@@ -152,21 +152,21 @@ public val AE_NORMAL: UInt = 0u
 
 public val AE_NORMAL_CLOSE: UInt = 0u
 
-public val AE_RESACCESS_CONST: UInt = 7u
+public val AE_RESACCESS: UInt = 7u
 
 public val AE_RESACCESS2: UInt = 18u
 
-public val AE_RESACCESSREJ_CONST: UInt = 8u
+public val AE_RESACCESSREJ: UInt = 8u
 
-public val AE_SERVICESTAT_CONST: UInt = 11u
+public val AE_SERVICESTAT: UInt = 11u
 
 public val AE_SESSDIS: UInt = 1u
 
-public val AE_SESSLOGOFF_CONST: UInt = 2u
+public val AE_SESSLOGOFF: UInt = 2u
 
-public val AE_SESSLOGON_CONST: UInt = 1u
+public val AE_SESSLOGON: UInt = 1u
 
-public val AE_SESSPWERR_CONST: UInt = 3u
+public val AE_SESSPWERR: UInt = 3u
 
 public val AE_SES_CLOSE: UInt = 1u
 
@@ -176,11 +176,11 @@ public val AE_SRVPAUSED: UInt = 1u
 
 public val AE_SRVSTART: UInt = 0u
 
-public val AE_SRVSTATUS_CONST: UInt = 0u
+public val AE_SRVSTATUS: UInt = 0u
 
 public val AE_SRVSTOP: UInt = 3u
 
-public val AE_UASMOD_CONST: UInt = 13u
+public val AE_UASMOD: UInt = 13u
 
 public val AE_UAS_GROUP: UInt = 1u
 
@@ -194,27 +194,27 @@ public val AE_USER: UInt = 1u
 
 public val AE_USERLIMIT: UInt = 0u
 
-public val AF_OP_ACCOUNTS: AF_OP = 8u
+public val AF_OP_ACCOUNTS: AfOp = 8u
 
-public val AF_OP_COMM: AF_OP = 2u
+public val AF_OP_COMM: AfOp = 2u
 
-public val AF_OP_PRINT: AF_OP = 1u
+public val AF_OP_PRINT: AfOp = 1u
 
-public val AF_OP_SERVER: AF_OP = 4u
+public val AF_OP_SERVER: AfOp = 4u
 
-public val ALERTER_MAILSLOT: PCWSTR = w("\\\\.\\MAILSLOT\\Alerter")
+public val ALERTER_MAILSLOT: Pcwstr = w("\\\\.\\MAILSLOT\\Alerter")
 
 public val ALERTSZ: UInt = 128u
 
-public val ALERT_ADMIN_EVENT: PCWSTR = w("ADMIN")
+public val ALERT_ADMIN_EVENT: Pcwstr = w("ADMIN")
 
-public val ALERT_ERRORLOG_EVENT: PCWSTR = w("ERRORLOG")
+public val ALERT_ERRORLOG_EVENT: Pcwstr = w("ERRORLOG")
 
-public val ALERT_MESSAGE_EVENT: PCWSTR = w("MESSAGE")
+public val ALERT_MESSAGE_EVENT: Pcwstr = w("MESSAGE")
 
-public val ALERT_PRINT_EVENT: PCWSTR = w("PRINTING")
+public val ALERT_PRINT_EVENT: Pcwstr = w("PRINTING")
 
-public val ALERT_USER_EVENT: PCWSTR = w("USER")
+public val ALERT_USER_EVENT: Pcwstr = w("USER")
 
 public val ALIGN_SHIFT: UInt = 7u
 
@@ -222,7 +222,7 @@ public val ALIGN_SIZE: UInt = 8u
 
 public val ALLOCATE_RESPONSE: UInt = 2u
 
-public val BACKUP_MSG_FILENAME: PCWSTR = w("BAK.MSG")
+public val BACKUP_MSG_FILENAME: Pcwstr = w("BAK.MSG")
 
 public val CLTYPE_LEN: UInt = 12u
 
@@ -370,17 +370,17 @@ public val DFS_WARN_METADATA_LINK_TYPE_INCORRECT: Int = -2147469107
 
 public val DNLEN: UInt = 15u
 
-public val DPP_ADVANCED: DEFAULT_PAGES = 1
+public val DPP_ADVANCED: DefaultPages = 1
 
-public val DSREG_DEVICE_JOIN: DSREG_JOIN_TYPE = 1
+public val DSREG_DEVICE_JOIN: DsregJoinType = 1
 
-public val DSREG_UNKNOWN_JOIN: DSREG_JOIN_TYPE = 0
+public val DSREG_UNKNOWN_JOIN: DsregJoinType = 0
 
-public val DSREG_WORKPLACE_JOIN: DSREG_JOIN_TYPE = 2
+public val DSREG_WORKPLACE_JOIN: DsregJoinType = 2
 
-public val EBP_ABOVE: ENUM_BINDING_PATHS_FLAGS = 1
+public val EBP_ABOVE: EnumBindingPathsFlags = 1
 
-public val EBP_BELOW: ENUM_BINDING_PATHS_FLAGS = 2
+public val EBP_BELOW: EnumBindingPathsFlags = 2
 
 public val ENCRYPTED_PWLEN: UInt = 16u
 
@@ -508,7 +508,7 @@ public val EVENT_COMMAND_START_FAILED: Int = -1073733923
 
 public val EVENT_CONNECTION_TIMEOUT: Int = -1073734815
 
-public val EVENT_ComputerNameChange: Int = -2147477637
+public val EVENT_COMPUTER_NAME_CHANGE: Int = -2147477637
 
 public val EVENT_DAV_REDIR_DELAYED_WRITE_FAILED: Int = -2147468848
 
@@ -600,7 +600,7 @@ public val EVENT_DNSAPI_REGISTRATION_FAILED_TIMEOUT: Int = -2147472498
 
 public val EVENT_DNSAPI_REGISTRATION_FAILED_TIMEOUT_PRIMARY_DN: Int = -2147472486
 
-public val EVENT_DNSDomainNameChange: Int = -2147477636
+public val EVENT_DNS_DOMAIN_NAME_CHANGE: Int = -2147477636
 
 public val EVENT_DNS_CACHE_NETWORK_PERF_WARNING: Int = -2147472598
 
@@ -702,15 +702,15 @@ public val EVENT_EQOS_WARNING_USER_POLICY_QUOTA_EXCEEDED: Int = -2147467041
 
 public val EVENT_EQOS_WARNING_USER_POLICY_VERSION: Int = -2147467045
 
-public val EVENT_EventLogProductInfo: Int = -2147477639
+public val EVENT_EVENT_LOG_PRODUCT_INFO: Int = -2147477639
 
-public val EVENT_EventlogAbnormalShutdown: Int = -2147477640
+public val EVENT_EVENTLOG_ABNORMAL_SHUTDOWN: Int = -2147477640
 
-public val EVENT_EventlogStarted: Int = -2147477643
+public val EVENT_EVENTLOG_STARTED: Int = -2147477643
 
-public val EVENT_EventlogStopped: Int = -2147477642
+public val EVENT_EVENTLOG_STOPPED: Int = -2147477642
 
-public val EVENT_EventlogUptime: Int = -2147477635
+public val EVENT_EVENTLOG_UPTIME: Int = -2147477635
 
 public val EVENT_FIRST_LOGON_FAILED: Int = -1073734811
 
@@ -1374,15 +1374,15 @@ public val EXTRA_VOLUME_DELETED: Int = -1073727514
 
 public val EXTRA_VOLUME_NOT_DELETED: Int = -1073727513
 
-public val FILTER_INTERDOMAIN_TRUST_ACCOUNT: NET_USER_ENUM_FILTER_FLAGS = 8u
+public val FILTER_INTERDOMAIN_TRUST_ACCOUNT: NetUserEnumFilterFlags = 8u
 
-public val FILTER_NORMAL_ACCOUNT: NET_USER_ENUM_FILTER_FLAGS = 2u
+public val FILTER_NORMAL_ACCOUNT: NetUserEnumFilterFlags = 2u
 
-public val FILTER_SERVER_TRUST_ACCOUNT: NET_USER_ENUM_FILTER_FLAGS = 32u
+public val FILTER_SERVER_TRUST_ACCOUNT: NetUserEnumFilterFlags = 32u
 
-public val FILTER_TEMP_DUPLICATE_ACCOUNT: NET_USER_ENUM_FILTER_FLAGS = 1u
+public val FILTER_TEMP_DUPLICATE_ACCOUNT: NetUserEnumFilterFlags = 1u
 
-public val FILTER_WORKSTATION_TRUST_ACCOUNT: NET_USER_ENUM_FILTER_FLAGS = 16u
+public val FILTER_WORKSTATION_TRUST_ACCOUNT: NetUserEnumFilterFlags = 16u
 
 public val GNLEN: UInt = 256u
 
@@ -1396,17 +1396,17 @@ public val GROUP_COMMENT_PARMNUM: UInt = 2u
 
 public val GROUP_NAME_PARMNUM: UInt = 1u
 
-public val GROUP_SPECIALGRP_ADMINS: PCWSTR = w("ADMINS")
+public val GROUP_SPECIALGRP_ADMINS: Pcwstr = w("ADMINS")
 
-public val GROUP_SPECIALGRP_GUESTS: PCWSTR = w("GUESTS")
+public val GROUP_SPECIALGRP_GUESTS: Pcwstr = w("GUESTS")
 
-public val GROUP_SPECIALGRP_LOCAL: PCWSTR = w("LOCAL")
+public val GROUP_SPECIALGRP_LOCAL: Pcwstr = w("LOCAL")
 
-public val GROUP_SPECIALGRP_USERS: PCWSTR = w("USERS")
+public val GROUP_SPECIALGRP_USERS: Pcwstr = w("USERS")
 
 public val HARDWARE_ADDRESS_LENGTH: UInt = 6u
 
-public val HELP_MSG_FILENAME: PCWSTR = w("NETH")
+public val HELP_MSG_FILENAME: Pcwstr = w("NETH")
 
 public val INTERFACE_INFO_REVISION_1: UInt = 1u
 
@@ -1504,7 +1504,7 @@ public val MAX_PROTOCOL_DLL_LEN: UInt = 48u
 
 public val MAX_PROTOCOL_NAME_LEN: UInt = 40u
 
-public val MESSAGE_FILENAME: PCWSTR = w("NETMSG")
+public val MESSAGE_FILENAME: Pcwstr = w("NETMSG")
 
 public val MFE_BOUNDARY_REACHED: UInt = 6u
 
@@ -1592,1287 +1592,1287 @@ public val MSGNAME_NOT_FORWARDED: UInt = 0u
 
 public val MS_ROUTER_VERSION: UInt = 1536u
 
-public val MsaInfoCanInstall: MSA_INFO_STATE = 4
+public val MSA_INFO_CAN_INSTALL: MsaInfoState = 4
 
-public val MsaInfoCannotInstall: MSA_INFO_STATE = 3
+public val MSA_INFO_CANNOT_INSTALL: MsaInfoState = 3
 
-public val MsaInfoInstalled: MSA_INFO_STATE = 5
+public val MSA_INFO_INSTALLED: MsaInfoState = 5
 
-public val MsaInfoLevel0: MSA_INFO_LEVEL = 0
+public val MSA_INFO_LEVEL0: MsaInfoLevel = 0
 
-public val MsaInfoLevelMax: MSA_INFO_LEVEL = 1
+public val MSA_INFO_LEVEL_MAX: MsaInfoLevel = 1
 
-public val MsaInfoNotExist: MSA_INFO_STATE = 1
+public val MSA_INFO_NOT_EXIST: MsaInfoState = 1
 
-public val MsaInfoNotService: MSA_INFO_STATE = 2
+public val MSA_INFO_NOT_SERVICE: MsaInfoState = 2
 
-public val NCF_DONTEXPOSELOWER: COMPONENT_CHARACTERISTICS = 4096
+public val NCF_DONTEXPOSELOWER: ComponentCharacteristics = 4096
 
-public val NCF_FILTER: COMPONENT_CHARACTERISTICS = 1024
+public val NCF_FILTER: ComponentCharacteristics = 1024
 
-public val NCF_FIXED_BINDING: COMPONENT_CHARACTERISTICS = 131072
+public val NCF_FIXED_BINDING: ComponentCharacteristics = 131072
 
-public val NCF_HAS_UI: COMPONENT_CHARACTERISTICS = 128
+public val NCF_HAS_UI: ComponentCharacteristics = 128
 
-public val NCF_HIDDEN: COMPONENT_CHARACTERISTICS = 8
+public val NCF_HIDDEN: ComponentCharacteristics = 8
 
-public val NCF_HIDE_BINDING: COMPONENT_CHARACTERISTICS = 8192
+public val NCF_HIDE_BINDING: ComponentCharacteristics = 8192
 
-public val NCF_LOWER: SUPPORTS_BINDING_INTERFACE_FLAGS = 1
+public val NCF_LOWER: SupportsBindingInterfaceFlags = 1
 
-public val NCF_LW_FILTER: COMPONENT_CHARACTERISTICS = 262144
+public val NCF_LW_FILTER: ComponentCharacteristics = 262144
 
-public val NCF_MULTIPORT_INSTANCED_ADAPTER: COMPONENT_CHARACTERISTICS = 64
+public val NCF_MULTIPORT_INSTANCED_ADAPTER: ComponentCharacteristics = 64
 
-public val NCF_NDIS_PROTOCOL: COMPONENT_CHARACTERISTICS = 16384
+public val NCF_NDIS_PROTOCOL: ComponentCharacteristics = 16384
 
-public val NCF_NOT_USER_REMOVABLE: COMPONENT_CHARACTERISTICS = 32
+public val NCF_NOT_USER_REMOVABLE: ComponentCharacteristics = 32
 
-public val NCF_NO_SERVICE: COMPONENT_CHARACTERISTICS = 16
+public val NCF_NO_SERVICE: ComponentCharacteristics = 16
 
-public val NCF_PHYSICAL: COMPONENT_CHARACTERISTICS = 4
+public val NCF_PHYSICAL: ComponentCharacteristics = 4
 
-public val NCF_SINGLE_INSTANCE: COMPONENT_CHARACTERISTICS = 256
+public val NCF_SINGLE_INSTANCE: ComponentCharacteristics = 256
 
-public val NCF_SOFTWARE_ENUMERATED: COMPONENT_CHARACTERISTICS = 2
+public val NCF_SOFTWARE_ENUMERATED: ComponentCharacteristics = 2
 
-public val NCF_UPPER: SUPPORTS_BINDING_INTERFACE_FLAGS = 2
+public val NCF_UPPER: SupportsBindingInterfaceFlags = 2
 
-public val NCF_VIRTUAL: COMPONENT_CHARACTERISTICS = 1
+public val NCF_VIRTUAL: ComponentCharacteristics = 1
 
-public val NCN_ADD: BIND_FLAGS1 = 1
+public val NCN_ADD: BindFlags1 = 1
 
-public val NCN_BINDING_PATH: BIND_FLAGS1 = 256
+public val NCN_BINDING_PATH: BindFlags1 = 256
 
-public val NCN_DISABLE: BIND_FLAGS1 = 32
+public val NCN_DISABLE: BindFlags1 = 32
 
-public val NCN_ENABLE: BIND_FLAGS1 = 16
+public val NCN_ENABLE: BindFlags1 = 16
 
-public val NCN_NET: BIND_FLAGS1 = 65536
+public val NCN_NET: BindFlags1 = 65536
 
-public val NCN_NETCLIENT: BIND_FLAGS1 = 262144
+public val NCN_NETCLIENT: BindFlags1 = 262144
 
-public val NCN_NETSERVICE: BIND_FLAGS1 = 524288
+public val NCN_NETSERVICE: BindFlags1 = 524288
 
-public val NCN_NETTRANS: BIND_FLAGS1 = 131072
+public val NCN_NETTRANS: BindFlags1 = 131072
 
-public val NCN_PROPERTYCHANGE: BIND_FLAGS1 = 512
+public val NCN_PROPERTYCHANGE: BindFlags1 = 512
 
-public val NCN_REMOVE: BIND_FLAGS1 = 2
+public val NCN_REMOVE: BindFlags1 = 2
 
-public val NCN_UPDATE: BIND_FLAGS1 = 4
+public val NCN_UPDATE: BindFlags1 = 4
 
-public val NCRL_NDIS: NCPNP_RECONFIG_LAYER = 1
+public val NCRL_NDIS: NcpnpReconfigLayer = 1
 
-public val NCRL_TDI: NCPNP_RECONFIG_LAYER = 2
+public val NCRL_TDI: NcpnpReconfigLayer = 2
 
-public val NCRP_QUERY_PROPERTY_UI: NCRP_FLAGS = 1
+public val NCRP_QUERY_PROPERTY_UI: NcrpFlags = 1
 
-public val NCRP_SHOW_PROPERTY_UI: NCRP_FLAGS = 2
+public val NCRP_SHOW_PROPERTY_UI: NcrpFlags = 2
 
-public val NELOG_AT_Exec_Err: UInt = 3178u
+public val NELOG_AT_EXEC_ERR: UInt = 3178u
 
-public val NELOG_AT_cannot_read: UInt = 3174u
+public val NELOG_AT_CANNOT_READ: UInt = 3174u
 
-public val NELOG_AT_cannot_write: UInt = 3129u
+public val NELOG_AT_CANNOT_WRITE: UInt = 3129u
 
-public val NELOG_AT_sched_err: UInt = 3175u
+public val NELOG_AT_SCHED_ERR: UInt = 3175u
 
-public val NELOG_AT_schedule_file_created: UInt = 3176u
+public val NELOG_AT_SCHEDULE_FILE_CREATED: UInt = 3176u
 
-public val NELOG_Access_File_Bad: UInt = 3122u
+public val NELOG_ACCESS_FILE_BAD: UInt = 3122u
 
-public val NELOG_Build_Name: UInt = 3170u
+public val NELOG_BUILD_NAME: UInt = 3170u
 
-public val NELOG_Cant_Make_Msg_File: UInt = 3130u
+public val NELOG_CANT_MAKE_MSG_FILE: UInt = 3130u
 
-public val NELOG_DiskFT: UInt = 3221u
+public val NELOG_DISK_FT: UInt = 3221u
 
-public val NELOG_DriverNotLoaded: UInt = 5727u
+public val NELOG_DRIVER_NOT_LOADED: UInt = 5727u
 
-public val NELOG_Entries_Lost: UInt = 3114u
+public val NELOG_ENTRIES_LOST: UInt = 3114u
 
-public val NELOG_Error_in_DLL: UInt = 3256u
+public val NELOG_ERROR_IN_DLL: UInt = 3256u
 
-public val NELOG_Exec_Netservr_NoMem: UInt = 3131u
+public val NELOG_EXEC_NETSERVR_NO_MEM: UInt = 3131u
 
-public val NELOG_FT_ErrLog_Too_Large: UInt = 3258u
+public val NELOG_FT_ERR_LOG_TOO_LARGE: UInt = 3258u
 
-public val NELOG_FT_Update_In_Progress: UInt = 3259u
+public val NELOG_FT_UPDATE_IN_PROGRESS: UInt = 3259u
 
-public val NELOG_FailedToGetComputerName: UInt = 5726u
+public val NELOG_FAILED_TO_GET_COMPUTER_NAME: UInt = 5726u
 
-public val NELOG_FailedToRegisterSC: UInt = 5724u
+public val NELOG_FAILED_TO_REGISTER_SC: UInt = 5724u
 
-public val NELOG_FailedToSetServiceStatus: UInt = 5725u
+public val NELOG_FAILED_TO_SET_SERVICE_STATUS: UInt = 5725u
 
-public val NELOG_File_Changed: UInt = 3253u
+public val NELOG_FILE_CHANGED: UInt = 3253u
 
-public val NELOG_Files_Dont_Fit: UInt = 3254u
+public val NELOG_FILES_DONT_FIT: UInt = 3254u
 
-public val NELOG_HardErr_From_Server: UInt = 3182u
+public val NELOG_HARD_ERR_FROM_SERVER: UInt = 3182u
 
-public val NELOG_HotFix: UInt = 3181u
+public val NELOG_HOT_FIX: UInt = 3181u
 
-public val NELOG_Init_Chardev_Err: UInt = 3124u
+public val NELOG_INIT_CHARDEV_ERR: UInt = 3124u
 
-public val NELOG_Init_Exec_Fail: UInt = 3105u
+public val NELOG_INIT_EXEC_FAIL: UInt = 3105u
 
-public val NELOG_Init_OpenCreate_Err: UInt = 3110u
+public val NELOG_INIT_OPEN_CREATE_ERR: UInt = 3110u
 
-public val NELOG_Init_Seg_Overflow: UInt = 3120u
+public val NELOG_INIT_SEG_OVERFLOW: UInt = 3120u
 
-public val NELOG_Internal_Error: UInt = 3100u
+public val NELOG_INTERNAL_ERROR: UInt = 3100u
 
-public val NELOG_Invalid_Config_File: UInt = 3252u
+public val NELOG_INVALID_CONFIG_FILE: UInt = 3252u
 
-public val NELOG_Invalid_Config_Line: UInt = 3251u
+public val NELOG_INVALID_CONFIG_LINE: UInt = 3251u
 
-public val NELOG_Ioctl_Error: UInt = 3108u
+public val NELOG_IOCTL_ERROR: UInt = 3108u
 
-public val NELOG_Joined_Domain: UInt = 3260u
+public val NELOG_JOINED_DOMAIN: UInt = 3260u
 
-public val NELOG_Joined_Workgroup: UInt = 3261u
+public val NELOG_JOINED_WORKGROUP: UInt = 3261u
 
-public val NELOG_Lazy_Write_Err: UInt = 3180u
+public val NELOG_LAZY_WRITE_ERR: UInt = 3180u
 
-public val NELOG_LocalSecFail1: UInt = 3183u
+public val NELOG_LOCAL_SEC_FAIL1: UInt = 3183u
 
-public val NELOG_LocalSecFail2: UInt = 3184u
+public val NELOG_LOCAL_SEC_FAIL2: UInt = 3184u
 
-public val NELOG_LocalSecFail3: UInt = 3185u
+public val NELOG_LOCAL_SEC_FAIL3: UInt = 3185u
 
-public val NELOG_LocalSecGeneralFail: UInt = 3186u
+public val NELOG_LOCAL_SEC_GENERAL_FAIL: UInt = 3186u
 
-public val NELOG_Mail_Slt_Err: UInt = 3173u
+public val NELOG_MAIL_SLT_ERR: UInt = 3173u
 
-public val NELOG_Mailslot_err: UInt = 3127u
+public val NELOG_MAILSLOT_ERR: UInt = 3127u
 
-public val NELOG_Message_Send: UInt = 3172u
+public val NELOG_MESSAGE_SEND: UInt = 3172u
 
-public val NELOG_Missing_Parameter: UInt = 3250u
+public val NELOG_MISSING_PARAMETER: UInt = 3250u
 
-public val NELOG_Msg_Log_Err: UInt = 3150u
+public val NELOG_MSG_LOG_ERR: UInt = 3150u
 
-public val NELOG_Msg_Sem_Shutdown: UInt = 3141u
+public val NELOG_MSG_SEM_SHUTDOWN: UInt = 3141u
 
-public val NELOG_Msg_Shutdown: UInt = 3140u
+public val NELOG_MSG_SHUTDOWN: UInt = 3140u
 
-public val NELOG_Msg_Unexpected_SMB_Type: UInt = 3152u
+public val NELOG_MSG_UNEXPECTED_SMB_TYPE: UInt = 3152u
 
-public val NELOG_Name_Expansion: UInt = 3171u
+public val NELOG_NAME_EXPANSION: UInt = 3171u
 
-public val NELOG_Ncb_Error: UInt = 3106u
+public val NELOG_NCB_ERROR: UInt = 3106u
 
-public val NELOG_Ncb_TooManyErr: UInt = 3126u
+public val NELOG_NCB_TOO_MANY_ERR: UInt = 3126u
 
-public val NELOG_NetBios: UInt = 3111u
+public val NELOG_NET_BIOS: UInt = 3111u
 
-public val NELOG_NetLogonFailedToInitializeAuthzRm: UInt = 5821u
+public val NELOG_NET_LOGON_FAILED_TO_INITIALIZE_AUTHZ_RM: UInt = 5821u
 
-public val NELOG_NetLogonFailedToInitializeRPCSD: UInt = 5822u
+public val NELOG_NET_LOGON_FAILED_TO_INITIALIZE_RPCSD: UInt = 5822u
 
-public val NELOG_NetWkSta_Internal_Error: UInt = 3190u
+public val NELOG_NET_WK_STA_INTERNAL_ERROR: UInt = 3190u
 
-public val NELOG_NetWkSta_NCB_Err: UInt = 3195u
+public val NELOG_NET_WK_STA_NCB_ERR: UInt = 3195u
 
-public val NELOG_NetWkSta_No_Resource: UInt = 3191u
+public val NELOG_NET_WK_STA_NO_RESOURCE: UInt = 3191u
 
-public val NELOG_NetWkSta_Reset_Err: UInt = 3197u
+public val NELOG_NET_WK_STA_RESET_ERR: UInt = 3197u
 
-public val NELOG_NetWkSta_SMB_Err: UInt = 3192u
+public val NELOG_NET_WK_STA_SMB_ERR: UInt = 3192u
 
-public val NELOG_NetWkSta_Stuck_VC_Err: UInt = 3194u
+public val NELOG_NET_WK_STA_STUCK_VC_ERR: UInt = 3194u
 
-public val NELOG_NetWkSta_Too_Many: UInt = 3198u
+public val NELOG_NET_WK_STA_TOO_MANY: UInt = 3198u
 
-public val NELOG_NetWkSta_VC_Err: UInt = 3193u
+public val NELOG_NET_WK_STA_VC_ERR: UInt = 3193u
 
-public val NELOG_NetWkSta_Write_Behind_Err: UInt = 3196u
+public val NELOG_NET_WK_STA_WRITE_BEHIND_ERR: UInt = 3196u
 
-public val NELOG_Net_Not_Started: UInt = 3107u
+public val NELOG_NET_NOT_STARTED: UInt = 3107u
 
-public val NELOG_NetlogonAddNameFailure: UInt = 5741u
+public val NELOG_NETLOGON_ADD_NAME_FAILURE: UInt = 5741u
 
-public val NELOG_NetlogonAuthDCFail: UInt = 3210u
+public val NELOG_NETLOGON_AUTH_DC_FAIL: UInt = 3210u
 
-public val NELOG_NetlogonAuthDomainDowngraded: UInt = 5791u
+public val NELOG_NETLOGON_AUTH_DOMAIN_DOWNGRADED: UInt = 5791u
 
-public val NELOG_NetlogonAuthNoDomainController: UInt = 5719u
+public val NELOG_NETLOGON_AUTH_NO_DOMAIN_CONTROLLER: UInt = 5719u
 
-public val NELOG_NetlogonAuthNoTrustLsaSecret: UInt = 5720u
+public val NELOG_NETLOGON_AUTH_NO_TRUST_LSA_SECRET: UInt = 5720u
 
-public val NELOG_NetlogonAuthNoTrustSamAccount: UInt = 5721u
+public val NELOG_NETLOGON_AUTH_NO_TRUST_SAM_ACCOUNT: UInt = 5721u
 
-public val NELOG_NetlogonAuthNoUplevelDomainController: UInt = 5790u
+public val NELOG_NETLOGON_AUTH_NO_UPLEVEL_DOMAIN_CONTROLLER: UInt = 5790u
 
-public val NELOG_NetlogonBadSiteName: UInt = 5779u
+public val NELOG_NETLOGON_BAD_SITE_NAME: UInt = 5779u
 
-public val NELOG_NetlogonBadSubnetName: UInt = 5780u
+public val NELOG_NETLOGON_BAD_SUBNET_NAME: UInt = 5780u
 
-public val NELOG_NetlogonBrowserDriver: UInt = 5740u
+public val NELOG_NETLOGON_BROWSER_DRIVER: UInt = 5740u
 
-public val NELOG_NetlogonChangeLogCorrupt: UInt = 5705u
+public val NELOG_NETLOGON_CHANGE_LOG_CORRUPT: UInt = 5705u
 
-public val NELOG_NetlogonDcOldSiteCovered: UInt = 5794u
+public val NELOG_NETLOGON_DC_OLD_SITE_COVERED: UInt = 5794u
 
-public val NELOG_NetlogonDcSiteCovered: UInt = 5784u
+public val NELOG_NETLOGON_DC_SITE_COVERED: UInt = 5784u
 
-public val NELOG_NetlogonDcSiteNotCovered: UInt = 5785u
+public val NELOG_NETLOGON_DC_SITE_NOT_COVERED: UInt = 5785u
 
-public val NELOG_NetlogonDcSiteNotCoveredAuto: UInt = 5795u
+public val NELOG_NETLOGON_DC_SITE_NOT_COVERED_AUTO: UInt = 5795u
 
-public val NELOG_NetlogonDnsDeregAborted: UInt = 5808u
+public val NELOG_NETLOGON_DNS_DEREG_ABORTED: UInt = 5808u
 
-public val NELOG_NetlogonDnsHostNameLowerCasingFailed: UInt = 5825u
+public val NELOG_NETLOGON_DNS_HOST_NAME_LOWER_CASING_FAILED: UInt = 5825u
 
-public val NELOG_NetlogonDownLevelLogoffFailed: UInt = 5708u
+public val NELOG_NETLOGON_DOWN_LEVEL_LOGOFF_FAILED: UInt = 5708u
 
-public val NELOG_NetlogonDownLevelLogonFailed: UInt = 5707u
+public val NELOG_NETLOGON_DOWN_LEVEL_LOGON_FAILED: UInt = 5707u
 
-public val NELOG_NetlogonDuplicateMachineAccounts: UInt = 5738u
+public val NELOG_NETLOGON_DUPLICATE_MACHINE_ACCOUNTS: UInt = 5738u
 
-public val NELOG_NetlogonDynamicDnsDeregisterFailure: UInt = 5775u
+public val NELOG_NETLOGON_DYNAMIC_DNS_DEREGISTER_FAILURE: UInt = 5775u
 
-public val NELOG_NetlogonDynamicDnsFailure: UInt = 5782u
+public val NELOG_NETLOGON_DYNAMIC_DNS_FAILURE: UInt = 5782u
 
-public val NELOG_NetlogonDynamicDnsRegisterFailure: UInt = 5774u
+public val NELOG_NETLOGON_DYNAMIC_DNS_REGISTER_FAILURE: UInt = 5774u
 
-public val NELOG_NetlogonDynamicDnsServerFailure: UInt = 5781u
+public val NELOG_NETLOGON_DYNAMIC_DNS_SERVER_FAILURE: UInt = 5781u
 
-public val NELOG_NetlogonFailedAccountDelta: UInt = 5735u
+public val NELOG_NETLOGON_FAILED_ACCOUNT_DELTA: UInt = 5735u
 
-public val NELOG_NetlogonFailedDnsHostNameUpdate: UInt = 5789u
+public val NELOG_NETLOGON_FAILED_DNS_HOST_NAME_UPDATE: UInt = 5789u
 
-public val NELOG_NetlogonFailedDomainDelta: UInt = 5729u
+public val NELOG_NETLOGON_FAILED_DOMAIN_DELTA: UInt = 5729u
 
-public val NELOG_NetlogonFailedFileCreate: UInt = 5776u
+public val NELOG_NETLOGON_FAILED_FILE_CREATE: UInt = 5776u
 
-public val NELOG_NetlogonFailedGlobalGroupDelta: UInt = 5730u
+public val NELOG_NETLOGON_FAILED_GLOBAL_GROUP_DELTA: UInt = 5730u
 
-public val NELOG_NetlogonFailedLocalGroupDelta: UInt = 5731u
+public val NELOG_NETLOGON_FAILED_LOCAL_GROUP_DELTA: UInt = 5731u
 
-public val NELOG_NetlogonFailedPolicyDelta: UInt = 5733u
+public val NELOG_NETLOGON_FAILED_POLICY_DELTA: UInt = 5733u
 
-public val NELOG_NetlogonFailedPrimary: UInt = 3223u
+public val NELOG_NETLOGON_FAILED_PRIMARY: UInt = 3223u
 
-public val NELOG_NetlogonFailedSecretDelta: UInt = 5736u
+public val NELOG_NETLOGON_FAILED_SECRET_DELTA: UInt = 5736u
 
-public val NELOG_NetlogonFailedSpnUpdate: UInt = 5788u
+public val NELOG_NETLOGON_FAILED_SPN_UPDATE: UInt = 5788u
 
-public val NELOG_NetlogonFailedToAddAuthzRpcInterface: UInt = 5820u
+public val NELOG_NETLOGON_FAILED_TO_ADD_AUTHZ_RPC_INTERFACE: UInt = 5820u
 
-public val NELOG_NetlogonFailedToAddRpcInterface: UInt = 5702u
+public val NELOG_NETLOGON_FAILED_TO_ADD_RPC_INTERFACE: UInt = 5702u
 
-public val NELOG_NetlogonFailedToCreateShare: UInt = 5706u
+public val NELOG_NETLOGON_FAILED_TO_CREATE_SHARE: UInt = 5706u
 
-public val NELOG_NetlogonFailedToReadMailslot: UInt = 5703u
+public val NELOG_NETLOGON_FAILED_TO_READ_MAILSLOT: UInt = 5703u
 
-public val NELOG_NetlogonFailedToRegisterSC: UInt = 5704u
+public val NELOG_NETLOGON_FAILED_TO_REGISTER_SC: UInt = 5704u
 
-public val NELOG_NetlogonFailedToUpdateTrustList: UInt = 5701u
+public val NELOG_NETLOGON_FAILED_TO_UPDATE_TRUST_LIST: UInt = 5701u
 
-public val NELOG_NetlogonFailedTrustedDomainDelta: UInt = 5734u
+public val NELOG_NETLOGON_FAILED_TRUSTED_DOMAIN_DELTA: UInt = 5734u
 
-public val NELOG_NetlogonFailedUserDelta: UInt = 5732u
+public val NELOG_NETLOGON_FAILED_USER_DELTA: UInt = 5732u
 
-public val NELOG_NetlogonFullSyncCallFailed: UInt = 5714u
+public val NELOG_NETLOGON_FULL_SYNC_CALL_FAILED: UInt = 5714u
 
-public val NELOG_NetlogonFullSyncCallSuccess: UInt = 5713u
+public val NELOG_NETLOGON_FULL_SYNC_CALL_SUCCESS: UInt = 5713u
 
-public val NELOG_NetlogonFullSyncFailed: UInt = 5718u
+public val NELOG_NETLOGON_FULL_SYNC_FAILED: UInt = 5718u
 
-public val NELOG_NetlogonFullSyncSuccess: UInt = 5717u
+public val NELOG_NETLOGON_FULL_SYNC_SUCCESS: UInt = 5717u
 
-public val NELOG_NetlogonGcOldSiteCovered: UInt = 5796u
+public val NELOG_NETLOGON_GC_OLD_SITE_COVERED: UInt = 5796u
 
-public val NELOG_NetlogonGcSiteCovered: UInt = 5786u
+public val NELOG_NETLOGON_GC_SITE_COVERED: UInt = 5786u
 
-public val NELOG_NetlogonGcSiteNotCovered: UInt = 5787u
+public val NELOG_NETLOGON_GC_SITE_NOT_COVERED: UInt = 5787u
 
-public val NELOG_NetlogonGcSiteNotCoveredAuto: UInt = 5797u
+public val NELOG_NETLOGON_GC_SITE_NOT_COVERED_AUTO: UInt = 5797u
 
-public val NELOG_NetlogonGetSubnetToSite: UInt = 5777u
+public val NELOG_NETLOGON_GET_SUBNET_TO_SITE: UInt = 5777u
 
-public val NELOG_NetlogonInvalidDwordParameterValue: UInt = 5804u
+public val NELOG_NETLOGON_INVALID_DWORD_PARAMETER_VALUE: UInt = 5804u
 
-public val NELOG_NetlogonInvalidGenericParameterValue: UInt = 5803u
+public val NELOG_NETLOGON_INVALID_GENERIC_PARAMETER_VALUE: UInt = 5803u
 
-public val NELOG_NetlogonLanmanBdcsNotAllowed: UInt = 5772u
+public val NELOG_NETLOGON_LANMAN_BDCS_NOT_ALLOWED: UInt = 5772u
 
-public val NELOG_NetlogonMachinePasswdSetSucceeded: UInt = 5823u
+public val NELOG_NETLOGON_MACHINE_PASSWD_SET_SUCCEEDED: UInt = 5823u
 
-public val NELOG_NetlogonMsaPasswdSetSucceeded: UInt = 5824u
+public val NELOG_NETLOGON_MSA_PASSWD_SET_SUCCEEDED: UInt = 5824u
 
-public val NELOG_NetlogonNTLogoffFailed: UInt = 5710u
+public val NELOG_NETLOGON_NT_LOGOFF_FAILED: UInt = 5710u
 
-public val NELOG_NetlogonNTLogonFailed: UInt = 5709u
+public val NELOG_NETLOGON_NT_LOGON_FAILED: UInt = 5709u
 
-public val NELOG_NetlogonNdncOldSiteCovered: UInt = 5798u
+public val NELOG_NETLOGON_NDNC_OLD_SITE_COVERED: UInt = 5798u
 
-public val NELOG_NetlogonNdncSiteCovered: UInt = 5792u
+public val NELOG_NETLOGON_NDNC_SITE_COVERED: UInt = 5792u
 
-public val NELOG_NetlogonNdncSiteNotCovered: UInt = 5793u
+public val NELOG_NETLOGON_NDNC_SITE_NOT_COVERED: UInt = 5793u
 
-public val NELOG_NetlogonNdncSiteNotCoveredAuto: UInt = 5799u
+public val NELOG_NETLOGON_NDNC_SITE_NOT_COVERED_AUTO: UInt = 5799u
 
-public val NELOG_NetlogonNoAddressToSiteMapping: UInt = 5802u
+public val NELOG_NETLOGON_NO_ADDRESS_TO_SITE_MAPPING: UInt = 5802u
 
-public val NELOG_NetlogonNoDynamicDns: UInt = 5773u
+public val NELOG_NETLOGON_NO_DYNAMIC_DNS: UInt = 5773u
 
-public val NELOG_NetlogonNoDynamicDnsManual: UInt = 5806u
+public val NELOG_NETLOGON_NO_DYNAMIC_DNS_MANUAL: UInt = 5806u
 
-public val NELOG_NetlogonNoSiteForClient: UInt = 5778u
+public val NELOG_NETLOGON_NO_SITE_FOR_CLIENT: UInt = 5778u
 
-public val NELOG_NetlogonNoSiteForClients: UInt = 5807u
+public val NELOG_NETLOGON_NO_SITE_FOR_CLIENTS: UInt = 5807u
 
-public val NELOG_NetlogonPartialSiteMappingForClients: UInt = 5810u
+public val NELOG_NETLOGON_PARTIAL_SITE_MAPPING_FOR_CLIENTS: UInt = 5810u
 
-public val NELOG_NetlogonPartialSyncCallFailed: UInt = 5712u
+public val NELOG_NETLOGON_PARTIAL_SYNC_CALL_FAILED: UInt = 5712u
 
-public val NELOG_NetlogonPartialSyncCallSuccess: UInt = 5711u
+public val NELOG_NETLOGON_PARTIAL_SYNC_CALL_SUCCESS: UInt = 5711u
 
-public val NELOG_NetlogonPartialSyncFailed: UInt = 5716u
+public val NELOG_NETLOGON_PARTIAL_SYNC_FAILED: UInt = 5716u
 
-public val NELOG_NetlogonPartialSyncSuccess: UInt = 5715u
+public val NELOG_NETLOGON_PARTIAL_SYNC_SUCCESS: UInt = 5715u
 
-public val NELOG_NetlogonPasswdSetFailed: UInt = 3224u
+public val NELOG_NETLOGON_PASSWD_SET_FAILED: UInt = 3224u
 
-public val NELOG_NetlogonRejectedRemoteDynamicDnsDeregister: UInt = 5814u
+public val NELOG_NETLOGON_REJECTED_REMOTE_DYNAMIC_DNS_DEREGISTER: UInt = 5814u
 
-public val NELOG_NetlogonRejectedRemoteDynamicDnsRegister: UInt = 5813u
+public val NELOG_NETLOGON_REJECTED_REMOTE_DYNAMIC_DNS_REGISTER: UInt = 5813u
 
-public val NELOG_NetlogonRemoteDynamicDnsDeregisterFailure: UInt = 5812u
+public val NELOG_NETLOGON_REMOTE_DYNAMIC_DNS_DEREGISTER_FAILURE: UInt = 5812u
 
-public val NELOG_NetlogonRemoteDynamicDnsRegisterFailure: UInt = 5811u
+public val NELOG_NETLOGON_REMOTE_DYNAMIC_DNS_REGISTER_FAILURE: UInt = 5811u
 
-public val NELOG_NetlogonRemoteDynamicDnsUpdateRequestFailure: UInt = 5815u
+public val NELOG_NETLOGON_REMOTE_DYNAMIC_DNS_UPDATE_REQUEST_FAILURE: UInt = 5815u
 
-public val NELOG_NetlogonRequireSignOrSealError: UInt = 3227u
+public val NELOG_NETLOGON_REQUIRE_SIGN_OR_SEAL_ERROR: UInt = 3227u
 
-public val NELOG_NetlogonRpcCallCancelled: UInt = 5783u
+public val NELOG_NETLOGON_RPC_CALL_CANCELLED: UInt = 5783u
 
-public val NELOG_NetlogonRpcPortRequestFailure: UInt = 5809u
+public val NELOG_NETLOGON_RPC_PORT_REQUEST_FAILURE: UInt = 5809u
 
-public val NELOG_NetlogonSSIInitError: UInt = 5700u
+public val NELOG_NETLOGON_SSI_INIT_ERROR: UInt = 5700u
 
-public val NELOG_NetlogonServerAuthFailed: UInt = 5722u
+public val NELOG_NETLOGON_SERVER_AUTH_FAILED: UInt = 5722u
 
-public val NELOG_NetlogonServerAuthFailedNoAccount: UInt = 5805u
+public val NELOG_NETLOGON_SERVER_AUTH_FAILED_NO_ACCOUNT: UInt = 5805u
 
-public val NELOG_NetlogonServerAuthNoTrustSamAccount: UInt = 5723u
+public val NELOG_NETLOGON_SERVER_AUTH_NO_TRUST_SAM_ACCOUNT: UInt = 5723u
 
-public val NELOG_NetlogonSessionTypeWrong: UInt = 5770u
+public val NELOG_NETLOGON_SESSION_TYPE_WRONG: UInt = 5770u
 
-public val NELOG_NetlogonSpnCrackNamesFailure: UInt = 5801u
+public val NELOG_NETLOGON_SPN_CRACK_NAMES_FAILURE: UInt = 5801u
 
-public val NELOG_NetlogonSpnMultipleSamAccountNames: UInt = 5800u
+public val NELOG_NETLOGON_SPN_MULTIPLE_SAM_ACCOUNT_NAMES: UInt = 5800u
 
-public val NELOG_NetlogonSyncError: UInt = 3226u
+public val NELOG_NETLOGON_SYNC_ERROR: UInt = 3226u
 
-public val NELOG_NetlogonSystemError: UInt = 5737u
+public val NELOG_NETLOGON_SYSTEM_ERROR: UInt = 5737u
 
-public val NELOG_NetlogonTooManyGlobalGroups: UInt = 5739u
+public val NELOG_NETLOGON_TOO_MANY_GLOBAL_GROUPS: UInt = 5739u
 
-public val NELOG_NetlogonTrackingError: UInt = 3225u
+public val NELOG_NETLOGON_TRACKING_ERROR: UInt = 3225u
 
-public val NELOG_NetlogonUserValidationReqInitialTimeOut: UInt = 5816u
+public val NELOG_NETLOGON_USER_VALIDATION_REQ_INITIAL_TIME_OUT: UInt = 5816u
 
-public val NELOG_NetlogonUserValidationReqRecurringTimeOut: UInt = 5817u
+public val NELOG_NETLOGON_USER_VALIDATION_REQ_RECURRING_TIME_OUT: UInt = 5817u
 
-public val NELOG_NetlogonUserValidationReqWaitInitialWarning: UInt = 5818u
+public val NELOG_NETLOGON_USER_VALIDATION_REQ_WAIT_INITIAL_WARNING: UInt = 5818u
 
-public val NELOG_NetlogonUserValidationReqWaitRecurringWarning: UInt = 5819u
+public val NELOG_NETLOGON_USER_VALIDATION_REQ_WAIT_RECURRING_WARNING: UInt = 5819u
 
-public val NELOG_NoTranportLoaded: UInt = 5728u
+public val NELOG_NO_TRANPORT_LOADED: UInt = 5728u
 
-public val NELOG_OEM_Code: UInt = 3299u
+public val NELOG_OEM_CODE: UInt = 3299u
 
-public val NELOG_ReleaseMem_Alert: UInt = 3128u
+public val NELOG_RELEASE_MEM_ALERT: UInt = 3128u
 
-public val NELOG_Remote_API: UInt = 3125u
+public val NELOG_REMOTE_API: UInt = 3125u
 
-public val NELOG_ReplAccessDenied: UInt = 3222u
+public val NELOG_REPL_ACCESS_DENIED: UInt = 3222u
 
-public val NELOG_ReplBadExport: UInt = 3219u
+public val NELOG_REPL_BAD_EXPORT: UInt = 3219u
 
-public val NELOG_ReplBadImport: UInt = 3218u
+public val NELOG_REPL_BAD_IMPORT: UInt = 3218u
 
-public val NELOG_ReplBadMsg: UInt = 3215u
+public val NELOG_REPL_BAD_MSG: UInt = 3215u
 
-public val NELOG_ReplCannotMasterDir: UInt = 3207u
+public val NELOG_REPL_CANNOT_MASTER_DIR: UInt = 3207u
 
-public val NELOG_ReplLogonFailed: UInt = 3211u
+public val NELOG_REPL_LOGON_FAILED: UInt = 3211u
 
-public val NELOG_ReplLostMaster: UInt = 3209u
+public val NELOG_REPL_LOST_MASTER: UInt = 3209u
 
-public val NELOG_ReplMaxFiles: UInt = 3213u
+public val NELOG_REPL_MAX_FILES: UInt = 3213u
 
-public val NELOG_ReplMaxTreeDepth: UInt = 3214u
+public val NELOG_REPL_MAX_TREE_DEPTH: UInt = 3214u
 
-public val NELOG_ReplNetErr: UInt = 3212u
+public val NELOG_REPL_NET_ERR: UInt = 3212u
 
-public val NELOG_ReplSignalFileErr: UInt = 3220u
+public val NELOG_REPL_SIGNAL_FILE_ERR: UInt = 3220u
 
-public val NELOG_ReplSysErr: UInt = 3216u
+public val NELOG_REPL_SYS_ERR: UInt = 3216u
 
-public val NELOG_ReplUpdateError: UInt = 3208u
+public val NELOG_REPL_UPDATE_ERROR: UInt = 3208u
 
-public val NELOG_ReplUserCurDir: UInt = 3206u
+public val NELOG_REPL_USER_CUR_DIR: UInt = 3206u
 
-public val NELOG_ReplUserLoged: UInt = 3217u
+public val NELOG_REPL_USER_LOGED: UInt = 3217u
 
-public val NELOG_Resource_Shortage: UInt = 3101u
+public val NELOG_RESOURCE_SHORTAGE: UInt = 3101u
 
-public val NELOG_RplAdapterResource: UInt = 5756u
+public val NELOG_RPL_ADAPTER_RESOURCE: UInt = 5756u
 
-public val NELOG_RplBackupDatabase: UInt = 5765u
+public val NELOG_RPL_BACKUP_DATABASE: UInt = 5765u
 
-public val NELOG_RplCheckConfigs: UInt = 5760u
+public val NELOG_RPL_CHECK_CONFIGS: UInt = 5760u
 
-public val NELOG_RplCheckSecurity: UInt = 5764u
+public val NELOG_RPL_CHECK_SECURITY: UInt = 5764u
 
-public val NELOG_RplCreateProfiles: UInt = 5761u
+public val NELOG_RPL_CREATE_PROFILES: UInt = 5761u
 
-public val NELOG_RplFileCopy: UInt = 5757u
+public val NELOG_RPL_FILE_COPY: UInt = 5757u
 
-public val NELOG_RplFileDelete: UInt = 5758u
+public val NELOG_RPL_FILE_DELETE: UInt = 5758u
 
-public val NELOG_RplFilePerms: UInt = 5759u
+public val NELOG_RPL_FILE_PERMS: UInt = 5759u
 
-public val NELOG_RplInitDatabase: UInt = 5766u
+public val NELOG_RPL_INIT_DATABASE: UInt = 5766u
 
-public val NELOG_RplInitRestoredDatabase: UInt = 5769u
+public val NELOG_RPL_INIT_RESTORED_DATABASE: UInt = 5769u
 
-public val NELOG_RplMessages: UInt = 5742u
+public val NELOG_RPL_MESSAGES: UInt = 5742u
 
-public val NELOG_RplRegistry: UInt = 5762u
+public val NELOG_RPL_REGISTRY: UInt = 5762u
 
-public val NELOG_RplReplaceRPLDISK: UInt = 5763u
+public val NELOG_RPL_REPLACE_RPLDISK: UInt = 5763u
 
-public val NELOG_RplRestoreDatabaseFailure: UInt = 5767u
+public val NELOG_RPL_RESTORE_DATABASE_FAILURE: UInt = 5767u
 
-public val NELOG_RplRestoreDatabaseSuccess: UInt = 5768u
+public val NELOG_RPL_RESTORE_DATABASE_SUCCESS: UInt = 5768u
 
-public val NELOG_RplSystem: UInt = 5744u
+public val NELOG_RPL_SYSTEM: UInt = 5744u
 
-public val NELOG_RplUpgradeDBTo40: UInt = 5771u
+public val NELOG_RPL_UPGRADE_DB_TO40: UInt = 5771u
 
-public val NELOG_RplWkstaBbcFile: UInt = 5751u
+public val NELOG_RPL_WKSTA_BBC_FILE: UInt = 5751u
 
-public val NELOG_RplWkstaFileChecksum: UInt = 5749u
+public val NELOG_RPL_WKSTA_FILE_CHECKSUM: UInt = 5749u
 
-public val NELOG_RplWkstaFileLineCount: UInt = 5750u
+public val NELOG_RPL_WKSTA_FILE_LINE_COUNT: UInt = 5750u
 
-public val NELOG_RplWkstaFileOpen: UInt = 5746u
+public val NELOG_RPL_WKSTA_FILE_OPEN: UInt = 5746u
 
-public val NELOG_RplWkstaFileRead: UInt = 5747u
+public val NELOG_RPL_WKSTA_FILE_READ: UInt = 5747u
 
-public val NELOG_RplWkstaFileSize: UInt = 5752u
+public val NELOG_RPL_WKSTA_FILE_SIZE: UInt = 5752u
 
-public val NELOG_RplWkstaInternal: UInt = 5753u
+public val NELOG_RPL_WKSTA_INTERNAL: UInt = 5753u
 
-public val NELOG_RplWkstaMemory: UInt = 5748u
+public val NELOG_RPL_WKSTA_MEMORY: UInt = 5748u
 
-public val NELOG_RplWkstaNetwork: UInt = 5755u
+public val NELOG_RPL_WKSTA_NETWORK: UInt = 5755u
 
-public val NELOG_RplWkstaTimeout: UInt = 5745u
+public val NELOG_RPL_WKSTA_TIMEOUT: UInt = 5745u
 
-public val NELOG_RplWkstaWrongVersion: UInt = 5754u
+public val NELOG_RPL_WKSTA_WRONG_VERSION: UInt = 5754u
 
-public val NELOG_RplXnsBoot: UInt = 5743u
+public val NELOG_RPL_XNS_BOOT: UInt = 5743u
 
-public val NELOG_SMB_Illegal: UInt = 3112u
+public val NELOG_SMB_ILLEGAL: UInt = 3112u
 
-public val NELOG_Server_Lock_Failure: UInt = 3132u
+public val NELOG_SERVER_LOCK_FAILURE: UInt = 3132u
 
-public val NELOG_Service_Fail: UInt = 3113u
+public val NELOG_SERVICE_FAIL: UInt = 3113u
 
-public val NELOG_Srv_Close_Failure: UInt = 3205u
+public val NELOG_SRV_CLOSE_FAILURE: UInt = 3205u
 
-public val NELOG_Srv_No_Mem_Grow: UInt = 3121u
+public val NELOG_SRV_NO_MEM_GROW: UInt = 3121u
 
-public val NELOG_Srv_Thread_Failure: UInt = 3204u
+public val NELOG_SRV_THREAD_FAILURE: UInt = 3204u
 
-public val NELOG_Srvnet_NB_Open: UInt = 3177u
+public val NELOG_SRVNET_NB_OPEN: UInt = 3177u
 
-public val NELOG_Srvnet_Not_Started: UInt = 3123u
+public val NELOG_SRVNET_NOT_STARTED: UInt = 3123u
 
-public val NELOG_System_Error: UInt = 3257u
+public val NELOG_SYSTEM_ERROR: UInt = 3257u
 
-public val NELOG_System_Semaphore: UInt = 3109u
+public val NELOG_SYSTEM_SEMAPHORE: UInt = 3109u
 
-public val NELOG_UPS_CannotOpenDriver: UInt = 3233u
+public val NELOG_UPS_CANNOT_OPEN_DRIVER: UInt = 3233u
 
-public val NELOG_UPS_CmdFileConfig: UInt = 3235u
+public val NELOG_UPS_CMD_FILE_CONFIG: UInt = 3235u
 
-public val NELOG_UPS_CmdFileError: UInt = 3232u
+public val NELOG_UPS_CMD_FILE_ERROR: UInt = 3232u
 
-public val NELOG_UPS_CmdFileExec: UInt = 3236u
+public val NELOG_UPS_CMD_FILE_EXEC: UInt = 3236u
 
-public val NELOG_UPS_PowerBack: UInt = 3234u
+public val NELOG_UPS_POWER_BACK: UInt = 3234u
 
-public val NELOG_UPS_PowerOut: UInt = 3230u
+public val NELOG_UPS_POWER_OUT: UInt = 3230u
 
-public val NELOG_UPS_Shutdown: UInt = 3231u
+public val NELOG_UPS_SHUTDOWN: UInt = 3231u
 
-public val NELOG_Unable_To_Lock_Segment: UInt = 3102u
+public val NELOG_UNABLE_TO_LOCK_SEGMENT: UInt = 3102u
 
-public val NELOG_Unable_To_Unlock_Segment: UInt = 3103u
+public val NELOG_UNABLE_TO_UNLOCK_SEGMENT: UInt = 3103u
 
-public val NELOG_Uninstall_Service: UInt = 3104u
+public val NELOG_UNINSTALL_SERVICE: UInt = 3104u
 
 public val NELOG_VIO_POPUP_ERR: UInt = 3151u
 
-public val NELOG_Wksta_Bad_Mailslot_SMB: UInt = 3165u
+public val NELOG_WKSTA_BAD_MAILSLOT_SMB: UInt = 3165u
 
-public val NELOG_Wksta_BiosThreadFailure: UInt = 3162u
+public val NELOG_WKSTA_BIOS_THREAD_FAILURE: UInt = 3162u
 
-public val NELOG_Wksta_Compname: UInt = 3161u
+public val NELOG_WKSTA_COMPNAME: UInt = 3161u
 
-public val NELOG_Wksta_HostTab_Full: UInt = 3164u
+public val NELOG_WKSTA_HOST_TAB_FULL: UInt = 3164u
 
-public val NELOG_Wksta_Infoseg: UInt = 3160u
+public val NELOG_WKSTA_INFOSEG: UInt = 3160u
 
-public val NELOG_Wksta_IniSeg: UInt = 3163u
+public val NELOG_WKSTA_INI_SEG: UInt = 3163u
 
-public val NELOG_Wksta_SSIRelogon: UInt = 3167u
+public val NELOG_WKSTA_SSI_RELOGON: UInt = 3167u
 
-public val NELOG_Wksta_UASInit: UInt = 3166u
+public val NELOG_WKSTA_UAS_INIT: UInt = 3166u
 
-public val NELOG_Wrong_DLL_Version: UInt = 3255u
+public val NELOG_WRONG_DLL_VERSION: UInt = 3255u
 
-public val NERR_ACFFileIOFail: UInt = 2229u
+public val NERR_ACF_FILE_IO_FAIL: UInt = 2229u
 
-public val NERR_ACFNoParent: UInt = 2232u
+public val NERR_ACF_NO_PARENT: UInt = 2232u
 
-public val NERR_ACFNoRoom: UInt = 2228u
+public val NERR_ACF_NO_ROOM: UInt = 2228u
 
-public val NERR_ACFNotFound: UInt = 2219u
+public val NERR_ACF_NOT_FOUND: UInt = 2219u
 
-public val NERR_ACFNotLoaded: UInt = 2227u
+public val NERR_ACF_NOT_LOADED: UInt = 2227u
 
-public val NERR_ACFTooManyLists: UInt = 2230u
+public val NERR_ACF_TOO_MANY_LISTS: UInt = 2230u
 
-public val NERR_AccountExpired: UInt = 2239u
+public val NERR_ACCOUNT_EXPIRED: UInt = 2239u
 
-public val NERR_AccountLockedOut: UInt = 2702u
+public val NERR_ACCOUNT_LOCKED_OUT: UInt = 2702u
 
-public val NERR_AccountReuseBlockedByPolicy: UInt = 2732u
+public val NERR_ACCOUNT_REUSE_BLOCKED_BY_POLICY: UInt = 2732u
 
-public val NERR_AccountUndefined: UInt = 2238u
+public val NERR_ACCOUNT_UNDEFINED: UInt = 2238u
 
-public val NERR_AcctLimitExceeded: UInt = 2434u
+public val NERR_ACCT_LIMIT_EXCEEDED: UInt = 2434u
 
-public val NERR_ActiveConns: UInt = 2402u
+public val NERR_ACTIVE_CONNS: UInt = 2402u
 
-public val NERR_AddForwarded: UInt = 2275u
+public val NERR_ADD_FORWARDED: UInt = 2275u
 
-public val NERR_AlertExists: UInt = 2430u
+public val NERR_ALERT_EXISTS: UInt = 2430u
 
-public val NERR_AlreadyCloudDomainJoined: UInt = 2700u
+public val NERR_ALREADY_CLOUD_DOMAIN_JOINED: UInt = 2700u
 
-public val NERR_AlreadyExists: UInt = 2276u
+public val NERR_ALREADY_EXISTS: UInt = 2276u
 
-public val NERR_AlreadyForwarded: UInt = 2274u
+public val NERR_ALREADY_FORWARDED: UInt = 2274u
 
-public val NERR_AlreadyLoggedOn: UInt = 2200u
+public val NERR_ALREADY_LOGGED_ON: UInt = 2200u
 
 public val NERR_BASE: UInt = 2100u
 
-public val NERR_BadAsgType: UInt = 2251u
+public val NERR_BAD_ASG_TYPE: UInt = 2251u
 
-public val NERR_BadComponent: UInt = 2356u
+public val NERR_BAD_COMPONENT: UInt = 2356u
 
-public val NERR_BadControlRecv: UInt = 2193u
+public val NERR_BAD_CONTROL_RECV: UInt = 2193u
 
-public val NERR_BadDest: UInt = 2382u
+public val NERR_BAD_DEST: UInt = 2382u
 
-public val NERR_BadDev: UInt = 2341u
+public val NERR_BAD_DEV: UInt = 2341u
 
-public val NERR_BadDevString: UInt = 2340u
+public val NERR_BAD_DEV_STRING: UInt = 2340u
 
-public val NERR_BadDomainJoinInfo: UInt = 2712u
+public val NERR_BAD_DOMAIN_JOIN_INFO: UInt = 2712u
 
-public val NERR_BadDosFunction: UInt = 2502u
+public val NERR_BAD_DOS_FUNCTION: UInt = 2502u
 
-public val NERR_BadDosRetCode: UInt = 2500u
+public val NERR_BAD_DOS_RET_CODE: UInt = 2500u
 
-public val NERR_BadEventName: UInt = 2143u
+public val NERR_BAD_EVENT_NAME: UInt = 2143u
 
-public val NERR_BadFileCheckSum: UInt = 2504u
+public val NERR_BAD_FILE_CHECK_SUM: UInt = 2504u
 
-public val NERR_BadOfflineJoinInfo: UInt = 2710u
+public val NERR_BAD_OFFLINE_JOIN_INFO: UInt = 2710u
 
-public val NERR_BadPassword: UInt = 2203u
+public val NERR_BAD_PASSWORD: UInt = 2203u
 
-public val NERR_BadPasswordCore: UInt = 2403u
+public val NERR_BAD_PASSWORD_CORE: UInt = 2403u
 
-public val NERR_BadQueueDevString: UInt = 2334u
+public val NERR_BAD_QUEUE_DEV_STRING: UInt = 2334u
 
-public val NERR_BadQueuePriority: UInt = 2335u
+public val NERR_BAD_QUEUE_PRIORITY: UInt = 2335u
 
-public val NERR_BadReceive: UInt = 2282u
+public val NERR_BAD_RECEIVE: UInt = 2282u
 
-public val NERR_BadRecipient: UInt = 2433u
+public val NERR_BAD_RECIPIENT: UInt = 2433u
 
-public val NERR_BadServiceName: UInt = 2185u
+public val NERR_BAD_SERVICE_NAME: UInt = 2185u
 
-public val NERR_BadServiceProgName: UInt = 2188u
+public val NERR_BAD_SERVICE_PROG_NAME: UInt = 2188u
 
-public val NERR_BadSource: UInt = 2381u
+public val NERR_BAD_SOURCE: UInt = 2381u
 
-public val NERR_BadTransactConfig: UInt = 2141u
+public val NERR_BAD_TRANSACT_CONFIG: UInt = 2141u
 
-public val NERR_BadUasConfig: UInt = 2450u
+public val NERR_BAD_UAS_CONFIG: UInt = 2450u
 
-public val NERR_BadUsername: UInt = 2202u
+public val NERR_BAD_USERNAME: UInt = 2202u
 
-public val NERR_BrowserConfiguredToNotRun: UInt = 2550u
+public val NERR_BROWSER_CONFIGURED_TO_NOT_RUN: UInt = 2550u
 
-public val NERR_BrowserNotStarted: UInt = 2139u
+public val NERR_BROWSER_NOT_STARTED: UInt = 2139u
 
-public val NERR_BrowserTableIncomplete: UInt = 2319u
+public val NERR_BROWSER_TABLE_INCOMPLETE: UInt = 2319u
 
-public val NERR_BufTooSmall: UInt = 2123u
+public val NERR_BUF_TOO_SMALL: UInt = 2123u
 
-public val NERR_CallingRplSrvr: UInt = 2515u
+public val NERR_CALLING_RPL_SRVR: UInt = 2515u
 
-public val NERR_CanNotGrowSegment: UInt = 2233u
+public val NERR_CAN_NOT_GROW_SEGMENT: UInt = 2233u
 
-public val NERR_CanNotGrowUASFile: UInt = 2456u
+public val NERR_CAN_NOT_GROW_UAS_FILE: UInt = 2456u
 
-public val NERR_CannotUnjoinAadDomain: UInt = 2727u
+public val NERR_CANNOT_UNJOIN_AAD_DOMAIN: UInt = 2727u
 
-public val NERR_CannotUpdateAadHostName: UInt = 2728u
+public val NERR_CANNOT_UPDATE_AAD_HOST_NAME: UInt = 2728u
 
-public val NERR_CantConnectRplSrvr: UInt = 2513u
+public val NERR_CANT_CONNECT_RPL_SRVR: UInt = 2513u
 
-public val NERR_CantCreateJoinInfo: UInt = 2711u
+public val NERR_CANT_CREATE_JOIN_INFO: UInt = 2711u
 
-public val NERR_CantLoadOfflineHive: UInt = 2717u
+public val NERR_CANT_LOAD_OFFLINE_HIVE: UInt = 2717u
 
-public val NERR_CantOpenImageFile: UInt = 2514u
+public val NERR_CANT_OPEN_IMAGE_FILE: UInt = 2514u
 
-public val NERR_CantType: UInt = 2357u
+public val NERR_CANT_TYPE: UInt = 2357u
 
-public val NERR_CantVerifyHostname: UInt = 2716u
+public val NERR_CANT_VERIFY_HOSTNAME: UInt = 2716u
 
-public val NERR_CfgCompNotFound: UInt = 2146u
+public val NERR_CFG_COMP_NOT_FOUND: UInt = 2146u
 
-public val NERR_CfgParamNotFound: UInt = 2147u
+public val NERR_CFG_PARAM_NOT_FOUND: UInt = 2147u
 
-public val NERR_ClientNameNotFound: UInt = 2312u
+public val NERR_CLIENT_NAME_NOT_FOUND: UInt = 2312u
 
-public val NERR_CommDevInUse: UInt = 2343u
+public val NERR_COMM_DEV_IN_USE: UInt = 2343u
 
-public val NERR_ComputerAccountNotFound: UInt = 2697u
+public val NERR_COMPUTER_ACCOUNT_NOT_FOUND: UInt = 2697u
 
-public val NERR_ConnectionInsecure: UInt = 2718u
+public val NERR_CONNECTION_INSECURE: UInt = 2718u
 
-public val NERR_DCNotFound: UInt = 2453u
+public val NERR_DC_NOT_FOUND: UInt = 2453u
 
-public val NERR_DS8DCNotFound: UInt = 2722u
+public val NERR_DS8DC_NOT_FOUND: UInt = 2722u
 
-public val NERR_DS8DCRequired: UInt = 2720u
+public val NERR_DS8DC_REQUIRED: UInt = 2720u
 
-public val NERR_DS9DCNotFound: UInt = 2725u
+public val NERR_DS9DC_NOT_FOUND: UInt = 2725u
 
-public val NERR_DataTypeInvalid: UInt = 2167u
+public val NERR_DATA_TYPE_INVALID: UInt = 2167u
 
-public val NERR_DatabaseUpToDate: UInt = 2248u
+public val NERR_DATABASE_UP_TO_DATE: UInt = 2248u
 
-public val NERR_DefaultJoinRequired: UInt = 2694u
+public val NERR_DEFAULT_JOIN_REQUIRED: UInt = 2694u
 
-public val NERR_DelComputerName: UInt = 2278u
+public val NERR_DEL_COMPUTER_NAME: UInt = 2278u
 
-public val NERR_DeleteLater: UInt = 2298u
+public val NERR_DELETE_LATER: UInt = 2298u
 
-public val NERR_DestExists: UInt = 2153u
+public val NERR_DEST_EXISTS: UInt = 2153u
 
-public val NERR_DestIdle: UInt = 2158u
+public val NERR_DEST_IDLE: UInt = 2158u
 
-public val NERR_DestInvalidOp: UInt = 2159u
+public val NERR_DEST_INVALID_OP: UInt = 2159u
 
-public val NERR_DestInvalidState: UInt = 2162u
+public val NERR_DEST_INVALID_STATE: UInt = 2162u
 
-public val NERR_DestNoRoom: UInt = 2157u
+public val NERR_DEST_NO_ROOM: UInt = 2157u
 
-public val NERR_DestNotFound: UInt = 2152u
+public val NERR_DEST_NOT_FOUND: UInt = 2152u
 
-public val NERR_DevInUse: UInt = 2404u
+public val NERR_DEV_IN_USE: UInt = 2404u
 
-public val NERR_DevInvalidOpCode: UInt = 2331u
+public val NERR_DEV_INVALID_OP_CODE: UInt = 2331u
 
-public val NERR_DevNotFound: UInt = 2332u
+public val NERR_DEV_NOT_FOUND: UInt = 2332u
 
-public val NERR_DevNotOpen: UInt = 2333u
+public val NERR_DEV_NOT_OPEN: UInt = 2333u
 
-public val NERR_DevNotRedirected: UInt = 2107u
+public val NERR_DEV_NOT_REDIRECTED: UInt = 2107u
 
-public val NERR_DeviceIsShared: UInt = 2252u
+public val NERR_DEVICE_IS_SHARED: UInt = 2252u
 
-public val NERR_DeviceNotShared: UInt = 2311u
+public val NERR_DEVICE_NOT_SHARED: UInt = 2311u
 
-public val NERR_DeviceShareConflict: UInt = 2318u
+public val NERR_DEVICE_SHARE_CONFLICT: UInt = 2318u
 
-public val NERR_DfsAlreadyShared: UInt = 2664u
+public val NERR_DFS_ALREADY_SHARED: UInt = 2664u
 
-public val NERR_DfsBadRenamePath: UInt = 2671u
+public val NERR_DFS_BAD_RENAME_PATH: UInt = 2671u
 
-public val NERR_DfsCantCreateJunctionPoint: UInt = 2669u
+public val NERR_DFS_CANT_CREATE_JUNCTION_POINT: UInt = 2669u
 
-public val NERR_DfsCantRemoveDfsRoot: UInt = 2682u
+public val NERR_DFS_CANT_REMOVE_DFS_ROOT: UInt = 2682u
 
-public val NERR_DfsCantRemoveLastServerShare: UInt = 2677u
+public val NERR_DFS_CANT_REMOVE_LAST_SERVER_SHARE: UInt = 2677u
 
-public val NERR_DfsChildOrParentInDfs: UInt = 2683u
+public val NERR_DFS_CHILD_OR_PARENT_IN_DFS: UInt = 2683u
 
-public val NERR_DfsCyclicalName: UInt = 2674u
+public val NERR_DFS_CYCLICAL_NAME: UInt = 2674u
 
-public val NERR_DfsDataIsIdentical: UInt = 2681u
+public val NERR_DFS_DATA_IS_IDENTICAL: UInt = 2681u
 
-public val NERR_DfsDuplicateService: UInt = 2676u
+public val NERR_DFS_DUPLICATE_SERVICE: UInt = 2676u
 
-public val NERR_DfsInconsistent: UInt = 2679u
+public val NERR_DFS_INCONSISTENT: UInt = 2679u
 
-public val NERR_DfsInternalCorruption: UInt = 2660u
+public val NERR_DFS_INTERNAL_CORRUPTION: UInt = 2660u
 
-public val NERR_DfsInternalError: UInt = 2690u
+public val NERR_DFS_INTERNAL_ERROR: UInt = 2690u
 
-public val NERR_DfsLeafVolume: UInt = 2667u
+public val NERR_DFS_LEAF_VOLUME: UInt = 2667u
 
-public val NERR_DfsNoSuchServer: UInt = 2673u
+public val NERR_DFS_NO_SUCH_SERVER: UInt = 2673u
 
-public val NERR_DfsNoSuchShare: UInt = 2665u
+public val NERR_DFS_NO_SUCH_SHARE: UInt = 2665u
 
-public val NERR_DfsNoSuchVolume: UInt = 2662u
+public val NERR_DFS_NO_SUCH_VOLUME: UInt = 2662u
 
-public val NERR_DfsNotALeafVolume: UInt = 2666u
+public val NERR_DFS_NOT_A_LEAF_VOLUME: UInt = 2666u
 
-public val NERR_DfsNotSupportedInServerDfs: UInt = 2675u
+public val NERR_DFS_NOT_SUPPORTED_IN_SERVER_DFS: UInt = 2675u
 
-public val NERR_DfsServerNotDfsAware: UInt = 2670u
+public val NERR_DFS_SERVER_NOT_DFS_AWARE: UInt = 2670u
 
-public val NERR_DfsServerUpgraded: UInt = 2680u
+public val NERR_DFS_SERVER_UPGRADED: UInt = 2680u
 
-public val NERR_DfsVolumeAlreadyExists: UInt = 2663u
+public val NERR_DFS_VOLUME_ALREADY_EXISTS: UInt = 2663u
 
-public val NERR_DfsVolumeDataCorrupt: UInt = 2661u
+public val NERR_DFS_VOLUME_DATA_CORRUPT: UInt = 2661u
 
-public val NERR_DfsVolumeHasMultipleServers: UInt = 2668u
+public val NERR_DFS_VOLUME_HAS_MULTIPLE_SERVERS: UInt = 2668u
 
-public val NERR_DfsVolumeIsInterDfs: UInt = 2678u
+public val NERR_DFS_VOLUME_IS_INTER_DFS: UInt = 2678u
 
-public val NERR_DfsVolumeIsOffline: UInt = 2672u
+public val NERR_DFS_VOLUME_IS_OFFLINE: UInt = 2672u
 
-public val NERR_DifferentServers: UInt = 2383u
+public val NERR_DIFFERENT_SERVERS: UInt = 2383u
 
-public val NERR_DriverNotFound: UInt = 2166u
+public val NERR_DRIVER_NOT_FOUND: UInt = 2166u
 
-public val NERR_DupNameReboot: UInt = 2144u
+public val NERR_DUP_NAME_REBOOT: UInt = 2144u
 
-public val NERR_DuplicateHostName: UInt = 2729u
+public val NERR_DUPLICATE_HOST_NAME: UInt = 2729u
 
-public val NERR_DuplicateName: UInt = 2297u
+public val NERR_DUPLICATE_NAME: UInt = 2297u
 
-public val NERR_DuplicateShare: UInt = 2118u
+public val NERR_DUPLICATE_SHARE: UInt = 2118u
 
-public val NERR_ErrCommRunSrv: UInt = 2389u
+public val NERR_ERR_COMM_RUN_SRV: UInt = 2389u
 
-public val NERR_ErrorExecingGhost: UInt = 2391u
+public val NERR_ERROR_EXECING_GHOST: UInt = 2391u
 
-public val NERR_ExecFailure: UInt = 2315u
+public val NERR_EXEC_FAILURE: UInt = 2315u
 
-public val NERR_FileIdNotFound: UInt = 2314u
+public val NERR_FILE_ID_NOT_FOUND: UInt = 2314u
 
-public val NERR_GroupExists: UInt = 2223u
+public val NERR_GROUP_EXISTS: UInt = 2223u
 
-public val NERR_GroupNotFound: UInt = 2220u
+public val NERR_GROUP_NOT_FOUND: UInt = 2220u
 
-public val NERR_GrpMsgProcessor: UInt = 2280u
+public val NERR_GRP_MSG_PROCESSOR: UInt = 2280u
 
-public val NERR_HostNameTooLong: UInt = 2730u
+public val NERR_HOST_NAME_TOO_LONG: UInt = 2730u
 
-public val NERR_ImageParamErr: UInt = 2508u
+public val NERR_IMAGE_PARAM_ERR: UInt = 2508u
 
-public val NERR_InUseBySpooler: UInt = 2342u
+public val NERR_IN_USE_BY_SPOOLER: UInt = 2342u
 
-public val NERR_IncompleteDel: UInt = 2299u
+public val NERR_INCOMPLETE_DEL: UInt = 2299u
 
-public val NERR_InternalError: UInt = 2140u
+public val NERR_INTERNAL_ERROR: UInt = 2140u
 
-public val NERR_InvalidAPI: UInt = 2142u
+public val NERR_INVALID_API: UInt = 2142u
 
-public val NERR_InvalidComputer: UInt = 2351u
+public val NERR_INVALID_COMPUTER: UInt = 2351u
 
-public val NERR_InvalidDatabase: UInt = 2247u
+public val NERR_INVALID_DATABASE: UInt = 2247u
 
-public val NERR_InvalidDevice: UInt = 2294u
+public val NERR_INVALID_DEVICE: UInt = 2294u
 
-public val NERR_InvalidLana: UInt = 2400u
+public val NERR_INVALID_LANA: UInt = 2400u
 
-public val NERR_InvalidLogSeek: UInt = 2440u
+public val NERR_INVALID_LOG_SEEK: UInt = 2440u
 
-public val NERR_InvalidLogonHours: UInt = 2241u
+public val NERR_INVALID_LOGON_HOURS: UInt = 2241u
 
-public val NERR_InvalidMachineNameForJoin: UInt = 2724u
+public val NERR_INVALID_MACHINE_NAME_FOR_JOIN: UInt = 2724u
 
-public val NERR_InvalidMaxUsers: UInt = 2122u
+public val NERR_INVALID_MAX_USERS: UInt = 2122u
 
-public val NERR_InvalidUASOp: UInt = 2451u
+public val NERR_INVALID_UAS_OP: UInt = 2451u
 
-public val NERR_InvalidWorkgroupName: UInt = 2695u
+public val NERR_INVALID_WORKGROUP_NAME: UInt = 2695u
 
-public val NERR_InvalidWorkstation: UInt = 2240u
+public val NERR_INVALID_WORKSTATION: UInt = 2240u
 
-public val NERR_IsDfsShare: UInt = 2321u
+public val NERR_IS_DFS_SHARE: UInt = 2321u
 
-public val NERR_ItemNotFound: UInt = 2115u
+public val NERR_ITEM_NOT_FOUND: UInt = 2115u
 
-public val NERR_JobInvalidState: UInt = 2164u
+public val NERR_JOB_INVALID_STATE: UInt = 2164u
 
-public val NERR_JobNoRoom: UInt = 2156u
+public val NERR_JOB_NO_ROOM: UInt = 2156u
 
-public val NERR_JobNotFound: UInt = 2151u
+public val NERR_JOB_NOT_FOUND: UInt = 2151u
 
-public val NERR_JoinPerformedMustRestart: UInt = 2713u
+public val NERR_JOIN_PERFORMED_MUST_RESTART: UInt = 2713u
 
-public val NERR_LDAPCapableDCRequired: UInt = 2721u
+public val NERR_LDAP_CAPABLE_DC_REQUIRED: UInt = 2721u
 
-public val NERR_LanmanIniError: UInt = 2131u
+public val NERR_LANMAN_INI_ERROR: UInt = 2131u
 
-public val NERR_LastAdmin: UInt = 2452u
+public val NERR_LAST_ADMIN: UInt = 2452u
 
-public val NERR_LineTooLong: UInt = 2149u
+public val NERR_LINE_TOO_LONG: UInt = 2149u
 
-public val NERR_LocalDrive: UInt = 2405u
+public val NERR_LOCAL_DRIVE: UInt = 2405u
 
-public val NERR_LocalForward: UInt = 2279u
+public val NERR_LOCAL_FORWARD: UInt = 2279u
 
-public val NERR_LogFileChanged: UInt = 2378u
+public val NERR_LOG_FILE_CHANGED: UInt = 2378u
 
-public val NERR_LogFileCorrupt: UInt = 2379u
+public val NERR_LOG_FILE_CORRUPT: UInt = 2379u
 
-public val NERR_LogOverflow: UInt = 2377u
+public val NERR_LOG_OVERFLOW: UInt = 2377u
 
-public val NERR_LogonDomainExists: UInt = 2216u
+public val NERR_LOGON_DOMAIN_EXISTS: UInt = 2216u
 
-public val NERR_LogonNoUserPath: UInt = 2211u
+public val NERR_LOGON_NO_USER_PATH: UInt = 2211u
 
-public val NERR_LogonScriptError: UInt = 2212u
+public val NERR_LOGON_SCRIPT_ERROR: UInt = 2212u
 
-public val NERR_LogonServerConflict: UInt = 2210u
+public val NERR_LOGON_SERVER_CONFLICT: UInt = 2210u
 
-public val NERR_LogonServerNotFound: UInt = 2215u
+public val NERR_LOGON_SERVER_NOT_FOUND: UInt = 2215u
 
-public val NERR_LogonTrackingError: UInt = 2454u
+public val NERR_LOGON_TRACKING_ERROR: UInt = 2454u
 
-public val NERR_LogonsPaused: UInt = 2209u
+public val NERR_LOGONS_PAUSED: UInt = 2209u
 
-public val NERR_MaxLenExceeded: UInt = 2354u
+public val NERR_MAX_LEN_EXCEEDED: UInt = 2354u
 
-public val NERR_MsgAlreadyStarted: UInt = 2271u
+public val NERR_MSG_ALREADY_STARTED: UInt = 2271u
 
-public val NERR_MsgInitFailed: UInt = 2272u
+public val NERR_MSG_INIT_FAILED: UInt = 2272u
 
-public val NERR_MsgNotStarted: UInt = 2284u
+public val NERR_MSG_NOT_STARTED: UInt = 2284u
 
-public val NERR_MultipleNets: UInt = 2300u
+public val NERR_MULTIPLE_NETS: UInt = 2300u
 
-public val NERR_NameInUse: UInt = 2283u
+public val NERR_NAME_IN_USE: UInt = 2283u
 
-public val NERR_NameNotForwarded: UInt = 2288u
+public val NERR_NAME_NOT_FORWARDED: UInt = 2288u
 
-public val NERR_NameNotFound: UInt = 2273u
+public val NERR_NAME_NOT_FOUND: UInt = 2273u
 
-public val NERR_NameUsesIncompatibleCodePage: UInt = 2696u
+public val NERR_NAME_USES_INCOMPATIBLE_CODE_PAGE: UInt = 2696u
 
-public val NERR_NetNameNotFound: UInt = 2310u
+public val NERR_NET_NAME_NOT_FOUND: UInt = 2310u
 
-public val NERR_NetNotStarted: UInt = 2102u
+public val NERR_NET_NOT_STARTED: UInt = 2102u
 
-public val NERR_NetlogonNotStarted: UInt = 2455u
+public val NERR_NETLOGON_NOT_STARTED: UInt = 2455u
 
-public val NERR_NetworkError: UInt = 2136u
+public val NERR_NETWORK_ERROR: UInt = 2136u
 
-public val NERR_NoAlternateServers: UInt = 2467u
+public val NERR_NO_ALTERNATE_SERVERS: UInt = 2467u
 
-public val NERR_NoCommDevs: UInt = 2337u
+public val NERR_NO_COMM_DEVS: UInt = 2337u
 
-public val NERR_NoComputerName: UInt = 2270u
+public val NERR_NO_COMPUTER_NAME: UInt = 2270u
 
-public val NERR_NoForwardName: UInt = 2286u
+public val NERR_NO_FORWARD_NAME: UInt = 2286u
 
-public val NERR_NoJoinPending: UInt = 2714u
+public val NERR_NO_JOIN_PENDING: UInt = 2714u
 
-public val NERR_NoNetworkResource: UInt = 2105u
+public val NERR_NO_NETWORK_RESOURCE: UInt = 2105u
 
-public val NERR_NoOfflineJoinInfo: UInt = 2709u
+public val NERR_NO_OFFLINE_JOIN_INFO: UInt = 2709u
 
-public val NERR_NoRoom: UInt = 2119u
+public val NERR_NO_ROOM: UInt = 2119u
 
-public val NERR_NoRplBootSystem: UInt = 2505u
+public val NERR_NO_RPL_BOOT_SYSTEM: UInt = 2505u
 
-public val NERR_NoSuchAlert: UInt = 2432u
+public val NERR_NO_SUCH_ALERT: UInt = 2432u
 
-public val NERR_NoSuchConnection: UInt = 2462u
+public val NERR_NO_SUCH_CONNECTION: UInt = 2462u
 
-public val NERR_NoSuchServer: UInt = 2460u
+public val NERR_NO_SUCH_SERVER: UInt = 2460u
 
-public val NERR_NoSuchSession: UInt = 2461u
+public val NERR_NO_SUCH_SESSION: UInt = 2461u
 
-public val NERR_NonDosFloppyUsed: UInt = 2510u
+public val NERR_NON_DOS_FLOPPY_USED: UInt = 2510u
 
-public val NERR_NonValidatedLogon: UInt = 2217u
+public val NERR_NON_VALIDATED_LOGON: UInt = 2217u
 
-public val NERR_NotInCache: UInt = 2235u
+public val NERR_NOT_IN_CACHE: UInt = 2235u
 
-public val NERR_NotInDispatchTbl: UInt = 2192u
+public val NERR_NOT_IN_DISPATCH_TBL: UInt = 2192u
 
-public val NERR_NotLocalDomain: UInt = 2320u
+public val NERR_NOT_LOCAL_DOMAIN: UInt = 2320u
 
-public val NERR_NotLocalName: UInt = 2285u
+public val NERR_NOT_LOCAL_NAME: UInt = 2285u
 
-public val NERR_NotLoggedOn: UInt = 2201u
+public val NERR_NOT_LOGGED_ON: UInt = 2201u
 
-public val NERR_NotPrimary: UInt = 2226u
+public val NERR_NOT_PRIMARY: UInt = 2226u
 
-public val NERR_OpenFiles: UInt = 2401u
+public val NERR_OPEN_FILES: UInt = 2401u
 
-public val NERR_PasswordCantChange: UInt = 2243u
+public val NERR_PASSWORD_CANT_CHANGE: UInt = 2243u
 
-public val NERR_PasswordExpired: UInt = 2242u
+public val NERR_PASSWORD_EXPIRED: UInt = 2242u
 
-public val NERR_PasswordFilterError: UInt = 2705u
+public val NERR_PASSWORD_FILTER_ERROR: UInt = 2705u
 
-public val NERR_PasswordHistConflict: UInt = 2244u
+public val NERR_PASSWORD_HIST_CONFLICT: UInt = 2244u
 
-public val NERR_PasswordMismatch: UInt = 2458u
+public val NERR_PASSWORD_MISMATCH: UInt = 2458u
 
-public val NERR_PasswordMustChange: UInt = 2701u
+public val NERR_PASSWORD_MUST_CHANGE: UInt = 2701u
 
-public val NERR_PasswordNotComplexEnough: UInt = 2704u
+public val NERR_PASSWORD_NOT_COMPLEX_ENOUGH: UInt = 2704u
 
-public val NERR_PasswordTooLong: UInt = 2703u
+public val NERR_PASSWORD_TOO_LONG: UInt = 2703u
 
-public val NERR_PasswordTooRecent: UInt = 2246u
+public val NERR_PASSWORD_TOO_RECENT: UInt = 2246u
 
-public val NERR_PasswordTooShort: UInt = 2245u
+public val NERR_PASSWORD_TOO_SHORT: UInt = 2245u
 
-public val NERR_PausedRemote: UInt = 2281u
+public val NERR_PAUSED_REMOTE: UInt = 2281u
 
-public val NERR_PersonalSku: UInt = 2698u
+public val NERR_PERSONAL_SKU: UInt = 2698u
 
-public val NERR_PlainTextSecretsRequired: UInt = 2726u
+public val NERR_PLAIN_TEXT_SECRETS_REQUIRED: UInt = 2726u
 
-public val NERR_ProcNoRespond: UInt = 2160u
+public val NERR_PROC_NO_RESPOND: UInt = 2160u
 
-public val NERR_ProcNotFound: UInt = 2168u
+public val NERR_PROC_NOT_FOUND: UInt = 2168u
 
-public val NERR_ProfileCleanup: UInt = 2372u
+public val NERR_PROFILE_CLEANUP: UInt = 2372u
 
-public val NERR_ProfileFileTooBig: UInt = 2370u
+public val NERR_PROFILE_FILE_TOO_BIG: UInt = 2370u
 
-public val NERR_ProfileLoadErr: UInt = 2374u
+public val NERR_PROFILE_LOAD_ERR: UInt = 2374u
 
-public val NERR_ProfileOffset: UInt = 2371u
+public val NERR_PROFILE_OFFSET: UInt = 2371u
 
-public val NERR_ProfileSaveErr: UInt = 2375u
+public val NERR_PROFILE_SAVE_ERR: UInt = 2375u
 
-public val NERR_ProfileUnknownCmd: UInt = 2373u
+public val NERR_PROFILE_UNKNOWN_CMD: UInt = 2373u
 
-public val NERR_ProgNeedsExtraMem: UInt = 2501u
+public val NERR_PROG_NEEDS_EXTRA_MEM: UInt = 2501u
 
-public val NERR_ProvisioningBlobUnsupported: UInt = 2719u
+public val NERR_PROVISIONING_BLOB_UNSUPPORTED: UInt = 2719u
 
-public val NERR_QExists: UInt = 2154u
+public val NERR_Q_EXISTS: UInt = 2154u
 
-public val NERR_QInvalidState: UInt = 2163u
+public val NERR_Q_INVALID_STATE: UInt = 2163u
 
-public val NERR_QNoRoom: UInt = 2155u
+public val NERR_Q_NO_ROOM: UInt = 2155u
 
-public val NERR_QNotFound: UInt = 2150u
+public val NERR_Q_NOT_FOUND: UInt = 2150u
 
-public val NERR_QueueNotFound: UInt = 2338u
+public val NERR_QUEUE_NOT_FOUND: UInt = 2338u
 
 public val NERR_RPL_CONNECTED: UInt = 2519u
 
-public val NERR_RedirectedPath: UInt = 2117u
+public val NERR_REDIRECTED_PATH: UInt = 2117u
 
-public val NERR_RemoteBootFailed: UInt = 2503u
+public val NERR_REMOTE_BOOT_FAILED: UInt = 2503u
 
-public val NERR_RemoteErr: UInt = 2127u
+public val NERR_REMOTE_ERR: UInt = 2127u
 
-public val NERR_RemoteFull: UInt = 2287u
+public val NERR_REMOTE_FULL: UInt = 2287u
 
-public val NERR_RemoteOnly: UInt = 2106u
+public val NERR_REMOTE_ONLY: UInt = 2106u
 
-public val NERR_ResourceExists: UInt = 2225u
+public val NERR_RESOURCE_EXISTS: UInt = 2225u
 
-public val NERR_ResourceNotFound: UInt = 2222u
+public val NERR_RESOURCE_NOT_FOUND: UInt = 2222u
 
-public val NERR_RplAdapterInfoCorrupted: UInt = 2625u
+public val NERR_RPL_ADAPTER_INFO_CORRUPTED: UInt = 2625u
 
-public val NERR_RplAdapterNameUnavailable: UInt = 2633u
+public val NERR_RPL_ADAPTER_NAME_UNAVAILABLE: UInt = 2633u
 
-public val NERR_RplAdapterNotFound: UInt = 2637u
+public val NERR_RPL_ADAPTER_NOT_FOUND: UInt = 2637u
 
-public val NERR_RplBackupDatabase: UInt = 2636u
+public val NERR_RPL_BACKUP_DATABASE: UInt = 2636u
 
-public val NERR_RplBadDatabase: UInt = 2612u
+public val NERR_RPL_BAD_DATABASE: UInt = 2612u
 
-public val NERR_RplBadRegistry: UInt = 2611u
+public val NERR_RPL_BAD_REGISTRY: UInt = 2611u
 
-public val NERR_RplBootInUse: UInt = 2635u
+public val NERR_RPL_BOOT_IN_USE: UInt = 2635u
 
-public val NERR_RplBootInfoCorrupted: UInt = 2628u
+public val NERR_RPL_BOOT_INFO_CORRUPTED: UInt = 2628u
 
-public val NERR_RplBootNameUnavailable: UInt = 2640u
+public val NERR_RPL_BOOT_NAME_UNAVAILABLE: UInt = 2640u
 
-public val NERR_RplBootNotFound: UInt = 2631u
+public val NERR_RPL_BOOT_NOT_FOUND: UInt = 2631u
 
-public val NERR_RplBootRestart: UInt = 2511u
+public val NERR_RPL_BOOT_RESTART: UInt = 2511u
 
-public val NERR_RplBootServiceTerm: UInt = 2517u
+public val NERR_RPL_BOOT_SERVICE_TERM: UInt = 2517u
 
-public val NERR_RplBootStartFailed: UInt = 2518u
+public val NERR_RPL_BOOT_START_FAILED: UInt = 2518u
 
-public val NERR_RplCannotEnum: UInt = 2615u
+public val NERR_RPL_CANNOT_ENUM: UInt = 2615u
 
-public val NERR_RplConfigInfoCorrupted: UInt = 2623u
+public val NERR_RPL_CONFIG_INFO_CORRUPTED: UInt = 2623u
 
-public val NERR_RplConfigNameUnavailable: UInt = 2641u
+public val NERR_RPL_CONFIG_NAME_UNAVAILABLE: UInt = 2641u
 
-public val NERR_RplConfigNotEmpty: UInt = 2634u
+public val NERR_RPL_CONFIG_NOT_EMPTY: UInt = 2634u
 
-public val NERR_RplConfigNotFound: UInt = 2624u
+public val NERR_RPL_CONFIG_NOT_FOUND: UInt = 2624u
 
-public val NERR_RplIncompatibleProfile: UInt = 2632u
+public val NERR_RPL_INCOMPATIBLE_PROFILE: UInt = 2632u
 
-public val NERR_RplInternal: UInt = 2626u
+public val NERR_RPL_INTERNAL: UInt = 2626u
 
-public val NERR_RplLoadrDiskErr: UInt = 2507u
+public val NERR_RPL_LOADR_DISK_ERR: UInt = 2507u
 
-public val NERR_RplLoadrNetBiosErr: UInt = 2506u
+public val NERR_RPL_LOADR_NET_BIOS_ERR: UInt = 2506u
 
-public val NERR_RplNeedsRPLUSERAcct: UInt = 2630u
+public val NERR_RPL_NEEDS_RPLUSER_ACCT: UInt = 2630u
 
-public val NERR_RplNoAdaptersStarted: UInt = 2610u
+public val NERR_RPL_NO_ADAPTERS_STARTED: UInt = 2610u
 
-public val NERR_RplNotRplServer: UInt = 2614u
+public val NERR_RPL_NOT_RPL_SERVER: UInt = 2614u
 
-public val NERR_RplProfileInfoCorrupted: UInt = 2619u
+public val NERR_RPL_PROFILE_INFO_CORRUPTED: UInt = 2619u
 
-public val NERR_RplProfileNameUnavailable: UInt = 2621u
+public val NERR_RPL_PROFILE_NAME_UNAVAILABLE: UInt = 2621u
 
-public val NERR_RplProfileNotEmpty: UInt = 2622u
+public val NERR_RPL_PROFILE_NOT_EMPTY: UInt = 2622u
 
-public val NERR_RplProfileNotFound: UInt = 2620u
+public val NERR_RPL_PROFILE_NOT_FOUND: UInt = 2620u
 
-public val NERR_RplRplfilesShare: UInt = 2613u
+public val NERR_RPL_RPLFILES_SHARE: UInt = 2613u
 
-public val NERR_RplSrvrCallFailed: UInt = 2512u
+public val NERR_RPL_SRVR_CALL_FAILED: UInt = 2512u
 
-public val NERR_RplVendorInfoCorrupted: UInt = 2627u
+public val NERR_RPL_VENDOR_INFO_CORRUPTED: UInt = 2627u
 
-public val NERR_RplVendorNameUnavailable: UInt = 2639u
+public val NERR_RPL_VENDOR_NAME_UNAVAILABLE: UInt = 2639u
 
-public val NERR_RplVendorNotFound: UInt = 2638u
+public val NERR_RPL_VENDOR_NOT_FOUND: UInt = 2638u
 
-public val NERR_RplWkstaInfoCorrupted: UInt = 2616u
+public val NERR_RPL_WKSTA_INFO_CORRUPTED: UInt = 2616u
 
-public val NERR_RplWkstaNameUnavailable: UInt = 2618u
+public val NERR_RPL_WKSTA_NAME_UNAVAILABLE: UInt = 2618u
 
-public val NERR_RplWkstaNeedsUserAcct: UInt = 2629u
+public val NERR_RPL_WKSTA_NEEDS_USER_ACCT: UInt = 2629u
 
-public val NERR_RplWkstaNotFound: UInt = 2617u
+public val NERR_RPL_WKSTA_NOT_FOUND: UInt = 2617u
 
-public val NERR_RunSrvPaused: UInt = 2385u
+public val NERR_RUN_SRV_PAUSED: UInt = 2385u
 
-public val NERR_SameAsComputerName: UInt = 2253u
+public val NERR_SAME_AS_COMPUTER_NAME: UInt = 2253u
 
-public val NERR_ServerNotStarted: UInt = 2114u
+public val NERR_SERVER_NOT_STARTED: UInt = 2114u
 
-public val NERR_ServiceCtlBusy: UInt = 2187u
+public val NERR_SERVICE_CTL_BUSY: UInt = 2187u
 
-public val NERR_ServiceCtlNotValid: UInt = 2191u
+public val NERR_SERVICE_CTL_NOT_VALID: UInt = 2191u
 
-public val NERR_ServiceCtlTimeout: UInt = 2186u
+public val NERR_SERVICE_CTL_TIMEOUT: UInt = 2186u
 
-public val NERR_ServiceEntryLocked: UInt = 2183u
+public val NERR_SERVICE_ENTRY_LOCKED: UInt = 2183u
 
-public val NERR_ServiceInstalled: UInt = 2182u
+public val NERR_SERVICE_INSTALLED: UInt = 2182u
 
-public val NERR_ServiceKillProc: UInt = 2190u
+public val NERR_SERVICE_KILL_PROC: UInt = 2190u
 
-public val NERR_ServiceNotCtrl: UInt = 2189u
+public val NERR_SERVICE_NOT_CTRL: UInt = 2189u
 
-public val NERR_ServiceNotInstalled: UInt = 2184u
+public val NERR_SERVICE_NOT_INSTALLED: UInt = 2184u
 
-public val NERR_ServiceNotStarting: UInt = 2194u
+public val NERR_SERVICE_NOT_STARTING: UInt = 2194u
 
-public val NERR_ServiceTableFull: UInt = 2181u
+public val NERR_SERVICE_TABLE_FULL: UInt = 2181u
 
-public val NERR_ServiceTableLocked: UInt = 2180u
+public val NERR_SERVICE_TABLE_LOCKED: UInt = 2180u
 
-public val NERR_SetupAlreadyJoined: UInt = 2691u
+public val NERR_SETUP_ALREADY_JOINED: UInt = 2691u
 
-public val NERR_SetupCheckDNSConfig: UInt = 2699u
+public val NERR_SETUP_CHECK_DNS_CONFIG: UInt = 2699u
 
-public val NERR_SetupDomainController: UInt = 2693u
+public val NERR_SETUP_DOMAIN_CONTROLLER: UInt = 2693u
 
-public val NERR_SetupNotJoined: UInt = 2692u
+public val NERR_SETUP_NOT_JOINED: UInt = 2692u
 
-public val NERR_ShareMem: UInt = 2104u
+public val NERR_SHARE_MEM: UInt = 2104u
 
-public val NERR_ShareNotFound: UInt = 2392u
+public val NERR_SHARE_NOT_FOUND: UInt = 2392u
 
-public val NERR_SourceIsDir: UInt = 2380u
+public val NERR_SOURCE_IS_DIR: UInt = 2380u
 
-public val NERR_SpeGroupOp: UInt = 2234u
+public val NERR_SPE_GROUP_OP: UInt = 2234u
 
-public val NERR_SpoolNoMemory: UInt = 2165u
+public val NERR_SPOOL_NO_MEMORY: UInt = 2165u
 
-public val NERR_SpoolerNotLoaded: UInt = 2161u
+public val NERR_SPOOLER_NOT_LOADED: UInt = 2161u
 
-public val NERR_StandaloneLogon: UInt = 2214u
+public val NERR_STANDALONE_LOGON: UInt = 2214u
 
-public val NERR_StartingRplBoot: UInt = 2516u
+public val NERR_STARTING_RPL_BOOT: UInt = 2516u
 
-public val NERR_Success: UInt = 0u
+public val NERR_SUCCESS: UInt = 0u
 
-public val NERR_SyncRequired: UInt = 2249u
+public val NERR_SYNC_REQUIRED: UInt = 2249u
 
-public val NERR_TargetVersionUnsupported: UInt = 2723u
+public val NERR_TARGET_VERSION_UNSUPPORTED: UInt = 2723u
 
-public val NERR_TimeDiffAtDC: UInt = 2457u
+public val NERR_TIME_DIFF_AT_DC: UInt = 2457u
 
-public val NERR_TmpFile: UInt = 2316u
+public val NERR_TMP_FILE: UInt = 2316u
 
-public val NERR_TooManyAlerts: UInt = 2431u
+public val NERR_TOO_MANY_ALERTS: UInt = 2431u
 
-public val NERR_TooManyConnections: UInt = 2465u
+public val NERR_TOO_MANY_CONNECTIONS: UInt = 2465u
 
-public val NERR_TooManyEntries: UInt = 2362u
+public val NERR_TOO_MANY_ENTRIES: UInt = 2362u
 
-public val NERR_TooManyFiles: UInt = 2466u
+public val NERR_TOO_MANY_FILES: UInt = 2466u
 
-public val NERR_TooManyHostNames: UInt = 2731u
+public val NERR_TOO_MANY_HOST_NAMES: UInt = 2731u
 
-public val NERR_TooManyImageParams: UInt = 2509u
+public val NERR_TOO_MANY_IMAGE_PARAMS: UInt = 2509u
 
-public val NERR_TooManyItems: UInt = 2121u
+public val NERR_TOO_MANY_ITEMS: UInt = 2121u
 
-public val NERR_TooManyNames: UInt = 2277u
+public val NERR_TOO_MANY_NAMES: UInt = 2277u
 
-public val NERR_TooManyServers: UInt = 2463u
+public val NERR_TOO_MANY_SERVERS: UInt = 2463u
 
-public val NERR_TooManySessions: UInt = 2464u
+public val NERR_TOO_MANY_SESSIONS: UInt = 2464u
 
-public val NERR_TooMuchData: UInt = 2317u
+public val NERR_TOO_MUCH_DATA: UInt = 2317u
 
-public val NERR_TruncatedBroadcast: UInt = 2289u
+public val NERR_TRUNCATED_BROADCAST: UInt = 2289u
 
-public val NERR_TryDownLevel: UInt = 2470u
+public val NERR_TRY_DOWN_LEVEL: UInt = 2470u
 
-public val NERR_UPSDriverNotStarted: UInt = 2480u
+public val NERR_UPS_DRIVER_NOT_STARTED: UInt = 2480u
 
-public val NERR_UPSInvalidCommPort: UInt = 2482u
+public val NERR_UPS_INVALID_COMM_PORT: UInt = 2482u
 
-public val NERR_UPSInvalidConfig: UInt = 2481u
+public val NERR_UPS_INVALID_CONFIG: UInt = 2481u
 
-public val NERR_UPSShutdownFailed: UInt = 2484u
+public val NERR_UPS_SHUTDOWN_FAILED: UInt = 2484u
 
-public val NERR_UPSSignalAsserted: UInt = 2483u
+public val NERR_UPS_SIGNAL_ASSERTED: UInt = 2483u
 
-public val NERR_UnableToAddName_F: UInt = 2205u
+public val NERR_UNABLE_TO_ADD_NAME_F: UInt = 2205u
 
-public val NERR_UnableToAddName_W: UInt = 2204u
+public val NERR_UNABLE_TO_ADD_NAME_W: UInt = 2204u
 
-public val NERR_UnableToDelName_F: UInt = 2207u
+public val NERR_UNABLE_TO_DEL_NAME_F: UInt = 2207u
 
-public val NERR_UnableToDelName_W: UInt = 2206u
+public val NERR_UNABLE_TO_DEL_NAME_W: UInt = 2206u
 
-public val NERR_UnknownDevDir: UInt = 2116u
+public val NERR_UNKNOWN_DEV_DIR: UInt = 2116u
 
-public val NERR_UnknownServer: UInt = 2103u
+public val NERR_UNKNOWN_SERVER: UInt = 2103u
 
-public val NERR_UseNotFound: UInt = 2250u
+public val NERR_USE_NOT_FOUND: UInt = 2250u
 
-public val NERR_UserExists: UInt = 2224u
+public val NERR_USER_EXISTS: UInt = 2224u
 
-public val NERR_UserInGroup: UInt = 2236u
+public val NERR_USER_IN_GROUP: UInt = 2236u
 
-public val NERR_UserLogon: UInt = 2231u
+public val NERR_USER_LOGON: UInt = 2231u
 
-public val NERR_UserNotFound: UInt = 2221u
+public val NERR_USER_NOT_FOUND: UInt = 2221u
 
-public val NERR_UserNotInGroup: UInt = 2237u
+public val NERR_USER_NOT_IN_GROUP: UInt = 2237u
 
-public val NERR_ValuesNotSet: UInt = 2715u
+public val NERR_VALUES_NOT_SET: UInt = 2715u
 
-public val NERR_WkstaInconsistentState: UInt = 2137u
+public val NERR_WKSTA_INCONSISTENT_STATE: UInt = 2137u
 
-public val NERR_WkstaNotStarted: UInt = 2138u
+public val NERR_WKSTA_NOT_STARTED: UInt = 2138u
 
-public val NERR_WriteFault: UInt = 2295u
+public val NERR_WRITE_FAULT: UInt = 2295u
 
 public val NETBIOS_NAME_LEN: UInt = 16u
 
-public val NETCFG_CLIENT_CID_MS_MSClient: PCWSTR = w("ms_msclient")
+public val NETCFG_CLIENT_CID_MS_MS_CLIENT: Pcwstr = w("ms_msclient")
 
-public val NETCFG_E_ACTIVE_RAS_CONNECTIONS: HRESULT = 0x8004A026u.toInt()
+public val NETCFG_E_ACTIVE_RAS_CONNECTIONS: Hresult = 0x8004A026u.toInt()
 
-public val NETCFG_E_ADAPTER_NOT_FOUND: HRESULT = 0x8004A027u.toInt()
+public val NETCFG_E_ADAPTER_NOT_FOUND: Hresult = 0x8004A027u.toInt()
 
-public val NETCFG_E_ALREADY_INITIALIZED: HRESULT = 0x8004A020u.toInt()
+public val NETCFG_E_ALREADY_INITIALIZED: Hresult = 0x8004A020u.toInt()
 
-public val NETCFG_E_COMPONENT_REMOVED_PENDING_REBOOT: HRESULT = 0x8004A028u.toInt()
+public val NETCFG_E_COMPONENT_REMOVED_PENDING_REBOOT: Hresult = 0x8004A028u.toInt()
 
-public val NETCFG_E_DUPLICATE_INSTANCEID: HRESULT = 0x8004A02Bu.toInt()
+public val NETCFG_E_DUPLICATE_INSTANCEID: Hresult = 0x8004A02Bu.toInt()
 
-public val NETCFG_E_IN_USE: HRESULT = 0x8004A022u.toInt()
+public val NETCFG_E_IN_USE: Hresult = 0x8004A022u.toInt()
 
-public val NETCFG_E_MAX_FILTER_LIMIT: HRESULT = 0x8004A029u.toInt()
+public val NETCFG_E_MAX_FILTER_LIMIT: Hresult = 0x8004A029u.toInt()
 
-public val NETCFG_E_NEED_REBOOT: HRESULT = 0x8004A025u.toInt()
+public val NETCFG_E_NEED_REBOOT: Hresult = 0x8004A025u.toInt()
 
-public val NETCFG_E_NOT_INITIALIZED: HRESULT = 0x8004A021u.toInt()
+public val NETCFG_E_NOT_INITIALIZED: Hresult = 0x8004A021u.toInt()
 
-public val NETCFG_E_NO_WRITE_LOCK: HRESULT = 0x8004A024u.toInt()
+public val NETCFG_E_NO_WRITE_LOCK: Hresult = 0x8004A024u.toInt()
 
-public val NETCFG_E_VMSWITCH_ACTIVE_OVER_ADAPTER: HRESULT = 0x8004A02Au.toInt()
+public val NETCFG_E_VMSWITCH_ACTIVE_OVER_ADAPTER: Hresult = 0x8004A02Au.toInt()
 
-public val NETCFG_SERVICE_CID_MS_NETBIOS: PCWSTR = w("ms_netbios")
+public val NETCFG_SERVICE_CID_MS_NETBIOS: Pcwstr = w("ms_netbios")
 
-public val NETCFG_SERVICE_CID_MS_PSCHED: PCWSTR = w("ms_pschedpc")
+public val NETCFG_SERVICE_CID_MS_PSCHED: Pcwstr = w("ms_pschedpc")
 
-public val NETCFG_SERVICE_CID_MS_SERVER: PCWSTR = w("ms_server")
+public val NETCFG_SERVICE_CID_MS_SERVER: Pcwstr = w("ms_server")
 
-public val NETCFG_SERVICE_CID_MS_WLBS: PCWSTR = w("ms_wlbs")
+public val NETCFG_SERVICE_CID_MS_WLBS: Pcwstr = w("ms_wlbs")
 
-public val NETCFG_S_CAUSED_SETUP_CHANGE: HRESULT = 0x4A024u.toInt()
+public val NETCFG_S_CAUSED_SETUP_CHANGE: Hresult = 0x4A024u.toInt()
 
-public val NETCFG_S_COMMIT_NOW: HRESULT = 0x4A025u.toInt()
+public val NETCFG_S_COMMIT_NOW: Hresult = 0x4A025u.toInt()
 
-public val NETCFG_S_DISABLE_QUERY: HRESULT = 0x4A022u.toInt()
+public val NETCFG_S_DISABLE_QUERY: Hresult = 0x4A022u.toInt()
 
-public val NETCFG_S_REBOOT: HRESULT = 0x4A020u.toInt()
+public val NETCFG_S_REBOOT: Hresult = 0x4A020u.toInt()
 
-public val NETCFG_S_STILL_REFERENCED: HRESULT = 0x4A023u.toInt()
+public val NETCFG_S_STILL_REFERENCED: Hresult = 0x4A023u.toInt()
 
-public val NETCFG_TRANS_CID_MS_APPLETALK: PCWSTR = w("ms_appletalk")
+public val NETCFG_TRANS_CID_MS_APPLETALK: Pcwstr = w("ms_appletalk")
 
-public val NETCFG_TRANS_CID_MS_NETBEUI: PCWSTR = w("ms_netbeui")
+public val NETCFG_TRANS_CID_MS_NETBEUI: Pcwstr = w("ms_netbeui")
 
-public val NETCFG_TRANS_CID_MS_NETMON: PCWSTR = w("ms_netmon")
+public val NETCFG_TRANS_CID_MS_NETMON: Pcwstr = w("ms_netmon")
 
-public val NETCFG_TRANS_CID_MS_NWIPX: PCWSTR = w("ms_nwipx")
+public val NETCFG_TRANS_CID_MS_NWIPX: Pcwstr = w("ms_nwipx")
 
-public val NETCFG_TRANS_CID_MS_NWSPX: PCWSTR = w("ms_nwspx")
+public val NETCFG_TRANS_CID_MS_NWSPX: Pcwstr = w("ms_nwspx")
 
-public val NETCFG_TRANS_CID_MS_TCPIP: PCWSTR = w("ms_tcpip")
+public val NETCFG_TRANS_CID_MS_TCPIP: Pcwstr = w("ms_tcpip")
 
 public val NETLOGON_CONTROL_BACKUP_CHANGE_LOG: UInt = 65532u
 
@@ -2926,37 +2926,37 @@ public val NETLOGON_REPLICATION_NEEDED: UInt = 1u
 
 public val NETLOGON_VERIFY_STATUS_RETURNED: UInt = 128u
 
-public val NETLOG_NetlogonNonWindowsSupportsSecureRpc: UInt = 5826u
+public val NETLOG_NETLOGON_NON_WINDOWS_SUPPORTS_SECURE_RPC: UInt = 5826u
 
-public val NETLOG_NetlogonRc4Allowed: UInt = 5840u
+public val NETLOG_NETLOGON_RC4ALLOWED: UInt = 5840u
 
-public val NETLOG_NetlogonRc4Denied: UInt = 5841u
+public val NETLOG_NETLOGON_RC4DENIED: UInt = 5841u
 
-public val NETLOG_NetlogonRpcBacklogLimitFailure: UInt = 5837u
+public val NETLOG_NETLOGON_RPC_BACKLOG_LIMIT_FAILURE: UInt = 5837u
 
-public val NETLOG_NetlogonRpcBacklogLimitSet: UInt = 5836u
+public val NETLOG_NETLOGON_RPC_BACKLOG_LIMIT_SET: UInt = 5836u
 
-public val NETLOG_NetlogonRpcSigningClient: UInt = 5838u
+public val NETLOG_NETLOGON_RPC_SIGNING_CLIENT: UInt = 5838u
 
-public val NETLOG_NetlogonRpcSigningTrust: UInt = 5839u
+public val NETLOG_NETLOGON_RPC_SIGNING_TRUST: UInt = 5839u
 
-public val NETLOG_NetlogonUnsecureRpcClient: UInt = 5827u
+public val NETLOG_NETLOGON_UNSECURE_RPC_CLIENT: UInt = 5827u
 
-public val NETLOG_NetlogonUnsecureRpcMachineAllowedBySsdl: UInt = 5830u
+public val NETLOG_NETLOGON_UNSECURE_RPC_MACHINE_ALLOWED_BY_SSDL: UInt = 5830u
 
-public val NETLOG_NetlogonUnsecureRpcTrust: UInt = 5828u
+public val NETLOG_NETLOGON_UNSECURE_RPC_TRUST: UInt = 5828u
 
-public val NETLOG_NetlogonUnsecureRpcTrustAllowedBySsdl: UInt = 5831u
+public val NETLOG_NETLOGON_UNSECURE_RPC_TRUST_ALLOWED_BY_SSDL: UInt = 5831u
 
-public val NETLOG_NetlogonUnsecuredRpcMachineTemporarilyAllowed: UInt = 5829u
+public val NETLOG_NETLOGON_UNSECURED_RPC_MACHINE_TEMPORARILY_ALLOWED: UInt = 5829u
 
-public val NETLOG_PassThruFilterError_Request_AdminOverride: UInt = 5834u
+public val NETLOG_PASS_THRU_FILTER_ERROR_REQUEST_ADMIN_OVERRIDE: UInt = 5834u
 
-public val NETLOG_PassThruFilterError_Request_Blocked: UInt = 5835u
+public val NETLOG_PASS_THRU_FILTER_ERROR_REQUEST_BLOCKED: UInt = 5835u
 
-public val NETLOG_PassThruFilterError_Summary_AdminOverride: UInt = 5832u
+public val NETLOG_PASS_THRU_FILTER_ERROR_SUMMARY_ADMIN_OVERRIDE: UInt = 5832u
 
-public val NETLOG_PassThruFilterError_Summary_Blocked: UInt = 5833u
+public val NETLOG_PASS_THRU_FILTER_ERROR_SUMMARY_BLOCKED: UInt = 5833u
 
 public val NETMAN_VARTYPE_HARDWARE_ADDRESS: UInt = 1u
 
@@ -2964,43 +2964,43 @@ public val NETMAN_VARTYPE_STRING: UInt = 2u
 
 public val NETMAN_VARTYPE_ULONG: UInt = 0u
 
-public val NETSETUP_ACCT_CREATE: NET_JOIN_DOMAIN_JOIN_OPTIONS = 2u
+public val NETSETUP_ACCT_CREATE: NetJoinDomainJoinOptions = 2u
 
 public val NETSETUP_ACCT_DELETE: UInt = 4u
 
 public val NETSETUP_ALT_SAMACCOUNTNAME: UInt = 131072u
 
-public val NETSETUP_AMBIGUOUS_DC: NET_JOIN_DOMAIN_JOIN_OPTIONS = 4096u
+public val NETSETUP_AMBIGUOUS_DC: NetJoinDomainJoinOptions = 4096u
 
-public val NETSETUP_DEFER_SPN_SET: NET_JOIN_DOMAIN_JOIN_OPTIONS = 256u
+public val NETSETUP_DEFER_SPN_SET: NetJoinDomainJoinOptions = 256u
 
 public val NETSETUP_DNS_NAME_CHANGES_ONLY: UInt = 4096u
 
-public val NETSETUP_DOMAIN_JOIN_IF_JOINED: NET_JOIN_DOMAIN_JOIN_OPTIONS = 32u
+public val NETSETUP_DOMAIN_JOIN_IF_JOINED: NetJoinDomainJoinOptions = 32u
 
-public val NETSETUP_DONT_CONTROL_SERVICES: NET_JOIN_DOMAIN_JOIN_OPTIONS = 16384u
+public val NETSETUP_DONT_CONTROL_SERVICES: NetJoinDomainJoinOptions = 16384u
 
-public val NETSETUP_FORCE_SPN_SET: NET_JOIN_DOMAIN_JOIN_OPTIONS = 65536u
+public val NETSETUP_FORCE_SPN_SET: NetJoinDomainJoinOptions = 65536u
 
-public val NETSETUP_IGNORE_UNSUPPORTED_FLAGS: NET_JOIN_DOMAIN_JOIN_OPTIONS = 268435456u
+public val NETSETUP_IGNORE_UNSUPPORTED_FLAGS: NetJoinDomainJoinOptions = 268435456u
 
 public val NETSETUP_INSTALL_INVOCATION: UInt = 262144u
 
-public val NETSETUP_JOIN_DC_ACCOUNT: NET_JOIN_DOMAIN_JOIN_OPTIONS = 512u
+public val NETSETUP_JOIN_DC_ACCOUNT: NetJoinDomainJoinOptions = 512u
 
-public val NETSETUP_JOIN_DOMAIN: NET_JOIN_DOMAIN_JOIN_OPTIONS = 1u
+public val NETSETUP_JOIN_DOMAIN: NetJoinDomainJoinOptions = 1u
 
-public val NETSETUP_JOIN_READONLY: NET_JOIN_DOMAIN_JOIN_OPTIONS = 2048u
+public val NETSETUP_JOIN_READONLY: NetJoinDomainJoinOptions = 2048u
 
-public val NETSETUP_JOIN_UNSECURE: NET_JOIN_DOMAIN_JOIN_OPTIONS = 64u
+public val NETSETUP_JOIN_UNSECURE: NetJoinDomainJoinOptions = 64u
 
-public val NETSETUP_JOIN_WITH_NEW_NAME: NET_JOIN_DOMAIN_JOIN_OPTIONS = 1024u
+public val NETSETUP_JOIN_WITH_NEW_NAME: NetJoinDomainJoinOptions = 1024u
 
-public val NETSETUP_MACHINE_PWD_PASSED: NET_JOIN_DOMAIN_JOIN_OPTIONS = 128u
+public val NETSETUP_MACHINE_PWD_PASSED: NetJoinDomainJoinOptions = 128u
 
-public val NETSETUP_NO_ACCT_REUSE: NET_JOIN_DOMAIN_JOIN_OPTIONS = 131072u
+public val NETSETUP_NO_ACCT_REUSE: NetJoinDomainJoinOptions = 131072u
 
-public val NETSETUP_NO_NETLOGON_CACHE: NET_JOIN_DOMAIN_JOIN_OPTIONS = 8192u
+public val NETSETUP_NO_NETLOGON_CACHE: NetJoinDomainJoinOptions = 8192u
 
 public val NETSETUP_PROVISIONING_PARAMS_CURRENT_VERSION: UInt = 2u
 

@@ -2,51 +2,52 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.tpmbaseservices
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pwstr
 
 private val _windowsWin32SystemTpmbaseservicesNapiAddon: dynamic =
-    js("(function() { if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var req = (new Function('t', 'return typeof require === t ? require : null'))('function'); if (!req) return null; var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; for (var d = 0; d < 8; d++) { var c1 = path.resolve(dir, 'build/node-ffi/windows_sys_native.node'); if (fs.existsSync(c1)) return req(c1); var c2 = path.resolve(dir, 'src/js/node-windows_sys/build/Release/windows_sys_native.node'); if (fs.existsSync(c2)) return req(c2); var c3 = path.resolve(dir, 'src/js/node-windows_sys/build/Debug/windows_sys_native.node'); if (fs.existsSync(c3)) return req(c3); var c4 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Release/windows_sys_native.node'); if (fs.existsSync(c4)) return req(c4); var c5 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Debug/windows_sys_native.node'); if (fs.existsSync(c5)) return req(c5); var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } return null; })()")
+    js("(function() { if (typeof globalThis !== 'undefined' && typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys; if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) return null; try { var pkg = req('@kotlinmania/windowssys-native-bindings'); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = pkg; return pkg; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { var loaded = req(c); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = loaded; return loaded; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = null; return null; })()")
 
-public actual fun GetDeviceID(pbwindowsaik: Long, cbwindowsaik: UInt, pcbresult: Long, pfprotectedbytpm: Long): HRESULT =
-    if (_windowsWin32SystemTpmbaseservicesNapiAddon != null) (_windowsWin32SystemTpmbaseservicesNapiAddon.windowssys_windows_win32_system_tpmbaseservices_GetDeviceID(pbwindowsaik.toString(), cbwindowsaik.toInt(), pcbresult.toString(), pfprotectedbytpm.toString()) as Int) else 0
+public actual fun getDeviceID(pbwindowsaik: COpaquePointer?, cbwindowsaik: UInt, pcbresult: COpaquePointer?, pfprotectedbytpm: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemTpmbaseservicesNapiAddon != null) (_windowsWin32SystemTpmbaseservicesNapiAddon.windowssys_windows_win32_system_tpmbaseservices_getDeviceID((pbwindowsaik?.value ?: 0L).toString(), cbwindowsaik.toInt(), (pcbresult?.value ?: 0L).toString(), (pfprotectedbytpm?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetDeviceIDString(pszwindowsaik: PWSTR, cchwindowsaik: UInt, pcchresult: Long, pfprotectedbytpm: Long): HRESULT =
-    if (_windowsWin32SystemTpmbaseservicesNapiAddon != null) (_windowsWin32SystemTpmbaseservicesNapiAddon.windowssys_windows_win32_system_tpmbaseservices_GetDeviceIDString(pszwindowsaik.toString(), cchwindowsaik.toInt(), pcchresult.toString(), pfprotectedbytpm.toString()) as Int) else 0
+public actual fun getDeviceIDString(pszwindowsaik: Pwstr, cchwindowsaik: UInt, pcchresult: COpaquePointer?, pfprotectedbytpm: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemTpmbaseservicesNapiAddon != null) (_windowsWin32SystemTpmbaseservicesNapiAddon.windowssys_windows_win32_system_tpmbaseservices_getDeviceIDString((pszwindowsaik?.value ?: 0L).toString(), cchwindowsaik.toInt(), (pcchresult?.value ?: 0L).toString(), (pfprotectedbytpm?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun Tbsi_Context_Create(pcontextparams: Long, phcontext: Long): UInt =
-    if (_windowsWin32SystemTpmbaseservicesNapiAddon != null) (_windowsWin32SystemTpmbaseservicesNapiAddon.windowssys_windows_win32_system_tpmbaseservices_Tbsi_Context_Create(pcontextparams.toString(), phcontext.toString()) as Int).toUInt() else 0u
+public actual fun tbsiContextCreate(pcontextparams: COpaquePointer?, phcontext: COpaquePointer?): UInt =
+    if (_windowsWin32SystemTpmbaseservicesNapiAddon != null) (_windowsWin32SystemTpmbaseservicesNapiAddon.windowssys_windows_win32_system_tpmbaseservices_tbsiContextCreate((pcontextparams?.value ?: 0L).toString(), (phcontext?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun Tbsi_Create_Windows_Key(keyhandle: UInt): UInt =
-    if (_windowsWin32SystemTpmbaseservicesNapiAddon != null) (_windowsWin32SystemTpmbaseservicesNapiAddon.windowssys_windows_win32_system_tpmbaseservices_Tbsi_Create_Windows_Key(keyhandle.toInt()) as Int).toUInt() else 0u
+public actual fun tbsiCreateWindowsKey(keyhandle: UInt): UInt =
+    if (_windowsWin32SystemTpmbaseservicesNapiAddon != null) (_windowsWin32SystemTpmbaseservicesNapiAddon.windowssys_windows_win32_system_tpmbaseservices_tbsiCreateWindowsKey(keyhandle.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun Tbsi_GetDeviceInfo(size: UInt, info: Long): UInt =
-    if (_windowsWin32SystemTpmbaseservicesNapiAddon != null) (_windowsWin32SystemTpmbaseservicesNapiAddon.windowssys_windows_win32_system_tpmbaseservices_Tbsi_GetDeviceInfo(size.toInt(), info.toString()) as Int).toUInt() else 0u
+public actual fun tbsiGetDeviceInfo(size: UInt, info: COpaquePointer?): UInt =
+    if (_windowsWin32SystemTpmbaseservicesNapiAddon != null) (_windowsWin32SystemTpmbaseservicesNapiAddon.windowssys_windows_win32_system_tpmbaseservices_tbsiGetDeviceInfo(size.toInt(), (info?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun Tbsi_Get_OwnerAuth(hcontext: Long, ownerauthtype: UInt, poutputbuf: Long, poutputbuflen: Long): UInt =
-    if (_windowsWin32SystemTpmbaseservicesNapiAddon != null) (_windowsWin32SystemTpmbaseservicesNapiAddon.windowssys_windows_win32_system_tpmbaseservices_Tbsi_Get_OwnerAuth(hcontext.toString(), ownerauthtype.toInt(), poutputbuf.toString(), poutputbuflen.toString()) as Int).toUInt() else 0u
+public actual fun tbsiGetOwnerAuth(hcontext: COpaquePointer?, ownerauthtype: UInt, poutputbuf: COpaquePointer?, poutputbuflen: COpaquePointer?): UInt =
+    if (_windowsWin32SystemTpmbaseservicesNapiAddon != null) (_windowsWin32SystemTpmbaseservicesNapiAddon.windowssys_windows_win32_system_tpmbaseservices_tbsiGetOwnerAuth((hcontext?.value ?: 0L).toString(), ownerauthtype.toInt(), (poutputbuf?.value ?: 0L).toString(), (poutputbuflen?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun Tbsi_Get_TCG_Log(hcontext: Long, poutputbuf: Long, poutputbuflen: Long): UInt =
-    if (_windowsWin32SystemTpmbaseservicesNapiAddon != null) (_windowsWin32SystemTpmbaseservicesNapiAddon.windowssys_windows_win32_system_tpmbaseservices_Tbsi_Get_TCG_Log(hcontext.toString(), poutputbuf.toString(), poutputbuflen.toString()) as Int).toUInt() else 0u
+public actual fun tbsiGetTcgLog(hcontext: COpaquePointer?, poutputbuf: COpaquePointer?, poutputbuflen: COpaquePointer?): UInt =
+    if (_windowsWin32SystemTpmbaseservicesNapiAddon != null) (_windowsWin32SystemTpmbaseservicesNapiAddon.windowssys_windows_win32_system_tpmbaseservices_tbsiGetTcgLog((hcontext?.value ?: 0L).toString(), (poutputbuf?.value ?: 0L).toString(), (poutputbuflen?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun Tbsi_Get_TCG_Log_Ex(logtype: UInt, pboutput: Long, pcboutput: Long): UInt =
-    if (_windowsWin32SystemTpmbaseservicesNapiAddon != null) (_windowsWin32SystemTpmbaseservicesNapiAddon.windowssys_windows_win32_system_tpmbaseservices_Tbsi_Get_TCG_Log_Ex(logtype.toInt(), pboutput.toString(), pcboutput.toString()) as Int).toUInt() else 0u
+public actual fun tbsiGetTcgLogEx(logtype: UInt, pboutput: COpaquePointer?, pcboutput: COpaquePointer?): UInt =
+    if (_windowsWin32SystemTpmbaseservicesNapiAddon != null) (_windowsWin32SystemTpmbaseservicesNapiAddon.windowssys_windows_win32_system_tpmbaseservices_tbsiGetTcgLogEx(logtype.toInt(), (pboutput?.value ?: 0L).toString(), (pcboutput?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun Tbsi_Is_Tpm_Present(): BOOL =
-    if (_windowsWin32SystemTpmbaseservicesNapiAddon != null) (_windowsWin32SystemTpmbaseservicesNapiAddon.windowssys_windows_win32_system_tpmbaseservices_Tbsi_Is_Tpm_Present() as Int) else 0
+public actual fun tbsiIsTpmPresent(): Bool =
+    if (_windowsWin32SystemTpmbaseservicesNapiAddon != null) (_windowsWin32SystemTpmbaseservicesNapiAddon.windowssys_windows_win32_system_tpmbaseservices_tbsiIsTpmPresent() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun Tbsi_Physical_Presence_Command(hcontext: Long, pabinput: Long, cbinput: UInt, paboutput: Long, pcboutput: Long): UInt =
-    if (_windowsWin32SystemTpmbaseservicesNapiAddon != null) (_windowsWin32SystemTpmbaseservicesNapiAddon.windowssys_windows_win32_system_tpmbaseservices_Tbsi_Physical_Presence_Command(hcontext.toString(), pabinput.toString(), cbinput.toInt(), paboutput.toString(), pcboutput.toString()) as Int).toUInt() else 0u
+public actual fun tbsiPhysicalPresenceCommand(hcontext: COpaquePointer?, pabinput: COpaquePointer?, cbinput: UInt, paboutput: COpaquePointer?, pcboutput: COpaquePointer?): UInt =
+    if (_windowsWin32SystemTpmbaseservicesNapiAddon != null) (_windowsWin32SystemTpmbaseservicesNapiAddon.windowssys_windows_win32_system_tpmbaseservices_tbsiPhysicalPresenceCommand((hcontext?.value ?: 0L).toString(), (pabinput?.value ?: 0L).toString(), cbinput.toInt(), (paboutput?.value ?: 0L).toString(), (pcboutput?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun Tbsi_Revoke_Attestation(): UInt =
-    if (_windowsWin32SystemTpmbaseservicesNapiAddon != null) (_windowsWin32SystemTpmbaseservicesNapiAddon.windowssys_windows_win32_system_tpmbaseservices_Tbsi_Revoke_Attestation() as Int).toUInt() else 0u
+public actual fun tbsiRevokeAttestation(): UInt =
+    if (_windowsWin32SystemTpmbaseservicesNapiAddon != null) (_windowsWin32SystemTpmbaseservicesNapiAddon.windowssys_windows_win32_system_tpmbaseservices_tbsiRevokeAttestation() as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun Tbsip_Cancel_Commands(hcontext: Long): UInt =
-    if (_windowsWin32SystemTpmbaseservicesNapiAddon != null) (_windowsWin32SystemTpmbaseservicesNapiAddon.windowssys_windows_win32_system_tpmbaseservices_Tbsip_Cancel_Commands(hcontext.toString()) as Int).toUInt() else 0u
+public actual fun tbsipCancelCommands(hcontext: COpaquePointer?): UInt =
+    if (_windowsWin32SystemTpmbaseservicesNapiAddon != null) (_windowsWin32SystemTpmbaseservicesNapiAddon.windowssys_windows_win32_system_tpmbaseservices_tbsipCancelCommands((hcontext?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun Tbsip_Context_Close(hcontext: Long): UInt =
-    if (_windowsWin32SystemTpmbaseservicesNapiAddon != null) (_windowsWin32SystemTpmbaseservicesNapiAddon.windowssys_windows_win32_system_tpmbaseservices_Tbsip_Context_Close(hcontext.toString()) as Int).toUInt() else 0u
+public actual fun tbsipContextClose(hcontext: COpaquePointer?): UInt =
+    if (_windowsWin32SystemTpmbaseservicesNapiAddon != null) (_windowsWin32SystemTpmbaseservicesNapiAddon.windowssys_windows_win32_system_tpmbaseservices_tbsipContextClose((hcontext?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun Tbsip_Submit_Command(hcontext: Long, locality: TBS_COMMAND_LOCALITY, priority: TBS_COMMAND_PRIORITY, pabcommand: Long, cbcommand: UInt, pabresult: Long, pcbresult: Long): UInt =
-    if (_windowsWin32SystemTpmbaseservicesNapiAddon != null) (_windowsWin32SystemTpmbaseservicesNapiAddon.windowssys_windows_win32_system_tpmbaseservices_Tbsip_Submit_Command(hcontext.toString(), locality.toInt(), priority.toInt(), pabcommand.toString(), cbcommand.toInt(), pabresult.toString(), pcbresult.toString()) as Int).toUInt() else 0u
+public actual fun tbsipSubmitCommand(hcontext: COpaquePointer?, locality: TbsCommandLocality, priority: TbsCommandPriority, pabcommand: COpaquePointer?, cbcommand: UInt, pabresult: COpaquePointer?, pcbresult: COpaquePointer?): UInt =
+    if (_windowsWin32SystemTpmbaseservicesNapiAddon != null) (_windowsWin32SystemTpmbaseservicesNapiAddon.windowssys_windows_win32_system_tpmbaseservices_tbsipSubmitCommand((hcontext?.value ?: 0L).toString(), locality.toInt(), priority.toInt(), (pabcommand?.value ?: 0L).toString(), cbcommand.toInt(), (pabresult?.value ?: 0L).toString(), (pcbresult?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")

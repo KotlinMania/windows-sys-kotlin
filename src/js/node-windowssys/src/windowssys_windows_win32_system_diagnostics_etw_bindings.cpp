@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_etw_CreateTraceInstanceId_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_diagnostics_etw_createTraceInstanceId_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* reghandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* instinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -71,7 +71,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_CreateTraceIn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_etw_CveEventWrite_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_diagnostics_etw_cveEventWrite_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* cveid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* additionaldetails = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -91,7 +91,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_CveEventWrite
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_etw_EnumerateTraceGuids_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_diagnostics_etw_enumerateTraceGuids_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* guidpropertiesarray = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t propertyarraycount = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -113,7 +113,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_EnumerateTrac
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_etw_EnumerateTraceGuidsEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_diagnostics_etw_enumerateTraceGuidsEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t tracequeryinfoclass = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* inbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -141,7 +141,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_EnumerateTrac
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_etw_EventAccessControl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_diagnostics_etw_eventAccessControl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* guid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t operation = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -167,7 +167,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_EventAccessCo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_etw_EventAccessQuery_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_diagnostics_etw_eventAccessQuery_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* guid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -189,7 +189,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_EventAccessQu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_etw_EventAccessRemove_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_diagnostics_etw_eventAccessRemove_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* guid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -207,7 +207,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_EventAccessRe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_etw_EventActivityIdControl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_diagnostics_etw_eventActivityIdControl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t controlcode = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* activityid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -227,7 +227,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_EventActivity
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_etw_EventEnabled_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_diagnostics_etw_eventEnabled_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t reghandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* eventdescriptor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -247,7 +247,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_EventEnabled_
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_etw_EventProviderEnabled_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_diagnostics_etw_eventProviderEnabled_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t reghandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint8_t level = static_cast<uint8_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -269,7 +269,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_EventProvider
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_etw_EventRegister_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_diagnostics_etw_eventRegister_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* providerid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* enablecallback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -293,7 +293,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_EventRegister
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_etw_EventSetInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_diagnostics_etw_eventSetInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t reghandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t informationclass = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -317,7 +317,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_EventSetInfor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_etw_EventUnregister_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_diagnostics_etw_eventUnregister_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t reghandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -335,7 +335,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_EventUnregist
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_etw_EventWrite_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_diagnostics_etw_eventWrite_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t reghandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* eventdescriptor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -359,7 +359,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_EventWrite_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_etw_EventWriteEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_diagnostics_etw_eventWriteEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t reghandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* eventdescriptor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -391,7 +391,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_EventWriteEx_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_etw_EventWriteString_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_diagnostics_etw_eventWriteString_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t reghandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint8_t level = static_cast<uint8_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -415,7 +415,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_EventWriteStr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_etw_EventWriteTransfer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_diagnostics_etw_eventWriteTransfer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t reghandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* eventdescriptor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -443,7 +443,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_EventWriteTra
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_etw_GetTraceEnableFlags_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_diagnostics_etw_getTraceEnableFlags_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t tracehandle = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -461,7 +461,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_GetTraceEnabl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_etw_GetTraceEnableLevel_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_diagnostics_etw_getTraceEnableLevel_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t tracehandle = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -479,7 +479,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_GetTraceEnabl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_etw_GetTraceLoggerHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_diagnostics_etw_getTraceLoggerHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -497,7 +497,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_GetTraceLogge
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_etw_OpenTraceFromBufferStream_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_diagnostics_etw_openTraceFromBufferStream_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* options = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* buffercompletioncallback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -519,7 +519,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_OpenTraceFrom
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_etw_OpenTraceFromFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_diagnostics_etw_openTraceFromFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* logfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* options = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -541,7 +541,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_OpenTraceFrom
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_etw_OpenTraceFromRealTimeLogger_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_diagnostics_etw_openTraceFromRealTimeLogger_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* loggername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* options = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -563,7 +563,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_OpenTraceFrom
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_etw_OpenTraceFromRealTimeLoggerWithAllocationOptions_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_diagnostics_etw_openTraceFromRealTimeLoggerWithAllocationOptions_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* loggername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* options = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -589,7 +589,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_OpenTraceFrom
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_etw_ProcessTrace_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_diagnostics_etw_processTrace_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* handlearray = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t handlecount = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -613,7 +613,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_ProcessTrace_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_etw_ProcessTraceAddBufferToBufferStream_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_diagnostics_etw_processTraceAddBufferToBufferStream_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t tracehandle = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -635,7 +635,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_ProcessTraceA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_etw_ProcessTraceBufferDecrementReference_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_diagnostics_etw_processTraceBufferDecrementReference_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -653,7 +653,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_ProcessTraceB
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_etw_ProcessTraceBufferIncrementReference_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_diagnostics_etw_processTraceBufferIncrementReference_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t tracehandle = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -673,7 +673,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_ProcessTraceB
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_etw_QueryAllTracesA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_diagnostics_etw_queryAllTracesA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propertyarray = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t propertyarraycount = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -695,7 +695,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_QueryAllTrace
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_etw_QueryAllTracesW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_diagnostics_etw_queryAllTracesW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propertyarray = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t propertyarraycount = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -717,7 +717,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_QueryAllTrace
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_etw_RegisterTraceGuidsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_diagnostics_etw_registerTraceGuidsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* requestaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* requestcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -749,7 +749,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_RegisterTrace
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_etw_RegisterTraceGuidsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_diagnostics_etw_registerTraceGuidsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* requestaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* requestcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -781,7 +781,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_RegisterTrace
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_etw_RemoveTraceCallback_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_diagnostics_etw_removeTraceCallback_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -799,7 +799,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_RemoveTraceCa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_etw_SetTraceCallback_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_diagnostics_etw_setTraceCallback_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* eventcallback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -819,7 +819,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_SetTraceCallb
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_etw_StartTraceA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_diagnostics_etw_startTraceA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* tracehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* instancename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -841,7 +841,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_StartTraceA_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_etw_StartTraceW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_diagnostics_etw_startTraceW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* tracehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* instancename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -863,7 +863,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_StartTraceW_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_etw_TdhAggregatePayloadFilters_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_diagnostics_etw_tdhAggregatePayloadFilters_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t payloadfiltercount = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* payloadfilterptrs = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -887,7 +887,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_TdhAggregateP
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_etw_TdhCleanupPayloadEventFilterDescriptor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_diagnostics_etw_tdhCleanupPayloadEventFilterDescriptor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* eventfilterdescriptor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -905,7 +905,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_TdhCleanupPay
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_etw_TdhCloseDecodingHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_diagnostics_etw_tdhCloseDecodingHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t handle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -923,7 +923,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_TdhCloseDecod
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_etw_TdhCreatePayloadFilter_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_diagnostics_etw_tdhCreatePayloadFilter_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* providerguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* eventdescriptor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -951,7 +951,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_TdhCreatePayl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_etw_TdhDeletePayloadFilter_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_diagnostics_etw_tdhDeletePayloadFilter_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* payloadfilter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -969,7 +969,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_TdhDeletePayl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_etw_TdhEnumerateManifestProviderEvents_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_diagnostics_etw_tdhEnumerateManifestProviderEvents_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* providerguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -991,7 +991,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_TdhEnumerateM
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_etw_TdhEnumerateProviderFieldInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_diagnostics_etw_tdhEnumerateProviderFieldInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t eventfieldtype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1015,7 +1015,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_TdhEnumerateP
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_etw_TdhEnumerateProviderFilters_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_diagnostics_etw_tdhEnumerateProviderFilters_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* guid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t tdhcontextcount = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1043,7 +1043,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_TdhEnumerateP
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_etw_TdhEnumerateProviders_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_diagnostics_etw_tdhEnumerateProviders_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pbuffersize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1063,7 +1063,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_TdhEnumerateP
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_etw_TdhEnumerateProvidersForDecodingSource_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_diagnostics_etw_tdhEnumerateProvidersForDecodingSource_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t filter = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1087,7 +1087,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_TdhEnumerateP
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_etw_TdhFormatProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_diagnostics_etw_tdhFormatProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* eventinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* mapinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1125,7 +1125,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_TdhFormatProp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_etw_TdhGetDecodingParameter_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_diagnostics_etw_tdhGetDecodingParameter_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t handle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* tdhcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1145,7 +1145,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_TdhGetDecodin
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_etw_TdhGetEventInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_diagnostics_etw_tdhGetEventInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* event = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t tdhcontextcount = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1171,7 +1171,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_TdhGetEventIn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_etw_TdhGetEventMapInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_diagnostics_etw_tdhGetEventMapInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pevent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pmapname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1195,7 +1195,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_TdhGetEventMa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_etw_TdhGetManifestEventInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_diagnostics_etw_tdhGetManifestEventInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* providerguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* eventdescriptor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1219,7 +1219,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_TdhGetManifes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_etw_TdhGetProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_diagnostics_etw_tdhGetProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pevent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t tdhcontextcount = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1249,7 +1249,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_TdhGetPropert
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_etw_TdhGetPropertySize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_diagnostics_etw_tdhGetPropertySize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pevent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t tdhcontextcount = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1277,7 +1277,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_TdhGetPropert
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_etw_TdhGetWppMessage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_diagnostics_etw_tdhGetWppMessage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t handle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* eventrecord = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1301,7 +1301,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_TdhGetWppMess
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_etw_TdhGetWppProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_diagnostics_etw_tdhGetWppProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t handle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* eventrecord = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1327,7 +1327,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_TdhGetWppProp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_etw_TdhLoadManifest_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_diagnostics_etw_tdhLoadManifest_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* manifest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1345,7 +1345,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_TdhLoadManife
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_etw_TdhLoadManifestFromBinary_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_diagnostics_etw_tdhLoadManifestFromBinary_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* binarypath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1363,7 +1363,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_TdhLoadManife
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_etw_TdhLoadManifestFromMemory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_diagnostics_etw_tdhLoadManifestFromMemory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cbdata = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1383,7 +1383,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_TdhLoadManife
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_etw_TdhOpenDecodingHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_diagnostics_etw_tdhOpenDecodingHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* handle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1401,7 +1401,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_TdhOpenDecodi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_etw_TdhQueryProviderFieldInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_diagnostics_etw_tdhQueryProviderFieldInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t eventfieldvalue = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -1427,7 +1427,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_TdhQueryProvi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_etw_TdhSetDecodingParameter_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_diagnostics_etw_tdhSetDecodingParameter_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t handle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* tdhcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1447,7 +1447,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_TdhSetDecodin
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_etw_TdhUnloadManifest_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_diagnostics_etw_tdhUnloadManifest_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* manifest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1465,7 +1465,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_TdhUnloadMani
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_etw_TdhUnloadManifestFromMemory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_diagnostics_etw_tdhUnloadManifestFromMemory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cbdata = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1485,7 +1485,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_TdhUnloadMani
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_etw_TraceEvent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_diagnostics_etw_traceEvent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t tracehandle = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* eventtrace = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1505,7 +1505,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_TraceEvent_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_etw_TraceEventInstance_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_diagnostics_etw_traceEventInstance_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t tracehandle = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* eventtrace = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1529,7 +1529,46 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_TraceEventIns
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_etw_TraceMessageVa_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_diagnostics_etw_traceMessage_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    uint64_t loggerhandle = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
+    uint32_t messageflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
+    void* messageguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    uint16_t messagenumber = static_cast<uint16_t>(km_info.Length() > 3 ? km_info[3].ToNumber().Int32Value() : 0);
+    int32_t km_vac = km_info.Length() > 4 ? km_info[4].ToNumber().Int32Value() : 0;
+    int64_t km_va0 = km_info.Length() > 5 ? km_napi_arg_i64(km_info[5]) : 0;
+    int64_t km_va1 = km_info.Length() > 6 ? km_napi_arg_i64(km_info[6]) : 0;
+    int64_t km_va2 = km_info.Length() > 7 ? km_napi_arg_i64(km_info[7]) : 0;
+    int64_t km_va3 = km_info.Length() > 8 ? km_napi_arg_i64(km_info[8]) : 0;
+#ifdef _WIN32
+    typedef uint32_t (*km_fn_t)(uint64_t, uint32_t, void*, uint16_t, ...);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TraceMessage")));
+    }
+    uint32_t km_res = 0;
+    if (km_fn_ptr != nullptr) {
+        switch (km_vac) {
+            case 0: km_res = km_fn_ptr(loggerhandle, messageflags, messageguid, messagenumber); break;
+            case 1: km_res = km_fn_ptr(loggerhandle, messageflags, messageguid, messagenumber, static_cast<intptr_t>(km_va0)); break;
+            case 2: km_res = km_fn_ptr(loggerhandle, messageflags, messageguid, messagenumber, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1)); break;
+            case 3: km_res = km_fn_ptr(loggerhandle, messageflags, messageguid, messagenumber, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2)); break;
+            default: km_res = km_fn_ptr(loggerhandle, messageflags, messageguid, messagenumber, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2), static_cast<intptr_t>(km_va3)); break;
+        }
+    }
+#else
+    (void)loggerhandle;
+    (void)messageflags;
+    (void)messageguid;
+    (void)messagenumber;
+    (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    uint32_t km_res = 0;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_diagnostics_etw_traceMessageVa_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t loggerhandle = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t messageflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1555,7 +1594,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_TraceMessageV
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_etw_UnregisterTraceGuids_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_diagnostics_etw_unregisterTraceGuids_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t registrationhandle = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -1574,73 +1613,74 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_UnregisterTra
 }
 
 static void register_windows_win32_system_diagnostics_etw_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_system_diagnostics_etw_CreateTraceInstanceId", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_CreateTraceInstanceId_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_etw_CveEventWrite", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_CveEventWrite_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_etw_EnumerateTraceGuids", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_EnumerateTraceGuids_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_etw_EnumerateTraceGuidsEx", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_EnumerateTraceGuidsEx_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_etw_EventAccessControl", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_EventAccessControl_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_etw_EventAccessQuery", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_EventAccessQuery_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_etw_EventAccessRemove", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_EventAccessRemove_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_etw_EventActivityIdControl", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_EventActivityIdControl_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_etw_EventEnabled", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_EventEnabled_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_etw_EventProviderEnabled", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_EventProviderEnabled_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_etw_EventRegister", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_EventRegister_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_etw_EventSetInformation", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_EventSetInformation_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_etw_EventUnregister", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_EventUnregister_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_etw_EventWrite", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_EventWrite_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_etw_EventWriteEx", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_EventWriteEx_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_etw_EventWriteString", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_EventWriteString_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_etw_EventWriteTransfer", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_EventWriteTransfer_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_etw_GetTraceEnableFlags", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_GetTraceEnableFlags_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_etw_GetTraceEnableLevel", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_GetTraceEnableLevel_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_etw_GetTraceLoggerHandle", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_GetTraceLoggerHandle_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_etw_OpenTraceFromBufferStream", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_OpenTraceFromBufferStream_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_etw_OpenTraceFromFile", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_OpenTraceFromFile_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_etw_OpenTraceFromRealTimeLogger", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_OpenTraceFromRealTimeLogger_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_etw_OpenTraceFromRealTimeLoggerWithAllocationOptions", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_OpenTraceFromRealTimeLoggerWithAllocationOptions_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_etw_ProcessTrace", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_ProcessTrace_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_etw_ProcessTraceAddBufferToBufferStream", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_ProcessTraceAddBufferToBufferStream_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_etw_ProcessTraceBufferDecrementReference", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_ProcessTraceBufferDecrementReference_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_etw_ProcessTraceBufferIncrementReference", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_ProcessTraceBufferIncrementReference_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_etw_QueryAllTracesA", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_QueryAllTracesA_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_etw_QueryAllTracesW", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_QueryAllTracesW_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_etw_RegisterTraceGuidsA", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_RegisterTraceGuidsA_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_etw_RegisterTraceGuidsW", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_RegisterTraceGuidsW_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_etw_RemoveTraceCallback", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_RemoveTraceCallback_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_etw_SetTraceCallback", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_SetTraceCallback_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_etw_StartTraceA", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_StartTraceA_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_etw_StartTraceW", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_StartTraceW_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_etw_TdhAggregatePayloadFilters", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_TdhAggregatePayloadFilters_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_etw_TdhCleanupPayloadEventFilterDescriptor", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_TdhCleanupPayloadEventFilterDescriptor_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_etw_TdhCloseDecodingHandle", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_TdhCloseDecodingHandle_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_etw_TdhCreatePayloadFilter", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_TdhCreatePayloadFilter_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_etw_TdhDeletePayloadFilter", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_TdhDeletePayloadFilter_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_etw_TdhEnumerateManifestProviderEvents", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_TdhEnumerateManifestProviderEvents_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_etw_TdhEnumerateProviderFieldInformation", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_TdhEnumerateProviderFieldInformation_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_etw_TdhEnumerateProviderFilters", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_TdhEnumerateProviderFilters_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_etw_TdhEnumerateProviders", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_TdhEnumerateProviders_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_etw_TdhEnumerateProvidersForDecodingSource", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_TdhEnumerateProvidersForDecodingSource_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_etw_TdhFormatProperty", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_TdhFormatProperty_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_etw_TdhGetDecodingParameter", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_TdhGetDecodingParameter_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_etw_TdhGetEventInformation", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_TdhGetEventInformation_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_etw_TdhGetEventMapInformation", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_TdhGetEventMapInformation_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_etw_TdhGetManifestEventInformation", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_TdhGetManifestEventInformation_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_etw_TdhGetProperty", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_TdhGetProperty_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_etw_TdhGetPropertySize", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_TdhGetPropertySize_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_etw_TdhGetWppMessage", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_TdhGetWppMessage_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_etw_TdhGetWppProperty", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_TdhGetWppProperty_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_etw_TdhLoadManifest", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_TdhLoadManifest_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_etw_TdhLoadManifestFromBinary", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_TdhLoadManifestFromBinary_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_etw_TdhLoadManifestFromMemory", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_TdhLoadManifestFromMemory_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_etw_TdhOpenDecodingHandle", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_TdhOpenDecodingHandle_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_etw_TdhQueryProviderFieldInformation", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_TdhQueryProviderFieldInformation_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_etw_TdhSetDecodingParameter", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_TdhSetDecodingParameter_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_etw_TdhUnloadManifest", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_TdhUnloadManifest_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_etw_TdhUnloadManifestFromMemory", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_TdhUnloadManifestFromMemory_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_etw_TraceEvent", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_TraceEvent_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_etw_TraceEventInstance", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_TraceEventInstance_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_etw_TraceMessageVa", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_TraceMessageVa_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_etw_UnregisterTraceGuids", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_UnregisterTraceGuids_napi));
+    exports.Set("windowssys_windows_win32_system_diagnostics_etw_createTraceInstanceId", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_createTraceInstanceId_napi));
+    exports.Set("windowssys_windows_win32_system_diagnostics_etw_cveEventWrite", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_cveEventWrite_napi));
+    exports.Set("windowssys_windows_win32_system_diagnostics_etw_enumerateTraceGuids", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_enumerateTraceGuids_napi));
+    exports.Set("windowssys_windows_win32_system_diagnostics_etw_enumerateTraceGuidsEx", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_enumerateTraceGuidsEx_napi));
+    exports.Set("windowssys_windows_win32_system_diagnostics_etw_eventAccessControl", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_eventAccessControl_napi));
+    exports.Set("windowssys_windows_win32_system_diagnostics_etw_eventAccessQuery", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_eventAccessQuery_napi));
+    exports.Set("windowssys_windows_win32_system_diagnostics_etw_eventAccessRemove", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_eventAccessRemove_napi));
+    exports.Set("windowssys_windows_win32_system_diagnostics_etw_eventActivityIdControl", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_eventActivityIdControl_napi));
+    exports.Set("windowssys_windows_win32_system_diagnostics_etw_eventEnabled", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_eventEnabled_napi));
+    exports.Set("windowssys_windows_win32_system_diagnostics_etw_eventProviderEnabled", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_eventProviderEnabled_napi));
+    exports.Set("windowssys_windows_win32_system_diagnostics_etw_eventRegister", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_eventRegister_napi));
+    exports.Set("windowssys_windows_win32_system_diagnostics_etw_eventSetInformation", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_eventSetInformation_napi));
+    exports.Set("windowssys_windows_win32_system_diagnostics_etw_eventUnregister", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_eventUnregister_napi));
+    exports.Set("windowssys_windows_win32_system_diagnostics_etw_eventWrite", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_eventWrite_napi));
+    exports.Set("windowssys_windows_win32_system_diagnostics_etw_eventWriteEx", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_eventWriteEx_napi));
+    exports.Set("windowssys_windows_win32_system_diagnostics_etw_eventWriteString", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_eventWriteString_napi));
+    exports.Set("windowssys_windows_win32_system_diagnostics_etw_eventWriteTransfer", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_eventWriteTransfer_napi));
+    exports.Set("windowssys_windows_win32_system_diagnostics_etw_getTraceEnableFlags", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_getTraceEnableFlags_napi));
+    exports.Set("windowssys_windows_win32_system_diagnostics_etw_getTraceEnableLevel", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_getTraceEnableLevel_napi));
+    exports.Set("windowssys_windows_win32_system_diagnostics_etw_getTraceLoggerHandle", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_getTraceLoggerHandle_napi));
+    exports.Set("windowssys_windows_win32_system_diagnostics_etw_openTraceFromBufferStream", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_openTraceFromBufferStream_napi));
+    exports.Set("windowssys_windows_win32_system_diagnostics_etw_openTraceFromFile", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_openTraceFromFile_napi));
+    exports.Set("windowssys_windows_win32_system_diagnostics_etw_openTraceFromRealTimeLogger", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_openTraceFromRealTimeLogger_napi));
+    exports.Set("windowssys_windows_win32_system_diagnostics_etw_openTraceFromRealTimeLoggerWithAllocationOptions", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_openTraceFromRealTimeLoggerWithAllocationOptions_napi));
+    exports.Set("windowssys_windows_win32_system_diagnostics_etw_processTrace", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_processTrace_napi));
+    exports.Set("windowssys_windows_win32_system_diagnostics_etw_processTraceAddBufferToBufferStream", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_processTraceAddBufferToBufferStream_napi));
+    exports.Set("windowssys_windows_win32_system_diagnostics_etw_processTraceBufferDecrementReference", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_processTraceBufferDecrementReference_napi));
+    exports.Set("windowssys_windows_win32_system_diagnostics_etw_processTraceBufferIncrementReference", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_processTraceBufferIncrementReference_napi));
+    exports.Set("windowssys_windows_win32_system_diagnostics_etw_queryAllTracesA", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_queryAllTracesA_napi));
+    exports.Set("windowssys_windows_win32_system_diagnostics_etw_queryAllTracesW", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_queryAllTracesW_napi));
+    exports.Set("windowssys_windows_win32_system_diagnostics_etw_registerTraceGuidsA", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_registerTraceGuidsA_napi));
+    exports.Set("windowssys_windows_win32_system_diagnostics_etw_registerTraceGuidsW", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_registerTraceGuidsW_napi));
+    exports.Set("windowssys_windows_win32_system_diagnostics_etw_removeTraceCallback", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_removeTraceCallback_napi));
+    exports.Set("windowssys_windows_win32_system_diagnostics_etw_setTraceCallback", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_setTraceCallback_napi));
+    exports.Set("windowssys_windows_win32_system_diagnostics_etw_startTraceA", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_startTraceA_napi));
+    exports.Set("windowssys_windows_win32_system_diagnostics_etw_startTraceW", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_startTraceW_napi));
+    exports.Set("windowssys_windows_win32_system_diagnostics_etw_tdhAggregatePayloadFilters", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_tdhAggregatePayloadFilters_napi));
+    exports.Set("windowssys_windows_win32_system_diagnostics_etw_tdhCleanupPayloadEventFilterDescriptor", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_tdhCleanupPayloadEventFilterDescriptor_napi));
+    exports.Set("windowssys_windows_win32_system_diagnostics_etw_tdhCloseDecodingHandle", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_tdhCloseDecodingHandle_napi));
+    exports.Set("windowssys_windows_win32_system_diagnostics_etw_tdhCreatePayloadFilter", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_tdhCreatePayloadFilter_napi));
+    exports.Set("windowssys_windows_win32_system_diagnostics_etw_tdhDeletePayloadFilter", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_tdhDeletePayloadFilter_napi));
+    exports.Set("windowssys_windows_win32_system_diagnostics_etw_tdhEnumerateManifestProviderEvents", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_tdhEnumerateManifestProviderEvents_napi));
+    exports.Set("windowssys_windows_win32_system_diagnostics_etw_tdhEnumerateProviderFieldInformation", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_tdhEnumerateProviderFieldInformation_napi));
+    exports.Set("windowssys_windows_win32_system_diagnostics_etw_tdhEnumerateProviderFilters", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_tdhEnumerateProviderFilters_napi));
+    exports.Set("windowssys_windows_win32_system_diagnostics_etw_tdhEnumerateProviders", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_tdhEnumerateProviders_napi));
+    exports.Set("windowssys_windows_win32_system_diagnostics_etw_tdhEnumerateProvidersForDecodingSource", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_tdhEnumerateProvidersForDecodingSource_napi));
+    exports.Set("windowssys_windows_win32_system_diagnostics_etw_tdhFormatProperty", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_tdhFormatProperty_napi));
+    exports.Set("windowssys_windows_win32_system_diagnostics_etw_tdhGetDecodingParameter", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_tdhGetDecodingParameter_napi));
+    exports.Set("windowssys_windows_win32_system_diagnostics_etw_tdhGetEventInformation", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_tdhGetEventInformation_napi));
+    exports.Set("windowssys_windows_win32_system_diagnostics_etw_tdhGetEventMapInformation", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_tdhGetEventMapInformation_napi));
+    exports.Set("windowssys_windows_win32_system_diagnostics_etw_tdhGetManifestEventInformation", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_tdhGetManifestEventInformation_napi));
+    exports.Set("windowssys_windows_win32_system_diagnostics_etw_tdhGetProperty", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_tdhGetProperty_napi));
+    exports.Set("windowssys_windows_win32_system_diagnostics_etw_tdhGetPropertySize", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_tdhGetPropertySize_napi));
+    exports.Set("windowssys_windows_win32_system_diagnostics_etw_tdhGetWppMessage", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_tdhGetWppMessage_napi));
+    exports.Set("windowssys_windows_win32_system_diagnostics_etw_tdhGetWppProperty", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_tdhGetWppProperty_napi));
+    exports.Set("windowssys_windows_win32_system_diagnostics_etw_tdhLoadManifest", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_tdhLoadManifest_napi));
+    exports.Set("windowssys_windows_win32_system_diagnostics_etw_tdhLoadManifestFromBinary", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_tdhLoadManifestFromBinary_napi));
+    exports.Set("windowssys_windows_win32_system_diagnostics_etw_tdhLoadManifestFromMemory", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_tdhLoadManifestFromMemory_napi));
+    exports.Set("windowssys_windows_win32_system_diagnostics_etw_tdhOpenDecodingHandle", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_tdhOpenDecodingHandle_napi));
+    exports.Set("windowssys_windows_win32_system_diagnostics_etw_tdhQueryProviderFieldInformation", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_tdhQueryProviderFieldInformation_napi));
+    exports.Set("windowssys_windows_win32_system_diagnostics_etw_tdhSetDecodingParameter", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_tdhSetDecodingParameter_napi));
+    exports.Set("windowssys_windows_win32_system_diagnostics_etw_tdhUnloadManifest", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_tdhUnloadManifest_napi));
+    exports.Set("windowssys_windows_win32_system_diagnostics_etw_tdhUnloadManifestFromMemory", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_tdhUnloadManifestFromMemory_napi));
+    exports.Set("windowssys_windows_win32_system_diagnostics_etw_traceEvent", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_traceEvent_napi));
+    exports.Set("windowssys_windows_win32_system_diagnostics_etw_traceEventInstance", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_traceEventInstance_napi));
+    exports.Set("windowssys_windows_win32_system_diagnostics_etw_traceMessage", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_traceMessage_napi));
+    exports.Set("windowssys_windows_win32_system_diagnostics_etw_traceMessageVa", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_traceMessageVa_napi));
+    exports.Set("windowssys_windows_win32_system_diagnostics_etw_unregisterTraceGuids", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_etw_unregisterTraceGuids_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_system_diagnostics_etw_napi, nullptr };

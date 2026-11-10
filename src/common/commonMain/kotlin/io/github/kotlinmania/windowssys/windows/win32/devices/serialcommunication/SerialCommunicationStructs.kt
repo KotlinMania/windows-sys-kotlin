@@ -1,181 +1,183 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.devices.serialcommunication
 
-public data class SERENUM_PORT_DESC(
-    public var Size: UInt = 0u,
-    public var PortHandle: Long = 0L,
-    public var PortAddress: Long = 0L,
-    public var Reserved: UShortArray = UShortArray(1),
+import io.github.kotlinmania.windowssys.COpaquePointer
+
+public data class SerenumPortDesc(
+    public var size: UInt = 0u,
+    public var portHandle: COpaquePointer? = null,
+    public var portAddress: Long = 0L,
+    public var reserved: UShortArray = UShortArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SERENUM_PORT_DESC) return false
-        if (this.Size != other.Size) return false
-        if (this.PortHandle != other.PortHandle) return false
-        if (this.PortAddress != other.PortAddress) return false
-        if (!this.Reserved.contentEquals(other.Reserved)) return false
+        if (other !is SerenumPortDesc) return false
+        if (this.size != other.size) return false
+        if (this.portHandle != other.portHandle) return false
+        if (this.portAddress != other.portAddress) return false
+        if (!this.reserved.contentEquals(other.reserved)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Size.hashCode()
-        result = 31 * result + this.PortHandle.hashCode()
-        result = 31 * result + this.PortAddress.hashCode()
-        result = 31 * result + this.Reserved.contentHashCode()
+        var result = this.size.hashCode()
+        result = 31 * result + this.portHandle.hashCode()
+        result = 31 * result + this.portAddress.hashCode()
+        result = 31 * result + this.reserved.contentHashCode()
         return result
     }
 }
 
-public data class SERENUM_PORT_PARAMETERS(
-    public var Size: UInt = 0u,
-    public var ReadAccessor: PSERENUM_READPORT = null,
-    public var WriteAccessor: PSERENUM_WRITEPORT = null,
-    public var SerPortAddress: Long = 0L,
-    public var HardwareHandle: Long = 0L,
-    public var Portion: SERENUM_PORTION = 0,
-    public var NumberAxis: UShort = 0u,
-    public var Reserved: UShortArray = UShortArray(3),
+public data class SerenumPortParameters(
+    public var size: UInt = 0u,
+    public var readAccessor: PserenumReadport = null,
+    public var writeAccessor: PserenumWriteport = null,
+    public var serPortAddress: COpaquePointer? = null,
+    public var hardwareHandle: COpaquePointer? = null,
+    public var portion: SerenumPortion = 0,
+    public var numberAxis: UShort = 0u,
+    public var reserved: UShortArray = UShortArray(3),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SERENUM_PORT_PARAMETERS) return false
-        if (this.Size != other.Size) return false
-        if (this.ReadAccessor != other.ReadAccessor) return false
-        if (this.WriteAccessor != other.WriteAccessor) return false
-        if (this.SerPortAddress != other.SerPortAddress) return false
-        if (this.HardwareHandle != other.HardwareHandle) return false
-        if (this.Portion != other.Portion) return false
-        if (this.NumberAxis != other.NumberAxis) return false
-        if (!this.Reserved.contentEquals(other.Reserved)) return false
+        if (other !is SerenumPortParameters) return false
+        if (this.size != other.size) return false
+        if (this.readAccessor != other.readAccessor) return false
+        if (this.writeAccessor != other.writeAccessor) return false
+        if (this.serPortAddress != other.serPortAddress) return false
+        if (this.hardwareHandle != other.hardwareHandle) return false
+        if (this.portion != other.portion) return false
+        if (this.numberAxis != other.numberAxis) return false
+        if (!this.reserved.contentEquals(other.reserved)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Size.hashCode()
-        result = 31 * result + this.ReadAccessor.hashCode()
-        result = 31 * result + this.WriteAccessor.hashCode()
-        result = 31 * result + this.SerPortAddress.hashCode()
-        result = 31 * result + this.HardwareHandle.hashCode()
-        result = 31 * result + this.Portion.hashCode()
-        result = 31 * result + this.NumberAxis.hashCode()
-        result = 31 * result + this.Reserved.contentHashCode()
+        var result = this.size.hashCode()
+        result = 31 * result + this.readAccessor.hashCode()
+        result = 31 * result + this.writeAccessor.hashCode()
+        result = 31 * result + this.serPortAddress.hashCode()
+        result = 31 * result + this.hardwareHandle.hashCode()
+        result = 31 * result + this.portion.hashCode()
+        result = 31 * result + this.numberAxis.hashCode()
+        result = 31 * result + this.reserved.contentHashCode()
         return result
     }
 }
 
-public data class SERIALCONFIG(
-    public var Size: UInt = 0u,
-    public var Version: UShort = 0u,
-    public var SubType: UInt = 0u,
-    public var ProvOffset: UInt = 0u,
-    public var ProviderSize: UInt = 0u,
-    public var ProviderData: UShortArray = UShortArray(1),
+public data class Serialconfig(
+    public var size: UInt = 0u,
+    public var version: UShort = 0u,
+    public var subType: UInt = 0u,
+    public var provOffset: UInt = 0u,
+    public var providerSize: UInt = 0u,
+    public var providerData: UShortArray = UShortArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SERIALCONFIG) return false
-        if (this.Size != other.Size) return false
-        if (this.Version != other.Version) return false
-        if (this.SubType != other.SubType) return false
-        if (this.ProvOffset != other.ProvOffset) return false
-        if (this.ProviderSize != other.ProviderSize) return false
-        if (!this.ProviderData.contentEquals(other.ProviderData)) return false
+        if (other !is Serialconfig) return false
+        if (this.size != other.size) return false
+        if (this.version != other.version) return false
+        if (this.subType != other.subType) return false
+        if (this.provOffset != other.provOffset) return false
+        if (this.providerSize != other.providerSize) return false
+        if (!this.providerData.contentEquals(other.providerData)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Size.hashCode()
-        result = 31 * result + this.Version.hashCode()
-        result = 31 * result + this.SubType.hashCode()
-        result = 31 * result + this.ProvOffset.hashCode()
-        result = 31 * result + this.ProviderSize.hashCode()
-        result = 31 * result + this.ProviderData.contentHashCode()
+        var result = this.size.hashCode()
+        result = 31 * result + this.version.hashCode()
+        result = 31 * result + this.subType.hashCode()
+        result = 31 * result + this.provOffset.hashCode()
+        result = 31 * result + this.providerSize.hashCode()
+        result = 31 * result + this.providerData.contentHashCode()
         return result
     }
 }
 
-public data class SERIALPERF_STATS(
-    public var ReceivedCount: UInt = 0u,
-    public var TransmittedCount: UInt = 0u,
-    public var FrameErrorCount: UInt = 0u,
-    public var SerialOverrunErrorCount: UInt = 0u,
-    public var BufferOverrunErrorCount: UInt = 0u,
-    public var ParityErrorCount: UInt = 0u,
+public data class SerialperfStats(
+    public var receivedCount: UInt = 0u,
+    public var transmittedCount: UInt = 0u,
+    public var frameErrorCount: UInt = 0u,
+    public var serialOverrunErrorCount: UInt = 0u,
+    public var bufferOverrunErrorCount: UInt = 0u,
+    public var parityErrorCount: UInt = 0u,
 )
 
-public data class SERIAL_BASIC_SETTINGS(
-    public var Timeouts: SERIAL_TIMEOUTS = SERIAL_TIMEOUTS(),
-    public var HandFlow: SERIAL_HANDFLOW = SERIAL_HANDFLOW(),
-    public var RxFifo: UInt = 0u,
-    public var TxFifo: UInt = 0u,
+public data class SerialBasicSettings(
+    public var timeouts: SerialTimeouts = SerialTimeouts(),
+    public var handFlow: SerialHandflow = SerialHandflow(),
+    public var rxFifo: UInt = 0u,
+    public var txFifo: UInt = 0u,
 )
 
-public data class SERIAL_BAUD_RATE(public var BaudRate: UInt = 0u)
+public data class SerialBaudRate(public var baudRate: UInt = 0u)
 
-public data class SERIAL_CHARS(
-    public var EofChar: UByte = 0u,
-    public var ErrorChar: UByte = 0u,
-    public var BreakChar: UByte = 0u,
-    public var EventChar: UByte = 0u,
-    public var XonChar: UByte = 0u,
-    public var XoffChar: UByte = 0u,
+public data class SerialChars(
+    public var eofChar: UByte = 0u,
+    public var errorChar: UByte = 0u,
+    public var breakChar: UByte = 0u,
+    public var eventChar: UByte = 0u,
+    public var xonChar: UByte = 0u,
+    public var xoffChar: UByte = 0u,
 )
 
-public class SERIAL_COMMPROP(
-    public var PacketLength: UShort = 0u,
-    public var PacketVersion: UShort = 0u,
-    public var ServiceMask: UInt = 0u,
-    public var Reserved1: UInt = 0u,
-    public var MaxTxQueue: UInt = 0u,
-    public var MaxRxQueue: UInt = 0u,
-    public var MaxBaud: UInt = 0u,
-    public var ProvSubType: UInt = 0u,
-    public var ProvCapabilities: UInt = 0u,
-    public var SettableParams: UInt = 0u,
-    public var SettableBaud: UInt = 0u,
-    public var SettableData: UShort = 0u,
-    public var SettableStopParity: UShort = 0u,
-    public var CurrentTxQueue: UInt = 0u,
-    public var CurrentRxQueue: UInt = 0u,
-    public var ProvSpec1: UInt = 0u,
-    public var ProvSpec2: UInt = 0u,
-    public var ProvChar: UShortArray = UShortArray(1),
+public class SerialCommprop(
+    public var packetLength: UShort = 0u,
+    public var packetVersion: UShort = 0u,
+    public var serviceMask: UInt = 0u,
+    public var reserved1: UInt = 0u,
+    public var maxTxQueue: UInt = 0u,
+    public var maxRxQueue: UInt = 0u,
+    public var maxBaud: UInt = 0u,
+    public var provSubType: UInt = 0u,
+    public var provCapabilities: UInt = 0u,
+    public var settableParams: UInt = 0u,
+    public var settableBaud: UInt = 0u,
+    public var settableData: UShort = 0u,
+    public var settableStopParity: UShort = 0u,
+    public var currentTxQueue: UInt = 0u,
+    public var currentRxQueue: UInt = 0u,
+    public var provSpec1: UInt = 0u,
+    public var provSpec2: UInt = 0u,
+    public var provChar: UShortArray = UShortArray(1),
 )
 
-public data class SERIAL_HANDFLOW(
-    public var ControlHandShake: UInt = 0u,
-    public var FlowReplace: UInt = 0u,
-    public var XonLimit: Int = 0,
-    public var XoffLimit: Int = 0,
+public data class SerialHandflow(
+    public var controlHandShake: UInt = 0u,
+    public var flowReplace: UInt = 0u,
+    public var xonLimit: Int = 0,
+    public var xoffLimit: Int = 0,
 )
 
-public data class SERIAL_LINE_CONTROL(
-    public var StopBits: UByte = 0u,
-    public var Parity: UByte = 0u,
-    public var WordLength: UByte = 0u,
+public data class SerialLineControl(
+    public var stopBits: UByte = 0u,
+    public var parity: UByte = 0u,
+    public var wordLength: UByte = 0u,
 )
 
-public data class SERIAL_QUEUE_SIZE(public var InSize: UInt = 0u, public var OutSize: UInt = 0u)
+public data class SerialQueueSize(public var inSize: UInt = 0u, public var outSize: UInt = 0u)
 
-public data class SERIAL_STATUS(
-    public var Errors: UInt = 0u,
-    public var HoldReasons: UInt = 0u,
-    public var AmountInInQueue: UInt = 0u,
-    public var AmountInOutQueue: UInt = 0u,
-    public var EofReceived: Boolean = false,
-    public var WaitForImmediate: Boolean = false,
+public data class SerialStatus(
+    public var errors: UInt = 0u,
+    public var holdReasons: UInt = 0u,
+    public var amountInInQueue: UInt = 0u,
+    public var amountInOutQueue: UInt = 0u,
+    public var eofReceived: Boolean = false,
+    public var waitForImmediate: Boolean = false,
 )
 
-public data class SERIAL_TIMEOUTS(
-    public var ReadIntervalTimeout: UInt = 0u,
-    public var ReadTotalTimeoutMultiplier: UInt = 0u,
-    public var ReadTotalTimeoutConstant: UInt = 0u,
-    public var WriteTotalTimeoutMultiplier: UInt = 0u,
-    public var WriteTotalTimeoutConstant: UInt = 0u,
+public data class SerialTimeouts(
+    public var readIntervalTimeout: UInt = 0u,
+    public var readTotalTimeoutMultiplier: UInt = 0u,
+    public var readTotalTimeoutConstant: UInt = 0u,
+    public var writeTotalTimeoutMultiplier: UInt = 0u,
+    public var writeTotalTimeoutConstant: UInt = 0u,
 )
 
-public data class SERIAL_XOFF_COUNTER(
-    public var Timeout: UInt = 0u,
-    public var Counter: Int = 0,
-    public var XoffChar: UByte = 0u,
+public data class SerialXoffCounter(
+    public var timeout: UInt = 0u,
+    public var counter: Int = 0,
+    public var xoffChar: UByte = 0u,
 )

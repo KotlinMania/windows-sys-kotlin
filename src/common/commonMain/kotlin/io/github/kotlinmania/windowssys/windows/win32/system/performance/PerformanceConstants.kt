@@ -1,61 +1,61 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.performance
 
 import io.github.kotlinmania.windowssys.U128
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.w
 
-public val AppearPropPage: GUID = GUID.from_u128(U128(0xe49741e993a84ab1uL, 0x8e96bf4482282e9cuL))
+public val APPEAR_PROP_PAGE: Guid = Guid.fromU128(U128(0xe49741e993a84ab1uL, 0x8e96bf4482282e9cuL))
 
-public val BootTraceSession: GUID = GUID.from_u128(U128(0x3837538098b11d8uL, 0x9414505054503030uL))
+public val BOOT_TRACE_SESSION: Guid = Guid.fromU128(U128(0x3837538098b11d8uL, 0x9414505054503030uL))
 
-public val BootTraceSessionCollection: GUID = GUID.from_u128(U128(0x3837539098b11d8uL, 0x9414505054503030uL))
+public val BOOT_TRACE_SESSION_COLLECTION: Guid = Guid.fromU128(U128(0x3837539098b11d8uL, 0x9414505054503030uL))
 
-public val CounterItem: GUID = GUID.from_u128(U128(0xc4d2d8e0d1dd11ceuL, 0x940f008029004348uL))
+public val COUNTER_ITEM: Guid = Guid.fromU128(U128(0xc4d2d8e0d1dd11ceuL, 0x940f008029004348uL))
 
-public val CounterItem2: GUID = GUID.from_u128(U128(0x43196c62c31f4ce3uL, 0xa02e79efe0f6a525uL))
+public val COUNTER_ITEM2: Guid = Guid.fromU128(U128(0x43196c62c31f4ce3uL, 0xa02e79efe0f6a525uL))
 
-public val CounterPropPage: GUID = GUID.from_u128(U128(0xcf948561ede811ceuL, 0x941e008029004347uL))
+public val COUNTER_PROP_PAGE: Guid = Guid.fromU128(U128(0xcf948561ede811ceuL, 0x941e008029004347uL))
 
-public val Counters: GUID = GUID.from_u128(U128(0xb2b066d22aac11cfuL, 0x942f008029004347uL))
+public val COUNTERS: Guid = Guid.fromU128(U128(0xb2b066d22aac11cfuL, 0x942f008029004347uL))
 
-public val DATA_SOURCE_REGISTRY: REAL_TIME_DATA_SOURCE_ID_FLAGS = 1u
+public val DATA_SOURCE_REGISTRY: RealTimeDataSourceIdFlags = 1u
 
-public val DATA_SOURCE_WBEM: REAL_TIME_DATA_SOURCE_ID_FLAGS = 4u
+public val DATA_SOURCE_WBEM: RealTimeDataSourceIdFlags = 4u
 
-public val DIID_DICounterItem: GUID = GUID.from_u128(U128(0xc08c4ff20e2e11cfuL, 0x942c008029004347uL))
+public val DIID_DI_COUNTER_ITEM: Guid = Guid.fromU128(U128(0xc08c4ff20e2e11cfuL, 0x942c008029004347uL))
 
-public val DIID_DILogFileItem: GUID = GUID.from_u128(U128(0x8d093ffcf7774917uL, 0x82d1833fbc54c58fuL))
+public val DIID_DI_LOG_FILE_ITEM: Guid = Guid.fromU128(U128(0x8d093ffcf7774917uL, 0x82d1833fbc54c58fuL))
 
-public val DIID_DISystemMonitor: GUID = GUID.from_u128(U128(0x13d73d81c32e11cfuL, 0x939800aa00a3ddeauL))
+public val DIID_DI_SYSTEM_MONITOR: Guid = Guid.fromU128(U128(0x13d73d81c32e11cfuL, 0x939800aa00a3ddeauL))
 
-public val DIID_DISystemMonitorEvents: GUID = GUID.from_u128(U128(0x849799304ab311cfuL, 0x943a008029004347uL))
+public val DIID_DI_SYSTEM_MONITOR_EVENTS: Guid = Guid.fromU128(U128(0x849799304ab311cfuL, 0x943a008029004347uL))
 
-public val DIID_DISystemMonitorInternal: GUID = GUID.from_u128(U128(0x194eb242c32c11cfuL, 0x939800aa00a3ddeauL))
+public val DIID_DI_SYSTEM_MONITOR_INTERNAL: Guid = Guid.fromU128(U128(0x194eb242c32c11cfuL, 0x939800aa00a3ddeauL))
 
-public val DataCollectorSet: GUID = GUID.from_u128(U128(0x3837521098b11d8uL, 0x9414505054503030uL))
+public val DATA_COLLECTOR_SET: Guid = Guid.fromU128(U128(0x3837521098b11d8uL, 0x9414505054503030uL))
 
-public val DataCollectorSetCollection: GUID = GUID.from_u128(U128(0x3837525098b11d8uL, 0x9414505054503030uL))
+public val DATA_COLLECTOR_SET_COLLECTION: Guid = Guid.fromU128(U128(0x3837525098b11d8uL, 0x9414505054503030uL))
 
-public val GeneralPropPage: GUID = GUID.from_u128(U128(0xc3e5d3d21a0311cfuL, 0x942d008029004347uL))
+public val GENERAL_PROP_PAGE: Guid = Guid.fromU128(U128(0xc3e5d3d21a0311cfuL, 0x942d008029004347uL))
 
-public val GraphPropPage: GUID = GUID.from_u128(U128(0xc3e5d3d31a0311cfuL, 0x942d008029004347uL))
+public val GRAPH_PROP_PAGE: Guid = Guid.fromU128(U128(0xc3e5d3d31a0311cfuL, 0x942d008029004347uL))
 
 public val H_WBEM_DATASOURCE: Int = -1
 
-public val LIBID_SystemMonitor: GUID = GUID.from_u128(U128(0x1b773e42250911cfuL, 0x942f008029004347uL))
+public val LIBID_SYSTEM_MONITOR: Guid = Guid.fromU128(U128(0x1b773e42250911cfuL, 0x942f008029004347uL))
 
-public val LegacyDataCollectorSet: GUID = GUID.from_u128(U128(0x3837526098b11d8uL, 0x9414505054503030uL))
+public val LEGACY_DATA_COLLECTOR_SET: Guid = Guid.fromU128(U128(0x3837526098b11d8uL, 0x9414505054503030uL))
 
-public val LegacyDataCollectorSetCollection: GUID = GUID.from_u128(U128(0x3837527098b11d8uL, 0x9414505054503030uL))
+public val LEGACY_DATA_COLLECTOR_SET_COLLECTION: Guid = Guid.fromU128(U128(0x3837527098b11d8uL, 0x9414505054503030uL))
 
-public val LegacyTraceSession: GUID = GUID.from_u128(U128(0x3837528098b11d8uL, 0x9414505054503030uL))
+public val LEGACY_TRACE_SESSION: Guid = Guid.fromU128(U128(0x3837528098b11d8uL, 0x9414505054503030uL))
 
-public val LegacyTraceSessionCollection: GUID = GUID.from_u128(U128(0x3837529098b11d8uL, 0x9414505054503030uL))
+public val LEGACY_TRACE_SESSION_COLLECTION: Guid = Guid.fromU128(U128(0x3837529098b11d8uL, 0x9414505054503030uL))
 
-public val LogFileItem: GUID = GUID.from_u128(U128(0x16ec5be8df934237uL, 0x94e49ee918111d71uL))
+public val LOG_FILE_ITEM: Guid = Guid.fromU128(U128(0x16ec5be8df934237uL, 0x94e49ee918111d71uL))
 
-public val LogFiles: GUID = GUID.from_u128(U128(0x2735d9fdf6b94f19uL, 0xa5d9e2d068584bc5uL))
+public val LOG_FILES: Guid = Guid.fromU128(U128(0x2735d9fdf6b94f19uL, 0xa5d9e2d068584bc5uL))
 
 public val MAX_COUNTER_PATH: UInt = 256u
 
@@ -103,7 +103,7 @@ public val PDH_CSTATUS_NO_OBJECT: UInt = 3221228472u
 
 public val PDH_CSTATUS_VALID_DATA: UInt = 0u
 
-public val PDH_CVERSION_WIN50: PDH_DLL_VERSION = 1280u
+public val PDH_CVERSION_WIN50: PdhDllVersion = 1280u
 
 public val PDH_DATA_SOURCE_IS_LOG_FILE: UInt = 3221228494u
 
@@ -119,15 +119,15 @@ public val PDH_FILE_ALREADY_EXISTS: UInt = 3221228498u
 
 public val PDH_FILE_NOT_FOUND: UInt = 3221228497u
 
-public val PDH_FLAGS_FILE_BROWSER_ONLY: PDH_SELECT_DATA_SOURCE_FLAGS = 1u
+public val PDH_FLAGS_FILE_BROWSER_ONLY: PdhSelectDataSourceFlags = 1u
 
-public val PDH_FLAGS_NONE: PDH_SELECT_DATA_SOURCE_FLAGS = 0u
+public val PDH_FLAGS_NONE: PdhSelectDataSourceFlags = 0u
 
-public val PDH_FMT_DOUBLE: PDH_FMT = 512u
+public val PDH_FMT_DOUBLE: PdhFmt = 512u
 
-public val PDH_FMT_LARGE: PDH_FMT = 1024u
+public val PDH_FMT_LARGE: PdhFmt = 1024u
 
-public val PDH_FMT_LONG: PDH_FMT = 256u
+public val PDH_FMT_LONG: PdhFmt = 256u
 
 public val PDH_FUNCTION_NOT_FOUND: UInt = 3221228478u
 
@@ -163,33 +163,33 @@ public val PDH_LOG_FILE_OPEN_ERROR: UInt = 3221228490u
 
 public val PDH_LOG_FILE_TOO_SMALL: UInt = 3221228508u
 
-public val PDH_LOG_READ_ACCESS: PDH_LOG = 65536u
+public val PDH_LOG_READ_ACCESS: PdhLog = 65536u
 
 public val PDH_LOG_SAMPLE_TOO_SMALL: UInt = 3221228536u
 
-public val PDH_LOG_TYPE_BINARY: PDH_LOG_TYPE = 8u
+public val PDH_LOG_TYPE_BINARY: PdhLogType = 8u
 
-public val PDH_LOG_TYPE_CSV: PDH_LOG_TYPE = 1u
+public val PDH_LOG_TYPE_CSV: PdhLogType = 1u
 
 public val PDH_LOG_TYPE_NOT_FOUND: UInt = 3221228491u
 
-public val PDH_LOG_TYPE_PERFMON: PDH_LOG_TYPE = 6u
+public val PDH_LOG_TYPE_PERFMON: PdhLogType = 6u
 
 public val PDH_LOG_TYPE_RETIRED_BIN: UInt = 3u
 
-public val PDH_LOG_TYPE_SQL: PDH_LOG_TYPE = 7u
+public val PDH_LOG_TYPE_SQL: PdhLogType = 7u
 
 public val PDH_LOG_TYPE_TRACE_GENERIC: UInt = 5u
 
 public val PDH_LOG_TYPE_TRACE_KERNEL: UInt = 4u
 
-public val PDH_LOG_TYPE_TSV: PDH_LOG_TYPE = 2u
+public val PDH_LOG_TYPE_TSV: PdhLogType = 2u
 
-public val PDH_LOG_TYPE_UNDEFINED: PDH_LOG_TYPE = 0u
+public val PDH_LOG_TYPE_UNDEFINED: PdhLogType = 0u
 
-public val PDH_LOG_UPDATE_ACCESS: PDH_LOG = 262144u
+public val PDH_LOG_UPDATE_ACCESS: PdhLog = 262144u
 
-public val PDH_LOG_WRITE_ACCESS: PDH_LOG = 131072u
+public val PDH_LOG_WRITE_ACCESS: PdhLog = 131072u
 
 public val PDH_MAX_COUNTER_NAME: UInt = 1024u
 
@@ -225,11 +225,11 @@ public val PDH_OS_EARLIER_VERSION: UInt = 3221228538u
 
 public val PDH_OS_LATER_VERSION: UInt = 3221228537u
 
-public val PDH_PATH_WBEM_INPUT: PDH_PATH_FLAGS = 2u
+public val PDH_PATH_WBEM_INPUT: PdhPathFlags = 2u
 
-public val PDH_PATH_WBEM_NONE: PDH_PATH_FLAGS = 0u
+public val PDH_PATH_WBEM_NONE: PdhPathFlags = 0u
 
-public val PDH_PATH_WBEM_RESULT: PDH_PATH_FLAGS = 1u
+public val PDH_PATH_WBEM_RESULT: PdhPathFlags = 1u
 
 public val PDH_PLA_COLLECTION_ALREADY_RUNNING: UInt = 3221228521u
 
@@ -291,23 +291,23 @@ public val PDH_UNKNOWN_LOG_FORMAT: UInt = 3221228502u
 
 public val PDH_UNMATCHED_APPEND_COUNTER: UInt = 3221228540u
 
-public val PDH_VERSION: PDH_DLL_VERSION = 1283u
+public val PDH_VERSION: PdhDllVersion = 1283u
 
 public val PDH_WBEM_ERROR: UInt = 3221228506u
 
 public val PERF_ADD_COUNTER: UInt = 1u
 
-public val PERF_AGGREGATE_AVG: PERF_COUNTER_AGGREGATE_FUNC = 2u
+public val PERF_AGGREGATE_AVG: PerfCounterAggregateFunc = 2u
 
-public val PERF_AGGREGATE_INSTANCE: PCWSTR = w("_Total")
+public val PERF_AGGREGATE_INSTANCE: Pcwstr = w("_Total")
 
-public val PERF_AGGREGATE_MAX: PERF_COUNTER_AGGREGATE_FUNC = 4u
+public val PERF_AGGREGATE_MAX: PerfCounterAggregateFunc = 4u
 
-public val PERF_AGGREGATE_MIN: PERF_COUNTER_AGGREGATE_FUNC = 3u
+public val PERF_AGGREGATE_MIN: PerfCounterAggregateFunc = 3u
 
-public val PERF_AGGREGATE_TOTAL: PERF_COUNTER_AGGREGATE_FUNC = 1u
+public val PERF_AGGREGATE_TOTAL: PerfCounterAggregateFunc = 1u
 
-public val PERF_AGGREGATE_UNDEFINED: PERF_COUNTER_AGGREGATE_FUNC = 0u
+public val PERF_AGGREGATE_UNDEFINED: PerfCounterAggregateFunc = 0u
 
 public val PERF_ATTRIB_BY_REFERENCE: ULong = 1uL
 
@@ -365,13 +365,13 @@ public val PERF_DELTA_BASE: UInt = 8388608u
 
 public val PERF_DELTA_COUNTER: UInt = 4194304u
 
-public val PERF_DETAIL_ADVANCED: PERF_DETAIL = 200u
+public val PERF_DETAIL_ADVANCED: PerfDetail = 200u
 
-public val PERF_DETAIL_EXPERT: PERF_DETAIL = 300u
+public val PERF_DETAIL_EXPERT: PerfDetail = 300u
 
-public val PERF_DETAIL_NOVICE: PERF_DETAIL = 100u
+public val PERF_DETAIL_NOVICE: PerfDetail = 100u
 
-public val PERF_DETAIL_WIZARD: PERF_DETAIL = 400u
+public val PERF_DETAIL_WIZARD: PerfDetail = 400u
 
 public val PERF_DISPLAY_NOSHOW: UInt = 1073741824u
 
@@ -471,7 +471,7 @@ public val PERF_TYPE_ZERO: UInt = 3072u
 
 public val PERF_WILDCARD_COUNTER: UInt = 4294967295u
 
-public val PERF_WILDCARD_INSTANCE: PCWSTR = w("*")
+public val PERF_WILDCARD_INSTANCE: Pcwstr = w("*")
 
 public val PLAL_ALERT_CMD_LINE_A_NAME: UInt = 512u
 
@@ -503,29 +503,29 @@ public val PLA_CAPABILITY_V1_SVC: UInt = 1u
 
 public val PLA_CAPABILITY_V1_SYSTEM: UInt = 4u
 
-public val S_PDH: GUID = GUID.from_u128(U128(0x4d66358c4a1419buL, 0x802323b73902de2cuL))
+public val S_PDH: Guid = Guid.fromU128(U128(0x4d66358c4a1419buL, 0x802323b73902de2cuL))
 
-public val ServerDataCollectorSet: GUID = GUID.from_u128(U128(0x3837531098b11d8uL, 0x9414505054503030uL))
+public val SERVER_DATA_COLLECTOR_SET: Guid = Guid.fromU128(U128(0x3837531098b11d8uL, 0x9414505054503030uL))
 
-public val ServerDataCollectorSetCollection: GUID = GUID.from_u128(U128(0x3837532098b11d8uL, 0x9414505054503030uL))
+public val SERVER_DATA_COLLECTOR_SET_COLLECTION: Guid = Guid.fromU128(U128(0x3837532098b11d8uL, 0x9414505054503030uL))
 
-public val SourcePropPage: GUID = GUID.from_u128(U128(0xcf32aa1757111d0uL, 0x93c400aa00a3ddeauL))
+public val SOURCE_PROP_PAGE: Guid = Guid.fromU128(U128(0xcf32aa1757111d0uL, 0x93c400aa00a3ddeauL))
 
-public val SystemDataCollectorSet: GUID = GUID.from_u128(U128(0x3837546098b11d8uL, 0x9414505054503030uL))
+public val SYSTEM_DATA_COLLECTOR_SET: Guid = Guid.fromU128(U128(0x3837546098b11d8uL, 0x9414505054503030uL))
 
-public val SystemDataCollectorSetCollection: GUID = GUID.from_u128(U128(0x3837547098b11d8uL, 0x9414505054503030uL))
+public val SYSTEM_DATA_COLLECTOR_SET_COLLECTION: Guid = Guid.fromU128(U128(0x3837547098b11d8uL, 0x9414505054503030uL))
 
-public val SystemMonitor: GUID = GUID.from_u128(U128(0xc4d2d8e0d1dd11ceuL, 0x940f008029004347uL))
+public val SYSTEM_MONITOR: Guid = Guid.fromU128(U128(0xc4d2d8e0d1dd11ceuL, 0x940f008029004347uL))
 
-public val SystemMonitor2: GUID = GUID.from_u128(U128(0x7f30578c5f384612uL, 0xacfe6ed04c7b7af8uL))
+public val SYSTEM_MONITOR2: Guid = Guid.fromU128(U128(0x7f30578c5f384612uL, 0xacfe6ed04c7b7af8uL))
 
-public val TraceDataProvider: GUID = GUID.from_u128(U128(0x3837513098b11d8uL, 0x9414505054503030uL))
+public val TRACE_DATA_PROVIDER: Guid = Guid.fromU128(U128(0x3837513098b11d8uL, 0x9414505054503030uL))
 
-public val TraceDataProviderCollection: GUID = GUID.from_u128(U128(0x3837511098b11d8uL, 0x9414505054503030uL))
+public val TRACE_DATA_PROVIDER_COLLECTION: Guid = Guid.fromU128(U128(0x3837511098b11d8uL, 0x9414505054503030uL))
 
-public val TraceSession: GUID = GUID.from_u128(U128(0x383751c098b11d8uL, 0x9414505054503030uL))
+public val TRACE_SESSION: Guid = Guid.fromU128(U128(0x383751c098b11d8uL, 0x9414505054503030uL))
 
-public val TraceSessionCollection: GUID = GUID.from_u128(U128(0x3837530098b11d8uL, 0x9414505054503030uL))
+public val TRACE_SESSION_COLLECTION: Guid = Guid.fromU128(U128(0x3837530098b11d8uL, 0x9414505054503030uL))
 
 public val WINPERF_LOG_DEBUG: UInt = 2u
 
@@ -535,188 +535,188 @@ public val WINPERF_LOG_USER: UInt = 1u
 
 public val WINPERF_LOG_VERBOSE: UInt = 3u
 
-public val plaAlert: DataCollectorType = 3
+public val PLA_ALERT: DataCollectorType = 3
 
-public val plaApiTrace: DataCollectorType = 4
+public val PLA_API_TRACE: DataCollectorType = 4
 
-public val plaBinary: FileFormat = 3
+public val PLA_BINARY: FileFormat = 3
 
-public val plaBoth: StreamMode = 3
+public val PLA_BOTH: StreamMode = 3
 
-public val plaBuffering: StreamMode = 4
+public val PLA_BUFFERING: StreamMode = 4
 
-public val plaCommaSeparated: FileFormat = 0
+public val PLA_COMMA_SEPARATED: FileFormat = 0
 
-public val plaCompiling: DataCollectorSetStatus = 2
+public val PLA_COMPILING: DataCollectorSetStatus = 2
 
-public val plaComputer: AutoPathFormat = 2
+public val PLA_COMPUTER: AutoPathFormat = 2
 
-public val plaConfiguration: DataCollectorType = 2
+public val PLA_CONFIGURATION: DataCollectorType = 2
 
-public val plaCreateCab: FolderActionSteps = 1
+public val PLA_CREATE_CAB: FolderActionSteps = 1
 
-public val plaCreateHtml: DataManagerSteps = 4
+public val PLA_CREATE_HTML: DataManagerSteps = 4
 
-public val plaCreateNew: CommitMode = 1
+public val PLA_CREATE_NEW: CommitMode = 1
 
-public val plaCreateOrModify: CommitMode = 3
+public val PLA_CREATE_OR_MODIFY: CommitMode = 3
 
-public val plaCreateReport: DataManagerSteps = 1
+public val PLA_CREATE_REPORT: DataManagerSteps = 1
 
-public val plaCycle: ClockType = 3
+public val PLA_CYCLE: ClockType = 3
 
-public val plaDeleteCab: FolderActionSteps = 8
+public val PLA_DELETE_CAB: FolderActionSteps = 8
 
-public val plaDeleteData: FolderActionSteps = 2
+public val PLA_DELETE_DATA: FolderActionSteps = 2
 
-public val plaDeleteLargest: ResourcePolicy = 0
+public val PLA_DELETE_LARGEST: ResourcePolicy = 0
 
-public val plaDeleteOldest: ResourcePolicy = 1
+public val PLA_DELETE_OLDEST: ResourcePolicy = 1
 
-public val plaDeleteReport: FolderActionSteps = 16
+public val PLA_DELETE_REPORT: FolderActionSteps = 16
 
-public val plaEveryday: WeekDays = 127
+public val PLA_EVERYDAY: WeekDays = 127
 
-public val plaFile: StreamMode = 1
+public val PLA_FILE: StreamMode = 1
 
-public val plaFlag: ValueMapType = 2
+public val PLA_FLAG: ValueMapType = 2
 
-public val plaFlagArray: ValueMapType = 3
+public val PLA_FLAG_ARRAY: ValueMapType = 3
 
-public val plaFlushTrace: CommitMode = 32
+public val PLA_FLUSH_TRACE: CommitMode = 32
 
-public val plaFolderActions: DataManagerSteps = 8
+public val PLA_FOLDER_ACTIONS: DataManagerSteps = 8
 
-public val plaFriday: WeekDays = 32
+public val PLA_FRIDAY: WeekDays = 32
 
-public val plaIndex: ValueMapType = 1
+public val PLA_INDEX: ValueMapType = 1
 
-public val plaModify: CommitMode = 2
+public val PLA_MODIFY: CommitMode = 2
 
-public val plaMonday: WeekDays = 2
+public val PLA_MONDAY: WeekDays = 2
 
-public val plaMonthDayHour: AutoPathFormat = 256
+public val PLA_MONTH_DAY_HOUR: AutoPathFormat = 256
 
-public val plaMonthDayHourMinute: AutoPathFormat = 16384
+public val PLA_MONTH_DAY_HOUR_MINUTE: AutoPathFormat = 16384
 
-public val plaNone: AutoPathFormat = 0
+public val PLA_NONE: AutoPathFormat = 0
 
-public val plaPattern: AutoPathFormat = 1
+public val PLA_PATTERN: AutoPathFormat = 1
 
-public val plaPending: DataCollectorSetStatus = 3
+public val PLA_PENDING: DataCollectorSetStatus = 3
 
-public val plaPerformance: ClockType = 1
+public val PLA_PERFORMANCE: ClockType = 1
 
-public val plaPerformanceCounter: DataCollectorType = 0
+public val PLA_PERFORMANCE_COUNTER: DataCollectorType = 0
 
-public val plaRealTime: StreamMode = 2
+public val PLA_REAL_TIME: StreamMode = 2
 
-public val plaResourceFreeing: DataManagerSteps = 16
+public val PLA_RESOURCE_FREEING: DataManagerSteps = 16
 
-public val plaRunOnce: WeekDays = 0
+public val PLA_RUN_ONCE: WeekDays = 0
 
-public val plaRunRules: DataManagerSteps = 2
+public val PLA_RUN_RULES: DataManagerSteps = 2
 
-public val plaRunning: DataCollectorSetStatus = 1
+public val PLA_RUNNING: DataCollectorSetStatus = 1
 
-public val plaSaturday: WeekDays = 64
+public val PLA_SATURDAY: WeekDays = 64
 
-public val plaSendCab: FolderActionSteps = 4
+public val PLA_SEND_CAB: FolderActionSteps = 4
 
-public val plaSerialNumber: AutoPathFormat = 512
+public val PLA_SERIAL_NUMBER: AutoPathFormat = 512
 
-public val plaSql: FileFormat = 2
+public val PLA_SQL: FileFormat = 2
 
-public val plaStopped: DataCollectorSetStatus = 0
+public val PLA_STOPPED: DataCollectorSetStatus = 0
 
-public val plaSunday: WeekDays = 1
+public val PLA_SUNDAY: WeekDays = 1
 
-public val plaSystem: ClockType = 2
+public val PLA_SYSTEM: ClockType = 2
 
-public val plaTabSeparated: FileFormat = 1
+public val PLA_TAB_SEPARATED: FileFormat = 1
 
-public val plaThursday: WeekDays = 16
+public val PLA_THURSDAY: WeekDays = 16
 
-public val plaTimeStamp: ClockType = 0
+public val PLA_TIME_STAMP: ClockType = 0
 
-public val plaTrace: DataCollectorType = 1
+public val PLA_TRACE: DataCollectorType = 1
 
-public val plaTuesday: WeekDays = 4
+public val PLA_TUESDAY: WeekDays = 4
 
-public val plaUndefined: DataCollectorSetStatus = 4
+public val PLA_UNDEFINED: DataCollectorSetStatus = 4
 
-public val plaUpdateRunningInstance: CommitMode = 16
+public val PLA_UPDATE_RUNNING_INSTANCE: CommitMode = 16
 
-public val plaValidateOnly: CommitMode = 4096
+public val PLA_VALIDATE_ONLY: CommitMode = 4096
 
-public val plaValidation: ValueMapType = 4
+public val PLA_VALIDATION: ValueMapType = 4
 
-public val plaWednesday: WeekDays = 8
+public val PLA_WEDNESDAY: WeekDays = 8
 
-public val plaYearDayOfYear: AutoPathFormat = 1024
+public val PLA_YEAR_DAY_OF_YEAR: AutoPathFormat = 1024
 
-public val plaYearMonth: AutoPathFormat = 2048
+public val PLA_YEAR_MONTH: AutoPathFormat = 2048
 
-public val plaYearMonthDay: AutoPathFormat = 4096
+public val PLA_YEAR_MONTH_DAY: AutoPathFormat = 4096
 
-public val plaYearMonthDayHour: AutoPathFormat = 8192
+public val PLA_YEAR_MONTH_DAY_HOUR: AutoPathFormat = 8192
 
-public val sysmonAverage: ReportValueTypeConstants = 2
+public val SYSMON_AVERAGE: ReportValueTypeConstants = 2
 
-public val sysmonBatchAddCounters: SysmonBatchReason = 2
+public val SYSMON_BATCH_ADD_COUNTERS: SysmonBatchReason = 2
 
-public val sysmonBatchAddFiles: SysmonBatchReason = 1
+public val SYSMON_BATCH_ADD_FILES: SysmonBatchReason = 1
 
-public val sysmonBatchAddFilesAutoCounters: SysmonBatchReason = 3
+public val SYSMON_BATCH_ADD_FILES_AUTO_COUNTERS: SysmonBatchReason = 3
 
-public val sysmonBatchNone: SysmonBatchReason = 0
+public val SYSMON_BATCH_NONE: SysmonBatchReason = 0
 
-public val sysmonChartArea: DisplayTypeConstants = 4
+public val SYSMON_CHART_AREA: DisplayTypeConstants = 4
 
-public val sysmonChartStackedArea: DisplayTypeConstants = 5
+public val SYSMON_CHART_STACKED_AREA: DisplayTypeConstants = 5
 
-public val sysmonCurrentActivity: DataSourceTypeConstants = 1
+public val SYSMON_CURRENT_ACTIVITY: DataSourceTypeConstants = 1
 
-public val sysmonCurrentValue: ReportValueTypeConstants = 1
+public val SYSMON_CURRENT_VALUE: ReportValueTypeConstants = 1
 
-public val sysmonDataAvg: SysmonDataType = 1
+public val SYSMON_DATA_AVG: SysmonDataType = 1
 
-public val sysmonDataCount: SysmonDataType = 5
+public val SYSMON_DATA_COUNT: SysmonDataType = 5
 
-public val sysmonDataMax: SysmonDataType = 3
+public val SYSMON_DATA_MAX: SysmonDataType = 3
 
-public val sysmonDataMin: SysmonDataType = 2
+public val SYSMON_DATA_MIN: SysmonDataType = 2
 
-public val sysmonDataTime: SysmonDataType = 4
+public val SYSMON_DATA_TIME: SysmonDataType = 4
 
-public val sysmonDefaultValue: ReportValueTypeConstants = 0
+public val SYSMON_DEFAULT_VALUE: ReportValueTypeConstants = 0
 
-public val sysmonFileBlg: SysmonFileType = 5
+public val SYSMON_FILE_BLG: SysmonFileType = 5
 
-public val sysmonFileCsv: SysmonFileType = 3
+public val SYSMON_FILE_CSV: SysmonFileType = 3
 
-public val sysmonFileGif: SysmonFileType = 7
+public val SYSMON_FILE_GIF: SysmonFileType = 7
 
-public val sysmonFileHtml: SysmonFileType = 1
+public val SYSMON_FILE_HTML: SysmonFileType = 1
 
-public val sysmonFileReport: SysmonFileType = 2
+public val SYSMON_FILE_REPORT: SysmonFileType = 2
 
-public val sysmonFileRetiredBlg: SysmonFileType = 6
+public val SYSMON_FILE_RETIRED_BLG: SysmonFileType = 6
 
-public val sysmonFileTsv: SysmonFileType = 4
+public val SYSMON_FILE_TSV: SysmonFileType = 4
 
-public val sysmonHistogram: DisplayTypeConstants = 2
+public val SYSMON_HISTOGRAM: DisplayTypeConstants = 2
 
-public val sysmonLineGraph: DisplayTypeConstants = 1
+public val SYSMON_LINE_GRAPH: DisplayTypeConstants = 1
 
-public val sysmonLogFiles: DataSourceTypeConstants = 2
+public val SYSMON_LOG_FILES: DataSourceTypeConstants = 2
 
-public val sysmonMaximum: ReportValueTypeConstants = 4
+public val SYSMON_MAXIMUM: ReportValueTypeConstants = 4
 
-public val sysmonMinimum: ReportValueTypeConstants = 3
+public val SYSMON_MINIMUM: ReportValueTypeConstants = 3
 
-public val sysmonNullDataSource: DataSourceTypeConstants = -1
+public val SYSMON_NULL_DATA_SOURCE: DataSourceTypeConstants = -1
 
-public val sysmonReport: DisplayTypeConstants = 3
+public val SYSMON_REPORT: DisplayTypeConstants = 3
 
-public val sysmonSqlLog: DataSourceTypeConstants = 3
+public val SYSMON_SQL_LOG: DataSourceTypeConstants = 3

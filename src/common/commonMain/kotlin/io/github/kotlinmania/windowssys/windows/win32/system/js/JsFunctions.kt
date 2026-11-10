@@ -1,166 +1,167 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.js
 
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
 
-public expect fun JsAddRef(ref: Long, count: Long): JsErrorCode
+public expect fun jsAddRef(ref: COpaquePointer?, count: COpaquePointer?): JsErrorCode
 
-public expect fun JsBoolToBoolean(value: UByte, booleanvalue: Long): JsErrorCode
+public expect fun jsBoolToBoolean(value: UByte, booleanvalue: COpaquePointer?): JsErrorCode
 
-public expect fun JsBooleanToBool(value: Long, boolvalue: Long): JsErrorCode
+public expect fun jsBooleanToBool(value: COpaquePointer?, boolvalue: COpaquePointer?): JsErrorCode
 
-public expect fun JsCallFunction(function: Long, arguments: Long, argumentcount: UShort, result: Long): JsErrorCode
+public expect fun jsCallFunction(function: COpaquePointer?, arguments: COpaquePointer?, argumentcount: UShort, result: COpaquePointer?): JsErrorCode
 
-public expect fun JsCollectGarbage(runtime: Long): JsErrorCode
+public expect fun jsCollectGarbage(runtime: COpaquePointer?): JsErrorCode
 
-public expect fun JsConstructObject(function: Long, arguments: Long, argumentcount: UShort, result: Long): JsErrorCode
+public expect fun jsConstructObject(function: COpaquePointer?, arguments: COpaquePointer?, argumentcount: UShort, result: COpaquePointer?): JsErrorCode
 
-public expect fun JsConvertValueToBoolean(value: Long, booleanvalue: Long): JsErrorCode
+public expect fun jsConvertValueToBoolean(value: COpaquePointer?, booleanvalue: COpaquePointer?): JsErrorCode
 
-public expect fun JsConvertValueToNumber(value: Long, numbervalue: Long): JsErrorCode
+public expect fun jsConvertValueToNumber(value: COpaquePointer?, numbervalue: COpaquePointer?): JsErrorCode
 
-public expect fun JsConvertValueToObject(value: Long, obj: Long): JsErrorCode
+public expect fun jsConvertValueToObject(value: COpaquePointer?, obj: COpaquePointer?): JsErrorCode
 
-public expect fun JsConvertValueToString(value: Long, stringvalue: Long): JsErrorCode
+public expect fun jsConvertValueToString(value: COpaquePointer?, stringvalue: COpaquePointer?): JsErrorCode
 
-public expect fun JsCreateArray(length: UInt, result: Long): JsErrorCode
+public expect fun jsCreateArray(length: UInt, result: COpaquePointer?): JsErrorCode
 
-public expect fun JsCreateError(message: Long, error: Long): JsErrorCode
+public expect fun jsCreateError(message: COpaquePointer?, error: COpaquePointer?): JsErrorCode
 
-public expect fun JsCreateExternalObject(data: Long, finalizecallback: JsFinalizeCallback, obj: Long): JsErrorCode
+public expect fun jsCreateExternalObject(data: COpaquePointer?, finalizecallback: JsFinalizeCallback, obj: COpaquePointer?): JsErrorCode
 
-public expect fun JsCreateFunction(nativefunction: JsNativeFunction, callbackstate: Long, function: Long): JsErrorCode
+public expect fun jsCreateFunction(nativefunction: JsNativeFunction, callbackstate: COpaquePointer?, function: COpaquePointer?): JsErrorCode
 
-public expect fun JsCreateObject(obj: Long): JsErrorCode
+public expect fun jsCreateObject(obj: COpaquePointer?): JsErrorCode
 
-public expect fun JsCreateRangeError(message: Long, error: Long): JsErrorCode
+public expect fun jsCreateRangeError(message: COpaquePointer?, error: COpaquePointer?): JsErrorCode
 
-public expect fun JsCreateReferenceError(message: Long, error: Long): JsErrorCode
+public expect fun jsCreateReferenceError(message: COpaquePointer?, error: COpaquePointer?): JsErrorCode
 
-public expect fun JsCreateRuntime(attributes: JsRuntimeAttributes, runtimeversion: JsRuntimeVersion, threadservice: JsThreadServiceCallback, runtime: Long): JsErrorCode
+public expect fun jsCreateRuntime(attributes: JsRuntimeAttributes, runtimeversion: JsRuntimeVersion, threadservice: JsThreadServiceCallback, runtime: COpaquePointer?): JsErrorCode
 
-public expect fun JsCreateSyntaxError(message: Long, error: Long): JsErrorCode
+public expect fun jsCreateSyntaxError(message: COpaquePointer?, error: COpaquePointer?): JsErrorCode
 
-public expect fun JsCreateTypeError(message: Long, error: Long): JsErrorCode
+public expect fun jsCreateTypeError(message: COpaquePointer?, error: COpaquePointer?): JsErrorCode
 
-public expect fun JsCreateURIError(message: Long, error: Long): JsErrorCode
+public expect fun jsCreateURIError(message: COpaquePointer?, error: COpaquePointer?): JsErrorCode
 
-public expect fun JsDefineProperty(obj: Long, propertyid: Long, propertydescriptor: Long, result: Long): JsErrorCode
+public expect fun jsDefineProperty(obj: COpaquePointer?, propertyid: COpaquePointer?, propertydescriptor: COpaquePointer?, result: COpaquePointer?): JsErrorCode
 
-public expect fun JsDeleteIndexedProperty(obj: Long, index: Long): JsErrorCode
+public expect fun jsDeleteIndexedProperty(obj: COpaquePointer?, index: COpaquePointer?): JsErrorCode
 
-public expect fun JsDeleteProperty(obj: Long, propertyid: Long, usestrictrules: UByte, result: Long): JsErrorCode
+public expect fun jsDeleteProperty(obj: COpaquePointer?, propertyid: COpaquePointer?, usestrictrules: UByte, result: COpaquePointer?): JsErrorCode
 
-public expect fun JsDisableRuntimeExecution(runtime: Long): JsErrorCode
+public expect fun jsDisableRuntimeExecution(runtime: COpaquePointer?): JsErrorCode
 
-public expect fun JsDisposeRuntime(runtime: Long): JsErrorCode
+public expect fun jsDisposeRuntime(runtime: COpaquePointer?): JsErrorCode
 
-public expect fun JsDoubleToNumber(doublevalue: Double, value: Long): JsErrorCode
+public expect fun jsDoubleToNumber(doublevalue: Double, value: COpaquePointer?): JsErrorCode
 
-public expect fun JsEnableRuntimeExecution(runtime: Long): JsErrorCode
+public expect fun jsEnableRuntimeExecution(runtime: COpaquePointer?): JsErrorCode
 
-public expect fun JsEquals(object1: Long, object2: Long, result: Long): JsErrorCode
+public expect fun jsEquals(object1: COpaquePointer?, object2: COpaquePointer?, result: COpaquePointer?): JsErrorCode
 
-public expect fun JsGetAndClearException(exception: Long): JsErrorCode
+public expect fun jsGetAndClearException(exception: COpaquePointer?): JsErrorCode
 
-public expect fun JsGetCurrentContext(currentcontext: Long): JsErrorCode
+public expect fun jsGetCurrentContext(currentcontext: COpaquePointer?): JsErrorCode
 
-public expect fun JsGetExtensionAllowed(obj: Long, value: Long): JsErrorCode
+public expect fun jsGetExtensionAllowed(obj: COpaquePointer?, value: COpaquePointer?): JsErrorCode
 
-public expect fun JsGetExternalData(obj: Long, externaldata: Long): JsErrorCode
+public expect fun jsGetExternalData(obj: COpaquePointer?, externaldata: COpaquePointer?): JsErrorCode
 
-public expect fun JsGetFalseValue(falsevalue: Long): JsErrorCode
+public expect fun jsGetFalseValue(falsevalue: COpaquePointer?): JsErrorCode
 
-public expect fun JsGetGlobalObject(globalobject: Long): JsErrorCode
+public expect fun jsGetGlobalObject(globalobject: COpaquePointer?): JsErrorCode
 
-public expect fun JsGetIndexedProperty(obj: Long, index: Long, result: Long): JsErrorCode
+public expect fun jsGetIndexedProperty(obj: COpaquePointer?, index: COpaquePointer?, result: COpaquePointer?): JsErrorCode
 
-public expect fun JsGetNullValue(nullvalue: Long): JsErrorCode
+public expect fun jsGetNullValue(nullvalue: COpaquePointer?): JsErrorCode
 
-public expect fun JsGetOwnPropertyDescriptor(obj: Long, propertyid: Long, propertydescriptor: Long): JsErrorCode
+public expect fun jsGetOwnPropertyDescriptor(obj: COpaquePointer?, propertyid: COpaquePointer?, propertydescriptor: COpaquePointer?): JsErrorCode
 
-public expect fun JsGetOwnPropertyNames(obj: Long, propertynames: Long): JsErrorCode
+public expect fun jsGetOwnPropertyNames(obj: COpaquePointer?, propertynames: COpaquePointer?): JsErrorCode
 
-public expect fun JsGetProperty(obj: Long, propertyid: Long, value: Long): JsErrorCode
+public expect fun jsGetProperty(obj: COpaquePointer?, propertyid: COpaquePointer?, value: COpaquePointer?): JsErrorCode
 
-public expect fun JsGetPropertyIdFromName(name: PCWSTR, propertyid: Long): JsErrorCode
+public expect fun jsGetPropertyIdFromName(name: Pcwstr, propertyid: COpaquePointer?): JsErrorCode
 
-public expect fun JsGetPropertyNameFromId(propertyid: Long, name: Long): JsErrorCode
+public expect fun jsGetPropertyNameFromId(propertyid: COpaquePointer?, name: COpaquePointer?): JsErrorCode
 
-public expect fun JsGetPrototype(obj: Long, prototypeobject: Long): JsErrorCode
+public expect fun jsGetPrototype(obj: COpaquePointer?, prototypeobject: COpaquePointer?): JsErrorCode
 
-public expect fun JsGetRuntime(context: Long, runtime: Long): JsErrorCode
+public expect fun jsGetRuntime(context: COpaquePointer?, runtime: COpaquePointer?): JsErrorCode
 
-public expect fun JsGetRuntimeMemoryLimit(runtime: Long, memorylimit: Long): JsErrorCode
+public expect fun jsGetRuntimeMemoryLimit(runtime: COpaquePointer?, memorylimit: COpaquePointer?): JsErrorCode
 
-public expect fun JsGetRuntimeMemoryUsage(runtime: Long, memoryusage: Long): JsErrorCode
+public expect fun jsGetRuntimeMemoryUsage(runtime: COpaquePointer?, memoryusage: COpaquePointer?): JsErrorCode
 
-public expect fun JsGetStringLength(stringvalue: Long, length: Long): JsErrorCode
+public expect fun jsGetStringLength(stringvalue: COpaquePointer?, length: COpaquePointer?): JsErrorCode
 
-public expect fun JsGetTrueValue(truevalue: Long): JsErrorCode
+public expect fun jsGetTrueValue(truevalue: COpaquePointer?): JsErrorCode
 
-public expect fun JsGetUndefinedValue(undefinedvalue: Long): JsErrorCode
+public expect fun jsGetUndefinedValue(undefinedvalue: COpaquePointer?): JsErrorCode
 
-public expect fun JsGetValueType(value: Long, type: Long): JsErrorCode
+public expect fun jsGetValueType(value: COpaquePointer?, type: COpaquePointer?): JsErrorCode
 
-public expect fun JsHasException(hasexception: Long): JsErrorCode
+public expect fun jsHasException(hasexception: COpaquePointer?): JsErrorCode
 
-public expect fun JsHasExternalData(obj: Long, value: Long): JsErrorCode
+public expect fun jsHasExternalData(obj: COpaquePointer?, value: COpaquePointer?): JsErrorCode
 
-public expect fun JsHasIndexedProperty(obj: Long, index: Long, result: Long): JsErrorCode
+public expect fun jsHasIndexedProperty(obj: COpaquePointer?, index: COpaquePointer?, result: COpaquePointer?): JsErrorCode
 
-public expect fun JsHasProperty(obj: Long, propertyid: Long, hasproperty: Long): JsErrorCode
+public expect fun jsHasProperty(obj: COpaquePointer?, propertyid: COpaquePointer?, hasproperty: COpaquePointer?): JsErrorCode
 
-public expect fun JsIdle(nextidletick: Long): JsErrorCode
+public expect fun jsIdle(nextidletick: COpaquePointer?): JsErrorCode
 
-public expect fun JsIntToNumber(intvalue: Int, value: Long): JsErrorCode
+public expect fun jsIntToNumber(intvalue: Int, value: COpaquePointer?): JsErrorCode
 
-public expect fun JsIsEnumeratingHeap(isenumeratingheap: Long): JsErrorCode
+public expect fun jsIsEnumeratingHeap(isenumeratingheap: COpaquePointer?): JsErrorCode
 
-public expect fun JsIsRuntimeExecutionDisabled(runtime: Long, isdisabled: Long): JsErrorCode
+public expect fun jsIsRuntimeExecutionDisabled(runtime: COpaquePointer?, isdisabled: COpaquePointer?): JsErrorCode
 
-public expect fun JsNumberToDouble(value: Long, doublevalue: Long): JsErrorCode
+public expect fun jsNumberToDouble(value: COpaquePointer?, doublevalue: COpaquePointer?): JsErrorCode
 
-public expect fun JsParseScript(script: PCWSTR, sourcecontext: ULong, sourceurl: PCWSTR, result: Long): JsErrorCode
+public expect fun jsParseScript(script: Pcwstr, sourcecontext: ULong, sourceurl: Pcwstr, result: COpaquePointer?): JsErrorCode
 
-public expect fun JsParseSerializedScript(script: PCWSTR, buffer: Long, sourcecontext: ULong, sourceurl: PCWSTR, result: Long): JsErrorCode
+public expect fun jsParseSerializedScript(script: Pcwstr, buffer: COpaquePointer?, sourcecontext: ULong, sourceurl: Pcwstr, result: COpaquePointer?): JsErrorCode
 
-public expect fun JsPointerToString(stringvalue: PCWSTR, stringlength: ULong, value: Long): JsErrorCode
+public expect fun jsPointerToString(stringvalue: Pcwstr, stringlength: ULong, value: COpaquePointer?): JsErrorCode
 
-public expect fun JsPreventExtension(obj: Long): JsErrorCode
+public expect fun jsPreventExtension(obj: COpaquePointer?): JsErrorCode
 
-public expect fun JsRelease(ref: Long, count: Long): JsErrorCode
+public expect fun jsRelease(ref: COpaquePointer?, count: COpaquePointer?): JsErrorCode
 
-public expect fun JsRunScript(script: PCWSTR, sourcecontext: ULong, sourceurl: PCWSTR, result: Long): JsErrorCode
+public expect fun jsRunScript(script: Pcwstr, sourcecontext: ULong, sourceurl: Pcwstr, result: COpaquePointer?): JsErrorCode
 
-public expect fun JsRunSerializedScript(script: PCWSTR, buffer: Long, sourcecontext: ULong, sourceurl: PCWSTR, result: Long): JsErrorCode
+public expect fun jsRunSerializedScript(script: Pcwstr, buffer: COpaquePointer?, sourcecontext: ULong, sourceurl: Pcwstr, result: COpaquePointer?): JsErrorCode
 
-public expect fun JsSerializeScript(script: PCWSTR, buffer: Long, buffersize: Long): JsErrorCode
+public expect fun jsSerializeScript(script: Pcwstr, buffer: COpaquePointer?, buffersize: COpaquePointer?): JsErrorCode
 
-public expect fun JsSetCurrentContext(context: Long): JsErrorCode
+public expect fun jsSetCurrentContext(context: COpaquePointer?): JsErrorCode
 
-public expect fun JsSetException(exception: Long): JsErrorCode
+public expect fun jsSetException(exception: COpaquePointer?): JsErrorCode
 
-public expect fun JsSetExternalData(obj: Long, externaldata: Long): JsErrorCode
+public expect fun jsSetExternalData(obj: COpaquePointer?, externaldata: COpaquePointer?): JsErrorCode
 
-public expect fun JsSetIndexedProperty(obj: Long, index: Long, value: Long): JsErrorCode
+public expect fun jsSetIndexedProperty(obj: COpaquePointer?, index: COpaquePointer?, value: COpaquePointer?): JsErrorCode
 
-public expect fun JsSetProperty(obj: Long, propertyid: Long, value: Long, usestrictrules: UByte): JsErrorCode
+public expect fun jsSetProperty(obj: COpaquePointer?, propertyid: COpaquePointer?, value: COpaquePointer?, usestrictrules: UByte): JsErrorCode
 
-public expect fun JsSetPrototype(obj: Long, prototypeobject: Long): JsErrorCode
+public expect fun jsSetPrototype(obj: COpaquePointer?, prototypeobject: COpaquePointer?): JsErrorCode
 
-public expect fun JsSetRuntimeBeforeCollectCallback(runtime: Long, callbackstate: Long, beforecollectcallback: JsBeforeCollectCallback): JsErrorCode
+public expect fun jsSetRuntimeBeforeCollectCallback(runtime: COpaquePointer?, callbackstate: COpaquePointer?, beforecollectcallback: JsBeforeCollectCallback): JsErrorCode
 
-public expect fun JsSetRuntimeMemoryAllocationCallback(runtime: Long, callbackstate: Long, allocationcallback: JsMemoryAllocationCallback): JsErrorCode
+public expect fun jsSetRuntimeMemoryAllocationCallback(runtime: COpaquePointer?, callbackstate: COpaquePointer?, allocationcallback: JsMemoryAllocationCallback): JsErrorCode
 
-public expect fun JsSetRuntimeMemoryLimit(runtime: Long, memorylimit: ULong): JsErrorCode
+public expect fun jsSetRuntimeMemoryLimit(runtime: COpaquePointer?, memorylimit: ULong): JsErrorCode
 
-public expect fun JsStopProfiling(reason: HRESULT): JsErrorCode
+public expect fun jsStopProfiling(reason: Hresult): JsErrorCode
 
-public expect fun JsStrictEquals(object1: Long, object2: Long, result: Long): JsErrorCode
+public expect fun jsStrictEquals(object1: COpaquePointer?, object2: COpaquePointer?, result: COpaquePointer?): JsErrorCode
 
-public expect fun JsStringToPointer(value: Long, stringvalue: Long, stringlength: Long): JsErrorCode
+public expect fun jsStringToPointer(value: COpaquePointer?, stringvalue: COpaquePointer?, stringlength: COpaquePointer?): JsErrorCode
 
-public expect fun JsValueToVariant(obj: Long, variant: Long): JsErrorCode
+public expect fun jsValueToVariant(obj: COpaquePointer?, variant: COpaquePointer?): JsErrorCode
 
-public expect fun JsVariantToValue(variant: Long, value: Long): JsErrorCode
+public expect fun jsVariantToValue(variant: COpaquePointer?, value: COpaquePointer?): JsErrorCode

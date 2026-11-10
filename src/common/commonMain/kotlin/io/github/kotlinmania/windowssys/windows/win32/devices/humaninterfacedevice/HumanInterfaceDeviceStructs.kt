@@ -1,50 +1,51 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice
 
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.POINT
-import io.github.kotlinmania.windowssys.windows.win32.foundation.RECT
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Point
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Rect
 
-public data class CPOINT(public var lP: Int = 0, public var dwLog: UInt = 0u)
+public data class Cpoint(public var lP: Int = 0, public var dwLog: UInt = 0u)
 
-public data class DIACTIONA(
-    public var uAppData: ULong = 0uL,
+public data class Diactiona(
+    public var uAppData: Int = 0,
     public var dwSemantic: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var Anonymous: DIACTIONA_0 = DIACTIONA_0(),
-    public var guidInstance: GUID = GUID(),
+    public var anonymous: Diactiona0 = Diactiona0(),
+    public var guidInstance: Guid = Guid(),
     public var dwObjID: UInt = 0u,
     public var dwHow: UInt = 0u,
 )
 
-public data class DIACTIONA_0(public var lptszActionName: PCSTR = 0L, public var uResIdString: UInt = 0u)
+public data class Diactiona0(public var lptszActionName: Pcstr = null, public var uResIdString: UInt = 0u)
 
-public data class DIACTIONFORMATA(
+public data class Diactionformata(
     public var dwSize: UInt = 0u,
     public var dwActionSize: UInt = 0u,
     public var dwDataSize: UInt = 0u,
     public var dwNumActions: UInt = 0u,
-    public var rgoAction: Long = 0L,
-    public var guidActionMap: GUID = GUID(),
+    public var rgoAction: Diactiona? = null,
+    public var guidActionMap: Guid = Guid(),
     public var dwGenre: UInt = 0u,
     public var dwBufferSize: UInt = 0u,
     public var lAxisMin: Int = 0,
     public var lAxisMax: Int = 0,
-    public var hInstString: HINSTANCE = 0L,
-    public var ftTimeStamp: FILETIME = FILETIME(),
+    public var hInstString: Hinstance = null,
+    public var ftTimeStamp: Filetime = Filetime(),
     public var dwCRC: UInt = 0u,
     public var tszActionMap: ByteArray = ByteArray(260),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DIACTIONFORMATA) return false
+        if (other !is Diactionformata) return false
         if (this.dwSize != other.dwSize) return false
         if (this.dwActionSize != other.dwActionSize) return false
         if (this.dwDataSize != other.dwDataSize) return false
@@ -81,25 +82,25 @@ public data class DIACTIONFORMATA(
     }
 }
 
-public data class DIACTIONFORMATW(
+public data class Diactionformatw(
     public var dwSize: UInt = 0u,
     public var dwActionSize: UInt = 0u,
     public var dwDataSize: UInt = 0u,
     public var dwNumActions: UInt = 0u,
-    public var rgoAction: Long = 0L,
-    public var guidActionMap: GUID = GUID(),
+    public var rgoAction: Diactionw? = null,
+    public var guidActionMap: Guid = Guid(),
     public var dwGenre: UInt = 0u,
     public var dwBufferSize: UInt = 0u,
     public var lAxisMin: Int = 0,
     public var lAxisMax: Int = 0,
-    public var hInstString: HINSTANCE = 0L,
-    public var ftTimeStamp: FILETIME = FILETIME(),
+    public var hInstString: Hinstance = null,
+    public var ftTimeStamp: Filetime = Filetime(),
     public var dwCRC: UInt = 0u,
     public var tszActionMap: UShortArray = UShortArray(260),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DIACTIONFORMATW) return false
+        if (other !is Diactionformatw) return false
         if (this.dwSize != other.dwSize) return false
         if (this.dwActionSize != other.dwActionSize) return false
         if (this.dwDataSize != other.dwDataSize) return false
@@ -136,19 +137,19 @@ public data class DIACTIONFORMATW(
     }
 }
 
-public data class DIACTIONW(
-    public var uAppData: ULong = 0uL,
+public data class Diactionw(
+    public var uAppData: Int = 0,
     public var dwSemantic: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var Anonymous: DIACTIONW_0 = DIACTIONW_0(),
-    public var guidInstance: GUID = GUID(),
+    public var anonymous: Diactionw0 = Diactionw0(),
+    public var guidInstance: Guid = Guid(),
     public var dwObjID: UInt = 0u,
     public var dwHow: UInt = 0u,
 )
 
-public data class DIACTIONW_0(public var lptszActionName: PCWSTR = 0L, public var uResIdString: UInt = 0u)
+public data class Diactionw0(public var lptszActionName: Pcwstr = null, public var uResIdString: UInt = 0u)
 
-public data class DICOLORSET(
+public data class Dicolorset(
     public var dwSize: UInt = 0u,
     public var cTextFore: UInt = 0u,
     public var cTextHighlight: UInt = 0u,
@@ -160,7 +161,7 @@ public data class DICOLORSET(
     public var cAreaFill: UInt = 0u,
 )
 
-public data class DICONDITION(
+public data class Dicondition(
     public var lOffset: Int = 0,
     public var lPositiveCoefficient: Int = 0,
     public var lNegativeCoefficient: Int = 0,
@@ -169,47 +170,47 @@ public data class DICONDITION(
     public var lDeadBand: Int = 0,
 )
 
-public data class DICONFIGUREDEVICESPARAMSA(
+public data class Diconfiguredevicesparamsa(
     public var dwSize: UInt = 0u,
     public var dwcUsers: UInt = 0u,
-    public var lptszUserNames: PSTR = 0L,
+    public var lptszUserNames: Pstr = null,
     public var dwcFormats: UInt = 0u,
-    public var lprgFormats: Long = 0L,
-    public var hwnd: HWND = 0L,
-    public var dics: DICOLORSET = DICOLORSET(),
-    public var lpUnkDDSTarget: Long = 0L,
+    public var lprgFormats: Diactionformata? = null,
+    public var hwnd: Hwnd = null,
+    public var dics: Dicolorset = Dicolorset(),
+    public var lpUnkDDSTarget: COpaquePointer? = null,
 )
 
-public data class DICONFIGUREDEVICESPARAMSW(
+public data class Diconfiguredevicesparamsw(
     public var dwSize: UInt = 0u,
     public var dwcUsers: UInt = 0u,
-    public var lptszUserNames: PWSTR = 0L,
+    public var lptszUserNames: Pwstr = null,
     public var dwcFormats: UInt = 0u,
-    public var lprgFormats: Long = 0L,
-    public var hwnd: HWND = 0L,
-    public var dics: DICOLORSET = DICOLORSET(),
-    public var lpUnkDDSTarget: Long = 0L,
+    public var lprgFormats: Diactionformatw? = null,
+    public var hwnd: Hwnd = null,
+    public var dics: Dicolorset = Dicolorset(),
+    public var lpUnkDDSTarget: COpaquePointer? = null,
 )
 
-public data class DICONSTANTFORCE(public var lMagnitude: Int = 0)
+public data class Diconstantforce(public var lMagnitude: Int = 0)
 
-public data class DICUSTOMFORCE(
+public data class Dicustomforce(
     public var cChannels: UInt = 0u,
     public var dwSamplePeriod: UInt = 0u,
     public var cSamples: UInt = 0u,
-    public var rglForceData: Long = 0L,
+    public var rglForceData: Int? = null,
 )
 
-public data class DIDATAFORMAT(
+public data class Didataformat(
     public var dwSize: UInt = 0u,
     public var dwObjSize: UInt = 0u,
     public var dwFlags: UInt = 0u,
     public var dwDataSize: UInt = 0u,
     public var dwNumObjs: UInt = 0u,
-    public var rgodf: Long = 0L,
+    public var rgodf: Diobjectdataformat? = null,
 )
 
-public data class DIDEVCAPS(
+public data class Didevcaps(
     public var dwSize: UInt = 0u,
     public var dwFlags: UInt = 0u,
     public var dwDevType: UInt = 0u,
@@ -223,7 +224,7 @@ public data class DIDEVCAPS(
     public var dwFFDriverVersion: UInt = 0u,
 )
 
-public data class DIDEVCAPS_DX3(
+public data class DidevcapsDx3(
     public var dwSize: UInt = 0u,
     public var dwFlags: UInt = 0u,
     public var dwDevType: UInt = 0u,
@@ -232,20 +233,20 @@ public data class DIDEVCAPS_DX3(
     public var dwPOVs: UInt = 0u,
 )
 
-public data class DIDEVICEIMAGEINFOA(
+public data class Dideviceimageinfoa(
     public var tszImagePath: ByteArray = ByteArray(260),
     public var dwFlags: UInt = 0u,
     public var dwViewID: UInt = 0u,
-    public var rcOverlay: RECT = RECT(),
+    public var rcOverlay: Rect = Rect(),
     public var dwObjID: UInt = 0u,
     public var dwcValidPts: UInt = 0u,
-    public var rgptCalloutLine: List<POINT> = List(5) { POINT() },
-    public var rcCalloutRect: RECT = RECT(),
+    public var rgptCalloutLine: List<Point> = List(5) { Point() },
+    public var rcCalloutRect: Rect = Rect(),
     public var dwTextAlign: UInt = 0u,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DIDEVICEIMAGEINFOA) return false
+        if (other !is Dideviceimageinfoa) return false
         if (!this.tszImagePath.contentEquals(other.tszImagePath)) return false
         if (this.dwFlags != other.dwFlags) return false
         if (this.dwViewID != other.dwViewID) return false
@@ -272,7 +273,7 @@ public data class DIDEVICEIMAGEINFOA(
     }
 }
 
-public data class DIDEVICEIMAGEINFOHEADERA(
+public data class Dideviceimageinfoheadera(
     public var dwSize: UInt = 0u,
     public var dwSizeImageInfo: UInt = 0u,
     public var dwcViews: UInt = 0u,
@@ -281,10 +282,10 @@ public data class DIDEVICEIMAGEINFOHEADERA(
     public var dwcPOVs: UInt = 0u,
     public var dwBufferSize: UInt = 0u,
     public var dwBufferUsed: UInt = 0u,
-    public var lprgImageInfoArray: Long = 0L,
+    public var lprgImageInfoArray: Dideviceimageinfoa? = null,
 )
 
-public data class DIDEVICEIMAGEINFOHEADERW(
+public data class Dideviceimageinfoheaderw(
     public var dwSize: UInt = 0u,
     public var dwSizeImageInfo: UInt = 0u,
     public var dwcViews: UInt = 0u,
@@ -293,23 +294,23 @@ public data class DIDEVICEIMAGEINFOHEADERW(
     public var dwcPOVs: UInt = 0u,
     public var dwBufferSize: UInt = 0u,
     public var dwBufferUsed: UInt = 0u,
-    public var lprgImageInfoArray: Long = 0L,
+    public var lprgImageInfoArray: Dideviceimageinfow? = null,
 )
 
-public data class DIDEVICEIMAGEINFOW(
+public data class Dideviceimageinfow(
     public var tszImagePath: UShortArray = UShortArray(260),
     public var dwFlags: UInt = 0u,
     public var dwViewID: UInt = 0u,
-    public var rcOverlay: RECT = RECT(),
+    public var rcOverlay: Rect = Rect(),
     public var dwObjID: UInt = 0u,
     public var dwcValidPts: UInt = 0u,
-    public var rgptCalloutLine: List<POINT> = List(5) { POINT() },
-    public var rcCalloutRect: RECT = RECT(),
+    public var rgptCalloutLine: List<Point> = List(5) { Point() },
+    public var rcCalloutRect: Rect = Rect(),
     public var dwTextAlign: UInt = 0u,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DIDEVICEIMAGEINFOW) return false
+        if (other !is Dideviceimageinfow) return false
         if (!this.tszImagePath.contentEquals(other.tszImagePath)) return false
         if (this.dwFlags != other.dwFlags) return false
         if (this.dwViewID != other.dwViewID) return false
@@ -336,20 +337,20 @@ public data class DIDEVICEIMAGEINFOW(
     }
 }
 
-public data class DIDEVICEINSTANCEA(
+public data class Dideviceinstancea(
     public var dwSize: UInt = 0u,
-    public var guidInstance: GUID = GUID(),
-    public var guidProduct: GUID = GUID(),
+    public var guidInstance: Guid = Guid(),
+    public var guidProduct: Guid = Guid(),
     public var dwDevType: UInt = 0u,
     public var tszInstanceName: ByteArray = ByteArray(260),
     public var tszProductName: ByteArray = ByteArray(260),
-    public var guidFFDriver: GUID = GUID(),
+    public var guidFFDriver: Guid = Guid(),
     public var wUsagePage: UShort = 0u,
     public var wUsage: UShort = 0u,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DIDEVICEINSTANCEA) return false
+        if (other !is Dideviceinstancea) return false
         if (this.dwSize != other.dwSize) return false
         if (this.guidInstance != other.guidInstance) return false
         if (this.guidProduct != other.guidProduct) return false
@@ -376,20 +377,20 @@ public data class DIDEVICEINSTANCEA(
     }
 }
 
-public data class DIDEVICEINSTANCEW(
+public data class Dideviceinstancew(
     public var dwSize: UInt = 0u,
-    public var guidInstance: GUID = GUID(),
-    public var guidProduct: GUID = GUID(),
+    public var guidInstance: Guid = Guid(),
+    public var guidProduct: Guid = Guid(),
     public var dwDevType: UInt = 0u,
     public var tszInstanceName: UShortArray = UShortArray(260),
     public var tszProductName: UShortArray = UShortArray(260),
-    public var guidFFDriver: GUID = GUID(),
+    public var guidFFDriver: Guid = Guid(),
     public var wUsagePage: UShort = 0u,
     public var wUsage: UShort = 0u,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DIDEVICEINSTANCEW) return false
+        if (other !is Dideviceinstancew) return false
         if (this.dwSize != other.dwSize) return false
         if (this.guidInstance != other.guidInstance) return false
         if (this.guidProduct != other.guidProduct) return false
@@ -416,17 +417,17 @@ public data class DIDEVICEINSTANCEW(
     }
 }
 
-public data class DIDEVICEINSTANCE_DX3A(
+public data class DideviceinstanceDx3a(
     public var dwSize: UInt = 0u,
-    public var guidInstance: GUID = GUID(),
-    public var guidProduct: GUID = GUID(),
+    public var guidInstance: Guid = Guid(),
+    public var guidProduct: Guid = Guid(),
     public var dwDevType: UInt = 0u,
     public var tszInstanceName: ByteArray = ByteArray(260),
     public var tszProductName: ByteArray = ByteArray(260),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DIDEVICEINSTANCE_DX3A) return false
+        if (other !is DideviceinstanceDx3a) return false
         if (this.dwSize != other.dwSize) return false
         if (this.guidInstance != other.guidInstance) return false
         if (this.guidProduct != other.guidProduct) return false
@@ -447,17 +448,17 @@ public data class DIDEVICEINSTANCE_DX3A(
     }
 }
 
-public data class DIDEVICEINSTANCE_DX3W(
+public data class DideviceinstanceDx3w(
     public var dwSize: UInt = 0u,
-    public var guidInstance: GUID = GUID(),
-    public var guidProduct: GUID = GUID(),
+    public var guidInstance: Guid = Guid(),
+    public var guidProduct: Guid = Guid(),
     public var dwDevType: UInt = 0u,
     public var tszInstanceName: UShortArray = UShortArray(260),
     public var tszProductName: UShortArray = UShortArray(260),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DIDEVICEINSTANCE_DX3W) return false
+        if (other !is DideviceinstanceDx3w) return false
         if (this.dwSize != other.dwSize) return false
         if (this.guidInstance != other.guidInstance) return false
         if (this.guidProduct != other.guidProduct) return false
@@ -478,24 +479,24 @@ public data class DIDEVICEINSTANCE_DX3W(
     }
 }
 
-public data class DIDEVICEOBJECTDATA(
+public data class Dideviceobjectdata(
     public var dwOfs: UInt = 0u,
     public var dwData: UInt = 0u,
     public var dwTimeStamp: UInt = 0u,
     public var dwSequence: UInt = 0u,
-    public var uAppData: ULong = 0uL,
+    public var uAppData: Int = 0,
 )
 
-public data class DIDEVICEOBJECTDATA_DX3(
+public data class DideviceobjectdataDx3(
     public var dwOfs: UInt = 0u,
     public var dwData: UInt = 0u,
     public var dwTimeStamp: UInt = 0u,
     public var dwSequence: UInt = 0u,
 )
 
-public data class DIDEVICEOBJECTINSTANCEA(
+public data class Dideviceobjectinstancea(
     public var dwSize: UInt = 0u,
-    public var guidType: GUID = GUID(),
+    public var guidType: Guid = Guid(),
     public var dwOfs: UInt = 0u,
     public var dwType: UInt = 0u,
     public var dwFlags: UInt = 0u,
@@ -512,7 +513,7 @@ public data class DIDEVICEOBJECTINSTANCEA(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DIDEVICEOBJECTINSTANCEA) return false
+        if (other !is Dideviceobjectinstancea) return false
         if (this.dwSize != other.dwSize) return false
         if (this.guidType != other.guidType) return false
         if (this.dwOfs != other.dwOfs) return false
@@ -551,9 +552,9 @@ public data class DIDEVICEOBJECTINSTANCEA(
     }
 }
 
-public data class DIDEVICEOBJECTINSTANCEW(
+public data class Dideviceobjectinstancew(
     public var dwSize: UInt = 0u,
-    public var guidType: GUID = GUID(),
+    public var guidType: Guid = Guid(),
     public var dwOfs: UInt = 0u,
     public var dwType: UInt = 0u,
     public var dwFlags: UInt = 0u,
@@ -570,7 +571,7 @@ public data class DIDEVICEOBJECTINSTANCEW(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DIDEVICEOBJECTINSTANCEW) return false
+        if (other !is Dideviceobjectinstancew) return false
         if (this.dwSize != other.dwSize) return false
         if (this.guidType != other.guidType) return false
         if (this.dwOfs != other.dwOfs) return false
@@ -609,9 +610,9 @@ public data class DIDEVICEOBJECTINSTANCEW(
     }
 }
 
-public data class DIDEVICEOBJECTINSTANCE_DX3A(
+public data class DideviceobjectinstanceDx3a(
     public var dwSize: UInt = 0u,
-    public var guidType: GUID = GUID(),
+    public var guidType: Guid = Guid(),
     public var dwOfs: UInt = 0u,
     public var dwType: UInt = 0u,
     public var dwFlags: UInt = 0u,
@@ -619,7 +620,7 @@ public data class DIDEVICEOBJECTINSTANCE_DX3A(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DIDEVICEOBJECTINSTANCE_DX3A) return false
+        if (other !is DideviceobjectinstanceDx3a) return false
         if (this.dwSize != other.dwSize) return false
         if (this.guidType != other.guidType) return false
         if (this.dwOfs != other.dwOfs) return false
@@ -640,9 +641,9 @@ public data class DIDEVICEOBJECTINSTANCE_DX3A(
     }
 }
 
-public data class DIDEVICEOBJECTINSTANCE_DX3W(
+public data class DideviceobjectinstanceDx3w(
     public var dwSize: UInt = 0u,
-    public var guidType: GUID = GUID(),
+    public var guidType: Guid = Guid(),
     public var dwOfs: UInt = 0u,
     public var dwType: UInt = 0u,
     public var dwFlags: UInt = 0u,
@@ -650,7 +651,7 @@ public data class DIDEVICEOBJECTINSTANCE_DX3W(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DIDEVICEOBJECTINSTANCE_DX3W) return false
+        if (other !is DideviceobjectinstanceDx3w) return false
         if (this.dwSize != other.dwSize) return false
         if (this.guidType != other.guidType) return false
         if (this.dwOfs != other.dwOfs) return false
@@ -671,20 +672,20 @@ public data class DIDEVICEOBJECTINSTANCE_DX3W(
     }
 }
 
-public data class DIDEVICESTATE(
+public data class Didevicestate(
     public var dwSize: UInt = 0u,
     public var dwState: UInt = 0u,
     public var dwLoad: UInt = 0u,
 )
 
-public data class DIDRIVERVERSIONS(
+public data class Didriverversions(
     public var dwSize: UInt = 0u,
     public var dwFirmwareRevision: UInt = 0u,
     public var dwHardwareRevision: UInt = 0u,
     public var dwFFDriverVersion: UInt = 0u,
 )
 
-public data class DIEFFECT(
+public data class Dieffect(
     public var dwSize: UInt = 0u,
     public var dwFlags: UInt = 0u,
     public var dwDuration: UInt = 0u,
@@ -693,15 +694,15 @@ public data class DIEFFECT(
     public var dwTriggerButton: UInt = 0u,
     public var dwTriggerRepeatInterval: UInt = 0u,
     public var cAxes: UInt = 0u,
-    public var rgdwAxes: Long = 0L,
-    public var rglDirection: Long = 0L,
-    public var lpEnvelope: Long = 0L,
+    public var rgdwAxes: UInt? = null,
+    public var rglDirection: Int? = null,
+    public var lpEnvelope: Dienvelope? = null,
     public var cbTypeSpecificParams: UInt = 0u,
-    public var lpvTypeSpecificParams: Long = 0L,
+    public var lpvTypeSpecificParams: COpaquePointer? = null,
     public var dwStartDelay: UInt = 0u,
 )
 
-public data class DIEFFECTATTRIBUTES(
+public data class Dieffectattributes(
     public var dwEffectId: UInt = 0u,
     public var dwEffType: UInt = 0u,
     public var dwStaticParams: UInt = 0u,
@@ -709,9 +710,9 @@ public data class DIEFFECTATTRIBUTES(
     public var dwCoords: UInt = 0u,
 )
 
-public data class DIEFFECTINFOA(
+public data class Dieffectinfoa(
     public var dwSize: UInt = 0u,
-    public var guid: GUID = GUID(),
+    public var guid: Guid = Guid(),
     public var dwEffType: UInt = 0u,
     public var dwStaticParams: UInt = 0u,
     public var dwDynamicParams: UInt = 0u,
@@ -719,7 +720,7 @@ public data class DIEFFECTINFOA(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DIEFFECTINFOA) return false
+        if (other !is Dieffectinfoa) return false
         if (this.dwSize != other.dwSize) return false
         if (this.guid != other.guid) return false
         if (this.dwEffType != other.dwEffType) return false
@@ -740,9 +741,9 @@ public data class DIEFFECTINFOA(
     }
 }
 
-public data class DIEFFECTINFOW(
+public data class Dieffectinfow(
     public var dwSize: UInt = 0u,
-    public var guid: GUID = GUID(),
+    public var guid: Guid = Guid(),
     public var dwEffType: UInt = 0u,
     public var dwStaticParams: UInt = 0u,
     public var dwDynamicParams: UInt = 0u,
@@ -750,7 +751,7 @@ public data class DIEFFECTINFOW(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DIEFFECTINFOW) return false
+        if (other !is Dieffectinfow) return false
         if (this.dwSize != other.dwSize) return false
         if (this.guid != other.guid) return false
         if (this.dwEffType != other.dwEffType) return false
@@ -771,7 +772,7 @@ public data class DIEFFECTINFOW(
     }
 }
 
-public data class DIEFFECT_DX5(
+public data class DieffectDx5(
     public var dwSize: UInt = 0u,
     public var dwFlags: UInt = 0u,
     public var dwDuration: UInt = 0u,
@@ -780,23 +781,23 @@ public data class DIEFFECT_DX5(
     public var dwTriggerButton: UInt = 0u,
     public var dwTriggerRepeatInterval: UInt = 0u,
     public var cAxes: UInt = 0u,
-    public var rgdwAxes: Long = 0L,
-    public var rglDirection: Long = 0L,
-    public var lpEnvelope: Long = 0L,
+    public var rgdwAxes: UInt? = null,
+    public var rglDirection: Int? = null,
+    public var lpEnvelope: Dienvelope? = null,
     public var cbTypeSpecificParams: UInt = 0u,
-    public var lpvTypeSpecificParams: Long = 0L,
+    public var lpvTypeSpecificParams: COpaquePointer? = null,
 )
 
-public data class DIEFFESCAPE(
+public data class Dieffescape(
     public var dwSize: UInt = 0u,
     public var dwCommand: UInt = 0u,
-    public var lpvInBuffer: Long = 0L,
+    public var lpvInBuffer: COpaquePointer? = null,
     public var cbInBuffer: UInt = 0u,
-    public var lpvOutBuffer: Long = 0L,
+    public var lpvOutBuffer: COpaquePointer? = null,
     public var cbOutBuffer: UInt = 0u,
 )
 
-public data class DIENVELOPE(
+public data class Dienvelope(
     public var dwSize: UInt = 0u,
     public var dwAttackLevel: UInt = 0u,
     public var dwAttackTime: UInt = 0u,
@@ -804,25 +805,25 @@ public data class DIENVELOPE(
     public var dwFadeTime: UInt = 0u,
 )
 
-public data class DIFFDEVICEATTRIBUTES(
+public data class Diffdeviceattributes(
     public var dwFlags: UInt = 0u,
     public var dwFFSamplePeriod: UInt = 0u,
     public var dwFFMinTimeResolution: UInt = 0u,
 )
 
-public data class DIFFOBJECTATTRIBUTES(public var dwFFMaxForce: UInt = 0u, public var dwFFForceResolution: UInt = 0u)
+public data class Diffobjectattributes(public var dwFFMaxForce: UInt = 0u, public var dwFFForceResolution: UInt = 0u)
 
-public data class DIFILEEFFECT(
+public data class Difileeffect(
     public var dwSize: UInt = 0u,
-    public var GuidEffect: GUID = GUID(),
-    public var lpDiEffect: Long = 0L,
+    public var guidEffect: Guid = Guid(),
+    public var lpDiEffect: Dieffect? = null,
     public var szFriendlyName: ByteArray = ByteArray(260),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DIFILEEFFECT) return false
+        if (other !is Difileeffect) return false
         if (this.dwSize != other.dwSize) return false
-        if (this.GuidEffect != other.GuidEffect) return false
+        if (this.guidEffect != other.guidEffect) return false
         if (this.lpDiEffect != other.lpDiEffect) return false
         if (!this.szFriendlyName.contentEquals(other.szFriendlyName)) return false
         return true
@@ -830,31 +831,31 @@ public data class DIFILEEFFECT(
 
     override fun hashCode(): Int {
         var result = this.dwSize.hashCode()
-        result = 31 * result + this.GuidEffect.hashCode()
+        result = 31 * result + this.guidEffect.hashCode()
         result = 31 * result + this.lpDiEffect.hashCode()
         result = 31 * result + this.szFriendlyName.contentHashCode()
         return result
     }
 }
 
-public data class DIHIDFFINITINFO(
+public data class Dihidffinitinfo(
     public var dwSize: UInt = 0u,
-    public var pwszDeviceInterface: PWSTR = 0L,
-    public var GuidInstance: GUID = GUID(),
+    public var pwszDeviceInterface: Pwstr = null,
+    public var guidInstance: Guid = Guid(),
 )
 
-public data class DIJOYCONFIG(
+public data class Dijoyconfig(
     public var dwSize: UInt = 0u,
-    public var guidInstance: GUID = GUID(),
-    public var hwc: JOYREGHWCONFIG = JOYREGHWCONFIG(),
+    public var guidInstance: Guid = Guid(),
+    public var hwc: Joyreghwconfig = Joyreghwconfig(),
     public var dwGain: UInt = 0u,
     public var wszType: UShortArray = UShortArray(256),
     public var wszCallout: UShortArray = UShortArray(256),
-    public var guidGameport: GUID = GUID(),
+    public var guidGameport: Guid = Guid(),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DIJOYCONFIG) return false
+        if (other !is Dijoyconfig) return false
         if (this.dwSize != other.dwSize) return false
         if (this.guidInstance != other.guidInstance) return false
         if (this.hwc != other.hwc) return false
@@ -877,17 +878,17 @@ public data class DIJOYCONFIG(
     }
 }
 
-public data class DIJOYCONFIG_DX5(
+public data class DijoyconfigDx5(
     public var dwSize: UInt = 0u,
-    public var guidInstance: GUID = GUID(),
-    public var hwc: JOYREGHWCONFIG = JOYREGHWCONFIG(),
+    public var guidInstance: Guid = Guid(),
+    public var hwc: Joyreghwconfig = Joyreghwconfig(),
     public var dwGain: UInt = 0u,
     public var wszType: UShortArray = UShortArray(256),
     public var wszCallout: UShortArray = UShortArray(256),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DIJOYCONFIG_DX5) return false
+        if (other !is DijoyconfigDx5) return false
         if (this.dwSize != other.dwSize) return false
         if (this.guidInstance != other.guidInstance) return false
         if (this.hwc != other.hwc) return false
@@ -908,7 +909,7 @@ public data class DIJOYCONFIG_DX5(
     }
 }
 
-public data class DIJOYSTATE(
+public data class Dijoystate(
     public var lX: Int = 0,
     public var lY: Int = 0,
     public var lZ: Int = 0,
@@ -921,7 +922,7 @@ public data class DIJOYSTATE(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DIJOYSTATE) return false
+        if (other !is Dijoystate) return false
         if (this.lX != other.lX) return false
         if (this.lY != other.lY) return false
         if (this.lZ != other.lZ) return false
@@ -948,7 +949,7 @@ public data class DIJOYSTATE(
     }
 }
 
-public class DIJOYSTATE2(
+public class Dijoystate2(
     public var lX: Int = 0,
     public var lY: Int = 0,
     public var lZ: Int = 0,
@@ -981,10 +982,10 @@ public class DIJOYSTATE2(
     public var rglFSlider: IntArray = IntArray(2),
 )
 
-public data class DIJOYTYPEINFO(
+public data class Dijoytypeinfo(
     public var dwSize: UInt = 0u,
-    public var hws: JOYREGHWSETTINGS = JOYREGHWSETTINGS(),
-    public var clsidConfig: GUID = GUID(),
+    public var hws: Joyreghwsettings = Joyreghwsettings(),
+    public var clsidConfig: Guid = Guid(),
     public var wszDisplayName: UShortArray = UShortArray(256),
     public var wszCallout: UShortArray = UShortArray(260),
     public var wszHardwareId: UShortArray = UShortArray(256),
@@ -994,7 +995,7 @@ public data class DIJOYTYPEINFO(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DIJOYTYPEINFO) return false
+        if (other !is Dijoytypeinfo) return false
         if (this.dwSize != other.dwSize) return false
         if (this.hws != other.hws) return false
         if (this.clsidConfig != other.clsidConfig) return false
@@ -1021,16 +1022,16 @@ public data class DIJOYTYPEINFO(
     }
 }
 
-public data class DIJOYTYPEINFO_DX5(
+public data class DijoytypeinfoDx5(
     public var dwSize: UInt = 0u,
-    public var hws: JOYREGHWSETTINGS = JOYREGHWSETTINGS(),
-    public var clsidConfig: GUID = GUID(),
+    public var hws: Joyreghwsettings = Joyreghwsettings(),
+    public var clsidConfig: Guid = Guid(),
     public var wszDisplayName: UShortArray = UShortArray(256),
     public var wszCallout: UShortArray = UShortArray(260),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DIJOYTYPEINFO_DX5) return false
+        if (other !is DijoytypeinfoDx5) return false
         if (this.dwSize != other.dwSize) return false
         if (this.hws != other.hws) return false
         if (this.clsidConfig != other.clsidConfig) return false
@@ -1049,10 +1050,10 @@ public data class DIJOYTYPEINFO_DX5(
     }
 }
 
-public data class DIJOYTYPEINFO_DX6(
+public data class DijoytypeinfoDx6(
     public var dwSize: UInt = 0u,
-    public var hws: JOYREGHWSETTINGS = JOYREGHWSETTINGS(),
-    public var clsidConfig: GUID = GUID(),
+    public var hws: Joyreghwsettings = Joyreghwsettings(),
+    public var clsidConfig: Guid = Guid(),
     public var wszDisplayName: UShortArray = UShortArray(256),
     public var wszCallout: UShortArray = UShortArray(260),
     public var wszHardwareId: UShortArray = UShortArray(256),
@@ -1060,7 +1061,7 @@ public data class DIJOYTYPEINFO_DX6(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DIJOYTYPEINFO_DX6) return false
+        if (other !is DijoytypeinfoDx6) return false
         if (this.dwSize != other.dwSize) return false
         if (this.hws != other.hws) return false
         if (this.clsidConfig != other.clsidConfig) return false
@@ -1083,15 +1084,15 @@ public data class DIJOYTYPEINFO_DX6(
     }
 }
 
-public data class DIJOYUSERVALUES(
+public data class Dijoyuservalues(
     public var dwSize: UInt = 0u,
-    public var ruv: JOYREGUSERVALUES = JOYREGUSERVALUES(),
+    public var ruv: Joyreguservalues = Joyreguservalues(),
     public var wszGlobalDriver: UShortArray = UShortArray(256),
     public var wszGameportEmulator: UShortArray = UShortArray(256),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DIJOYUSERVALUES) return false
+        if (other !is Dijoyuservalues) return false
         if (this.dwSize != other.dwSize) return false
         if (this.ruv != other.ruv) return false
         if (!this.wszGlobalDriver.contentEquals(other.wszGlobalDriver)) return false
@@ -1108,7 +1109,7 @@ public data class DIJOYUSERVALUES(
     }
 }
 
-public data class DIMOUSESTATE(
+public data class Dimousestate(
     public var lX: Int = 0,
     public var lY: Int = 0,
     public var lZ: Int = 0,
@@ -1116,7 +1117,7 @@ public data class DIMOUSESTATE(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DIMOUSESTATE) return false
+        if (other !is Dimousestate) return false
         if (this.lX != other.lX) return false
         if (this.lY != other.lY) return false
         if (this.lZ != other.lZ) return false
@@ -1133,7 +1134,7 @@ public data class DIMOUSESTATE(
     }
 }
 
-public data class DIMOUSESTATE2(
+public data class Dimousestate2(
     public var lX: Int = 0,
     public var lY: Int = 0,
     public var lZ: Int = 0,
@@ -1141,7 +1142,7 @@ public data class DIMOUSESTATE2(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DIMOUSESTATE2) return false
+        if (other !is Dimousestate2) return false
         if (this.lX != other.lX) return false
         if (this.lY != other.lY) return false
         if (this.lZ != other.lZ) return false
@@ -1158,36 +1159,36 @@ public data class DIMOUSESTATE2(
     }
 }
 
-public data class DIOBJECTATTRIBUTES(
+public data class Diobjectattributes(
     public var dwFlags: UInt = 0u,
     public var wUsagePage: UShort = 0u,
     public var wUsage: UShort = 0u,
 )
 
-public data class DIOBJECTCALIBRATION(
+public data class Diobjectcalibration(
     public var lMin: Int = 0,
     public var lCenter: Int = 0,
     public var lMax: Int = 0,
 )
 
-public data class DIOBJECTDATAFORMAT(
-    public var pguid: Long = 0L,
+public data class Diobjectdataformat(
+    public var pguid: Guid? = null,
     public var dwOfs: UInt = 0u,
     public var dwType: UInt = 0u,
     public var dwFlags: UInt = 0u,
 )
 
-public data class DIPERIODIC(
+public data class Diperiodic(
     public var dwMagnitude: UInt = 0u,
     public var lOffset: Int = 0,
     public var dwPhase: UInt = 0u,
     public var dwPeriod: UInt = 0u,
 )
 
-public data class DIPOVCALIBRATION(public var lMin: IntArray = IntArray(5), public var lMax: IntArray = IntArray(5)) {
+public data class Dipovcalibration(public var lMin: IntArray = IntArray(5), public var lMax: IntArray = IntArray(5)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DIPOVCALIBRATION) return false
+        if (other !is Dipovcalibration) return false
         if (!this.lMin.contentEquals(other.lMin)) return false
         if (!this.lMax.contentEquals(other.lMax)) return false
         return true
@@ -1200,21 +1201,21 @@ public data class DIPOVCALIBRATION(public var lMin: IntArray = IntArray(5), publ
     }
 }
 
-public data class DIPROPCAL(
-    public var diph: DIPROPHEADER = DIPROPHEADER(),
+public data class Dipropcal(
+    public var diph: Dipropheader = Dipropheader(),
     public var lMin: Int = 0,
     public var lCenter: Int = 0,
     public var lMax: Int = 0,
 )
 
-public data class DIPROPCALPOV(
-    public var diph: DIPROPHEADER = DIPROPHEADER(),
+public data class Dipropcalpov(
+    public var diph: Dipropheader = Dipropheader(),
     public var lMin: IntArray = IntArray(5),
     public var lMax: IntArray = IntArray(5),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DIPROPCALPOV) return false
+        if (other !is Dipropcalpov) return false
         if (this.diph != other.diph) return false
         if (!this.lMin.contentEquals(other.lMin)) return false
         if (!this.lMax.contentEquals(other.lMax)) return false
@@ -1229,22 +1230,22 @@ public data class DIPROPCALPOV(
     }
 }
 
-public data class DIPROPCPOINTS(
-    public var diph: DIPROPHEADER = DIPROPHEADER(),
+public data class Dipropcpoints(
+    public var diph: Dipropheader = Dipropheader(),
     public var dwCPointsNum: UInt = 0u,
-    public var cp: List<CPOINT> = List(8) { CPOINT() },
+    public var cp: List<Cpoint> = List(8) { Cpoint() },
 )
 
-public data class DIPROPDWORD(public var diph: DIPROPHEADER = DIPROPHEADER(), public var dwData: UInt = 0u)
+public data class Dipropdword(public var diph: Dipropheader = Dipropheader(), public var dwData: UInt = 0u)
 
-public data class DIPROPGUIDANDPATH(
-    public var diph: DIPROPHEADER = DIPROPHEADER(),
-    public var guidClass: GUID = GUID(),
+public data class Dipropguidandpath(
+    public var diph: Dipropheader = Dipropheader(),
+    public var guidClass: Guid = Guid(),
     public var wszPath: UShortArray = UShortArray(260),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DIPROPGUIDANDPATH) return false
+        if (other !is Dipropguidandpath) return false
         if (this.diph != other.diph) return false
         if (this.guidClass != other.guidClass) return false
         if (!this.wszPath.contentEquals(other.wszPath)) return false
@@ -1259,25 +1260,25 @@ public data class DIPROPGUIDANDPATH(
     }
 }
 
-public data class DIPROPHEADER(
+public data class Dipropheader(
     public var dwSize: UInt = 0u,
     public var dwHeaderSize: UInt = 0u,
     public var dwObj: UInt = 0u,
     public var dwHow: UInt = 0u,
 )
 
-public data class DIPROPPOINTER(public var diph: DIPROPHEADER = DIPROPHEADER(), public var uData: ULong = 0uL)
+public data class Diproppointer(public var diph: Dipropheader = Dipropheader(), public var uData: Int = 0)
 
-public data class DIPROPRANGE(
-    public var diph: DIPROPHEADER = DIPROPHEADER(),
+public data class Diproprange(
+    public var diph: Dipropheader = Dipropheader(),
     public var lMin: Int = 0,
     public var lMax: Int = 0,
 )
 
-public data class DIPROPSTRING(public var diph: DIPROPHEADER = DIPROPHEADER(), public var wsz: UShortArray = UShortArray(260)) {
+public data class Dipropstring(public var diph: Dipropheader = Dipropheader(), public var wsz: UShortArray = UShortArray(260)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DIPROPSTRING) return false
+        if (other !is Dipropstring) return false
         if (this.diph != other.diph) return false
         if (!this.wsz.contentEquals(other.wsz)) return false
         return true
@@ -1290,332 +1291,332 @@ public data class DIPROPSTRING(public var diph: DIPROPHEADER = DIPROPHEADER(), p
     }
 }
 
-public data class DIRAMPFORCE(public var lStart: Int = 0, public var lEnd: Int = 0)
+public data class Dirampforce(public var lStart: Int = 0, public var lEnd: Int = 0)
 
-public data class HIDD_ATTRIBUTES(
-    public var Size: UInt = 0u,
-    public var VendorID: UShort = 0u,
-    public var ProductID: UShort = 0u,
-    public var VersionNumber: UShort = 0u,
-)
-
-public data class HIDD_CONFIGURATION(
-    public var cookie: Long = 0L,
+public data class HiddAttributes(
     public var size: UInt = 0u,
-    public var RingBufferSize: UInt = 0u,
+    public var vendorID: UShort = 0u,
+    public var productID: UShort = 0u,
+    public var versionNumber: UShort = 0u,
 )
 
-public data class HIDP_BUTTON_ARRAY_DATA(public var ArrayIndex: UShort = 0u, public var On: Boolean = false)
+public data class HiddConfiguration(
+    public var cookie: COpaquePointer? = null,
+    public var size: UInt = 0u,
+    public var ringBufferSize: UInt = 0u,
+)
 
-public data class HIDP_BUTTON_CAPS(
-    public var UsagePage: UShort = 0u,
-    public var ReportID: UByte = 0u,
-    public var IsAlias: Boolean = false,
-    public var BitField: UShort = 0u,
-    public var LinkCollection: UShort = 0u,
-    public var LinkUsage: UShort = 0u,
-    public var LinkUsagePage: UShort = 0u,
-    public var IsRange: Boolean = false,
-    public var IsStringRange: Boolean = false,
-    public var IsDesignatorRange: Boolean = false,
-    public var IsAbsolute: Boolean = false,
-    public var ReportCount: UShort = 0u,
-    public var Reserved2: UShort = 0u,
-    public var Reserved: UIntArray = UIntArray(9),
-    public var Anonymous: HIDP_BUTTON_CAPS_0 = HIDP_BUTTON_CAPS_0(),
+public data class HidpButtonArrayData(public var arrayIndex: UShort = 0u, public var on: Boolean = false)
+
+public data class HidpButtonCaps(
+    public var usagePage: UShort = 0u,
+    public var reportID: UByte = 0u,
+    public var isAlias: Boolean = false,
+    public var bitField: UShort = 0u,
+    public var linkCollection: UShort = 0u,
+    public var linkUsage: UShort = 0u,
+    public var linkUsagePage: UShort = 0u,
+    public var isRange: Boolean = false,
+    public var isStringRange: Boolean = false,
+    public var isDesignatorRange: Boolean = false,
+    public var isAbsolute: Boolean = false,
+    public var reportCount: UShort = 0u,
+    public var reserved2: UShort = 0u,
+    public var reserved: UIntArray = UIntArray(9),
+    public var anonymous: HidpButtonCaps0 = HidpButtonCaps0(),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is HIDP_BUTTON_CAPS) return false
-        if (this.UsagePage != other.UsagePage) return false
-        if (this.ReportID != other.ReportID) return false
-        if (this.IsAlias != other.IsAlias) return false
-        if (this.BitField != other.BitField) return false
-        if (this.LinkCollection != other.LinkCollection) return false
-        if (this.LinkUsage != other.LinkUsage) return false
-        if (this.LinkUsagePage != other.LinkUsagePage) return false
-        if (this.IsRange != other.IsRange) return false
-        if (this.IsStringRange != other.IsStringRange) return false
-        if (this.IsDesignatorRange != other.IsDesignatorRange) return false
-        if (this.IsAbsolute != other.IsAbsolute) return false
-        if (this.ReportCount != other.ReportCount) return false
-        if (this.Reserved2 != other.Reserved2) return false
-        if (!this.Reserved.contentEquals(other.Reserved)) return false
-        if (this.Anonymous != other.Anonymous) return false
+        if (other !is HidpButtonCaps) return false
+        if (this.usagePage != other.usagePage) return false
+        if (this.reportID != other.reportID) return false
+        if (this.isAlias != other.isAlias) return false
+        if (this.bitField != other.bitField) return false
+        if (this.linkCollection != other.linkCollection) return false
+        if (this.linkUsage != other.linkUsage) return false
+        if (this.linkUsagePage != other.linkUsagePage) return false
+        if (this.isRange != other.isRange) return false
+        if (this.isStringRange != other.isStringRange) return false
+        if (this.isDesignatorRange != other.isDesignatorRange) return false
+        if (this.isAbsolute != other.isAbsolute) return false
+        if (this.reportCount != other.reportCount) return false
+        if (this.reserved2 != other.reserved2) return false
+        if (!this.reserved.contentEquals(other.reserved)) return false
+        if (this.anonymous != other.anonymous) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.UsagePage.hashCode()
-        result = 31 * result + this.ReportID.hashCode()
-        result = 31 * result + this.IsAlias.hashCode()
-        result = 31 * result + this.BitField.hashCode()
-        result = 31 * result + this.LinkCollection.hashCode()
-        result = 31 * result + this.LinkUsage.hashCode()
-        result = 31 * result + this.LinkUsagePage.hashCode()
-        result = 31 * result + this.IsRange.hashCode()
-        result = 31 * result + this.IsStringRange.hashCode()
-        result = 31 * result + this.IsDesignatorRange.hashCode()
-        result = 31 * result + this.IsAbsolute.hashCode()
-        result = 31 * result + this.ReportCount.hashCode()
-        result = 31 * result + this.Reserved2.hashCode()
-        result = 31 * result + this.Reserved.contentHashCode()
-        result = 31 * result + this.Anonymous.hashCode()
+        var result = this.usagePage.hashCode()
+        result = 31 * result + this.reportID.hashCode()
+        result = 31 * result + this.isAlias.hashCode()
+        result = 31 * result + this.bitField.hashCode()
+        result = 31 * result + this.linkCollection.hashCode()
+        result = 31 * result + this.linkUsage.hashCode()
+        result = 31 * result + this.linkUsagePage.hashCode()
+        result = 31 * result + this.isRange.hashCode()
+        result = 31 * result + this.isStringRange.hashCode()
+        result = 31 * result + this.isDesignatorRange.hashCode()
+        result = 31 * result + this.isAbsolute.hashCode()
+        result = 31 * result + this.reportCount.hashCode()
+        result = 31 * result + this.reserved2.hashCode()
+        result = 31 * result + this.reserved.contentHashCode()
+        result = 31 * result + this.anonymous.hashCode()
         return result
     }
 }
 
-public data class HIDP_BUTTON_CAPS_0(public var Range: HIDP_BUTTON_CAPS_0_0 = HIDP_BUTTON_CAPS_0_0(), public var NotRange: HIDP_BUTTON_CAPS_0_1 = HIDP_BUTTON_CAPS_0_1())
+public data class HidpButtonCaps0(public var range: HidpButtonCaps00 = HidpButtonCaps00(), public var notRange: HidpButtonCaps01 = HidpButtonCaps01())
 
-public data class HIDP_BUTTON_CAPS_0_1(
-    public var Usage: UShort = 0u,
-    public var Reserved1: UShort = 0u,
-    public var StringIndex: UShort = 0u,
-    public var Reserved2: UShort = 0u,
-    public var DesignatorIndex: UShort = 0u,
-    public var Reserved3: UShort = 0u,
-    public var DataIndex: UShort = 0u,
-    public var Reserved4: UShort = 0u,
+public data class HidpButtonCaps01(
+    public var usage: UShort = 0u,
+    public var reserved1: UShort = 0u,
+    public var stringIndex: UShort = 0u,
+    public var reserved2: UShort = 0u,
+    public var designatorIndex: UShort = 0u,
+    public var reserved3: UShort = 0u,
+    public var dataIndex: UShort = 0u,
+    public var reserved4: UShort = 0u,
 )
 
-public data class HIDP_BUTTON_CAPS_0_0(
-    public var UsageMin: UShort = 0u,
-    public var UsageMax: UShort = 0u,
-    public var StringMin: UShort = 0u,
-    public var StringMax: UShort = 0u,
-    public var DesignatorMin: UShort = 0u,
-    public var DesignatorMax: UShort = 0u,
-    public var DataIndexMin: UShort = 0u,
-    public var DataIndexMax: UShort = 0u,
+public data class HidpButtonCaps00(
+    public var usageMin: UShort = 0u,
+    public var usageMax: UShort = 0u,
+    public var stringMin: UShort = 0u,
+    public var stringMax: UShort = 0u,
+    public var designatorMin: UShort = 0u,
+    public var designatorMax: UShort = 0u,
+    public var dataIndexMin: UShort = 0u,
+    public var dataIndexMax: UShort = 0u,
 )
 
-public data class HIDP_CAPS(
-    public var Usage: UShort = 0u,
-    public var UsagePage: UShort = 0u,
-    public var InputReportByteLength: UShort = 0u,
-    public var OutputReportByteLength: UShort = 0u,
-    public var FeatureReportByteLength: UShort = 0u,
-    public var Reserved: UShortArray = UShortArray(17),
-    public var NumberLinkCollectionNodes: UShort = 0u,
-    public var NumberInputButtonCaps: UShort = 0u,
-    public var NumberInputValueCaps: UShort = 0u,
-    public var NumberInputDataIndices: UShort = 0u,
-    public var NumberOutputButtonCaps: UShort = 0u,
-    public var NumberOutputValueCaps: UShort = 0u,
-    public var NumberOutputDataIndices: UShort = 0u,
-    public var NumberFeatureButtonCaps: UShort = 0u,
-    public var NumberFeatureValueCaps: UShort = 0u,
-    public var NumberFeatureDataIndices: UShort = 0u,
+public data class HidpCaps(
+    public var usage: UShort = 0u,
+    public var usagePage: UShort = 0u,
+    public var inputReportByteLength: UShort = 0u,
+    public var outputReportByteLength: UShort = 0u,
+    public var featureReportByteLength: UShort = 0u,
+    public var reserved: UShortArray = UShortArray(17),
+    public var numberLinkCollectionNodes: UShort = 0u,
+    public var numberInputButtonCaps: UShort = 0u,
+    public var numberInputValueCaps: UShort = 0u,
+    public var numberInputDataIndices: UShort = 0u,
+    public var numberOutputButtonCaps: UShort = 0u,
+    public var numberOutputValueCaps: UShort = 0u,
+    public var numberOutputDataIndices: UShort = 0u,
+    public var numberFeatureButtonCaps: UShort = 0u,
+    public var numberFeatureValueCaps: UShort = 0u,
+    public var numberFeatureDataIndices: UShort = 0u,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is HIDP_CAPS) return false
-        if (this.Usage != other.Usage) return false
-        if (this.UsagePage != other.UsagePage) return false
-        if (this.InputReportByteLength != other.InputReportByteLength) return false
-        if (this.OutputReportByteLength != other.OutputReportByteLength) return false
-        if (this.FeatureReportByteLength != other.FeatureReportByteLength) return false
-        if (!this.Reserved.contentEquals(other.Reserved)) return false
-        if (this.NumberLinkCollectionNodes != other.NumberLinkCollectionNodes) return false
-        if (this.NumberInputButtonCaps != other.NumberInputButtonCaps) return false
-        if (this.NumberInputValueCaps != other.NumberInputValueCaps) return false
-        if (this.NumberInputDataIndices != other.NumberInputDataIndices) return false
-        if (this.NumberOutputButtonCaps != other.NumberOutputButtonCaps) return false
-        if (this.NumberOutputValueCaps != other.NumberOutputValueCaps) return false
-        if (this.NumberOutputDataIndices != other.NumberOutputDataIndices) return false
-        if (this.NumberFeatureButtonCaps != other.NumberFeatureButtonCaps) return false
-        if (this.NumberFeatureValueCaps != other.NumberFeatureValueCaps) return false
-        if (this.NumberFeatureDataIndices != other.NumberFeatureDataIndices) return false
+        if (other !is HidpCaps) return false
+        if (this.usage != other.usage) return false
+        if (this.usagePage != other.usagePage) return false
+        if (this.inputReportByteLength != other.inputReportByteLength) return false
+        if (this.outputReportByteLength != other.outputReportByteLength) return false
+        if (this.featureReportByteLength != other.featureReportByteLength) return false
+        if (!this.reserved.contentEquals(other.reserved)) return false
+        if (this.numberLinkCollectionNodes != other.numberLinkCollectionNodes) return false
+        if (this.numberInputButtonCaps != other.numberInputButtonCaps) return false
+        if (this.numberInputValueCaps != other.numberInputValueCaps) return false
+        if (this.numberInputDataIndices != other.numberInputDataIndices) return false
+        if (this.numberOutputButtonCaps != other.numberOutputButtonCaps) return false
+        if (this.numberOutputValueCaps != other.numberOutputValueCaps) return false
+        if (this.numberOutputDataIndices != other.numberOutputDataIndices) return false
+        if (this.numberFeatureButtonCaps != other.numberFeatureButtonCaps) return false
+        if (this.numberFeatureValueCaps != other.numberFeatureValueCaps) return false
+        if (this.numberFeatureDataIndices != other.numberFeatureDataIndices) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Usage.hashCode()
-        result = 31 * result + this.UsagePage.hashCode()
-        result = 31 * result + this.InputReportByteLength.hashCode()
-        result = 31 * result + this.OutputReportByteLength.hashCode()
-        result = 31 * result + this.FeatureReportByteLength.hashCode()
-        result = 31 * result + this.Reserved.contentHashCode()
-        result = 31 * result + this.NumberLinkCollectionNodes.hashCode()
-        result = 31 * result + this.NumberInputButtonCaps.hashCode()
-        result = 31 * result + this.NumberInputValueCaps.hashCode()
-        result = 31 * result + this.NumberInputDataIndices.hashCode()
-        result = 31 * result + this.NumberOutputButtonCaps.hashCode()
-        result = 31 * result + this.NumberOutputValueCaps.hashCode()
-        result = 31 * result + this.NumberOutputDataIndices.hashCode()
-        result = 31 * result + this.NumberFeatureButtonCaps.hashCode()
-        result = 31 * result + this.NumberFeatureValueCaps.hashCode()
-        result = 31 * result + this.NumberFeatureDataIndices.hashCode()
+        var result = this.usage.hashCode()
+        result = 31 * result + this.usagePage.hashCode()
+        result = 31 * result + this.inputReportByteLength.hashCode()
+        result = 31 * result + this.outputReportByteLength.hashCode()
+        result = 31 * result + this.featureReportByteLength.hashCode()
+        result = 31 * result + this.reserved.contentHashCode()
+        result = 31 * result + this.numberLinkCollectionNodes.hashCode()
+        result = 31 * result + this.numberInputButtonCaps.hashCode()
+        result = 31 * result + this.numberInputValueCaps.hashCode()
+        result = 31 * result + this.numberInputDataIndices.hashCode()
+        result = 31 * result + this.numberOutputButtonCaps.hashCode()
+        result = 31 * result + this.numberOutputValueCaps.hashCode()
+        result = 31 * result + this.numberOutputDataIndices.hashCode()
+        result = 31 * result + this.numberFeatureButtonCaps.hashCode()
+        result = 31 * result + this.numberFeatureValueCaps.hashCode()
+        result = 31 * result + this.numberFeatureDataIndices.hashCode()
         return result
     }
 }
 
-public data class HIDP_DATA(
-    public var DataIndex: UShort = 0u,
-    public var Reserved: UShort = 0u,
-    public var Anonymous: HIDP_DATA_0 = HIDP_DATA_0(),
+public data class HidpData(
+    public var dataIndex: UShort = 0u,
+    public var reserved: UShort = 0u,
+    public var anonymous: HidpData0 = HidpData0(),
 )
 
-public data class HIDP_DATA_0(public var RawValue: UInt = 0u, public var On: Boolean = false)
+public data class HidpData0(public var rawValue: UInt = 0u, public var on: Boolean = false)
 
-public data class HIDP_EXTENDED_ATTRIBUTES(
-    public var NumGlobalUnknowns: UByte = 0u,
-    public var Reserved: UByteArray = UByteArray(3),
-    public var GlobalUnknowns: Long = 0L,
-    public var Data: UIntArray = UIntArray(1),
+public data class HidpExtendedAttributes(
+    public var numGlobalUnknowns: UByte = 0u,
+    public var reserved: UByteArray = UByteArray(3),
+    public var globalUnknowns: HidpUnknownToken? = null,
+    public var data: UIntArray = UIntArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is HIDP_EXTENDED_ATTRIBUTES) return false
-        if (this.NumGlobalUnknowns != other.NumGlobalUnknowns) return false
-        if (!this.Reserved.contentEquals(other.Reserved)) return false
-        if (this.GlobalUnknowns != other.GlobalUnknowns) return false
-        if (!this.Data.contentEquals(other.Data)) return false
+        if (other !is HidpExtendedAttributes) return false
+        if (this.numGlobalUnknowns != other.numGlobalUnknowns) return false
+        if (!this.reserved.contentEquals(other.reserved)) return false
+        if (this.globalUnknowns != other.globalUnknowns) return false
+        if (!this.data.contentEquals(other.data)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.NumGlobalUnknowns.hashCode()
-        result = 31 * result + this.Reserved.contentHashCode()
-        result = 31 * result + this.GlobalUnknowns.hashCode()
-        result = 31 * result + this.Data.contentHashCode()
+        var result = this.numGlobalUnknowns.hashCode()
+        result = 31 * result + this.reserved.contentHashCode()
+        result = 31 * result + this.globalUnknowns.hashCode()
+        result = 31 * result + this.data.contentHashCode()
         return result
     }
 }
 
-public data class HIDP_KEYBOARD_MODIFIER_STATE(public var Anonymous: HIDP_KEYBOARD_MODIFIER_STATE_0 = HIDP_KEYBOARD_MODIFIER_STATE_0())
+public data class HidpKeyboardModifierState(public var anonymous: HidpKeyboardModifierState0 = HidpKeyboardModifierState0())
 
-public data class HIDP_KEYBOARD_MODIFIER_STATE_0(public var Anonymous: HIDP_KEYBOARD_MODIFIER_STATE_0_0 = HIDP_KEYBOARD_MODIFIER_STATE_0_0(), public var ul: UInt = 0u)
+public data class HidpKeyboardModifierState0(public var anonymous: HidpKeyboardModifierState00 = HidpKeyboardModifierState00(), public var ul: UInt = 0u)
 
-public data class HIDP_KEYBOARD_MODIFIER_STATE_0_0(public var _bitfield: UInt = 0u)
+public data class HidpKeyboardModifierState00(public var bitfield: UInt = 0u)
 
-public data class HIDP_LINK_COLLECTION_NODE(
-    public var LinkUsage: UShort = 0u,
-    public var LinkUsagePage: UShort = 0u,
-    public var Parent: UShort = 0u,
-    public var NumberOfChildren: UShort = 0u,
-    public var NextSibling: UShort = 0u,
-    public var FirstChild: UShort = 0u,
-    public var _bitfield: UInt = 0u,
-    public var UserContext: Long = 0L,
+public data class HidpLinkCollectionNode(
+    public var linkUsage: UShort = 0u,
+    public var linkUsagePage: UShort = 0u,
+    public var parent: UShort = 0u,
+    public var numberOfChildren: UShort = 0u,
+    public var nextSibling: UShort = 0u,
+    public var firstChild: UShort = 0u,
+    public var bitfield: UInt = 0u,
+    public var userContext: COpaquePointer? = null,
 )
 
-public data class HIDP_UNKNOWN_TOKEN(
-    public var Token: UByte = 0u,
-    public var Reserved: UByteArray = UByteArray(3),
-    public var BitField: UInt = 0u,
+public data class HidpUnknownToken(
+    public var token: UByte = 0u,
+    public var reserved: UByteArray = UByteArray(3),
+    public var bitField: UInt = 0u,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is HIDP_UNKNOWN_TOKEN) return false
-        if (this.Token != other.Token) return false
-        if (!this.Reserved.contentEquals(other.Reserved)) return false
-        if (this.BitField != other.BitField) return false
+        if (other !is HidpUnknownToken) return false
+        if (this.token != other.token) return false
+        if (!this.reserved.contentEquals(other.reserved)) return false
+        if (this.bitField != other.bitField) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Token.hashCode()
-        result = 31 * result + this.Reserved.contentHashCode()
-        result = 31 * result + this.BitField.hashCode()
+        var result = this.token.hashCode()
+        result = 31 * result + this.reserved.contentHashCode()
+        result = 31 * result + this.bitField.hashCode()
         return result
     }
 }
 
-public class HIDP_VALUE_CAPS(
-    public var UsagePage: UShort = 0u,
-    public var ReportID: UByte = 0u,
-    public var IsAlias: Boolean = false,
-    public var BitField: UShort = 0u,
-    public var LinkCollection: UShort = 0u,
-    public var LinkUsage: UShort = 0u,
-    public var LinkUsagePage: UShort = 0u,
-    public var IsRange: Boolean = false,
-    public var IsStringRange: Boolean = false,
-    public var IsDesignatorRange: Boolean = false,
-    public var IsAbsolute: Boolean = false,
-    public var HasNull: Boolean = false,
-    public var Reserved: UByte = 0u,
-    public var BitSize: UShort = 0u,
-    public var ReportCount: UShort = 0u,
-    public var Reserved2: UShortArray = UShortArray(5),
-    public var UnitsExp: UInt = 0u,
-    public var Units: UInt = 0u,
-    public var LogicalMin: Int = 0,
-    public var LogicalMax: Int = 0,
-    public var PhysicalMin: Int = 0,
-    public var PhysicalMax: Int = 0,
-    public var Anonymous: HIDP_VALUE_CAPS_0 = HIDP_VALUE_CAPS_0(),
+public class HidpValueCaps(
+    public var usagePage: UShort = 0u,
+    public var reportID: UByte = 0u,
+    public var isAlias: Boolean = false,
+    public var bitField: UShort = 0u,
+    public var linkCollection: UShort = 0u,
+    public var linkUsage: UShort = 0u,
+    public var linkUsagePage: UShort = 0u,
+    public var isRange: Boolean = false,
+    public var isStringRange: Boolean = false,
+    public var isDesignatorRange: Boolean = false,
+    public var isAbsolute: Boolean = false,
+    public var hasNull: Boolean = false,
+    public var reserved: UByte = 0u,
+    public var bitSize: UShort = 0u,
+    public var reportCount: UShort = 0u,
+    public var reserved2: UShortArray = UShortArray(5),
+    public var unitsExp: UInt = 0u,
+    public var units: UInt = 0u,
+    public var logicalMin: Int = 0,
+    public var logicalMax: Int = 0,
+    public var physicalMin: Int = 0,
+    public var physicalMax: Int = 0,
+    public var anonymous: HidpValueCaps0 = HidpValueCaps0(),
 )
 
-public data class HIDP_VALUE_CAPS_0(public var Range: HIDP_VALUE_CAPS_0_0 = HIDP_VALUE_CAPS_0_0(), public var NotRange: HIDP_VALUE_CAPS_0_1 = HIDP_VALUE_CAPS_0_1())
+public data class HidpValueCaps0(public var range: HidpValueCaps00 = HidpValueCaps00(), public var notRange: HidpValueCaps01 = HidpValueCaps01())
 
-public data class HIDP_VALUE_CAPS_0_1(
-    public var Usage: UShort = 0u,
-    public var Reserved1: UShort = 0u,
-    public var StringIndex: UShort = 0u,
-    public var Reserved2: UShort = 0u,
-    public var DesignatorIndex: UShort = 0u,
-    public var Reserved3: UShort = 0u,
-    public var DataIndex: UShort = 0u,
-    public var Reserved4: UShort = 0u,
+public data class HidpValueCaps01(
+    public var usage: UShort = 0u,
+    public var reserved1: UShort = 0u,
+    public var stringIndex: UShort = 0u,
+    public var reserved2: UShort = 0u,
+    public var designatorIndex: UShort = 0u,
+    public var reserved3: UShort = 0u,
+    public var dataIndex: UShort = 0u,
+    public var reserved4: UShort = 0u,
 )
 
-public data class HIDP_VALUE_CAPS_0_0(
-    public var UsageMin: UShort = 0u,
-    public var UsageMax: UShort = 0u,
-    public var StringMin: UShort = 0u,
-    public var StringMax: UShort = 0u,
-    public var DesignatorMin: UShort = 0u,
-    public var DesignatorMax: UShort = 0u,
-    public var DataIndexMin: UShort = 0u,
-    public var DataIndexMax: UShort = 0u,
+public data class HidpValueCaps00(
+    public var usageMin: UShort = 0u,
+    public var usageMax: UShort = 0u,
+    public var stringMin: UShort = 0u,
+    public var stringMax: UShort = 0u,
+    public var designatorMin: UShort = 0u,
+    public var designatorMax: UShort = 0u,
+    public var dataIndexMin: UShort = 0u,
+    public var dataIndexMax: UShort = 0u,
 )
 
-public data class HID_COLLECTION_INFORMATION(
-    public var DescriptorSize: UInt = 0u,
-    public var Polled: Boolean = false,
-    public var Reserved1: UByteArray = UByteArray(1),
-    public var VendorID: UShort = 0u,
-    public var ProductID: UShort = 0u,
-    public var VersionNumber: UShort = 0u,
+public data class HidCollectionInformation(
+    public var descriptorSize: UInt = 0u,
+    public var polled: Boolean = false,
+    public var reserved1: UByteArray = UByteArray(1),
+    public var vendorID: UShort = 0u,
+    public var productID: UShort = 0u,
+    public var versionNumber: UShort = 0u,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is HID_COLLECTION_INFORMATION) return false
-        if (this.DescriptorSize != other.DescriptorSize) return false
-        if (this.Polled != other.Polled) return false
-        if (!this.Reserved1.contentEquals(other.Reserved1)) return false
-        if (this.VendorID != other.VendorID) return false
-        if (this.ProductID != other.ProductID) return false
-        if (this.VersionNumber != other.VersionNumber) return false
+        if (other !is HidCollectionInformation) return false
+        if (this.descriptorSize != other.descriptorSize) return false
+        if (this.polled != other.polled) return false
+        if (!this.reserved1.contentEquals(other.reserved1)) return false
+        if (this.vendorID != other.vendorID) return false
+        if (this.productID != other.productID) return false
+        if (this.versionNumber != other.versionNumber) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.DescriptorSize.hashCode()
-        result = 31 * result + this.Polled.hashCode()
-        result = 31 * result + this.Reserved1.contentHashCode()
-        result = 31 * result + this.VendorID.hashCode()
-        result = 31 * result + this.ProductID.hashCode()
-        result = 31 * result + this.VersionNumber.hashCode()
+        var result = this.descriptorSize.hashCode()
+        result = 31 * result + this.polled.hashCode()
+        result = 31 * result + this.reserved1.contentHashCode()
+        result = 31 * result + this.vendorID.hashCode()
+        result = 31 * result + this.productID.hashCode()
+        result = 31 * result + this.versionNumber.hashCode()
         return result
     }
 }
 
-public data class HID_DRIVER_CONFIG(public var Size: UInt = 0u, public var RingBufferSize: UInt = 0u)
+public data class HidDriverConfig(public var size: UInt = 0u, public var ringBufferSize: UInt = 0u)
 
-public data class HID_XFER_PACKET(
-    public var reportBuffer: Long = 0L,
+public data class HidXferPacket(
+    public var reportBuffer: COpaquePointer? = null,
     public var reportBufferLen: UInt = 0u,
     public var reportId: UByte = 0u,
 )
 
-public data class INDICATOR_LIST(public var MakeCode: UShort = 0u, public var IndicatorFlags: UShort = 0u)
+public data class IndicatorList(public var makeCode: UShort = 0u, public var indicatorFlags: UShort = 0u)
 
-public data class INPUT_BUTTON_ENABLE_INFO(public var ButtonType: GPIOBUTTONS_BUTTON_TYPE = 0, public var Enabled: Boolean = false)
+public data class InputButtonEnableInfo(public var buttonType: GpiobuttonsButtonType = 0, public var enabled: Boolean = false)
 
-public data class JOYCALIBRATE(
+public data class Joycalibrate(
     public var wXbase: UInt = 0u,
     public var wXdelta: UInt = 0u,
     public var wYbase: UInt = 0u,
@@ -1624,7 +1625,7 @@ public data class JOYCALIBRATE(
     public var wZdelta: UInt = 0u,
 )
 
-public data class JOYPOS(
+public data class Joypos(
     public var dwX: UInt = 0u,
     public var dwY: UInt = 0u,
     public var dwZ: UInt = 0u,
@@ -1633,30 +1634,30 @@ public data class JOYPOS(
     public var dwV: UInt = 0u,
 )
 
-public data class JOYRANGE(
-    public var jpMin: JOYPOS = JOYPOS(),
-    public var jpMax: JOYPOS = JOYPOS(),
-    public var jpCenter: JOYPOS = JOYPOS(),
+public data class Joyrange(
+    public var jpMin: Joypos = Joypos(),
+    public var jpMax: Joypos = Joypos(),
+    public var jpCenter: Joypos = Joypos(),
 )
 
-public data class JOYREGHWCONFIG(
-    public var hws: JOYREGHWSETTINGS = JOYREGHWSETTINGS(),
+public data class Joyreghwconfig(
+    public var hws: Joyreghwsettings = Joyreghwsettings(),
     public var dwUsageSettings: UInt = 0u,
-    public var hwv: JOYREGHWVALUES = JOYREGHWVALUES(),
+    public var hwv: Joyreghwvalues = Joyreghwvalues(),
     public var dwType: UInt = 0u,
     public var dwReserved: UInt = 0u,
 )
 
-public data class JOYREGHWSETTINGS(public var dwFlags: UInt = 0u, public var dwNumButtons: UInt = 0u)
+public data class Joyreghwsettings(public var dwFlags: UInt = 0u, public var dwNumButtons: UInt = 0u)
 
-public data class JOYREGHWVALUES(
-    public var jrvHardware: JOYRANGE = JOYRANGE(),
+public data class Joyreghwvalues(
+    public var jrvHardware: Joyrange = Joyrange(),
     public var dwPOVValues: UIntArray = UIntArray(4),
     public var dwCalFlags: UInt = 0u,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is JOYREGHWVALUES) return false
+        if (other !is Joyreghwvalues) return false
         if (this.jrvHardware != other.jrvHardware) return false
         if (!this.dwPOVValues.contentEquals(other.dwPOVValues)) return false
         if (this.dwCalFlags != other.dwCalFlags) return false
@@ -1671,82 +1672,82 @@ public data class JOYREGHWVALUES(
     }
 }
 
-public data class JOYREGUSERVALUES(
+public data class Joyreguservalues(
     public var dwTimeOut: UInt = 0u,
-    public var jrvRanges: JOYRANGE = JOYRANGE(),
-    public var jpDeadZone: JOYPOS = JOYPOS(),
+    public var jrvRanges: Joyrange = Joyrange(),
+    public var jpDeadZone: Joypos = Joypos(),
 )
 
-public data class KEYBOARD_ATTRIBUTES(
-    public var KeyboardIdentifier: KEYBOARD_ID = KEYBOARD_ID(),
-    public var KeyboardMode: UShort = 0u,
-    public var NumberOfFunctionKeys: UShort = 0u,
-    public var NumberOfIndicators: UShort = 0u,
-    public var NumberOfKeysTotal: UShort = 0u,
-    public var InputDataQueueLength: UInt = 0u,
-    public var KeyRepeatMinimum: KEYBOARD_TYPEMATIC_PARAMETERS = KEYBOARD_TYPEMATIC_PARAMETERS(),
-    public var KeyRepeatMaximum: KEYBOARD_TYPEMATIC_PARAMETERS = KEYBOARD_TYPEMATIC_PARAMETERS(),
+public data class KeyboardAttributes(
+    public var keyboardIdentifier: KeyboardId = KeyboardId(),
+    public var keyboardMode: UShort = 0u,
+    public var numberOfFunctionKeys: UShort = 0u,
+    public var numberOfIndicators: UShort = 0u,
+    public var numberOfKeysTotal: UShort = 0u,
+    public var inputDataQueueLength: UInt = 0u,
+    public var keyRepeatMinimum: KeyboardTypematicParameters = KeyboardTypematicParameters(),
+    public var keyRepeatMaximum: KeyboardTypematicParameters = KeyboardTypematicParameters(),
 )
 
-public data class KEYBOARD_EXTENDED_ATTRIBUTES(
-    public var Version: UByte = 0u,
-    public var FormFactor: UByte = 0u,
-    public var KeyType: UByte = 0u,
-    public var PhysicalLayout: UByte = 0u,
-    public var VendorSpecificPhysicalLayout: UByte = 0u,
-    public var IETFLanguageTagIndex: UByte = 0u,
-    public var ImplementedInputAssistControls: UByte = 0u,
+public data class KeyboardExtendedAttributes(
+    public var version: UByte = 0u,
+    public var formFactor: UByte = 0u,
+    public var keyType: UByte = 0u,
+    public var physicalLayout: UByte = 0u,
+    public var vendorSpecificPhysicalLayout: UByte = 0u,
+    public var iETFLanguageTagIndex: UByte = 0u,
+    public var implementedInputAssistControls: UByte = 0u,
 )
 
-public data class KEYBOARD_ID(public var Type: UByte = 0u, public var Subtype: UByte = 0u)
+public data class KeyboardId(public var type: UByte = 0u, public var subtype: UByte = 0u)
 
-public data class KEYBOARD_IME_STATUS(
-    public var UnitId: UShort = 0u,
-    public var ImeOpen: UInt = 0u,
-    public var ImeConvMode: UInt = 0u,
+public data class KeyboardImeStatus(
+    public var unitId: UShort = 0u,
+    public var imeOpen: UInt = 0u,
+    public var imeConvMode: UInt = 0u,
 )
 
-public data class KEYBOARD_INDICATOR_PARAMETERS(public var UnitId: UShort = 0u, public var LedFlags: UShort = 0u)
+public data class KeyboardIndicatorParameters(public var unitId: UShort = 0u, public var ledFlags: UShort = 0u)
 
-public data class KEYBOARD_INDICATOR_TRANSLATION(public var NumberOfIndicatorKeys: UShort = 0u, public var IndicatorList: List<INDICATOR_LIST> = List(1) { INDICATOR_LIST() })
+public data class KeyboardIndicatorTranslation(public var numberOfIndicatorKeys: UShort = 0u, public var indicatorList: List<IndicatorList> = List(1) { IndicatorList() })
 
-public data class KEYBOARD_INPUT_DATA(
-    public var UnitId: UShort = 0u,
-    public var MakeCode: UShort = 0u,
-    public var Flags: UShort = 0u,
-    public var Reserved: UShort = 0u,
-    public var ExtraInformation: UInt = 0u,
+public data class KeyboardInputData(
+    public var unitId: UShort = 0u,
+    public var makeCode: UShort = 0u,
+    public var flags: UShort = 0u,
+    public var reserved: UShort = 0u,
+    public var extraInformation: UInt = 0u,
 )
 
-public data class KEYBOARD_TYPEMATIC_PARAMETERS(
-    public var UnitId: UShort = 0u,
-    public var Rate: UShort = 0u,
-    public var Delay: UShort = 0u,
+public data class KeyboardTypematicParameters(
+    public var unitId: UShort = 0u,
+    public var rate: UShort = 0u,
+    public var delay: UShort = 0u,
 )
 
-public data class KEYBOARD_UNIT_ID_PARAMETER(public var UnitId: UShort = 0u)
+public data class KeyboardUnitIdParameter(public var unitId: UShort = 0u)
 
-public data class MOUSE_ATTRIBUTES(
-    public var MouseIdentifier: UShort = 0u,
-    public var NumberOfButtons: UShort = 0u,
-    public var SampleRate: UShort = 0u,
-    public var InputDataQueueLength: UInt = 0u,
+public data class MouseAttributes(
+    public var mouseIdentifier: UShort = 0u,
+    public var numberOfButtons: UShort = 0u,
+    public var sampleRate: UShort = 0u,
+    public var inputDataQueueLength: UInt = 0u,
 )
 
-public data class MOUSE_INPUT_DATA(
-    public var UnitId: UShort = 0u,
-    public var Flags: UShort = 0u,
-    public var Anonymous: MOUSE_INPUT_DATA_0 = MOUSE_INPUT_DATA_0(),
-    public var RawButtons: UInt = 0u,
-    public var LastX: Int = 0,
-    public var LastY: Int = 0,
-    public var ExtraInformation: UInt = 0u,
+public data class MouseInputData(
+    public var unitId: UShort = 0u,
+    public var flags: UShort = 0u,
+    public var anonymous: MouseInputData0 = MouseInputData0(),
+    public var rawButtons: UInt = 0u,
+    public var lastX: Int = 0,
+    public var lastY: Int = 0,
+    public var extraInformation: UInt = 0u,
 )
 
-public data class MOUSE_INPUT_DATA_0(public var Buttons: UInt = 0u, public var Anonymous: MOUSE_INPUT_DATA_0_0 = MOUSE_INPUT_DATA_0_0())
+public data class MouseInputData0(public var buttons: UInt = 0u, public var anonymous: MouseInputData00 = MouseInputData00())
 
-public data class MOUSE_INPUT_DATA_0_0(public var ButtonFlags: UShort = 0u, public var ButtonData: UShort = 0u)
+public data class MouseInputData00(public var buttonFlags: UShort = 0u, public var buttonData: UShort = 0u)
 
-public data class MOUSE_UNIT_ID_PARAMETER(public var UnitId: UShort = 0u)
+public data class MouseUnitIdParameter(public var unitId: UShort = 0u)
 
-public data class USAGE_AND_PAGE(public var Usage: UShort = 0u, public var UsagePage: UShort = 0u)
+public data class UsageAndPage(public var usage: UShort = 0u, public var usagePage: UShort = 0u)

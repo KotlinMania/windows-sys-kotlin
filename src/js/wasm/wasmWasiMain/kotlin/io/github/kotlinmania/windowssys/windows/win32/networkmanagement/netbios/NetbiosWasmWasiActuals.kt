@@ -2,5 +2,7 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netbios
 
-public actual fun Netbios(pncb: Long): UByte =
-    0u
+import io.github.kotlinmania.windowssys.COpaquePointer
+
+public actual fun netbios(pncb: COpaquePointer?): UByte =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

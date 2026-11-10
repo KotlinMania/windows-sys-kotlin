@@ -1,11 +1,12 @@
 package io.github.kotlinmania.windowssys.windows.win32.storage.offlinefiles
 
-import io.github.kotlinmania.windowssys.core.BOOL
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
 
-public expect fun OfflineFilesEnable(benable: BOOL, pbrebootrequired: Long): UInt
+public expect fun offlineFilesEnable(benable: Bool, pbrebootrequired: COpaquePointer?): UInt
 
-public expect fun OfflineFilesQueryStatus(pbactive: Long, pbenabled: Long): UInt
+public expect fun offlineFilesQueryStatus(pbactive: COpaquePointer?, pbenabled: COpaquePointer?): UInt
 
-public expect fun OfflineFilesQueryStatusEx(pbactive: Long, pbenabled: Long, pbavailable: Long): UInt
+public expect fun offlineFilesQueryStatusEx(pbactive: COpaquePointer?, pbenabled: COpaquePointer?, pbavailable: COpaquePointer?): UInt
 
-public expect fun OfflineFilesStart(): UInt
+public expect fun offlineFilesStart(): UInt

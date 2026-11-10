@@ -2,41 +2,42 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.io
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun BindIoCompletionCallback(filehandle: HANDLE, function: LPOVERLAPPED_COMPLETION_ROUTINE, flags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.io.cinterop.windowssys_windows_win32_system_io_BindIoCompletionCallback(filehandle.toCPointer<ByteVar>(), function.toLong().toCPointer<ByteVar>(), flags)
+public actual fun bindIoCompletionCallback(filehandle: Handle, function: LpoverlappedCompletionRoutine, flags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.io.cinterop.windowssys_windows_win32_system_io_bindIoCompletionCallback(filehandle?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), flags)
 
-public actual fun CancelIo(hfile: HANDLE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.io.cinterop.windowssys_windows_win32_system_io_CancelIo(hfile.toCPointer<ByteVar>())
+public actual fun cancelIo(hfile: Handle): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.io.cinterop.windowssys_windows_win32_system_io_cancelIo(hfile?.value?.toCPointer<ByteVar>())
 
-public actual fun CancelIoEx(hfile: HANDLE, lpoverlapped: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.io.cinterop.windowssys_windows_win32_system_io_CancelIoEx(hfile.toCPointer<ByteVar>(), lpoverlapped.toCPointer<ByteVar>())
+public actual fun cancelIoEx(hfile: Handle, lpoverlapped: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.io.cinterop.windowssys_windows_win32_system_io_cancelIoEx(hfile?.value?.toCPointer<ByteVar>(), lpoverlapped?.value?.toCPointer<ByteVar>())
 
-public actual fun CancelSynchronousIo(hthread: HANDLE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.io.cinterop.windowssys_windows_win32_system_io_CancelSynchronousIo(hthread.toCPointer<ByteVar>())
+public actual fun cancelSynchronousIo(hthread: Handle): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.io.cinterop.windowssys_windows_win32_system_io_cancelSynchronousIo(hthread?.value?.toCPointer<ByteVar>())
 
-public actual fun CreateIoCompletionPort(filehandle: HANDLE, existingcompletionport: HANDLE, completionkey: ULong, numberofconcurrentthreads: UInt): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.io.cinterop.windowssys_windows_win32_system_io_CreateIoCompletionPort(filehandle.toCPointer<ByteVar>(), existingcompletionport.toCPointer<ByteVar>(), completionkey, numberofconcurrentthreads)?.toLong() ?: 0L
+public actual fun createIoCompletionPort(filehandle: Handle, existingcompletionport: Handle, completionkey: ULong, numberofconcurrentthreads: UInt): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.io.cinterop.windowssys_windows_win32_system_io_createIoCompletionPort(filehandle?.value?.toCPointer<ByteVar>(), existingcompletionport?.value?.toCPointer<ByteVar>(), completionkey, numberofconcurrentthreads)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun DeviceIoControl(hdevice: HANDLE, dwiocontrolcode: UInt, lpinbuffer: Long, ninbuffersize: UInt, lpoutbuffer: Long, noutbuffersize: UInt, lpbytesreturned: Long, lpoverlapped: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.io.cinterop.windowssys_windows_win32_system_io_DeviceIoControl(hdevice.toCPointer<ByteVar>(), dwiocontrolcode, lpinbuffer.toCPointer<ByteVar>(), ninbuffersize, lpoutbuffer.toCPointer<ByteVar>(), noutbuffersize, lpbytesreturned.toCPointer<ByteVar>(), lpoverlapped.toCPointer<ByteVar>())
+public actual fun deviceIoControl(hdevice: Handle, dwiocontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?, lpoverlapped: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.io.cinterop.windowssys_windows_win32_system_io_deviceIoControl(hdevice?.value?.toCPointer<ByteVar>(), dwiocontrolcode, lpinbuffer?.value?.toCPointer<ByteVar>(), ninbuffersize, lpoutbuffer?.value?.toCPointer<ByteVar>(), noutbuffersize, lpbytesreturned?.value?.toCPointer<ByteVar>(), lpoverlapped?.value?.toCPointer<ByteVar>())
 
-public actual fun GetOverlappedResult(hfile: HANDLE, lpoverlapped: Long, lpnumberofbytestransferred: Long, bwait: BOOL): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.io.cinterop.windowssys_windows_win32_system_io_GetOverlappedResult(hfile.toCPointer<ByteVar>(), lpoverlapped.toCPointer<ByteVar>(), lpnumberofbytestransferred.toCPointer<ByteVar>(), bwait)
+public actual fun getOverlappedResult(hfile: Handle, lpoverlapped: COpaquePointer?, lpnumberofbytestransferred: COpaquePointer?, bwait: Bool): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.io.cinterop.windowssys_windows_win32_system_io_getOverlappedResult(hfile?.value?.toCPointer<ByteVar>(), lpoverlapped?.value?.toCPointer<ByteVar>(), lpnumberofbytestransferred?.value?.toCPointer<ByteVar>(), bwait)
 
-public actual fun GetOverlappedResultEx(hfile: HANDLE, lpoverlapped: Long, lpnumberofbytestransferred: Long, dwmilliseconds: UInt, balertable: BOOL): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.io.cinterop.windowssys_windows_win32_system_io_GetOverlappedResultEx(hfile.toCPointer<ByteVar>(), lpoverlapped.toCPointer<ByteVar>(), lpnumberofbytestransferred.toCPointer<ByteVar>(), dwmilliseconds, balertable)
+public actual fun getOverlappedResultEx(hfile: Handle, lpoverlapped: COpaquePointer?, lpnumberofbytestransferred: COpaquePointer?, dwmilliseconds: UInt, balertable: Bool): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.io.cinterop.windowssys_windows_win32_system_io_getOverlappedResultEx(hfile?.value?.toCPointer<ByteVar>(), lpoverlapped?.value?.toCPointer<ByteVar>(), lpnumberofbytestransferred?.value?.toCPointer<ByteVar>(), dwmilliseconds, balertable)
 
-public actual fun GetQueuedCompletionStatus(completionport: HANDLE, lpnumberofbytestransferred: Long, lpcompletionkey: Long, lpoverlapped: Long, dwmilliseconds: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.io.cinterop.windowssys_windows_win32_system_io_GetQueuedCompletionStatus(completionport.toCPointer<ByteVar>(), lpnumberofbytestransferred.toCPointer<ByteVar>(), lpcompletionkey.toCPointer<ByteVar>(), lpoverlapped.toCPointer<ByteVar>(), dwmilliseconds)
+public actual fun getQueuedCompletionStatus(completionport: Handle, lpnumberofbytestransferred: COpaquePointer?, lpcompletionkey: COpaquePointer?, lpoverlapped: COpaquePointer?, dwmilliseconds: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.io.cinterop.windowssys_windows_win32_system_io_getQueuedCompletionStatus(completionport?.value?.toCPointer<ByteVar>(), lpnumberofbytestransferred?.value?.toCPointer<ByteVar>(), lpcompletionkey?.value?.toCPointer<ByteVar>(), lpoverlapped?.value?.toCPointer<ByteVar>(), dwmilliseconds)
 
-public actual fun GetQueuedCompletionStatusEx(completionport: HANDLE, lpcompletionportentries: Long, ulcount: UInt, ulnumentriesremoved: Long, dwmilliseconds: UInt, falertable: BOOL): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.io.cinterop.windowssys_windows_win32_system_io_GetQueuedCompletionStatusEx(completionport.toCPointer<ByteVar>(), lpcompletionportentries.toCPointer<ByteVar>(), ulcount, ulnumentriesremoved.toCPointer<ByteVar>(), dwmilliseconds, falertable)
+public actual fun getQueuedCompletionStatusEx(completionport: Handle, lpcompletionportentries: COpaquePointer?, ulcount: UInt, ulnumentriesremoved: COpaquePointer?, dwmilliseconds: UInt, falertable: Bool): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.io.cinterop.windowssys_windows_win32_system_io_getQueuedCompletionStatusEx(completionport?.value?.toCPointer<ByteVar>(), lpcompletionportentries?.value?.toCPointer<ByteVar>(), ulcount, ulnumentriesremoved?.value?.toCPointer<ByteVar>(), dwmilliseconds, falertable)
 
-public actual fun PostQueuedCompletionStatus(completionport: HANDLE, dwnumberofbytestransferred: UInt, dwcompletionkey: ULong, lpoverlapped: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.io.cinterop.windowssys_windows_win32_system_io_PostQueuedCompletionStatus(completionport.toCPointer<ByteVar>(), dwnumberofbytestransferred, dwcompletionkey, lpoverlapped.toCPointer<ByteVar>())
+public actual fun postQueuedCompletionStatus(completionport: Handle, dwnumberofbytestransferred: UInt, dwcompletionkey: ULong, lpoverlapped: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.io.cinterop.windowssys_windows_win32_system_io_postQueuedCompletionStatus(completionport?.value?.toCPointer<ByteVar>(), dwnumberofbytestransferred, dwcompletionkey, lpoverlapped?.value?.toCPointer<ByteVar>())

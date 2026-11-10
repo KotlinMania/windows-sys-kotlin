@@ -15,7 +15,7 @@
 #endif
 #endif
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpAddFilterV4(void* serveripaddress, void* addfilterinfo, int32_t forceflag) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpAddFilterV4(void* serveripaddress, void* addfilterinfo, int32_t forceflag) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -39,7 +39,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpAddFilterV4(void* s
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpAddSecurityGroup(void* pserver) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpAddSecurityGroup(void* pserver) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -61,7 +61,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpAddSecurityGroup(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpAddServer(uint32_t flags, void* idinfo, void* newserver, void* callbackfn, void* callbackdata) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpAddServer(uint32_t flags, void* idinfo, void* newserver, void* callbackfn, void* callbackdata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -87,7 +87,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpAddServer(uint32_t 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpAddSubnetElement(void* serveripaddress, uint32_t subnetaddress, void* addelementinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpAddSubnetElement(void* serveripaddress, uint32_t subnetaddress, void* addelementinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -111,7 +111,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpAddSubnetElement(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpAddSubnetElementV4(void* serveripaddress, uint32_t subnetaddress, void* addelementinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpAddSubnetElementV4(void* serveripaddress, uint32_t subnetaddress, void* addelementinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -135,7 +135,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpAddSubnetElementV4(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpAddSubnetElementV5(void* serveripaddress, uint32_t subnetaddress, void* addelementinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpAddSubnetElementV5(void* serveripaddress, uint32_t subnetaddress, void* addelementinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -159,7 +159,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpAddSubnetElementV5(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpAuditLogGetParams(void* serveripaddress, uint32_t flags, void* auditlogdir, void* diskcheckinterval, void* maxlogfilessize, void* minspaceondisk) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpAuditLogGetParams(void* serveripaddress, uint32_t flags, void* auditlogdir, void* diskcheckinterval, void* maxlogfilessize, void* minspaceondisk) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -186,7 +186,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpAuditLogGetParams(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpAuditLogSetParams(void* serveripaddress, uint32_t flags, void* auditlogdir, uint32_t diskcheckinterval, uint32_t maxlogfilessize, uint32_t minspaceondisk) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpAuditLogSetParams(void* serveripaddress, uint32_t flags, void* auditlogdir, uint32_t diskcheckinterval, uint32_t maxlogfilessize, uint32_t minspaceondisk) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -213,7 +213,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpAuditLogSetParams(v
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_dhcp_DhcpCApiCleanup(void) {
+void windowssys_windows_win32_networkmanagement_dhcp_dhcpCApiCleanup(void) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -233,7 +233,7 @@ void windowssys_windows_win32_networkmanagement_dhcp_DhcpCApiCleanup(void) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpCApiInitialize(void* version) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpCApiInitialize(void* version) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -255,7 +255,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpCApiInitialize(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpCreateClass(void* serveripaddress, uint32_t reservedmustbezero, void* classinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateClass(void* serveripaddress, uint32_t reservedmustbezero, void* classinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -279,7 +279,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpCreateClass(void* s
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpCreateClassV6(void* serveripaddress, uint32_t reservedmustbezero, void* classinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateClassV6(void* serveripaddress, uint32_t reservedmustbezero, void* classinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -303,7 +303,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpCreateClassV6(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpCreateClientInfo(void* serveripaddress, void* clientinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateClientInfo(void* serveripaddress, void* clientinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -326,7 +326,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpCreateClientInfo(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpCreateClientInfoV4(void* serveripaddress, void* clientinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateClientInfoV4(void* serveripaddress, void* clientinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -349,7 +349,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpCreateClientInfoV4(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpCreateClientInfoVQ(void* serveripaddress, void* clientinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateClientInfoVQ(void* serveripaddress, void* clientinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -372,7 +372,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpCreateClientInfoVQ(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpCreateOption(void* serveripaddress, uint32_t optionid, void* optioninfo) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateOption(void* serveripaddress, uint32_t optionid, void* optioninfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -396,7 +396,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpCreateOption(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpCreateOptionV5(void* serveripaddress, uint32_t flags, uint32_t optionid, void* classname, void* vendorname, void* optioninfo) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateOptionV5(void* serveripaddress, uint32_t flags, uint32_t optionid, void* classname, void* vendorname, void* optioninfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -423,7 +423,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpCreateOptionV5(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpCreateOptionV6(void* serveripaddress, uint32_t flags, uint32_t optionid, void* classname, void* vendorname, void* optioninfo) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateOptionV6(void* serveripaddress, uint32_t flags, uint32_t optionid, void* classname, void* vendorname, void* optioninfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -450,7 +450,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpCreateOptionV6(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpCreateSubnet(void* serveripaddress, uint32_t subnetaddress, void* subnetinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateSubnet(void* serveripaddress, uint32_t subnetaddress, void* subnetinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -474,7 +474,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpCreateSubnet(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpCreateSubnetVQ(void* serveripaddress, uint32_t subnetaddress, void* subnetinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateSubnetVQ(void* serveripaddress, uint32_t subnetaddress, void* subnetinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -498,7 +498,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpCreateSubnetVQ(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpDeRegisterParamChange(uint32_t flags, void* reserved, void* event) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpDeRegisterParamChange(uint32_t flags, void* reserved, void* event) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -522,7 +522,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpDeRegisterParamChan
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpDeleteClass(void* serveripaddress, uint32_t reservedmustbezero, void* classname) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteClass(void* serveripaddress, uint32_t reservedmustbezero, void* classname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -546,7 +546,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpDeleteClass(void* s
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpDeleteClassV6(void* serveripaddress, uint32_t reservedmustbezero, void* classname) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteClassV6(void* serveripaddress, uint32_t reservedmustbezero, void* classname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -570,7 +570,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpDeleteClassV6(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpDeleteClientInfo(void* serveripaddress, void* clientinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteClientInfo(void* serveripaddress, void* clientinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -593,7 +593,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpDeleteClientInfo(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpDeleteClientInfoV6(void* serveripaddress, void* clientinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteClientInfoV6(void* serveripaddress, void* clientinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -616,7 +616,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpDeleteClientInfoV6(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpDeleteFilterV4(void* serveripaddress, void* deletefilterinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteFilterV4(void* serveripaddress, void* deletefilterinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -639,7 +639,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpDeleteFilterV4(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpDeleteServer(uint32_t flags, void* idinfo, void* newserver, void* callbackfn, void* callbackdata) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteServer(uint32_t flags, void* idinfo, void* newserver, void* callbackfn, void* callbackdata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -665,7 +665,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpDeleteServer(uint32
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpDeleteSubnet(void* serveripaddress, uint32_t subnetaddress, int32_t forceflag) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteSubnet(void* serveripaddress, uint32_t subnetaddress, int32_t forceflag) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -689,7 +689,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpDeleteSubnet(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpDeleteSuperScopeV4(void* serveripaddress, void* superscopename) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteSuperScopeV4(void* serveripaddress, void* superscopename) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -712,7 +712,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpDeleteSuperScopeV4(
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_dhcp_DhcpDsCleanup(void) {
+void windowssys_windows_win32_networkmanagement_dhcp_dhcpDsCleanup(void) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -732,7 +732,7 @@ void windowssys_windows_win32_networkmanagement_dhcp_DhcpDsCleanup(void) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpDsInit(void) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpDsInit(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -753,7 +753,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpDsInit(void) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumClasses(void* serveripaddress, uint32_t reservedmustbezero, void* resumehandle, uint32_t preferredmaximum, void* classinfoarray, void* nread, void* ntotal) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumClasses(void* serveripaddress, uint32_t reservedmustbezero, void* resumehandle, uint32_t preferredmaximum, void* classinfoarray, void* nread, void* ntotal) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -781,7 +781,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumClasses(void* s
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumClassesV6(void* serveripaddress, uint32_t reservedmustbezero, void* resumehandle, uint32_t preferredmaximum, void* classinfoarray, void* nread, void* ntotal) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumClassesV6(void* serveripaddress, uint32_t reservedmustbezero, void* resumehandle, uint32_t preferredmaximum, void* classinfoarray, void* nread, void* ntotal) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -809,7 +809,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumClassesV6(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumFilterV4(void* serveripaddress, void* resumehandle, uint32_t preferredmaximum, int32_t listtype, void* enumfilterinfo, void* elementsread, void* elementstotal) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumFilterV4(void* serveripaddress, void* resumehandle, uint32_t preferredmaximum, int32_t listtype, void* enumfilterinfo, void* elementsread, void* elementstotal) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -837,7 +837,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumFilterV4(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumOptionValues(void* serveripaddress, void* scopeinfo, void* resumehandle, uint32_t preferredmaximum, void* optionvalues, void* optionsread, void* optionstotal) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumOptionValues(void* serveripaddress, void* scopeinfo, void* resumehandle, uint32_t preferredmaximum, void* optionvalues, void* optionsread, void* optionstotal) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -865,7 +865,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumOptionValues(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumOptionValuesV5(void* serveripaddress, uint32_t flags, void* classname, void* vendorname, void* scopeinfo, void* resumehandle, uint32_t preferredmaximum, void* optionvalues, void* optionsread, void* optionstotal) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumOptionValuesV5(void* serveripaddress, uint32_t flags, void* classname, void* vendorname, void* scopeinfo, void* resumehandle, uint32_t preferredmaximum, void* optionvalues, void* optionsread, void* optionstotal) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -896,7 +896,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumOptionValuesV5(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumOptionValuesV6(void* serveripaddress, uint32_t flags, void* classname, void* vendorname, void* scopeinfo, void* resumehandle, uint32_t preferredmaximum, void* optionvalues, void* optionsread, void* optionstotal) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumOptionValuesV6(void* serveripaddress, uint32_t flags, void* classname, void* vendorname, void* scopeinfo, void* resumehandle, uint32_t preferredmaximum, void* optionvalues, void* optionsread, void* optionstotal) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -927,7 +927,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumOptionValuesV6(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumOptions(void* serveripaddress, void* resumehandle, uint32_t preferredmaximum, void* options, void* optionsread, void* optionstotal) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumOptions(void* serveripaddress, void* resumehandle, uint32_t preferredmaximum, void* options, void* optionsread, void* optionstotal) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -954,7 +954,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumOptions(void* s
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumOptionsV5(void* serveripaddress, uint32_t flags, void* classname, void* vendorname, void* resumehandle, uint32_t preferredmaximum, void* options, void* optionsread, void* optionstotal) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumOptionsV5(void* serveripaddress, uint32_t flags, void* classname, void* vendorname, void* resumehandle, uint32_t preferredmaximum, void* options, void* optionsread, void* optionstotal) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -984,7 +984,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumOptionsV5(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumOptionsV6(void* serveripaddress, uint32_t flags, void* classname, void* vendorname, void* resumehandle, uint32_t preferredmaximum, void* options, void* optionsread, void* optionstotal) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumOptionsV6(void* serveripaddress, uint32_t flags, void* classname, void* vendorname, void* resumehandle, uint32_t preferredmaximum, void* options, void* optionsread, void* optionstotal) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1014,7 +1014,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumOptionsV6(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumServers(uint32_t flags, void* idinfo, void* servers, void* callbackfn, void* callbackdata) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumServers(uint32_t flags, void* idinfo, void* servers, void* callbackfn, void* callbackdata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1040,7 +1040,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumServers(uint32_
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumSubnetClients(void* serveripaddress, uint32_t subnetaddress, void* resumehandle, uint32_t preferredmaximum, void* clientinfo, void* clientsread, void* clientstotal) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetClients(void* serveripaddress, uint32_t subnetaddress, void* resumehandle, uint32_t preferredmaximum, void* clientinfo, void* clientsread, void* clientstotal) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1068,7 +1068,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumSubnetClients(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumSubnetClientsFilterStatusInfo(void* serveripaddress, uint32_t subnetaddress, void* resumehandle, uint32_t preferredmaximum, void* clientinfo, void* clientsread, void* clientstotal) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetClientsFilterStatusInfo(void* serveripaddress, uint32_t subnetaddress, void* resumehandle, uint32_t preferredmaximum, void* clientinfo, void* clientsread, void* clientstotal) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1096,7 +1096,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumSubnetClientsFi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumSubnetClientsV4(void* serveripaddress, uint32_t subnetaddress, void* resumehandle, uint32_t preferredmaximum, void* clientinfo, void* clientsread, void* clientstotal) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetClientsV4(void* serveripaddress, uint32_t subnetaddress, void* resumehandle, uint32_t preferredmaximum, void* clientinfo, void* clientsread, void* clientstotal) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1124,7 +1124,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumSubnetClientsV4
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumSubnetClientsV5(void* serveripaddress, uint32_t subnetaddress, void* resumehandle, uint32_t preferredmaximum, void* clientinfo, void* clientsread, void* clientstotal) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetClientsV5(void* serveripaddress, uint32_t subnetaddress, void* resumehandle, uint32_t preferredmaximum, void* clientinfo, void* clientsread, void* clientstotal) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1152,7 +1152,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumSubnetClientsV5
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumSubnetClientsVQ(void* serveripaddress, uint32_t subnetaddress, void* resumehandle, uint32_t preferredmaximum, void* clientinfo, void* clientsread, void* clientstotal) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetClientsVQ(void* serveripaddress, uint32_t subnetaddress, void* resumehandle, uint32_t preferredmaximum, void* clientinfo, void* clientsread, void* clientstotal) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1180,7 +1180,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumSubnetClientsVQ
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumSubnetElements(void* serveripaddress, uint32_t subnetaddress, int32_t enumelementtype, void* resumehandle, uint32_t preferredmaximum, void* enumelementinfo, void* elementsread, void* elementstotal) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetElements(void* serveripaddress, uint32_t subnetaddress, int32_t enumelementtype, void* resumehandle, uint32_t preferredmaximum, void* enumelementinfo, void* elementsread, void* elementstotal) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1209,7 +1209,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumSubnetElements(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumSubnetElementsV4(void* serveripaddress, uint32_t subnetaddress, int32_t enumelementtype, void* resumehandle, uint32_t preferredmaximum, void* enumelementinfo, void* elementsread, void* elementstotal) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetElementsV4(void* serveripaddress, uint32_t subnetaddress, int32_t enumelementtype, void* resumehandle, uint32_t preferredmaximum, void* enumelementinfo, void* elementsread, void* elementstotal) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1238,7 +1238,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumSubnetElementsV
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumSubnetElementsV5(void* serveripaddress, uint32_t subnetaddress, int32_t enumelementtype, void* resumehandle, uint32_t preferredmaximum, void* enumelementinfo, void* elementsread, void* elementstotal) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetElementsV5(void* serveripaddress, uint32_t subnetaddress, int32_t enumelementtype, void* resumehandle, uint32_t preferredmaximum, void* enumelementinfo, void* elementsread, void* elementstotal) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1267,7 +1267,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumSubnetElementsV
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumSubnets(void* serveripaddress, void* resumehandle, uint32_t preferredmaximum, void* enuminfo, void* elementsread, void* elementstotal) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnets(void* serveripaddress, void* resumehandle, uint32_t preferredmaximum, void* enuminfo, void* elementsread, void* elementstotal) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1294,7 +1294,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumSubnets(void* s
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumSubnetsV6(void* serveripaddress, void* resumehandle, uint32_t preferredmaximum, void* enuminfo, void* elementsread, void* elementstotal) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetsV6(void* serveripaddress, void* resumehandle, uint32_t preferredmaximum, void* enuminfo, void* elementsread, void* elementstotal) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1321,7 +1321,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumSubnetsV6(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpGetAllOptionValues(void* serveripaddress, uint32_t flags, void* scopeinfo, void* values) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpGetAllOptionValues(void* serveripaddress, uint32_t flags, void* scopeinfo, void* values) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1346,7 +1346,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpGetAllOptionValues(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpGetAllOptionValuesV6(void* serveripaddress, uint32_t flags, void* scopeinfo, void* values) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpGetAllOptionValuesV6(void* serveripaddress, uint32_t flags, void* scopeinfo, void* values) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1371,7 +1371,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpGetAllOptionValuesV
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpGetAllOptions(void* serveripaddress, uint32_t flags, void* optionstruct) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpGetAllOptions(void* serveripaddress, uint32_t flags, void* optionstruct) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1395,7 +1395,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpGetAllOptions(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpGetAllOptionsV6(void* serveripaddress, uint32_t flags, void* optionstruct) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpGetAllOptionsV6(void* serveripaddress, uint32_t flags, void* optionstruct) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1419,7 +1419,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpGetAllOptionsV6(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpGetClassInfo(void* serveripaddress, uint32_t reservedmustbezero, void* partialclassinfo, void* filledclassinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpGetClassInfo(void* serveripaddress, uint32_t reservedmustbezero, void* partialclassinfo, void* filledclassinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1444,7 +1444,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpGetClassInfo(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpGetClientInfo(void* serveripaddress, void* searchinfo, void* clientinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpGetClientInfo(void* serveripaddress, void* searchinfo, void* clientinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1468,7 +1468,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpGetClientInfo(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpGetClientInfoV4(void* serveripaddress, void* searchinfo, void* clientinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpGetClientInfoV4(void* serveripaddress, void* searchinfo, void* clientinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1492,7 +1492,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpGetClientInfoV4(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpGetClientInfoV6(void* serveripaddress, void* searchinfo, void* clientinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpGetClientInfoV6(void* serveripaddress, void* searchinfo, void* clientinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1516,7 +1516,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpGetClientInfoV6(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpGetClientInfoVQ(void* serveripaddress, void* searchinfo, void* clientinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpGetClientInfoVQ(void* serveripaddress, void* searchinfo, void* clientinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1540,7 +1540,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpGetClientInfoVQ(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpGetClientOptions(void* serveripaddress, uint32_t clientipaddress, uint32_t clientsubnetmask, void* clientoptions) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpGetClientOptions(void* serveripaddress, uint32_t clientipaddress, uint32_t clientsubnetmask, void* clientoptions) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1565,7 +1565,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpGetClientOptions(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpGetFilterV4(void* serveripaddress, void* globalfilterinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpGetFilterV4(void* serveripaddress, void* globalfilterinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1588,7 +1588,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpGetFilterV4(void* s
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpGetMibInfo(void* serveripaddress, void* mibinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpGetMibInfo(void* serveripaddress, void* mibinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1611,7 +1611,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpGetMibInfo(void* se
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpGetMibInfoV5(void* serveripaddress, void* mibinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpGetMibInfoV5(void* serveripaddress, void* mibinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1634,7 +1634,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpGetMibInfoV5(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpGetMibInfoV6(void* serveripaddress, void* mibinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpGetMibInfoV6(void* serveripaddress, void* mibinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1657,7 +1657,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpGetMibInfoV6(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpGetOptionInfo(void* serveripaddress, uint32_t optionid, void* optioninfo) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpGetOptionInfo(void* serveripaddress, uint32_t optionid, void* optioninfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1681,7 +1681,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpGetOptionInfo(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpGetOptionInfoV5(void* serveripaddress, uint32_t flags, uint32_t optionid, void* classname, void* vendorname, void* optioninfo) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpGetOptionInfoV5(void* serveripaddress, uint32_t flags, uint32_t optionid, void* classname, void* vendorname, void* optioninfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1708,7 +1708,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpGetOptionInfoV5(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpGetOptionInfoV6(void* serveripaddress, uint32_t flags, uint32_t optionid, void* classname, void* vendorname, void* optioninfo) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpGetOptionInfoV6(void* serveripaddress, uint32_t flags, uint32_t optionid, void* classname, void* vendorname, void* optioninfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1735,7 +1735,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpGetOptionInfoV6(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpGetOptionValue(void* serveripaddress, uint32_t optionid, void* scopeinfo, void* optionvalue) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpGetOptionValue(void* serveripaddress, uint32_t optionid, void* scopeinfo, void* optionvalue) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1760,7 +1760,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpGetOptionValue(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpGetOptionValueV5(void* serveripaddress, uint32_t flags, uint32_t optionid, void* classname, void* vendorname, void* scopeinfo, void* optionvalue) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpGetOptionValueV5(void* serveripaddress, uint32_t flags, uint32_t optionid, void* classname, void* vendorname, void* scopeinfo, void* optionvalue) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1788,7 +1788,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpGetOptionValueV5(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpGetOptionValueV6(void* serveripaddress, uint32_t flags, uint32_t optionid, void* classname, void* vendorname, void* scopeinfo, void* optionvalue) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpGetOptionValueV6(void* serveripaddress, uint32_t flags, uint32_t optionid, void* classname, void* vendorname, void* scopeinfo, void* optionvalue) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1816,7 +1816,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpGetOptionValueV6(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpGetOriginalSubnetMask(void* sadaptername, void* dwsubnetmask) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpGetOriginalSubnetMask(void* sadaptername, void* dwsubnetmask) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1839,7 +1839,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpGetOriginalSubnetMa
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpGetServerBindingInfo(void* serveripaddress, uint32_t flags, void* bindelementsinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpGetServerBindingInfo(void* serveripaddress, uint32_t flags, void* bindelementsinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1863,7 +1863,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpGetServerBindingInf
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpGetServerBindingInfoV6(void* serveripaddress, uint32_t flags, void* bindelementsinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpGetServerBindingInfoV6(void* serveripaddress, uint32_t flags, void* bindelementsinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1887,7 +1887,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpGetServerBindingInf
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpGetServerSpecificStrings(void* serveripaddress, void* serverspecificstrings) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpGetServerSpecificStrings(void* serveripaddress, void* serverspecificstrings) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1910,7 +1910,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpGetServerSpecificSt
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpGetSubnetDelayOffer(void* serveripaddress, uint32_t subnetaddress, void* timedelayinmilliseconds) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpGetSubnetDelayOffer(void* serveripaddress, uint32_t subnetaddress, void* timedelayinmilliseconds) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1934,7 +1934,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpGetSubnetDelayOffer
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpGetSubnetInfo(void* serveripaddress, uint32_t subnetaddress, void* subnetinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpGetSubnetInfo(void* serveripaddress, uint32_t subnetaddress, void* subnetinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1958,7 +1958,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpGetSubnetInfo(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpGetSubnetInfoVQ(void* serveripaddress, uint32_t subnetaddress, void* subnetinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpGetSubnetInfoVQ(void* serveripaddress, uint32_t subnetaddress, void* subnetinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1982,7 +1982,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpGetSubnetInfoVQ(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpGetSuperScopeInfoV4(void* serveripaddress, void* superscopetable) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpGetSuperScopeInfoV4(void* serveripaddress, void* superscopetable) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2005,7 +2005,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpGetSuperScopeInfoV4
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpGetThreadOptions(void* pflags, void* reserved) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpGetThreadOptions(void* pflags, void* reserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2028,7 +2028,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpGetThreadOptions(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpGetVersion(void* serveripaddress, void* majorversion, void* minorversion) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpGetVersion(void* serveripaddress, void* majorversion, void* minorversion) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2052,7 +2052,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpGetVersion(void* se
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprAddV4PolicyCondition(void* policy, uint32_t parentexpr, int32_t type, uint32_t optionid, uint32_t suboptionid, void* vendorname, int32_t arg_6_operator, void* value, uint32_t valuelength, void* conditionindex) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprAddV4PolicyCondition(void* policy, uint32_t parentexpr, int32_t type, uint32_t optionid, uint32_t suboptionid, void* vendorname, int32_t arg_6_operator, void* value, uint32_t valuelength, void* conditionindex) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t, uint32_t, uint32_t, void*, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2083,7 +2083,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprAddV4PolicyCond
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprAddV4PolicyExpr(void* policy, uint32_t parentexpr, int32_t arg_2_operator, void* exprindex) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprAddV4PolicyExpr(void* policy, uint32_t parentexpr, int32_t arg_2_operator, void* exprindex) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2108,7 +2108,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprAddV4PolicyExpr
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprAddV4PolicyRange(void* policy, void* range) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprAddV4PolicyRange(void* policy, void* range) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2131,7 +2131,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprAddV4PolicyRang
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprCreateV4Policy(void* policyname, int32_t fglobalpolicy, uint32_t subnet, uint32_t processingorder, int32_t rootoperator, void* description, int32_t enabled, void* policy) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprCreateV4Policy(void* policyname, int32_t fglobalpolicy, uint32_t subnet, uint32_t processingorder, int32_t rootoperator, void* description, int32_t enabled, void* policy) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, uint32_t, uint32_t, int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2160,7 +2160,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprCreateV4Policy(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprCreateV4PolicyEx(void* policyname, int32_t fglobalpolicy, uint32_t subnet, uint32_t processingorder, int32_t rootoperator, void* description, int32_t enabled, void* policy) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprCreateV4PolicyEx(void* policyname, int32_t fglobalpolicy, uint32_t subnet, uint32_t processingorder, int32_t rootoperator, void* description, int32_t enabled, void* policy) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, uint32_t, uint32_t, int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2189,7 +2189,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprCreateV4PolicyE
 #endif
 }
 
-void* windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprFindV4DhcpProperty(void* propertyarray, int32_t id, int32_t type) {
+void* windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprFindV4DhcpProperty(void* propertyarray, int32_t id, int32_t type) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2213,7 +2213,7 @@ void* windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprFindV4DhcpProperty
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprFreeV4DhcpProperty(void* property) {
+void windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprFreeV4DhcpProperty(void* property) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2234,7 +2234,7 @@ void windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprFreeV4DhcpProperty(
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprFreeV4DhcpPropertyArray(void* propertyarray) {
+void windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprFreeV4DhcpPropertyArray(void* propertyarray) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2255,7 +2255,7 @@ void windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprFreeV4DhcpPropertyA
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprFreeV4Policy(void* policy) {
+void windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprFreeV4Policy(void* policy) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2276,7 +2276,7 @@ void windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprFreeV4Policy(void* 
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprFreeV4PolicyArray(void* policyarray) {
+void windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprFreeV4PolicyArray(void* policyarray) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2297,7 +2297,7 @@ void windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprFreeV4PolicyArray(v
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprFreeV4PolicyEx(void* policyex) {
+void windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprFreeV4PolicyEx(void* policyex) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2318,7 +2318,7 @@ void windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprFreeV4PolicyEx(void
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprFreeV4PolicyExArray(void* policyexarray) {
+void windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprFreeV4PolicyExArray(void* policyexarray) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2339,7 +2339,7 @@ void windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprFreeV4PolicyExArray
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprIsV4PolicySingleUC(void* policy) {
+int32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprIsV4PolicySingleUC(void* policy) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2361,7 +2361,7 @@ int32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprIsV4PolicySingle
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprIsV4PolicyValid(void* ppolicy) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprIsV4PolicyValid(void* ppolicy) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2383,7 +2383,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprIsV4PolicyValid
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprIsV4PolicyWellFormed(void* ppolicy) {
+int32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprIsV4PolicyWellFormed(void* ppolicy) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2405,7 +2405,7 @@ int32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprIsV4PolicyWellFo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprModifyV4PolicyExpr(void* policy, int32_t arg_1_operator) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprModifyV4PolicyExpr(void* policy, int32_t arg_1_operator) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2428,7 +2428,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprModifyV4PolicyE
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprResetV4PolicyExpr(void* policy) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprResetV4PolicyExpr(void* policy) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2450,7 +2450,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprResetV4PolicyEx
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpModifyClass(void* serveripaddress, uint32_t reservedmustbezero, void* classinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpModifyClass(void* serveripaddress, uint32_t reservedmustbezero, void* classinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2474,7 +2474,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpModifyClass(void* s
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpModifyClassV6(void* serveripaddress, uint32_t reservedmustbezero, void* classinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpModifyClassV6(void* serveripaddress, uint32_t reservedmustbezero, void* classinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2498,7 +2498,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpModifyClassV6(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpRemoveDNSRegistrations(void) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveDNSRegistrations(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -2519,7 +2519,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpRemoveDNSRegistrati
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpRemoveOption(void* serveripaddress, uint32_t optionid) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveOption(void* serveripaddress, uint32_t optionid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2542,7 +2542,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpRemoveOption(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpRemoveOptionV5(void* serveripaddress, uint32_t flags, uint32_t optionid, void* classname, void* vendorname) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveOptionV5(void* serveripaddress, uint32_t flags, uint32_t optionid, void* classname, void* vendorname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2568,7 +2568,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpRemoveOptionV5(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpRemoveOptionV6(void* serveripaddress, uint32_t flags, uint32_t optionid, void* classname, void* vendorname) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveOptionV6(void* serveripaddress, uint32_t flags, uint32_t optionid, void* classname, void* vendorname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2594,7 +2594,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpRemoveOptionV6(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpRemoveOptionValue(void* serveripaddress, uint32_t optionid, void* scopeinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveOptionValue(void* serveripaddress, uint32_t optionid, void* scopeinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2618,7 +2618,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpRemoveOptionValue(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpRemoveOptionValueV5(void* serveripaddress, uint32_t flags, uint32_t optionid, void* classname, void* vendorname, void* scopeinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveOptionValueV5(void* serveripaddress, uint32_t flags, uint32_t optionid, void* classname, void* vendorname, void* scopeinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2645,7 +2645,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpRemoveOptionValueV5
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpRemoveOptionValueV6(void* serveripaddress, uint32_t flags, uint32_t optionid, void* classname, void* vendorname, void* scopeinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveOptionValueV6(void* serveripaddress, uint32_t flags, uint32_t optionid, void* classname, void* vendorname, void* scopeinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2672,7 +2672,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpRemoveOptionValueV6
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpRemoveSubnetElement(void* serveripaddress, uint32_t subnetaddress, void* removeelementinfo, int32_t forceflag) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveSubnetElement(void* serveripaddress, uint32_t subnetaddress, void* removeelementinfo, int32_t forceflag) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2697,7 +2697,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpRemoveSubnetElement
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpRemoveSubnetElementV4(void* serveripaddress, uint32_t subnetaddress, void* removeelementinfo, int32_t forceflag) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveSubnetElementV4(void* serveripaddress, uint32_t subnetaddress, void* removeelementinfo, int32_t forceflag) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2722,7 +2722,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpRemoveSubnetElement
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpRemoveSubnetElementV5(void* serveripaddress, uint32_t subnetaddress, void* removeelementinfo, int32_t forceflag) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveSubnetElementV5(void* serveripaddress, uint32_t subnetaddress, void* removeelementinfo, int32_t forceflag) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2747,7 +2747,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpRemoveSubnetElement
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_dhcp_DhcpRpcFreeMemory(void* bufferpointer) {
+void windowssys_windows_win32_networkmanagement_dhcp_dhcpRpcFreeMemory(void* bufferpointer) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2768,7 +2768,7 @@ void windowssys_windows_win32_networkmanagement_dhcp_DhcpRpcFreeMemory(void* buf
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpScanDatabase(void* serveripaddress, uint32_t subnetaddress, uint32_t fixflag, void* scanlist) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpScanDatabase(void* serveripaddress, uint32_t subnetaddress, uint32_t fixflag, void* scanlist) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2793,7 +2793,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpScanDatabase(void* 
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_dhcp_DhcpServerAuditlogParamsFree(void* configinfo) {
+void windowssys_windows_win32_networkmanagement_dhcp_dhcpServerAuditlogParamsFree(void* configinfo) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2814,7 +2814,7 @@ void windowssys_windows_win32_networkmanagement_dhcp_DhcpServerAuditlogParamsFre
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpServerBackupDatabase(void* serveripaddress, void* path) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpServerBackupDatabase(void* serveripaddress, void* path) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2837,7 +2837,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpServerBackupDatabas
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpServerGetConfig(void* serveripaddress, void* configinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpServerGetConfig(void* serveripaddress, void* configinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2860,7 +2860,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpServerGetConfig(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpServerGetConfigV4(void* serveripaddress, void* configinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpServerGetConfigV4(void* serveripaddress, void* configinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2883,7 +2883,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpServerGetConfigV4(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpServerGetConfigV6(void* serveripaddress, void* scopeinfo, void* configinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpServerGetConfigV6(void* serveripaddress, void* scopeinfo, void* configinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2907,7 +2907,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpServerGetConfigV6(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpServerGetConfigVQ(void* serveripaddress, void* configinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpServerGetConfigVQ(void* serveripaddress, void* configinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2930,7 +2930,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpServerGetConfigVQ(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpServerQueryAttribute(void* serveripaddr, uint32_t dwreserved, uint32_t dhcpattribid, void* pdhcpattrib) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpServerQueryAttribute(void* serveripaddr, uint32_t dwreserved, uint32_t dhcpattribid, void* pdhcpattrib) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2955,7 +2955,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpServerQueryAttribut
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpServerQueryAttributes(void* serveripaddr, uint32_t dwreserved, uint32_t dwattribcount, void* pdhcpattribs, void* pdhcpattribarr) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpServerQueryAttributes(void* serveripaddr, uint32_t dwreserved, uint32_t dwattribcount, void* pdhcpattribs, void* pdhcpattribarr) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2981,7 +2981,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpServerQueryAttribut
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpServerQueryDnsRegCredentials(void* serveripaddress, uint32_t unamesize, void* uname, uint32_t domainsize, void* domain) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpServerQueryDnsRegCredentials(void* serveripaddress, uint32_t unamesize, void* uname, uint32_t domainsize, void* domain) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3007,7 +3007,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpServerQueryDnsRegCr
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpServerRedoAuthorization(void* serveripaddr, uint32_t dwreserved) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpServerRedoAuthorization(void* serveripaddr, uint32_t dwreserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3030,7 +3030,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpServerRedoAuthoriza
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpServerRestoreDatabase(void* serveripaddress, void* path) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpServerRestoreDatabase(void* serveripaddress, void* path) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3053,7 +3053,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpServerRestoreDataba
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpServerSetConfig(void* serveripaddress, uint32_t fieldstoset, void* configinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpServerSetConfig(void* serveripaddress, uint32_t fieldstoset, void* configinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3077,7 +3077,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpServerSetConfig(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpServerSetConfigV4(void* serveripaddress, uint32_t fieldstoset, void* configinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpServerSetConfigV4(void* serveripaddress, uint32_t fieldstoset, void* configinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3101,7 +3101,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpServerSetConfigV4(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpServerSetConfigV6(void* serveripaddress, void* scopeinfo, uint32_t fieldstoset, void* configinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpServerSetConfigV6(void* serveripaddress, void* scopeinfo, uint32_t fieldstoset, void* configinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3126,7 +3126,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpServerSetConfigV6(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpServerSetConfigVQ(void* serveripaddress, uint32_t fieldstoset, void* configinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpServerSetConfigVQ(void* serveripaddress, uint32_t fieldstoset, void* configinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3150,7 +3150,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpServerSetConfigVQ(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpServerSetDnsRegCredentials(void* serveripaddress, void* uname, void* domain, void* passwd) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpServerSetDnsRegCredentials(void* serveripaddress, void* uname, void* domain, void* passwd) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3175,7 +3175,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpServerSetDnsRegCred
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpServerSetDnsRegCredentialsV5(void* serveripaddress, void* uname, void* domain, void* passwd) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpServerSetDnsRegCredentialsV5(void* serveripaddress, void* uname, void* domain, void* passwd) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3200,7 +3200,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpServerSetDnsRegCred
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpSetClientInfo(void* serveripaddress, void* clientinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpSetClientInfo(void* serveripaddress, void* clientinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3223,7 +3223,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpSetClientInfo(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpSetClientInfoV4(void* serveripaddress, void* clientinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpSetClientInfoV4(void* serveripaddress, void* clientinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3246,7 +3246,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpSetClientInfoV4(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpSetClientInfoV6(void* serveripaddress, void* clientinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpSetClientInfoV6(void* serveripaddress, void* clientinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3269,7 +3269,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpSetClientInfoV6(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpSetClientInfoVQ(void* serveripaddress, void* clientinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpSetClientInfoVQ(void* serveripaddress, void* clientinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3292,7 +3292,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpSetClientInfoVQ(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpSetFilterV4(void* serveripaddress, void* globalfilterinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpSetFilterV4(void* serveripaddress, void* globalfilterinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3315,7 +3315,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpSetFilterV4(void* s
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpSetOptionInfo(void* serveripaddress, uint32_t optionid, void* optioninfo) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOptionInfo(void* serveripaddress, uint32_t optionid, void* optioninfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3339,7 +3339,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpSetOptionInfo(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpSetOptionInfoV5(void* serveripaddress, uint32_t flags, uint32_t optionid, void* classname, void* vendorname, void* optioninfo) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOptionInfoV5(void* serveripaddress, uint32_t flags, uint32_t optionid, void* classname, void* vendorname, void* optioninfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3366,7 +3366,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpSetOptionInfoV5(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpSetOptionInfoV6(void* serveripaddress, uint32_t flags, uint32_t optionid, void* classname, void* vendorname, void* optioninfo) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOptionInfoV6(void* serveripaddress, uint32_t flags, uint32_t optionid, void* classname, void* vendorname, void* optioninfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3393,7 +3393,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpSetOptionInfoV6(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpSetOptionValue(void* serveripaddress, uint32_t optionid, void* scopeinfo, void* optionvalue) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOptionValue(void* serveripaddress, uint32_t optionid, void* scopeinfo, void* optionvalue) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3418,7 +3418,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpSetOptionValue(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpSetOptionValueV5(void* serveripaddress, uint32_t flags, uint32_t optionid, void* classname, void* vendorname, void* scopeinfo, void* optionvalue) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOptionValueV5(void* serveripaddress, uint32_t flags, uint32_t optionid, void* classname, void* vendorname, void* scopeinfo, void* optionvalue) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3446,7 +3446,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpSetOptionValueV5(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpSetOptionValueV6(void* serveripaddress, uint32_t flags, uint32_t optionid, void* classname, void* vendorname, void* scopeinfo, void* optionvalue) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOptionValueV6(void* serveripaddress, uint32_t flags, uint32_t optionid, void* classname, void* vendorname, void* scopeinfo, void* optionvalue) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3474,7 +3474,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpSetOptionValueV6(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpSetOptionValues(void* serveripaddress, void* scopeinfo, void* optionvalues) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOptionValues(void* serveripaddress, void* scopeinfo, void* optionvalues) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3498,7 +3498,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpSetOptionValues(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpSetOptionValuesV5(void* serveripaddress, uint32_t flags, void* classname, void* vendorname, void* scopeinfo, void* optionvalues) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOptionValuesV5(void* serveripaddress, uint32_t flags, void* classname, void* vendorname, void* scopeinfo, void* optionvalues) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3525,7 +3525,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpSetOptionValuesV5(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpSetServerBindingInfo(void* serveripaddress, uint32_t flags, void* bindelementinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpSetServerBindingInfo(void* serveripaddress, uint32_t flags, void* bindelementinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3549,7 +3549,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpSetServerBindingInf
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpSetServerBindingInfoV6(void* serveripaddress, uint32_t flags, void* bindelementinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpSetServerBindingInfoV6(void* serveripaddress, uint32_t flags, void* bindelementinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3573,7 +3573,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpSetServerBindingInf
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpSetSubnetDelayOffer(void* serveripaddress, uint32_t subnetaddress, uint16_t timedelayinmilliseconds) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpSetSubnetDelayOffer(void* serveripaddress, uint32_t subnetaddress, uint16_t timedelayinmilliseconds) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3597,7 +3597,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpSetSubnetDelayOffer
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpSetSubnetInfo(void* serveripaddress, uint32_t subnetaddress, void* subnetinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpSetSubnetInfo(void* serveripaddress, uint32_t subnetaddress, void* subnetinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3621,7 +3621,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpSetSubnetInfo(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpSetSubnetInfoVQ(void* serveripaddress, uint32_t subnetaddress, void* subnetinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpSetSubnetInfoVQ(void* serveripaddress, uint32_t subnetaddress, void* subnetinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3645,7 +3645,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpSetSubnetInfoVQ(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpSetSuperScopeV4(void* serveripaddress, uint32_t subnetaddress, void* superscopename, int32_t changeexisting) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpSetSuperScopeV4(void* serveripaddress, uint32_t subnetaddress, void* superscopename, int32_t changeexisting) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3670,7 +3670,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpSetSuperScopeV4(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpSetThreadOptions(uint32_t flags, void* reserved) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpSetThreadOptions(uint32_t flags, void* reserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3693,7 +3693,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpSetThreadOptions(ui
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpUndoRequestParams(uint32_t flags, void* reserved, void* adaptername, void* requestidstr) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpUndoRequestParams(uint32_t flags, void* reserved, void* adaptername, void* requestidstr) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3718,7 +3718,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpUndoRequestParams(u
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4AddPolicyRange(void* serveripaddress, uint32_t subnetaddress, void* policyname, void* range) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpV4AddPolicyRange(void* serveripaddress, uint32_t subnetaddress, void* policyname, void* range) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3743,7 +3743,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4AddPolicyRange(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4CreateClientInfo(void* serveripaddress, void* clientinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpV4CreateClientInfo(void* serveripaddress, void* clientinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3766,7 +3766,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4CreateClientInfo(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4CreateClientInfoEx(void* serveripaddress, void* clientinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpV4CreateClientInfoEx(void* serveripaddress, void* clientinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3789,7 +3789,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4CreateClientInfoE
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4CreatePolicy(void* serveripaddress, void* ppolicy) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpV4CreatePolicy(void* serveripaddress, void* ppolicy) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3812,7 +3812,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4CreatePolicy(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4CreatePolicyEx(void* serveripaddress, void* policyex) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpV4CreatePolicyEx(void* serveripaddress, void* policyex) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3835,7 +3835,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4CreatePolicyEx(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4DeletePolicy(void* serveripaddress, int32_t fglobalpolicy, uint32_t subnetaddress, void* policyname) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpV4DeletePolicy(void* serveripaddress, int32_t fglobalpolicy, uint32_t subnetaddress, void* policyname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3860,7 +3860,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4DeletePolicy(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4EnumPolicies(void* serveripaddress, void* resumehandle, uint32_t preferredmaximum, int32_t fglobalpolicy, uint32_t subnetaddress, void* enuminfo, void* elementsread, void* elementstotal) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpV4EnumPolicies(void* serveripaddress, void* resumehandle, uint32_t preferredmaximum, int32_t fglobalpolicy, uint32_t subnetaddress, void* enuminfo, void* elementsread, void* elementstotal) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, int32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3889,7 +3889,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4EnumPolicies(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4EnumPoliciesEx(void* serveripaddress, void* resumehandle, uint32_t preferredmaximum, int32_t globalpolicy, uint32_t subnetaddress, void* enuminfo, void* elementsread, void* elementstotal) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpV4EnumPoliciesEx(void* serveripaddress, void* resumehandle, uint32_t preferredmaximum, int32_t globalpolicy, uint32_t subnetaddress, void* enuminfo, void* elementsread, void* elementstotal) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, int32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3918,7 +3918,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4EnumPoliciesEx(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4EnumSubnetClients(void* serveripaddress, uint32_t subnetaddress, void* resumehandle, uint32_t preferredmaximum, void* clientinfo, void* clientsread, void* clientstotal) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpV4EnumSubnetClients(void* serveripaddress, uint32_t subnetaddress, void* resumehandle, uint32_t preferredmaximum, void* clientinfo, void* clientsread, void* clientstotal) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3946,7 +3946,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4EnumSubnetClients
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4EnumSubnetClientsEx(void* serveripaddress, uint32_t subnetaddress, void* resumehandle, uint32_t preferredmaximum, void* clientinfo, void* clientsread, void* clientstotal) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpV4EnumSubnetClientsEx(void* serveripaddress, uint32_t subnetaddress, void* resumehandle, uint32_t preferredmaximum, void* clientinfo, void* clientsread, void* clientstotal) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3974,7 +3974,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4EnumSubnetClients
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4EnumSubnetReservations(void* serveripaddress, uint32_t subnetaddress, void* resumehandle, uint32_t preferredmaximum, void* enumelementinfo, void* elementsread, void* elementstotal) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpV4EnumSubnetReservations(void* serveripaddress, uint32_t subnetaddress, void* resumehandle, uint32_t preferredmaximum, void* enumelementinfo, void* elementsread, void* elementstotal) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4002,7 +4002,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4EnumSubnetReserva
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverAddScopeToRelationship(void* serveripaddress, void* prelationship) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverAddScopeToRelationship(void* serveripaddress, void* prelationship) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4025,7 +4025,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverAddScopeT
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverCreateRelationship(void* serveripaddress, void* prelationship) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverCreateRelationship(void* serveripaddress, void* prelationship) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4048,7 +4048,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverCreateRel
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverDeleteRelationship(void* serveripaddress, void* prelationshipname) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverDeleteRelationship(void* serveripaddress, void* prelationshipname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4071,7 +4071,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverDeleteRel
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverDeleteScopeFromRelationship(void* serveripaddress, void* prelationship) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverDeleteScopeFromRelationship(void* serveripaddress, void* prelationship) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4094,7 +4094,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverDeleteSco
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverEnumRelationship(void* serveripaddress, void* resumehandle, uint32_t preferredmaximum, void* prelationship, void* relationshipread, void* relationshiptotal) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverEnumRelationship(void* serveripaddress, void* resumehandle, uint32_t preferredmaximum, void* prelationship, void* relationshipread, void* relationshiptotal) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4121,7 +4121,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverEnumRelat
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverGetAddressStatus(void* serveripaddress, uint32_t subnetaddress, void* pstatus) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverGetAddressStatus(void* serveripaddress, uint32_t subnetaddress, void* pstatus) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4145,7 +4145,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverGetAddres
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverGetClientInfo(void* serveripaddress, void* searchinfo, void* clientinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverGetClientInfo(void* serveripaddress, void* searchinfo, void* clientinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4169,7 +4169,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverGetClient
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverGetRelationship(void* serveripaddress, void* prelationshipname, void* prelationship) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverGetRelationship(void* serveripaddress, void* prelationshipname, void* prelationship) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4193,7 +4193,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverGetRelati
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverGetScopeRelationship(void* serveripaddress, uint32_t scopeid, void* prelationship) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverGetScopeRelationship(void* serveripaddress, uint32_t scopeid, void* prelationship) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4217,7 +4217,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverGetScopeR
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverGetScopeStatistics(void* serveripaddress, uint32_t scopeid, void* pstats) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverGetScopeStatistics(void* serveripaddress, uint32_t scopeid, void* pstats) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4241,7 +4241,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverGetScopeS
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverGetSystemTime(void* serveripaddress, void* ptime, void* pmaxalloweddeltatime) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverGetSystemTime(void* serveripaddress, void* ptime, void* pmaxalloweddeltatime) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4265,7 +4265,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverGetSystem
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverSetRelationship(void* serveripaddress, uint32_t flags, void* prelationship) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverSetRelationship(void* serveripaddress, uint32_t flags, void* prelationship) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4289,7 +4289,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverSetRelati
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverTriggerAddrAllocation(void* serveripaddress, void* pfailrelname) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverTriggerAddrAllocation(void* serveripaddress, void* pfailrelname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4312,7 +4312,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverTriggerAd
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4GetAllOptionValues(void* serveripaddress, uint32_t flags, void* scopeinfo, void* values) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpV4GetAllOptionValues(void* serveripaddress, uint32_t flags, void* scopeinfo, void* values) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4337,7 +4337,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4GetAllOptionValue
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4GetClientInfo(void* serveripaddress, void* searchinfo, void* clientinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpV4GetClientInfo(void* serveripaddress, void* searchinfo, void* clientinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4361,7 +4361,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4GetClientInfo(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4GetClientInfoEx(void* serveripaddress, void* searchinfo, void* clientinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpV4GetClientInfoEx(void* serveripaddress, void* searchinfo, void* clientinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4385,7 +4385,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4GetClientInfoEx(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4GetFreeIPAddress(void* serveripaddress, uint32_t scopeid, uint32_t startip, uint32_t endip, uint32_t numfreeaddrreq, void* ipaddrlist) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpV4GetFreeIPAddress(void* serveripaddress, uint32_t scopeid, uint32_t startip, uint32_t endip, uint32_t numfreeaddrreq, void* ipaddrlist) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4412,7 +4412,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4GetFreeIPAddress(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4GetOptionValue(void* serveripaddress, uint32_t flags, uint32_t optionid, void* policyname, void* vendorname, void* scopeinfo, void* optionvalue) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpV4GetOptionValue(void* serveripaddress, uint32_t flags, uint32_t optionid, void* policyname, void* vendorname, void* scopeinfo, void* optionvalue) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4440,7 +4440,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4GetOptionValue(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4GetPolicy(void* serveripaddress, int32_t fglobalpolicy, uint32_t subnetaddress, void* policyname, void* policy) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpV4GetPolicy(void* serveripaddress, int32_t fglobalpolicy, uint32_t subnetaddress, void* policyname, void* policy) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4466,7 +4466,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4GetPolicy(void* s
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4GetPolicyEx(void* serveripaddress, int32_t globalpolicy, uint32_t subnetaddress, void* policyname, void* policy) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpV4GetPolicyEx(void* serveripaddress, int32_t globalpolicy, uint32_t subnetaddress, void* policyname, void* policy) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4492,7 +4492,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4GetPolicyEx(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4QueryPolicyEnforcement(void* serveripaddress, int32_t fglobalpolicy, uint32_t subnetaddress, void* enabled) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpV4QueryPolicyEnforcement(void* serveripaddress, int32_t fglobalpolicy, uint32_t subnetaddress, void* enabled) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4517,7 +4517,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4QueryPolicyEnforc
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4RemoveOptionValue(void* serveripaddress, uint32_t flags, uint32_t optionid, void* policyname, void* vendorname, void* scopeinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpV4RemoveOptionValue(void* serveripaddress, uint32_t flags, uint32_t optionid, void* policyname, void* vendorname, void* scopeinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4544,7 +4544,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4RemoveOptionValue
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4RemovePolicyRange(void* serveripaddress, uint32_t subnetaddress, void* policyname, void* range) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpV4RemovePolicyRange(void* serveripaddress, uint32_t subnetaddress, void* policyname, void* range) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4569,7 +4569,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4RemovePolicyRange
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4SetOptionValue(void* serveripaddress, uint32_t flags, uint32_t optionid, void* policyname, void* vendorname, void* scopeinfo, void* optionvalue) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpV4SetOptionValue(void* serveripaddress, uint32_t flags, uint32_t optionid, void* policyname, void* vendorname, void* scopeinfo, void* optionvalue) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4597,7 +4597,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4SetOptionValue(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4SetOptionValues(void* serveripaddress, uint32_t flags, void* policyname, void* vendorname, void* scopeinfo, void* optionvalues) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpV4SetOptionValues(void* serveripaddress, uint32_t flags, void* policyname, void* vendorname, void* scopeinfo, void* optionvalues) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4624,7 +4624,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4SetOptionValues(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4SetPolicy(void* serveripaddress, uint32_t fieldsmodified, int32_t fglobalpolicy, uint32_t subnetaddress, void* policyname, void* policy) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpV4SetPolicy(void* serveripaddress, uint32_t fieldsmodified, int32_t fglobalpolicy, uint32_t subnetaddress, void* policyname, void* policy) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4651,7 +4651,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4SetPolicy(void* s
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4SetPolicyEnforcement(void* serveripaddress, int32_t fglobalpolicy, uint32_t subnetaddress, int32_t enable) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpV4SetPolicyEnforcement(void* serveripaddress, int32_t fglobalpolicy, uint32_t subnetaddress, int32_t enable) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4676,7 +4676,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4SetPolicyEnforcem
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4SetPolicyEx(void* serveripaddress, uint32_t fieldsmodified, int32_t globalpolicy, uint32_t subnetaddress, void* policyname, void* policy) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpV4SetPolicyEx(void* serveripaddress, uint32_t fieldsmodified, int32_t globalpolicy, uint32_t subnetaddress, void* policyname, void* policy) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4703,7 +4703,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV4SetPolicyEx(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV6CreateClientInfo(void* serveripaddress, void* clientinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpV6CreateClientInfo(void* serveripaddress, void* clientinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4726,7 +4726,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV6CreateClientInfo(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV6GetStatelessStatistics(void* serveripaddress, void* statelessstats) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpV6GetStatelessStatistics(void* serveripaddress, void* statelessstats) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4749,7 +4749,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_DhcpV6GetStatelessStati
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_dhcp_Dhcpv6CApiCleanup(void) {
+void windowssys_windows_win32_networkmanagement_dhcp_dhcpv6CApiCleanup(void) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -4769,7 +4769,7 @@ void windowssys_windows_win32_networkmanagement_dhcp_Dhcpv6CApiCleanup(void) {
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_dhcp_Dhcpv6CApiInitialize(void* version) {
+void windowssys_windows_win32_networkmanagement_dhcp_dhcpv6CApiInitialize(void* version) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4790,7 +4790,7 @@ void windowssys_windows_win32_networkmanagement_dhcp_Dhcpv6CApiInitialize(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_Dhcpv6ReleasePrefix(void* adaptername, void* classid, void* leaseinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpv6ReleasePrefix(void* adaptername, void* classid, void* leaseinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4814,7 +4814,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_Dhcpv6ReleasePrefix(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_Dhcpv6RenewPrefix(void* adaptername, void* pclassid, void* prefixleaseinfo, void* pdwtimetowait, uint32_t bvalidateprefix) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpv6RenewPrefix(void* adaptername, void* pclassid, void* prefixleaseinfo, void* pdwtimetowait, uint32_t bvalidateprefix) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4840,7 +4840,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dhcp_Dhcpv6RenewPrefix(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dhcp_Dhcpv6RequestPrefix(void* adaptername, void* pclassid, void* prefixleaseinfo, void* pdwtimetowait) {
+uint32_t windowssys_windows_win32_networkmanagement_dhcp_dhcpv6RequestPrefix(void* adaptername, void* pclassid, void* prefixleaseinfo, void* pdwtimetowait) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;

@@ -2,10 +2,11 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.mailslots
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 
 private object WindowsWin32SystemMailslotsJniBridge {
     init {
@@ -13,26 +14,26 @@ private object WindowsWin32SystemMailslotsJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_mailslots_CreateMailslotA(lpname: Long, nmaxmessagesize: Int, lreadtimeout: Int, lpsecurityattributes: Long): Long
+    external fun windowssys_windows_win32_system_mailslots_createMailslotA(lpname: Long, nmaxmessagesize: Int, lreadtimeout: Int, lpsecurityattributes: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_mailslots_CreateMailslotW(lpname: Long, nmaxmessagesize: Int, lreadtimeout: Int, lpsecurityattributes: Long): Long
+    external fun windowssys_windows_win32_system_mailslots_createMailslotW(lpname: Long, nmaxmessagesize: Int, lreadtimeout: Int, lpsecurityattributes: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_mailslots_GetMailslotInfo(hmailslot: Long, lpmaxmessagesize: Long, lpnextsize: Long, lpmessagecount: Long, lpreadtimeout: Long): Int
+    external fun windowssys_windows_win32_system_mailslots_getMailslotInfo(hmailslot: Long, lpmaxmessagesize: Long, lpnextsize: Long, lpmessagecount: Long, lpreadtimeout: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_mailslots_SetMailslotInfo(hmailslot: Long, lreadtimeout: Int): Int
+    external fun windowssys_windows_win32_system_mailslots_setMailslotInfo(hmailslot: Long, lreadtimeout: Int): Int
 }
 
-public actual fun CreateMailslotA(lpname: PCSTR, nmaxmessagesize: UInt, lreadtimeout: UInt, lpsecurityattributes: Long): HANDLE =
-    WindowsWin32SystemMailslotsJniBridge.windowssys_windows_win32_system_mailslots_CreateMailslotA(lpname, nmaxmessagesize.toInt(), lreadtimeout.toInt(), lpsecurityattributes)
+public actual fun createMailslotA(lpname: Pcstr, nmaxmessagesize: UInt, lreadtimeout: UInt, lpsecurityattributes: COpaquePointer?): Handle =
+    WindowsWin32SystemMailslotsJniBridge.windowssys_windows_win32_system_mailslots_createMailslotA((lpname?.value ?: 0L), nmaxmessagesize.toInt(), lreadtimeout.toInt(), (lpsecurityattributes?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreateMailslotW(lpname: PCWSTR, nmaxmessagesize: UInt, lreadtimeout: UInt, lpsecurityattributes: Long): HANDLE =
-    WindowsWin32SystemMailslotsJniBridge.windowssys_windows_win32_system_mailslots_CreateMailslotW(lpname, nmaxmessagesize.toInt(), lreadtimeout.toInt(), lpsecurityattributes)
+public actual fun createMailslotW(lpname: Pcwstr, nmaxmessagesize: UInt, lreadtimeout: UInt, lpsecurityattributes: COpaquePointer?): Handle =
+    WindowsWin32SystemMailslotsJniBridge.windowssys_windows_win32_system_mailslots_createMailslotW((lpname?.value ?: 0L), nmaxmessagesize.toInt(), lreadtimeout.toInt(), (lpsecurityattributes?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun GetMailslotInfo(hmailslot: HANDLE, lpmaxmessagesize: Long, lpnextsize: Long, lpmessagecount: Long, lpreadtimeout: Long): BOOL =
-    WindowsWin32SystemMailslotsJniBridge.windowssys_windows_win32_system_mailslots_GetMailslotInfo(hmailslot, lpmaxmessagesize, lpnextsize, lpmessagecount, lpreadtimeout)
+public actual fun getMailslotInfo(hmailslot: Handle, lpmaxmessagesize: COpaquePointer?, lpnextsize: COpaquePointer?, lpmessagecount: COpaquePointer?, lpreadtimeout: COpaquePointer?): Bool =
+    WindowsWin32SystemMailslotsJniBridge.windowssys_windows_win32_system_mailslots_getMailslotInfo((hmailslot?.value ?: 0L), (lpmaxmessagesize?.value ?: 0L), (lpnextsize?.value ?: 0L), (lpmessagecount?.value ?: 0L), (lpreadtimeout?.value ?: 0L))
 
-public actual fun SetMailslotInfo(hmailslot: HANDLE, lreadtimeout: UInt): BOOL =
-    WindowsWin32SystemMailslotsJniBridge.windowssys_windows_win32_system_mailslots_SetMailslotInfo(hmailslot, lreadtimeout.toInt())
+public actual fun setMailslotInfo(hmailslot: Handle, lreadtimeout: UInt): Bool =
+    WindowsWin32SystemMailslotsJniBridge.windowssys_windows_win32_system_mailslots_setMailslotInfo((hmailslot?.value ?: 0L), lreadtimeout.toInt())

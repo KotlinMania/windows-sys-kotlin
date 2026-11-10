@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_ui_magnification_MagGetColorEffect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_magnification_magGetColorEffect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* peffect = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -71,7 +71,7 @@ static Napi::Value windowssys_windows_win32_ui_magnification_MagGetColorEffect_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_magnification_MagGetFullscreenColorEffect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_magnification_magGetFullscreenColorEffect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* peffect = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -89,7 +89,7 @@ static Napi::Value windowssys_windows_win32_ui_magnification_MagGetFullscreenCol
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_magnification_MagGetFullscreenTransform_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_magnification_magGetFullscreenTransform_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pmaglevel = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pxoffset = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -111,7 +111,7 @@ static Napi::Value windowssys_windows_win32_ui_magnification_MagGetFullscreenTra
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_magnification_MagGetImageScalingCallback_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_magnification_magGetImageScalingCallback_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -129,7 +129,7 @@ static Napi::Value windowssys_windows_win32_ui_magnification_MagGetImageScalingC
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_magnification_MagGetInputTransform_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_magnification_magGetInputTransform_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pfenabled = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* prectsource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -151,7 +151,7 @@ static Napi::Value windowssys_windows_win32_ui_magnification_MagGetInputTransfor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_magnification_MagGetWindowFilterList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_magnification_magGetWindowFilterList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdwfiltermode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -175,7 +175,7 @@ static Napi::Value windowssys_windows_win32_ui_magnification_MagGetWindowFilterL
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_magnification_MagGetWindowSource_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_magnification_magGetWindowSource_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* prect = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -195,7 +195,7 @@ static Napi::Value windowssys_windows_win32_ui_magnification_MagGetWindowSource_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_magnification_MagGetWindowTransform_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_magnification_magGetWindowTransform_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ptransform = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -215,7 +215,7 @@ static Napi::Value windowssys_windows_win32_ui_magnification_MagGetWindowTransfo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_magnification_MagInitialize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_magnification_magInitialize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -231,7 +231,7 @@ static Napi::Value windowssys_windows_win32_ui_magnification_MagInitialize_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_magnification_MagSetColorEffect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_magnification_magSetColorEffect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* peffect = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -251,7 +251,7 @@ static Napi::Value windowssys_windows_win32_ui_magnification_MagSetColorEffect_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_magnification_MagSetFullscreenColorEffect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_magnification_magSetFullscreenColorEffect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* peffect = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -269,7 +269,7 @@ static Napi::Value windowssys_windows_win32_ui_magnification_MagSetFullscreenCol
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_magnification_MagSetFullscreenTransform_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_magnification_magSetFullscreenTransform_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     float maglevel = km_info.Length() > 0 ? km_info[0].ToNumber().FloatValue() : 0.0f;
     int32_t xoffset = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -291,7 +291,7 @@ static Napi::Value windowssys_windows_win32_ui_magnification_MagSetFullscreenTra
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_magnification_MagSetImageScalingCallback_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_magnification_magSetImageScalingCallback_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* callback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -311,7 +311,7 @@ static Napi::Value windowssys_windows_win32_ui_magnification_MagSetImageScalingC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_magnification_MagSetInputTransform_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_magnification_magSetInputTransform_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t fenabled = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* prectsource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -333,7 +333,7 @@ static Napi::Value windowssys_windows_win32_ui_magnification_MagSetInputTransfor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_magnification_MagSetWindowFilterList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_magnification_magSetWindowFilterList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwfiltermode = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -357,7 +357,7 @@ static Napi::Value windowssys_windows_win32_ui_magnification_MagSetWindowFilterL
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_magnification_MagSetWindowTransform_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_magnification_magSetWindowTransform_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ptransform = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -377,7 +377,7 @@ static Napi::Value windowssys_windows_win32_ui_magnification_MagSetWindowTransfo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_magnification_MagShowSystemCursor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_magnification_magShowSystemCursor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t fshowcursor = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -395,7 +395,7 @@ static Napi::Value windowssys_windows_win32_ui_magnification_MagShowSystemCursor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_magnification_MagUninitialize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_magnification_magUninitialize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -412,24 +412,24 @@ static Napi::Value windowssys_windows_win32_ui_magnification_MagUninitialize_nap
 }
 
 static void register_windows_win32_ui_magnification_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_ui_magnification_MagGetColorEffect", Napi::Function::New(env, windowssys_windows_win32_ui_magnification_MagGetColorEffect_napi));
-    exports.Set("windowssys_windows_win32_ui_magnification_MagGetFullscreenColorEffect", Napi::Function::New(env, windowssys_windows_win32_ui_magnification_MagGetFullscreenColorEffect_napi));
-    exports.Set("windowssys_windows_win32_ui_magnification_MagGetFullscreenTransform", Napi::Function::New(env, windowssys_windows_win32_ui_magnification_MagGetFullscreenTransform_napi));
-    exports.Set("windowssys_windows_win32_ui_magnification_MagGetImageScalingCallback", Napi::Function::New(env, windowssys_windows_win32_ui_magnification_MagGetImageScalingCallback_napi));
-    exports.Set("windowssys_windows_win32_ui_magnification_MagGetInputTransform", Napi::Function::New(env, windowssys_windows_win32_ui_magnification_MagGetInputTransform_napi));
-    exports.Set("windowssys_windows_win32_ui_magnification_MagGetWindowFilterList", Napi::Function::New(env, windowssys_windows_win32_ui_magnification_MagGetWindowFilterList_napi));
-    exports.Set("windowssys_windows_win32_ui_magnification_MagGetWindowSource", Napi::Function::New(env, windowssys_windows_win32_ui_magnification_MagGetWindowSource_napi));
-    exports.Set("windowssys_windows_win32_ui_magnification_MagGetWindowTransform", Napi::Function::New(env, windowssys_windows_win32_ui_magnification_MagGetWindowTransform_napi));
-    exports.Set("windowssys_windows_win32_ui_magnification_MagInitialize", Napi::Function::New(env, windowssys_windows_win32_ui_magnification_MagInitialize_napi));
-    exports.Set("windowssys_windows_win32_ui_magnification_MagSetColorEffect", Napi::Function::New(env, windowssys_windows_win32_ui_magnification_MagSetColorEffect_napi));
-    exports.Set("windowssys_windows_win32_ui_magnification_MagSetFullscreenColorEffect", Napi::Function::New(env, windowssys_windows_win32_ui_magnification_MagSetFullscreenColorEffect_napi));
-    exports.Set("windowssys_windows_win32_ui_magnification_MagSetFullscreenTransform", Napi::Function::New(env, windowssys_windows_win32_ui_magnification_MagSetFullscreenTransform_napi));
-    exports.Set("windowssys_windows_win32_ui_magnification_MagSetImageScalingCallback", Napi::Function::New(env, windowssys_windows_win32_ui_magnification_MagSetImageScalingCallback_napi));
-    exports.Set("windowssys_windows_win32_ui_magnification_MagSetInputTransform", Napi::Function::New(env, windowssys_windows_win32_ui_magnification_MagSetInputTransform_napi));
-    exports.Set("windowssys_windows_win32_ui_magnification_MagSetWindowFilterList", Napi::Function::New(env, windowssys_windows_win32_ui_magnification_MagSetWindowFilterList_napi));
-    exports.Set("windowssys_windows_win32_ui_magnification_MagSetWindowTransform", Napi::Function::New(env, windowssys_windows_win32_ui_magnification_MagSetWindowTransform_napi));
-    exports.Set("windowssys_windows_win32_ui_magnification_MagShowSystemCursor", Napi::Function::New(env, windowssys_windows_win32_ui_magnification_MagShowSystemCursor_napi));
-    exports.Set("windowssys_windows_win32_ui_magnification_MagUninitialize", Napi::Function::New(env, windowssys_windows_win32_ui_magnification_MagUninitialize_napi));
+    exports.Set("windowssys_windows_win32_ui_magnification_magGetColorEffect", Napi::Function::New(env, windowssys_windows_win32_ui_magnification_magGetColorEffect_napi));
+    exports.Set("windowssys_windows_win32_ui_magnification_magGetFullscreenColorEffect", Napi::Function::New(env, windowssys_windows_win32_ui_magnification_magGetFullscreenColorEffect_napi));
+    exports.Set("windowssys_windows_win32_ui_magnification_magGetFullscreenTransform", Napi::Function::New(env, windowssys_windows_win32_ui_magnification_magGetFullscreenTransform_napi));
+    exports.Set("windowssys_windows_win32_ui_magnification_magGetImageScalingCallback", Napi::Function::New(env, windowssys_windows_win32_ui_magnification_magGetImageScalingCallback_napi));
+    exports.Set("windowssys_windows_win32_ui_magnification_magGetInputTransform", Napi::Function::New(env, windowssys_windows_win32_ui_magnification_magGetInputTransform_napi));
+    exports.Set("windowssys_windows_win32_ui_magnification_magGetWindowFilterList", Napi::Function::New(env, windowssys_windows_win32_ui_magnification_magGetWindowFilterList_napi));
+    exports.Set("windowssys_windows_win32_ui_magnification_magGetWindowSource", Napi::Function::New(env, windowssys_windows_win32_ui_magnification_magGetWindowSource_napi));
+    exports.Set("windowssys_windows_win32_ui_magnification_magGetWindowTransform", Napi::Function::New(env, windowssys_windows_win32_ui_magnification_magGetWindowTransform_napi));
+    exports.Set("windowssys_windows_win32_ui_magnification_magInitialize", Napi::Function::New(env, windowssys_windows_win32_ui_magnification_magInitialize_napi));
+    exports.Set("windowssys_windows_win32_ui_magnification_magSetColorEffect", Napi::Function::New(env, windowssys_windows_win32_ui_magnification_magSetColorEffect_napi));
+    exports.Set("windowssys_windows_win32_ui_magnification_magSetFullscreenColorEffect", Napi::Function::New(env, windowssys_windows_win32_ui_magnification_magSetFullscreenColorEffect_napi));
+    exports.Set("windowssys_windows_win32_ui_magnification_magSetFullscreenTransform", Napi::Function::New(env, windowssys_windows_win32_ui_magnification_magSetFullscreenTransform_napi));
+    exports.Set("windowssys_windows_win32_ui_magnification_magSetImageScalingCallback", Napi::Function::New(env, windowssys_windows_win32_ui_magnification_magSetImageScalingCallback_napi));
+    exports.Set("windowssys_windows_win32_ui_magnification_magSetInputTransform", Napi::Function::New(env, windowssys_windows_win32_ui_magnification_magSetInputTransform_napi));
+    exports.Set("windowssys_windows_win32_ui_magnification_magSetWindowFilterList", Napi::Function::New(env, windowssys_windows_win32_ui_magnification_magSetWindowFilterList_napi));
+    exports.Set("windowssys_windows_win32_ui_magnification_magSetWindowTransform", Napi::Function::New(env, windowssys_windows_win32_ui_magnification_magSetWindowTransform_napi));
+    exports.Set("windowssys_windows_win32_ui_magnification_magShowSystemCursor", Napi::Function::New(env, windowssys_windows_win32_ui_magnification_magShowSystemCursor_napi));
+    exports.Set("windowssys_windows_win32_ui_magnification_magUninitialize", Napi::Function::New(env, windowssys_windows_win32_ui_magnification_magUninitialize_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_ui_magnification_napi, nullptr };

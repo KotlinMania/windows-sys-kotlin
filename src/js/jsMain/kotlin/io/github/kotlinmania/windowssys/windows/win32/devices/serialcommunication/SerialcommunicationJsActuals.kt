@@ -2,28 +2,29 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.devices.serialcommunication
 
-import io.github.kotlinmania.windowssys.core.BOOL
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
 
 private val _windowsWin32DevicesSerialcommunicationNapiAddon: dynamic =
-    js("(function() { if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var req = (new Function('t', 'return typeof require === t ? require : null'))('function'); if (!req) return null; var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; for (var d = 0; d < 8; d++) { var c1 = path.resolve(dir, 'build/node-ffi/windows_sys_native.node'); if (fs.existsSync(c1)) return req(c1); var c2 = path.resolve(dir, 'src/js/node-windows_sys/build/Release/windows_sys_native.node'); if (fs.existsSync(c2)) return req(c2); var c3 = path.resolve(dir, 'src/js/node-windows_sys/build/Debug/windows_sys_native.node'); if (fs.existsSync(c3)) return req(c3); var c4 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Release/windows_sys_native.node'); if (fs.existsSync(c4)) return req(c4); var c5 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Debug/windows_sys_native.node'); if (fs.existsSync(c5)) return req(c5); var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } return null; })()")
+    js("(function() { if (typeof globalThis !== 'undefined' && typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys; if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) return null; try { var pkg = req('@kotlinmania/windowssys-native-bindings'); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = pkg; return pkg; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { var loaded = req(c); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = loaded; return loaded; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = null; return null; })()")
 
-public actual fun ComDBClaimNextFreePort(hcomdb: HCOMDB, comnumber: Long): Int =
-    if (_windowsWin32DevicesSerialcommunicationNapiAddon != null) (_windowsWin32DevicesSerialcommunicationNapiAddon.windowssys_windows_win32_devices_serialcommunication_ComDBClaimNextFreePort(hcomdb.toString(), comnumber.toString()) as Int) else 0
+public actual fun comDBClaimNextFreePort(hcomdb: Hcomdb, comnumber: COpaquePointer?): Int =
+    if (_windowsWin32DevicesSerialcommunicationNapiAddon != null) (_windowsWin32DevicesSerialcommunicationNapiAddon.windowssys_windows_win32_devices_serialcommunication_comDBClaimNextFreePort((hcomdb?.value ?: 0L).toString(), (comnumber?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ComDBClaimPort(hcomdb: HCOMDB, comnumber: UInt, forceclaim: BOOL, forced: Long): Int =
-    if (_windowsWin32DevicesSerialcommunicationNapiAddon != null) (_windowsWin32DevicesSerialcommunicationNapiAddon.windowssys_windows_win32_devices_serialcommunication_ComDBClaimPort(hcomdb.toString(), comnumber.toInt(), forceclaim, forced.toString()) as Int) else 0
+public actual fun comDBClaimPort(hcomdb: Hcomdb, comnumber: UInt, forceclaim: Bool, forced: COpaquePointer?): Int =
+    if (_windowsWin32DevicesSerialcommunicationNapiAddon != null) (_windowsWin32DevicesSerialcommunicationNapiAddon.windowssys_windows_win32_devices_serialcommunication_comDBClaimPort((hcomdb?.value ?: 0L).toString(), comnumber.toInt(), forceclaim, (forced?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ComDBClose(hcomdb: HCOMDB): Int =
-    if (_windowsWin32DevicesSerialcommunicationNapiAddon != null) (_windowsWin32DevicesSerialcommunicationNapiAddon.windowssys_windows_win32_devices_serialcommunication_ComDBClose(hcomdb.toString()) as Int) else 0
+public actual fun comDBClose(hcomdb: Hcomdb): Int =
+    if (_windowsWin32DevicesSerialcommunicationNapiAddon != null) (_windowsWin32DevicesSerialcommunicationNapiAddon.windowssys_windows_win32_devices_serialcommunication_comDBClose((hcomdb?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ComDBGetCurrentPortUsage(hcomdb: HCOMDB, buffer: Long, buffersize: UInt, reporttype: UInt, maxportsreported: Long): Int =
-    if (_windowsWin32DevicesSerialcommunicationNapiAddon != null) (_windowsWin32DevicesSerialcommunicationNapiAddon.windowssys_windows_win32_devices_serialcommunication_ComDBGetCurrentPortUsage(hcomdb.toString(), buffer.toString(), buffersize.toInt(), reporttype.toInt(), maxportsreported.toString()) as Int) else 0
+public actual fun comDBGetCurrentPortUsage(hcomdb: Hcomdb, buffer: COpaquePointer?, buffersize: UInt, reporttype: UInt, maxportsreported: COpaquePointer?): Int =
+    if (_windowsWin32DevicesSerialcommunicationNapiAddon != null) (_windowsWin32DevicesSerialcommunicationNapiAddon.windowssys_windows_win32_devices_serialcommunication_comDBGetCurrentPortUsage((hcomdb?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString(), buffersize.toInt(), reporttype.toInt(), (maxportsreported?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ComDBOpen(phcomdb: Long): Int =
-    if (_windowsWin32DevicesSerialcommunicationNapiAddon != null) (_windowsWin32DevicesSerialcommunicationNapiAddon.windowssys_windows_win32_devices_serialcommunication_ComDBOpen(phcomdb.toString()) as Int) else 0
+public actual fun comDBOpen(phcomdb: COpaquePointer?): Int =
+    if (_windowsWin32DevicesSerialcommunicationNapiAddon != null) (_windowsWin32DevicesSerialcommunicationNapiAddon.windowssys_windows_win32_devices_serialcommunication_comDBOpen((phcomdb?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ComDBReleasePort(hcomdb: HCOMDB, comnumber: UInt): Int =
-    if (_windowsWin32DevicesSerialcommunicationNapiAddon != null) (_windowsWin32DevicesSerialcommunicationNapiAddon.windowssys_windows_win32_devices_serialcommunication_ComDBReleasePort(hcomdb.toString(), comnumber.toInt()) as Int) else 0
+public actual fun comDBReleasePort(hcomdb: Hcomdb, comnumber: UInt): Int =
+    if (_windowsWin32DevicesSerialcommunicationNapiAddon != null) (_windowsWin32DevicesSerialcommunicationNapiAddon.windowssys_windows_win32_devices_serialcommunication_comDBReleasePort((hcomdb?.value ?: 0L).toString(), comnumber.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ComDBResizeDatabase(hcomdb: HCOMDB, newsize: UInt): Int =
-    if (_windowsWin32DevicesSerialcommunicationNapiAddon != null) (_windowsWin32DevicesSerialcommunicationNapiAddon.windowssys_windows_win32_devices_serialcommunication_ComDBResizeDatabase(hcomdb.toString(), newsize.toInt()) as Int) else 0
+public actual fun comDBResizeDatabase(hcomdb: Hcomdb, newsize: UInt): Int =
+    if (_windowsWin32DevicesSerialcommunicationNapiAddon != null) (_windowsWin32DevicesSerialcommunicationNapiAddon.windowssys_windows_win32_devices_serialcommunication_comDBResizeDatabase((hcomdb?.value ?: 0L).toString(), newsize.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")

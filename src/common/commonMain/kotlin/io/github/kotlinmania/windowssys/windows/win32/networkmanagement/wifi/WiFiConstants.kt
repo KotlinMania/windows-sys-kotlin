@@ -1,212 +1,212 @@
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi
 
 import io.github.kotlinmania.windowssys.U128
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.PCSTR
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.s
-import io.github.kotlinmania.windowssys.windows.win32.foundation.DEVPROPKEY
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Devpropkey
 
-public val DEVPKEY_InfraCast_AccessPointBssid: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 19u)
+public val DEVPKEY_INFRA_CAST_ACCESS_POINT_BSSID: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 19u)
 
-public val DEVPKEY_InfraCast_ChallengeAep: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 21u)
+public val DEVPKEY_INFRA_CAST_CHALLENGE_AEP: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 21u)
 
-public val DEVPKEY_InfraCast_DevnodeAep: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 23u)
+public val DEVPKEY_INFRA_CAST_DEVNODE_AEP: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 23u)
 
-public val DEVPKEY_InfraCast_HostName_ResolutionMode: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 25u)
+public val DEVPKEY_INFRA_CAST_HOST_NAME_RESOLUTION_MODE: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 25u)
 
-public val DEVPKEY_InfraCast_PinSupported: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 29u)
+public val DEVPKEY_INFRA_CAST_PIN_SUPPORTED: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 29u)
 
-public val DEVPKEY_InfraCast_RtspTcpConnectionParametersSupported: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 30u)
+public val DEVPKEY_INFRA_CAST_RTSP_TCP_CONNECTION_PARAMETERS_SUPPORTED: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 30u)
 
-public val DEVPKEY_InfraCast_SinkHostName: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 20u)
+public val DEVPKEY_INFRA_CAST_SINK_HOST_NAME: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 20u)
 
-public val DEVPKEY_InfraCast_SinkIpAddress: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 26u)
+public val DEVPKEY_INFRA_CAST_SINK_IP_ADDRESS: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 26u)
 
-public val DEVPKEY_InfraCast_StreamSecuritySupported: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 18u)
+public val DEVPKEY_INFRA_CAST_STREAM_SECURITY_SUPPORTED: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 18u)
 
-public val DEVPKEY_InfraCast_Supported: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 17u)
+public val DEVPKEY_INFRA_CAST_SUPPORTED: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 17u)
 
-public val DEVPKEY_PciDevice_AERCapabilityPresent: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 17u)
+public val DEVPKEY_PCI_DEVICE_AER_CAPABILITY_PRESENT: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 17u)
 
-public val DEVPKEY_PciDevice_AcsCapabilityRegister: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 32u)
+public val DEVPKEY_PCI_DEVICE_ACS_CAPABILITY_REGISTER: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 32u)
 
-public val DEVPKEY_PciDevice_AcsCompatibleUpHierarchy: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 31u)
+public val DEVPKEY_PCI_DEVICE_ACS_COMPATIBLE_UP_HIERARCHY: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 31u)
 
-public val DEVPKEY_PciDevice_AcsSupport: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 29u)
+public val DEVPKEY_PCI_DEVICE_ACS_SUPPORT: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 29u)
 
-public val DEVPKEY_PciDevice_AriSupport: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 30u)
+public val DEVPKEY_PCI_DEVICE_ARI_SUPPORT: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 30u)
 
-public val DEVPKEY_PciDevice_AtomicsSupported: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 35u)
+public val DEVPKEY_PCI_DEVICE_ATOMICS_SUPPORTED: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 35u)
 
-public val DEVPKEY_PciDevice_AtsSupport: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 33u)
+public val DEVPKEY_PCI_DEVICE_ATS_SUPPORT: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 33u)
 
-public val DEVPKEY_PciDevice_BarTypes: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 16u)
+public val DEVPKEY_PCI_DEVICE_BAR_TYPES: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 16u)
 
-public val DEVPKEY_PciDevice_BaseClass: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 3u)
+public val DEVPKEY_PCI_DEVICE_BASE_CLASS: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 3u)
 
-public val DEVPKEY_PciDevice_Correctable_Error_Mask: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 21u)
+public val DEVPKEY_PCI_DEVICE_CORRECTABLE_ERROR_MASK: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 21u)
 
-public val DEVPKEY_PciDevice_CurrentLinkSpeed: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 9u)
+public val DEVPKEY_PCI_DEVICE_CURRENT_LINK_SPEED: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 9u)
 
-public val DEVPKEY_PciDevice_CurrentLinkWidth: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 10u)
+public val DEVPKEY_PCI_DEVICE_CURRENT_LINK_WIDTH: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 10u)
 
-public val DEVPKEY_PciDevice_CurrentPayloadSize: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 6u)
+public val DEVPKEY_PCI_DEVICE_CURRENT_PAYLOAD_SIZE: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 6u)
 
-public val DEVPKEY_PciDevice_CurrentSpeedAndMode: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 2u)
+public val DEVPKEY_PCI_DEVICE_CURRENT_SPEED_AND_MODE: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 2u)
 
-public val DEVPKEY_PciDevice_D3ColdSupport: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 38u)
+public val DEVPKEY_PCI_DEVICE_D3COLD_SUPPORT: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 38u)
 
-public val DEVPKEY_PciDevice_DeviceType: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 1u)
+public val DEVPKEY_PCI_DEVICE_DEVICE_TYPE: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 1u)
 
-public val DEVPKEY_PciDevice_ECRC_Errors: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 22u)
+public val DEVPKEY_PCI_DEVICE_ECRC_ERRORS: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 22u)
 
-public val DEVPKEY_PciDevice_Error_Reporting: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 23u)
+public val DEVPKEY_PCI_DEVICE_ERROR_REPORTING: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 23u)
 
-public val DEVPKEY_PciDevice_ExpressSpecVersion: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 13u)
+public val DEVPKEY_PCI_DEVICE_EXPRESS_SPEC_VERSION: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 13u)
 
-public val DEVPKEY_PciDevice_FirmwareErrorHandling: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 18u)
+public val DEVPKEY_PCI_DEVICE_FIRMWARE_ERROR_HANDLING: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 18u)
 
-public val DEVPKEY_PciDevice_InterruptMessageMaximum: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 15u)
+public val DEVPKEY_PCI_DEVICE_INTERRUPT_MESSAGE_MAXIMUM: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 15u)
 
-public val DEVPKEY_PciDevice_InterruptSupport: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 14u)
+public val DEVPKEY_PCI_DEVICE_INTERRUPT_SUPPORT: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 14u)
 
-public val DEVPKEY_PciDevice_Label_Id: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 27u)
+public val DEVPKEY_PCI_DEVICE_LABEL_ID: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 27u)
 
-public val DEVPKEY_PciDevice_Label_String: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 28u)
+public val DEVPKEY_PCI_DEVICE_LABEL_STRING: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 28u)
 
-public val DEVPKEY_PciDevice_MaxLinkSpeed: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 11u)
+public val DEVPKEY_PCI_DEVICE_MAX_LINK_SPEED: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 11u)
 
-public val DEVPKEY_PciDevice_MaxLinkWidth: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 12u)
+public val DEVPKEY_PCI_DEVICE_MAX_LINK_WIDTH: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 12u)
 
-public val DEVPKEY_PciDevice_MaxPayloadSize: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 7u)
+public val DEVPKEY_PCI_DEVICE_MAX_PAYLOAD_SIZE: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 7u)
 
-public val DEVPKEY_PciDevice_MaxReadRequestSize: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 8u)
+public val DEVPKEY_PCI_DEVICE_MAX_READ_REQUEST_SIZE: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 8u)
 
-public val DEVPKEY_PciDevice_OnPostPath: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 37u)
+public val DEVPKEY_PCI_DEVICE_ON_POST_PATH: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 37u)
 
-public val DEVPKEY_PciDevice_ParentSerialNumber: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 45u)
+public val DEVPKEY_PCI_DEVICE_PARENT_SERIAL_NUMBER: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 45u)
 
-public val DEVPKEY_PciDevice_ProgIf: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 5u)
+public val DEVPKEY_PCI_DEVICE_PROG_IF: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 5u)
 
-public val DEVPKEY_PciDevice_RequiresReservedMemoryRegion: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 34u)
+public val DEVPKEY_PCI_DEVICE_REQUIRES_RESERVED_MEMORY_REGION: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 34u)
 
-public val DEVPKEY_PciDevice_RootError_Reporting: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 24u)
+public val DEVPKEY_PCI_DEVICE_ROOT_ERROR_REPORTING: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 24u)
 
-public val DEVPKEY_PciDevice_S0WakeupSupported: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 25u)
+public val DEVPKEY_PCI_DEVICE_S0WAKEUP_SUPPORTED: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 25u)
 
-public val DEVPKEY_PciDevice_SerialNumber: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 40u)
+public val DEVPKEY_PCI_DEVICE_SERIAL_NUMBER: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 40u)
 
-public val DEVPKEY_PciDevice_SriovSupport: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 26u)
+public val DEVPKEY_PCI_DEVICE_SRIOV_SUPPORT: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 26u)
 
-public val DEVPKEY_PciDevice_SubClass: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 4u)
+public val DEVPKEY_PCI_DEVICE_SUB_CLASS: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 4u)
 
-public val DEVPKEY_PciDevice_SupportedLinkSubState: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 36u)
+public val DEVPKEY_PCI_DEVICE_SUPPORTED_LINK_SUB_STATE: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 36u)
 
-public val DEVPKEY_PciDevice_Uncorrectable_Error_Mask: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 19u)
+public val DEVPKEY_PCI_DEVICE_UNCORRECTABLE_ERROR_MASK: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 19u)
 
-public val DEVPKEY_PciDevice_Uncorrectable_Error_Severity: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 20u)
+public val DEVPKEY_PCI_DEVICE_UNCORRECTABLE_ERROR_SEVERITY: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 20u)
 
-public val DEVPKEY_PciDevice_UsbComponentRelation: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 43u)
+public val DEVPKEY_PCI_DEVICE_USB_COMPONENT_RELATION: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 43u)
 
-public val DEVPKEY_PciDevice_UsbDvsecPortSpecificAttributes: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 42u)
+public val DEVPKEY_PCI_DEVICE_USB_DVSEC_PORT_SPECIFIC_ATTRIBUTES: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 42u)
 
-public val DEVPKEY_PciDevice_UsbDvsecPortType: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 41u)
+public val DEVPKEY_PCI_DEVICE_USB_DVSEC_PORT_TYPE: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 41u)
 
-public val DEVPKEY_PciDevice_UsbHostRouterName: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 44u)
+public val DEVPKEY_PCI_DEVICE_USB_HOST_ROUTER_NAME: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 44u)
 
-public val DEVPKEY_PciRootBus_ASPMSupport: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 8u)
+public val DEVPKEY_PCI_ROOT_BUS_ASPM_SUPPORT: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 8u)
 
-public val DEVPKEY_PciRootBus_ClockPowerManagementSupport: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 9u)
+public val DEVPKEY_PCI_ROOT_BUS_CLOCK_POWER_MANAGEMENT_SUPPORT: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 9u)
 
-public val DEVPKEY_PciRootBus_CurrentSpeedAndMode: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 2u)
+public val DEVPKEY_PCI_ROOT_BUS_CURRENT_SPEED_AND_MODE: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 2u)
 
-public val DEVPKEY_PciRootBus_DeviceIDMessagingCapable: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 4u)
+public val DEVPKEY_PCI_ROOT_BUS_DEVICE_ID_MESSAGING_CAPABLE: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 4u)
 
-public val DEVPKEY_PciRootBus_ExtendedConfigAvailable: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 6u)
+public val DEVPKEY_PCI_ROOT_BUS_EXTENDED_CONFIG_AVAILABLE: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 6u)
 
-public val DEVPKEY_PciRootBus_ExtendedPCIConfigOpRegionSupport: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 7u)
+public val DEVPKEY_PCI_ROOT_BUS_EXTENDED_PCI_CONFIG_OP_REGION_SUPPORT: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 7u)
 
-public val DEVPKEY_PciRootBus_MSISupport: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 11u)
+public val DEVPKEY_PCI_ROOT_BUS_MSI_SUPPORT: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 11u)
 
-public val DEVPKEY_PciRootBus_NativePciExpressControl: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 17u)
+public val DEVPKEY_PCI_ROOT_BUS_NATIVE_PCI_EXPRESS_CONTROL: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 17u)
 
-public val DEVPKEY_PciRootBus_PCIExpressAERControl: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 15u)
+public val DEVPKEY_PCI_ROOT_BUS_PCI_EXPRESS_AER_CONTROL: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 15u)
 
-public val DEVPKEY_PciRootBus_PCIExpressCapabilityControl: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 16u)
+public val DEVPKEY_PCI_ROOT_BUS_PCI_EXPRESS_CAPABILITY_CONTROL: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 16u)
 
-public val DEVPKEY_PciRootBus_PCIExpressNativeHotPlugControl: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 12u)
+public val DEVPKEY_PCI_ROOT_BUS_PCI_EXPRESS_NATIVE_HOT_PLUG_CONTROL: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 12u)
 
-public val DEVPKEY_PciRootBus_PCIExpressNativePMEControl: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 14u)
+public val DEVPKEY_PCI_ROOT_BUS_PCI_EXPRESS_NATIVE_PME_CONTROL: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 14u)
 
-public val DEVPKEY_PciRootBus_PCISegmentGroupsSupport: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 10u)
+public val DEVPKEY_PCI_ROOT_BUS_PCI_SEGMENT_GROUPS_SUPPORT: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 10u)
 
-public val DEVPKEY_PciRootBus_SHPCNativeHotPlugControl: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 13u)
+public val DEVPKEY_PCI_ROOT_BUS_SHPC_NATIVE_HOT_PLUG_CONTROL: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 13u)
 
-public val DEVPKEY_PciRootBus_SecondaryBusWidth: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 5u)
+public val DEVPKEY_PCI_ROOT_BUS_SECONDARY_BUS_WIDTH: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 5u)
 
-public val DEVPKEY_PciRootBus_SecondaryInterface: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 1u)
+public val DEVPKEY_PCI_ROOT_BUS_SECONDARY_INTERFACE: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 1u)
 
-public val DEVPKEY_PciRootBus_SupportedSpeedsAndModes: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 3u)
+public val DEVPKEY_PCI_ROOT_BUS_SUPPORTED_SPEEDS_AND_MODES: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 3u)
 
-public val DEVPKEY_PciRootBus_SystemMsiSupport: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 18u)
+public val DEVPKEY_PCI_ROOT_BUS_SYSTEM_MSI_SUPPORT: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 18u)
 
-public val DEVPKEY_WiFiDirectServices_AdvertisementId: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x31b377437c5e4005uL, 0x93e6e953f92b82e9uL)), pid = 5u)
+public val DEVPKEY_WI_FI_DIRECT_SERVICES_ADVERTISEMENT_ID: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x31b377437c5e4005uL, 0x93e6e953f92b82e9uL)), pid = 5u)
 
-public val DEVPKEY_WiFiDirectServices_RequestServiceInformation: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x31b377437c5e4005uL, 0x93e6e953f92b82e9uL)), pid = 7u)
+public val DEVPKEY_WI_FI_DIRECT_SERVICES_REQUEST_SERVICE_INFORMATION: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x31b377437c5e4005uL, 0x93e6e953f92b82e9uL)), pid = 7u)
 
-public val DEVPKEY_WiFiDirectServices_ServiceAddress: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x31b377437c5e4005uL, 0x93e6e953f92b82e9uL)), pid = 2u)
+public val DEVPKEY_WI_FI_DIRECT_SERVICES_SERVICE_ADDRESS: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x31b377437c5e4005uL, 0x93e6e953f92b82e9uL)), pid = 2u)
 
-public val DEVPKEY_WiFiDirectServices_ServiceConfigMethods: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x31b377437c5e4005uL, 0x93e6e953f92b82e9uL)), pid = 6u)
+public val DEVPKEY_WI_FI_DIRECT_SERVICES_SERVICE_CONFIG_METHODS: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x31b377437c5e4005uL, 0x93e6e953f92b82e9uL)), pid = 6u)
 
-public val DEVPKEY_WiFiDirectServices_ServiceInformation: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x31b377437c5e4005uL, 0x93e6e953f92b82e9uL)), pid = 4u)
+public val DEVPKEY_WI_FI_DIRECT_SERVICES_SERVICE_INFORMATION: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x31b377437c5e4005uL, 0x93e6e953f92b82e9uL)), pid = 4u)
 
-public val DEVPKEY_WiFiDirectServices_ServiceName: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x31b377437c5e4005uL, 0x93e6e953f92b82e9uL)), pid = 3u)
+public val DEVPKEY_WI_FI_DIRECT_SERVICES_SERVICE_NAME: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x31b377437c5e4005uL, 0x93e6e953f92b82e9uL)), pid = 3u)
 
-public val DEVPKEY_WiFiDirect_DeviceAddress: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 1u)
+public val DEVPKEY_WI_FI_DIRECT_DEVICE_ADDRESS: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 1u)
 
-public val DEVPKEY_WiFiDirect_DeviceAddressCopy: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 13u)
+public val DEVPKEY_WI_FI_DIRECT_DEVICE_ADDRESS_COPY: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 13u)
 
-public val DEVPKEY_WiFiDirect_FoundWsbService: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 24u)
+public val DEVPKEY_WI_FI_DIRECT_FOUND_WSB_SERVICE: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 24u)
 
-public val DEVPKEY_WiFiDirect_GroupId: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 4u)
+public val DEVPKEY_WI_FI_DIRECT_GROUP_ID: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 4u)
 
-public val DEVPKEY_WiFiDirect_InformationElements: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 12u)
+public val DEVPKEY_WI_FI_DIRECT_INFORMATION_ELEMENTS: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 12u)
 
-public val DEVPKEY_WiFiDirect_InterfaceAddress: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 2u)
+public val DEVPKEY_WI_FI_DIRECT_INTERFACE_ADDRESS: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 2u)
 
-public val DEVPKEY_WiFiDirect_InterfaceGuid: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 3u)
+public val DEVPKEY_WI_FI_DIRECT_INTERFACE_GUID: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 3u)
 
-public val DEVPKEY_WiFiDirect_IsConnected: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 5u)
+public val DEVPKEY_WI_FI_DIRECT_IS_CONNECTED: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 5u)
 
-public val DEVPKEY_WiFiDirect_IsDMGCapable: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 22u)
+public val DEVPKEY_WI_FI_DIRECT_IS_DMG_CAPABLE: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 22u)
 
-public val DEVPKEY_WiFiDirect_IsLegacyDevice: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 7u)
+public val DEVPKEY_WI_FI_DIRECT_IS_LEGACY_DEVICE: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 7u)
 
-public val DEVPKEY_WiFiDirect_IsMiracastLCPSupported: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 9u)
+public val DEVPKEY_WI_FI_DIRECT_IS_MIRACAST_LCP_SUPPORTED: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 9u)
 
-public val DEVPKEY_WiFiDirect_IsRecentlyAssociated: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 14u)
+public val DEVPKEY_WI_FI_DIRECT_IS_RECENTLY_ASSOCIATED: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 14u)
 
-public val DEVPKEY_WiFiDirect_IsVisible: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 6u)
+public val DEVPKEY_WI_FI_DIRECT_IS_VISIBLE: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 6u)
 
-public val DEVPKEY_WiFiDirect_LinkQuality: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 28u)
+public val DEVPKEY_WI_FI_DIRECT_LINK_QUALITY: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 28u)
 
-public val DEVPKEY_WiFiDirect_MiracastVersion: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 8u)
+public val DEVPKEY_WI_FI_DIRECT_MIRACAST_VERSION: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 8u)
 
-public val DEVPKEY_WiFiDirect_Miracast_SessionMgmtControlPort: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 31u)
+public val DEVPKEY_WI_FI_DIRECT_MIRACAST_SESSION_MGMT_CONTROL_PORT: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 31u)
 
-public val DEVPKEY_WiFiDirect_NoMiracastAutoProject: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 16u)
+public val DEVPKEY_WI_FI_DIRECT_NO_MIRACAST_AUTO_PROJECT: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 16u)
 
-public val DEVPKEY_WiFiDirect_RtspTcpConnectionParametersSupported: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 32u)
+public val DEVPKEY_WI_FI_DIRECT_RTSP_TCP_CONNECTION_PARAMETERS_SUPPORTED: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 32u)
 
-public val DEVPKEY_WiFiDirect_Service_Aeps: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 15u)
+public val DEVPKEY_WI_FI_DIRECT_SERVICE_AEPS: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 15u)
 
-public val DEVPKEY_WiFiDirect_Services: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 10u)
+public val DEVPKEY_WI_FI_DIRECT_SERVICES: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 10u)
 
-public val DEVPKEY_WiFiDirect_SupportedChannelList: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 11u)
+public val DEVPKEY_WI_FI_DIRECT_SUPPORTED_CHANNEL_LIST: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 11u)
 
-public val DEVPKEY_WiFiDirect_TransientAssociation: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 27u)
+public val DEVPKEY_WI_FI_DIRECT_TRANSIENT_ASSOCIATION: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 27u)
 
-public val DEVPKEY_WiFi_InterfaceGuid: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0xef1167ebcbfc4341uL, 0xa568a7c91a68982cuL)), pid = 2u)
+public val DEVPKEY_WI_FI_INTERFACE_GUID: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xef1167ebcbfc4341uL, 0xa568a7c91a68982cuL)), pid = 2u)
 
 public val DISCOVERY_FILTER_BITMASK_ANY: UInt = 15u
 
@@ -218,35 +218,35 @@ public val DOT11EXT_PSK_MAX_LENGTH: UInt = 64u
 
 public val DOT11_ADDITIONAL_IE_REVISION_1: UInt = 1u
 
-public val DOT11_ADHOC_AUTH_ALGO_80211_OPEN: DOT11_ADHOC_AUTH_ALGORITHM = 1
+public val DOT11_ADHOC_AUTH_ALGO_80211_OPEN: Dot11AdhocAuthAlgorithm = 1
 
-public val DOT11_ADHOC_AUTH_ALGO_INVALID: DOT11_ADHOC_AUTH_ALGORITHM = -1
+public val DOT11_ADHOC_AUTH_ALGO_INVALID: Dot11AdhocAuthAlgorithm = -1
 
-public val DOT11_ADHOC_AUTH_ALGO_RSNA_PSK: DOT11_ADHOC_AUTH_ALGORITHM = 7
+public val DOT11_ADHOC_AUTH_ALGO_RSNA_PSK: Dot11AdhocAuthAlgorithm = 7
 
-public val DOT11_ADHOC_CIPHER_ALGO_CCMP: DOT11_ADHOC_CIPHER_ALGORITHM = 4
+public val DOT11_ADHOC_CIPHER_ALGO_CCMP: Dot11AdhocCipherAlgorithm = 4
 
-public val DOT11_ADHOC_CIPHER_ALGO_INVALID: DOT11_ADHOC_CIPHER_ALGORITHM = -1
+public val DOT11_ADHOC_CIPHER_ALGO_INVALID: Dot11AdhocCipherAlgorithm = -1
 
-public val DOT11_ADHOC_CIPHER_ALGO_NONE: DOT11_ADHOC_CIPHER_ALGORITHM = 0
+public val DOT11_ADHOC_CIPHER_ALGO_NONE: Dot11AdhocCipherAlgorithm = 0
 
-public val DOT11_ADHOC_CIPHER_ALGO_WEP: DOT11_ADHOC_CIPHER_ALGORITHM = 257
+public val DOT11_ADHOC_CIPHER_ALGO_WEP: Dot11AdhocCipherAlgorithm = 257
 
-public val DOT11_ADHOC_CONNECT_FAIL_DOMAIN_MISMATCH: DOT11_ADHOC_CONNECT_FAIL_REASON = 0
+public val DOT11_ADHOC_CONNECT_FAIL_DOMAIN_MISMATCH: Dot11AdhocConnectFailReason = 0
 
-public val DOT11_ADHOC_CONNECT_FAIL_OTHER: DOT11_ADHOC_CONNECT_FAIL_REASON = 2
+public val DOT11_ADHOC_CONNECT_FAIL_OTHER: Dot11AdhocConnectFailReason = 2
 
-public val DOT11_ADHOC_CONNECT_FAIL_PASSPHRASE_MISMATCH: DOT11_ADHOC_CONNECT_FAIL_REASON = 1
+public val DOT11_ADHOC_CONNECT_FAIL_PASSPHRASE_MISMATCH: Dot11AdhocConnectFailReason = 1
 
-public val DOT11_ADHOC_NETWORK_CONNECTION_STATUS_CONNECTED: DOT11_ADHOC_NETWORK_CONNECTION_STATUS = 13
+public val DOT11_ADHOC_NETWORK_CONNECTION_STATUS_CONNECTED: Dot11AdhocNetworkConnectionStatus = 13
 
-public val DOT11_ADHOC_NETWORK_CONNECTION_STATUS_CONNECTING: DOT11_ADHOC_NETWORK_CONNECTION_STATUS = 12
+public val DOT11_ADHOC_NETWORK_CONNECTION_STATUS_CONNECTING: Dot11AdhocNetworkConnectionStatus = 12
 
-public val DOT11_ADHOC_NETWORK_CONNECTION_STATUS_DISCONNECTED: DOT11_ADHOC_NETWORK_CONNECTION_STATUS = 11
+public val DOT11_ADHOC_NETWORK_CONNECTION_STATUS_DISCONNECTED: Dot11AdhocNetworkConnectionStatus = 11
 
-public val DOT11_ADHOC_NETWORK_CONNECTION_STATUS_FORMED: DOT11_ADHOC_NETWORK_CONNECTION_STATUS = 14
+public val DOT11_ADHOC_NETWORK_CONNECTION_STATUS_FORMED: Dot11AdhocNetworkConnectionStatus = 14
 
-public val DOT11_ADHOC_NETWORK_CONNECTION_STATUS_INVALID: DOT11_ADHOC_NETWORK_CONNECTION_STATUS = 0
+public val DOT11_ADHOC_NETWORK_CONNECTION_STATUS_INVALID: Dot11AdhocNetworkConnectionStatus = 0
 
 public val DOT11_ANQP_QUERY_COMPLETE_PARAMETERS_REVISION_1: UInt = 1u
 
@@ -270,35 +270,35 @@ public val DOT11_ASSOC_STATUS_SUCCESS: UInt = 0u
 
 public val DOT11_AUTH_ALGORITHM_LIST_REVISION_1: UInt = 1u
 
-public val DOT11_AUTH_ALGO_80211_OPEN: DOT11_AUTH_ALGORITHM = 1
+public val DOT11_AUTH_ALGO_80211_OPEN: Dot11AuthAlgorithm = 1
 
-public val DOT11_AUTH_ALGO_80211_SHARED_KEY: DOT11_AUTH_ALGORITHM = 2
+public val DOT11_AUTH_ALGO_80211_SHARED_KEY: Dot11AuthAlgorithm = 2
 
-public val DOT11_AUTH_ALGO_IHV_END: DOT11_AUTH_ALGORITHM = -1
+public val DOT11_AUTH_ALGO_IHV_END: Dot11AuthAlgorithm = -1
 
-public val DOT11_AUTH_ALGO_IHV_START: DOT11_AUTH_ALGORITHM = -2147483648
+public val DOT11_AUTH_ALGO_IHV_START: Dot11AuthAlgorithm = -2147483648.toInt()
 
 public val DOT11_AUTH_ALGO_MICHAEL: UInt = 1u
 
-public val DOT11_AUTH_ALGO_OWE: DOT11_AUTH_ALGORITHM = 10
+public val DOT11_AUTH_ALGO_OWE: Dot11AuthAlgorithm = 10
 
-public val DOT11_AUTH_ALGO_RSNA: DOT11_AUTH_ALGORITHM = 6
+public val DOT11_AUTH_ALGO_RSNA: Dot11AuthAlgorithm = 6
 
-public val DOT11_AUTH_ALGO_RSNA_PSK: DOT11_AUTH_ALGORITHM = 7
+public val DOT11_AUTH_ALGO_RSNA_PSK: Dot11AuthAlgorithm = 7
 
-public val DOT11_AUTH_ALGO_WPA: DOT11_AUTH_ALGORITHM = 3
+public val DOT11_AUTH_ALGO_WPA: Dot11AuthAlgorithm = 3
 
-public val DOT11_AUTH_ALGO_WPA3: DOT11_AUTH_ALGORITHM = 8
+public val DOT11_AUTH_ALGO_WPA3: Dot11AuthAlgorithm = 8
 
-public val DOT11_AUTH_ALGO_WPA3_ENT: DOT11_AUTH_ALGORITHM = 11
+public val DOT11_AUTH_ALGO_WPA3_ENT: Dot11AuthAlgorithm = 11
 
-public val DOT11_AUTH_ALGO_WPA3_ENT_192: DOT11_AUTH_ALGORITHM = 8
+public val DOT11_AUTH_ALGO_WPA3_ENT_192: Dot11AuthAlgorithm = 8
 
-public val DOT11_AUTH_ALGO_WPA3_SAE: DOT11_AUTH_ALGORITHM = 9
+public val DOT11_AUTH_ALGO_WPA3_SAE: Dot11AuthAlgorithm = 9
 
-public val DOT11_AUTH_ALGO_WPA_NONE: DOT11_AUTH_ALGORITHM = 5
+public val DOT11_AUTH_ALGO_WPA_NONE: Dot11AuthAlgorithm = 5
 
-public val DOT11_AUTH_ALGO_WPA_PSK: DOT11_AUTH_ALGORITHM = 4
+public val DOT11_AUTH_ALGO_WPA_PSK: Dot11AuthAlgorithm = 4
 
 public val DOT11_AUTH_CIPHER_PAIR_LIST_REVISION_1: UInt = 1u
 
@@ -342,45 +342,45 @@ public val DOT11_CCA_MODE_CS_WITH_TIMER: UInt = 8u
 
 public val DOT11_CCA_MODE_ED_ONLY: UInt = 1u
 
-public val DOT11_CCA_MODE_ED_and_CS: UInt = 4u
+public val DOT11_CCA_MODE_ED_AND_CS: UInt = 4u
 
 public val DOT11_CCA_MODE_HRCS_AND_ED: UInt = 16u
 
 public val DOT11_CIPHER_ALGORITHM_LIST_REVISION_1: UInt = 1u
 
-public val DOT11_CIPHER_ALGO_BIP: DOT11_CIPHER_ALGORITHM = 6
+public val DOT11_CIPHER_ALGO_BIP: Dot11CipherAlgorithm = 6
 
-public val DOT11_CIPHER_ALGO_BIP_CMAC_256: DOT11_CIPHER_ALGORITHM = 13
+public val DOT11_CIPHER_ALGO_BIP_CMAC_256: Dot11CipherAlgorithm = 13
 
-public val DOT11_CIPHER_ALGO_BIP_GMAC_128: DOT11_CIPHER_ALGORITHM = 11
+public val DOT11_CIPHER_ALGO_BIP_GMAC_128: Dot11CipherAlgorithm = 11
 
-public val DOT11_CIPHER_ALGO_BIP_GMAC_256: DOT11_CIPHER_ALGORITHM = 12
+public val DOT11_CIPHER_ALGO_BIP_GMAC_256: Dot11CipherAlgorithm = 12
 
-public val DOT11_CIPHER_ALGO_CCMP: DOT11_CIPHER_ALGORITHM = 4
+public val DOT11_CIPHER_ALGO_CCMP: Dot11CipherAlgorithm = 4
 
-public val DOT11_CIPHER_ALGO_CCMP_256: DOT11_CIPHER_ALGORITHM = 10
+public val DOT11_CIPHER_ALGO_CCMP_256: Dot11CipherAlgorithm = 10
 
-public val DOT11_CIPHER_ALGO_GCMP: DOT11_CIPHER_ALGORITHM = 8
+public val DOT11_CIPHER_ALGO_GCMP: Dot11CipherAlgorithm = 8
 
-public val DOT11_CIPHER_ALGO_GCMP_256: DOT11_CIPHER_ALGORITHM = 9
+public val DOT11_CIPHER_ALGO_GCMP_256: Dot11CipherAlgorithm = 9
 
-public val DOT11_CIPHER_ALGO_IHV_END: DOT11_CIPHER_ALGORITHM = -1
+public val DOT11_CIPHER_ALGO_IHV_END: Dot11CipherAlgorithm = -1
 
-public val DOT11_CIPHER_ALGO_IHV_START: DOT11_CIPHER_ALGORITHM = -2147483648
+public val DOT11_CIPHER_ALGO_IHV_START: Dot11CipherAlgorithm = -2147483648.toInt()
 
-public val DOT11_CIPHER_ALGO_NONE: DOT11_CIPHER_ALGORITHM = 0
+public val DOT11_CIPHER_ALGO_NONE: Dot11CipherAlgorithm = 0
 
-public val DOT11_CIPHER_ALGO_RSN_USE_GROUP: DOT11_CIPHER_ALGORITHM = 256
+public val DOT11_CIPHER_ALGO_RSN_USE_GROUP: Dot11CipherAlgorithm = 256
 
-public val DOT11_CIPHER_ALGO_TKIP: DOT11_CIPHER_ALGORITHM = 2
+public val DOT11_CIPHER_ALGO_TKIP: Dot11CipherAlgorithm = 2
 
-public val DOT11_CIPHER_ALGO_WEP: DOT11_CIPHER_ALGORITHM = 257
+public val DOT11_CIPHER_ALGO_WEP: Dot11CipherAlgorithm = 257
 
-public val DOT11_CIPHER_ALGO_WEP104: DOT11_CIPHER_ALGORITHM = 5
+public val DOT11_CIPHER_ALGO_WEP104: Dot11CipherAlgorithm = 5
 
-public val DOT11_CIPHER_ALGO_WEP40: DOT11_CIPHER_ALGORITHM = 1
+public val DOT11_CIPHER_ALGO_WEP40: Dot11CipherAlgorithm = 1
 
-public val DOT11_CIPHER_ALGO_WPA_USE_GROUP: DOT11_CIPHER_ALGORITHM = 256
+public val DOT11_CIPHER_ALGO_WPA_USE_GROUP: Dot11CipherAlgorithm = 256
 
 public val DOT11_CIPHER_DEFAULT_KEY_VALUE_REVISION_1: UInt = 1u
 
@@ -402,21 +402,21 @@ public val DOT11_DATA_RATE_MAPPING_TABLE_REVISION_1: UInt = 1u
 
 public val DOT11_DEVICE_ENTRY_BYTE_ARRAY_REVISION_1: UInt = 1u
 
-public val DOT11_DIR_BOTH: DOT11_DIRECTION = 3
+public val DOT11_DIR_BOTH: Dot11Direction = 3
 
-public val DOT11_DIR_INBOUND: DOT11_DIRECTION = 1
+public val DOT11_DIR_INBOUND: Dot11Direction = 1
 
-public val DOT11_DIR_OUTBOUND: DOT11_DIRECTION = 2
+public val DOT11_DIR_OUTBOUND: Dot11Direction = 2
 
 public val DOT11_DISASSOCIATE_PEER_REQUEST_REVISION_1: UInt = 1u
 
 public val DOT11_DISASSOCIATION_PARAMETERS_REVISION_1: UInt = 1u
 
-public val DOT11_DS_CHANGED: DOT11_DS_INFO = 0
+public val DOT11_DS_CHANGED: Dot11DsInfo = 0
 
-public val DOT11_DS_UNCHANGED: DOT11_DS_INFO = 1
+public val DOT11_DS_UNCHANGED: Dot11DsInfo = 1
 
-public val DOT11_DS_UNKNOWN: DOT11_DS_INFO = 2
+public val DOT11_DS_UNKNOWN: Dot11DsInfo = 2
 
 public val DOT11_ENCAP_802_1H: UInt = 2u
 
@@ -538,11 +538,11 @@ public val DOT11_MAC_PARAMETERS_REVISION_1: UInt = 1u
 
 public val DOT11_MANUFACTURING_CALLBACK_REVISION_1: UInt = 1u
 
-public val DOT11_MANUFACTURING_SELF_TEST_TYPE_BT_COEXISTENCE: DOT11_MANUFACTURING_SELF_TEST_TYPE = 3
+public val DOT11_MANUFACTURING_SELF_TEST_TYPE_BT_COEXISTENCE: Dot11ManufacturingSelfTestType = 3
 
-public val DOT11_MANUFACTURING_SELF_TEST_TYPE_INTERFACE: DOT11_MANUFACTURING_SELF_TEST_TYPE = 1
+public val DOT11_MANUFACTURING_SELF_TEST_TYPE_INTERFACE: Dot11ManufacturingSelfTestType = 1
 
-public val DOT11_MANUFACTURING_SELF_TEST_TYPE_RF_INTERFACE: DOT11_MANUFACTURING_SELF_TEST_TYPE = 2
+public val DOT11_MANUFACTURING_SELF_TEST_TYPE_RF_INTERFACE: Dot11ManufacturingSelfTestType = 2
 
 public val DOT11_MANUFACTURING_TEST_REVISION_1: UInt = 1u
 
@@ -562,11 +562,11 @@ public val DOT11_MIN_PDU_SIZE: UInt = 256u
 
 public val DOT11_MPDU_MAX_LENGTH_INDICATION_REVISION_1: UInt = 1u
 
-public val DOT11_MSONEX_FAILURE: DOT11_MSONEX_RESULT = 1
+public val DOT11_MSONEX_FAILURE: Dot11MsonexResult = 1
 
-public val DOT11_MSONEX_IN_PROGRESS: DOT11_MSONEX_RESULT = 2
+public val DOT11_MSONEX_IN_PROGRESS: Dot11MsonexResult = 2
 
-public val DOT11_MSONEX_SUCCESS: DOT11_MSONEX_RESULT = 0
+public val DOT11_MSONEX_SUCCESS: Dot11MsonexResult = 0
 
 public val DOT11_NLO_FLAG_SCAN_AT_SYSTEM_RESUME: UInt = 4u
 
@@ -932,19 +932,19 @@ public val DOT11_WFD_STATUS_SUCCESS_ACCEPTED_BY_USER: UInt = 12u
 
 public val DOT11_WME_PACKET: UInt = 256u
 
-public val DOT11_WPS_CONFIG_METHOD_DISPLAY: DOT11_WPS_CONFIG_METHOD = 8
+public val DOT11_WPS_CONFIG_METHOD_DISPLAY: Dot11WpsConfigMethod = 8
 
-public val DOT11_WPS_CONFIG_METHOD_KEYPAD: DOT11_WPS_CONFIG_METHOD = 256
+public val DOT11_WPS_CONFIG_METHOD_KEYPAD: Dot11WpsConfigMethod = 256
 
-public val DOT11_WPS_CONFIG_METHOD_NFC_INTERFACE: DOT11_WPS_CONFIG_METHOD = 64
+public val DOT11_WPS_CONFIG_METHOD_NFC_INTERFACE: Dot11WpsConfigMethod = 64
 
-public val DOT11_WPS_CONFIG_METHOD_NFC_TAG: DOT11_WPS_CONFIG_METHOD = 32
+public val DOT11_WPS_CONFIG_METHOD_NFC_TAG: Dot11WpsConfigMethod = 32
 
-public val DOT11_WPS_CONFIG_METHOD_NULL: DOT11_WPS_CONFIG_METHOD = 0
+public val DOT11_WPS_CONFIG_METHOD_NULL: Dot11WpsConfigMethod = 0
 
-public val DOT11_WPS_CONFIG_METHOD_PUSHBUTTON: DOT11_WPS_CONFIG_METHOD = 128
+public val DOT11_WPS_CONFIG_METHOD_PUSHBUTTON: Dot11WpsConfigMethod = 128
 
-public val DOT11_WPS_CONFIG_METHOD_WFDS_DEFAULT: DOT11_WPS_CONFIG_METHOD = 4096
+public val DOT11_WPS_CONFIG_METHOD_WFDS_DEFAULT: Dot11WpsConfigMethod = 4096
 
 public val DOT11_WPS_DEVICE_NAME_MAX_LENGTH: UInt = 32u
 
@@ -954,231 +954,231 @@ public val DOT11_WPS_MAX_MODEL_NUMBER_LENGTH: UInt = 32u
 
 public val DOT11_WPS_MAX_PASSKEY_LENGTH: UInt = 8u
 
-public val DOT11_WPS_PASSWORD_ID_DEFAULT: DOT11_WPS_DEVICE_PASSWORD_ID = 0
+public val DOT11_WPS_PASSWORD_ID_DEFAULT: Dot11WpsDevicePasswordId = 0
 
-public val DOT11_WPS_PASSWORD_ID_MACHINE_SPECIFIED: DOT11_WPS_DEVICE_PASSWORD_ID = 2
+public val DOT11_WPS_PASSWORD_ID_MACHINE_SPECIFIED: Dot11WpsDevicePasswordId = 2
 
-public val DOT11_WPS_PASSWORD_ID_NFC_CONNECTION_HANDOVER: DOT11_WPS_DEVICE_PASSWORD_ID = 7
+public val DOT11_WPS_PASSWORD_ID_NFC_CONNECTION_HANDOVER: Dot11WpsDevicePasswordId = 7
 
-public val DOT11_WPS_PASSWORD_ID_OOB_RANGE_MAX: DOT11_WPS_DEVICE_PASSWORD_ID = 65535
+public val DOT11_WPS_PASSWORD_ID_OOB_RANGE_MAX: Dot11WpsDevicePasswordId = 65535
 
-public val DOT11_WPS_PASSWORD_ID_OOB_RANGE_MIN: DOT11_WPS_DEVICE_PASSWORD_ID = 16
+public val DOT11_WPS_PASSWORD_ID_OOB_RANGE_MIN: Dot11WpsDevicePasswordId = 16
 
-public val DOT11_WPS_PASSWORD_ID_PUSHBUTTON: DOT11_WPS_DEVICE_PASSWORD_ID = 4
+public val DOT11_WPS_PASSWORD_ID_PUSHBUTTON: Dot11WpsDevicePasswordId = 4
 
-public val DOT11_WPS_PASSWORD_ID_REGISTRAR_SPECIFIED: DOT11_WPS_DEVICE_PASSWORD_ID = 5
+public val DOT11_WPS_PASSWORD_ID_REGISTRAR_SPECIFIED: Dot11WpsDevicePasswordId = 5
 
-public val DOT11_WPS_PASSWORD_ID_REKEY: DOT11_WPS_DEVICE_PASSWORD_ID = 3
+public val DOT11_WPS_PASSWORD_ID_REKEY: Dot11WpsDevicePasswordId = 3
 
-public val DOT11_WPS_PASSWORD_ID_USER_SPECIFIED: DOT11_WPS_DEVICE_PASSWORD_ID = 1
+public val DOT11_WPS_PASSWORD_ID_USER_SPECIFIED: Dot11WpsDevicePasswordId = 1
 
-public val DOT11_WPS_PASSWORD_ID_WFD_SERVICES: DOT11_WPS_DEVICE_PASSWORD_ID = 8
+public val DOT11_WPS_PASSWORD_ID_WFD_SERVICES: Dot11WpsDevicePasswordId = 8
 
 public val DOT11_WPS_VERSION_1_0: UInt = 1u
 
 public val DOT11_WPS_VERSION_2_0: UInt = 2u
 
-public val DevProp_PciDevice_AcsCompatibleUpHierarchy_Enhanced: DEVPROP_PCIDEVICE_ACSCOMPATIBLEUPHIERARCHY = 4u
+public val DEV_PROP_PCI_DEVICE_ACS_COMPATIBLE_UP_HIERARCHY_ENHANCED: DevpropPcideviceAcscompatibleuphierarchy = 4u
 
-public val DevProp_PciDevice_AcsCompatibleUpHierarchy_NoP2PSupported: DEVPROP_PCIDEVICE_ACSCOMPATIBLEUPHIERARCHY = 2u
+public val DEV_PROP_PCI_DEVICE_ACS_COMPATIBLE_UP_HIERARCHY_NO_P2P_SUPPORTED: DevpropPcideviceAcscompatibleuphierarchy = 2u
 
-public val DevProp_PciDevice_AcsCompatibleUpHierarchy_NotSupported: DEVPROP_PCIDEVICE_ACSCOMPATIBLEUPHIERARCHY = 0u
+public val DEV_PROP_PCI_DEVICE_ACS_COMPATIBLE_UP_HIERARCHY_NOT_SUPPORTED: DevpropPcideviceAcscompatibleuphierarchy = 0u
 
-public val DevProp_PciDevice_AcsCompatibleUpHierarchy_SingleFunctionSupported: DEVPROP_PCIDEVICE_ACSCOMPATIBLEUPHIERARCHY = 1u
+public val DEV_PROP_PCI_DEVICE_ACS_COMPATIBLE_UP_HIERARCHY_SINGLE_FUNCTION_SUPPORTED: DevpropPcideviceAcscompatibleuphierarchy = 1u
 
-public val DevProp_PciDevice_AcsCompatibleUpHierarchy_Supported: DEVPROP_PCIDEVICE_ACSCOMPATIBLEUPHIERARCHY = 3u
+public val DEV_PROP_PCI_DEVICE_ACS_COMPATIBLE_UP_HIERARCHY_SUPPORTED: DevpropPcideviceAcscompatibleuphierarchy = 3u
 
-public val DevProp_PciDevice_AcsSupport_Missing: DEVPROP_PCIDEVICE_ACSSUPPORT = 2u
+public val DEV_PROP_PCI_DEVICE_ACS_SUPPORT_MISSING: DevpropPcideviceAcssupport = 2u
 
-public val DevProp_PciDevice_AcsSupport_NotNeeded: DEVPROP_PCIDEVICE_ACSSUPPORT = 1u
+public val DEV_PROP_PCI_DEVICE_ACS_SUPPORT_NOT_NEEDED: DevpropPcideviceAcssupport = 1u
 
-public val DevProp_PciDevice_AcsSupport_Present: DEVPROP_PCIDEVICE_ACSSUPPORT = 0u
+public val DEV_PROP_PCI_DEVICE_ACS_SUPPORT_PRESENT: DevpropPcideviceAcssupport = 0u
 
-public val DevProp_PciDevice_BridgeType_PciConventional: DEVPROP_PCIDEVICE_DEVICEBRIDGETYPE = 6u
+public val DEV_PROP_PCI_DEVICE_BRIDGE_TYPE_PCI_CONVENTIONAL: DevpropPcideviceDevicebridgetype = 6u
 
-public val DevProp_PciDevice_BridgeType_PciExpressDownstreamSwitchPort: DEVPROP_PCIDEVICE_DEVICEBRIDGETYPE = 10u
+public val DEV_PROP_PCI_DEVICE_BRIDGE_TYPE_PCI_EXPRESS_DOWNSTREAM_SWITCH_PORT: DevpropPcideviceDevicebridgetype = 10u
 
-public val DevProp_PciDevice_BridgeType_PciExpressEventCollector: DEVPROP_PCIDEVICE_DEVICEBRIDGETYPE = 14u
+public val DEV_PROP_PCI_DEVICE_BRIDGE_TYPE_PCI_EXPRESS_EVENT_COLLECTOR: DevpropPcideviceDevicebridgetype = 14u
 
-public val DevProp_PciDevice_BridgeType_PciExpressRootPort: DEVPROP_PCIDEVICE_DEVICEBRIDGETYPE = 8u
+public val DEV_PROP_PCI_DEVICE_BRIDGE_TYPE_PCI_EXPRESS_ROOT_PORT: DevpropPcideviceDevicebridgetype = 8u
 
-public val DevProp_PciDevice_BridgeType_PciExpressToPciXBridge: DEVPROP_PCIDEVICE_DEVICEBRIDGETYPE = 11u
+public val DEV_PROP_PCI_DEVICE_BRIDGE_TYPE_PCI_EXPRESS_TO_PCI_X_BRIDGE: DevpropPcideviceDevicebridgetype = 11u
 
-public val DevProp_PciDevice_BridgeType_PciExpressTreatedAsPci: DEVPROP_PCIDEVICE_DEVICEBRIDGETYPE = 13u
+public val DEV_PROP_PCI_DEVICE_BRIDGE_TYPE_PCI_EXPRESS_TREATED_AS_PCI: DevpropPcideviceDevicebridgetype = 13u
 
-public val DevProp_PciDevice_BridgeType_PciExpressUpstreamSwitchPort: DEVPROP_PCIDEVICE_DEVICEBRIDGETYPE = 9u
+public val DEV_PROP_PCI_DEVICE_BRIDGE_TYPE_PCI_EXPRESS_UPSTREAM_SWITCH_PORT: DevpropPcideviceDevicebridgetype = 9u
 
-public val DevProp_PciDevice_BridgeType_PciX: DEVPROP_PCIDEVICE_DEVICEBRIDGETYPE = 7u
+public val DEV_PROP_PCI_DEVICE_BRIDGE_TYPE_PCI_X: DevpropPcideviceDevicebridgetype = 7u
 
-public val DevProp_PciDevice_BridgeType_PciXToExpressBridge: DEVPROP_PCIDEVICE_DEVICEBRIDGETYPE = 12u
+public val DEV_PROP_PCI_DEVICE_BRIDGE_TYPE_PCI_X_TO_EXPRESS_BRIDGE: DevpropPcideviceDevicebridgetype = 12u
 
-public val DevProp_PciDevice_CurrentSpeedAndMode_PciX_Mode1_100Mhz: DEVPROP_PCIDEVICE_CURRENTSPEEDANDMODE = 2u
+public val DEV_PROP_PCI_DEVICE_CURRENT_SPEED_AND_MODE_PCI_X_MODE1_100MHZ: DevpropPcideviceCurrentspeedandmode = 2u
 
-public val DevProp_PciDevice_CurrentSpeedAndMode_PciX_Mode1_133MHZ: DEVPROP_PCIDEVICE_CURRENTSPEEDANDMODE = 3u
+public val DEV_PROP_PCI_DEVICE_CURRENT_SPEED_AND_MODE_PCI_X_MODE1_133MHZ: DevpropPcideviceCurrentspeedandmode = 3u
 
-public val DevProp_PciDevice_CurrentSpeedAndMode_PciX_Mode1_66Mhz: DEVPROP_PCIDEVICE_CURRENTSPEEDANDMODE = 1u
+public val DEV_PROP_PCI_DEVICE_CURRENT_SPEED_AND_MODE_PCI_X_MODE1_66MHZ: DevpropPcideviceCurrentspeedandmode = 1u
 
-public val DevProp_PciDevice_CurrentSpeedAndMode_PciX_Mode1_ECC_100Mhz: DEVPROP_PCIDEVICE_CURRENTSPEEDANDMODE = 6u
+public val DEV_PROP_PCI_DEVICE_CURRENT_SPEED_AND_MODE_PCI_X_MODE1_ECC_100MHZ: DevpropPcideviceCurrentspeedandmode = 6u
 
-public val DevProp_PciDevice_CurrentSpeedAndMode_PciX_Mode1_ECC_133Mhz: DEVPROP_PCIDEVICE_CURRENTSPEEDANDMODE = 7u
+public val DEV_PROP_PCI_DEVICE_CURRENT_SPEED_AND_MODE_PCI_X_MODE1_ECC_133MHZ: DevpropPcideviceCurrentspeedandmode = 7u
 
-public val DevProp_PciDevice_CurrentSpeedAndMode_PciX_Mode1_ECC_66Mhz: DEVPROP_PCIDEVICE_CURRENTSPEEDANDMODE = 5u
+public val DEV_PROP_PCI_DEVICE_CURRENT_SPEED_AND_MODE_PCI_X_MODE1_ECC_66MHZ: DevpropPcideviceCurrentspeedandmode = 5u
 
-public val DevProp_PciDevice_CurrentSpeedAndMode_PciX_Mode2_266_100MHz: DEVPROP_PCIDEVICE_CURRENTSPEEDANDMODE = 10u
+public val DEV_PROP_PCI_DEVICE_CURRENT_SPEED_AND_MODE_PCI_X_MODE2_266_100M_HZ: DevpropPcideviceCurrentspeedandmode = 10u
 
-public val DevProp_PciDevice_CurrentSpeedAndMode_PciX_Mode2_266_133MHz: DEVPROP_PCIDEVICE_CURRENTSPEEDANDMODE = 11u
+public val DEV_PROP_PCI_DEVICE_CURRENT_SPEED_AND_MODE_PCI_X_MODE2_266_133M_HZ: DevpropPcideviceCurrentspeedandmode = 11u
 
-public val DevProp_PciDevice_CurrentSpeedAndMode_PciX_Mode2_266_66MHz: DEVPROP_PCIDEVICE_CURRENTSPEEDANDMODE = 9u
+public val DEV_PROP_PCI_DEVICE_CURRENT_SPEED_AND_MODE_PCI_X_MODE2_266_66M_HZ: DevpropPcideviceCurrentspeedandmode = 9u
 
-public val DevProp_PciDevice_CurrentSpeedAndMode_PciX_Mode2_533_100MHz: DEVPROP_PCIDEVICE_CURRENTSPEEDANDMODE = 14u
+public val DEV_PROP_PCI_DEVICE_CURRENT_SPEED_AND_MODE_PCI_X_MODE2_533_100M_HZ: DevpropPcideviceCurrentspeedandmode = 14u
 
-public val DevProp_PciDevice_CurrentSpeedAndMode_PciX_Mode2_533_133MHz: DEVPROP_PCIDEVICE_CURRENTSPEEDANDMODE = 15u
+public val DEV_PROP_PCI_DEVICE_CURRENT_SPEED_AND_MODE_PCI_X_MODE2_533_133M_HZ: DevpropPcideviceCurrentspeedandmode = 15u
 
-public val DevProp_PciDevice_CurrentSpeedAndMode_PciX_Mode2_533_66MHz: DEVPROP_PCIDEVICE_CURRENTSPEEDANDMODE = 13u
+public val DEV_PROP_PCI_DEVICE_CURRENT_SPEED_AND_MODE_PCI_X_MODE2_533_66M_HZ: DevpropPcideviceCurrentspeedandmode = 13u
 
-public val DevProp_PciDevice_CurrentSpeedAndMode_PciX_Mode_Conventional_Pci: DEVPROP_PCIDEVICE_CURRENTSPEEDANDMODE = 0u
+public val DEV_PROP_PCI_DEVICE_CURRENT_SPEED_AND_MODE_PCI_X_MODE_CONVENTIONAL_PCI: DevpropPcideviceCurrentspeedandmode = 0u
 
-public val DevProp_PciDevice_CurrentSpeedAndMode_Pci_Conventional_33MHz: DEVPROP_PCIDEVICE_CURRENTSPEEDANDMODE = 0u
+public val DEV_PROP_PCI_DEVICE_CURRENT_SPEED_AND_MODE_PCI_CONVENTIONAL_33M_HZ: DevpropPcideviceCurrentspeedandmode = 0u
 
-public val DevProp_PciDevice_CurrentSpeedAndMode_Pci_Conventional_66MHz: DEVPROP_PCIDEVICE_CURRENTSPEEDANDMODE = 1u
+public val DEV_PROP_PCI_DEVICE_CURRENT_SPEED_AND_MODE_PCI_CONVENTIONAL_66M_HZ: DevpropPcideviceCurrentspeedandmode = 1u
 
-public val DevProp_PciDevice_DeviceType_PciConventional: DEVPROP_PCIDEVICE_DEVICEBRIDGETYPE = 0u
+public val DEV_PROP_PCI_DEVICE_DEVICE_TYPE_PCI_CONVENTIONAL: DevpropPcideviceDevicebridgetype = 0u
 
-public val DevProp_PciDevice_DeviceType_PciExpressEndpoint: DEVPROP_PCIDEVICE_DEVICEBRIDGETYPE = 2u
+public val DEV_PROP_PCI_DEVICE_DEVICE_TYPE_PCI_EXPRESS_ENDPOINT: DevpropPcideviceDevicebridgetype = 2u
 
-public val DevProp_PciDevice_DeviceType_PciExpressLegacyEndpoint: DEVPROP_PCIDEVICE_DEVICEBRIDGETYPE = 3u
+public val DEV_PROP_PCI_DEVICE_DEVICE_TYPE_PCI_EXPRESS_LEGACY_ENDPOINT: DevpropPcideviceDevicebridgetype = 3u
 
-public val DevProp_PciDevice_DeviceType_PciExpressRootComplexIntegratedEndpoint: DEVPROP_PCIDEVICE_DEVICEBRIDGETYPE = 4u
+public val DEV_PROP_PCI_DEVICE_DEVICE_TYPE_PCI_EXPRESS_ROOT_COMPLEX_INTEGRATED_ENDPOINT: DevpropPcideviceDevicebridgetype = 4u
 
-public val DevProp_PciDevice_DeviceType_PciExpressTreatedAsPci: DEVPROP_PCIDEVICE_DEVICEBRIDGETYPE = 5u
+public val DEV_PROP_PCI_DEVICE_DEVICE_TYPE_PCI_EXPRESS_TREATED_AS_PCI: DevpropPcideviceDevicebridgetype = 5u
 
-public val DevProp_PciDevice_DeviceType_PciX: DEVPROP_PCIDEVICE_DEVICEBRIDGETYPE = 1u
+public val DEV_PROP_PCI_DEVICE_DEVICE_TYPE_PCI_X: DevpropPcideviceDevicebridgetype = 1u
 
-public val DevProp_PciDevice_InterruptType_LineBased: DEVPROP_PCIDEVICE_INTERRUPTTYPE = 1u
+public val DEV_PROP_PCI_DEVICE_INTERRUPT_TYPE_LINE_BASED: DevpropPcideviceInterrupttype = 1u
 
-public val DevProp_PciDevice_InterruptType_Msi: DEVPROP_PCIDEVICE_INTERRUPTTYPE = 2u
+public val DEV_PROP_PCI_DEVICE_INTERRUPT_TYPE_MSI: DevpropPcideviceInterrupttype = 2u
 
-public val DevProp_PciDevice_InterruptType_MsiX: DEVPROP_PCIDEVICE_INTERRUPTTYPE = 4u
+public val DEV_PROP_PCI_DEVICE_INTERRUPT_TYPE_MSI_X: DevpropPcideviceInterrupttype = 4u
 
-public val DevProp_PciDevice_SriovSupport_DidntGetVfBarSpace: DEVPROP_PCIDEVICE_SRIOVSUPPORT = 4u
+public val DEV_PROP_PCI_DEVICE_SRIOV_SUPPORT_DIDNT_GET_VF_BAR_SPACE: DevpropPcideviceSriovsupport = 4u
 
-public val DevProp_PciDevice_SriovSupport_MissingAcs: DEVPROP_PCIDEVICE_SRIOVSUPPORT = 1u
+public val DEV_PROP_PCI_DEVICE_SRIOV_SUPPORT_MISSING_ACS: DevpropPcideviceSriovsupport = 1u
 
-public val DevProp_PciDevice_SriovSupport_MissingPfDriver: DEVPROP_PCIDEVICE_SRIOVSUPPORT = 2u
+public val DEV_PROP_PCI_DEVICE_SRIOV_SUPPORT_MISSING_PF_DRIVER: DevpropPcideviceSriovsupport = 2u
 
-public val DevProp_PciDevice_SriovSupport_NoBusResource: DEVPROP_PCIDEVICE_SRIOVSUPPORT = 3u
+public val DEV_PROP_PCI_DEVICE_SRIOV_SUPPORT_NO_BUS_RESOURCE: DevpropPcideviceSriovsupport = 3u
 
-public val DevProp_PciDevice_SriovSupport_Ok: DEVPROP_PCIDEVICE_SRIOVSUPPORT = 0u
+public val DEV_PROP_PCI_DEVICE_SRIOV_SUPPORT_OK: DevpropPcideviceSriovsupport = 0u
 
-public val DevProp_PciExpressDevice_LinkSpeed_Five_Gbps: DEVPROP_PCIEXPRESSDEVICE_LINKSPEED = 2u
+public val DEV_PROP_PCI_EXPRESS_DEVICE_LINK_SPEED_FIVE_GBPS: DevpropPciexpressdeviceLinkspeed = 2u
 
-public val DevProp_PciExpressDevice_LinkSpeed_TwoAndHalf_Gbps: DEVPROP_PCIEXPRESSDEVICE_LINKSPEED = 1u
+public val DEV_PROP_PCI_EXPRESS_DEVICE_LINK_SPEED_TWO_AND_HALF_GBPS: DevpropPciexpressdeviceLinkspeed = 1u
 
-public val DevProp_PciExpressDevice_LinkWidth_By_1: DEVPROP_PCIEXPRESSDEVICE_LINKWIDTH = 1u
+public val DEV_PROP_PCI_EXPRESS_DEVICE_LINK_WIDTH_BY_1: DevpropPciexpressdeviceLinkwidth = 1u
 
-public val DevProp_PciExpressDevice_LinkWidth_By_12: DEVPROP_PCIEXPRESSDEVICE_LINKWIDTH = 12u
+public val DEV_PROP_PCI_EXPRESS_DEVICE_LINK_WIDTH_BY_12: DevpropPciexpressdeviceLinkwidth = 12u
 
-public val DevProp_PciExpressDevice_LinkWidth_By_16: DEVPROP_PCIEXPRESSDEVICE_LINKWIDTH = 16u
+public val DEV_PROP_PCI_EXPRESS_DEVICE_LINK_WIDTH_BY_16: DevpropPciexpressdeviceLinkwidth = 16u
 
-public val DevProp_PciExpressDevice_LinkWidth_By_2: DEVPROP_PCIEXPRESSDEVICE_LINKWIDTH = 2u
+public val DEV_PROP_PCI_EXPRESS_DEVICE_LINK_WIDTH_BY_2: DevpropPciexpressdeviceLinkwidth = 2u
 
-public val DevProp_PciExpressDevice_LinkWidth_By_32: DEVPROP_PCIEXPRESSDEVICE_LINKWIDTH = 32u
+public val DEV_PROP_PCI_EXPRESS_DEVICE_LINK_WIDTH_BY_32: DevpropPciexpressdeviceLinkwidth = 32u
 
-public val DevProp_PciExpressDevice_LinkWidth_By_4: DEVPROP_PCIEXPRESSDEVICE_LINKWIDTH = 4u
+public val DEV_PROP_PCI_EXPRESS_DEVICE_LINK_WIDTH_BY_4: DevpropPciexpressdeviceLinkwidth = 4u
 
-public val DevProp_PciExpressDevice_LinkWidth_By_8: DEVPROP_PCIEXPRESSDEVICE_LINKWIDTH = 8u
+public val DEV_PROP_PCI_EXPRESS_DEVICE_LINK_WIDTH_BY_8: DevpropPciexpressdeviceLinkwidth = 8u
 
-public val DevProp_PciExpressDevice_PayloadOrRequestSize_1024Bytes: DEVPROP_PCIEXPRESSDEVICE_PAYLOADORREQUESTSIZE = 3u
+public val DEV_PROP_PCI_EXPRESS_DEVICE_PAYLOAD_OR_REQUEST_SIZE_1024BYTES: DevpropPciexpressdevicePayloadorrequestsize = 3u
 
-public val DevProp_PciExpressDevice_PayloadOrRequestSize_128Bytes: DEVPROP_PCIEXPRESSDEVICE_PAYLOADORREQUESTSIZE = 0u
+public val DEV_PROP_PCI_EXPRESS_DEVICE_PAYLOAD_OR_REQUEST_SIZE_128BYTES: DevpropPciexpressdevicePayloadorrequestsize = 0u
 
-public val DevProp_PciExpressDevice_PayloadOrRequestSize_2048Bytes: DEVPROP_PCIEXPRESSDEVICE_PAYLOADORREQUESTSIZE = 4u
+public val DEV_PROP_PCI_EXPRESS_DEVICE_PAYLOAD_OR_REQUEST_SIZE_2048BYTES: DevpropPciexpressdevicePayloadorrequestsize = 4u
 
-public val DevProp_PciExpressDevice_PayloadOrRequestSize_256Bytes: DEVPROP_PCIEXPRESSDEVICE_PAYLOADORREQUESTSIZE = 1u
+public val DEV_PROP_PCI_EXPRESS_DEVICE_PAYLOAD_OR_REQUEST_SIZE_256BYTES: DevpropPciexpressdevicePayloadorrequestsize = 1u
 
-public val DevProp_PciExpressDevice_PayloadOrRequestSize_4096Bytes: DEVPROP_PCIEXPRESSDEVICE_PAYLOADORREQUESTSIZE = 5u
+public val DEV_PROP_PCI_EXPRESS_DEVICE_PAYLOAD_OR_REQUEST_SIZE_4096BYTES: DevpropPciexpressdevicePayloadorrequestsize = 5u
 
-public val DevProp_PciExpressDevice_PayloadOrRequestSize_512Bytes: DEVPROP_PCIEXPRESSDEVICE_PAYLOADORREQUESTSIZE = 2u
+public val DEV_PROP_PCI_EXPRESS_DEVICE_PAYLOAD_OR_REQUEST_SIZE_512BYTES: DevpropPciexpressdevicePayloadorrequestsize = 2u
 
-public val DevProp_PciExpressDevice_Spec_Version_10: DEVPROP_PCIEXPRESSDEVICE_SPEC_VERSION = 1u
+public val DEV_PROP_PCI_EXPRESS_DEVICE_SPEC_VERSION_10: DevpropPciexpressdeviceSpecVersion = 1u
 
-public val DevProp_PciExpressDevice_Spec_Version_11: DEVPROP_PCIEXPRESSDEVICE_SPEC_VERSION = 2u
+public val DEV_PROP_PCI_EXPRESS_DEVICE_SPEC_VERSION_11: DevpropPciexpressdeviceSpecVersion = 2u
 
-public val DevProp_PciRootBus_BusWidth_32Bits: DEVPROP_PCIROOTBUS_BUSWIDTH = 0u
+public val DEV_PROP_PCI_ROOT_BUS_BUS_WIDTH_32BITS: DevpropPcirootbusBuswidth = 0u
 
-public val DevProp_PciRootBus_BusWidth_64Bits: DEVPROP_PCIROOTBUS_BUSWIDTH = 1u
+public val DEV_PROP_PCI_ROOT_BUS_BUS_WIDTH_64BITS: DevpropPcirootbusBuswidth = 1u
 
-public val DevProp_PciRootBus_CurrentSpeedAndMode_Pci_Conventional_33Mhz: DEVPROP_PCIROOTBUS_CURRENTSPEEDANDMODE = 0u
+public val DEV_PROP_PCI_ROOT_BUS_CURRENT_SPEED_AND_MODE_PCI_CONVENTIONAL_33MHZ: DevpropPcirootbusCurrentspeedandmode = 0u
 
-public val DevProp_PciRootBus_CurrentSpeedAndMode_Pci_Conventional_66Mhz: DEVPROP_PCIROOTBUS_CURRENTSPEEDANDMODE = 1u
+public val DEV_PROP_PCI_ROOT_BUS_CURRENT_SPEED_AND_MODE_PCI_CONVENTIONAL_66MHZ: DevpropPcirootbusCurrentspeedandmode = 1u
 
-public val DevProp_PciRootBus_CurrentSpeedAndMode_Pci_X_266_Mode2_100Mhz: DEVPROP_PCIROOTBUS_CURRENTSPEEDANDMODE = 9u
+public val DEV_PROP_PCI_ROOT_BUS_CURRENT_SPEED_AND_MODE_PCI_X_266_MODE2_100MHZ: DevpropPcirootbusCurrentspeedandmode = 9u
 
-public val DevProp_PciRootBus_CurrentSpeedAndMode_Pci_X_266_Mode2_133Mhz: DEVPROP_PCIROOTBUS_CURRENTSPEEDANDMODE = 10u
+public val DEV_PROP_PCI_ROOT_BUS_CURRENT_SPEED_AND_MODE_PCI_X_266_MODE2_133MHZ: DevpropPcirootbusCurrentspeedandmode = 10u
 
-public val DevProp_PciRootBus_CurrentSpeedAndMode_Pci_X_266_Mode2_66Mhz: DEVPROP_PCIROOTBUS_CURRENTSPEEDANDMODE = 8u
+public val DEV_PROP_PCI_ROOT_BUS_CURRENT_SPEED_AND_MODE_PCI_X_266_MODE2_66MHZ: DevpropPcirootbusCurrentspeedandmode = 8u
 
-public val DevProp_PciRootBus_CurrentSpeedAndMode_Pci_X_533_Mode2_100Mhz: DEVPROP_PCIROOTBUS_CURRENTSPEEDANDMODE = 12u
+public val DEV_PROP_PCI_ROOT_BUS_CURRENT_SPEED_AND_MODE_PCI_X_533_MODE2_100MHZ: DevpropPcirootbusCurrentspeedandmode = 12u
 
-public val DevProp_PciRootBus_CurrentSpeedAndMode_Pci_X_533_Mode2_133Mhz: DEVPROP_PCIROOTBUS_CURRENTSPEEDANDMODE = 13u
+public val DEV_PROP_PCI_ROOT_BUS_CURRENT_SPEED_AND_MODE_PCI_X_533_MODE2_133MHZ: DevpropPcirootbusCurrentspeedandmode = 13u
 
-public val DevProp_PciRootBus_CurrentSpeedAndMode_Pci_X_533_Mode2_66Mhz: DEVPROP_PCIROOTBUS_CURRENTSPEEDANDMODE = 11u
+public val DEV_PROP_PCI_ROOT_BUS_CURRENT_SPEED_AND_MODE_PCI_X_533_MODE2_66MHZ: DevpropPcirootbusCurrentspeedandmode = 11u
 
-public val DevProp_PciRootBus_CurrentSpeedAndMode_Pci_X_Mode1_100Mhz: DEVPROP_PCIROOTBUS_CURRENTSPEEDANDMODE = 3u
+public val DEV_PROP_PCI_ROOT_BUS_CURRENT_SPEED_AND_MODE_PCI_X_MODE1_100MHZ: DevpropPcirootbusCurrentspeedandmode = 3u
 
-public val DevProp_PciRootBus_CurrentSpeedAndMode_Pci_X_Mode1_133Mhz: DEVPROP_PCIROOTBUS_CURRENTSPEEDANDMODE = 4u
+public val DEV_PROP_PCI_ROOT_BUS_CURRENT_SPEED_AND_MODE_PCI_X_MODE1_133MHZ: DevpropPcirootbusCurrentspeedandmode = 4u
 
-public val DevProp_PciRootBus_CurrentSpeedAndMode_Pci_X_Mode1_66Mhz: DEVPROP_PCIROOTBUS_CURRENTSPEEDANDMODE = 2u
+public val DEV_PROP_PCI_ROOT_BUS_CURRENT_SPEED_AND_MODE_PCI_X_MODE1_66MHZ: DevpropPcirootbusCurrentspeedandmode = 2u
 
-public val DevProp_PciRootBus_CurrentSpeedAndMode_Pci_X_Mode1_ECC_100Mhz: DEVPROP_PCIROOTBUS_CURRENTSPEEDANDMODE = 6u
+public val DEV_PROP_PCI_ROOT_BUS_CURRENT_SPEED_AND_MODE_PCI_X_MODE1_ECC_100MHZ: DevpropPcirootbusCurrentspeedandmode = 6u
 
-public val DevProp_PciRootBus_CurrentSpeedAndMode_Pci_X_Mode1_ECC_133Mhz: DEVPROP_PCIROOTBUS_CURRENTSPEEDANDMODE = 7u
+public val DEV_PROP_PCI_ROOT_BUS_CURRENT_SPEED_AND_MODE_PCI_X_MODE1_ECC_133MHZ: DevpropPcirootbusCurrentspeedandmode = 7u
 
-public val DevProp_PciRootBus_CurrentSpeedAndMode_Pci_X_Mode1_ECC_66Mhz: DEVPROP_PCIROOTBUS_CURRENTSPEEDANDMODE = 5u
+public val DEV_PROP_PCI_ROOT_BUS_CURRENT_SPEED_AND_MODE_PCI_X_MODE1_ECC_66MHZ: DevpropPcirootbusCurrentspeedandmode = 5u
 
-public val DevProp_PciRootBus_SecondaryInterface_PciConventional: DEVPROP_PCIROOTBUS_SECONDARYINTERFACE = 0u
+public val DEV_PROP_PCI_ROOT_BUS_SECONDARY_INTERFACE_PCI_CONVENTIONAL: DevpropPcirootbusSecondaryinterface = 0u
 
-public val DevProp_PciRootBus_SecondaryInterface_PciExpress: DEVPROP_PCIROOTBUS_SECONDARYINTERFACE = 3u
+public val DEV_PROP_PCI_ROOT_BUS_SECONDARY_INTERFACE_PCI_EXPRESS: DevpropPcirootbusSecondaryinterface = 3u
 
-public val DevProp_PciRootBus_SecondaryInterface_PciXMode1: DEVPROP_PCIROOTBUS_SECONDARYINTERFACE = 1u
+public val DEV_PROP_PCI_ROOT_BUS_SECONDARY_INTERFACE_PCI_X_MODE1: DevpropPcirootbusSecondaryinterface = 1u
 
-public val DevProp_PciRootBus_SecondaryInterface_PciXMode2: DEVPROP_PCIROOTBUS_SECONDARYINTERFACE = 2u
+public val DEV_PROP_PCI_ROOT_BUS_SECONDARY_INTERFACE_PCI_X_MODE2: DevpropPcirootbusSecondaryinterface = 2u
 
-public val DevProp_PciRootBus_SupportedSpeedsAndModes_Pci_Conventional_33Mhz: DEVPROP_PCIROOTBUS_SUPPORTEDSPEEDSANDMODES = 1u
+public val DEV_PROP_PCI_ROOT_BUS_SUPPORTED_SPEEDS_AND_MODES_PCI_CONVENTIONAL_33MHZ: DevpropPcirootbusSupportedspeedsandmodes = 1u
 
-public val DevProp_PciRootBus_SupportedSpeedsAndModes_Pci_Conventional_66Mhz: DEVPROP_PCIROOTBUS_SUPPORTEDSPEEDSANDMODES = 2u
+public val DEV_PROP_PCI_ROOT_BUS_SUPPORTED_SPEEDS_AND_MODES_PCI_CONVENTIONAL_66MHZ: DevpropPcirootbusSupportedspeedsandmodes = 2u
 
-public val DevProp_PciRootBus_SupportedSpeedsAndModes_Pci_X_133Mhz: DEVPROP_PCIROOTBUS_SUPPORTEDSPEEDSANDMODES = 8u
+public val DEV_PROP_PCI_ROOT_BUS_SUPPORTED_SPEEDS_AND_MODES_PCI_X_133MHZ: DevpropPcirootbusSupportedspeedsandmodes = 8u
 
-public val DevProp_PciRootBus_SupportedSpeedsAndModes_Pci_X_266Mhz: DEVPROP_PCIROOTBUS_SUPPORTEDSPEEDSANDMODES = 16u
+public val DEV_PROP_PCI_ROOT_BUS_SUPPORTED_SPEEDS_AND_MODES_PCI_X_266MHZ: DevpropPcirootbusSupportedspeedsandmodes = 16u
 
-public val DevProp_PciRootBus_SupportedSpeedsAndModes_Pci_X_533Mhz: DEVPROP_PCIROOTBUS_SUPPORTEDSPEEDSANDMODES = 32u
+public val DEV_PROP_PCI_ROOT_BUS_SUPPORTED_SPEEDS_AND_MODES_PCI_X_533MHZ: DevpropPcirootbusSupportedspeedsandmodes = 32u
 
-public val DevProp_PciRootBus_SupportedSpeedsAndModes_Pci_X_66Mhz: DEVPROP_PCIROOTBUS_SUPPORTEDSPEEDSANDMODES = 4u
+public val DEV_PROP_PCI_ROOT_BUS_SUPPORTED_SPEEDS_AND_MODES_PCI_X_66MHZ: DevpropPcirootbusSupportedspeedsandmodes = 4u
 
-public val Dot11AdHocManager: GUID = GUID.from_u128(U128(0xdd06a84f83bd4d01uL, 0x8ab92389fea0869euL))
+public val DOT11AD_HOC_MANAGER: Guid = Guid.fromU128(U128(0xdd06a84f83bd4d01uL, 0x8ab92389fea0869euL))
 
-public val GUID_AEPSERVICE_WIFIDIRECT_DEVICE: GUID = GUID.from_u128(U128(0xcc29827c9caf4928uL, 0x99a918f7c2381389uL))
+public val GUID_AEPSERVICE_WIFIDIRECT_DEVICE: Guid = Guid.fromU128(U128(0xcc29827c9caf4928uL, 0x99a918f7c2381389uL))
 
-public val GUID_DEVINTERFACE_ASP_INFRA_DEVICE: GUID = GUID.from_u128(U128(0xff8239957a724c80uL, 0x8757c67ee13d1a49uL))
+public val GUID_DEVINTERFACE_ASP_INFRA_DEVICE: Guid = Guid.fromU128(U128(0xff8239957a724c80uL, 0x8757c67ee13d1a49uL))
 
-public val GUID_DEVINTERFACE_WIFIDIRECT_DEVICE: GUID = GUID.from_u128(U128(0x439b20af8955405buL, 0x99f0a62af0c68d43uL))
+public val GUID_DEVINTERFACE_WIFIDIRECT_DEVICE: Guid = Guid.fromU128(U128(0x439b20af8955405buL, 0x99f0a62af0c68d43uL))
 
-public val IHV_INIT_FUNCTION_NAME: PCSTR = s("Dot11ExtIhvInitService")
+public val IHV_INIT_FUNCTION_NAME: Pcstr = s("Dot11ExtIhvInitService")
 
-public val IHV_INIT_VS_FUNCTION_NAME: PCSTR = s("Dot11ExtIhvInitVirtualStation")
+public val IHV_INIT_VS_FUNCTION_NAME: Pcstr = s("Dot11ExtIhvInitVirtualStation")
 
-public val IHV_VERSION_FUNCTION_NAME: PCSTR = s("Dot11ExtIhvGetVersionInfo")
+public val IHV_VERSION_FUNCTION_NAME: Pcstr = s("Dot11ExtIhvGetVersionInfo")
 
-public val IndicationTypeLinkQuality: DOT11EXT_IHV_INDICATION_TYPE = 4
+public val INDICATION_TYPE_LINK_QUALITY: Dot11extIhvIndicationType = 4
 
-public val IndicationTypeNicSpecificNotification: DOT11EXT_IHV_INDICATION_TYPE = 0
+public val INDICATION_TYPE_NIC_SPECIFIC_NOTIFICATION: Dot11extIhvIndicationType = 0
 
-public val IndicationTypePhyStateChange: DOT11EXT_IHV_INDICATION_TYPE = 3
+public val INDICATION_TYPE_PHY_STATE_CHANGE: Dot11extIhvIndicationType = 3
 
-public val IndicationTypePmkidCandidateList: DOT11EXT_IHV_INDICATION_TYPE = 1
+public val INDICATION_TYPE_PMKID_CANDIDATE_LIST: Dot11extIhvIndicationType = 1
 
-public val IndicationTypeTkipMicFailure: DOT11EXT_IHV_INDICATION_TYPE = 2
+public val INDICATION_TYPE_TKIP_MIC_FAILURE: Dot11extIhvIndicationType = 2
 
 public val L2_NOTIFICATION_CODE_GROUP_SIZE: UInt = 4096u
 
@@ -1498,107 +1498,107 @@ public val OID_DOT11_WME_UPDATE_IE: UInt = 218170217u
 
 public val OID_DOT11_WPA_TSC: UInt = 218170201u
 
-public val ONEX_AUTHENTICATOR_NO_LONGER_PRESENT: ONEX_REASON_CODE = 327686
+public val ONEX_AUTHENTICATOR_NO_LONGER_PRESENT: OnexReasonCode = 327686
 
-public val ONEX_EAP_FAILURE_RECEIVED: ONEX_REASON_CODE = 327685
+public val ONEX_EAP_FAILURE_RECEIVED: OnexReasonCode = 327685
 
-public val ONEX_IDENTITY_NOT_FOUND: ONEX_REASON_CODE = 327682
+public val ONEX_IDENTITY_NOT_FOUND: OnexReasonCode = 327682
 
-public val ONEX_NO_RESPONSE_TO_IDENTITY: ONEX_REASON_CODE = 327687
+public val ONEX_NO_RESPONSE_TO_IDENTITY: OnexReasonCode = 327687
 
-public val ONEX_PROFILE_DISALLOWED_EAP_TYPE: ONEX_REASON_CODE = 327690
+public val ONEX_PROFILE_DISALLOWED_EAP_TYPE: OnexReasonCode = 327690
 
-public val ONEX_PROFILE_EXPIRED_EXPLICIT_CREDENTIALS: ONEX_REASON_CODE = 327699
+public val ONEX_PROFILE_EXPIRED_EXPLICIT_CREDENTIALS: OnexReasonCode = 327699
 
-public val ONEX_PROFILE_INVALID_AUTH_MODE: ONEX_REASON_CODE = 327695
+public val ONEX_PROFILE_INVALID_AUTH_MODE: OnexReasonCode = 327695
 
-public val ONEX_PROFILE_INVALID_EAP_CONNECTION_PROPERTIES: ONEX_REASON_CODE = 327696
+public val ONEX_PROFILE_INVALID_EAP_CONNECTION_PROPERTIES: OnexReasonCode = 327696
 
-public val ONEX_PROFILE_INVALID_EAP_TYPE_OR_FLAG: ONEX_REASON_CODE = 327691
+public val ONEX_PROFILE_INVALID_EAP_TYPE_OR_FLAG: OnexReasonCode = 327691
 
-public val ONEX_PROFILE_INVALID_EXPLICIT_CREDENTIALS: ONEX_REASON_CODE = 327698
+public val ONEX_PROFILE_INVALID_EXPLICIT_CREDENTIALS: OnexReasonCode = 327698
 
-public val ONEX_PROFILE_INVALID_LENGTH: ONEX_REASON_CODE = 327689
+public val ONEX_PROFILE_INVALID_LENGTH: OnexReasonCode = 327689
 
-public val ONEX_PROFILE_INVALID_ONEX_FLAGS: ONEX_REASON_CODE = 327692
+public val ONEX_PROFILE_INVALID_ONEX_FLAGS: OnexReasonCode = 327692
 
-public val ONEX_PROFILE_INVALID_SUPPLICANT_MODE: ONEX_REASON_CODE = 327694
+public val ONEX_PROFILE_INVALID_SUPPLICANT_MODE: OnexReasonCode = 327694
 
-public val ONEX_PROFILE_INVALID_TIMER_VALUE: ONEX_REASON_CODE = 327693
+public val ONEX_PROFILE_INVALID_TIMER_VALUE: OnexReasonCode = 327693
 
-public val ONEX_PROFILE_VERSION_NOT_SUPPORTED: ONEX_REASON_CODE = 327688
+public val ONEX_PROFILE_VERSION_NOT_SUPPORTED: OnexReasonCode = 327688
 
-public val ONEX_REASON_CODE_SUCCESS: ONEX_REASON_CODE = 0
+public val ONEX_REASON_CODE_SUCCESS: OnexReasonCode = 0
 
-public val ONEX_REASON_START: ONEX_REASON_CODE = 327680
+public val ONEX_REASON_START: OnexReasonCode = 327680
 
-public val ONEX_UI_CANCELLED: ONEX_REASON_CODE = 327697
+public val ONEX_UI_CANCELLED: OnexReasonCode = 327697
 
-public val ONEX_UI_DISABLED: ONEX_REASON_CODE = 327683
+public val ONEX_UI_DISABLED: OnexReasonCode = 327683
 
-public val ONEX_UI_FAILURE: ONEX_REASON_CODE = 327684
+public val ONEX_UI_FAILURE: OnexReasonCode = 327684
 
-public val ONEX_UI_NOT_PERMITTED: ONEX_REASON_CODE = 327700
+public val ONEX_UI_NOT_PERMITTED: OnexReasonCode = 327700
 
-public val ONEX_UNABLE_TO_IDENTIFY_USER: ONEX_REASON_CODE = 327681
+public val ONEX_UNABLE_TO_IDENTIFY_USER: OnexReasonCode = 327681
 
-public val OneXAuthFailure: ONEX_AUTH_STATUS = 4
+public val ONE_X_AUTH_FAILURE: OnexAuthStatus = 4
 
-public val OneXAuthIdentityExplicitUser: ONEX_AUTH_IDENTITY = 3
+public val ONE_X_AUTH_IDENTITY_EXPLICIT_USER: OnexAuthIdentity = 3
 
-public val OneXAuthIdentityGuest: ONEX_AUTH_IDENTITY = 4
+public val ONE_X_AUTH_IDENTITY_GUEST: OnexAuthIdentity = 4
 
-public val OneXAuthIdentityInvalid: ONEX_AUTH_IDENTITY = 5
+public val ONE_X_AUTH_IDENTITY_INVALID: OnexAuthIdentity = 5
 
-public val OneXAuthIdentityMachine: ONEX_AUTH_IDENTITY = 1
+public val ONE_X_AUTH_IDENTITY_MACHINE: OnexAuthIdentity = 1
 
-public val OneXAuthIdentityNone: ONEX_AUTH_IDENTITY = 0
+public val ONE_X_AUTH_IDENTITY_NONE: OnexAuthIdentity = 0
 
-public val OneXAuthIdentityUser: ONEX_AUTH_IDENTITY = 2
+public val ONE_X_AUTH_IDENTITY_USER: OnexAuthIdentity = 2
 
-public val OneXAuthInProgress: ONEX_AUTH_STATUS = 1
+public val ONE_X_AUTH_IN_PROGRESS: OnexAuthStatus = 1
 
-public val OneXAuthInvalid: ONEX_AUTH_STATUS = 5
+public val ONE_X_AUTH_INVALID: OnexAuthStatus = 5
 
-public val OneXAuthNoAuthenticatorFound: ONEX_AUTH_STATUS = 2
+public val ONE_X_AUTH_NO_AUTHENTICATOR_FOUND: OnexAuthStatus = 2
 
-public val OneXAuthNotStarted: ONEX_AUTH_STATUS = 0
+public val ONE_X_AUTH_NOT_STARTED: OnexAuthStatus = 0
 
-public val OneXAuthSuccess: ONEX_AUTH_STATUS = 3
+public val ONE_X_AUTH_SUCCESS: OnexAuthStatus = 3
 
-public val OneXEapMethodBackendSupportUnknown: ONEX_EAP_METHOD_BACKEND_SUPPORT = 0
+public val ONE_X_EAP_METHOD_BACKEND_SUPPORT_UNKNOWN: OnexEapMethodBackendSupport = 0
 
-public val OneXEapMethodBackendSupported: ONEX_EAP_METHOD_BACKEND_SUPPORT = 1
+public val ONE_X_EAP_METHOD_BACKEND_SUPPORTED: OnexEapMethodBackendSupport = 1
 
-public val OneXEapMethodBackendUnsupported: ONEX_EAP_METHOD_BACKEND_SUPPORT = 2
+public val ONE_X_EAP_METHOD_BACKEND_UNSUPPORTED: OnexEapMethodBackendSupport = 2
 
-public val OneXNotificationTypeAuthRestarted: ONEX_NOTIFICATION_TYPE = 2
+public val ONE_X_NOTIFICATION_TYPE_AUTH_RESTARTED: OnexNotificationType = 2
 
-public val OneXNotificationTypeEventInvalid: ONEX_NOTIFICATION_TYPE = 3
+public val ONE_X_NOTIFICATION_TYPE_EVENT_INVALID: OnexNotificationType = 3
 
-public val OneXNotificationTypeResultUpdate: ONEX_NOTIFICATION_TYPE = 1
+public val ONE_X_NOTIFICATION_TYPE_RESULT_UPDATE: OnexNotificationType = 1
 
-public val OneXNumNotifications: ONEX_NOTIFICATION_TYPE = 3
+public val ONE_X_NUM_NOTIFICATIONS: OnexNotificationType = 3
 
-public val OneXPublicNotificationBase: ONEX_NOTIFICATION_TYPE = 0
+public val ONE_X_PUBLIC_NOTIFICATION_BASE: OnexNotificationType = 0
 
-public val OneXRestartReasonAltCredsTrial: ONEX_AUTH_RESTART_REASON = 7
+public val ONE_X_RESTART_REASON_ALT_CREDS_TRIAL: OnexAuthRestartReason = 7
 
-public val OneXRestartReasonInvalid: ONEX_AUTH_RESTART_REASON = 8
+public val ONE_X_RESTART_REASON_INVALID: OnexAuthRestartReason = 8
 
-public val OneXRestartReasonMsmInitiated: ONEX_AUTH_RESTART_REASON = 1
+public val ONE_X_RESTART_REASON_MSM_INITIATED: OnexAuthRestartReason = 1
 
-public val OneXRestartReasonOneXAuthTimeout: ONEX_AUTH_RESTART_REASON = 3
+public val ONE_X_RESTART_REASON_ONE_X_AUTH_TIMEOUT: OnexAuthRestartReason = 3
 
-public val OneXRestartReasonOneXConfigurationChanged: ONEX_AUTH_RESTART_REASON = 4
+public val ONE_X_RESTART_REASON_ONE_X_CONFIGURATION_CHANGED: OnexAuthRestartReason = 4
 
-public val OneXRestartReasonOneXHeldStateTimeout: ONEX_AUTH_RESTART_REASON = 2
+public val ONE_X_RESTART_REASON_ONE_X_HELD_STATE_TIMEOUT: OnexAuthRestartReason = 2
 
-public val OneXRestartReasonOneXUserChanged: ONEX_AUTH_RESTART_REASON = 5
+public val ONE_X_RESTART_REASON_ONE_X_USER_CHANGED: OnexAuthRestartReason = 5
 
-public val OneXRestartReasonPeerInitiated: ONEX_AUTH_RESTART_REASON = 0
+public val ONE_X_RESTART_REASON_PEER_INITIATED: OnexAuthRestartReason = 0
 
-public val OneXRestartReasonQuarantineStateChanged: ONEX_AUTH_RESTART_REASON = 6
+public val ONE_X_RESTART_REASON_QUARANTINE_STATE_CHANGED: OnexAuthRestartReason = 6
 
 public val WDIAG_IHV_WLAN_ID_FLAG_SECURITY_ENABLED: UInt = 1u
 
@@ -1612,15 +1612,15 @@ public val WFD_API_VERSION: UInt = 1u
 
 public val WFD_API_VERSION_1_0: UInt = 1u
 
-public val WFD_ROLE_TYPE_CLIENT: WFD_ROLE_TYPE = 4
+public val WFD_ROLE_TYPE_CLIENT: WfdRoleType = 4
 
-public val WFD_ROLE_TYPE_DEVICE: WFD_ROLE_TYPE = 1
+public val WFD_ROLE_TYPE_DEVICE: WfdRoleType = 1
 
-public val WFD_ROLE_TYPE_GROUP_OWNER: WFD_ROLE_TYPE = 2
+public val WFD_ROLE_TYPE_GROUP_OWNER: WfdRoleType = 2
 
-public val WFD_ROLE_TYPE_MAX: WFD_ROLE_TYPE = 5
+public val WFD_ROLE_TYPE_MAX: WfdRoleType = 5
 
-public val WFD_ROLE_TYPE_NONE: WFD_ROLE_TYPE = 0
+public val WFD_ROLE_TYPE_NONE: WfdRoleType = 0
 
 public val WLAN_API_VERSION: UInt = 2u
 
@@ -1658,9 +1658,9 @@ public val WLAN_CONNECTION_HIDDEN_NETWORK: UInt = 1u
 
 public val WLAN_CONNECTION_IGNORE_PRIVACY_BIT: UInt = 4u
 
-public val WLAN_CONNECTION_NOTIFICATION_ADHOC_NETWORK_FORMED: WLAN_CONNECTION_NOTIFICATION_FLAGS = 1u
+public val WLAN_CONNECTION_NOTIFICATION_ADHOC_NETWORK_FORMED: WlanConnectionNotificationFlags = 1u
 
-public val WLAN_CONNECTION_NOTIFICATION_CONSOLE_USER_PROFILE: WLAN_CONNECTION_NOTIFICATION_FLAGS = 4u
+public val WLAN_CONNECTION_NOTIFICATION_CONSOLE_USER_PROFILE: WlanConnectionNotificationFlags = 4u
 
 public val WLAN_CONNECTION_PERSIST_DISCOVERY_PROFILE: UInt = 16u
 
@@ -1674,23 +1674,23 @@ public val WLAN_MAX_PHY_INDEX: UInt = 64u
 
 public val WLAN_MAX_PHY_TYPE_NUMBER: UInt = 8u
 
-public val WLAN_NOTIFICATION_SOURCE_ACM: WLAN_NOTIFICATION_SOURCES = 8u
+public val WLAN_NOTIFICATION_SOURCE_ACM: WlanNotificationSources = 8u
 
-public val WLAN_NOTIFICATION_SOURCE_ALL: WLAN_NOTIFICATION_SOURCES = 65535u
+public val WLAN_NOTIFICATION_SOURCE_ALL: WlanNotificationSources = 65535u
 
-public val WLAN_NOTIFICATION_SOURCE_DEVICE_SERVICE: WLAN_NOTIFICATION_SOURCES = 2048u
+public val WLAN_NOTIFICATION_SOURCE_DEVICE_SERVICE: WlanNotificationSources = 2048u
 
-public val WLAN_NOTIFICATION_SOURCE_HNWK: WLAN_NOTIFICATION_SOURCES = 128u
+public val WLAN_NOTIFICATION_SOURCE_HNWK: WlanNotificationSources = 128u
 
-public val WLAN_NOTIFICATION_SOURCE_IHV: WLAN_NOTIFICATION_SOURCES = 64u
+public val WLAN_NOTIFICATION_SOURCE_IHV: WlanNotificationSources = 64u
 
-public val WLAN_NOTIFICATION_SOURCE_MSM: WLAN_NOTIFICATION_SOURCES = 16u
+public val WLAN_NOTIFICATION_SOURCE_MSM: WlanNotificationSources = 16u
 
-public val WLAN_NOTIFICATION_SOURCE_NONE: WLAN_NOTIFICATION_SOURCES = 0u
+public val WLAN_NOTIFICATION_SOURCE_NONE: WlanNotificationSources = 0u
 
-public val WLAN_NOTIFICATION_SOURCE_ONEX: WLAN_NOTIFICATION_SOURCES = 4u
+public val WLAN_NOTIFICATION_SOURCE_ONEX: WlanNotificationSources = 4u
 
-public val WLAN_NOTIFICATION_SOURCE_SECURITY: WLAN_NOTIFICATION_SOURCES = 32u
+public val WLAN_NOTIFICATION_SOURCE_SECURITY: WlanNotificationSources = 32u
 
 public val WLAN_PROFILE_CONNECTION_MODE_AUTO: UInt = 131072u
 
@@ -2012,590 +2012,590 @@ public val WLAN_REASON_CODE_USER_DENIED: UInt = 163844u
 
 public val WLAN_REASON_CODE_USER_NOT_RESPOND: UInt = 163854u
 
-public val WLAN_SECURABLE_OBJECT_COUNT: WLAN_SECURABLE_OBJECT = 17
+public val WLAN_SECURABLE_OBJECT_COUNT: WlanSecurableObject = 17
 
-public val WLAN_SET_EAPHOST_DATA_ALL_USERS: WLAN_SET_EAPHOST_FLAGS = 1u
+public val WLAN_SET_EAPHOST_DATA_ALL_USERS: WlanSetEaphostFlags = 1u
 
 public val WLAN_UI_API_INITIAL_VERSION: UInt = 1u
 
 public val WLAN_UI_API_VERSION: UInt = 1u
 
-public val WLAdvPage: WL_DISPLAY_PAGES = 2
+public val WL_ADV_PAGE: WlDisplayPages = 2
 
-public val WLConnectionPage: WL_DISPLAY_PAGES = 0
+public val WL_CONNECTION_PAGE: WlDisplayPages = 0
 
-public val WLSecurityPage: WL_DISPLAY_PAGES = 1
+public val WL_SECURITY_PAGE: WlDisplayPages = 1
 
-public val ch_description_type_center_frequency: CH_DESCRIPTION_TYPE = 2
+public val CH_DESCRIPTION_TYPE_CENTER_FREQUENCY: ChDescriptionType = 2
 
-public val ch_description_type_logical: CH_DESCRIPTION_TYPE = 1
+public val CH_DESCRIPTION_TYPE_LOGICAL: ChDescriptionType = 1
 
-public val ch_description_type_phy_specific: CH_DESCRIPTION_TYPE = 3
+public val CH_DESCRIPTION_TYPE_PHY_SPECIFIC: ChDescriptionType = 3
 
-public val connection_phase_any: DOT11EXT_IHV_CONNECTION_PHASE = 0
+public val CONNECTION_PHASE_ANY: Dot11extIhvConnectionPhase = 0
 
-public val connection_phase_initial_connection: DOT11EXT_IHV_CONNECTION_PHASE = 1
+public val CONNECTION_PHASE_INITIAL_CONNECTION: Dot11extIhvConnectionPhase = 1
 
-public val connection_phase_post_l3_connection: DOT11EXT_IHV_CONNECTION_PHASE = 2
+public val CONNECTION_PHASE_POST_L3_CONNECTION: Dot11extIhvConnectionPhase = 2
 
-public val dot11_AC_param_BE: DOT11_AC_PARAM = 0
+public val DOT11_AC_PARAM_BE: Dot11AcParam = 0
 
-public val dot11_AC_param_BK: DOT11_AC_PARAM = 1
+public val DOT11_AC_PARAM_BK: Dot11AcParam = 1
 
-public val dot11_AC_param_VI: DOT11_AC_PARAM = 2
+public val DOT11_AC_PARAM_VI: Dot11AcParam = 2
 
-public val dot11_AC_param_VO: DOT11_AC_PARAM = 3
+public val DOT11_AC_PARAM_VO: Dot11AcParam = 3
 
-public val dot11_AC_param_max: DOT11_AC_PARAM = 4
+public val DOT11_AC_PARAM_MAX: Dot11AcParam = 4
 
-public val dot11_ANQP_query_result_access_issues: DOT11_ANQP_QUERY_RESULT = 7
+public val DOT11_ANQP_QUERY_RESULT_ACCESS_ISSUES: Dot11AnqpQueryResult = 7
 
-public val dot11_ANQP_query_result_advertisement_protocol_not_supported_on_remote: DOT11_ANQP_QUERY_RESULT = 4
+public val DOT11_ANQP_QUERY_RESULT_ADVERTISEMENT_PROTOCOL_NOT_SUPPORTED_ON_REMOTE: Dot11AnqpQueryResult = 4
 
-public val dot11_ANQP_query_result_advertisement_server_not_responding: DOT11_ANQP_QUERY_RESULT = 6
+public val DOT11_ANQP_QUERY_RESULT_ADVERTISEMENT_SERVER_NOT_RESPONDING: Dot11AnqpQueryResult = 6
 
-public val dot11_ANQP_query_result_failure: DOT11_ANQP_QUERY_RESULT = 1
+public val DOT11_ANQP_QUERY_RESULT_FAILURE: Dot11AnqpQueryResult = 1
 
-public val dot11_ANQP_query_result_gas_protocol_failure: DOT11_ANQP_QUERY_RESULT = 5
+public val DOT11_ANQP_QUERY_RESULT_GAS_PROTOCOL_FAILURE: Dot11AnqpQueryResult = 5
 
-public val dot11_ANQP_query_result_resources: DOT11_ANQP_QUERY_RESULT = 3
+public val DOT11_ANQP_QUERY_RESULT_RESOURCES: Dot11AnqpQueryResult = 3
 
-public val dot11_ANQP_query_result_success: DOT11_ANQP_QUERY_RESULT = 0
+public val DOT11_ANQP_QUERY_RESULT_SUCCESS: Dot11AnqpQueryResult = 0
 
-public val dot11_ANQP_query_result_timed_out: DOT11_ANQP_QUERY_RESULT = 2
+public val DOT11_ANQP_QUERY_RESULT_TIMED_OUT: Dot11AnqpQueryResult = 2
 
-public val dot11_BSS_type_any: DOT11_BSS_TYPE = 3
+public val DOT11_BSS_TYPE_ANY: Dot11BssType = 3
 
-public val dot11_BSS_type_independent: DOT11_BSS_TYPE = 2
+public val DOT11_BSS_TYPE_INDEPENDENT: Dot11BssType = 2
 
-public val dot11_BSS_type_infrastructure: DOT11_BSS_TYPE = 1
+public val DOT11_BSS_TYPE_INFRASTRUCTURE: Dot11BssType = 1
 
-public val dot11_assoc_state_auth_assoc: DOT11_ASSOCIATION_STATE = 3
+public val DOT11_ASSOC_STATE_AUTH_ASSOC: Dot11AssociationState = 3
 
-public val dot11_assoc_state_auth_unassoc: DOT11_ASSOCIATION_STATE = 2
+public val DOT11_ASSOC_STATE_AUTH_UNASSOC: Dot11AssociationState = 2
 
-public val dot11_assoc_state_unauth_unassoc: DOT11_ASSOCIATION_STATE = 1
+public val DOT11_ASSOC_STATE_UNAUTH_UNASSOC: Dot11AssociationState = 1
 
-public val dot11_assoc_state_zero: DOT11_ASSOCIATION_STATE = 0
+public val DOT11_ASSOC_STATE_ZERO: Dot11AssociationState = 0
 
-public val dot11_band_2p4g: DOT11_BAND = 1
+public val DOT11_BAND_2P4G: Dot11Band = 1
 
-public val dot11_band_4p9g: DOT11_BAND = 2
+public val DOT11_BAND_4P9G: Dot11Band = 2
 
-public val dot11_band_5g: DOT11_BAND = 3
+public val DOT11_BAND_5G: Dot11Band = 3
 
-public val dot11_diversity_support_dynamic: DOT11_DIVERSITY_SUPPORT = 3
+public val DOT11_DIVERSITY_SUPPORT_DYNAMIC: Dot11DiversitySupport = 3
 
-public val dot11_diversity_support_fixedlist: DOT11_DIVERSITY_SUPPORT = 1
+public val DOT11_DIVERSITY_SUPPORT_FIXEDLIST: Dot11DiversitySupport = 1
 
-public val dot11_diversity_support_notsupported: DOT11_DIVERSITY_SUPPORT = 2
+public val DOT11_DIVERSITY_SUPPORT_NOTSUPPORTED: Dot11DiversitySupport = 2
 
-public val dot11_diversity_support_unknown: DOT11_DIVERSITY_SUPPORT = 0
+public val DOT11_DIVERSITY_SUPPORT_UNKNOWN: Dot11DiversitySupport = 0
 
-public val dot11_hop_algo_current: DOT11_HOP_ALGO_ADOPTED = 0
+public val DOT11_HOP_ALGO_CURRENT: Dot11HopAlgoAdopted = 0
 
-public val dot11_hop_algo_hcc: DOT11_HOP_ALGO_ADOPTED = 2
+public val DOT11_HOP_ALGO_HCC: Dot11HopAlgoAdopted = 2
 
-public val dot11_hop_algo_hop_index: DOT11_HOP_ALGO_ADOPTED = 1
+public val DOT11_HOP_ALGO_HOP_INDEX: Dot11HopAlgoAdopted = 1
 
-public val dot11_key_direction_both: DOT11_KEY_DIRECTION = 1
+public val DOT11_KEY_DIRECTION_BOTH: Dot11KeyDirection = 1
 
-public val dot11_key_direction_inbound: DOT11_KEY_DIRECTION = 2
+public val DOT11_KEY_DIRECTION_INBOUND: Dot11KeyDirection = 2
 
-public val dot11_key_direction_outbound: DOT11_KEY_DIRECTION = 3
+public val DOT11_KEY_DIRECTION_OUTBOUND: Dot11KeyDirection = 3
 
-public val dot11_manufacturing_callback_IHV_end: DOT11_MANUFACTURING_CALLBACK_TYPE = -1
+public val DOT11_MANUFACTURING_CALLBACK_IHV_END: Dot11ManufacturingCallbackType = -1
 
-public val dot11_manufacturing_callback_IHV_start: DOT11_MANUFACTURING_CALLBACK_TYPE = -2147483648
+public val DOT11_MANUFACTURING_CALLBACK_IHV_START: Dot11ManufacturingCallbackType = -2147483648.toInt()
 
-public val dot11_manufacturing_callback_self_test_complete: DOT11_MANUFACTURING_CALLBACK_TYPE = 1
+public val DOT11_MANUFACTURING_CALLBACK_SELF_TEST_COMPLETE: Dot11ManufacturingCallbackType = 1
 
-public val dot11_manufacturing_callback_sleep_complete: DOT11_MANUFACTURING_CALLBACK_TYPE = 2
+public val DOT11_MANUFACTURING_CALLBACK_SLEEP_COMPLETE: Dot11ManufacturingCallbackType = 2
 
-public val dot11_manufacturing_callback_unknown: DOT11_MANUFACTURING_CALLBACK_TYPE = 0
+public val DOT11_MANUFACTURING_CALLBACK_UNKNOWN: Dot11ManufacturingCallbackType = 0
 
-public val dot11_manufacturing_test_IHV_end: DOT11_MANUFACTURING_TEST_TYPE = -1
+public val DOT11_MANUFACTURING_TEST_IHV_END: Dot11ManufacturingTestType = -1
 
-public val dot11_manufacturing_test_IHV_start: DOT11_MANUFACTURING_TEST_TYPE = -2147483648
+public val DOT11_MANUFACTURING_TEST_IHV_START: Dot11ManufacturingTestType = -2147483648.toInt()
 
-public val dot11_manufacturing_test_awake: DOT11_MANUFACTURING_TEST_TYPE = 9
+public val DOT11_MANUFACTURING_TEST_AWAKE: Dot11ManufacturingTestType = 9
 
-public val dot11_manufacturing_test_query_adc: DOT11_MANUFACTURING_TEST_TYPE = 5
+public val DOT11_MANUFACTURING_TEST_QUERY_ADC: Dot11ManufacturingTestType = 5
 
-public val dot11_manufacturing_test_query_data: DOT11_MANUFACTURING_TEST_TYPE = 7
+public val DOT11_MANUFACTURING_TEST_QUERY_DATA: Dot11ManufacturingTestType = 7
 
-public val dot11_manufacturing_test_rx: DOT11_MANUFACTURING_TEST_TYPE = 3
+public val DOT11_MANUFACTURING_TEST_RX: Dot11ManufacturingTestType = 3
 
-public val dot11_manufacturing_test_self_query_result: DOT11_MANUFACTURING_TEST_TYPE = 2
+public val DOT11_MANUFACTURING_TEST_SELF_QUERY_RESULT: Dot11ManufacturingTestType = 2
 
-public val dot11_manufacturing_test_self_start: DOT11_MANUFACTURING_TEST_TYPE = 1
+public val DOT11_MANUFACTURING_TEST_SELF_START: Dot11ManufacturingTestType = 1
 
-public val dot11_manufacturing_test_set_data: DOT11_MANUFACTURING_TEST_TYPE = 6
+public val DOT11_MANUFACTURING_TEST_SET_DATA: Dot11ManufacturingTestType = 6
 
-public val dot11_manufacturing_test_sleep: DOT11_MANUFACTURING_TEST_TYPE = 8
+public val DOT11_MANUFACTURING_TEST_SLEEP: Dot11ManufacturingTestType = 8
 
-public val dot11_manufacturing_test_tx: DOT11_MANUFACTURING_TEST_TYPE = 4
+public val DOT11_MANUFACTURING_TEST_TX: Dot11ManufacturingTestType = 4
 
-public val dot11_manufacturing_test_unknown: DOT11_MANUFACTURING_TEST_TYPE = 0
+public val DOT11_MANUFACTURING_TEST_UNKNOWN: Dot11ManufacturingTestType = 0
 
-public val dot11_offload_type_auth: DOT11_OFFLOAD_TYPE = 2
+public val DOT11_OFFLOAD_TYPE_AUTH: Dot11OffloadType = 2
 
-public val dot11_offload_type_wep: DOT11_OFFLOAD_TYPE = 1
+public val DOT11_OFFLOAD_TYPE_WEP: Dot11OffloadType = 1
 
-public val dot11_phy_type_IHV_end: DOT11_PHY_TYPE = -1
+public val DOT11_PHY_TYPE_IHV_END: Dot11PhyType = -1
 
-public val dot11_phy_type_IHV_start: DOT11_PHY_TYPE = -2147483648
+public val DOT11_PHY_TYPE_IHV_START: Dot11PhyType = -2147483648.toInt()
 
-public val dot11_phy_type_any: DOT11_PHY_TYPE = 0
+public val DOT11_PHY_TYPE_ANY: Dot11PhyType = 0
 
-public val dot11_phy_type_dmg: DOT11_PHY_TYPE = 9
+public val DOT11_PHY_TYPE_DMG: Dot11PhyType = 9
 
-public val dot11_phy_type_dsss: DOT11_PHY_TYPE = 2
+public val DOT11_PHY_TYPE_DSSS: Dot11PhyType = 2
 
-public val dot11_phy_type_eht: DOT11_PHY_TYPE = 11
+public val DOT11_PHY_TYPE_EHT: Dot11PhyType = 11
 
-public val dot11_phy_type_erp: DOT11_PHY_TYPE = 6
+public val DOT11_PHY_TYPE_ERP: Dot11PhyType = 6
 
-public val dot11_phy_type_fhss: DOT11_PHY_TYPE = 1
+public val DOT11_PHY_TYPE_FHSS: Dot11PhyType = 1
 
-public val dot11_phy_type_he: DOT11_PHY_TYPE = 10
+public val DOT11_PHY_TYPE_HE: Dot11PhyType = 10
 
-public val dot11_phy_type_hrdsss: DOT11_PHY_TYPE = 5
+public val DOT11_PHY_TYPE_HRDSSS: Dot11PhyType = 5
 
-public val dot11_phy_type_ht: DOT11_PHY_TYPE = 7
+public val DOT11_PHY_TYPE_HT: Dot11PhyType = 7
 
-public val dot11_phy_type_irbaseband: DOT11_PHY_TYPE = 3
+public val DOT11_PHY_TYPE_IRBASEBAND: Dot11PhyType = 3
 
-public val dot11_phy_type_ofdm: DOT11_PHY_TYPE = 4
+public val DOT11_PHY_TYPE_OFDM: Dot11PhyType = 4
 
-public val dot11_phy_type_unknown: DOT11_PHY_TYPE = 0
+public val DOT11_PHY_TYPE_UNKNOWN: Dot11PhyType = 0
 
-public val dot11_phy_type_vht: DOT11_PHY_TYPE = 8
+public val DOT11_PHY_TYPE_VHT: Dot11PhyType = 8
 
-public val dot11_power_mode_active: DOT11_POWER_MODE = 1
+public val DOT11_POWER_MODE_ACTIVE: Dot11PowerMode = 1
 
-public val dot11_power_mode_powersave: DOT11_POWER_MODE = 2
+public val DOT11_POWER_MODE_POWERSAVE: Dot11PowerMode = 2
 
-public val dot11_power_mode_reason_compliant_AP: DOT11_POWER_MODE_REASON = 3
+public val DOT11_POWER_MODE_REASON_COMPLIANT_AP: Dot11PowerModeReason = 3
 
-public val dot11_power_mode_reason_compliant_WFD_device: DOT11_POWER_MODE_REASON = 4
+public val DOT11_POWER_MODE_REASON_COMPLIANT_WFD_DEVICE: Dot11PowerModeReason = 4
 
-public val dot11_power_mode_reason_legacy_WFD_device: DOT11_POWER_MODE_REASON = 2
+public val DOT11_POWER_MODE_REASON_LEGACY_WFD_DEVICE: Dot11PowerModeReason = 2
 
-public val dot11_power_mode_reason_no_change: DOT11_POWER_MODE_REASON = 0
+public val DOT11_POWER_MODE_REASON_NO_CHANGE: Dot11PowerModeReason = 0
 
-public val dot11_power_mode_reason_noncompliant_AP: DOT11_POWER_MODE_REASON = 1
+public val DOT11_POWER_MODE_REASON_NONCOMPLIANT_AP: Dot11PowerModeReason = 1
 
-public val dot11_power_mode_reason_others: DOT11_POWER_MODE_REASON = 5
+public val DOT11_POWER_MODE_REASON_OTHERS: Dot11PowerModeReason = 5
 
-public val dot11_power_mode_unknown: DOT11_POWER_MODE = 0
+public val DOT11_POWER_MODE_UNKNOWN: Dot11PowerMode = 0
 
-public val dot11_radio_state_off: DOT11_RADIO_STATE = 2
+public val DOT11_RADIO_STATE_OFF: Dot11RadioState = 2
 
-public val dot11_radio_state_on: DOT11_RADIO_STATE = 1
+public val DOT11_RADIO_STATE_ON: Dot11RadioState = 1
 
-public val dot11_radio_state_unknown: DOT11_RADIO_STATE = 0
+public val DOT11_RADIO_STATE_UNKNOWN: Dot11RadioState = 0
 
-public val dot11_reset_type_mac: DOT11_RESET_TYPE = 2
+public val DOT11_RESET_TYPE_MAC: Dot11ResetType = 2
 
-public val dot11_reset_type_phy: DOT11_RESET_TYPE = 1
+public val DOT11_RESET_TYPE_PHY: Dot11ResetType = 1
 
-public val dot11_reset_type_phy_and_mac: DOT11_RESET_TYPE = 3
+public val DOT11_RESET_TYPE_PHY_AND_MAC: Dot11ResetType = 3
 
-public val dot11_scan_type_active: DOT11_SCAN_TYPE = 1
+public val DOT11_SCAN_TYPE_ACTIVE: Dot11ScanType = 1
 
-public val dot11_scan_type_auto: DOT11_SCAN_TYPE = 3
+public val DOT11_SCAN_TYPE_AUTO: Dot11ScanType = 3
 
-public val dot11_scan_type_forced: DOT11_SCAN_TYPE = -2147483648
+public val DOT11_SCAN_TYPE_FORCED: Dot11ScanType = -2147483648.toInt()
 
-public val dot11_scan_type_passive: DOT11_SCAN_TYPE = 2
+public val DOT11_SCAN_TYPE_PASSIVE: Dot11ScanType = 2
 
-public val dot11_temp_type_1: DOT11_TEMP_TYPE = 1
+public val DOT11_TEMP_TYPE_1: Dot11TempType = 1
 
-public val dot11_temp_type_2: DOT11_TEMP_TYPE = 2
+public val DOT11_TEMP_TYPE_2: Dot11TempType = 2
 
-public val dot11_temp_type_unknown: DOT11_TEMP_TYPE = 0
+public val DOT11_TEMP_TYPE_UNKNOWN: Dot11TempType = 0
 
-public val dot11_update_ie_op_create_replace: DOT11_UPDATE_IE_OP = 1
+public val DOT11_UPDATE_IE_OP_CREATE_REPLACE: Dot11UpdateIeOp = 1
 
-public val dot11_update_ie_op_delete: DOT11_UPDATE_IE_OP = 2
+public val DOT11_UPDATE_IE_OP_DELETE: Dot11UpdateIeOp = 2
 
-public val dot11_wfd_discover_type_auto: DOT11_WFD_DISCOVER_TYPE = 3
+public val DOT11_WFD_DISCOVER_TYPE_AUTO: Dot11WfdDiscoverType = 3
 
-public val dot11_wfd_discover_type_find_only: DOT11_WFD_DISCOVER_TYPE = 2
+public val DOT11_WFD_DISCOVER_TYPE_FIND_ONLY: Dot11WfdDiscoverType = 2
 
-public val dot11_wfd_discover_type_forced: DOT11_WFD_DISCOVER_TYPE = -2147483648
+public val DOT11_WFD_DISCOVER_TYPE_FORCED: Dot11WfdDiscoverType = -2147483648.toInt()
 
-public val dot11_wfd_discover_type_scan_only: DOT11_WFD_DISCOVER_TYPE = 1
+public val DOT11_WFD_DISCOVER_TYPE_SCAN_ONLY: Dot11WfdDiscoverType = 1
 
-public val dot11_wfd_discover_type_scan_social_channels: DOT11_WFD_DISCOVER_TYPE = 4
+public val DOT11_WFD_DISCOVER_TYPE_SCAN_SOCIAL_CHANNELS: Dot11WfdDiscoverType = 4
 
-public val dot11_wfd_scan_type_active: DOT11_WFD_SCAN_TYPE = 1
+public val DOT11_WFD_SCAN_TYPE_ACTIVE: Dot11WfdScanType = 1
 
-public val dot11_wfd_scan_type_auto: DOT11_WFD_SCAN_TYPE = 3
+public val DOT11_WFD_SCAN_TYPE_AUTO: Dot11WfdScanType = 3
 
-public val dot11_wfd_scan_type_passive: DOT11_WFD_SCAN_TYPE = 2
+public val DOT11_WFD_SCAN_TYPE_PASSIVE: Dot11WfdScanType = 2
 
-public val wlan_adhoc_network_state_connected: WLAN_ADHOC_NETWORK_STATE = 1
+public val WLAN_ADHOC_NETWORK_STATE_CONNECTED: WlanAdhocNetworkState = 1
 
-public val wlan_adhoc_network_state_formed: WLAN_ADHOC_NETWORK_STATE = 0
+public val WLAN_ADHOC_NETWORK_STATE_FORMED: WlanAdhocNetworkState = 0
 
-public val wlan_autoconf_opcode_allow_explicit_creds: WLAN_AUTOCONF_OPCODE = 4
+public val WLAN_AUTOCONF_OPCODE_ALLOW_EXPLICIT_CREDS: WlanAutoconfOpcode = 4
 
-public val wlan_autoconf_opcode_allow_virtual_station_extensibility: WLAN_AUTOCONF_OPCODE = 6
+public val WLAN_AUTOCONF_OPCODE_ALLOW_VIRTUAL_STATION_EXTENSIBILITY: WlanAutoconfOpcode = 6
 
-public val wlan_autoconf_opcode_block_period: WLAN_AUTOCONF_OPCODE = 5
+public val WLAN_AUTOCONF_OPCODE_BLOCK_PERIOD: WlanAutoconfOpcode = 5
 
-public val wlan_autoconf_opcode_end: WLAN_AUTOCONF_OPCODE = 7
+public val WLAN_AUTOCONF_OPCODE_END: WlanAutoconfOpcode = 7
 
-public val wlan_autoconf_opcode_only_use_gp_profiles_for_allowed_networks: WLAN_AUTOCONF_OPCODE = 3
+public val WLAN_AUTOCONF_OPCODE_ONLY_USE_GP_PROFILES_FOR_ALLOWED_NETWORKS: WlanAutoconfOpcode = 3
 
-public val wlan_autoconf_opcode_power_setting: WLAN_AUTOCONF_OPCODE = 2
+public val WLAN_AUTOCONF_OPCODE_POWER_SETTING: WlanAutoconfOpcode = 2
 
-public val wlan_autoconf_opcode_show_denied_networks: WLAN_AUTOCONF_OPCODE = 1
+public val WLAN_AUTOCONF_OPCODE_SHOW_DENIED_NETWORKS: WlanAutoconfOpcode = 1
 
-public val wlan_autoconf_opcode_start: WLAN_AUTOCONF_OPCODE = 0
+public val WLAN_AUTOCONF_OPCODE_START: WlanAutoconfOpcode = 0
 
-public val wlan_connection_mode_auto: WLAN_CONNECTION_MODE = 4
+public val WLAN_CONNECTION_MODE_AUTO: WlanConnectionMode = 4
 
-public val wlan_connection_mode_discovery_secure: WLAN_CONNECTION_MODE = 2
+public val WLAN_CONNECTION_MODE_DISCOVERY_SECURE: WlanConnectionMode = 2
 
-public val wlan_connection_mode_discovery_unsecure: WLAN_CONNECTION_MODE = 3
+public val WLAN_CONNECTION_MODE_DISCOVERY_UNSECURE: WlanConnectionMode = 3
 
-public val wlan_connection_mode_invalid: WLAN_CONNECTION_MODE = 5
+public val WLAN_CONNECTION_MODE_INVALID: WlanConnectionMode = 5
 
-public val wlan_connection_mode_profile: WLAN_CONNECTION_MODE = 0
+public val WLAN_CONNECTION_MODE_PROFILE: WlanConnectionMode = 0
 
-public val wlan_connection_mode_temporary_profile: WLAN_CONNECTION_MODE = 1
+public val WLAN_CONNECTION_MODE_TEMPORARY_PROFILE: WlanConnectionMode = 1
 
-public val wlan_filter_list_type_gp_deny: WLAN_FILTER_LIST_TYPE = 1
+public val WLAN_FILTER_LIST_TYPE_GP_DENY: WlanFilterListType = 1
 
-public val wlan_filter_list_type_gp_permit: WLAN_FILTER_LIST_TYPE = 0
+public val WLAN_FILTER_LIST_TYPE_GP_PERMIT: WlanFilterListType = 0
 
-public val wlan_filter_list_type_user_deny: WLAN_FILTER_LIST_TYPE = 3
+public val WLAN_FILTER_LIST_TYPE_USER_DENY: WlanFilterListType = 3
 
-public val wlan_filter_list_type_user_permit: WLAN_FILTER_LIST_TYPE = 2
+public val WLAN_FILTER_LIST_TYPE_USER_PERMIT: WlanFilterListType = 2
 
-public val wlan_hosted_network_active: WLAN_HOSTED_NETWORK_STATE = 2
+public val WLAN_HOSTED_NETWORK_ACTIVE: WlanHostedNetworkState = 2
 
-public val wlan_hosted_network_idle: WLAN_HOSTED_NETWORK_STATE = 1
+public val WLAN_HOSTED_NETWORK_IDLE: WlanHostedNetworkState = 1
 
-public val wlan_hosted_network_opcode_connection_settings: WLAN_HOSTED_NETWORK_OPCODE = 0
+public val WLAN_HOSTED_NETWORK_OPCODE_CONNECTION_SETTINGS: WlanHostedNetworkOpcode = 0
 
-public val wlan_hosted_network_opcode_enable: WLAN_HOSTED_NETWORK_OPCODE = 3
+public val WLAN_HOSTED_NETWORK_OPCODE_ENABLE: WlanHostedNetworkOpcode = 3
 
-public val wlan_hosted_network_opcode_security_settings: WLAN_HOSTED_NETWORK_OPCODE = 1
+public val WLAN_HOSTED_NETWORK_OPCODE_SECURITY_SETTINGS: WlanHostedNetworkOpcode = 1
 
-public val wlan_hosted_network_opcode_station_profile: WLAN_HOSTED_NETWORK_OPCODE = 2
+public val WLAN_HOSTED_NETWORK_OPCODE_STATION_PROFILE: WlanHostedNetworkOpcode = 2
 
-public val wlan_hosted_network_peer_state_authenticated: WLAN_HOSTED_NETWORK_PEER_AUTH_STATE = 1
+public val WLAN_HOSTED_NETWORK_PEER_STATE_AUTHENTICATED: WlanHostedNetworkPeerAuthState = 1
 
-public val wlan_hosted_network_peer_state_change: WLAN_HOSTED_NETWORK_NOTIFICATION_CODE = 4097
+public val WLAN_HOSTED_NETWORK_PEER_STATE_CHANGE: WlanHostedNetworkNotificationCode = 4097
 
-public val wlan_hosted_network_peer_state_invalid: WLAN_HOSTED_NETWORK_PEER_AUTH_STATE = 0
+public val WLAN_HOSTED_NETWORK_PEER_STATE_INVALID: WlanHostedNetworkPeerAuthState = 0
 
-public val wlan_hosted_network_radio_state_change: WLAN_HOSTED_NETWORK_NOTIFICATION_CODE = 4098
+public val WLAN_HOSTED_NETWORK_RADIO_STATE_CHANGE: WlanHostedNetworkNotificationCode = 4098
 
-public val wlan_hosted_network_reason_ap_start_failed: WLAN_HOSTED_NETWORK_REASON = 19
+public val WLAN_HOSTED_NETWORK_REASON_AP_START_FAILED: WlanHostedNetworkReason = 19
 
-public val wlan_hosted_network_reason_bad_parameters: WLAN_HOSTED_NETWORK_REASON = 2
+public val WLAN_HOSTED_NETWORK_REASON_BAD_PARAMETERS: WlanHostedNetworkReason = 2
 
-public val wlan_hosted_network_reason_client_abort: WLAN_HOSTED_NETWORK_REASON = 18
+public val WLAN_HOSTED_NETWORK_REASON_CLIENT_ABORT: WlanHostedNetworkReason = 18
 
-public val wlan_hosted_network_reason_crypt_error: WLAN_HOSTED_NETWORK_REASON = 8
+public val WLAN_HOSTED_NETWORK_REASON_CRYPT_ERROR: WlanHostedNetworkReason = 8
 
-public val wlan_hosted_network_reason_device_change: WLAN_HOSTED_NETWORK_REASON = 25
+public val WLAN_HOSTED_NETWORK_REASON_DEVICE_CHANGE: WlanHostedNetworkReason = 25
 
-public val wlan_hosted_network_reason_elevation_required: WLAN_HOSTED_NETWORK_REASON = 5
+public val WLAN_HOSTED_NETWORK_REASON_ELEVATION_REQUIRED: WlanHostedNetworkReason = 5
 
-public val wlan_hosted_network_reason_gp_denied: WLAN_HOSTED_NETWORK_REASON = 23
+public val WLAN_HOSTED_NETWORK_REASON_GP_DENIED: WlanHostedNetworkReason = 23
 
-public val wlan_hosted_network_reason_impersonation: WLAN_HOSTED_NETWORK_REASON = 9
+public val WLAN_HOSTED_NETWORK_REASON_IMPERSONATION: WlanHostedNetworkReason = 9
 
-public val wlan_hosted_network_reason_incompatible_connection_started: WLAN_HOSTED_NETWORK_REASON = 15
+public val WLAN_HOSTED_NETWORK_REASON_INCOMPATIBLE_CONNECTION_STARTED: WlanHostedNetworkReason = 15
 
-public val wlan_hosted_network_reason_incompatible_connection_stopped: WLAN_HOSTED_NETWORK_REASON = 16
+public val WLAN_HOSTED_NETWORK_REASON_INCOMPATIBLE_CONNECTION_STOPPED: WlanHostedNetworkReason = 16
 
-public val wlan_hosted_network_reason_insufficient_resources: WLAN_HOSTED_NETWORK_REASON = 4
+public val WLAN_HOSTED_NETWORK_REASON_INSUFFICIENT_RESOURCES: WlanHostedNetworkReason = 4
 
-public val wlan_hosted_network_reason_interface_available: WLAN_HOSTED_NETWORK_REASON = 11
+public val WLAN_HOSTED_NETWORK_REASON_INTERFACE_AVAILABLE: WlanHostedNetworkReason = 11
 
-public val wlan_hosted_network_reason_interface_unavailable: WLAN_HOSTED_NETWORK_REASON = 12
+public val WLAN_HOSTED_NETWORK_REASON_INTERFACE_UNAVAILABLE: WlanHostedNetworkReason = 12
 
-public val wlan_hosted_network_reason_miniport_started: WLAN_HOSTED_NETWORK_REASON = 14
+public val WLAN_HOSTED_NETWORK_REASON_MINIPORT_STARTED: WlanHostedNetworkReason = 14
 
-public val wlan_hosted_network_reason_miniport_stopped: WLAN_HOSTED_NETWORK_REASON = 13
+public val WLAN_HOSTED_NETWORK_REASON_MINIPORT_STOPPED: WlanHostedNetworkReason = 13
 
-public val wlan_hosted_network_reason_peer_arrived: WLAN_HOSTED_NETWORK_REASON = 20
+public val WLAN_HOSTED_NETWORK_REASON_PEER_ARRIVED: WlanHostedNetworkReason = 20
 
-public val wlan_hosted_network_reason_peer_departed: WLAN_HOSTED_NETWORK_REASON = 21
+public val WLAN_HOSTED_NETWORK_REASON_PEER_DEPARTED: WlanHostedNetworkReason = 21
 
-public val wlan_hosted_network_reason_peer_timeout: WLAN_HOSTED_NETWORK_REASON = 22
+public val WLAN_HOSTED_NETWORK_REASON_PEER_TIMEOUT: WlanHostedNetworkReason = 22
 
-public val wlan_hosted_network_reason_persistence_failed: WLAN_HOSTED_NETWORK_REASON = 7
+public val WLAN_HOSTED_NETWORK_REASON_PERSISTENCE_FAILED: WlanHostedNetworkReason = 7
 
-public val wlan_hosted_network_reason_properties_change: WLAN_HOSTED_NETWORK_REASON = 26
+public val WLAN_HOSTED_NETWORK_REASON_PROPERTIES_CHANGE: WlanHostedNetworkReason = 26
 
-public val wlan_hosted_network_reason_read_only: WLAN_HOSTED_NETWORK_REASON = 6
+public val WLAN_HOSTED_NETWORK_REASON_READ_ONLY: WlanHostedNetworkReason = 6
 
-public val wlan_hosted_network_reason_service_available_on_virtual_station: WLAN_HOSTED_NETWORK_REASON = 28
+public val WLAN_HOSTED_NETWORK_REASON_SERVICE_AVAILABLE_ON_VIRTUAL_STATION: WlanHostedNetworkReason = 28
 
-public val wlan_hosted_network_reason_service_shutting_down: WLAN_HOSTED_NETWORK_REASON = 3
+public val WLAN_HOSTED_NETWORK_REASON_SERVICE_SHUTTING_DOWN: WlanHostedNetworkReason = 3
 
-public val wlan_hosted_network_reason_service_unavailable: WLAN_HOSTED_NETWORK_REASON = 24
+public val WLAN_HOSTED_NETWORK_REASON_SERVICE_UNAVAILABLE: WlanHostedNetworkReason = 24
 
-public val wlan_hosted_network_reason_stop_before_start: WLAN_HOSTED_NETWORK_REASON = 10
+public val WLAN_HOSTED_NETWORK_REASON_STOP_BEFORE_START: WlanHostedNetworkReason = 10
 
-public val wlan_hosted_network_reason_success: WLAN_HOSTED_NETWORK_REASON = 0
+public val WLAN_HOSTED_NETWORK_REASON_SUCCESS: WlanHostedNetworkReason = 0
 
-public val wlan_hosted_network_reason_unspecified: WLAN_HOSTED_NETWORK_REASON = 1
+public val WLAN_HOSTED_NETWORK_REASON_UNSPECIFIED: WlanHostedNetworkReason = 1
 
-public val wlan_hosted_network_reason_user_action: WLAN_HOSTED_NETWORK_REASON = 17
+public val WLAN_HOSTED_NETWORK_REASON_USER_ACTION: WlanHostedNetworkReason = 17
 
-public val wlan_hosted_network_reason_virtual_station_blocking_use: WLAN_HOSTED_NETWORK_REASON = 27
+public val WLAN_HOSTED_NETWORK_REASON_VIRTUAL_STATION_BLOCKING_USE: WlanHostedNetworkReason = 27
 
-public val wlan_hosted_network_state_change: WLAN_HOSTED_NETWORK_NOTIFICATION_CODE = 4096
+public val WLAN_HOSTED_NETWORK_STATE_CHANGE: WlanHostedNetworkNotificationCode = 4096
 
-public val wlan_hosted_network_unavailable: WLAN_HOSTED_NETWORK_STATE = 0
+public val WLAN_HOSTED_NETWORK_UNAVAILABLE: WlanHostedNetworkState = 0
 
-public val wlan_ihv_control_type_driver: WLAN_IHV_CONTROL_TYPE = 1
+public val WLAN_IHV_CONTROL_TYPE_DRIVER: WlanIhvControlType = 1
 
-public val wlan_ihv_control_type_service: WLAN_IHV_CONTROL_TYPE = 0
+public val WLAN_IHV_CONTROL_TYPE_SERVICE: WlanIhvControlType = 0
 
-public val wlan_interface_state_ad_hoc_network_formed: WLAN_INTERFACE_STATE = 2
+public val WLAN_INTERFACE_STATE_AD_HOC_NETWORK_FORMED: WlanInterfaceState = 2
 
-public val wlan_interface_state_associating: WLAN_INTERFACE_STATE = 5
+public val WLAN_INTERFACE_STATE_ASSOCIATING: WlanInterfaceState = 5
 
-public val wlan_interface_state_authenticating: WLAN_INTERFACE_STATE = 7
+public val WLAN_INTERFACE_STATE_AUTHENTICATING: WlanInterfaceState = 7
 
-public val wlan_interface_state_connected: WLAN_INTERFACE_STATE = 1
+public val WLAN_INTERFACE_STATE_CONNECTED: WlanInterfaceState = 1
 
-public val wlan_interface_state_disconnected: WLAN_INTERFACE_STATE = 4
+public val WLAN_INTERFACE_STATE_DISCONNECTED: WlanInterfaceState = 4
 
-public val wlan_interface_state_disconnecting: WLAN_INTERFACE_STATE = 3
+public val WLAN_INTERFACE_STATE_DISCONNECTING: WlanInterfaceState = 3
 
-public val wlan_interface_state_discovering: WLAN_INTERFACE_STATE = 6
+public val WLAN_INTERFACE_STATE_DISCOVERING: WlanInterfaceState = 6
 
-public val wlan_interface_state_not_ready: WLAN_INTERFACE_STATE = 0
+public val WLAN_INTERFACE_STATE_NOT_READY: WlanInterfaceState = 0
 
-public val wlan_interface_type_emulated_802_11: WLAN_INTERFACE_TYPE = 0
+public val WLAN_INTERFACE_TYPE_EMULATED_802_11: WlanInterfaceType = 0
 
-public val wlan_interface_type_invalid: WLAN_INTERFACE_TYPE = 2
+public val WLAN_INTERFACE_TYPE_INVALID: WlanInterfaceType = 2
 
-public val wlan_interface_type_native_802_11: WLAN_INTERFACE_TYPE = 1
+public val WLAN_INTERFACE_TYPE_NATIVE_802_11: WlanInterfaceType = 1
 
-public val wlan_intf_opcode_autoconf_enabled: WLAN_INTF_OPCODE = 1
+public val WLAN_INTF_OPCODE_AUTOCONF_ENABLED: WlanIntfOpcode = 1
 
-public val wlan_intf_opcode_autoconf_end: WLAN_INTF_OPCODE = 268435455
+public val WLAN_INTF_OPCODE_AUTOCONF_END: WlanIntfOpcode = 268435455
 
-public val wlan_intf_opcode_autoconf_start: WLAN_INTF_OPCODE = 0
+public val WLAN_INTF_OPCODE_AUTOCONF_START: WlanIntfOpcode = 0
 
-public val wlan_intf_opcode_background_scan_enabled: WLAN_INTF_OPCODE = 2
+public val WLAN_INTF_OPCODE_BACKGROUND_SCAN_ENABLED: WlanIntfOpcode = 2
 
-public val wlan_intf_opcode_bss_type: WLAN_INTF_OPCODE = 5
+public val WLAN_INTF_OPCODE_BSS_TYPE: WlanIntfOpcode = 5
 
-public val wlan_intf_opcode_certified_safe_mode: WLAN_INTF_OPCODE = 14
+public val WLAN_INTF_OPCODE_CERTIFIED_SAFE_MODE: WlanIntfOpcode = 14
 
-public val wlan_intf_opcode_channel_number: WLAN_INTF_OPCODE = 8
+public val WLAN_INTF_OPCODE_CHANNEL_NUMBER: WlanIntfOpcode = 8
 
-public val wlan_intf_opcode_current_connection: WLAN_INTF_OPCODE = 7
+public val WLAN_INTF_OPCODE_CURRENT_CONNECTION: WlanIntfOpcode = 7
 
-public val wlan_intf_opcode_current_operation_mode: WLAN_INTF_OPCODE = 12
+public val WLAN_INTF_OPCODE_CURRENT_OPERATION_MODE: WlanIntfOpcode = 12
 
-public val wlan_intf_opcode_hosted_network_capable: WLAN_INTF_OPCODE = 15
+public val WLAN_INTF_OPCODE_HOSTED_NETWORK_CAPABLE: WlanIntfOpcode = 15
 
-public val wlan_intf_opcode_ihv_end: WLAN_INTF_OPCODE = 1073741823
+public val WLAN_INTF_OPCODE_IHV_END: WlanIntfOpcode = 1073741823
 
-public val wlan_intf_opcode_ihv_start: WLAN_INTF_OPCODE = 805306368
+public val WLAN_INTF_OPCODE_IHV_START: WlanIntfOpcode = 805306368
 
-public val wlan_intf_opcode_interface_state: WLAN_INTF_OPCODE = 6
+public val WLAN_INTF_OPCODE_INTERFACE_STATE: WlanIntfOpcode = 6
 
-public val wlan_intf_opcode_management_frame_protection_capable: WLAN_INTF_OPCODE = 16
+public val WLAN_INTF_OPCODE_MANAGEMENT_FRAME_PROTECTION_CAPABLE: WlanIntfOpcode = 16
 
-public val wlan_intf_opcode_media_streaming_mode: WLAN_INTF_OPCODE = 3
+public val WLAN_INTF_OPCODE_MEDIA_STREAMING_MODE: WlanIntfOpcode = 3
 
-public val wlan_intf_opcode_msm_end: WLAN_INTF_OPCODE = 536870911
+public val WLAN_INTF_OPCODE_MSM_END: WlanIntfOpcode = 536870911
 
-public val wlan_intf_opcode_msm_start: WLAN_INTF_OPCODE = 268435712
+public val WLAN_INTF_OPCODE_MSM_START: WlanIntfOpcode = 268435712
 
-public val wlan_intf_opcode_radio_state: WLAN_INTF_OPCODE = 4
+public val WLAN_INTF_OPCODE_RADIO_STATE: WlanIntfOpcode = 4
 
-public val wlan_intf_opcode_rssi: WLAN_INTF_OPCODE = 268435714
+public val WLAN_INTF_OPCODE_RSSI: WlanIntfOpcode = 268435714
 
-public val wlan_intf_opcode_secondary_sta_interfaces: WLAN_INTF_OPCODE = 17
+public val WLAN_INTF_OPCODE_SECONDARY_STA_INTERFACES: WlanIntfOpcode = 17
 
-public val wlan_intf_opcode_secondary_sta_synchronized_connections: WLAN_INTF_OPCODE = 18
+public val WLAN_INTF_OPCODE_SECONDARY_STA_SYNCHRONIZED_CONNECTIONS: WlanIntfOpcode = 18
 
-public val wlan_intf_opcode_security_end: WLAN_INTF_OPCODE = 805306367
+public val WLAN_INTF_OPCODE_SECURITY_END: WlanIntfOpcode = 805306367
 
-public val wlan_intf_opcode_security_start: WLAN_INTF_OPCODE = 536936448
+public val WLAN_INTF_OPCODE_SECURITY_START: WlanIntfOpcode = 536936448
 
-public val wlan_intf_opcode_statistics: WLAN_INTF_OPCODE = 268435713
+public val WLAN_INTF_OPCODE_STATISTICS: WlanIntfOpcode = 268435713
 
-public val wlan_intf_opcode_supported_adhoc_auth_cipher_pairs: WLAN_INTF_OPCODE = 10
+public val WLAN_INTF_OPCODE_SUPPORTED_ADHOC_AUTH_CIPHER_PAIRS: WlanIntfOpcode = 10
 
-public val wlan_intf_opcode_supported_country_or_region_string_list: WLAN_INTF_OPCODE = 11
+public val WLAN_INTF_OPCODE_SUPPORTED_COUNTRY_OR_REGION_STRING_LIST: WlanIntfOpcode = 11
 
-public val wlan_intf_opcode_supported_infrastructure_auth_cipher_pairs: WLAN_INTF_OPCODE = 9
+public val WLAN_INTF_OPCODE_SUPPORTED_INFRASTRUCTURE_AUTH_CIPHER_PAIRS: WlanIntfOpcode = 9
 
-public val wlan_intf_opcode_supported_safe_mode: WLAN_INTF_OPCODE = 13
+public val WLAN_INTF_OPCODE_SUPPORTED_SAFE_MODE: WlanIntfOpcode = 13
 
-public val wlan_notification_acm_adhoc_network_state_change: WLAN_NOTIFICATION_ACM = 22
+public val WLAN_NOTIFICATION_ACM_ADHOC_NETWORK_STATE_CHANGE: WlanNotificationAcm = 22
 
-public val wlan_notification_acm_autoconf_disabled: WLAN_NOTIFICATION_ACM = 2
+public val WLAN_NOTIFICATION_ACM_AUTOCONF_DISABLED: WlanNotificationAcm = 2
 
-public val wlan_notification_acm_autoconf_enabled: WLAN_NOTIFICATION_ACM = 1
+public val WLAN_NOTIFICATION_ACM_AUTOCONF_ENABLED: WlanNotificationAcm = 1
 
-public val wlan_notification_acm_background_scan_disabled: WLAN_NOTIFICATION_ACM = 4
+public val WLAN_NOTIFICATION_ACM_BACKGROUND_SCAN_DISABLED: WlanNotificationAcm = 4
 
-public val wlan_notification_acm_background_scan_enabled: WLAN_NOTIFICATION_ACM = 3
+public val WLAN_NOTIFICATION_ACM_BACKGROUND_SCAN_ENABLED: WlanNotificationAcm = 3
 
-public val wlan_notification_acm_bss_type_change: WLAN_NOTIFICATION_ACM = 5
+public val WLAN_NOTIFICATION_ACM_BSS_TYPE_CHANGE: WlanNotificationAcm = 5
 
-public val wlan_notification_acm_connection_attempt_fail: WLAN_NOTIFICATION_ACM = 11
+public val WLAN_NOTIFICATION_ACM_CONNECTION_ATTEMPT_FAIL: WlanNotificationAcm = 11
 
-public val wlan_notification_acm_connection_complete: WLAN_NOTIFICATION_ACM = 10
+public val WLAN_NOTIFICATION_ACM_CONNECTION_COMPLETE: WlanNotificationAcm = 10
 
-public val wlan_notification_acm_connection_start: WLAN_NOTIFICATION_ACM = 9
+public val WLAN_NOTIFICATION_ACM_CONNECTION_START: WlanNotificationAcm = 9
 
-public val wlan_notification_acm_disconnected: WLAN_NOTIFICATION_ACM = 21
+public val WLAN_NOTIFICATION_ACM_DISCONNECTED: WlanNotificationAcm = 21
 
-public val wlan_notification_acm_disconnecting: WLAN_NOTIFICATION_ACM = 20
+public val WLAN_NOTIFICATION_ACM_DISCONNECTING: WlanNotificationAcm = 20
 
-public val wlan_notification_acm_end: WLAN_NOTIFICATION_ACM = 28
+public val WLAN_NOTIFICATION_ACM_END: WlanNotificationAcm = 28
 
-public val wlan_notification_acm_filter_list_change: WLAN_NOTIFICATION_ACM = 12
+public val WLAN_NOTIFICATION_ACM_FILTER_LIST_CHANGE: WlanNotificationAcm = 12
 
-public val wlan_notification_acm_interface_arrival: WLAN_NOTIFICATION_ACM = 13
+public val WLAN_NOTIFICATION_ACM_INTERFACE_ARRIVAL: WlanNotificationAcm = 13
 
-public val wlan_notification_acm_interface_removal: WLAN_NOTIFICATION_ACM = 14
+public val WLAN_NOTIFICATION_ACM_INTERFACE_REMOVAL: WlanNotificationAcm = 14
 
-public val wlan_notification_acm_network_available: WLAN_NOTIFICATION_ACM = 19
+public val WLAN_NOTIFICATION_ACM_NETWORK_AVAILABLE: WlanNotificationAcm = 19
 
-public val wlan_notification_acm_network_not_available: WLAN_NOTIFICATION_ACM = 18
+public val WLAN_NOTIFICATION_ACM_NETWORK_NOT_AVAILABLE: WlanNotificationAcm = 18
 
-public val wlan_notification_acm_operational_state_change: WLAN_NOTIFICATION_ACM = 27
+public val WLAN_NOTIFICATION_ACM_OPERATIONAL_STATE_CHANGE: WlanNotificationAcm = 27
 
-public val wlan_notification_acm_power_setting_change: WLAN_NOTIFICATION_ACM = 6
+public val WLAN_NOTIFICATION_ACM_POWER_SETTING_CHANGE: WlanNotificationAcm = 6
 
-public val wlan_notification_acm_profile_blocked: WLAN_NOTIFICATION_ACM = 25
+public val WLAN_NOTIFICATION_ACM_PROFILE_BLOCKED: WlanNotificationAcm = 25
 
-public val wlan_notification_acm_profile_change: WLAN_NOTIFICATION_ACM = 15
+public val WLAN_NOTIFICATION_ACM_PROFILE_CHANGE: WlanNotificationAcm = 15
 
-public val wlan_notification_acm_profile_name_change: WLAN_NOTIFICATION_ACM = 16
+public val WLAN_NOTIFICATION_ACM_PROFILE_NAME_CHANGE: WlanNotificationAcm = 16
 
-public val wlan_notification_acm_profile_unblocked: WLAN_NOTIFICATION_ACM = 23
+public val WLAN_NOTIFICATION_ACM_PROFILE_UNBLOCKED: WlanNotificationAcm = 23
 
-public val wlan_notification_acm_profiles_exhausted: WLAN_NOTIFICATION_ACM = 17
+public val WLAN_NOTIFICATION_ACM_PROFILES_EXHAUSTED: WlanNotificationAcm = 17
 
-public val wlan_notification_acm_scan_complete: WLAN_NOTIFICATION_ACM = 7
+public val WLAN_NOTIFICATION_ACM_SCAN_COMPLETE: WlanNotificationAcm = 7
 
-public val wlan_notification_acm_scan_fail: WLAN_NOTIFICATION_ACM = 8
+public val WLAN_NOTIFICATION_ACM_SCAN_FAIL: WlanNotificationAcm = 8
 
-public val wlan_notification_acm_scan_list_refresh: WLAN_NOTIFICATION_ACM = 26
+public val WLAN_NOTIFICATION_ACM_SCAN_LIST_REFRESH: WlanNotificationAcm = 26
 
-public val wlan_notification_acm_screen_power_change: WLAN_NOTIFICATION_ACM = 24
+public val WLAN_NOTIFICATION_ACM_SCREEN_POWER_CHANGE: WlanNotificationAcm = 24
 
-public val wlan_notification_acm_start: WLAN_NOTIFICATION_ACM = 0
+public val WLAN_NOTIFICATION_ACM_START: WlanNotificationAcm = 0
 
-public val wlan_notification_msm_adapter_operation_mode_change: WLAN_NOTIFICATION_MSM = 14
+public val WLAN_NOTIFICATION_MSM_ADAPTER_OPERATION_MODE_CHANGE: WlanNotificationMsm = 14
 
-public val wlan_notification_msm_adapter_removal: WLAN_NOTIFICATION_MSM = 13
+public val WLAN_NOTIFICATION_MSM_ADAPTER_REMOVAL: WlanNotificationMsm = 13
 
-public val wlan_notification_msm_associated: WLAN_NOTIFICATION_MSM = 2
+public val WLAN_NOTIFICATION_MSM_ASSOCIATED: WlanNotificationMsm = 2
 
-public val wlan_notification_msm_associating: WLAN_NOTIFICATION_MSM = 1
+public val WLAN_NOTIFICATION_MSM_ASSOCIATING: WlanNotificationMsm = 1
 
-public val wlan_notification_msm_authenticating: WLAN_NOTIFICATION_MSM = 3
+public val WLAN_NOTIFICATION_MSM_AUTHENTICATING: WlanNotificationMsm = 3
 
-public val wlan_notification_msm_connected: WLAN_NOTIFICATION_MSM = 4
+public val WLAN_NOTIFICATION_MSM_CONNECTED: WlanNotificationMsm = 4
 
-public val wlan_notification_msm_disassociating: WLAN_NOTIFICATION_MSM = 9
+public val WLAN_NOTIFICATION_MSM_DISASSOCIATING: WlanNotificationMsm = 9
 
-public val wlan_notification_msm_disconnected: WLAN_NOTIFICATION_MSM = 10
+public val WLAN_NOTIFICATION_MSM_DISCONNECTED: WlanNotificationMsm = 10
 
-public val wlan_notification_msm_end: WLAN_NOTIFICATION_MSM = 17
+public val WLAN_NOTIFICATION_MSM_END: WlanNotificationMsm = 17
 
-public val wlan_notification_msm_link_degraded: WLAN_NOTIFICATION_MSM = 15
+public val WLAN_NOTIFICATION_MSM_LINK_DEGRADED: WlanNotificationMsm = 15
 
-public val wlan_notification_msm_link_improved: WLAN_NOTIFICATION_MSM = 16
+public val WLAN_NOTIFICATION_MSM_LINK_IMPROVED: WlanNotificationMsm = 16
 
-public val wlan_notification_msm_peer_join: WLAN_NOTIFICATION_MSM = 11
+public val WLAN_NOTIFICATION_MSM_PEER_JOIN: WlanNotificationMsm = 11
 
-public val wlan_notification_msm_peer_leave: WLAN_NOTIFICATION_MSM = 12
+public val WLAN_NOTIFICATION_MSM_PEER_LEAVE: WlanNotificationMsm = 12
 
-public val wlan_notification_msm_radio_state_change: WLAN_NOTIFICATION_MSM = 7
+public val WLAN_NOTIFICATION_MSM_RADIO_STATE_CHANGE: WlanNotificationMsm = 7
 
-public val wlan_notification_msm_roaming_end: WLAN_NOTIFICATION_MSM = 6
+public val WLAN_NOTIFICATION_MSM_ROAMING_END: WlanNotificationMsm = 6
 
-public val wlan_notification_msm_roaming_start: WLAN_NOTIFICATION_MSM = 5
+public val WLAN_NOTIFICATION_MSM_ROAMING_START: WlanNotificationMsm = 5
 
-public val wlan_notification_msm_signal_quality_change: WLAN_NOTIFICATION_MSM = 8
+public val WLAN_NOTIFICATION_MSM_SIGNAL_QUALITY_CHANGE: WlanNotificationMsm = 8
 
-public val wlan_notification_msm_start: WLAN_NOTIFICATION_MSM = 0
+public val WLAN_NOTIFICATION_MSM_START: WlanNotificationMsm = 0
 
-public val wlan_notification_security_end: WLAN_NOTIFICATION_SECURITY = 1
+public val WLAN_NOTIFICATION_SECURITY_END: WlanNotificationSecurity = 1
 
-public val wlan_notification_security_start: WLAN_NOTIFICATION_SECURITY = 0
+public val WLAN_NOTIFICATION_SECURITY_START: WlanNotificationSecurity = 0
 
-public val wlan_opcode_value_type_invalid: WLAN_OPCODE_VALUE_TYPE = 3
+public val WLAN_OPCODE_VALUE_TYPE_INVALID: WlanOpcodeValueType = 3
 
-public val wlan_opcode_value_type_query_only: WLAN_OPCODE_VALUE_TYPE = 0
+public val WLAN_OPCODE_VALUE_TYPE_QUERY_ONLY: WlanOpcodeValueType = 0
 
-public val wlan_opcode_value_type_set_by_group_policy: WLAN_OPCODE_VALUE_TYPE = 1
+public val WLAN_OPCODE_VALUE_TYPE_SET_BY_GROUP_POLICY: WlanOpcodeValueType = 1
 
-public val wlan_opcode_value_type_set_by_user: WLAN_OPCODE_VALUE_TYPE = 2
+public val WLAN_OPCODE_VALUE_TYPE_SET_BY_USER: WlanOpcodeValueType = 2
 
-public val wlan_operational_state_going_off: WLAN_OPERATIONAL_STATE = 3
+public val WLAN_OPERATIONAL_STATE_GOING_OFF: WlanOperationalState = 3
 
-public val wlan_operational_state_going_on: WLAN_OPERATIONAL_STATE = 4
+public val WLAN_OPERATIONAL_STATE_GOING_ON: WlanOperationalState = 4
 
-public val wlan_operational_state_off: WLAN_OPERATIONAL_STATE = 1
+public val WLAN_OPERATIONAL_STATE_OFF: WlanOperationalState = 1
 
-public val wlan_operational_state_on: WLAN_OPERATIONAL_STATE = 2
+public val WLAN_OPERATIONAL_STATE_ON: WlanOperationalState = 2
 
-public val wlan_operational_state_unknown: WLAN_OPERATIONAL_STATE = 0
+public val WLAN_OPERATIONAL_STATE_UNKNOWN: WlanOperationalState = 0
 
-public val wlan_power_setting_invalid: WLAN_POWER_SETTING = 4
+public val WLAN_POWER_SETTING_INVALID: WlanPowerSetting = 4
 
-public val wlan_power_setting_low_saving: WLAN_POWER_SETTING = 1
+public val WLAN_POWER_SETTING_LOW_SAVING: WlanPowerSetting = 1
 
-public val wlan_power_setting_maximum_saving: WLAN_POWER_SETTING = 3
+public val WLAN_POWER_SETTING_MAXIMUM_SAVING: WlanPowerSetting = 3
 
-public val wlan_power_setting_medium_saving: WLAN_POWER_SETTING = 2
+public val WLAN_POWER_SETTING_MEDIUM_SAVING: WlanPowerSetting = 2
 
-public val wlan_power_setting_no_saving: WLAN_POWER_SETTING = 0
+public val WLAN_POWER_SETTING_NO_SAVING: WlanPowerSetting = 0
 
-public val wlan_secure_ac_enabled: WLAN_SECURABLE_OBJECT = 2
+public val WLAN_SECURE_AC_ENABLED: WlanSecurableObject = 2
 
-public val wlan_secure_add_new_all_user_profiles: WLAN_SECURABLE_OBJECT = 9
+public val WLAN_SECURE_ADD_NEW_ALL_USER_PROFILES: WlanSecurableObject = 9
 
-public val wlan_secure_add_new_per_user_profiles: WLAN_SECURABLE_OBJECT = 10
+public val WLAN_SECURE_ADD_NEW_PER_USER_PROFILES: WlanSecurableObject = 10
 
-public val wlan_secure_all_user_profiles_order: WLAN_SECURABLE_OBJECT = 8
+public val WLAN_SECURE_ALL_USER_PROFILES_ORDER: WlanSecurableObject = 8
 
-public val wlan_secure_bc_scan_enabled: WLAN_SECURABLE_OBJECT = 3
+public val WLAN_SECURE_BC_SCAN_ENABLED: WlanSecurableObject = 3
 
-public val wlan_secure_bss_type: WLAN_SECURABLE_OBJECT = 4
+public val WLAN_SECURE_BSS_TYPE: WlanSecurableObject = 4
 
-public val wlan_secure_current_operation_mode: WLAN_SECURABLE_OBJECT = 12
+public val WLAN_SECURE_CURRENT_OPERATION_MODE: WlanSecurableObject = 12
 
-public val wlan_secure_deny_list: WLAN_SECURABLE_OBJECT = 1
+public val WLAN_SECURE_DENY_LIST: WlanSecurableObject = 1
 
-public val wlan_secure_get_plaintext_key: WLAN_SECURABLE_OBJECT = 13
+public val WLAN_SECURE_GET_PLAINTEXT_KEY: WlanSecurableObject = 13
 
-public val wlan_secure_hosted_network_elevated_access: WLAN_SECURABLE_OBJECT = 14
+public val WLAN_SECURE_HOSTED_NETWORK_ELEVATED_ACCESS: WlanSecurableObject = 14
 
-public val wlan_secure_ihv_control: WLAN_SECURABLE_OBJECT = 7
+public val WLAN_SECURE_IHV_CONTROL: WlanSecurableObject = 7
 
-public val wlan_secure_interface_properties: WLAN_SECURABLE_OBJECT = 6
+public val WLAN_SECURE_INTERFACE_PROPERTIES: WlanSecurableObject = 6
 
-public val wlan_secure_media_streaming_mode_enabled: WLAN_SECURABLE_OBJECT = 11
+public val WLAN_SECURE_MEDIA_STREAMING_MODE_ENABLED: WlanSecurableObject = 11
 
-public val wlan_secure_permit_list: WLAN_SECURABLE_OBJECT = 0
+public val WLAN_SECURE_PERMIT_LIST: WlanSecurableObject = 0
 
-public val wlan_secure_show_denied: WLAN_SECURABLE_OBJECT = 5
+public val WLAN_SECURE_SHOW_DENIED: WlanSecurableObject = 5
 
-public val wlan_secure_virtual_station_extensibility: WLAN_SECURABLE_OBJECT = 15
+public val WLAN_SECURE_VIRTUAL_STATION_EXTENSIBILITY: WlanSecurableObject = 15
 
-public val wlan_secure_wfd_elevated_access: WLAN_SECURABLE_OBJECT = 16
+public val WLAN_SECURE_WFD_ELEVATED_ACCESS: WlanSecurableObject = 16

@@ -9,9 +9,9 @@
 extern "C" {
 #endif
 
-int32_t windowssys_windows_win32_ui_textservices_DoMsCtfMonitor(uint32_t dwflags, void* heventforservicestop);
-int32_t windowssys_windows_win32_ui_textservices_InitLocalMsCtfMonitor(uint32_t dwflags);
-int32_t windowssys_windows_win32_ui_textservices_UninitLocalMsCtfMonitor(void);
+int32_t windowssys_windows_win32_ui_textservices_doMsCtfMonitor(uint32_t dwflags, void* heventforservicestop);
+int32_t windowssys_windows_win32_ui_textservices_initLocalMsCtfMonitor(uint32_t dwflags);
+int32_t windowssys_windows_win32_ui_textservices_uninitLocalMsCtfMonitor(void);
 
 #ifdef __cplusplus
 }

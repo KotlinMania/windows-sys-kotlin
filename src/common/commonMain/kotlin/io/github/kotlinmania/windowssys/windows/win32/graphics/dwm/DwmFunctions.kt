@@ -1,71 +1,72 @@
 package io.github.kotlinmania.windowssys.windows.win32.graphics.dwm
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
-import io.github.kotlinmania.windowssys.windows.win32.foundation.POINT
-import io.github.kotlinmania.windowssys.windows.win32.foundation.WPARAM
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HBITMAP
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Point
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Wparam
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hbitmap
 
-public expect fun DwmAttachMilContent(hwnd: HWND): HRESULT
+public expect fun dwmAttachMilContent(hwnd: Hwnd): Hresult
 
-public expect fun DwmDefWindowProc(hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM, plresult: Long): BOOL
+public expect fun dwmDefWindowProc(hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam, plresult: COpaquePointer?): Bool
 
-public expect fun DwmDetachMilContent(hwnd: HWND): HRESULT
+public expect fun dwmDetachMilContent(hwnd: Hwnd): Hresult
 
-public expect fun DwmEnableBlurBehindWindow(hwnd: HWND, pblurbehind: Long): HRESULT
+public expect fun dwmEnableBlurBehindWindow(hwnd: Hwnd, pblurbehind: COpaquePointer?): Hresult
 
-public expect fun DwmEnableComposition(ucompositionaction: UInt): HRESULT
+public expect fun dwmEnableComposition(ucompositionaction: UInt): Hresult
 
-public expect fun DwmEnableMMCSS(fenablemmcss: BOOL): HRESULT
+public expect fun dwmEnableMMCSS(fenablemmcss: Bool): Hresult
 
-public expect fun DwmExtendFrameIntoClientArea(hwnd: HWND, pmarinset: Long): HRESULT
+public expect fun dwmExtendFrameIntoClientArea(hwnd: Hwnd, pmarinset: COpaquePointer?): Hresult
 
-public expect fun DwmFlush(): HRESULT
+public expect fun dwmFlush(): Hresult
 
-public expect fun DwmGetColorizationColor(pcrcolorization: Long, pfopaqueblend: Long): HRESULT
+public expect fun dwmGetColorizationColor(pcrcolorization: COpaquePointer?, pfopaqueblend: COpaquePointer?): Hresult
 
-public expect fun DwmGetCompositionTimingInfo(hwnd: HWND, ptiminginfo: Long): HRESULT
+public expect fun dwmGetCompositionTimingInfo(hwnd: Hwnd, ptiminginfo: COpaquePointer?): Hresult
 
-public expect fun DwmGetGraphicsStreamClient(uindex: UInt, pclientuuid: Long): HRESULT
+public expect fun dwmGetGraphicsStreamClient(uindex: UInt, pclientuuid: COpaquePointer?): Hresult
 
-public expect fun DwmGetGraphicsStreamTransformHint(uindex: UInt, ptransform: Long): HRESULT
+public expect fun dwmGetGraphicsStreamTransformHint(uindex: UInt, ptransform: COpaquePointer?): Hresult
 
-public expect fun DwmGetTransportAttributes(pfisremoting: Long, pfisconnected: Long, pdwgeneration: Long): HRESULT
+public expect fun dwmGetTransportAttributes(pfisremoting: COpaquePointer?, pfisconnected: COpaquePointer?, pdwgeneration: COpaquePointer?): Hresult
 
-public expect fun DwmGetUnmetTabRequirements(appwindow: HWND, value: Long): HRESULT
+public expect fun dwmGetUnmetTabRequirements(appwindow: Hwnd, value: COpaquePointer?): Hresult
 
-public expect fun DwmGetWindowAttribute(hwnd: HWND, dwattribute: UInt, pvattribute: Long, cbattribute: UInt): HRESULT
+public expect fun dwmGetWindowAttribute(hwnd: Hwnd, dwattribute: UInt, pvattribute: COpaquePointer?, cbattribute: UInt): Hresult
 
-public expect fun DwmInvalidateIconicBitmaps(hwnd: HWND): HRESULT
+public expect fun dwmInvalidateIconicBitmaps(hwnd: Hwnd): Hresult
 
-public expect fun DwmIsCompositionEnabled(pfenabled: Long): HRESULT
+public expect fun dwmIsCompositionEnabled(pfenabled: COpaquePointer?): Hresult
 
-public expect fun DwmModifyPreviousDxFrameDuration(hwnd: HWND, crefreshes: Int, frelative: BOOL): HRESULT
+public expect fun dwmModifyPreviousDxFrameDuration(hwnd: Hwnd, crefreshes: Int, frelative: Bool): Hresult
 
-public expect fun DwmQueryThumbnailSourceSize(hthumbnail: Long, psize: Long): HRESULT
+public expect fun dwmQueryThumbnailSourceSize(hthumbnail: Long, psize: COpaquePointer?): Hresult
 
-public expect fun DwmRegisterThumbnail(hwnddestination: HWND, hwndsource: HWND, phthumbnailid: Long): HRESULT
+public expect fun dwmRegisterThumbnail(hwnddestination: Hwnd, hwndsource: Hwnd, phthumbnailid: COpaquePointer?): Hresult
 
-public expect fun DwmRenderGesture(gt: GESTURE_TYPE, ccontacts: UInt, pdwpointerid: Long, ppoints: Long): HRESULT
+public expect fun dwmRenderGesture(gt: GestureType, ccontacts: UInt, pdwpointerid: COpaquePointer?, ppoints: COpaquePointer?): Hresult
 
-public expect fun DwmSetDxFrameDuration(hwnd: HWND, crefreshes: Int): HRESULT
+public expect fun dwmSetDxFrameDuration(hwnd: Hwnd, crefreshes: Int): Hresult
 
-public expect fun DwmSetIconicLivePreviewBitmap(hwnd: HWND, hbmp: HBITMAP, pptclient: Long, dwsitflags: UInt): HRESULT
+public expect fun dwmSetIconicLivePreviewBitmap(hwnd: Hwnd, hbmp: Hbitmap, pptclient: COpaquePointer?, dwsitflags: UInt): Hresult
 
-public expect fun DwmSetIconicThumbnail(hwnd: HWND, hbmp: HBITMAP, dwsitflags: UInt): HRESULT
+public expect fun dwmSetIconicThumbnail(hwnd: Hwnd, hbmp: Hbitmap, dwsitflags: UInt): Hresult
 
-public expect fun DwmSetPresentParameters(hwnd: HWND, ppresentparams: Long): HRESULT
+public expect fun dwmSetPresentParameters(hwnd: Hwnd, ppresentparams: COpaquePointer?): Hresult
 
-public expect fun DwmSetWindowAttribute(hwnd: HWND, dwattribute: UInt, pvattribute: Long, cbattribute: UInt): HRESULT
+public expect fun dwmSetWindowAttribute(hwnd: Hwnd, dwattribute: UInt, pvattribute: COpaquePointer?, cbattribute: UInt): Hresult
 
-public expect fun DwmShowContact(dwpointerid: UInt, eshowcontact: DWM_SHOWCONTACT): HRESULT
+public expect fun dwmShowContact(dwpointerid: UInt, eshowcontact: DwmShowcontact): Hresult
 
-public expect fun DwmTetherContact(dwpointerid: UInt, fenable: BOOL, pttether: POINT): HRESULT
+public expect fun dwmTetherContact(dwpointerid: UInt, fenable: Bool, pttether: Point): Hresult
 
-public expect fun DwmTransitionOwnedWindow(hwnd: HWND, target: DWMTRANSITION_OWNEDWINDOW_TARGET): HRESULT
+public expect fun dwmTransitionOwnedWindow(hwnd: Hwnd, target: DwmtransitionOwnedwindowTarget): Hresult
 
-public expect fun DwmUnregisterThumbnail(hthumbnailid: Long): HRESULT
+public expect fun dwmUnregisterThumbnail(hthumbnailid: Long): Hresult
 
-public expect fun DwmUpdateThumbnailProperties(hthumbnailid: Long, ptnproperties: Long): HRESULT
+public expect fun dwmUpdateThumbnailProperties(hthumbnailid: Long, ptnproperties: COpaquePointer?): Hresult

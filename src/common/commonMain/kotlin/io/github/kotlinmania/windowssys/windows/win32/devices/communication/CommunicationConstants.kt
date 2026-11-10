@@ -1,91 +1,91 @@
 package io.github.kotlinmania.windowssys.windows.win32.devices.communication
 
 import io.github.kotlinmania.windowssys.U128
-import io.github.kotlinmania.windowssys.core.GUID
+import io.github.kotlinmania.windowssys.core.Guid
 
-public val CE_BREAK: CLEAR_COMM_ERROR_FLAGS = 16u
+public val CE_BREAK: ClearCommErrorFlags = 16u
 
-public val CE_FRAME: CLEAR_COMM_ERROR_FLAGS = 8u
+public val CE_FRAME: ClearCommErrorFlags = 8u
 
-public val CE_OVERRUN: CLEAR_COMM_ERROR_FLAGS = 2u
+public val CE_OVERRUN: ClearCommErrorFlags = 2u
 
-public val CE_RXOVER: CLEAR_COMM_ERROR_FLAGS = 1u
+public val CE_RXOVER: ClearCommErrorFlags = 1u
 
-public val CE_RXPARITY: CLEAR_COMM_ERROR_FLAGS = 4u
+public val CE_RXPARITY: ClearCommErrorFlags = 4u
 
-public val CLRBREAK: ESCAPE_COMM_FUNCTION = 9u
+public val CLRBREAK: EscapeCommFunction = 9u
 
-public val CLRDTR: ESCAPE_COMM_FUNCTION = 6u
+public val CLRDTR: EscapeCommFunction = 6u
 
-public val CLRRTS: ESCAPE_COMM_FUNCTION = 4u
+public val CLRRTS: EscapeCommFunction = 4u
 
-public val DIALOPTION_BILLING: MODEMDEVCAPS_DIAL_OPTIONS = 64u
+public val DIALOPTION_BILLING: ModemdevcapsDialOptions = 64u
 
-public val DIALOPTION_DIALTONE: MODEMDEVCAPS_DIAL_OPTIONS = 256u
+public val DIALOPTION_DIALTONE: ModemdevcapsDialOptions = 256u
 
-public val DIALOPTION_QUIET: MODEMDEVCAPS_DIAL_OPTIONS = 128u
+public val DIALOPTION_QUIET: ModemdevcapsDialOptions = 128u
 
-public val EVENPARITY: DCB_PARITY = 2u
+public val EVENPARITY: DcbParity = 2u.toUByte()
 
-public val EV_BREAK: COMM_EVENT_MASK = 64u
+public val EV_BREAK: CommEventMask = 64u
 
-public val EV_CTS: COMM_EVENT_MASK = 8u
+public val EV_CTS: CommEventMask = 8u
 
-public val EV_DSR: COMM_EVENT_MASK = 16u
+public val EV_DSR: CommEventMask = 16u
 
-public val EV_ERR: COMM_EVENT_MASK = 128u
+public val EV_ERR: CommEventMask = 128u
 
-public val EV_EVENT1: COMM_EVENT_MASK = 2048u
+public val EV_EVENT1: CommEventMask = 2048u
 
-public val EV_EVENT2: COMM_EVENT_MASK = 4096u
+public val EV_EVENT2: CommEventMask = 4096u
 
-public val EV_PERR: COMM_EVENT_MASK = 512u
+public val EV_PERR: CommEventMask = 512u
 
-public val EV_RING: COMM_EVENT_MASK = 256u
+public val EV_RING: CommEventMask = 256u
 
-public val EV_RLSD: COMM_EVENT_MASK = 32u
+public val EV_RLSD: CommEventMask = 32u
 
-public val EV_RX80FULL: COMM_EVENT_MASK = 1024u
+public val EV_RX80FULL: CommEventMask = 1024u
 
-public val EV_RXCHAR: COMM_EVENT_MASK = 1u
+public val EV_RXCHAR: CommEventMask = 1u
 
-public val EV_RXFLAG: COMM_EVENT_MASK = 2u
+public val EV_RXFLAG: CommEventMask = 2u
 
-public val EV_TXEMPTY: COMM_EVENT_MASK = 4u
+public val EV_TXEMPTY: CommEventMask = 4u
 
-public val MARKPARITY: DCB_PARITY = 3u
+public val MARKPARITY: DcbParity = 3u.toUByte()
 
 public val MAXLENGTH_NAI: UInt = 72u
 
 public val MAXLENGTH_UICCDATASTORE: UInt = 10u
 
-public val MDMSPKRFLAG_CALLSETUP: MODEMDEVCAPS_SPEAKER_MODE = 8u
+public val MDMSPKRFLAG_CALLSETUP: ModemdevcapsSpeakerMode = 8u
 
-public val MDMSPKRFLAG_DIAL: MODEMDEVCAPS_SPEAKER_MODE = 2u
+public val MDMSPKRFLAG_DIAL: ModemdevcapsSpeakerMode = 2u
 
-public val MDMSPKRFLAG_OFF: MODEMDEVCAPS_SPEAKER_MODE = 1u
+public val MDMSPKRFLAG_OFF: ModemdevcapsSpeakerMode = 1u
 
-public val MDMSPKRFLAG_ON: MODEMDEVCAPS_SPEAKER_MODE = 4u
+public val MDMSPKRFLAG_ON: ModemdevcapsSpeakerMode = 4u
 
-public val MDMSPKR_CALLSETUP: MODEMSETTINGS_SPEAKER_MODE = 8u
+public val MDMSPKR_CALLSETUP: ModemsettingsSpeakerMode = 8u
 
-public val MDMSPKR_DIAL: MODEMSETTINGS_SPEAKER_MODE = 2u
+public val MDMSPKR_DIAL: ModemsettingsSpeakerMode = 2u
 
-public val MDMSPKR_OFF: MODEMSETTINGS_SPEAKER_MODE = 1u
+public val MDMSPKR_OFF: ModemsettingsSpeakerMode = 1u
 
-public val MDMSPKR_ON: MODEMSETTINGS_SPEAKER_MODE = 4u
+public val MDMSPKR_ON: ModemsettingsSpeakerMode = 4u
 
-public val MDMVOLFLAG_HIGH: MODEMDEVCAPS_SPEAKER_VOLUME = 4u
+public val MDMVOLFLAG_HIGH: ModemdevcapsSpeakerVolume = 4u
 
-public val MDMVOLFLAG_LOW: MODEMDEVCAPS_SPEAKER_VOLUME = 1u
+public val MDMVOLFLAG_LOW: ModemdevcapsSpeakerVolume = 1u
 
-public val MDMVOLFLAG_MEDIUM: MODEMDEVCAPS_SPEAKER_VOLUME = 2u
+public val MDMVOLFLAG_MEDIUM: ModemdevcapsSpeakerVolume = 2u
 
-public val MDMVOL_HIGH: MODEM_SPEAKER_VOLUME = 2u
+public val MDMVOL_HIGH: ModemSpeakerVolume = 2u
 
-public val MDMVOL_LOW: MODEM_SPEAKER_VOLUME = 0u
+public val MDMVOL_LOW: ModemSpeakerVolume = 0u
 
-public val MDMVOL_MEDIUM: MODEM_SPEAKER_VOLUME = 1u
+public val MDMVOL_MEDIUM: ModemSpeakerVolume = 1u
 
 public val MDM_ANALOG_RLP_OFF: UInt = 1u
 
@@ -265,58 +265,58 @@ public val MDM_X75_DATA_DEFAULT: UInt = 0u
 
 public val MDM_X75_DATA_T_70: UInt = 3u
 
-public val MS_CTS_ON: MODEM_STATUS_FLAGS = 16u
+public val MS_CTS_ON: ModemStatusFlags = 16u
 
-public val MS_DSR_ON: MODEM_STATUS_FLAGS = 32u
+public val MS_DSR_ON: ModemStatusFlags = 32u
 
-public val MS_RING_ON: MODEM_STATUS_FLAGS = 64u
+public val MS_RING_ON: ModemStatusFlags = 64u
 
-public val MS_RLSD_ON: MODEM_STATUS_FLAGS = 128u
+public val MS_RLSD_ON: ModemStatusFlags = 128u
 
-public val NOPARITY: DCB_PARITY = 0u
+public val NOPARITY: DcbParity = 0u.toUByte()
 
-public val ODDPARITY: DCB_PARITY = 1u
+public val ODDPARITY: DcbParity = 1u.toUByte()
 
-public val ONE5STOPBITS: DCB_STOP_BITS = 1u
+public val ONE5STOPBITS: DcbStopBits = 1u.toUByte()
 
-public val ONESTOPBIT: DCB_STOP_BITS = 0u
+public val ONESTOPBIT: DcbStopBits = 0u.toUByte()
 
-public val PARITY_EVEN: COMMPROP_STOP_PARITY = 1024u
+public val PARITY_EVEN: CommpropStopParity = 1024u.toUShort()
 
-public val PARITY_MARK: COMMPROP_STOP_PARITY = 2048u
+public val PARITY_MARK: CommpropStopParity = 2048u.toUShort()
 
-public val PARITY_NONE: COMMPROP_STOP_PARITY = 256u
+public val PARITY_NONE: CommpropStopParity = 256u.toUShort()
 
-public val PARITY_ODD: COMMPROP_STOP_PARITY = 512u
+public val PARITY_ODD: CommpropStopParity = 512u.toUShort()
 
-public val PARITY_SPACE: COMMPROP_STOP_PARITY = 4096u
+public val PARITY_SPACE: CommpropStopParity = 4096u.toUShort()
 
-public val PURGE_RXABORT: PURGE_COMM_FLAGS = 2u
+public val PURGE_RXABORT: PurgeCommFlags = 2u
 
-public val PURGE_RXCLEAR: PURGE_COMM_FLAGS = 8u
+public val PURGE_RXCLEAR: PurgeCommFlags = 8u
 
-public val PURGE_TXABORT: PURGE_COMM_FLAGS = 1u
+public val PURGE_TXABORT: PurgeCommFlags = 1u
 
-public val PURGE_TXCLEAR: PURGE_COMM_FLAGS = 4u
+public val PURGE_TXCLEAR: PurgeCommFlags = 4u
 
-public val SETBREAK: ESCAPE_COMM_FUNCTION = 8u
+public val SETBREAK: EscapeCommFunction = 8u
 
-public val SETDTR: ESCAPE_COMM_FUNCTION = 5u
+public val SETDTR: EscapeCommFunction = 5u
 
-public val SETRTS: ESCAPE_COMM_FUNCTION = 3u
+public val SETRTS: EscapeCommFunction = 3u
 
-public val SETXOFF: ESCAPE_COMM_FUNCTION = 1u
+public val SETXOFF: EscapeCommFunction = 1u
 
-public val SETXON: ESCAPE_COMM_FUNCTION = 2u
+public val SETXON: EscapeCommFunction = 2u
 
-public val SID_3GPP_SUPSVCMODEL: GUID = GUID.from_u128(U128(0xd7d08e07d7674478uL, 0xb14aeecc87ea12f7uL))
+public val SID_3GPP_SUPSVCMODEL: Guid = Guid.fromU128(U128(0xd7d08e07d7674478uL, 0xb14aeecc87ea12f7uL))
 
-public val SPACEPARITY: DCB_PARITY = 4u
+public val SPACEPARITY: DcbParity = 4u.toUByte()
 
-public val STOPBITS_10: COMMPROP_STOP_PARITY = 1u
+public val STOPBITS_10: CommpropStopParity = 1u.toUShort()
 
-public val STOPBITS_15: COMMPROP_STOP_PARITY = 2u
+public val STOPBITS_15: CommpropStopParity = 2u.toUShort()
 
-public val STOPBITS_20: COMMPROP_STOP_PARITY = 4u
+public val STOPBITS_20: CommpropStopParity = 4u.toUShort()
 
-public val TWOSTOPBITS: DCB_STOP_BITS = 2u
+public val TWOSTOPBITS: DcbStopBits = 2u.toUByte()

@@ -1,121 +1,122 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.addressbook
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
 
-public expect fun BuildDisplayTable(lpallocatebuffer: LPALLOCATEBUFFER, lpallocatemore: LPALLOCATEMORE, lpfreebuffer: LPFREEBUFFER, lpmalloc: Long, hinstance: HINSTANCE, cpages: UInt, lppage: Long, ulflags: UInt, lpptable: Long, lpptbldata: Long): HRESULT
+public expect fun buildDisplayTable(lpallocatebuffer: Lpallocatebuffer, lpallocatemore: Lpallocatemore, lpfreebuffer: Lpfreebuffer, lpmalloc: COpaquePointer?, hinstance: Hinstance, cpages: UInt, lppage: COpaquePointer?, ulflags: UInt, lpptable: COpaquePointer?, lpptbldata: COpaquePointer?): Hresult
 
-public expect fun ChangeIdleRoutine(ftg: Long, lpfnidle: PFNIDLE, lpvidleparam: Long, priidle: Short, csecidle: UInt, iroidle: UShort, ircidle: UShort)
+public expect fun changeIdleRoutine(ftg: COpaquePointer?, lpfnidle: Pfnidle, lpvidleparam: COpaquePointer?, priidle: Short, csecidle: UInt, iroidle: UShort, ircidle: UShort)
 
-public expect fun CreateIProp(lpinterface: Long, lpallocatebuffer: LPALLOCATEBUFFER, lpallocatemore: LPALLOCATEMORE, lpfreebuffer: LPFREEBUFFER, lpvreserved: Long, lpppropdata: Long): Int
+public expect fun createIProp(lpinterface: COpaquePointer?, lpallocatebuffer: Lpallocatebuffer, lpallocatemore: Lpallocatemore, lpfreebuffer: Lpfreebuffer, lpvreserved: COpaquePointer?, lpppropdata: COpaquePointer?): Int
 
-public expect fun CreateTable(lpinterface: Long, lpallocatebuffer: LPALLOCATEBUFFER, lpallocatemore: LPALLOCATEMORE, lpfreebuffer: LPFREEBUFFER, lpvreserved: Long, ultabletype: UInt, ulproptagindexcolumn: UInt, lpsproptagarraycolumns: Long, lpptabledata: Long): Int
+public expect fun createTable(lpinterface: COpaquePointer?, lpallocatebuffer: Lpallocatebuffer, lpallocatemore: Lpallocatemore, lpfreebuffer: Lpfreebuffer, lpvreserved: COpaquePointer?, ultabletype: UInt, ulproptagindexcolumn: UInt, lpsproptagarraycolumns: COpaquePointer?, lpptabledata: COpaquePointer?): Int
 
-public expect fun DeinitMapiUtil()
+public expect fun deinitMapiUtil()
 
-public expect fun DeregisterIdleRoutine(ftg: Long)
+public expect fun deregisterIdleRoutine(ftg: COpaquePointer?)
 
-public expect fun EnableIdleRoutine(ftg: Long, fenable: BOOL)
+public expect fun enableIdleRoutine(ftg: COpaquePointer?, fenable: Bool)
 
-public expect fun FEqualNames(lpname1: Long, lpname2: Long): BOOL
+public expect fun fEqualNames(lpname1: COpaquePointer?, lpname2: COpaquePointer?): Bool
 
-public expect fun FPropCompareProp(lpspropvalue1: Long, ulrelop: UInt, lpspropvalue2: Long): BOOL
+public expect fun fPropCompareProp(lpspropvalue1: COpaquePointer?, ulrelop: UInt, lpspropvalue2: COpaquePointer?): Bool
 
-public expect fun FPropContainsProp(lpspropvaluedst: Long, lpspropvaluesrc: Long, ulfuzzylevel: UInt): BOOL
+public expect fun fPropContainsProp(lpspropvaluedst: COpaquePointer?, lpspropvaluesrc: COpaquePointer?, ulfuzzylevel: UInt): Bool
 
-public expect fun FPropExists(lpmapiprop: Long, ulproptag: UInt): BOOL
+public expect fun fPropExists(lpmapiprop: COpaquePointer?, ulproptag: UInt): Bool
 
-public expect fun FreePadrlist(lpadrlist: Long)
+public expect fun freePadrlist(lpadrlist: COpaquePointer?)
 
-public expect fun FreeProws(lprows: Long)
+public expect fun freeProws(lprows: COpaquePointer?)
 
-public expect fun FtAddFt(ftaddend1: FILETIME, ftaddend2: FILETIME): FILETIME
+public expect fun ftAddFt(ftaddend1: Filetime, ftaddend2: Filetime): Filetime
 
-public expect fun FtMulDw(ftmultiplier: UInt, ftmultiplicand: FILETIME): FILETIME
+public expect fun ftMulDw(ftmultiplier: UInt, ftmultiplicand: Filetime): Filetime
 
-public expect fun FtMulDwDw(ftmultiplicand: UInt, ftmultiplier: UInt): FILETIME
+public expect fun ftMulDwDw(ftmultiplicand: UInt, ftmultiplier: UInt): Filetime
 
-public expect fun FtNegFt(ft: FILETIME): FILETIME
+public expect fun ftNegFt(ft: Filetime): Filetime
 
-public expect fun FtSubFt(ftminuend: FILETIME, ftsubtrahend: FILETIME): FILETIME
+public expect fun ftSubFt(ftminuend: Filetime, ftsubtrahend: Filetime): Filetime
 
-public expect fun FtgRegisterIdleRoutine(lpfnidle: PFNIDLE, lpvidleparam: Long, priidle: Short, csecidle: UInt, iroidle: UShort): Long
+public expect fun ftgRegisterIdleRoutine(lpfnidle: Pfnidle, lpvidleparam: COpaquePointer?, priidle: Short, csecidle: UInt, iroidle: UShort): COpaquePointer?
 
-public expect fun HrAddColumns(lptbl: Long, lpproptagcolumnsnew: Long, lpallocatebuffer: LPALLOCATEBUFFER, lpfreebuffer: LPFREEBUFFER): HRESULT
+public expect fun hrAddColumns(lptbl: COpaquePointer?, lpproptagcolumnsnew: COpaquePointer?, lpallocatebuffer: Lpallocatebuffer, lpfreebuffer: Lpfreebuffer): Hresult
 
-public expect fun HrAddColumnsEx(lptbl: Long, lpproptagcolumnsnew: Long, lpallocatebuffer: LPALLOCATEBUFFER, lpfreebuffer: LPFREEBUFFER, lpfnfiltercolumns: Long): HRESULT
+public expect fun hrAddColumnsEx(lptbl: COpaquePointer?, lpproptagcolumnsnew: COpaquePointer?, lpallocatebuffer: Lpallocatebuffer, lpfreebuffer: Lpfreebuffer, lpfnfiltercolumns: Long): Hresult
 
-public expect fun HrAllocAdviseSink(lpfncallback: LPNOTIFCALLBACK, lpvcontext: Long, lppadvisesink: Long): HRESULT
+public expect fun hrAllocAdviseSink(lpfncallback: Lpnotifcallback, lpvcontext: COpaquePointer?, lppadvisesink: COpaquePointer?): Hresult
 
-public expect fun HrDispatchNotifications(ulflags: UInt): HRESULT
+public expect fun hrDispatchNotifications(ulflags: UInt): Hresult
 
-public expect fun HrGetOneProp(lpmapiprop: Long, ulproptag: UInt, lppprop: Long): HRESULT
+public expect fun hrGetOneProp(lpmapiprop: COpaquePointer?, ulproptag: UInt, lppprop: COpaquePointer?): Hresult
 
-public expect fun HrIStorageFromStream(lpunkin: Long, lpinterface: Long, ulflags: UInt, lppstorageout: Long): HRESULT
+public expect fun hrIStorageFromStream(lpunkin: COpaquePointer?, lpinterface: COpaquePointer?, ulflags: UInt, lppstorageout: COpaquePointer?): Hresult
 
-public expect fun HrQueryAllRows(lptable: Long, lpproptags: Long, lprestriction: Long, lpsortorderset: Long, crowsmax: Int, lpprows: Long): HRESULT
+public expect fun hrQueryAllRows(lptable: COpaquePointer?, lpproptags: COpaquePointer?, lprestriction: COpaquePointer?, lpsortorderset: COpaquePointer?, crowsmax: Int, lpprows: COpaquePointer?): Hresult
 
-public expect fun HrSetOneProp(lpmapiprop: Long, lpprop: Long): HRESULT
+public expect fun hrSetOneProp(lpmapiprop: COpaquePointer?, lpprop: COpaquePointer?): Hresult
 
-public expect fun HrThisThreadAdviseSink(lpadvisesink: Long, lppadvisesink: Long): HRESULT
+public expect fun hrThisThreadAdviseSink(lpadvisesink: COpaquePointer?, lppadvisesink: COpaquePointer?): Hresult
 
-public expect fun LPropCompareProp(lpspropvaluea: Long, lpspropvalueb: Long): Int
+public expect fun lPropCompareProp(lpspropvaluea: COpaquePointer?, lpspropvalueb: COpaquePointer?): Int
 
-public expect fun LpValFindProp(ulproptag: UInt, cvalues: UInt, lpproparray: Long): Long
+public expect fun lpValFindProp(ulproptag: UInt, cvalues: UInt, lpproparray: COpaquePointer?): COpaquePointer?
 
-public expect fun MAPIDeinitIdle()
+public expect fun mAPIDeinitIdle()
 
-public expect fun MAPIGetDefaultMalloc(): Long
+public expect fun mAPIGetDefaultMalloc(): COpaquePointer?
 
-public expect fun MAPIInitIdle(lpvreserved: Long): Int
+public expect fun mAPIInitIdle(lpvreserved: COpaquePointer?): Int
 
-public expect fun OpenStreamOnFile(lpallocatebuffer: LPALLOCATEBUFFER, lpfreebuffer: LPFREEBUFFER, ulflags: UInt, lpszfilename: Long, lpszprefix: Long, lppstream: Long): HRESULT
+public expect fun openStreamOnFile(lpallocatebuffer: Lpallocatebuffer, lpfreebuffer: Lpfreebuffer, ulflags: UInt, lpszfilename: COpaquePointer?, lpszprefix: COpaquePointer?, lppstream: COpaquePointer?): Hresult
 
-public expect fun PpropFindProp(lpproparray: Long, cvalues: UInt, ulproptag: UInt): Long
+public expect fun ppropFindProp(lpproparray: COpaquePointer?, cvalues: UInt, ulproptag: UInt): COpaquePointer?
 
-public expect fun PropCopyMore(lpspropvaluedest: Long, lpspropvaluesrc: Long, lpfallocmore: LPALLOCATEMORE, lpvobject: Long): Int
+public expect fun propCopyMore(lpspropvaluedest: COpaquePointer?, lpspropvaluesrc: COpaquePointer?, lpfallocmore: Lpallocatemore, lpvobject: COpaquePointer?): Int
 
-public expect fun RTFSync(lpmessage: Long, ulflags: UInt, lpfmessageupdated: Long): HRESULT
+public expect fun rTFSync(lpmessage: COpaquePointer?, ulflags: UInt, lpfmessageupdated: COpaquePointer?): Hresult
 
-public expect fun ScCopyNotifications(cnotification: Int, lpnotifications: Long, lpvdst: Long, lpcb: Long): Int
+public expect fun scCopyNotifications(cnotification: Int, lpnotifications: COpaquePointer?, lpvdst: COpaquePointer?, lpcb: COpaquePointer?): Int
 
-public expect fun ScCopyProps(cvalues: Int, lpproparray: Long, lpvdst: Long, lpcb: Long): Int
+public expect fun scCopyProps(cvalues: Int, lpproparray: COpaquePointer?, lpvdst: COpaquePointer?, lpcb: COpaquePointer?): Int
 
-public expect fun ScCountNotifications(cnotifications: Int, lpnotifications: Long, lpcb: Long): Int
+public expect fun scCountNotifications(cnotifications: Int, lpnotifications: COpaquePointer?, lpcb: COpaquePointer?): Int
 
-public expect fun ScCountProps(cvalues: Int, lpproparray: Long, lpcb: Long): Int
+public expect fun scCountProps(cvalues: Int, lpproparray: COpaquePointer?, lpcb: COpaquePointer?): Int
 
-public expect fun ScCreateConversationIndex(cbparent: UInt, lpbparent: Long, lpcbconvindex: Long, lppbconvindex: Long): Int
+public expect fun scCreateConversationIndex(cbparent: UInt, lpbparent: COpaquePointer?, lpcbconvindex: COpaquePointer?, lppbconvindex: COpaquePointer?): Int
 
-public expect fun ScDupPropset(cvalues: Int, lpproparray: Long, lpallocatebuffer: LPALLOCATEBUFFER, lppproparray: Long): Int
+public expect fun scDupPropset(cvalues: Int, lpproparray: COpaquePointer?, lpallocatebuffer: Lpallocatebuffer, lppproparray: COpaquePointer?): Int
 
-public expect fun ScInitMapiUtil(ulflags: UInt): Int
+public expect fun scInitMapiUtil(ulflags: UInt): Int
 
-public expect fun ScLocalPathFromUNC(lpszunc: PCSTR, lpszlocal: PCSTR, cchlocal: UInt): Int
+public expect fun scLocalPathFromUNC(lpszunc: Pcstr, lpszlocal: Pcstr, cchlocal: UInt): Int
 
-public expect fun ScRelocNotifications(cnotification: Int, lpnotifications: Long, lpvbaseold: Long, lpvbasenew: Long, lpcb: Long): Int
+public expect fun scRelocNotifications(cnotification: Int, lpnotifications: COpaquePointer?, lpvbaseold: COpaquePointer?, lpvbasenew: COpaquePointer?, lpcb: COpaquePointer?): Int
 
-public expect fun ScRelocProps(cvalues: Int, lpproparray: Long, lpvbaseold: Long, lpvbasenew: Long, lpcb: Long): Int
+public expect fun scRelocProps(cvalues: Int, lpproparray: COpaquePointer?, lpvbaseold: COpaquePointer?, lpvbasenew: COpaquePointer?, lpcb: COpaquePointer?): Int
 
-public expect fun ScUNCFromLocalPath(lpszlocal: PCSTR, lpszunc: PCSTR, cchunc: UInt): Int
+public expect fun scUNCFromLocalPath(lpszlocal: Pcstr, lpszunc: Pcstr, cchunc: UInt): Int
 
-public expect fun SzFindCh(lpsz: Long, ch: UShort): Long
+public expect fun szFindCh(lpsz: COpaquePointer?, ch: UShort): COpaquePointer?
 
-public expect fun SzFindLastCh(lpsz: Long, ch: UShort): Long
+public expect fun szFindLastCh(lpsz: COpaquePointer?, ch: UShort): COpaquePointer?
 
-public expect fun SzFindSz(lpsz: Long, lpszkey: Long): Long
+public expect fun szFindSz(lpsz: COpaquePointer?, lpszkey: COpaquePointer?): COpaquePointer?
 
-public expect fun UFromSz(lpsz: Long): UInt
+public expect fun uFromSz(lpsz: COpaquePointer?): UInt
 
-public expect fun UlAddRef(lpunk: Long): UInt
+public expect fun ulAddRef(lpunk: COpaquePointer?): UInt
 
-public expect fun UlPropSize(lpspropvalue: Long): UInt
+public expect fun ulPropSize(lpspropvalue: COpaquePointer?): UInt
 
-public expect fun UlRelease(lpunk: Long): UInt
+public expect fun ulRelease(lpunk: COpaquePointer?): UInt
 
-public expect fun WrapCompressedRTFStream(lpcompressedrtfstream: Long, ulflags: UInt, lpuncompressedrtfstream: Long): HRESULT
+public expect fun wrapCompressedRTFStream(lpcompressedrtfstream: COpaquePointer?, ulflags: UInt, lpuncompressedrtfstream: COpaquePointer?): Hresult
 
-public expect fun WrapStoreEntryID(ulflags: UInt, lpszdllname: Long, cborigentry: UInt, lporigentry: Long, lpcbwrappedentry: Long, lppwrappedentry: Long): HRESULT
+public expect fun wrapStoreEntryID(ulflags: UInt, lpszdllname: COpaquePointer?, cborigentry: UInt, lporigentry: COpaquePointer?, lpcbwrappedentry: COpaquePointer?, lppwrappedentry: COpaquePointer?): Hresult

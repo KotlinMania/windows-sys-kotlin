@@ -2,189 +2,198 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networking.winhttp
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
 
 private val _windowsWin32NetworkingWinhttpNapiAddon: dynamic =
-    js("(function() { if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var req = (new Function('t', 'return typeof require === t ? require : null'))('function'); if (!req) return null; var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; for (var d = 0; d < 8; d++) { var c1 = path.resolve(dir, 'build/node-ffi/windows_sys_native.node'); if (fs.existsSync(c1)) return req(c1); var c2 = path.resolve(dir, 'src/js/node-windows_sys/build/Release/windows_sys_native.node'); if (fs.existsSync(c2)) return req(c2); var c3 = path.resolve(dir, 'src/js/node-windows_sys/build/Debug/windows_sys_native.node'); if (fs.existsSync(c3)) return req(c3); var c4 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Release/windows_sys_native.node'); if (fs.existsSync(c4)) return req(c4); var c5 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Debug/windows_sys_native.node'); if (fs.existsSync(c5)) return req(c5); var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } return null; })()")
+    js("(function() { if (typeof globalThis !== 'undefined' && typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys; if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) return null; try { var pkg = req('@kotlinmania/windowssys-native-bindings'); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = pkg; return pkg; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { var loaded = req(c); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = loaded; return loaded; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = null; return null; })()")
 
-public actual fun WinHttpAddRequestHeaders(hrequest: Long, lpszheaders: PCWSTR, dwheaderslength: UInt, dwmodifiers: UInt): BOOL =
-    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_WinHttpAddRequestHeaders(hrequest.toString(), lpszheaders.toString(), dwheaderslength.toInt(), dwmodifiers.toInt()) as Int) else 0
+public actual fun winHttpAddRequestHeaders(hrequest: COpaquePointer?, lpszheaders: Pcwstr, dwheaderslength: UInt, dwmodifiers: UInt): Bool =
+    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_winHttpAddRequestHeaders((hrequest?.value ?: 0L).toString(), (lpszheaders?.value ?: 0L).toString(), dwheaderslength.toInt(), dwmodifiers.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinHttpAddRequestHeadersEx(hrequest: Long, dwmodifiers: UInt, ullflags: ULong, ullextra: ULong, cheaders: UInt, pheaders: Long): UInt =
-    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_WinHttpAddRequestHeadersEx(hrequest.toString(), dwmodifiers.toInt(), ullflags.toString(), ullextra.toString(), cheaders.toInt(), pheaders.toString()) as Int).toUInt() else 0u
+public actual fun winHttpAddRequestHeadersEx(hrequest: COpaquePointer?, dwmodifiers: UInt, ullflags: ULong, ullextra: ULong, cheaders: UInt, pheaders: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_winHttpAddRequestHeadersEx((hrequest?.value ?: 0L).toString(), dwmodifiers.toInt(), ullflags.toString(), ullextra.toString(), cheaders.toInt(), (pheaders?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinHttpCheckPlatform(): BOOL =
-    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_WinHttpCheckPlatform() as Int) else 0
+public actual fun winHttpCheckPlatform(): Bool =
+    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_winHttpCheckPlatform() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinHttpCloseHandle(hinternet: Long): BOOL =
-    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_WinHttpCloseHandle(hinternet.toString()) as Int) else 0
+public actual fun winHttpCloseHandle(hinternet: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_winHttpCloseHandle((hinternet?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinHttpConnect(hsession: Long, pswzservername: PCWSTR, nserverport: UShort, dwreserved: UInt): Long =
-    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_WinHttpConnect(hsession.toString(), pswzservername.toString(), nserverport.toInt(), dwreserved.toInt()) as String).toLong() else 0L
+public actual fun winHttpConnect(hsession: COpaquePointer?, pswzservername: Pcwstr, nserverport: UShort, dwreserved: UInt): COpaquePointer? =
+    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_winHttpConnect((hsession?.value ?: 0L).toString(), (pswzservername?.value ?: 0L).toString(), nserverport.toInt(), dwreserved.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinHttpCrackUrl(pwszurl: PCWSTR, dwurllength: UInt, dwflags: UInt, lpurlcomponents: Long): BOOL =
-    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_WinHttpCrackUrl(pwszurl.toString(), dwurllength.toInt(), dwflags.toInt(), lpurlcomponents.toString()) as Int) else 0
+public actual fun winHttpCrackUrl(pwszurl: Pcwstr, dwurllength: UInt, dwflags: UInt, lpurlcomponents: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_winHttpCrackUrl((pwszurl?.value ?: 0L).toString(), dwurllength.toInt(), dwflags.toInt(), (lpurlcomponents?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinHttpCreateProxyResolver(hsession: Long, phresolver: Long): UInt =
-    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_WinHttpCreateProxyResolver(hsession.toString(), phresolver.toString()) as Int).toUInt() else 0u
+public actual fun winHttpCreateProxyResolver(hsession: COpaquePointer?, phresolver: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_winHttpCreateProxyResolver((hsession?.value ?: 0L).toString(), (phresolver?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinHttpCreateUrl(lpurlcomponents: Long, dwflags: WIN_HTTP_CREATE_URL_FLAGS, pwszurl: PWSTR, pdwurllength: Long): BOOL =
-    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_WinHttpCreateUrl(lpurlcomponents.toString(), dwflags.toInt(), pwszurl.toString(), pdwurllength.toString()) as Int) else 0
+public actual fun winHttpCreateUrl(lpurlcomponents: COpaquePointer?, dwflags: WinHttpCreateUrlFlags, pwszurl: Pwstr, pdwurllength: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_winHttpCreateUrl((lpurlcomponents?.value ?: 0L).toString(), dwflags.toInt(), (pwszurl?.value ?: 0L).toString(), (pdwurllength?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinHttpDetectAutoProxyConfigUrl(dwautodetectflags: UInt, ppwstrautoconfigurl: Long): BOOL =
-    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_WinHttpDetectAutoProxyConfigUrl(dwautodetectflags.toInt(), ppwstrautoconfigurl.toString()) as Int) else 0
+public actual fun winHttpDetectAutoProxyConfigUrl(dwautodetectflags: UInt, ppwstrautoconfigurl: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_winHttpDetectAutoProxyConfigUrl(dwautodetectflags.toInt(), (ppwstrautoconfigurl?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinHttpFreeProxyResult(pproxyresult: Long) {
+public actual fun winHttpFreeProxyResult(pproxyresult: COpaquePointer?) {
     if (_windowsWin32NetworkingWinhttpNapiAddon != null) {
-        _windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_WinHttpFreeProxyResult(pproxyresult.toString())
+        _windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_winHttpFreeProxyResult((pproxyresult?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun WinHttpFreeProxyResultEx(pproxyresultex: Long) {
+public actual fun winHttpFreeProxyResultEx(pproxyresultex: COpaquePointer?) {
     if (_windowsWin32NetworkingWinhttpNapiAddon != null) {
-        _windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_WinHttpFreeProxyResultEx(pproxyresultex.toString())
+        _windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_winHttpFreeProxyResultEx((pproxyresultex?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun WinHttpFreeProxySettings(pwinhttpproxysettings: Long) {
+public actual fun winHttpFreeProxySettings(pwinhttpproxysettings: COpaquePointer?) {
     if (_windowsWin32NetworkingWinhttpNapiAddon != null) {
-        _windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_WinHttpFreeProxySettings(pwinhttpproxysettings.toString())
+        _windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_winHttpFreeProxySettings((pwinhttpproxysettings?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun WinHttpFreeProxySettingsEx(proxysettingstype: WINHTTP_PROXY_SETTINGS_TYPE, pproxysettingsex: Long): UInt =
-    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_WinHttpFreeProxySettingsEx(proxysettingstype, pproxysettingsex.toString()) as Int).toUInt() else 0u
+public actual fun winHttpFreeProxySettingsEx(proxysettingstype: WinhttpProxySettingsType, pproxysettingsex: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_winHttpFreeProxySettingsEx(proxysettingstype, (pproxysettingsex?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinHttpFreeQueryConnectionGroupResult(presult: Long) {
+public actual fun winHttpFreeQueryConnectionGroupResult(presult: COpaquePointer?) {
     if (_windowsWin32NetworkingWinhttpNapiAddon != null) {
-        _windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_WinHttpFreeQueryConnectionGroupResult(presult.toString())
+        _windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_winHttpFreeQueryConnectionGroupResult((presult?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun WinHttpGetDefaultProxyConfiguration(pproxyinfo: Long): BOOL =
-    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_WinHttpGetDefaultProxyConfiguration(pproxyinfo.toString()) as Int) else 0
+public actual fun winHttpGetDefaultProxyConfiguration(pproxyinfo: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_winHttpGetDefaultProxyConfiguration((pproxyinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinHttpGetIEProxyConfigForCurrentUser(pproxyconfig: Long): BOOL =
-    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_WinHttpGetIEProxyConfigForCurrentUser(pproxyconfig.toString()) as Int) else 0
+public actual fun winHttpGetIEProxyConfigForCurrentUser(pproxyconfig: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_winHttpGetIEProxyConfigForCurrentUser((pproxyconfig?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinHttpGetProxyForUrl(hsession: Long, lpcwszurl: PCWSTR, pautoproxyoptions: Long, pproxyinfo: Long): BOOL =
-    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_WinHttpGetProxyForUrl(hsession.toString(), lpcwszurl.toString(), pautoproxyoptions.toString(), pproxyinfo.toString()) as Int) else 0
+public actual fun winHttpGetProxyForUrl(hsession: COpaquePointer?, lpcwszurl: Pcwstr, pautoproxyoptions: COpaquePointer?, pproxyinfo: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_winHttpGetProxyForUrl((hsession?.value ?: 0L).toString(), (lpcwszurl?.value ?: 0L).toString(), (pautoproxyoptions?.value ?: 0L).toString(), (pproxyinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinHttpGetProxyForUrlEx(hresolver: Long, pcwszurl: PCWSTR, pautoproxyoptions: Long, pcontext: ULong): UInt =
-    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_WinHttpGetProxyForUrlEx(hresolver.toString(), pcwszurl.toString(), pautoproxyoptions.toString(), pcontext.toString()) as Int).toUInt() else 0u
+public actual fun winHttpGetProxyForUrlEx(hresolver: COpaquePointer?, pcwszurl: Pcwstr, pautoproxyoptions: COpaquePointer?, pcontext: ULong): UInt =
+    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_winHttpGetProxyForUrlEx((hresolver?.value ?: 0L).toString(), (pcwszurl?.value ?: 0L).toString(), (pautoproxyoptions?.value ?: 0L).toString(), pcontext.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinHttpGetProxyForUrlEx2(hresolver: Long, pcwszurl: PCWSTR, pautoproxyoptions: Long, cbinterfaceselectioncontext: UInt, pinterfaceselectioncontext: Long, pcontext: ULong): UInt =
-    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_WinHttpGetProxyForUrlEx2(hresolver.toString(), pcwszurl.toString(), pautoproxyoptions.toString(), cbinterfaceselectioncontext.toInt(), pinterfaceselectioncontext.toString(), pcontext.toString()) as Int).toUInt() else 0u
+public actual fun winHttpGetProxyForUrlEx2(hresolver: COpaquePointer?, pcwszurl: Pcwstr, pautoproxyoptions: COpaquePointer?, cbinterfaceselectioncontext: UInt, pinterfaceselectioncontext: COpaquePointer?, pcontext: ULong): UInt =
+    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_winHttpGetProxyForUrlEx2((hresolver?.value ?: 0L).toString(), (pcwszurl?.value ?: 0L).toString(), (pautoproxyoptions?.value ?: 0L).toString(), cbinterfaceselectioncontext.toInt(), (pinterfaceselectioncontext?.value ?: 0L).toString(), pcontext.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinHttpGetProxyResult(hresolver: Long, pproxyresult: Long): UInt =
-    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_WinHttpGetProxyResult(hresolver.toString(), pproxyresult.toString()) as Int).toUInt() else 0u
+public actual fun winHttpGetProxyResult(hresolver: COpaquePointer?, pproxyresult: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_winHttpGetProxyResult((hresolver?.value ?: 0L).toString(), (pproxyresult?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinHttpGetProxyResultEx(hresolver: Long, pproxyresultex: Long): UInt =
-    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_WinHttpGetProxyResultEx(hresolver.toString(), pproxyresultex.toString()) as Int).toUInt() else 0u
+public actual fun winHttpGetProxyResultEx(hresolver: COpaquePointer?, pproxyresultex: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_winHttpGetProxyResultEx((hresolver?.value ?: 0L).toString(), (pproxyresultex?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinHttpGetProxySettingsEx(hresolver: Long, proxysettingstype: WINHTTP_PROXY_SETTINGS_TYPE, pproxysettingsparam: Long, pcontext: ULong): UInt =
-    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_WinHttpGetProxySettingsEx(hresolver.toString(), proxysettingstype, pproxysettingsparam.toString(), pcontext.toString()) as Int).toUInt() else 0u
+public actual fun winHttpGetProxySettingsEx(hresolver: COpaquePointer?, proxysettingstype: WinhttpProxySettingsType, pproxysettingsparam: COpaquePointer?, pcontext: ULong): UInt =
+    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_winHttpGetProxySettingsEx((hresolver?.value ?: 0L).toString(), proxysettingstype, (pproxysettingsparam?.value ?: 0L).toString(), pcontext.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinHttpGetProxySettingsResultEx(hresolver: Long, pproxysettingsex: Long): UInt =
-    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_WinHttpGetProxySettingsResultEx(hresolver.toString(), pproxysettingsex.toString()) as Int).toUInt() else 0u
+public actual fun winHttpGetProxySettingsResultEx(hresolver: COpaquePointer?, pproxysettingsex: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_winHttpGetProxySettingsResultEx((hresolver?.value ?: 0L).toString(), (pproxysettingsex?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinHttpGetProxySettingsVersion(hsession: Long, pdwproxysettingsversion: Long): UInt =
-    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_WinHttpGetProxySettingsVersion(hsession.toString(), pdwproxysettingsversion.toString()) as Int).toUInt() else 0u
+public actual fun winHttpGetProxySettingsVersion(hsession: COpaquePointer?, pdwproxysettingsversion: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_winHttpGetProxySettingsVersion((hsession?.value ?: 0L).toString(), (pdwproxysettingsversion?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinHttpOpen(pszagentw: PCWSTR, dwaccesstype: WINHTTP_ACCESS_TYPE, pszproxyw: PCWSTR, pszproxybypassw: PCWSTR, dwflags: UInt): Long =
-    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_WinHttpOpen(pszagentw.toString(), dwaccesstype.toInt(), pszproxyw.toString(), pszproxybypassw.toString(), dwflags.toInt()) as String).toLong() else 0L
+public actual fun winHttpOpen(pszagentw: Pcwstr, dwaccesstype: WinhttpAccessType, pszproxyw: Pcwstr, pszproxybypassw: Pcwstr, dwflags: UInt): COpaquePointer? =
+    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_winHttpOpen((pszagentw?.value ?: 0L).toString(), dwaccesstype.toInt(), (pszproxyw?.value ?: 0L).toString(), (pszproxybypassw?.value ?: 0L).toString(), dwflags.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinHttpOpenRequest(hconnect: Long, pwszverb: PCWSTR, pwszobjectname: PCWSTR, pwszversion: PCWSTR, pwszreferrer: PCWSTR, ppwszaccepttypes: Long, dwflags: WINHTTP_OPEN_REQUEST_FLAGS): Long =
-    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_WinHttpOpenRequest(hconnect.toString(), pwszverb.toString(), pwszobjectname.toString(), pwszversion.toString(), pwszreferrer.toString(), ppwszaccepttypes.toString(), dwflags.toInt()) as String).toLong() else 0L
+public actual fun winHttpOpenRequest(hconnect: COpaquePointer?, pwszverb: Pcwstr, pwszobjectname: Pcwstr, pwszversion: Pcwstr, pwszreferrer: Pcwstr, ppwszaccepttypes: COpaquePointer?, dwflags: WinhttpOpenRequestFlags): COpaquePointer? =
+    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_winHttpOpenRequest((hconnect?.value ?: 0L).toString(), (pwszverb?.value ?: 0L).toString(), (pwszobjectname?.value ?: 0L).toString(), (pwszversion?.value ?: 0L).toString(), (pwszreferrer?.value ?: 0L).toString(), (ppwszaccepttypes?.value ?: 0L).toString(), dwflags.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinHttpQueryAuthSchemes(hrequest: Long, lpdwsupportedschemes: Long, lpdwfirstscheme: Long, pdwauthtarget: Long): BOOL =
-    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_WinHttpQueryAuthSchemes(hrequest.toString(), lpdwsupportedschemes.toString(), lpdwfirstscheme.toString(), pdwauthtarget.toString()) as Int) else 0
+public actual fun winHttpQueryAuthSchemes(hrequest: COpaquePointer?, lpdwsupportedschemes: COpaquePointer?, lpdwfirstscheme: COpaquePointer?, pdwauthtarget: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_winHttpQueryAuthSchemes((hrequest?.value ?: 0L).toString(), (lpdwsupportedschemes?.value ?: 0L).toString(), (lpdwfirstscheme?.value ?: 0L).toString(), (pdwauthtarget?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinHttpQueryConnectionGroup(hinternet: Long, pguidconnection: Long, ullflags: ULong, ppresult: Long): UInt =
-    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_WinHttpQueryConnectionGroup(hinternet.toString(), pguidconnection.toString(), ullflags.toString(), ppresult.toString()) as Int).toUInt() else 0u
+public actual fun winHttpQueryConnectionGroup(hinternet: COpaquePointer?, pguidconnection: COpaquePointer?, ullflags: ULong, ppresult: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_winHttpQueryConnectionGroup((hinternet?.value ?: 0L).toString(), (pguidconnection?.value ?: 0L).toString(), ullflags.toString(), (ppresult?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinHttpQueryDataAvailable(hrequest: Long, lpdwnumberofbytesavailable: Long): BOOL =
-    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_WinHttpQueryDataAvailable(hrequest.toString(), lpdwnumberofbytesavailable.toString()) as Int) else 0
+public actual fun winHttpQueryDataAvailable(hrequest: COpaquePointer?, lpdwnumberofbytesavailable: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_winHttpQueryDataAvailable((hrequest?.value ?: 0L).toString(), (lpdwnumberofbytesavailable?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinHttpQueryHeaders(hrequest: Long, dwinfolevel: UInt, pwszname: PCWSTR, lpbuffer: Long, lpdwbufferlength: Long, lpdwindex: Long): BOOL =
-    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_WinHttpQueryHeaders(hrequest.toString(), dwinfolevel.toInt(), pwszname.toString(), lpbuffer.toString(), lpdwbufferlength.toString(), lpdwindex.toString()) as Int) else 0
+public actual fun winHttpQueryHeaders(hrequest: COpaquePointer?, dwinfolevel: UInt, pwszname: Pcwstr, lpbuffer: COpaquePointer?, lpdwbufferlength: COpaquePointer?, lpdwindex: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_winHttpQueryHeaders((hrequest?.value ?: 0L).toString(), dwinfolevel.toInt(), (pwszname?.value ?: 0L).toString(), (lpbuffer?.value ?: 0L).toString(), (lpdwbufferlength?.value ?: 0L).toString(), (lpdwindex?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinHttpQueryHeadersEx(hrequest: Long, dwinfolevel: UInt, ullflags: ULong, uicodepage: UInt, pdwindex: Long, pheadername: Long, pbuffer: Long, pdwbufferlength: Long, ppheaders: Long, pdwheaderscount: Long): UInt =
-    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_WinHttpQueryHeadersEx(hrequest.toString(), dwinfolevel.toInt(), ullflags.toString(), uicodepage.toInt(), pdwindex.toString(), pheadername.toString(), pbuffer.toString(), pdwbufferlength.toString(), ppheaders.toString(), pdwheaderscount.toString()) as Int).toUInt() else 0u
+public actual fun winHttpQueryHeadersEx(hrequest: COpaquePointer?, dwinfolevel: UInt, ullflags: ULong, uicodepage: UInt, pdwindex: COpaquePointer?, pheadername: COpaquePointer?, pbuffer: COpaquePointer?, pdwbufferlength: COpaquePointer?, ppheaders: COpaquePointer?, pdwheaderscount: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_winHttpQueryHeadersEx((hrequest?.value ?: 0L).toString(), dwinfolevel.toInt(), ullflags.toString(), uicodepage.toInt(), (pdwindex?.value ?: 0L).toString(), (pheadername?.value ?: 0L).toString(), (pbuffer?.value ?: 0L).toString(), (pdwbufferlength?.value ?: 0L).toString(), (ppheaders?.value ?: 0L).toString(), (pdwheaderscount?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinHttpQueryOption(hinternet: Long, dwoption: UInt, lpbuffer: Long, lpdwbufferlength: Long): BOOL =
-    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_WinHttpQueryOption(hinternet.toString(), dwoption.toInt(), lpbuffer.toString(), lpdwbufferlength.toString()) as Int) else 0
+public actual fun winHttpQueryOption(hinternet: COpaquePointer?, dwoption: UInt, lpbuffer: COpaquePointer?, lpdwbufferlength: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_winHttpQueryOption((hinternet?.value ?: 0L).toString(), dwoption.toInt(), (lpbuffer?.value ?: 0L).toString(), (lpdwbufferlength?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinHttpReadData(hrequest: Long, lpbuffer: Long, dwnumberofbytestoread: UInt, lpdwnumberofbytesread: Long): BOOL =
-    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_WinHttpReadData(hrequest.toString(), lpbuffer.toString(), dwnumberofbytestoread.toInt(), lpdwnumberofbytesread.toString()) as Int) else 0
+public actual fun winHttpReadData(hrequest: COpaquePointer?, lpbuffer: COpaquePointer?, dwnumberofbytestoread: UInt, lpdwnumberofbytesread: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_winHttpReadData((hrequest?.value ?: 0L).toString(), (lpbuffer?.value ?: 0L).toString(), dwnumberofbytestoread.toInt(), (lpdwnumberofbytesread?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinHttpReadDataEx(hrequest: Long, lpbuffer: Long, dwnumberofbytestoread: UInt, lpdwnumberofbytesread: Long, ullflags: ULong, cbproperty: UInt, pvproperty: Long): UInt =
-    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_WinHttpReadDataEx(hrequest.toString(), lpbuffer.toString(), dwnumberofbytestoread.toInt(), lpdwnumberofbytesread.toString(), ullflags.toString(), cbproperty.toInt(), pvproperty.toString()) as Int).toUInt() else 0u
+public actual fun winHttpReadDataEx(hrequest: COpaquePointer?, lpbuffer: COpaquePointer?, dwnumberofbytestoread: UInt, lpdwnumberofbytesread: COpaquePointer?, ullflags: ULong, cbproperty: UInt, pvproperty: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_winHttpReadDataEx((hrequest?.value ?: 0L).toString(), (lpbuffer?.value ?: 0L).toString(), dwnumberofbytestoread.toInt(), (lpdwnumberofbytesread?.value ?: 0L).toString(), ullflags.toString(), cbproperty.toInt(), (pvproperty?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinHttpReadProxySettings(hsession: Long, pcwszconnectionname: PCWSTR, ffallbacktodefaultsettings: BOOL, fsetautodiscoverfordefaultsettings: BOOL, pdwsettingsversion: Long, pfdefaultsettingsarereturned: Long, pwinhttpproxysettings: Long): UInt =
-    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_WinHttpReadProxySettings(hsession.toString(), pcwszconnectionname.toString(), ffallbacktodefaultsettings, fsetautodiscoverfordefaultsettings, pdwsettingsversion.toString(), pfdefaultsettingsarereturned.toString(), pwinhttpproxysettings.toString()) as Int).toUInt() else 0u
+public actual fun winHttpReadProxySettings(hsession: COpaquePointer?, pcwszconnectionname: Pcwstr, ffallbacktodefaultsettings: Bool, fsetautodiscoverfordefaultsettings: Bool, pdwsettingsversion: COpaquePointer?, pfdefaultsettingsarereturned: COpaquePointer?, pwinhttpproxysettings: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_winHttpReadProxySettings((hsession?.value ?: 0L).toString(), (pcwszconnectionname?.value ?: 0L).toString(), ffallbacktodefaultsettings, fsetautodiscoverfordefaultsettings, (pdwsettingsversion?.value ?: 0L).toString(), (pfdefaultsettingsarereturned?.value ?: 0L).toString(), (pwinhttpproxysettings?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinHttpReceiveResponse(hrequest: Long, lpreserved: Long): BOOL =
-    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_WinHttpReceiveResponse(hrequest.toString(), lpreserved.toString()) as Int) else 0
+public actual fun winHttpReceiveResponse(hrequest: COpaquePointer?, lpreserved: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_winHttpReceiveResponse((hrequest?.value ?: 0L).toString(), (lpreserved?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinHttpRegisterProxyChangeNotification(ullflags: ULong, pfncallback: WINHTTP_PROXY_CHANGE_CALLBACK, pvcontext: Long, hregistration: Long): UInt =
-    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_WinHttpRegisterProxyChangeNotification(ullflags.toString(), pfncallback.toLong().toString(), pvcontext.toString(), hregistration.toString()) as Int).toUInt() else 0u
+public actual fun winHttpRegisterProxyChangeNotification(ullflags: ULong, pfncallback: WinhttpProxyChangeCallback, pvcontext: COpaquePointer?, hregistration: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_winHttpRegisterProxyChangeNotification(ullflags.toString(), 0L.toString(), (pvcontext?.value ?: 0L).toString(), (hregistration?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinHttpResetAutoProxy(hsession: Long, dwflags: UInt): UInt =
-    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_WinHttpResetAutoProxy(hsession.toString(), dwflags.toInt()) as Int).toUInt() else 0u
+public actual fun winHttpResetAutoProxy(hsession: COpaquePointer?, dwflags: UInt): UInt =
+    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_winHttpResetAutoProxy((hsession?.value ?: 0L).toString(), dwflags.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinHttpSendRequest(hrequest: Long, lpszheaders: PCWSTR, dwheaderslength: UInt, lpoptional: Long, dwoptionallength: UInt, dwtotallength: UInt, dwcontext: ULong): BOOL =
-    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_WinHttpSendRequest(hrequest.toString(), lpszheaders.toString(), dwheaderslength.toInt(), lpoptional.toString(), dwoptionallength.toInt(), dwtotallength.toInt(), dwcontext.toString()) as Int) else 0
+public actual fun winHttpSendRequest(hrequest: COpaquePointer?, lpszheaders: Pcwstr, dwheaderslength: UInt, lpoptional: COpaquePointer?, dwoptionallength: UInt, dwtotallength: UInt, dwcontext: ULong): Bool =
+    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_winHttpSendRequest((hrequest?.value ?: 0L).toString(), (lpszheaders?.value ?: 0L).toString(), dwheaderslength.toInt(), (lpoptional?.value ?: 0L).toString(), dwoptionallength.toInt(), dwtotallength.toInt(), dwcontext.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinHttpSetCredentials(hrequest: Long, authtargets: UInt, authscheme: UInt, pwszusername: PCWSTR, pwszpassword: PCWSTR, pauthparams: Long): BOOL =
-    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_WinHttpSetCredentials(hrequest.toString(), authtargets.toInt(), authscheme.toInt(), pwszusername.toString(), pwszpassword.toString(), pauthparams.toString()) as Int) else 0
+public actual fun winHttpSetCredentials(hrequest: COpaquePointer?, authtargets: UInt, authscheme: UInt, pwszusername: Pcwstr, pwszpassword: Pcwstr, pauthparams: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_winHttpSetCredentials((hrequest?.value ?: 0L).toString(), authtargets.toInt(), authscheme.toInt(), (pwszusername?.value ?: 0L).toString(), (pwszpassword?.value ?: 0L).toString(), (pauthparams?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinHttpSetDefaultProxyConfiguration(pproxyinfo: Long): BOOL =
-    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_WinHttpSetDefaultProxyConfiguration(pproxyinfo.toString()) as Int) else 0
+public actual fun winHttpSetDefaultProxyConfiguration(pproxyinfo: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_winHttpSetDefaultProxyConfiguration((pproxyinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinHttpSetOption(hinternet: Long, dwoption: UInt, lpbuffer: Long, dwbufferlength: UInt): BOOL =
-    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_WinHttpSetOption(hinternet.toString(), dwoption.toInt(), lpbuffer.toString(), dwbufferlength.toInt()) as Int) else 0
+public actual fun winHttpSetOption(hinternet: COpaquePointer?, dwoption: UInt, lpbuffer: COpaquePointer?, dwbufferlength: UInt): Bool =
+    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_winHttpSetOption((hinternet?.value ?: 0L).toString(), dwoption.toInt(), (lpbuffer?.value ?: 0L).toString(), dwbufferlength.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinHttpSetProxySettingsPerUser(fproxysettingsperuser: BOOL): UInt =
-    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_WinHttpSetProxySettingsPerUser(fproxysettingsperuser) as Int).toUInt() else 0u
+public actual fun winHttpSetProxySettingsPerUser(fproxysettingsperuser: Bool): UInt =
+    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_winHttpSetProxySettingsPerUser(fproxysettingsperuser) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinHttpSetStatusCallback(hinternet: Long, lpfninternetcallback: WINHTTP_STATUS_CALLBACK, dwnotificationflags: UInt, dwreserved: ULong): WINHTTP_STATUS_CALLBACK =
-    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_WinHttpSetStatusCallback(hinternet.toString(), lpfninternetcallback.toLong().toString(), dwnotificationflags.toInt(), dwreserved.toString()) as String).toLong() else null
+public actual fun winHttpSetStatusCallback(hinternet: COpaquePointer?, lpfninternetcallback: WinhttpStatusCallback, dwnotificationflags: UInt, dwreserved: ULong): WinhttpStatusCallback =
+    if (_windowsWin32NetworkingWinhttpNapiAddon != null) null else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinHttpSetTimeouts(hinternet: Long, nresolvetimeout: Int, nconnecttimeout: Int, nsendtimeout: Int, nreceivetimeout: Int): BOOL =
-    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_WinHttpSetTimeouts(hinternet.toString(), nresolvetimeout, nconnecttimeout, nsendtimeout, nreceivetimeout) as Int) else 0
+public actual fun winHttpSetTimeouts(hinternet: COpaquePointer?, nresolvetimeout: Int, nconnecttimeout: Int, nsendtimeout: Int, nreceivetimeout: Int): Bool =
+    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_winHttpSetTimeouts((hinternet?.value ?: 0L).toString(), nresolvetimeout, nconnecttimeout, nsendtimeout, nreceivetimeout) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinHttpTimeFromSystemTime(pst: Long, pwsztime: PWSTR): BOOL =
-    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_WinHttpTimeFromSystemTime(pst.toString(), pwsztime.toString()) as Int) else 0
+public actual fun winHttpTimeFromSystemTime(pst: COpaquePointer?, pwsztime: Pwstr): Bool =
+    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_winHttpTimeFromSystemTime((pst?.value ?: 0L).toString(), (pwsztime?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinHttpTimeToSystemTime(pwsztime: PCWSTR, pst: Long): BOOL =
-    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_WinHttpTimeToSystemTime(pwsztime.toString(), pst.toString()) as Int) else 0
+public actual fun winHttpTimeToSystemTime(pwsztime: Pcwstr, pst: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_winHttpTimeToSystemTime((pwsztime?.value ?: 0L).toString(), (pst?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinHttpUnregisterProxyChangeNotification(hregistration: Long): UInt =
-    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_WinHttpUnregisterProxyChangeNotification(hregistration.toString()) as Int).toUInt() else 0u
+public actual fun winHttpUnregisterProxyChangeNotification(hregistration: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_winHttpUnregisterProxyChangeNotification((hregistration?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinHttpWebSocketClose(hwebsocket: Long, usstatus: UShort, pvreason: Long, dwreasonlength: UInt): UInt =
-    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_WinHttpWebSocketClose(hwebsocket.toString(), usstatus.toInt(), pvreason.toString(), dwreasonlength.toInt()) as Int).toUInt() else 0u
+public actual fun winHttpWebSocketClose(hwebsocket: COpaquePointer?, usstatus: UShort, pvreason: COpaquePointer?, dwreasonlength: UInt): UInt =
+    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_winHttpWebSocketClose((hwebsocket?.value ?: 0L).toString(), usstatus.toInt(), (pvreason?.value ?: 0L).toString(), dwreasonlength.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinHttpWebSocketCompleteUpgrade(hrequest: Long, pcontext: ULong): Long =
-    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_WinHttpWebSocketCompleteUpgrade(hrequest.toString(), pcontext.toString()) as String).toLong() else 0L
+public actual fun winHttpWebSocketCompleteUpgrade(hrequest: COpaquePointer?, pcontext: ULong): COpaquePointer? =
+    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_winHttpWebSocketCompleteUpgrade((hrequest?.value ?: 0L).toString(), pcontext.toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinHttpWebSocketQueryCloseStatus(hwebsocket: Long, pusstatus: Long, pvreason: Long, dwreasonlength: UInt, pdwreasonlengthconsumed: Long): UInt =
-    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_WinHttpWebSocketQueryCloseStatus(hwebsocket.toString(), pusstatus.toString(), pvreason.toString(), dwreasonlength.toInt(), pdwreasonlengthconsumed.toString()) as Int).toUInt() else 0u
+public actual fun winHttpWebSocketQueryCloseStatus(hwebsocket: COpaquePointer?, pusstatus: COpaquePointer?, pvreason: COpaquePointer?, dwreasonlength: UInt, pdwreasonlengthconsumed: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_winHttpWebSocketQueryCloseStatus((hwebsocket?.value ?: 0L).toString(), (pusstatus?.value ?: 0L).toString(), (pvreason?.value ?: 0L).toString(), dwreasonlength.toInt(), (pdwreasonlengthconsumed?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinHttpWebSocketReceive(hwebsocket: Long, pvbuffer: Long, dwbufferlength: UInt, pdwbytesread: Long, pebuffertype: Long): UInt =
-    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_WinHttpWebSocketReceive(hwebsocket.toString(), pvbuffer.toString(), dwbufferlength.toInt(), pdwbytesread.toString(), pebuffertype.toString()) as Int).toUInt() else 0u
+public actual fun winHttpWebSocketReceive(hwebsocket: COpaquePointer?, pvbuffer: COpaquePointer?, dwbufferlength: UInt, pdwbytesread: COpaquePointer?, pebuffertype: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_winHttpWebSocketReceive((hwebsocket?.value ?: 0L).toString(), (pvbuffer?.value ?: 0L).toString(), dwbufferlength.toInt(), (pdwbytesread?.value ?: 0L).toString(), (pebuffertype?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinHttpWebSocketSend(hwebsocket: Long, ebuffertype: WINHTTP_WEB_SOCKET_BUFFER_TYPE, pvbuffer: Long, dwbufferlength: UInt): UInt =
-    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_WinHttpWebSocketSend(hwebsocket.toString(), ebuffertype, pvbuffer.toString(), dwbufferlength.toInt()) as Int).toUInt() else 0u
+public actual fun winHttpWebSocketSend(hwebsocket: COpaquePointer?, ebuffertype: WinhttpWebSocketBufferType, pvbuffer: COpaquePointer?, dwbufferlength: UInt): UInt =
+    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_winHttpWebSocketSend((hwebsocket?.value ?: 0L).toString(), ebuffertype, (pvbuffer?.value ?: 0L).toString(), dwbufferlength.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinHttpWebSocketShutdown(hwebsocket: Long, usstatus: UShort, pvreason: Long, dwreasonlength: UInt): UInt =
-    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_WinHttpWebSocketShutdown(hwebsocket.toString(), usstatus.toInt(), pvreason.toString(), dwreasonlength.toInt()) as Int).toUInt() else 0u
+public actual fun winHttpWebSocketShutdown(hwebsocket: COpaquePointer?, usstatus: UShort, pvreason: COpaquePointer?, dwreasonlength: UInt): UInt =
+    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_winHttpWebSocketShutdown((hwebsocket?.value ?: 0L).toString(), usstatus.toInt(), (pvreason?.value ?: 0L).toString(), dwreasonlength.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinHttpWriteData(hrequest: Long, lpbuffer: Long, dwnumberofbytestowrite: UInt, lpdwnumberofbyteswritten: Long): BOOL =
-    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_WinHttpWriteData(hrequest.toString(), lpbuffer.toString(), dwnumberofbytestowrite.toInt(), lpdwnumberofbyteswritten.toString()) as Int) else 0
+public actual fun winHttpWriteData(hrequest: COpaquePointer?, lpbuffer: COpaquePointer?, dwnumberofbytestowrite: UInt, lpdwnumberofbyteswritten: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_winHttpWriteData((hrequest?.value ?: 0L).toString(), (lpbuffer?.value ?: 0L).toString(), dwnumberofbytestowrite.toInt(), (lpdwnumberofbyteswritten?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinHttpWriteProxySettings(hsession: Long, fforceupdate: BOOL, pwinhttpproxysettings: Long): UInt =
-    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_WinHttpWriteProxySettings(hsession.toString(), fforceupdate, pwinhttpproxysettings.toString()) as Int).toUInt() else 0u
+public actual fun winHttpWriteProxySettings(hsession: COpaquePointer?, fforceupdate: Bool, pwinhttpproxysettings: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingWinhttpNapiAddon != null) (_windowsWin32NetworkingWinhttpNapiAddon.windowssys_windows_win32_networking_winhttp_winHttpWriteProxySettings((hsession?.value ?: 0L).toString(), fforceupdate, (pwinhttpproxysettings?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")

@@ -15,7 +15,7 @@
 #endif
 #endif
 
-void windowssys_windows_win32_storage_imapi_CloseIMsgSession(int64_t lpmsgsess) {
+void windowssys_windows_win32_storage_imapi_closeIMsgSession(int64_t lpmsgsess) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -36,7 +36,7 @@ void windowssys_windows_win32_storage_imapi_CloseIMsgSession(int64_t lpmsgsess) 
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_imapi_GetAttribIMsgOnIStg(void* lpobject, void* lpproptagarray, void* lpppropattrarray) {
+int32_t windowssys_windows_win32_storage_imapi_getAttribIMsgOnIStg(void* lpobject, void* lpproptagarray, void* lpppropattrarray) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -60,7 +60,7 @@ int32_t windowssys_windows_win32_storage_imapi_GetAttribIMsgOnIStg(void* lpobjec
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_imapi_MapStorageSCode(int32_t stgscode) {
+int32_t windowssys_windows_win32_storage_imapi_mapStorageSCode(int32_t stgscode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -82,7 +82,7 @@ int32_t windowssys_windows_win32_storage_imapi_MapStorageSCode(int32_t stgscode)
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_imapi_OpenIMsgSession(void* lpmalloc, uint32_t ulflags, void* lppmsgsess) {
+int32_t windowssys_windows_win32_storage_imapi_openIMsgSession(void* lpmalloc, uint32_t ulflags, void* lppmsgsess) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -106,7 +106,7 @@ int32_t windowssys_windows_win32_storage_imapi_OpenIMsgSession(void* lpmalloc, u
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_imapi_SetAttribIMsgOnIStg(void* lpobject, void* lpproptags, void* lppropattrs, void* lpppropproblems) {
+int32_t windowssys_windows_win32_storage_imapi_setAttribIMsgOnIStg(void* lpobject, void* lpproptags, void* lppropattrs, void* lpppropproblems) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;

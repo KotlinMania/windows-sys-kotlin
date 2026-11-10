@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_ui_magnification_MagGetColorEffect(void* hwnd, void* peffect) {
+int32_t windowssys_windows_win32_ui_magnification_magGetColorEffect(void* hwnd, void* peffect) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -38,7 +38,7 @@ int32_t windowssys_windows_win32_ui_magnification_MagGetColorEffect(void* hwnd, 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_magnification_MagGetFullscreenColorEffect(void* peffect) {
+int32_t windowssys_windows_win32_ui_magnification_magGetFullscreenColorEffect(void* peffect) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -60,7 +60,7 @@ int32_t windowssys_windows_win32_ui_magnification_MagGetFullscreenColorEffect(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_magnification_MagGetFullscreenTransform(void* pmaglevel, void* pxoffset, void* pyoffset) {
+int32_t windowssys_windows_win32_ui_magnification_magGetFullscreenTransform(void* pmaglevel, void* pxoffset, void* pyoffset) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -84,7 +84,7 @@ int32_t windowssys_windows_win32_ui_magnification_MagGetFullscreenTransform(void
 #endif
 }
 
-void* windowssys_windows_win32_ui_magnification_MagGetImageScalingCallback(void* hwnd) {
+void* windowssys_windows_win32_ui_magnification_magGetImageScalingCallback(void* hwnd) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -106,7 +106,7 @@ void* windowssys_windows_win32_ui_magnification_MagGetImageScalingCallback(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_magnification_MagGetInputTransform(void* pfenabled, void* prectsource, void* prectdest) {
+int32_t windowssys_windows_win32_ui_magnification_magGetInputTransform(void* pfenabled, void* prectsource, void* prectdest) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -130,7 +130,7 @@ int32_t windowssys_windows_win32_ui_magnification_MagGetInputTransform(void* pfe
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_magnification_MagGetWindowFilterList(void* hwnd, void* pdwfiltermode, int32_t count, void* phwnd) {
+int32_t windowssys_windows_win32_ui_magnification_magGetWindowFilterList(void* hwnd, void* pdwfiltermode, int32_t count, void* phwnd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -155,7 +155,7 @@ int32_t windowssys_windows_win32_ui_magnification_MagGetWindowFilterList(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_magnification_MagGetWindowSource(void* hwnd, void* prect) {
+int32_t windowssys_windows_win32_ui_magnification_magGetWindowSource(void* hwnd, void* prect) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -178,7 +178,7 @@ int32_t windowssys_windows_win32_ui_magnification_MagGetWindowSource(void* hwnd,
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_magnification_MagGetWindowTransform(void* hwnd, void* ptransform) {
+int32_t windowssys_windows_win32_ui_magnification_magGetWindowTransform(void* hwnd, void* ptransform) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -201,7 +201,7 @@ int32_t windowssys_windows_win32_ui_magnification_MagGetWindowTransform(void* hw
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_magnification_MagInitialize(void) {
+int32_t windowssys_windows_win32_ui_magnification_magInitialize(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -222,7 +222,7 @@ int32_t windowssys_windows_win32_ui_magnification_MagInitialize(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_magnification_MagSetColorEffect(void* hwnd, void* peffect) {
+int32_t windowssys_windows_win32_ui_magnification_magSetColorEffect(void* hwnd, void* peffect) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -245,7 +245,7 @@ int32_t windowssys_windows_win32_ui_magnification_MagSetColorEffect(void* hwnd, 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_magnification_MagSetFullscreenColorEffect(void* peffect) {
+int32_t windowssys_windows_win32_ui_magnification_magSetFullscreenColorEffect(void* peffect) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -267,7 +267,7 @@ int32_t windowssys_windows_win32_ui_magnification_MagSetFullscreenColorEffect(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_magnification_MagSetFullscreenTransform(float maglevel, int32_t xoffset, int32_t yoffset) {
+int32_t windowssys_windows_win32_ui_magnification_magSetFullscreenTransform(float maglevel, int32_t xoffset, int32_t yoffset) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(float, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -291,7 +291,7 @@ int32_t windowssys_windows_win32_ui_magnification_MagSetFullscreenTransform(floa
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_magnification_MagSetImageScalingCallback(void* hwnd, void* callback) {
+int32_t windowssys_windows_win32_ui_magnification_magSetImageScalingCallback(void* hwnd, void* callback) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -314,7 +314,7 @@ int32_t windowssys_windows_win32_ui_magnification_MagSetImageScalingCallback(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_magnification_MagSetInputTransform(int32_t fenabled, void* prectsource, void* prectdest) {
+int32_t windowssys_windows_win32_ui_magnification_magSetInputTransform(int32_t fenabled, void* prectsource, void* prectdest) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -338,7 +338,7 @@ int32_t windowssys_windows_win32_ui_magnification_MagSetInputTransform(int32_t f
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_magnification_MagSetWindowFilterList(void* hwnd, uint32_t dwfiltermode, int32_t count, void* phwnd) {
+int32_t windowssys_windows_win32_ui_magnification_magSetWindowFilterList(void* hwnd, uint32_t dwfiltermode, int32_t count, void* phwnd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -363,7 +363,7 @@ int32_t windowssys_windows_win32_ui_magnification_MagSetWindowFilterList(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_magnification_MagSetWindowTransform(void* hwnd, void* ptransform) {
+int32_t windowssys_windows_win32_ui_magnification_magSetWindowTransform(void* hwnd, void* ptransform) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -386,7 +386,7 @@ int32_t windowssys_windows_win32_ui_magnification_MagSetWindowTransform(void* hw
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_magnification_MagShowSystemCursor(int32_t fshowcursor) {
+int32_t windowssys_windows_win32_ui_magnification_magShowSystemCursor(int32_t fshowcursor) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -408,7 +408,7 @@ int32_t windowssys_windows_win32_ui_magnification_MagShowSystemCursor(int32_t fs
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_magnification_MagUninitialize(void) {
+int32_t windowssys_windows_win32_ui_magnification_magUninitialize(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;

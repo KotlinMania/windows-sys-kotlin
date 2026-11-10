@@ -1,13 +1,15 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.io
 
-public fun interface LPOVERLAPPED_COMPLETION_ROUTINEFn {
-    public operator fun invoke(dwerrorcode: UInt, dwnumberofbytestransfered: UInt, lpoverlapped: Long)
+import io.github.kotlinmania.windowssys.COpaquePointer
+
+public fun interface LpoverlappedCompletionRoutineFn {
+    public operator fun invoke(dwerrorcode: UInt, dwnumberofbytestransfered: UInt, lpoverlapped: COpaquePointer?)
 }
 
-public typealias LPOVERLAPPED_COMPLETION_ROUTINE = LPOVERLAPPED_COMPLETION_ROUTINEFn?
+public typealias LpoverlappedCompletionRoutine = LpoverlappedCompletionRoutineFn?
 
-public fun interface PIO_APC_ROUTINEFn {
-    public operator fun invoke(apccontext: Long, iostatusblock: Long, reserved: UInt)
+public fun interface PioApcRoutineFn {
+    public operator fun invoke(apccontext: COpaquePointer?, iostatusblock: COpaquePointer?, reserved: UInt)
 }
 
-public typealias PIO_APC_ROUTINE = PIO_APC_ROUTINEFn?
+public typealias PioApcRoutine = PioApcRoutineFn?

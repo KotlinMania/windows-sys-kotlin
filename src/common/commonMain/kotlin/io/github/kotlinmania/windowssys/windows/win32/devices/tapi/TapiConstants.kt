@@ -1,500 +1,500 @@
 package io.github.kotlinmania.windowssys.windows.win32.devices.tapi
 
 import io.github.kotlinmania.windowssys.U128
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.s
 
-public val ACDGE_GROUP_REMOVED: ACDGROUP_EVENT = 1
+public val ACDGE_GROUP_REMOVED: AcdgroupEvent = 1
 
-public val ACDGE_NEW_GROUP: ACDGROUP_EVENT = 0
+public val ACDGE_NEW_GROUP: AcdgroupEvent = 0
 
-public val ACDQE_NEW_QUEUE: ACDQUEUE_EVENT = 0
+public val ACDQE_NEW_QUEUE: AcdqueueEvent = 0
 
-public val ACDQE_QUEUE_REMOVED: ACDQUEUE_EVENT = 1
+public val ACDQE_QUEUE_REMOVED: AcdqueueEvent = 1
 
-public val ACS_ADDRESSDEVICESPECIFIC: ADDRESS_CAPABILITY_STRING = 1
+public val ACS_ADDRESSDEVICESPECIFIC: AddressCapabilityString = 1
 
-public val ACS_LINEDEVICESPECIFIC: ADDRESS_CAPABILITY_STRING = 2
+public val ACS_LINEDEVICESPECIFIC: AddressCapabilityString = 2
 
-public val ACS_PERMANENTDEVICEGUID: ADDRESS_CAPABILITY_STRING = 5
+public val ACS_PERMANENTDEVICEGUID: AddressCapabilityString = 5
 
-public val ACS_PROTOCOL: ADDRESS_CAPABILITY_STRING = 0
+public val ACS_PROTOCOL: AddressCapabilityString = 0
 
-public val ACS_PROVIDERSPECIFIC: ADDRESS_CAPABILITY_STRING = 3
+public val ACS_PROVIDERSPECIFIC: AddressCapabilityString = 3
 
-public val ACS_SWITCHSPECIFIC: ADDRESS_CAPABILITY_STRING = 4
+public val ACS_SWITCHSPECIFIC: AddressCapabilityString = 4
 
-public val AC_ADDRESSCAPFLAGS: ADDRESS_CAPABILITY = 23
+public val AC_ADDRESSCAPFLAGS: AddressCapability = 23
 
-public val AC_ADDRESSFEATURES: ADDRESS_CAPABILITY = 29
+public val AC_ADDRESSFEATURES: AddressCapability = 29
 
-public val AC_ADDRESSID: ADDRESS_CAPABILITY = 33
+public val AC_ADDRESSID: AddressCapability = 33
 
-public val AC_ADDRESSTYPES: ADDRESS_CAPABILITY = 0
+public val AC_ADDRESSTYPES: AddressCapability = 0
 
-public val AC_ANSWERMODES: ADDRESS_CAPABILITY = 14
+public val AC_ANSWERMODES: AddressCapability = 14
 
-public val AC_BEARERMODES: ADDRESS_CAPABILITY = 1
+public val AC_BEARERMODES: AddressCapability = 1
 
-public val AC_CALLCOMPLETIONCONDITIONS: ADDRESS_CAPABILITY = 40
+public val AC_CALLCOMPLETIONCONDITIONS: AddressCapability = 40
 
-public val AC_CALLCOMPLETIONMODES: ADDRESS_CAPABILITY = 41
+public val AC_CALLCOMPLETIONMODES: AddressCapability = 41
 
-public val AC_CALLEDIDSUPPORT: ADDRESS_CAPABILITY = 19
+public val AC_CALLEDIDSUPPORT: AddressCapability = 19
 
-public val AC_CALLERIDSUPPORT: ADDRESS_CAPABILITY = 18
+public val AC_CALLERIDSUPPORT: AddressCapability = 18
 
-public val AC_CALLFEATURES1: ADDRESS_CAPABILITY = 24
+public val AC_CALLFEATURES1: AddressCapability = 24
 
-public val AC_CALLFEATURES2: ADDRESS_CAPABILITY = 25
+public val AC_CALLFEATURES2: AddressCapability = 25
 
-public val AC_CONNECTEDIDSUPPORT: ADDRESS_CAPABILITY = 20
+public val AC_CONNECTEDIDSUPPORT: AddressCapability = 20
 
-public val AC_DEVCAPFLAGS: ADDRESS_CAPABILITY = 13
+public val AC_DEVCAPFLAGS: AddressCapability = 13
 
-public val AC_FORWARDMODES: ADDRESS_CAPABILITY = 34
+public val AC_FORWARDMODES: AddressCapability = 34
 
-public val AC_GATHERDIGITSMAXTIMEOUT: ADDRESS_CAPABILITY = 44
+public val AC_GATHERDIGITSMAXTIMEOUT: AddressCapability = 44
 
-public val AC_GATHERDIGITSMINTIMEOUT: ADDRESS_CAPABILITY = 43
+public val AC_GATHERDIGITSMINTIMEOUT: AddressCapability = 43
 
-public val AC_GENERATEDIGITDEFAULTDURATION: ADDRESS_CAPABILITY = 47
+public val AC_GENERATEDIGITDEFAULTDURATION: AddressCapability = 47
 
-public val AC_GENERATEDIGITMAXDURATION: ADDRESS_CAPABILITY = 46
+public val AC_GENERATEDIGITMAXDURATION: AddressCapability = 46
 
-public val AC_GENERATEDIGITMINDURATION: ADDRESS_CAPABILITY = 45
+public val AC_GENERATEDIGITMINDURATION: AddressCapability = 45
 
-public val AC_GENERATEDIGITSUPPORT: ADDRESS_CAPABILITY = 8
+public val AC_GENERATEDIGITSUPPORT: AddressCapability = 8
 
-public val AC_GENERATETONEMAXNUMFREQ: ADDRESS_CAPABILITY = 10
+public val AC_GENERATETONEMAXNUMFREQ: AddressCapability = 10
 
-public val AC_GENERATETONEMODES: ADDRESS_CAPABILITY = 9
+public val AC_GENERATETONEMODES: AddressCapability = 9
 
-public val AC_LINEFEATURES: ADDRESS_CAPABILITY = 15
+public val AC_LINEFEATURES: AddressCapability = 15
 
-public val AC_LINEID: ADDRESS_CAPABILITY = 32
+public val AC_LINEID: AddressCapability = 32
 
-public val AC_MAXACTIVECALLS: ADDRESS_CAPABILITY = 2
+public val AC_MAXACTIVECALLS: AddressCapability = 2
 
-public val AC_MAXCALLCOMPLETIONS: ADDRESS_CAPABILITY = 39
+public val AC_MAXCALLCOMPLETIONS: AddressCapability = 39
 
-public val AC_MAXCALLDATASIZE: ADDRESS_CAPABILITY = 31
+public val AC_MAXCALLDATASIZE: AddressCapability = 31
 
-public val AC_MAXFORWARDENTRIES: ADDRESS_CAPABILITY = 35
+public val AC_MAXFORWARDENTRIES: AddressCapability = 35
 
-public val AC_MAXFWDNUMRINGS: ADDRESS_CAPABILITY = 38
+public val AC_MAXFWDNUMRINGS: AddressCapability = 38
 
-public val AC_MAXNUMCONFERENCE: ADDRESS_CAPABILITY = 5
+public val AC_MAXNUMCONFERENCE: AddressCapability = 5
 
-public val AC_MAXNUMTRANSCONF: ADDRESS_CAPABILITY = 6
+public val AC_MAXNUMTRANSCONF: AddressCapability = 6
 
-public val AC_MAXONHOLDCALLS: ADDRESS_CAPABILITY = 3
+public val AC_MAXONHOLDCALLS: AddressCapability = 3
 
-public val AC_MAXONHOLDPENDINGCALLS: ADDRESS_CAPABILITY = 4
+public val AC_MAXONHOLDPENDINGCALLS: AddressCapability = 4
 
-public val AC_MAXSPECIFICENTRIES: ADDRESS_CAPABILITY = 36
+public val AC_MAXSPECIFICENTRIES: AddressCapability = 36
 
-public val AC_MINFWDNUMRINGS: ADDRESS_CAPABILITY = 37
+public val AC_MINFWDNUMRINGS: AddressCapability = 37
 
-public val AC_MONITORDIGITSUPPORT: ADDRESS_CAPABILITY = 7
+public val AC_MONITORDIGITSUPPORT: AddressCapability = 7
 
-public val AC_MONITORTONEMAXNUMENTRIES: ADDRESS_CAPABILITY = 12
+public val AC_MONITORTONEMAXNUMENTRIES: AddressCapability = 12
 
-public val AC_MONITORTONEMAXNUMFREQ: ADDRESS_CAPABILITY = 11
+public val AC_MONITORTONEMAXNUMFREQ: AddressCapability = 11
 
-public val AC_PARKSUPPORT: ADDRESS_CAPABILITY = 17
+public val AC_PARKSUPPORT: AddressCapability = 17
 
-public val AC_PERMANENTDEVICEID: ADDRESS_CAPABILITY = 42
+public val AC_PERMANENTDEVICEID: AddressCapability = 42
 
-public val AC_PREDICTIVEAUTOTRANSFERSTATES: ADDRESS_CAPABILITY = 30
+public val AC_PREDICTIVEAUTOTRANSFERSTATES: AddressCapability = 30
 
-public val AC_REDIRECTINGIDSUPPORT: ADDRESS_CAPABILITY = 22
+public val AC_REDIRECTINGIDSUPPORT: AddressCapability = 22
 
-public val AC_REDIRECTIONIDSUPPORT: ADDRESS_CAPABILITY = 21
+public val AC_REDIRECTIONIDSUPPORT: AddressCapability = 21
 
-public val AC_REMOVEFROMCONFCAPS: ADDRESS_CAPABILITY = 26
+public val AC_REMOVEFROMCONFCAPS: AddressCapability = 26
 
-public val AC_REMOVEFROMCONFSTATE: ADDRESS_CAPABILITY = 27
+public val AC_REMOVEFROMCONFSTATE: AddressCapability = 27
 
-public val AC_SETTABLEDEVSTATUS: ADDRESS_CAPABILITY = 16
+public val AC_SETTABLEDEVSTATUS: AddressCapability = 16
 
-public val AC_TRANSFERMODES: ADDRESS_CAPABILITY = 28
+public val AC_TRANSFERMODES: AddressCapability = 28
 
-public val ADDRESS_TERMINAL_AVAILABLE: MSP_ADDRESS_EVENT = 0
+public val ADDRESS_TERMINAL_AVAILABLE: MspAddressEvent = 0
 
-public val ADDRESS_TERMINAL_UNAVAILABLE: MSP_ADDRESS_EVENT = 1
+public val ADDRESS_TERMINAL_UNAVAILABLE: MspAddressEvent = 1
 
-public val AE_BUSY_ACD: AGENT_EVENT = 2
+public val AE_BUSY_ACD: AgentEvent = 2
 
-public val AE_BUSY_INCOMING: AGENT_EVENT = 3
+public val AE_BUSY_INCOMING: AgentEvent = 3
 
-public val AE_BUSY_OUTGOING: AGENT_EVENT = 4
+public val AE_BUSY_OUTGOING: AgentEvent = 4
 
-public val AE_CAPSCHANGE: ADDRESS_EVENT = 1
+public val AE_CAPSCHANGE: AddressEvent = 1
 
-public val AE_CONFIGCHANGE: ADDRESS_EVENT = 3
+public val AE_CONFIGCHANGE: AddressEvent = 3
 
-public val AE_FORWARD: ADDRESS_EVENT = 4
+public val AE_FORWARD: AddressEvent = 4
 
-public val AE_LASTITEM: ADDRESS_EVENT = 8
+public val AE_LASTITEM: AddressEvent = 8
 
-public val AE_MSGWAITOFF: ADDRESS_EVENT = 8
+public val AE_MSGWAITOFF: AddressEvent = 8
 
-public val AE_MSGWAITON: ADDRESS_EVENT = 7
+public val AE_MSGWAITON: AddressEvent = 7
 
-public val AE_NEWTERMINAL: ADDRESS_EVENT = 5
+public val AE_NEWTERMINAL: AddressEvent = 5
 
-public val AE_NOT_READY: AGENT_EVENT = 0
+public val AE_NOT_READY: AgentEvent = 0
 
-public val AE_READY: AGENT_EVENT = 1
+public val AE_READY: AgentEvent = 1
 
-public val AE_REMOVETERMINAL: ADDRESS_EVENT = 6
+public val AE_REMOVETERMINAL: AddressEvent = 6
 
-public val AE_RINGING: ADDRESS_EVENT = 2
+public val AE_RINGING: AddressEvent = 2
 
-public val AE_STATE: ADDRESS_EVENT = 0
+public val AE_STATE: AddressEvent = 0
 
-public val AE_UNKNOWN: AGENT_EVENT = 5
+public val AE_UNKNOWN: AgentEvent = 5
 
-public val AHE_AGENTHANDLER_REMOVED: AGENTHANDLER_EVENT = 1
+public val AHE_AGENTHANDLER_REMOVED: AgenthandlerEvent = 1
 
-public val AHE_NEW_AGENTHANDLER: AGENTHANDLER_EVENT = 0
+public val AHE_NEW_AGENTHANDLER: AgenthandlerEvent = 0
 
-public val ASE_BUSY: AGENT_SESSION_EVENT = 3
+public val ASE_BUSY: AgentSessionEvent = 3
 
-public val ASE_END: AGENT_SESSION_EVENT = 5
+public val ASE_END: AgentSessionEvent = 5
 
-public val ASE_NEW_SESSION: AGENT_SESSION_EVENT = 0
+public val ASE_NEW_SESSION: AgentSessionEvent = 0
 
-public val ASE_NOT_READY: AGENT_SESSION_EVENT = 1
+public val ASE_NOT_READY: AgentSessionEvent = 1
 
-public val ASE_READY: AGENT_SESSION_EVENT = 2
+public val ASE_READY: AgentSessionEvent = 2
 
-public val ASE_WRAPUP: AGENT_SESSION_EVENT = 4
+public val ASE_WRAPUP: AgentSessionEvent = 4
 
-public val ASST_BUSY_ON_CALL: AGENT_SESSION_STATE = 2
+public val ASST_BUSY_ON_CALL: AgentSessionState = 2
 
-public val ASST_BUSY_WRAPUP: AGENT_SESSION_STATE = 3
+public val ASST_BUSY_WRAPUP: AgentSessionState = 3
 
-public val ASST_NOT_READY: AGENT_SESSION_STATE = 0
+public val ASST_NOT_READY: AgentSessionState = 0
 
-public val ASST_READY: AGENT_SESSION_STATE = 1
+public val ASST_READY: AgentSessionState = 1
 
-public val ASST_SESSION_ENDED: AGENT_SESSION_STATE = 4
+public val ASST_SESSION_ENDED: AgentSessionState = 4
 
-public val AS_BUSY_ACD: AGENT_STATE = 2
+public val AS_BUSY_ACD: AgentState = 2
 
-public val AS_BUSY_INCOMING: AGENT_STATE = 3
+public val AS_BUSY_INCOMING: AgentState = 3
 
-public val AS_BUSY_OUTGOING: AGENT_STATE = 4
+public val AS_BUSY_OUTGOING: AgentState = 4
 
-public val AS_INSERVICE: ADDRESS_STATE = 0
+public val AS_INSERVICE: AddressState = 0
 
-public val AS_NOT_READY: AGENT_STATE = 0
+public val AS_NOT_READY: AgentState = 0
 
-public val AS_OUTOFSERVICE: ADDRESS_STATE = 1
+public val AS_OUTOFSERVICE: AddressState = 1
 
-public val AS_READY: AGENT_STATE = 1
+public val AS_READY: AgentState = 1
 
-public val AS_UNKNOWN: AGENT_STATE = 5
+public val AS_UNKNOWN: AgentState = 5
 
-public val CALL_CAUSE_BAD_DEVICE: MSP_CALL_EVENT_CAUSE = 1
+public val CALL_CAUSE_BAD_DEVICE: MspCallEventCause = 1
 
-public val CALL_CAUSE_CONNECT_FAIL: MSP_CALL_EVENT_CAUSE = 2
+public val CALL_CAUSE_CONNECT_FAIL: MspCallEventCause = 2
 
-public val CALL_CAUSE_LOCAL_REQUEST: MSP_CALL_EVENT_CAUSE = 3
+public val CALL_CAUSE_LOCAL_REQUEST: MspCallEventCause = 3
 
-public val CALL_CAUSE_MEDIA_RECOVERED: MSP_CALL_EVENT_CAUSE = 6
+public val CALL_CAUSE_MEDIA_RECOVERED: MspCallEventCause = 6
 
-public val CALL_CAUSE_MEDIA_TIMEOUT: MSP_CALL_EVENT_CAUSE = 5
+public val CALL_CAUSE_MEDIA_TIMEOUT: MspCallEventCause = 5
 
-public val CALL_CAUSE_QUALITY_OF_SERVICE: MSP_CALL_EVENT_CAUSE = 7
+public val CALL_CAUSE_QUALITY_OF_SERVICE: MspCallEventCause = 7
 
-public val CALL_CAUSE_REMOTE_REQUEST: MSP_CALL_EVENT_CAUSE = 4
+public val CALL_CAUSE_REMOTE_REQUEST: MspCallEventCause = 4
 
-public val CALL_CAUSE_UNKNOWN: MSP_CALL_EVENT_CAUSE = 0
+public val CALL_CAUSE_UNKNOWN: MspCallEventCause = 0
 
-public val CALL_NEW_STREAM: MSP_CALL_EVENT = 0
+public val CALL_NEW_STREAM: MspCallEvent = 0
 
-public val CALL_STREAM_ACTIVE: MSP_CALL_EVENT = 4
+public val CALL_STREAM_ACTIVE: MspCallEvent = 4
 
-public val CALL_STREAM_FAIL: MSP_CALL_EVENT = 1
+public val CALL_STREAM_FAIL: MspCallEvent = 1
 
-public val CALL_STREAM_INACTIVE: MSP_CALL_EVENT = 5
+public val CALL_STREAM_INACTIVE: MspCallEvent = 5
 
-public val CALL_STREAM_NOT_USED: MSP_CALL_EVENT = 3
+public val CALL_STREAM_NOT_USED: MspCallEvent = 3
 
-public val CALL_TERMINAL_FAIL: MSP_CALL_EVENT = 2
+public val CALL_TERMINAL_FAIL: MspCallEvent = 2
 
-public val CEC_DISCONNECT_BADADDRESS: CALL_STATE_EVENT_CAUSE = 3
+public val CEC_DISCONNECT_BADADDRESS: CallStateEventCause = 3
 
-public val CEC_DISCONNECT_BLOCKED: CALL_STATE_EVENT_CAUSE = 8
+public val CEC_DISCONNECT_BLOCKED: CallStateEventCause = 8
 
-public val CEC_DISCONNECT_BUSY: CALL_STATE_EVENT_CAUSE = 2
+public val CEC_DISCONNECT_BUSY: CallStateEventCause = 2
 
-public val CEC_DISCONNECT_CANCELLED: CALL_STATE_EVENT_CAUSE = 5
+public val CEC_DISCONNECT_CANCELLED: CallStateEventCause = 5
 
-public val CEC_DISCONNECT_FAILED: CALL_STATE_EVENT_CAUSE = 7
+public val CEC_DISCONNECT_FAILED: CallStateEventCause = 7
 
-public val CEC_DISCONNECT_NOANSWER: CALL_STATE_EVENT_CAUSE = 4
+public val CEC_DISCONNECT_NOANSWER: CallStateEventCause = 4
 
-public val CEC_DISCONNECT_NORMAL: CALL_STATE_EVENT_CAUSE = 1
+public val CEC_DISCONNECT_NORMAL: CallStateEventCause = 1
 
-public val CEC_DISCONNECT_REJECTED: CALL_STATE_EVENT_CAUSE = 6
+public val CEC_DISCONNECT_REJECTED: CallStateEventCause = 6
 
-public val CEC_NONE: CALL_STATE_EVENT_CAUSE = 0
+public val CEC_NONE: CallStateEventCause = 0
 
-public val CHE_CALLHUBIDLE: CALLHUB_EVENT = 3
+public val CHE_CALLHUBIDLE: CallhubEvent = 3
 
-public val CHE_CALLHUBNEW: CALLHUB_EVENT = 2
+public val CHE_CALLHUBNEW: CallhubEvent = 2
 
-public val CHE_CALLJOIN: CALLHUB_EVENT = 0
+public val CHE_CALLJOIN: CallhubEvent = 0
 
-public val CHE_CALLLEAVE: CALLHUB_EVENT = 1
+public val CHE_CALLLEAVE: CallhubEvent = 1
 
-public val CHE_LASTITEM: CALLHUB_EVENT = 3
+public val CHE_LASTITEM: CallhubEvent = 3
 
-public val CHS_ACTIVE: CALLHUB_STATE = 0
+public val CHS_ACTIVE: CallhubState = 0
 
-public val CHS_IDLE: CALLHUB_STATE = 1
+public val CHS_IDLE: CallhubState = 1
 
-public val CIB_CALLDATABUFFER: CALLINFO_BUFFER = 2
+public val CIB_CALLDATABUFFER: CallinfoBuffer = 2
 
-public val CIB_CHARGINGINFOBUFFER: CALLINFO_BUFFER = 3
+public val CIB_CHARGINGINFOBUFFER: CallinfoBuffer = 3
 
-public val CIB_DEVSPECIFICBUFFER: CALLINFO_BUFFER = 1
+public val CIB_DEVSPECIFICBUFFER: CallinfoBuffer = 1
 
-public val CIB_HIGHLEVELCOMPATIBILITYBUFFER: CALLINFO_BUFFER = 4
+public val CIB_HIGHLEVELCOMPATIBILITYBUFFER: CallinfoBuffer = 4
 
-public val CIB_LOWLEVELCOMPATIBILITYBUFFER: CALLINFO_BUFFER = 5
+public val CIB_LOWLEVELCOMPATIBILITYBUFFER: CallinfoBuffer = 5
 
-public val CIB_USERUSERINFO: CALLINFO_BUFFER = 0
+public val CIB_USERUSERINFO: CallinfoBuffer = 0
 
-public val CIC_APPSPECIFIC: CALLINFOCHANGE_CAUSE = 4
+public val CIC_APPSPECIFIC: CallinfochangeCause = 4
 
-public val CIC_BEARERMODE: CALLINFOCHANGE_CAUSE = 2
+public val CIC_BEARERMODE: CallinfochangeCause = 2
 
-public val CIC_CALLDATA: CALLINFOCHANGE_CAUSE = 24
+public val CIC_CALLDATA: CallinfochangeCause = 24
 
-public val CIC_CALLEDID: CALLINFOCHANGE_CAUSE = 15
+public val CIC_CALLEDID: CallinfochangeCause = 15
 
-public val CIC_CALLERID: CALLINFOCHANGE_CAUSE = 14
+public val CIC_CALLERID: CallinfochangeCause = 14
 
-public val CIC_CALLID: CALLINFOCHANGE_CAUSE = 5
+public val CIC_CALLID: CallinfochangeCause = 5
 
-public val CIC_CHARGINGINFO: CALLINFOCHANGE_CAUSE = 22
+public val CIC_CHARGINGINFO: CallinfochangeCause = 22
 
-public val CIC_COMPLETIONID: CALLINFOCHANGE_CAUSE = 9
+public val CIC_COMPLETIONID: CallinfochangeCause = 9
 
-public val CIC_CONNECTEDID: CALLINFOCHANGE_CAUSE = 16
+public val CIC_CONNECTEDID: CallinfochangeCause = 16
 
-public val CIC_DEVSPECIFIC: CALLINFOCHANGE_CAUSE = 1
+public val CIC_DEVSPECIFIC: CallinfochangeCause = 1
 
-public val CIC_HIGHLEVELCOMP: CALLINFOCHANGE_CAUSE = 20
+public val CIC_HIGHLEVELCOMP: CallinfochangeCause = 20
 
-public val CIC_LASTITEM: CALLINFOCHANGE_CAUSE = 26
+public val CIC_LASTITEM: CallinfochangeCause = 26
 
-public val CIC_LOWLEVELCOMP: CALLINFOCHANGE_CAUSE = 21
+public val CIC_LOWLEVELCOMP: CallinfochangeCause = 21
 
-public val CIC_MEDIATYPE: CALLINFOCHANGE_CAUSE = 26
+public val CIC_MEDIATYPE: CallinfochangeCause = 26
 
-public val CIC_NUMMONITORS: CALLINFOCHANGE_CAUSE = 12
+public val CIC_NUMMONITORS: CallinfochangeCause = 12
 
-public val CIC_NUMOWNERDECR: CALLINFOCHANGE_CAUSE = 11
+public val CIC_NUMOWNERDECR: CallinfochangeCause = 11
 
-public val CIC_NUMOWNERINCR: CALLINFOCHANGE_CAUSE = 10
+public val CIC_NUMOWNERINCR: CallinfochangeCause = 10
 
-public val CIC_ORIGIN: CALLINFOCHANGE_CAUSE = 7
+public val CIC_ORIGIN: CallinfochangeCause = 7
 
-public val CIC_OTHER: CALLINFOCHANGE_CAUSE = 0
+public val CIC_OTHER: CallinfochangeCause = 0
 
-public val CIC_PRIVILEGE: CALLINFOCHANGE_CAUSE = 25
+public val CIC_PRIVILEGE: CallinfochangeCause = 25
 
-public val CIC_RATE: CALLINFOCHANGE_CAUSE = 3
+public val CIC_RATE: CallinfochangeCause = 3
 
-public val CIC_REASON: CALLINFOCHANGE_CAUSE = 8
+public val CIC_REASON: CallinfochangeCause = 8
 
-public val CIC_REDIRECTINGID: CALLINFOCHANGE_CAUSE = 18
+public val CIC_REDIRECTINGID: CallinfochangeCause = 18
 
-public val CIC_REDIRECTIONID: CALLINFOCHANGE_CAUSE = 17
+public val CIC_REDIRECTIONID: CallinfochangeCause = 17
 
-public val CIC_RELATEDCALLID: CALLINFOCHANGE_CAUSE = 6
+public val CIC_RELATEDCALLID: CallinfochangeCause = 6
 
-public val CIC_TREATMENT: CALLINFOCHANGE_CAUSE = 23
+public val CIC_TREATMENT: CallinfochangeCause = 23
 
-public val CIC_TRUNK: CALLINFOCHANGE_CAUSE = 13
+public val CIC_TRUNK: CallinfochangeCause = 13
 
-public val CIC_USERUSERINFO: CALLINFOCHANGE_CAUSE = 19
+public val CIC_USERUSERINFO: CallinfochangeCause = 19
 
-public val CIL_APPSPECIFIC: CALLINFO_LONG = 9
+public val CIL_APPSPECIFIC: CallinfoLong = 9
 
-public val CIL_BEARERMODE: CALLINFO_LONG = 1
+public val CIL_BEARERMODE: CallinfoLong = 1
 
-public val CIL_CALLEDIDADDRESSTYPE: CALLINFO_LONG = 3
+public val CIL_CALLEDIDADDRESSTYPE: CallinfoLong = 3
 
-public val CIL_CALLERIDADDRESSTYPE: CALLINFO_LONG = 2
+public val CIL_CALLERIDADDRESSTYPE: CallinfoLong = 2
 
-public val CIL_CALLID: CALLINFO_LONG = 15
+public val CIL_CALLID: CallinfoLong = 15
 
-public val CIL_CALLPARAMSFLAGS: CALLINFO_LONG = 10
+public val CIL_CALLPARAMSFLAGS: CallinfoLong = 10
 
-public val CIL_CALLTREATMENT: CALLINFO_LONG = 11
+public val CIL_CALLTREATMENT: CallinfoLong = 11
 
-public val CIL_COMPLETIONID: CALLINFO_LONG = 17
+public val CIL_COMPLETIONID: CallinfoLong = 17
 
-public val CIL_CONNECTEDIDADDRESSTYPE: CALLINFO_LONG = 4
+public val CIL_CONNECTEDIDADDRESSTYPE: CallinfoLong = 4
 
-public val CIL_COUNTRYCODE: CALLINFO_LONG = 14
+public val CIL_COUNTRYCODE: CallinfoLong = 14
 
-public val CIL_GENERATEDIGITDURATION: CALLINFO_LONG = 22
+public val CIL_GENERATEDIGITDURATION: CallinfoLong = 22
 
-public val CIL_MAXRATE: CALLINFO_LONG = 13
+public val CIL_MAXRATE: CallinfoLong = 13
 
-public val CIL_MEDIATYPESAVAILABLE: CALLINFO_LONG = 0
+public val CIL_MEDIATYPESAVAILABLE: CallinfoLong = 0
 
-public val CIL_MINRATE: CALLINFO_LONG = 12
+public val CIL_MINRATE: CallinfoLong = 12
 
-public val CIL_MONITORDIGITMODES: CALLINFO_LONG = 23
+public val CIL_MONITORDIGITMODES: CallinfoLong = 23
 
-public val CIL_MONITORMEDIAMODES: CALLINFO_LONG = 24
+public val CIL_MONITORMEDIAMODES: CallinfoLong = 24
 
-public val CIL_NUMBEROFMONITORS: CALLINFO_LONG = 19
+public val CIL_NUMBEROFMONITORS: CallinfoLong = 19
 
-public val CIL_NUMBEROFOWNERS: CALLINFO_LONG = 18
+public val CIL_NUMBEROFOWNERS: CallinfoLong = 18
 
-public val CIL_ORIGIN: CALLINFO_LONG = 7
+public val CIL_ORIGIN: CallinfoLong = 7
 
-public val CIL_RATE: CALLINFO_LONG = 21
+public val CIL_RATE: CallinfoLong = 21
 
-public val CIL_REASON: CALLINFO_LONG = 8
+public val CIL_REASON: CallinfoLong = 8
 
-public val CIL_REDIRECTINGIDADDRESSTYPE: CALLINFO_LONG = 6
+public val CIL_REDIRECTINGIDADDRESSTYPE: CallinfoLong = 6
 
-public val CIL_REDIRECTIONIDADDRESSTYPE: CALLINFO_LONG = 5
+public val CIL_REDIRECTIONIDADDRESSTYPE: CallinfoLong = 5
 
-public val CIL_RELATEDCALLID: CALLINFO_LONG = 16
+public val CIL_RELATEDCALLID: CallinfoLong = 16
 
-public val CIL_TRUNK: CALLINFO_LONG = 20
+public val CIL_TRUNK: CallinfoLong = 20
 
-public val CIS_CALLEDIDNAME: CALLINFO_STRING = 2
+public val CIS_CALLEDIDNAME: CallinfoString = 2
 
-public val CIS_CALLEDIDNUMBER: CALLINFO_STRING = 3
+public val CIS_CALLEDIDNUMBER: CallinfoString = 3
 
-public val CIS_CALLEDPARTYFRIENDLYNAME: CALLINFO_STRING = 10
+public val CIS_CALLEDPARTYFRIENDLYNAME: CallinfoString = 10
 
-public val CIS_CALLERIDNAME: CALLINFO_STRING = 0
+public val CIS_CALLERIDNAME: CallinfoString = 0
 
-public val CIS_CALLERIDNUMBER: CALLINFO_STRING = 1
+public val CIS_CALLERIDNUMBER: CallinfoString = 1
 
-public val CIS_CALLINGPARTYID: CALLINFO_STRING = 13
+public val CIS_CALLINGPARTYID: CallinfoString = 13
 
-public val CIS_COMMENT: CALLINFO_STRING = 11
+public val CIS_COMMENT: CallinfoString = 11
 
-public val CIS_CONNECTEDIDNAME: CALLINFO_STRING = 4
+public val CIS_CONNECTEDIDNAME: CallinfoString = 4
 
-public val CIS_CONNECTEDIDNUMBER: CALLINFO_STRING = 5
+public val CIS_CONNECTEDIDNUMBER: CallinfoString = 5
 
-public val CIS_DISPLAYABLEADDRESS: CALLINFO_STRING = 12
+public val CIS_DISPLAYABLEADDRESS: CallinfoString = 12
 
-public val CIS_REDIRECTINGIDNAME: CALLINFO_STRING = 8
+public val CIS_REDIRECTINGIDNAME: CallinfoString = 8
 
-public val CIS_REDIRECTINGIDNUMBER: CALLINFO_STRING = 9
+public val CIS_REDIRECTINGIDNUMBER: CallinfoString = 9
 
-public val CIS_REDIRECTIONIDNAME: CALLINFO_STRING = 6
+public val CIS_REDIRECTIONIDNAME: CallinfoString = 6
 
-public val CIS_REDIRECTIONIDNUMBER: CALLINFO_STRING = 7
+public val CIS_REDIRECTIONIDNUMBER: CallinfoString = 7
 
-public val CMC_BAD_DEVICE: CALL_MEDIA_EVENT_CAUSE = 1
+public val CMC_BAD_DEVICE: CallMediaEventCause = 1
 
-public val CMC_CONNECT_FAIL: CALL_MEDIA_EVENT_CAUSE = 2
+public val CMC_CONNECT_FAIL: CallMediaEventCause = 2
 
-public val CMC_LOCAL_REQUEST: CALL_MEDIA_EVENT_CAUSE = 3
+public val CMC_LOCAL_REQUEST: CallMediaEventCause = 3
 
-public val CMC_MEDIA_RECOVERED: CALL_MEDIA_EVENT_CAUSE = 6
+public val CMC_MEDIA_RECOVERED: CallMediaEventCause = 6
 
-public val CMC_MEDIA_TIMEOUT: CALL_MEDIA_EVENT_CAUSE = 5
+public val CMC_MEDIA_TIMEOUT: CallMediaEventCause = 5
 
-public val CMC_QUALITY_OF_SERVICE: CALL_MEDIA_EVENT_CAUSE = 7
+public val CMC_QUALITY_OF_SERVICE: CallMediaEventCause = 7
 
-public val CMC_REMOTE_REQUEST: CALL_MEDIA_EVENT_CAUSE = 4
+public val CMC_REMOTE_REQUEST: CallMediaEventCause = 4
 
-public val CMC_UNKNOWN: CALL_MEDIA_EVENT_CAUSE = 0
+public val CMC_UNKNOWN: CallMediaEventCause = 0
 
-public val CME_LASTITEM: CALL_MEDIA_EVENT = 5
+public val CME_LASTITEM: CallMediaEvent = 5
 
-public val CME_NEW_STREAM: CALL_MEDIA_EVENT = 0
+public val CME_NEW_STREAM: CallMediaEvent = 0
 
-public val CME_STREAM_ACTIVE: CALL_MEDIA_EVENT = 4
+public val CME_STREAM_ACTIVE: CallMediaEvent = 4
 
-public val CME_STREAM_FAIL: CALL_MEDIA_EVENT = 1
+public val CME_STREAM_FAIL: CallMediaEvent = 1
 
-public val CME_STREAM_INACTIVE: CALL_MEDIA_EVENT = 5
+public val CME_STREAM_INACTIVE: CallMediaEvent = 5
 
-public val CME_STREAM_NOT_USED: CALL_MEDIA_EVENT = 3
+public val CME_STREAM_NOT_USED: CallMediaEvent = 3
 
-public val CME_TERMINAL_FAIL: CALL_MEDIA_EVENT = 2
+public val CME_TERMINAL_FAIL: CallMediaEvent = 2
 
-public val CNE_LASTITEM: CALL_NOTIFICATION_EVENT = 1
+public val CNE_LASTITEM: CallNotificationEvent = 1
 
-public val CNE_MONITOR: CALL_NOTIFICATION_EVENT = 1
+public val CNE_MONITOR: CallNotificationEvent = 1
 
-public val CNE_OWNER: CALL_NOTIFICATION_EVENT = 0
+public val CNE_OWNER: CallNotificationEvent = 0
 
-public val CP_MONITOR: CALL_PRIVILEGE = 1
+public val CP_MONITOR: CallPrivilege = 1
 
-public val CP_OWNER: CALL_PRIVILEGE = 0
+public val CP_OWNER: CallPrivilege = 0
 
-public val CS_CONNECTED: CALL_STATE = 2
+public val CS_CONNECTED: CallState = 2
 
-public val CS_DISCONNECTED: CALL_STATE = 3
+public val CS_DISCONNECTED: CallState = 3
 
-public val CS_HOLD: CALL_STATE = 5
+public val CS_HOLD: CallState = 5
 
-public val CS_IDLE: CALL_STATE = 0
+public val CS_IDLE: CallState = 0
 
-public val CS_INPROGRESS: CALL_STATE = 1
+public val CS_INPROGRESS: CallState = 1
 
-public val CS_LASTITEM: CALL_STATE = 6
+public val CS_LASTITEM: CallState = 6
 
-public val CS_OFFERING: CALL_STATE = 4
+public val CS_OFFERING: CallState = 4
 
-public val CS_QUEUED: CALL_STATE = 6
+public val CS_QUEUED: CallState = 6
 
-public val DC_NOANSWER: DISCONNECT_CODE = 1
+public val DC_NOANSWER: DisconnectCode = 1
 
-public val DC_NORMAL: DISCONNECT_CODE = 0
+public val DC_NORMAL: DisconnectCode = 0
 
-public val DC_REJECTED: DISCONNECT_CODE = 2
+public val DC_REJECTED: DisconnectCode = 2
 
 public val DISPIDMASK: UInt = 65535u
 
-public val DT_ILS: DIRECTORY_TYPE = 2
+public val DT_ILS: DirectoryType = 2
 
-public val DT_NTDS: DIRECTORY_TYPE = 1
+public val DT_NTDS: DirectoryType = 1
 
-public val DispatchMapper: GUID = GUID.from_u128(U128(0xe9225296c75911d1uL, 0xa02b00c04fb6809fuL))
+public val DISPATCH_MAPPER: Guid = Guid.fromU128(U128(0xe9225296c75911d1uL, 0xa02b00c04fb6809fuL))
 
-public val FDS_NOTSUPPORTED: FULLDUPLEX_SUPPORT = 1
+public val FDS_NOTSUPPORTED: FullduplexSupport = 1
 
-public val FDS_SUPPORTED: FULLDUPLEX_SUPPORT = 0
+public val FDS_SUPPORTED: FullduplexSupport = 0
 
-public val FDS_UNKNOWN: FULLDUPLEX_SUPPORT = 2
+public val FDS_UNKNOWN: FullduplexSupport = 2
 
-public val FM_ASCONFERENCE: FINISH_MODE = 1
+public val FM_ASCONFERENCE: FinishMode = 1
 
-public val FM_ASTRANSFER: FINISH_MODE = 0
+public val FM_ASTRANSFER: FinishMode = 0
 
-public val FTEC_END_OF_FILE: FT_STATE_EVENT_CAUSE = 1
+public val FTEC_END_OF_FILE: FtStateEventCause = 1
 
-public val FTEC_NORMAL: FT_STATE_EVENT_CAUSE = 0
+public val FTEC_NORMAL: FtStateEventCause = 0
 
-public val FTEC_READ_ERROR: FT_STATE_EVENT_CAUSE = 2
+public val FTEC_READ_ERROR: FtStateEventCause = 2
 
-public val FTEC_WRITE_ERROR: FT_STATE_EVENT_CAUSE = 3
+public val FTEC_WRITE_ERROR: FtStateEventCause = 3
 
-public val GETTNEFSTREAMCODEPAGE: PCSTR = s("GetTnefStreamCodePage")
+public val GETTNEFSTREAMCODEPAGE: Pcstr = s("GetTnefStreamCodePage")
 
 public val IDISPADDRESS: UInt = 65536u
 
@@ -1836,215 +1836,215 @@ public val LINE_REPLY: Int = 12
 
 public val LINE_REQUEST: Int = 13
 
-public val LM_BROKENFLUTTER: PHONE_LAMP_MODE = 64
+public val LM_BROKENFLUTTER: PhoneLampMode = 64
 
-public val LM_DUMMY: PHONE_LAMP_MODE = 1
+public val LM_DUMMY: PhoneLampMode = 1
 
-public val LM_FLASH: PHONE_LAMP_MODE = 16
+public val LM_FLASH: PhoneLampMode = 16
 
-public val LM_FLUTTER: PHONE_LAMP_MODE = 32
+public val LM_FLUTTER: PhoneLampMode = 32
 
-public val LM_OFF: PHONE_LAMP_MODE = 2
+public val LM_OFF: PhoneLampMode = 2
 
-public val LM_STEADY: PHONE_LAMP_MODE = 4
+public val LM_STEADY: PhoneLampMode = 4
 
-public val LM_UNKNOWN: PHONE_LAMP_MODE = 128
+public val LM_UNKNOWN: PhoneLampMode = 128
 
-public val LM_WINK: PHONE_LAMP_MODE = 8
+public val LM_WINK: PhoneLampMode = 8
 
-public val ME_ADDRESS_EVENT: MSP_EVENT = 0
+public val ME_ADDRESS_EVENT: MspEvent = 0
 
-public val ME_ASR_TERMINAL_EVENT: MSP_EVENT = 4
+public val ME_ASR_TERMINAL_EVENT: MspEvent = 4
 
-public val ME_CALL_EVENT: MSP_EVENT = 1
+public val ME_CALL_EVENT: MspEvent = 1
 
-public val ME_FILE_TERMINAL_EVENT: MSP_EVENT = 6
+public val ME_FILE_TERMINAL_EVENT: MspEvent = 6
 
-public val ME_PRIVATE_EVENT: MSP_EVENT = 3
+public val ME_PRIVATE_EVENT: MspEvent = 3
 
-public val ME_TONE_TERMINAL_EVENT: MSP_EVENT = 7
+public val ME_TONE_TERMINAL_EVENT: MspEvent = 7
 
-public val ME_TSP_DATA: MSP_EVENT = 2
+public val ME_TSP_DATA: MspEvent = 2
 
-public val ME_TTS_TERMINAL_EVENT: MSP_EVENT = 5
+public val ME_TTS_TERMINAL_EVENT: MspEvent = 5
 
-public val McastAddressAllocation: GUID = GUID.from_u128(U128(0xdf0daef2a28911d1uL, 0x8697006008b0e5d2uL))
+public val MCAST_ADDRESS_ALLOCATION: Guid = Guid.fromU128(U128(0xdf0daef2a28911d1uL, 0x8697006008b0e5d2uL))
 
-public val OPENTNEFSTREAM: PCSTR = s("OpenTnefStream")
+public val OPENTNEFSTREAM: Pcstr = s("OpenTnefStream")
 
-public val OPENTNEFSTREAMEX: PCSTR = s("OpenTnefStreamEx")
+public val OPENTNEFSTREAMEX: Pcstr = s("OpenTnefStreamEx")
 
-public val OT_CONFERENCE: DIRECTORY_OBJECT_TYPE = 1
+public val OT_CONFERENCE: DirectoryObjectType = 1
 
-public val OT_USER: DIRECTORY_OBJECT_TYPE = 2
+public val OT_USER: DirectoryObjectType = 2
 
-public val PBF_ABBREVDIAL: PHONE_BUTTON_FUNCTION = 11
+public val PBF_ABBREVDIAL: PhoneButtonFunction = 11
 
-public val PBF_BRIDGEDAPP: PHONE_BUTTON_FUNCTION = 28
+public val PBF_BRIDGEDAPP: PhoneButtonFunction = 28
 
-public val PBF_BUSY: PHONE_BUTTON_FUNCTION = 29
+public val PBF_BUSY: PhoneButtonFunction = 29
 
-public val PBF_CALLAPP: PHONE_BUTTON_FUNCTION = 30
+public val PBF_CALLAPP: PhoneButtonFunction = 30
 
-public val PBF_CALLID: PHONE_BUTTON_FUNCTION = 34
+public val PBF_CALLID: PhoneButtonFunction = 34
 
-public val PBF_CAMPON: PHONE_BUTTON_FUNCTION = 43
+public val PBF_CAMPON: PhoneButtonFunction = 43
 
-public val PBF_CONFERENCE: PHONE_BUTTON_FUNCTION = 1
+public val PBF_CONFERENCE: PhoneButtonFunction = 1
 
-public val PBF_CONNECT: PHONE_BUTTON_FUNCTION = 7
+public val PBF_CONNECT: PhoneButtonFunction = 7
 
-public val PBF_COVER: PHONE_BUTTON_FUNCTION = 33
+public val PBF_COVER: PhoneButtonFunction = 33
 
-public val PBF_DATAOFF: PHONE_BUTTON_FUNCTION = 25
+public val PBF_DATAOFF: PhoneButtonFunction = 25
 
-public val PBF_DATAON: PHONE_BUTTON_FUNCTION = 24
+public val PBF_DATAON: PhoneButtonFunction = 24
 
-public val PBF_DATETIME: PHONE_BUTTON_FUNCTION = 31
+public val PBF_DATETIME: PhoneButtonFunction = 31
 
-public val PBF_DIRECTORY: PHONE_BUTTON_FUNCTION = 32
+public val PBF_DIRECTORY: PhoneButtonFunction = 32
 
-public val PBF_DISCONNECT: PHONE_BUTTON_FUNCTION = 6
+public val PBF_DISCONNECT: PhoneButtonFunction = 6
 
-public val PBF_DONOTDISTURB: PHONE_BUTTON_FUNCTION = 26
+public val PBF_DONOTDISTURB: PhoneButtonFunction = 26
 
-public val PBF_DROP: PHONE_BUTTON_FUNCTION = 3
+public val PBF_DROP: PhoneButtonFunction = 3
 
-public val PBF_FLASH: PHONE_BUTTON_FUNCTION = 23
+public val PBF_FLASH: PhoneButtonFunction = 23
 
-public val PBF_FORWARD: PHONE_BUTTON_FUNCTION = 12
+public val PBF_FORWARD: PhoneButtonFunction = 12
 
-public val PBF_HOLD: PHONE_BUTTON_FUNCTION = 4
+public val PBF_HOLD: PhoneButtonFunction = 4
 
-public val PBF_INTERCOM: PHONE_BUTTON_FUNCTION = 27
+public val PBF_INTERCOM: PhoneButtonFunction = 27
 
-public val PBF_LASTNUM: PHONE_BUTTON_FUNCTION = 35
+public val PBF_LASTNUM: PhoneButtonFunction = 35
 
-public val PBF_MSGINDICATOR: PHONE_BUTTON_FUNCTION = 38
+public val PBF_MSGINDICATOR: PhoneButtonFunction = 38
 
-public val PBF_MSGWAITOFF: PHONE_BUTTON_FUNCTION = 9
+public val PBF_MSGWAITOFF: PhoneButtonFunction = 9
 
-public val PBF_MSGWAITON: PHONE_BUTTON_FUNCTION = 8
+public val PBF_MSGWAITON: PhoneButtonFunction = 8
 
-public val PBF_MUTE: PHONE_BUTTON_FUNCTION = 18
+public val PBF_MUTE: PhoneButtonFunction = 18
 
-public val PBF_NIGHTSRV: PHONE_BUTTON_FUNCTION = 36
+public val PBF_NIGHTSRV: PhoneButtonFunction = 36
 
-public val PBF_NONE: PHONE_BUTTON_FUNCTION = 46
+public val PBF_NONE: PhoneButtonFunction = 46
 
-public val PBF_PARK: PHONE_BUTTON_FUNCTION = 15
+public val PBF_PARK: PhoneButtonFunction = 15
 
-public val PBF_PICKUP: PHONE_BUTTON_FUNCTION = 13
+public val PBF_PICKUP: PhoneButtonFunction = 13
 
-public val PBF_QUEUECALL: PHONE_BUTTON_FUNCTION = 45
+public val PBF_QUEUECALL: PhoneButtonFunction = 45
 
-public val PBF_RECALL: PHONE_BUTTON_FUNCTION = 5
+public val PBF_RECALL: PhoneButtonFunction = 5
 
-public val PBF_REDIRECT: PHONE_BUTTON_FUNCTION = 17
+public val PBF_REDIRECT: PhoneButtonFunction = 17
 
-public val PBF_REJECT: PHONE_BUTTON_FUNCTION = 16
+public val PBF_REJECT: PhoneButtonFunction = 16
 
-public val PBF_REPDIAL: PHONE_BUTTON_FUNCTION = 39
+public val PBF_REPDIAL: PhoneButtonFunction = 39
 
-public val PBF_RINGAGAIN: PHONE_BUTTON_FUNCTION = 14
+public val PBF_RINGAGAIN: PhoneButtonFunction = 14
 
-public val PBF_SAVEREPEAT: PHONE_BUTTON_FUNCTION = 44
+public val PBF_SAVEREPEAT: PhoneButtonFunction = 44
 
-public val PBF_SELECTRING: PHONE_BUTTON_FUNCTION = 10
+public val PBF_SELECTRING: PhoneButtonFunction = 10
 
-public val PBF_SEND: PHONE_BUTTON_FUNCTION = 47
+public val PBF_SEND: PhoneButtonFunction = 47
 
-public val PBF_SENDCALLS: PHONE_BUTTON_FUNCTION = 37
+public val PBF_SENDCALLS: PhoneButtonFunction = 37
 
-public val PBF_SETREPDIAL: PHONE_BUTTON_FUNCTION = 40
+public val PBF_SETREPDIAL: PhoneButtonFunction = 40
 
-public val PBF_SPEAKEROFF: PHONE_BUTTON_FUNCTION = 22
+public val PBF_SPEAKEROFF: PhoneButtonFunction = 22
 
-public val PBF_SPEAKERON: PHONE_BUTTON_FUNCTION = 21
+public val PBF_SPEAKERON: PhoneButtonFunction = 21
 
-public val PBF_STATIONSPEED: PHONE_BUTTON_FUNCTION = 42
+public val PBF_STATIONSPEED: PhoneButtonFunction = 42
 
-public val PBF_SYSTEMSPEED: PHONE_BUTTON_FUNCTION = 41
+public val PBF_SYSTEMSPEED: PhoneButtonFunction = 41
 
-public val PBF_TRANSFER: PHONE_BUTTON_FUNCTION = 2
+public val PBF_TRANSFER: PhoneButtonFunction = 2
 
-public val PBF_UNKNOWN: PHONE_BUTTON_FUNCTION = 0
+public val PBF_UNKNOWN: PhoneButtonFunction = 0
 
-public val PBF_VOLUMEDOWN: PHONE_BUTTON_FUNCTION = 20
+public val PBF_VOLUMEDOWN: PhoneButtonFunction = 20
 
-public val PBF_VOLUMEUP: PHONE_BUTTON_FUNCTION = 19
+public val PBF_VOLUMEUP: PhoneButtonFunction = 19
 
-public val PBM_CALL: PHONE_BUTTON_MODE = 1
+public val PBM_CALL: PhoneButtonMode = 1
 
-public val PBM_DISPLAY: PHONE_BUTTON_MODE = 5
+public val PBM_DISPLAY: PhoneButtonMode = 5
 
-public val PBM_DUMMY: PHONE_BUTTON_MODE = 0
+public val PBM_DUMMY: PhoneButtonMode = 0
 
-public val PBM_FEATURE: PHONE_BUTTON_MODE = 2
+public val PBM_FEATURE: PhoneButtonMode = 2
 
-public val PBM_KEYPAD: PHONE_BUTTON_MODE = 3
+public val PBM_KEYPAD: PhoneButtonMode = 3
 
-public val PBM_LOCAL: PHONE_BUTTON_MODE = 4
+public val PBM_LOCAL: PhoneButtonMode = 4
 
-public val PBS_DOWN: PHONE_BUTTON_STATE = 2
+public val PBS_DOWN: PhoneButtonState = 2
 
-public val PBS_UNAVAIL: PHONE_BUTTON_STATE = 8
+public val PBS_UNAVAIL: PhoneButtonState = 8
 
-public val PBS_UNKNOWN: PHONE_BUTTON_STATE = 4
+public val PBS_UNKNOWN: PhoneButtonState = 4
 
-public val PBS_UP: PHONE_BUTTON_STATE = 1
+public val PBS_UP: PhoneButtonState = 1
 
-public val PCB_DEVSPECIFICBUFFER: PHONECAPS_BUFFER = 0
+public val PCB_DEVSPECIFICBUFFER: PhonecapsBuffer = 0
 
-public val PCL_DISPLAYNUMCOLUMNS: PHONECAPS_LONG = 5
+public val PCL_DISPLAYNUMCOLUMNS: PhonecapsLong = 5
 
-public val PCL_DISPLAYNUMROWS: PHONECAPS_LONG = 4
+public val PCL_DISPLAYNUMROWS: PhonecapsLong = 4
 
-public val PCL_GENERICPHONE: PHONECAPS_LONG = 8
+public val PCL_GENERICPHONE: PhonecapsLong = 8
 
-public val PCL_HANDSETHOOKSWITCHMODES: PHONECAPS_LONG = 1
+public val PCL_HANDSETHOOKSWITCHMODES: PhonecapsLong = 1
 
-public val PCL_HEADSETHOOKSWITCHMODES: PHONECAPS_LONG = 2
+public val PCL_HEADSETHOOKSWITCHMODES: PhonecapsLong = 2
 
-public val PCL_HOOKSWITCHES: PHONECAPS_LONG = 0
+public val PCL_HOOKSWITCHES: PhonecapsLong = 0
 
-public val PCL_NUMBUTTONLAMPS: PHONECAPS_LONG = 7
+public val PCL_NUMBUTTONLAMPS: PhonecapsLong = 7
 
-public val PCL_NUMRINGMODES: PHONECAPS_LONG = 6
+public val PCL_NUMRINGMODES: PhonecapsLong = 6
 
-public val PCL_SPEAKERPHONEHOOKSWITCHMODES: PHONECAPS_LONG = 3
+public val PCL_SPEAKERPHONEHOOKSWITCHMODES: PhonecapsLong = 3
 
-public val PCS_PHONEINFO: PHONECAPS_STRING = 1
+public val PCS_PHONEINFO: PhonecapsString = 1
 
-public val PCS_PHONENAME: PHONECAPS_STRING = 0
+public val PCS_PHONENAME: PhonecapsString = 0
 
-public val PCS_PROVIDERINFO: PHONECAPS_STRING = 2
+public val PCS_PROVIDERINFO: PhonecapsString = 2
 
-public val PE_ANSWER: PHONE_EVENT = 10
+public val PE_ANSWER: PhoneEvent = 10
 
-public val PE_BUTTON: PHONE_EVENT = 6
+public val PE_BUTTON: PhoneEvent = 6
 
-public val PE_CAPSCHANGE: PHONE_EVENT = 5
+public val PE_CAPSCHANGE: PhoneEvent = 5
 
-public val PE_CLOSE: PHONE_EVENT = 7
+public val PE_CLOSE: PhoneEvent = 7
 
-public val PE_DIALING: PHONE_EVENT = 9
+public val PE_DIALING: PhoneEvent = 9
 
-public val PE_DISCONNECT: PHONE_EVENT = 11
+public val PE_DISCONNECT: PhoneEvent = 11
 
-public val PE_DISPLAY: PHONE_EVENT = 0
+public val PE_DISPLAY: PhoneEvent = 0
 
-public val PE_HOOKSWITCH: PHONE_EVENT = 4
+public val PE_HOOKSWITCH: PhoneEvent = 4
 
-public val PE_LAMPMODE: PHONE_EVENT = 1
+public val PE_LAMPMODE: PhoneEvent = 1
 
-public val PE_LASTITEM: PHONE_EVENT = 11
+public val PE_LASTITEM: PhoneEvent = 11
 
-public val PE_NUMBERGATHERED: PHONE_EVENT = 8
+public val PE_NUMBERGATHERED: PhoneEvent = 8
 
-public val PE_RINGMODE: PHONE_EVENT = 2
+public val PE_RINGMODE: PhoneEvent = 2
 
-public val PE_RINGVOLUME: PHONE_EVENT = 3
+public val PE_RINGVOLUME: PhoneEvent = 3
 
 public val PHONEBUTTONFUNCTION_ABBREVDIAL: UInt = 11u
 
@@ -2400,23 +2400,23 @@ public val PHONE_REPLY: Int = 17
 
 public val PHONE_STATE: Int = 18
 
-public val PHSD_HANDSET: PHONE_HOOK_SWITCH_DEVICE = 1
+public val PHSD_HANDSET: PhoneHookSwitchDevice = 1
 
-public val PHSD_HEADSET: PHONE_HOOK_SWITCH_DEVICE = 4
+public val PHSD_HEADSET: PhoneHookSwitchDevice = 4
 
-public val PHSD_SPEAKERPHONE: PHONE_HOOK_SWITCH_DEVICE = 2
+public val PHSD_SPEAKERPHONE: PhoneHookSwitchDevice = 2
 
-public val PHSS_OFFHOOK: PHONE_HOOK_SWITCH_STATE = 8
+public val PHSS_OFFHOOK: PhoneHookSwitchState = 8
 
-public val PHSS_OFFHOOK_MIC_ONLY: PHONE_HOOK_SWITCH_STATE = 2
+public val PHSS_OFFHOOK_MIC_ONLY: PhoneHookSwitchState = 2
 
-public val PHSS_OFFHOOK_SPEAKER_ONLY: PHONE_HOOK_SWITCH_STATE = 4
+public val PHSS_OFFHOOK_SPEAKER_ONLY: PhoneHookSwitchState = 4
 
-public val PHSS_ONHOOK: PHONE_HOOK_SWITCH_STATE = 1
+public val PHSS_ONHOOK: PhoneHookSwitchState = 1
 
-public val PP_MONITOR: PHONE_PRIVILEGE = 1
+public val PP_MONITOR: PhonePrivilege = 1
 
-public val PP_OWNER: PHONE_PRIVILEGE = 0
+public val PP_OWNER: PhonePrivilege = 0
 
 public val PRIVATEOBJECT_ADDRESS: UInt = 6u
 
@@ -2430,73 +2430,73 @@ public val PRIVATEOBJECT_NONE: UInt = 1u
 
 public val PRIVATEOBJECT_PHONE: UInt = 5u
 
-public val PT_BUSY: PHONE_TONE = 18
+public val PT_BUSY: PhoneTone = 18
 
-public val PT_ERRORTONE: PHONE_TONE = 20
+public val PT_ERRORTONE: PhoneTone = 20
 
-public val PT_EXTERNALDIALTONE: PHONE_TONE = 17
+public val PT_EXTERNALDIALTONE: PhoneTone = 17
 
-public val PT_KEYPADA: PHONE_TONE = 12
+public val PT_KEYPADA: PhoneTone = 12
 
-public val PT_KEYPADB: PHONE_TONE = 13
+public val PT_KEYPADB: PhoneTone = 13
 
-public val PT_KEYPADC: PHONE_TONE = 14
+public val PT_KEYPADC: PhoneTone = 14
 
-public val PT_KEYPADD: PHONE_TONE = 15
+public val PT_KEYPADD: PhoneTone = 15
 
-public val PT_KEYPADEIGHT: PHONE_TONE = 8
+public val PT_KEYPADEIGHT: PhoneTone = 8
 
-public val PT_KEYPADFIVE: PHONE_TONE = 5
+public val PT_KEYPADFIVE: PhoneTone = 5
 
-public val PT_KEYPADFOUR: PHONE_TONE = 4
+public val PT_KEYPADFOUR: PhoneTone = 4
 
-public val PT_KEYPADNINE: PHONE_TONE = 9
+public val PT_KEYPADNINE: PhoneTone = 9
 
-public val PT_KEYPADONE: PHONE_TONE = 1
+public val PT_KEYPADONE: PhoneTone = 1
 
-public val PT_KEYPADPOUND: PHONE_TONE = 11
+public val PT_KEYPADPOUND: PhoneTone = 11
 
-public val PT_KEYPADSEVEN: PHONE_TONE = 7
+public val PT_KEYPADSEVEN: PhoneTone = 7
 
-public val PT_KEYPADSIX: PHONE_TONE = 6
+public val PT_KEYPADSIX: PhoneTone = 6
 
-public val PT_KEYPADSTAR: PHONE_TONE = 10
+public val PT_KEYPADSTAR: PhoneTone = 10
 
-public val PT_KEYPADTHREE: PHONE_TONE = 3
+public val PT_KEYPADTHREE: PhoneTone = 3
 
-public val PT_KEYPADTWO: PHONE_TONE = 2
+public val PT_KEYPADTWO: PhoneTone = 2
 
-public val PT_KEYPADZERO: PHONE_TONE = 0
+public val PT_KEYPADZERO: PhoneTone = 0
 
-public val PT_NORMALDIALTONE: PHONE_TONE = 16
+public val PT_NORMALDIALTONE: PhoneTone = 16
 
-public val PT_RINGBACK: PHONE_TONE = 19
+public val PT_RINGBACK: PhoneTone = 19
 
-public val PT_SILENCE: PHONE_TONE = 21
+public val PT_SILENCE: PhoneTone = 21
 
-public val QE_ADMISSIONFAILURE: QOS_EVENT = 2
+public val QE_ADMISSIONFAILURE: QosEvent = 2
 
-public val QE_GENERICERROR: QOS_EVENT = 4
+public val QE_GENERICERROR: QosEvent = 4
 
-public val QE_LASTITEM: QOS_EVENT = 4
+public val QE_LASTITEM: QosEvent = 4
 
-public val QE_NOQOS: QOS_EVENT = 1
+public val QE_NOQOS: QosEvent = 1
 
-public val QE_POLICYFAILURE: QOS_EVENT = 3
+public val QE_POLICYFAILURE: QosEvent = 3
 
-public val QSL_BEST_EFFORT: QOS_SERVICE_LEVEL = 3
+public val QSL_BEST_EFFORT: QosServiceLevel = 3
 
-public val QSL_IF_AVAILABLE: QOS_SERVICE_LEVEL = 2
+public val QSL_IF_AVAILABLE: QosServiceLevel = 2
 
-public val QSL_NEEDED: QOS_SERVICE_LEVEL = 1
+public val QSL_NEEDED: QosServiceLevel = 1
 
-public val RAS_LOCAL: RND_ADVERTISING_SCOPE = 1
+public val RAS_LOCAL: RndAdvertisingScope = 1
 
-public val RAS_REGION: RND_ADVERTISING_SCOPE = 3
+public val RAS_REGION: RndAdvertisingScope = 3
 
-public val RAS_SITE: RND_ADVERTISING_SCOPE = 2
+public val RAS_SITE: RndAdvertisingScope = 2
 
-public val RAS_WORLD: RND_ADVERTISING_SCOPE = 4
+public val RAS_WORLD: RndAdvertisingScope = 4
 
 public val RENDBIND_AUTHENTICATE: UInt = 1u
 
@@ -2508,9 +2508,9 @@ public val RENDBIND_DEFAULTPASSWORD: UInt = 8u
 
 public val RENDBIND_DEFAULTUSERNAME: UInt = 4u
 
-public val Rendezvous: GUID = GUID.from_u128(U128(0xf1029e5bcb5b11d0uL, 0x8d5900c04fd91ac0uL))
+public val RENDEZVOUS: Guid = Guid.fromU128(U128(0xf1029e5bcb5b11d0uL, 0x8d5900c04fd91ac0uL))
 
-public val RequestMakeCall: GUID = GUID.from_u128(U128(0xac48ffe0f8c411d1uL, 0xa03000c04fb6809fuL))
+public val REQUEST_MAKE_CALL: Guid = Guid.fromU128(U128(0xac48ffe0f8c411d1uL, 0xa03000c04fb6809fuL))
 
 public val STRINGFORMAT_ASCII: UInt = 1u
 
@@ -2532,7 +2532,7 @@ public val STRM_STOPPED: UInt = 16u
 
 public val STRM_TERMINALSELECTED: UInt = 1u
 
-public val TAPI: GUID = GUID.from_u128(U128(0x21d6d48ea88b11d0uL, 0x83dd00aa003ccabduL))
+public val TAPI: Guid = Guid.fromU128(U128(0x21d6d48ea88b11d0uL, 0x83dd00aa003ccabduL))
 
 public val TAPIERR_CONNECTED: Int = 0
 
@@ -2606,295 +2606,295 @@ public val TAPIMEDIATYPE_VIDEO: UInt = 32768u
 
 public val TAPI_CURRENT_VERSION: UInt = 131074u
 
-public val TAPI_E_ADDRESSBLOCKED: HRESULT = 0x8004002Au.toInt()
+public val TAPI_E_ADDRESSBLOCKED: Hresult = 0x8004002Au.toInt()
 
-public val TAPI_E_ALLOCATED: HRESULT = 0x80040006u.toInt()
+public val TAPI_E_ALLOCATED: Hresult = 0x80040006u.toInt()
 
-public val TAPI_E_BILLINGREJECTED: HRESULT = 0x8004002Bu.toInt()
+public val TAPI_E_BILLINGREJECTED: Hresult = 0x8004002Bu.toInt()
 
-public val TAPI_E_CALLCENTER_GROUP_REMOVED: HRESULT = 0x80040045u.toInt()
+public val TAPI_E_CALLCENTER_GROUP_REMOVED: Hresult = 0x80040045u.toInt()
 
-public val TAPI_E_CALLCENTER_INVALAGENTACTIVITY: HRESULT = 0x8004004Cu.toInt()
+public val TAPI_E_CALLCENTER_INVALAGENTACTIVITY: Hresult = 0x8004004Cu.toInt()
 
-public val TAPI_E_CALLCENTER_INVALAGENTGROUP: HRESULT = 0x80040049u.toInt()
+public val TAPI_E_CALLCENTER_INVALAGENTGROUP: Hresult = 0x80040049u.toInt()
 
-public val TAPI_E_CALLCENTER_INVALAGENTID: HRESULT = 0x80040048u.toInt()
+public val TAPI_E_CALLCENTER_INVALAGENTID: Hresult = 0x80040048u.toInt()
 
-public val TAPI_E_CALLCENTER_INVALAGENTSTATE: HRESULT = 0x8004004Bu.toInt()
+public val TAPI_E_CALLCENTER_INVALAGENTSTATE: Hresult = 0x8004004Bu.toInt()
 
-public val TAPI_E_CALLCENTER_INVALPASSWORD: HRESULT = 0x8004004Au.toInt()
+public val TAPI_E_CALLCENTER_INVALPASSWORD: Hresult = 0x8004004Au.toInt()
 
-public val TAPI_E_CALLCENTER_NO_AGENT_ID: HRESULT = 0x80040047u.toInt()
+public val TAPI_E_CALLCENTER_NO_AGENT_ID: Hresult = 0x80040047u.toInt()
 
-public val TAPI_E_CALLCENTER_QUEUE_REMOVED: HRESULT = 0x80040046u.toInt()
+public val TAPI_E_CALLCENTER_QUEUE_REMOVED: Hresult = 0x80040046u.toInt()
 
-public val TAPI_E_CALLNOTSELECTED: HRESULT = 0x80040054u.toInt()
+public val TAPI_E_CALLNOTSELECTED: Hresult = 0x80040054u.toInt()
 
-public val TAPI_E_CALLUNAVAIL: HRESULT = 0x80040007u.toInt()
+public val TAPI_E_CALLUNAVAIL: Hresult = 0x80040007u.toInt()
 
-public val TAPI_E_COMPLETIONOVERRUN: HRESULT = 0x80040008u.toInt()
+public val TAPI_E_COMPLETIONOVERRUN: Hresult = 0x80040008u.toInt()
 
-public val TAPI_E_CONFERENCEFULL: HRESULT = 0x80040009u.toInt()
+public val TAPI_E_CONFERENCEFULL: Hresult = 0x80040009u.toInt()
 
-public val TAPI_E_DESTBUSY: HRESULT = 0x80040034u.toInt()
+public val TAPI_E_DESTBUSY: Hresult = 0x80040034u.toInt()
 
-public val TAPI_E_DESTNOANSWER: HRESULT = 0x80040035u.toInt()
+public val TAPI_E_DESTNOANSWER: Hresult = 0x80040035u.toInt()
 
-public val TAPI_E_DESTUNAVAIL: HRESULT = 0x80040036u.toInt()
+public val TAPI_E_DESTUNAVAIL: Hresult = 0x80040036u.toInt()
 
-public val TAPI_E_DIALMODIFIERNOTSUPPORTED: HRESULT = 0x8004000Au.toInt()
+public val TAPI_E_DIALMODIFIERNOTSUPPORTED: Hresult = 0x8004000Au.toInt()
 
-public val TAPI_E_DROPPED: HRESULT = 0x80040031u.toInt()
+public val TAPI_E_DROPPED: Hresult = 0x80040031u.toInt()
 
-public val TAPI_E_INUSE: HRESULT = 0x8004000Bu.toInt()
+public val TAPI_E_INUSE: Hresult = 0x8004000Bu.toInt()
 
-public val TAPI_E_INVALADDRESS: HRESULT = 0x8004000Cu.toInt()
+public val TAPI_E_INVALADDRESS: Hresult = 0x8004000Cu.toInt()
 
-public val TAPI_E_INVALADDRESSSTATE: HRESULT = 0x8004000Du.toInt()
+public val TAPI_E_INVALADDRESSSTATE: Hresult = 0x8004000Du.toInt()
 
-public val TAPI_E_INVALADDRESSTYPE: HRESULT = 0x80040051u.toInt()
+public val TAPI_E_INVALADDRESSTYPE: Hresult = 0x80040051u.toInt()
 
-public val TAPI_E_INVALBUTTONLAMPID: HRESULT = 0x8004002Du.toInt()
+public val TAPI_E_INVALBUTTONLAMPID: Hresult = 0x8004002Du.toInt()
 
-public val TAPI_E_INVALBUTTONSTATE: HRESULT = 0x8004002Eu.toInt()
+public val TAPI_E_INVALBUTTONSTATE: Hresult = 0x8004002Eu.toInt()
 
-public val TAPI_E_INVALCALLPARAMS: HRESULT = 0x8004000Eu.toInt()
+public val TAPI_E_INVALCALLPARAMS: Hresult = 0x8004000Eu.toInt()
 
-public val TAPI_E_INVALCALLPRIVILEGE: HRESULT = 0x8004000Fu.toInt()
+public val TAPI_E_INVALCALLPRIVILEGE: Hresult = 0x8004000Fu.toInt()
 
-public val TAPI_E_INVALCALLSTATE: HRESULT = 0x80040010u.toInt()
+public val TAPI_E_INVALCALLSTATE: Hresult = 0x80040010u.toInt()
 
-public val TAPI_E_INVALCARD: HRESULT = 0x80040011u.toInt()
+public val TAPI_E_INVALCARD: Hresult = 0x80040011u.toInt()
 
-public val TAPI_E_INVALCOMPLETIONID: HRESULT = 0x80040012u.toInt()
+public val TAPI_E_INVALCOMPLETIONID: Hresult = 0x80040012u.toInt()
 
-public val TAPI_E_INVALCOUNTRYCODE: HRESULT = 0x80040013u.toInt()
+public val TAPI_E_INVALCOUNTRYCODE: Hresult = 0x80040013u.toInt()
 
-public val TAPI_E_INVALDATAID: HRESULT = 0x8004002Fu.toInt()
+public val TAPI_E_INVALDATAID: Hresult = 0x8004002Fu.toInt()
 
-public val TAPI_E_INVALDEVICECLASS: HRESULT = 0x80040014u.toInt()
+public val TAPI_E_INVALDEVICECLASS: Hresult = 0x80040014u.toInt()
 
-public val TAPI_E_INVALDIALPARAMS: HRESULT = 0x80040015u.toInt()
+public val TAPI_E_INVALDIALPARAMS: Hresult = 0x80040015u.toInt()
 
-public val TAPI_E_INVALDIGITS: HRESULT = 0x80040016u.toInt()
+public val TAPI_E_INVALDIGITS: Hresult = 0x80040016u.toInt()
 
-public val TAPI_E_INVALFEATURE: HRESULT = 0x8004002Cu.toInt()
+public val TAPI_E_INVALFEATURE: Hresult = 0x8004002Cu.toInt()
 
-public val TAPI_E_INVALGROUPID: HRESULT = 0x80040017u.toInt()
+public val TAPI_E_INVALGROUPID: Hresult = 0x80040017u.toInt()
 
-public val TAPI_E_INVALHOOKSWITCHDEV: HRESULT = 0x80040030u.toInt()
+public val TAPI_E_INVALHOOKSWITCHDEV: Hresult = 0x80040030u.toInt()
 
-public val TAPI_E_INVALIDDIRECTION: HRESULT = 0x8004003Au.toInt()
+public val TAPI_E_INVALIDDIRECTION: Hresult = 0x8004003Au.toInt()
 
-public val TAPI_E_INVALIDMEDIATYPE: HRESULT = 0x80040004u.toInt()
+public val TAPI_E_INVALIDMEDIATYPE: Hresult = 0x80040004u.toInt()
 
-public val TAPI_E_INVALIDSTREAM: HRESULT = 0x80040043u.toInt()
+public val TAPI_E_INVALIDSTREAM: Hresult = 0x80040043u.toInt()
 
-public val TAPI_E_INVALIDSTREAMSTATE: HRESULT = 0x80040057u.toInt()
+public val TAPI_E_INVALIDSTREAMSTATE: Hresult = 0x80040057u.toInt()
 
-public val TAPI_E_INVALIDTERMINAL: HRESULT = 0x8004003Bu.toInt()
+public val TAPI_E_INVALIDTERMINAL: Hresult = 0x8004003Bu.toInt()
 
-public val TAPI_E_INVALIDTERMINALCLASS: HRESULT = 0x8004003Cu.toInt()
+public val TAPI_E_INVALIDTERMINALCLASS: Hresult = 0x8004003Cu.toInt()
 
-public val TAPI_E_INVALLIST: HRESULT = 0x8004001Eu.toInt()
+public val TAPI_E_INVALLIST: Hresult = 0x8004001Eu.toInt()
 
-public val TAPI_E_INVALLOCATION: HRESULT = 0x80040018u.toInt()
+public val TAPI_E_INVALLOCATION: Hresult = 0x80040018u.toInt()
 
-public val TAPI_E_INVALMESSAGEID: HRESULT = 0x80040019u.toInt()
+public val TAPI_E_INVALMESSAGEID: Hresult = 0x80040019u.toInt()
 
-public val TAPI_E_INVALMODE: HRESULT = 0x8004001Fu.toInt()
+public val TAPI_E_INVALMODE: Hresult = 0x8004001Fu.toInt()
 
-public val TAPI_E_INVALPARKID: HRESULT = 0x8004001Au.toInt()
+public val TAPI_E_INVALPARKID: Hresult = 0x8004001Au.toInt()
 
-public val TAPI_E_INVALPRIVILEGE: HRESULT = 0x80040039u.toInt()
+public val TAPI_E_INVALPRIVILEGE: Hresult = 0x80040039u.toInt()
 
-public val TAPI_E_INVALRATE: HRESULT = 0x8004001Bu.toInt()
+public val TAPI_E_INVALRATE: Hresult = 0x8004001Bu.toInt()
 
-public val TAPI_E_INVALTIMEOUT: HRESULT = 0x8004001Cu.toInt()
+public val TAPI_E_INVALTIMEOUT: Hresult = 0x8004001Cu.toInt()
 
-public val TAPI_E_INVALTONE: HRESULT = 0x8004001Du.toInt()
+public val TAPI_E_INVALTONE: Hresult = 0x8004001Du.toInt()
 
-public val TAPI_E_MAXSTREAMS: HRESULT = 0x8004003Eu.toInt()
+public val TAPI_E_MAXSTREAMS: Hresult = 0x8004003Eu.toInt()
 
-public val TAPI_E_MAXTERMINALS: HRESULT = 0x80040042u.toInt()
+public val TAPI_E_MAXTERMINALS: Hresult = 0x80040042u.toInt()
 
-public val TAPI_E_NOCONFERENCE: HRESULT = 0x80040020u.toInt()
+public val TAPI_E_NOCONFERENCE: Hresult = 0x80040020u.toInt()
 
-public val TAPI_E_NODEVICE: HRESULT = 0x80040021u.toInt()
+public val TAPI_E_NODEVICE: Hresult = 0x80040021u.toInt()
 
-public val TAPI_E_NODRIVER: HRESULT = 0x8004003Du.toInt()
+public val TAPI_E_NODRIVER: Hresult = 0x8004003Du.toInt()
 
-public val TAPI_E_NOEVENT: HRESULT = 0x80040050u.toInt()
+public val TAPI_E_NOEVENT: Hresult = 0x80040050u.toInt()
 
-public val TAPI_E_NOFORMAT: HRESULT = 0x80040056u.toInt()
+public val TAPI_E_NOFORMAT: Hresult = 0x80040056u.toInt()
 
-public val TAPI_E_NOITEMS: HRESULT = 0x80040002u.toInt()
+public val TAPI_E_NOITEMS: Hresult = 0x80040002u.toInt()
 
-public val TAPI_E_NOREQUEST: HRESULT = 0x80040022u.toInt()
+public val TAPI_E_NOREQUEST: Hresult = 0x80040022u.toInt()
 
-public val TAPI_E_NOREQUESTRECIPIENT: HRESULT = 0x80040032u.toInt()
+public val TAPI_E_NOREQUESTRECIPIENT: Hresult = 0x80040032u.toInt()
 
-public val TAPI_E_NOTENOUGHMEMORY: HRESULT = 0x80040001u.toInt()
+public val TAPI_E_NOTENOUGHMEMORY: Hresult = 0x80040001u.toInt()
 
-public val TAPI_E_NOTERMINALSELECTED: HRESULT = 0x8004003Fu.toInt()
+public val TAPI_E_NOTERMINALSELECTED: Hresult = 0x8004003Fu.toInt()
 
-public val TAPI_E_NOTOWNER: HRESULT = 0x80040023u.toInt()
+public val TAPI_E_NOTOWNER: Hresult = 0x80040023u.toInt()
 
-public val TAPI_E_NOTREGISTERED: HRESULT = 0x80040024u.toInt()
+public val TAPI_E_NOTREGISTERED: Hresult = 0x80040024u.toInt()
 
-public val TAPI_E_NOTSTOPPED: HRESULT = 0x80040041u.toInt()
+public val TAPI_E_NOTSTOPPED: Hresult = 0x80040041u.toInt()
 
-public val TAPI_E_NOTSUPPORTED: HRESULT = 0x80040003u.toInt()
+public val TAPI_E_NOTSUPPORTED: Hresult = 0x80040003u.toInt()
 
-public val TAPI_E_NOT_INITIALIZED: HRESULT = 0x80040059u.toInt()
+public val TAPI_E_NOT_INITIALIZED: Hresult = 0x80040059u.toInt()
 
-public val TAPI_E_OPERATIONFAILED: HRESULT = 0x80040005u.toInt()
+public val TAPI_E_OPERATIONFAILED: Hresult = 0x80040005u.toInt()
 
-public val TAPI_E_PEER_NOT_SET: HRESULT = 0x8004004Fu.toInt()
+public val TAPI_E_PEER_NOT_SET: Hresult = 0x8004004Fu.toInt()
 
-public val TAPI_E_PHONENOTOPEN: HRESULT = 0x80040053u.toInt()
+public val TAPI_E_PHONENOTOPEN: Hresult = 0x80040053u.toInt()
 
-public val TAPI_E_REGISTRY_SETTING_CORRUPT: HRESULT = 0x8004004Du.toInt()
+public val TAPI_E_REGISTRY_SETTING_CORRUPT: Hresult = 0x8004004Du.toInt()
 
-public val TAPI_E_REINIT: HRESULT = 0x80040029u.toInt()
+public val TAPI_E_REINIT: Hresult = 0x80040029u.toInt()
 
-public val TAPI_E_REQUESTCANCELLED: HRESULT = 0x80040038u.toInt()
+public val TAPI_E_REQUESTCANCELLED: Hresult = 0x80040038u.toInt()
 
-public val TAPI_E_REQUESTFAILED: HRESULT = 0x80040037u.toInt()
+public val TAPI_E_REQUESTFAILED: Hresult = 0x80040037u.toInt()
 
-public val TAPI_E_REQUESTOVERRUN: HRESULT = 0x80040025u.toInt()
+public val TAPI_E_REQUESTOVERRUN: Hresult = 0x80040025u.toInt()
 
-public val TAPI_E_REQUESTQUEUEFULL: HRESULT = 0x80040033u.toInt()
+public val TAPI_E_REQUESTQUEUEFULL: Hresult = 0x80040033u.toInt()
 
-public val TAPI_E_RESOURCEUNAVAIL: HRESULT = 0x80040052u.toInt()
+public val TAPI_E_RESOURCEUNAVAIL: Hresult = 0x80040052u.toInt()
 
-public val TAPI_E_SERVICE_NOT_RUNNING: HRESULT = 0x8004005Au.toInt()
+public val TAPI_E_SERVICE_NOT_RUNNING: Hresult = 0x8004005Au.toInt()
 
-public val TAPI_E_TARGETNOTFOUND: HRESULT = 0x80040026u.toInt()
+public val TAPI_E_TARGETNOTFOUND: Hresult = 0x80040026u.toInt()
 
-public val TAPI_E_TARGETSELF: HRESULT = 0x80040027u.toInt()
+public val TAPI_E_TARGETSELF: Hresult = 0x80040027u.toInt()
 
-public val TAPI_E_TERMINALINUSE: HRESULT = 0x80040040u.toInt()
+public val TAPI_E_TERMINALINUSE: Hresult = 0x80040040u.toInt()
 
-public val TAPI_E_TERMINAL_PEER: HRESULT = 0x8004004Eu.toInt()
+public val TAPI_E_TERMINAL_PEER: Hresult = 0x8004004Eu.toInt()
 
-public val TAPI_E_TIMEOUT: HRESULT = 0x80040044u.toInt()
+public val TAPI_E_TIMEOUT: Hresult = 0x80040044u.toInt()
 
-public val TAPI_E_USERUSERINFOTOOBIG: HRESULT = 0x80040028u.toInt()
+public val TAPI_E_USERUSERINFOTOOBIG: Hresult = 0x80040028u.toInt()
 
-public val TAPI_E_WRONGEVENT: HRESULT = 0x80040055u.toInt()
+public val TAPI_E_WRONGEVENT: Hresult = 0x80040055u.toInt()
 
-public val TAPI_E_WRONG_STATE: HRESULT = 0x80040058u.toInt()
+public val TAPI_E_WRONG_STATE: Hresult = 0x80040058u.toInt()
 
 public val TAPI_REPLY: UInt = 1123u
 
-public val TD_BIDIRECTIONAL: TERMINAL_DIRECTION = 2
+public val TD_BIDIRECTIONAL: TerminalDirection = 2
 
-public val TD_CAPTURE: TERMINAL_DIRECTION = 0
+public val TD_CAPTURE: TerminalDirection = 0
 
-public val TD_MULTITRACK_MIXED: TERMINAL_DIRECTION = 3
+public val TD_MULTITRACK_MIXED: TerminalDirection = 3
 
-public val TD_NONE: TERMINAL_DIRECTION = 4
+public val TD_NONE: TerminalDirection = 4
 
-public val TD_RENDER: TERMINAL_DIRECTION = 1
+public val TD_RENDER: TerminalDirection = 1
 
-public val TE_ACDGROUP: TAPI_EVENT = 8192
+public val TE_ACDGROUP: TapiEvent = 8192
 
-public val TE_ADDRESS: TAPI_EVENT = 2
+public val TE_ADDRESS: TapiEvent = 2
 
-public val TE_ADDRESSCLOSE: TAPIOBJECT_EVENT = 4
+public val TE_ADDRESSCLOSE: TapiobjectEvent = 4
 
-public val TE_ADDRESSCREATE: TAPIOBJECT_EVENT = 0
+public val TE_ADDRESSCREATE: TapiobjectEvent = 0
 
-public val TE_ADDRESSDEVSPECIFIC: TAPI_EVENT = 16777216
+public val TE_ADDRESSDEVSPECIFIC: TapiEvent = 16777216
 
-public val TE_ADDRESSREMOVE: TAPIOBJECT_EVENT = 1
+public val TE_ADDRESSREMOVE: TapiobjectEvent = 1
 
-public val TE_AGENT: TAPI_EVENT = 512
+public val TE_AGENT: TapiEvent = 512
 
-public val TE_AGENTHANDLER: TAPI_EVENT = 4096
+public val TE_AGENTHANDLER: TapiEvent = 4096
 
-public val TE_AGENTSESSION: TAPI_EVENT = 1024
+public val TE_AGENTSESSION: TapiEvent = 1024
 
-public val TE_ASRTERMINAL: TAPI_EVENT = 131072
+public val TE_ASRTERMINAL: TapiEvent = 131072
 
-public val TE_CALLHUB: TAPI_EVENT = 32
+public val TE_CALLHUB: TapiEvent = 32
 
-public val TE_CALLINFOCHANGE: TAPI_EVENT = 64
+public val TE_CALLINFOCHANGE: TapiEvent = 64
 
-public val TE_CALLMEDIA: TAPI_EVENT = 16
+public val TE_CALLMEDIA: TapiEvent = 16
 
-public val TE_CALLNOTIFICATION: TAPI_EVENT = 4
+public val TE_CALLNOTIFICATION: TapiEvent = 4
 
-public val TE_CALLSTATE: TAPI_EVENT = 8
+public val TE_CALLSTATE: TapiEvent = 8
 
-public val TE_DIGITEVENT: TAPI_EVENT = 32768
+public val TE_DIGITEVENT: TapiEvent = 32768
 
-public val TE_FILETERMINAL: TAPI_EVENT = 524288
+public val TE_FILETERMINAL: TapiEvent = 524288
 
-public val TE_GATHERDIGITS: TAPI_EVENT = 8388608
+public val TE_GATHERDIGITS: TapiEvent = 8388608
 
-public val TE_GENERATEEVENT: TAPI_EVENT = 65536
+public val TE_GENERATEEVENT: TapiEvent = 65536
 
-public val TE_PHONECREATE: TAPIOBJECT_EVENT = 5
+public val TE_PHONECREATE: TapiobjectEvent = 5
 
-public val TE_PHONEDEVSPECIFIC: TAPI_EVENT = 33554432
+public val TE_PHONEDEVSPECIFIC: TapiEvent = 33554432
 
-public val TE_PHONEEVENT: TAPI_EVENT = 2097152
+public val TE_PHONEEVENT: TapiEvent = 2097152
 
-public val TE_PHONEREMOVE: TAPIOBJECT_EVENT = 6
+public val TE_PHONEREMOVE: TapiobjectEvent = 6
 
-public val TE_PRIVATE: TAPI_EVENT = 128
+public val TE_PRIVATE: TapiEvent = 128
 
-public val TE_QOSEVENT: TAPI_EVENT = 2048
+public val TE_QOSEVENT: TapiEvent = 2048
 
-public val TE_QUEUE: TAPI_EVENT = 16384
+public val TE_QUEUE: TapiEvent = 16384
 
-public val TE_REINIT: TAPIOBJECT_EVENT = 2
+public val TE_REINIT: TapiobjectEvent = 2
 
-public val TE_REQUEST: TAPI_EVENT = 256
+public val TE_REQUEST: TapiEvent = 256
 
-public val TE_TAPIOBJECT: TAPI_EVENT = 1
+public val TE_TAPIOBJECT: TapiEvent = 1
 
-public val TE_TONEEVENT: TAPI_EVENT = 4194304
+public val TE_TONEEVENT: TapiEvent = 4194304
 
-public val TE_TONETERMINAL: TAPI_EVENT = 1048576
+public val TE_TONETERMINAL: TapiEvent = 1048576
 
-public val TE_TRANSLATECHANGE: TAPIOBJECT_EVENT = 3
+public val TE_TRANSLATECHANGE: TapiobjectEvent = 3
 
-public val TE_TTSTERMINAL: TAPI_EVENT = 262144
+public val TE_TTSTERMINAL: TapiEvent = 262144
 
-public val TGT_BUFFERFULL: TAPI_GATHERTERM = 1
+public val TGT_BUFFERFULL: TapiGatherterm = 1
 
-public val TGT_CANCEL: TAPI_GATHERTERM = 16
+public val TGT_CANCEL: TapiGatherterm = 16
 
-public val TGT_FIRSTTIMEOUT: TAPI_GATHERTERM = 4
+public val TGT_FIRSTTIMEOUT: TapiGatherterm = 4
 
-public val TGT_INTERTIMEOUT: TAPI_GATHERTERM = 8
+public val TGT_INTERTIMEOUT: TapiGatherterm = 8
 
-public val TGT_TERMDIGIT: TAPI_GATHERTERM = 2
+public val TGT_TERMDIGIT: TapiGatherterm = 2
 
-public val TMS_ACTIVE: TERMINAL_MEDIA_STATE = 1
+public val TMS_ACTIVE: TerminalMediaState = 1
 
-public val TMS_IDLE: TERMINAL_MEDIA_STATE = 0
+public val TMS_IDLE: TerminalMediaState = 0
 
-public val TMS_LASTITEM: TERMINAL_MEDIA_STATE = 2
+public val TMS_LASTITEM: TerminalMediaState = 2
 
-public val TMS_PAUSED: TERMINAL_MEDIA_STATE = 2
+public val TMS_PAUSED: TerminalMediaState = 2
 
-public val TOT_ADDRESS: TAPI_OBJECT_TYPE = 2
+public val TOT_ADDRESS: TapiObjectType = 2
 
-public val TOT_CALL: TAPI_OBJECT_TYPE = 4
+public val TOT_CALL: TapiObjectType = 4
 
-public val TOT_CALLHUB: TAPI_OBJECT_TYPE = 5
+public val TOT_CALLHUB: TapiObjectType = 5
 
-public val TOT_NONE: TAPI_OBJECT_TYPE = 0
+public val TOT_NONE: TapiObjectType = 0
 
-public val TOT_PHONE: TAPI_OBJECT_TYPE = 6
+public val TOT_PHONE: TapiObjectType = 6
 
-public val TOT_TAPI: TAPI_OBJECT_TYPE = 1
+public val TOT_TAPI: TapiObjectType = 1
 
-public val TOT_TERMINAL: TAPI_OBJECT_TYPE = 3
+public val TOT_TERMINAL: TapiObjectType = 3
 
 public val TSPI_LINEACCEPT: UInt = 500u
 

@@ -1,15 +1,17 @@
 package io.github.kotlinmania.windowssys.windows.win32.ui.input.touch
 
-public typealias GESTURECONFIG_ID = UInt
+import io.github.kotlinmania.windowssys.COpaquePointer
 
-public typealias HGESTUREINFO = Long
+public typealias GestureconfigId = UInt
 
-public typealias HTOUCHINPUT = Long
+public typealias Hgestureinfo = COpaquePointer?
 
-public typealias MANIPULATION_PROCESSOR_MANIPULATIONS = Int
+public typealias Htouchinput = COpaquePointer?
 
-public typealias REGISTER_TOUCH_WINDOW_FLAGS = UInt
+public typealias ManipulationProcessorManipulations = Int
 
-public typealias TOUCHEVENTF_FLAGS = UInt
+public typealias RegisterTouchWindowFlags = UInt
 
-public typealias TOUCHINPUTMASKF_MASK = UInt
+public typealias ToucheventfFlags = UInt
+
+public typealias TouchinputmaskfMask = UInt

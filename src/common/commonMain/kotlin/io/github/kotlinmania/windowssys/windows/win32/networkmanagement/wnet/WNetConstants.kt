@@ -1,64 +1,64 @@
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wnet
 
-public val CONNDLG_CONN_POINT: CONNECTDLGSTRUCT_FLAGS = 2u
+public val CONNDLG_CONN_POINT: ConnectdlgstructFlags = 2u
 
-public val CONNDLG_HIDE_BOX: CONNECTDLGSTRUCT_FLAGS = 8u
+public val CONNDLG_HIDE_BOX: ConnectdlgstructFlags = 8u
 
-public val CONNDLG_NOT_PERSIST: CONNECTDLGSTRUCT_FLAGS = 32u
+public val CONNDLG_NOT_PERSIST: ConnectdlgstructFlags = 32u
 
-public val CONNDLG_PERSIST: CONNECTDLGSTRUCT_FLAGS = 16u
+public val CONNDLG_PERSIST: ConnectdlgstructFlags = 16u
 
-public val CONNDLG_RO_PATH: CONNECTDLGSTRUCT_FLAGS = 1u
+public val CONNDLG_RO_PATH: ConnectdlgstructFlags = 1u
 
-public val CONNDLG_USE_MRU: CONNECTDLGSTRUCT_FLAGS = 4u
+public val CONNDLG_USE_MRU: ConnectdlgstructFlags = 4u
 
-public val CONNECT_CMD_SAVECRED: NET_CONNECT_FLAGS = 4096u
+public val CONNECT_CMD_SAVECRED: NetConnectFlags = 4096u
 
-public val CONNECT_COMMANDLINE: NET_CONNECT_FLAGS = 2048u
+public val CONNECT_COMMANDLINE: NetConnectFlags = 2048u
 
-public val CONNECT_CRED_RESET: NET_CONNECT_FLAGS = 8192u
+public val CONNECT_CRED_RESET: NetConnectFlags = 8192u
 
-public val CONNECT_CURRENT_MEDIA: NET_CONNECT_FLAGS = 512u
+public val CONNECT_CURRENT_MEDIA: NetConnectFlags = 512u
 
-public val CONNECT_DEFERRED: NET_CONNECT_FLAGS = 1024u
+public val CONNECT_DEFERRED: NetConnectFlags = 1024u
 
-public val CONNECT_GLOBAL_MAPPING: NET_CONNECT_FLAGS = 262144u
+public val CONNECT_GLOBAL_MAPPING: NetConnectFlags = 262144u
 
-public val CONNECT_INTERACTIVE: NET_CONNECT_FLAGS = 8u
+public val CONNECT_INTERACTIVE: NetConnectFlags = 8u
 
-public val CONNECT_LOCALDRIVE: NET_CONNECT_FLAGS = 256u
+public val CONNECT_LOCALDRIVE: NetConnectFlags = 256u
 
-public val CONNECT_NEED_DRIVE: NET_CONNECT_FLAGS = 32u
+public val CONNECT_NEED_DRIVE: NetConnectFlags = 32u
 
-public val CONNECT_PROMPT: NET_CONNECT_FLAGS = 16u
+public val CONNECT_PROMPT: NetConnectFlags = 16u
 
-public val CONNECT_REDIRECT: NET_CONNECT_FLAGS = 128u
+public val CONNECT_REDIRECT: NetConnectFlags = 128u
 
-public val CONNECT_REFCOUNT: NET_CONNECT_FLAGS = 64u
+public val CONNECT_REFCOUNT: NetConnectFlags = 64u
 
-public val CONNECT_REQUIRE_INTEGRITY: NET_CONNECT_FLAGS = 16384u
+public val CONNECT_REQUIRE_INTEGRITY: NetConnectFlags = 16384u
 
-public val CONNECT_REQUIRE_PRIVACY: NET_CONNECT_FLAGS = 32768u
+public val CONNECT_REQUIRE_PRIVACY: NetConnectFlags = 32768u
 
-public val CONNECT_RESERVED: NET_CONNECT_FLAGS = 4278190080u
+public val CONNECT_RESERVED: NetConnectFlags = 4278190080u
 
-public val CONNECT_TEMPORARY: NET_CONNECT_FLAGS = 4u
+public val CONNECT_TEMPORARY: NetConnectFlags = 4u
 
-public val CONNECT_UPDATE_PROFILE: NET_CONNECT_FLAGS = 1u
+public val CONNECT_UPDATE_PROFILE: NetConnectFlags = 1u
 
-public val CONNECT_UPDATE_RECENT: NET_CONNECT_FLAGS = 2u
+public val CONNECT_UPDATE_RECENT: NetConnectFlags = 2u
 
-public val CONNECT_WRITE_THROUGH_SEMANTICS: NET_CONNECT_FLAGS = 65536u
+public val CONNECT_WRITE_THROUGH_SEMANTICS: NetConnectFlags = 65536u
 
-public val DISC_NO_FORCE: DISCDLGSTRUCT_FLAGS = 64u
+public val DISC_NO_FORCE: DiscdlgstructFlags = 64u
 
-public val DISC_UPDATE_PROFILE: DISCDLGSTRUCT_FLAGS = 1u
+public val DISC_UPDATE_PROFILE: DiscdlgstructFlags = 1u
 
-public val NETINFO_DISKRED: NETINFOSTRUCT_CHARACTERISTICS = 4u
+public val NETINFO_DISKRED: NetinfostructCharacteristics = 4u
 
-public val NETINFO_DLL16: NETINFOSTRUCT_CHARACTERISTICS = 1u
+public val NETINFO_DLL16: NetinfostructCharacteristics = 1u
 
-public val NETINFO_PRINTERRED: NETINFOSTRUCT_CHARACTERISTICS = 8u
+public val NETINFO_PRINTERRED: NetinfostructCharacteristics = 8u
 
 public val NETPROPERTY_PERSISTENT: UInt = 1u
 
@@ -66,7 +66,7 @@ public val NOTIFY_POST: UInt = 2u
 
 public val NOTIFY_PRE: UInt = 1u
 
-public val REMOTE_NAME_INFO_LEVEL: UNC_INFO_LEVEL = 2u
+public val REMOTE_NAME_INFO_LEVEL: UncInfoLevel = 2u
 
 public val RESOURCEDISPLAYTYPE_DIRECTORY: UInt = 9u
 
@@ -78,43 +78,43 @@ public val RESOURCEDISPLAYTYPE_ROOT: UInt = 7u
 
 public val RESOURCEDISPLAYTYPE_SHAREADMIN: UInt = 8u
 
-public val RESOURCETYPE_ANY: NET_RESOURCE_TYPE = 0u
+public val RESOURCETYPE_ANY: NetResourceType = 0u
 
-public val RESOURCETYPE_DISK: NET_RESOURCE_TYPE = 1u
+public val RESOURCETYPE_DISK: NetResourceType = 1u
 
-public val RESOURCETYPE_PRINT: NET_RESOURCE_TYPE = 2u
+public val RESOURCETYPE_PRINT: NetResourceType = 2u
 
 public val RESOURCETYPE_RESERVED: UInt = 8u
 
 public val RESOURCETYPE_UNKNOWN: UInt = 4294967295u
 
-public val RESOURCEUSAGE_ALL: WNET_OPEN_ENUM_USAGE = 19u
+public val RESOURCEUSAGE_ALL: WnetOpenEnumUsage = 19u
 
-public val RESOURCEUSAGE_ATTACHED: WNET_OPEN_ENUM_USAGE = 16u
+public val RESOURCEUSAGE_ATTACHED: WnetOpenEnumUsage = 16u
 
-public val RESOURCEUSAGE_CONNECTABLE: WNET_OPEN_ENUM_USAGE = 1u
+public val RESOURCEUSAGE_CONNECTABLE: WnetOpenEnumUsage = 1u
 
-public val RESOURCEUSAGE_CONTAINER: WNET_OPEN_ENUM_USAGE = 2u
+public val RESOURCEUSAGE_CONTAINER: WnetOpenEnumUsage = 2u
 
 public val RESOURCEUSAGE_NOLOCALDEVICE: UInt = 4u
 
-public val RESOURCEUSAGE_NONE: WNET_OPEN_ENUM_USAGE = 0u
+public val RESOURCEUSAGE_NONE: WnetOpenEnumUsage = 0u
 
 public val RESOURCEUSAGE_RESERVED: UInt = 2147483648u
 
 public val RESOURCEUSAGE_SIBLING: UInt = 8u
 
-public val RESOURCE_CONNECTED: NET_RESOURCE_SCOPE = 1u
+public val RESOURCE_CONNECTED: NetResourceScope = 1u
 
-public val RESOURCE_CONTEXT: NET_RESOURCE_SCOPE = 5u
+public val RESOURCE_CONTEXT: NetResourceScope = 5u
 
-public val RESOURCE_GLOBALNET: NET_RESOURCE_SCOPE = 2u
+public val RESOURCE_GLOBALNET: NetResourceScope = 2u
 
 public val RESOURCE_RECENT: UInt = 4u
 
-public val RESOURCE_REMEMBERED: NET_RESOURCE_SCOPE = 3u
+public val RESOURCE_REMEMBERED: NetResourceScope = 3u
 
-public val UNIVERSAL_NAME_INFO_LEVEL: UNC_INFO_LEVEL = 1u
+public val UNIVERSAL_NAME_INFO_LEVEL: UncInfoLevel = 1u
 
 public val WNCON_DYNAMIC: UInt = 8u
 
@@ -124,23 +124,23 @@ public val WNCON_NOTROUTED: UInt = 2u
 
 public val WNCON_SLOWLINK: UInt = 4u
 
-public val WNDN_MKDIR: NPDIRECTORY_NOTIFY_OPERATION = 1u
+public val WNDN_MKDIR: NpdirectoryNotifyOperation = 1u
 
-public val WNDN_MVDIR: NPDIRECTORY_NOTIFY_OPERATION = 3u
+public val WNDN_MVDIR: NpdirectoryNotifyOperation = 3u
 
-public val WNDN_RMDIR: NPDIRECTORY_NOTIFY_OPERATION = 2u
+public val WNDN_RMDIR: NpdirectoryNotifyOperation = 2u
 
 public val WNDT_NETWORK: UInt = 1u
 
 public val WNDT_NORMAL: UInt = 0u
 
-public val WNFMT_ABBREVIATED: NETWORK_NAME_FORMAT_FLAGS = 2u
+public val WNFMT_ABBREVIATED: NetworkNameFormatFlags = 2u
 
 public val WNFMT_CONNECTION: UInt = 32u
 
 public val WNFMT_INENUM: UInt = 16u
 
-public val WNFMT_MULTILINE: NETWORK_NAME_FORMAT_FLAGS = 1u
+public val WNFMT_MULTILINE: NetworkNameFormatFlags = 1u
 
 public val WNGETCON_CONNECTED: UInt = 0u
 
@@ -222,17 +222,17 @@ public val WNPERMC_OWNER: UInt = 4u
 
 public val WNPERMC_PERM: UInt = 1u
 
-public val WNPERM_DLG_AUDIT: WNPERM_DLG = 1u
+public val WNPERM_DLG_AUDIT: WnpermDlg = 1u
 
-public val WNPERM_DLG_OWNER: WNPERM_DLG = 2u
+public val WNPERM_DLG_OWNER: WnpermDlg = 2u
 
-public val WNPERM_DLG_PERM: WNPERM_DLG = 0u
+public val WNPERM_DLG_PERM: WnpermDlg = 0u
 
-public val WNPS_DIR: NP_PROPERTY_DIALOG_SELECTION = 1u
+public val WNPS_DIR: NpPropertyDialogSelection = 1u
 
-public val WNPS_FILE: NP_PROPERTY_DIALOG_SELECTION = 0u
+public val WNPS_FILE: NpPropertyDialogSelection = 0u
 
-public val WNPS_MULT: NP_PROPERTY_DIALOG_SELECTION = 2u
+public val WNPS_MULT: NpPropertyDialogSelection = 2u
 
 public val WNSRCH_REFRESH_FIRST_LEVEL: UInt = 1u
 

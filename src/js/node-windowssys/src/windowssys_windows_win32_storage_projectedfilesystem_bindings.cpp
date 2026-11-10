@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_PrjAllocateAlignedBuffer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_prjAllocateAlignedBuffer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* namespacevirtualizationcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t size = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -71,7 +71,7 @@ static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_PrjAlloc
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_PrjClearNegativePathCache_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_prjClearNegativePathCache_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* namespacevirtualizationcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* totalentrynumber = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -91,7 +91,7 @@ static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_PrjClear
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_PrjCompleteCommand_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_prjCompleteCommand_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* namespacevirtualizationcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t commandid = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -115,7 +115,7 @@ static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_PrjCompl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_PrjDeleteFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_prjDeleteFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* namespacevirtualizationcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* destinationfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -139,7 +139,7 @@ static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_PrjDelet
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_PrjDoesNameContainWildCards_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_prjDoesNameContainWildCards_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -157,7 +157,7 @@ static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_PrjDoesN
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_PrjFileNameCompare_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_prjFileNameCompare_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filename1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* filename2 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -177,7 +177,7 @@ static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_PrjFileN
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_PrjFileNameMatch_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_prjFileNameMatch_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filenametocheck = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pattern = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -197,7 +197,7 @@ static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_PrjFileN
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_PrjFillDirEntryBuffer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_prjFillDirEntryBuffer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* filebasicinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -219,7 +219,7 @@ static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_PrjFillD
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_PrjFillDirEntryBuffer2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_prjFillDirEntryBuffer2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* direntrybufferhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* filename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -243,7 +243,7 @@ static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_PrjFillD
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_PrjFreeAlignedBuffer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_prjFreeAlignedBuffer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -260,7 +260,7 @@ static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_PrjFreeA
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_PrjGetOnDiskFileState_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_prjGetOnDiskFileState_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* destinationfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* filestate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -280,7 +280,7 @@ static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_PrjGetOn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_PrjGetVirtualizationInstanceInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_prjGetVirtualizationInstanceInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* namespacevirtualizationcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* virtualizationinstanceinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -300,7 +300,7 @@ static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_PrjGetVi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_PrjMarkDirectoryAsPlaceholder_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_prjMarkDirectoryAsPlaceholder_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rootpathname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* targetpathname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -324,7 +324,7 @@ static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_PrjMarkD
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_PrjStartVirtualizing_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_prjStartVirtualizing_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* virtualizationrootpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* callbacks = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -350,7 +350,7 @@ static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_PrjStart
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_PrjStopVirtualizing_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_prjStopVirtualizing_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* namespacevirtualizationcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -367,7 +367,7 @@ static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_PrjStopV
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_PrjUpdateFileIfNeeded_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_prjUpdateFileIfNeeded_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* namespacevirtualizationcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* destinationfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -395,7 +395,7 @@ static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_PrjUpdat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_PrjWriteFileData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_prjWriteFileData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* namespacevirtualizationcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* datastreamid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -421,7 +421,7 @@ static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_PrjWrite
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_PrjWritePlaceholderInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_prjWritePlaceholderInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* namespacevirtualizationcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* destinationfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -445,7 +445,7 @@ static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_PrjWrite
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_PrjWritePlaceholderInfo2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_prjWritePlaceholderInfo2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* namespacevirtualizationcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* destinationfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -472,25 +472,25 @@ static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_PrjWrite
 }
 
 static void register_windows_win32_storage_projectedfilesystem_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_storage_projectedfilesystem_PrjAllocateAlignedBuffer", Napi::Function::New(env, windowssys_windows_win32_storage_projectedfilesystem_PrjAllocateAlignedBuffer_napi));
-    exports.Set("windowssys_windows_win32_storage_projectedfilesystem_PrjClearNegativePathCache", Napi::Function::New(env, windowssys_windows_win32_storage_projectedfilesystem_PrjClearNegativePathCache_napi));
-    exports.Set("windowssys_windows_win32_storage_projectedfilesystem_PrjCompleteCommand", Napi::Function::New(env, windowssys_windows_win32_storage_projectedfilesystem_PrjCompleteCommand_napi));
-    exports.Set("windowssys_windows_win32_storage_projectedfilesystem_PrjDeleteFile", Napi::Function::New(env, windowssys_windows_win32_storage_projectedfilesystem_PrjDeleteFile_napi));
-    exports.Set("windowssys_windows_win32_storage_projectedfilesystem_PrjDoesNameContainWildCards", Napi::Function::New(env, windowssys_windows_win32_storage_projectedfilesystem_PrjDoesNameContainWildCards_napi));
-    exports.Set("windowssys_windows_win32_storage_projectedfilesystem_PrjFileNameCompare", Napi::Function::New(env, windowssys_windows_win32_storage_projectedfilesystem_PrjFileNameCompare_napi));
-    exports.Set("windowssys_windows_win32_storage_projectedfilesystem_PrjFileNameMatch", Napi::Function::New(env, windowssys_windows_win32_storage_projectedfilesystem_PrjFileNameMatch_napi));
-    exports.Set("windowssys_windows_win32_storage_projectedfilesystem_PrjFillDirEntryBuffer", Napi::Function::New(env, windowssys_windows_win32_storage_projectedfilesystem_PrjFillDirEntryBuffer_napi));
-    exports.Set("windowssys_windows_win32_storage_projectedfilesystem_PrjFillDirEntryBuffer2", Napi::Function::New(env, windowssys_windows_win32_storage_projectedfilesystem_PrjFillDirEntryBuffer2_napi));
-    exports.Set("windowssys_windows_win32_storage_projectedfilesystem_PrjFreeAlignedBuffer", Napi::Function::New(env, windowssys_windows_win32_storage_projectedfilesystem_PrjFreeAlignedBuffer_napi));
-    exports.Set("windowssys_windows_win32_storage_projectedfilesystem_PrjGetOnDiskFileState", Napi::Function::New(env, windowssys_windows_win32_storage_projectedfilesystem_PrjGetOnDiskFileState_napi));
-    exports.Set("windowssys_windows_win32_storage_projectedfilesystem_PrjGetVirtualizationInstanceInfo", Napi::Function::New(env, windowssys_windows_win32_storage_projectedfilesystem_PrjGetVirtualizationInstanceInfo_napi));
-    exports.Set("windowssys_windows_win32_storage_projectedfilesystem_PrjMarkDirectoryAsPlaceholder", Napi::Function::New(env, windowssys_windows_win32_storage_projectedfilesystem_PrjMarkDirectoryAsPlaceholder_napi));
-    exports.Set("windowssys_windows_win32_storage_projectedfilesystem_PrjStartVirtualizing", Napi::Function::New(env, windowssys_windows_win32_storage_projectedfilesystem_PrjStartVirtualizing_napi));
-    exports.Set("windowssys_windows_win32_storage_projectedfilesystem_PrjStopVirtualizing", Napi::Function::New(env, windowssys_windows_win32_storage_projectedfilesystem_PrjStopVirtualizing_napi));
-    exports.Set("windowssys_windows_win32_storage_projectedfilesystem_PrjUpdateFileIfNeeded", Napi::Function::New(env, windowssys_windows_win32_storage_projectedfilesystem_PrjUpdateFileIfNeeded_napi));
-    exports.Set("windowssys_windows_win32_storage_projectedfilesystem_PrjWriteFileData", Napi::Function::New(env, windowssys_windows_win32_storage_projectedfilesystem_PrjWriteFileData_napi));
-    exports.Set("windowssys_windows_win32_storage_projectedfilesystem_PrjWritePlaceholderInfo", Napi::Function::New(env, windowssys_windows_win32_storage_projectedfilesystem_PrjWritePlaceholderInfo_napi));
-    exports.Set("windowssys_windows_win32_storage_projectedfilesystem_PrjWritePlaceholderInfo2", Napi::Function::New(env, windowssys_windows_win32_storage_projectedfilesystem_PrjWritePlaceholderInfo2_napi));
+    exports.Set("windowssys_windows_win32_storage_projectedfilesystem_prjAllocateAlignedBuffer", Napi::Function::New(env, windowssys_windows_win32_storage_projectedfilesystem_prjAllocateAlignedBuffer_napi));
+    exports.Set("windowssys_windows_win32_storage_projectedfilesystem_prjClearNegativePathCache", Napi::Function::New(env, windowssys_windows_win32_storage_projectedfilesystem_prjClearNegativePathCache_napi));
+    exports.Set("windowssys_windows_win32_storage_projectedfilesystem_prjCompleteCommand", Napi::Function::New(env, windowssys_windows_win32_storage_projectedfilesystem_prjCompleteCommand_napi));
+    exports.Set("windowssys_windows_win32_storage_projectedfilesystem_prjDeleteFile", Napi::Function::New(env, windowssys_windows_win32_storage_projectedfilesystem_prjDeleteFile_napi));
+    exports.Set("windowssys_windows_win32_storage_projectedfilesystem_prjDoesNameContainWildCards", Napi::Function::New(env, windowssys_windows_win32_storage_projectedfilesystem_prjDoesNameContainWildCards_napi));
+    exports.Set("windowssys_windows_win32_storage_projectedfilesystem_prjFileNameCompare", Napi::Function::New(env, windowssys_windows_win32_storage_projectedfilesystem_prjFileNameCompare_napi));
+    exports.Set("windowssys_windows_win32_storage_projectedfilesystem_prjFileNameMatch", Napi::Function::New(env, windowssys_windows_win32_storage_projectedfilesystem_prjFileNameMatch_napi));
+    exports.Set("windowssys_windows_win32_storage_projectedfilesystem_prjFillDirEntryBuffer", Napi::Function::New(env, windowssys_windows_win32_storage_projectedfilesystem_prjFillDirEntryBuffer_napi));
+    exports.Set("windowssys_windows_win32_storage_projectedfilesystem_prjFillDirEntryBuffer2", Napi::Function::New(env, windowssys_windows_win32_storage_projectedfilesystem_prjFillDirEntryBuffer2_napi));
+    exports.Set("windowssys_windows_win32_storage_projectedfilesystem_prjFreeAlignedBuffer", Napi::Function::New(env, windowssys_windows_win32_storage_projectedfilesystem_prjFreeAlignedBuffer_napi));
+    exports.Set("windowssys_windows_win32_storage_projectedfilesystem_prjGetOnDiskFileState", Napi::Function::New(env, windowssys_windows_win32_storage_projectedfilesystem_prjGetOnDiskFileState_napi));
+    exports.Set("windowssys_windows_win32_storage_projectedfilesystem_prjGetVirtualizationInstanceInfo", Napi::Function::New(env, windowssys_windows_win32_storage_projectedfilesystem_prjGetVirtualizationInstanceInfo_napi));
+    exports.Set("windowssys_windows_win32_storage_projectedfilesystem_prjMarkDirectoryAsPlaceholder", Napi::Function::New(env, windowssys_windows_win32_storage_projectedfilesystem_prjMarkDirectoryAsPlaceholder_napi));
+    exports.Set("windowssys_windows_win32_storage_projectedfilesystem_prjStartVirtualizing", Napi::Function::New(env, windowssys_windows_win32_storage_projectedfilesystem_prjStartVirtualizing_napi));
+    exports.Set("windowssys_windows_win32_storage_projectedfilesystem_prjStopVirtualizing", Napi::Function::New(env, windowssys_windows_win32_storage_projectedfilesystem_prjStopVirtualizing_napi));
+    exports.Set("windowssys_windows_win32_storage_projectedfilesystem_prjUpdateFileIfNeeded", Napi::Function::New(env, windowssys_windows_win32_storage_projectedfilesystem_prjUpdateFileIfNeeded_napi));
+    exports.Set("windowssys_windows_win32_storage_projectedfilesystem_prjWriteFileData", Napi::Function::New(env, windowssys_windows_win32_storage_projectedfilesystem_prjWriteFileData_napi));
+    exports.Set("windowssys_windows_win32_storage_projectedfilesystem_prjWritePlaceholderInfo", Napi::Function::New(env, windowssys_windows_win32_storage_projectedfilesystem_prjWritePlaceholderInfo_napi));
+    exports.Set("windowssys_windows_win32_storage_projectedfilesystem_prjWritePlaceholderInfo2", Napi::Function::New(env, windowssys_windows_win32_storage_projectedfilesystem_prjWritePlaceholderInfo2_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_storage_projectedfilesystem_napi, nullptr };

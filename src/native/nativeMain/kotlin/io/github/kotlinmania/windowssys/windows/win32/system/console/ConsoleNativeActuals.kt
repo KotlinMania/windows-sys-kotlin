@@ -2,303 +2,304 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.console
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun AddConsoleAliasA(source: PCSTR, target: PCSTR, exename: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_AddConsoleAliasA(source.toCPointer<ByteVar>(), target.toCPointer<ByteVar>(), exename.toCPointer<ByteVar>())
+public actual fun addConsoleAliasA(source: Pcstr, target: Pcstr, exename: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_addConsoleAliasA(source?.value?.toCPointer<ByteVar>(), target?.value?.toCPointer<ByteVar>(), exename?.value?.toCPointer<ByteVar>())
 
-public actual fun AddConsoleAliasW(source: PCWSTR, target: PCWSTR, exename: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_AddConsoleAliasW(source.toCPointer<ByteVar>(), target.toCPointer<ByteVar>(), exename.toCPointer<ByteVar>())
+public actual fun addConsoleAliasW(source: Pcwstr, target: Pcwstr, exename: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_addConsoleAliasW(source?.value?.toCPointer<ByteVar>(), target?.value?.toCPointer<ByteVar>(), exename?.value?.toCPointer<ByteVar>())
 
-public actual fun AllocConsole(): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_AllocConsole()
+public actual fun allocConsole(): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_allocConsole()
 
-public actual fun AttachConsole(dwprocessid: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_AttachConsole(dwprocessid)
+public actual fun attachConsole(dwprocessid: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_attachConsole(dwprocessid)
 
-public actual fun ClosePseudoConsole(hpc: HPCON) {
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_ClosePseudoConsole(hpc)
+public actual fun closePseudoConsole(hpc: Hpcon) {
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_closePseudoConsole(hpc.toLong())
 }
 
-public actual fun ConsoleControl(command: CONSOLECONTROL, consoleinformation: Long, consoleinformationlength: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_ConsoleControl(command, consoleinformation.toCPointer<ByteVar>(), consoleinformationlength)
+public actual fun consoleControl(command: Consolecontrol, consoleinformation: COpaquePointer?, consoleinformationlength: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_consoleControl(command, consoleinformation?.value?.toCPointer<ByteVar>(), consoleinformationlength)
 
-public actual fun CreateConsoleScreenBuffer(dwdesiredaccess: UInt, dwsharemode: UInt, lpsecurityattributes: Long, dwflags: UInt, lpscreenbufferdata: Long): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_CreateConsoleScreenBuffer(dwdesiredaccess, dwsharemode, lpsecurityattributes.toCPointer<ByteVar>(), dwflags, lpscreenbufferdata.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun createConsoleScreenBuffer(dwdesiredaccess: UInt, dwsharemode: UInt, lpsecurityattributes: COpaquePointer?, dwflags: UInt, lpscreenbufferdata: COpaquePointer?): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_createConsoleScreenBuffer(dwdesiredaccess, dwsharemode, lpsecurityattributes?.value?.toCPointer<ByteVar>(), dwflags, lpscreenbufferdata?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreatePseudoConsole(size: COORD, hinput: HANDLE, houtput: HANDLE, dwflags: UInt, phpc: Long): HRESULT =
+public actual fun createPseudoConsole(size: Coord, hinput: Handle, houtput: Handle, dwflags: UInt, phpc: COpaquePointer?): Hresult =
     0
 
-public actual fun ExpungeConsoleCommandHistoryA(exename: PCSTR) {
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_ExpungeConsoleCommandHistoryA(exename.toCPointer<ByteVar>())
+public actual fun expungeConsoleCommandHistoryA(exename: Pcstr) {
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_expungeConsoleCommandHistoryA(exename?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ExpungeConsoleCommandHistoryW(exename: PCWSTR) {
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_ExpungeConsoleCommandHistoryW(exename.toCPointer<ByteVar>())
+public actual fun expungeConsoleCommandHistoryW(exename: Pcwstr) {
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_expungeConsoleCommandHistoryW(exename?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun FillConsoleOutputAttribute(hconsoleoutput: HANDLE, wattribute: UShort, nlength: UInt, dwwritecoord: COORD, lpnumberofattrswritten: Long): BOOL =
+public actual fun fillConsoleOutputAttribute(hconsoleoutput: Handle, wattribute: UShort, nlength: UInt, dwwritecoord: Coord, lpnumberofattrswritten: COpaquePointer?): Bool =
     0
 
-public actual fun FillConsoleOutputCharacterA(hconsoleoutput: HANDLE, ccharacter: Byte, nlength: UInt, dwwritecoord: COORD, lpnumberofcharswritten: Long): BOOL =
+public actual fun fillConsoleOutputCharacterA(hconsoleoutput: Handle, ccharacter: Byte, nlength: UInt, dwwritecoord: Coord, lpnumberofcharswritten: COpaquePointer?): Bool =
     0
 
-public actual fun FillConsoleOutputCharacterW(hconsoleoutput: HANDLE, ccharacter: UShort, nlength: UInt, dwwritecoord: COORD, lpnumberofcharswritten: Long): BOOL =
+public actual fun fillConsoleOutputCharacterW(hconsoleoutput: Handle, ccharacter: UShort, nlength: UInt, dwwritecoord: Coord, lpnumberofcharswritten: COpaquePointer?): Bool =
     0
 
-public actual fun FlushConsoleInputBuffer(hconsoleinput: HANDLE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_FlushConsoleInputBuffer(hconsoleinput.toCPointer<ByteVar>())
+public actual fun flushConsoleInputBuffer(hconsoleinput: Handle): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_flushConsoleInputBuffer(hconsoleinput?.value?.toCPointer<ByteVar>())
 
-public actual fun FreeConsole(): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_FreeConsole()
+public actual fun freeConsole(): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_freeConsole()
 
-public actual fun GenerateConsoleCtrlEvent(dwctrlevent: UInt, dwprocessgroupid: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_GenerateConsoleCtrlEvent(dwctrlevent, dwprocessgroupid)
+public actual fun generateConsoleCtrlEvent(dwctrlevent: UInt, dwprocessgroupid: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_generateConsoleCtrlEvent(dwctrlevent, dwprocessgroupid)
 
-public actual fun GetConsoleAliasA(source: PCSTR, targetbuffer: PSTR, targetbufferlength: UInt, exename: PCSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_GetConsoleAliasA(source.toCPointer<ByteVar>(), targetbuffer.toCPointer<ByteVar>(), targetbufferlength, exename.toCPointer<ByteVar>())
+public actual fun getConsoleAliasA(source: Pcstr, targetbuffer: Pstr, targetbufferlength: UInt, exename: Pcstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_getConsoleAliasA(source?.value?.toCPointer<ByteVar>(), targetbuffer?.value?.toCPointer<ByteVar>(), targetbufferlength, exename?.value?.toCPointer<ByteVar>())
 
-public actual fun GetConsoleAliasExesA(exenamebuffer: PSTR, exenamebufferlength: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_GetConsoleAliasExesA(exenamebuffer.toCPointer<ByteVar>(), exenamebufferlength)
+public actual fun getConsoleAliasExesA(exenamebuffer: Pstr, exenamebufferlength: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_getConsoleAliasExesA(exenamebuffer?.value?.toCPointer<ByteVar>(), exenamebufferlength)
 
-public actual fun GetConsoleAliasExesLengthA(): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_GetConsoleAliasExesLengthA()
+public actual fun getConsoleAliasExesLengthA(): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_getConsoleAliasExesLengthA()
 
-public actual fun GetConsoleAliasExesLengthW(): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_GetConsoleAliasExesLengthW()
+public actual fun getConsoleAliasExesLengthW(): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_getConsoleAliasExesLengthW()
 
-public actual fun GetConsoleAliasExesW(exenamebuffer: PWSTR, exenamebufferlength: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_GetConsoleAliasExesW(exenamebuffer.toCPointer<ByteVar>(), exenamebufferlength)
+public actual fun getConsoleAliasExesW(exenamebuffer: Pwstr, exenamebufferlength: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_getConsoleAliasExesW(exenamebuffer?.value?.toCPointer<ByteVar>(), exenamebufferlength)
 
-public actual fun GetConsoleAliasW(source: PCWSTR, targetbuffer: PWSTR, targetbufferlength: UInt, exename: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_GetConsoleAliasW(source.toCPointer<ByteVar>(), targetbuffer.toCPointer<ByteVar>(), targetbufferlength, exename.toCPointer<ByteVar>())
+public actual fun getConsoleAliasW(source: Pcwstr, targetbuffer: Pwstr, targetbufferlength: UInt, exename: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_getConsoleAliasW(source?.value?.toCPointer<ByteVar>(), targetbuffer?.value?.toCPointer<ByteVar>(), targetbufferlength, exename?.value?.toCPointer<ByteVar>())
 
-public actual fun GetConsoleAliasesA(aliasbuffer: PSTR, aliasbufferlength: UInt, exename: PCSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_GetConsoleAliasesA(aliasbuffer.toCPointer<ByteVar>(), aliasbufferlength, exename.toCPointer<ByteVar>())
+public actual fun getConsoleAliasesA(aliasbuffer: Pstr, aliasbufferlength: UInt, exename: Pcstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_getConsoleAliasesA(aliasbuffer?.value?.toCPointer<ByteVar>(), aliasbufferlength, exename?.value?.toCPointer<ByteVar>())
 
-public actual fun GetConsoleAliasesLengthA(exename: PCSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_GetConsoleAliasesLengthA(exename.toCPointer<ByteVar>())
+public actual fun getConsoleAliasesLengthA(exename: Pcstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_getConsoleAliasesLengthA(exename?.value?.toCPointer<ByteVar>())
 
-public actual fun GetConsoleAliasesLengthW(exename: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_GetConsoleAliasesLengthW(exename.toCPointer<ByteVar>())
+public actual fun getConsoleAliasesLengthW(exename: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_getConsoleAliasesLengthW(exename?.value?.toCPointer<ByteVar>())
 
-public actual fun GetConsoleAliasesW(aliasbuffer: PWSTR, aliasbufferlength: UInt, exename: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_GetConsoleAliasesW(aliasbuffer.toCPointer<ByteVar>(), aliasbufferlength, exename.toCPointer<ByteVar>())
+public actual fun getConsoleAliasesW(aliasbuffer: Pwstr, aliasbufferlength: UInt, exename: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_getConsoleAliasesW(aliasbuffer?.value?.toCPointer<ByteVar>(), aliasbufferlength, exename?.value?.toCPointer<ByteVar>())
 
-public actual fun GetConsoleCP(): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_GetConsoleCP()
+public actual fun getConsoleCP(): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_getConsoleCP()
 
-public actual fun GetConsoleCommandHistoryA(commands: PSTR, commandbufferlength: UInt, exename: PCSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_GetConsoleCommandHistoryA(commands.toCPointer<ByteVar>(), commandbufferlength, exename.toCPointer<ByteVar>())
+public actual fun getConsoleCommandHistoryA(commands: Pstr, commandbufferlength: UInt, exename: Pcstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_getConsoleCommandHistoryA(commands?.value?.toCPointer<ByteVar>(), commandbufferlength, exename?.value?.toCPointer<ByteVar>())
 
-public actual fun GetConsoleCommandHistoryLengthA(exename: PCSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_GetConsoleCommandHistoryLengthA(exename.toCPointer<ByteVar>())
+public actual fun getConsoleCommandHistoryLengthA(exename: Pcstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_getConsoleCommandHistoryLengthA(exename?.value?.toCPointer<ByteVar>())
 
-public actual fun GetConsoleCommandHistoryLengthW(exename: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_GetConsoleCommandHistoryLengthW(exename.toCPointer<ByteVar>())
+public actual fun getConsoleCommandHistoryLengthW(exename: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_getConsoleCommandHistoryLengthW(exename?.value?.toCPointer<ByteVar>())
 
-public actual fun GetConsoleCommandHistoryW(commands: PWSTR, commandbufferlength: UInt, exename: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_GetConsoleCommandHistoryW(commands.toCPointer<ByteVar>(), commandbufferlength, exename.toCPointer<ByteVar>())
+public actual fun getConsoleCommandHistoryW(commands: Pwstr, commandbufferlength: UInt, exename: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_getConsoleCommandHistoryW(commands?.value?.toCPointer<ByteVar>(), commandbufferlength, exename?.value?.toCPointer<ByteVar>())
 
-public actual fun GetConsoleCursorInfo(hconsoleoutput: HANDLE, lpconsolecursorinfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_GetConsoleCursorInfo(hconsoleoutput.toCPointer<ByteVar>(), lpconsolecursorinfo.toCPointer<ByteVar>())
+public actual fun getConsoleCursorInfo(hconsoleoutput: Handle, lpconsolecursorinfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_getConsoleCursorInfo(hconsoleoutput?.value?.toCPointer<ByteVar>(), lpconsolecursorinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun GetConsoleDisplayMode(lpmodeflags: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_GetConsoleDisplayMode(lpmodeflags.toCPointer<ByteVar>())
+public actual fun getConsoleDisplayMode(lpmodeflags: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_getConsoleDisplayMode(lpmodeflags?.value?.toCPointer<ByteVar>())
 
-public actual fun GetConsoleFontSize(hconsoleoutput: HANDLE, nfont: UInt): COORD =
-    COORD()
+public actual fun getConsoleFontSize(hconsoleoutput: Handle, nfont: UInt): Coord =
+    Coord()
 
-public actual fun GetConsoleHistoryInfo(lpconsolehistoryinfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_GetConsoleHistoryInfo(lpconsolehistoryinfo.toCPointer<ByteVar>())
+public actual fun getConsoleHistoryInfo(lpconsolehistoryinfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_getConsoleHistoryInfo(lpconsolehistoryinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun GetConsoleMode(hconsolehandle: HANDLE, lpmode: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_GetConsoleMode(hconsolehandle.toCPointer<ByteVar>(), lpmode.toCPointer<ByteVar>())
+public actual fun getConsoleMode(hconsolehandle: Handle, lpmode: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_getConsoleMode(hconsolehandle?.value?.toCPointer<ByteVar>(), lpmode?.value?.toCPointer<ByteVar>())
 
-public actual fun GetConsoleOriginalTitleA(lpconsoletitle: PSTR, nsize: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_GetConsoleOriginalTitleA(lpconsoletitle.toCPointer<ByteVar>(), nsize)
+public actual fun getConsoleOriginalTitleA(lpconsoletitle: Pstr, nsize: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_getConsoleOriginalTitleA(lpconsoletitle?.value?.toCPointer<ByteVar>(), nsize)
 
-public actual fun GetConsoleOriginalTitleW(lpconsoletitle: PWSTR, nsize: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_GetConsoleOriginalTitleW(lpconsoletitle.toCPointer<ByteVar>(), nsize)
+public actual fun getConsoleOriginalTitleW(lpconsoletitle: Pwstr, nsize: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_getConsoleOriginalTitleW(lpconsoletitle?.value?.toCPointer<ByteVar>(), nsize)
 
-public actual fun GetConsoleOutputCP(): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_GetConsoleOutputCP()
+public actual fun getConsoleOutputCP(): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_getConsoleOutputCP()
 
-public actual fun GetConsoleProcessList(lpdwprocesslist: Long, dwprocesscount: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_GetConsoleProcessList(lpdwprocesslist.toCPointer<ByteVar>(), dwprocesscount)
+public actual fun getConsoleProcessList(lpdwprocesslist: COpaquePointer?, dwprocesscount: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_getConsoleProcessList(lpdwprocesslist?.value?.toCPointer<ByteVar>(), dwprocesscount)
 
-public actual fun GetConsoleScreenBufferInfo(hconsoleoutput: HANDLE, lpconsolescreenbufferinfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_GetConsoleScreenBufferInfo(hconsoleoutput.toCPointer<ByteVar>(), lpconsolescreenbufferinfo.toCPointer<ByteVar>())
+public actual fun getConsoleScreenBufferInfo(hconsoleoutput: Handle, lpconsolescreenbufferinfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_getConsoleScreenBufferInfo(hconsoleoutput?.value?.toCPointer<ByteVar>(), lpconsolescreenbufferinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun GetConsoleScreenBufferInfoEx(hconsoleoutput: HANDLE, lpconsolescreenbufferinfoex: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_GetConsoleScreenBufferInfoEx(hconsoleoutput.toCPointer<ByteVar>(), lpconsolescreenbufferinfoex.toCPointer<ByteVar>())
+public actual fun getConsoleScreenBufferInfoEx(hconsoleoutput: Handle, lpconsolescreenbufferinfoex: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_getConsoleScreenBufferInfoEx(hconsoleoutput?.value?.toCPointer<ByteVar>(), lpconsolescreenbufferinfoex?.value?.toCPointer<ByteVar>())
 
-public actual fun GetConsoleSelectionInfo(lpconsoleselectioninfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_GetConsoleSelectionInfo(lpconsoleselectioninfo.toCPointer<ByteVar>())
+public actual fun getConsoleSelectionInfo(lpconsoleselectioninfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_getConsoleSelectionInfo(lpconsoleselectioninfo?.value?.toCPointer<ByteVar>())
 
-public actual fun GetConsoleTitleA(lpconsoletitle: PSTR, nsize: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_GetConsoleTitleA(lpconsoletitle.toCPointer<ByteVar>(), nsize)
+public actual fun getConsoleTitleA(lpconsoletitle: Pstr, nsize: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_getConsoleTitleA(lpconsoletitle?.value?.toCPointer<ByteVar>(), nsize)
 
-public actual fun GetConsoleTitleW(lpconsoletitle: PWSTR, nsize: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_GetConsoleTitleW(lpconsoletitle.toCPointer<ByteVar>(), nsize)
+public actual fun getConsoleTitleW(lpconsoletitle: Pwstr, nsize: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_getConsoleTitleW(lpconsoletitle?.value?.toCPointer<ByteVar>(), nsize)
 
-public actual fun GetConsoleWindow(): HWND =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_GetConsoleWindow()?.toLong() ?: 0L
+public actual fun getConsoleWindow(): Hwnd =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_getConsoleWindow()?.let { COpaquePointer(it.toLong()) }
 
-public actual fun GetCurrentConsoleFont(hconsoleoutput: HANDLE, bmaximumwindow: BOOL, lpconsolecurrentfont: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_GetCurrentConsoleFont(hconsoleoutput.toCPointer<ByteVar>(), bmaximumwindow, lpconsolecurrentfont.toCPointer<ByteVar>())
+public actual fun getCurrentConsoleFont(hconsoleoutput: Handle, bmaximumwindow: Bool, lpconsolecurrentfont: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_getCurrentConsoleFont(hconsoleoutput?.value?.toCPointer<ByteVar>(), bmaximumwindow, lpconsolecurrentfont?.value?.toCPointer<ByteVar>())
 
-public actual fun GetCurrentConsoleFontEx(hconsoleoutput: HANDLE, bmaximumwindow: BOOL, lpconsolecurrentfontex: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_GetCurrentConsoleFontEx(hconsoleoutput.toCPointer<ByteVar>(), bmaximumwindow, lpconsolecurrentfontex.toCPointer<ByteVar>())
+public actual fun getCurrentConsoleFontEx(hconsoleoutput: Handle, bmaximumwindow: Bool, lpconsolecurrentfontex: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_getCurrentConsoleFontEx(hconsoleoutput?.value?.toCPointer<ByteVar>(), bmaximumwindow, lpconsolecurrentfontex?.value?.toCPointer<ByteVar>())
 
-public actual fun GetLargestConsoleWindowSize(hconsoleoutput: HANDLE): COORD =
-    COORD()
+public actual fun getLargestConsoleWindowSize(hconsoleoutput: Handle): Coord =
+    Coord()
 
-public actual fun GetNumberOfConsoleInputEvents(hconsoleinput: HANDLE, lpnumberofevents: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_GetNumberOfConsoleInputEvents(hconsoleinput.toCPointer<ByteVar>(), lpnumberofevents.toCPointer<ByteVar>())
+public actual fun getNumberOfConsoleInputEvents(hconsoleinput: Handle, lpnumberofevents: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_getNumberOfConsoleInputEvents(hconsoleinput?.value?.toCPointer<ByteVar>(), lpnumberofevents?.value?.toCPointer<ByteVar>())
 
-public actual fun GetNumberOfConsoleMouseButtons(lpnumberofmousebuttons: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_GetNumberOfConsoleMouseButtons(lpnumberofmousebuttons.toCPointer<ByteVar>())
+public actual fun getNumberOfConsoleMouseButtons(lpnumberofmousebuttons: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_getNumberOfConsoleMouseButtons(lpnumberofmousebuttons?.value?.toCPointer<ByteVar>())
 
-public actual fun GetStdHandle(nstdhandle: STD_HANDLE): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_GetStdHandle(nstdhandle)?.toLong() ?: 0L
+public actual fun getStdHandle(nstdhandle: StdHandle): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_getStdHandle(nstdhandle)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun PeekConsoleInputA(hconsoleinput: HANDLE, lpbuffer: Long, nlength: UInt, lpnumberofeventsread: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_PeekConsoleInputA(hconsoleinput.toCPointer<ByteVar>(), lpbuffer.toCPointer<ByteVar>(), nlength, lpnumberofeventsread.toCPointer<ByteVar>())
+public actual fun peekConsoleInputA(hconsoleinput: Handle, lpbuffer: COpaquePointer?, nlength: UInt, lpnumberofeventsread: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_peekConsoleInputA(hconsoleinput?.value?.toCPointer<ByteVar>(), lpbuffer?.value?.toCPointer<ByteVar>(), nlength, lpnumberofeventsread?.value?.toCPointer<ByteVar>())
 
-public actual fun PeekConsoleInputW(hconsoleinput: HANDLE, lpbuffer: Long, nlength: UInt, lpnumberofeventsread: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_PeekConsoleInputW(hconsoleinput.toCPointer<ByteVar>(), lpbuffer.toCPointer<ByteVar>(), nlength, lpnumberofeventsread.toCPointer<ByteVar>())
+public actual fun peekConsoleInputW(hconsoleinput: Handle, lpbuffer: COpaquePointer?, nlength: UInt, lpnumberofeventsread: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_peekConsoleInputW(hconsoleinput?.value?.toCPointer<ByteVar>(), lpbuffer?.value?.toCPointer<ByteVar>(), nlength, lpnumberofeventsread?.value?.toCPointer<ByteVar>())
 
-public actual fun ReadConsoleA(hconsoleinput: HANDLE, lpbuffer: Long, nnumberofcharstoread: UInt, lpnumberofcharsread: Long, pinputcontrol: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_ReadConsoleA(hconsoleinput.toCPointer<ByteVar>(), lpbuffer.toCPointer<ByteVar>(), nnumberofcharstoread, lpnumberofcharsread.toCPointer<ByteVar>(), pinputcontrol.toCPointer<ByteVar>())
+public actual fun readConsoleA(hconsoleinput: Handle, lpbuffer: COpaquePointer?, nnumberofcharstoread: UInt, lpnumberofcharsread: COpaquePointer?, pinputcontrol: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_readConsoleA(hconsoleinput?.value?.toCPointer<ByteVar>(), lpbuffer?.value?.toCPointer<ByteVar>(), nnumberofcharstoread, lpnumberofcharsread?.value?.toCPointer<ByteVar>(), pinputcontrol?.value?.toCPointer<ByteVar>())
 
-public actual fun ReadConsoleInputA(hconsoleinput: HANDLE, lpbuffer: Long, nlength: UInt, lpnumberofeventsread: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_ReadConsoleInputA(hconsoleinput.toCPointer<ByteVar>(), lpbuffer.toCPointer<ByteVar>(), nlength, lpnumberofeventsread.toCPointer<ByteVar>())
+public actual fun readConsoleInputA(hconsoleinput: Handle, lpbuffer: COpaquePointer?, nlength: UInt, lpnumberofeventsread: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_readConsoleInputA(hconsoleinput?.value?.toCPointer<ByteVar>(), lpbuffer?.value?.toCPointer<ByteVar>(), nlength, lpnumberofeventsread?.value?.toCPointer<ByteVar>())
 
-public actual fun ReadConsoleInputW(hconsoleinput: HANDLE, lpbuffer: Long, nlength: UInt, lpnumberofeventsread: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_ReadConsoleInputW(hconsoleinput.toCPointer<ByteVar>(), lpbuffer.toCPointer<ByteVar>(), nlength, lpnumberofeventsread.toCPointer<ByteVar>())
+public actual fun readConsoleInputW(hconsoleinput: Handle, lpbuffer: COpaquePointer?, nlength: UInt, lpnumberofeventsread: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_readConsoleInputW(hconsoleinput?.value?.toCPointer<ByteVar>(), lpbuffer?.value?.toCPointer<ByteVar>(), nlength, lpnumberofeventsread?.value?.toCPointer<ByteVar>())
 
-public actual fun ReadConsoleOutputA(hconsoleoutput: HANDLE, lpbuffer: Long, dwbuffersize: COORD, dwbuffercoord: COORD, lpreadregion: Long): BOOL =
+public actual fun readConsoleOutputA(hconsoleoutput: Handle, lpbuffer: COpaquePointer?, dwbuffersize: Coord, dwbuffercoord: Coord, lpreadregion: COpaquePointer?): Bool =
     0
 
-public actual fun ReadConsoleOutputAttribute(hconsoleoutput: HANDLE, lpattribute: Long, nlength: UInt, dwreadcoord: COORD, lpnumberofattrsread: Long): BOOL =
+public actual fun readConsoleOutputAttribute(hconsoleoutput: Handle, lpattribute: COpaquePointer?, nlength: UInt, dwreadcoord: Coord, lpnumberofattrsread: COpaquePointer?): Bool =
     0
 
-public actual fun ReadConsoleOutputCharacterA(hconsoleoutput: HANDLE, lpcharacter: PSTR, nlength: UInt, dwreadcoord: COORD, lpnumberofcharsread: Long): BOOL =
+public actual fun readConsoleOutputCharacterA(hconsoleoutput: Handle, lpcharacter: Pstr, nlength: UInt, dwreadcoord: Coord, lpnumberofcharsread: COpaquePointer?): Bool =
     0
 
-public actual fun ReadConsoleOutputCharacterW(hconsoleoutput: HANDLE, lpcharacter: PWSTR, nlength: UInt, dwreadcoord: COORD, lpnumberofcharsread: Long): BOOL =
+public actual fun readConsoleOutputCharacterW(hconsoleoutput: Handle, lpcharacter: Pwstr, nlength: UInt, dwreadcoord: Coord, lpnumberofcharsread: COpaquePointer?): Bool =
     0
 
-public actual fun ReadConsoleOutputW(hconsoleoutput: HANDLE, lpbuffer: Long, dwbuffersize: COORD, dwbuffercoord: COORD, lpreadregion: Long): BOOL =
+public actual fun readConsoleOutputW(hconsoleoutput: Handle, lpbuffer: COpaquePointer?, dwbuffersize: Coord, dwbuffercoord: Coord, lpreadregion: COpaquePointer?): Bool =
     0
 
-public actual fun ReadConsoleW(hconsoleinput: HANDLE, lpbuffer: Long, nnumberofcharstoread: UInt, lpnumberofcharsread: Long, pinputcontrol: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_ReadConsoleW(hconsoleinput.toCPointer<ByteVar>(), lpbuffer.toCPointer<ByteVar>(), nnumberofcharstoread, lpnumberofcharsread.toCPointer<ByteVar>(), pinputcontrol.toCPointer<ByteVar>())
+public actual fun readConsoleW(hconsoleinput: Handle, lpbuffer: COpaquePointer?, nnumberofcharstoread: UInt, lpnumberofcharsread: COpaquePointer?, pinputcontrol: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_readConsoleW(hconsoleinput?.value?.toCPointer<ByteVar>(), lpbuffer?.value?.toCPointer<ByteVar>(), nnumberofcharstoread, lpnumberofcharsread?.value?.toCPointer<ByteVar>(), pinputcontrol?.value?.toCPointer<ByteVar>())
 
-public actual fun ResizePseudoConsole(hpc: HPCON, size: COORD): HRESULT =
+public actual fun resizePseudoConsole(hpc: Hpcon, size: Coord): Hresult =
     0
 
-public actual fun ScrollConsoleScreenBufferA(hconsoleoutput: HANDLE, lpscrollrectangle: Long, lpcliprectangle: Long, dwdestinationorigin: COORD, lpfill: Long): BOOL =
+public actual fun scrollConsoleScreenBufferA(hconsoleoutput: Handle, lpscrollrectangle: COpaquePointer?, lpcliprectangle: COpaquePointer?, dwdestinationorigin: Coord, lpfill: COpaquePointer?): Bool =
     0
 
-public actual fun ScrollConsoleScreenBufferW(hconsoleoutput: HANDLE, lpscrollrectangle: Long, lpcliprectangle: Long, dwdestinationorigin: COORD, lpfill: Long): BOOL =
+public actual fun scrollConsoleScreenBufferW(hconsoleoutput: Handle, lpscrollrectangle: COpaquePointer?, lpcliprectangle: COpaquePointer?, dwdestinationorigin: Coord, lpfill: COpaquePointer?): Bool =
     0
 
-public actual fun SetConsoleActiveScreenBuffer(hconsoleoutput: HANDLE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_SetConsoleActiveScreenBuffer(hconsoleoutput.toCPointer<ByteVar>())
+public actual fun setConsoleActiveScreenBuffer(hconsoleoutput: Handle): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_setConsoleActiveScreenBuffer(hconsoleoutput?.value?.toCPointer<ByteVar>())
 
-public actual fun SetConsoleCP(wcodepageid: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_SetConsoleCP(wcodepageid)
+public actual fun setConsoleCP(wcodepageid: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_setConsoleCP(wcodepageid)
 
-public actual fun SetConsoleCtrlHandler(handlerroutine: PHANDLER_ROUTINE, add: BOOL): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_SetConsoleCtrlHandler(handlerroutine.toLong().toCPointer<ByteVar>(), add)
+public actual fun setConsoleCtrlHandler(handlerroutine: PhandlerRoutine, add: Bool): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_setConsoleCtrlHandler(0L.toCPointer<ByteVar>(), add)
 
-public actual fun SetConsoleCursorInfo(hconsoleoutput: HANDLE, lpconsolecursorinfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_SetConsoleCursorInfo(hconsoleoutput.toCPointer<ByteVar>(), lpconsolecursorinfo.toCPointer<ByteVar>())
+public actual fun setConsoleCursorInfo(hconsoleoutput: Handle, lpconsolecursorinfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_setConsoleCursorInfo(hconsoleoutput?.value?.toCPointer<ByteVar>(), lpconsolecursorinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun SetConsoleCursorPosition(hconsoleoutput: HANDLE, dwcursorposition: COORD): BOOL =
+public actual fun setConsoleCursorPosition(hconsoleoutput: Handle, dwcursorposition: Coord): Bool =
     0
 
-public actual fun SetConsoleDisplayMode(hconsoleoutput: HANDLE, dwflags: UInt, lpnewscreenbufferdimensions: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_SetConsoleDisplayMode(hconsoleoutput.toCPointer<ByteVar>(), dwflags, lpnewscreenbufferdimensions.toCPointer<ByteVar>())
+public actual fun setConsoleDisplayMode(hconsoleoutput: Handle, dwflags: UInt, lpnewscreenbufferdimensions: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_setConsoleDisplayMode(hconsoleoutput?.value?.toCPointer<ByteVar>(), dwflags, lpnewscreenbufferdimensions?.value?.toCPointer<ByteVar>())
 
-public actual fun SetConsoleHistoryInfo(lpconsolehistoryinfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_SetConsoleHistoryInfo(lpconsolehistoryinfo.toCPointer<ByteVar>())
+public actual fun setConsoleHistoryInfo(lpconsolehistoryinfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_setConsoleHistoryInfo(lpconsolehistoryinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun SetConsoleMode(hconsolehandle: HANDLE, dwmode: CONSOLE_MODE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_SetConsoleMode(hconsolehandle.toCPointer<ByteVar>(), dwmode)
+public actual fun setConsoleMode(hconsolehandle: Handle, dwmode: ConsoleMode): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_setConsoleMode(hconsolehandle?.value?.toCPointer<ByteVar>(), dwmode)
 
-public actual fun SetConsoleNumberOfCommandsA(number: UInt, exename: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_SetConsoleNumberOfCommandsA(number, exename.toCPointer<ByteVar>())
+public actual fun setConsoleNumberOfCommandsA(number: UInt, exename: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_setConsoleNumberOfCommandsA(number, exename?.value?.toCPointer<ByteVar>())
 
-public actual fun SetConsoleNumberOfCommandsW(number: UInt, exename: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_SetConsoleNumberOfCommandsW(number, exename.toCPointer<ByteVar>())
+public actual fun setConsoleNumberOfCommandsW(number: UInt, exename: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_setConsoleNumberOfCommandsW(number, exename?.value?.toCPointer<ByteVar>())
 
-public actual fun SetConsoleOutputCP(wcodepageid: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_SetConsoleOutputCP(wcodepageid)
+public actual fun setConsoleOutputCP(wcodepageid: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_setConsoleOutputCP(wcodepageid)
 
-public actual fun SetConsoleScreenBufferInfoEx(hconsoleoutput: HANDLE, lpconsolescreenbufferinfoex: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_SetConsoleScreenBufferInfoEx(hconsoleoutput.toCPointer<ByteVar>(), lpconsolescreenbufferinfoex.toCPointer<ByteVar>())
+public actual fun setConsoleScreenBufferInfoEx(hconsoleoutput: Handle, lpconsolescreenbufferinfoex: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_setConsoleScreenBufferInfoEx(hconsoleoutput?.value?.toCPointer<ByteVar>(), lpconsolescreenbufferinfoex?.value?.toCPointer<ByteVar>())
 
-public actual fun SetConsoleScreenBufferSize(hconsoleoutput: HANDLE, dwsize: COORD): BOOL =
+public actual fun setConsoleScreenBufferSize(hconsoleoutput: Handle, dwsize: Coord): Bool =
     0
 
-public actual fun SetConsoleTextAttribute(hconsoleoutput: HANDLE, wattributes: CONSOLE_CHARACTER_ATTRIBUTES): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_SetConsoleTextAttribute(hconsoleoutput.toCPointer<ByteVar>(), wattributes)
+public actual fun setConsoleTextAttribute(hconsoleoutput: Handle, wattributes: ConsoleCharacterAttributes): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_setConsoleTextAttribute(hconsoleoutput?.value?.toCPointer<ByteVar>(), wattributes)
 
-public actual fun SetConsoleTitleA(lpconsoletitle: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_SetConsoleTitleA(lpconsoletitle.toCPointer<ByteVar>())
+public actual fun setConsoleTitleA(lpconsoletitle: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_setConsoleTitleA(lpconsoletitle?.value?.toCPointer<ByteVar>())
 
-public actual fun SetConsoleTitleW(lpconsoletitle: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_SetConsoleTitleW(lpconsoletitle.toCPointer<ByteVar>())
+public actual fun setConsoleTitleW(lpconsoletitle: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_setConsoleTitleW(lpconsoletitle?.value?.toCPointer<ByteVar>())
 
-public actual fun SetConsoleWindowInfo(hconsoleoutput: HANDLE, babsolute: BOOL, lpconsolewindow: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_SetConsoleWindowInfo(hconsoleoutput.toCPointer<ByteVar>(), babsolute, lpconsolewindow.toCPointer<ByteVar>())
+public actual fun setConsoleWindowInfo(hconsoleoutput: Handle, babsolute: Bool, lpconsolewindow: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_setConsoleWindowInfo(hconsoleoutput?.value?.toCPointer<ByteVar>(), babsolute, lpconsolewindow?.value?.toCPointer<ByteVar>())
 
-public actual fun SetCurrentConsoleFontEx(hconsoleoutput: HANDLE, bmaximumwindow: BOOL, lpconsolecurrentfontex: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_SetCurrentConsoleFontEx(hconsoleoutput.toCPointer<ByteVar>(), bmaximumwindow, lpconsolecurrentfontex.toCPointer<ByteVar>())
+public actual fun setCurrentConsoleFontEx(hconsoleoutput: Handle, bmaximumwindow: Bool, lpconsolecurrentfontex: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_setCurrentConsoleFontEx(hconsoleoutput?.value?.toCPointer<ByteVar>(), bmaximumwindow, lpconsolecurrentfontex?.value?.toCPointer<ByteVar>())
 
-public actual fun SetStdHandle(nstdhandle: STD_HANDLE, hhandle: HANDLE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_SetStdHandle(nstdhandle, hhandle.toCPointer<ByteVar>())
+public actual fun setStdHandle(nstdhandle: StdHandle, hhandle: Handle): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_setStdHandle(nstdhandle, hhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun SetStdHandleEx(nstdhandle: STD_HANDLE, hhandle: HANDLE, phprevvalue: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_SetStdHandleEx(nstdhandle, hhandle.toCPointer<ByteVar>(), phprevvalue.toCPointer<ByteVar>())
+public actual fun setStdHandleEx(nstdhandle: StdHandle, hhandle: Handle, phprevvalue: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_setStdHandleEx(nstdhandle, hhandle?.value?.toCPointer<ByteVar>(), phprevvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun WriteConsoleA(hconsoleoutput: HANDLE, lpbuffer: PCSTR, nnumberofcharstowrite: UInt, lpnumberofcharswritten: Long, lpreserved: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_WriteConsoleA(hconsoleoutput.toCPointer<ByteVar>(), lpbuffer.toCPointer<ByteVar>(), nnumberofcharstowrite, lpnumberofcharswritten.toCPointer<ByteVar>(), lpreserved.toCPointer<ByteVar>())
+public actual fun writeConsoleA(hconsoleoutput: Handle, lpbuffer: Pcstr, nnumberofcharstowrite: UInt, lpnumberofcharswritten: COpaquePointer?, lpreserved: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_writeConsoleA(hconsoleoutput?.value?.toCPointer<ByteVar>(), lpbuffer?.value?.toCPointer<ByteVar>(), nnumberofcharstowrite, lpnumberofcharswritten?.value?.toCPointer<ByteVar>(), lpreserved?.value?.toCPointer<ByteVar>())
 
-public actual fun WriteConsoleInputA(hconsoleinput: HANDLE, lpbuffer: Long, nlength: UInt, lpnumberofeventswritten: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_WriteConsoleInputA(hconsoleinput.toCPointer<ByteVar>(), lpbuffer.toCPointer<ByteVar>(), nlength, lpnumberofeventswritten.toCPointer<ByteVar>())
+public actual fun writeConsoleInputA(hconsoleinput: Handle, lpbuffer: COpaquePointer?, nlength: UInt, lpnumberofeventswritten: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_writeConsoleInputA(hconsoleinput?.value?.toCPointer<ByteVar>(), lpbuffer?.value?.toCPointer<ByteVar>(), nlength, lpnumberofeventswritten?.value?.toCPointer<ByteVar>())
 
-public actual fun WriteConsoleInputW(hconsoleinput: HANDLE, lpbuffer: Long, nlength: UInt, lpnumberofeventswritten: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_WriteConsoleInputW(hconsoleinput.toCPointer<ByteVar>(), lpbuffer.toCPointer<ByteVar>(), nlength, lpnumberofeventswritten.toCPointer<ByteVar>())
+public actual fun writeConsoleInputW(hconsoleinput: Handle, lpbuffer: COpaquePointer?, nlength: UInt, lpnumberofeventswritten: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_writeConsoleInputW(hconsoleinput?.value?.toCPointer<ByteVar>(), lpbuffer?.value?.toCPointer<ByteVar>(), nlength, lpnumberofeventswritten?.value?.toCPointer<ByteVar>())
 
-public actual fun WriteConsoleOutputA(hconsoleoutput: HANDLE, lpbuffer: Long, dwbuffersize: COORD, dwbuffercoord: COORD, lpwriteregion: Long): BOOL =
+public actual fun writeConsoleOutputA(hconsoleoutput: Handle, lpbuffer: COpaquePointer?, dwbuffersize: Coord, dwbuffercoord: Coord, lpwriteregion: COpaquePointer?): Bool =
     0
 
-public actual fun WriteConsoleOutputAttribute(hconsoleoutput: HANDLE, lpattribute: Long, nlength: UInt, dwwritecoord: COORD, lpnumberofattrswritten: Long): BOOL =
+public actual fun writeConsoleOutputAttribute(hconsoleoutput: Handle, lpattribute: COpaquePointer?, nlength: UInt, dwwritecoord: Coord, lpnumberofattrswritten: COpaquePointer?): Bool =
     0
 
-public actual fun WriteConsoleOutputCharacterA(hconsoleoutput: HANDLE, lpcharacter: PCSTR, nlength: UInt, dwwritecoord: COORD, lpnumberofcharswritten: Long): BOOL =
+public actual fun writeConsoleOutputCharacterA(hconsoleoutput: Handle, lpcharacter: Pcstr, nlength: UInt, dwwritecoord: Coord, lpnumberofcharswritten: COpaquePointer?): Bool =
     0
 
-public actual fun WriteConsoleOutputCharacterW(hconsoleoutput: HANDLE, lpcharacter: PCWSTR, nlength: UInt, dwwritecoord: COORD, lpnumberofcharswritten: Long): BOOL =
+public actual fun writeConsoleOutputCharacterW(hconsoleoutput: Handle, lpcharacter: Pcwstr, nlength: UInt, dwwritecoord: Coord, lpnumberofcharswritten: COpaquePointer?): Bool =
     0
 
-public actual fun WriteConsoleOutputW(hconsoleoutput: HANDLE, lpbuffer: Long, dwbuffersize: COORD, dwbuffercoord: COORD, lpwriteregion: Long): BOOL =
+public actual fun writeConsoleOutputW(hconsoleoutput: Handle, lpbuffer: COpaquePointer?, dwbuffersize: Coord, dwbuffercoord: Coord, lpwriteregion: COpaquePointer?): Bool =
     0
 
-public actual fun WriteConsoleW(hconsoleoutput: HANDLE, lpbuffer: PCWSTR, nnumberofcharstowrite: UInt, lpnumberofcharswritten: Long, lpreserved: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_WriteConsoleW(hconsoleoutput.toCPointer<ByteVar>(), lpbuffer.toCPointer<ByteVar>(), nnumberofcharstowrite, lpnumberofcharswritten.toCPointer<ByteVar>(), lpreserved.toCPointer<ByteVar>())
+public actual fun writeConsoleW(hconsoleoutput: Handle, lpbuffer: Pcwstr, nnumberofcharstowrite: UInt, lpnumberofcharswritten: COpaquePointer?, lpreserved: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop.windowssys_windows_win32_system_console_writeConsoleW(hconsoleoutput?.value?.toCPointer<ByteVar>(), lpbuffer?.value?.toCPointer<ByteVar>(), nnumberofcharstowrite, lpnumberofcharswritten?.value?.toCPointer<ByteVar>(), lpreserved?.value?.toCPointer<ByteVar>())

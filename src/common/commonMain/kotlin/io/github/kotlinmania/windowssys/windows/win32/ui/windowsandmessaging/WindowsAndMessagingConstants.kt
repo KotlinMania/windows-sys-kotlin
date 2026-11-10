@@ -1,14 +1,15 @@
 package io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging
 
+import io.github.kotlinmania.windowssys.COpaquePointer
 import io.github.kotlinmania.windowssys.U128
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HBITMAP
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hbitmap
 
-public val ARW_BOTTOMLEFT: MINIMIZEDMETRICS_ARRANGE = 0
+public val ARW_BOTTOMLEFT: MinimizedmetricsArrange = 0
 
-public val ARW_BOTTOMRIGHT: MINIMIZEDMETRICS_ARRANGE = 1
+public val ARW_BOTTOMRIGHT: MinimizedmetricsArrange = 1
 
 public val ARW_DOWN: Int = 4
 
@@ -24,31 +25,31 @@ public val ARW_STARTRIGHT: Int = 1
 
 public val ARW_STARTTOP: Int = 2
 
-public val ARW_TOPLEFT: MINIMIZEDMETRICS_ARRANGE = 2
+public val ARW_TOPLEFT: MinimizedmetricsArrange = 2
 
-public val ARW_TOPRIGHT: MINIMIZEDMETRICS_ARRANGE = 3
+public val ARW_TOPRIGHT: MinimizedmetricsArrange = 3
 
 public val ARW_UP: Int = 4
 
 public val ASFW_ANY: UInt = 4294967295u
 
-public val AW_ACTIVATE: ANIMATE_WINDOW_FLAGS = 131072u
+public val AW_ACTIVATE: AnimateWindowFlags = 131072u
 
-public val AW_BLEND: ANIMATE_WINDOW_FLAGS = 524288u
+public val AW_BLEND: AnimateWindowFlags = 524288u
 
-public val AW_CENTER: ANIMATE_WINDOW_FLAGS = 16u
+public val AW_CENTER: AnimateWindowFlags = 16u
 
-public val AW_HIDE: ANIMATE_WINDOW_FLAGS = 65536u
+public val AW_HIDE: AnimateWindowFlags = 65536u
 
-public val AW_HOR_NEGATIVE: ANIMATE_WINDOW_FLAGS = 2u
+public val AW_HOR_NEGATIVE: AnimateWindowFlags = 2u
 
-public val AW_HOR_POSITIVE: ANIMATE_WINDOW_FLAGS = 1u
+public val AW_HOR_POSITIVE: AnimateWindowFlags = 1u
 
-public val AW_SLIDE: ANIMATE_WINDOW_FLAGS = 262144u
+public val AW_SLIDE: AnimateWindowFlags = 262144u
 
-public val AW_VER_NEGATIVE: ANIMATE_WINDOW_FLAGS = 8u
+public val AW_VER_NEGATIVE: AnimateWindowFlags = 8u
 
-public val AW_VER_POSITIVE: ANIMATE_WINDOW_FLAGS = 4u
+public val AW_VER_POSITIVE: AnimateWindowFlags = 4u
 
 public val BM_CLICK: UInt = 245u
 
@@ -314,31 +315,31 @@ public val CREATEPROCESS_MANIFEST_RESOURCE_ID: UInt = 1u
 
 public val CSOUND_SYSTEM: UInt = 16u
 
-public val CS_BYTEALIGNCLIENT: WNDCLASS_STYLES = 4096u
+public val CS_BYTEALIGNCLIENT: WndclassStyles = 4096u
 
-public val CS_BYTEALIGNWINDOW: WNDCLASS_STYLES = 8192u
+public val CS_BYTEALIGNWINDOW: WndclassStyles = 8192u
 
-public val CS_CLASSDC: WNDCLASS_STYLES = 64u
+public val CS_CLASSDC: WndclassStyles = 64u
 
-public val CS_DBLCLKS: WNDCLASS_STYLES = 8u
+public val CS_DBLCLKS: WndclassStyles = 8u
 
-public val CS_DROPSHADOW: WNDCLASS_STYLES = 131072u
+public val CS_DROPSHADOW: WndclassStyles = 131072u
 
-public val CS_GLOBALCLASS: WNDCLASS_STYLES = 16384u
+public val CS_GLOBALCLASS: WndclassStyles = 16384u
 
-public val CS_HREDRAW: WNDCLASS_STYLES = 2u
+public val CS_HREDRAW: WndclassStyles = 2u
 
-public val CS_IME: WNDCLASS_STYLES = 65536u
+public val CS_IME: WndclassStyles = 65536u
 
-public val CS_NOCLOSE: WNDCLASS_STYLES = 512u
+public val CS_NOCLOSE: WndclassStyles = 512u
 
-public val CS_OWNDC: WNDCLASS_STYLES = 32u
+public val CS_OWNDC: WndclassStyles = 32u
 
-public val CS_PARENTDC: WNDCLASS_STYLES = 128u
+public val CS_PARENTDC: WndclassStyles = 128u
 
-public val CS_SAVEBITS: WNDCLASS_STYLES = 2048u
+public val CS_SAVEBITS: WndclassStyles = 2048u
 
-public val CS_VREDRAW: WNDCLASS_STYLES = 1u
+public val CS_VREDRAW: WndclassStyles = 1u
 
 public val CTLCOLOR_BTN: UInt = 3u
 
@@ -360,25 +361,25 @@ public val CURSOR_CREATION_SCALING_DEFAULT: UInt = 2u
 
 public val CURSOR_CREATION_SCALING_NONE: UInt = 1u
 
-public val CURSOR_SHOWING: CURSORINFO_FLAGS = 1u
+public val CURSOR_SHOWING: CursorinfoFlags = 1u
 
-public val CURSOR_SUPPRESSED: CURSORINFO_FLAGS = 2u
+public val CURSOR_SUPPRESSED: CursorinfoFlags = 2u
 
 public val CWF_CREATE_ONLY: UInt = 1u
 
-public val CWP_ALL: CWP_FLAGS = 0u
+public val CWP_ALL: CwpFlags = 0u
 
-public val CWP_SKIPDISABLED: CWP_FLAGS = 2u
+public val CWP_SKIPDISABLED: CwpFlags = 2u
 
-public val CWP_SKIPINVISIBLE: CWP_FLAGS = 1u
+public val CWP_SKIPINVISIBLE: CwpFlags = 1u
 
-public val CWP_SKIPTRANSPARENT: CWP_FLAGS = 4u
+public val CWP_SKIPTRANSPARENT: CwpFlags = 4u
 
-public val CW_USEDEFAULT: Int = -2147483648
+public val CW_USEDEFAULT: Int = -2147483648.toInt()
 
-public val DBTF_MEDIA: DEV_BROADCAST_VOLUME_FLAGS = 1u
+public val DBTF_MEDIA: DevBroadcastVolumeFlags = 1u.toUShort()
 
-public val DBTF_NET: DEV_BROADCAST_VOLUME_FLAGS = 2u
+public val DBTF_NET: DevBroadcastVolumeFlags = 2u.toUShort()
 
 public val DBTF_RESOURCE: UInt = 1u
 
@@ -414,19 +415,19 @@ public val DBT_DEVICETYPESPECIFIC: UInt = 32773u
 
 public val DBT_DEVNODES_CHANGED: UInt = 7u
 
-public val DBT_DEVTYP_DEVICEINTERFACE: DEV_BROADCAST_HDR_DEVICE_TYPE = 5u
+public val DBT_DEVTYP_DEVICEINTERFACE: DevBroadcastHdrDeviceType = 5u
 
 public val DBT_DEVTYP_DEVNODE: UInt = 1u
 
-public val DBT_DEVTYP_HANDLE: DEV_BROADCAST_HDR_DEVICE_TYPE = 6u
+public val DBT_DEVTYP_HANDLE: DevBroadcastHdrDeviceType = 6u
 
 public val DBT_DEVTYP_NET: UInt = 4u
 
-public val DBT_DEVTYP_OEM: DEV_BROADCAST_HDR_DEVICE_TYPE = 0u
+public val DBT_DEVTYP_OEM: DevBroadcastHdrDeviceType = 0u
 
-public val DBT_DEVTYP_PORT: DEV_BROADCAST_HDR_DEVICE_TYPE = 3u
+public val DBT_DEVTYP_PORT: DevBroadcastHdrDeviceType = 3u
 
-public val DBT_DEVTYP_VOLUME: DEV_BROADCAST_HDR_DEVICE_TYPE = 2u
+public val DBT_DEVTYP_VOLUME: DevBroadcastHdrDeviceType = 2u
 
 public val DBT_LOW_DISK_SPACE: UInt = 72u
 
@@ -460,27 +461,27 @@ public val DCX_EXCLUDEUPDATE: Int = 256
 
 public val DC_HASDEFID: UInt = 21323u
 
-public val DEVICE_NOTIFY_ALL_INTERFACE_CLASSES: REGISTER_NOTIFICATION_FLAGS = 4u
+public val DEVICE_NOTIFY_ALL_INTERFACE_CLASSES: RegisterNotificationFlags = 4u
 
-public val DEVICE_NOTIFY_CALLBACK: REGISTER_NOTIFICATION_FLAGS = 2u
+public val DEVICE_NOTIFY_CALLBACK: RegisterNotificationFlags = 2u
 
-public val DEVICE_NOTIFY_SERVICE_HANDLE: REGISTER_NOTIFICATION_FLAGS = 1u
+public val DEVICE_NOTIFY_SERVICE_HANDLE: RegisterNotificationFlags = 1u
 
-public val DEVICE_NOTIFY_WINDOW_HANDLE: REGISTER_NOTIFICATION_FLAGS = 0u
+public val DEVICE_NOTIFY_WINDOW_HANDLE: RegisterNotificationFlags = 0u
 
 public val DIFFERENCE: UInt = 11u
 
-public val DI_COMPAT: DI_FLAGS = 4u
+public val DI_COMPAT: DiFlags = 4u
 
-public val DI_DEFAULTSIZE: DI_FLAGS = 8u
+public val DI_DEFAULTSIZE: DiFlags = 8u
 
-public val DI_IMAGE: DI_FLAGS = 2u
+public val DI_IMAGE: DiFlags = 2u
 
-public val DI_MASK: DI_FLAGS = 1u
+public val DI_MASK: DiFlags = 1u
 
-public val DI_NOMIRROR: DI_FLAGS = 16u
+public val DI_NOMIRROR: DiFlags = 16u
 
-public val DI_NORMAL: DI_FLAGS = 3u
+public val DI_NORMAL: DiFlags = 3u
 
 public val DLGC_BUTTON: UInt = 8192u
 
@@ -576,9 +577,9 @@ public val EC_USEFONTINFO: UInt = 65535u
 
 public val EDD_GET_DEVICE_INTERFACE_NAME: UInt = 1u
 
-public val EDIT_CONTROL_FEATURE_ENTERPRISE_DATA_PROTECTION_PASTE_SUPPORT: EDIT_CONTROL_FEATURE = 0
+public val EDIT_CONTROL_FEATURE_ENTERPRISE_DATA_PROTECTION_PASTE_SUPPORT: EditControlFeature = 0
 
-public val EDIT_CONTROL_FEATURE_PASTE_NOTIFICATIONS: EDIT_CONTROL_FEATURE = 1
+public val EDIT_CONTROL_FEATURE_PASTE_NOTIFICATIONS: EditControlFeature = 1
 
 public val EIMES_CANCELCOMPSTRINFOCUS: UInt = 2u
 
@@ -818,7 +819,7 @@ public val EVENT_UIA_PROPID_END: UInt = 30207u
 
 public val EVENT_UIA_PROPID_START: UInt = 29952u
 
-public val FALT: ACCEL_VIRT_FLAGS = 16u
+public val FALT: AccelVirtFlags = 16u.toUByte()
 
 public val FAPPCOMMAND_KEY: UInt = 0u
 
@@ -828,7 +829,7 @@ public val FAPPCOMMAND_MOUSE: UInt = 32768u
 
 public val FAPPCOMMAND_OEM: UInt = 4096u
 
-public val FCONTROL: ACCEL_VIRT_FLAGS = 8u
+public val FCONTROL: AccelVirtFlags = 8u.toUByte()
 
 public val FE_FONTSMOOTHINGCLEARTYPE: UInt = 2u
 
@@ -852,67 +853,67 @@ public val FKF_HOTKEYSOUND: UInt = 16u
 
 public val FKF_INDICATOR: UInt = 32u
 
-public val FLASHW_ALL: FLASHWINFO_FLAGS = 3u
+public val FLASHW_ALL: FlashwinfoFlags = 3u
 
-public val FLASHW_CAPTION: FLASHWINFO_FLAGS = 1u
+public val FLASHW_CAPTION: FlashwinfoFlags = 1u
 
-public val FLASHW_STOP: FLASHWINFO_FLAGS = 0u
+public val FLASHW_STOP: FlashwinfoFlags = 0u
 
-public val FLASHW_TIMER: FLASHWINFO_FLAGS = 4u
+public val FLASHW_TIMER: FlashwinfoFlags = 4u
 
-public val FLASHW_TIMERNOFG: FLASHWINFO_FLAGS = 12u
+public val FLASHW_TIMERNOFG: FlashwinfoFlags = 12u
 
-public val FLASHW_TRAY: FLASHWINFO_FLAGS = 2u
+public val FLASHW_TRAY: FlashwinfoFlags = 2u
 
-public val FNOINVERT: ACCEL_VIRT_FLAGS = 2u
+public val FNOINVERT: AccelVirtFlags = 2u.toUByte()
 
-public val FSHIFT: ACCEL_VIRT_FLAGS = 4u
+public val FSHIFT: AccelVirtFlags = 4u.toUByte()
 
-public val FVIRTKEY: ACCEL_VIRT_FLAGS = 1u
+public val FVIRTKEY: AccelVirtFlags = 1u.toUByte()
 
-public val GA_PARENT: GET_ANCESTOR_FLAGS = 1u
+public val GA_PARENT: GetAncestorFlags = 1u
 
-public val GA_ROOT: GET_ANCESTOR_FLAGS = 2u
+public val GA_ROOT: GetAncestorFlags = 2u
 
-public val GA_ROOTOWNER: GET_ANCESTOR_FLAGS = 3u
+public val GA_ROOTOWNER: GetAncestorFlags = 3u
 
 public val GCF_INCLUDE_ANCESTORS: UInt = 1u
 
-public val GCLP_HBRBACKGROUND: GET_CLASS_LONG_INDEX = -10
+public val GCLP_HBRBACKGROUND: GetClassLongIndex = -10
 
-public val GCLP_HCURSOR: GET_CLASS_LONG_INDEX = -12
+public val GCLP_HCURSOR: GetClassLongIndex = -12
 
-public val GCLP_HICON: GET_CLASS_LONG_INDEX = -14
+public val GCLP_HICON: GetClassLongIndex = -14
 
-public val GCLP_HICONSM: GET_CLASS_LONG_INDEX = -34
+public val GCLP_HICONSM: GetClassLongIndex = -34
 
-public val GCLP_HMODULE: GET_CLASS_LONG_INDEX = -16
+public val GCLP_HMODULE: GetClassLongIndex = -16
 
-public val GCLP_MENUNAME: GET_CLASS_LONG_INDEX = -8
+public val GCLP_MENUNAME: GetClassLongIndex = -8
 
-public val GCLP_WNDPROC: GET_CLASS_LONG_INDEX = -24
+public val GCLP_WNDPROC: GetClassLongIndex = -24
 
-public val GCL_CBCLSEXTRA: GET_CLASS_LONG_INDEX = -20
+public val GCL_CBCLSEXTRA: GetClassLongIndex = -20
 
-public val GCL_CBWNDEXTRA: GET_CLASS_LONG_INDEX = -18
+public val GCL_CBWNDEXTRA: GetClassLongIndex = -18
 
-public val GCL_HBRBACKGROUND: GET_CLASS_LONG_INDEX = -10
+public val GCL_HBRBACKGROUND: GetClassLongIndex = -10
 
-public val GCL_HCURSOR: GET_CLASS_LONG_INDEX = -12
+public val GCL_HCURSOR: GetClassLongIndex = -12
 
-public val GCL_HICON: GET_CLASS_LONG_INDEX = -14
+public val GCL_HICON: GetClassLongIndex = -14
 
-public val GCL_HICONSM: GET_CLASS_LONG_INDEX = -34
+public val GCL_HICONSM: GetClassLongIndex = -34
 
-public val GCL_HMODULE: GET_CLASS_LONG_INDEX = -16
+public val GCL_HMODULE: GetClassLongIndex = -16
 
-public val GCL_MENUNAME: GET_CLASS_LONG_INDEX = -8
+public val GCL_MENUNAME: GetClassLongIndex = -8
 
-public val GCL_STYLE: GET_CLASS_LONG_INDEX = -26
+public val GCL_STYLE: GetClassLongIndex = -26
 
-public val GCL_WNDPROC: GET_CLASS_LONG_INDEX = -24
+public val GCL_WNDPROC: GetClassLongIndex = -24
 
-public val GCW_ATOM: GET_CLASS_LONG_INDEX = -32
+public val GCW_ATOM: GetClassLongIndex = -32
 
 public val GESTURECONFIGMAXCOUNT: UInt = 256u
 
@@ -940,155 +941,155 @@ public val GIDC_ARRIVAL: UInt = 1u
 
 public val GIDC_REMOVAL: UInt = 2u
 
-public val GMDI_GOINTOPOPUPS: GET_MENU_DEFAULT_ITEM_FLAGS = 2u
+public val GMDI_GOINTOPOPUPS: GetMenuDefaultItemFlags = 2u
 
-public val GMDI_USEDISABLED: GET_MENU_DEFAULT_ITEM_FLAGS = 1u
+public val GMDI_USEDISABLED: GetMenuDefaultItemFlags = 1u
 
-public val GUID_DEVICE_EVENT_RBC: GUID = GUID.from_u128(U128(0xd0744792a98e11d2uL, 0x917a00a0c9068ff3uL))
+public val GUID_DEVICE_EVENT_RBC: Guid = Guid.fromU128(U128(0xd0744792a98e11d2uL, 0x917a00a0c9068ff3uL))
 
-public val GUID_IO_CDROM_EXCLUSIVE_LOCK: GUID = GUID.from_u128(U128(0xbc56c1397a1047eeuL, 0xa2944c6a38f0149auL))
+public val GUID_IO_CDROM_EXCLUSIVE_LOCK: Guid = Guid.fromU128(U128(0xbc56c1397a1047eeuL, 0xa2944c6a38f0149auL))
 
-public val GUID_IO_CDROM_EXCLUSIVE_UNLOCK: GUID = GUID.from_u128(U128(0xa3b6d27d5e354885uL, 0x81e5ee18c00ed779uL))
+public val GUID_IO_CDROM_EXCLUSIVE_UNLOCK: Guid = Guid.fromU128(U128(0xa3b6d27d5e354885uL, 0x81e5ee18c00ed779uL))
 
-public val GUID_IO_DEVICE_BECOMING_READY: GUID = GUID.from_u128(U128(0xd07433f0a98e11d2uL, 0x917a00a0c9068ff3uL))
+public val GUID_IO_DEVICE_BECOMING_READY: Guid = Guid.fromU128(U128(0xd07433f0a98e11d2uL, 0x917a00a0c9068ff3uL))
 
-public val GUID_IO_DEVICE_EXTERNAL_REQUEST: GUID = GUID.from_u128(U128(0xd07433d0a98e11d2uL, 0x917a00a0c9068ff3uL))
+public val GUID_IO_DEVICE_EXTERNAL_REQUEST: Guid = Guid.fromU128(U128(0xd07433d0a98e11d2uL, 0x917a00a0c9068ff3uL))
 
-public val GUID_IO_DISK_CLONE_ARRIVAL: GUID = GUID.from_u128(U128(0x6a61885b7c3943dduL, 0x9b56b8ac22a549aauL))
+public val GUID_IO_DISK_CLONE_ARRIVAL: Guid = Guid.fromU128(U128(0x6a61885b7c3943dduL, 0x9b56b8ac22a549aauL))
 
-public val GUID_IO_DISK_HEALTH_NOTIFICATION: GUID = GUID.from_u128(U128(0xf1bd644391649c5uL, 0xb063991940118fb2uL))
+public val GUID_IO_DISK_HEALTH_NOTIFICATION: Guid = Guid.fromU128(U128(0xf1bd644391649c5uL, 0xb063991940118fb2uL))
 
-public val GUID_IO_DISK_LAYOUT_CHANGE: GUID = GUID.from_u128(U128(0x11dff54c846941f9uL, 0xb3deef836487c54auL))
+public val GUID_IO_DISK_LAYOUT_CHANGE: Guid = Guid.fromU128(U128(0x11dff54c846941f9uL, 0xb3deef836487c54auL))
 
-public val GUID_IO_DRIVE_REQUIRES_CLEANING: GUID = GUID.from_u128(U128(0x7207877c90ed44e5uL, 0xa00081428d4c79bbuL))
+public val GUID_IO_DRIVE_REQUIRES_CLEANING: Guid = Guid.fromU128(U128(0x7207877c90ed44e5uL, 0xa00081428d4c79bbuL))
 
-public val GUID_IO_MEDIA_ARRIVAL: GUID = GUID.from_u128(U128(0xd07433c0a98e11d2uL, 0x917a00a0c9068ff3uL))
+public val GUID_IO_MEDIA_ARRIVAL: Guid = Guid.fromU128(U128(0xd07433c0a98e11d2uL, 0x917a00a0c9068ff3uL))
 
-public val GUID_IO_MEDIA_EJECT_REQUEST: GUID = GUID.from_u128(U128(0xd07433d1a98e11d2uL, 0x917a00a0c9068ff3uL))
+public val GUID_IO_MEDIA_EJECT_REQUEST: Guid = Guid.fromU128(U128(0xd07433d1a98e11d2uL, 0x917a00a0c9068ff3uL))
 
-public val GUID_IO_MEDIA_REMOVAL: GUID = GUID.from_u128(U128(0xd07433c1a98e11d2uL, 0x917a00a0c9068ff3uL))
+public val GUID_IO_MEDIA_REMOVAL: Guid = Guid.fromU128(U128(0xd07433c1a98e11d2uL, 0x917a00a0c9068ff3uL))
 
-public val GUID_IO_TAPE_ERASE: GUID = GUID.from_u128(U128(0x852d11eb4bb84507uL, 0x9d9b417cc2b1b438uL))
+public val GUID_IO_TAPE_ERASE: Guid = Guid.fromU128(U128(0x852d11eb4bb84507uL, 0x9d9b417cc2b1b438uL))
 
-public val GUID_IO_VOLUME_BACKGROUND_FORMAT: GUID = GUID.from_u128(U128(0xa2e5fc86d5cd4038uL, 0xb2e34445065c2377uL))
+public val GUID_IO_VOLUME_BACKGROUND_FORMAT: Guid = Guid.fromU128(U128(0xa2e5fc86d5cd4038uL, 0xb2e34445065c2377uL))
 
-public val GUID_IO_VOLUME_CHANGE: GUID = GUID.from_u128(U128(0x7373654a812a11d0uL, 0xbec708002be2092fuL))
+public val GUID_IO_VOLUME_CHANGE: Guid = Guid.fromU128(U128(0x7373654a812a11d0uL, 0xbec708002be2092fuL))
 
-public val GUID_IO_VOLUME_CHANGE_SIZE: GUID = GUID.from_u128(U128(0x3a1625bead0349f1uL, 0x8ef86bbac182d1fduL))
+public val GUID_IO_VOLUME_CHANGE_SIZE: Guid = Guid.fromU128(U128(0x3a1625bead0349f1uL, 0x8ef86bbac182d1fduL))
 
-public val GUID_IO_VOLUME_DEVICE_INTERFACE: GUID = GUID.from_u128(U128(0x53f5630db6bf11d0uL, 0x94f200a0c91efb8buL))
+public val GUID_IO_VOLUME_DEVICE_INTERFACE: Guid = Guid.fromU128(U128(0x53f5630db6bf11d0uL, 0x94f200a0c91efb8buL))
 
-public val GUID_IO_VOLUME_DISMOUNT: GUID = GUID.from_u128(U128(0xd16a55e8105911d2uL, 0x8ffd00a0c9a06d32uL))
+public val GUID_IO_VOLUME_DISMOUNT: Guid = Guid.fromU128(U128(0xd16a55e8105911d2uL, 0x8ffd00a0c9a06d32uL))
 
-public val GUID_IO_VOLUME_DISMOUNT_FAILED: GUID = GUID.from_u128(U128(0xe3c5b178105d11d2uL, 0x8ffd00a0c9a06d32uL))
+public val GUID_IO_VOLUME_DISMOUNT_FAILED: Guid = Guid.fromU128(U128(0xe3c5b178105d11d2uL, 0x8ffd00a0c9a06d32uL))
 
-public val GUID_IO_VOLUME_FORCE_CLOSED: GUID = GUID.from_u128(U128(0x411ad84f433e4dc2uL, 0xa5ae4a2d1a2de654uL))
+public val GUID_IO_VOLUME_FORCE_CLOSED: Guid = Guid.fromU128(U128(0x411ad84f433e4dc2uL, 0xa5ae4a2d1a2de654uL))
 
-public val GUID_IO_VOLUME_FVE_STATUS_CHANGE: GUID = GUID.from_u128(U128(0x62998b2ee1f4b6auL, 0xb857e76cbbe9a6dauL))
+public val GUID_IO_VOLUME_FVE_STATUS_CHANGE: Guid = Guid.fromU128(U128(0x62998b2ee1f4b6auL, 0xb857e76cbbe9a6dauL))
 
-public val GUID_IO_VOLUME_INFO_MAKE_COMPAT: GUID = GUID.from_u128(U128(0x3ab9a0d2ef8045cfuL, 0x8cdccbe02a212906uL))
+public val GUID_IO_VOLUME_INFO_MAKE_COMPAT: Guid = Guid.fromU128(U128(0x3ab9a0d2ef8045cfuL, 0x8cdccbe02a212906uL))
 
-public val GUID_IO_VOLUME_LOCK: GUID = GUID.from_u128(U128(0x50708874c9af11d1uL, 0x8fef00a0c9a06d32uL))
+public val GUID_IO_VOLUME_LOCK: Guid = Guid.fromU128(U128(0x50708874c9af11d1uL, 0x8fef00a0c9a06d32uL))
 
-public val GUID_IO_VOLUME_LOCK_FAILED: GUID = GUID.from_u128(U128(0xae2eed100ba811d2uL, 0x8ffb00a0c9a06d32uL))
+public val GUID_IO_VOLUME_LOCK_FAILED: Guid = Guid.fromU128(U128(0xae2eed100ba811d2uL, 0x8ffb00a0c9a06d32uL))
 
-public val GUID_IO_VOLUME_MOUNT: GUID = GUID.from_u128(U128(0xb58048781a9611d2uL, 0x8ffd00a0c9a06d32uL))
+public val GUID_IO_VOLUME_MOUNT: Guid = Guid.fromU128(U128(0xb58048781a9611d2uL, 0x8ffd00a0c9a06d32uL))
 
-public val GUID_IO_VOLUME_NAME_CHANGE: GUID = GUID.from_u128(U128(0x2de97f834c0611d2uL, 0xa53200609713055auL))
+public val GUID_IO_VOLUME_NAME_CHANGE: Guid = Guid.fromU128(U128(0x2de97f834c0611d2uL, 0xa53200609713055auL))
 
-public val GUID_IO_VOLUME_NEED_CHKDSK: GUID = GUID.from_u128(U128(0x799a09600a0b4e03uL, 0xad882fa7c6ce748auL))
+public val GUID_IO_VOLUME_NEED_CHKDSK: Guid = Guid.fromU128(U128(0x799a09600a0b4e03uL, 0xad882fa7c6ce748auL))
 
-public val GUID_IO_VOLUME_PHYSICAL_CONFIGURATION_CHANGE: GUID = GUID.from_u128(U128(0x2de97f844c0611d2uL, 0xa53200609713055auL))
+public val GUID_IO_VOLUME_PHYSICAL_CONFIGURATION_CHANGE: Guid = Guid.fromU128(U128(0x2de97f844c0611d2uL, 0xa53200609713055auL))
 
-public val GUID_IO_VOLUME_PREPARING_EJECT: GUID = GUID.from_u128(U128(0xc79eb16e0dac4e7auL, 0xa86cb25ceeaa88f6uL))
+public val GUID_IO_VOLUME_PREPARING_EJECT: Guid = Guid.fromU128(U128(0xc79eb16e0dac4e7auL, 0xa86cb25ceeaa88f6uL))
 
-public val GUID_IO_VOLUME_UNIQUE_ID_CHANGE: GUID = GUID.from_u128(U128(0xaf39da42662241f5uL, 0x970b139d092fa3d9uL))
+public val GUID_IO_VOLUME_UNIQUE_ID_CHANGE: Guid = Guid.fromU128(U128(0xaf39da42662241f5uL, 0x970b139d092fa3d9uL))
 
-public val GUID_IO_VOLUME_UNLOCK: GUID = GUID.from_u128(U128(0x9a8c3d68d0cb11d1uL, 0x8fef00a0c9a06d32uL))
+public val GUID_IO_VOLUME_UNLOCK: Guid = Guid.fromU128(U128(0x9a8c3d68d0cb11d1uL, 0x8fef00a0c9a06d32uL))
 
-public val GUID_IO_VOLUME_WEARING_OUT: GUID = GUID.from_u128(U128(0x873113ca14864508uL, 0x82acc3b2e5297aaauL))
+public val GUID_IO_VOLUME_WEARING_OUT: Guid = Guid.fromU128(U128(0x873113ca14864508uL, 0x82acc3b2e5297aaauL))
 
-public val GUID_IO_VOLUME_WORM_NEAR_FULL: GUID = GUID.from_u128(U128(0xf3bfff82f3de48d2uL, 0xaf95457f80b763f2uL))
+public val GUID_IO_VOLUME_WORM_NEAR_FULL: Guid = Guid.fromU128(U128(0xf3bfff82f3de48d2uL, 0xaf95457f80b763f2uL))
 
 public val GUI_16BITTASK: UInt = 0u
 
-public val GUI_CARETBLINKING: GUITHREADINFO_FLAGS = 1u
+public val GUI_CARETBLINKING: GuithreadinfoFlags = 1u
 
-public val GUI_INMENUMODE: GUITHREADINFO_FLAGS = 4u
+public val GUI_INMENUMODE: GuithreadinfoFlags = 4u
 
-public val GUI_INMOVESIZE: GUITHREADINFO_FLAGS = 2u
+public val GUI_INMOVESIZE: GuithreadinfoFlags = 2u
 
-public val GUI_POPUPMENUMODE: GUITHREADINFO_FLAGS = 16u
+public val GUI_POPUPMENUMODE: GuithreadinfoFlags = 16u
 
-public val GUI_SYSTEMMENUMODE: GUITHREADINFO_FLAGS = 8u
+public val GUI_SYSTEMMENUMODE: GuithreadinfoFlags = 8u
 
 public val GWFS_INCLUDE_ANCESTORS: UInt = 1u
 
-public val GWLP_HINSTANCE: WINDOW_LONG_PTR_INDEX = -6
+public val GWLP_HINSTANCE: WindowLongPtrIndex = -6
 
-public val GWLP_HWNDPARENT: WINDOW_LONG_PTR_INDEX = -8
+public val GWLP_HWNDPARENT: WindowLongPtrIndex = -8
 
-public val GWLP_ID: WINDOW_LONG_PTR_INDEX = -12
+public val GWLP_ID: WindowLongPtrIndex = -12
 
-public val GWLP_USERDATA: WINDOW_LONG_PTR_INDEX = -21
+public val GWLP_USERDATA: WindowLongPtrIndex = -21
 
-public val GWLP_WNDPROC: WINDOW_LONG_PTR_INDEX = -4
+public val GWLP_WNDPROC: WindowLongPtrIndex = -4
 
-public val GWL_EXSTYLE: WINDOW_LONG_PTR_INDEX = -20
+public val GWL_EXSTYLE: WindowLongPtrIndex = -20
 
-public val GWL_HINSTANCE: WINDOW_LONG_PTR_INDEX = -6
+public val GWL_HINSTANCE: WindowLongPtrIndex = -6
 
-public val GWL_HWNDPARENT: WINDOW_LONG_PTR_INDEX = -8
+public val GWL_HWNDPARENT: WindowLongPtrIndex = -8
 
-public val GWL_ID: WINDOW_LONG_PTR_INDEX = -12
+public val GWL_ID: WindowLongPtrIndex = -12
 
-public val GWL_STYLE: WINDOW_LONG_PTR_INDEX = -16
+public val GWL_STYLE: WindowLongPtrIndex = -16
 
-public val GWL_USERDATA: WINDOW_LONG_PTR_INDEX = -21
+public val GWL_USERDATA: WindowLongPtrIndex = -21
 
-public val GWL_WNDPROC: WINDOW_LONG_PTR_INDEX = -4
+public val GWL_WNDPROC: WindowLongPtrIndex = -4
 
-public val GW_CHILD: GET_WINDOW_CMD = 5u
+public val GW_CHILD: GetWindowCmd = 5u
 
-public val GW_ENABLEDPOPUP: GET_WINDOW_CMD = 6u
+public val GW_ENABLEDPOPUP: GetWindowCmd = 6u
 
-public val GW_HWNDFIRST: GET_WINDOW_CMD = 0u
+public val GW_HWNDFIRST: GetWindowCmd = 0u
 
-public val GW_HWNDLAST: GET_WINDOW_CMD = 1u
+public val GW_HWNDLAST: GetWindowCmd = 1u
 
-public val GW_HWNDNEXT: GET_WINDOW_CMD = 2u
+public val GW_HWNDNEXT: GetWindowCmd = 2u
 
-public val GW_HWNDPREV: GET_WINDOW_CMD = 3u
+public val GW_HWNDPREV: GetWindowCmd = 3u
 
 public val GW_MAX: UInt = 5u
 
-public val GW_OWNER: GET_WINDOW_CMD = 4u
+public val GW_OWNER: GetWindowCmd = 4u
 
-public val HANDEDNESS_LEFT: HANDEDNESS = 0
+public val HANDEDNESS_LEFT: Handedness = 0
 
-public val HANDEDNESS_RIGHT: HANDEDNESS = 1
+public val HANDEDNESS_RIGHT: Handedness = 1
 
-public val HBMMENU_CALLBACK: HBITMAP = (-1).toLong()
+public val HBMMENU_CALLBACK: Hbitmap = COpaquePointer((-1).toLong())
 
-public val HBMMENU_MBAR_CLOSE: HBITMAP = 5.toLong()
+public val HBMMENU_MBAR_CLOSE: Hbitmap = COpaquePointer(5.toLong())
 
-public val HBMMENU_MBAR_CLOSE_D: HBITMAP = 6.toLong()
+public val HBMMENU_MBAR_CLOSE_D: Hbitmap = COpaquePointer(6.toLong())
 
-public val HBMMENU_MBAR_MINIMIZE: HBITMAP = 3.toLong()
+public val HBMMENU_MBAR_MINIMIZE: Hbitmap = COpaquePointer(3.toLong())
 
-public val HBMMENU_MBAR_MINIMIZE_D: HBITMAP = 7.toLong()
+public val HBMMENU_MBAR_MINIMIZE_D: Hbitmap = COpaquePointer(7.toLong())
 
-public val HBMMENU_MBAR_RESTORE: HBITMAP = 2.toLong()
+public val HBMMENU_MBAR_RESTORE: Hbitmap = COpaquePointer(2.toLong())
 
-public val HBMMENU_POPUP_CLOSE: HBITMAP = 8.toLong()
+public val HBMMENU_POPUP_CLOSE: Hbitmap = COpaquePointer(8.toLong())
 
-public val HBMMENU_POPUP_MAXIMIZE: HBITMAP = 10.toLong()
+public val HBMMENU_POPUP_MAXIMIZE: Hbitmap = COpaquePointer(10.toLong())
 
-public val HBMMENU_POPUP_MINIMIZE: HBITMAP = 11.toLong()
+public val HBMMENU_POPUP_MINIMIZE: Hbitmap = COpaquePointer(11.toLong())
 
-public val HBMMENU_POPUP_RESTORE: HBITMAP = 9.toLong()
+public val HBMMENU_POPUP_RESTORE: Hbitmap = COpaquePointer(9.toLong())
 
-public val HBMMENU_SYSTEM: HBITMAP = 1.toLong()
+public val HBMMENU_SYSTEM: Hbitmap = COpaquePointer(1.toLong())
 
 public val HCBT_ACTIVATE: UInt = 5u
 
@@ -1266,19 +1267,19 @@ public val HTVSCROLL: UInt = 7u
 
 public val HTZOOM: UInt = 9u
 
-public val HWND_BOTTOM: HWND = 1.toLong()
+public val HWND_BOTTOM: Hwnd = COpaquePointer(1.toLong())
 
-public val HWND_BROADCAST: HWND = 65535.toLong()
+public val HWND_BROADCAST: Hwnd = COpaquePointer(65535.toLong())
 
-public val HWND_DESKTOP: HWND = 0.toLong()
+public val HWND_DESKTOP: Hwnd = null
 
-public val HWND_MESSAGE: HWND = (-3).toLong()
+public val HWND_MESSAGE: Hwnd = COpaquePointer((-3).toLong())
 
-public val HWND_NOTOPMOST: HWND = (-2).toLong()
+public val HWND_NOTOPMOST: Hwnd = COpaquePointer((-2).toLong())
 
-public val HWND_TOP: HWND = 0.toLong()
+public val HWND_TOP: Hwnd = null
 
-public val HWND_TOPMOST: HWND = (-1).toLong()
+public val HWND_TOPMOST: Hwnd = COpaquePointer((-1).toLong())
 
 public val ICON_BIG: UInt = 1u
 
@@ -1286,59 +1287,59 @@ public val ICON_SMALL: UInt = 0u
 
 public val ICON_SMALL2: UInt = 2u
 
-public val IDABORT: MESSAGEBOX_RESULT = 3
+public val IDABORT: MessageboxResult = 3
 
 public val IDANI_CAPTION: UInt = 3u
 
 public val IDANI_OPEN: UInt = 1u
 
-public val IDASYNC: MESSAGEBOX_RESULT = 32001
+public val IDASYNC: MessageboxResult = 32001
 
-public val IDCANCEL: MESSAGEBOX_RESULT = 2
+public val IDCANCEL: MessageboxResult = 2
 
-public val IDCLOSE: MESSAGEBOX_RESULT = 8
+public val IDCLOSE: MessageboxResult = 8
 
-public val IDCONTINUE: MESSAGEBOX_RESULT = 11
+public val IDCONTINUE: MessageboxResult = 11
 
-public val IDC_APPSTARTING: PCWSTR = 32650u.toLong()
+public val IDC_APPSTARTING: Pcwstr = COpaquePointer((32650u.toUShort()).toLong())
 
-public val IDC_ARROW: PCWSTR = 32512u.toLong()
+public val IDC_ARROW: Pcwstr = COpaquePointer((32512u.toUShort()).toLong())
 
-public val IDC_CROSS: PCWSTR = 32515u.toLong()
+public val IDC_CROSS: Pcwstr = COpaquePointer((32515u.toUShort()).toLong())
 
-public val IDC_HAND: PCWSTR = 32649u.toLong()
+public val IDC_HAND: Pcwstr = COpaquePointer((32649u.toUShort()).toLong())
 
-public val IDC_HELP: PCWSTR = 32651u.toLong()
+public val IDC_HELP: Pcwstr = COpaquePointer((32651u.toUShort()).toLong())
 
-public val IDC_IBEAM: PCWSTR = 32513u.toLong()
+public val IDC_IBEAM: Pcwstr = COpaquePointer((32513u.toUShort()).toLong())
 
-public val IDC_ICON: PCWSTR = 32641u.toLong()
+public val IDC_ICON: Pcwstr = COpaquePointer((32641u.toUShort()).toLong())
 
-public val IDC_NO: PCWSTR = 32648u.toLong()
+public val IDC_NO: Pcwstr = COpaquePointer((32648u.toUShort()).toLong())
 
-public val IDC_PERSON: PCWSTR = 32672u.toLong()
+public val IDC_PERSON: Pcwstr = COpaquePointer((32672u.toUShort()).toLong())
 
-public val IDC_PIN: PCWSTR = 32671u.toLong()
+public val IDC_PIN: Pcwstr = COpaquePointer((32671u.toUShort()).toLong())
 
-public val IDC_SIZE: PCWSTR = 32640u.toLong()
+public val IDC_SIZE: Pcwstr = COpaquePointer((32640u.toUShort()).toLong())
 
-public val IDC_SIZEALL: PCWSTR = 32646u.toLong()
+public val IDC_SIZEALL: Pcwstr = COpaquePointer((32646u.toUShort()).toLong())
 
-public val IDC_SIZENESW: PCWSTR = 32643u.toLong()
+public val IDC_SIZENESW: Pcwstr = COpaquePointer((32643u.toUShort()).toLong())
 
-public val IDC_SIZENS: PCWSTR = 32645u.toLong()
+public val IDC_SIZENS: Pcwstr = COpaquePointer((32645u.toUShort()).toLong())
 
-public val IDC_SIZENWSE: PCWSTR = 32642u.toLong()
+public val IDC_SIZENWSE: Pcwstr = COpaquePointer((32642u.toUShort()).toLong())
 
-public val IDC_SIZEWE: PCWSTR = 32644u.toLong()
+public val IDC_SIZEWE: Pcwstr = COpaquePointer((32644u.toUShort()).toLong())
 
 public val IDC_STATIC: Int = -1
 
-public val IDC_UPARROW: PCWSTR = 32516u.toLong()
+public val IDC_UPARROW: Pcwstr = COpaquePointer((32516u.toUShort()).toLong())
 
-public val IDC_WAIT: PCWSTR = 32514u.toLong()
+public val IDC_WAIT: Pcwstr = COpaquePointer((32514u.toUShort()).toLong())
 
-public val IDHELP: MESSAGEBOX_RESULT = 9
+public val IDHELP: MessageboxResult = 9
 
 public val IDHOT_SNAPDESKTOP: Int = -2
 
@@ -1356,47 +1357,47 @@ public val IDH_NO_HELP: UInt = 28440u
 
 public val IDH_OK: UInt = 28443u
 
-public val IDIGNORE: MESSAGEBOX_RESULT = 5
+public val IDIGNORE: MessageboxResult = 5
 
-public val IDI_APPLICATION: PCWSTR = 32512u.toLong()
+public val IDI_APPLICATION: Pcwstr = COpaquePointer(32512u.toLong())
 
-public val IDI_ASTERISK: PCWSTR = 32516u.toLong()
+public val IDI_ASTERISK: Pcwstr = COpaquePointer(32516u.toLong())
 
-public val IDI_ERROR: PCWSTR = 32513u.toLong()
+public val IDI_ERROR: Pcwstr = COpaquePointer(32513u.toLong())
 
-public val IDI_EXCLAMATION: PCWSTR = 32515u.toLong()
+public val IDI_EXCLAMATION: Pcwstr = COpaquePointer(32515u.toLong())
 
-public val IDI_HAND: PCWSTR = 32513u.toLong()
+public val IDI_HAND: Pcwstr = COpaquePointer(32513u.toLong())
 
-public val IDI_INFORMATION: PCWSTR = 32516u.toLong()
+public val IDI_INFORMATION: Pcwstr = COpaquePointer(32516u.toLong())
 
-public val IDI_QUESTION: PCWSTR = 32514u.toLong()
+public val IDI_QUESTION: Pcwstr = COpaquePointer(32514u.toLong())
 
-public val IDI_SHIELD: PCWSTR = 32518u.toLong()
+public val IDI_SHIELD: Pcwstr = COpaquePointer(32518u.toLong())
 
-public val IDI_WARNING: PCWSTR = 32515u.toLong()
+public val IDI_WARNING: Pcwstr = COpaquePointer(32515u.toLong())
 
-public val IDI_WINLOGO: PCWSTR = 32517u.toLong()
+public val IDI_WINLOGO: Pcwstr = COpaquePointer(32517u.toLong())
 
-public val IDNO: MESSAGEBOX_RESULT = 7
+public val IDNO: MessageboxResult = 7
 
-public val IDOK: MESSAGEBOX_RESULT = 1
+public val IDOK: MessageboxResult = 1
 
-public val IDRETRY: MESSAGEBOX_RESULT = 4
+public val IDRETRY: MessageboxResult = 4
 
-public val IDTIMEOUT: MESSAGEBOX_RESULT = 32000
+public val IDTIMEOUT: MessageboxResult = 32000
 
-public val IDTRYAGAIN: MESSAGEBOX_RESULT = 10
+public val IDTRYAGAIN: MessageboxResult = 10
 
-public val IDYES: MESSAGEBOX_RESULT = 6
+public val IDYES: MessageboxResult = 6
 
-public val IMAGE_BITMAP: GDI_IMAGE_TYPE = 0u
+public val IMAGE_BITMAP: GdiImageType = 0u
 
-public val IMAGE_CURSOR: GDI_IMAGE_TYPE = 2u
+public val IMAGE_CURSOR: GdiImageType = 2u
 
 public val IMAGE_ENHMETAFILE: UInt = 3u
 
-public val IMAGE_ICON: GDI_IMAGE_TYPE = 1u
+public val IMAGE_ICON: GdiImageType = 1u
 
 public val INDEXID_CONTAINER: UInt = 0u
 
@@ -1580,15 +1581,15 @@ public val LB_SETTABSTOPS: UInt = 402u
 
 public val LB_SETTOPINDEX: UInt = 407u
 
-public val LLKHF_ALTDOWN: KBDLLHOOKSTRUCT_FLAGS = 32u
+public val LLKHF_ALTDOWN: KbdllhookstructFlags = 32u
 
-public val LLKHF_EXTENDED: KBDLLHOOKSTRUCT_FLAGS = 1u
+public val LLKHF_EXTENDED: KbdllhookstructFlags = 1u
 
-public val LLKHF_INJECTED: KBDLLHOOKSTRUCT_FLAGS = 16u
+public val LLKHF_INJECTED: KbdllhookstructFlags = 16u
 
-public val LLKHF_LOWER_IL_INJECTED: KBDLLHOOKSTRUCT_FLAGS = 2u
+public val LLKHF_LOWER_IL_INJECTED: KbdllhookstructFlags = 2u
 
-public val LLKHF_UP: KBDLLHOOKSTRUCT_FLAGS = 128u
+public val LLKHF_UP: KbdllhookstructFlags = 128u
 
 public val LLMHF_INJECTED: UInt = 1u
 
@@ -1612,37 +1613,37 @@ public val LOCKP_USER_MASK: UInt = 3u
 
 public val LR_COLOR: UInt = 2u
 
-public val LR_COPYDELETEORG: IMAGE_FLAGS = 8u
+public val LR_COPYDELETEORG: ImageFlags = 8u
 
-public val LR_COPYFROMRESOURCE: IMAGE_FLAGS = 16384u
+public val LR_COPYFROMRESOURCE: ImageFlags = 16384u
 
-public val LR_COPYRETURNORG: IMAGE_FLAGS = 4u
+public val LR_COPYRETURNORG: ImageFlags = 4u
 
-public val LR_CREATEDIBSECTION: IMAGE_FLAGS = 8192u
+public val LR_CREATEDIBSECTION: ImageFlags = 8192u
 
-public val LR_DEFAULTCOLOR: IMAGE_FLAGS = 0u
+public val LR_DEFAULTCOLOR: ImageFlags = 0u
 
-public val LR_DEFAULTSIZE: IMAGE_FLAGS = 64u
+public val LR_DEFAULTSIZE: ImageFlags = 64u
 
-public val LR_LOADFROMFILE: IMAGE_FLAGS = 16u
+public val LR_LOADFROMFILE: ImageFlags = 16u
 
-public val LR_LOADMAP3DCOLORS: IMAGE_FLAGS = 4096u
+public val LR_LOADMAP3DCOLORS: ImageFlags = 4096u
 
-public val LR_LOADTRANSPARENT: IMAGE_FLAGS = 32u
+public val LR_LOADTRANSPARENT: ImageFlags = 32u
 
-public val LR_MONOCHROME: IMAGE_FLAGS = 1u
+public val LR_MONOCHROME: ImageFlags = 1u
 
-public val LR_SHARED: IMAGE_FLAGS = 32768u
+public val LR_SHARED: ImageFlags = 32768u
 
-public val LR_VGACOLOR: IMAGE_FLAGS = 128u
+public val LR_VGACOLOR: ImageFlags = 128u
 
-public val LSFW_LOCK: FOREGROUND_WINDOW_LOCK_CODE = 1u
+public val LSFW_LOCK: ForegroundWindowLockCode = 1u
 
-public val LSFW_UNLOCK: FOREGROUND_WINDOW_LOCK_CODE = 2u
+public val LSFW_UNLOCK: ForegroundWindowLockCode = 2u
 
-public val LWA_ALPHA: LAYERED_WINDOW_ATTRIBUTES_FLAGS = 2u
+public val LWA_ALPHA: LayeredWindowAttributesFlags = 2u
 
-public val LWA_COLORKEY: LAYERED_WINDOW_ATTRIBUTES_FLAGS = 1u
+public val LWA_COLORKEY: LayeredWindowAttributesFlags = 1u
 
 public val MAXIMUM_RESERVED_MANIFEST_RESOURCE_ID: UInt = 16u
 
@@ -1662,211 +1663,211 @@ public val MA_NOACTIVATE: UInt = 3u
 
 public val MA_NOACTIVATEANDEAT: UInt = 4u
 
-public val MB_ABORTRETRYIGNORE: MESSAGEBOX_STYLE = 2u
+public val MB_ABORTRETRYIGNORE: MessageboxStyle = 2u
 
-public val MB_APPLMODAL: MESSAGEBOX_STYLE = 0u
+public val MB_APPLMODAL: MessageboxStyle = 0u
 
-public val MB_CANCELTRYCONTINUE: MESSAGEBOX_STYLE = 6u
+public val MB_CANCELTRYCONTINUE: MessageboxStyle = 6u
 
-public val MB_DEFAULT_DESKTOP_ONLY: MESSAGEBOX_STYLE = 131072u
+public val MB_DEFAULT_DESKTOP_ONLY: MessageboxStyle = 131072u
 
-public val MB_DEFBUTTON1: MESSAGEBOX_STYLE = 0u
+public val MB_DEFBUTTON1: MessageboxStyle = 0u
 
-public val MB_DEFBUTTON2: MESSAGEBOX_STYLE = 256u
+public val MB_DEFBUTTON2: MessageboxStyle = 256u
 
-public val MB_DEFBUTTON3: MESSAGEBOX_STYLE = 512u
+public val MB_DEFBUTTON3: MessageboxStyle = 512u
 
-public val MB_DEFBUTTON4: MESSAGEBOX_STYLE = 768u
+public val MB_DEFBUTTON4: MessageboxStyle = 768u
 
-public val MB_DEFMASK: MESSAGEBOX_STYLE = 3840u
+public val MB_DEFMASK: MessageboxStyle = 3840u
 
-public val MB_HELP: MESSAGEBOX_STYLE = 16384u
+public val MB_HELP: MessageboxStyle = 16384u
 
-public val MB_ICONASTERISK: MESSAGEBOX_STYLE = 64u
+public val MB_ICONASTERISK: MessageboxStyle = 64u
 
-public val MB_ICONERROR: MESSAGEBOX_STYLE = 16u
+public val MB_ICONERROR: MessageboxStyle = 16u
 
-public val MB_ICONEXCLAMATION: MESSAGEBOX_STYLE = 48u
+public val MB_ICONEXCLAMATION: MessageboxStyle = 48u
 
-public val MB_ICONHAND: MESSAGEBOX_STYLE = 16u
+public val MB_ICONHAND: MessageboxStyle = 16u
 
-public val MB_ICONINFORMATION: MESSAGEBOX_STYLE = 64u
+public val MB_ICONINFORMATION: MessageboxStyle = 64u
 
-public val MB_ICONMASK: MESSAGEBOX_STYLE = 240u
+public val MB_ICONMASK: MessageboxStyle = 240u
 
-public val MB_ICONQUESTION: MESSAGEBOX_STYLE = 32u
+public val MB_ICONQUESTION: MessageboxStyle = 32u
 
-public val MB_ICONSTOP: MESSAGEBOX_STYLE = 16u
+public val MB_ICONSTOP: MessageboxStyle = 16u
 
-public val MB_ICONWARNING: MESSAGEBOX_STYLE = 48u
+public val MB_ICONWARNING: MessageboxStyle = 48u
 
-public val MB_MISCMASK: MESSAGEBOX_STYLE = 49152u
+public val MB_MISCMASK: MessageboxStyle = 49152u
 
-public val MB_MODEMASK: MESSAGEBOX_STYLE = 12288u
+public val MB_MODEMASK: MessageboxStyle = 12288u
 
-public val MB_NOFOCUS: MESSAGEBOX_STYLE = 32768u
+public val MB_NOFOCUS: MessageboxStyle = 32768u
 
-public val MB_OK: MESSAGEBOX_STYLE = 0u
+public val MB_OK: MessageboxStyle = 0u
 
-public val MB_OKCANCEL: MESSAGEBOX_STYLE = 1u
+public val MB_OKCANCEL: MessageboxStyle = 1u
 
-public val MB_RETRYCANCEL: MESSAGEBOX_STYLE = 5u
+public val MB_RETRYCANCEL: MessageboxStyle = 5u
 
-public val MB_RIGHT: MESSAGEBOX_STYLE = 524288u
+public val MB_RIGHT: MessageboxStyle = 524288u
 
-public val MB_RTLREADING: MESSAGEBOX_STYLE = 1048576u
+public val MB_RTLREADING: MessageboxStyle = 1048576u
 
-public val MB_SERVICE_NOTIFICATION: MESSAGEBOX_STYLE = 2097152u
+public val MB_SERVICE_NOTIFICATION: MessageboxStyle = 2097152u
 
-public val MB_SERVICE_NOTIFICATION_NT3X: MESSAGEBOX_STYLE = 262144u
+public val MB_SERVICE_NOTIFICATION_NT3X: MessageboxStyle = 262144u
 
-public val MB_SETFOREGROUND: MESSAGEBOX_STYLE = 65536u
+public val MB_SETFOREGROUND: MessageboxStyle = 65536u
 
-public val MB_SYSTEMMODAL: MESSAGEBOX_STYLE = 4096u
+public val MB_SYSTEMMODAL: MessageboxStyle = 4096u
 
-public val MB_TASKMODAL: MESSAGEBOX_STYLE = 8192u
+public val MB_TASKMODAL: MessageboxStyle = 8192u
 
-public val MB_TOPMOST: MESSAGEBOX_STYLE = 262144u
+public val MB_TOPMOST: MessageboxStyle = 262144u
 
-public val MB_TYPEMASK: MESSAGEBOX_STYLE = 15u
+public val MB_TYPEMASK: MessageboxStyle = 15u
 
-public val MB_USERICON: MESSAGEBOX_STYLE = 128u
+public val MB_USERICON: MessageboxStyle = 128u
 
-public val MB_YESNO: MESSAGEBOX_STYLE = 4u
+public val MB_YESNO: MessageboxStyle = 4u
 
-public val MB_YESNOCANCEL: MESSAGEBOX_STYLE = 3u
+public val MB_YESNOCANCEL: MessageboxStyle = 3u
 
 public val MDIS_ALLCHILDSTYLES: UInt = 1u
 
-public val MDITILE_HORIZONTAL: TILE_WINDOWS_HOW = 1u
+public val MDITILE_HORIZONTAL: TileWindowsHow = 1u
 
-public val MDITILE_SKIPDISABLED: CASCADE_WINDOWS_HOW = 2u
+public val MDITILE_SKIPDISABLED: CascadeWindowsHow = 2u
 
-public val MDITILE_VERTICAL: TILE_WINDOWS_HOW = 0u
+public val MDITILE_VERTICAL: TileWindowsHow = 0u
 
-public val MDITILE_ZORDER: CASCADE_WINDOWS_HOW = 4u
+public val MDITILE_ZORDER: CascadeWindowsHow = 4u
 
 public val METRICS_USEDEFAULT: Int = -1
 
-public val MFS_CHECKED: MENU_ITEM_STATE = 8u
+public val MFS_CHECKED: MenuItemState = 8u
 
-public val MFS_DEFAULT: MENU_ITEM_STATE = 4096u
+public val MFS_DEFAULT: MenuItemState = 4096u
 
-public val MFS_DISABLED: MENU_ITEM_STATE = 3u
+public val MFS_DISABLED: MenuItemState = 3u
 
-public val MFS_ENABLED: MENU_ITEM_STATE = 0u
+public val MFS_ENABLED: MenuItemState = 0u
 
-public val MFS_GRAYED: MENU_ITEM_STATE = 3u
+public val MFS_GRAYED: MenuItemState = 3u
 
-public val MFS_HILITE: MENU_ITEM_STATE = 128u
+public val MFS_HILITE: MenuItemState = 128u
 
-public val MFS_UNCHECKED: MENU_ITEM_STATE = 0u
+public val MFS_UNCHECKED: MenuItemState = 0u
 
-public val MFS_UNHILITE: MENU_ITEM_STATE = 0u
+public val MFS_UNHILITE: MenuItemState = 0u
 
-public val MFT_BITMAP: MENU_ITEM_TYPE = 4u
+public val MFT_BITMAP: MenuItemType = 4u
 
-public val MFT_MENUBARBREAK: MENU_ITEM_TYPE = 32u
+public val MFT_MENUBARBREAK: MenuItemType = 32u
 
-public val MFT_MENUBREAK: MENU_ITEM_TYPE = 64u
+public val MFT_MENUBREAK: MenuItemType = 64u
 
-public val MFT_OWNERDRAW: MENU_ITEM_TYPE = 256u
+public val MFT_OWNERDRAW: MenuItemType = 256u
 
-public val MFT_RADIOCHECK: MENU_ITEM_TYPE = 512u
+public val MFT_RADIOCHECK: MenuItemType = 512u
 
-public val MFT_RIGHTJUSTIFY: MENU_ITEM_TYPE = 16384u
+public val MFT_RIGHTJUSTIFY: MenuItemType = 16384u
 
-public val MFT_RIGHTORDER: MENU_ITEM_TYPE = 8192u
+public val MFT_RIGHTORDER: MenuItemType = 8192u
 
-public val MFT_SEPARATOR: MENU_ITEM_TYPE = 2048u
+public val MFT_SEPARATOR: MenuItemType = 2048u
 
-public val MFT_STRING: MENU_ITEM_TYPE = 0u
+public val MFT_STRING: MenuItemType = 0u
 
-public val MF_APPEND: MENU_ITEM_FLAGS = 256u
+public val MF_APPEND: MenuItemFlags = 256u
 
-public val MF_BITMAP: MENU_ITEM_FLAGS = 4u
+public val MF_BITMAP: MenuItemFlags = 4u
 
-public val MF_BYCOMMAND: MENU_ITEM_FLAGS = 0u
+public val MF_BYCOMMAND: MenuItemFlags = 0u
 
-public val MF_BYPOSITION: MENU_ITEM_FLAGS = 1024u
+public val MF_BYPOSITION: MenuItemFlags = 1024u
 
-public val MF_CHANGE: MENU_ITEM_FLAGS = 128u
+public val MF_CHANGE: MenuItemFlags = 128u
 
-public val MF_CHECKED: MENU_ITEM_FLAGS = 8u
+public val MF_CHECKED: MenuItemFlags = 8u
 
-public val MF_DEFAULT: MENU_ITEM_FLAGS = 4096u
+public val MF_DEFAULT: MenuItemFlags = 4096u
 
-public val MF_DELETE: MENU_ITEM_FLAGS = 512u
+public val MF_DELETE: MenuItemFlags = 512u
 
-public val MF_DISABLED: MENU_ITEM_FLAGS = 2u
+public val MF_DISABLED: MenuItemFlags = 2u
 
-public val MF_ENABLED: MENU_ITEM_FLAGS = 0u
+public val MF_ENABLED: MenuItemFlags = 0u
 
-public val MF_END: MENU_ITEM_FLAGS = 128u
+public val MF_END: MenuItemFlags = 128u
 
-public val MF_GRAYED: MENU_ITEM_FLAGS = 1u
+public val MF_GRAYED: MenuItemFlags = 1u
 
-public val MF_HELP: MENU_ITEM_FLAGS = 16384u
+public val MF_HELP: MenuItemFlags = 16384u
 
-public val MF_HILITE: MENU_ITEM_FLAGS = 128u
+public val MF_HILITE: MenuItemFlags = 128u
 
-public val MF_INSERT: MENU_ITEM_FLAGS = 0u
+public val MF_INSERT: MenuItemFlags = 0u
 
-public val MF_MENUBARBREAK: MENU_ITEM_FLAGS = 32u
+public val MF_MENUBARBREAK: MenuItemFlags = 32u
 
-public val MF_MENUBREAK: MENU_ITEM_FLAGS = 64u
+public val MF_MENUBREAK: MenuItemFlags = 64u
 
-public val MF_MOUSESELECT: MENU_ITEM_FLAGS = 32768u
+public val MF_MOUSESELECT: MenuItemFlags = 32768u
 
-public val MF_OWNERDRAW: MENU_ITEM_FLAGS = 256u
+public val MF_OWNERDRAW: MenuItemFlags = 256u
 
-public val MF_POPUP: MENU_ITEM_FLAGS = 16u
+public val MF_POPUP: MenuItemFlags = 16u
 
-public val MF_REMOVE: MENU_ITEM_FLAGS = 4096u
+public val MF_REMOVE: MenuItemFlags = 4096u
 
-public val MF_RIGHTJUSTIFY: MENU_ITEM_FLAGS = 16384u
+public val MF_RIGHTJUSTIFY: MenuItemFlags = 16384u
 
-public val MF_SEPARATOR: MENU_ITEM_FLAGS = 2048u
+public val MF_SEPARATOR: MenuItemFlags = 2048u
 
-public val MF_STRING: MENU_ITEM_FLAGS = 0u
+public val MF_STRING: MenuItemFlags = 0u
 
-public val MF_SYSMENU: MENU_ITEM_FLAGS = 8192u
+public val MF_SYSMENU: MenuItemFlags = 8192u
 
-public val MF_UNCHECKED: MENU_ITEM_FLAGS = 0u
+public val MF_UNCHECKED: MenuItemFlags = 0u
 
-public val MF_UNHILITE: MENU_ITEM_FLAGS = 0u
+public val MF_UNHILITE: MenuItemFlags = 0u
 
-public val MF_USECHECKBITMAPS: MENU_ITEM_FLAGS = 512u
+public val MF_USECHECKBITMAPS: MenuItemFlags = 512u
 
-public val MIIM_BITMAP: MENU_ITEM_MASK = 128u
+public val MIIM_BITMAP: MenuItemMask = 128u
 
-public val MIIM_CHECKMARKS: MENU_ITEM_MASK = 8u
+public val MIIM_CHECKMARKS: MenuItemMask = 8u
 
-public val MIIM_DATA: MENU_ITEM_MASK = 32u
+public val MIIM_DATA: MenuItemMask = 32u
 
-public val MIIM_FTYPE: MENU_ITEM_MASK = 256u
+public val MIIM_FTYPE: MenuItemMask = 256u
 
-public val MIIM_ID: MENU_ITEM_MASK = 2u
+public val MIIM_ID: MenuItemMask = 2u
 
-public val MIIM_STATE: MENU_ITEM_MASK = 1u
+public val MIIM_STATE: MenuItemMask = 1u
 
-public val MIIM_STRING: MENU_ITEM_MASK = 64u
+public val MIIM_STRING: MenuItemMask = 64u
 
-public val MIIM_SUBMENU: MENU_ITEM_MASK = 4u
+public val MIIM_SUBMENU: MenuItemMask = 4u
 
-public val MIIM_TYPE: MENU_ITEM_MASK = 16u
+public val MIIM_TYPE: MenuItemMask = 16u
 
-public val MIM_APPLYTOSUBMENUS: MENUINFO_MASK = 2147483648u
+public val MIM_APPLYTOSUBMENUS: MenuinfoMask = 2147483648u
 
-public val MIM_BACKGROUND: MENUINFO_MASK = 2u
+public val MIM_BACKGROUND: MenuinfoMask = 2u
 
-public val MIM_HELPID: MENUINFO_MASK = 4u
+public val MIM_HELPID: MenuinfoMask = 4u
 
-public val MIM_MAXHEIGHT: MENUINFO_MASK = 1u
+public val MIM_MAXHEIGHT: MenuinfoMask = 1u
 
-public val MIM_MENUDATA: MENUINFO_MASK = 8u
+public val MIM_MENUDATA: MenuinfoMask = 8u
 
-public val MIM_STYLE: MENUINFO_MASK = 16u
+public val MIM_STYLE: MenuinfoMask = 16u
 
 public val MINIMUM_RESERVED_MANIFEST_RESOURCE_ID: UInt = 1u
 
@@ -1910,25 +1911,25 @@ public val MND_CONTINUE: UInt = 0u
 
 public val MND_ENDMENU: UInt = 1u
 
-public val MNGOF_BOTTOMGAP: MENUGETOBJECTINFO_FLAGS = 2u
+public val MNGOF_BOTTOMGAP: MenugetobjectinfoFlags = 2u
 
-public val MNGOF_TOPGAP: MENUGETOBJECTINFO_FLAGS = 1u
+public val MNGOF_TOPGAP: MenugetobjectinfoFlags = 1u
 
 public val MNGO_NOERROR: UInt = 1u
 
 public val MNGO_NOINTERFACE: UInt = 0u
 
-public val MNS_AUTODISMISS: MENUINFO_STYLE = 268435456u
+public val MNS_AUTODISMISS: MenuinfoStyle = 268435456u
 
-public val MNS_CHECKORBMP: MENUINFO_STYLE = 67108864u
+public val MNS_CHECKORBMP: MenuinfoStyle = 67108864u
 
-public val MNS_DRAGDROP: MENUINFO_STYLE = 536870912u
+public val MNS_DRAGDROP: MenuinfoStyle = 536870912u
 
-public val MNS_MODELESS: MENUINFO_STYLE = 1073741824u
+public val MNS_MODELESS: MenuinfoStyle = 1073741824u
 
-public val MNS_NOCHECK: MENUINFO_STYLE = 2147483648u
+public val MNS_NOCHECK: MenuinfoStyle = 2147483648u
 
-public val MNS_NOTIFYBYPOS: MENUINFO_STYLE = 134217728u
+public val MNS_NOTIFYBYPOS: MenuinfoStyle = 134217728u
 
 public val MN_GETHMENU: UInt = 481u
 
@@ -1940,23 +1941,23 @@ public val MOUSEWHEEL_ROUTING_HYBRID: UInt = 1u
 
 public val MOUSEWHEEL_ROUTING_MOUSE_POS: UInt = 2u
 
-public val MSGFLTINFO_ALLOWED_HIGHER: MSGFLTINFO_STATUS = 3u
+public val MSGFLTINFO_ALLOWED_HIGHER: MsgfltinfoStatus = 3u
 
-public val MSGFLTINFO_ALREADYALLOWED_FORWND: MSGFLTINFO_STATUS = 1u
+public val MSGFLTINFO_ALREADYALLOWED_FORWND: MsgfltinfoStatus = 1u
 
-public val MSGFLTINFO_ALREADYDISALLOWED_FORWND: MSGFLTINFO_STATUS = 2u
+public val MSGFLTINFO_ALREADYDISALLOWED_FORWND: MsgfltinfoStatus = 2u
 
-public val MSGFLTINFO_NONE: MSGFLTINFO_STATUS = 0u
+public val MSGFLTINFO_NONE: MsgfltinfoStatus = 0u
 
-public val MSGFLT_ADD: CHANGE_WINDOW_MESSAGE_FILTER_FLAGS = 1u
+public val MSGFLT_ADD: ChangeWindowMessageFilterFlags = 1u
 
-public val MSGFLT_ALLOW: WINDOW_MESSAGE_FILTER_ACTION = 1u
+public val MSGFLT_ALLOW: WindowMessageFilterAction = 1u
 
-public val MSGFLT_DISALLOW: WINDOW_MESSAGE_FILTER_ACTION = 2u
+public val MSGFLT_DISALLOW: WindowMessageFilterAction = 2u
 
-public val MSGFLT_REMOVE: CHANGE_WINDOW_MESSAGE_FILTER_FLAGS = 2u
+public val MSGFLT_REMOVE: ChangeWindowMessageFilterFlags = 2u
 
-public val MSGFLT_RESET: WINDOW_MESSAGE_FILTER_ACTION = 0u
+public val MSGFLT_RESET: WindowMessageFilterAction = 0u
 
 public val MSGF_DIALOGBOX: UInt = 0u
 
@@ -1972,51 +1973,51 @@ public val MSGF_SCROLLBAR: UInt = 5u
 
 public val MSGF_USER: UInt = 4096u
 
-public val MWMO_ALERTABLE: MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS = 2u
+public val MWMO_ALERTABLE: MsgWaitForMultipleObjectsExFlags = 2u
 
-public val MWMO_INPUTAVAILABLE: MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS = 4u
+public val MWMO_INPUTAVAILABLE: MsgWaitForMultipleObjectsExFlags = 4u
 
-public val MWMO_NONE: MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS = 0u
+public val MWMO_NONE: MsgWaitForMultipleObjectsExFlags = 0u
 
-public val MWMO_WAITALL: MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS = 1u
+public val MWMO_WAITALL: MsgWaitForMultipleObjectsExFlags = 1u
 
-public val MrmDumpType_Basic: MrmDumpType = 0
+public val MRM_DUMP_TYPE_BASIC: MrmDumpType = 0
 
-public val MrmDumpType_Detailed: MrmDumpType = 1
+public val MRM_DUMP_TYPE_DETAILED: MrmDumpType = 1
 
-public val MrmDumpType_Schema: MrmDumpType = 2
+public val MRM_DUMP_TYPE_SCHEMA: MrmDumpType = 2
 
-public val MrmIndexerFlagsAutoMerge: MrmIndexerFlags = 1
+public val MRM_INDEXER_FLAGS_AUTO_MERGE: MrmIndexerFlags = 1
 
-public val MrmIndexerFlagsCreateContentChecksum: MrmIndexerFlags = 2
+public val MRM_INDEXER_FLAGS_CREATE_CONTENT_CHECKSUM: MrmIndexerFlags = 2
 
-public val MrmIndexerFlagsNone: MrmIndexerFlags = 0
+public val MRM_INDEXER_FLAGS_NONE: MrmIndexerFlags = 0
 
-public val MrmPackagingModeAutoSplit: MrmPackagingMode = 1
+public val MRM_PACKAGING_MODE_AUTO_SPLIT: MrmPackagingMode = 1
 
-public val MrmPackagingModeResourcePack: MrmPackagingMode = 2
+public val MRM_PACKAGING_MODE_RESOURCE_PACK: MrmPackagingMode = 2
 
-public val MrmPackagingModeStandaloneFile: MrmPackagingMode = 0
+public val MRM_PACKAGING_MODE_STANDALONE_FILE: MrmPackagingMode = 0
 
-public val MrmPackagingOptionsNone: MrmPackagingOptions = 0
+public val MRM_PACKAGING_OPTIONS_NONE: MrmPackagingOptions = 0
 
-public val MrmPackagingOptionsOmitSchemaFromResourcePacks: MrmPackagingOptions = 1
+public val MRM_PACKAGING_OPTIONS_OMIT_SCHEMA_FROM_RESOURCE_PACKS: MrmPackagingOptions = 1
 
-public val MrmPackagingOptionsSplitLanguageVariants: MrmPackagingOptions = 2
+public val MRM_PACKAGING_OPTIONS_SPLIT_LANGUAGE_VARIANTS: MrmPackagingOptions = 2
 
-public val MrmPlatformVersion_Default: MrmPlatformVersion = 0
+public val MRM_PLATFORM_VERSION_DEFAULT: MrmPlatformVersion = 0
 
-public val MrmPlatformVersion_Windows10_0_0_0: MrmPlatformVersion = 17432576
+public val MRM_PLATFORM_VERSION_WINDOWS10_0_0_0: MrmPlatformVersion = 17432576
 
-public val MrmPlatformVersion_Windows10_0_0_5: MrmPlatformVersion = 17432581
+public val MRM_PLATFORM_VERSION_WINDOWS10_0_0_5: MrmPlatformVersion = 17432581
 
-public val MrmResourceIndexerMessageSeverityError: MrmResourceIndexerMessageSeverity = 3
+public val MRM_RESOURCE_INDEXER_MESSAGE_SEVERITY_ERROR: MrmResourceIndexerMessageSeverity = 3
 
-public val MrmResourceIndexerMessageSeverityInfo: MrmResourceIndexerMessageSeverity = 1
+public val MRM_RESOURCE_INDEXER_MESSAGE_SEVERITY_INFO: MrmResourceIndexerMessageSeverity = 1
 
-public val MrmResourceIndexerMessageSeverityVerbose: MrmResourceIndexerMessageSeverity = 0
+public val MRM_RESOURCE_INDEXER_MESSAGE_SEVERITY_VERBOSE: MrmResourceIndexerMessageSeverity = 0
 
-public val MrmResourceIndexerMessageSeverityWarning: MrmResourceIndexerMessageSeverity = 2
+public val MRM_RESOURCE_INDEXER_MESSAGE_SEVERITY_WARNING: MrmResourceIndexerMessageSeverity = 2
 
 public val NFR_ANSI: UInt = 1u
 
@@ -2038,33 +2039,33 @@ public val NID_MULTI_INPUT: UInt = 64u
 
 public val NID_READY: UInt = 128u
 
-public val OBJID_ALERT: OBJECT_IDENTIFIER = -10
+public val OBJID_ALERT: ObjectIdentifier = -10
 
-public val OBJID_CARET: OBJECT_IDENTIFIER = -8
+public val OBJID_CARET: ObjectIdentifier = -8
 
-public val OBJID_CLIENT: OBJECT_IDENTIFIER = -4
+public val OBJID_CLIENT: ObjectIdentifier = -4
 
-public val OBJID_CURSOR: OBJECT_IDENTIFIER = -9
+public val OBJID_CURSOR: ObjectIdentifier = -9
 
-public val OBJID_HSCROLL: OBJECT_IDENTIFIER = -6
+public val OBJID_HSCROLL: ObjectIdentifier = -6
 
-public val OBJID_MENU: OBJECT_IDENTIFIER = -3
+public val OBJID_MENU: ObjectIdentifier = -3
 
-public val OBJID_NATIVEOM: OBJECT_IDENTIFIER = -16
+public val OBJID_NATIVEOM: ObjectIdentifier = -16
 
-public val OBJID_QUERYCLASSNAMEIDX: OBJECT_IDENTIFIER = -12
+public val OBJID_QUERYCLASSNAMEIDX: ObjectIdentifier = -12
 
-public val OBJID_SIZEGRIP: OBJECT_IDENTIFIER = -7
+public val OBJID_SIZEGRIP: ObjectIdentifier = -7
 
-public val OBJID_SOUND: OBJECT_IDENTIFIER = -11
+public val OBJID_SOUND: ObjectIdentifier = -11
 
-public val OBJID_SYSMENU: OBJECT_IDENTIFIER = -1
+public val OBJID_SYSMENU: ObjectIdentifier = -1
 
-public val OBJID_TITLEBAR: OBJECT_IDENTIFIER = -2
+public val OBJID_TITLEBAR: ObjectIdentifier = -2
 
-public val OBJID_VSCROLL: OBJECT_IDENTIFIER = -5
+public val OBJID_VSCROLL: ObjectIdentifier = -5
 
-public val OBJID_WINDOW: OBJECT_IDENTIFIER = 0
+public val OBJID_WINDOW: ObjectIdentifier = 0
 
 public val OBM_BTNCORNERS: UInt = 32758u
 
@@ -2134,39 +2135,39 @@ public val OBM_ZOOM: UInt = 32748u
 
 public val OBM_ZOOMD: UInt = 32745u
 
-public val OCR_APPSTARTING: SYSTEM_CURSOR_ID = 32650u
+public val OCR_APPSTARTING: SystemCursorId = 32650u
 
-public val OCR_CROSS: SYSTEM_CURSOR_ID = 32515u
+public val OCR_CROSS: SystemCursorId = 32515u
 
-public val OCR_HAND: SYSTEM_CURSOR_ID = 32649u
+public val OCR_HAND: SystemCursorId = 32649u
 
-public val OCR_HELP: SYSTEM_CURSOR_ID = 32651u
+public val OCR_HELP: SystemCursorId = 32651u
 
-public val OCR_IBEAM: SYSTEM_CURSOR_ID = 32513u
+public val OCR_IBEAM: SystemCursorId = 32513u
 
 public val OCR_ICOCUR: UInt = 32647u
 
 public val OCR_ICON: UInt = 32641u
 
-public val OCR_NO: SYSTEM_CURSOR_ID = 32648u
+public val OCR_NO: SystemCursorId = 32648u
 
-public val OCR_NORMAL: SYSTEM_CURSOR_ID = 32512u
+public val OCR_NORMAL: SystemCursorId = 32512u
 
 public val OCR_SIZE: UInt = 32640u
 
-public val OCR_SIZEALL: SYSTEM_CURSOR_ID = 32646u
+public val OCR_SIZEALL: SystemCursorId = 32646u
 
-public val OCR_SIZENESW: SYSTEM_CURSOR_ID = 32643u
+public val OCR_SIZENESW: SystemCursorId = 32643u
 
-public val OCR_SIZENS: SYSTEM_CURSOR_ID = 32645u
+public val OCR_SIZENS: SystemCursorId = 32645u
 
-public val OCR_SIZENWSE: SYSTEM_CURSOR_ID = 32642u
+public val OCR_SIZENWSE: SystemCursorId = 32642u
 
-public val OCR_SIZEWE: SYSTEM_CURSOR_ID = 32644u
+public val OCR_SIZEWE: SystemCursorId = 32644u
 
-public val OCR_UP: SYSTEM_CURSOR_ID = 32516u
+public val OCR_UP: SystemCursorId = 32516u
 
-public val OCR_WAIT: SYSTEM_CURSOR_ID = 32514u
+public val OCR_WAIT: SystemCursorId = 32514u
 
 public val OIC_BANG: UInt = 32515u
 
@@ -2288,19 +2289,19 @@ public val PEN_MASK_TILT_Y: UInt = 8u
 
 public val PMB_ACTIVE: UInt = 1u
 
-public val PM_NOREMOVE: PEEK_MESSAGE_REMOVE_TYPE = 0u
+public val PM_NOREMOVE: PeekMessageRemoveType = 0u
 
-public val PM_NOYIELD: PEEK_MESSAGE_REMOVE_TYPE = 2u
+public val PM_NOYIELD: PeekMessageRemoveType = 2u
 
-public val PM_QS_INPUT: PEEK_MESSAGE_REMOVE_TYPE = 67567616u
+public val PM_QS_INPUT: PeekMessageRemoveType = 67567616u
 
-public val PM_QS_PAINT: PEEK_MESSAGE_REMOVE_TYPE = 2097152u
+public val PM_QS_PAINT: PeekMessageRemoveType = 2097152u
 
-public val PM_QS_POSTMESSAGE: PEEK_MESSAGE_REMOVE_TYPE = 9961472u
+public val PM_QS_POSTMESSAGE: PeekMessageRemoveType = 9961472u
 
-public val PM_QS_SENDMESSAGE: PEEK_MESSAGE_REMOVE_TYPE = 4194304u
+public val PM_QS_SENDMESSAGE: PeekMessageRemoveType = 4194304u
 
-public val PM_REMOVE: PEEK_MESSAGE_REMOVE_TYPE = 1u
+public val PM_REMOVE: PeekMessageRemoveType = 1u
 
 public val POINTER_DEVICE_PRODUCT_STRING_MAX: UInt = 520u
 
@@ -2342,15 +2343,15 @@ public val PRF_NONCLIENT: Int = 2
 
 public val PRF_OWNED: Int = 32
 
-public val PT_MOUSE: POINTER_INPUT_TYPE = 4
+public val PT_MOUSE: PointerInputType = 4
 
-public val PT_PEN: POINTER_INPUT_TYPE = 3
+public val PT_PEN: PointerInputType = 3
 
-public val PT_POINTER: POINTER_INPUT_TYPE = 1
+public val PT_POINTER: PointerInputType = 1
 
-public val PT_TOUCH: POINTER_INPUT_TYPE = 2
+public val PT_TOUCH: PointerInputType = 2
 
-public val PT_TOUCHPAD: POINTER_INPUT_TYPE = 5
+public val PT_TOUCHPAD: PointerInputType = 5
 
 public val PWR_CRITICALRESUME: UInt = 3u
 
@@ -2364,35 +2365,35 @@ public val PWR_SUSPENDRESUME: UInt = 2u
 
 public val PW_RENDERFULLCONTENT: UInt = 2u
 
-public val QS_ALLEVENTS: QUEUE_STATUS_FLAGS = 1215u
+public val QS_ALLEVENTS: QueueStatusFlags = 1215u
 
-public val QS_ALLINPUT: QUEUE_STATUS_FLAGS = 1279u
+public val QS_ALLINPUT: QueueStatusFlags = 1279u
 
-public val QS_ALLPOSTMESSAGE: QUEUE_STATUS_FLAGS = 256u
+public val QS_ALLPOSTMESSAGE: QueueStatusFlags = 256u
 
-public val QS_HOTKEY: QUEUE_STATUS_FLAGS = 128u
+public val QS_HOTKEY: QueueStatusFlags = 128u
 
-public val QS_INPUT: QUEUE_STATUS_FLAGS = 1031u
+public val QS_INPUT: QueueStatusFlags = 1031u
 
-public val QS_KEY: QUEUE_STATUS_FLAGS = 1u
+public val QS_KEY: QueueStatusFlags = 1u
 
-public val QS_MOUSE: QUEUE_STATUS_FLAGS = 6u
+public val QS_MOUSE: QueueStatusFlags = 6u
 
-public val QS_MOUSEBUTTON: QUEUE_STATUS_FLAGS = 4u
+public val QS_MOUSEBUTTON: QueueStatusFlags = 4u
 
-public val QS_MOUSEMOVE: QUEUE_STATUS_FLAGS = 2u
+public val QS_MOUSEMOVE: QueueStatusFlags = 2u
 
-public val QS_PAINT: QUEUE_STATUS_FLAGS = 32u
+public val QS_PAINT: QueueStatusFlags = 32u
 
 public val QS_POINTER: UInt = 4096u
 
-public val QS_POSTMESSAGE: QUEUE_STATUS_FLAGS = 8u
+public val QS_POSTMESSAGE: QueueStatusFlags = 8u
 
-public val QS_RAWINPUT: QUEUE_STATUS_FLAGS = 1024u
+public val QS_RAWINPUT: QueueStatusFlags = 1024u
 
-public val QS_SENDMESSAGE: QUEUE_STATUS_FLAGS = 64u
+public val QS_SENDMESSAGE: QueueStatusFlags = 64u
 
-public val QS_TIMER: QUEUE_STATUS_FLAGS = 16u
+public val QS_TIMER: QueueStatusFlags = 16u
 
 public val QS_TOUCH: UInt = 2048u
 
@@ -2456,43 +2457,43 @@ public val RI_MOUSE_RIGHT_BUTTON_UP: UInt = 8u
 
 public val RI_MOUSE_WHEEL: UInt = 1024u
 
-public val RT_ACCELERATOR: PCWSTR = 9u.toLong()
+public val RT_ACCELERATOR: Pcwstr = COpaquePointer((9u.toUShort()).toLong())
 
-public val RT_ANICURSOR: PCWSTR = 21u.toLong()
+public val RT_ANICURSOR: Pcwstr = COpaquePointer((21u.toUShort()).toLong())
 
-public val RT_ANIICON: PCWSTR = 22u.toLong()
+public val RT_ANIICON: Pcwstr = COpaquePointer((22u.toUShort()).toLong())
 
-public val RT_BITMAP: PCWSTR = 2u.toLong()
+public val RT_BITMAP: Pcwstr = COpaquePointer((2u.toUShort()).toLong())
 
-public val RT_CURSOR: PCWSTR = 1u.toLong()
+public val RT_CURSOR: Pcwstr = COpaquePointer((1u.toUShort()).toLong())
 
-public val RT_DIALOG: PCWSTR = 5u.toLong()
+public val RT_DIALOG: Pcwstr = COpaquePointer((5u.toUShort()).toLong())
 
-public val RT_DLGINCLUDE: PCWSTR = 17u.toLong()
+public val RT_DLGINCLUDE: Pcwstr = COpaquePointer((17u.toUShort()).toLong())
 
-public val RT_FONT: PCWSTR = 8u.toLong()
+public val RT_FONT: Pcwstr = COpaquePointer((8u.toUShort()).toLong())
 
-public val RT_FONTDIR: PCWSTR = 7u.toLong()
+public val RT_FONTDIR: Pcwstr = COpaquePointer((7u.toUShort()).toLong())
 
-public val RT_GROUP_CURSOR: PCWSTR = 12u.toLong()
+public val RT_GROUP_CURSOR: Pcwstr = COpaquePointer((12u.toUShort()).toLong())
 
-public val RT_GROUP_ICON: PCWSTR = 14u.toLong()
+public val RT_GROUP_ICON: Pcwstr = COpaquePointer((14u.toUShort()).toLong())
 
-public val RT_HTML: PCWSTR = 23u.toLong()
+public val RT_HTML: Pcwstr = COpaquePointer((23u.toUShort()).toLong())
 
-public val RT_ICON: PCWSTR = 3u.toLong()
+public val RT_ICON: Pcwstr = COpaquePointer((3u.toUShort()).toLong())
 
-public val RT_MANIFEST: PCWSTR = 24u.toLong()
+public val RT_MANIFEST: Pcwstr = COpaquePointer((24u.toUShort()).toLong())
 
-public val RT_MENU: PCWSTR = 4u.toLong()
+public val RT_MENU: Pcwstr = COpaquePointer((4u.toUShort()).toLong())
 
-public val RT_MESSAGETABLE: PCWSTR = 11u.toLong()
+public val RT_MESSAGETABLE: Pcwstr = COpaquePointer((11u.toUShort()).toLong())
 
-public val RT_PLUGPLAY: PCWSTR = 19u.toLong()
+public val RT_PLUGPLAY: Pcwstr = COpaquePointer((19u.toUShort()).toLong())
 
-public val RT_VERSION: PCWSTR = 16u.toLong()
+public val RT_VERSION: Pcwstr = COpaquePointer((16u.toUShort()).toLong())
 
-public val RT_VXD: PCWSTR = 20u.toLong()
+public val RT_VXD: Pcwstr = COpaquePointer((20u.toUShort()).toLong())
 
 public val SBM_ENABLE_ARROWS: UInt = 228u
 
@@ -2532,43 +2533,43 @@ public val SBS_TOPALIGN: Int = 2
 
 public val SBS_VERT: Int = 1
 
-public val SB_BOTH: SCROLLBAR_CONSTANTS = 3
+public val SB_BOTH: ScrollbarConstants = 3
 
-public val SB_BOTTOM: SCROLLBAR_COMMAND = 7
+public val SB_BOTTOM: ScrollbarCommand = 7
 
-public val SB_CTL: SCROLLBAR_CONSTANTS = 2
+public val SB_CTL: ScrollbarConstants = 2
 
-public val SB_ENDSCROLL: SCROLLBAR_COMMAND = 8
+public val SB_ENDSCROLL: ScrollbarCommand = 8
 
-public val SB_HORZ: SCROLLBAR_CONSTANTS = 0
+public val SB_HORZ: ScrollbarConstants = 0
 
-public val SB_LEFT: SCROLLBAR_COMMAND = 6
+public val SB_LEFT: ScrollbarCommand = 6
 
-public val SB_LINEDOWN: SCROLLBAR_COMMAND = 1
+public val SB_LINEDOWN: ScrollbarCommand = 1
 
-public val SB_LINELEFT: SCROLLBAR_COMMAND = 0
+public val SB_LINELEFT: ScrollbarCommand = 0
 
-public val SB_LINERIGHT: SCROLLBAR_COMMAND = 1
+public val SB_LINERIGHT: ScrollbarCommand = 1
 
-public val SB_LINEUP: SCROLLBAR_COMMAND = 0
+public val SB_LINEUP: ScrollbarCommand = 0
 
-public val SB_PAGEDOWN: SCROLLBAR_COMMAND = 3
+public val SB_PAGEDOWN: ScrollbarCommand = 3
 
-public val SB_PAGELEFT: SCROLLBAR_COMMAND = 2
+public val SB_PAGELEFT: ScrollbarCommand = 2
 
-public val SB_PAGERIGHT: SCROLLBAR_COMMAND = 3
+public val SB_PAGERIGHT: ScrollbarCommand = 3
 
-public val SB_PAGEUP: SCROLLBAR_COMMAND = 2
+public val SB_PAGEUP: ScrollbarCommand = 2
 
-public val SB_RIGHT: SCROLLBAR_COMMAND = 7
+public val SB_RIGHT: ScrollbarCommand = 7
 
-public val SB_THUMBPOSITION: SCROLLBAR_COMMAND = 4
+public val SB_THUMBPOSITION: ScrollbarCommand = 4
 
-public val SB_THUMBTRACK: SCROLLBAR_COMMAND = 5
+public val SB_THUMBTRACK: ScrollbarCommand = 5
 
-public val SB_TOP: SCROLLBAR_COMMAND = 6
+public val SB_TOP: ScrollbarCommand = 6
 
-public val SB_VERT: SCROLLBAR_CONSTANTS = 1
+public val SB_VERT: ScrollbarConstants = 1
 
 public val SCF_ISSECURE: UInt = 1u
 
@@ -2622,17 +2623,17 @@ public val SHOW_OPENNOACTIVATE: UInt = 4u
 
 public val SHOW_OPENWINDOW: UInt = 1u
 
-public val SIF_ALL: SCROLLINFO_MASK = 23u
+public val SIF_ALL: ScrollinfoMask = 23u
 
-public val SIF_DISABLENOSCROLL: SCROLLINFO_MASK = 8u
+public val SIF_DISABLENOSCROLL: ScrollinfoMask = 8u
 
-public val SIF_PAGE: SCROLLINFO_MASK = 2u
+public val SIF_PAGE: ScrollinfoMask = 2u
 
-public val SIF_POS: SCROLLINFO_MASK = 4u
+public val SIF_POS: ScrollinfoMask = 4u
 
-public val SIF_RANGE: SCROLLINFO_MASK = 1u
+public val SIF_RANGE: ScrollinfoMask = 1u
 
-public val SIF_TRACKPOS: SCROLLINFO_MASK = 16u
+public val SIF_TRACKPOS: ScrollinfoMask = 16u
 
 public val SIZEFULLSCREEN: UInt = 2u
 
@@ -2654,185 +2655,185 @@ public val SIZE_MINIMIZED: UInt = 1u
 
 public val SIZE_RESTORED: UInt = 0u
 
-public val SMTO_ABORTIFHUNG: SEND_MESSAGE_TIMEOUT_FLAGS = 2u
+public val SMTO_ABORTIFHUNG: SendMessageTimeoutFlags = 2u
 
-public val SMTO_BLOCK: SEND_MESSAGE_TIMEOUT_FLAGS = 1u
+public val SMTO_BLOCK: SendMessageTimeoutFlags = 1u
 
-public val SMTO_ERRORONEXIT: SEND_MESSAGE_TIMEOUT_FLAGS = 32u
+public val SMTO_ERRORONEXIT: SendMessageTimeoutFlags = 32u
 
-public val SMTO_NORMAL: SEND_MESSAGE_TIMEOUT_FLAGS = 0u
+public val SMTO_NORMAL: SendMessageTimeoutFlags = 0u
 
-public val SMTO_NOTIMEOUTIFNOTHUNG: SEND_MESSAGE_TIMEOUT_FLAGS = 8u
+public val SMTO_NOTIMEOUTIFNOTHUNG: SendMessageTimeoutFlags = 8u
 
-public val SM_ARRANGE: SYSTEM_METRICS_INDEX = 56
+public val SM_ARRANGE: SystemMetricsIndex = 56
 
 public val SM_CARETBLINKINGENABLED: UInt = 8194u
 
-public val SM_CLEANBOOT: SYSTEM_METRICS_INDEX = 67
+public val SM_CLEANBOOT: SystemMetricsIndex = 67
 
 public val SM_CMETRICS: UInt = 76u
 
-public val SM_CMONITORS: SYSTEM_METRICS_INDEX = 80
+public val SM_CMONITORS: SystemMetricsIndex = 80
 
-public val SM_CMOUSEBUTTONS: SYSTEM_METRICS_INDEX = 43
+public val SM_CMOUSEBUTTONS: SystemMetricsIndex = 43
 
-public val SM_CONVERTIBLESLATEMODE: SYSTEM_METRICS_INDEX = 8195
+public val SM_CONVERTIBLESLATEMODE: SystemMetricsIndex = 8195
 
-public val SM_CXBORDER: SYSTEM_METRICS_INDEX = 5
+public val SM_CXBORDER: SystemMetricsIndex = 5
 
-public val SM_CXCURSOR: SYSTEM_METRICS_INDEX = 13
+public val SM_CXCURSOR: SystemMetricsIndex = 13
 
-public val SM_CXDLGFRAME: SYSTEM_METRICS_INDEX = 7
+public val SM_CXDLGFRAME: SystemMetricsIndex = 7
 
-public val SM_CXDOUBLECLK: SYSTEM_METRICS_INDEX = 36
+public val SM_CXDOUBLECLK: SystemMetricsIndex = 36
 
-public val SM_CXDRAG: SYSTEM_METRICS_INDEX = 68
+public val SM_CXDRAG: SystemMetricsIndex = 68
 
-public val SM_CXEDGE: SYSTEM_METRICS_INDEX = 45
+public val SM_CXEDGE: SystemMetricsIndex = 45
 
-public val SM_CXFIXEDFRAME: SYSTEM_METRICS_INDEX = 7
+public val SM_CXFIXEDFRAME: SystemMetricsIndex = 7
 
-public val SM_CXFOCUSBORDER: SYSTEM_METRICS_INDEX = 83
+public val SM_CXFOCUSBORDER: SystemMetricsIndex = 83
 
-public val SM_CXFRAME: SYSTEM_METRICS_INDEX = 32
+public val SM_CXFRAME: SystemMetricsIndex = 32
 
-public val SM_CXFULLSCREEN: SYSTEM_METRICS_INDEX = 16
+public val SM_CXFULLSCREEN: SystemMetricsIndex = 16
 
-public val SM_CXHSCROLL: SYSTEM_METRICS_INDEX = 21
+public val SM_CXHSCROLL: SystemMetricsIndex = 21
 
-public val SM_CXHTHUMB: SYSTEM_METRICS_INDEX = 10
+public val SM_CXHTHUMB: SystemMetricsIndex = 10
 
-public val SM_CXICON: SYSTEM_METRICS_INDEX = 11
+public val SM_CXICON: SystemMetricsIndex = 11
 
-public val SM_CXICONSPACING: SYSTEM_METRICS_INDEX = 38
+public val SM_CXICONSPACING: SystemMetricsIndex = 38
 
-public val SM_CXMAXIMIZED: SYSTEM_METRICS_INDEX = 61
+public val SM_CXMAXIMIZED: SystemMetricsIndex = 61
 
-public val SM_CXMAXTRACK: SYSTEM_METRICS_INDEX = 59
+public val SM_CXMAXTRACK: SystemMetricsIndex = 59
 
-public val SM_CXMENUCHECK: SYSTEM_METRICS_INDEX = 71
+public val SM_CXMENUCHECK: SystemMetricsIndex = 71
 
-public val SM_CXMENUSIZE: SYSTEM_METRICS_INDEX = 54
+public val SM_CXMENUSIZE: SystemMetricsIndex = 54
 
-public val SM_CXMIN: SYSTEM_METRICS_INDEX = 28
+public val SM_CXMIN: SystemMetricsIndex = 28
 
-public val SM_CXMINIMIZED: SYSTEM_METRICS_INDEX = 57
+public val SM_CXMINIMIZED: SystemMetricsIndex = 57
 
-public val SM_CXMINSPACING: SYSTEM_METRICS_INDEX = 47
+public val SM_CXMINSPACING: SystemMetricsIndex = 47
 
-public val SM_CXMINTRACK: SYSTEM_METRICS_INDEX = 34
+public val SM_CXMINTRACK: SystemMetricsIndex = 34
 
-public val SM_CXPADDEDBORDER: SYSTEM_METRICS_INDEX = 92
+public val SM_CXPADDEDBORDER: SystemMetricsIndex = 92
 
-public val SM_CXSCREEN: SYSTEM_METRICS_INDEX = 0
+public val SM_CXSCREEN: SystemMetricsIndex = 0
 
-public val SM_CXSIZE: SYSTEM_METRICS_INDEX = 30
+public val SM_CXSIZE: SystemMetricsIndex = 30
 
-public val SM_CXSIZEFRAME: SYSTEM_METRICS_INDEX = 32
+public val SM_CXSIZEFRAME: SystemMetricsIndex = 32
 
-public val SM_CXSMICON: SYSTEM_METRICS_INDEX = 49
+public val SM_CXSMICON: SystemMetricsIndex = 49
 
-public val SM_CXSMSIZE: SYSTEM_METRICS_INDEX = 52
+public val SM_CXSMSIZE: SystemMetricsIndex = 52
 
-public val SM_CXVIRTUALSCREEN: SYSTEM_METRICS_INDEX = 78
+public val SM_CXVIRTUALSCREEN: SystemMetricsIndex = 78
 
-public val SM_CXVSCROLL: SYSTEM_METRICS_INDEX = 2
+public val SM_CXVSCROLL: SystemMetricsIndex = 2
 
-public val SM_CYBORDER: SYSTEM_METRICS_INDEX = 6
+public val SM_CYBORDER: SystemMetricsIndex = 6
 
-public val SM_CYCAPTION: SYSTEM_METRICS_INDEX = 4
+public val SM_CYCAPTION: SystemMetricsIndex = 4
 
-public val SM_CYCURSOR: SYSTEM_METRICS_INDEX = 14
+public val SM_CYCURSOR: SystemMetricsIndex = 14
 
-public val SM_CYDLGFRAME: SYSTEM_METRICS_INDEX = 8
+public val SM_CYDLGFRAME: SystemMetricsIndex = 8
 
-public val SM_CYDOUBLECLK: SYSTEM_METRICS_INDEX = 37
+public val SM_CYDOUBLECLK: SystemMetricsIndex = 37
 
-public val SM_CYDRAG: SYSTEM_METRICS_INDEX = 69
+public val SM_CYDRAG: SystemMetricsIndex = 69
 
-public val SM_CYEDGE: SYSTEM_METRICS_INDEX = 46
+public val SM_CYEDGE: SystemMetricsIndex = 46
 
-public val SM_CYFIXEDFRAME: SYSTEM_METRICS_INDEX = 8
+public val SM_CYFIXEDFRAME: SystemMetricsIndex = 8
 
-public val SM_CYFOCUSBORDER: SYSTEM_METRICS_INDEX = 84
+public val SM_CYFOCUSBORDER: SystemMetricsIndex = 84
 
-public val SM_CYFRAME: SYSTEM_METRICS_INDEX = 33
+public val SM_CYFRAME: SystemMetricsIndex = 33
 
-public val SM_CYFULLSCREEN: SYSTEM_METRICS_INDEX = 17
+public val SM_CYFULLSCREEN: SystemMetricsIndex = 17
 
-public val SM_CYHSCROLL: SYSTEM_METRICS_INDEX = 3
+public val SM_CYHSCROLL: SystemMetricsIndex = 3
 
-public val SM_CYICON: SYSTEM_METRICS_INDEX = 12
+public val SM_CYICON: SystemMetricsIndex = 12
 
-public val SM_CYICONSPACING: SYSTEM_METRICS_INDEX = 39
+public val SM_CYICONSPACING: SystemMetricsIndex = 39
 
-public val SM_CYKANJIWINDOW: SYSTEM_METRICS_INDEX = 18
+public val SM_CYKANJIWINDOW: SystemMetricsIndex = 18
 
-public val SM_CYMAXIMIZED: SYSTEM_METRICS_INDEX = 62
+public val SM_CYMAXIMIZED: SystemMetricsIndex = 62
 
-public val SM_CYMAXTRACK: SYSTEM_METRICS_INDEX = 60
+public val SM_CYMAXTRACK: SystemMetricsIndex = 60
 
-public val SM_CYMENU: SYSTEM_METRICS_INDEX = 15
+public val SM_CYMENU: SystemMetricsIndex = 15
 
-public val SM_CYMENUCHECK: SYSTEM_METRICS_INDEX = 72
+public val SM_CYMENUCHECK: SystemMetricsIndex = 72
 
-public val SM_CYMENUSIZE: SYSTEM_METRICS_INDEX = 55
+public val SM_CYMENUSIZE: SystemMetricsIndex = 55
 
-public val SM_CYMIN: SYSTEM_METRICS_INDEX = 29
+public val SM_CYMIN: SystemMetricsIndex = 29
 
-public val SM_CYMINIMIZED: SYSTEM_METRICS_INDEX = 58
+public val SM_CYMINIMIZED: SystemMetricsIndex = 58
 
-public val SM_CYMINSPACING: SYSTEM_METRICS_INDEX = 48
+public val SM_CYMINSPACING: SystemMetricsIndex = 48
 
-public val SM_CYMINTRACK: SYSTEM_METRICS_INDEX = 35
+public val SM_CYMINTRACK: SystemMetricsIndex = 35
 
-public val SM_CYSCREEN: SYSTEM_METRICS_INDEX = 1
+public val SM_CYSCREEN: SystemMetricsIndex = 1
 
-public val SM_CYSIZE: SYSTEM_METRICS_INDEX = 31
+public val SM_CYSIZE: SystemMetricsIndex = 31
 
-public val SM_CYSIZEFRAME: SYSTEM_METRICS_INDEX = 33
+public val SM_CYSIZEFRAME: SystemMetricsIndex = 33
 
-public val SM_CYSMCAPTION: SYSTEM_METRICS_INDEX = 51
+public val SM_CYSMCAPTION: SystemMetricsIndex = 51
 
-public val SM_CYSMICON: SYSTEM_METRICS_INDEX = 50
+public val SM_CYSMICON: SystemMetricsIndex = 50
 
-public val SM_CYSMSIZE: SYSTEM_METRICS_INDEX = 53
+public val SM_CYSMSIZE: SystemMetricsIndex = 53
 
-public val SM_CYVIRTUALSCREEN: SYSTEM_METRICS_INDEX = 79
+public val SM_CYVIRTUALSCREEN: SystemMetricsIndex = 79
 
-public val SM_CYVSCROLL: SYSTEM_METRICS_INDEX = 20
+public val SM_CYVSCROLL: SystemMetricsIndex = 20
 
-public val SM_CYVTHUMB: SYSTEM_METRICS_INDEX = 9
+public val SM_CYVTHUMB: SystemMetricsIndex = 9
 
-public val SM_DBCSENABLED: SYSTEM_METRICS_INDEX = 42
+public val SM_DBCSENABLED: SystemMetricsIndex = 42
 
-public val SM_DEBUG: SYSTEM_METRICS_INDEX = 22
+public val SM_DEBUG: SystemMetricsIndex = 22
 
-public val SM_DIGITIZER: SYSTEM_METRICS_INDEX = 94
+public val SM_DIGITIZER: SystemMetricsIndex = 94
 
-public val SM_IMMENABLED: SYSTEM_METRICS_INDEX = 82
+public val SM_IMMENABLED: SystemMetricsIndex = 82
 
-public val SM_MAXIMUMTOUCHES: SYSTEM_METRICS_INDEX = 95
+public val SM_MAXIMUMTOUCHES: SystemMetricsIndex = 95
 
-public val SM_MEDIACENTER: SYSTEM_METRICS_INDEX = 87
+public val SM_MEDIACENTER: SystemMetricsIndex = 87
 
-public val SM_MENUDROPALIGNMENT: SYSTEM_METRICS_INDEX = 40
+public val SM_MENUDROPALIGNMENT: SystemMetricsIndex = 40
 
-public val SM_MIDEASTENABLED: SYSTEM_METRICS_INDEX = 74
+public val SM_MIDEASTENABLED: SystemMetricsIndex = 74
 
-public val SM_MOUSEHORIZONTALWHEELPRESENT: SYSTEM_METRICS_INDEX = 91
+public val SM_MOUSEHORIZONTALWHEELPRESENT: SystemMetricsIndex = 91
 
-public val SM_MOUSEPRESENT: SYSTEM_METRICS_INDEX = 19
+public val SM_MOUSEPRESENT: SystemMetricsIndex = 19
 
-public val SM_MOUSEWHEELPRESENT: SYSTEM_METRICS_INDEX = 75
+public val SM_MOUSEWHEELPRESENT: SystemMetricsIndex = 75
 
-public val SM_NETWORK: SYSTEM_METRICS_INDEX = 63
+public val SM_NETWORK: SystemMetricsIndex = 63
 
-public val SM_PENWINDOWS: SYSTEM_METRICS_INDEX = 41
+public val SM_PENWINDOWS: SystemMetricsIndex = 41
 
-public val SM_REMOTECONTROL: SYSTEM_METRICS_INDEX = 8193
+public val SM_REMOTECONTROL: SystemMetricsIndex = 8193
 
-public val SM_REMOTESESSION: SYSTEM_METRICS_INDEX = 4096
+public val SM_REMOTESESSION: SystemMetricsIndex = 4096
 
 public val SM_RESERVED1: UInt = 24u
 
@@ -2842,29 +2843,29 @@ public val SM_RESERVED3: UInt = 26u
 
 public val SM_RESERVED4: UInt = 27u
 
-public val SM_SAMEDISPLAYFORMAT: SYSTEM_METRICS_INDEX = 81
+public val SM_SAMEDISPLAYFORMAT: SystemMetricsIndex = 81
 
-public val SM_SECURE: SYSTEM_METRICS_INDEX = 44
+public val SM_SECURE: SystemMetricsIndex = 44
 
-public val SM_SERVERR2: SYSTEM_METRICS_INDEX = 89
+public val SM_SERVERR2: SystemMetricsIndex = 89
 
-public val SM_SHOWSOUNDS: SYSTEM_METRICS_INDEX = 70
+public val SM_SHOWSOUNDS: SystemMetricsIndex = 70
 
-public val SM_SHUTTINGDOWN: SYSTEM_METRICS_INDEX = 8192
+public val SM_SHUTTINGDOWN: SystemMetricsIndex = 8192
 
-public val SM_SLOWMACHINE: SYSTEM_METRICS_INDEX = 73
+public val SM_SLOWMACHINE: SystemMetricsIndex = 73
 
-public val SM_STARTER: SYSTEM_METRICS_INDEX = 88
+public val SM_STARTER: SystemMetricsIndex = 88
 
-public val SM_SWAPBUTTON: SYSTEM_METRICS_INDEX = 23
+public val SM_SWAPBUTTON: SystemMetricsIndex = 23
 
-public val SM_SYSTEMDOCKED: SYSTEM_METRICS_INDEX = 8196
+public val SM_SYSTEMDOCKED: SystemMetricsIndex = 8196
 
-public val SM_TABLETPC: SYSTEM_METRICS_INDEX = 86
+public val SM_TABLETPC: SystemMetricsIndex = 86
 
-public val SM_XVIRTUALSCREEN: SYSTEM_METRICS_INDEX = 76
+public val SM_XVIRTUALSCREEN: SystemMetricsIndex = 76
 
-public val SM_YVIRTUALSCREEN: SYSTEM_METRICS_INDEX = 77
+public val SM_YVIRTUALSCREEN: SystemMetricsIndex = 77
 
 public val SOUND_SYSTEM_APPEND: UInt = 14u
 
@@ -2898,110 +2899,110 @@ public val SOUND_SYSTEM_STARTUP: UInt = 1u
 
 public val SOUND_SYSTEM_WARNING: UInt = 6u
 
-public val SPIF_SENDCHANGE: SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS = 2u
+public val SPIF_SENDCHANGE: SystemParametersInfoUpdateFlags = 2u
 
-public val SPIF_SENDWININICHANGE: SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS = 2u
+public val SPIF_SENDWININICHANGE: SystemParametersInfoUpdateFlags = 2u
 
-public val SPIF_UPDATEINIFILE: SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS = 1u
+public val SPIF_UPDATEINIFILE: SystemParametersInfoUpdateFlags = 1u
 
-public val SPI_GETACCESSTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = 60u
+public val SPI_GETACCESSTIMEOUT: SystemParametersInfoAction = 60u
 
-public val SPI_GETACTIVEWINDOWTRACKING: SYSTEM_PARAMETERS_INFO_ACTION = 4096u
+public val SPI_GETACTIVEWINDOWTRACKING: SystemParametersInfoAction = 4096u
 
-public val SPI_GETACTIVEWNDTRKTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = 8194u
+public val SPI_GETACTIVEWNDTRKTIMEOUT: SystemParametersInfoAction = 8194u
 
-public val SPI_GETACTIVEWNDTRKZORDER: SYSTEM_PARAMETERS_INFO_ACTION = 4108u
+public val SPI_GETACTIVEWNDTRKZORDER: SystemParametersInfoAction = 4108u
 
-public val SPI_GETANIMATION: SYSTEM_PARAMETERS_INFO_ACTION = 72u
+public val SPI_GETANIMATION: SystemParametersInfoAction = 72u
 
-public val SPI_GETAUDIODESCRIPTION: SYSTEM_PARAMETERS_INFO_ACTION = 116u
+public val SPI_GETAUDIODESCRIPTION: SystemParametersInfoAction = 116u
 
-public val SPI_GETBEEP: SYSTEM_PARAMETERS_INFO_ACTION = 1u
+public val SPI_GETBEEP: SystemParametersInfoAction = 1u
 
-public val SPI_GETBLOCKSENDINPUTRESETS: SYSTEM_PARAMETERS_INFO_ACTION = 4134u
+public val SPI_GETBLOCKSENDINPUTRESETS: SystemParametersInfoAction = 4134u
 
-public val SPI_GETBORDER: SYSTEM_PARAMETERS_INFO_ACTION = 5u
+public val SPI_GETBORDER: SystemParametersInfoAction = 5u
 
-public val SPI_GETCARETBROWSING: SYSTEM_PARAMETERS_INFO_ACTION = 4172u
+public val SPI_GETCARETBROWSING: SystemParametersInfoAction = 4172u
 
-public val SPI_GETCARETTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = 8226u
+public val SPI_GETCARETTIMEOUT: SystemParametersInfoAction = 8226u
 
-public val SPI_GETCARETWIDTH: SYSTEM_PARAMETERS_INFO_ACTION = 8198u
+public val SPI_GETCARETWIDTH: SystemParametersInfoAction = 8198u
 
-public val SPI_GETCLEARTYPE: SYSTEM_PARAMETERS_INFO_ACTION = 4168u
+public val SPI_GETCLEARTYPE: SystemParametersInfoAction = 4168u
 
-public val SPI_GETCLIENTAREAANIMATION: SYSTEM_PARAMETERS_INFO_ACTION = 4162u
+public val SPI_GETCLIENTAREAANIMATION: SystemParametersInfoAction = 4162u
 
-public val SPI_GETCOMBOBOXANIMATION: SYSTEM_PARAMETERS_INFO_ACTION = 4100u
+public val SPI_GETCOMBOBOXANIMATION: SystemParametersInfoAction = 4100u
 
-public val SPI_GETCONTACTVISUALIZATION: SYSTEM_PARAMETERS_INFO_ACTION = 8216u
+public val SPI_GETCONTACTVISUALIZATION: SystemParametersInfoAction = 8216u
 
-public val SPI_GETCURSORSHADOW: SYSTEM_PARAMETERS_INFO_ACTION = 4122u
+public val SPI_GETCURSORSHADOW: SystemParametersInfoAction = 4122u
 
-public val SPI_GETDEFAULTINPUTLANG: SYSTEM_PARAMETERS_INFO_ACTION = 89u
+public val SPI_GETDEFAULTINPUTLANG: SystemParametersInfoAction = 89u
 
-public val SPI_GETDESKWALLPAPER: SYSTEM_PARAMETERS_INFO_ACTION = 115u
+public val SPI_GETDESKWALLPAPER: SystemParametersInfoAction = 115u
 
-public val SPI_GETDISABLEOVERLAPPEDCONTENT: SYSTEM_PARAMETERS_INFO_ACTION = 4160u
+public val SPI_GETDISABLEOVERLAPPEDCONTENT: SystemParametersInfoAction = 4160u
 
-public val SPI_GETDOCKMOVING: SYSTEM_PARAMETERS_INFO_ACTION = 144u
+public val SPI_GETDOCKMOVING: SystemParametersInfoAction = 144u
 
-public val SPI_GETDRAGFROMMAXIMIZE: SYSTEM_PARAMETERS_INFO_ACTION = 140u
+public val SPI_GETDRAGFROMMAXIMIZE: SystemParametersInfoAction = 140u
 
-public val SPI_GETDRAGFULLWINDOWS: SYSTEM_PARAMETERS_INFO_ACTION = 38u
+public val SPI_GETDRAGFULLWINDOWS: SystemParametersInfoAction = 38u
 
-public val SPI_GETDROPSHADOW: SYSTEM_PARAMETERS_INFO_ACTION = 4132u
+public val SPI_GETDROPSHADOW: SystemParametersInfoAction = 4132u
 
-public val SPI_GETFASTTASKSWITCH: SYSTEM_PARAMETERS_INFO_ACTION = 35u
+public val SPI_GETFASTTASKSWITCH: SystemParametersInfoAction = 35u
 
-public val SPI_GETFILTERKEYS: SYSTEM_PARAMETERS_INFO_ACTION = 50u
+public val SPI_GETFILTERKEYS: SystemParametersInfoAction = 50u
 
-public val SPI_GETFLATMENU: SYSTEM_PARAMETERS_INFO_ACTION = 4130u
+public val SPI_GETFLATMENU: SystemParametersInfoAction = 4130u
 
-public val SPI_GETFOCUSBORDERHEIGHT: SYSTEM_PARAMETERS_INFO_ACTION = 8208u
+public val SPI_GETFOCUSBORDERHEIGHT: SystemParametersInfoAction = 8208u
 
-public val SPI_GETFOCUSBORDERWIDTH: SYSTEM_PARAMETERS_INFO_ACTION = 8206u
+public val SPI_GETFOCUSBORDERWIDTH: SystemParametersInfoAction = 8206u
 
-public val SPI_GETFONTSMOOTHING: SYSTEM_PARAMETERS_INFO_ACTION = 74u
+public val SPI_GETFONTSMOOTHING: SystemParametersInfoAction = 74u
 
-public val SPI_GETFONTSMOOTHINGCONTRAST: SYSTEM_PARAMETERS_INFO_ACTION = 8204u
+public val SPI_GETFONTSMOOTHINGCONTRAST: SystemParametersInfoAction = 8204u
 
-public val SPI_GETFONTSMOOTHINGORIENTATION: SYSTEM_PARAMETERS_INFO_ACTION = 8210u
+public val SPI_GETFONTSMOOTHINGORIENTATION: SystemParametersInfoAction = 8210u
 
-public val SPI_GETFONTSMOOTHINGTYPE: SYSTEM_PARAMETERS_INFO_ACTION = 8202u
+public val SPI_GETFONTSMOOTHINGTYPE: SystemParametersInfoAction = 8202u
 
-public val SPI_GETFOREGROUNDFLASHCOUNT: SYSTEM_PARAMETERS_INFO_ACTION = 8196u
+public val SPI_GETFOREGROUNDFLASHCOUNT: SystemParametersInfoAction = 8196u
 
-public val SPI_GETFOREGROUNDLOCKTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = 8192u
+public val SPI_GETFOREGROUNDLOCKTIMEOUT: SystemParametersInfoAction = 8192u
 
-public val SPI_GETGESTUREVISUALIZATION: SYSTEM_PARAMETERS_INFO_ACTION = 8218u
+public val SPI_GETGESTUREVISUALIZATION: SystemParametersInfoAction = 8218u
 
-public val SPI_GETGRADIENTCAPTIONS: SYSTEM_PARAMETERS_INFO_ACTION = 4104u
+public val SPI_GETGRADIENTCAPTIONS: SystemParametersInfoAction = 4104u
 
-public val SPI_GETGRIDGRANULARITY: SYSTEM_PARAMETERS_INFO_ACTION = 18u
+public val SPI_GETGRIDGRANULARITY: SystemParametersInfoAction = 18u
 
-public val SPI_GETHANDEDNESS: SYSTEM_PARAMETERS_INFO_ACTION = 8228u
+public val SPI_GETHANDEDNESS: SystemParametersInfoAction = 8228u
 
-public val SPI_GETHIGHCONTRAST: SYSTEM_PARAMETERS_INFO_ACTION = 66u
+public val SPI_GETHIGHCONTRAST: SystemParametersInfoAction = 66u
 
-public val SPI_GETHOTTRACKING: SYSTEM_PARAMETERS_INFO_ACTION = 4110u
+public val SPI_GETHOTTRACKING: SystemParametersInfoAction = 4110u
 
-public val SPI_GETHUNGAPPTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = 120u
+public val SPI_GETHUNGAPPTIMEOUT: SystemParametersInfoAction = 120u
 
-public val SPI_GETICONMETRICS: SYSTEM_PARAMETERS_INFO_ACTION = 45u
+public val SPI_GETICONMETRICS: SystemParametersInfoAction = 45u
 
-public val SPI_GETICONTITLELOGFONT: SYSTEM_PARAMETERS_INFO_ACTION = 31u
+public val SPI_GETICONTITLELOGFONT: SystemParametersInfoAction = 31u
 
-public val SPI_GETICONTITLEWRAP: SYSTEM_PARAMETERS_INFO_ACTION = 25u
+public val SPI_GETICONTITLEWRAP: SystemParametersInfoAction = 25u
 
-public val SPI_GETKEYBOARDCUES: SYSTEM_PARAMETERS_INFO_ACTION = 4106u
+public val SPI_GETKEYBOARDCUES: SystemParametersInfoAction = 4106u
 
-public val SPI_GETKEYBOARDDELAY: SYSTEM_PARAMETERS_INFO_ACTION = 22u
+public val SPI_GETKEYBOARDDELAY: SystemParametersInfoAction = 22u
 
-public val SPI_GETKEYBOARDPREF: SYSTEM_PARAMETERS_INFO_ACTION = 68u
+public val SPI_GETKEYBOARDPREF: SystemParametersInfoAction = 68u
 
-public val SPI_GETKEYBOARDSPEED: SYSTEM_PARAMETERS_INFO_ACTION = 10u
+public val SPI_GETKEYBOARDSPEED: SystemParametersInfoAction = 10u
 
-public val SPI_GETLISTBOXSMOOTHSCROLLING: SYSTEM_PARAMETERS_INFO_ACTION = 4102u
+public val SPI_GETLISTBOXSMOOTHSCROLLING: SystemParametersInfoAction = 4102u
 
-public val SPI_GETLOGICALDPIOVERRIDE: SYSTEM_PARAMETERS_INFO_ACTION = 158u
+public val SPI_GETLOGICALDPIOVERRIDE: SystemParametersInfoAction = 158u

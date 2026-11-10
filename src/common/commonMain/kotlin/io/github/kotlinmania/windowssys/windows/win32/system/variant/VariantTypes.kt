@@ -1,9 +1,9 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.variant
 
-public typealias DRAWPROGRESSFLAGS = Int
+public typealias Drawprogressflags = Int
 
-public typealias PSTIME_FLAGS = Int
+public typealias PstimeFlags = Int
 
-public typealias VARENUM = UShort
+public typealias Varenum = UShort
 
-public typealias VAR_CHANGE_FLAGS = UShort
+public typealias VarChangeFlags = UShort

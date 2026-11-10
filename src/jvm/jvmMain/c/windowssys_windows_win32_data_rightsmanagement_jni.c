@@ -18,7 +18,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMAcquireAdvisories(JNIEnv* km_env, jclass km_clazz, jint hlicensestorage, jlong wszlicense, jlong wszurl, jlong pvcontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMAcquireAdvisories(JNIEnv* km_env, jclass km_clazz, jint hlicensestorage, jlong wszlicense, jlong wszurl, jlong pvcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -39,7 +39,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMAcquireIssuanceLicenseTemplate(JNIEnv* km_env, jclass km_clazz, jint hclient, jint uflags, jlong pvreserved, jint ctemplates, jlong pwsztemplateids, jlong wszurl, jlong pvcontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMAcquireIssuanceLicenseTemplate(JNIEnv* km_env, jclass km_clazz, jint hclient, jint uflags, jlong pvreserved, jint ctemplates, jlong pwsztemplateids, jlong wszurl, jlong pvcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -63,7 +63,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMAcquireLicense(JNIEnv* km_env, jclass km_clazz, jint hsession, jint uflags, jlong wszgroupidentitycredential, jlong wszrequestedrights, jlong wszcustomdata, jlong wszurl, jlong pvcontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMAcquireLicense(JNIEnv* km_env, jclass km_clazz, jint hsession, jint uflags, jlong wszgroupidentitycredential, jlong wszrequestedrights, jlong wszcustomdata, jlong wszurl, jlong pvcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -87,7 +87,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMActivate(JNIEnv* km_env, jclass km_clazz, jint hclient, jint uflags, jint ulangid, jlong pactservinfo, jlong pvcontext, jlong hparentwnd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMActivate(JNIEnv* km_env, jclass km_clazz, jint hclient, jint uflags, jint ulangid, jlong pactservinfo, jlong pvcontext, jlong hparentwnd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -110,7 +110,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMAddLicense(JNIEnv* km_env, jclass km_clazz, jint hlicensestorage, jint uflags, jlong wszlicense) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMAddLicense(JNIEnv* km_env, jclass km_clazz, jint hlicensestorage, jint uflags, jlong wszlicense) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -130,7 +130,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMAddRightWithUser(JNIEnv* km_env, jclass km_clazz, jint hissuancelicense, jint hright, jint huser) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMAddRightWithUser(JNIEnv* km_env, jclass km_clazz, jint hissuancelicense, jint hright, jint huser) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -150,7 +150,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMAttest(JNIEnv* km_env, jclass km_clazz, jint henablingprincipal, jlong wszdata, jint etype, jlong pcattestedblob, jlong wszattestedblob) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMAttest(JNIEnv* km_env, jclass km_clazz, jint henablingprincipal, jlong wszdata, jint etype, jlong pcattestedblob, jlong wszattestedblob) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -172,7 +172,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMCheckSecurity(JNIEnv* km_env, jclass km_clazz, jint henv, jint clevel) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMCheckSecurity(JNIEnv* km_env, jclass km_clazz, jint henv, jint clevel) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -191,7 +191,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMClearAllRights(JNIEnv* km_env, jclass km_clazz, jint hissuancelicense) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMClearAllRights(JNIEnv* km_env, jclass km_clazz, jint hissuancelicense) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -209,7 +209,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMCloseEnvironmentHandle(JNIEnv* km_env, jclass km_clazz, jint henv) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMCloseEnvironmentHandle(JNIEnv* km_env, jclass km_clazz, jint henv) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -227,7 +227,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMCloseHandle(JNIEnv* km_env, jclass km_clazz, jint handle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMCloseHandle(JNIEnv* km_env, jclass km_clazz, jint handle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -245,7 +245,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMClosePubHandle(JNIEnv* km_env, jclass km_clazz, jint hpub) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMClosePubHandle(JNIEnv* km_env, jclass km_clazz, jint hpub) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -263,7 +263,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMCloseQueryHandle(JNIEnv* km_env, jclass km_clazz, jint hquery) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMCloseQueryHandle(JNIEnv* km_env, jclass km_clazz, jint hquery) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -281,7 +281,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMCloseSession(JNIEnv* km_env, jclass km_clazz, jint hsession) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMCloseSession(JNIEnv* km_env, jclass km_clazz, jint hsession) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -299,7 +299,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMConstructCertificateChain(JNIEnv* km_env, jclass km_clazz, jint ccertificates, jlong rgwszcertificates, jlong pcchain, jlong wszchain) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMConstructCertificateChain(JNIEnv* km_env, jclass km_clazz, jint ccertificates, jlong rgwszcertificates, jlong pcchain, jlong wszchain) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -320,7 +320,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMCreateBoundLicense(JNIEnv* km_env, jclass km_clazz, jint henv, jlong pparams, jlong wszlicensechain, jlong phboundlicense, jlong pherrorlog) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMCreateBoundLicense(JNIEnv* km_env, jclass km_clazz, jint henv, jlong pparams, jlong wszlicensechain, jlong phboundlicense, jlong pherrorlog) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -342,7 +342,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMCreateClientSession(JNIEnv* km_env, jclass km_clazz, jlong pfncallback, jint ucallbackversion, jlong wszgroupidprovidertype, jlong wszgroupid, jlong phclient) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMCreateClientSession(JNIEnv* km_env, jclass km_clazz, jlong pfncallback, jint ucallbackversion, jlong wszgroupidprovidertype, jlong wszgroupid, jlong phclient) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -364,7 +364,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMCreateEnablingBitsDecryptor(JNIEnv* km_env, jclass km_clazz, jint hboundlicense, jlong wszright, jint hauxlib, jlong wszauxplug, jlong phdecryptor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMCreateEnablingBitsDecryptor(JNIEnv* km_env, jclass km_clazz, jint hboundlicense, jlong wszright, jint hauxlib, jlong wszauxplug, jlong phdecryptor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -386,7 +386,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMCreateEnablingBitsEncryptor(JNIEnv* km_env, jclass km_clazz, jint hboundlicense, jlong wszright, jint hauxlib, jlong wszauxplug, jlong phencryptor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMCreateEnablingBitsEncryptor(JNIEnv* km_env, jclass km_clazz, jint hboundlicense, jlong wszright, jint hauxlib, jlong wszauxplug, jlong phencryptor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -408,7 +408,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMCreateEnablingPrincipal(JNIEnv* km_env, jclass km_clazz, jint henv, jint hlibrary, jlong wszobject, jlong pidprincipal, jlong wszcredentials, jlong phenablingprincipal) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMCreateEnablingPrincipal(JNIEnv* km_env, jclass km_clazz, jint henv, jint hlibrary, jlong wszobject, jlong pidprincipal, jlong wszcredentials, jlong phenablingprincipal) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -431,7 +431,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMCreateIssuanceLicense(JNIEnv* km_env, jclass km_clazz, jlong psttimefrom, jlong psttimeuntil, jlong wszreferralinfoname, jlong wszreferralinfourl, jint howner, jlong wszissuancelicense, jint hboundlicense, jlong phissuancelicense) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMCreateIssuanceLicense(JNIEnv* km_env, jclass km_clazz, jlong psttimefrom, jlong psttimeuntil, jlong wszreferralinfoname, jlong wszreferralinfourl, jint howner, jlong wszissuancelicense, jint hboundlicense, jlong phissuancelicense) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -456,7 +456,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMCreateLicenseStorageSession(JNIEnv* km_env, jclass km_clazz, jint henv, jint hdefaultlibrary, jint hclient, jint uflags, jlong wszissuancelicense, jlong phlicensestorage) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMCreateLicenseStorageSession(JNIEnv* km_env, jclass km_clazz, jint henv, jint hdefaultlibrary, jint hclient, jint uflags, jlong wszissuancelicense, jlong phlicensestorage) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -479,7 +479,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMCreateRight(JNIEnv* km_env, jclass km_clazz, jlong wszrightname, jlong pstfrom, jlong pstuntil, jint cextendedinfo, jlong pwszextendedinfoname, jlong pwszextendedinfovalue, jlong phright) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMCreateRight(JNIEnv* km_env, jclass km_clazz, jlong wszrightname, jlong pstfrom, jlong pstuntil, jint cextendedinfo, jlong pwszextendedinfoname, jlong pwszextendedinfovalue, jlong phright) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -503,7 +503,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMCreateUser(JNIEnv* km_env, jclass km_clazz, jlong wszusername, jlong wszuserid, jlong wszuseridtype, jlong phuser) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMCreateUser(JNIEnv* km_env, jclass km_clazz, jlong wszusername, jlong wszuserid, jlong wszuseridtype, jlong phuser) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -524,7 +524,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMDecode(JNIEnv* km_env, jclass km_clazz, jlong wszalgid, jlong wszencodedstring, jlong pudecodeddatalen, jlong pbdecodeddata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMDecode(JNIEnv* km_env, jclass km_clazz, jlong wszalgid, jlong wszencodedstring, jlong pudecodeddatalen, jlong pbdecodeddata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -545,7 +545,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMDeconstructCertificateChain(JNIEnv* km_env, jclass km_clazz, jlong wszchain, jint iwhich, jlong pccert, jlong wszcert) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMDeconstructCertificateChain(JNIEnv* km_env, jclass km_clazz, jlong wszchain, jint iwhich, jlong pccert, jlong wszcert) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -566,7 +566,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMDecrypt(JNIEnv* km_env, jclass km_clazz, jint hcryptoprovider, jint iposition, jint cnuminbytes, jlong pbindata, jlong pcnumoutbytes, jlong pboutdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMDecrypt(JNIEnv* km_env, jclass km_clazz, jint hcryptoprovider, jint iposition, jint cnuminbytes, jlong pbindata, jlong pcnumoutbytes, jlong pboutdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -589,7 +589,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMDeleteLicense(JNIEnv* km_env, jclass km_clazz, jint hsession, jlong wszlicenseid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMDeleteLicense(JNIEnv* km_env, jclass km_clazz, jint hsession, jlong wszlicenseid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -608,7 +608,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMDuplicateEnvironmentHandle(JNIEnv* km_env, jclass km_clazz, jint htocopy, jlong phcopy) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMDuplicateEnvironmentHandle(JNIEnv* km_env, jclass km_clazz, jint htocopy, jlong phcopy) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -627,7 +627,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMDuplicateHandle(JNIEnv* km_env, jclass km_clazz, jint htocopy, jlong phcopy) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMDuplicateHandle(JNIEnv* km_env, jclass km_clazz, jint htocopy, jlong phcopy) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -646,7 +646,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMDuplicatePubHandle(JNIEnv* km_env, jclass km_clazz, jint hpubin, jlong phpubout) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMDuplicatePubHandle(JNIEnv* km_env, jclass km_clazz, jint hpubin, jlong phpubout) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -665,7 +665,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMDuplicateSession(JNIEnv* km_env, jclass km_clazz, jint hsessionin, jlong phsessionout) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMDuplicateSession(JNIEnv* km_env, jclass km_clazz, jint hsessionin, jlong phsessionout) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -684,7 +684,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMEncode(JNIEnv* km_env, jclass km_clazz, jlong wszalgid, jint udatalen, jlong pbdecodeddata, jlong puencodedstringlen, jlong wszencodedstring) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMEncode(JNIEnv* km_env, jclass km_clazz, jlong wszalgid, jint udatalen, jlong pbdecodeddata, jlong puencodedstringlen, jlong wszencodedstring) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -706,7 +706,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMEncrypt(JNIEnv* km_env, jclass km_clazz, jint hcryptoprovider, jint iposition, jint cnuminbytes, jlong pbindata, jlong pcnumoutbytes, jlong pboutdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMEncrypt(JNIEnv* km_env, jclass km_clazz, jint hcryptoprovider, jint iposition, jint cnuminbytes, jlong pbindata, jlong pcnumoutbytes, jlong pboutdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -729,7 +729,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMEnumerateLicense(JNIEnv* km_env, jclass km_clazz, jint hsession, jint uflags, jint uindex, jlong pfsharedflag, jlong pucertificatedatalen, jlong wszcertificatedata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMEnumerateLicense(JNIEnv* km_env, jclass km_clazz, jint hsession, jint uflags, jint uindex, jlong pfsharedflag, jlong pucertificatedatalen, jlong wszcertificatedata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -752,7 +752,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMGetApplicationSpecificData(JNIEnv* km_env, jclass km_clazz, jint hissuancelicense, jint uindex, jlong punamelength, jlong wszname, jlong puvaluelength, jlong wszvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMGetApplicationSpecificData(JNIEnv* km_env, jclass km_clazz, jint hissuancelicense, jint uindex, jlong punamelength, jlong wszname, jlong puvaluelength, jlong wszvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -775,7 +775,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMGetBoundLicenseAttribute(JNIEnv* km_env, jclass km_clazz, jint hqueryroot, jlong wszattribute, jint iwhich, jlong peencoding, jlong pcbuffer, jlong pbbuffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMGetBoundLicenseAttribute(JNIEnv* km_env, jclass km_clazz, jint hqueryroot, jlong wszattribute, jint iwhich, jlong peencoding, jlong pcbuffer, jlong pbbuffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -798,7 +798,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMGetBoundLicenseAttributeCount(JNIEnv* km_env, jclass km_clazz, jint hqueryroot, jlong wszattribute, jlong pcattributes) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMGetBoundLicenseAttributeCount(JNIEnv* km_env, jclass km_clazz, jint hqueryroot, jlong wszattribute, jlong pcattributes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -818,7 +818,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMGetBoundLicenseObject(JNIEnv* km_env, jclass km_clazz, jint hqueryroot, jlong wszsubobjecttype, jint iwhich, jlong phsubobject) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMGetBoundLicenseObject(JNIEnv* km_env, jclass km_clazz, jint hqueryroot, jlong wszsubobjecttype, jint iwhich, jlong phsubobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -839,7 +839,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMGetBoundLicenseObjectCount(JNIEnv* km_env, jclass km_clazz, jint hqueryroot, jlong wszsubobjecttype, jlong pcsubobjects) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMGetBoundLicenseObjectCount(JNIEnv* km_env, jclass km_clazz, jint hqueryroot, jlong wszsubobjecttype, jlong pcsubobjects) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -859,7 +859,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMGetCertificateChainCount(JNIEnv* km_env, jclass km_clazz, jlong wszchain, jlong pccertcount) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMGetCertificateChainCount(JNIEnv* km_env, jclass km_clazz, jlong wszchain, jlong pccertcount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -878,7 +878,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMGetClientVersion(JNIEnv* km_env, jclass km_clazz, jlong pdrmclientversioninfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMGetClientVersion(JNIEnv* km_env, jclass km_clazz, jlong pdrmclientversioninfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -896,7 +896,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMGetEnvironmentInfo(JNIEnv* km_env, jclass km_clazz, jint handle, jlong wszattribute, jlong peencoding, jlong pcbuffer, jlong pbbuffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMGetEnvironmentInfo(JNIEnv* km_env, jclass km_clazz, jint handle, jlong wszattribute, jlong peencoding, jlong pcbuffer, jlong pbbuffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -918,7 +918,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMGetInfo(JNIEnv* km_env, jclass km_clazz, jint handle, jlong wszattribute, jlong peencoding, jlong pcbuffer, jlong pbbuffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMGetInfo(JNIEnv* km_env, jclass km_clazz, jint handle, jlong wszattribute, jlong peencoding, jlong pcbuffer, jlong pbbuffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -940,7 +940,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMGetIntervalTime(JNIEnv* km_env, jclass km_clazz, jint hissuancelicense, jlong pcdays) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMGetIntervalTime(JNIEnv* km_env, jclass km_clazz, jint hissuancelicense, jlong pcdays) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -959,7 +959,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMGetIssuanceLicenseInfo(JNIEnv* km_env, jclass km_clazz, jint hissuancelicense, jlong psttimefrom, jlong psttimeuntil, jint uflags, jlong pudistributionpointnamelength, jlong wszdistributionpointname, jlong pudistributionpointurllength, jlong wszdistributionpointurl, jlong phowner, jlong pfofficial) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMGetIssuanceLicenseInfo(JNIEnv* km_env, jclass km_clazz, jint hissuancelicense, jlong psttimefrom, jlong psttimeuntil, jint uflags, jlong pudistributionpointnamelength, jlong wszdistributionpointname, jlong pudistributionpointurllength, jlong wszdistributionpointurl, jlong phowner, jlong pfofficial) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -986,7 +986,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMGetIssuanceLicenseTemplate(JNIEnv* km_env, jclass km_clazz, jint hissuancelicense, jlong puissuancelicensetemplatelength, jlong wszissuancelicensetemplate) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMGetIssuanceLicenseTemplate(JNIEnv* km_env, jclass km_clazz, jint hissuancelicense, jlong puissuancelicensetemplatelength, jlong wszissuancelicensetemplate) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1006,7 +1006,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMGetMetaData(JNIEnv* km_env, jclass km_clazz, jint hissuancelicense, jlong pucontentidlength, jlong wszcontentid, jlong pucontentidtypelength, jlong wszcontentidtype, jlong puskuidlength, jlong wszskuid, jlong puskuidtypelength, jlong wszskuidtype, jlong pucontenttypelength, jlong wszcontenttype, jlong pucontentnamelength, jlong wszcontentname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMGetMetaData(JNIEnv* km_env, jclass km_clazz, jint hissuancelicense, jlong pucontentidlength, jlong wszcontentid, jlong pucontentidtypelength, jlong wszcontentidtype, jlong puskuidlength, jlong wszskuid, jlong puskuidtypelength, jlong wszskuidtype, jlong pucontenttypelength, jlong wszcontenttype, jlong pucontentnamelength, jlong wszcontentname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1036,7 +1036,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMGetNameAndDescription(JNIEnv* km_env, jclass km_clazz, jint hissuancelicense, jint uindex, jlong pulcid, jlong punamelength, jlong wszname, jlong pudescriptionlength, jlong wszdescription) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMGetNameAndDescription(JNIEnv* km_env, jclass km_clazz, jint hissuancelicense, jint uindex, jlong pulcid, jlong punamelength, jlong wszname, jlong pudescriptionlength, jlong wszdescription) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1060,7 +1060,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMGetOwnerLicense(JNIEnv* km_env, jclass km_clazz, jint hissuancelicense, jlong puownerlicenselength, jlong wszownerlicense) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMGetOwnerLicense(JNIEnv* km_env, jclass km_clazz, jint hissuancelicense, jlong puownerlicenselength, jlong wszownerlicense) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1080,7 +1080,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMGetProcAddress(JNIEnv* km_env, jclass km_clazz, jint hlibrary, jlong wszprocname, jlong ppfnprocaddress) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMGetProcAddress(JNIEnv* km_env, jclass km_clazz, jint hlibrary, jlong wszprocname, jlong ppfnprocaddress) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1100,7 +1100,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMGetRevocationPoint(JNIEnv* km_env, jclass km_clazz, jint hissuancelicense, jlong puidlength, jlong wszid, jlong puidtypelength, jlong wszidtype, jlong puurllength, jlong wszrl, jlong pstfrequency, jlong punamelength, jlong wszname, jlong pupublickeylength, jlong wszpublickey) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMGetRevocationPoint(JNIEnv* km_env, jclass km_clazz, jint hissuancelicense, jlong puidlength, jlong wszid, jlong puidtypelength, jlong wszidtype, jlong puurllength, jlong wszrl, jlong pstfrequency, jlong punamelength, jlong wszname, jlong pupublickeylength, jlong wszpublickey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1129,7 +1129,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMGetRightExtendedInfo(JNIEnv* km_env, jclass km_clazz, jint hright, jint uindex, jlong puextendedinfonamelength, jlong wszextendedinfoname, jlong puextendedinfovaluelength, jlong wszextendedinfovalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMGetRightExtendedInfo(JNIEnv* km_env, jclass km_clazz, jint hright, jint uindex, jlong puextendedinfonamelength, jlong wszextendedinfoname, jlong puextendedinfovaluelength, jlong wszextendedinfovalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1152,7 +1152,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMGetRightInfo(JNIEnv* km_env, jclass km_clazz, jint hright, jlong purightnamelength, jlong wszrightname, jlong pstfrom, jlong pstuntil) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMGetRightInfo(JNIEnv* km_env, jclass km_clazz, jint hright, jlong purightnamelength, jlong wszrightname, jlong pstfrom, jlong pstuntil) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1174,7 +1174,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMGetSecurityProvider(JNIEnv* km_env, jclass km_clazz, jint uflags, jlong putypelen, jlong wsztype, jlong pupathlen, jlong wszpath) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMGetSecurityProvider(JNIEnv* km_env, jclass km_clazz, jint uflags, jlong putypelen, jlong wsztype, jlong pupathlen, jlong wszpath) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1196,7 +1196,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMGetServiceLocation(JNIEnv* km_env, jclass km_clazz, jint hclient, jint uservicetype, jint uservicelocation, jlong wszissuancelicense, jlong puserviceurllength, jlong wszserviceurl) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMGetServiceLocation(JNIEnv* km_env, jclass km_clazz, jint hclient, jint uservicetype, jint uservicelocation, jlong wszissuancelicense, jlong puserviceurllength, jlong wszserviceurl) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1219,7 +1219,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMGetSignedIssuanceLicense(JNIEnv* km_env, jclass km_clazz, jint henv, jint hissuancelicense, jint uflags, jlong pbsymkey, jint cbsymkey, jlong wszsymkeytype, jlong wszclientlicensorcertificate, jlong pfncallback, jlong wszurl, jlong pvcontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMGetSignedIssuanceLicense(JNIEnv* km_env, jclass km_clazz, jint henv, jint hissuancelicense, jint uflags, jlong pbsymkey, jint cbsymkey, jlong wszsymkeytype, jlong wszclientlicensorcertificate, jlong pfncallback, jlong wszurl, jlong pvcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1246,7 +1246,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMGetSignedIssuanceLicenseEx(JNIEnv* km_env, jclass km_clazz, jint henv, jint hissuancelicense, jint uflags, jlong pbsymkey, jint cbsymkey, jlong wszsymkeytype, jlong pvreserved, jint henablingprincipal, jint hboundlicenseclc, jlong pfncallback, jlong pvcontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMGetSignedIssuanceLicenseEx(JNIEnv* km_env, jclass km_clazz, jint henv, jint hissuancelicense, jint uflags, jlong pbsymkey, jint cbsymkey, jlong wszsymkeytype, jlong pvreserved, jint henablingprincipal, jint hboundlicenseclc, jlong pfncallback, jlong pvcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1274,7 +1274,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMGetTime(JNIEnv* km_env, jclass km_clazz, jint henv, jint etimeridtype, jlong potimeobject) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMGetTime(JNIEnv* km_env, jclass km_clazz, jint henv, jint etimeridtype, jlong potimeobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1294,7 +1294,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMGetUnboundLicenseAttribute(JNIEnv* km_env, jclass km_clazz, jint hqueryroot, jlong wszattributetype, jint iwhich, jlong peencoding, jlong pcbuffer, jlong pbbuffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMGetUnboundLicenseAttribute(JNIEnv* km_env, jclass km_clazz, jint hqueryroot, jlong wszattributetype, jint iwhich, jlong peencoding, jlong pcbuffer, jlong pbbuffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1317,7 +1317,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMGetUnboundLicenseAttributeCount(JNIEnv* km_env, jclass km_clazz, jint hqueryroot, jlong wszattributetype, jlong pcattributes) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMGetUnboundLicenseAttributeCount(JNIEnv* km_env, jclass km_clazz, jint hqueryroot, jlong wszattributetype, jlong pcattributes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1337,7 +1337,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMGetUnboundLicenseObject(JNIEnv* km_env, jclass km_clazz, jint hqueryroot, jlong wszsubobjecttype, jint iindex, jlong phsubquery) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMGetUnboundLicenseObject(JNIEnv* km_env, jclass km_clazz, jint hqueryroot, jlong wszsubobjecttype, jint iindex, jlong phsubquery) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1358,7 +1358,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMGetUnboundLicenseObjectCount(JNIEnv* km_env, jclass km_clazz, jint hqueryroot, jlong wszsubobjecttype, jlong pcsubobjects) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMGetUnboundLicenseObjectCount(JNIEnv* km_env, jclass km_clazz, jint hqueryroot, jlong wszsubobjecttype, jlong pcsubobjects) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1378,7 +1378,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMGetUsagePolicy(JNIEnv* km_env, jclass km_clazz, jint hissuancelicense, jint uindex, jlong peusagepolicytype, jlong pfexclusion, jlong punamelength, jlong wszname, jlong puminversionlength, jlong wszminversion, jlong pumaxversionlength, jlong wszmaxversion, jlong pupublickeylength, jlong wszpublickey, jlong pudigestalgorithmlength, jlong wszdigestalgorithm, jlong pcbdigest, jlong pbdigest) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMGetUsagePolicy(JNIEnv* km_env, jclass km_clazz, jint hissuancelicense, jint uindex, jlong peusagepolicytype, jlong pfexclusion, jlong punamelength, jlong wszname, jlong puminversionlength, jlong wszminversion, jlong pumaxversionlength, jlong wszmaxversion, jlong pupublickeylength, jlong wszpublickey, jlong pudigestalgorithmlength, jlong wszdigestalgorithm, jlong pcbdigest, jlong pbdigest) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1411,7 +1411,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMGetUserInfo(JNIEnv* km_env, jclass km_clazz, jint huser, jlong puusernamelength, jlong wszusername, jlong puuseridlength, jlong wszuserid, jlong puuseridtypelength, jlong wszuseridtype) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMGetUserInfo(JNIEnv* km_env, jclass km_clazz, jint huser, jlong puusernamelength, jlong wszusername, jlong puuseridlength, jlong wszuserid, jlong puuseridtypelength, jlong wszuseridtype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1435,7 +1435,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMGetUserRights(JNIEnv* km_env, jclass km_clazz, jint hissuancelicense, jint huser, jint uindex, jlong phright) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMGetUserRights(JNIEnv* km_env, jclass km_clazz, jint hissuancelicense, jint huser, jint uindex, jlong phright) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1456,7 +1456,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMGetUsers(JNIEnv* km_env, jclass km_clazz, jint hissuancelicense, jint uindex, jlong phuser) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMGetUsers(JNIEnv* km_env, jclass km_clazz, jint hissuancelicense, jint uindex, jlong phuser) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1476,7 +1476,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMInitEnvironment(JNIEnv* km_env, jclass km_clazz, jint esecurityprovidertype, jint especification, jlong wszsecurityprovider, jlong wszmanifestcredentials, jlong wszmachinecredentials, jlong phenv, jlong phdefaultlibrary) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMInitEnvironment(JNIEnv* km_env, jclass km_clazz, jint esecurityprovidertype, jint especification, jlong wszsecurityprovider, jlong wszmanifestcredentials, jlong wszmachinecredentials, jlong phenv, jlong phdefaultlibrary) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1500,7 +1500,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMIsActivated(JNIEnv* km_env, jclass km_clazz, jint hclient, jint uflags, jlong pactservinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMIsActivated(JNIEnv* km_env, jclass km_clazz, jint hclient, jint uflags, jlong pactservinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1520,7 +1520,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMIsWindowProtected(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong pfprotected) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMIsWindowProtected(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong pfprotected) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1539,7 +1539,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMLoadLibrary(JNIEnv* km_env, jclass km_clazz, jint henv, jint especification, jlong wszlibraryprovider, jlong wszcredentials, jlong phlibrary) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMLoadLibrary(JNIEnv* km_env, jclass km_clazz, jint henv, jint especification, jlong wszlibraryprovider, jlong wszcredentials, jlong phlibrary) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1561,7 +1561,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMParseUnboundLicense(JNIEnv* km_env, jclass km_clazz, jlong wszcertificate, jlong phqueryroot) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMParseUnboundLicense(JNIEnv* km_env, jclass km_clazz, jlong wszcertificate, jlong phqueryroot) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1580,7 +1580,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMRegisterContent(JNIEnv* km_env, jclass km_clazz, jint fregister) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMRegisterContent(JNIEnv* km_env, jclass km_clazz, jint fregister) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1598,7 +1598,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMRegisterProtectedWindow(JNIEnv* km_env, jclass km_clazz, jint henv, jlong hwnd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMRegisterProtectedWindow(JNIEnv* km_env, jclass km_clazz, jint henv, jlong hwnd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1617,7 +1617,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMRegisterRevocationList(JNIEnv* km_env, jclass km_clazz, jint henv, jlong wszrevocationlist) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMRegisterRevocationList(JNIEnv* km_env, jclass km_clazz, jint henv, jlong wszrevocationlist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1636,7 +1636,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMRepair(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMRepair(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1653,7 +1653,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMSetApplicationSpecificData(JNIEnv* km_env, jclass km_clazz, jint hissuancelicense, jint fdelete, jlong wszname, jlong wszvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMSetApplicationSpecificData(JNIEnv* km_env, jclass km_clazz, jint hissuancelicense, jint fdelete, jlong wszname, jlong wszvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1674,7 +1674,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMSetGlobalOptions(JNIEnv* km_env, jclass km_clazz, jint eglobaloptions, jlong pvdata, jint dwlen) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMSetGlobalOptions(JNIEnv* km_env, jclass km_clazz, jint eglobaloptions, jlong pvdata, jint dwlen) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1694,7 +1694,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMSetIntervalTime(JNIEnv* km_env, jclass km_clazz, jint hissuancelicense, jint cdays) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMSetIntervalTime(JNIEnv* km_env, jclass km_clazz, jint hissuancelicense, jint cdays) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1713,7 +1713,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMSetMetaData(JNIEnv* km_env, jclass km_clazz, jint hissuancelicense, jlong wszcontentid, jlong wszcontentidtype, jlong wszskuid, jlong wszskuidtype, jlong wszcontenttype, jlong wszcontentname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMSetMetaData(JNIEnv* km_env, jclass km_clazz, jint hissuancelicense, jlong wszcontentid, jlong wszcontentidtype, jlong wszskuid, jlong wszskuidtype, jlong wszcontenttype, jlong wszcontentname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1737,7 +1737,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMSetNameAndDescription(JNIEnv* km_env, jclass km_clazz, jint hissuancelicense, jint fdelete, jint lcid, jlong wszname, jlong wszdescription) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMSetNameAndDescription(JNIEnv* km_env, jclass km_clazz, jint hissuancelicense, jint fdelete, jint lcid, jlong wszname, jlong wszdescription) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1759,7 +1759,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMSetRevocationPoint(JNIEnv* km_env, jclass km_clazz, jint hissuancelicense, jint fdelete, jlong wszid, jlong wszidtype, jlong wszurl, jlong pstfrequency, jlong wszname, jlong wszpublickey) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMSetRevocationPoint(JNIEnv* km_env, jclass km_clazz, jint hissuancelicense, jint fdelete, jlong wszid, jlong wszidtype, jlong wszurl, jlong pstfrequency, jlong wszname, jlong wszpublickey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1784,7 +1784,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMSetUsagePolicy(JNIEnv* km_env, jclass km_clazz, jint hissuancelicense, jint eusagepolicytype, jint fdelete, jint fexclusion, jlong wszname, jlong wszminversion, jlong wszmaxversion, jlong wszpublickey, jlong wszdigestalgorithm, jlong pbdigest, jint cbdigest) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMSetUsagePolicy(JNIEnv* km_env, jclass km_clazz, jint hissuancelicense, jint eusagepolicytype, jint fdelete, jint fexclusion, jlong wszname, jlong wszminversion, jlong wszmaxversion, jlong wszpublickey, jlong wszdigestalgorithm, jlong pbdigest, jint cbdigest) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1812,7 +1812,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1DRMVerify(JNIEnv* km_env, jclass km_clazz, jlong wszdata, jlong pcattesteddata, jlong wszattesteddata, jlong petype, jlong pcprincipal, jlong wszprincipal, jlong pcmanifest, jlong wszmanifest) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_rightsmanagement_WindowsWin32DataRightsmanagementJniBridge_windowssys_1windows_1win32_1data_1rightsmanagement_1dRMVerify(JNIEnv* km_env, jclass km_clazz, jlong wszdata, jlong pcattesteddata, jlong wszattesteddata, jlong petype, jlong pcprincipal, jlong wszprincipal, jlong pcmanifest, jlong wszmanifest) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

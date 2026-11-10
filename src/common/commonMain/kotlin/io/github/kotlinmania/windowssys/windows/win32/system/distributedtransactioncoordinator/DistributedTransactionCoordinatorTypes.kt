@@ -1,131 +1,132 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.distributedtransactioncoordinator
 
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
 
-public typealias APPLICATIONTYPE = Int
+public typealias Applicationtype = Int
 
-public typealias AUTHENTICATION_LEVEL = Int
+public typealias AuthenticationLevel = Int
 
-public typealias DTCINITIATEDRECOVERYWORK = Int
+public typealias Dtcinitiatedrecoverywork = Int
 
-public typealias DTCLUCOMPARESTATE = Int
+public typealias Dtclucomparestate = Int
 
-public typealias DTCLUCOMPARESTATESCONFIRMATION = Int
+public typealias Dtclucomparestatesconfirmation = Int
 
-public typealias DTCLUCOMPARESTATESERROR = Int
+public typealias Dtclucomparestateserror = Int
 
-public typealias DTCLUCOMPARESTATESRESPONSE = Int
+public typealias Dtclucomparestatesresponse = Int
 
-public typealias DTCLUXLN = Int
+public typealias Dtcluxln = Int
 
-public typealias DTCLUXLNCONFIRMATION = Int
+public typealias Dtcluxlnconfirmation = Int
 
-public typealias DTCLUXLNERROR = Int
+public typealias Dtcluxlnerror = Int
 
-public typealias DTCLUXLNRESPONSE = Int
+public typealias Dtcluxlnresponse = Int
 
-public fun interface DTC_GET_TRANSACTION_MANAGERFn {
-    public operator fun invoke(pszhost: PCSTR, psztmname: PCSTR, rid: Long, dwreserved1: UInt, wcbreserved2: UShort, pvreserved2: Long, ppvobject: Long): HRESULT
+public fun interface DtcGetTransactionManagerFn {
+    public operator fun invoke(pszhost: Pcstr, psztmname: Pcstr, rid: COpaquePointer?, dwreserved1: UInt, wcbreserved2: UShort, pvreserved2: COpaquePointer?, ppvobject: COpaquePointer?): Hresult
 }
 
-public typealias DTC_GET_TRANSACTION_MANAGER = DTC_GET_TRANSACTION_MANAGERFn?
+public typealias DtcGetTransactionManager = DtcGetTransactionManagerFn?
 
-public fun interface DTC_GET_TRANSACTION_MANAGER_EX_AFn {
-    public operator fun invoke(i_pszhost: PCSTR, i_psztmname: PCSTR, i_riid: Long, i_grfoptions: UInt, i_pvconfigparams: Long, o_ppvobject: Long): HRESULT
+public fun interface DtcGetTransactionManagerExAFn {
+    public operator fun invoke(iPszhost: Pcstr, iPsztmname: Pcstr, iRiid: COpaquePointer?, iGrfoptions: UInt, iPvconfigparams: COpaquePointer?, oPpvobject: COpaquePointer?): Hresult
 }
 
-public typealias DTC_GET_TRANSACTION_MANAGER_EX_A = DTC_GET_TRANSACTION_MANAGER_EX_AFn?
+public typealias DtcGetTransactionManagerExA = DtcGetTransactionManagerExAFn?
 
-public fun interface DTC_GET_TRANSACTION_MANAGER_EX_WFn {
-    public operator fun invoke(i_pwszhost: PCWSTR, i_pwsztmname: PCWSTR, i_riid: Long, i_grfoptions: UInt, i_pvconfigparams: Long, o_ppvobject: Long): HRESULT
+public fun interface DtcGetTransactionManagerExWFn {
+    public operator fun invoke(iPwszhost: Pcwstr, iPwsztmname: Pcwstr, iRiid: COpaquePointer?, iGrfoptions: UInt, iPvconfigparams: COpaquePointer?, oPpvobject: COpaquePointer?): Hresult
 }
 
-public typealias DTC_GET_TRANSACTION_MANAGER_EX_W = DTC_GET_TRANSACTION_MANAGER_EX_WFn?
+public typealias DtcGetTransactionManagerExW = DtcGetTransactionManagerExWFn?
 
-public fun interface DTC_INSTALL_CLIENTFn {
-    public operator fun invoke(i_pszremotetmhostname: Long, i_dwprotocol: UInt, i_dwoverwrite: UInt): HRESULT
+public fun interface DtcInstallClientFn {
+    public operator fun invoke(iPszremotetmhostname: COpaquePointer?, iDwprotocol: UInt, iDwoverwrite: UInt): Hresult
 }
 
-public typealias DTC_INSTALL_CLIENT = DTC_INSTALL_CLIENTFn?
+public typealias DtcInstallClient = DtcInstallClientFn?
 
-public typealias DTC_STATUS_ = Int
+public typealias DtcStatus = Int
 
-public typealias ISOFLAG = Int
+public typealias Isoflag = Int
 
-public typealias ISOLATIONLEVEL = Int
+public typealias Isolationlevel = Int
 
-public typealias TX_MISC_CONSTANTS = Int
+public typealias TxMiscConstants = Int
 
-public typealias XACTCONST = Int
+public typealias Xactconst = Int
 
-public typealias XACTHEURISTIC = Int
+public typealias Xactheuristic = Int
 
-public typealias XACTRM = Int
+public typealias Xactrm = Int
 
-public typealias XACTSTAT = Int
+public typealias Xactstat = Int
 
-public typealias XACTTC = Int
+public typealias Xacttc = Int
 
-public typealias XACT_DTC_CONSTANTS = Int
+public typealias XactDtcConstants = Int
 
-public fun interface XA_CLOSE_EPTFn {
-    public operator fun invoke(param0: PCSTR, param1: Int, param2: Int): Int
+public fun interface XaCloseEptFn {
+    public operator fun invoke(param0: Pcstr, param1: Int, param2: Int): Int
 }
 
-public typealias XA_CLOSE_EPT = XA_CLOSE_EPTFn?
+public typealias XaCloseEpt = XaCloseEptFn?
 
-public fun interface XA_COMMIT_EPTFn {
-    public operator fun invoke(param0: Long, param1: Int, param2: Int): Int
+public fun interface XaCommitEptFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: Int, param2: Int): Int
 }
 
-public typealias XA_COMMIT_EPT = XA_COMMIT_EPTFn?
+public typealias XaCommitEpt = XaCommitEptFn?
 
-public fun interface XA_COMPLETE_EPTFn {
-    public operator fun invoke(param0: Long, param1: Long, param2: Int, param3: Int): Int
+public fun interface XaCompleteEptFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: COpaquePointer?, param2: Int, param3: Int): Int
 }
 
-public typealias XA_COMPLETE_EPT = XA_COMPLETE_EPTFn?
+public typealias XaCompleteEpt = XaCompleteEptFn?
 
-public fun interface XA_END_EPTFn {
-    public operator fun invoke(param0: Long, param1: Int, param2: Int): Int
+public fun interface XaEndEptFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: Int, param2: Int): Int
 }
 
-public typealias XA_END_EPT = XA_END_EPTFn?
+public typealias XaEndEpt = XaEndEptFn?
 
-public fun interface XA_FORGET_EPTFn {
-    public operator fun invoke(param0: Long, param1: Int, param2: Int): Int
+public fun interface XaForgetEptFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: Int, param2: Int): Int
 }
 
-public typealias XA_FORGET_EPT = XA_FORGET_EPTFn?
+public typealias XaForgetEpt = XaForgetEptFn?
 
-public fun interface XA_OPEN_EPTFn {
-    public operator fun invoke(param0: PCSTR, param1: Int, param2: Int): Int
+public fun interface XaOpenEptFn {
+    public operator fun invoke(param0: Pcstr, param1: Int, param2: Int): Int
 }
 
-public typealias XA_OPEN_EPT = XA_OPEN_EPTFn?
+public typealias XaOpenEpt = XaOpenEptFn?
 
-public fun interface XA_PREPARE_EPTFn {
-    public operator fun invoke(param0: Long, param1: Int, param2: Int): Int
+public fun interface XaPrepareEptFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: Int, param2: Int): Int
 }
 
-public typealias XA_PREPARE_EPT = XA_PREPARE_EPTFn?
+public typealias XaPrepareEpt = XaPrepareEptFn?
 
-public fun interface XA_RECOVER_EPTFn {
-    public operator fun invoke(param0: Long, param1: Int, param2: Int, param3: Int): Int
+public fun interface XaRecoverEptFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: Int, param2: Int, param3: Int): Int
 }
 
-public typealias XA_RECOVER_EPT = XA_RECOVER_EPTFn?
+public typealias XaRecoverEpt = XaRecoverEptFn?
 
-public fun interface XA_ROLLBACK_EPTFn {
-    public operator fun invoke(param0: Long, param1: Int, param2: Int): Int
+public fun interface XaRollbackEptFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: Int, param2: Int): Int
 }
 
-public typealias XA_ROLLBACK_EPT = XA_ROLLBACK_EPTFn?
+public typealias XaRollbackEpt = XaRollbackEptFn?
 
-public fun interface XA_START_EPTFn {
-    public operator fun invoke(param0: Long, param1: Int, param2: Int): Int
+public fun interface XaStartEptFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: Int, param2: Int): Int
 }
 
-public typealias XA_START_EPT = XA_START_EPTFn?
+public typealias XaStartEpt = XaStartEptFn?

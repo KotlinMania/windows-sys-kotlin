@@ -2,629 +2,630 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.WIN32_ERROR
-import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.ADDRESS_FAMILY
-import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.ndis.NET_IF_COMPARTMENT_ID
-import io.github.kotlinmania.windowssys.windows.win32.system.io.PIO_APC_ROUTINE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Win32Error
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.AddressFamily
+import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.ndis.NetIfCompartmentId
+import io.github.kotlinmania.windowssys.windows.win32.system.io.PioApcRoutine
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun AddIPAddress(address: UInt, ipmask: UInt, ifindex: UInt, ntecontext: Long, nteinstance: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_AddIPAddress(address, ipmask, ifindex, ntecontext.toCPointer<ByteVar>(), nteinstance.toCPointer<ByteVar>())
+public actual fun addIPAddress(address: UInt, ipmask: UInt, ifindex: UInt, ntecontext: COpaquePointer?, nteinstance: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_addIPAddress(address, ipmask, ifindex, ntecontext?.value?.toCPointer<ByteVar>(), nteinstance?.value?.toCPointer<ByteVar>())
 
-public actual fun CancelIPChangeNotify(notifyoverlapped: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_CancelIPChangeNotify(notifyoverlapped.toCPointer<ByteVar>())
+public actual fun cancelIPChangeNotify(notifyoverlapped: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_cancelIPChangeNotify(notifyoverlapped?.value?.toCPointer<ByteVar>())
 
-public actual fun CancelIfTimestampConfigChange(notificationhandle: HIFTIMESTAMPCHANGE) {
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_CancelIfTimestampConfigChange(notificationhandle.toCPointer<ByteVar>())
+public actual fun cancelIfTimestampConfigChange(notificationhandle: Hiftimestampchange) {
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_cancelIfTimestampConfigChange(notificationhandle?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun CancelMibChangeNotify2(notificationhandle: HANDLE): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_CancelMibChangeNotify2(notificationhandle.toCPointer<ByteVar>())
+public actual fun cancelMibChangeNotify2(notificationhandle: Handle): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_cancelMibChangeNotify2(notificationhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun CaptureInterfaceHardwareCrossTimestamp(interfaceluid: Long, crosstimestamp: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_CaptureInterfaceHardwareCrossTimestamp(interfaceluid.toCPointer<ByteVar>(), crosstimestamp.toCPointer<ByteVar>())
+public actual fun captureInterfaceHardwareCrossTimestamp(interfaceluid: COpaquePointer?, crosstimestamp: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_captureInterfaceHardwareCrossTimestamp(interfaceluid?.value?.toCPointer<ByteVar>(), crosstimestamp?.value?.toCPointer<ByteVar>())
 
-public actual fun ConvertCompartmentGuidToId(compartmentguid: Long, compartmentid: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_ConvertCompartmentGuidToId(compartmentguid.toCPointer<ByteVar>(), compartmentid.toCPointer<ByteVar>())
+public actual fun convertCompartmentGuidToId(compartmentguid: COpaquePointer?, compartmentid: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_convertCompartmentGuidToId(compartmentguid?.value?.toCPointer<ByteVar>(), compartmentid?.value?.toCPointer<ByteVar>())
 
-public actual fun ConvertCompartmentIdToGuid(compartmentid: NET_IF_COMPARTMENT_ID, compartmentguid: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_ConvertCompartmentIdToGuid(compartmentid, compartmentguid.toCPointer<ByteVar>())
+public actual fun convertCompartmentIdToGuid(compartmentid: NetIfCompartmentId, compartmentguid: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_convertCompartmentIdToGuid(compartmentid, compartmentguid?.value?.toCPointer<ByteVar>())
 
-public actual fun ConvertInterfaceAliasToLuid(interfacealias: PCWSTR, interfaceluid: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_ConvertInterfaceAliasToLuid(interfacealias.toCPointer<ByteVar>(), interfaceluid.toCPointer<ByteVar>())
+public actual fun convertInterfaceAliasToLuid(interfacealias: Pcwstr, interfaceluid: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceAliasToLuid(interfacealias?.value?.toCPointer<ByteVar>(), interfaceluid?.value?.toCPointer<ByteVar>())
 
-public actual fun ConvertInterfaceGuidToLuid(interfaceguid: Long, interfaceluid: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_ConvertInterfaceGuidToLuid(interfaceguid.toCPointer<ByteVar>(), interfaceluid.toCPointer<ByteVar>())
+public actual fun convertInterfaceGuidToLuid(interfaceguid: COpaquePointer?, interfaceluid: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceGuidToLuid(interfaceguid?.value?.toCPointer<ByteVar>(), interfaceluid?.value?.toCPointer<ByteVar>())
 
-public actual fun ConvertInterfaceIndexToLuid(interfaceindex: UInt, interfaceluid: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_ConvertInterfaceIndexToLuid(interfaceindex, interfaceluid.toCPointer<ByteVar>())
+public actual fun convertInterfaceIndexToLuid(interfaceindex: UInt, interfaceluid: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceIndexToLuid(interfaceindex, interfaceluid?.value?.toCPointer<ByteVar>())
 
-public actual fun ConvertInterfaceLuidToAlias(interfaceluid: Long, interfacealias: PWSTR, length: ULong): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_ConvertInterfaceLuidToAlias(interfaceluid.toCPointer<ByteVar>(), interfacealias.toCPointer<ByteVar>(), length)
+public actual fun convertInterfaceLuidToAlias(interfaceluid: COpaquePointer?, interfacealias: Pwstr, length: ULong): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceLuidToAlias(interfaceluid?.value?.toCPointer<ByteVar>(), interfacealias?.value?.toCPointer<ByteVar>(), length)
 
-public actual fun ConvertInterfaceLuidToGuid(interfaceluid: Long, interfaceguid: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_ConvertInterfaceLuidToGuid(interfaceluid.toCPointer<ByteVar>(), interfaceguid.toCPointer<ByteVar>())
+public actual fun convertInterfaceLuidToGuid(interfaceluid: COpaquePointer?, interfaceguid: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceLuidToGuid(interfaceluid?.value?.toCPointer<ByteVar>(), interfaceguid?.value?.toCPointer<ByteVar>())
 
-public actual fun ConvertInterfaceLuidToIndex(interfaceluid: Long, interfaceindex: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_ConvertInterfaceLuidToIndex(interfaceluid.toCPointer<ByteVar>(), interfaceindex.toCPointer<ByteVar>())
+public actual fun convertInterfaceLuidToIndex(interfaceluid: COpaquePointer?, interfaceindex: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceLuidToIndex(interfaceluid?.value?.toCPointer<ByteVar>(), interfaceindex?.value?.toCPointer<ByteVar>())
 
-public actual fun ConvertInterfaceLuidToNameA(interfaceluid: Long, interfacename: PSTR, length: ULong): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_ConvertInterfaceLuidToNameA(interfaceluid.toCPointer<ByteVar>(), interfacename.toCPointer<ByteVar>(), length)
+public actual fun convertInterfaceLuidToNameA(interfaceluid: COpaquePointer?, interfacename: Pstr, length: ULong): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceLuidToNameA(interfaceluid?.value?.toCPointer<ByteVar>(), interfacename?.value?.toCPointer<ByteVar>(), length)
 
-public actual fun ConvertInterfaceLuidToNameW(interfaceluid: Long, interfacename: PWSTR, length: ULong): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_ConvertInterfaceLuidToNameW(interfaceluid.toCPointer<ByteVar>(), interfacename.toCPointer<ByteVar>(), length)
+public actual fun convertInterfaceLuidToNameW(interfaceluid: COpaquePointer?, interfacename: Pwstr, length: ULong): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceLuidToNameW(interfaceluid?.value?.toCPointer<ByteVar>(), interfacename?.value?.toCPointer<ByteVar>(), length)
 
-public actual fun ConvertInterfaceNameToLuidA(interfacename: PCSTR, interfaceluid: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_ConvertInterfaceNameToLuidA(interfacename.toCPointer<ByteVar>(), interfaceluid.toCPointer<ByteVar>())
+public actual fun convertInterfaceNameToLuidA(interfacename: Pcstr, interfaceluid: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceNameToLuidA(interfacename?.value?.toCPointer<ByteVar>(), interfaceluid?.value?.toCPointer<ByteVar>())
 
-public actual fun ConvertInterfaceNameToLuidW(interfacename: PCWSTR, interfaceluid: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_ConvertInterfaceNameToLuidW(interfacename.toCPointer<ByteVar>(), interfaceluid.toCPointer<ByteVar>())
+public actual fun convertInterfaceNameToLuidW(interfacename: Pcwstr, interfaceluid: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceNameToLuidW(interfacename?.value?.toCPointer<ByteVar>(), interfaceluid?.value?.toCPointer<ByteVar>())
 
-public actual fun ConvertIpv4MaskToLength(mask: UInt, masklength: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_ConvertIpv4MaskToLength(mask, masklength.toCPointer<ByteVar>())
+public actual fun convertIpv4MaskToLength(mask: UInt, masklength: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_convertIpv4MaskToLength(mask, masklength?.value?.toCPointer<ByteVar>())
 
-public actual fun ConvertLengthToIpv4Mask(masklength: UInt, mask: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_ConvertLengthToIpv4Mask(masklength, mask.toCPointer<ByteVar>())
+public actual fun convertLengthToIpv4Mask(masklength: UInt, mask: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_convertLengthToIpv4Mask(masklength, mask?.value?.toCPointer<ByteVar>())
 
-public actual fun CreateAnycastIpAddressEntry(row: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_CreateAnycastIpAddressEntry(row.toCPointer<ByteVar>())
+public actual fun createAnycastIpAddressEntry(row: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_createAnycastIpAddressEntry(row?.value?.toCPointer<ByteVar>())
 
-public actual fun CreateIpForwardEntry(proute: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_CreateIpForwardEntry(proute.toCPointer<ByteVar>())
+public actual fun createIpForwardEntry(proute: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_createIpForwardEntry(proute?.value?.toCPointer<ByteVar>())
 
-public actual fun CreateIpForwardEntry2(row: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_CreateIpForwardEntry2(row.toCPointer<ByteVar>())
+public actual fun createIpForwardEntry2(row: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_createIpForwardEntry2(row?.value?.toCPointer<ByteVar>())
 
-public actual fun CreateIpNetEntry(parpentry: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_CreateIpNetEntry(parpentry.toCPointer<ByteVar>())
+public actual fun createIpNetEntry(parpentry: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_createIpNetEntry(parpentry?.value?.toCPointer<ByteVar>())
 
-public actual fun CreateIpNetEntry2(row: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_CreateIpNetEntry2(row.toCPointer<ByteVar>())
+public actual fun createIpNetEntry2(row: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_createIpNetEntry2(row?.value?.toCPointer<ByteVar>())
 
-public actual fun CreatePersistentTcpPortReservation(startport: UShort, numberofports: UShort, token: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_CreatePersistentTcpPortReservation(startport, numberofports, token.toCPointer<ByteVar>())
+public actual fun createPersistentTcpPortReservation(startport: UShort, numberofports: UShort, token: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_createPersistentTcpPortReservation(startport, numberofports, token?.value?.toCPointer<ByteVar>())
 
-public actual fun CreatePersistentUdpPortReservation(startport: UShort, numberofports: UShort, token: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_CreatePersistentUdpPortReservation(startport, numberofports, token.toCPointer<ByteVar>())
+public actual fun createPersistentUdpPortReservation(startport: UShort, numberofports: UShort, token: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_createPersistentUdpPortReservation(startport, numberofports, token?.value?.toCPointer<ByteVar>())
 
-public actual fun CreateProxyArpEntry(dwaddress: UInt, dwmask: UInt, dwifindex: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_CreateProxyArpEntry(dwaddress, dwmask, dwifindex)
+public actual fun createProxyArpEntry(dwaddress: UInt, dwmask: UInt, dwifindex: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_createProxyArpEntry(dwaddress, dwmask, dwifindex)
 
-public actual fun CreateSortedAddressPairs(sourceaddresslist: Long, sourceaddresscount: UInt, destinationaddresslist: Long, destinationaddresscount: UInt, addresssortoptions: UInt, sortedaddresspairlist: Long, sortedaddresspaircount: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_CreateSortedAddressPairs(sourceaddresslist.toCPointer<ByteVar>(), sourceaddresscount, destinationaddresslist.toCPointer<ByteVar>(), destinationaddresscount, addresssortoptions, sortedaddresspairlist.toCPointer<ByteVar>(), sortedaddresspaircount.toCPointer<ByteVar>())
+public actual fun createSortedAddressPairs(sourceaddresslist: COpaquePointer?, sourceaddresscount: UInt, destinationaddresslist: COpaquePointer?, destinationaddresscount: UInt, addresssortoptions: UInt, sortedaddresspairlist: COpaquePointer?, sortedaddresspaircount: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_createSortedAddressPairs(sourceaddresslist?.value?.toCPointer<ByteVar>(), sourceaddresscount, destinationaddresslist?.value?.toCPointer<ByteVar>(), destinationaddresscount, addresssortoptions, sortedaddresspairlist?.value?.toCPointer<ByteVar>(), sortedaddresspaircount?.value?.toCPointer<ByteVar>())
 
-public actual fun CreateUnicastIpAddressEntry(row: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_CreateUnicastIpAddressEntry(row.toCPointer<ByteVar>())
+public actual fun createUnicastIpAddressEntry(row: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_createUnicastIpAddressEntry(row?.value?.toCPointer<ByteVar>())
 
-public actual fun DeleteAnycastIpAddressEntry(row: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_DeleteAnycastIpAddressEntry(row.toCPointer<ByteVar>())
+public actual fun deleteAnycastIpAddressEntry(row: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_deleteAnycastIpAddressEntry(row?.value?.toCPointer<ByteVar>())
 
-public actual fun DeleteIPAddress(ntecontext: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_DeleteIPAddress(ntecontext)
+public actual fun deleteIPAddress(ntecontext: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_deleteIPAddress(ntecontext)
 
-public actual fun DeleteIpForwardEntry(proute: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_DeleteIpForwardEntry(proute.toCPointer<ByteVar>())
+public actual fun deleteIpForwardEntry(proute: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_deleteIpForwardEntry(proute?.value?.toCPointer<ByteVar>())
 
-public actual fun DeleteIpForwardEntry2(row: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_DeleteIpForwardEntry2(row.toCPointer<ByteVar>())
+public actual fun deleteIpForwardEntry2(row: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_deleteIpForwardEntry2(row?.value?.toCPointer<ByteVar>())
 
-public actual fun DeleteIpNetEntry(parpentry: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_DeleteIpNetEntry(parpentry.toCPointer<ByteVar>())
+public actual fun deleteIpNetEntry(parpentry: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_deleteIpNetEntry(parpentry?.value?.toCPointer<ByteVar>())
 
-public actual fun DeleteIpNetEntry2(row: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_DeleteIpNetEntry2(row.toCPointer<ByteVar>())
+public actual fun deleteIpNetEntry2(row: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_deleteIpNetEntry2(row?.value?.toCPointer<ByteVar>())
 
-public actual fun DeletePersistentTcpPortReservation(startport: UShort, numberofports: UShort): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_DeletePersistentTcpPortReservation(startport, numberofports)
+public actual fun deletePersistentTcpPortReservation(startport: UShort, numberofports: UShort): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_deletePersistentTcpPortReservation(startport, numberofports)
 
-public actual fun DeletePersistentUdpPortReservation(startport: UShort, numberofports: UShort): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_DeletePersistentUdpPortReservation(startport, numberofports)
+public actual fun deletePersistentUdpPortReservation(startport: UShort, numberofports: UShort): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_deletePersistentUdpPortReservation(startport, numberofports)
 
-public actual fun DeleteProxyArpEntry(dwaddress: UInt, dwmask: UInt, dwifindex: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_DeleteProxyArpEntry(dwaddress, dwmask, dwifindex)
+public actual fun deleteProxyArpEntry(dwaddress: UInt, dwmask: UInt, dwifindex: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_deleteProxyArpEntry(dwaddress, dwmask, dwifindex)
 
-public actual fun DeleteUnicastIpAddressEntry(row: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_DeleteUnicastIpAddressEntry(row.toCPointer<ByteVar>())
+public actual fun deleteUnicastIpAddressEntry(row: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_deleteUnicastIpAddressEntry(row?.value?.toCPointer<ByteVar>())
 
-public actual fun DisableMediaSense(phandle: Long, poverlapped: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_DisableMediaSense(phandle.toCPointer<ByteVar>(), poverlapped.toCPointer<ByteVar>())
+public actual fun disableMediaSense(phandle: COpaquePointer?, poverlapped: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_disableMediaSense(phandle?.value?.toCPointer<ByteVar>(), poverlapped?.value?.toCPointer<ByteVar>())
 
-public actual fun EnableRouter(phandle: Long, poverlapped: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_EnableRouter(phandle.toCPointer<ByteVar>(), poverlapped.toCPointer<ByteVar>())
+public actual fun enableRouter(phandle: COpaquePointer?, poverlapped: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_enableRouter(phandle?.value?.toCPointer<ByteVar>(), poverlapped?.value?.toCPointer<ByteVar>())
 
-public actual fun FlushIpNetTable(dwifindex: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_FlushIpNetTable(dwifindex)
+public actual fun flushIpNetTable(dwifindex: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_flushIpNetTable(dwifindex)
 
-public actual fun FlushIpNetTable2(family: ADDRESS_FAMILY, interfaceindex: UInt): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_FlushIpNetTable2(family, interfaceindex)
+public actual fun flushIpNetTable2(family: AddressFamily, interfaceindex: UInt): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_flushIpNetTable2(family, interfaceindex)
 
-public actual fun FlushIpPathTable(family: ADDRESS_FAMILY): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_FlushIpPathTable(family)
+public actual fun flushIpPathTable(family: AddressFamily): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_flushIpPathTable(family)
 
-public actual fun FreeDnsSettings(settings: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_FreeDnsSettings(settings.toCPointer<ByteVar>())
+public actual fun freeDnsSettings(settings: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_freeDnsSettings(settings?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun FreeInterfaceDnsSettings(settings: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_FreeInterfaceDnsSettings(settings.toCPointer<ByteVar>())
+public actual fun freeInterfaceDnsSettings(settings: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_freeInterfaceDnsSettings(settings?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun FreeMibTable(memory: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_FreeMibTable(memory.toCPointer<ByteVar>())
+public actual fun freeMibTable(memory: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_freeMibTable(memory?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun GetAdapterIndex(adaptername: PCWSTR, ifindex: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetAdapterIndex(adaptername.toCPointer<ByteVar>(), ifindex.toCPointer<ByteVar>())
+public actual fun getAdapterIndex(adaptername: Pcwstr, ifindex: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getAdapterIndex(adaptername?.value?.toCPointer<ByteVar>(), ifindex?.value?.toCPointer<ByteVar>())
 
-public actual fun GetAdapterOrderMap(): Long =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetAdapterOrderMap()?.toLong() ?: 0L
+public actual fun getAdapterOrderMap(): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getAdapterOrderMap()?.let { COpaquePointer(it.toLong()) }
 
-public actual fun GetAdaptersAddresses(family: UInt, flags: GET_ADAPTERS_ADDRESSES_FLAGS, reserved: Long, adapteraddresses: Long, sizepointer: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetAdaptersAddresses(family, flags, reserved.toCPointer<ByteVar>(), adapteraddresses.toCPointer<ByteVar>(), sizepointer.toCPointer<ByteVar>())
+public actual fun getAdaptersAddresses(family: UInt, flags: GetAdaptersAddressesFlags, reserved: COpaquePointer?, adapteraddresses: COpaquePointer?, sizepointer: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getAdaptersAddresses(family, flags, reserved?.value?.toCPointer<ByteVar>(), adapteraddresses?.value?.toCPointer<ByteVar>(), sizepointer?.value?.toCPointer<ByteVar>())
 
-public actual fun GetAdaptersInfo(adapterinfo: Long, sizepointer: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetAdaptersInfo(adapterinfo.toCPointer<ByteVar>(), sizepointer.toCPointer<ByteVar>())
+public actual fun getAdaptersInfo(adapterinfo: COpaquePointer?, sizepointer: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getAdaptersInfo(adapterinfo?.value?.toCPointer<ByteVar>(), sizepointer?.value?.toCPointer<ByteVar>())
 
-public actual fun GetAnycastIpAddressEntry(row: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetAnycastIpAddressEntry(row.toCPointer<ByteVar>())
+public actual fun getAnycastIpAddressEntry(row: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getAnycastIpAddressEntry(row?.value?.toCPointer<ByteVar>())
 
-public actual fun GetAnycastIpAddressTable(family: ADDRESS_FAMILY, table: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetAnycastIpAddressTable(family, table.toCPointer<ByteVar>())
+public actual fun getAnycastIpAddressTable(family: AddressFamily, table: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getAnycastIpAddressTable(family, table?.value?.toCPointer<ByteVar>())
 
-public actual fun GetBestInterface(dwdestaddr: UInt, pdwbestifindex: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetBestInterface(dwdestaddr, pdwbestifindex.toCPointer<ByteVar>())
+public actual fun getBestInterface(dwdestaddr: UInt, pdwbestifindex: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getBestInterface(dwdestaddr, pdwbestifindex?.value?.toCPointer<ByteVar>())
 
-public actual fun GetBestInterfaceEx(pdestaddr: Long, pdwbestifindex: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetBestInterfaceEx(pdestaddr.toCPointer<ByteVar>(), pdwbestifindex.toCPointer<ByteVar>())
+public actual fun getBestInterfaceEx(pdestaddr: COpaquePointer?, pdwbestifindex: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getBestInterfaceEx(pdestaddr?.value?.toCPointer<ByteVar>(), pdwbestifindex?.value?.toCPointer<ByteVar>())
 
-public actual fun GetBestRoute(dwdestaddr: UInt, dwsourceaddr: UInt, pbestroute: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetBestRoute(dwdestaddr, dwsourceaddr, pbestroute.toCPointer<ByteVar>())
+public actual fun getBestRoute(dwdestaddr: UInt, dwsourceaddr: UInt, pbestroute: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getBestRoute(dwdestaddr, dwsourceaddr, pbestroute?.value?.toCPointer<ByteVar>())
 
-public actual fun GetBestRoute2(interfaceluid: Long, interfaceindex: UInt, sourceaddress: Long, destinationaddress: Long, addresssortoptions: UInt, bestroute: Long, bestsourceaddress: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetBestRoute2(interfaceluid.toCPointer<ByteVar>(), interfaceindex, sourceaddress.toCPointer<ByteVar>(), destinationaddress.toCPointer<ByteVar>(), addresssortoptions, bestroute.toCPointer<ByteVar>(), bestsourceaddress.toCPointer<ByteVar>())
+public actual fun getBestRoute2(interfaceluid: COpaquePointer?, interfaceindex: UInt, sourceaddress: COpaquePointer?, destinationaddress: COpaquePointer?, addresssortoptions: UInt, bestroute: COpaquePointer?, bestsourceaddress: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getBestRoute2(interfaceluid?.value?.toCPointer<ByteVar>(), interfaceindex, sourceaddress?.value?.toCPointer<ByteVar>(), destinationaddress?.value?.toCPointer<ByteVar>(), addresssortoptions, bestroute?.value?.toCPointer<ByteVar>(), bestsourceaddress?.value?.toCPointer<ByteVar>())
 
-public actual fun GetCurrentThreadCompartmentId(): NET_IF_COMPARTMENT_ID =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetCurrentThreadCompartmentId()
+public actual fun getCurrentThreadCompartmentId(): NetIfCompartmentId =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getCurrentThreadCompartmentId()
 
-public actual fun GetCurrentThreadCompartmentScope(compartmentscope: Long, compartmentid: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetCurrentThreadCompartmentScope(compartmentscope.toCPointer<ByteVar>(), compartmentid.toCPointer<ByteVar>())
+public actual fun getCurrentThreadCompartmentScope(compartmentscope: COpaquePointer?, compartmentid: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getCurrentThreadCompartmentScope(compartmentscope?.value?.toCPointer<ByteVar>(), compartmentid?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun GetDefaultCompartmentId(): NET_IF_COMPARTMENT_ID =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetDefaultCompartmentId()
+public actual fun getDefaultCompartmentId(): NetIfCompartmentId =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getDefaultCompartmentId()
 
-public actual fun GetDnsSettings(settings: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetDnsSettings(settings.toCPointer<ByteVar>())
+public actual fun getDnsSettings(settings: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getDnsSettings(settings?.value?.toCPointer<ByteVar>())
 
-public actual fun GetExtendedTcpTable(ptcptable: Long, pdwsize: Long, border: BOOL, ulaf: UInt, tableclass: TCP_TABLE_CLASS, reserved: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetExtendedTcpTable(ptcptable.toCPointer<ByteVar>(), pdwsize.toCPointer<ByteVar>(), border, ulaf, tableclass, reserved)
+public actual fun getExtendedTcpTable(ptcptable: COpaquePointer?, pdwsize: COpaquePointer?, border: Bool, ulaf: UInt, tableclass: TcpTableClass, reserved: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getExtendedTcpTable(ptcptable?.value?.toCPointer<ByteVar>(), pdwsize?.value?.toCPointer<ByteVar>(), border, ulaf, tableclass, reserved)
 
-public actual fun GetExtendedUdpTable(pudptable: Long, pdwsize: Long, border: BOOL, ulaf: UInt, tableclass: UDP_TABLE_CLASS, reserved: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetExtendedUdpTable(pudptable.toCPointer<ByteVar>(), pdwsize.toCPointer<ByteVar>(), border, ulaf, tableclass, reserved)
+public actual fun getExtendedUdpTable(pudptable: COpaquePointer?, pdwsize: COpaquePointer?, border: Bool, ulaf: UInt, tableclass: UdpTableClass, reserved: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getExtendedUdpTable(pudptable?.value?.toCPointer<ByteVar>(), pdwsize?.value?.toCPointer<ByteVar>(), border, ulaf, tableclass, reserved)
 
-public actual fun GetFriendlyIfIndex(ifindex: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetFriendlyIfIndex(ifindex)
+public actual fun getFriendlyIfIndex(ifindex: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getFriendlyIfIndex(ifindex)
 
-public actual fun GetIcmpStatistics(statistics: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetIcmpStatistics(statistics.toCPointer<ByteVar>())
+public actual fun getIcmpStatistics(statistics: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getIcmpStatistics(statistics?.value?.toCPointer<ByteVar>())
 
-public actual fun GetIcmpStatisticsEx(statistics: Long, family: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetIcmpStatisticsEx(statistics.toCPointer<ByteVar>(), family)
+public actual fun getIcmpStatisticsEx(statistics: COpaquePointer?, family: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getIcmpStatisticsEx(statistics?.value?.toCPointer<ByteVar>(), family)
 
-public actual fun GetIfEntry(pifrow: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetIfEntry(pifrow.toCPointer<ByteVar>())
+public actual fun getIfEntry(pifrow: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getIfEntry(pifrow?.value?.toCPointer<ByteVar>())
 
-public actual fun GetIfEntry2(row: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetIfEntry2(row.toCPointer<ByteVar>())
+public actual fun getIfEntry2(row: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getIfEntry2(row?.value?.toCPointer<ByteVar>())
 
-public actual fun GetIfEntry2Ex(level: MIB_IF_ENTRY_LEVEL, row: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetIfEntry2Ex(level, row.toCPointer<ByteVar>())
+public actual fun getIfEntry2Ex(level: MibIfEntryLevel, row: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getIfEntry2Ex(level, row?.value?.toCPointer<ByteVar>())
 
-public actual fun GetIfStackTable(table: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetIfStackTable(table.toCPointer<ByteVar>())
+public actual fun getIfStackTable(table: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getIfStackTable(table?.value?.toCPointer<ByteVar>())
 
-public actual fun GetIfTable(piftable: Long, pdwsize: Long, border: BOOL): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetIfTable(piftable.toCPointer<ByteVar>(), pdwsize.toCPointer<ByteVar>(), border)
+public actual fun getIfTable(piftable: COpaquePointer?, pdwsize: COpaquePointer?, border: Bool): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getIfTable(piftable?.value?.toCPointer<ByteVar>(), pdwsize?.value?.toCPointer<ByteVar>(), border)
 
-public actual fun GetIfTable2(table: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetIfTable2(table.toCPointer<ByteVar>())
+public actual fun getIfTable2(table: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getIfTable2(table?.value?.toCPointer<ByteVar>())
 
-public actual fun GetIfTable2Ex(level: MIB_IF_TABLE_LEVEL, table: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetIfTable2Ex(level, table.toCPointer<ByteVar>())
+public actual fun getIfTable2Ex(level: MibIfTableLevel, table: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getIfTable2Ex(level, table?.value?.toCPointer<ByteVar>())
 
-public actual fun GetInterfaceActiveTimestampCapabilities(interfaceluid: Long, timestampcapabilites: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetInterfaceActiveTimestampCapabilities(interfaceluid.toCPointer<ByteVar>(), timestampcapabilites.toCPointer<ByteVar>())
+public actual fun getInterfaceActiveTimestampCapabilities(interfaceluid: COpaquePointer?, timestampcapabilites: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getInterfaceActiveTimestampCapabilities(interfaceluid?.value?.toCPointer<ByteVar>(), timestampcapabilites?.value?.toCPointer<ByteVar>())
 
-public actual fun GetInterfaceCurrentTimestampCapabilities(interfaceluid: Long, timestampcapabilites: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetInterfaceCurrentTimestampCapabilities(interfaceluid.toCPointer<ByteVar>(), timestampcapabilites.toCPointer<ByteVar>())
+public actual fun getInterfaceCurrentTimestampCapabilities(interfaceluid: COpaquePointer?, timestampcapabilites: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getInterfaceCurrentTimestampCapabilities(interfaceluid?.value?.toCPointer<ByteVar>(), timestampcapabilites?.value?.toCPointer<ByteVar>())
 
-public actual fun GetInterfaceDnsSettings(iface: GUID, settings: Long): WIN32_ERROR =
+public actual fun getInterfaceDnsSettings(iface: Guid, settings: COpaquePointer?): Win32Error =
     0u
 
-public actual fun GetInterfaceHardwareTimestampCapabilities(interfaceluid: Long, timestampcapabilites: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetInterfaceHardwareTimestampCapabilities(interfaceluid.toCPointer<ByteVar>(), timestampcapabilites.toCPointer<ByteVar>())
+public actual fun getInterfaceHardwareTimestampCapabilities(interfaceluid: COpaquePointer?, timestampcapabilites: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getInterfaceHardwareTimestampCapabilities(interfaceluid?.value?.toCPointer<ByteVar>(), timestampcapabilites?.value?.toCPointer<ByteVar>())
 
-public actual fun GetInterfaceInfo(piftable: Long, dwoutbuflen: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetInterfaceInfo(piftable.toCPointer<ByteVar>(), dwoutbuflen.toCPointer<ByteVar>())
+public actual fun getInterfaceInfo(piftable: COpaquePointer?, dwoutbuflen: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getInterfaceInfo(piftable?.value?.toCPointer<ByteVar>(), dwoutbuflen?.value?.toCPointer<ByteVar>())
 
-public actual fun GetInterfaceSupportedTimestampCapabilities(interfaceluid: Long, timestampcapabilites: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetInterfaceSupportedTimestampCapabilities(interfaceluid.toCPointer<ByteVar>(), timestampcapabilites.toCPointer<ByteVar>())
+public actual fun getInterfaceSupportedTimestampCapabilities(interfaceluid: COpaquePointer?, timestampcapabilites: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getInterfaceSupportedTimestampCapabilities(interfaceluid?.value?.toCPointer<ByteVar>(), timestampcapabilites?.value?.toCPointer<ByteVar>())
 
-public actual fun GetInvertedIfStackTable(table: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetInvertedIfStackTable(table.toCPointer<ByteVar>())
+public actual fun getInvertedIfStackTable(table: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getInvertedIfStackTable(table?.value?.toCPointer<ByteVar>())
 
-public actual fun GetIpAddrTable(pipaddrtable: Long, pdwsize: Long, border: BOOL): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetIpAddrTable(pipaddrtable.toCPointer<ByteVar>(), pdwsize.toCPointer<ByteVar>(), border)
+public actual fun getIpAddrTable(pipaddrtable: COpaquePointer?, pdwsize: COpaquePointer?, border: Bool): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getIpAddrTable(pipaddrtable?.value?.toCPointer<ByteVar>(), pdwsize?.value?.toCPointer<ByteVar>(), border)
 
-public actual fun GetIpErrorString(errorcode: UInt, buffer: PWSTR, size: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetIpErrorString(errorcode, buffer.toCPointer<ByteVar>(), size.toCPointer<ByteVar>())
+public actual fun getIpErrorString(errorcode: UInt, buffer: Pwstr, size: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getIpErrorString(errorcode, buffer?.value?.toCPointer<ByteVar>(), size?.value?.toCPointer<ByteVar>())
 
-public actual fun GetIpForwardEntry2(row: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetIpForwardEntry2(row.toCPointer<ByteVar>())
+public actual fun getIpForwardEntry2(row: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getIpForwardEntry2(row?.value?.toCPointer<ByteVar>())
 
-public actual fun GetIpForwardTable(pipforwardtable: Long, pdwsize: Long, border: BOOL): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetIpForwardTable(pipforwardtable.toCPointer<ByteVar>(), pdwsize.toCPointer<ByteVar>(), border)
+public actual fun getIpForwardTable(pipforwardtable: COpaquePointer?, pdwsize: COpaquePointer?, border: Bool): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getIpForwardTable(pipforwardtable?.value?.toCPointer<ByteVar>(), pdwsize?.value?.toCPointer<ByteVar>(), border)
 
-public actual fun GetIpForwardTable2(family: ADDRESS_FAMILY, table: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetIpForwardTable2(family, table.toCPointer<ByteVar>())
+public actual fun getIpForwardTable2(family: AddressFamily, table: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getIpForwardTable2(family, table?.value?.toCPointer<ByteVar>())
 
-public actual fun GetIpInterfaceEntry(row: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetIpInterfaceEntry(row.toCPointer<ByteVar>())
+public actual fun getIpInterfaceEntry(row: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getIpInterfaceEntry(row?.value?.toCPointer<ByteVar>())
 
-public actual fun GetIpInterfaceTable(family: ADDRESS_FAMILY, table: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetIpInterfaceTable(family, table.toCPointer<ByteVar>())
+public actual fun getIpInterfaceTable(family: AddressFamily, table: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getIpInterfaceTable(family, table?.value?.toCPointer<ByteVar>())
 
-public actual fun GetIpNetEntry2(row: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetIpNetEntry2(row.toCPointer<ByteVar>())
+public actual fun getIpNetEntry2(row: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getIpNetEntry2(row?.value?.toCPointer<ByteVar>())
 
-public actual fun GetIpNetTable(ipnettable: Long, sizepointer: Long, order: BOOL): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetIpNetTable(ipnettable.toCPointer<ByteVar>(), sizepointer.toCPointer<ByteVar>(), order)
+public actual fun getIpNetTable(ipnettable: COpaquePointer?, sizepointer: COpaquePointer?, order: Bool): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getIpNetTable(ipnettable?.value?.toCPointer<ByteVar>(), sizepointer?.value?.toCPointer<ByteVar>(), order)
 
-public actual fun GetIpNetTable2(family: ADDRESS_FAMILY, table: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetIpNetTable2(family, table.toCPointer<ByteVar>())
+public actual fun getIpNetTable2(family: AddressFamily, table: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getIpNetTable2(family, table?.value?.toCPointer<ByteVar>())
 
-public actual fun GetIpNetworkConnectionBandwidthEstimates(interfaceindex: UInt, addressfamily: ADDRESS_FAMILY, bandwidthestimates: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetIpNetworkConnectionBandwidthEstimates(interfaceindex, addressfamily, bandwidthestimates.toCPointer<ByteVar>())
+public actual fun getIpNetworkConnectionBandwidthEstimates(interfaceindex: UInt, addressfamily: AddressFamily, bandwidthestimates: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getIpNetworkConnectionBandwidthEstimates(interfaceindex, addressfamily, bandwidthestimates?.value?.toCPointer<ByteVar>())
 
-public actual fun GetIpPathEntry(row: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetIpPathEntry(row.toCPointer<ByteVar>())
+public actual fun getIpPathEntry(row: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getIpPathEntry(row?.value?.toCPointer<ByteVar>())
 
-public actual fun GetIpPathTable(family: ADDRESS_FAMILY, table: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetIpPathTable(family, table.toCPointer<ByteVar>())
+public actual fun getIpPathTable(family: AddressFamily, table: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getIpPathTable(family, table?.value?.toCPointer<ByteVar>())
 
-public actual fun GetIpStatistics(statistics: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetIpStatistics(statistics.toCPointer<ByteVar>())
+public actual fun getIpStatistics(statistics: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getIpStatistics(statistics?.value?.toCPointer<ByteVar>())
 
-public actual fun GetIpStatisticsEx(statistics: Long, family: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetIpStatisticsEx(statistics.toCPointer<ByteVar>(), family)
+public actual fun getIpStatisticsEx(statistics: COpaquePointer?, family: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getIpStatisticsEx(statistics?.value?.toCPointer<ByteVar>(), family)
 
-public actual fun GetJobCompartmentId(jobhandle: HANDLE): NET_IF_COMPARTMENT_ID =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetJobCompartmentId(jobhandle.toCPointer<ByteVar>())
+public actual fun getJobCompartmentId(jobhandle: Handle): NetIfCompartmentId =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getJobCompartmentId(jobhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun GetMulticastIpAddressEntry(row: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetMulticastIpAddressEntry(row.toCPointer<ByteVar>())
+public actual fun getMulticastIpAddressEntry(row: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getMulticastIpAddressEntry(row?.value?.toCPointer<ByteVar>())
 
-public actual fun GetMulticastIpAddressTable(family: ADDRESS_FAMILY, table: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetMulticastIpAddressTable(family, table.toCPointer<ByteVar>())
+public actual fun getMulticastIpAddressTable(family: AddressFamily, table: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getMulticastIpAddressTable(family, table?.value?.toCPointer<ByteVar>())
 
-public actual fun GetNetworkConnectivityHint(connectivityhint: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetNetworkConnectivityHint(connectivityhint.toCPointer<ByteVar>())
+public actual fun getNetworkConnectivityHint(connectivityhint: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getNetworkConnectivityHint(connectivityhint?.value?.toCPointer<ByteVar>())
 
-public actual fun GetNetworkConnectivityHintForInterface(interfaceindex: UInt, connectivityhint: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetNetworkConnectivityHintForInterface(interfaceindex, connectivityhint.toCPointer<ByteVar>())
+public actual fun getNetworkConnectivityHintForInterface(interfaceindex: UInt, connectivityhint: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getNetworkConnectivityHintForInterface(interfaceindex, connectivityhint?.value?.toCPointer<ByteVar>())
 
-public actual fun GetNetworkInformation(networkguid: Long, compartmentid: Long, siteid: Long, networkname: PWSTR, length: UInt): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetNetworkInformation(networkguid.toCPointer<ByteVar>(), compartmentid.toCPointer<ByteVar>(), siteid.toCPointer<ByteVar>(), networkname.toCPointer<ByteVar>(), length)
+public actual fun getNetworkInformation(networkguid: COpaquePointer?, compartmentid: COpaquePointer?, siteid: COpaquePointer?, networkname: Pwstr, length: UInt): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getNetworkInformation(networkguid?.value?.toCPointer<ByteVar>(), compartmentid?.value?.toCPointer<ByteVar>(), siteid?.value?.toCPointer<ByteVar>(), networkname?.value?.toCPointer<ByteVar>(), length)
 
-public actual fun GetNetworkParams(pfixedinfo: Long, poutbuflen: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetNetworkParams(pfixedinfo.toCPointer<ByteVar>(), poutbuflen.toCPointer<ByteVar>())
+public actual fun getNetworkParams(pfixedinfo: COpaquePointer?, poutbuflen: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getNetworkParams(pfixedinfo?.value?.toCPointer<ByteVar>(), poutbuflen?.value?.toCPointer<ByteVar>())
 
-public actual fun GetNumberOfInterfaces(pdwnumif: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetNumberOfInterfaces(pdwnumif.toCPointer<ByteVar>())
+public actual fun getNumberOfInterfaces(pdwnumif: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getNumberOfInterfaces(pdwnumif?.value?.toCPointer<ByteVar>())
 
-public actual fun GetOwnerModuleFromPidAndInfo(ulpid: UInt, pinfo: Long, cls: TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer: Long, pdwsize: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetOwnerModuleFromPidAndInfo(ulpid, pinfo.toCPointer<ByteVar>(), cls, pbuffer.toCPointer<ByteVar>(), pdwsize.toCPointer<ByteVar>())
+public actual fun getOwnerModuleFromPidAndInfo(ulpid: UInt, pinfo: COpaquePointer?, cls: TcpipOwnerModuleInfoClass, pbuffer: COpaquePointer?, pdwsize: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getOwnerModuleFromPidAndInfo(ulpid, pinfo?.value?.toCPointer<ByteVar>(), cls, pbuffer?.value?.toCPointer<ByteVar>(), pdwsize?.value?.toCPointer<ByteVar>())
 
-public actual fun GetOwnerModuleFromTcp6Entry(ptcpentry: Long, cls: TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer: Long, pdwsize: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetOwnerModuleFromTcp6Entry(ptcpentry.toCPointer<ByteVar>(), cls, pbuffer.toCPointer<ByteVar>(), pdwsize.toCPointer<ByteVar>())
+public actual fun getOwnerModuleFromTcp6Entry(ptcpentry: COpaquePointer?, cls: TcpipOwnerModuleInfoClass, pbuffer: COpaquePointer?, pdwsize: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getOwnerModuleFromTcp6Entry(ptcpentry?.value?.toCPointer<ByteVar>(), cls, pbuffer?.value?.toCPointer<ByteVar>(), pdwsize?.value?.toCPointer<ByteVar>())
 
-public actual fun GetOwnerModuleFromTcpEntry(ptcpentry: Long, cls: TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer: Long, pdwsize: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetOwnerModuleFromTcpEntry(ptcpentry.toCPointer<ByteVar>(), cls, pbuffer.toCPointer<ByteVar>(), pdwsize.toCPointer<ByteVar>())
+public actual fun getOwnerModuleFromTcpEntry(ptcpentry: COpaquePointer?, cls: TcpipOwnerModuleInfoClass, pbuffer: COpaquePointer?, pdwsize: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getOwnerModuleFromTcpEntry(ptcpentry?.value?.toCPointer<ByteVar>(), cls, pbuffer?.value?.toCPointer<ByteVar>(), pdwsize?.value?.toCPointer<ByteVar>())
 
-public actual fun GetOwnerModuleFromUdp6Entry(pudpentry: Long, cls: TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer: Long, pdwsize: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetOwnerModuleFromUdp6Entry(pudpentry.toCPointer<ByteVar>(), cls, pbuffer.toCPointer<ByteVar>(), pdwsize.toCPointer<ByteVar>())
+public actual fun getOwnerModuleFromUdp6Entry(pudpentry: COpaquePointer?, cls: TcpipOwnerModuleInfoClass, pbuffer: COpaquePointer?, pdwsize: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getOwnerModuleFromUdp6Entry(pudpentry?.value?.toCPointer<ByteVar>(), cls, pbuffer?.value?.toCPointer<ByteVar>(), pdwsize?.value?.toCPointer<ByteVar>())
 
-public actual fun GetOwnerModuleFromUdpEntry(pudpentry: Long, cls: TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer: Long, pdwsize: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetOwnerModuleFromUdpEntry(pudpentry.toCPointer<ByteVar>(), cls, pbuffer.toCPointer<ByteVar>(), pdwsize.toCPointer<ByteVar>())
+public actual fun getOwnerModuleFromUdpEntry(pudpentry: COpaquePointer?, cls: TcpipOwnerModuleInfoClass, pbuffer: COpaquePointer?, pdwsize: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getOwnerModuleFromUdpEntry(pudpentry?.value?.toCPointer<ByteVar>(), cls, pbuffer?.value?.toCPointer<ByteVar>(), pdwsize?.value?.toCPointer<ByteVar>())
 
-public actual fun GetPerAdapterInfo(ifindex: UInt, pperadapterinfo: Long, poutbuflen: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetPerAdapterInfo(ifindex, pperadapterinfo.toCPointer<ByteVar>(), poutbuflen.toCPointer<ByteVar>())
+public actual fun getPerAdapterInfo(ifindex: UInt, pperadapterinfo: COpaquePointer?, poutbuflen: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getPerAdapterInfo(ifindex, pperadapterinfo?.value?.toCPointer<ByteVar>(), poutbuflen?.value?.toCPointer<ByteVar>())
 
-public actual fun GetPerTcp6ConnectionEStats(row: Long, estatstype: TCP_ESTATS_TYPE, rw: Long, rwversion: UInt, rwsize: UInt, ros: Long, rosversion: UInt, rossize: UInt, rod: Long, rodversion: UInt, rodsize: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetPerTcp6ConnectionEStats(row.toCPointer<ByteVar>(), estatstype, rw.toCPointer<ByteVar>(), rwversion, rwsize, ros.toCPointer<ByteVar>(), rosversion, rossize, rod.toCPointer<ByteVar>(), rodversion, rodsize)
+public actual fun getPerTcp6ConnectionEStats(row: COpaquePointer?, estatstype: TcpEstatsType, rw: COpaquePointer?, rwversion: UInt, rwsize: UInt, ros: COpaquePointer?, rosversion: UInt, rossize: UInt, rod: COpaquePointer?, rodversion: UInt, rodsize: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getPerTcp6ConnectionEStats(row?.value?.toCPointer<ByteVar>(), estatstype, rw?.value?.toCPointer<ByteVar>(), rwversion, rwsize, ros?.value?.toCPointer<ByteVar>(), rosversion, rossize, rod?.value?.toCPointer<ByteVar>(), rodversion, rodsize)
 
-public actual fun GetPerTcpConnectionEStats(row: Long, estatstype: TCP_ESTATS_TYPE, rw: Long, rwversion: UInt, rwsize: UInt, ros: Long, rosversion: UInt, rossize: UInt, rod: Long, rodversion: UInt, rodsize: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetPerTcpConnectionEStats(row.toCPointer<ByteVar>(), estatstype, rw.toCPointer<ByteVar>(), rwversion, rwsize, ros.toCPointer<ByteVar>(), rosversion, rossize, rod.toCPointer<ByteVar>(), rodversion, rodsize)
+public actual fun getPerTcpConnectionEStats(row: COpaquePointer?, estatstype: TcpEstatsType, rw: COpaquePointer?, rwversion: UInt, rwsize: UInt, ros: COpaquePointer?, rosversion: UInt, rossize: UInt, rod: COpaquePointer?, rodversion: UInt, rodsize: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getPerTcpConnectionEStats(row?.value?.toCPointer<ByteVar>(), estatstype, rw?.value?.toCPointer<ByteVar>(), rwversion, rwsize, ros?.value?.toCPointer<ByteVar>(), rosversion, rossize, rod?.value?.toCPointer<ByteVar>(), rodversion, rodsize)
 
-public actual fun GetRTTAndHopCount(destipaddress: UInt, hopcount: Long, maxhops: UInt, rtt: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetRTTAndHopCount(destipaddress, hopcount.toCPointer<ByteVar>(), maxhops, rtt.toCPointer<ByteVar>())
+public actual fun getRTTAndHopCount(destipaddress: UInt, hopcount: COpaquePointer?, maxhops: UInt, rtt: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getRTTAndHopCount(destipaddress, hopcount?.value?.toCPointer<ByteVar>(), maxhops, rtt?.value?.toCPointer<ByteVar>())
 
-public actual fun GetSessionCompartmentId(sessionid: UInt): NET_IF_COMPARTMENT_ID =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetSessionCompartmentId(sessionid)
+public actual fun getSessionCompartmentId(sessionid: UInt): NetIfCompartmentId =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getSessionCompartmentId(sessionid)
 
-public actual fun GetTcp6Table(tcptable: Long, sizepointer: Long, order: BOOL): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetTcp6Table(tcptable.toCPointer<ByteVar>(), sizepointer.toCPointer<ByteVar>(), order)
+public actual fun getTcp6Table(tcptable: COpaquePointer?, sizepointer: COpaquePointer?, order: Bool): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getTcp6Table(tcptable?.value?.toCPointer<ByteVar>(), sizepointer?.value?.toCPointer<ByteVar>(), order)
 
-public actual fun GetTcp6Table2(tcptable: Long, sizepointer: Long, order: BOOL): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetTcp6Table2(tcptable.toCPointer<ByteVar>(), sizepointer.toCPointer<ByteVar>(), order)
+public actual fun getTcp6Table2(tcptable: COpaquePointer?, sizepointer: COpaquePointer?, order: Bool): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getTcp6Table2(tcptable?.value?.toCPointer<ByteVar>(), sizepointer?.value?.toCPointer<ByteVar>(), order)
 
-public actual fun GetTcpStatistics(statistics: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetTcpStatistics(statistics.toCPointer<ByteVar>())
+public actual fun getTcpStatistics(statistics: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getTcpStatistics(statistics?.value?.toCPointer<ByteVar>())
 
-public actual fun GetTcpStatisticsEx(statistics: Long, family: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetTcpStatisticsEx(statistics.toCPointer<ByteVar>(), family)
+public actual fun getTcpStatisticsEx(statistics: COpaquePointer?, family: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getTcpStatisticsEx(statistics?.value?.toCPointer<ByteVar>(), family)
 
-public actual fun GetTcpStatisticsEx2(statistics: Long, family: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetTcpStatisticsEx2(statistics.toCPointer<ByteVar>(), family)
+public actual fun getTcpStatisticsEx2(statistics: COpaquePointer?, family: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getTcpStatisticsEx2(statistics?.value?.toCPointer<ByteVar>(), family)
 
-public actual fun GetTcpTable(tcptable: Long, sizepointer: Long, order: BOOL): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetTcpTable(tcptable.toCPointer<ByteVar>(), sizepointer.toCPointer<ByteVar>(), order)
+public actual fun getTcpTable(tcptable: COpaquePointer?, sizepointer: COpaquePointer?, order: Bool): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getTcpTable(tcptable?.value?.toCPointer<ByteVar>(), sizepointer?.value?.toCPointer<ByteVar>(), order)
 
-public actual fun GetTcpTable2(tcptable: Long, sizepointer: Long, order: BOOL): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetTcpTable2(tcptable.toCPointer<ByteVar>(), sizepointer.toCPointer<ByteVar>(), order)
+public actual fun getTcpTable2(tcptable: COpaquePointer?, sizepointer: COpaquePointer?, order: Bool): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getTcpTable2(tcptable?.value?.toCPointer<ByteVar>(), sizepointer?.value?.toCPointer<ByteVar>(), order)
 
-public actual fun GetTeredoPort(port: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetTeredoPort(port.toCPointer<ByteVar>())
+public actual fun getTeredoPort(port: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getTeredoPort(port?.value?.toCPointer<ByteVar>())
 
-public actual fun GetUdp6Table(udp6table: Long, sizepointer: Long, order: BOOL): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetUdp6Table(udp6table.toCPointer<ByteVar>(), sizepointer.toCPointer<ByteVar>(), order)
+public actual fun getUdp6Table(udp6table: COpaquePointer?, sizepointer: COpaquePointer?, order: Bool): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getUdp6Table(udp6table?.value?.toCPointer<ByteVar>(), sizepointer?.value?.toCPointer<ByteVar>(), order)
 
-public actual fun GetUdpStatistics(stats: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetUdpStatistics(stats.toCPointer<ByteVar>())
+public actual fun getUdpStatistics(stats: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getUdpStatistics(stats?.value?.toCPointer<ByteVar>())
 
-public actual fun GetUdpStatisticsEx(statistics: Long, family: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetUdpStatisticsEx(statistics.toCPointer<ByteVar>(), family)
+public actual fun getUdpStatisticsEx(statistics: COpaquePointer?, family: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getUdpStatisticsEx(statistics?.value?.toCPointer<ByteVar>(), family)
 
-public actual fun GetUdpStatisticsEx2(statistics: Long, family: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetUdpStatisticsEx2(statistics.toCPointer<ByteVar>(), family)
+public actual fun getUdpStatisticsEx2(statistics: COpaquePointer?, family: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getUdpStatisticsEx2(statistics?.value?.toCPointer<ByteVar>(), family)
 
-public actual fun GetUdpTable(udptable: Long, sizepointer: Long, order: BOOL): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetUdpTable(udptable.toCPointer<ByteVar>(), sizepointer.toCPointer<ByteVar>(), order)
+public actual fun getUdpTable(udptable: COpaquePointer?, sizepointer: COpaquePointer?, order: Bool): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getUdpTable(udptable?.value?.toCPointer<ByteVar>(), sizepointer?.value?.toCPointer<ByteVar>(), order)
 
-public actual fun GetUniDirectionalAdapterInfo(pipifinfo: Long, dwoutbuflen: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetUniDirectionalAdapterInfo(pipifinfo.toCPointer<ByteVar>(), dwoutbuflen.toCPointer<ByteVar>())
+public actual fun getUniDirectionalAdapterInfo(pipifinfo: COpaquePointer?, dwoutbuflen: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getUniDirectionalAdapterInfo(pipifinfo?.value?.toCPointer<ByteVar>(), dwoutbuflen?.value?.toCPointer<ByteVar>())
 
-public actual fun GetUnicastIpAddressEntry(row: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetUnicastIpAddressEntry(row.toCPointer<ByteVar>())
+public actual fun getUnicastIpAddressEntry(row: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getUnicastIpAddressEntry(row?.value?.toCPointer<ByteVar>())
 
-public actual fun GetUnicastIpAddressTable(family: ADDRESS_FAMILY, table: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_GetUnicastIpAddressTable(family, table.toCPointer<ByteVar>())
+public actual fun getUnicastIpAddressTable(family: AddressFamily, table: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_getUnicastIpAddressTable(family, table?.value?.toCPointer<ByteVar>())
 
-public actual fun Icmp6CreateFile(): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_Icmp6CreateFile()?.toLong() ?: 0L
+public actual fun icmp6CreateFile(): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_icmp6CreateFile()?.let { COpaquePointer(it.toLong()) }
 
-public actual fun Icmp6ParseReplies(replybuffer: Long, replysize: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_Icmp6ParseReplies(replybuffer.toCPointer<ByteVar>(), replysize)
+public actual fun icmp6ParseReplies(replybuffer: COpaquePointer?, replysize: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_icmp6ParseReplies(replybuffer?.value?.toCPointer<ByteVar>(), replysize)
 
-public actual fun Icmp6SendEcho2(icmphandle: HANDLE, event: HANDLE, apcroutine: PIO_APC_ROUTINE, apccontext: Long, sourceaddress: Long, destinationaddress: Long, requestdata: Long, requestsize: UShort, requestoptions: Long, replybuffer: Long, replysize: UInt, timeout: UInt): UInt =
-    0u
+public actual fun icmp6SendEcho2(icmphandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: COpaquePointer?, sourceaddress: COpaquePointer?, destinationaddress: COpaquePointer?, requestdata: COpaquePointer?, requestsize: UShort, requestoptions: COpaquePointer?, replybuffer: COpaquePointer?, replysize: UInt, timeout: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_icmp6SendEcho2(icmphandle?.value?.toCPointer<ByteVar>(), event?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), apccontext?.value?.toCPointer<ByteVar>(), sourceaddress?.value?.toCPointer<ByteVar>(), destinationaddress?.value?.toCPointer<ByteVar>(), requestdata?.value?.toCPointer<ByteVar>(), requestsize, requestoptions?.value?.toCPointer<ByteVar>(), replybuffer?.value?.toCPointer<ByteVar>(), replysize, timeout)
 
-public actual fun IcmpCloseHandle(icmphandle: HANDLE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_IcmpCloseHandle(icmphandle.toCPointer<ByteVar>())
+public actual fun icmpCloseHandle(icmphandle: Handle): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_icmpCloseHandle(icmphandle?.value?.toCPointer<ByteVar>())
 
-public actual fun IcmpCreateFile(): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_IcmpCreateFile()?.toLong() ?: 0L
+public actual fun icmpCreateFile(): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_icmpCreateFile()?.let { COpaquePointer(it.toLong()) }
 
-public actual fun IcmpParseReplies(replybuffer: Long, replysize: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_IcmpParseReplies(replybuffer.toCPointer<ByteVar>(), replysize)
+public actual fun icmpParseReplies(replybuffer: COpaquePointer?, replysize: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_icmpParseReplies(replybuffer?.value?.toCPointer<ByteVar>(), replysize)
 
-public actual fun IcmpSendEcho(icmphandle: HANDLE, destinationaddress: UInt, requestdata: Long, requestsize: UShort, requestoptions: Long, replybuffer: Long, replysize: UInt, timeout: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_IcmpSendEcho(icmphandle.toCPointer<ByteVar>(), destinationaddress, requestdata.toCPointer<ByteVar>(), requestsize, requestoptions.toCPointer<ByteVar>(), replybuffer.toCPointer<ByteVar>(), replysize, timeout)
+public actual fun icmpSendEcho(icmphandle: Handle, destinationaddress: UInt, requestdata: COpaquePointer?, requestsize: UShort, requestoptions: COpaquePointer?, replybuffer: COpaquePointer?, replysize: UInt, timeout: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_icmpSendEcho(icmphandle?.value?.toCPointer<ByteVar>(), destinationaddress, requestdata?.value?.toCPointer<ByteVar>(), requestsize, requestoptions?.value?.toCPointer<ByteVar>(), replybuffer?.value?.toCPointer<ByteVar>(), replysize, timeout)
 
-public actual fun IcmpSendEcho2(icmphandle: HANDLE, event: HANDLE, apcroutine: PIO_APC_ROUTINE, apccontext: Long, destinationaddress: UInt, requestdata: Long, requestsize: UShort, requestoptions: Long, replybuffer: Long, replysize: UInt, timeout: UInt): UInt =
-    0u
+public actual fun icmpSendEcho2(icmphandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: COpaquePointer?, destinationaddress: UInt, requestdata: COpaquePointer?, requestsize: UShort, requestoptions: COpaquePointer?, replybuffer: COpaquePointer?, replysize: UInt, timeout: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_icmpSendEcho2(icmphandle?.value?.toCPointer<ByteVar>(), event?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), apccontext?.value?.toCPointer<ByteVar>(), destinationaddress, requestdata?.value?.toCPointer<ByteVar>(), requestsize, requestoptions?.value?.toCPointer<ByteVar>(), replybuffer?.value?.toCPointer<ByteVar>(), replysize, timeout)
 
-public actual fun IcmpSendEcho2Ex(icmphandle: HANDLE, event: HANDLE, apcroutine: PIO_APC_ROUTINE, apccontext: Long, sourceaddress: UInt, destinationaddress: UInt, requestdata: Long, requestsize: UShort, requestoptions: Long, replybuffer: Long, replysize: UInt, timeout: UInt): UInt =
-    0u
+public actual fun icmpSendEcho2Ex(icmphandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: COpaquePointer?, sourceaddress: UInt, destinationaddress: UInt, requestdata: COpaquePointer?, requestsize: UShort, requestoptions: COpaquePointer?, replybuffer: COpaquePointer?, replysize: UInt, timeout: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_icmpSendEcho2Ex(icmphandle?.value?.toCPointer<ByteVar>(), event?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), apccontext?.value?.toCPointer<ByteVar>(), sourceaddress, destinationaddress, requestdata?.value?.toCPointer<ByteVar>(), requestsize, requestoptions?.value?.toCPointer<ByteVar>(), replybuffer?.value?.toCPointer<ByteVar>(), replysize, timeout)
 
-public actual fun InitializeIpForwardEntry(row: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_InitializeIpForwardEntry(row.toCPointer<ByteVar>())
+public actual fun initializeIpForwardEntry(row: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_initializeIpForwardEntry(row?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun InitializeIpInterfaceEntry(row: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_InitializeIpInterfaceEntry(row.toCPointer<ByteVar>())
+public actual fun initializeIpInterfaceEntry(row: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_initializeIpInterfaceEntry(row?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun InitializeUnicastIpAddressEntry(row: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_InitializeUnicastIpAddressEntry(row.toCPointer<ByteVar>())
+public actual fun initializeUnicastIpAddressEntry(row: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_initializeUnicastIpAddressEntry(row?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun IpReleaseAddress(adapterinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_IpReleaseAddress(adapterinfo.toCPointer<ByteVar>())
+public actual fun ipReleaseAddress(adapterinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_ipReleaseAddress(adapterinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun IpRenewAddress(adapterinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_IpRenewAddress(adapterinfo.toCPointer<ByteVar>())
+public actual fun ipRenewAddress(adapterinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_ipRenewAddress(adapterinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun LookupPersistentTcpPortReservation(startport: UShort, numberofports: UShort, token: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_LookupPersistentTcpPortReservation(startport, numberofports, token.toCPointer<ByteVar>())
+public actual fun lookupPersistentTcpPortReservation(startport: UShort, numberofports: UShort, token: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_lookupPersistentTcpPortReservation(startport, numberofports, token?.value?.toCPointer<ByteVar>())
 
-public actual fun LookupPersistentUdpPortReservation(startport: UShort, numberofports: UShort, token: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_LookupPersistentUdpPortReservation(startport, numberofports, token.toCPointer<ByteVar>())
+public actual fun lookupPersistentUdpPortReservation(startport: UShort, numberofports: UShort, token: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_lookupPersistentUdpPortReservation(startport, numberofports, token?.value?.toCPointer<ByteVar>())
 
-public actual fun NhpAllocateAndGetInterfaceInfoFromStack(pptable: Long, pdwcount: Long, border: BOOL, hheap: HANDLE, dwflags: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_NhpAllocateAndGetInterfaceInfoFromStack(pptable.toCPointer<ByteVar>(), pdwcount.toCPointer<ByteVar>(), border, hheap.toCPointer<ByteVar>(), dwflags)
+public actual fun nhpAllocateAndGetInterfaceInfoFromStack(pptable: COpaquePointer?, pdwcount: COpaquePointer?, border: Bool, hheap: Handle, dwflags: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_nhpAllocateAndGetInterfaceInfoFromStack(pptable?.value?.toCPointer<ByteVar>(), pdwcount?.value?.toCPointer<ByteVar>(), border, hheap?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun NotifyAddrChange(handle: Long, overlapped: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_NotifyAddrChange(handle.toCPointer<ByteVar>(), overlapped.toCPointer<ByteVar>())
+public actual fun notifyAddrChange(handle: COpaquePointer?, overlapped: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_notifyAddrChange(handle?.value?.toCPointer<ByteVar>(), overlapped?.value?.toCPointer<ByteVar>())
 
-public actual fun NotifyIfTimestampConfigChange(callercontext: Long, callback: PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK, notificationhandle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_NotifyIfTimestampConfigChange(callercontext.toCPointer<ByteVar>(), callback.toLong().toCPointer<ByteVar>(), notificationhandle.toCPointer<ByteVar>())
+public actual fun notifyIfTimestampConfigChange(callercontext: COpaquePointer?, callback: PinterfaceTimestampConfigChangeCallback, notificationhandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_notifyIfTimestampConfigChange(callercontext?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), notificationhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun NotifyIpInterfaceChange(family: ADDRESS_FAMILY, callback: PIPINTERFACE_CHANGE_CALLBACK, callercontext: Long, initialnotification: Boolean, notificationhandle: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_NotifyIpInterfaceChange(family, callback.toLong().toCPointer<ByteVar>(), callercontext.toCPointer<ByteVar>(), initialnotification, notificationhandle.toCPointer<ByteVar>())
+public actual fun notifyIpInterfaceChange(family: AddressFamily, callback: PipinterfaceChangeCallback, callercontext: COpaquePointer?, initialnotification: Boolean, notificationhandle: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_notifyIpInterfaceChange(family, 0L.toCPointer<ByteVar>(), callercontext?.value?.toCPointer<ByteVar>(), initialnotification, notificationhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun NotifyNetworkConnectivityHintChange(callback: PNETWORK_CONNECTIVITY_HINT_CHANGE_CALLBACK, callercontext: Long, initialnotification: Boolean, notificationhandle: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_NotifyNetworkConnectivityHintChange(callback.toLong().toCPointer<ByteVar>(), callercontext.toCPointer<ByteVar>(), initialnotification, notificationhandle.toCPointer<ByteVar>())
+public actual fun notifyNetworkConnectivityHintChange(callback: PnetworkConnectivityHintChangeCallback, callercontext: COpaquePointer?, initialnotification: Boolean, notificationhandle: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_notifyNetworkConnectivityHintChange(0L.toCPointer<ByteVar>(), callercontext?.value?.toCPointer<ByteVar>(), initialnotification, notificationhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun NotifyRouteChange(handle: Long, overlapped: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_NotifyRouteChange(handle.toCPointer<ByteVar>(), overlapped.toCPointer<ByteVar>())
+public actual fun notifyRouteChange(handle: COpaquePointer?, overlapped: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_notifyRouteChange(handle?.value?.toCPointer<ByteVar>(), overlapped?.value?.toCPointer<ByteVar>())
 
-public actual fun NotifyRouteChange2(addressfamily: ADDRESS_FAMILY, callback: PIPFORWARD_CHANGE_CALLBACK, callercontext: Long, initialnotification: Boolean, notificationhandle: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_NotifyRouteChange2(addressfamily, callback.toLong().toCPointer<ByteVar>(), callercontext.toCPointer<ByteVar>(), initialnotification, notificationhandle.toCPointer<ByteVar>())
+public actual fun notifyRouteChange2(addressfamily: AddressFamily, callback: PipforwardChangeCallback, callercontext: COpaquePointer?, initialnotification: Boolean, notificationhandle: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_notifyRouteChange2(addressfamily, 0L.toCPointer<ByteVar>(), callercontext?.value?.toCPointer<ByteVar>(), initialnotification, notificationhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun NotifyStableUnicastIpAddressTable(family: ADDRESS_FAMILY, table: Long, callercallback: PSTABLE_UNICAST_IPADDRESS_TABLE_CALLBACK, callercontext: Long, notificationhandle: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_NotifyStableUnicastIpAddressTable(family, table.toCPointer<ByteVar>(), callercallback.toLong().toCPointer<ByteVar>(), callercontext.toCPointer<ByteVar>(), notificationhandle.toCPointer<ByteVar>())
+public actual fun notifyStableUnicastIpAddressTable(family: AddressFamily, table: COpaquePointer?, callercallback: PstableUnicastIpaddressTableCallback, callercontext: COpaquePointer?, notificationhandle: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_notifyStableUnicastIpAddressTable(family, table?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), callercontext?.value?.toCPointer<ByteVar>(), notificationhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun NotifyTeredoPortChange(callback: PTEREDO_PORT_CHANGE_CALLBACK, callercontext: Long, initialnotification: Boolean, notificationhandle: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_NotifyTeredoPortChange(callback.toLong().toCPointer<ByteVar>(), callercontext.toCPointer<ByteVar>(), initialnotification, notificationhandle.toCPointer<ByteVar>())
+public actual fun notifyTeredoPortChange(callback: PteredoPortChangeCallback, callercontext: COpaquePointer?, initialnotification: Boolean, notificationhandle: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_notifyTeredoPortChange(0L.toCPointer<ByteVar>(), callercontext?.value?.toCPointer<ByteVar>(), initialnotification, notificationhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun NotifyUnicastIpAddressChange(family: ADDRESS_FAMILY, callback: PUNICAST_IPADDRESS_CHANGE_CALLBACK, callercontext: Long, initialnotification: Boolean, notificationhandle: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_NotifyUnicastIpAddressChange(family, callback.toLong().toCPointer<ByteVar>(), callercontext.toCPointer<ByteVar>(), initialnotification, notificationhandle.toCPointer<ByteVar>())
+public actual fun notifyUnicastIpAddressChange(family: AddressFamily, callback: PunicastIpaddressChangeCallback, callercontext: COpaquePointer?, initialnotification: Boolean, notificationhandle: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_notifyUnicastIpAddressChange(family, 0L.toCPointer<ByteVar>(), callercontext?.value?.toCPointer<ByteVar>(), initialnotification, notificationhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun ParseNetworkString(networkstring: PCWSTR, types: UInt, addressinfo: Long, portnumber: Long, prefixlength: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_ParseNetworkString(networkstring.toCPointer<ByteVar>(), types, addressinfo.toCPointer<ByteVar>(), portnumber.toCPointer<ByteVar>(), prefixlength.toCPointer<ByteVar>())
+public actual fun parseNetworkString(networkstring: Pcwstr, types: UInt, addressinfo: COpaquePointer?, portnumber: COpaquePointer?, prefixlength: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_parseNetworkString(networkstring?.value?.toCPointer<ByteVar>(), types, addressinfo?.value?.toCPointer<ByteVar>(), portnumber?.value?.toCPointer<ByteVar>(), prefixlength?.value?.toCPointer<ByteVar>())
 
-public actual fun PfAddFiltersToInterface(ih: Long, cinfilters: UInt, pfiltin: Long, coutfilters: UInt, pfiltout: Long, pfhandle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_PfAddFiltersToInterface(ih.toCPointer<ByteVar>(), cinfilters, pfiltin.toCPointer<ByteVar>(), coutfilters, pfiltout.toCPointer<ByteVar>(), pfhandle.toCPointer<ByteVar>())
+public actual fun pfAddFiltersToInterface(ih: COpaquePointer?, cinfilters: UInt, pfiltin: COpaquePointer?, coutfilters: UInt, pfiltout: COpaquePointer?, pfhandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_pfAddFiltersToInterface(ih?.value?.toCPointer<ByteVar>(), cinfilters, pfiltin?.value?.toCPointer<ByteVar>(), coutfilters, pfiltout?.value?.toCPointer<ByteVar>(), pfhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun PfAddGlobalFilterToInterface(pinterface: Long, gffilter: GLOBAL_FILTER): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_PfAddGlobalFilterToInterface(pinterface.toCPointer<ByteVar>(), gffilter)
+public actual fun pfAddGlobalFilterToInterface(pinterface: COpaquePointer?, gffilter: GlobalFilter): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_pfAddGlobalFilterToInterface(pinterface?.value?.toCPointer<ByteVar>(), gffilter)
 
-public actual fun PfBindInterfaceToIPAddress(pinterface: Long, pfattype: PFADDRESSTYPE, ipaddress: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_PfBindInterfaceToIPAddress(pinterface.toCPointer<ByteVar>(), pfattype, ipaddress.toCPointer<ByteVar>())
+public actual fun pfBindInterfaceToIPAddress(pinterface: COpaquePointer?, pfattype: Pfaddresstype, ipaddress: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_pfBindInterfaceToIPAddress(pinterface?.value?.toCPointer<ByteVar>(), pfattype, ipaddress?.value?.toCPointer<ByteVar>())
 
-public actual fun PfBindInterfaceToIndex(pinterface: Long, dwindex: UInt, pfatlinktype: PFADDRESSTYPE, linkipaddress: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_PfBindInterfaceToIndex(pinterface.toCPointer<ByteVar>(), dwindex, pfatlinktype, linkipaddress.toCPointer<ByteVar>())
+public actual fun pfBindInterfaceToIndex(pinterface: COpaquePointer?, dwindex: UInt, pfatlinktype: Pfaddresstype, linkipaddress: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_pfBindInterfaceToIndex(pinterface?.value?.toCPointer<ByteVar>(), dwindex, pfatlinktype, linkipaddress?.value?.toCPointer<ByteVar>())
 
-public actual fun PfCreateInterface(dwname: UInt, inaction: PFFORWARD_ACTION, outaction: PFFORWARD_ACTION, buselog: BOOL, bmustbeunique: BOOL, ppinterface: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_PfCreateInterface(dwname, inaction, outaction, buselog, bmustbeunique, ppinterface.toCPointer<ByteVar>())
+public actual fun pfCreateInterface(dwname: UInt, inaction: PfforwardAction, outaction: PfforwardAction, buselog: Bool, bmustbeunique: Bool, ppinterface: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_pfCreateInterface(dwname, inaction, outaction, buselog, bmustbeunique, ppinterface?.value?.toCPointer<ByteVar>())
 
-public actual fun PfDeleteInterface(pinterface: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_PfDeleteInterface(pinterface.toCPointer<ByteVar>())
+public actual fun pfDeleteInterface(pinterface: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_pfDeleteInterface(pinterface?.value?.toCPointer<ByteVar>())
 
-public actual fun PfDeleteLog(): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_PfDeleteLog()
+public actual fun pfDeleteLog(): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_pfDeleteLog()
 
-public actual fun PfGetInterfaceStatistics(pinterface: Long, ppfstats: Long, pdwbuffersize: Long, fresetcounters: BOOL): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_PfGetInterfaceStatistics(pinterface.toCPointer<ByteVar>(), ppfstats.toCPointer<ByteVar>(), pdwbuffersize.toCPointer<ByteVar>(), fresetcounters)
+public actual fun pfGetInterfaceStatistics(pinterface: COpaquePointer?, ppfstats: COpaquePointer?, pdwbuffersize: COpaquePointer?, fresetcounters: Bool): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_pfGetInterfaceStatistics(pinterface?.value?.toCPointer<ByteVar>(), ppfstats?.value?.toCPointer<ByteVar>(), pdwbuffersize?.value?.toCPointer<ByteVar>(), fresetcounters)
 
-public actual fun PfMakeLog(hevent: HANDLE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_PfMakeLog(hevent.toCPointer<ByteVar>())
+public actual fun pfMakeLog(hevent: Handle): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_pfMakeLog(hevent?.value?.toCPointer<ByteVar>())
 
-public actual fun PfRebindFilters(pinterface: Long, platebindinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_PfRebindFilters(pinterface.toCPointer<ByteVar>(), platebindinfo.toCPointer<ByteVar>())
+public actual fun pfRebindFilters(pinterface: COpaquePointer?, platebindinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_pfRebindFilters(pinterface?.value?.toCPointer<ByteVar>(), platebindinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun PfRemoveFilterHandles(pinterface: Long, cfilters: UInt, pvhandles: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_PfRemoveFilterHandles(pinterface.toCPointer<ByteVar>(), cfilters, pvhandles.toCPointer<ByteVar>())
+public actual fun pfRemoveFilterHandles(pinterface: COpaquePointer?, cfilters: UInt, pvhandles: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_pfRemoveFilterHandles(pinterface?.value?.toCPointer<ByteVar>(), cfilters, pvhandles?.value?.toCPointer<ByteVar>())
 
-public actual fun PfRemoveFiltersFromInterface(ih: Long, cinfilters: UInt, pfiltin: Long, coutfilters: UInt, pfiltout: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_PfRemoveFiltersFromInterface(ih.toCPointer<ByteVar>(), cinfilters, pfiltin.toCPointer<ByteVar>(), coutfilters, pfiltout.toCPointer<ByteVar>())
+public actual fun pfRemoveFiltersFromInterface(ih: COpaquePointer?, cinfilters: UInt, pfiltin: COpaquePointer?, coutfilters: UInt, pfiltout: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_pfRemoveFiltersFromInterface(ih?.value?.toCPointer<ByteVar>(), cinfilters, pfiltin?.value?.toCPointer<ByteVar>(), coutfilters, pfiltout?.value?.toCPointer<ByteVar>())
 
-public actual fun PfRemoveGlobalFilterFromInterface(pinterface: Long, gffilter: GLOBAL_FILTER): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_PfRemoveGlobalFilterFromInterface(pinterface.toCPointer<ByteVar>(), gffilter)
+public actual fun pfRemoveGlobalFilterFromInterface(pinterface: COpaquePointer?, gffilter: GlobalFilter): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_pfRemoveGlobalFilterFromInterface(pinterface?.value?.toCPointer<ByteVar>(), gffilter)
 
-public actual fun PfSetLogBuffer(pbbuffer: Long, dwsize: UInt, dwthreshold: UInt, dwentries: UInt, pdwloggedentries: Long, pdwlostentries: Long, pdwsizeused: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_PfSetLogBuffer(pbbuffer.toCPointer<ByteVar>(), dwsize, dwthreshold, dwentries, pdwloggedentries.toCPointer<ByteVar>(), pdwlostentries.toCPointer<ByteVar>(), pdwsizeused.toCPointer<ByteVar>())
+public actual fun pfSetLogBuffer(pbbuffer: COpaquePointer?, dwsize: UInt, dwthreshold: UInt, dwentries: UInt, pdwloggedentries: COpaquePointer?, pdwlostentries: COpaquePointer?, pdwsizeused: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_pfSetLogBuffer(pbbuffer?.value?.toCPointer<ByteVar>(), dwsize, dwthreshold, dwentries, pdwloggedentries?.value?.toCPointer<ByteVar>(), pdwlostentries?.value?.toCPointer<ByteVar>(), pdwsizeused?.value?.toCPointer<ByteVar>())
 
-public actual fun PfTestPacket(pininterface: Long, poutinterface: Long, cbytes: UInt, pbpacket: Long, ppaction: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_PfTestPacket(pininterface.toCPointer<ByteVar>(), poutinterface.toCPointer<ByteVar>(), cbytes, pbpacket.toCPointer<ByteVar>(), ppaction.toCPointer<ByteVar>())
+public actual fun pfTestPacket(pininterface: COpaquePointer?, poutinterface: COpaquePointer?, cbytes: UInt, pbpacket: COpaquePointer?, ppaction: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_pfTestPacket(pininterface?.value?.toCPointer<ByteVar>(), poutinterface?.value?.toCPointer<ByteVar>(), cbytes, pbpacket?.value?.toCPointer<ByteVar>(), ppaction?.value?.toCPointer<ByteVar>())
 
-public actual fun PfUnBindInterface(pinterface: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_PfUnBindInterface(pinterface.toCPointer<ByteVar>())
+public actual fun pfUnBindInterface(pinterface: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_pfUnBindInterface(pinterface?.value?.toCPointer<ByteVar>())
 
-public actual fun RegisterInterfaceTimestampConfigChange(callback: PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK, callercontext: Long, notificationhandle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_RegisterInterfaceTimestampConfigChange(callback.toLong().toCPointer<ByteVar>(), callercontext.toCPointer<ByteVar>(), notificationhandle.toCPointer<ByteVar>())
+public actual fun registerInterfaceTimestampConfigChange(callback: PinterfaceTimestampConfigChangeCallback, callercontext: COpaquePointer?, notificationhandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_registerInterfaceTimestampConfigChange(0L.toCPointer<ByteVar>(), callercontext?.value?.toCPointer<ByteVar>(), notificationhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun ResolveIpNetEntry2(row: Long, sourceaddress: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_ResolveIpNetEntry2(row.toCPointer<ByteVar>(), sourceaddress.toCPointer<ByteVar>())
+public actual fun resolveIpNetEntry2(row: COpaquePointer?, sourceaddress: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_resolveIpNetEntry2(row?.value?.toCPointer<ByteVar>(), sourceaddress?.value?.toCPointer<ByteVar>())
 
-public actual fun ResolveNeighbor(networkaddress: Long, physicaladdress: Long, physicaladdresslength: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_ResolveNeighbor(networkaddress.toCPointer<ByteVar>(), physicaladdress.toCPointer<ByteVar>(), physicaladdresslength.toCPointer<ByteVar>())
+public actual fun resolveNeighbor(networkaddress: COpaquePointer?, physicaladdress: COpaquePointer?, physicaladdresslength: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_resolveNeighbor(networkaddress?.value?.toCPointer<ByteVar>(), physicaladdress?.value?.toCPointer<ByteVar>(), physicaladdresslength?.value?.toCPointer<ByteVar>())
 
-public actual fun RestoreMediaSense(poverlapped: Long, lpdwenablecount: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_RestoreMediaSense(poverlapped.toCPointer<ByteVar>(), lpdwenablecount.toCPointer<ByteVar>())
+public actual fun restoreMediaSense(poverlapped: COpaquePointer?, lpdwenablecount: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_restoreMediaSense(poverlapped?.value?.toCPointer<ByteVar>(), lpdwenablecount?.value?.toCPointer<ByteVar>())
 
-public actual fun SendARP(destip: UInt, srcip: UInt, pmacaddr: Long, phyaddrlen: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_SendARP(destip, srcip, pmacaddr.toCPointer<ByteVar>(), phyaddrlen.toCPointer<ByteVar>())
+public actual fun sendARP(destip: UInt, srcip: UInt, pmacaddr: COpaquePointer?, phyaddrlen: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_sendARP(destip, srcip, pmacaddr?.value?.toCPointer<ByteVar>(), phyaddrlen?.value?.toCPointer<ByteVar>())
 
-public actual fun SetCurrentThreadCompartmentId(compartmentid: NET_IF_COMPARTMENT_ID): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_SetCurrentThreadCompartmentId(compartmentid)
+public actual fun setCurrentThreadCompartmentId(compartmentid: NetIfCompartmentId): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_setCurrentThreadCompartmentId(compartmentid)
 
-public actual fun SetCurrentThreadCompartmentScope(compartmentscope: UInt): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_SetCurrentThreadCompartmentScope(compartmentscope)
+public actual fun setCurrentThreadCompartmentScope(compartmentscope: UInt): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_setCurrentThreadCompartmentScope(compartmentscope)
 
-public actual fun SetDnsSettings(settings: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_SetDnsSettings(settings.toCPointer<ByteVar>())
+public actual fun setDnsSettings(settings: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_setDnsSettings(settings?.value?.toCPointer<ByteVar>())
 
-public actual fun SetIfEntry(pifrow: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_SetIfEntry(pifrow.toCPointer<ByteVar>())
+public actual fun setIfEntry(pifrow: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_setIfEntry(pifrow?.value?.toCPointer<ByteVar>())
 
-public actual fun SetInterfaceDnsSettings(iface: GUID, settings: Long): WIN32_ERROR =
+public actual fun setInterfaceDnsSettings(iface: Guid, settings: COpaquePointer?): Win32Error =
     0u
 
-public actual fun SetIpForwardEntry(proute: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_SetIpForwardEntry(proute.toCPointer<ByteVar>())
+public actual fun setIpForwardEntry(proute: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_setIpForwardEntry(proute?.value?.toCPointer<ByteVar>())
 
-public actual fun SetIpForwardEntry2(route: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_SetIpForwardEntry2(route.toCPointer<ByteVar>())
+public actual fun setIpForwardEntry2(route: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_setIpForwardEntry2(route?.value?.toCPointer<ByteVar>())
 
-public actual fun SetIpInterfaceEntry(row: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_SetIpInterfaceEntry(row.toCPointer<ByteVar>())
+public actual fun setIpInterfaceEntry(row: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_setIpInterfaceEntry(row?.value?.toCPointer<ByteVar>())
 
-public actual fun SetIpNetEntry(parpentry: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_SetIpNetEntry(parpentry.toCPointer<ByteVar>())
+public actual fun setIpNetEntry(parpentry: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_setIpNetEntry(parpentry?.value?.toCPointer<ByteVar>())
 
-public actual fun SetIpNetEntry2(row: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_SetIpNetEntry2(row.toCPointer<ByteVar>())
+public actual fun setIpNetEntry2(row: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_setIpNetEntry2(row?.value?.toCPointer<ByteVar>())
 
-public actual fun SetIpStatistics(pipstats: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_SetIpStatistics(pipstats.toCPointer<ByteVar>())
+public actual fun setIpStatistics(pipstats: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_setIpStatistics(pipstats?.value?.toCPointer<ByteVar>())
 
-public actual fun SetIpStatisticsEx(statistics: Long, family: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_SetIpStatisticsEx(statistics.toCPointer<ByteVar>(), family)
+public actual fun setIpStatisticsEx(statistics: COpaquePointer?, family: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_setIpStatisticsEx(statistics?.value?.toCPointer<ByteVar>(), family)
 
-public actual fun SetIpTTL(nttl: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_SetIpTTL(nttl)
+public actual fun setIpTTL(nttl: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_setIpTTL(nttl)
 
-public actual fun SetJobCompartmentId(jobhandle: HANDLE, compartmentid: NET_IF_COMPARTMENT_ID): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_SetJobCompartmentId(jobhandle.toCPointer<ByteVar>(), compartmentid)
+public actual fun setJobCompartmentId(jobhandle: Handle, compartmentid: NetIfCompartmentId): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_setJobCompartmentId(jobhandle?.value?.toCPointer<ByteVar>(), compartmentid)
 
-public actual fun SetNetworkInformation(networkguid: Long, compartmentid: NET_IF_COMPARTMENT_ID, networkname: PCWSTR): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_SetNetworkInformation(networkguid.toCPointer<ByteVar>(), compartmentid, networkname.toCPointer<ByteVar>())
+public actual fun setNetworkInformation(networkguid: COpaquePointer?, compartmentid: NetIfCompartmentId, networkname: Pcwstr): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_setNetworkInformation(networkguid?.value?.toCPointer<ByteVar>(), compartmentid, networkname?.value?.toCPointer<ByteVar>())
 
-public actual fun SetPerTcp6ConnectionEStats(row: Long, estatstype: TCP_ESTATS_TYPE, rw: Long, rwversion: UInt, rwsize: UInt, offset: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_SetPerTcp6ConnectionEStats(row.toCPointer<ByteVar>(), estatstype, rw.toCPointer<ByteVar>(), rwversion, rwsize, offset)
+public actual fun setPerTcp6ConnectionEStats(row: COpaquePointer?, estatstype: TcpEstatsType, rw: COpaquePointer?, rwversion: UInt, rwsize: UInt, offset: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_setPerTcp6ConnectionEStats(row?.value?.toCPointer<ByteVar>(), estatstype, rw?.value?.toCPointer<ByteVar>(), rwversion, rwsize, offset)
 
-public actual fun SetPerTcpConnectionEStats(row: Long, estatstype: TCP_ESTATS_TYPE, rw: Long, rwversion: UInt, rwsize: UInt, offset: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_SetPerTcpConnectionEStats(row.toCPointer<ByteVar>(), estatstype, rw.toCPointer<ByteVar>(), rwversion, rwsize, offset)
+public actual fun setPerTcpConnectionEStats(row: COpaquePointer?, estatstype: TcpEstatsType, rw: COpaquePointer?, rwversion: UInt, rwsize: UInt, offset: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_setPerTcpConnectionEStats(row?.value?.toCPointer<ByteVar>(), estatstype, rw?.value?.toCPointer<ByteVar>(), rwversion, rwsize, offset)
 
-public actual fun SetSessionCompartmentId(sessionid: UInt, compartmentid: NET_IF_COMPARTMENT_ID): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_SetSessionCompartmentId(sessionid, compartmentid)
+public actual fun setSessionCompartmentId(sessionid: UInt, compartmentid: NetIfCompartmentId): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_setSessionCompartmentId(sessionid, compartmentid)
 
-public actual fun SetTcpEntry(ptcprow: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_SetTcpEntry(ptcprow.toCPointer<ByteVar>())
+public actual fun setTcpEntry(ptcprow: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_setTcpEntry(ptcprow?.value?.toCPointer<ByteVar>())
 
-public actual fun SetUnicastIpAddressEntry(row: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_SetUnicastIpAddressEntry(row.toCPointer<ByteVar>())
+public actual fun setUnicastIpAddressEntry(row: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_setUnicastIpAddressEntry(row?.value?.toCPointer<ByteVar>())
 
-public actual fun UnenableRouter(poverlapped: Long, lpdwenablecount: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_UnenableRouter(poverlapped.toCPointer<ByteVar>(), lpdwenablecount.toCPointer<ByteVar>())
+public actual fun unenableRouter(poverlapped: COpaquePointer?, lpdwenablecount: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_unenableRouter(poverlapped?.value?.toCPointer<ByteVar>(), lpdwenablecount?.value?.toCPointer<ByteVar>())
 
-public actual fun UnregisterInterfaceTimestampConfigChange(notificationhandle: HIFTIMESTAMPCHANGE) {
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_UnregisterInterfaceTimestampConfigChange(notificationhandle.toCPointer<ByteVar>())
+public actual fun unregisterInterfaceTimestampConfigChange(notificationhandle: Hiftimestampchange) {
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_unregisterInterfaceTimestampConfigChange(notificationhandle?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun if_indextoname(interfaceindex: UInt, interfacename: PSTR): PSTR =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_if_indextoname(interfaceindex, interfacename.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ifIndextoname(interfaceindex: UInt, interfacename: Pstr): Pstr =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_ifIndextoname(interfaceindex, interfacename?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun if_nametoindex(interfacename: PCSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_if_nametoindex(interfacename.toCPointer<ByteVar>())
+public actual fun ifNametoindex(interfacename: Pcstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssys_windows_win32_networkmanagement_iphelper_ifNametoindex(interfacename?.value?.toCPointer<ByteVar>())

@@ -1,9 +1,10 @@
 package io.github.kotlinmania.windowssys.windows.win32.storage.cabinets
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pstr
 
-public data class CCAB(
+public data class Ccab(
     public var cb: UInt = 0u,
     public var cbFolderThresh: UInt = 0u,
     public var cbReserveCFHeader: UInt = 0u,
@@ -19,7 +20,7 @@ public data class CCAB(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CCAB) return false
+        if (other !is Ccab) return false
         if (this.cb != other.cb) return false
         if (this.cbFolderThresh != other.cbFolderThresh) return false
         if (this.cbReserveCFHeader != other.cbReserveCFHeader) return false
@@ -52,77 +53,77 @@ public data class CCAB(
     }
 }
 
-public data class ERF(
+public data class Erf(
     public var erfOper: Int = 0,
     public var erfType: Int = 0,
-    public var fError: BOOL = 0,
+    public var fError: Bool = 0,
 )
 
-public data class FDICABINETINFO(
+public data class Fdicabinetinfo(
     public var cbCabinet: Int = 0,
     public var cFolders: UShort = 0u,
     public var cFiles: UShort = 0u,
     public var setID: UShort = 0u,
     public var iCabinet: UShort = 0u,
-    public var fReserve: BOOL = 0,
-    public var hasprev: BOOL = 0,
-    public var hasnext: BOOL = 0,
+    public var fReserve: Bool = 0,
+    public var hasprev: Bool = 0,
+    public var hasnext: Bool = 0,
 )
 
-public data class FDIDECRYPT(
-    public var fdidt: FDIDECRYPTTYPE = 0,
-    public var pvUser: Long = 0L,
-    public var Anonymous: FDIDECRYPT_0 = FDIDECRYPT_0(),
+public data class Fdidecrypt(
+    public var fdidt: Fdidecrypttype = 0,
+    public var pvUser: COpaquePointer? = null,
+    public var anonymous: Fdidecrypt0 = Fdidecrypt0(),
 )
 
-public data class FDIDECRYPT_0(
-    public var cabinet: FDIDECRYPT_0_0 = FDIDECRYPT_0_0(),
-    public var folder: FDIDECRYPT_0_1 = FDIDECRYPT_0_1(),
-    public var decrypt: FDIDECRYPT_0_2 = FDIDECRYPT_0_2(),
+public data class Fdidecrypt0(
+    public var cabinet: Fdidecrypt00 = Fdidecrypt00(),
+    public var folder: Fdidecrypt01 = Fdidecrypt01(),
+    public var decrypt: Fdidecrypt02 = Fdidecrypt02(),
 )
 
-public data class FDIDECRYPT_0_0(
-    public var pHeaderReserve: Long = 0L,
+public data class Fdidecrypt00(
+    public var pHeaderReserve: COpaquePointer? = null,
     public var cbHeaderReserve: UShort = 0u,
     public var setID: UShort = 0u,
     public var iCabinet: Int = 0,
 )
 
-public data class FDIDECRYPT_0_2(
-    public var pDataReserve: Long = 0L,
+public data class Fdidecrypt02(
+    public var pDataReserve: COpaquePointer? = null,
     public var cbDataReserve: UShort = 0u,
-    public var pbData: Long = 0L,
+    public var pbData: COpaquePointer? = null,
     public var cbData: UShort = 0u,
-    public var fSplit: BOOL = 0,
+    public var fSplit: Bool = 0,
     public var cbPartial: UShort = 0u,
 )
 
-public data class FDIDECRYPT_0_1(
-    public var pFolderReserve: Long = 0L,
+public data class Fdidecrypt01(
+    public var pFolderReserve: COpaquePointer? = null,
     public var cbFolderReserve: UShort = 0u,
     public var iFolder: UShort = 0u,
 )
 
-public data class FDINOTIFICATION(
+public data class Fdinotification(
     public var cb: Int = 0,
-    public var psz1: PSTR = 0L,
-    public var psz2: PSTR = 0L,
-    public var psz3: PSTR = 0L,
-    public var pv: Long = 0L,
-    public var hf: Long = 0L,
+    public var psz1: Pstr = null,
+    public var psz2: Pstr = null,
+    public var psz3: Pstr = null,
+    public var pv: COpaquePointer? = null,
+    public var hf: Int = 0,
     public var date: UShort = 0u,
     public var time: UShort = 0u,
     public var attribs: UShort = 0u,
     public var setID: UShort = 0u,
     public var iCabinet: UShort = 0u,
     public var iFolder: UShort = 0u,
-    public var fdie: FDIERROR = 0,
+    public var fdie: Fdierror = 0,
 )
 
-public data class FDISPILLFILE(public var ach: ByteArray = ByteArray(2), public var cbFile: Int = 0) {
+public data class Fdispillfile(public var ach: ByteArray = ByteArray(2), public var cbFile: Int = 0) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is FDISPILLFILE) return false
+        if (other !is Fdispillfile) return false
         if (!this.ach.contentEquals(other.ach)) return false
         if (this.cbFile != other.cbFile) return false
         return true

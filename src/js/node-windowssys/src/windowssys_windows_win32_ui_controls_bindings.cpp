@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_BeginBufferedAnimation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_beginBufferedAnimation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hdctarget = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -83,7 +83,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_BeginBufferedAnimation_n
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_BeginBufferedPaint_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_beginBufferedPaint_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdctarget = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* prctarget = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -109,7 +109,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_BeginBufferedPaint_napi(
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_BeginPanningFeedback_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_beginPanningFeedback_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -127,7 +127,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_BeginPanningFeedback_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_BufferedPaintClear_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_bufferedPaintClear_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hbufferedpaint = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* prc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -147,7 +147,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_BufferedPaintClear_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_BufferedPaintInit_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_bufferedPaintInit_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -163,7 +163,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_BufferedPaintInit_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_BufferedPaintRenderAnimation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_bufferedPaintRenderAnimation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hdctarget = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -183,7 +183,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_BufferedPaintRenderAnima
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_BufferedPaintSetAlpha_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_bufferedPaintSetAlpha_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hbufferedpaint = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* prc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -205,7 +205,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_BufferedPaintSetAlpha_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_BufferedPaintStopAllAnimations_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_bufferedPaintStopAllAnimations_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -223,7 +223,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_BufferedPaintStopAllAnim
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_BufferedPaintUnInit_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_bufferedPaintUnInit_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -239,7 +239,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_BufferedPaintUnInit_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_CheckDlgButton_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_checkDlgButton_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdlg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t nidbutton = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -261,7 +261,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_CheckDlgButton_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_CheckRadioButton_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_checkRadioButton_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdlg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t nidfirstbutton = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -285,7 +285,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_CheckRadioButton_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_CloseThemeData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_closeThemeData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t htheme = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -303,7 +303,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_CloseThemeData_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_CreateMappedBitmap_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_createMappedBitmap_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hinstance = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int64_t idbitmap = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -329,7 +329,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_CreateMappedBitmap_napi(
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_CreatePropertySheetPageA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_createPropertySheetPageA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* constpropsheetpagepointer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -347,7 +347,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_CreatePropertySheetPageA
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_CreatePropertySheetPageW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_createPropertySheetPageW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* constpropsheetpagepointer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -365,7 +365,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_CreatePropertySheetPageW
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_CreateStatusWindowA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_createStatusWindowA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t style = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpsztext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -389,7 +389,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_CreateStatusWindowA_napi
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_CreateStatusWindowW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_createStatusWindowW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t style = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpsztext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -413,7 +413,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_CreateStatusWindowW_napi
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_CreateSyntheticPointerDevice_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_createSyntheticPointerDevice_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t pointertype = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t maxcount = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -435,7 +435,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_CreateSyntheticPointerDe
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_CreateToolbarEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_createToolbarEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ws = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -477,7 +477,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_CreateToolbarEx_napi(con
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_CreateUpDownControl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_createUpDownControl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwstyle = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t x = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -517,65 +517,65 @@ static Napi::Value windowssys_windows_win32_ui_controls_CreateUpDownControl_napi
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_DPA_Clone_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_dpaClone_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hdpa = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hdpanew = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(int64_t, int64_t);
+    typedef int32_t (__stdcall *km_fn_t)(int64_t, int64_t);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("comctl32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DPA_Clone")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdpa, hdpanew) : -1;
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdpa, hdpanew) : -1;
 #else
     (void)hdpa;
     (void)hdpanew;
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_DPA_Create_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_dpaCreate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t citemgrow = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(int32_t);
+    typedef int32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("comctl32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DPA_Create")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(citemgrow) : -1;
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(citemgrow) : -1;
 #else
     (void)citemgrow;
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_DPA_CreateEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_dpaCreateEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t cpgrow = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* hheap = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(int32_t, void*);
+    typedef int32_t (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("comctl32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DPA_CreateEx")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(cpgrow, hheap) : -1;
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(cpgrow, hheap) : -1;
 #else
     (void)cpgrow;
     (void)hheap;
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_DPA_DeleteAllPtrs_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_dpaDeleteAllPtrs_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hdpa = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -593,7 +593,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_DPA_DeleteAllPtrs_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_DPA_DeletePtr_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_dpaDeletePtr_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hdpa = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t i = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -613,7 +613,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_DPA_DeletePtr_napi(const
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_DPA_Destroy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_dpaDestroy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hdpa = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -631,7 +631,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_DPA_Destroy_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_DPA_DestroyCallback_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_dpaDestroyCallback_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hdpa = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pfncb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -652,7 +652,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_DPA_DestroyCallback_napi
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_DPA_EnumCallback_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_dpaEnumCallback_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hdpa = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pfncb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -673,7 +673,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_DPA_EnumCallback_napi(co
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_DPA_GetPtr_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_dpaGetPtr_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hdpa = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t i = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -693,7 +693,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_DPA_GetPtr_napi(const Na
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_DPA_GetPtrIndex_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_dpaGetPtrIndex_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hdpa = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* p = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -713,7 +713,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_DPA_GetPtrIndex_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_DPA_GetSize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_dpaGetSize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hdpa = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -731,7 +731,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_DPA_GetSize_napi(const N
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_DPA_Grow_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_dpaGrow_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t pdpa = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t cp = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -751,7 +751,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_DPA_Grow_napi(const Napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_DPA_InsertPtr_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_dpaInsertPtr_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hdpa = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t i = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -773,7 +773,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_DPA_InsertPtr_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_DPA_LoadStream_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_dpaLoadStream_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* phdpa = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pfn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -797,7 +797,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_DPA_LoadStream_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_DPA_Merge_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_dpaMerge_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hdpadest = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hdpasrc = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -825,7 +825,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_DPA_Merge_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_DPA_SaveStream_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_dpaSaveStream_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hdpa = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pfn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -849,7 +849,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_DPA_SaveStream_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_DPA_Search_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_dpaSearch_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hdpa = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pfind = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -877,7 +877,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_DPA_Search_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_DPA_SetPtr_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_dpaSetPtr_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hdpa = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t i = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -899,7 +899,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_DPA_SetPtr_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_DPA_Sort_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_dpaSort_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hdpa = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pfncompare = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -921,45 +921,45 @@ static Napi::Value windowssys_windows_win32_ui_controls_DPA_Sort_napi(const Napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_DSA_Clone_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_dsaClone_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hdsa = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(int64_t);
+    typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("comctl32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DSA_Clone")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdsa) : -1;
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdsa) : -1;
 #else
     (void)hdsa;
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_DSA_Create_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_dsaCreate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t cbitem = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t citemgrow = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(int32_t, int32_t);
+    typedef int32_t (__stdcall *km_fn_t)(int32_t, int32_t);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("comctl32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DSA_Create")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(cbitem, citemgrow) : -1;
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(cbitem, citemgrow) : -1;
 #else
     (void)cbitem;
     (void)citemgrow;
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_DSA_DeleteAllItems_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_dsaDeleteAllItems_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hdsa = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -977,7 +977,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_DSA_DeleteAllItems_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_DSA_DeleteItem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_dsaDeleteItem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hdsa = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t i = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -997,7 +997,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_DSA_DeleteItem_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_DSA_Destroy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_dsaDestroy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hdsa = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -1015,7 +1015,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_DSA_Destroy_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_DSA_DestroyCallback_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_dsaDestroyCallback_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hdsa = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pfncb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1036,7 +1036,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_DSA_DestroyCallback_napi
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_DSA_EnumCallback_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_dsaEnumCallback_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hdsa = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pfncb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1057,7 +1057,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_DSA_EnumCallback_napi(co
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_DSA_GetItem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_dsaGetItem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hdsa = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t i = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1079,7 +1079,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_DSA_GetItem_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_DSA_GetItemPtr_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_dsaGetItemPtr_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hdsa = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t i = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1099,7 +1099,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_DSA_GetItemPtr_napi(cons
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_DSA_GetSize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_dsaGetSize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hdsa = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -1117,7 +1117,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_DSA_GetSize_napi(const N
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_DSA_InsertItem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_dsaInsertItem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hdsa = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t i = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1139,7 +1139,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_DSA_InsertItem_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_DSA_SetItem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_dsaSetItem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hdsa = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t i = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1161,7 +1161,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_DSA_SetItem_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_DSA_Sort_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_dsaSort_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t pdsa = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pfncompare = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1183,7 +1183,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_DSA_Sort_napi(const Napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_DestroyPropertySheetPage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_destroyPropertySheetPage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1201,7 +1201,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_DestroyPropertySheetPage
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_DestroySyntheticPointerDevice_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_destroySyntheticPointerDevice_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* device = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1218,7 +1218,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_DestroySyntheticPointerD
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_DlgDirListA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_dlgDirListA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdlg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lppathspec = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1244,7 +1244,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_DlgDirListA_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_DlgDirListComboBoxA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_dlgDirListComboBoxA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdlg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lppathspec = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1270,7 +1270,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_DlgDirListComboBoxA_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_DlgDirListComboBoxW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_dlgDirListComboBoxW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdlg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lppathspec = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1296,7 +1296,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_DlgDirListComboBoxW_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_DlgDirListW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_dlgDirListW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdlg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lppathspec = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1322,7 +1322,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_DlgDirListW_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_DlgDirSelectComboBoxExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_dlgDirSelectComboBoxExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnddlg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1346,7 +1346,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_DlgDirSelectComboBoxExA_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_DlgDirSelectComboBoxExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_dlgDirSelectComboBoxExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnddlg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1370,7 +1370,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_DlgDirSelectComboBoxExW_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_DlgDirSelectExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_dlgDirSelectExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnddlg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1394,7 +1394,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_DlgDirSelectExA_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_DlgDirSelectExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_dlgDirSelectExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnddlg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1418,7 +1418,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_DlgDirSelectExW_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_DrawInsert_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_drawInsert_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* handparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hlb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1439,7 +1439,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_DrawInsert_napi(const Na
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_DrawShadowText_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_drawShadowText_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* psztext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1473,7 +1473,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_DrawShadowText_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_DrawStatusTextA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_drawStatusTextA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lprc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1496,7 +1496,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_DrawStatusTextA_napi(con
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_DrawStatusTextW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_drawStatusTextW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lprc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1519,7 +1519,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_DrawStatusTextW_napi(con
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_DrawThemeBackground_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_drawThemeBackground_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t htheme = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1547,7 +1547,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_DrawThemeBackground_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_DrawThemeBackgroundEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_drawThemeBackgroundEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t htheme = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1575,7 +1575,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_DrawThemeBackgroundEx_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_DrawThemeEdge_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_drawThemeEdge_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t htheme = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1607,7 +1607,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_DrawThemeEdge_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_DrawThemeIcon_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_drawThemeIcon_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t htheme = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1637,7 +1637,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_DrawThemeIcon_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_DrawThemeParentBackground_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_drawThemeParentBackground_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1659,7 +1659,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_DrawThemeParentBackgroun
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_DrawThemeParentBackgroundEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_drawThemeParentBackgroundEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1683,7 +1683,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_DrawThemeParentBackgroun
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_DrawThemeText_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_drawThemeText_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t htheme = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1717,7 +1717,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_DrawThemeText_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_DrawThemeTextEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_drawThemeTextEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t htheme = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1751,7 +1751,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_DrawThemeTextEx_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_EnableScrollBar_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_enableScrollBar_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t wsbflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1773,7 +1773,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_EnableScrollBar_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_EnableThemeDialogTexture_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_enableThemeDialogTexture_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1793,7 +1793,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_EnableThemeDialogTexture
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_EnableTheming_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_enableTheming_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t fenable = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -1811,7 +1811,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_EnableTheming_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_EndBufferedAnimation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_endBufferedAnimation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hbpanimation = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t fupdatetarget = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1831,7 +1831,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_EndBufferedAnimation_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_EndBufferedPaint_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_endBufferedPaint_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hbufferedpaint = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t fupdatetarget = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1851,7 +1851,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_EndBufferedPaint_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_EndPanningFeedback_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_endPanningFeedback_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t fanimateback = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1871,7 +1871,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_EndPanningFeedback_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_EvaluateProximityToPolygon_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_evaluateProximityToPolygon_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t numvertices = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* controlpolygon = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1895,7 +1895,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_EvaluateProximityToPolyg
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_EvaluateProximityToRect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_evaluateProximityToRect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* controlboundingbox = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* phittestinginput = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1917,7 +1917,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_EvaluateProximityToRect_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_FlatSB_EnableScrollBar_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_flatSbEnableScrollBar_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t param1 = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1939,7 +1939,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_FlatSB_EnableScrollBar_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_FlatSB_GetScrollInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_flatSbGetScrollInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t code = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1961,7 +1961,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_FlatSB_GetScrollInfo_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_FlatSB_GetScrollPos_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_flatSbGetScrollPos_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t code = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1981,7 +1981,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_FlatSB_GetScrollPos_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_FlatSB_GetScrollProp_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_flatSbGetScrollProp_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t propindex = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2003,7 +2003,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_FlatSB_GetScrollProp_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_FlatSB_GetScrollRange_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_flatSbGetScrollRange_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t code = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2027,7 +2027,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_FlatSB_GetScrollRange_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_FlatSB_SetScrollInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_flatSbSetScrollInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t code = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2051,7 +2051,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_FlatSB_SetScrollInfo_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_FlatSB_SetScrollPos_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_flatSbSetScrollPos_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t code = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2075,7 +2075,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_FlatSB_SetScrollPos_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_FlatSB_SetScrollProp_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_flatSbSetScrollProp_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t arg_1_index = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2099,7 +2099,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_FlatSB_SetScrollProp_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_FlatSB_SetScrollRange_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_flatSbSetScrollRange_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t code = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2125,7 +2125,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_FlatSB_SetScrollRange_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_FlatSB_ShowScrollBar_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_flatSbShowScrollBar_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t code = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2147,7 +2147,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_FlatSB_ShowScrollBar_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_GetBufferedPaintBits_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_getBufferedPaintBits_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hbufferedpaint = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* ppbbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2169,7 +2169,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_GetBufferedPaintBits_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_GetBufferedPaintDC_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_getBufferedPaintDC_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hbufferedpaint = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -2187,7 +2187,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_GetBufferedPaintDC_napi(
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_GetBufferedPaintTargetDC_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_getBufferedPaintTargetDC_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hbufferedpaint = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -2205,7 +2205,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_GetBufferedPaintTargetDC
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_GetBufferedPaintTargetRect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_getBufferedPaintTargetRect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hbufferedpaint = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* prc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2225,7 +2225,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_GetBufferedPaintTargetRe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_GetComboBoxInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_getComboBoxInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndcombo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcbi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2245,7 +2245,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_GetComboBoxInfo_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_GetCurrentThemeName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_getCurrentThemeName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszthemefilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t cchmaxnamechars = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2273,7 +2273,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_GetCurrentThemeName_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_GetEffectiveClientRect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_getEffectiveClientRect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lprc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2294,7 +2294,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_GetEffectiveClientRect_n
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_GetListBoxInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_getListBoxInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2312,7 +2312,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_GetListBoxInfo_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_GetMUILanguage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_getMUILanguage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint16_t (__stdcall *km_fn_t)(void);
@@ -2328,7 +2328,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_GetMUILanguage_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_GetThemeAnimationProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_getThemeAnimationProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t htheme = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t istoryboardid = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2358,7 +2358,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_GetThemeAnimationPropert
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_GetThemeAnimationTransform_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_getThemeAnimationTransform_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t htheme = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t istoryboardid = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2388,7 +2388,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_GetThemeAnimationTransfo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_GetThemeAppProperties_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_getThemeAppProperties_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -2404,7 +2404,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_GetThemeAppProperties_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_GetThemeBackgroundContentRect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_getThemeBackgroundContentRect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t htheme = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2432,7 +2432,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_GetThemeBackgroundConten
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_GetThemeBackgroundExtent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_getThemeBackgroundExtent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t htheme = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2460,7 +2460,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_GetThemeBackgroundExtent
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_GetThemeBackgroundRegion_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_getThemeBackgroundRegion_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t htheme = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2488,7 +2488,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_GetThemeBackgroundRegion
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_GetThemeBitmap_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_getThemeBitmap_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t htheme = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t ipartid = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2516,7 +2516,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_GetThemeBitmap_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_GetThemeBool_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_getThemeBool_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t htheme = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t ipartid = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2542,7 +2542,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_GetThemeBool_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_GetThemeColor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_getThemeColor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t htheme = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t ipartid = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2568,7 +2568,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_GetThemeColor_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_GetThemeDocumentationProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_getThemeDocumentationProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszthemename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszpropertyname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2592,7 +2592,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_GetThemeDocumentationPro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_GetThemeEnumValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_getThemeEnumValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t htheme = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t ipartid = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2618,7 +2618,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_GetThemeEnumValue_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_GetThemeFilename_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_getThemeFilename_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t htheme = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t ipartid = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2646,7 +2646,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_GetThemeFilename_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_GetThemeFont_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_getThemeFont_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t htheme = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2674,7 +2674,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_GetThemeFont_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_GetThemeInt_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_getThemeInt_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t htheme = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t ipartid = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2700,7 +2700,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_GetThemeInt_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_GetThemeIntList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_getThemeIntList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t htheme = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t ipartid = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2726,7 +2726,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_GetThemeIntList_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_GetThemeMargins_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_getThemeMargins_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t htheme = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2756,7 +2756,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_GetThemeMargins_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_GetThemeMetric_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_getThemeMetric_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t htheme = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2784,7 +2784,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_GetThemeMetric_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_GetThemePartSize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_getThemePartSize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t htheme = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2814,7 +2814,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_GetThemePartSize_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_GetThemePosition_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_getThemePosition_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t htheme = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t ipartid = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2840,7 +2840,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_GetThemePosition_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_GetThemePropertyOrigin_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_getThemePropertyOrigin_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t htheme = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t ipartid = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2866,7 +2866,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_GetThemePropertyOrigin_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_GetThemeRect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_getThemeRect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t htheme = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t ipartid = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2892,7 +2892,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_GetThemeRect_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_GetThemeStream_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_getThemeStream_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t htheme = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t ipartid = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2922,7 +2922,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_GetThemeStream_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_GetThemeString_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_getThemeString_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t htheme = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t ipartid = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2950,7 +2950,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_GetThemeString_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_GetThemeSysBool_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_getThemeSysBool_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t htheme = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t iboolid = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2970,7 +2970,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_GetThemeSysBool_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_GetThemeSysColor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_getThemeSysColor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t htheme = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t icolorid = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2990,7 +2990,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_GetThemeSysColor_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_GetThemeSysColorBrush_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_getThemeSysColorBrush_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t htheme = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t icolorid = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3010,7 +3010,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_GetThemeSysColorBrush_na
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_GetThemeSysFont_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_getThemeSysFont_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t htheme = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t ifontid = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3032,7 +3032,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_GetThemeSysFont_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_GetThemeSysInt_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_getThemeSysInt_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t htheme = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t iintid = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3054,7 +3054,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_GetThemeSysInt_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_GetThemeSysSize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_getThemeSysSize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t htheme = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t isizeid = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3074,7 +3074,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_GetThemeSysSize_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_GetThemeSysString_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_getThemeSysString_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t htheme = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t istringid = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3098,7 +3098,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_GetThemeSysString_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_GetThemeTextExtent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_getThemeTextExtent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t htheme = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3132,7 +3132,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_GetThemeTextExtent_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_GetThemeTextMetrics_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_getThemeTextMetrics_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t htheme = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3158,7 +3158,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_GetThemeTextMetrics_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_GetThemeTimingFunction_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_getThemeTimingFunction_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t htheme = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t itimingfunctionid = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3184,7 +3184,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_GetThemeTimingFunction_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_GetThemeTransitionDuration_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_getThemeTransitionDuration_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t htheme = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t ipartid = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3212,7 +3212,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_GetThemeTransitionDurati
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_GetWindowFeedbackSetting_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_getWindowFeedbackSetting_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t feedback = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3238,25 +3238,25 @@ static Napi::Value windowssys_windows_win32_ui_controls_GetWindowFeedbackSetting
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_GetWindowTheme_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_getWindowTheme_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(void*);
+    typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("uxtheme.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetWindowTheme")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd) : -1;
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd) : -1;
 #else
     (void)hwnd;
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_HIMAGELIST_QueryInterface_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_himagelistQueryInterface_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t himl = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* riid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3278,7 +3278,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_HIMAGELIST_QueryInterfac
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_ImageList_Add_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_imageListAdd_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t himl = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* hbmimage = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3300,7 +3300,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_ImageList_Add_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_ImageList_AddMasked_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_imageListAddMasked_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t himl = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* hbmimage = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3322,7 +3322,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_ImageList_AddMasked_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_ImageList_BeginDrag_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_imageListBeginDrag_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t himltrack = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t itrack = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3346,7 +3346,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_ImageList_BeginDrag_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_ImageList_CoCreateInstance_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_imageListCoCreateInstance_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rclsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* punkouter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3370,7 +3370,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_ImageList_CoCreateInstan
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_ImageList_Copy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_imageListCopy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t himldst = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t idst = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3396,7 +3396,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_ImageList_Copy_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_ImageList_Create_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_imageListCreate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t cx = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t cy = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3404,25 +3404,25 @@ static Napi::Value windowssys_windows_win32_ui_controls_ImageList_Create_napi(co
     int32_t cinitial = static_cast<int32_t>(km_info.Length() > 3 ? km_info[3].ToNumber().Int32Value() : 0);
     int32_t cgrow = static_cast<int32_t>(km_info.Length() > 4 ? km_info[4].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(int32_t, int32_t, uint32_t, int32_t, int32_t);
+    typedef int32_t (__stdcall *km_fn_t)(int32_t, int32_t, uint32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("comctl32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ImageList_Create")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(cx, cy, flags, cinitial, cgrow) : -1;
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(cx, cy, flags, cinitial, cgrow) : -1;
 #else
     (void)cx;
     (void)cy;
     (void)flags;
     (void)cinitial;
     (void)cgrow;
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_ImageList_Destroy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_imageListDestroy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t himl = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -3440,7 +3440,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_ImageList_Destroy_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_ImageList_DragEnter_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_imageListDragEnter_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndlock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t x = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3462,7 +3462,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_ImageList_DragEnter_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_ImageList_DragLeave_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_imageListDragLeave_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndlock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3480,7 +3480,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_ImageList_DragLeave_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_ImageList_DragMove_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_imageListDragMove_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t x = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t y = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3500,7 +3500,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_ImageList_DragMove_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_ImageList_DragShowNolock_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_imageListDragShowNolock_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t fshow = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -3518,7 +3518,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_ImageList_DragShowNolock
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_ImageList_Draw_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_imageListDraw_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t himl = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t i = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3546,7 +3546,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_ImageList_Draw_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_ImageList_DrawEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_imageListDrawEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t himl = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t i = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3582,7 +3582,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_ImageList_DrawEx_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_ImageList_DrawIndirect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_imageListDrawIndirect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pimldp = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3600,25 +3600,25 @@ static Napi::Value windowssys_windows_win32_ui_controls_ImageList_DrawIndirect_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_ImageList_Duplicate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_imageListDuplicate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t himl = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(int64_t);
+    typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("comctl32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ImageList_Duplicate")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(himl) : -1;
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(himl) : -1;
 #else
     (void)himl;
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_ImageList_EndDrag_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_imageListEndDrag_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
@@ -3633,7 +3633,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_ImageList_EndDrag_napi(c
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_ImageList_GetBkColor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_imageListGetBkColor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t himl = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -3651,27 +3651,27 @@ static Napi::Value windowssys_windows_win32_ui_controls_ImageList_GetBkColor_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_ImageList_GetDragImage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_imageListGetDragImage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppthotspot = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(void*, void*);
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("comctl32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ImageList_GetDragImage")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppt, ppthotspot) : -1;
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppt, ppthotspot) : -1;
 #else
     (void)ppt;
     (void)ppthotspot;
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_ImageList_GetIcon_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_imageListGetIcon_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t himl = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t i = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3693,7 +3693,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_ImageList_GetIcon_napi(c
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_ImageList_GetIconSize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_imageListGetIconSize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t himl = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* cx = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3715,7 +3715,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_ImageList_GetIconSize_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_ImageList_GetImageCount_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_imageListGetImageCount_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t himl = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -3733,7 +3733,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_ImageList_GetImageCount_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_ImageList_GetImageInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_imageListGetImageInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t himl = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t i = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3755,7 +3755,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_ImageList_GetImageInfo_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_ImageList_LoadImageA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_imageListLoadImageA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpbmp = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3765,13 +3765,13 @@ static Napi::Value windowssys_windows_win32_ui_controls_ImageList_LoadImageA_nap
     uint32_t utype = static_cast<uint32_t>(km_info.Length() > 5 ? km_info[5].ToNumber().Int32Value() : 0);
     uint32_t uflags = static_cast<uint32_t>(km_info.Length() > 6 ? km_info[6].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t, uint32_t, uint32_t, uint32_t);
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t, uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("comctl32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ImageList_LoadImageA")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hi, lpbmp, cx, cgrow, crmask, utype, uflags) : -1;
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hi, lpbmp, cx, cgrow, crmask, utype, uflags) : -1;
 #else
     (void)hi;
     (void)lpbmp;
@@ -3780,12 +3780,12 @@ static Napi::Value windowssys_windows_win32_ui_controls_ImageList_LoadImageA_nap
     (void)crmask;
     (void)utype;
     (void)uflags;
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_ImageList_LoadImageW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_imageListLoadImageW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpbmp = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3795,13 +3795,13 @@ static Napi::Value windowssys_windows_win32_ui_controls_ImageList_LoadImageW_nap
     uint32_t utype = static_cast<uint32_t>(km_info.Length() > 5 ? km_info[5].ToNumber().Int32Value() : 0);
     uint32_t uflags = static_cast<uint32_t>(km_info.Length() > 6 ? km_info[6].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t, uint32_t, uint32_t, uint32_t);
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t, uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("comctl32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ImageList_LoadImageW")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hi, lpbmp, cx, cgrow, crmask, utype, uflags) : -1;
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hi, lpbmp, cx, cgrow, crmask, utype, uflags) : -1;
 #else
     (void)hi;
     (void)lpbmp;
@@ -3810,12 +3810,12 @@ static Napi::Value windowssys_windows_win32_ui_controls_ImageList_LoadImageW_nap
     (void)crmask;
     (void)utype;
     (void)uflags;
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_ImageList_Merge_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_imageListMerge_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t himl1 = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t i1 = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3824,13 +3824,13 @@ static Napi::Value windowssys_windows_win32_ui_controls_ImageList_Merge_napi(con
     int32_t dx = static_cast<int32_t>(km_info.Length() > 4 ? km_info[4].ToNumber().Int32Value() : 0);
     int32_t dy = static_cast<int32_t>(km_info.Length() > 5 ? km_info[5].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(int64_t, int32_t, int64_t, int32_t, int32_t, int32_t);
+    typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t, int64_t, int32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("comctl32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ImageList_Merge")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(himl1, i1, himl2, i2, dx, dy) : -1;
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(himl1, i1, himl2, i2, dx, dy) : -1;
 #else
     (void)himl1;
     (void)i1;
@@ -3838,30 +3838,30 @@ static Napi::Value windowssys_windows_win32_ui_controls_ImageList_Merge_napi(con
     (void)i2;
     (void)dx;
     (void)dy;
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_ImageList_Read_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_imageListRead_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pstm = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(void*);
+    typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("comctl32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ImageList_Read")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstm) : -1;
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstm) : -1;
 #else
     (void)pstm;
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_ImageList_ReadEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_imageListReadEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pstm = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3885,7 +3885,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_ImageList_ReadEx_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_ImageList_Remove_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_imageListRemove_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t himl = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t i = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3905,7 +3905,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_ImageList_Remove_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_ImageList_Replace_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_imageListReplace_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t himl = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t i = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3929,7 +3929,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_ImageList_Replace_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_ImageList_ReplaceIcon_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_imageListReplaceIcon_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t himl = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t i = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3951,7 +3951,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_ImageList_ReplaceIcon_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_ImageList_SetBkColor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_imageListSetBkColor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t himl = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t clrbk = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3971,7 +3971,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_ImageList_SetBkColor_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_ImageList_SetDragCursorImage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_imageListSetDragCursorImage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t himldrag = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t idrag = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3995,7 +3995,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_ImageList_SetDragCursorI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_ImageList_SetIconSize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_imageListSetIconSize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t himl = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t cx = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4017,7 +4017,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_ImageList_SetIconSize_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_ImageList_SetImageCount_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_imageListSetImageCount_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t himl = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t unewcount = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4037,7 +4037,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_ImageList_SetImageCount_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_ImageList_SetOverlayImage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_imageListSetOverlayImage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t himl = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t iimage = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4059,7 +4059,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_ImageList_SetOverlayImag
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_ImageList_Write_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_imageListWrite_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t himl = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pstm = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4079,7 +4079,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_ImageList_Write_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_ImageList_WriteEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_imageListWriteEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t himl = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4101,7 +4101,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_ImageList_WriteEx_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_InitCommonControls_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_initCommonControls_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
@@ -4116,7 +4116,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_InitCommonControls_napi(
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_InitCommonControlsEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_initCommonControlsEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* picce = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4134,7 +4134,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_InitCommonControlsEx_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_InitMUILanguage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_initMUILanguage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t uilang = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -4151,7 +4151,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_InitMUILanguage_napi(con
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_InitializeFlatSB_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_initializeFlatSB_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4169,7 +4169,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_InitializeFlatSB_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_IsAppThemed_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_isAppThemed_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -4185,7 +4185,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_IsAppThemed_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_IsCharLowerW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_isCharLowerW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t ch = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -4203,7 +4203,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_IsCharLowerW_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_IsCompositionActive_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_isCompositionActive_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -4219,7 +4219,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_IsCompositionActive_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_IsDlgButtonChecked_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_isDlgButtonChecked_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdlg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t nidbutton = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4239,7 +4239,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_IsDlgButtonChecked_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_IsThemeActive_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_isThemeActive_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -4255,7 +4255,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_IsThemeActive_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_IsThemeBackgroundPartiallyTransparent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_isThemeBackgroundPartiallyTransparent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t htheme = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t ipartid = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4277,7 +4277,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_IsThemeBackgroundPartial
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_IsThemeDialogTextureEnabled_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_isThemeDialogTextureEnabled_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4295,7 +4295,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_IsThemeDialogTextureEnab
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_IsThemePartDefined_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_isThemePartDefined_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t htheme = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t ipartid = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4317,7 +4317,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_IsThemePartDefined_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_LoadIconMetric_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_loadIconMetric_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hinst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4341,7 +4341,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_LoadIconMetric_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_LoadIconWithScaleDown_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_loadIconWithScaleDown_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hinst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4367,7 +4367,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_LoadIconWithScaleDown_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_MakeDragList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_makeDragList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hlb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4385,7 +4385,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_MakeDragList_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_MenuHelp_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_menuHelp_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t umsg = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint64_t wparam = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -4414,49 +4414,49 @@ static Napi::Value windowssys_windows_win32_ui_controls_MenuHelp_napi(const Napi
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_OpenThemeData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_openThemeData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszclasslist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(void*, void*);
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("uxtheme.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OpenThemeData")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, pszclasslist) : -1;
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, pszclasslist) : -1;
 #else
     (void)hwnd;
     (void)pszclasslist;
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_OpenThemeDataEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_openThemeDataEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszclasslist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("uxtheme.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OpenThemeDataEx")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, pszclasslist, dwflags) : -1;
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, pszclasslist, dwflags) : -1;
 #else
     (void)hwnd;
     (void)pszclasslist;
     (void)dwflags;
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_PackTouchHitTestingProximityEvaluation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_packTouchHitTestingProximityEvaluation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* phittestinginput = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pproximityeval = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4476,7 +4476,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_PackTouchHitTestingProxi
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_PropertySheetA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_propertySheetA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4494,7 +4494,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_PropertySheetA_napi(cons
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_PropertySheetW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_propertySheetW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4512,7 +4512,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_PropertySheetW_napi(cons
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_RegisterPointerDeviceNotifications_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_registerPointerDeviceNotifications_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* window = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t notifyrange = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4532,7 +4532,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_RegisterPointerDeviceNot
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_RegisterTouchHitTestingWindow_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_registerTouchHitTestingWindow_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t value = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4552,7 +4552,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_RegisterTouchHitTestingW
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_SetScrollInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_setScrollInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t nbar = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4576,7 +4576,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_SetScrollInfo_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_SetScrollPos_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_setScrollPos_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t nbar = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4600,7 +4600,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_SetScrollPos_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_SetScrollRange_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_setScrollRange_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t nbar = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4626,7 +4626,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_SetScrollRange_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_SetThemeAppProperties_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_setThemeAppProperties_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -4643,7 +4643,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_SetThemeAppProperties_na
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_SetWindowFeedbackSetting_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_setWindowFeedbackSetting_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t feedback = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4669,7 +4669,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_SetWindowFeedbackSetting
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_SetWindowTheme_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_setWindowTheme_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszsubappname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4691,7 +4691,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_SetWindowTheme_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_SetWindowThemeAttribute_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_setWindowThemeAttribute_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t eattribute = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4715,7 +4715,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_SetWindowThemeAttribute_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_ShowHideMenuCtl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_showHideMenuCtl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t uflags = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -4737,7 +4737,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_ShowHideMenuCtl_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_ShowScrollBar_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_showScrollBar_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t wbar = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4759,7 +4759,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_ShowScrollBar_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_Str_SetPtrW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_strSetPtrW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppsz = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* psz = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4779,7 +4779,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_Str_SetPtrW_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_TaskDialog_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_taskDialog_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndowner = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hinstance = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4811,7 +4811,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_TaskDialog_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_TaskDialogIndirect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_taskDialogIndirect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ptaskconfig = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pnbutton = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4835,7 +4835,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_TaskDialogIndirect_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_UninitializeFlatSB_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_uninitializeFlatSB_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4853,7 +4853,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_UninitializeFlatSB_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_UpdatePanningFeedback_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_controls_updatePanningFeedback_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t ltotaloverpanoffsetx = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4878,218 +4878,218 @@ static Napi::Value windowssys_windows_win32_ui_controls_UpdatePanningFeedback_na
 }
 
 static void register_windows_win32_ui_controls_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_ui_controls_BeginBufferedAnimation", Napi::Function::New(env, windowssys_windows_win32_ui_controls_BeginBufferedAnimation_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_BeginBufferedPaint", Napi::Function::New(env, windowssys_windows_win32_ui_controls_BeginBufferedPaint_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_BeginPanningFeedback", Napi::Function::New(env, windowssys_windows_win32_ui_controls_BeginPanningFeedback_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_BufferedPaintClear", Napi::Function::New(env, windowssys_windows_win32_ui_controls_BufferedPaintClear_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_BufferedPaintInit", Napi::Function::New(env, windowssys_windows_win32_ui_controls_BufferedPaintInit_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_BufferedPaintRenderAnimation", Napi::Function::New(env, windowssys_windows_win32_ui_controls_BufferedPaintRenderAnimation_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_BufferedPaintSetAlpha", Napi::Function::New(env, windowssys_windows_win32_ui_controls_BufferedPaintSetAlpha_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_BufferedPaintStopAllAnimations", Napi::Function::New(env, windowssys_windows_win32_ui_controls_BufferedPaintStopAllAnimations_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_BufferedPaintUnInit", Napi::Function::New(env, windowssys_windows_win32_ui_controls_BufferedPaintUnInit_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_CheckDlgButton", Napi::Function::New(env, windowssys_windows_win32_ui_controls_CheckDlgButton_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_CheckRadioButton", Napi::Function::New(env, windowssys_windows_win32_ui_controls_CheckRadioButton_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_CloseThemeData", Napi::Function::New(env, windowssys_windows_win32_ui_controls_CloseThemeData_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_CreateMappedBitmap", Napi::Function::New(env, windowssys_windows_win32_ui_controls_CreateMappedBitmap_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_CreatePropertySheetPageA", Napi::Function::New(env, windowssys_windows_win32_ui_controls_CreatePropertySheetPageA_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_CreatePropertySheetPageW", Napi::Function::New(env, windowssys_windows_win32_ui_controls_CreatePropertySheetPageW_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_CreateStatusWindowA", Napi::Function::New(env, windowssys_windows_win32_ui_controls_CreateStatusWindowA_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_CreateStatusWindowW", Napi::Function::New(env, windowssys_windows_win32_ui_controls_CreateStatusWindowW_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_CreateSyntheticPointerDevice", Napi::Function::New(env, windowssys_windows_win32_ui_controls_CreateSyntheticPointerDevice_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_CreateToolbarEx", Napi::Function::New(env, windowssys_windows_win32_ui_controls_CreateToolbarEx_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_CreateUpDownControl", Napi::Function::New(env, windowssys_windows_win32_ui_controls_CreateUpDownControl_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_DPA_Clone", Napi::Function::New(env, windowssys_windows_win32_ui_controls_DPA_Clone_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_DPA_Create", Napi::Function::New(env, windowssys_windows_win32_ui_controls_DPA_Create_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_DPA_CreateEx", Napi::Function::New(env, windowssys_windows_win32_ui_controls_DPA_CreateEx_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_DPA_DeleteAllPtrs", Napi::Function::New(env, windowssys_windows_win32_ui_controls_DPA_DeleteAllPtrs_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_DPA_DeletePtr", Napi::Function::New(env, windowssys_windows_win32_ui_controls_DPA_DeletePtr_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_DPA_Destroy", Napi::Function::New(env, windowssys_windows_win32_ui_controls_DPA_Destroy_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_DPA_DestroyCallback", Napi::Function::New(env, windowssys_windows_win32_ui_controls_DPA_DestroyCallback_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_DPA_EnumCallback", Napi::Function::New(env, windowssys_windows_win32_ui_controls_DPA_EnumCallback_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_DPA_GetPtr", Napi::Function::New(env, windowssys_windows_win32_ui_controls_DPA_GetPtr_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_DPA_GetPtrIndex", Napi::Function::New(env, windowssys_windows_win32_ui_controls_DPA_GetPtrIndex_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_DPA_GetSize", Napi::Function::New(env, windowssys_windows_win32_ui_controls_DPA_GetSize_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_DPA_Grow", Napi::Function::New(env, windowssys_windows_win32_ui_controls_DPA_Grow_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_DPA_InsertPtr", Napi::Function::New(env, windowssys_windows_win32_ui_controls_DPA_InsertPtr_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_DPA_LoadStream", Napi::Function::New(env, windowssys_windows_win32_ui_controls_DPA_LoadStream_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_DPA_Merge", Napi::Function::New(env, windowssys_windows_win32_ui_controls_DPA_Merge_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_DPA_SaveStream", Napi::Function::New(env, windowssys_windows_win32_ui_controls_DPA_SaveStream_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_DPA_Search", Napi::Function::New(env, windowssys_windows_win32_ui_controls_DPA_Search_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_DPA_SetPtr", Napi::Function::New(env, windowssys_windows_win32_ui_controls_DPA_SetPtr_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_DPA_Sort", Napi::Function::New(env, windowssys_windows_win32_ui_controls_DPA_Sort_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_DSA_Clone", Napi::Function::New(env, windowssys_windows_win32_ui_controls_DSA_Clone_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_DSA_Create", Napi::Function::New(env, windowssys_windows_win32_ui_controls_DSA_Create_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_DSA_DeleteAllItems", Napi::Function::New(env, windowssys_windows_win32_ui_controls_DSA_DeleteAllItems_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_DSA_DeleteItem", Napi::Function::New(env, windowssys_windows_win32_ui_controls_DSA_DeleteItem_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_DSA_Destroy", Napi::Function::New(env, windowssys_windows_win32_ui_controls_DSA_Destroy_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_DSA_DestroyCallback", Napi::Function::New(env, windowssys_windows_win32_ui_controls_DSA_DestroyCallback_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_DSA_EnumCallback", Napi::Function::New(env, windowssys_windows_win32_ui_controls_DSA_EnumCallback_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_DSA_GetItem", Napi::Function::New(env, windowssys_windows_win32_ui_controls_DSA_GetItem_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_DSA_GetItemPtr", Napi::Function::New(env, windowssys_windows_win32_ui_controls_DSA_GetItemPtr_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_DSA_GetSize", Napi::Function::New(env, windowssys_windows_win32_ui_controls_DSA_GetSize_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_DSA_InsertItem", Napi::Function::New(env, windowssys_windows_win32_ui_controls_DSA_InsertItem_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_DSA_SetItem", Napi::Function::New(env, windowssys_windows_win32_ui_controls_DSA_SetItem_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_DSA_Sort", Napi::Function::New(env, windowssys_windows_win32_ui_controls_DSA_Sort_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_DestroyPropertySheetPage", Napi::Function::New(env, windowssys_windows_win32_ui_controls_DestroyPropertySheetPage_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_DestroySyntheticPointerDevice", Napi::Function::New(env, windowssys_windows_win32_ui_controls_DestroySyntheticPointerDevice_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_DlgDirListA", Napi::Function::New(env, windowssys_windows_win32_ui_controls_DlgDirListA_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_DlgDirListComboBoxA", Napi::Function::New(env, windowssys_windows_win32_ui_controls_DlgDirListComboBoxA_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_DlgDirListComboBoxW", Napi::Function::New(env, windowssys_windows_win32_ui_controls_DlgDirListComboBoxW_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_DlgDirListW", Napi::Function::New(env, windowssys_windows_win32_ui_controls_DlgDirListW_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_DlgDirSelectComboBoxExA", Napi::Function::New(env, windowssys_windows_win32_ui_controls_DlgDirSelectComboBoxExA_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_DlgDirSelectComboBoxExW", Napi::Function::New(env, windowssys_windows_win32_ui_controls_DlgDirSelectComboBoxExW_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_DlgDirSelectExA", Napi::Function::New(env, windowssys_windows_win32_ui_controls_DlgDirSelectExA_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_DlgDirSelectExW", Napi::Function::New(env, windowssys_windows_win32_ui_controls_DlgDirSelectExW_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_DrawInsert", Napi::Function::New(env, windowssys_windows_win32_ui_controls_DrawInsert_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_DrawShadowText", Napi::Function::New(env, windowssys_windows_win32_ui_controls_DrawShadowText_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_DrawStatusTextA", Napi::Function::New(env, windowssys_windows_win32_ui_controls_DrawStatusTextA_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_DrawStatusTextW", Napi::Function::New(env, windowssys_windows_win32_ui_controls_DrawStatusTextW_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_DrawThemeBackground", Napi::Function::New(env, windowssys_windows_win32_ui_controls_DrawThemeBackground_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_DrawThemeBackgroundEx", Napi::Function::New(env, windowssys_windows_win32_ui_controls_DrawThemeBackgroundEx_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_DrawThemeEdge", Napi::Function::New(env, windowssys_windows_win32_ui_controls_DrawThemeEdge_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_DrawThemeIcon", Napi::Function::New(env, windowssys_windows_win32_ui_controls_DrawThemeIcon_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_DrawThemeParentBackground", Napi::Function::New(env, windowssys_windows_win32_ui_controls_DrawThemeParentBackground_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_DrawThemeParentBackgroundEx", Napi::Function::New(env, windowssys_windows_win32_ui_controls_DrawThemeParentBackgroundEx_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_DrawThemeText", Napi::Function::New(env, windowssys_windows_win32_ui_controls_DrawThemeText_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_DrawThemeTextEx", Napi::Function::New(env, windowssys_windows_win32_ui_controls_DrawThemeTextEx_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_EnableScrollBar", Napi::Function::New(env, windowssys_windows_win32_ui_controls_EnableScrollBar_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_EnableThemeDialogTexture", Napi::Function::New(env, windowssys_windows_win32_ui_controls_EnableThemeDialogTexture_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_EnableTheming", Napi::Function::New(env, windowssys_windows_win32_ui_controls_EnableTheming_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_EndBufferedAnimation", Napi::Function::New(env, windowssys_windows_win32_ui_controls_EndBufferedAnimation_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_EndBufferedPaint", Napi::Function::New(env, windowssys_windows_win32_ui_controls_EndBufferedPaint_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_EndPanningFeedback", Napi::Function::New(env, windowssys_windows_win32_ui_controls_EndPanningFeedback_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_EvaluateProximityToPolygon", Napi::Function::New(env, windowssys_windows_win32_ui_controls_EvaluateProximityToPolygon_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_EvaluateProximityToRect", Napi::Function::New(env, windowssys_windows_win32_ui_controls_EvaluateProximityToRect_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_FlatSB_EnableScrollBar", Napi::Function::New(env, windowssys_windows_win32_ui_controls_FlatSB_EnableScrollBar_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_FlatSB_GetScrollInfo", Napi::Function::New(env, windowssys_windows_win32_ui_controls_FlatSB_GetScrollInfo_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_FlatSB_GetScrollPos", Napi::Function::New(env, windowssys_windows_win32_ui_controls_FlatSB_GetScrollPos_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_FlatSB_GetScrollProp", Napi::Function::New(env, windowssys_windows_win32_ui_controls_FlatSB_GetScrollProp_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_FlatSB_GetScrollRange", Napi::Function::New(env, windowssys_windows_win32_ui_controls_FlatSB_GetScrollRange_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_FlatSB_SetScrollInfo", Napi::Function::New(env, windowssys_windows_win32_ui_controls_FlatSB_SetScrollInfo_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_FlatSB_SetScrollPos", Napi::Function::New(env, windowssys_windows_win32_ui_controls_FlatSB_SetScrollPos_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_FlatSB_SetScrollProp", Napi::Function::New(env, windowssys_windows_win32_ui_controls_FlatSB_SetScrollProp_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_FlatSB_SetScrollRange", Napi::Function::New(env, windowssys_windows_win32_ui_controls_FlatSB_SetScrollRange_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_FlatSB_ShowScrollBar", Napi::Function::New(env, windowssys_windows_win32_ui_controls_FlatSB_ShowScrollBar_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_GetBufferedPaintBits", Napi::Function::New(env, windowssys_windows_win32_ui_controls_GetBufferedPaintBits_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_GetBufferedPaintDC", Napi::Function::New(env, windowssys_windows_win32_ui_controls_GetBufferedPaintDC_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_GetBufferedPaintTargetDC", Napi::Function::New(env, windowssys_windows_win32_ui_controls_GetBufferedPaintTargetDC_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_GetBufferedPaintTargetRect", Napi::Function::New(env, windowssys_windows_win32_ui_controls_GetBufferedPaintTargetRect_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_GetComboBoxInfo", Napi::Function::New(env, windowssys_windows_win32_ui_controls_GetComboBoxInfo_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_GetCurrentThemeName", Napi::Function::New(env, windowssys_windows_win32_ui_controls_GetCurrentThemeName_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_GetEffectiveClientRect", Napi::Function::New(env, windowssys_windows_win32_ui_controls_GetEffectiveClientRect_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_GetListBoxInfo", Napi::Function::New(env, windowssys_windows_win32_ui_controls_GetListBoxInfo_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_GetMUILanguage", Napi::Function::New(env, windowssys_windows_win32_ui_controls_GetMUILanguage_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_GetThemeAnimationProperty", Napi::Function::New(env, windowssys_windows_win32_ui_controls_GetThemeAnimationProperty_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_GetThemeAnimationTransform", Napi::Function::New(env, windowssys_windows_win32_ui_controls_GetThemeAnimationTransform_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_GetThemeAppProperties", Napi::Function::New(env, windowssys_windows_win32_ui_controls_GetThemeAppProperties_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_GetThemeBackgroundContentRect", Napi::Function::New(env, windowssys_windows_win32_ui_controls_GetThemeBackgroundContentRect_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_GetThemeBackgroundExtent", Napi::Function::New(env, windowssys_windows_win32_ui_controls_GetThemeBackgroundExtent_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_GetThemeBackgroundRegion", Napi::Function::New(env, windowssys_windows_win32_ui_controls_GetThemeBackgroundRegion_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_GetThemeBitmap", Napi::Function::New(env, windowssys_windows_win32_ui_controls_GetThemeBitmap_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_GetThemeBool", Napi::Function::New(env, windowssys_windows_win32_ui_controls_GetThemeBool_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_GetThemeColor", Napi::Function::New(env, windowssys_windows_win32_ui_controls_GetThemeColor_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_GetThemeDocumentationProperty", Napi::Function::New(env, windowssys_windows_win32_ui_controls_GetThemeDocumentationProperty_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_GetThemeEnumValue", Napi::Function::New(env, windowssys_windows_win32_ui_controls_GetThemeEnumValue_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_GetThemeFilename", Napi::Function::New(env, windowssys_windows_win32_ui_controls_GetThemeFilename_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_GetThemeFont", Napi::Function::New(env, windowssys_windows_win32_ui_controls_GetThemeFont_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_GetThemeInt", Napi::Function::New(env, windowssys_windows_win32_ui_controls_GetThemeInt_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_GetThemeIntList", Napi::Function::New(env, windowssys_windows_win32_ui_controls_GetThemeIntList_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_GetThemeMargins", Napi::Function::New(env, windowssys_windows_win32_ui_controls_GetThemeMargins_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_GetThemeMetric", Napi::Function::New(env, windowssys_windows_win32_ui_controls_GetThemeMetric_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_GetThemePartSize", Napi::Function::New(env, windowssys_windows_win32_ui_controls_GetThemePartSize_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_GetThemePosition", Napi::Function::New(env, windowssys_windows_win32_ui_controls_GetThemePosition_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_GetThemePropertyOrigin", Napi::Function::New(env, windowssys_windows_win32_ui_controls_GetThemePropertyOrigin_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_GetThemeRect", Napi::Function::New(env, windowssys_windows_win32_ui_controls_GetThemeRect_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_GetThemeStream", Napi::Function::New(env, windowssys_windows_win32_ui_controls_GetThemeStream_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_GetThemeString", Napi::Function::New(env, windowssys_windows_win32_ui_controls_GetThemeString_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_GetThemeSysBool", Napi::Function::New(env, windowssys_windows_win32_ui_controls_GetThemeSysBool_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_GetThemeSysColor", Napi::Function::New(env, windowssys_windows_win32_ui_controls_GetThemeSysColor_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_GetThemeSysColorBrush", Napi::Function::New(env, windowssys_windows_win32_ui_controls_GetThemeSysColorBrush_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_GetThemeSysFont", Napi::Function::New(env, windowssys_windows_win32_ui_controls_GetThemeSysFont_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_GetThemeSysInt", Napi::Function::New(env, windowssys_windows_win32_ui_controls_GetThemeSysInt_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_GetThemeSysSize", Napi::Function::New(env, windowssys_windows_win32_ui_controls_GetThemeSysSize_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_GetThemeSysString", Napi::Function::New(env, windowssys_windows_win32_ui_controls_GetThemeSysString_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_GetThemeTextExtent", Napi::Function::New(env, windowssys_windows_win32_ui_controls_GetThemeTextExtent_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_GetThemeTextMetrics", Napi::Function::New(env, windowssys_windows_win32_ui_controls_GetThemeTextMetrics_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_GetThemeTimingFunction", Napi::Function::New(env, windowssys_windows_win32_ui_controls_GetThemeTimingFunction_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_GetThemeTransitionDuration", Napi::Function::New(env, windowssys_windows_win32_ui_controls_GetThemeTransitionDuration_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_GetWindowFeedbackSetting", Napi::Function::New(env, windowssys_windows_win32_ui_controls_GetWindowFeedbackSetting_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_GetWindowTheme", Napi::Function::New(env, windowssys_windows_win32_ui_controls_GetWindowTheme_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_HIMAGELIST_QueryInterface", Napi::Function::New(env, windowssys_windows_win32_ui_controls_HIMAGELIST_QueryInterface_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_ImageList_Add", Napi::Function::New(env, windowssys_windows_win32_ui_controls_ImageList_Add_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_ImageList_AddMasked", Napi::Function::New(env, windowssys_windows_win32_ui_controls_ImageList_AddMasked_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_ImageList_BeginDrag", Napi::Function::New(env, windowssys_windows_win32_ui_controls_ImageList_BeginDrag_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_ImageList_CoCreateInstance", Napi::Function::New(env, windowssys_windows_win32_ui_controls_ImageList_CoCreateInstance_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_ImageList_Copy", Napi::Function::New(env, windowssys_windows_win32_ui_controls_ImageList_Copy_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_ImageList_Create", Napi::Function::New(env, windowssys_windows_win32_ui_controls_ImageList_Create_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_ImageList_Destroy", Napi::Function::New(env, windowssys_windows_win32_ui_controls_ImageList_Destroy_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_ImageList_DragEnter", Napi::Function::New(env, windowssys_windows_win32_ui_controls_ImageList_DragEnter_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_ImageList_DragLeave", Napi::Function::New(env, windowssys_windows_win32_ui_controls_ImageList_DragLeave_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_ImageList_DragMove", Napi::Function::New(env, windowssys_windows_win32_ui_controls_ImageList_DragMove_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_ImageList_DragShowNolock", Napi::Function::New(env, windowssys_windows_win32_ui_controls_ImageList_DragShowNolock_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_ImageList_Draw", Napi::Function::New(env, windowssys_windows_win32_ui_controls_ImageList_Draw_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_ImageList_DrawEx", Napi::Function::New(env, windowssys_windows_win32_ui_controls_ImageList_DrawEx_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_ImageList_DrawIndirect", Napi::Function::New(env, windowssys_windows_win32_ui_controls_ImageList_DrawIndirect_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_ImageList_Duplicate", Napi::Function::New(env, windowssys_windows_win32_ui_controls_ImageList_Duplicate_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_ImageList_EndDrag", Napi::Function::New(env, windowssys_windows_win32_ui_controls_ImageList_EndDrag_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_ImageList_GetBkColor", Napi::Function::New(env, windowssys_windows_win32_ui_controls_ImageList_GetBkColor_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_ImageList_GetDragImage", Napi::Function::New(env, windowssys_windows_win32_ui_controls_ImageList_GetDragImage_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_ImageList_GetIcon", Napi::Function::New(env, windowssys_windows_win32_ui_controls_ImageList_GetIcon_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_ImageList_GetIconSize", Napi::Function::New(env, windowssys_windows_win32_ui_controls_ImageList_GetIconSize_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_ImageList_GetImageCount", Napi::Function::New(env, windowssys_windows_win32_ui_controls_ImageList_GetImageCount_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_ImageList_GetImageInfo", Napi::Function::New(env, windowssys_windows_win32_ui_controls_ImageList_GetImageInfo_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_ImageList_LoadImageA", Napi::Function::New(env, windowssys_windows_win32_ui_controls_ImageList_LoadImageA_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_ImageList_LoadImageW", Napi::Function::New(env, windowssys_windows_win32_ui_controls_ImageList_LoadImageW_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_ImageList_Merge", Napi::Function::New(env, windowssys_windows_win32_ui_controls_ImageList_Merge_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_ImageList_Read", Napi::Function::New(env, windowssys_windows_win32_ui_controls_ImageList_Read_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_ImageList_ReadEx", Napi::Function::New(env, windowssys_windows_win32_ui_controls_ImageList_ReadEx_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_ImageList_Remove", Napi::Function::New(env, windowssys_windows_win32_ui_controls_ImageList_Remove_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_ImageList_Replace", Napi::Function::New(env, windowssys_windows_win32_ui_controls_ImageList_Replace_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_ImageList_ReplaceIcon", Napi::Function::New(env, windowssys_windows_win32_ui_controls_ImageList_ReplaceIcon_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_ImageList_SetBkColor", Napi::Function::New(env, windowssys_windows_win32_ui_controls_ImageList_SetBkColor_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_ImageList_SetDragCursorImage", Napi::Function::New(env, windowssys_windows_win32_ui_controls_ImageList_SetDragCursorImage_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_ImageList_SetIconSize", Napi::Function::New(env, windowssys_windows_win32_ui_controls_ImageList_SetIconSize_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_ImageList_SetImageCount", Napi::Function::New(env, windowssys_windows_win32_ui_controls_ImageList_SetImageCount_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_ImageList_SetOverlayImage", Napi::Function::New(env, windowssys_windows_win32_ui_controls_ImageList_SetOverlayImage_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_ImageList_Write", Napi::Function::New(env, windowssys_windows_win32_ui_controls_ImageList_Write_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_ImageList_WriteEx", Napi::Function::New(env, windowssys_windows_win32_ui_controls_ImageList_WriteEx_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_InitCommonControls", Napi::Function::New(env, windowssys_windows_win32_ui_controls_InitCommonControls_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_InitCommonControlsEx", Napi::Function::New(env, windowssys_windows_win32_ui_controls_InitCommonControlsEx_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_InitMUILanguage", Napi::Function::New(env, windowssys_windows_win32_ui_controls_InitMUILanguage_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_InitializeFlatSB", Napi::Function::New(env, windowssys_windows_win32_ui_controls_InitializeFlatSB_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_IsAppThemed", Napi::Function::New(env, windowssys_windows_win32_ui_controls_IsAppThemed_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_IsCharLowerW", Napi::Function::New(env, windowssys_windows_win32_ui_controls_IsCharLowerW_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_IsCompositionActive", Napi::Function::New(env, windowssys_windows_win32_ui_controls_IsCompositionActive_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_IsDlgButtonChecked", Napi::Function::New(env, windowssys_windows_win32_ui_controls_IsDlgButtonChecked_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_IsThemeActive", Napi::Function::New(env, windowssys_windows_win32_ui_controls_IsThemeActive_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_IsThemeBackgroundPartiallyTransparent", Napi::Function::New(env, windowssys_windows_win32_ui_controls_IsThemeBackgroundPartiallyTransparent_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_IsThemeDialogTextureEnabled", Napi::Function::New(env, windowssys_windows_win32_ui_controls_IsThemeDialogTextureEnabled_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_IsThemePartDefined", Napi::Function::New(env, windowssys_windows_win32_ui_controls_IsThemePartDefined_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_LoadIconMetric", Napi::Function::New(env, windowssys_windows_win32_ui_controls_LoadIconMetric_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_LoadIconWithScaleDown", Napi::Function::New(env, windowssys_windows_win32_ui_controls_LoadIconWithScaleDown_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_MakeDragList", Napi::Function::New(env, windowssys_windows_win32_ui_controls_MakeDragList_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_MenuHelp", Napi::Function::New(env, windowssys_windows_win32_ui_controls_MenuHelp_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_OpenThemeData", Napi::Function::New(env, windowssys_windows_win32_ui_controls_OpenThemeData_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_OpenThemeDataEx", Napi::Function::New(env, windowssys_windows_win32_ui_controls_OpenThemeDataEx_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_PackTouchHitTestingProximityEvaluation", Napi::Function::New(env, windowssys_windows_win32_ui_controls_PackTouchHitTestingProximityEvaluation_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_PropertySheetA", Napi::Function::New(env, windowssys_windows_win32_ui_controls_PropertySheetA_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_PropertySheetW", Napi::Function::New(env, windowssys_windows_win32_ui_controls_PropertySheetW_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_RegisterPointerDeviceNotifications", Napi::Function::New(env, windowssys_windows_win32_ui_controls_RegisterPointerDeviceNotifications_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_RegisterTouchHitTestingWindow", Napi::Function::New(env, windowssys_windows_win32_ui_controls_RegisterTouchHitTestingWindow_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_SetScrollInfo", Napi::Function::New(env, windowssys_windows_win32_ui_controls_SetScrollInfo_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_SetScrollPos", Napi::Function::New(env, windowssys_windows_win32_ui_controls_SetScrollPos_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_SetScrollRange", Napi::Function::New(env, windowssys_windows_win32_ui_controls_SetScrollRange_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_SetThemeAppProperties", Napi::Function::New(env, windowssys_windows_win32_ui_controls_SetThemeAppProperties_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_SetWindowFeedbackSetting", Napi::Function::New(env, windowssys_windows_win32_ui_controls_SetWindowFeedbackSetting_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_SetWindowTheme", Napi::Function::New(env, windowssys_windows_win32_ui_controls_SetWindowTheme_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_SetWindowThemeAttribute", Napi::Function::New(env, windowssys_windows_win32_ui_controls_SetWindowThemeAttribute_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_ShowHideMenuCtl", Napi::Function::New(env, windowssys_windows_win32_ui_controls_ShowHideMenuCtl_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_ShowScrollBar", Napi::Function::New(env, windowssys_windows_win32_ui_controls_ShowScrollBar_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_Str_SetPtrW", Napi::Function::New(env, windowssys_windows_win32_ui_controls_Str_SetPtrW_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_TaskDialog", Napi::Function::New(env, windowssys_windows_win32_ui_controls_TaskDialog_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_TaskDialogIndirect", Napi::Function::New(env, windowssys_windows_win32_ui_controls_TaskDialogIndirect_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_UninitializeFlatSB", Napi::Function::New(env, windowssys_windows_win32_ui_controls_UninitializeFlatSB_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_UpdatePanningFeedback", Napi::Function::New(env, windowssys_windows_win32_ui_controls_UpdatePanningFeedback_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_beginBufferedAnimation", Napi::Function::New(env, windowssys_windows_win32_ui_controls_beginBufferedAnimation_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_beginBufferedPaint", Napi::Function::New(env, windowssys_windows_win32_ui_controls_beginBufferedPaint_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_beginPanningFeedback", Napi::Function::New(env, windowssys_windows_win32_ui_controls_beginPanningFeedback_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_bufferedPaintClear", Napi::Function::New(env, windowssys_windows_win32_ui_controls_bufferedPaintClear_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_bufferedPaintInit", Napi::Function::New(env, windowssys_windows_win32_ui_controls_bufferedPaintInit_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_bufferedPaintRenderAnimation", Napi::Function::New(env, windowssys_windows_win32_ui_controls_bufferedPaintRenderAnimation_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_bufferedPaintSetAlpha", Napi::Function::New(env, windowssys_windows_win32_ui_controls_bufferedPaintSetAlpha_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_bufferedPaintStopAllAnimations", Napi::Function::New(env, windowssys_windows_win32_ui_controls_bufferedPaintStopAllAnimations_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_bufferedPaintUnInit", Napi::Function::New(env, windowssys_windows_win32_ui_controls_bufferedPaintUnInit_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_checkDlgButton", Napi::Function::New(env, windowssys_windows_win32_ui_controls_checkDlgButton_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_checkRadioButton", Napi::Function::New(env, windowssys_windows_win32_ui_controls_checkRadioButton_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_closeThemeData", Napi::Function::New(env, windowssys_windows_win32_ui_controls_closeThemeData_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_createMappedBitmap", Napi::Function::New(env, windowssys_windows_win32_ui_controls_createMappedBitmap_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_createPropertySheetPageA", Napi::Function::New(env, windowssys_windows_win32_ui_controls_createPropertySheetPageA_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_createPropertySheetPageW", Napi::Function::New(env, windowssys_windows_win32_ui_controls_createPropertySheetPageW_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_createStatusWindowA", Napi::Function::New(env, windowssys_windows_win32_ui_controls_createStatusWindowA_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_createStatusWindowW", Napi::Function::New(env, windowssys_windows_win32_ui_controls_createStatusWindowW_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_createSyntheticPointerDevice", Napi::Function::New(env, windowssys_windows_win32_ui_controls_createSyntheticPointerDevice_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_createToolbarEx", Napi::Function::New(env, windowssys_windows_win32_ui_controls_createToolbarEx_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_createUpDownControl", Napi::Function::New(env, windowssys_windows_win32_ui_controls_createUpDownControl_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_dpaClone", Napi::Function::New(env, windowssys_windows_win32_ui_controls_dpaClone_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_dpaCreate", Napi::Function::New(env, windowssys_windows_win32_ui_controls_dpaCreate_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_dpaCreateEx", Napi::Function::New(env, windowssys_windows_win32_ui_controls_dpaCreateEx_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_dpaDeleteAllPtrs", Napi::Function::New(env, windowssys_windows_win32_ui_controls_dpaDeleteAllPtrs_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_dpaDeletePtr", Napi::Function::New(env, windowssys_windows_win32_ui_controls_dpaDeletePtr_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_dpaDestroy", Napi::Function::New(env, windowssys_windows_win32_ui_controls_dpaDestroy_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_dpaDestroyCallback", Napi::Function::New(env, windowssys_windows_win32_ui_controls_dpaDestroyCallback_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_dpaEnumCallback", Napi::Function::New(env, windowssys_windows_win32_ui_controls_dpaEnumCallback_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_dpaGetPtr", Napi::Function::New(env, windowssys_windows_win32_ui_controls_dpaGetPtr_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_dpaGetPtrIndex", Napi::Function::New(env, windowssys_windows_win32_ui_controls_dpaGetPtrIndex_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_dpaGetSize", Napi::Function::New(env, windowssys_windows_win32_ui_controls_dpaGetSize_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_dpaGrow", Napi::Function::New(env, windowssys_windows_win32_ui_controls_dpaGrow_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_dpaInsertPtr", Napi::Function::New(env, windowssys_windows_win32_ui_controls_dpaInsertPtr_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_dpaLoadStream", Napi::Function::New(env, windowssys_windows_win32_ui_controls_dpaLoadStream_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_dpaMerge", Napi::Function::New(env, windowssys_windows_win32_ui_controls_dpaMerge_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_dpaSaveStream", Napi::Function::New(env, windowssys_windows_win32_ui_controls_dpaSaveStream_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_dpaSearch", Napi::Function::New(env, windowssys_windows_win32_ui_controls_dpaSearch_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_dpaSetPtr", Napi::Function::New(env, windowssys_windows_win32_ui_controls_dpaSetPtr_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_dpaSort", Napi::Function::New(env, windowssys_windows_win32_ui_controls_dpaSort_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_dsaClone", Napi::Function::New(env, windowssys_windows_win32_ui_controls_dsaClone_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_dsaCreate", Napi::Function::New(env, windowssys_windows_win32_ui_controls_dsaCreate_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_dsaDeleteAllItems", Napi::Function::New(env, windowssys_windows_win32_ui_controls_dsaDeleteAllItems_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_dsaDeleteItem", Napi::Function::New(env, windowssys_windows_win32_ui_controls_dsaDeleteItem_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_dsaDestroy", Napi::Function::New(env, windowssys_windows_win32_ui_controls_dsaDestroy_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_dsaDestroyCallback", Napi::Function::New(env, windowssys_windows_win32_ui_controls_dsaDestroyCallback_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_dsaEnumCallback", Napi::Function::New(env, windowssys_windows_win32_ui_controls_dsaEnumCallback_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_dsaGetItem", Napi::Function::New(env, windowssys_windows_win32_ui_controls_dsaGetItem_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_dsaGetItemPtr", Napi::Function::New(env, windowssys_windows_win32_ui_controls_dsaGetItemPtr_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_dsaGetSize", Napi::Function::New(env, windowssys_windows_win32_ui_controls_dsaGetSize_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_dsaInsertItem", Napi::Function::New(env, windowssys_windows_win32_ui_controls_dsaInsertItem_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_dsaSetItem", Napi::Function::New(env, windowssys_windows_win32_ui_controls_dsaSetItem_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_dsaSort", Napi::Function::New(env, windowssys_windows_win32_ui_controls_dsaSort_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_destroyPropertySheetPage", Napi::Function::New(env, windowssys_windows_win32_ui_controls_destroyPropertySheetPage_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_destroySyntheticPointerDevice", Napi::Function::New(env, windowssys_windows_win32_ui_controls_destroySyntheticPointerDevice_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_dlgDirListA", Napi::Function::New(env, windowssys_windows_win32_ui_controls_dlgDirListA_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_dlgDirListComboBoxA", Napi::Function::New(env, windowssys_windows_win32_ui_controls_dlgDirListComboBoxA_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_dlgDirListComboBoxW", Napi::Function::New(env, windowssys_windows_win32_ui_controls_dlgDirListComboBoxW_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_dlgDirListW", Napi::Function::New(env, windowssys_windows_win32_ui_controls_dlgDirListW_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_dlgDirSelectComboBoxExA", Napi::Function::New(env, windowssys_windows_win32_ui_controls_dlgDirSelectComboBoxExA_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_dlgDirSelectComboBoxExW", Napi::Function::New(env, windowssys_windows_win32_ui_controls_dlgDirSelectComboBoxExW_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_dlgDirSelectExA", Napi::Function::New(env, windowssys_windows_win32_ui_controls_dlgDirSelectExA_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_dlgDirSelectExW", Napi::Function::New(env, windowssys_windows_win32_ui_controls_dlgDirSelectExW_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_drawInsert", Napi::Function::New(env, windowssys_windows_win32_ui_controls_drawInsert_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_drawShadowText", Napi::Function::New(env, windowssys_windows_win32_ui_controls_drawShadowText_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_drawStatusTextA", Napi::Function::New(env, windowssys_windows_win32_ui_controls_drawStatusTextA_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_drawStatusTextW", Napi::Function::New(env, windowssys_windows_win32_ui_controls_drawStatusTextW_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_drawThemeBackground", Napi::Function::New(env, windowssys_windows_win32_ui_controls_drawThemeBackground_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_drawThemeBackgroundEx", Napi::Function::New(env, windowssys_windows_win32_ui_controls_drawThemeBackgroundEx_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_drawThemeEdge", Napi::Function::New(env, windowssys_windows_win32_ui_controls_drawThemeEdge_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_drawThemeIcon", Napi::Function::New(env, windowssys_windows_win32_ui_controls_drawThemeIcon_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_drawThemeParentBackground", Napi::Function::New(env, windowssys_windows_win32_ui_controls_drawThemeParentBackground_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_drawThemeParentBackgroundEx", Napi::Function::New(env, windowssys_windows_win32_ui_controls_drawThemeParentBackgroundEx_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_drawThemeText", Napi::Function::New(env, windowssys_windows_win32_ui_controls_drawThemeText_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_drawThemeTextEx", Napi::Function::New(env, windowssys_windows_win32_ui_controls_drawThemeTextEx_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_enableScrollBar", Napi::Function::New(env, windowssys_windows_win32_ui_controls_enableScrollBar_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_enableThemeDialogTexture", Napi::Function::New(env, windowssys_windows_win32_ui_controls_enableThemeDialogTexture_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_enableTheming", Napi::Function::New(env, windowssys_windows_win32_ui_controls_enableTheming_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_endBufferedAnimation", Napi::Function::New(env, windowssys_windows_win32_ui_controls_endBufferedAnimation_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_endBufferedPaint", Napi::Function::New(env, windowssys_windows_win32_ui_controls_endBufferedPaint_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_endPanningFeedback", Napi::Function::New(env, windowssys_windows_win32_ui_controls_endPanningFeedback_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_evaluateProximityToPolygon", Napi::Function::New(env, windowssys_windows_win32_ui_controls_evaluateProximityToPolygon_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_evaluateProximityToRect", Napi::Function::New(env, windowssys_windows_win32_ui_controls_evaluateProximityToRect_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_flatSbEnableScrollBar", Napi::Function::New(env, windowssys_windows_win32_ui_controls_flatSbEnableScrollBar_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_flatSbGetScrollInfo", Napi::Function::New(env, windowssys_windows_win32_ui_controls_flatSbGetScrollInfo_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_flatSbGetScrollPos", Napi::Function::New(env, windowssys_windows_win32_ui_controls_flatSbGetScrollPos_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_flatSbGetScrollProp", Napi::Function::New(env, windowssys_windows_win32_ui_controls_flatSbGetScrollProp_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_flatSbGetScrollRange", Napi::Function::New(env, windowssys_windows_win32_ui_controls_flatSbGetScrollRange_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_flatSbSetScrollInfo", Napi::Function::New(env, windowssys_windows_win32_ui_controls_flatSbSetScrollInfo_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_flatSbSetScrollPos", Napi::Function::New(env, windowssys_windows_win32_ui_controls_flatSbSetScrollPos_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_flatSbSetScrollProp", Napi::Function::New(env, windowssys_windows_win32_ui_controls_flatSbSetScrollProp_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_flatSbSetScrollRange", Napi::Function::New(env, windowssys_windows_win32_ui_controls_flatSbSetScrollRange_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_flatSbShowScrollBar", Napi::Function::New(env, windowssys_windows_win32_ui_controls_flatSbShowScrollBar_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_getBufferedPaintBits", Napi::Function::New(env, windowssys_windows_win32_ui_controls_getBufferedPaintBits_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_getBufferedPaintDC", Napi::Function::New(env, windowssys_windows_win32_ui_controls_getBufferedPaintDC_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_getBufferedPaintTargetDC", Napi::Function::New(env, windowssys_windows_win32_ui_controls_getBufferedPaintTargetDC_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_getBufferedPaintTargetRect", Napi::Function::New(env, windowssys_windows_win32_ui_controls_getBufferedPaintTargetRect_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_getComboBoxInfo", Napi::Function::New(env, windowssys_windows_win32_ui_controls_getComboBoxInfo_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_getCurrentThemeName", Napi::Function::New(env, windowssys_windows_win32_ui_controls_getCurrentThemeName_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_getEffectiveClientRect", Napi::Function::New(env, windowssys_windows_win32_ui_controls_getEffectiveClientRect_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_getListBoxInfo", Napi::Function::New(env, windowssys_windows_win32_ui_controls_getListBoxInfo_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_getMUILanguage", Napi::Function::New(env, windowssys_windows_win32_ui_controls_getMUILanguage_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_getThemeAnimationProperty", Napi::Function::New(env, windowssys_windows_win32_ui_controls_getThemeAnimationProperty_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_getThemeAnimationTransform", Napi::Function::New(env, windowssys_windows_win32_ui_controls_getThemeAnimationTransform_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_getThemeAppProperties", Napi::Function::New(env, windowssys_windows_win32_ui_controls_getThemeAppProperties_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_getThemeBackgroundContentRect", Napi::Function::New(env, windowssys_windows_win32_ui_controls_getThemeBackgroundContentRect_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_getThemeBackgroundExtent", Napi::Function::New(env, windowssys_windows_win32_ui_controls_getThemeBackgroundExtent_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_getThemeBackgroundRegion", Napi::Function::New(env, windowssys_windows_win32_ui_controls_getThemeBackgroundRegion_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_getThemeBitmap", Napi::Function::New(env, windowssys_windows_win32_ui_controls_getThemeBitmap_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_getThemeBool", Napi::Function::New(env, windowssys_windows_win32_ui_controls_getThemeBool_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_getThemeColor", Napi::Function::New(env, windowssys_windows_win32_ui_controls_getThemeColor_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_getThemeDocumentationProperty", Napi::Function::New(env, windowssys_windows_win32_ui_controls_getThemeDocumentationProperty_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_getThemeEnumValue", Napi::Function::New(env, windowssys_windows_win32_ui_controls_getThemeEnumValue_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_getThemeFilename", Napi::Function::New(env, windowssys_windows_win32_ui_controls_getThemeFilename_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_getThemeFont", Napi::Function::New(env, windowssys_windows_win32_ui_controls_getThemeFont_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_getThemeInt", Napi::Function::New(env, windowssys_windows_win32_ui_controls_getThemeInt_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_getThemeIntList", Napi::Function::New(env, windowssys_windows_win32_ui_controls_getThemeIntList_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_getThemeMargins", Napi::Function::New(env, windowssys_windows_win32_ui_controls_getThemeMargins_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_getThemeMetric", Napi::Function::New(env, windowssys_windows_win32_ui_controls_getThemeMetric_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_getThemePartSize", Napi::Function::New(env, windowssys_windows_win32_ui_controls_getThemePartSize_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_getThemePosition", Napi::Function::New(env, windowssys_windows_win32_ui_controls_getThemePosition_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_getThemePropertyOrigin", Napi::Function::New(env, windowssys_windows_win32_ui_controls_getThemePropertyOrigin_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_getThemeRect", Napi::Function::New(env, windowssys_windows_win32_ui_controls_getThemeRect_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_getThemeStream", Napi::Function::New(env, windowssys_windows_win32_ui_controls_getThemeStream_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_getThemeString", Napi::Function::New(env, windowssys_windows_win32_ui_controls_getThemeString_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_getThemeSysBool", Napi::Function::New(env, windowssys_windows_win32_ui_controls_getThemeSysBool_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_getThemeSysColor", Napi::Function::New(env, windowssys_windows_win32_ui_controls_getThemeSysColor_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_getThemeSysColorBrush", Napi::Function::New(env, windowssys_windows_win32_ui_controls_getThemeSysColorBrush_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_getThemeSysFont", Napi::Function::New(env, windowssys_windows_win32_ui_controls_getThemeSysFont_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_getThemeSysInt", Napi::Function::New(env, windowssys_windows_win32_ui_controls_getThemeSysInt_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_getThemeSysSize", Napi::Function::New(env, windowssys_windows_win32_ui_controls_getThemeSysSize_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_getThemeSysString", Napi::Function::New(env, windowssys_windows_win32_ui_controls_getThemeSysString_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_getThemeTextExtent", Napi::Function::New(env, windowssys_windows_win32_ui_controls_getThemeTextExtent_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_getThemeTextMetrics", Napi::Function::New(env, windowssys_windows_win32_ui_controls_getThemeTextMetrics_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_getThemeTimingFunction", Napi::Function::New(env, windowssys_windows_win32_ui_controls_getThemeTimingFunction_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_getThemeTransitionDuration", Napi::Function::New(env, windowssys_windows_win32_ui_controls_getThemeTransitionDuration_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_getWindowFeedbackSetting", Napi::Function::New(env, windowssys_windows_win32_ui_controls_getWindowFeedbackSetting_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_getWindowTheme", Napi::Function::New(env, windowssys_windows_win32_ui_controls_getWindowTheme_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_himagelistQueryInterface", Napi::Function::New(env, windowssys_windows_win32_ui_controls_himagelistQueryInterface_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_imageListAdd", Napi::Function::New(env, windowssys_windows_win32_ui_controls_imageListAdd_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_imageListAddMasked", Napi::Function::New(env, windowssys_windows_win32_ui_controls_imageListAddMasked_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_imageListBeginDrag", Napi::Function::New(env, windowssys_windows_win32_ui_controls_imageListBeginDrag_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_imageListCoCreateInstance", Napi::Function::New(env, windowssys_windows_win32_ui_controls_imageListCoCreateInstance_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_imageListCopy", Napi::Function::New(env, windowssys_windows_win32_ui_controls_imageListCopy_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_imageListCreate", Napi::Function::New(env, windowssys_windows_win32_ui_controls_imageListCreate_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_imageListDestroy", Napi::Function::New(env, windowssys_windows_win32_ui_controls_imageListDestroy_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_imageListDragEnter", Napi::Function::New(env, windowssys_windows_win32_ui_controls_imageListDragEnter_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_imageListDragLeave", Napi::Function::New(env, windowssys_windows_win32_ui_controls_imageListDragLeave_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_imageListDragMove", Napi::Function::New(env, windowssys_windows_win32_ui_controls_imageListDragMove_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_imageListDragShowNolock", Napi::Function::New(env, windowssys_windows_win32_ui_controls_imageListDragShowNolock_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_imageListDraw", Napi::Function::New(env, windowssys_windows_win32_ui_controls_imageListDraw_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_imageListDrawEx", Napi::Function::New(env, windowssys_windows_win32_ui_controls_imageListDrawEx_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_imageListDrawIndirect", Napi::Function::New(env, windowssys_windows_win32_ui_controls_imageListDrawIndirect_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_imageListDuplicate", Napi::Function::New(env, windowssys_windows_win32_ui_controls_imageListDuplicate_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_imageListEndDrag", Napi::Function::New(env, windowssys_windows_win32_ui_controls_imageListEndDrag_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_imageListGetBkColor", Napi::Function::New(env, windowssys_windows_win32_ui_controls_imageListGetBkColor_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_imageListGetDragImage", Napi::Function::New(env, windowssys_windows_win32_ui_controls_imageListGetDragImage_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_imageListGetIcon", Napi::Function::New(env, windowssys_windows_win32_ui_controls_imageListGetIcon_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_imageListGetIconSize", Napi::Function::New(env, windowssys_windows_win32_ui_controls_imageListGetIconSize_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_imageListGetImageCount", Napi::Function::New(env, windowssys_windows_win32_ui_controls_imageListGetImageCount_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_imageListGetImageInfo", Napi::Function::New(env, windowssys_windows_win32_ui_controls_imageListGetImageInfo_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_imageListLoadImageA", Napi::Function::New(env, windowssys_windows_win32_ui_controls_imageListLoadImageA_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_imageListLoadImageW", Napi::Function::New(env, windowssys_windows_win32_ui_controls_imageListLoadImageW_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_imageListMerge", Napi::Function::New(env, windowssys_windows_win32_ui_controls_imageListMerge_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_imageListRead", Napi::Function::New(env, windowssys_windows_win32_ui_controls_imageListRead_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_imageListReadEx", Napi::Function::New(env, windowssys_windows_win32_ui_controls_imageListReadEx_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_imageListRemove", Napi::Function::New(env, windowssys_windows_win32_ui_controls_imageListRemove_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_imageListReplace", Napi::Function::New(env, windowssys_windows_win32_ui_controls_imageListReplace_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_imageListReplaceIcon", Napi::Function::New(env, windowssys_windows_win32_ui_controls_imageListReplaceIcon_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_imageListSetBkColor", Napi::Function::New(env, windowssys_windows_win32_ui_controls_imageListSetBkColor_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_imageListSetDragCursorImage", Napi::Function::New(env, windowssys_windows_win32_ui_controls_imageListSetDragCursorImage_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_imageListSetIconSize", Napi::Function::New(env, windowssys_windows_win32_ui_controls_imageListSetIconSize_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_imageListSetImageCount", Napi::Function::New(env, windowssys_windows_win32_ui_controls_imageListSetImageCount_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_imageListSetOverlayImage", Napi::Function::New(env, windowssys_windows_win32_ui_controls_imageListSetOverlayImage_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_imageListWrite", Napi::Function::New(env, windowssys_windows_win32_ui_controls_imageListWrite_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_imageListWriteEx", Napi::Function::New(env, windowssys_windows_win32_ui_controls_imageListWriteEx_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_initCommonControls", Napi::Function::New(env, windowssys_windows_win32_ui_controls_initCommonControls_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_initCommonControlsEx", Napi::Function::New(env, windowssys_windows_win32_ui_controls_initCommonControlsEx_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_initMUILanguage", Napi::Function::New(env, windowssys_windows_win32_ui_controls_initMUILanguage_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_initializeFlatSB", Napi::Function::New(env, windowssys_windows_win32_ui_controls_initializeFlatSB_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_isAppThemed", Napi::Function::New(env, windowssys_windows_win32_ui_controls_isAppThemed_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_isCharLowerW", Napi::Function::New(env, windowssys_windows_win32_ui_controls_isCharLowerW_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_isCompositionActive", Napi::Function::New(env, windowssys_windows_win32_ui_controls_isCompositionActive_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_isDlgButtonChecked", Napi::Function::New(env, windowssys_windows_win32_ui_controls_isDlgButtonChecked_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_isThemeActive", Napi::Function::New(env, windowssys_windows_win32_ui_controls_isThemeActive_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_isThemeBackgroundPartiallyTransparent", Napi::Function::New(env, windowssys_windows_win32_ui_controls_isThemeBackgroundPartiallyTransparent_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_isThemeDialogTextureEnabled", Napi::Function::New(env, windowssys_windows_win32_ui_controls_isThemeDialogTextureEnabled_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_isThemePartDefined", Napi::Function::New(env, windowssys_windows_win32_ui_controls_isThemePartDefined_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_loadIconMetric", Napi::Function::New(env, windowssys_windows_win32_ui_controls_loadIconMetric_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_loadIconWithScaleDown", Napi::Function::New(env, windowssys_windows_win32_ui_controls_loadIconWithScaleDown_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_makeDragList", Napi::Function::New(env, windowssys_windows_win32_ui_controls_makeDragList_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_menuHelp", Napi::Function::New(env, windowssys_windows_win32_ui_controls_menuHelp_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_openThemeData", Napi::Function::New(env, windowssys_windows_win32_ui_controls_openThemeData_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_openThemeDataEx", Napi::Function::New(env, windowssys_windows_win32_ui_controls_openThemeDataEx_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_packTouchHitTestingProximityEvaluation", Napi::Function::New(env, windowssys_windows_win32_ui_controls_packTouchHitTestingProximityEvaluation_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_propertySheetA", Napi::Function::New(env, windowssys_windows_win32_ui_controls_propertySheetA_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_propertySheetW", Napi::Function::New(env, windowssys_windows_win32_ui_controls_propertySheetW_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_registerPointerDeviceNotifications", Napi::Function::New(env, windowssys_windows_win32_ui_controls_registerPointerDeviceNotifications_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_registerTouchHitTestingWindow", Napi::Function::New(env, windowssys_windows_win32_ui_controls_registerTouchHitTestingWindow_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_setScrollInfo", Napi::Function::New(env, windowssys_windows_win32_ui_controls_setScrollInfo_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_setScrollPos", Napi::Function::New(env, windowssys_windows_win32_ui_controls_setScrollPos_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_setScrollRange", Napi::Function::New(env, windowssys_windows_win32_ui_controls_setScrollRange_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_setThemeAppProperties", Napi::Function::New(env, windowssys_windows_win32_ui_controls_setThemeAppProperties_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_setWindowFeedbackSetting", Napi::Function::New(env, windowssys_windows_win32_ui_controls_setWindowFeedbackSetting_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_setWindowTheme", Napi::Function::New(env, windowssys_windows_win32_ui_controls_setWindowTheme_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_setWindowThemeAttribute", Napi::Function::New(env, windowssys_windows_win32_ui_controls_setWindowThemeAttribute_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_showHideMenuCtl", Napi::Function::New(env, windowssys_windows_win32_ui_controls_showHideMenuCtl_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_showScrollBar", Napi::Function::New(env, windowssys_windows_win32_ui_controls_showScrollBar_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_strSetPtrW", Napi::Function::New(env, windowssys_windows_win32_ui_controls_strSetPtrW_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_taskDialog", Napi::Function::New(env, windowssys_windows_win32_ui_controls_taskDialog_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_taskDialogIndirect", Napi::Function::New(env, windowssys_windows_win32_ui_controls_taskDialogIndirect_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_uninitializeFlatSB", Napi::Function::New(env, windowssys_windows_win32_ui_controls_uninitializeFlatSB_napi));
+    exports.Set("windowssys_windows_win32_ui_controls_updatePanningFeedback", Napi::Function::New(env, windowssys_windows_win32_ui_controls_updatePanningFeedback_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_ui_controls_napi, nullptr };

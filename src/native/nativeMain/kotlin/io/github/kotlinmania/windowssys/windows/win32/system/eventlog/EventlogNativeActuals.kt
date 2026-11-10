@@ -2,177 +2,178 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.eventlog
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.security.PSID
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.security.Psid
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun BackupEventLogA(heventlog: HANDLE, lpbackupfilename: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_BackupEventLogA(heventlog.toCPointer<ByteVar>(), lpbackupfilename.toCPointer<ByteVar>())
+public actual fun backupEventLogA(heventlog: Handle, lpbackupfilename: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_backupEventLogA(heventlog?.value?.toCPointer<ByteVar>(), lpbackupfilename?.value?.toCPointer<ByteVar>())
 
-public actual fun BackupEventLogW(heventlog: HANDLE, lpbackupfilename: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_BackupEventLogW(heventlog.toCPointer<ByteVar>(), lpbackupfilename.toCPointer<ByteVar>())
+public actual fun backupEventLogW(heventlog: Handle, lpbackupfilename: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_backupEventLogW(heventlog?.value?.toCPointer<ByteVar>(), lpbackupfilename?.value?.toCPointer<ByteVar>())
 
-public actual fun ClearEventLogA(heventlog: HANDLE, lpbackupfilename: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_ClearEventLogA(heventlog.toCPointer<ByteVar>(), lpbackupfilename.toCPointer<ByteVar>())
+public actual fun clearEventLogA(heventlog: Handle, lpbackupfilename: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_clearEventLogA(heventlog?.value?.toCPointer<ByteVar>(), lpbackupfilename?.value?.toCPointer<ByteVar>())
 
-public actual fun ClearEventLogW(heventlog: HANDLE, lpbackupfilename: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_ClearEventLogW(heventlog.toCPointer<ByteVar>(), lpbackupfilename.toCPointer<ByteVar>())
+public actual fun clearEventLogW(heventlog: Handle, lpbackupfilename: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_clearEventLogW(heventlog?.value?.toCPointer<ByteVar>(), lpbackupfilename?.value?.toCPointer<ByteVar>())
 
-public actual fun CloseEventLog(heventlog: HANDLE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_CloseEventLog(heventlog.toCPointer<ByteVar>())
+public actual fun closeEventLog(heventlog: Handle): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_closeEventLog(heventlog?.value?.toCPointer<ByteVar>())
 
-public actual fun DeregisterEventSource(heventlog: HANDLE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_DeregisterEventSource(heventlog.toCPointer<ByteVar>())
+public actual fun deregisterEventSource(heventlog: Handle): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_deregisterEventSource(heventlog?.value?.toCPointer<ByteVar>())
 
-public actual fun EvtArchiveExportedLog(session: EVT_HANDLE, logfilepath: PCWSTR, locale: UInt, flags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_EvtArchiveExportedLog(session, logfilepath.toCPointer<ByteVar>(), locale, flags)
+public actual fun evtArchiveExportedLog(session: EvtHandle, logfilepath: Pcwstr, locale: UInt, flags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_evtArchiveExportedLog(session, logfilepath?.value?.toCPointer<ByteVar>(), locale, flags)
 
-public actual fun EvtCancel(obj: EVT_HANDLE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_EvtCancel(obj)
+public actual fun evtCancel(obj: EvtHandle): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_evtCancel(obj)
 
-public actual fun EvtClearLog(session: EVT_HANDLE, channelpath: PCWSTR, targetfilepath: PCWSTR, flags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_EvtClearLog(session, channelpath.toCPointer<ByteVar>(), targetfilepath.toCPointer<ByteVar>(), flags)
+public actual fun evtClearLog(session: EvtHandle, channelpath: Pcwstr, targetfilepath: Pcwstr, flags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_evtClearLog(session, channelpath?.value?.toCPointer<ByteVar>(), targetfilepath?.value?.toCPointer<ByteVar>(), flags)
 
-public actual fun EvtClose(obj: EVT_HANDLE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_EvtClose(obj)
+public actual fun evtClose(obj: EvtHandle): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_evtClose(obj)
 
-public actual fun EvtCreateBookmark(bookmarkxml: PCWSTR): EVT_HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_EvtCreateBookmark(bookmarkxml.toCPointer<ByteVar>())
+public actual fun evtCreateBookmark(bookmarkxml: Pcwstr): EvtHandle =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_evtCreateBookmark(bookmarkxml?.value?.toCPointer<ByteVar>())
 
-public actual fun EvtCreateRenderContext(valuepathscount: UInt, valuepaths: Long, flags: UInt): EVT_HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_EvtCreateRenderContext(valuepathscount, valuepaths.toCPointer<ByteVar>(), flags)
+public actual fun evtCreateRenderContext(valuepathscount: UInt, valuepaths: COpaquePointer?, flags: UInt): EvtHandle =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_evtCreateRenderContext(valuepathscount, valuepaths?.value?.toCPointer<ByteVar>(), flags)
 
-public actual fun EvtExportLog(session: EVT_HANDLE, path: PCWSTR, query: PCWSTR, targetfilepath: PCWSTR, flags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_EvtExportLog(session, path.toCPointer<ByteVar>(), query.toCPointer<ByteVar>(), targetfilepath.toCPointer<ByteVar>(), flags)
+public actual fun evtExportLog(session: EvtHandle, path: Pcwstr, query: Pcwstr, targetfilepath: Pcwstr, flags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_evtExportLog(session, path?.value?.toCPointer<ByteVar>(), query?.value?.toCPointer<ByteVar>(), targetfilepath?.value?.toCPointer<ByteVar>(), flags)
 
-public actual fun EvtFormatMessage(publishermetadata: EVT_HANDLE, event: EVT_HANDLE, messageid: UInt, valuecount: UInt, values: Long, flags: UInt, buffersize: UInt, buffer: PWSTR, bufferused: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_EvtFormatMessage(publishermetadata, event, messageid, valuecount, values.toCPointer<ByteVar>(), flags, buffersize, buffer.toCPointer<ByteVar>(), bufferused.toCPointer<ByteVar>())
+public actual fun evtFormatMessage(publishermetadata: EvtHandle, event: EvtHandle, messageid: UInt, valuecount: UInt, values: COpaquePointer?, flags: UInt, buffersize: UInt, buffer: Pwstr, bufferused: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_evtFormatMessage(publishermetadata, event, messageid, valuecount, values?.value?.toCPointer<ByteVar>(), flags, buffersize, buffer?.value?.toCPointer<ByteVar>(), bufferused?.value?.toCPointer<ByteVar>())
 
-public actual fun EvtGetChannelConfigProperty(channelconfig: EVT_HANDLE, propertyid: EVT_CHANNEL_CONFIG_PROPERTY_ID, flags: UInt, propertyvaluebuffersize: UInt, propertyvaluebuffer: Long, propertyvaluebufferused: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_EvtGetChannelConfigProperty(channelconfig, propertyid, flags, propertyvaluebuffersize, propertyvaluebuffer.toCPointer<ByteVar>(), propertyvaluebufferused.toCPointer<ByteVar>())
+public actual fun evtGetChannelConfigProperty(channelconfig: EvtHandle, propertyid: EvtChannelConfigPropertyId, flags: UInt, propertyvaluebuffersize: UInt, propertyvaluebuffer: COpaquePointer?, propertyvaluebufferused: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_evtGetChannelConfigProperty(channelconfig, propertyid, flags, propertyvaluebuffersize, propertyvaluebuffer?.value?.toCPointer<ByteVar>(), propertyvaluebufferused?.value?.toCPointer<ByteVar>())
 
-public actual fun EvtGetEventInfo(event: EVT_HANDLE, propertyid: EVT_EVENT_PROPERTY_ID, propertyvaluebuffersize: UInt, propertyvaluebuffer: Long, propertyvaluebufferused: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_EvtGetEventInfo(event, propertyid, propertyvaluebuffersize, propertyvaluebuffer.toCPointer<ByteVar>(), propertyvaluebufferused.toCPointer<ByteVar>())
+public actual fun evtGetEventInfo(event: EvtHandle, propertyid: EvtEventPropertyId, propertyvaluebuffersize: UInt, propertyvaluebuffer: COpaquePointer?, propertyvaluebufferused: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_evtGetEventInfo(event, propertyid, propertyvaluebuffersize, propertyvaluebuffer?.value?.toCPointer<ByteVar>(), propertyvaluebufferused?.value?.toCPointer<ByteVar>())
 
-public actual fun EvtGetEventMetadataProperty(eventmetadata: EVT_HANDLE, propertyid: EVT_EVENT_METADATA_PROPERTY_ID, flags: UInt, eventmetadatapropertybuffersize: UInt, eventmetadatapropertybuffer: Long, eventmetadatapropertybufferused: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_EvtGetEventMetadataProperty(eventmetadata, propertyid, flags, eventmetadatapropertybuffersize, eventmetadatapropertybuffer.toCPointer<ByteVar>(), eventmetadatapropertybufferused.toCPointer<ByteVar>())
+public actual fun evtGetEventMetadataProperty(eventmetadata: EvtHandle, propertyid: EvtEventMetadataPropertyId, flags: UInt, eventmetadatapropertybuffersize: UInt, eventmetadatapropertybuffer: COpaquePointer?, eventmetadatapropertybufferused: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_evtGetEventMetadataProperty(eventmetadata, propertyid, flags, eventmetadatapropertybuffersize, eventmetadatapropertybuffer?.value?.toCPointer<ByteVar>(), eventmetadatapropertybufferused?.value?.toCPointer<ByteVar>())
 
-public actual fun EvtGetExtendedStatus(buffersize: UInt, buffer: PWSTR, bufferused: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_EvtGetExtendedStatus(buffersize, buffer.toCPointer<ByteVar>(), bufferused.toCPointer<ByteVar>())
+public actual fun evtGetExtendedStatus(buffersize: UInt, buffer: Pwstr, bufferused: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_evtGetExtendedStatus(buffersize, buffer?.value?.toCPointer<ByteVar>(), bufferused?.value?.toCPointer<ByteVar>())
 
-public actual fun EvtGetLogInfo(log: EVT_HANDLE, propertyid: EVT_LOG_PROPERTY_ID, propertyvaluebuffersize: UInt, propertyvaluebuffer: Long, propertyvaluebufferused: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_EvtGetLogInfo(log, propertyid, propertyvaluebuffersize, propertyvaluebuffer.toCPointer<ByteVar>(), propertyvaluebufferused.toCPointer<ByteVar>())
+public actual fun evtGetLogInfo(log: EvtHandle, propertyid: EvtLogPropertyId, propertyvaluebuffersize: UInt, propertyvaluebuffer: COpaquePointer?, propertyvaluebufferused: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_evtGetLogInfo(log, propertyid, propertyvaluebuffersize, propertyvaluebuffer?.value?.toCPointer<ByteVar>(), propertyvaluebufferused?.value?.toCPointer<ByteVar>())
 
-public actual fun EvtGetObjectArrayProperty(objectarray: Long, propertyid: UInt, arrayindex: UInt, flags: UInt, propertyvaluebuffersize: UInt, propertyvaluebuffer: Long, propertyvaluebufferused: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_EvtGetObjectArrayProperty(objectarray, propertyid, arrayindex, flags, propertyvaluebuffersize, propertyvaluebuffer.toCPointer<ByteVar>(), propertyvaluebufferused.toCPointer<ByteVar>())
+public actual fun evtGetObjectArrayProperty(objectarray: Long, propertyid: UInt, arrayindex: UInt, flags: UInt, propertyvaluebuffersize: UInt, propertyvaluebuffer: COpaquePointer?, propertyvaluebufferused: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_evtGetObjectArrayProperty(objectarray, propertyid, arrayindex, flags, propertyvaluebuffersize, propertyvaluebuffer?.value?.toCPointer<ByteVar>(), propertyvaluebufferused?.value?.toCPointer<ByteVar>())
 
-public actual fun EvtGetObjectArraySize(objectarray: Long, objectarraysize: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_EvtGetObjectArraySize(objectarray, objectarraysize.toCPointer<ByteVar>())
+public actual fun evtGetObjectArraySize(objectarray: Long, objectarraysize: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_evtGetObjectArraySize(objectarray, objectarraysize?.value?.toCPointer<ByteVar>())
 
-public actual fun EvtGetPublisherMetadataProperty(publishermetadata: EVT_HANDLE, propertyid: EVT_PUBLISHER_METADATA_PROPERTY_ID, flags: UInt, publishermetadatapropertybuffersize: UInt, publishermetadatapropertybuffer: Long, publishermetadatapropertybufferused: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_EvtGetPublisherMetadataProperty(publishermetadata, propertyid, flags, publishermetadatapropertybuffersize, publishermetadatapropertybuffer.toCPointer<ByteVar>(), publishermetadatapropertybufferused.toCPointer<ByteVar>())
+public actual fun evtGetPublisherMetadataProperty(publishermetadata: EvtHandle, propertyid: EvtPublisherMetadataPropertyId, flags: UInt, publishermetadatapropertybuffersize: UInt, publishermetadatapropertybuffer: COpaquePointer?, publishermetadatapropertybufferused: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_evtGetPublisherMetadataProperty(publishermetadata, propertyid, flags, publishermetadatapropertybuffersize, publishermetadatapropertybuffer?.value?.toCPointer<ByteVar>(), publishermetadatapropertybufferused?.value?.toCPointer<ByteVar>())
 
-public actual fun EvtGetQueryInfo(queryorsubscription: EVT_HANDLE, propertyid: EVT_QUERY_PROPERTY_ID, propertyvaluebuffersize: UInt, propertyvaluebuffer: Long, propertyvaluebufferused: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_EvtGetQueryInfo(queryorsubscription, propertyid, propertyvaluebuffersize, propertyvaluebuffer.toCPointer<ByteVar>(), propertyvaluebufferused.toCPointer<ByteVar>())
+public actual fun evtGetQueryInfo(queryorsubscription: EvtHandle, propertyid: EvtQueryPropertyId, propertyvaluebuffersize: UInt, propertyvaluebuffer: COpaquePointer?, propertyvaluebufferused: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_evtGetQueryInfo(queryorsubscription, propertyid, propertyvaluebuffersize, propertyvaluebuffer?.value?.toCPointer<ByteVar>(), propertyvaluebufferused?.value?.toCPointer<ByteVar>())
 
-public actual fun EvtNext(resultset: EVT_HANDLE, eventssize: UInt, events: Long, timeout: UInt, flags: UInt, returned: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_EvtNext(resultset, eventssize, events.toCPointer<ByteVar>(), timeout, flags, returned.toCPointer<ByteVar>())
+public actual fun evtNext(resultset: EvtHandle, eventssize: UInt, events: COpaquePointer?, timeout: UInt, flags: UInt, returned: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_evtNext(resultset, eventssize, events?.value?.toCPointer<ByteVar>(), timeout, flags, returned?.value?.toCPointer<ByteVar>())
 
-public actual fun EvtNextChannelPath(channelenum: EVT_HANDLE, channelpathbuffersize: UInt, channelpathbuffer: PWSTR, channelpathbufferused: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_EvtNextChannelPath(channelenum, channelpathbuffersize, channelpathbuffer.toCPointer<ByteVar>(), channelpathbufferused.toCPointer<ByteVar>())
+public actual fun evtNextChannelPath(channelenum: EvtHandle, channelpathbuffersize: UInt, channelpathbuffer: Pwstr, channelpathbufferused: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_evtNextChannelPath(channelenum, channelpathbuffersize, channelpathbuffer?.value?.toCPointer<ByteVar>(), channelpathbufferused?.value?.toCPointer<ByteVar>())
 
-public actual fun EvtNextEventMetadata(eventmetadataenum: EVT_HANDLE, flags: UInt): EVT_HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_EvtNextEventMetadata(eventmetadataenum, flags)
+public actual fun evtNextEventMetadata(eventmetadataenum: EvtHandle, flags: UInt): EvtHandle =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_evtNextEventMetadata(eventmetadataenum, flags)
 
-public actual fun EvtNextPublisherId(publisherenum: EVT_HANDLE, publisheridbuffersize: UInt, publisheridbuffer: PWSTR, publisheridbufferused: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_EvtNextPublisherId(publisherenum, publisheridbuffersize, publisheridbuffer.toCPointer<ByteVar>(), publisheridbufferused.toCPointer<ByteVar>())
+public actual fun evtNextPublisherId(publisherenum: EvtHandle, publisheridbuffersize: UInt, publisheridbuffer: Pwstr, publisheridbufferused: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_evtNextPublisherId(publisherenum, publisheridbuffersize, publisheridbuffer?.value?.toCPointer<ByteVar>(), publisheridbufferused?.value?.toCPointer<ByteVar>())
 
-public actual fun EvtOpenChannelConfig(session: EVT_HANDLE, channelpath: PCWSTR, flags: UInt): EVT_HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_EvtOpenChannelConfig(session, channelpath.toCPointer<ByteVar>(), flags)
+public actual fun evtOpenChannelConfig(session: EvtHandle, channelpath: Pcwstr, flags: UInt): EvtHandle =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_evtOpenChannelConfig(session, channelpath?.value?.toCPointer<ByteVar>(), flags)
 
-public actual fun EvtOpenChannelEnum(session: EVT_HANDLE, flags: UInt): EVT_HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_EvtOpenChannelEnum(session, flags)
+public actual fun evtOpenChannelEnum(session: EvtHandle, flags: UInt): EvtHandle =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_evtOpenChannelEnum(session, flags)
 
-public actual fun EvtOpenEventMetadataEnum(publishermetadata: EVT_HANDLE, flags: UInt): EVT_HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_EvtOpenEventMetadataEnum(publishermetadata, flags)
+public actual fun evtOpenEventMetadataEnum(publishermetadata: EvtHandle, flags: UInt): EvtHandle =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_evtOpenEventMetadataEnum(publishermetadata, flags)
 
-public actual fun EvtOpenLog(session: EVT_HANDLE, path: PCWSTR, flags: UInt): EVT_HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_EvtOpenLog(session, path.toCPointer<ByteVar>(), flags)
+public actual fun evtOpenLog(session: EvtHandle, path: Pcwstr, flags: UInt): EvtHandle =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_evtOpenLog(session, path?.value?.toCPointer<ByteVar>(), flags)
 
-public actual fun EvtOpenPublisherEnum(session: EVT_HANDLE, flags: UInt): EVT_HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_EvtOpenPublisherEnum(session, flags)
+public actual fun evtOpenPublisherEnum(session: EvtHandle, flags: UInt): EvtHandle =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_evtOpenPublisherEnum(session, flags)
 
-public actual fun EvtOpenPublisherMetadata(session: EVT_HANDLE, publisherid: PCWSTR, logfilepath: PCWSTR, locale: UInt, flags: UInt): EVT_HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_EvtOpenPublisherMetadata(session, publisherid.toCPointer<ByteVar>(), logfilepath.toCPointer<ByteVar>(), locale, flags)
+public actual fun evtOpenPublisherMetadata(session: EvtHandle, publisherid: Pcwstr, logfilepath: Pcwstr, locale: UInt, flags: UInt): EvtHandle =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_evtOpenPublisherMetadata(session, publisherid?.value?.toCPointer<ByteVar>(), logfilepath?.value?.toCPointer<ByteVar>(), locale, flags)
 
-public actual fun EvtOpenSession(loginclass: EVT_LOGIN_CLASS, login: Long, timeout: UInt, flags: UInt): EVT_HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_EvtOpenSession(loginclass, login.toCPointer<ByteVar>(), timeout, flags)
+public actual fun evtOpenSession(loginclass: EvtLoginClass, login: COpaquePointer?, timeout: UInt, flags: UInt): EvtHandle =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_evtOpenSession(loginclass, login?.value?.toCPointer<ByteVar>(), timeout, flags)
 
-public actual fun EvtQuery(session: EVT_HANDLE, path: PCWSTR, query: PCWSTR, flags: UInt): EVT_HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_EvtQuery(session, path.toCPointer<ByteVar>(), query.toCPointer<ByteVar>(), flags)
+public actual fun evtQuery(session: EvtHandle, path: Pcwstr, query: Pcwstr, flags: UInt): EvtHandle =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_evtQuery(session, path?.value?.toCPointer<ByteVar>(), query?.value?.toCPointer<ByteVar>(), flags)
 
-public actual fun EvtRender(context: EVT_HANDLE, fragment: EVT_HANDLE, flags: UInt, buffersize: UInt, buffer: Long, bufferused: Long, propertycount: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_EvtRender(context, fragment, flags, buffersize, buffer.toCPointer<ByteVar>(), bufferused.toCPointer<ByteVar>(), propertycount.toCPointer<ByteVar>())
+public actual fun evtRender(context: EvtHandle, fragment: EvtHandle, flags: UInt, buffersize: UInt, buffer: COpaquePointer?, bufferused: COpaquePointer?, propertycount: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_evtRender(context, fragment, flags, buffersize, buffer?.value?.toCPointer<ByteVar>(), bufferused?.value?.toCPointer<ByteVar>(), propertycount?.value?.toCPointer<ByteVar>())
 
-public actual fun EvtSaveChannelConfig(channelconfig: EVT_HANDLE, flags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_EvtSaveChannelConfig(channelconfig, flags)
+public actual fun evtSaveChannelConfig(channelconfig: EvtHandle, flags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_evtSaveChannelConfig(channelconfig, flags)
 
-public actual fun EvtSeek(resultset: EVT_HANDLE, position: Long, bookmark: EVT_HANDLE, timeout: UInt, flags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_EvtSeek(resultset, position, bookmark, timeout, flags)
+public actual fun evtSeek(resultset: EvtHandle, position: Long, bookmark: EvtHandle, timeout: UInt, flags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_evtSeek(resultset, position, bookmark, timeout, flags)
 
-public actual fun EvtSetChannelConfigProperty(channelconfig: EVT_HANDLE, propertyid: EVT_CHANNEL_CONFIG_PROPERTY_ID, flags: UInt, propertyvalue: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_EvtSetChannelConfigProperty(channelconfig, propertyid, flags, propertyvalue.toCPointer<ByteVar>())
+public actual fun evtSetChannelConfigProperty(channelconfig: EvtHandle, propertyid: EvtChannelConfigPropertyId, flags: UInt, propertyvalue: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_evtSetChannelConfigProperty(channelconfig, propertyid, flags, propertyvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun EvtSubscribe(session: EVT_HANDLE, signalevent: HANDLE, channelpath: PCWSTR, query: PCWSTR, bookmark: EVT_HANDLE, context: Long, callback: EVT_SUBSCRIBE_CALLBACK, flags: UInt): EVT_HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_EvtSubscribe(session, signalevent.toCPointer<ByteVar>(), channelpath.toCPointer<ByteVar>(), query.toCPointer<ByteVar>(), bookmark, context.toCPointer<ByteVar>(), callback.toLong().toCPointer<ByteVar>(), flags)
+public actual fun evtSubscribe(session: EvtHandle, signalevent: Handle, channelpath: Pcwstr, query: Pcwstr, bookmark: EvtHandle, context: COpaquePointer?, callback: EvtSubscribeCallback, flags: UInt): EvtHandle =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_evtSubscribe(session, signalevent?.value?.toCPointer<ByteVar>(), channelpath?.value?.toCPointer<ByteVar>(), query?.value?.toCPointer<ByteVar>(), bookmark, context?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), flags)
 
-public actual fun EvtUpdateBookmark(bookmark: EVT_HANDLE, event: EVT_HANDLE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_EvtUpdateBookmark(bookmark, event)
+public actual fun evtUpdateBookmark(bookmark: EvtHandle, event: EvtHandle): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_evtUpdateBookmark(bookmark, event)
 
-public actual fun GetEventLogInformation(heventlog: HANDLE, dwinfolevel: UInt, lpbuffer: Long, cbbufsize: UInt, pcbbytesneeded: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_GetEventLogInformation(heventlog.toCPointer<ByteVar>(), dwinfolevel, lpbuffer.toCPointer<ByteVar>(), cbbufsize, pcbbytesneeded.toCPointer<ByteVar>())
+public actual fun getEventLogInformation(heventlog: Handle, dwinfolevel: UInt, lpbuffer: COpaquePointer?, cbbufsize: UInt, pcbbytesneeded: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_getEventLogInformation(heventlog?.value?.toCPointer<ByteVar>(), dwinfolevel, lpbuffer?.value?.toCPointer<ByteVar>(), cbbufsize, pcbbytesneeded?.value?.toCPointer<ByteVar>())
 
-public actual fun GetNumberOfEventLogRecords(heventlog: HANDLE, numberofrecords: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_GetNumberOfEventLogRecords(heventlog.toCPointer<ByteVar>(), numberofrecords.toCPointer<ByteVar>())
+public actual fun getNumberOfEventLogRecords(heventlog: Handle, numberofrecords: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_getNumberOfEventLogRecords(heventlog?.value?.toCPointer<ByteVar>(), numberofrecords?.value?.toCPointer<ByteVar>())
 
-public actual fun GetOldestEventLogRecord(heventlog: HANDLE, oldestrecord: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_GetOldestEventLogRecord(heventlog.toCPointer<ByteVar>(), oldestrecord.toCPointer<ByteVar>())
+public actual fun getOldestEventLogRecord(heventlog: Handle, oldestrecord: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_getOldestEventLogRecord(heventlog?.value?.toCPointer<ByteVar>(), oldestrecord?.value?.toCPointer<ByteVar>())
 
-public actual fun NotifyChangeEventLog(heventlog: HANDLE, hevent: HANDLE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_NotifyChangeEventLog(heventlog.toCPointer<ByteVar>(), hevent.toCPointer<ByteVar>())
+public actual fun notifyChangeEventLog(heventlog: Handle, hevent: Handle): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_notifyChangeEventLog(heventlog?.value?.toCPointer<ByteVar>(), hevent?.value?.toCPointer<ByteVar>())
 
-public actual fun OpenBackupEventLogA(lpuncservername: PCSTR, lpfilename: PCSTR): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_OpenBackupEventLogA(lpuncservername.toCPointer<ByteVar>(), lpfilename.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun openBackupEventLogA(lpuncservername: Pcstr, lpfilename: Pcstr): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_openBackupEventLogA(lpuncservername?.value?.toCPointer<ByteVar>(), lpfilename?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun OpenBackupEventLogW(lpuncservername: PCWSTR, lpfilename: PCWSTR): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_OpenBackupEventLogW(lpuncservername.toCPointer<ByteVar>(), lpfilename.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun openBackupEventLogW(lpuncservername: Pcwstr, lpfilename: Pcwstr): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_openBackupEventLogW(lpuncservername?.value?.toCPointer<ByteVar>(), lpfilename?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun OpenEventLogA(lpuncservername: PCSTR, lpsourcename: PCSTR): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_OpenEventLogA(lpuncservername.toCPointer<ByteVar>(), lpsourcename.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun openEventLogA(lpuncservername: Pcstr, lpsourcename: Pcstr): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_openEventLogA(lpuncservername?.value?.toCPointer<ByteVar>(), lpsourcename?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun OpenEventLogW(lpuncservername: PCWSTR, lpsourcename: PCWSTR): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_OpenEventLogW(lpuncservername.toCPointer<ByteVar>(), lpsourcename.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun openEventLogW(lpuncservername: Pcwstr, lpsourcename: Pcwstr): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_openEventLogW(lpuncservername?.value?.toCPointer<ByteVar>(), lpsourcename?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ReadEventLogA(heventlog: HANDLE, dwreadflags: READ_EVENT_LOG_READ_FLAGS, dwrecordoffset: UInt, lpbuffer: Long, nnumberofbytestoread: UInt, pnbytesread: Long, pnminnumberofbytesneeded: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_ReadEventLogA(heventlog.toCPointer<ByteVar>(), dwreadflags, dwrecordoffset, lpbuffer.toCPointer<ByteVar>(), nnumberofbytestoread, pnbytesread.toCPointer<ByteVar>(), pnminnumberofbytesneeded.toCPointer<ByteVar>())
+public actual fun readEventLogA(heventlog: Handle, dwreadflags: ReadEventLogReadFlags, dwrecordoffset: UInt, lpbuffer: COpaquePointer?, nnumberofbytestoread: UInt, pnbytesread: COpaquePointer?, pnminnumberofbytesneeded: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_readEventLogA(heventlog?.value?.toCPointer<ByteVar>(), dwreadflags, dwrecordoffset, lpbuffer?.value?.toCPointer<ByteVar>(), nnumberofbytestoread, pnbytesread?.value?.toCPointer<ByteVar>(), pnminnumberofbytesneeded?.value?.toCPointer<ByteVar>())
 
-public actual fun ReadEventLogW(heventlog: HANDLE, dwreadflags: READ_EVENT_LOG_READ_FLAGS, dwrecordoffset: UInt, lpbuffer: Long, nnumberofbytestoread: UInt, pnbytesread: Long, pnminnumberofbytesneeded: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_ReadEventLogW(heventlog.toCPointer<ByteVar>(), dwreadflags, dwrecordoffset, lpbuffer.toCPointer<ByteVar>(), nnumberofbytestoread, pnbytesread.toCPointer<ByteVar>(), pnminnumberofbytesneeded.toCPointer<ByteVar>())
+public actual fun readEventLogW(heventlog: Handle, dwreadflags: ReadEventLogReadFlags, dwrecordoffset: UInt, lpbuffer: COpaquePointer?, nnumberofbytestoread: UInt, pnbytesread: COpaquePointer?, pnminnumberofbytesneeded: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_readEventLogW(heventlog?.value?.toCPointer<ByteVar>(), dwreadflags, dwrecordoffset, lpbuffer?.value?.toCPointer<ByteVar>(), nnumberofbytestoread, pnbytesread?.value?.toCPointer<ByteVar>(), pnminnumberofbytesneeded?.value?.toCPointer<ByteVar>())
 
-public actual fun RegisterEventSourceA(lpuncservername: PCSTR, lpsourcename: PCSTR): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_RegisterEventSourceA(lpuncservername.toCPointer<ByteVar>(), lpsourcename.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun registerEventSourceA(lpuncservername: Pcstr, lpsourcename: Pcstr): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_registerEventSourceA(lpuncservername?.value?.toCPointer<ByteVar>(), lpsourcename?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun RegisterEventSourceW(lpuncservername: PCWSTR, lpsourcename: PCWSTR): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_RegisterEventSourceW(lpuncservername.toCPointer<ByteVar>(), lpsourcename.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun registerEventSourceW(lpuncservername: Pcwstr, lpsourcename: Pcwstr): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_registerEventSourceW(lpuncservername?.value?.toCPointer<ByteVar>(), lpsourcename?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ReportEventA(heventlog: HANDLE, wtype: REPORT_EVENT_TYPE, wcategory: UShort, dweventid: UInt, lpusersid: PSID, wnumstrings: UShort, dwdatasize: UInt, lpstrings: Long, lprawdata: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_ReportEventA(heventlog.toCPointer<ByteVar>(), wtype, wcategory, dweventid, lpusersid.toCPointer<ByteVar>(), wnumstrings, dwdatasize, lpstrings.toCPointer<ByteVar>(), lprawdata.toCPointer<ByteVar>())
+public actual fun reportEventA(heventlog: Handle, wtype: ReportEventType, wcategory: UShort, dweventid: UInt, lpusersid: Psid, wnumstrings: UShort, dwdatasize: UInt, lpstrings: COpaquePointer?, lprawdata: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_reportEventA(heventlog?.value?.toCPointer<ByteVar>(), wtype, wcategory, dweventid, lpusersid?.value?.toCPointer<ByteVar>(), wnumstrings, dwdatasize, lpstrings?.value?.toCPointer<ByteVar>(), lprawdata?.value?.toCPointer<ByteVar>())
 
-public actual fun ReportEventW(heventlog: HANDLE, wtype: REPORT_EVENT_TYPE, wcategory: UShort, dweventid: UInt, lpusersid: PSID, wnumstrings: UShort, dwdatasize: UInt, lpstrings: Long, lprawdata: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_ReportEventW(heventlog.toCPointer<ByteVar>(), wtype, wcategory, dweventid, lpusersid.toCPointer<ByteVar>(), wnumstrings, dwdatasize, lpstrings.toCPointer<ByteVar>(), lprawdata.toCPointer<ByteVar>())
+public actual fun reportEventW(heventlog: Handle, wtype: ReportEventType, wcategory: UShort, dweventid: UInt, lpusersid: Psid, wnumstrings: UShort, dwdatasize: UInt, lpstrings: COpaquePointer?, lprawdata: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventlog.cinterop.windowssys_windows_win32_system_eventlog_reportEventW(heventlog?.value?.toCPointer<ByteVar>(), wtype, wcategory, dweventid, lpusersid?.value?.toCPointer<ByteVar>(), wnumstrings, dwdatasize, lpstrings?.value?.toCPointer<ByteVar>(), lprawdata?.value?.toCPointer<ByteVar>())

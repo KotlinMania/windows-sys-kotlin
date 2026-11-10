@@ -2,983 +2,984 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.ALG_ID
-import io.github.kotlinmania.windowssys.windows.win32.system.registry.HKEY
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.AlgId
+import io.github.kotlinmania.windowssys.windows.win32.system.registry.Hkey
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun ActivateActCtx(hactctx: HANDLE, lpcookie: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_ActivateActCtx(hactctx.toCPointer<ByteVar>(), lpcookie.toCPointer<ByteVar>())
+public actual fun activateActCtx(hactctx: Handle, lpcookie: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_activateActCtx(hactctx?.value?.toCPointer<ByteVar>(), lpcookie?.value?.toCPointer<ByteVar>())
 
-public actual fun AddRefActCtx(hactctx: HANDLE) {
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_AddRefActCtx(hactctx.toCPointer<ByteVar>())
+public actual fun addRefActCtx(hactctx: Handle) {
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_addRefActCtx(hactctx?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ApplyDeltaA(applyflags: Long, lpsourcename: PCSTR, lpdeltaname: PCSTR, lptargetname: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_ApplyDeltaA(applyflags, lpsourcename.toCPointer<ByteVar>(), lpdeltaname.toCPointer<ByteVar>(), lptargetname.toCPointer<ByteVar>())
+public actual fun applyDeltaA(applyflags: Long, lpsourcename: Pcstr, lpdeltaname: Pcstr, lptargetname: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_applyDeltaA(applyflags, lpsourcename?.value?.toCPointer<ByteVar>(), lpdeltaname?.value?.toCPointer<ByteVar>(), lptargetname?.value?.toCPointer<ByteVar>())
 
-public actual fun ApplyDeltaB(applyflags: Long, source: DELTA_INPUT, delta: DELTA_INPUT, lptarget: Long): BOOL =
+public actual fun applyDeltaB(applyflags: Long, source: DeltaInput, delta: DeltaInput, lptarget: COpaquePointer?): Bool =
     0
 
-public actual fun ApplyDeltaGetReverseB(applyflags: Long, source: DELTA_INPUT, delta: DELTA_INPUT, lpreversefiletime: Long, lptarget: Long, lptargetreverse: Long): BOOL =
+public actual fun applyDeltaGetReverseB(applyflags: Long, source: DeltaInput, delta: DeltaInput, lpreversefiletime: COpaquePointer?, lptarget: COpaquePointer?, lptargetreverse: COpaquePointer?): Bool =
     0
 
-public actual fun ApplyDeltaProvidedB(applyflags: Long, source: DELTA_INPUT, delta: DELTA_INPUT, lptarget: Long, utargetsize: ULong): BOOL =
+public actual fun applyDeltaProvidedB(applyflags: Long, source: DeltaInput, delta: DeltaInput, lptarget: COpaquePointer?, utargetsize: ULong): Bool =
     0
 
-public actual fun ApplyDeltaW(applyflags: Long, lpsourcename: PCWSTR, lpdeltaname: PCWSTR, lptargetname: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_ApplyDeltaW(applyflags, lpsourcename.toCPointer<ByteVar>(), lpdeltaname.toCPointer<ByteVar>(), lptargetname.toCPointer<ByteVar>())
+public actual fun applyDeltaW(applyflags: Long, lpsourcename: Pcwstr, lpdeltaname: Pcwstr, lptargetname: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_applyDeltaW(applyflags, lpsourcename?.value?.toCPointer<ByteVar>(), lpdeltaname?.value?.toCPointer<ByteVar>(), lptargetname?.value?.toCPointer<ByteVar>())
 
-public actual fun ApplyPatchToFileA(patchfilename: PCSTR, oldfilename: PCSTR, newfilename: PCSTR, applyoptionflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_ApplyPatchToFileA(patchfilename.toCPointer<ByteVar>(), oldfilename.toCPointer<ByteVar>(), newfilename.toCPointer<ByteVar>(), applyoptionflags)
+public actual fun applyPatchToFileA(patchfilename: Pcstr, oldfilename: Pcstr, newfilename: Pcstr, applyoptionflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_applyPatchToFileA(patchfilename?.value?.toCPointer<ByteVar>(), oldfilename?.value?.toCPointer<ByteVar>(), newfilename?.value?.toCPointer<ByteVar>(), applyoptionflags)
 
-public actual fun ApplyPatchToFileByBuffers(patchfilemapped: Long, patchfilesize: UInt, oldfilemapped: Long, oldfilesize: UInt, newfilebuffer: Long, newfilebuffersize: UInt, newfileactualsize: Long, newfiletime: Long, applyoptionflags: UInt, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_ApplyPatchToFileByBuffers(patchfilemapped.toCPointer<ByteVar>(), patchfilesize, oldfilemapped.toCPointer<ByteVar>(), oldfilesize, newfilebuffer.toCPointer<ByteVar>(), newfilebuffersize, newfileactualsize.toCPointer<ByteVar>(), newfiletime.toCPointer<ByteVar>(), applyoptionflags, progresscallback.toLong().toCPointer<ByteVar>(), callbackcontext.toCPointer<ByteVar>())
+public actual fun applyPatchToFileByBuffers(patchfilemapped: COpaquePointer?, patchfilesize: UInt, oldfilemapped: COpaquePointer?, oldfilesize: UInt, newfilebuffer: COpaquePointer?, newfilebuffersize: UInt, newfileactualsize: COpaquePointer?, newfiletime: COpaquePointer?, applyoptionflags: UInt, progresscallback: PpatchProgressCallback, callbackcontext: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_applyPatchToFileByBuffers(patchfilemapped?.value?.toCPointer<ByteVar>(), patchfilesize, oldfilemapped?.value?.toCPointer<ByteVar>(), oldfilesize, newfilebuffer?.value?.toCPointer<ByteVar>(), newfilebuffersize, newfileactualsize?.value?.toCPointer<ByteVar>(), newfiletime?.value?.toCPointer<ByteVar>(), applyoptionflags, 0L.toCPointer<ByteVar>(), callbackcontext?.value?.toCPointer<ByteVar>())
 
-public actual fun ApplyPatchToFileByHandles(patchfilehandle: HANDLE, oldfilehandle: HANDLE, newfilehandle: HANDLE, applyoptionflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_ApplyPatchToFileByHandles(patchfilehandle.toCPointer<ByteVar>(), oldfilehandle.toCPointer<ByteVar>(), newfilehandle.toCPointer<ByteVar>(), applyoptionflags)
+public actual fun applyPatchToFileByHandles(patchfilehandle: Handle, oldfilehandle: Handle, newfilehandle: Handle, applyoptionflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_applyPatchToFileByHandles(patchfilehandle?.value?.toCPointer<ByteVar>(), oldfilehandle?.value?.toCPointer<ByteVar>(), newfilehandle?.value?.toCPointer<ByteVar>(), applyoptionflags)
 
-public actual fun ApplyPatchToFileByHandlesEx(patchfilehandle: HANDLE, oldfilehandle: HANDLE, newfilehandle: HANDLE, applyoptionflags: UInt, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_ApplyPatchToFileByHandlesEx(patchfilehandle.toCPointer<ByteVar>(), oldfilehandle.toCPointer<ByteVar>(), newfilehandle.toCPointer<ByteVar>(), applyoptionflags, progresscallback.toLong().toCPointer<ByteVar>(), callbackcontext.toCPointer<ByteVar>())
+public actual fun applyPatchToFileByHandlesEx(patchfilehandle: Handle, oldfilehandle: Handle, newfilehandle: Handle, applyoptionflags: UInt, progresscallback: PpatchProgressCallback, callbackcontext: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_applyPatchToFileByHandlesEx(patchfilehandle?.value?.toCPointer<ByteVar>(), oldfilehandle?.value?.toCPointer<ByteVar>(), newfilehandle?.value?.toCPointer<ByteVar>(), applyoptionflags, 0L.toCPointer<ByteVar>(), callbackcontext?.value?.toCPointer<ByteVar>())
 
-public actual fun ApplyPatchToFileExA(patchfilename: PCSTR, oldfilename: PCSTR, newfilename: PCSTR, applyoptionflags: UInt, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_ApplyPatchToFileExA(patchfilename.toCPointer<ByteVar>(), oldfilename.toCPointer<ByteVar>(), newfilename.toCPointer<ByteVar>(), applyoptionflags, progresscallback.toLong().toCPointer<ByteVar>(), callbackcontext.toCPointer<ByteVar>())
+public actual fun applyPatchToFileExA(patchfilename: Pcstr, oldfilename: Pcstr, newfilename: Pcstr, applyoptionflags: UInt, progresscallback: PpatchProgressCallback, callbackcontext: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_applyPatchToFileExA(patchfilename?.value?.toCPointer<ByteVar>(), oldfilename?.value?.toCPointer<ByteVar>(), newfilename?.value?.toCPointer<ByteVar>(), applyoptionflags, 0L.toCPointer<ByteVar>(), callbackcontext?.value?.toCPointer<ByteVar>())
 
-public actual fun ApplyPatchToFileExW(patchfilename: PCWSTR, oldfilename: PCWSTR, newfilename: PCWSTR, applyoptionflags: UInt, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_ApplyPatchToFileExW(patchfilename.toCPointer<ByteVar>(), oldfilename.toCPointer<ByteVar>(), newfilename.toCPointer<ByteVar>(), applyoptionflags, progresscallback.toLong().toCPointer<ByteVar>(), callbackcontext.toCPointer<ByteVar>())
+public actual fun applyPatchToFileExW(patchfilename: Pcwstr, oldfilename: Pcwstr, newfilename: Pcwstr, applyoptionflags: UInt, progresscallback: PpatchProgressCallback, callbackcontext: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_applyPatchToFileExW(patchfilename?.value?.toCPointer<ByteVar>(), oldfilename?.value?.toCPointer<ByteVar>(), newfilename?.value?.toCPointer<ByteVar>(), applyoptionflags, 0L.toCPointer<ByteVar>(), callbackcontext?.value?.toCPointer<ByteVar>())
 
-public actual fun ApplyPatchToFileW(patchfilename: PCWSTR, oldfilename: PCWSTR, newfilename: PCWSTR, applyoptionflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_ApplyPatchToFileW(patchfilename.toCPointer<ByteVar>(), oldfilename.toCPointer<ByteVar>(), newfilename.toCPointer<ByteVar>(), applyoptionflags)
+public actual fun applyPatchToFileW(patchfilename: Pcwstr, oldfilename: Pcwstr, newfilename: Pcwstr, applyoptionflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_applyPatchToFileW(patchfilename?.value?.toCPointer<ByteVar>(), oldfilename?.value?.toCPointer<ByteVar>(), newfilename?.value?.toCPointer<ByteVar>(), applyoptionflags)
 
-public actual fun CreateActCtxA(pactctx: Long): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_CreateActCtxA(pactctx.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun createActCtxA(pactctx: COpaquePointer?): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_createActCtxA(pactctx?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateActCtxW(pactctx: Long): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_CreateActCtxW(pactctx.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun createActCtxW(pactctx: COpaquePointer?): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_createActCtxW(pactctx?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateDeltaA(filetypeset: Long, setflags: Long, resetflags: Long, lpsourcename: PCSTR, lptargetname: PCSTR, lpsourceoptionsname: PCSTR, lptargetoptionsname: PCSTR, globaloptions: DELTA_INPUT, lptargetfiletime: Long, hashalgid: ALG_ID, lpdeltaname: PCSTR): BOOL =
+public actual fun createDeltaA(filetypeset: Long, setflags: Long, resetflags: Long, lpsourcename: Pcstr, lptargetname: Pcstr, lpsourceoptionsname: Pcstr, lptargetoptionsname: Pcstr, globaloptions: DeltaInput, lptargetfiletime: COpaquePointer?, hashalgid: AlgId, lpdeltaname: Pcstr): Bool =
     0
 
-public actual fun CreateDeltaB(filetypeset: Long, setflags: Long, resetflags: Long, source: DELTA_INPUT, target: DELTA_INPUT, sourceoptions: DELTA_INPUT, targetoptions: DELTA_INPUT, globaloptions: DELTA_INPUT, lptargetfiletime: Long, hashalgid: ALG_ID, lpdelta: Long): BOOL =
+public actual fun createDeltaB(filetypeset: Long, setflags: Long, resetflags: Long, source: DeltaInput, target: DeltaInput, sourceoptions: DeltaInput, targetoptions: DeltaInput, globaloptions: DeltaInput, lptargetfiletime: COpaquePointer?, hashalgid: AlgId, lpdelta: COpaquePointer?): Bool =
     0
 
-public actual fun CreateDeltaW(filetypeset: Long, setflags: Long, resetflags: Long, lpsourcename: PCWSTR, lptargetname: PCWSTR, lpsourceoptionsname: PCWSTR, lptargetoptionsname: PCWSTR, globaloptions: DELTA_INPUT, lptargetfiletime: Long, hashalgid: ALG_ID, lpdeltaname: PCWSTR): BOOL =
+public actual fun createDeltaW(filetypeset: Long, setflags: Long, resetflags: Long, lpsourcename: Pcwstr, lptargetname: Pcwstr, lpsourceoptionsname: Pcwstr, lptargetoptionsname: Pcwstr, globaloptions: DeltaInput, lptargetfiletime: COpaquePointer?, hashalgid: AlgId, lpdeltaname: Pcwstr): Bool =
     0
 
-public actual fun CreatePatchFileA(oldfilename: PCSTR, newfilename: PCSTR, patchfilename: PCSTR, optionflags: UInt, optiondata: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_CreatePatchFileA(oldfilename.toCPointer<ByteVar>(), newfilename.toCPointer<ByteVar>(), patchfilename.toCPointer<ByteVar>(), optionflags, optiondata.toCPointer<ByteVar>())
+public actual fun createPatchFileA(oldfilename: Pcstr, newfilename: Pcstr, patchfilename: Pcstr, optionflags: UInt, optiondata: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_createPatchFileA(oldfilename?.value?.toCPointer<ByteVar>(), newfilename?.value?.toCPointer<ByteVar>(), patchfilename?.value?.toCPointer<ByteVar>(), optionflags, optiondata?.value?.toCPointer<ByteVar>())
 
-public actual fun CreatePatchFileByHandles(oldfilehandle: HANDLE, newfilehandle: HANDLE, patchfilehandle: HANDLE, optionflags: UInt, optiondata: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_CreatePatchFileByHandles(oldfilehandle.toCPointer<ByteVar>(), newfilehandle.toCPointer<ByteVar>(), patchfilehandle.toCPointer<ByteVar>(), optionflags, optiondata.toCPointer<ByteVar>())
+public actual fun createPatchFileByHandles(oldfilehandle: Handle, newfilehandle: Handle, patchfilehandle: Handle, optionflags: UInt, optiondata: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_createPatchFileByHandles(oldfilehandle?.value?.toCPointer<ByteVar>(), newfilehandle?.value?.toCPointer<ByteVar>(), patchfilehandle?.value?.toCPointer<ByteVar>(), optionflags, optiondata?.value?.toCPointer<ByteVar>())
 
-public actual fun CreatePatchFileByHandlesEx(oldfilecount: UInt, oldfileinfoarray: Long, newfilehandle: HANDLE, patchfilehandle: HANDLE, optionflags: UInt, optiondata: Long, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_CreatePatchFileByHandlesEx(oldfilecount, oldfileinfoarray.toCPointer<ByteVar>(), newfilehandle.toCPointer<ByteVar>(), patchfilehandle.toCPointer<ByteVar>(), optionflags, optiondata.toCPointer<ByteVar>(), progresscallback.toLong().toCPointer<ByteVar>(), callbackcontext.toCPointer<ByteVar>())
+public actual fun createPatchFileByHandlesEx(oldfilecount: UInt, oldfileinfoarray: COpaquePointer?, newfilehandle: Handle, patchfilehandle: Handle, optionflags: UInt, optiondata: COpaquePointer?, progresscallback: PpatchProgressCallback, callbackcontext: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_createPatchFileByHandlesEx(oldfilecount, oldfileinfoarray?.value?.toCPointer<ByteVar>(), newfilehandle?.value?.toCPointer<ByteVar>(), patchfilehandle?.value?.toCPointer<ByteVar>(), optionflags, optiondata?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), callbackcontext?.value?.toCPointer<ByteVar>())
 
-public actual fun CreatePatchFileExA(oldfilecount: UInt, oldfileinfoarray: Long, newfilename: PCSTR, patchfilename: PCSTR, optionflags: UInt, optiondata: Long, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_CreatePatchFileExA(oldfilecount, oldfileinfoarray.toCPointer<ByteVar>(), newfilename.toCPointer<ByteVar>(), patchfilename.toCPointer<ByteVar>(), optionflags, optiondata.toCPointer<ByteVar>(), progresscallback.toLong().toCPointer<ByteVar>(), callbackcontext.toCPointer<ByteVar>())
+public actual fun createPatchFileExA(oldfilecount: UInt, oldfileinfoarray: COpaquePointer?, newfilename: Pcstr, patchfilename: Pcstr, optionflags: UInt, optiondata: COpaquePointer?, progresscallback: PpatchProgressCallback, callbackcontext: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_createPatchFileExA(oldfilecount, oldfileinfoarray?.value?.toCPointer<ByteVar>(), newfilename?.value?.toCPointer<ByteVar>(), patchfilename?.value?.toCPointer<ByteVar>(), optionflags, optiondata?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), callbackcontext?.value?.toCPointer<ByteVar>())
 
-public actual fun CreatePatchFileExW(oldfilecount: UInt, oldfileinfoarray: Long, newfilename: PCWSTR, patchfilename: PCWSTR, optionflags: UInt, optiondata: Long, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_CreatePatchFileExW(oldfilecount, oldfileinfoarray.toCPointer<ByteVar>(), newfilename.toCPointer<ByteVar>(), patchfilename.toCPointer<ByteVar>(), optionflags, optiondata.toCPointer<ByteVar>(), progresscallback.toLong().toCPointer<ByteVar>(), callbackcontext.toCPointer<ByteVar>())
+public actual fun createPatchFileExW(oldfilecount: UInt, oldfileinfoarray: COpaquePointer?, newfilename: Pcwstr, patchfilename: Pcwstr, optionflags: UInt, optiondata: COpaquePointer?, progresscallback: PpatchProgressCallback, callbackcontext: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_createPatchFileExW(oldfilecount, oldfileinfoarray?.value?.toCPointer<ByteVar>(), newfilename?.value?.toCPointer<ByteVar>(), patchfilename?.value?.toCPointer<ByteVar>(), optionflags, optiondata?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), callbackcontext?.value?.toCPointer<ByteVar>())
 
-public actual fun CreatePatchFileW(oldfilename: PCWSTR, newfilename: PCWSTR, patchfilename: PCWSTR, optionflags: UInt, optiondata: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_CreatePatchFileW(oldfilename.toCPointer<ByteVar>(), newfilename.toCPointer<ByteVar>(), patchfilename.toCPointer<ByteVar>(), optionflags, optiondata.toCPointer<ByteVar>())
+public actual fun createPatchFileW(oldfilename: Pcwstr, newfilename: Pcwstr, patchfilename: Pcwstr, optionflags: UInt, optiondata: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_createPatchFileW(oldfilename?.value?.toCPointer<ByteVar>(), newfilename?.value?.toCPointer<ByteVar>(), patchfilename?.value?.toCPointer<ByteVar>(), optionflags, optiondata?.value?.toCPointer<ByteVar>())
 
-public actual fun DeactivateActCtx(dwflags: UInt, ulcookie: ULong): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_DeactivateActCtx(dwflags, ulcookie)
+public actual fun deactivateActCtx(dwflags: UInt, ulcookie: ULong): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_deactivateActCtx(dwflags, ulcookie)
 
-public actual fun DeltaFree(lpmemory: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_DeltaFree(lpmemory.toCPointer<ByteVar>())
+public actual fun deltaFree(lpmemory: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_deltaFree(lpmemory?.value?.toCPointer<ByteVar>())
 
-public actual fun DeltaNormalizeProvidedB(filetypeset: Long, normalizeflags: Long, normalizeoptions: DELTA_INPUT, lpsource: Long, usourcesize: ULong): BOOL =
+public actual fun deltaNormalizeProvidedB(filetypeset: Long, normalizeflags: Long, normalizeoptions: DeltaInput, lpsource: COpaquePointer?, usourcesize: ULong): Bool =
     0
 
-public actual fun ExtractPatchHeaderToFileA(patchfilename: PCSTR, patchheaderfilename: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_ExtractPatchHeaderToFileA(patchfilename.toCPointer<ByteVar>(), patchheaderfilename.toCPointer<ByteVar>())
+public actual fun extractPatchHeaderToFileA(patchfilename: Pcstr, patchheaderfilename: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_extractPatchHeaderToFileA(patchfilename?.value?.toCPointer<ByteVar>(), patchheaderfilename?.value?.toCPointer<ByteVar>())
 
-public actual fun ExtractPatchHeaderToFileByHandles(patchfilehandle: HANDLE, patchheaderfilehandle: HANDLE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_ExtractPatchHeaderToFileByHandles(patchfilehandle.toCPointer<ByteVar>(), patchheaderfilehandle.toCPointer<ByteVar>())
+public actual fun extractPatchHeaderToFileByHandles(patchfilehandle: Handle, patchheaderfilehandle: Handle): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_extractPatchHeaderToFileByHandles(patchfilehandle?.value?.toCPointer<ByteVar>(), patchheaderfilehandle?.value?.toCPointer<ByteVar>())
 
-public actual fun ExtractPatchHeaderToFileW(patchfilename: PCWSTR, patchheaderfilename: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_ExtractPatchHeaderToFileW(patchfilename.toCPointer<ByteVar>(), patchheaderfilename.toCPointer<ByteVar>())
+public actual fun extractPatchHeaderToFileW(patchfilename: Pcwstr, patchheaderfilename: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_extractPatchHeaderToFileW(patchfilename?.value?.toCPointer<ByteVar>(), patchheaderfilename?.value?.toCPointer<ByteVar>())
 
-public actual fun FindActCtxSectionGuid(dwflags: UInt, lpextensionguid: Long, ulsectionid: UInt, lpguidtofind: Long, returneddata: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_FindActCtxSectionGuid(dwflags, lpextensionguid.toCPointer<ByteVar>(), ulsectionid, lpguidtofind.toCPointer<ByteVar>(), returneddata.toCPointer<ByteVar>())
+public actual fun findActCtxSectionGuid(dwflags: UInt, lpextensionguid: COpaquePointer?, ulsectionid: UInt, lpguidtofind: COpaquePointer?, returneddata: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_findActCtxSectionGuid(dwflags, lpextensionguid?.value?.toCPointer<ByteVar>(), ulsectionid, lpguidtofind?.value?.toCPointer<ByteVar>(), returneddata?.value?.toCPointer<ByteVar>())
 
-public actual fun FindActCtxSectionStringA(dwflags: UInt, lpextensionguid: Long, ulsectionid: UInt, lpstringtofind: PCSTR, returneddata: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_FindActCtxSectionStringA(dwflags, lpextensionguid.toCPointer<ByteVar>(), ulsectionid, lpstringtofind.toCPointer<ByteVar>(), returneddata.toCPointer<ByteVar>())
+public actual fun findActCtxSectionStringA(dwflags: UInt, lpextensionguid: COpaquePointer?, ulsectionid: UInt, lpstringtofind: Pcstr, returneddata: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_findActCtxSectionStringA(dwflags, lpextensionguid?.value?.toCPointer<ByteVar>(), ulsectionid, lpstringtofind?.value?.toCPointer<ByteVar>(), returneddata?.value?.toCPointer<ByteVar>())
 
-public actual fun FindActCtxSectionStringW(dwflags: UInt, lpextensionguid: Long, ulsectionid: UInt, lpstringtofind: PCWSTR, returneddata: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_FindActCtxSectionStringW(dwflags, lpextensionguid.toCPointer<ByteVar>(), ulsectionid, lpstringtofind.toCPointer<ByteVar>(), returneddata.toCPointer<ByteVar>())
+public actual fun findActCtxSectionStringW(dwflags: UInt, lpextensionguid: COpaquePointer?, ulsectionid: UInt, lpstringtofind: Pcwstr, returneddata: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_findActCtxSectionStringW(dwflags, lpextensionguid?.value?.toCPointer<ByteVar>(), ulsectionid, lpstringtofind?.value?.toCPointer<ByteVar>(), returneddata?.value?.toCPointer<ByteVar>())
 
-public actual fun GetCurrentActCtx(lphactctx: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_GetCurrentActCtx(lphactctx.toCPointer<ByteVar>())
+public actual fun getCurrentActCtx(lphactctx: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_getCurrentActCtx(lphactctx?.value?.toCPointer<ByteVar>())
 
-public actual fun GetDeltaInfoA(lpdeltaname: PCSTR, lpheaderinfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_GetDeltaInfoA(lpdeltaname.toCPointer<ByteVar>(), lpheaderinfo.toCPointer<ByteVar>())
+public actual fun getDeltaInfoA(lpdeltaname: Pcstr, lpheaderinfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_getDeltaInfoA(lpdeltaname?.value?.toCPointer<ByteVar>(), lpheaderinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun GetDeltaInfoB(delta: DELTA_INPUT, lpheaderinfo: Long): BOOL =
+public actual fun getDeltaInfoB(delta: DeltaInput, lpheaderinfo: COpaquePointer?): Bool =
     0
 
-public actual fun GetDeltaInfoW(lpdeltaname: PCWSTR, lpheaderinfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_GetDeltaInfoW(lpdeltaname.toCPointer<ByteVar>(), lpheaderinfo.toCPointer<ByteVar>())
+public actual fun getDeltaInfoW(lpdeltaname: Pcwstr, lpheaderinfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_getDeltaInfoW(lpdeltaname?.value?.toCPointer<ByteVar>(), lpheaderinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun GetDeltaSignatureA(filetypeset: Long, hashalgid: ALG_ID, lpsourcename: PCSTR, lphash: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_GetDeltaSignatureA(filetypeset, hashalgid, lpsourcename.toCPointer<ByteVar>(), lphash.toCPointer<ByteVar>())
+public actual fun getDeltaSignatureA(filetypeset: Long, hashalgid: AlgId, lpsourcename: Pcstr, lphash: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_getDeltaSignatureA(filetypeset, hashalgid, lpsourcename?.value?.toCPointer<ByteVar>(), lphash?.value?.toCPointer<ByteVar>())
 
-public actual fun GetDeltaSignatureB(filetypeset: Long, hashalgid: ALG_ID, source: DELTA_INPUT, lphash: Long): BOOL =
+public actual fun getDeltaSignatureB(filetypeset: Long, hashalgid: AlgId, source: DeltaInput, lphash: COpaquePointer?): Bool =
     0
 
-public actual fun GetDeltaSignatureW(filetypeset: Long, hashalgid: ALG_ID, lpsourcename: PCWSTR, lphash: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_GetDeltaSignatureW(filetypeset, hashalgid, lpsourcename.toCPointer<ByteVar>(), lphash.toCPointer<ByteVar>())
+public actual fun getDeltaSignatureW(filetypeset: Long, hashalgid: AlgId, lpsourcename: Pcwstr, lphash: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_getDeltaSignatureW(filetypeset, hashalgid, lpsourcename?.value?.toCPointer<ByteVar>(), lphash?.value?.toCPointer<ByteVar>())
 
-public actual fun GetFilePatchSignatureA(filename: PCSTR, optionflags: UInt, optiondata: Long, ignorerangecount: UInt, ignorerangearray: Long, retainrangecount: UInt, retainrangearray: Long, signaturebuffersize: UInt, signaturebuffer: PSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_GetFilePatchSignatureA(filename.toCPointer<ByteVar>(), optionflags, optiondata.toCPointer<ByteVar>(), ignorerangecount, ignorerangearray.toCPointer<ByteVar>(), retainrangecount, retainrangearray.toCPointer<ByteVar>(), signaturebuffersize, signaturebuffer.toCPointer<ByteVar>())
+public actual fun getFilePatchSignatureA(filename: Pcstr, optionflags: UInt, optiondata: COpaquePointer?, ignorerangecount: UInt, ignorerangearray: COpaquePointer?, retainrangecount: UInt, retainrangearray: COpaquePointer?, signaturebuffersize: UInt, signaturebuffer: Pstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_getFilePatchSignatureA(filename?.value?.toCPointer<ByteVar>(), optionflags, optiondata?.value?.toCPointer<ByteVar>(), ignorerangecount, ignorerangearray?.value?.toCPointer<ByteVar>(), retainrangecount, retainrangearray?.value?.toCPointer<ByteVar>(), signaturebuffersize, signaturebuffer?.value?.toCPointer<ByteVar>())
 
-public actual fun GetFilePatchSignatureByBuffer(filebufferwritable: Long, filesize: UInt, optionflags: UInt, optiondata: Long, ignorerangecount: UInt, ignorerangearray: Long, retainrangecount: UInt, retainrangearray: Long, signaturebuffersize: UInt, signaturebuffer: PSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_GetFilePatchSignatureByBuffer(filebufferwritable.toCPointer<ByteVar>(), filesize, optionflags, optiondata.toCPointer<ByteVar>(), ignorerangecount, ignorerangearray.toCPointer<ByteVar>(), retainrangecount, retainrangearray.toCPointer<ByteVar>(), signaturebuffersize, signaturebuffer.toCPointer<ByteVar>())
+public actual fun getFilePatchSignatureByBuffer(filebufferwritable: COpaquePointer?, filesize: UInt, optionflags: UInt, optiondata: COpaquePointer?, ignorerangecount: UInt, ignorerangearray: COpaquePointer?, retainrangecount: UInt, retainrangearray: COpaquePointer?, signaturebuffersize: UInt, signaturebuffer: Pstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_getFilePatchSignatureByBuffer(filebufferwritable?.value?.toCPointer<ByteVar>(), filesize, optionflags, optiondata?.value?.toCPointer<ByteVar>(), ignorerangecount, ignorerangearray?.value?.toCPointer<ByteVar>(), retainrangecount, retainrangearray?.value?.toCPointer<ByteVar>(), signaturebuffersize, signaturebuffer?.value?.toCPointer<ByteVar>())
 
-public actual fun GetFilePatchSignatureByHandle(filehandle: HANDLE, optionflags: UInt, optiondata: Long, ignorerangecount: UInt, ignorerangearray: Long, retainrangecount: UInt, retainrangearray: Long, signaturebuffersize: UInt, signaturebuffer: PSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_GetFilePatchSignatureByHandle(filehandle.toCPointer<ByteVar>(), optionflags, optiondata.toCPointer<ByteVar>(), ignorerangecount, ignorerangearray.toCPointer<ByteVar>(), retainrangecount, retainrangearray.toCPointer<ByteVar>(), signaturebuffersize, signaturebuffer.toCPointer<ByteVar>())
+public actual fun getFilePatchSignatureByHandle(filehandle: Handle, optionflags: UInt, optiondata: COpaquePointer?, ignorerangecount: UInt, ignorerangearray: COpaquePointer?, retainrangecount: UInt, retainrangearray: COpaquePointer?, signaturebuffersize: UInt, signaturebuffer: Pstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_getFilePatchSignatureByHandle(filehandle?.value?.toCPointer<ByteVar>(), optionflags, optiondata?.value?.toCPointer<ByteVar>(), ignorerangecount, ignorerangearray?.value?.toCPointer<ByteVar>(), retainrangecount, retainrangearray?.value?.toCPointer<ByteVar>(), signaturebuffersize, signaturebuffer?.value?.toCPointer<ByteVar>())
 
-public actual fun GetFilePatchSignatureW(filename: PCWSTR, optionflags: UInt, optiondata: Long, ignorerangecount: UInt, ignorerangearray: Long, retainrangecount: UInt, retainrangearray: Long, signaturebuffersize: UInt, signaturebuffer: PWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_GetFilePatchSignatureW(filename.toCPointer<ByteVar>(), optionflags, optiondata.toCPointer<ByteVar>(), ignorerangecount, ignorerangearray.toCPointer<ByteVar>(), retainrangecount, retainrangearray.toCPointer<ByteVar>(), signaturebuffersize, signaturebuffer.toCPointer<ByteVar>())
+public actual fun getFilePatchSignatureW(filename: Pcwstr, optionflags: UInt, optiondata: COpaquePointer?, ignorerangecount: UInt, ignorerangearray: COpaquePointer?, retainrangecount: UInt, retainrangearray: COpaquePointer?, signaturebuffersize: UInt, signaturebuffer: Pwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_getFilePatchSignatureW(filename?.value?.toCPointer<ByteVar>(), optionflags, optiondata?.value?.toCPointer<ByteVar>(), ignorerangecount, ignorerangearray?.value?.toCPointer<ByteVar>(), retainrangecount, retainrangearray?.value?.toCPointer<ByteVar>(), signaturebuffersize, signaturebuffer?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiAdvertiseProductA(szpackagepath: PCSTR, szscriptfilepath: PCSTR, sztransforms: PCSTR, lgidlanguage: UShort): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiAdvertiseProductA(szpackagepath.toCPointer<ByteVar>(), szscriptfilepath.toCPointer<ByteVar>(), sztransforms.toCPointer<ByteVar>(), lgidlanguage)
+public actual fun msiAdvertiseProductA(szpackagepath: Pcstr, szscriptfilepath: Pcstr, sztransforms: Pcstr, lgidlanguage: UShort): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiAdvertiseProductA(szpackagepath?.value?.toCPointer<ByteVar>(), szscriptfilepath?.value?.toCPointer<ByteVar>(), sztransforms?.value?.toCPointer<ByteVar>(), lgidlanguage)
 
-public actual fun MsiAdvertiseProductExA(szpackagepath: PCSTR, szscriptfilepath: PCSTR, sztransforms: PCSTR, lgidlanguage: UShort, dwplatform: UInt, dwoptions: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiAdvertiseProductExA(szpackagepath.toCPointer<ByteVar>(), szscriptfilepath.toCPointer<ByteVar>(), sztransforms.toCPointer<ByteVar>(), lgidlanguage, dwplatform, dwoptions)
+public actual fun msiAdvertiseProductExA(szpackagepath: Pcstr, szscriptfilepath: Pcstr, sztransforms: Pcstr, lgidlanguage: UShort, dwplatform: UInt, dwoptions: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiAdvertiseProductExA(szpackagepath?.value?.toCPointer<ByteVar>(), szscriptfilepath?.value?.toCPointer<ByteVar>(), sztransforms?.value?.toCPointer<ByteVar>(), lgidlanguage, dwplatform, dwoptions)
 
-public actual fun MsiAdvertiseProductExW(szpackagepath: PCWSTR, szscriptfilepath: PCWSTR, sztransforms: PCWSTR, lgidlanguage: UShort, dwplatform: UInt, dwoptions: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiAdvertiseProductExW(szpackagepath.toCPointer<ByteVar>(), szscriptfilepath.toCPointer<ByteVar>(), sztransforms.toCPointer<ByteVar>(), lgidlanguage, dwplatform, dwoptions)
+public actual fun msiAdvertiseProductExW(szpackagepath: Pcwstr, szscriptfilepath: Pcwstr, sztransforms: Pcwstr, lgidlanguage: UShort, dwplatform: UInt, dwoptions: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiAdvertiseProductExW(szpackagepath?.value?.toCPointer<ByteVar>(), szscriptfilepath?.value?.toCPointer<ByteVar>(), sztransforms?.value?.toCPointer<ByteVar>(), lgidlanguage, dwplatform, dwoptions)
 
-public actual fun MsiAdvertiseProductW(szpackagepath: PCWSTR, szscriptfilepath: PCWSTR, sztransforms: PCWSTR, lgidlanguage: UShort): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiAdvertiseProductW(szpackagepath.toCPointer<ByteVar>(), szscriptfilepath.toCPointer<ByteVar>(), sztransforms.toCPointer<ByteVar>(), lgidlanguage)
+public actual fun msiAdvertiseProductW(szpackagepath: Pcwstr, szscriptfilepath: Pcwstr, sztransforms: Pcwstr, lgidlanguage: UShort): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiAdvertiseProductW(szpackagepath?.value?.toCPointer<ByteVar>(), szscriptfilepath?.value?.toCPointer<ByteVar>(), sztransforms?.value?.toCPointer<ByteVar>(), lgidlanguage)
 
-public actual fun MsiAdvertiseScriptA(szscriptfile: PCSTR, dwflags: UInt, phregdata: Long, fremoveitems: BOOL): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiAdvertiseScriptA(szscriptfile.toCPointer<ByteVar>(), dwflags, phregdata.toCPointer<ByteVar>(), fremoveitems)
+public actual fun msiAdvertiseScriptA(szscriptfile: Pcstr, dwflags: UInt, phregdata: COpaquePointer?, fremoveitems: Bool): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiAdvertiseScriptA(szscriptfile?.value?.toCPointer<ByteVar>(), dwflags, phregdata?.value?.toCPointer<ByteVar>(), fremoveitems)
 
-public actual fun MsiAdvertiseScriptW(szscriptfile: PCWSTR, dwflags: UInt, phregdata: Long, fremoveitems: BOOL): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiAdvertiseScriptW(szscriptfile.toCPointer<ByteVar>(), dwflags, phregdata.toCPointer<ByteVar>(), fremoveitems)
+public actual fun msiAdvertiseScriptW(szscriptfile: Pcwstr, dwflags: UInt, phregdata: COpaquePointer?, fremoveitems: Bool): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiAdvertiseScriptW(szscriptfile?.value?.toCPointer<ByteVar>(), dwflags, phregdata?.value?.toCPointer<ByteVar>(), fremoveitems)
 
-public actual fun MsiApplyMultiplePatchesA(szpatchpackages: PCSTR, szproductcode: PCSTR, szpropertieslist: PCSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiApplyMultiplePatchesA(szpatchpackages.toCPointer<ByteVar>(), szproductcode.toCPointer<ByteVar>(), szpropertieslist.toCPointer<ByteVar>())
+public actual fun msiApplyMultiplePatchesA(szpatchpackages: Pcstr, szproductcode: Pcstr, szpropertieslist: Pcstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiApplyMultiplePatchesA(szpatchpackages?.value?.toCPointer<ByteVar>(), szproductcode?.value?.toCPointer<ByteVar>(), szpropertieslist?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiApplyMultiplePatchesW(szpatchpackages: PCWSTR, szproductcode: PCWSTR, szpropertieslist: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiApplyMultiplePatchesW(szpatchpackages.toCPointer<ByteVar>(), szproductcode.toCPointer<ByteVar>(), szpropertieslist.toCPointer<ByteVar>())
+public actual fun msiApplyMultiplePatchesW(szpatchpackages: Pcwstr, szproductcode: Pcwstr, szpropertieslist: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiApplyMultiplePatchesW(szpatchpackages?.value?.toCPointer<ByteVar>(), szproductcode?.value?.toCPointer<ByteVar>(), szpropertieslist?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiApplyPatchA(szpatchpackage: PCSTR, szinstallpackage: PCSTR, einstalltype: INSTALLTYPE, szcommandline: PCSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiApplyPatchA(szpatchpackage.toCPointer<ByteVar>(), szinstallpackage.toCPointer<ByteVar>(), einstalltype, szcommandline.toCPointer<ByteVar>())
+public actual fun msiApplyPatchA(szpatchpackage: Pcstr, szinstallpackage: Pcstr, einstalltype: Installtype, szcommandline: Pcstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiApplyPatchA(szpatchpackage?.value?.toCPointer<ByteVar>(), szinstallpackage?.value?.toCPointer<ByteVar>(), einstalltype, szcommandline?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiApplyPatchW(szpatchpackage: PCWSTR, szinstallpackage: PCWSTR, einstalltype: INSTALLTYPE, szcommandline: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiApplyPatchW(szpatchpackage.toCPointer<ByteVar>(), szinstallpackage.toCPointer<ByteVar>(), einstalltype, szcommandline.toCPointer<ByteVar>())
+public actual fun msiApplyPatchW(szpatchpackage: Pcwstr, szinstallpackage: Pcwstr, einstalltype: Installtype, szcommandline: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiApplyPatchW(szpatchpackage?.value?.toCPointer<ByteVar>(), szinstallpackage?.value?.toCPointer<ByteVar>(), einstalltype, szcommandline?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiBeginTransactionA(szname: PCSTR, dwtransactionattributes: UInt, phtransactionhandle: Long, phchangeofownerevent: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiBeginTransactionA(szname.toCPointer<ByteVar>(), dwtransactionattributes, phtransactionhandle.toCPointer<ByteVar>(), phchangeofownerevent.toCPointer<ByteVar>())
+public actual fun msiBeginTransactionA(szname: Pcstr, dwtransactionattributes: UInt, phtransactionhandle: COpaquePointer?, phchangeofownerevent: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiBeginTransactionA(szname?.value?.toCPointer<ByteVar>(), dwtransactionattributes, phtransactionhandle?.value?.toCPointer<ByteVar>(), phchangeofownerevent?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiBeginTransactionW(szname: PCWSTR, dwtransactionattributes: UInt, phtransactionhandle: Long, phchangeofownerevent: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiBeginTransactionW(szname.toCPointer<ByteVar>(), dwtransactionattributes, phtransactionhandle.toCPointer<ByteVar>(), phchangeofownerevent.toCPointer<ByteVar>())
+public actual fun msiBeginTransactionW(szname: Pcwstr, dwtransactionattributes: UInt, phtransactionhandle: COpaquePointer?, phchangeofownerevent: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiBeginTransactionW(szname?.value?.toCPointer<ByteVar>(), dwtransactionattributes, phtransactionhandle?.value?.toCPointer<ByteVar>(), phchangeofownerevent?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiCloseAllHandles(): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiCloseAllHandles()
+public actual fun msiCloseAllHandles(): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiCloseAllHandles()
 
-public actual fun MsiCloseHandle(hany: MSIHANDLE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiCloseHandle(hany)
+public actual fun msiCloseHandle(hany: Msihandle): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiCloseHandle(hany)
 
-public actual fun MsiCollectUserInfoA(szproduct: PCSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiCollectUserInfoA(szproduct.toCPointer<ByteVar>())
+public actual fun msiCollectUserInfoA(szproduct: Pcstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiCollectUserInfoA(szproduct?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiCollectUserInfoW(szproduct: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiCollectUserInfoW(szproduct.toCPointer<ByteVar>())
+public actual fun msiCollectUserInfoW(szproduct: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiCollectUserInfoW(szproduct?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiConfigureFeatureA(szproduct: PCSTR, szfeature: PCSTR, einstallstate: INSTALLSTATE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiConfigureFeatureA(szproduct.toCPointer<ByteVar>(), szfeature.toCPointer<ByteVar>(), einstallstate)
+public actual fun msiConfigureFeatureA(szproduct: Pcstr, szfeature: Pcstr, einstallstate: Installstate): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiConfigureFeatureA(szproduct?.value?.toCPointer<ByteVar>(), szfeature?.value?.toCPointer<ByteVar>(), einstallstate)
 
-public actual fun MsiConfigureFeatureW(szproduct: PCWSTR, szfeature: PCWSTR, einstallstate: INSTALLSTATE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiConfigureFeatureW(szproduct.toCPointer<ByteVar>(), szfeature.toCPointer<ByteVar>(), einstallstate)
+public actual fun msiConfigureFeatureW(szproduct: Pcwstr, szfeature: Pcwstr, einstallstate: Installstate): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiConfigureFeatureW(szproduct?.value?.toCPointer<ByteVar>(), szfeature?.value?.toCPointer<ByteVar>(), einstallstate)
 
-public actual fun MsiConfigureProductA(szproduct: PCSTR, iinstalllevel: INSTALLLEVEL, einstallstate: INSTALLSTATE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiConfigureProductA(szproduct.toCPointer<ByteVar>(), iinstalllevel, einstallstate)
+public actual fun msiConfigureProductA(szproduct: Pcstr, iinstalllevel: Installlevel, einstallstate: Installstate): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiConfigureProductA(szproduct?.value?.toCPointer<ByteVar>(), iinstalllevel, einstallstate)
 
-public actual fun MsiConfigureProductExA(szproduct: PCSTR, iinstalllevel: INSTALLLEVEL, einstallstate: INSTALLSTATE, szcommandline: PCSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiConfigureProductExA(szproduct.toCPointer<ByteVar>(), iinstalllevel, einstallstate, szcommandline.toCPointer<ByteVar>())
+public actual fun msiConfigureProductExA(szproduct: Pcstr, iinstalllevel: Installlevel, einstallstate: Installstate, szcommandline: Pcstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiConfigureProductExA(szproduct?.value?.toCPointer<ByteVar>(), iinstalllevel, einstallstate, szcommandline?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiConfigureProductExW(szproduct: PCWSTR, iinstalllevel: INSTALLLEVEL, einstallstate: INSTALLSTATE, szcommandline: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiConfigureProductExW(szproduct.toCPointer<ByteVar>(), iinstalllevel, einstallstate, szcommandline.toCPointer<ByteVar>())
+public actual fun msiConfigureProductExW(szproduct: Pcwstr, iinstalllevel: Installlevel, einstallstate: Installstate, szcommandline: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiConfigureProductExW(szproduct?.value?.toCPointer<ByteVar>(), iinstalllevel, einstallstate, szcommandline?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiConfigureProductW(szproduct: PCWSTR, iinstalllevel: INSTALLLEVEL, einstallstate: INSTALLSTATE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiConfigureProductW(szproduct.toCPointer<ByteVar>(), iinstalllevel, einstallstate)
+public actual fun msiConfigureProductW(szproduct: Pcwstr, iinstalllevel: Installlevel, einstallstate: Installstate): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiConfigureProductW(szproduct?.value?.toCPointer<ByteVar>(), iinstalllevel, einstallstate)
 
-public actual fun MsiCreateRecord(cparams: UInt): MSIHANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiCreateRecord(cparams)
+public actual fun msiCreateRecord(cparams: UInt): Msihandle =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiCreateRecord(cparams)
 
-public actual fun MsiCreateTransformSummaryInfoA(hdatabase: MSIHANDLE, hdatabasereference: MSIHANDLE, sztransformfile: PCSTR, ierrorconditions: MSITRANSFORM_ERROR, ivalidation: MSITRANSFORM_VALIDATE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiCreateTransformSummaryInfoA(hdatabase, hdatabasereference, sztransformfile.toCPointer<ByteVar>(), ierrorconditions, ivalidation)
+public actual fun msiCreateTransformSummaryInfoA(hdatabase: Msihandle, hdatabasereference: Msihandle, sztransformfile: Pcstr, ierrorconditions: MsitransformError, ivalidation: MsitransformValidate): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiCreateTransformSummaryInfoA(hdatabase, hdatabasereference, sztransformfile?.value?.toCPointer<ByteVar>(), ierrorconditions, ivalidation)
 
-public actual fun MsiCreateTransformSummaryInfoW(hdatabase: MSIHANDLE, hdatabasereference: MSIHANDLE, sztransformfile: PCWSTR, ierrorconditions: MSITRANSFORM_ERROR, ivalidation: MSITRANSFORM_VALIDATE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiCreateTransformSummaryInfoW(hdatabase, hdatabasereference, sztransformfile.toCPointer<ByteVar>(), ierrorconditions, ivalidation)
+public actual fun msiCreateTransformSummaryInfoW(hdatabase: Msihandle, hdatabasereference: Msihandle, sztransformfile: Pcwstr, ierrorconditions: MsitransformError, ivalidation: MsitransformValidate): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiCreateTransformSummaryInfoW(hdatabase, hdatabasereference, sztransformfile?.value?.toCPointer<ByteVar>(), ierrorconditions, ivalidation)
 
-public actual fun MsiDatabaseApplyTransformA(hdatabase: MSIHANDLE, sztransformfile: PCSTR, ierrorconditions: MSITRANSFORM_ERROR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiDatabaseApplyTransformA(hdatabase, sztransformfile.toCPointer<ByteVar>(), ierrorconditions)
+public actual fun msiDatabaseApplyTransformA(hdatabase: Msihandle, sztransformfile: Pcstr, ierrorconditions: MsitransformError): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseApplyTransformA(hdatabase, sztransformfile?.value?.toCPointer<ByteVar>(), ierrorconditions)
 
-public actual fun MsiDatabaseApplyTransformW(hdatabase: MSIHANDLE, sztransformfile: PCWSTR, ierrorconditions: MSITRANSFORM_ERROR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiDatabaseApplyTransformW(hdatabase, sztransformfile.toCPointer<ByteVar>(), ierrorconditions)
+public actual fun msiDatabaseApplyTransformW(hdatabase: Msihandle, sztransformfile: Pcwstr, ierrorconditions: MsitransformError): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseApplyTransformW(hdatabase, sztransformfile?.value?.toCPointer<ByteVar>(), ierrorconditions)
 
-public actual fun MsiDatabaseCommit(hdatabase: MSIHANDLE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiDatabaseCommit(hdatabase)
+public actual fun msiDatabaseCommit(hdatabase: Msihandle): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseCommit(hdatabase)
 
-public actual fun MsiDatabaseExportA(hdatabase: MSIHANDLE, sztablename: PCSTR, szfolderpath: PCSTR, szfilename: PCSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiDatabaseExportA(hdatabase, sztablename.toCPointer<ByteVar>(), szfolderpath.toCPointer<ByteVar>(), szfilename.toCPointer<ByteVar>())
+public actual fun msiDatabaseExportA(hdatabase: Msihandle, sztablename: Pcstr, szfolderpath: Pcstr, szfilename: Pcstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseExportA(hdatabase, sztablename?.value?.toCPointer<ByteVar>(), szfolderpath?.value?.toCPointer<ByteVar>(), szfilename?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiDatabaseExportW(hdatabase: MSIHANDLE, sztablename: PCWSTR, szfolderpath: PCWSTR, szfilename: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiDatabaseExportW(hdatabase, sztablename.toCPointer<ByteVar>(), szfolderpath.toCPointer<ByteVar>(), szfilename.toCPointer<ByteVar>())
+public actual fun msiDatabaseExportW(hdatabase: Msihandle, sztablename: Pcwstr, szfolderpath: Pcwstr, szfilename: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseExportW(hdatabase, sztablename?.value?.toCPointer<ByteVar>(), szfolderpath?.value?.toCPointer<ByteVar>(), szfilename?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiDatabaseGenerateTransformA(hdatabase: MSIHANDLE, hdatabasereference: MSIHANDLE, sztransformfile: PCSTR, ireserved1: Int, ireserved2: Int): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiDatabaseGenerateTransformA(hdatabase, hdatabasereference, sztransformfile.toCPointer<ByteVar>(), ireserved1, ireserved2)
+public actual fun msiDatabaseGenerateTransformA(hdatabase: Msihandle, hdatabasereference: Msihandle, sztransformfile: Pcstr, ireserved1: Int, ireserved2: Int): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseGenerateTransformA(hdatabase, hdatabasereference, sztransformfile?.value?.toCPointer<ByteVar>(), ireserved1, ireserved2)
 
-public actual fun MsiDatabaseGenerateTransformW(hdatabase: MSIHANDLE, hdatabasereference: MSIHANDLE, sztransformfile: PCWSTR, ireserved1: Int, ireserved2: Int): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiDatabaseGenerateTransformW(hdatabase, hdatabasereference, sztransformfile.toCPointer<ByteVar>(), ireserved1, ireserved2)
+public actual fun msiDatabaseGenerateTransformW(hdatabase: Msihandle, hdatabasereference: Msihandle, sztransformfile: Pcwstr, ireserved1: Int, ireserved2: Int): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseGenerateTransformW(hdatabase, hdatabasereference, sztransformfile?.value?.toCPointer<ByteVar>(), ireserved1, ireserved2)
 
-public actual fun MsiDatabaseGetPrimaryKeysA(hdatabase: MSIHANDLE, sztablename: PCSTR, phrecord: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiDatabaseGetPrimaryKeysA(hdatabase, sztablename.toCPointer<ByteVar>(), phrecord.toCPointer<ByteVar>())
+public actual fun msiDatabaseGetPrimaryKeysA(hdatabase: Msihandle, sztablename: Pcstr, phrecord: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseGetPrimaryKeysA(hdatabase, sztablename?.value?.toCPointer<ByteVar>(), phrecord?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiDatabaseGetPrimaryKeysW(hdatabase: MSIHANDLE, sztablename: PCWSTR, phrecord: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiDatabaseGetPrimaryKeysW(hdatabase, sztablename.toCPointer<ByteVar>(), phrecord.toCPointer<ByteVar>())
+public actual fun msiDatabaseGetPrimaryKeysW(hdatabase: Msihandle, sztablename: Pcwstr, phrecord: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseGetPrimaryKeysW(hdatabase, sztablename?.value?.toCPointer<ByteVar>(), phrecord?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiDatabaseImportA(hdatabase: MSIHANDLE, szfolderpath: PCSTR, szfilename: PCSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiDatabaseImportA(hdatabase, szfolderpath.toCPointer<ByteVar>(), szfilename.toCPointer<ByteVar>())
+public actual fun msiDatabaseImportA(hdatabase: Msihandle, szfolderpath: Pcstr, szfilename: Pcstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseImportA(hdatabase, szfolderpath?.value?.toCPointer<ByteVar>(), szfilename?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiDatabaseImportW(hdatabase: MSIHANDLE, szfolderpath: PCWSTR, szfilename: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiDatabaseImportW(hdatabase, szfolderpath.toCPointer<ByteVar>(), szfilename.toCPointer<ByteVar>())
+public actual fun msiDatabaseImportW(hdatabase: Msihandle, szfolderpath: Pcwstr, szfilename: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseImportW(hdatabase, szfolderpath?.value?.toCPointer<ByteVar>(), szfilename?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiDatabaseIsTablePersistentA(hdatabase: MSIHANDLE, sztablename: PCSTR): MSICONDITION =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiDatabaseIsTablePersistentA(hdatabase, sztablename.toCPointer<ByteVar>())
+public actual fun msiDatabaseIsTablePersistentA(hdatabase: Msihandle, sztablename: Pcstr): Msicondition =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseIsTablePersistentA(hdatabase, sztablename?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiDatabaseIsTablePersistentW(hdatabase: MSIHANDLE, sztablename: PCWSTR): MSICONDITION =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiDatabaseIsTablePersistentW(hdatabase, sztablename.toCPointer<ByteVar>())
+public actual fun msiDatabaseIsTablePersistentW(hdatabase: Msihandle, sztablename: Pcwstr): Msicondition =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseIsTablePersistentW(hdatabase, sztablename?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiDatabaseMergeA(hdatabase: MSIHANDLE, hdatabasemerge: MSIHANDLE, sztablename: PCSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiDatabaseMergeA(hdatabase, hdatabasemerge, sztablename.toCPointer<ByteVar>())
+public actual fun msiDatabaseMergeA(hdatabase: Msihandle, hdatabasemerge: Msihandle, sztablename: Pcstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseMergeA(hdatabase, hdatabasemerge, sztablename?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiDatabaseMergeW(hdatabase: MSIHANDLE, hdatabasemerge: MSIHANDLE, sztablename: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiDatabaseMergeW(hdatabase, hdatabasemerge, sztablename.toCPointer<ByteVar>())
+public actual fun msiDatabaseMergeW(hdatabase: Msihandle, hdatabasemerge: Msihandle, sztablename: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseMergeW(hdatabase, hdatabasemerge, sztablename?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiDatabaseOpenViewA(hdatabase: MSIHANDLE, szquery: PCSTR, phview: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiDatabaseOpenViewA(hdatabase, szquery.toCPointer<ByteVar>(), phview.toCPointer<ByteVar>())
+public actual fun msiDatabaseOpenViewA(hdatabase: Msihandle, szquery: Pcstr, phview: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseOpenViewA(hdatabase, szquery?.value?.toCPointer<ByteVar>(), phview?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiDatabaseOpenViewW(hdatabase: MSIHANDLE, szquery: PCWSTR, phview: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiDatabaseOpenViewW(hdatabase, szquery.toCPointer<ByteVar>(), phview.toCPointer<ByteVar>())
+public actual fun msiDatabaseOpenViewW(hdatabase: Msihandle, szquery: Pcwstr, phview: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseOpenViewW(hdatabase, szquery?.value?.toCPointer<ByteVar>(), phview?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiDetermineApplicablePatchesA(szproductpackagepath: PCSTR, cpatchinfo: UInt, ppatchinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiDetermineApplicablePatchesA(szproductpackagepath.toCPointer<ByteVar>(), cpatchinfo, ppatchinfo.toCPointer<ByteVar>())
+public actual fun msiDetermineApplicablePatchesA(szproductpackagepath: Pcstr, cpatchinfo: UInt, ppatchinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiDetermineApplicablePatchesA(szproductpackagepath?.value?.toCPointer<ByteVar>(), cpatchinfo, ppatchinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiDetermineApplicablePatchesW(szproductpackagepath: PCWSTR, cpatchinfo: UInt, ppatchinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiDetermineApplicablePatchesW(szproductpackagepath.toCPointer<ByteVar>(), cpatchinfo, ppatchinfo.toCPointer<ByteVar>())
+public actual fun msiDetermineApplicablePatchesW(szproductpackagepath: Pcwstr, cpatchinfo: UInt, ppatchinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiDetermineApplicablePatchesW(szproductpackagepath?.value?.toCPointer<ByteVar>(), cpatchinfo, ppatchinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiDeterminePatchSequenceA(szproductcode: PCSTR, szusersid: PCSTR, dwcontext: MSIINSTALLCONTEXT, cpatchinfo: UInt, ppatchinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiDeterminePatchSequenceA(szproductcode.toCPointer<ByteVar>(), szusersid.toCPointer<ByteVar>(), dwcontext, cpatchinfo, ppatchinfo.toCPointer<ByteVar>())
+public actual fun msiDeterminePatchSequenceA(szproductcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, cpatchinfo: UInt, ppatchinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiDeterminePatchSequenceA(szproductcode?.value?.toCPointer<ByteVar>(), szusersid?.value?.toCPointer<ByteVar>(), dwcontext, cpatchinfo, ppatchinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiDeterminePatchSequenceW(szproductcode: PCWSTR, szusersid: PCWSTR, dwcontext: MSIINSTALLCONTEXT, cpatchinfo: UInt, ppatchinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiDeterminePatchSequenceW(szproductcode.toCPointer<ByteVar>(), szusersid.toCPointer<ByteVar>(), dwcontext, cpatchinfo, ppatchinfo.toCPointer<ByteVar>())
+public actual fun msiDeterminePatchSequenceW(szproductcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, cpatchinfo: UInt, ppatchinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiDeterminePatchSequenceW(szproductcode?.value?.toCPointer<ByteVar>(), szusersid?.value?.toCPointer<ByteVar>(), dwcontext, cpatchinfo, ppatchinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiDoActionA(hinstall: MSIHANDLE, szaction: PCSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiDoActionA(hinstall, szaction.toCPointer<ByteVar>())
+public actual fun msiDoActionA(hinstall: Msihandle, szaction: Pcstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiDoActionA(hinstall, szaction?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiDoActionW(hinstall: MSIHANDLE, szaction: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiDoActionW(hinstall, szaction.toCPointer<ByteVar>())
+public actual fun msiDoActionW(hinstall: Msihandle, szaction: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiDoActionW(hinstall, szaction?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiEnableLogA(dwlogmode: UInt, szlogfile: PCSTR, dwlogattributes: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnableLogA(dwlogmode, szlogfile.toCPointer<ByteVar>(), dwlogattributes)
+public actual fun msiEnableLogA(dwlogmode: UInt, szlogfile: Pcstr, dwlogattributes: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiEnableLogA(dwlogmode, szlogfile?.value?.toCPointer<ByteVar>(), dwlogattributes)
 
-public actual fun MsiEnableLogW(dwlogmode: UInt, szlogfile: PCWSTR, dwlogattributes: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnableLogW(dwlogmode, szlogfile.toCPointer<ByteVar>(), dwlogattributes)
+public actual fun msiEnableLogW(dwlogmode: UInt, szlogfile: Pcwstr, dwlogattributes: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiEnableLogW(dwlogmode, szlogfile?.value?.toCPointer<ByteVar>(), dwlogattributes)
 
-public actual fun MsiEnableUIPreview(hdatabase: MSIHANDLE, phpreview: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnableUIPreview(hdatabase, phpreview.toCPointer<ByteVar>())
+public actual fun msiEnableUIPreview(hdatabase: Msihandle, phpreview: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiEnableUIPreview(hdatabase, phpreview?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiEndTransaction(dwtransactionstate: MSITRANSACTIONSTATE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiEndTransaction(dwtransactionstate)
+public actual fun msiEndTransaction(dwtransactionstate: Msitransactionstate): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiEndTransaction(dwtransactionstate)
 
-public actual fun MsiEnumClientsA(szcomponent: PCSTR, iproductindex: UInt, lpproductbuf: PSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumClientsA(szcomponent.toCPointer<ByteVar>(), iproductindex, lpproductbuf.toCPointer<ByteVar>())
+public actual fun msiEnumClientsA(szcomponent: Pcstr, iproductindex: UInt, lpproductbuf: Pstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumClientsA(szcomponent?.value?.toCPointer<ByteVar>(), iproductindex, lpproductbuf?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiEnumClientsExA(szcomponent: PCSTR, szusersid: PCSTR, dwcontext: UInt, dwproductindex: UInt, szproductbuf: PSTR, pdwinstalledcontext: Long, szsid: PSTR, pcchsid: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumClientsExA(szcomponent.toCPointer<ByteVar>(), szusersid.toCPointer<ByteVar>(), dwcontext, dwproductindex, szproductbuf.toCPointer<ByteVar>(), pdwinstalledcontext.toCPointer<ByteVar>(), szsid.toCPointer<ByteVar>(), pcchsid.toCPointer<ByteVar>())
+public actual fun msiEnumClientsExA(szcomponent: Pcstr, szusersid: Pcstr, dwcontext: UInt, dwproductindex: UInt, szproductbuf: Pstr, pdwinstalledcontext: COpaquePointer?, szsid: Pstr, pcchsid: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumClientsExA(szcomponent?.value?.toCPointer<ByteVar>(), szusersid?.value?.toCPointer<ByteVar>(), dwcontext, dwproductindex, szproductbuf?.value?.toCPointer<ByteVar>(), pdwinstalledcontext?.value?.toCPointer<ByteVar>(), szsid?.value?.toCPointer<ByteVar>(), pcchsid?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiEnumClientsExW(szcomponent: PCWSTR, szusersid: PCWSTR, dwcontext: UInt, dwproductindex: UInt, szproductbuf: PWSTR, pdwinstalledcontext: Long, szsid: PWSTR, pcchsid: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumClientsExW(szcomponent.toCPointer<ByteVar>(), szusersid.toCPointer<ByteVar>(), dwcontext, dwproductindex, szproductbuf.toCPointer<ByteVar>(), pdwinstalledcontext.toCPointer<ByteVar>(), szsid.toCPointer<ByteVar>(), pcchsid.toCPointer<ByteVar>())
+public actual fun msiEnumClientsExW(szcomponent: Pcwstr, szusersid: Pcwstr, dwcontext: UInt, dwproductindex: UInt, szproductbuf: Pwstr, pdwinstalledcontext: COpaquePointer?, szsid: Pwstr, pcchsid: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumClientsExW(szcomponent?.value?.toCPointer<ByteVar>(), szusersid?.value?.toCPointer<ByteVar>(), dwcontext, dwproductindex, szproductbuf?.value?.toCPointer<ByteVar>(), pdwinstalledcontext?.value?.toCPointer<ByteVar>(), szsid?.value?.toCPointer<ByteVar>(), pcchsid?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiEnumClientsW(szcomponent: PCWSTR, iproductindex: UInt, lpproductbuf: PWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumClientsW(szcomponent.toCPointer<ByteVar>(), iproductindex, lpproductbuf.toCPointer<ByteVar>())
+public actual fun msiEnumClientsW(szcomponent: Pcwstr, iproductindex: UInt, lpproductbuf: Pwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumClientsW(szcomponent?.value?.toCPointer<ByteVar>(), iproductindex, lpproductbuf?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiEnumComponentCostsA(hinstall: MSIHANDLE, szcomponent: PCSTR, dwindex: UInt, istate: INSTALLSTATE, szdrivebuf: PSTR, pcchdrivebuf: Long, picost: Long, pitempcost: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumComponentCostsA(hinstall, szcomponent.toCPointer<ByteVar>(), dwindex, istate, szdrivebuf.toCPointer<ByteVar>(), pcchdrivebuf.toCPointer<ByteVar>(), picost.toCPointer<ByteVar>(), pitempcost.toCPointer<ByteVar>())
+public actual fun msiEnumComponentCostsA(hinstall: Msihandle, szcomponent: Pcstr, dwindex: UInt, istate: Installstate, szdrivebuf: Pstr, pcchdrivebuf: COpaquePointer?, picost: COpaquePointer?, pitempcost: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumComponentCostsA(hinstall, szcomponent?.value?.toCPointer<ByteVar>(), dwindex, istate, szdrivebuf?.value?.toCPointer<ByteVar>(), pcchdrivebuf?.value?.toCPointer<ByteVar>(), picost?.value?.toCPointer<ByteVar>(), pitempcost?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiEnumComponentCostsW(hinstall: MSIHANDLE, szcomponent: PCWSTR, dwindex: UInt, istate: INSTALLSTATE, szdrivebuf: PWSTR, pcchdrivebuf: Long, picost: Long, pitempcost: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumComponentCostsW(hinstall, szcomponent.toCPointer<ByteVar>(), dwindex, istate, szdrivebuf.toCPointer<ByteVar>(), pcchdrivebuf.toCPointer<ByteVar>(), picost.toCPointer<ByteVar>(), pitempcost.toCPointer<ByteVar>())
+public actual fun msiEnumComponentCostsW(hinstall: Msihandle, szcomponent: Pcwstr, dwindex: UInt, istate: Installstate, szdrivebuf: Pwstr, pcchdrivebuf: COpaquePointer?, picost: COpaquePointer?, pitempcost: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumComponentCostsW(hinstall, szcomponent?.value?.toCPointer<ByteVar>(), dwindex, istate, szdrivebuf?.value?.toCPointer<ByteVar>(), pcchdrivebuf?.value?.toCPointer<ByteVar>(), picost?.value?.toCPointer<ByteVar>(), pitempcost?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiEnumComponentQualifiersA(szcomponent: PCSTR, iindex: UInt, lpqualifierbuf: PSTR, pcchqualifierbuf: Long, lpapplicationdatabuf: PSTR, pcchapplicationdatabuf: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumComponentQualifiersA(szcomponent.toCPointer<ByteVar>(), iindex, lpqualifierbuf.toCPointer<ByteVar>(), pcchqualifierbuf.toCPointer<ByteVar>(), lpapplicationdatabuf.toCPointer<ByteVar>(), pcchapplicationdatabuf.toCPointer<ByteVar>())
+public actual fun msiEnumComponentQualifiersA(szcomponent: Pcstr, iindex: UInt, lpqualifierbuf: Pstr, pcchqualifierbuf: COpaquePointer?, lpapplicationdatabuf: Pstr, pcchapplicationdatabuf: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumComponentQualifiersA(szcomponent?.value?.toCPointer<ByteVar>(), iindex, lpqualifierbuf?.value?.toCPointer<ByteVar>(), pcchqualifierbuf?.value?.toCPointer<ByteVar>(), lpapplicationdatabuf?.value?.toCPointer<ByteVar>(), pcchapplicationdatabuf?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiEnumComponentQualifiersW(szcomponent: PCWSTR, iindex: UInt, lpqualifierbuf: PWSTR, pcchqualifierbuf: Long, lpapplicationdatabuf: PWSTR, pcchapplicationdatabuf: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumComponentQualifiersW(szcomponent.toCPointer<ByteVar>(), iindex, lpqualifierbuf.toCPointer<ByteVar>(), pcchqualifierbuf.toCPointer<ByteVar>(), lpapplicationdatabuf.toCPointer<ByteVar>(), pcchapplicationdatabuf.toCPointer<ByteVar>())
+public actual fun msiEnumComponentQualifiersW(szcomponent: Pcwstr, iindex: UInt, lpqualifierbuf: Pwstr, pcchqualifierbuf: COpaquePointer?, lpapplicationdatabuf: Pwstr, pcchapplicationdatabuf: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumComponentQualifiersW(szcomponent?.value?.toCPointer<ByteVar>(), iindex, lpqualifierbuf?.value?.toCPointer<ByteVar>(), pcchqualifierbuf?.value?.toCPointer<ByteVar>(), lpapplicationdatabuf?.value?.toCPointer<ByteVar>(), pcchapplicationdatabuf?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiEnumComponentsA(icomponentindex: UInt, lpcomponentbuf: PSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumComponentsA(icomponentindex, lpcomponentbuf.toCPointer<ByteVar>())
+public actual fun msiEnumComponentsA(icomponentindex: UInt, lpcomponentbuf: Pstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumComponentsA(icomponentindex, lpcomponentbuf?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiEnumComponentsExA(szusersid: PCSTR, dwcontext: UInt, dwindex: UInt, szinstalledcomponentcode: PSTR, pdwinstalledcontext: Long, szsid: PSTR, pcchsid: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumComponentsExA(szusersid.toCPointer<ByteVar>(), dwcontext, dwindex, szinstalledcomponentcode.toCPointer<ByteVar>(), pdwinstalledcontext.toCPointer<ByteVar>(), szsid.toCPointer<ByteVar>(), pcchsid.toCPointer<ByteVar>())
+public actual fun msiEnumComponentsExA(szusersid: Pcstr, dwcontext: UInt, dwindex: UInt, szinstalledcomponentcode: Pstr, pdwinstalledcontext: COpaquePointer?, szsid: Pstr, pcchsid: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumComponentsExA(szusersid?.value?.toCPointer<ByteVar>(), dwcontext, dwindex, szinstalledcomponentcode?.value?.toCPointer<ByteVar>(), pdwinstalledcontext?.value?.toCPointer<ByteVar>(), szsid?.value?.toCPointer<ByteVar>(), pcchsid?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiEnumComponentsExW(szusersid: PCWSTR, dwcontext: UInt, dwindex: UInt, szinstalledcomponentcode: PWSTR, pdwinstalledcontext: Long, szsid: PWSTR, pcchsid: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumComponentsExW(szusersid.toCPointer<ByteVar>(), dwcontext, dwindex, szinstalledcomponentcode.toCPointer<ByteVar>(), pdwinstalledcontext.toCPointer<ByteVar>(), szsid.toCPointer<ByteVar>(), pcchsid.toCPointer<ByteVar>())
+public actual fun msiEnumComponentsExW(szusersid: Pcwstr, dwcontext: UInt, dwindex: UInt, szinstalledcomponentcode: Pwstr, pdwinstalledcontext: COpaquePointer?, szsid: Pwstr, pcchsid: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumComponentsExW(szusersid?.value?.toCPointer<ByteVar>(), dwcontext, dwindex, szinstalledcomponentcode?.value?.toCPointer<ByteVar>(), pdwinstalledcontext?.value?.toCPointer<ByteVar>(), szsid?.value?.toCPointer<ByteVar>(), pcchsid?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiEnumComponentsW(icomponentindex: UInt, lpcomponentbuf: PWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumComponentsW(icomponentindex, lpcomponentbuf.toCPointer<ByteVar>())
+public actual fun msiEnumComponentsW(icomponentindex: UInt, lpcomponentbuf: Pwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumComponentsW(icomponentindex, lpcomponentbuf?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiEnumFeaturesA(szproduct: PCSTR, ifeatureindex: UInt, lpfeaturebuf: PSTR, lpparentbuf: PSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumFeaturesA(szproduct.toCPointer<ByteVar>(), ifeatureindex, lpfeaturebuf.toCPointer<ByteVar>(), lpparentbuf.toCPointer<ByteVar>())
+public actual fun msiEnumFeaturesA(szproduct: Pcstr, ifeatureindex: UInt, lpfeaturebuf: Pstr, lpparentbuf: Pstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumFeaturesA(szproduct?.value?.toCPointer<ByteVar>(), ifeatureindex, lpfeaturebuf?.value?.toCPointer<ByteVar>(), lpparentbuf?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiEnumFeaturesW(szproduct: PCWSTR, ifeatureindex: UInt, lpfeaturebuf: PWSTR, lpparentbuf: PWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumFeaturesW(szproduct.toCPointer<ByteVar>(), ifeatureindex, lpfeaturebuf.toCPointer<ByteVar>(), lpparentbuf.toCPointer<ByteVar>())
+public actual fun msiEnumFeaturesW(szproduct: Pcwstr, ifeatureindex: UInt, lpfeaturebuf: Pwstr, lpparentbuf: Pwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumFeaturesW(szproduct?.value?.toCPointer<ByteVar>(), ifeatureindex, lpfeaturebuf?.value?.toCPointer<ByteVar>(), lpparentbuf?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiEnumPatchesA(szproduct: PCSTR, ipatchindex: UInt, lppatchbuf: PSTR, lptransformsbuf: PSTR, pcchtransformsbuf: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumPatchesA(szproduct.toCPointer<ByteVar>(), ipatchindex, lppatchbuf.toCPointer<ByteVar>(), lptransformsbuf.toCPointer<ByteVar>(), pcchtransformsbuf.toCPointer<ByteVar>())
+public actual fun msiEnumPatchesA(szproduct: Pcstr, ipatchindex: UInt, lppatchbuf: Pstr, lptransformsbuf: Pstr, pcchtransformsbuf: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumPatchesA(szproduct?.value?.toCPointer<ByteVar>(), ipatchindex, lppatchbuf?.value?.toCPointer<ByteVar>(), lptransformsbuf?.value?.toCPointer<ByteVar>(), pcchtransformsbuf?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiEnumPatchesExA(szproductcode: PCSTR, szusersid: PCSTR, dwcontext: UInt, dwfilter: UInt, dwindex: UInt, szpatchcode: PSTR, sztargetproductcode: PSTR, pdwtargetproductcontext: Long, sztargetusersid: PSTR, pcchtargetusersid: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumPatchesExA(szproductcode.toCPointer<ByteVar>(), szusersid.toCPointer<ByteVar>(), dwcontext, dwfilter, dwindex, szpatchcode.toCPointer<ByteVar>(), sztargetproductcode.toCPointer<ByteVar>(), pdwtargetproductcontext.toCPointer<ByteVar>(), sztargetusersid.toCPointer<ByteVar>(), pcchtargetusersid.toCPointer<ByteVar>())
+public actual fun msiEnumPatchesExA(szproductcode: Pcstr, szusersid: Pcstr, dwcontext: UInt, dwfilter: UInt, dwindex: UInt, szpatchcode: Pstr, sztargetproductcode: Pstr, pdwtargetproductcontext: COpaquePointer?, sztargetusersid: Pstr, pcchtargetusersid: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumPatchesExA(szproductcode?.value?.toCPointer<ByteVar>(), szusersid?.value?.toCPointer<ByteVar>(), dwcontext, dwfilter, dwindex, szpatchcode?.value?.toCPointer<ByteVar>(), sztargetproductcode?.value?.toCPointer<ByteVar>(), pdwtargetproductcontext?.value?.toCPointer<ByteVar>(), sztargetusersid?.value?.toCPointer<ByteVar>(), pcchtargetusersid?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiEnumPatchesExW(szproductcode: PCWSTR, szusersid: PCWSTR, dwcontext: UInt, dwfilter: UInt, dwindex: UInt, szpatchcode: PWSTR, sztargetproductcode: PWSTR, pdwtargetproductcontext: Long, sztargetusersid: PWSTR, pcchtargetusersid: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumPatchesExW(szproductcode.toCPointer<ByteVar>(), szusersid.toCPointer<ByteVar>(), dwcontext, dwfilter, dwindex, szpatchcode.toCPointer<ByteVar>(), sztargetproductcode.toCPointer<ByteVar>(), pdwtargetproductcontext.toCPointer<ByteVar>(), sztargetusersid.toCPointer<ByteVar>(), pcchtargetusersid.toCPointer<ByteVar>())
+public actual fun msiEnumPatchesExW(szproductcode: Pcwstr, szusersid: Pcwstr, dwcontext: UInt, dwfilter: UInt, dwindex: UInt, szpatchcode: Pwstr, sztargetproductcode: Pwstr, pdwtargetproductcontext: COpaquePointer?, sztargetusersid: Pwstr, pcchtargetusersid: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumPatchesExW(szproductcode?.value?.toCPointer<ByteVar>(), szusersid?.value?.toCPointer<ByteVar>(), dwcontext, dwfilter, dwindex, szpatchcode?.value?.toCPointer<ByteVar>(), sztargetproductcode?.value?.toCPointer<ByteVar>(), pdwtargetproductcontext?.value?.toCPointer<ByteVar>(), sztargetusersid?.value?.toCPointer<ByteVar>(), pcchtargetusersid?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiEnumPatchesW(szproduct: PCWSTR, ipatchindex: UInt, lppatchbuf: PWSTR, lptransformsbuf: PWSTR, pcchtransformsbuf: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumPatchesW(szproduct.toCPointer<ByteVar>(), ipatchindex, lppatchbuf.toCPointer<ByteVar>(), lptransformsbuf.toCPointer<ByteVar>(), pcchtransformsbuf.toCPointer<ByteVar>())
+public actual fun msiEnumPatchesW(szproduct: Pcwstr, ipatchindex: UInt, lppatchbuf: Pwstr, lptransformsbuf: Pwstr, pcchtransformsbuf: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumPatchesW(szproduct?.value?.toCPointer<ByteVar>(), ipatchindex, lppatchbuf?.value?.toCPointer<ByteVar>(), lptransformsbuf?.value?.toCPointer<ByteVar>(), pcchtransformsbuf?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiEnumProductsA(iproductindex: UInt, lpproductbuf: PSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumProductsA(iproductindex, lpproductbuf.toCPointer<ByteVar>())
+public actual fun msiEnumProductsA(iproductindex: UInt, lpproductbuf: Pstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumProductsA(iproductindex, lpproductbuf?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiEnumProductsExA(szproductcode: PCSTR, szusersid: PCSTR, dwcontext: UInt, dwindex: UInt, szinstalledproductcode: PSTR, pdwinstalledcontext: Long, szsid: PSTR, pcchsid: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumProductsExA(szproductcode.toCPointer<ByteVar>(), szusersid.toCPointer<ByteVar>(), dwcontext, dwindex, szinstalledproductcode.toCPointer<ByteVar>(), pdwinstalledcontext.toCPointer<ByteVar>(), szsid.toCPointer<ByteVar>(), pcchsid.toCPointer<ByteVar>())
+public actual fun msiEnumProductsExA(szproductcode: Pcstr, szusersid: Pcstr, dwcontext: UInt, dwindex: UInt, szinstalledproductcode: Pstr, pdwinstalledcontext: COpaquePointer?, szsid: Pstr, pcchsid: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumProductsExA(szproductcode?.value?.toCPointer<ByteVar>(), szusersid?.value?.toCPointer<ByteVar>(), dwcontext, dwindex, szinstalledproductcode?.value?.toCPointer<ByteVar>(), pdwinstalledcontext?.value?.toCPointer<ByteVar>(), szsid?.value?.toCPointer<ByteVar>(), pcchsid?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiEnumProductsExW(szproductcode: PCWSTR, szusersid: PCWSTR, dwcontext: UInt, dwindex: UInt, szinstalledproductcode: PWSTR, pdwinstalledcontext: Long, szsid: PWSTR, pcchsid: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumProductsExW(szproductcode.toCPointer<ByteVar>(), szusersid.toCPointer<ByteVar>(), dwcontext, dwindex, szinstalledproductcode.toCPointer<ByteVar>(), pdwinstalledcontext.toCPointer<ByteVar>(), szsid.toCPointer<ByteVar>(), pcchsid.toCPointer<ByteVar>())
+public actual fun msiEnumProductsExW(szproductcode: Pcwstr, szusersid: Pcwstr, dwcontext: UInt, dwindex: UInt, szinstalledproductcode: Pwstr, pdwinstalledcontext: COpaquePointer?, szsid: Pwstr, pcchsid: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumProductsExW(szproductcode?.value?.toCPointer<ByteVar>(), szusersid?.value?.toCPointer<ByteVar>(), dwcontext, dwindex, szinstalledproductcode?.value?.toCPointer<ByteVar>(), pdwinstalledcontext?.value?.toCPointer<ByteVar>(), szsid?.value?.toCPointer<ByteVar>(), pcchsid?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiEnumProductsW(iproductindex: UInt, lpproductbuf: PWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumProductsW(iproductindex, lpproductbuf.toCPointer<ByteVar>())
+public actual fun msiEnumProductsW(iproductindex: UInt, lpproductbuf: Pwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumProductsW(iproductindex, lpproductbuf?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiEnumRelatedProductsA(lpupgradecode: PCSTR, dwreserved: UInt, iproductindex: UInt, lpproductbuf: PSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumRelatedProductsA(lpupgradecode.toCPointer<ByteVar>(), dwreserved, iproductindex, lpproductbuf.toCPointer<ByteVar>())
+public actual fun msiEnumRelatedProductsA(lpupgradecode: Pcstr, dwreserved: UInt, iproductindex: UInt, lpproductbuf: Pstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumRelatedProductsA(lpupgradecode?.value?.toCPointer<ByteVar>(), dwreserved, iproductindex, lpproductbuf?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiEnumRelatedProductsW(lpupgradecode: PCWSTR, dwreserved: UInt, iproductindex: UInt, lpproductbuf: PWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumRelatedProductsW(lpupgradecode.toCPointer<ByteVar>(), dwreserved, iproductindex, lpproductbuf.toCPointer<ByteVar>())
+public actual fun msiEnumRelatedProductsW(lpupgradecode: Pcwstr, dwreserved: UInt, iproductindex: UInt, lpproductbuf: Pwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumRelatedProductsW(lpupgradecode?.value?.toCPointer<ByteVar>(), dwreserved, iproductindex, lpproductbuf?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiEvaluateConditionA(hinstall: MSIHANDLE, szcondition: PCSTR): MSICONDITION =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiEvaluateConditionA(hinstall, szcondition.toCPointer<ByteVar>())
+public actual fun msiEvaluateConditionA(hinstall: Msihandle, szcondition: Pcstr): Msicondition =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiEvaluateConditionA(hinstall, szcondition?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiEvaluateConditionW(hinstall: MSIHANDLE, szcondition: PCWSTR): MSICONDITION =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiEvaluateConditionW(hinstall, szcondition.toCPointer<ByteVar>())
+public actual fun msiEvaluateConditionW(hinstall: Msihandle, szcondition: Pcwstr): Msicondition =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiEvaluateConditionW(hinstall, szcondition?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiExtractPatchXMLDataA(szpatchpath: PCSTR, dwreserved: UInt, szxmldata: PSTR, pcchxmldata: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiExtractPatchXMLDataA(szpatchpath.toCPointer<ByteVar>(), dwreserved, szxmldata.toCPointer<ByteVar>(), pcchxmldata.toCPointer<ByteVar>())
+public actual fun msiExtractPatchXMLDataA(szpatchpath: Pcstr, dwreserved: UInt, szxmldata: Pstr, pcchxmldata: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiExtractPatchXMLDataA(szpatchpath?.value?.toCPointer<ByteVar>(), dwreserved, szxmldata?.value?.toCPointer<ByteVar>(), pcchxmldata?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiExtractPatchXMLDataW(szpatchpath: PCWSTR, dwreserved: UInt, szxmldata: PWSTR, pcchxmldata: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiExtractPatchXMLDataW(szpatchpath.toCPointer<ByteVar>(), dwreserved, szxmldata.toCPointer<ByteVar>(), pcchxmldata.toCPointer<ByteVar>())
+public actual fun msiExtractPatchXMLDataW(szpatchpath: Pcwstr, dwreserved: UInt, szxmldata: Pwstr, pcchxmldata: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiExtractPatchXMLDataW(szpatchpath?.value?.toCPointer<ByteVar>(), dwreserved, szxmldata?.value?.toCPointer<ByteVar>(), pcchxmldata?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiFormatRecordA(hinstall: MSIHANDLE, hrecord: MSIHANDLE, szresultbuf: PSTR, pcchresultbuf: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiFormatRecordA(hinstall, hrecord, szresultbuf.toCPointer<ByteVar>(), pcchresultbuf.toCPointer<ByteVar>())
+public actual fun msiFormatRecordA(hinstall: Msihandle, hrecord: Msihandle, szresultbuf: Pstr, pcchresultbuf: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiFormatRecordA(hinstall, hrecord, szresultbuf?.value?.toCPointer<ByteVar>(), pcchresultbuf?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiFormatRecordW(hinstall: MSIHANDLE, hrecord: MSIHANDLE, szresultbuf: PWSTR, pcchresultbuf: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiFormatRecordW(hinstall, hrecord, szresultbuf.toCPointer<ByteVar>(), pcchresultbuf.toCPointer<ByteVar>())
+public actual fun msiFormatRecordW(hinstall: Msihandle, hrecord: Msihandle, szresultbuf: Pwstr, pcchresultbuf: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiFormatRecordW(hinstall, hrecord, szresultbuf?.value?.toCPointer<ByteVar>(), pcchresultbuf?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiGetActiveDatabase(hinstall: MSIHANDLE): MSIHANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetActiveDatabase(hinstall)
+public actual fun msiGetActiveDatabase(hinstall: Msihandle): Msihandle =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiGetActiveDatabase(hinstall)
 
-public actual fun MsiGetComponentPathA(szproduct: PCSTR, szcomponent: PCSTR, lppathbuf: PSTR, pcchbuf: Long): INSTALLSTATE =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetComponentPathA(szproduct.toCPointer<ByteVar>(), szcomponent.toCPointer<ByteVar>(), lppathbuf.toCPointer<ByteVar>(), pcchbuf.toCPointer<ByteVar>())
+public actual fun msiGetComponentPathA(szproduct: Pcstr, szcomponent: Pcstr, lppathbuf: Pstr, pcchbuf: COpaquePointer?): Installstate =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiGetComponentPathA(szproduct?.value?.toCPointer<ByteVar>(), szcomponent?.value?.toCPointer<ByteVar>(), lppathbuf?.value?.toCPointer<ByteVar>(), pcchbuf?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiGetComponentPathExA(szproductcode: PCSTR, szcomponentcode: PCSTR, szusersid: PCSTR, dwcontext: MSIINSTALLCONTEXT, lpoutpathbuffer: PSTR, pcchoutpathbuffer: Long): INSTALLSTATE =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetComponentPathExA(szproductcode.toCPointer<ByteVar>(), szcomponentcode.toCPointer<ByteVar>(), szusersid.toCPointer<ByteVar>(), dwcontext, lpoutpathbuffer.toCPointer<ByteVar>(), pcchoutpathbuffer.toCPointer<ByteVar>())
+public actual fun msiGetComponentPathExA(szproductcode: Pcstr, szcomponentcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, lpoutpathbuffer: Pstr, pcchoutpathbuffer: COpaquePointer?): Installstate =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiGetComponentPathExA(szproductcode?.value?.toCPointer<ByteVar>(), szcomponentcode?.value?.toCPointer<ByteVar>(), szusersid?.value?.toCPointer<ByteVar>(), dwcontext, lpoutpathbuffer?.value?.toCPointer<ByteVar>(), pcchoutpathbuffer?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiGetComponentPathExW(szproductcode: PCWSTR, szcomponentcode: PCWSTR, szusersid: PCWSTR, dwcontext: MSIINSTALLCONTEXT, lpoutpathbuffer: PWSTR, pcchoutpathbuffer: Long): INSTALLSTATE =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetComponentPathExW(szproductcode.toCPointer<ByteVar>(), szcomponentcode.toCPointer<ByteVar>(), szusersid.toCPointer<ByteVar>(), dwcontext, lpoutpathbuffer.toCPointer<ByteVar>(), pcchoutpathbuffer.toCPointer<ByteVar>())
+public actual fun msiGetComponentPathExW(szproductcode: Pcwstr, szcomponentcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, lpoutpathbuffer: Pwstr, pcchoutpathbuffer: COpaquePointer?): Installstate =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiGetComponentPathExW(szproductcode?.value?.toCPointer<ByteVar>(), szcomponentcode?.value?.toCPointer<ByteVar>(), szusersid?.value?.toCPointer<ByteVar>(), dwcontext, lpoutpathbuffer?.value?.toCPointer<ByteVar>(), pcchoutpathbuffer?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiGetComponentPathW(szproduct: PCWSTR, szcomponent: PCWSTR, lppathbuf: PWSTR, pcchbuf: Long): INSTALLSTATE =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetComponentPathW(szproduct.toCPointer<ByteVar>(), szcomponent.toCPointer<ByteVar>(), lppathbuf.toCPointer<ByteVar>(), pcchbuf.toCPointer<ByteVar>())
+public actual fun msiGetComponentPathW(szproduct: Pcwstr, szcomponent: Pcwstr, lppathbuf: Pwstr, pcchbuf: COpaquePointer?): Installstate =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiGetComponentPathW(szproduct?.value?.toCPointer<ByteVar>(), szcomponent?.value?.toCPointer<ByteVar>(), lppathbuf?.value?.toCPointer<ByteVar>(), pcchbuf?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiGetComponentStateA(hinstall: MSIHANDLE, szcomponent: PCSTR, piinstalled: Long, piaction: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetComponentStateA(hinstall, szcomponent.toCPointer<ByteVar>(), piinstalled.toCPointer<ByteVar>(), piaction.toCPointer<ByteVar>())
+public actual fun msiGetComponentStateA(hinstall: Msihandle, szcomponent: Pcstr, piinstalled: COpaquePointer?, piaction: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiGetComponentStateA(hinstall, szcomponent?.value?.toCPointer<ByteVar>(), piinstalled?.value?.toCPointer<ByteVar>(), piaction?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiGetComponentStateW(hinstall: MSIHANDLE, szcomponent: PCWSTR, piinstalled: Long, piaction: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetComponentStateW(hinstall, szcomponent.toCPointer<ByteVar>(), piinstalled.toCPointer<ByteVar>(), piaction.toCPointer<ByteVar>())
+public actual fun msiGetComponentStateW(hinstall: Msihandle, szcomponent: Pcwstr, piinstalled: COpaquePointer?, piaction: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiGetComponentStateW(hinstall, szcomponent?.value?.toCPointer<ByteVar>(), piinstalled?.value?.toCPointer<ByteVar>(), piaction?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiGetDatabaseState(hdatabase: MSIHANDLE): MSIDBSTATE =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetDatabaseState(hdatabase)
+public actual fun msiGetDatabaseState(hdatabase: Msihandle): Msidbstate =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiGetDatabaseState(hdatabase)
 
-public actual fun MsiGetFeatureCostA(hinstall: MSIHANDLE, szfeature: PCSTR, icosttree: MSICOSTTREE, istate: INSTALLSTATE, picost: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetFeatureCostA(hinstall, szfeature.toCPointer<ByteVar>(), icosttree, istate, picost.toCPointer<ByteVar>())
+public actual fun msiGetFeatureCostA(hinstall: Msihandle, szfeature: Pcstr, icosttree: Msicosttree, istate: Installstate, picost: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFeatureCostA(hinstall, szfeature?.value?.toCPointer<ByteVar>(), icosttree, istate, picost?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiGetFeatureCostW(hinstall: MSIHANDLE, szfeature: PCWSTR, icosttree: MSICOSTTREE, istate: INSTALLSTATE, picost: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetFeatureCostW(hinstall, szfeature.toCPointer<ByteVar>(), icosttree, istate, picost.toCPointer<ByteVar>())
+public actual fun msiGetFeatureCostW(hinstall: Msihandle, szfeature: Pcwstr, icosttree: Msicosttree, istate: Installstate, picost: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFeatureCostW(hinstall, szfeature?.value?.toCPointer<ByteVar>(), icosttree, istate, picost?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiGetFeatureInfoA(hproduct: MSIHANDLE, szfeature: PCSTR, lpattributes: Long, lptitlebuf: PSTR, pcchtitlebuf: Long, lphelpbuf: PSTR, pcchhelpbuf: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetFeatureInfoA(hproduct, szfeature.toCPointer<ByteVar>(), lpattributes.toCPointer<ByteVar>(), lptitlebuf.toCPointer<ByteVar>(), pcchtitlebuf.toCPointer<ByteVar>(), lphelpbuf.toCPointer<ByteVar>(), pcchhelpbuf.toCPointer<ByteVar>())
+public actual fun msiGetFeatureInfoA(hproduct: Msihandle, szfeature: Pcstr, lpattributes: COpaquePointer?, lptitlebuf: Pstr, pcchtitlebuf: COpaquePointer?, lphelpbuf: Pstr, pcchhelpbuf: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFeatureInfoA(hproduct, szfeature?.value?.toCPointer<ByteVar>(), lpattributes?.value?.toCPointer<ByteVar>(), lptitlebuf?.value?.toCPointer<ByteVar>(), pcchtitlebuf?.value?.toCPointer<ByteVar>(), lphelpbuf?.value?.toCPointer<ByteVar>(), pcchhelpbuf?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiGetFeatureInfoW(hproduct: MSIHANDLE, szfeature: PCWSTR, lpattributes: Long, lptitlebuf: PWSTR, pcchtitlebuf: Long, lphelpbuf: PWSTR, pcchhelpbuf: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetFeatureInfoW(hproduct, szfeature.toCPointer<ByteVar>(), lpattributes.toCPointer<ByteVar>(), lptitlebuf.toCPointer<ByteVar>(), pcchtitlebuf.toCPointer<ByteVar>(), lphelpbuf.toCPointer<ByteVar>(), pcchhelpbuf.toCPointer<ByteVar>())
+public actual fun msiGetFeatureInfoW(hproduct: Msihandle, szfeature: Pcwstr, lpattributes: COpaquePointer?, lptitlebuf: Pwstr, pcchtitlebuf: COpaquePointer?, lphelpbuf: Pwstr, pcchhelpbuf: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFeatureInfoW(hproduct, szfeature?.value?.toCPointer<ByteVar>(), lpattributes?.value?.toCPointer<ByteVar>(), lptitlebuf?.value?.toCPointer<ByteVar>(), pcchtitlebuf?.value?.toCPointer<ByteVar>(), lphelpbuf?.value?.toCPointer<ByteVar>(), pcchhelpbuf?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiGetFeatureStateA(hinstall: MSIHANDLE, szfeature: PCSTR, piinstalled: Long, piaction: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetFeatureStateA(hinstall, szfeature.toCPointer<ByteVar>(), piinstalled.toCPointer<ByteVar>(), piaction.toCPointer<ByteVar>())
+public actual fun msiGetFeatureStateA(hinstall: Msihandle, szfeature: Pcstr, piinstalled: COpaquePointer?, piaction: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFeatureStateA(hinstall, szfeature?.value?.toCPointer<ByteVar>(), piinstalled?.value?.toCPointer<ByteVar>(), piaction?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiGetFeatureStateW(hinstall: MSIHANDLE, szfeature: PCWSTR, piinstalled: Long, piaction: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetFeatureStateW(hinstall, szfeature.toCPointer<ByteVar>(), piinstalled.toCPointer<ByteVar>(), piaction.toCPointer<ByteVar>())
+public actual fun msiGetFeatureStateW(hinstall: Msihandle, szfeature: Pcwstr, piinstalled: COpaquePointer?, piaction: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFeatureStateW(hinstall, szfeature?.value?.toCPointer<ByteVar>(), piinstalled?.value?.toCPointer<ByteVar>(), piaction?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiGetFeatureUsageA(szproduct: PCSTR, szfeature: PCSTR, pdwusecount: Long, pwdateused: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetFeatureUsageA(szproduct.toCPointer<ByteVar>(), szfeature.toCPointer<ByteVar>(), pdwusecount.toCPointer<ByteVar>(), pwdateused.toCPointer<ByteVar>())
+public actual fun msiGetFeatureUsageA(szproduct: Pcstr, szfeature: Pcstr, pdwusecount: COpaquePointer?, pwdateused: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFeatureUsageA(szproduct?.value?.toCPointer<ByteVar>(), szfeature?.value?.toCPointer<ByteVar>(), pdwusecount?.value?.toCPointer<ByteVar>(), pwdateused?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiGetFeatureUsageW(szproduct: PCWSTR, szfeature: PCWSTR, pdwusecount: Long, pwdateused: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetFeatureUsageW(szproduct.toCPointer<ByteVar>(), szfeature.toCPointer<ByteVar>(), pdwusecount.toCPointer<ByteVar>(), pwdateused.toCPointer<ByteVar>())
+public actual fun msiGetFeatureUsageW(szproduct: Pcwstr, szfeature: Pcwstr, pdwusecount: COpaquePointer?, pwdateused: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFeatureUsageW(szproduct?.value?.toCPointer<ByteVar>(), szfeature?.value?.toCPointer<ByteVar>(), pdwusecount?.value?.toCPointer<ByteVar>(), pwdateused?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiGetFeatureValidStatesA(hinstall: MSIHANDLE, szfeature: PCSTR, lpinstallstates: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetFeatureValidStatesA(hinstall, szfeature.toCPointer<ByteVar>(), lpinstallstates.toCPointer<ByteVar>())
+public actual fun msiGetFeatureValidStatesA(hinstall: Msihandle, szfeature: Pcstr, lpinstallstates: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFeatureValidStatesA(hinstall, szfeature?.value?.toCPointer<ByteVar>(), lpinstallstates?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiGetFeatureValidStatesW(hinstall: MSIHANDLE, szfeature: PCWSTR, lpinstallstates: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetFeatureValidStatesW(hinstall, szfeature.toCPointer<ByteVar>(), lpinstallstates.toCPointer<ByteVar>())
+public actual fun msiGetFeatureValidStatesW(hinstall: Msihandle, szfeature: Pcwstr, lpinstallstates: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFeatureValidStatesW(hinstall, szfeature?.value?.toCPointer<ByteVar>(), lpinstallstates?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiGetFileHashA(szfilepath: PCSTR, dwoptions: UInt, phash: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetFileHashA(szfilepath.toCPointer<ByteVar>(), dwoptions, phash.toCPointer<ByteVar>())
+public actual fun msiGetFileHashA(szfilepath: Pcstr, dwoptions: UInt, phash: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFileHashA(szfilepath?.value?.toCPointer<ByteVar>(), dwoptions, phash?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiGetFileHashW(szfilepath: PCWSTR, dwoptions: UInt, phash: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetFileHashW(szfilepath.toCPointer<ByteVar>(), dwoptions, phash.toCPointer<ByteVar>())
+public actual fun msiGetFileHashW(szfilepath: Pcwstr, dwoptions: UInt, phash: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFileHashW(szfilepath?.value?.toCPointer<ByteVar>(), dwoptions, phash?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiGetFileSignatureInformationA(szsignedobjectpath: PCSTR, dwflags: UInt, ppccertcontext: Long, pbhashdata: Long, pcbhashdata: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetFileSignatureInformationA(szsignedobjectpath.toCPointer<ByteVar>(), dwflags, ppccertcontext.toCPointer<ByteVar>(), pbhashdata.toCPointer<ByteVar>(), pcbhashdata.toCPointer<ByteVar>())
+public actual fun msiGetFileSignatureInformationA(szsignedobjectpath: Pcstr, dwflags: UInt, ppccertcontext: COpaquePointer?, pbhashdata: COpaquePointer?, pcbhashdata: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFileSignatureInformationA(szsignedobjectpath?.value?.toCPointer<ByteVar>(), dwflags, ppccertcontext?.value?.toCPointer<ByteVar>(), pbhashdata?.value?.toCPointer<ByteVar>(), pcbhashdata?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiGetFileSignatureInformationW(szsignedobjectpath: PCWSTR, dwflags: UInt, ppccertcontext: Long, pbhashdata: Long, pcbhashdata: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetFileSignatureInformationW(szsignedobjectpath.toCPointer<ByteVar>(), dwflags, ppccertcontext.toCPointer<ByteVar>(), pbhashdata.toCPointer<ByteVar>(), pcbhashdata.toCPointer<ByteVar>())
+public actual fun msiGetFileSignatureInformationW(szsignedobjectpath: Pcwstr, dwflags: UInt, ppccertcontext: COpaquePointer?, pbhashdata: COpaquePointer?, pcbhashdata: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFileSignatureInformationW(szsignedobjectpath?.value?.toCPointer<ByteVar>(), dwflags, ppccertcontext?.value?.toCPointer<ByteVar>(), pbhashdata?.value?.toCPointer<ByteVar>(), pcbhashdata?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiGetFileVersionA(szfilepath: PCSTR, lpversionbuf: PSTR, pcchversionbuf: Long, lplangbuf: PSTR, pcchlangbuf: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetFileVersionA(szfilepath.toCPointer<ByteVar>(), lpversionbuf.toCPointer<ByteVar>(), pcchversionbuf.toCPointer<ByteVar>(), lplangbuf.toCPointer<ByteVar>(), pcchlangbuf.toCPointer<ByteVar>())
+public actual fun msiGetFileVersionA(szfilepath: Pcstr, lpversionbuf: Pstr, pcchversionbuf: COpaquePointer?, lplangbuf: Pstr, pcchlangbuf: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFileVersionA(szfilepath?.value?.toCPointer<ByteVar>(), lpversionbuf?.value?.toCPointer<ByteVar>(), pcchversionbuf?.value?.toCPointer<ByteVar>(), lplangbuf?.value?.toCPointer<ByteVar>(), pcchlangbuf?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiGetFileVersionW(szfilepath: PCWSTR, lpversionbuf: PWSTR, pcchversionbuf: Long, lplangbuf: PWSTR, pcchlangbuf: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetFileVersionW(szfilepath.toCPointer<ByteVar>(), lpversionbuf.toCPointer<ByteVar>(), pcchversionbuf.toCPointer<ByteVar>(), lplangbuf.toCPointer<ByteVar>(), pcchlangbuf.toCPointer<ByteVar>())
+public actual fun msiGetFileVersionW(szfilepath: Pcwstr, lpversionbuf: Pwstr, pcchversionbuf: COpaquePointer?, lplangbuf: Pwstr, pcchlangbuf: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFileVersionW(szfilepath?.value?.toCPointer<ByteVar>(), lpversionbuf?.value?.toCPointer<ByteVar>(), pcchversionbuf?.value?.toCPointer<ByteVar>(), lplangbuf?.value?.toCPointer<ByteVar>(), pcchlangbuf?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiGetLanguage(hinstall: MSIHANDLE): UShort =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetLanguage(hinstall)
+public actual fun msiGetLanguage(hinstall: Msihandle): UShort =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiGetLanguage(hinstall)
 
-public actual fun MsiGetLastErrorRecord(): MSIHANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetLastErrorRecord()
+public actual fun msiGetLastErrorRecord(): Msihandle =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiGetLastErrorRecord()
 
-public actual fun MsiGetMode(hinstall: MSIHANDLE, erunmode: MSIRUNMODE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetMode(hinstall, erunmode)
+public actual fun msiGetMode(hinstall: Msihandle, erunmode: Msirunmode): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiGetMode(hinstall, erunmode)
 
-public actual fun MsiGetPatchFileListA(szproductcode: PCSTR, szpatchpackages: PCSTR, pcfiles: Long, pphfilerecords: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetPatchFileListA(szproductcode.toCPointer<ByteVar>(), szpatchpackages.toCPointer<ByteVar>(), pcfiles.toCPointer<ByteVar>(), pphfilerecords.toCPointer<ByteVar>())
+public actual fun msiGetPatchFileListA(szproductcode: Pcstr, szpatchpackages: Pcstr, pcfiles: COpaquePointer?, pphfilerecords: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiGetPatchFileListA(szproductcode?.value?.toCPointer<ByteVar>(), szpatchpackages?.value?.toCPointer<ByteVar>(), pcfiles?.value?.toCPointer<ByteVar>(), pphfilerecords?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiGetPatchFileListW(szproductcode: PCWSTR, szpatchpackages: PCWSTR, pcfiles: Long, pphfilerecords: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetPatchFileListW(szproductcode.toCPointer<ByteVar>(), szpatchpackages.toCPointer<ByteVar>(), pcfiles.toCPointer<ByteVar>(), pphfilerecords.toCPointer<ByteVar>())
+public actual fun msiGetPatchFileListW(szproductcode: Pcwstr, szpatchpackages: Pcwstr, pcfiles: COpaquePointer?, pphfilerecords: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiGetPatchFileListW(szproductcode?.value?.toCPointer<ByteVar>(), szpatchpackages?.value?.toCPointer<ByteVar>(), pcfiles?.value?.toCPointer<ByteVar>(), pphfilerecords?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiGetPatchInfoA(szpatch: PCSTR, szattribute: PCSTR, lpvaluebuf: PSTR, pcchvaluebuf: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetPatchInfoA(szpatch.toCPointer<ByteVar>(), szattribute.toCPointer<ByteVar>(), lpvaluebuf.toCPointer<ByteVar>(), pcchvaluebuf.toCPointer<ByteVar>())
+public actual fun msiGetPatchInfoA(szpatch: Pcstr, szattribute: Pcstr, lpvaluebuf: Pstr, pcchvaluebuf: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiGetPatchInfoA(szpatch?.value?.toCPointer<ByteVar>(), szattribute?.value?.toCPointer<ByteVar>(), lpvaluebuf?.value?.toCPointer<ByteVar>(), pcchvaluebuf?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiGetPatchInfoExA(szpatchcode: PCSTR, szproductcode: PCSTR, szusersid: PCSTR, dwcontext: MSIINSTALLCONTEXT, szproperty: PCSTR, lpvalue: PSTR, pcchvalue: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetPatchInfoExA(szpatchcode.toCPointer<ByteVar>(), szproductcode.toCPointer<ByteVar>(), szusersid.toCPointer<ByteVar>(), dwcontext, szproperty.toCPointer<ByteVar>(), lpvalue.toCPointer<ByteVar>(), pcchvalue.toCPointer<ByteVar>())
+public actual fun msiGetPatchInfoExA(szpatchcode: Pcstr, szproductcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, szproperty: Pcstr, lpvalue: Pstr, pcchvalue: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiGetPatchInfoExA(szpatchcode?.value?.toCPointer<ByteVar>(), szproductcode?.value?.toCPointer<ByteVar>(), szusersid?.value?.toCPointer<ByteVar>(), dwcontext, szproperty?.value?.toCPointer<ByteVar>(), lpvalue?.value?.toCPointer<ByteVar>(), pcchvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiGetPatchInfoExW(szpatchcode: PCWSTR, szproductcode: PCWSTR, szusersid: PCWSTR, dwcontext: MSIINSTALLCONTEXT, szproperty: PCWSTR, lpvalue: PWSTR, pcchvalue: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetPatchInfoExW(szpatchcode.toCPointer<ByteVar>(), szproductcode.toCPointer<ByteVar>(), szusersid.toCPointer<ByteVar>(), dwcontext, szproperty.toCPointer<ByteVar>(), lpvalue.toCPointer<ByteVar>(), pcchvalue.toCPointer<ByteVar>())
+public actual fun msiGetPatchInfoExW(szpatchcode: Pcwstr, szproductcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, szproperty: Pcwstr, lpvalue: Pwstr, pcchvalue: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiGetPatchInfoExW(szpatchcode?.value?.toCPointer<ByteVar>(), szproductcode?.value?.toCPointer<ByteVar>(), szusersid?.value?.toCPointer<ByteVar>(), dwcontext, szproperty?.value?.toCPointer<ByteVar>(), lpvalue?.value?.toCPointer<ByteVar>(), pcchvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiGetPatchInfoW(szpatch: PCWSTR, szattribute: PCWSTR, lpvaluebuf: PWSTR, pcchvaluebuf: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetPatchInfoW(szpatch.toCPointer<ByteVar>(), szattribute.toCPointer<ByteVar>(), lpvaluebuf.toCPointer<ByteVar>(), pcchvaluebuf.toCPointer<ByteVar>())
+public actual fun msiGetPatchInfoW(szpatch: Pcwstr, szattribute: Pcwstr, lpvaluebuf: Pwstr, pcchvaluebuf: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiGetPatchInfoW(szpatch?.value?.toCPointer<ByteVar>(), szattribute?.value?.toCPointer<ByteVar>(), lpvaluebuf?.value?.toCPointer<ByteVar>(), pcchvaluebuf?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiGetProductCodeA(szcomponent: PCSTR, lpbuf39: PSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetProductCodeA(szcomponent.toCPointer<ByteVar>(), lpbuf39.toCPointer<ByteVar>())
+public actual fun msiGetProductCodeA(szcomponent: Pcstr, lpbuf39: Pstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiGetProductCodeA(szcomponent?.value?.toCPointer<ByteVar>(), lpbuf39?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiGetProductCodeW(szcomponent: PCWSTR, lpbuf39: PWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetProductCodeW(szcomponent.toCPointer<ByteVar>(), lpbuf39.toCPointer<ByteVar>())
+public actual fun msiGetProductCodeW(szcomponent: Pcwstr, lpbuf39: Pwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiGetProductCodeW(szcomponent?.value?.toCPointer<ByteVar>(), lpbuf39?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiGetProductInfoA(szproduct: PCSTR, szattribute: PCSTR, lpvaluebuf: PSTR, pcchvaluebuf: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetProductInfoA(szproduct.toCPointer<ByteVar>(), szattribute.toCPointer<ByteVar>(), lpvaluebuf.toCPointer<ByteVar>(), pcchvaluebuf.toCPointer<ByteVar>())
+public actual fun msiGetProductInfoA(szproduct: Pcstr, szattribute: Pcstr, lpvaluebuf: Pstr, pcchvaluebuf: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiGetProductInfoA(szproduct?.value?.toCPointer<ByteVar>(), szattribute?.value?.toCPointer<ByteVar>(), lpvaluebuf?.value?.toCPointer<ByteVar>(), pcchvaluebuf?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiGetProductInfoExA(szproductcode: PCSTR, szusersid: PCSTR, dwcontext: MSIINSTALLCONTEXT, szproperty: PCSTR, szvalue: PSTR, pcchvalue: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetProductInfoExA(szproductcode.toCPointer<ByteVar>(), szusersid.toCPointer<ByteVar>(), dwcontext, szproperty.toCPointer<ByteVar>(), szvalue.toCPointer<ByteVar>(), pcchvalue.toCPointer<ByteVar>())
+public actual fun msiGetProductInfoExA(szproductcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, szproperty: Pcstr, szvalue: Pstr, pcchvalue: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiGetProductInfoExA(szproductcode?.value?.toCPointer<ByteVar>(), szusersid?.value?.toCPointer<ByteVar>(), dwcontext, szproperty?.value?.toCPointer<ByteVar>(), szvalue?.value?.toCPointer<ByteVar>(), pcchvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiGetProductInfoExW(szproductcode: PCWSTR, szusersid: PCWSTR, dwcontext: MSIINSTALLCONTEXT, szproperty: PCWSTR, szvalue: PWSTR, pcchvalue: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetProductInfoExW(szproductcode.toCPointer<ByteVar>(), szusersid.toCPointer<ByteVar>(), dwcontext, szproperty.toCPointer<ByteVar>(), szvalue.toCPointer<ByteVar>(), pcchvalue.toCPointer<ByteVar>())
+public actual fun msiGetProductInfoExW(szproductcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, szproperty: Pcwstr, szvalue: Pwstr, pcchvalue: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiGetProductInfoExW(szproductcode?.value?.toCPointer<ByteVar>(), szusersid?.value?.toCPointer<ByteVar>(), dwcontext, szproperty?.value?.toCPointer<ByteVar>(), szvalue?.value?.toCPointer<ByteVar>(), pcchvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiGetProductInfoFromScriptA(szscriptfile: PCSTR, lpproductbuf39: PSTR, plgidlanguage: Long, pdwversion: Long, lpnamebuf: PSTR, pcchnamebuf: Long, lppackagebuf: PSTR, pcchpackagebuf: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetProductInfoFromScriptA(szscriptfile.toCPointer<ByteVar>(), lpproductbuf39.toCPointer<ByteVar>(), plgidlanguage.toCPointer<ByteVar>(), pdwversion.toCPointer<ByteVar>(), lpnamebuf.toCPointer<ByteVar>(), pcchnamebuf.toCPointer<ByteVar>(), lppackagebuf.toCPointer<ByteVar>(), pcchpackagebuf.toCPointer<ByteVar>())
+public actual fun msiGetProductInfoFromScriptA(szscriptfile: Pcstr, lpproductbuf39: Pstr, plgidlanguage: COpaquePointer?, pdwversion: COpaquePointer?, lpnamebuf: Pstr, pcchnamebuf: COpaquePointer?, lppackagebuf: Pstr, pcchpackagebuf: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiGetProductInfoFromScriptA(szscriptfile?.value?.toCPointer<ByteVar>(), lpproductbuf39?.value?.toCPointer<ByteVar>(), plgidlanguage?.value?.toCPointer<ByteVar>(), pdwversion?.value?.toCPointer<ByteVar>(), lpnamebuf?.value?.toCPointer<ByteVar>(), pcchnamebuf?.value?.toCPointer<ByteVar>(), lppackagebuf?.value?.toCPointer<ByteVar>(), pcchpackagebuf?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiGetProductInfoFromScriptW(szscriptfile: PCWSTR, lpproductbuf39: PWSTR, plgidlanguage: Long, pdwversion: Long, lpnamebuf: PWSTR, pcchnamebuf: Long, lppackagebuf: PWSTR, pcchpackagebuf: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetProductInfoFromScriptW(szscriptfile.toCPointer<ByteVar>(), lpproductbuf39.toCPointer<ByteVar>(), plgidlanguage.toCPointer<ByteVar>(), pdwversion.toCPointer<ByteVar>(), lpnamebuf.toCPointer<ByteVar>(), pcchnamebuf.toCPointer<ByteVar>(), lppackagebuf.toCPointer<ByteVar>(), pcchpackagebuf.toCPointer<ByteVar>())
+public actual fun msiGetProductInfoFromScriptW(szscriptfile: Pcwstr, lpproductbuf39: Pwstr, plgidlanguage: COpaquePointer?, pdwversion: COpaquePointer?, lpnamebuf: Pwstr, pcchnamebuf: COpaquePointer?, lppackagebuf: Pwstr, pcchpackagebuf: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiGetProductInfoFromScriptW(szscriptfile?.value?.toCPointer<ByteVar>(), lpproductbuf39?.value?.toCPointer<ByteVar>(), plgidlanguage?.value?.toCPointer<ByteVar>(), pdwversion?.value?.toCPointer<ByteVar>(), lpnamebuf?.value?.toCPointer<ByteVar>(), pcchnamebuf?.value?.toCPointer<ByteVar>(), lppackagebuf?.value?.toCPointer<ByteVar>(), pcchpackagebuf?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiGetProductInfoW(szproduct: PCWSTR, szattribute: PCWSTR, lpvaluebuf: PWSTR, pcchvaluebuf: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetProductInfoW(szproduct.toCPointer<ByteVar>(), szattribute.toCPointer<ByteVar>(), lpvaluebuf.toCPointer<ByteVar>(), pcchvaluebuf.toCPointer<ByteVar>())
+public actual fun msiGetProductInfoW(szproduct: Pcwstr, szattribute: Pcwstr, lpvaluebuf: Pwstr, pcchvaluebuf: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiGetProductInfoW(szproduct?.value?.toCPointer<ByteVar>(), szattribute?.value?.toCPointer<ByteVar>(), lpvaluebuf?.value?.toCPointer<ByteVar>(), pcchvaluebuf?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiGetProductPropertyA(hproduct: MSIHANDLE, szproperty: PCSTR, lpvaluebuf: PSTR, pcchvaluebuf: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetProductPropertyA(hproduct, szproperty.toCPointer<ByteVar>(), lpvaluebuf.toCPointer<ByteVar>(), pcchvaluebuf.toCPointer<ByteVar>())
+public actual fun msiGetProductPropertyA(hproduct: Msihandle, szproperty: Pcstr, lpvaluebuf: Pstr, pcchvaluebuf: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiGetProductPropertyA(hproduct, szproperty?.value?.toCPointer<ByteVar>(), lpvaluebuf?.value?.toCPointer<ByteVar>(), pcchvaluebuf?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiGetProductPropertyW(hproduct: MSIHANDLE, szproperty: PCWSTR, lpvaluebuf: PWSTR, pcchvaluebuf: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetProductPropertyW(hproduct, szproperty.toCPointer<ByteVar>(), lpvaluebuf.toCPointer<ByteVar>(), pcchvaluebuf.toCPointer<ByteVar>())
+public actual fun msiGetProductPropertyW(hproduct: Msihandle, szproperty: Pcwstr, lpvaluebuf: Pwstr, pcchvaluebuf: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiGetProductPropertyW(hproduct, szproperty?.value?.toCPointer<ByteVar>(), lpvaluebuf?.value?.toCPointer<ByteVar>(), pcchvaluebuf?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiGetPropertyA(hinstall: MSIHANDLE, szname: PCSTR, szvaluebuf: PSTR, pcchvaluebuf: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetPropertyA(hinstall, szname.toCPointer<ByteVar>(), szvaluebuf.toCPointer<ByteVar>(), pcchvaluebuf.toCPointer<ByteVar>())
+public actual fun msiGetPropertyA(hinstall: Msihandle, szname: Pcstr, szvaluebuf: Pstr, pcchvaluebuf: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiGetPropertyA(hinstall, szname?.value?.toCPointer<ByteVar>(), szvaluebuf?.value?.toCPointer<ByteVar>(), pcchvaluebuf?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiGetPropertyW(hinstall: MSIHANDLE, szname: PCWSTR, szvaluebuf: PWSTR, pcchvaluebuf: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetPropertyW(hinstall, szname.toCPointer<ByteVar>(), szvaluebuf.toCPointer<ByteVar>(), pcchvaluebuf.toCPointer<ByteVar>())
+public actual fun msiGetPropertyW(hinstall: Msihandle, szname: Pcwstr, szvaluebuf: Pwstr, pcchvaluebuf: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiGetPropertyW(hinstall, szname?.value?.toCPointer<ByteVar>(), szvaluebuf?.value?.toCPointer<ByteVar>(), pcchvaluebuf?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiGetShortcutTargetA(szshortcutpath: PCSTR, szproductcode: PSTR, szfeatureid: PSTR, szcomponentcode: PSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetShortcutTargetA(szshortcutpath.toCPointer<ByteVar>(), szproductcode.toCPointer<ByteVar>(), szfeatureid.toCPointer<ByteVar>(), szcomponentcode.toCPointer<ByteVar>())
+public actual fun msiGetShortcutTargetA(szshortcutpath: Pcstr, szproductcode: Pstr, szfeatureid: Pstr, szcomponentcode: Pstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiGetShortcutTargetA(szshortcutpath?.value?.toCPointer<ByteVar>(), szproductcode?.value?.toCPointer<ByteVar>(), szfeatureid?.value?.toCPointer<ByteVar>(), szcomponentcode?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiGetShortcutTargetW(szshortcutpath: PCWSTR, szproductcode: PWSTR, szfeatureid: PWSTR, szcomponentcode: PWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetShortcutTargetW(szshortcutpath.toCPointer<ByteVar>(), szproductcode.toCPointer<ByteVar>(), szfeatureid.toCPointer<ByteVar>(), szcomponentcode.toCPointer<ByteVar>())
+public actual fun msiGetShortcutTargetW(szshortcutpath: Pcwstr, szproductcode: Pwstr, szfeatureid: Pwstr, szcomponentcode: Pwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiGetShortcutTargetW(szshortcutpath?.value?.toCPointer<ByteVar>(), szproductcode?.value?.toCPointer<ByteVar>(), szfeatureid?.value?.toCPointer<ByteVar>(), szcomponentcode?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiGetSourcePathA(hinstall: MSIHANDLE, szfolder: PCSTR, szpathbuf: PSTR, pcchpathbuf: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetSourcePathA(hinstall, szfolder.toCPointer<ByteVar>(), szpathbuf.toCPointer<ByteVar>(), pcchpathbuf.toCPointer<ByteVar>())
+public actual fun msiGetSourcePathA(hinstall: Msihandle, szfolder: Pcstr, szpathbuf: Pstr, pcchpathbuf: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiGetSourcePathA(hinstall, szfolder?.value?.toCPointer<ByteVar>(), szpathbuf?.value?.toCPointer<ByteVar>(), pcchpathbuf?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiGetSourcePathW(hinstall: MSIHANDLE, szfolder: PCWSTR, szpathbuf: PWSTR, pcchpathbuf: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetSourcePathW(hinstall, szfolder.toCPointer<ByteVar>(), szpathbuf.toCPointer<ByteVar>(), pcchpathbuf.toCPointer<ByteVar>())
+public actual fun msiGetSourcePathW(hinstall: Msihandle, szfolder: Pcwstr, szpathbuf: Pwstr, pcchpathbuf: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiGetSourcePathW(hinstall, szfolder?.value?.toCPointer<ByteVar>(), szpathbuf?.value?.toCPointer<ByteVar>(), pcchpathbuf?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiGetSummaryInformationA(hdatabase: MSIHANDLE, szdatabasepath: PCSTR, uiupdatecount: UInt, phsummaryinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetSummaryInformationA(hdatabase, szdatabasepath.toCPointer<ByteVar>(), uiupdatecount, phsummaryinfo.toCPointer<ByteVar>())
+public actual fun msiGetSummaryInformationA(hdatabase: Msihandle, szdatabasepath: Pcstr, uiupdatecount: UInt, phsummaryinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiGetSummaryInformationA(hdatabase, szdatabasepath?.value?.toCPointer<ByteVar>(), uiupdatecount, phsummaryinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiGetSummaryInformationW(hdatabase: MSIHANDLE, szdatabasepath: PCWSTR, uiupdatecount: UInt, phsummaryinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetSummaryInformationW(hdatabase, szdatabasepath.toCPointer<ByteVar>(), uiupdatecount, phsummaryinfo.toCPointer<ByteVar>())
+public actual fun msiGetSummaryInformationW(hdatabase: Msihandle, szdatabasepath: Pcwstr, uiupdatecount: UInt, phsummaryinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiGetSummaryInformationW(hdatabase, szdatabasepath?.value?.toCPointer<ByteVar>(), uiupdatecount, phsummaryinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiGetTargetPathA(hinstall: MSIHANDLE, szfolder: PCSTR, szpathbuf: PSTR, pcchpathbuf: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetTargetPathA(hinstall, szfolder.toCPointer<ByteVar>(), szpathbuf.toCPointer<ByteVar>(), pcchpathbuf.toCPointer<ByteVar>())
+public actual fun msiGetTargetPathA(hinstall: Msihandle, szfolder: Pcstr, szpathbuf: Pstr, pcchpathbuf: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiGetTargetPathA(hinstall, szfolder?.value?.toCPointer<ByteVar>(), szpathbuf?.value?.toCPointer<ByteVar>(), pcchpathbuf?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiGetTargetPathW(hinstall: MSIHANDLE, szfolder: PCWSTR, szpathbuf: PWSTR, pcchpathbuf: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetTargetPathW(hinstall, szfolder.toCPointer<ByteVar>(), szpathbuf.toCPointer<ByteVar>(), pcchpathbuf.toCPointer<ByteVar>())
+public actual fun msiGetTargetPathW(hinstall: Msihandle, szfolder: Pcwstr, szpathbuf: Pwstr, pcchpathbuf: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiGetTargetPathW(hinstall, szfolder?.value?.toCPointer<ByteVar>(), szpathbuf?.value?.toCPointer<ByteVar>(), pcchpathbuf?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiGetUserInfoA(szproduct: PCSTR, lpusernamebuf: PSTR, pcchusernamebuf: Long, lporgnamebuf: PSTR, pcchorgnamebuf: Long, lpserialbuf: PSTR, pcchserialbuf: Long): USERINFOSTATE =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetUserInfoA(szproduct.toCPointer<ByteVar>(), lpusernamebuf.toCPointer<ByteVar>(), pcchusernamebuf.toCPointer<ByteVar>(), lporgnamebuf.toCPointer<ByteVar>(), pcchorgnamebuf.toCPointer<ByteVar>(), lpserialbuf.toCPointer<ByteVar>(), pcchserialbuf.toCPointer<ByteVar>())
+public actual fun msiGetUserInfoA(szproduct: Pcstr, lpusernamebuf: Pstr, pcchusernamebuf: COpaquePointer?, lporgnamebuf: Pstr, pcchorgnamebuf: COpaquePointer?, lpserialbuf: Pstr, pcchserialbuf: COpaquePointer?): Userinfostate =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiGetUserInfoA(szproduct?.value?.toCPointer<ByteVar>(), lpusernamebuf?.value?.toCPointer<ByteVar>(), pcchusernamebuf?.value?.toCPointer<ByteVar>(), lporgnamebuf?.value?.toCPointer<ByteVar>(), pcchorgnamebuf?.value?.toCPointer<ByteVar>(), lpserialbuf?.value?.toCPointer<ByteVar>(), pcchserialbuf?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiGetUserInfoW(szproduct: PCWSTR, lpusernamebuf: PWSTR, pcchusernamebuf: Long, lporgnamebuf: PWSTR, pcchorgnamebuf: Long, lpserialbuf: PWSTR, pcchserialbuf: Long): USERINFOSTATE =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetUserInfoW(szproduct.toCPointer<ByteVar>(), lpusernamebuf.toCPointer<ByteVar>(), pcchusernamebuf.toCPointer<ByteVar>(), lporgnamebuf.toCPointer<ByteVar>(), pcchorgnamebuf.toCPointer<ByteVar>(), lpserialbuf.toCPointer<ByteVar>(), pcchserialbuf.toCPointer<ByteVar>())
+public actual fun msiGetUserInfoW(szproduct: Pcwstr, lpusernamebuf: Pwstr, pcchusernamebuf: COpaquePointer?, lporgnamebuf: Pwstr, pcchorgnamebuf: COpaquePointer?, lpserialbuf: Pwstr, pcchserialbuf: COpaquePointer?): Userinfostate =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiGetUserInfoW(szproduct?.value?.toCPointer<ByteVar>(), lpusernamebuf?.value?.toCPointer<ByteVar>(), pcchusernamebuf?.value?.toCPointer<ByteVar>(), lporgnamebuf?.value?.toCPointer<ByteVar>(), pcchorgnamebuf?.value?.toCPointer<ByteVar>(), lpserialbuf?.value?.toCPointer<ByteVar>(), pcchserialbuf?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiInstallMissingComponentA(szproduct: PCSTR, szcomponent: PCSTR, einstallstate: INSTALLSTATE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiInstallMissingComponentA(szproduct.toCPointer<ByteVar>(), szcomponent.toCPointer<ByteVar>(), einstallstate)
+public actual fun msiInstallMissingComponentA(szproduct: Pcstr, szcomponent: Pcstr, einstallstate: Installstate): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiInstallMissingComponentA(szproduct?.value?.toCPointer<ByteVar>(), szcomponent?.value?.toCPointer<ByteVar>(), einstallstate)
 
-public actual fun MsiInstallMissingComponentW(szproduct: PCWSTR, szcomponent: PCWSTR, einstallstate: INSTALLSTATE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiInstallMissingComponentW(szproduct.toCPointer<ByteVar>(), szcomponent.toCPointer<ByteVar>(), einstallstate)
+public actual fun msiInstallMissingComponentW(szproduct: Pcwstr, szcomponent: Pcwstr, einstallstate: Installstate): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiInstallMissingComponentW(szproduct?.value?.toCPointer<ByteVar>(), szcomponent?.value?.toCPointer<ByteVar>(), einstallstate)
 
-public actual fun MsiInstallMissingFileA(szproduct: PCSTR, szfile: PCSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiInstallMissingFileA(szproduct.toCPointer<ByteVar>(), szfile.toCPointer<ByteVar>())
+public actual fun msiInstallMissingFileA(szproduct: Pcstr, szfile: Pcstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiInstallMissingFileA(szproduct?.value?.toCPointer<ByteVar>(), szfile?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiInstallMissingFileW(szproduct: PCWSTR, szfile: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiInstallMissingFileW(szproduct.toCPointer<ByteVar>(), szfile.toCPointer<ByteVar>())
+public actual fun msiInstallMissingFileW(szproduct: Pcwstr, szfile: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiInstallMissingFileW(szproduct?.value?.toCPointer<ByteVar>(), szfile?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiInstallProductA(szpackagepath: PCSTR, szcommandline: PCSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiInstallProductA(szpackagepath.toCPointer<ByteVar>(), szcommandline.toCPointer<ByteVar>())
+public actual fun msiInstallProductA(szpackagepath: Pcstr, szcommandline: Pcstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiInstallProductA(szpackagepath?.value?.toCPointer<ByteVar>(), szcommandline?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiInstallProductW(szpackagepath: PCWSTR, szcommandline: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiInstallProductW(szpackagepath.toCPointer<ByteVar>(), szcommandline.toCPointer<ByteVar>())
+public actual fun msiInstallProductW(szpackagepath: Pcwstr, szcommandline: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiInstallProductW(szpackagepath?.value?.toCPointer<ByteVar>(), szcommandline?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiIsProductElevatedA(szproduct: PCSTR, pfelevated: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiIsProductElevatedA(szproduct.toCPointer<ByteVar>(), pfelevated.toCPointer<ByteVar>())
+public actual fun msiIsProductElevatedA(szproduct: Pcstr, pfelevated: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiIsProductElevatedA(szproduct?.value?.toCPointer<ByteVar>(), pfelevated?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiIsProductElevatedW(szproduct: PCWSTR, pfelevated: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiIsProductElevatedW(szproduct.toCPointer<ByteVar>(), pfelevated.toCPointer<ByteVar>())
+public actual fun msiIsProductElevatedW(szproduct: Pcwstr, pfelevated: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiIsProductElevatedW(szproduct?.value?.toCPointer<ByteVar>(), pfelevated?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiJoinTransaction(htransactionhandle: MSIHANDLE, dwtransactionattributes: UInt, phchangeofownerevent: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiJoinTransaction(htransactionhandle, dwtransactionattributes, phchangeofownerevent.toCPointer<ByteVar>())
+public actual fun msiJoinTransaction(htransactionhandle: Msihandle, dwtransactionattributes: UInt, phchangeofownerevent: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiJoinTransaction(htransactionhandle, dwtransactionattributes, phchangeofownerevent?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiLocateComponentA(szcomponent: PCSTR, lppathbuf: PSTR, pcchbuf: Long): INSTALLSTATE =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiLocateComponentA(szcomponent.toCPointer<ByteVar>(), lppathbuf.toCPointer<ByteVar>(), pcchbuf.toCPointer<ByteVar>())
+public actual fun msiLocateComponentA(szcomponent: Pcstr, lppathbuf: Pstr, pcchbuf: COpaquePointer?): Installstate =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiLocateComponentA(szcomponent?.value?.toCPointer<ByteVar>(), lppathbuf?.value?.toCPointer<ByteVar>(), pcchbuf?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiLocateComponentW(szcomponent: PCWSTR, lppathbuf: PWSTR, pcchbuf: Long): INSTALLSTATE =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiLocateComponentW(szcomponent.toCPointer<ByteVar>(), lppathbuf.toCPointer<ByteVar>(), pcchbuf.toCPointer<ByteVar>())
+public actual fun msiLocateComponentW(szcomponent: Pcwstr, lppathbuf: Pwstr, pcchbuf: COpaquePointer?): Installstate =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiLocateComponentW(szcomponent?.value?.toCPointer<ByteVar>(), lppathbuf?.value?.toCPointer<ByteVar>(), pcchbuf?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiNotifySidChangeA(poldsid: PCSTR, pnewsid: PCSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiNotifySidChangeA(poldsid.toCPointer<ByteVar>(), pnewsid.toCPointer<ByteVar>())
+public actual fun msiNotifySidChangeA(poldsid: Pcstr, pnewsid: Pcstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiNotifySidChangeA(poldsid?.value?.toCPointer<ByteVar>(), pnewsid?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiNotifySidChangeW(poldsid: PCWSTR, pnewsid: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiNotifySidChangeW(poldsid.toCPointer<ByteVar>(), pnewsid.toCPointer<ByteVar>())
+public actual fun msiNotifySidChangeW(poldsid: Pcwstr, pnewsid: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiNotifySidChangeW(poldsid?.value?.toCPointer<ByteVar>(), pnewsid?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiOpenDatabaseA(szdatabasepath: PCSTR, szpersist: PCSTR, phdatabase: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiOpenDatabaseA(szdatabasepath.toCPointer<ByteVar>(), szpersist.toCPointer<ByteVar>(), phdatabase.toCPointer<ByteVar>())
+public actual fun msiOpenDatabaseA(szdatabasepath: Pcstr, szpersist: Pcstr, phdatabase: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiOpenDatabaseA(szdatabasepath?.value?.toCPointer<ByteVar>(), szpersist?.value?.toCPointer<ByteVar>(), phdatabase?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiOpenDatabaseW(szdatabasepath: PCWSTR, szpersist: PCWSTR, phdatabase: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiOpenDatabaseW(szdatabasepath.toCPointer<ByteVar>(), szpersist.toCPointer<ByteVar>(), phdatabase.toCPointer<ByteVar>())
+public actual fun msiOpenDatabaseW(szdatabasepath: Pcwstr, szpersist: Pcwstr, phdatabase: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiOpenDatabaseW(szdatabasepath?.value?.toCPointer<ByteVar>(), szpersist?.value?.toCPointer<ByteVar>(), phdatabase?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiOpenPackageA(szpackagepath: PCSTR, hproduct: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiOpenPackageA(szpackagepath.toCPointer<ByteVar>(), hproduct.toCPointer<ByteVar>())
+public actual fun msiOpenPackageA(szpackagepath: Pcstr, hproduct: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiOpenPackageA(szpackagepath?.value?.toCPointer<ByteVar>(), hproduct?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiOpenPackageExA(szpackagepath: PCSTR, dwoptions: UInt, hproduct: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiOpenPackageExA(szpackagepath.toCPointer<ByteVar>(), dwoptions, hproduct.toCPointer<ByteVar>())
+public actual fun msiOpenPackageExA(szpackagepath: Pcstr, dwoptions: UInt, hproduct: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiOpenPackageExA(szpackagepath?.value?.toCPointer<ByteVar>(), dwoptions, hproduct?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiOpenPackageExW(szpackagepath: PCWSTR, dwoptions: UInt, hproduct: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiOpenPackageExW(szpackagepath.toCPointer<ByteVar>(), dwoptions, hproduct.toCPointer<ByteVar>())
+public actual fun msiOpenPackageExW(szpackagepath: Pcwstr, dwoptions: UInt, hproduct: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiOpenPackageExW(szpackagepath?.value?.toCPointer<ByteVar>(), dwoptions, hproduct?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiOpenPackageW(szpackagepath: PCWSTR, hproduct: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiOpenPackageW(szpackagepath.toCPointer<ByteVar>(), hproduct.toCPointer<ByteVar>())
+public actual fun msiOpenPackageW(szpackagepath: Pcwstr, hproduct: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiOpenPackageW(szpackagepath?.value?.toCPointer<ByteVar>(), hproduct?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiOpenProductA(szproduct: PCSTR, hproduct: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiOpenProductA(szproduct.toCPointer<ByteVar>(), hproduct.toCPointer<ByteVar>())
+public actual fun msiOpenProductA(szproduct: Pcstr, hproduct: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiOpenProductA(szproduct?.value?.toCPointer<ByteVar>(), hproduct?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiOpenProductW(szproduct: PCWSTR, hproduct: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiOpenProductW(szproduct.toCPointer<ByteVar>(), hproduct.toCPointer<ByteVar>())
+public actual fun msiOpenProductW(szproduct: Pcwstr, hproduct: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiOpenProductW(szproduct?.value?.toCPointer<ByteVar>(), hproduct?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiPreviewBillboardA(hpreview: MSIHANDLE, szcontrolname: PCSTR, szbillboard: PCSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiPreviewBillboardA(hpreview, szcontrolname.toCPointer<ByteVar>(), szbillboard.toCPointer<ByteVar>())
+public actual fun msiPreviewBillboardA(hpreview: Msihandle, szcontrolname: Pcstr, szbillboard: Pcstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiPreviewBillboardA(hpreview, szcontrolname?.value?.toCPointer<ByteVar>(), szbillboard?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiPreviewBillboardW(hpreview: MSIHANDLE, szcontrolname: PCWSTR, szbillboard: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiPreviewBillboardW(hpreview, szcontrolname.toCPointer<ByteVar>(), szbillboard.toCPointer<ByteVar>())
+public actual fun msiPreviewBillboardW(hpreview: Msihandle, szcontrolname: Pcwstr, szbillboard: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiPreviewBillboardW(hpreview, szcontrolname?.value?.toCPointer<ByteVar>(), szbillboard?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiPreviewDialogA(hpreview: MSIHANDLE, szdialogname: PCSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiPreviewDialogA(hpreview, szdialogname.toCPointer<ByteVar>())
+public actual fun msiPreviewDialogA(hpreview: Msihandle, szdialogname: Pcstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiPreviewDialogA(hpreview, szdialogname?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiPreviewDialogW(hpreview: MSIHANDLE, szdialogname: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiPreviewDialogW(hpreview, szdialogname.toCPointer<ByteVar>())
+public actual fun msiPreviewDialogW(hpreview: Msihandle, szdialogname: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiPreviewDialogW(hpreview, szdialogname?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiProcessAdvertiseScriptA(szscriptfile: PCSTR, sziconfolder: PCSTR, hregdata: HKEY, fshortcuts: BOOL, fremoveitems: BOOL): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiProcessAdvertiseScriptA(szscriptfile.toCPointer<ByteVar>(), sziconfolder.toCPointer<ByteVar>(), hregdata.toCPointer<ByteVar>(), fshortcuts, fremoveitems)
+public actual fun msiProcessAdvertiseScriptA(szscriptfile: Pcstr, sziconfolder: Pcstr, hregdata: Hkey, fshortcuts: Bool, fremoveitems: Bool): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiProcessAdvertiseScriptA(szscriptfile?.value?.toCPointer<ByteVar>(), sziconfolder?.value?.toCPointer<ByteVar>(), hregdata?.value?.toCPointer<ByteVar>(), fshortcuts, fremoveitems)
 
-public actual fun MsiProcessAdvertiseScriptW(szscriptfile: PCWSTR, sziconfolder: PCWSTR, hregdata: HKEY, fshortcuts: BOOL, fremoveitems: BOOL): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiProcessAdvertiseScriptW(szscriptfile.toCPointer<ByteVar>(), sziconfolder.toCPointer<ByteVar>(), hregdata.toCPointer<ByteVar>(), fshortcuts, fremoveitems)
+public actual fun msiProcessAdvertiseScriptW(szscriptfile: Pcwstr, sziconfolder: Pcwstr, hregdata: Hkey, fshortcuts: Bool, fremoveitems: Bool): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiProcessAdvertiseScriptW(szscriptfile?.value?.toCPointer<ByteVar>(), sziconfolder?.value?.toCPointer<ByteVar>(), hregdata?.value?.toCPointer<ByteVar>(), fshortcuts, fremoveitems)
 
-public actual fun MsiProcessMessage(hinstall: MSIHANDLE, emessagetype: INSTALLMESSAGE, hrecord: MSIHANDLE): Int =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiProcessMessage(hinstall, emessagetype, hrecord)
+public actual fun msiProcessMessage(hinstall: Msihandle, emessagetype: Installmessage, hrecord: Msihandle): Int =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiProcessMessage(hinstall, emessagetype, hrecord)
 
-public actual fun MsiProvideAssemblyA(szassemblyname: PCSTR, szappcontext: PCSTR, dwinstallmode: UInt, dwassemblyinfo: MSIASSEMBLYINFO, lppathbuf: PSTR, pcchpathbuf: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiProvideAssemblyA(szassemblyname.toCPointer<ByteVar>(), szappcontext.toCPointer<ByteVar>(), dwinstallmode, dwassemblyinfo, lppathbuf.toCPointer<ByteVar>(), pcchpathbuf.toCPointer<ByteVar>())
+public actual fun msiProvideAssemblyA(szassemblyname: Pcstr, szappcontext: Pcstr, dwinstallmode: UInt, dwassemblyinfo: Msiassemblyinfo, lppathbuf: Pstr, pcchpathbuf: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiProvideAssemblyA(szassemblyname?.value?.toCPointer<ByteVar>(), szappcontext?.value?.toCPointer<ByteVar>(), dwinstallmode, dwassemblyinfo, lppathbuf?.value?.toCPointer<ByteVar>(), pcchpathbuf?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiProvideAssemblyW(szassemblyname: PCWSTR, szappcontext: PCWSTR, dwinstallmode: UInt, dwassemblyinfo: MSIASSEMBLYINFO, lppathbuf: PWSTR, pcchpathbuf: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiProvideAssemblyW(szassemblyname.toCPointer<ByteVar>(), szappcontext.toCPointer<ByteVar>(), dwinstallmode, dwassemblyinfo, lppathbuf.toCPointer<ByteVar>(), pcchpathbuf.toCPointer<ByteVar>())
+public actual fun msiProvideAssemblyW(szassemblyname: Pcwstr, szappcontext: Pcwstr, dwinstallmode: UInt, dwassemblyinfo: Msiassemblyinfo, lppathbuf: Pwstr, pcchpathbuf: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiProvideAssemblyW(szassemblyname?.value?.toCPointer<ByteVar>(), szappcontext?.value?.toCPointer<ByteVar>(), dwinstallmode, dwassemblyinfo, lppathbuf?.value?.toCPointer<ByteVar>(), pcchpathbuf?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiProvideComponentA(szproduct: PCSTR, szfeature: PCSTR, szcomponent: PCSTR, dwinstallmode: UInt, lppathbuf: PSTR, pcchpathbuf: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiProvideComponentA(szproduct.toCPointer<ByteVar>(), szfeature.toCPointer<ByteVar>(), szcomponent.toCPointer<ByteVar>(), dwinstallmode, lppathbuf.toCPointer<ByteVar>(), pcchpathbuf.toCPointer<ByteVar>())
+public actual fun msiProvideComponentA(szproduct: Pcstr, szfeature: Pcstr, szcomponent: Pcstr, dwinstallmode: UInt, lppathbuf: Pstr, pcchpathbuf: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiProvideComponentA(szproduct?.value?.toCPointer<ByteVar>(), szfeature?.value?.toCPointer<ByteVar>(), szcomponent?.value?.toCPointer<ByteVar>(), dwinstallmode, lppathbuf?.value?.toCPointer<ByteVar>(), pcchpathbuf?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiProvideComponentW(szproduct: PCWSTR, szfeature: PCWSTR, szcomponent: PCWSTR, dwinstallmode: UInt, lppathbuf: PWSTR, pcchpathbuf: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiProvideComponentW(szproduct.toCPointer<ByteVar>(), szfeature.toCPointer<ByteVar>(), szcomponent.toCPointer<ByteVar>(), dwinstallmode, lppathbuf.toCPointer<ByteVar>(), pcchpathbuf.toCPointer<ByteVar>())
+public actual fun msiProvideComponentW(szproduct: Pcwstr, szfeature: Pcwstr, szcomponent: Pcwstr, dwinstallmode: UInt, lppathbuf: Pwstr, pcchpathbuf: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiProvideComponentW(szproduct?.value?.toCPointer<ByteVar>(), szfeature?.value?.toCPointer<ByteVar>(), szcomponent?.value?.toCPointer<ByteVar>(), dwinstallmode, lppathbuf?.value?.toCPointer<ByteVar>(), pcchpathbuf?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiProvideQualifiedComponentA(szcategory: PCSTR, szqualifier: PCSTR, dwinstallmode: UInt, lppathbuf: PSTR, pcchpathbuf: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiProvideQualifiedComponentA(szcategory.toCPointer<ByteVar>(), szqualifier.toCPointer<ByteVar>(), dwinstallmode, lppathbuf.toCPointer<ByteVar>(), pcchpathbuf.toCPointer<ByteVar>())
+public actual fun msiProvideQualifiedComponentA(szcategory: Pcstr, szqualifier: Pcstr, dwinstallmode: UInt, lppathbuf: Pstr, pcchpathbuf: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiProvideQualifiedComponentA(szcategory?.value?.toCPointer<ByteVar>(), szqualifier?.value?.toCPointer<ByteVar>(), dwinstallmode, lppathbuf?.value?.toCPointer<ByteVar>(), pcchpathbuf?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiProvideQualifiedComponentExA(szcategory: PCSTR, szqualifier: PCSTR, dwinstallmode: UInt, szproduct: PCSTR, dwunused1: UInt, dwunused2: UInt, lppathbuf: PSTR, pcchpathbuf: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiProvideQualifiedComponentExA(szcategory.toCPointer<ByteVar>(), szqualifier.toCPointer<ByteVar>(), dwinstallmode, szproduct.toCPointer<ByteVar>(), dwunused1, dwunused2, lppathbuf.toCPointer<ByteVar>(), pcchpathbuf.toCPointer<ByteVar>())
+public actual fun msiProvideQualifiedComponentExA(szcategory: Pcstr, szqualifier: Pcstr, dwinstallmode: UInt, szproduct: Pcstr, dwunused1: UInt, dwunused2: UInt, lppathbuf: Pstr, pcchpathbuf: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiProvideQualifiedComponentExA(szcategory?.value?.toCPointer<ByteVar>(), szqualifier?.value?.toCPointer<ByteVar>(), dwinstallmode, szproduct?.value?.toCPointer<ByteVar>(), dwunused1, dwunused2, lppathbuf?.value?.toCPointer<ByteVar>(), pcchpathbuf?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiProvideQualifiedComponentExW(szcategory: PCWSTR, szqualifier: PCWSTR, dwinstallmode: UInt, szproduct: PCWSTR, dwunused1: UInt, dwunused2: UInt, lppathbuf: PWSTR, pcchpathbuf: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiProvideQualifiedComponentExW(szcategory.toCPointer<ByteVar>(), szqualifier.toCPointer<ByteVar>(), dwinstallmode, szproduct.toCPointer<ByteVar>(), dwunused1, dwunused2, lppathbuf.toCPointer<ByteVar>(), pcchpathbuf.toCPointer<ByteVar>())
+public actual fun msiProvideQualifiedComponentExW(szcategory: Pcwstr, szqualifier: Pcwstr, dwinstallmode: UInt, szproduct: Pcwstr, dwunused1: UInt, dwunused2: UInt, lppathbuf: Pwstr, pcchpathbuf: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiProvideQualifiedComponentExW(szcategory?.value?.toCPointer<ByteVar>(), szqualifier?.value?.toCPointer<ByteVar>(), dwinstallmode, szproduct?.value?.toCPointer<ByteVar>(), dwunused1, dwunused2, lppathbuf?.value?.toCPointer<ByteVar>(), pcchpathbuf?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiProvideQualifiedComponentW(szcategory: PCWSTR, szqualifier: PCWSTR, dwinstallmode: UInt, lppathbuf: PWSTR, pcchpathbuf: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiProvideQualifiedComponentW(szcategory.toCPointer<ByteVar>(), szqualifier.toCPointer<ByteVar>(), dwinstallmode, lppathbuf.toCPointer<ByteVar>(), pcchpathbuf.toCPointer<ByteVar>())
+public actual fun msiProvideQualifiedComponentW(szcategory: Pcwstr, szqualifier: Pcwstr, dwinstallmode: UInt, lppathbuf: Pwstr, pcchpathbuf: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiProvideQualifiedComponentW(szcategory?.value?.toCPointer<ByteVar>(), szqualifier?.value?.toCPointer<ByteVar>(), dwinstallmode, lppathbuf?.value?.toCPointer<ByteVar>(), pcchpathbuf?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiQueryComponentStateA(szproductcode: PCSTR, szusersid: PCSTR, dwcontext: MSIINSTALLCONTEXT, szcomponentcode: PCSTR, pdwstate: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiQueryComponentStateA(szproductcode.toCPointer<ByteVar>(), szusersid.toCPointer<ByteVar>(), dwcontext, szcomponentcode.toCPointer<ByteVar>(), pdwstate.toCPointer<ByteVar>())
+public actual fun msiQueryComponentStateA(szproductcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, szcomponentcode: Pcstr, pdwstate: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiQueryComponentStateA(szproductcode?.value?.toCPointer<ByteVar>(), szusersid?.value?.toCPointer<ByteVar>(), dwcontext, szcomponentcode?.value?.toCPointer<ByteVar>(), pdwstate?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiQueryComponentStateW(szproductcode: PCWSTR, szusersid: PCWSTR, dwcontext: MSIINSTALLCONTEXT, szcomponentcode: PCWSTR, pdwstate: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiQueryComponentStateW(szproductcode.toCPointer<ByteVar>(), szusersid.toCPointer<ByteVar>(), dwcontext, szcomponentcode.toCPointer<ByteVar>(), pdwstate.toCPointer<ByteVar>())
+public actual fun msiQueryComponentStateW(szproductcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, szcomponentcode: Pcwstr, pdwstate: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiQueryComponentStateW(szproductcode?.value?.toCPointer<ByteVar>(), szusersid?.value?.toCPointer<ByteVar>(), dwcontext, szcomponentcode?.value?.toCPointer<ByteVar>(), pdwstate?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiQueryFeatureStateA(szproduct: PCSTR, szfeature: PCSTR): INSTALLSTATE =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiQueryFeatureStateA(szproduct.toCPointer<ByteVar>(), szfeature.toCPointer<ByteVar>())
+public actual fun msiQueryFeatureStateA(szproduct: Pcstr, szfeature: Pcstr): Installstate =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiQueryFeatureStateA(szproduct?.value?.toCPointer<ByteVar>(), szfeature?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiQueryFeatureStateExA(szproductcode: PCSTR, szusersid: PCSTR, dwcontext: MSIINSTALLCONTEXT, szfeature: PCSTR, pdwstate: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiQueryFeatureStateExA(szproductcode.toCPointer<ByteVar>(), szusersid.toCPointer<ByteVar>(), dwcontext, szfeature.toCPointer<ByteVar>(), pdwstate.toCPointer<ByteVar>())
+public actual fun msiQueryFeatureStateExA(szproductcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, szfeature: Pcstr, pdwstate: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiQueryFeatureStateExA(szproductcode?.value?.toCPointer<ByteVar>(), szusersid?.value?.toCPointer<ByteVar>(), dwcontext, szfeature?.value?.toCPointer<ByteVar>(), pdwstate?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiQueryFeatureStateExW(szproductcode: PCWSTR, szusersid: PCWSTR, dwcontext: MSIINSTALLCONTEXT, szfeature: PCWSTR, pdwstate: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiQueryFeatureStateExW(szproductcode.toCPointer<ByteVar>(), szusersid.toCPointer<ByteVar>(), dwcontext, szfeature.toCPointer<ByteVar>(), pdwstate.toCPointer<ByteVar>())
+public actual fun msiQueryFeatureStateExW(szproductcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, szfeature: Pcwstr, pdwstate: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiQueryFeatureStateExW(szproductcode?.value?.toCPointer<ByteVar>(), szusersid?.value?.toCPointer<ByteVar>(), dwcontext, szfeature?.value?.toCPointer<ByteVar>(), pdwstate?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiQueryFeatureStateW(szproduct: PCWSTR, szfeature: PCWSTR): INSTALLSTATE =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiQueryFeatureStateW(szproduct.toCPointer<ByteVar>(), szfeature.toCPointer<ByteVar>())
+public actual fun msiQueryFeatureStateW(szproduct: Pcwstr, szfeature: Pcwstr): Installstate =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiQueryFeatureStateW(szproduct?.value?.toCPointer<ByteVar>(), szfeature?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiQueryProductStateA(szproduct: PCSTR): INSTALLSTATE =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiQueryProductStateA(szproduct.toCPointer<ByteVar>())
+public actual fun msiQueryProductStateA(szproduct: Pcstr): Installstate =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiQueryProductStateA(szproduct?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiQueryProductStateW(szproduct: PCWSTR): INSTALLSTATE =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiQueryProductStateW(szproduct.toCPointer<ByteVar>())
+public actual fun msiQueryProductStateW(szproduct: Pcwstr): Installstate =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiQueryProductStateW(szproduct?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiRecordClearData(hrecord: MSIHANDLE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiRecordClearData(hrecord)
+public actual fun msiRecordClearData(hrecord: Msihandle): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiRecordClearData(hrecord)
 
-public actual fun MsiRecordDataSize(hrecord: MSIHANDLE, ifield: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiRecordDataSize(hrecord, ifield)
+public actual fun msiRecordDataSize(hrecord: Msihandle, ifield: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiRecordDataSize(hrecord, ifield)
 
-public actual fun MsiRecordGetFieldCount(hrecord: MSIHANDLE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiRecordGetFieldCount(hrecord)
+public actual fun msiRecordGetFieldCount(hrecord: Msihandle): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiRecordGetFieldCount(hrecord)
 
-public actual fun MsiRecordGetInteger(hrecord: MSIHANDLE, ifield: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiRecordGetInteger(hrecord, ifield)
+public actual fun msiRecordGetInteger(hrecord: Msihandle, ifield: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiRecordGetInteger(hrecord, ifield)
 
-public actual fun MsiRecordGetStringA(hrecord: MSIHANDLE, ifield: UInt, szvaluebuf: PSTR, pcchvaluebuf: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiRecordGetStringA(hrecord, ifield, szvaluebuf.toCPointer<ByteVar>(), pcchvaluebuf.toCPointer<ByteVar>())
+public actual fun msiRecordGetStringA(hrecord: Msihandle, ifield: UInt, szvaluebuf: Pstr, pcchvaluebuf: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiRecordGetStringA(hrecord, ifield, szvaluebuf?.value?.toCPointer<ByteVar>(), pcchvaluebuf?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiRecordGetStringW(hrecord: MSIHANDLE, ifield: UInt, szvaluebuf: PWSTR, pcchvaluebuf: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiRecordGetStringW(hrecord, ifield, szvaluebuf.toCPointer<ByteVar>(), pcchvaluebuf.toCPointer<ByteVar>())
+public actual fun msiRecordGetStringW(hrecord: Msihandle, ifield: UInt, szvaluebuf: Pwstr, pcchvaluebuf: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiRecordGetStringW(hrecord, ifield, szvaluebuf?.value?.toCPointer<ByteVar>(), pcchvaluebuf?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiRecordIsNull(hrecord: MSIHANDLE, ifield: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiRecordIsNull(hrecord, ifield)
+public actual fun msiRecordIsNull(hrecord: Msihandle, ifield: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiRecordIsNull(hrecord, ifield)
 
-public actual fun MsiRecordReadStream(hrecord: MSIHANDLE, ifield: UInt, szdatabuf: PSTR, pcbdatabuf: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiRecordReadStream(hrecord, ifield, szdatabuf.toCPointer<ByteVar>(), pcbdatabuf.toCPointer<ByteVar>())
+public actual fun msiRecordReadStream(hrecord: Msihandle, ifield: UInt, szdatabuf: Pstr, pcbdatabuf: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiRecordReadStream(hrecord, ifield, szdatabuf?.value?.toCPointer<ByteVar>(), pcbdatabuf?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiRecordSetInteger(hrecord: MSIHANDLE, ifield: UInt, ivalue: Int): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiRecordSetInteger(hrecord, ifield, ivalue)
+public actual fun msiRecordSetInteger(hrecord: Msihandle, ifield: UInt, ivalue: Int): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiRecordSetInteger(hrecord, ifield, ivalue)
 
-public actual fun MsiRecordSetStreamA(hrecord: MSIHANDLE, ifield: UInt, szfilepath: PCSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiRecordSetStreamA(hrecord, ifield, szfilepath.toCPointer<ByteVar>())
+public actual fun msiRecordSetStreamA(hrecord: Msihandle, ifield: UInt, szfilepath: Pcstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiRecordSetStreamA(hrecord, ifield, szfilepath?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiRecordSetStreamW(hrecord: MSIHANDLE, ifield: UInt, szfilepath: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiRecordSetStreamW(hrecord, ifield, szfilepath.toCPointer<ByteVar>())
+public actual fun msiRecordSetStreamW(hrecord: Msihandle, ifield: UInt, szfilepath: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiRecordSetStreamW(hrecord, ifield, szfilepath?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiRecordSetStringA(hrecord: MSIHANDLE, ifield: UInt, szvalue: PCSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiRecordSetStringA(hrecord, ifield, szvalue.toCPointer<ByteVar>())
+public actual fun msiRecordSetStringA(hrecord: Msihandle, ifield: UInt, szvalue: Pcstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiRecordSetStringA(hrecord, ifield, szvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiRecordSetStringW(hrecord: MSIHANDLE, ifield: UInt, szvalue: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiRecordSetStringW(hrecord, ifield, szvalue.toCPointer<ByteVar>())
+public actual fun msiRecordSetStringW(hrecord: Msihandle, ifield: UInt, szvalue: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiRecordSetStringW(hrecord, ifield, szvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiReinstallFeatureA(szproduct: PCSTR, szfeature: PCSTR, dwreinstallmode: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiReinstallFeatureA(szproduct.toCPointer<ByteVar>(), szfeature.toCPointer<ByteVar>(), dwreinstallmode)
+public actual fun msiReinstallFeatureA(szproduct: Pcstr, szfeature: Pcstr, dwreinstallmode: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiReinstallFeatureA(szproduct?.value?.toCPointer<ByteVar>(), szfeature?.value?.toCPointer<ByteVar>(), dwreinstallmode)
 
-public actual fun MsiReinstallFeatureW(szproduct: PCWSTR, szfeature: PCWSTR, dwreinstallmode: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiReinstallFeatureW(szproduct.toCPointer<ByteVar>(), szfeature.toCPointer<ByteVar>(), dwreinstallmode)
+public actual fun msiReinstallFeatureW(szproduct: Pcwstr, szfeature: Pcwstr, dwreinstallmode: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiReinstallFeatureW(szproduct?.value?.toCPointer<ByteVar>(), szfeature?.value?.toCPointer<ByteVar>(), dwreinstallmode)
 
-public actual fun MsiReinstallProductA(szproduct: PCSTR, szreinstallmode: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiReinstallProductA(szproduct.toCPointer<ByteVar>(), szreinstallmode)
+public actual fun msiReinstallProductA(szproduct: Pcstr, szreinstallmode: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiReinstallProductA(szproduct?.value?.toCPointer<ByteVar>(), szreinstallmode)
 
-public actual fun MsiReinstallProductW(szproduct: PCWSTR, szreinstallmode: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiReinstallProductW(szproduct.toCPointer<ByteVar>(), szreinstallmode)
+public actual fun msiReinstallProductW(szproduct: Pcwstr, szreinstallmode: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiReinstallProductW(szproduct?.value?.toCPointer<ByteVar>(), szreinstallmode)
 
-public actual fun MsiRemovePatchesA(szpatchlist: PCSTR, szproductcode: PCSTR, euninstalltype: INSTALLTYPE, szpropertylist: PCSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiRemovePatchesA(szpatchlist.toCPointer<ByteVar>(), szproductcode.toCPointer<ByteVar>(), euninstalltype, szpropertylist.toCPointer<ByteVar>())
+public actual fun msiRemovePatchesA(szpatchlist: Pcstr, szproductcode: Pcstr, euninstalltype: Installtype, szpropertylist: Pcstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiRemovePatchesA(szpatchlist?.value?.toCPointer<ByteVar>(), szproductcode?.value?.toCPointer<ByteVar>(), euninstalltype, szpropertylist?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiRemovePatchesW(szpatchlist: PCWSTR, szproductcode: PCWSTR, euninstalltype: INSTALLTYPE, szpropertylist: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiRemovePatchesW(szpatchlist.toCPointer<ByteVar>(), szproductcode.toCPointer<ByteVar>(), euninstalltype, szpropertylist.toCPointer<ByteVar>())
+public actual fun msiRemovePatchesW(szpatchlist: Pcwstr, szproductcode: Pcwstr, euninstalltype: Installtype, szpropertylist: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiRemovePatchesW(szpatchlist?.value?.toCPointer<ByteVar>(), szproductcode?.value?.toCPointer<ByteVar>(), euninstalltype, szpropertylist?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiSequenceA(hinstall: MSIHANDLE, sztable: PCSTR, isequencemode: Int): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiSequenceA(hinstall, sztable.toCPointer<ByteVar>(), isequencemode)
+public actual fun msiSequenceA(hinstall: Msihandle, sztable: Pcstr, isequencemode: Int): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiSequenceA(hinstall, sztable?.value?.toCPointer<ByteVar>(), isequencemode)
 
-public actual fun MsiSequenceW(hinstall: MSIHANDLE, sztable: PCWSTR, isequencemode: Int): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiSequenceW(hinstall, sztable.toCPointer<ByteVar>(), isequencemode)
+public actual fun msiSequenceW(hinstall: Msihandle, sztable: Pcwstr, isequencemode: Int): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiSequenceW(hinstall, sztable?.value?.toCPointer<ByteVar>(), isequencemode)
 
-public actual fun MsiSetComponentStateA(hinstall: MSIHANDLE, szcomponent: PCSTR, istate: INSTALLSTATE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiSetComponentStateA(hinstall, szcomponent.toCPointer<ByteVar>(), istate)
+public actual fun msiSetComponentStateA(hinstall: Msihandle, szcomponent: Pcstr, istate: Installstate): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiSetComponentStateA(hinstall, szcomponent?.value?.toCPointer<ByteVar>(), istate)
 
-public actual fun MsiSetComponentStateW(hinstall: MSIHANDLE, szcomponent: PCWSTR, istate: INSTALLSTATE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiSetComponentStateW(hinstall, szcomponent.toCPointer<ByteVar>(), istate)
+public actual fun msiSetComponentStateW(hinstall: Msihandle, szcomponent: Pcwstr, istate: Installstate): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiSetComponentStateW(hinstall, szcomponent?.value?.toCPointer<ByteVar>(), istate)
 
-public actual fun MsiSetExternalUIA(puihandler: INSTALLUI_HANDLERA, dwmessagefilter: UInt, pvcontext: Long): INSTALLUI_HANDLERA =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiSetExternalUIA(puihandler.toLong().toCPointer<ByteVar>(), dwmessagefilter, pvcontext.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun msiSetExternalUIA(puihandler: InstalluiHandlera, dwmessagefilter: UInt, pvcontext: COpaquePointer?): InstalluiHandlera =
+    null
 
-public actual fun MsiSetExternalUIRecord(puihandler: PINSTALLUI_HANDLER_RECORD, dwmessagefilter: UInt, pvcontext: Long, ppuiprevhandler: PINSTALLUI_HANDLER_RECORD): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiSetExternalUIRecord(puihandler.toLong().toCPointer<ByteVar>(), dwmessagefilter, pvcontext.toCPointer<ByteVar>(), ppuiprevhandler.toLong().toCPointer<ByteVar>())
+public actual fun msiSetExternalUIRecord(puihandler: PinstalluiHandlerRecord, dwmessagefilter: UInt, pvcontext: COpaquePointer?, ppuiprevhandler: PinstalluiHandlerRecord): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiSetExternalUIRecord(0L.toCPointer<ByteVar>(), dwmessagefilter, pvcontext?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 
-public actual fun MsiSetExternalUIW(puihandler: INSTALLUI_HANDLERW, dwmessagefilter: UInt, pvcontext: Long): INSTALLUI_HANDLERW =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiSetExternalUIW(puihandler.toLong().toCPointer<ByteVar>(), dwmessagefilter, pvcontext.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun msiSetExternalUIW(puihandler: InstalluiHandlerw, dwmessagefilter: UInt, pvcontext: COpaquePointer?): InstalluiHandlerw =
+    null
 
-public actual fun MsiSetFeatureAttributesA(hinstall: MSIHANDLE, szfeature: PCSTR, dwattributes: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiSetFeatureAttributesA(hinstall, szfeature.toCPointer<ByteVar>(), dwattributes)
+public actual fun msiSetFeatureAttributesA(hinstall: Msihandle, szfeature: Pcstr, dwattributes: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiSetFeatureAttributesA(hinstall, szfeature?.value?.toCPointer<ByteVar>(), dwattributes)
 
-public actual fun MsiSetFeatureAttributesW(hinstall: MSIHANDLE, szfeature: PCWSTR, dwattributes: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiSetFeatureAttributesW(hinstall, szfeature.toCPointer<ByteVar>(), dwattributes)
+public actual fun msiSetFeatureAttributesW(hinstall: Msihandle, szfeature: Pcwstr, dwattributes: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiSetFeatureAttributesW(hinstall, szfeature?.value?.toCPointer<ByteVar>(), dwattributes)
 
-public actual fun MsiSetFeatureStateA(hinstall: MSIHANDLE, szfeature: PCSTR, istate: INSTALLSTATE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiSetFeatureStateA(hinstall, szfeature.toCPointer<ByteVar>(), istate)
+public actual fun msiSetFeatureStateA(hinstall: Msihandle, szfeature: Pcstr, istate: Installstate): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiSetFeatureStateA(hinstall, szfeature?.value?.toCPointer<ByteVar>(), istate)
 
-public actual fun MsiSetFeatureStateW(hinstall: MSIHANDLE, szfeature: PCWSTR, istate: INSTALLSTATE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiSetFeatureStateW(hinstall, szfeature.toCPointer<ByteVar>(), istate)
+public actual fun msiSetFeatureStateW(hinstall: Msihandle, szfeature: Pcwstr, istate: Installstate): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiSetFeatureStateW(hinstall, szfeature?.value?.toCPointer<ByteVar>(), istate)
 
-public actual fun MsiSetInstallLevel(hinstall: MSIHANDLE, iinstalllevel: Int): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiSetInstallLevel(hinstall, iinstalllevel)
+public actual fun msiSetInstallLevel(hinstall: Msihandle, iinstalllevel: Int): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiSetInstallLevel(hinstall, iinstalllevel)
 
-public actual fun MsiSetInternalUI(dwuilevel: INSTALLUILEVEL, phwnd: Long): INSTALLUILEVEL =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiSetInternalUI(dwuilevel, phwnd.toCPointer<ByteVar>())
+public actual fun msiSetInternalUI(dwuilevel: Installuilevel, phwnd: COpaquePointer?): Installuilevel =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiSetInternalUI(dwuilevel, phwnd?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiSetMode(hinstall: MSIHANDLE, erunmode: MSIRUNMODE, fstate: BOOL): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiSetMode(hinstall, erunmode, fstate)
+public actual fun msiSetMode(hinstall: Msihandle, erunmode: Msirunmode, fstate: Bool): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiSetMode(hinstall, erunmode, fstate)
 
-public actual fun MsiSetPropertyA(hinstall: MSIHANDLE, szname: PCSTR, szvalue: PCSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiSetPropertyA(hinstall, szname.toCPointer<ByteVar>(), szvalue.toCPointer<ByteVar>())
+public actual fun msiSetPropertyA(hinstall: Msihandle, szname: Pcstr, szvalue: Pcstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiSetPropertyA(hinstall, szname?.value?.toCPointer<ByteVar>(), szvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiSetPropertyW(hinstall: MSIHANDLE, szname: PCWSTR, szvalue: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiSetPropertyW(hinstall, szname.toCPointer<ByteVar>(), szvalue.toCPointer<ByteVar>())
+public actual fun msiSetPropertyW(hinstall: Msihandle, szname: Pcwstr, szvalue: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiSetPropertyW(hinstall, szname?.value?.toCPointer<ByteVar>(), szvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiSetTargetPathA(hinstall: MSIHANDLE, szfolder: PCSTR, szfolderpath: PCSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiSetTargetPathA(hinstall, szfolder.toCPointer<ByteVar>(), szfolderpath.toCPointer<ByteVar>())
+public actual fun msiSetTargetPathA(hinstall: Msihandle, szfolder: Pcstr, szfolderpath: Pcstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiSetTargetPathA(hinstall, szfolder?.value?.toCPointer<ByteVar>(), szfolderpath?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiSetTargetPathW(hinstall: MSIHANDLE, szfolder: PCWSTR, szfolderpath: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiSetTargetPathW(hinstall, szfolder.toCPointer<ByteVar>(), szfolderpath.toCPointer<ByteVar>())
+public actual fun msiSetTargetPathW(hinstall: Msihandle, szfolder: Pcwstr, szfolderpath: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiSetTargetPathW(hinstall, szfolder?.value?.toCPointer<ByteVar>(), szfolderpath?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiSourceListAddMediaDiskA(szproductcodeorpatchcode: PCSTR, szusersid: PCSTR, dwcontext: MSIINSTALLCONTEXT, dwoptions: UInt, dwdiskid: UInt, szvolumelabel: PCSTR, szdiskprompt: PCSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListAddMediaDiskA(szproductcodeorpatchcode.toCPointer<ByteVar>(), szusersid.toCPointer<ByteVar>(), dwcontext, dwoptions, dwdiskid, szvolumelabel.toCPointer<ByteVar>(), szdiskprompt.toCPointer<ByteVar>())
+public actual fun msiSourceListAddMediaDiskA(szproductcodeorpatchcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, dwoptions: UInt, dwdiskid: UInt, szvolumelabel: Pcstr, szdiskprompt: Pcstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListAddMediaDiskA(szproductcodeorpatchcode?.value?.toCPointer<ByteVar>(), szusersid?.value?.toCPointer<ByteVar>(), dwcontext, dwoptions, dwdiskid, szvolumelabel?.value?.toCPointer<ByteVar>(), szdiskprompt?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiSourceListAddMediaDiskW(szproductcodeorpatchcode: PCWSTR, szusersid: PCWSTR, dwcontext: MSIINSTALLCONTEXT, dwoptions: UInt, dwdiskid: UInt, szvolumelabel: PCWSTR, szdiskprompt: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListAddMediaDiskW(szproductcodeorpatchcode.toCPointer<ByteVar>(), szusersid.toCPointer<ByteVar>(), dwcontext, dwoptions, dwdiskid, szvolumelabel.toCPointer<ByteVar>(), szdiskprompt.toCPointer<ByteVar>())
+public actual fun msiSourceListAddMediaDiskW(szproductcodeorpatchcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, dwoptions: UInt, dwdiskid: UInt, szvolumelabel: Pcwstr, szdiskprompt: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListAddMediaDiskW(szproductcodeorpatchcode?.value?.toCPointer<ByteVar>(), szusersid?.value?.toCPointer<ByteVar>(), dwcontext, dwoptions, dwdiskid, szvolumelabel?.value?.toCPointer<ByteVar>(), szdiskprompt?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiSourceListAddSourceA(szproduct: PCSTR, szusername: PCSTR, dwreserved: UInt, szsource: PCSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListAddSourceA(szproduct.toCPointer<ByteVar>(), szusername.toCPointer<ByteVar>(), dwreserved, szsource.toCPointer<ByteVar>())
+public actual fun msiSourceListAddSourceA(szproduct: Pcstr, szusername: Pcstr, dwreserved: UInt, szsource: Pcstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListAddSourceA(szproduct?.value?.toCPointer<ByteVar>(), szusername?.value?.toCPointer<ByteVar>(), dwreserved, szsource?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiSourceListAddSourceExA(szproductcodeorpatchcode: PCSTR, szusersid: PCSTR, dwcontext: MSIINSTALLCONTEXT, dwoptions: UInt, szsource: PCSTR, dwindex: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListAddSourceExA(szproductcodeorpatchcode.toCPointer<ByteVar>(), szusersid.toCPointer<ByteVar>(), dwcontext, dwoptions, szsource.toCPointer<ByteVar>(), dwindex)
+public actual fun msiSourceListAddSourceExA(szproductcodeorpatchcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, dwoptions: UInt, szsource: Pcstr, dwindex: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListAddSourceExA(szproductcodeorpatchcode?.value?.toCPointer<ByteVar>(), szusersid?.value?.toCPointer<ByteVar>(), dwcontext, dwoptions, szsource?.value?.toCPointer<ByteVar>(), dwindex)
 
-public actual fun MsiSourceListAddSourceExW(szproductcodeorpatchcode: PCWSTR, szusersid: PCWSTR, dwcontext: MSIINSTALLCONTEXT, dwoptions: UInt, szsource: PCWSTR, dwindex: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListAddSourceExW(szproductcodeorpatchcode.toCPointer<ByteVar>(), szusersid.toCPointer<ByteVar>(), dwcontext, dwoptions, szsource.toCPointer<ByteVar>(), dwindex)
+public actual fun msiSourceListAddSourceExW(szproductcodeorpatchcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, dwoptions: UInt, szsource: Pcwstr, dwindex: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListAddSourceExW(szproductcodeorpatchcode?.value?.toCPointer<ByteVar>(), szusersid?.value?.toCPointer<ByteVar>(), dwcontext, dwoptions, szsource?.value?.toCPointer<ByteVar>(), dwindex)
 
-public actual fun MsiSourceListAddSourceW(szproduct: PCWSTR, szusername: PCWSTR, dwreserved: UInt, szsource: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListAddSourceW(szproduct.toCPointer<ByteVar>(), szusername.toCPointer<ByteVar>(), dwreserved, szsource.toCPointer<ByteVar>())
+public actual fun msiSourceListAddSourceW(szproduct: Pcwstr, szusername: Pcwstr, dwreserved: UInt, szsource: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListAddSourceW(szproduct?.value?.toCPointer<ByteVar>(), szusername?.value?.toCPointer<ByteVar>(), dwreserved, szsource?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiSourceListClearAllA(szproduct: PCSTR, szusername: PCSTR, dwreserved: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListClearAllA(szproduct.toCPointer<ByteVar>(), szusername.toCPointer<ByteVar>(), dwreserved)
+public actual fun msiSourceListClearAllA(szproduct: Pcstr, szusername: Pcstr, dwreserved: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListClearAllA(szproduct?.value?.toCPointer<ByteVar>(), szusername?.value?.toCPointer<ByteVar>(), dwreserved)
 
-public actual fun MsiSourceListClearAllExA(szproductcodeorpatchcode: PCSTR, szusersid: PCSTR, dwcontext: MSIINSTALLCONTEXT, dwoptions: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListClearAllExA(szproductcodeorpatchcode.toCPointer<ByteVar>(), szusersid.toCPointer<ByteVar>(), dwcontext, dwoptions)
+public actual fun msiSourceListClearAllExA(szproductcodeorpatchcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, dwoptions: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListClearAllExA(szproductcodeorpatchcode?.value?.toCPointer<ByteVar>(), szusersid?.value?.toCPointer<ByteVar>(), dwcontext, dwoptions)
 
-public actual fun MsiSourceListClearAllExW(szproductcodeorpatchcode: PCWSTR, szusersid: PCWSTR, dwcontext: MSIINSTALLCONTEXT, dwoptions: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListClearAllExW(szproductcodeorpatchcode.toCPointer<ByteVar>(), szusersid.toCPointer<ByteVar>(), dwcontext, dwoptions)
+public actual fun msiSourceListClearAllExW(szproductcodeorpatchcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, dwoptions: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListClearAllExW(szproductcodeorpatchcode?.value?.toCPointer<ByteVar>(), szusersid?.value?.toCPointer<ByteVar>(), dwcontext, dwoptions)
 
-public actual fun MsiSourceListClearAllW(szproduct: PCWSTR, szusername: PCWSTR, dwreserved: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListClearAllW(szproduct.toCPointer<ByteVar>(), szusername.toCPointer<ByteVar>(), dwreserved)
+public actual fun msiSourceListClearAllW(szproduct: Pcwstr, szusername: Pcwstr, dwreserved: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListClearAllW(szproduct?.value?.toCPointer<ByteVar>(), szusername?.value?.toCPointer<ByteVar>(), dwreserved)
 
-public actual fun MsiSourceListClearMediaDiskA(szproductcodeorpatchcode: PCSTR, szusersid: PCSTR, dwcontext: MSIINSTALLCONTEXT, dwoptions: UInt, dwdiskid: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListClearMediaDiskA(szproductcodeorpatchcode.toCPointer<ByteVar>(), szusersid.toCPointer<ByteVar>(), dwcontext, dwoptions, dwdiskid)
+public actual fun msiSourceListClearMediaDiskA(szproductcodeorpatchcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, dwoptions: UInt, dwdiskid: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListClearMediaDiskA(szproductcodeorpatchcode?.value?.toCPointer<ByteVar>(), szusersid?.value?.toCPointer<ByteVar>(), dwcontext, dwoptions, dwdiskid)
 
-public actual fun MsiSourceListClearMediaDiskW(szproductcodeorpatchcode: PCWSTR, szusersid: PCWSTR, dwcontext: MSIINSTALLCONTEXT, dwoptions: UInt, dwdiskid: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListClearMediaDiskW(szproductcodeorpatchcode.toCPointer<ByteVar>(), szusersid.toCPointer<ByteVar>(), dwcontext, dwoptions, dwdiskid)
+public actual fun msiSourceListClearMediaDiskW(szproductcodeorpatchcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, dwoptions: UInt, dwdiskid: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListClearMediaDiskW(szproductcodeorpatchcode?.value?.toCPointer<ByteVar>(), szusersid?.value?.toCPointer<ByteVar>(), dwcontext, dwoptions, dwdiskid)
 
-public actual fun MsiSourceListClearSourceA(szproductcodeorpatchcode: PCSTR, szusersid: PCSTR, dwcontext: MSIINSTALLCONTEXT, dwoptions: UInt, szsource: PCSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListClearSourceA(szproductcodeorpatchcode.toCPointer<ByteVar>(), szusersid.toCPointer<ByteVar>(), dwcontext, dwoptions, szsource.toCPointer<ByteVar>())
+public actual fun msiSourceListClearSourceA(szproductcodeorpatchcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, dwoptions: UInt, szsource: Pcstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListClearSourceA(szproductcodeorpatchcode?.value?.toCPointer<ByteVar>(), szusersid?.value?.toCPointer<ByteVar>(), dwcontext, dwoptions, szsource?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiSourceListClearSourceW(szproductcodeorpatchcode: PCWSTR, szusersid: PCWSTR, dwcontext: MSIINSTALLCONTEXT, dwoptions: UInt, szsource: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListClearSourceW(szproductcodeorpatchcode.toCPointer<ByteVar>(), szusersid.toCPointer<ByteVar>(), dwcontext, dwoptions, szsource.toCPointer<ByteVar>())
+public actual fun msiSourceListClearSourceW(szproductcodeorpatchcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, dwoptions: UInt, szsource: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListClearSourceW(szproductcodeorpatchcode?.value?.toCPointer<ByteVar>(), szusersid?.value?.toCPointer<ByteVar>(), dwcontext, dwoptions, szsource?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiSourceListEnumMediaDisksA(szproductcodeorpatchcode: PCSTR, szusersid: PCSTR, dwcontext: MSIINSTALLCONTEXT, dwoptions: UInt, dwindex: UInt, pdwdiskid: Long, szvolumelabel: PSTR, pcchvolumelabel: Long, szdiskprompt: PSTR, pcchdiskprompt: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListEnumMediaDisksA(szproductcodeorpatchcode.toCPointer<ByteVar>(), szusersid.toCPointer<ByteVar>(), dwcontext, dwoptions, dwindex, pdwdiskid.toCPointer<ByteVar>(), szvolumelabel.toCPointer<ByteVar>(), pcchvolumelabel.toCPointer<ByteVar>(), szdiskprompt.toCPointer<ByteVar>(), pcchdiskprompt.toCPointer<ByteVar>())
+public actual fun msiSourceListEnumMediaDisksA(szproductcodeorpatchcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, dwoptions: UInt, dwindex: UInt, pdwdiskid: COpaquePointer?, szvolumelabel: Pstr, pcchvolumelabel: COpaquePointer?, szdiskprompt: Pstr, pcchdiskprompt: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListEnumMediaDisksA(szproductcodeorpatchcode?.value?.toCPointer<ByteVar>(), szusersid?.value?.toCPointer<ByteVar>(), dwcontext, dwoptions, dwindex, pdwdiskid?.value?.toCPointer<ByteVar>(), szvolumelabel?.value?.toCPointer<ByteVar>(), pcchvolumelabel?.value?.toCPointer<ByteVar>(), szdiskprompt?.value?.toCPointer<ByteVar>(), pcchdiskprompt?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiSourceListEnumMediaDisksW(szproductcodeorpatchcode: PCWSTR, szusersid: PCWSTR, dwcontext: MSIINSTALLCONTEXT, dwoptions: UInt, dwindex: UInt, pdwdiskid: Long, szvolumelabel: PWSTR, pcchvolumelabel: Long, szdiskprompt: PWSTR, pcchdiskprompt: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListEnumMediaDisksW(szproductcodeorpatchcode.toCPointer<ByteVar>(), szusersid.toCPointer<ByteVar>(), dwcontext, dwoptions, dwindex, pdwdiskid.toCPointer<ByteVar>(), szvolumelabel.toCPointer<ByteVar>(), pcchvolumelabel.toCPointer<ByteVar>(), szdiskprompt.toCPointer<ByteVar>(), pcchdiskprompt.toCPointer<ByteVar>())
+public actual fun msiSourceListEnumMediaDisksW(szproductcodeorpatchcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, dwoptions: UInt, dwindex: UInt, pdwdiskid: COpaquePointer?, szvolumelabel: Pwstr, pcchvolumelabel: COpaquePointer?, szdiskprompt: Pwstr, pcchdiskprompt: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListEnumMediaDisksW(szproductcodeorpatchcode?.value?.toCPointer<ByteVar>(), szusersid?.value?.toCPointer<ByteVar>(), dwcontext, dwoptions, dwindex, pdwdiskid?.value?.toCPointer<ByteVar>(), szvolumelabel?.value?.toCPointer<ByteVar>(), pcchvolumelabel?.value?.toCPointer<ByteVar>(), szdiskprompt?.value?.toCPointer<ByteVar>(), pcchdiskprompt?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiSourceListEnumSourcesA(szproductcodeorpatchcode: PCSTR, szusersid: PCSTR, dwcontext: MSIINSTALLCONTEXT, dwoptions: UInt, dwindex: UInt, szsource: PSTR, pcchsource: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListEnumSourcesA(szproductcodeorpatchcode.toCPointer<ByteVar>(), szusersid.toCPointer<ByteVar>(), dwcontext, dwoptions, dwindex, szsource.toCPointer<ByteVar>(), pcchsource.toCPointer<ByteVar>())
+public actual fun msiSourceListEnumSourcesA(szproductcodeorpatchcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, dwoptions: UInt, dwindex: UInt, szsource: Pstr, pcchsource: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListEnumSourcesA(szproductcodeorpatchcode?.value?.toCPointer<ByteVar>(), szusersid?.value?.toCPointer<ByteVar>(), dwcontext, dwoptions, dwindex, szsource?.value?.toCPointer<ByteVar>(), pcchsource?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiSourceListEnumSourcesW(szproductcodeorpatchcode: PCWSTR, szusersid: PCWSTR, dwcontext: MSIINSTALLCONTEXT, dwoptions: UInt, dwindex: UInt, szsource: PWSTR, pcchsource: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListEnumSourcesW(szproductcodeorpatchcode.toCPointer<ByteVar>(), szusersid.toCPointer<ByteVar>(), dwcontext, dwoptions, dwindex, szsource.toCPointer<ByteVar>(), pcchsource.toCPointer<ByteVar>())
+public actual fun msiSourceListEnumSourcesW(szproductcodeorpatchcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, dwoptions: UInt, dwindex: UInt, szsource: Pwstr, pcchsource: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListEnumSourcesW(szproductcodeorpatchcode?.value?.toCPointer<ByteVar>(), szusersid?.value?.toCPointer<ByteVar>(), dwcontext, dwoptions, dwindex, szsource?.value?.toCPointer<ByteVar>(), pcchsource?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiSourceListForceResolutionA(szproduct: PCSTR, szusername: PCSTR, dwreserved: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListForceResolutionA(szproduct.toCPointer<ByteVar>(), szusername.toCPointer<ByteVar>(), dwreserved)
+public actual fun msiSourceListForceResolutionA(szproduct: Pcstr, szusername: Pcstr, dwreserved: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListForceResolutionA(szproduct?.value?.toCPointer<ByteVar>(), szusername?.value?.toCPointer<ByteVar>(), dwreserved)
 
-public actual fun MsiSourceListForceResolutionExA(szproductcodeorpatchcode: PCSTR, szusersid: PCSTR, dwcontext: MSIINSTALLCONTEXT, dwoptions: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListForceResolutionExA(szproductcodeorpatchcode.toCPointer<ByteVar>(), szusersid.toCPointer<ByteVar>(), dwcontext, dwoptions)
+public actual fun msiSourceListForceResolutionExA(szproductcodeorpatchcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, dwoptions: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListForceResolutionExA(szproductcodeorpatchcode?.value?.toCPointer<ByteVar>(), szusersid?.value?.toCPointer<ByteVar>(), dwcontext, dwoptions)
 
-public actual fun MsiSourceListForceResolutionExW(szproductcodeorpatchcode: PCWSTR, szusersid: PCWSTR, dwcontext: MSIINSTALLCONTEXT, dwoptions: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListForceResolutionExW(szproductcodeorpatchcode.toCPointer<ByteVar>(), szusersid.toCPointer<ByteVar>(), dwcontext, dwoptions)
+public actual fun msiSourceListForceResolutionExW(szproductcodeorpatchcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, dwoptions: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListForceResolutionExW(szproductcodeorpatchcode?.value?.toCPointer<ByteVar>(), szusersid?.value?.toCPointer<ByteVar>(), dwcontext, dwoptions)
 
-public actual fun MsiSourceListForceResolutionW(szproduct: PCWSTR, szusername: PCWSTR, dwreserved: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListForceResolutionW(szproduct.toCPointer<ByteVar>(), szusername.toCPointer<ByteVar>(), dwreserved)
+public actual fun msiSourceListForceResolutionW(szproduct: Pcwstr, szusername: Pcwstr, dwreserved: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListForceResolutionW(szproduct?.value?.toCPointer<ByteVar>(), szusername?.value?.toCPointer<ByteVar>(), dwreserved)
 
-public actual fun MsiSourceListGetInfoA(szproductcodeorpatchcode: PCSTR, szusersid: PCSTR, dwcontext: MSIINSTALLCONTEXT, dwoptions: UInt, szproperty: PCSTR, szvalue: PSTR, pcchvalue: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListGetInfoA(szproductcodeorpatchcode.toCPointer<ByteVar>(), szusersid.toCPointer<ByteVar>(), dwcontext, dwoptions, szproperty.toCPointer<ByteVar>(), szvalue.toCPointer<ByteVar>(), pcchvalue.toCPointer<ByteVar>())
+public actual fun msiSourceListGetInfoA(szproductcodeorpatchcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, dwoptions: UInt, szproperty: Pcstr, szvalue: Pstr, pcchvalue: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListGetInfoA(szproductcodeorpatchcode?.value?.toCPointer<ByteVar>(), szusersid?.value?.toCPointer<ByteVar>(), dwcontext, dwoptions, szproperty?.value?.toCPointer<ByteVar>(), szvalue?.value?.toCPointer<ByteVar>(), pcchvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiSourceListGetInfoW(szproductcodeorpatchcode: PCWSTR, szusersid: PCWSTR, dwcontext: MSIINSTALLCONTEXT, dwoptions: UInt, szproperty: PCWSTR, szvalue: PWSTR, pcchvalue: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListGetInfoW(szproductcodeorpatchcode.toCPointer<ByteVar>(), szusersid.toCPointer<ByteVar>(), dwcontext, dwoptions, szproperty.toCPointer<ByteVar>(), szvalue.toCPointer<ByteVar>(), pcchvalue.toCPointer<ByteVar>())
+public actual fun msiSourceListGetInfoW(szproductcodeorpatchcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, dwoptions: UInt, szproperty: Pcwstr, szvalue: Pwstr, pcchvalue: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListGetInfoW(szproductcodeorpatchcode?.value?.toCPointer<ByteVar>(), szusersid?.value?.toCPointer<ByteVar>(), dwcontext, dwoptions, szproperty?.value?.toCPointer<ByteVar>(), szvalue?.value?.toCPointer<ByteVar>(), pcchvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiSourceListSetInfoA(szproductcodeorpatchcode: PCSTR, szusersid: PCSTR, dwcontext: MSIINSTALLCONTEXT, dwoptions: UInt, szproperty: PCSTR, szvalue: PCSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListSetInfoA(szproductcodeorpatchcode.toCPointer<ByteVar>(), szusersid.toCPointer<ByteVar>(), dwcontext, dwoptions, szproperty.toCPointer<ByteVar>(), szvalue.toCPointer<ByteVar>())
+public actual fun msiSourceListSetInfoA(szproductcodeorpatchcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, dwoptions: UInt, szproperty: Pcstr, szvalue: Pcstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListSetInfoA(szproductcodeorpatchcode?.value?.toCPointer<ByteVar>(), szusersid?.value?.toCPointer<ByteVar>(), dwcontext, dwoptions, szproperty?.value?.toCPointer<ByteVar>(), szvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiSourceListSetInfoW(szproductcodeorpatchcode: PCWSTR, szusersid: PCWSTR, dwcontext: MSIINSTALLCONTEXT, dwoptions: UInt, szproperty: PCWSTR, szvalue: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListSetInfoW(szproductcodeorpatchcode.toCPointer<ByteVar>(), szusersid.toCPointer<ByteVar>(), dwcontext, dwoptions, szproperty.toCPointer<ByteVar>(), szvalue.toCPointer<ByteVar>())
+public actual fun msiSourceListSetInfoW(szproductcodeorpatchcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, dwoptions: UInt, szproperty: Pcwstr, szvalue: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListSetInfoW(szproductcodeorpatchcode?.value?.toCPointer<ByteVar>(), szusersid?.value?.toCPointer<ByteVar>(), dwcontext, dwoptions, szproperty?.value?.toCPointer<ByteVar>(), szvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiSummaryInfoGetPropertyA(hsummaryinfo: MSIHANDLE, uiproperty: UInt, puidatatype: Long, pivalue: Long, pftvalue: Long, szvaluebuf: PSTR, pcchvaluebuf: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiSummaryInfoGetPropertyA(hsummaryinfo, uiproperty, puidatatype.toCPointer<ByteVar>(), pivalue.toCPointer<ByteVar>(), pftvalue.toCPointer<ByteVar>(), szvaluebuf.toCPointer<ByteVar>(), pcchvaluebuf.toCPointer<ByteVar>())
+public actual fun msiSummaryInfoGetPropertyA(hsummaryinfo: Msihandle, uiproperty: UInt, puidatatype: COpaquePointer?, pivalue: COpaquePointer?, pftvalue: COpaquePointer?, szvaluebuf: Pstr, pcchvaluebuf: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiSummaryInfoGetPropertyA(hsummaryinfo, uiproperty, puidatatype?.value?.toCPointer<ByteVar>(), pivalue?.value?.toCPointer<ByteVar>(), pftvalue?.value?.toCPointer<ByteVar>(), szvaluebuf?.value?.toCPointer<ByteVar>(), pcchvaluebuf?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiSummaryInfoGetPropertyCount(hsummaryinfo: MSIHANDLE, puipropertycount: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiSummaryInfoGetPropertyCount(hsummaryinfo, puipropertycount.toCPointer<ByteVar>())
+public actual fun msiSummaryInfoGetPropertyCount(hsummaryinfo: Msihandle, puipropertycount: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiSummaryInfoGetPropertyCount(hsummaryinfo, puipropertycount?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiSummaryInfoGetPropertyW(hsummaryinfo: MSIHANDLE, uiproperty: UInt, puidatatype: Long, pivalue: Long, pftvalue: Long, szvaluebuf: PWSTR, pcchvaluebuf: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiSummaryInfoGetPropertyW(hsummaryinfo, uiproperty, puidatatype.toCPointer<ByteVar>(), pivalue.toCPointer<ByteVar>(), pftvalue.toCPointer<ByteVar>(), szvaluebuf.toCPointer<ByteVar>(), pcchvaluebuf.toCPointer<ByteVar>())
+public actual fun msiSummaryInfoGetPropertyW(hsummaryinfo: Msihandle, uiproperty: UInt, puidatatype: COpaquePointer?, pivalue: COpaquePointer?, pftvalue: COpaquePointer?, szvaluebuf: Pwstr, pcchvaluebuf: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiSummaryInfoGetPropertyW(hsummaryinfo, uiproperty, puidatatype?.value?.toCPointer<ByteVar>(), pivalue?.value?.toCPointer<ByteVar>(), pftvalue?.value?.toCPointer<ByteVar>(), szvaluebuf?.value?.toCPointer<ByteVar>(), pcchvaluebuf?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiSummaryInfoPersist(hsummaryinfo: MSIHANDLE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiSummaryInfoPersist(hsummaryinfo)
+public actual fun msiSummaryInfoPersist(hsummaryinfo: Msihandle): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiSummaryInfoPersist(hsummaryinfo)
 
-public actual fun MsiSummaryInfoSetPropertyA(hsummaryinfo: MSIHANDLE, uiproperty: UInt, uidatatype: UInt, ivalue: Int, pftvalue: Long, szvalue: PCSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiSummaryInfoSetPropertyA(hsummaryinfo, uiproperty, uidatatype, ivalue, pftvalue.toCPointer<ByteVar>(), szvalue.toCPointer<ByteVar>())
+public actual fun msiSummaryInfoSetPropertyA(hsummaryinfo: Msihandle, uiproperty: UInt, uidatatype: UInt, ivalue: Int, pftvalue: COpaquePointer?, szvalue: Pcstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiSummaryInfoSetPropertyA(hsummaryinfo, uiproperty, uidatatype, ivalue, pftvalue?.value?.toCPointer<ByteVar>(), szvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiSummaryInfoSetPropertyW(hsummaryinfo: MSIHANDLE, uiproperty: UInt, uidatatype: UInt, ivalue: Int, pftvalue: Long, szvalue: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiSummaryInfoSetPropertyW(hsummaryinfo, uiproperty, uidatatype, ivalue, pftvalue.toCPointer<ByteVar>(), szvalue.toCPointer<ByteVar>())
+public actual fun msiSummaryInfoSetPropertyW(hsummaryinfo: Msihandle, uiproperty: UInt, uidatatype: UInt, ivalue: Int, pftvalue: COpaquePointer?, szvalue: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiSummaryInfoSetPropertyW(hsummaryinfo, uiproperty, uidatatype, ivalue, pftvalue?.value?.toCPointer<ByteVar>(), szvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiUseFeatureA(szproduct: PCSTR, szfeature: PCSTR): INSTALLSTATE =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiUseFeatureA(szproduct.toCPointer<ByteVar>(), szfeature.toCPointer<ByteVar>())
+public actual fun msiUseFeatureA(szproduct: Pcstr, szfeature: Pcstr): Installstate =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiUseFeatureA(szproduct?.value?.toCPointer<ByteVar>(), szfeature?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiUseFeatureExA(szproduct: PCSTR, szfeature: PCSTR, dwinstallmode: UInt, dwreserved: UInt): INSTALLSTATE =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiUseFeatureExA(szproduct.toCPointer<ByteVar>(), szfeature.toCPointer<ByteVar>(), dwinstallmode, dwreserved)
+public actual fun msiUseFeatureExA(szproduct: Pcstr, szfeature: Pcstr, dwinstallmode: UInt, dwreserved: UInt): Installstate =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiUseFeatureExA(szproduct?.value?.toCPointer<ByteVar>(), szfeature?.value?.toCPointer<ByteVar>(), dwinstallmode, dwreserved)
 
-public actual fun MsiUseFeatureExW(szproduct: PCWSTR, szfeature: PCWSTR, dwinstallmode: UInt, dwreserved: UInt): INSTALLSTATE =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiUseFeatureExW(szproduct.toCPointer<ByteVar>(), szfeature.toCPointer<ByteVar>(), dwinstallmode, dwreserved)
+public actual fun msiUseFeatureExW(szproduct: Pcwstr, szfeature: Pcwstr, dwinstallmode: UInt, dwreserved: UInt): Installstate =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiUseFeatureExW(szproduct?.value?.toCPointer<ByteVar>(), szfeature?.value?.toCPointer<ByteVar>(), dwinstallmode, dwreserved)
 
-public actual fun MsiUseFeatureW(szproduct: PCWSTR, szfeature: PCWSTR): INSTALLSTATE =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiUseFeatureW(szproduct.toCPointer<ByteVar>(), szfeature.toCPointer<ByteVar>())
+public actual fun msiUseFeatureW(szproduct: Pcwstr, szfeature: Pcwstr): Installstate =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiUseFeatureW(szproduct?.value?.toCPointer<ByteVar>(), szfeature?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiVerifyDiskSpace(hinstall: MSIHANDLE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiVerifyDiskSpace(hinstall)
+public actual fun msiVerifyDiskSpace(hinstall: Msihandle): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiVerifyDiskSpace(hinstall)
 
-public actual fun MsiVerifyPackageA(szpackagepath: PCSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiVerifyPackageA(szpackagepath.toCPointer<ByteVar>())
+public actual fun msiVerifyPackageA(szpackagepath: Pcstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiVerifyPackageA(szpackagepath?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiVerifyPackageW(szpackagepath: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiVerifyPackageW(szpackagepath.toCPointer<ByteVar>())
+public actual fun msiVerifyPackageW(szpackagepath: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiVerifyPackageW(szpackagepath?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiViewClose(hview: MSIHANDLE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiViewClose(hview)
+public actual fun msiViewClose(hview: Msihandle): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiViewClose(hview)
 
-public actual fun MsiViewExecute(hview: MSIHANDLE, hrecord: MSIHANDLE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiViewExecute(hview, hrecord)
+public actual fun msiViewExecute(hview: Msihandle, hrecord: Msihandle): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiViewExecute(hview, hrecord)
 
-public actual fun MsiViewFetch(hview: MSIHANDLE, phrecord: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiViewFetch(hview, phrecord.toCPointer<ByteVar>())
+public actual fun msiViewFetch(hview: Msihandle, phrecord: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiViewFetch(hview, phrecord?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiViewGetColumnInfo(hview: MSIHANDLE, ecolumninfo: MSICOLINFO, phrecord: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiViewGetColumnInfo(hview, ecolumninfo, phrecord.toCPointer<ByteVar>())
+public actual fun msiViewGetColumnInfo(hview: Msihandle, ecolumninfo: Msicolinfo, phrecord: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiViewGetColumnInfo(hview, ecolumninfo, phrecord?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiViewGetErrorA(hview: MSIHANDLE, szcolumnnamebuffer: PSTR, pcchbuf: Long): MSIDBERROR =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiViewGetErrorA(hview, szcolumnnamebuffer.toCPointer<ByteVar>(), pcchbuf.toCPointer<ByteVar>())
+public actual fun msiViewGetErrorA(hview: Msihandle, szcolumnnamebuffer: Pstr, pcchbuf: COpaquePointer?): Msidberror =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiViewGetErrorA(hview, szcolumnnamebuffer?.value?.toCPointer<ByteVar>(), pcchbuf?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiViewGetErrorW(hview: MSIHANDLE, szcolumnnamebuffer: PWSTR, pcchbuf: Long): MSIDBERROR =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiViewGetErrorW(hview, szcolumnnamebuffer.toCPointer<ByteVar>(), pcchbuf.toCPointer<ByteVar>())
+public actual fun msiViewGetErrorW(hview: Msihandle, szcolumnnamebuffer: Pwstr, pcchbuf: COpaquePointer?): Msidberror =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiViewGetErrorW(hview, szcolumnnamebuffer?.value?.toCPointer<ByteVar>(), pcchbuf?.value?.toCPointer<ByteVar>())
 
-public actual fun MsiViewModify(hview: MSIHANDLE, emodifymode: MSIMODIFY, hrecord: MSIHANDLE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_MsiViewModify(hview, emodifymode, hrecord)
+public actual fun msiViewModify(hview: Msihandle, emodifymode: Msimodify, hrecord: Msihandle): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_msiViewModify(hview, emodifymode, hrecord)
 
-public actual fun NormalizeFileForPatchSignature(filebuffer: Long, filesize: UInt, optionflags: UInt, optiondata: Long, newfilecoffbase: UInt, newfilecofftime: UInt, ignorerangecount: UInt, ignorerangearray: Long, retainrangecount: UInt, retainrangearray: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_NormalizeFileForPatchSignature(filebuffer.toCPointer<ByteVar>(), filesize, optionflags, optiondata.toCPointer<ByteVar>(), newfilecoffbase, newfilecofftime, ignorerangecount, ignorerangearray.toCPointer<ByteVar>(), retainrangecount, retainrangearray.toCPointer<ByteVar>())
+public actual fun normalizeFileForPatchSignature(filebuffer: COpaquePointer?, filesize: UInt, optionflags: UInt, optiondata: COpaquePointer?, newfilecoffbase: UInt, newfilecofftime: UInt, ignorerangecount: UInt, ignorerangearray: COpaquePointer?, retainrangecount: UInt, retainrangearray: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_normalizeFileForPatchSignature(filebuffer?.value?.toCPointer<ByteVar>(), filesize, optionflags, optiondata?.value?.toCPointer<ByteVar>(), newfilecoffbase, newfilecofftime, ignorerangecount, ignorerangearray?.value?.toCPointer<ByteVar>(), retainrangecount, retainrangearray?.value?.toCPointer<ByteVar>())
 
-public actual fun QueryActCtxSettingsW(dwflags: UInt, hactctx: HANDLE, settingsnamespace: PCWSTR, settingname: PCWSTR, pvbuffer: PWSTR, dwbuffer: ULong, pdwwrittenorrequired: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_QueryActCtxSettingsW(dwflags, hactctx.toCPointer<ByteVar>(), settingsnamespace.toCPointer<ByteVar>(), settingname.toCPointer<ByteVar>(), pvbuffer.toCPointer<ByteVar>(), dwbuffer, pdwwrittenorrequired.toCPointer<ByteVar>())
+public actual fun queryActCtxSettingsW(dwflags: UInt, hactctx: Handle, settingsnamespace: Pcwstr, settingname: Pcwstr, pvbuffer: Pwstr, dwbuffer: ULong, pdwwrittenorrequired: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_queryActCtxSettingsW(dwflags, hactctx?.value?.toCPointer<ByteVar>(), settingsnamespace?.value?.toCPointer<ByteVar>(), settingname?.value?.toCPointer<ByteVar>(), pvbuffer?.value?.toCPointer<ByteVar>(), dwbuffer, pdwwrittenorrequired?.value?.toCPointer<ByteVar>())
 
-public actual fun QueryActCtxW(dwflags: UInt, hactctx: HANDLE, pvsubinstance: Long, ulinfoclass: UInt, pvbuffer: Long, cbbuffer: ULong, pcbwrittenorrequired: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_QueryActCtxW(dwflags, hactctx.toCPointer<ByteVar>(), pvsubinstance.toCPointer<ByteVar>(), ulinfoclass, pvbuffer.toCPointer<ByteVar>(), cbbuffer, pcbwrittenorrequired.toCPointer<ByteVar>())
+public actual fun queryActCtxW(dwflags: UInt, hactctx: Handle, pvsubinstance: COpaquePointer?, ulinfoclass: UInt, pvbuffer: COpaquePointer?, cbbuffer: ULong, pcbwrittenorrequired: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_queryActCtxW(dwflags, hactctx?.value?.toCPointer<ByteVar>(), pvsubinstance?.value?.toCPointer<ByteVar>(), ulinfoclass, pvbuffer?.value?.toCPointer<ByteVar>(), cbbuffer, pcbwrittenorrequired?.value?.toCPointer<ByteVar>())
 
-public actual fun ReleaseActCtx(hactctx: HANDLE) {
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_ReleaseActCtx(hactctx.toCPointer<ByteVar>())
+public actual fun releaseActCtx(hactctx: Handle) {
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_releaseActCtx(hactctx?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun SfcGetNextProtectedFile(rpchandle: HANDLE, protfiledata: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_SfcGetNextProtectedFile(rpchandle.toCPointer<ByteVar>(), protfiledata.toCPointer<ByteVar>())
+public actual fun sfcGetNextProtectedFile(rpchandle: Handle, protfiledata: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_sfcGetNextProtectedFile(rpchandle?.value?.toCPointer<ByteVar>(), protfiledata?.value?.toCPointer<ByteVar>())
 
-public actual fun SfcIsFileProtected(rpchandle: HANDLE, protfilename: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_SfcIsFileProtected(rpchandle.toCPointer<ByteVar>(), protfilename.toCPointer<ByteVar>())
+public actual fun sfcIsFileProtected(rpchandle: Handle, protfilename: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_sfcIsFileProtected(rpchandle?.value?.toCPointer<ByteVar>(), protfilename?.value?.toCPointer<ByteVar>())
 
-public actual fun SfcIsKeyProtected(keyhandle: HKEY, subkeyname: PCWSTR, keysam: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_SfcIsKeyProtected(keyhandle.toCPointer<ByteVar>(), subkeyname.toCPointer<ByteVar>(), keysam)
+public actual fun sfcIsKeyProtected(keyhandle: Hkey, subkeyname: Pcwstr, keysam: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_sfcIsKeyProtected(keyhandle?.value?.toCPointer<ByteVar>(), subkeyname?.value?.toCPointer<ByteVar>(), keysam)
 
-public actual fun SfpVerifyFile(pszfilename: PCSTR, pszerror: PCSTR, dwerrsize: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_SfpVerifyFile(pszfilename.toCPointer<ByteVar>(), pszerror.toCPointer<ByteVar>(), dwerrsize)
+public actual fun sfpVerifyFile(pszfilename: Pcstr, pszerror: Pcstr, dwerrsize: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_sfpVerifyFile(pszfilename?.value?.toCPointer<ByteVar>(), pszerror?.value?.toCPointer<ByteVar>(), dwerrsize)
 
-public actual fun TestApplyPatchToFileA(patchfilename: PCSTR, oldfilename: PCSTR, applyoptionflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_TestApplyPatchToFileA(patchfilename.toCPointer<ByteVar>(), oldfilename.toCPointer<ByteVar>(), applyoptionflags)
+public actual fun testApplyPatchToFileA(patchfilename: Pcstr, oldfilename: Pcstr, applyoptionflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_testApplyPatchToFileA(patchfilename?.value?.toCPointer<ByteVar>(), oldfilename?.value?.toCPointer<ByteVar>(), applyoptionflags)
 
-public actual fun TestApplyPatchToFileByBuffers(patchfilebuffer: Long, patchfilesize: UInt, oldfilebuffer: Long, oldfilesize: UInt, newfilesize: Long, applyoptionflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_TestApplyPatchToFileByBuffers(patchfilebuffer.toCPointer<ByteVar>(), patchfilesize, oldfilebuffer.toCPointer<ByteVar>(), oldfilesize, newfilesize.toCPointer<ByteVar>(), applyoptionflags)
+public actual fun testApplyPatchToFileByBuffers(patchfilebuffer: COpaquePointer?, patchfilesize: UInt, oldfilebuffer: COpaquePointer?, oldfilesize: UInt, newfilesize: COpaquePointer?, applyoptionflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_testApplyPatchToFileByBuffers(patchfilebuffer?.value?.toCPointer<ByteVar>(), patchfilesize, oldfilebuffer?.value?.toCPointer<ByteVar>(), oldfilesize, newfilesize?.value?.toCPointer<ByteVar>(), applyoptionflags)
 
-public actual fun TestApplyPatchToFileByHandles(patchfilehandle: HANDLE, oldfilehandle: HANDLE, applyoptionflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_TestApplyPatchToFileByHandles(patchfilehandle.toCPointer<ByteVar>(), oldfilehandle.toCPointer<ByteVar>(), applyoptionflags)
+public actual fun testApplyPatchToFileByHandles(patchfilehandle: Handle, oldfilehandle: Handle, applyoptionflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_testApplyPatchToFileByHandles(patchfilehandle?.value?.toCPointer<ByteVar>(), oldfilehandle?.value?.toCPointer<ByteVar>(), applyoptionflags)
 
-public actual fun TestApplyPatchToFileW(patchfilename: PCWSTR, oldfilename: PCWSTR, applyoptionflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_TestApplyPatchToFileW(patchfilename.toCPointer<ByteVar>(), oldfilename.toCPointer<ByteVar>(), applyoptionflags)
+public actual fun testApplyPatchToFileW(patchfilename: Pcwstr, oldfilename: Pcwstr, applyoptionflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_testApplyPatchToFileW(patchfilename?.value?.toCPointer<ByteVar>(), oldfilename?.value?.toCPointer<ByteVar>(), applyoptionflags)
 
-public actual fun ZombifyActCtx(hactctx: HANDLE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_ZombifyActCtx(hactctx.toCPointer<ByteVar>())
+public actual fun zombifyActCtx(hactctx: Handle): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssys_windows_win32_system_applicationinstallationandservicing_zombifyActCtx(hactctx?.value?.toCPointer<ByteVar>())

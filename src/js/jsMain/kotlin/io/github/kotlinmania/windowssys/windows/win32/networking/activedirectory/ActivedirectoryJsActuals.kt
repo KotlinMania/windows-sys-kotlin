@@ -2,536 +2,567 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.security.PSECURITY_DESCRIPTOR
-import io.github.kotlinmania.windowssys.windows.win32.system.variant.VARIANT
-import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.HICON
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
+import io.github.kotlinmania.windowssys.windows.win32.system.variant.Variant
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Hicon
 
 private val _windowsWin32NetworkingActivedirectoryNapiAddon: dynamic =
-    js("(function() { if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var req = (new Function('t', 'return typeof require === t ? require : null'))('function'); if (!req) return null; var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; for (var d = 0; d < 8; d++) { var c1 = path.resolve(dir, 'build/node-ffi/windows_sys_native.node'); if (fs.existsSync(c1)) return req(c1); var c2 = path.resolve(dir, 'src/js/node-windows_sys/build/Release/windows_sys_native.node'); if (fs.existsSync(c2)) return req(c2); var c3 = path.resolve(dir, 'src/js/node-windows_sys/build/Debug/windows_sys_native.node'); if (fs.existsSync(c3)) return req(c3); var c4 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Release/windows_sys_native.node'); if (fs.existsSync(c4)) return req(c4); var c5 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Debug/windows_sys_native.node'); if (fs.existsSync(c5)) return req(c5); var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } return null; })()")
+    js("(function() { if (typeof globalThis !== 'undefined' && typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys; if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) return null; try { var pkg = req('@kotlinmania/windowssys-native-bindings'); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = pkg; return pkg; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { var loaded = req(c); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = loaded; return loaded; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = null; return null; })()")
 
-public actual fun ADsBuildEnumerator(padscontainer: Long, ppenumvariant: Long): HRESULT =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_ADsBuildEnumerator(padscontainer.toString(), ppenumvariant.toString()) as Int) else 0
+public actual fun aDsBuildEnumerator(padscontainer: COpaquePointer?, ppenumvariant: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_aDsBuildEnumerator((padscontainer?.value ?: 0L).toString(), (ppenumvariant?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ADsBuildVarArrayInt(lpdwobjecttypes: Long, dwobjecttypes: UInt, pvar: Long): HRESULT =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_ADsBuildVarArrayInt(lpdwobjecttypes.toString(), dwobjecttypes.toInt(), pvar.toString()) as Int) else 0
+public actual fun aDsBuildVarArrayInt(lpdwobjecttypes: COpaquePointer?, dwobjecttypes: UInt, pvar: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_aDsBuildVarArrayInt((lpdwobjecttypes?.value ?: 0L).toString(), dwobjecttypes.toInt(), (pvar?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ADsBuildVarArrayStr(lpppathnames: Long, dwpathnames: UInt, pvar: Long): HRESULT =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_ADsBuildVarArrayStr(lpppathnames.toString(), dwpathnames.toInt(), pvar.toString()) as Int) else 0
+public actual fun aDsBuildVarArrayStr(lpppathnames: COpaquePointer?, dwpathnames: UInt, pvar: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_aDsBuildVarArrayStr((lpppathnames?.value ?: 0L).toString(), dwpathnames.toInt(), (pvar?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ADsDecodeBinaryData(szsrcdata: PCWSTR, ppbdestdata: Long, pdwdestlen: Long): HRESULT =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_ADsDecodeBinaryData(szsrcdata.toString(), ppbdestdata.toString(), pdwdestlen.toString()) as Int) else 0
+public actual fun aDsDecodeBinaryData(szsrcdata: Pcwstr, ppbdestdata: COpaquePointer?, pdwdestlen: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_aDsDecodeBinaryData((szsrcdata?.value ?: 0L).toString(), (ppbdestdata?.value ?: 0L).toString(), (pdwdestlen?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ADsEncodeBinaryData(pbsrcdata: Long, dwsrclen: UInt, ppszdestdata: Long): HRESULT =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_ADsEncodeBinaryData(pbsrcdata.toString(), dwsrclen.toInt(), ppszdestdata.toString()) as Int) else 0
+public actual fun aDsEncodeBinaryData(pbsrcdata: COpaquePointer?, dwsrclen: UInt, ppszdestdata: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_aDsEncodeBinaryData((pbsrcdata?.value ?: 0L).toString(), dwsrclen.toInt(), (ppszdestdata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ADsEnumerateNext(penumvariant: Long, celements: UInt, pvar: Long, pcelementsfetched: Long): HRESULT =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_ADsEnumerateNext(penumvariant.toString(), celements.toInt(), pvar.toString(), pcelementsfetched.toString()) as Int) else 0
+public actual fun aDsEnumerateNext(penumvariant: COpaquePointer?, celements: UInt, pvar: COpaquePointer?, pcelementsfetched: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_aDsEnumerateNext((penumvariant?.value ?: 0L).toString(), celements.toInt(), (pvar?.value ?: 0L).toString(), (pcelementsfetched?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ADsFreeEnumerator(penumvariant: Long): HRESULT =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_ADsFreeEnumerator(penumvariant.toString()) as Int) else 0
+public actual fun aDsFreeEnumerator(penumvariant: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_aDsFreeEnumerator((penumvariant?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ADsGetLastError(lperror: Long, lperrorbuf: PWSTR, dwerrorbuflen: UInt, lpnamebuf: PWSTR, dwnamebuflen: UInt): HRESULT =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_ADsGetLastError(lperror.toString(), lperrorbuf.toString(), dwerrorbuflen.toInt(), lpnamebuf.toString(), dwnamebuflen.toInt()) as Int) else 0
+public actual fun aDsGetLastError(lperror: COpaquePointer?, lperrorbuf: Pwstr, dwerrorbuflen: UInt, lpnamebuf: Pwstr, dwnamebuflen: UInt): Hresult =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_aDsGetLastError((lperror?.value ?: 0L).toString(), (lperrorbuf?.value ?: 0L).toString(), dwerrorbuflen.toInt(), (lpnamebuf?.value ?: 0L).toString(), dwnamebuflen.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ADsGetObject(lpszpathname: PCWSTR, riid: Long, ppobject: Long): HRESULT =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_ADsGetObject(lpszpathname.toString(), riid.toString(), ppobject.toString()) as Int) else 0
+public actual fun aDsGetObject(lpszpathname: Pcwstr, riid: COpaquePointer?, ppobject: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_aDsGetObject((lpszpathname?.value ?: 0L).toString(), (riid?.value ?: 0L).toString(), (ppobject?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ADsOpenObject(lpszpathname: PCWSTR, lpszusername: PCWSTR, lpszpassword: PCWSTR, dwreserved: ADS_AUTHENTICATION_ENUM, riid: Long, ppobject: Long): HRESULT =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_ADsOpenObject(lpszpathname.toString(), lpszusername.toString(), lpszpassword.toString(), dwreserved.toInt(), riid.toString(), ppobject.toString()) as Int) else 0
+public actual fun aDsOpenObject(lpszpathname: Pcwstr, lpszusername: Pcwstr, lpszpassword: Pcwstr, dwreserved: AdsAuthenticationEnum, riid: COpaquePointer?, ppobject: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_aDsOpenObject((lpszpathname?.value ?: 0L).toString(), (lpszusername?.value ?: 0L).toString(), (lpszpassword?.value ?: 0L).toString(), dwreserved.toInt(), (riid?.value ?: 0L).toString(), (ppobject?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ADsPropCheckIfWritable(pwzattr: PCWSTR, pwritableattrs: Long): BOOL =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_ADsPropCheckIfWritable(pwzattr.toString(), pwritableattrs.toString()) as Int) else 0
+public actual fun aDsPropCheckIfWritable(pwzattr: Pcwstr, pwritableattrs: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_aDsPropCheckIfWritable((pwzattr?.value ?: 0L).toString(), (pwritableattrs?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ADsPropCreateNotifyObj(pappthddataobj: Long, pwzadsobjname: PCWSTR, phnotifyobj: Long): HRESULT =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_ADsPropCreateNotifyObj(pappthddataobj.toString(), pwzadsobjname.toString(), phnotifyobj.toString()) as Int) else 0
+public actual fun aDsPropCreateNotifyObj(pappthddataobj: COpaquePointer?, pwzadsobjname: Pcwstr, phnotifyobj: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_aDsPropCreateNotifyObj((pappthddataobj?.value ?: 0L).toString(), (pwzadsobjname?.value ?: 0L).toString(), (phnotifyobj?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ADsPropGetInitInfo(hnotifyobj: HWND, pinitparams: Long): BOOL =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_ADsPropGetInitInfo(hnotifyobj.toString(), pinitparams.toString()) as Int) else 0
+public actual fun aDsPropGetInitInfo(hnotifyobj: Hwnd, pinitparams: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_aDsPropGetInitInfo((hnotifyobj?.value ?: 0L).toString(), (pinitparams?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ADsPropSendErrorMessage(hnotifyobj: HWND, perror: Long): BOOL =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_ADsPropSendErrorMessage(hnotifyobj.toString(), perror.toString()) as Int) else 0
+public actual fun aDsPropSendErrorMessage(hnotifyobj: Hwnd, perror: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_aDsPropSendErrorMessage((hnotifyobj?.value ?: 0L).toString(), (perror?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ADsPropSetHwnd(hnotifyobj: HWND, hpage: HWND): BOOL =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_ADsPropSetHwnd(hnotifyobj.toString(), hpage.toString()) as Int) else 0
+public actual fun aDsPropSetHwnd(hnotifyobj: Hwnd, hpage: Hwnd): Bool =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_aDsPropSetHwnd((hnotifyobj?.value ?: 0L).toString(), (hpage?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ADsPropSetHwndWithTitle(hnotifyobj: HWND, hpage: HWND, ptztitle: Long): BOOL =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_ADsPropSetHwndWithTitle(hnotifyobj.toString(), hpage.toString(), ptztitle.toString()) as Int) else 0
+public actual fun aDsPropSetHwndWithTitle(hnotifyobj: Hwnd, hpage: Hwnd, ptztitle: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_aDsPropSetHwndWithTitle((hnotifyobj?.value ?: 0L).toString(), (hpage?.value ?: 0L).toString(), (ptztitle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ADsPropShowErrorDialog(hnotifyobj: HWND, hpage: HWND): BOOL =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_ADsPropShowErrorDialog(hnotifyobj.toString(), hpage.toString()) as Int) else 0
+public actual fun aDsPropShowErrorDialog(hnotifyobj: Hwnd, hpage: Hwnd): Bool =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_aDsPropShowErrorDialog((hnotifyobj?.value ?: 0L).toString(), (hpage?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ADsSetLastError(dwerr: UInt, pszerror: PCWSTR, pszprovider: PCWSTR) {
+public actual fun aDsSetLastError(dwerr: UInt, pszerror: Pcwstr, pszprovider: Pcwstr) {
     if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) {
-        _windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_ADsSetLastError(dwerr.toInt(), pszerror.toString(), pszprovider.toString())
+        _windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_aDsSetLastError(dwerr.toInt(), (pszerror?.value ?: 0L).toString(), (pszprovider?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun AdsFreeAdsValues(padsvalues: Long, dwnumvalues: UInt) {
+public actual fun adsFreeAdsValues(padsvalues: COpaquePointer?, dwnumvalues: UInt) {
     if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) {
-        _windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_AdsFreeAdsValues(padsvalues.toString(), dwnumvalues.toInt())
+        _windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_adsFreeAdsValues((padsvalues?.value ?: 0L).toString(), dwnumvalues.toInt())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun AdsTypeToPropVariant(padsvalues: Long, dwnumvalues: UInt, pvariant: Long): HRESULT =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_AdsTypeToPropVariant(padsvalues.toString(), dwnumvalues.toInt(), pvariant.toString()) as Int) else 0
+public actual fun adsTypeToPropVariant(padsvalues: COpaquePointer?, dwnumvalues: UInt, pvariant: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_adsTypeToPropVariant((padsvalues?.value ?: 0L).toString(), dwnumvalues.toInt(), (pvariant?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AllocADsMem(cb: UInt): Long =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_AllocADsMem(cb.toInt()) as String).toLong() else 0L
+public actual fun allocADsMem(cb: UInt): COpaquePointer? =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_allocADsMem(cb.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AllocADsStr(pstr: PCWSTR): PWSTR =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_AllocADsStr(pstr.toString()) as String).toLong() else 0L
+public actual fun allocADsStr(pstr: Pcwstr): Pwstr =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_allocADsStr((pstr?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BinarySDToSecurityDescriptor(psecuritydescriptor: PSECURITY_DESCRIPTOR, pvarsec: Long, pszservername: PCWSTR, username: PCWSTR, password: PCWSTR, dwflags: UInt): HRESULT =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_BinarySDToSecurityDescriptor(psecuritydescriptor.toString(), pvarsec.toString(), pszservername.toString(), username.toString(), password.toString(), dwflags.toInt()) as Int) else 0
+public actual fun binarySDToSecurityDescriptor(psecuritydescriptor: PsecurityDescriptor, pvarsec: COpaquePointer?, pszservername: Pcwstr, username: Pcwstr, password: Pcwstr, dwflags: UInt): Hresult =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_binarySDToSecurityDescriptor((psecuritydescriptor?.value ?: 0L).toString(), (pvarsec?.value ?: 0L).toString(), (pszservername?.value ?: 0L).toString(), (username?.value ?: 0L).toString(), (password?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsAddSidHistoryA(hds: HANDLE, flags: UInt, srcdomain: PCSTR, srcprincipal: PCSTR, srcdomaincontroller: PCSTR, srcdomaincreds: Long, dstdomain: PCSTR, dstprincipal: PCSTR): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsAddSidHistoryA(hds.toString(), flags.toInt(), srcdomain.toString(), srcprincipal.toString(), srcdomaincontroller.toString(), srcdomaincreds.toString(), dstdomain.toString(), dstprincipal.toString()) as Int).toUInt() else 0u
+public actual fun dsAddSidHistoryA(hds: Handle, flags: UInt, srcdomain: Pcstr, srcprincipal: Pcstr, srcdomaincontroller: Pcstr, srcdomaincreds: COpaquePointer?, dstdomain: Pcstr, dstprincipal: Pcstr): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsAddSidHistoryA((hds?.value ?: 0L).toString(), flags.toInt(), (srcdomain?.value ?: 0L).toString(), (srcprincipal?.value ?: 0L).toString(), (srcdomaincontroller?.value ?: 0L).toString(), (srcdomaincreds?.value ?: 0L).toString(), (dstdomain?.value ?: 0L).toString(), (dstprincipal?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsAddSidHistoryW(hds: HANDLE, flags: UInt, srcdomain: PCWSTR, srcprincipal: PCWSTR, srcdomaincontroller: PCWSTR, srcdomaincreds: Long, dstdomain: PCWSTR, dstprincipal: PCWSTR): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsAddSidHistoryW(hds.toString(), flags.toInt(), srcdomain.toString(), srcprincipal.toString(), srcdomaincontroller.toString(), srcdomaincreds.toString(), dstdomain.toString(), dstprincipal.toString()) as Int).toUInt() else 0u
+public actual fun dsAddSidHistoryW(hds: Handle, flags: UInt, srcdomain: Pcwstr, srcprincipal: Pcwstr, srcdomaincontroller: Pcwstr, srcdomaincreds: COpaquePointer?, dstdomain: Pcwstr, dstprincipal: Pcwstr): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsAddSidHistoryW((hds?.value ?: 0L).toString(), flags.toInt(), (srcdomain?.value ?: 0L).toString(), (srcprincipal?.value ?: 0L).toString(), (srcdomaincontroller?.value ?: 0L).toString(), (srcdomaincreds?.value ?: 0L).toString(), (dstdomain?.value ?: 0L).toString(), (dstprincipal?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsAddressToSiteNamesA(computername: PCSTR, entrycount: UInt, socketaddresses: Long, sitenames: Long): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsAddressToSiteNamesA(computername.toString(), entrycount.toInt(), socketaddresses.toString(), sitenames.toString()) as Int).toUInt() else 0u
+public actual fun dsAddressToSiteNamesA(computername: Pcstr, entrycount: UInt, socketaddresses: COpaquePointer?, sitenames: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsAddressToSiteNamesA((computername?.value ?: 0L).toString(), entrycount.toInt(), (socketaddresses?.value ?: 0L).toString(), (sitenames?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsAddressToSiteNamesExA(computername: PCSTR, entrycount: UInt, socketaddresses: Long, sitenames: Long, subnetnames: Long): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsAddressToSiteNamesExA(computername.toString(), entrycount.toInt(), socketaddresses.toString(), sitenames.toString(), subnetnames.toString()) as Int).toUInt() else 0u
+public actual fun dsAddressToSiteNamesExA(computername: Pcstr, entrycount: UInt, socketaddresses: COpaquePointer?, sitenames: COpaquePointer?, subnetnames: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsAddressToSiteNamesExA((computername?.value ?: 0L).toString(), entrycount.toInt(), (socketaddresses?.value ?: 0L).toString(), (sitenames?.value ?: 0L).toString(), (subnetnames?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsAddressToSiteNamesExW(computername: PCWSTR, entrycount: UInt, socketaddresses: Long, sitenames: Long, subnetnames: Long): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsAddressToSiteNamesExW(computername.toString(), entrycount.toInt(), socketaddresses.toString(), sitenames.toString(), subnetnames.toString()) as Int).toUInt() else 0u
+public actual fun dsAddressToSiteNamesExW(computername: Pcwstr, entrycount: UInt, socketaddresses: COpaquePointer?, sitenames: COpaquePointer?, subnetnames: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsAddressToSiteNamesExW((computername?.value ?: 0L).toString(), entrycount.toInt(), (socketaddresses?.value ?: 0L).toString(), (sitenames?.value ?: 0L).toString(), (subnetnames?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsAddressToSiteNamesW(computername: PCWSTR, entrycount: UInt, socketaddresses: Long, sitenames: Long): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsAddressToSiteNamesW(computername.toString(), entrycount.toInt(), socketaddresses.toString(), sitenames.toString()) as Int).toUInt() else 0u
+public actual fun dsAddressToSiteNamesW(computername: Pcwstr, entrycount: UInt, socketaddresses: COpaquePointer?, sitenames: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsAddressToSiteNamesW((computername?.value ?: 0L).toString(), entrycount.toInt(), (socketaddresses?.value ?: 0L).toString(), (sitenames?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsBindA(domaincontrollername: PCSTR, dnsdomainname: PCSTR, phds: Long): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsBindA(domaincontrollername.toString(), dnsdomainname.toString(), phds.toString()) as Int).toUInt() else 0u
+public actual fun dsBindA(domaincontrollername: Pcstr, dnsdomainname: Pcstr, phds: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsBindA((domaincontrollername?.value ?: 0L).toString(), (dnsdomainname?.value ?: 0L).toString(), (phds?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsBindByInstanceA(servername: PCSTR, annotation: PCSTR, instanceguid: Long, dnsdomainname: PCSTR, authidentity: Long, serviceprincipalname: PCSTR, bindflags: UInt, phds: Long): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsBindByInstanceA(servername.toString(), annotation.toString(), instanceguid.toString(), dnsdomainname.toString(), authidentity.toString(), serviceprincipalname.toString(), bindflags.toInt(), phds.toString()) as Int).toUInt() else 0u
+public actual fun dsBindByInstanceA(servername: Pcstr, annotation: Pcstr, instanceguid: COpaquePointer?, dnsdomainname: Pcstr, authidentity: COpaquePointer?, serviceprincipalname: Pcstr, bindflags: UInt, phds: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsBindByInstanceA((servername?.value ?: 0L).toString(), (annotation?.value ?: 0L).toString(), (instanceguid?.value ?: 0L).toString(), (dnsdomainname?.value ?: 0L).toString(), (authidentity?.value ?: 0L).toString(), (serviceprincipalname?.value ?: 0L).toString(), bindflags.toInt(), (phds?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsBindByInstanceW(servername: PCWSTR, annotation: PCWSTR, instanceguid: Long, dnsdomainname: PCWSTR, authidentity: Long, serviceprincipalname: PCWSTR, bindflags: UInt, phds: Long): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsBindByInstanceW(servername.toString(), annotation.toString(), instanceguid.toString(), dnsdomainname.toString(), authidentity.toString(), serviceprincipalname.toString(), bindflags.toInt(), phds.toString()) as Int).toUInt() else 0u
+public actual fun dsBindByInstanceW(servername: Pcwstr, annotation: Pcwstr, instanceguid: COpaquePointer?, dnsdomainname: Pcwstr, authidentity: COpaquePointer?, serviceprincipalname: Pcwstr, bindflags: UInt, phds: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsBindByInstanceW((servername?.value ?: 0L).toString(), (annotation?.value ?: 0L).toString(), (instanceguid?.value ?: 0L).toString(), (dnsdomainname?.value ?: 0L).toString(), (authidentity?.value ?: 0L).toString(), (serviceprincipalname?.value ?: 0L).toString(), bindflags.toInt(), (phds?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsBindToISTGA(sitename: PCSTR, phds: Long): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsBindToISTGA(sitename.toString(), phds.toString()) as Int).toUInt() else 0u
+public actual fun dsBindToISTGA(sitename: Pcstr, phds: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsBindToISTGA((sitename?.value ?: 0L).toString(), (phds?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsBindToISTGW(sitename: PCWSTR, phds: Long): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsBindToISTGW(sitename.toString(), phds.toString()) as Int).toUInt() else 0u
+public actual fun dsBindToISTGW(sitename: Pcwstr, phds: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsBindToISTGW((sitename?.value ?: 0L).toString(), (phds?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsBindW(domaincontrollername: PCWSTR, dnsdomainname: PCWSTR, phds: Long): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsBindW(domaincontrollername.toString(), dnsdomainname.toString(), phds.toString()) as Int).toUInt() else 0u
+public actual fun dsBindW(domaincontrollername: Pcwstr, dnsdomainname: Pcwstr, phds: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsBindW((domaincontrollername?.value ?: 0L).toString(), (dnsdomainname?.value ?: 0L).toString(), (phds?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsBindWithCredA(domaincontrollername: PCSTR, dnsdomainname: PCSTR, authidentity: Long, phds: Long): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsBindWithCredA(domaincontrollername.toString(), dnsdomainname.toString(), authidentity.toString(), phds.toString()) as Int).toUInt() else 0u
+public actual fun dsBindWithCredA(domaincontrollername: Pcstr, dnsdomainname: Pcstr, authidentity: COpaquePointer?, phds: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsBindWithCredA((domaincontrollername?.value ?: 0L).toString(), (dnsdomainname?.value ?: 0L).toString(), (authidentity?.value ?: 0L).toString(), (phds?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsBindWithCredW(domaincontrollername: PCWSTR, dnsdomainname: PCWSTR, authidentity: Long, phds: Long): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsBindWithCredW(domaincontrollername.toString(), dnsdomainname.toString(), authidentity.toString(), phds.toString()) as Int).toUInt() else 0u
+public actual fun dsBindWithCredW(domaincontrollername: Pcwstr, dnsdomainname: Pcwstr, authidentity: COpaquePointer?, phds: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsBindWithCredW((domaincontrollername?.value ?: 0L).toString(), (dnsdomainname?.value ?: 0L).toString(), (authidentity?.value ?: 0L).toString(), (phds?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsBindWithSpnA(domaincontrollername: PCSTR, dnsdomainname: PCSTR, authidentity: Long, serviceprincipalname: PCSTR, phds: Long): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsBindWithSpnA(domaincontrollername.toString(), dnsdomainname.toString(), authidentity.toString(), serviceprincipalname.toString(), phds.toString()) as Int).toUInt() else 0u
+public actual fun dsBindWithSpnA(domaincontrollername: Pcstr, dnsdomainname: Pcstr, authidentity: COpaquePointer?, serviceprincipalname: Pcstr, phds: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsBindWithSpnA((domaincontrollername?.value ?: 0L).toString(), (dnsdomainname?.value ?: 0L).toString(), (authidentity?.value ?: 0L).toString(), (serviceprincipalname?.value ?: 0L).toString(), (phds?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsBindWithSpnExA(domaincontrollername: PCSTR, dnsdomainname: PCSTR, authidentity: Long, serviceprincipalname: PCSTR, bindflags: UInt, phds: Long): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsBindWithSpnExA(domaincontrollername.toString(), dnsdomainname.toString(), authidentity.toString(), serviceprincipalname.toString(), bindflags.toInt(), phds.toString()) as Int).toUInt() else 0u
+public actual fun dsBindWithSpnExA(domaincontrollername: Pcstr, dnsdomainname: Pcstr, authidentity: COpaquePointer?, serviceprincipalname: Pcstr, bindflags: UInt, phds: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsBindWithSpnExA((domaincontrollername?.value ?: 0L).toString(), (dnsdomainname?.value ?: 0L).toString(), (authidentity?.value ?: 0L).toString(), (serviceprincipalname?.value ?: 0L).toString(), bindflags.toInt(), (phds?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsBindWithSpnExW(domaincontrollername: PCWSTR, dnsdomainname: PCWSTR, authidentity: Long, serviceprincipalname: PCWSTR, bindflags: UInt, phds: Long): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsBindWithSpnExW(domaincontrollername.toString(), dnsdomainname.toString(), authidentity.toString(), serviceprincipalname.toString(), bindflags.toInt(), phds.toString()) as Int).toUInt() else 0u
+public actual fun dsBindWithSpnExW(domaincontrollername: Pcwstr, dnsdomainname: Pcwstr, authidentity: COpaquePointer?, serviceprincipalname: Pcwstr, bindflags: UInt, phds: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsBindWithSpnExW((domaincontrollername?.value ?: 0L).toString(), (dnsdomainname?.value ?: 0L).toString(), (authidentity?.value ?: 0L).toString(), (serviceprincipalname?.value ?: 0L).toString(), bindflags.toInt(), (phds?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsBindWithSpnW(domaincontrollername: PCWSTR, dnsdomainname: PCWSTR, authidentity: Long, serviceprincipalname: PCWSTR, phds: Long): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsBindWithSpnW(domaincontrollername.toString(), dnsdomainname.toString(), authidentity.toString(), serviceprincipalname.toString(), phds.toString()) as Int).toUInt() else 0u
+public actual fun dsBindWithSpnW(domaincontrollername: Pcwstr, dnsdomainname: Pcwstr, authidentity: COpaquePointer?, serviceprincipalname: Pcwstr, phds: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsBindWithSpnW((domaincontrollername?.value ?: 0L).toString(), (dnsdomainname?.value ?: 0L).toString(), (authidentity?.value ?: 0L).toString(), (serviceprincipalname?.value ?: 0L).toString(), (phds?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsBindingSetTimeout(hds: HANDLE, ctimeoutsecs: UInt): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsBindingSetTimeout(hds.toString(), ctimeoutsecs.toInt()) as Int).toUInt() else 0u
+public actual fun dsBindingSetTimeout(hds: Handle, ctimeoutsecs: UInt): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsBindingSetTimeout((hds?.value ?: 0L).toString(), ctimeoutsecs.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsBrowseForContainerA(pinfo: Long): Int =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsBrowseForContainerA(pinfo.toString()) as Int) else 0
+public actual fun dsBrowseForContainerA(pinfo: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsBrowseForContainerA((pinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsBrowseForContainerW(pinfo: Long): Int =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsBrowseForContainerW(pinfo.toString()) as Int) else 0
+public actual fun dsBrowseForContainerW(pinfo: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsBrowseForContainerW((pinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsClientMakeSpnForTargetServerA(serviceclass: PCSTR, servicename: PCSTR, pcspnlength: Long, pszspn: PSTR): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsClientMakeSpnForTargetServerA(serviceclass.toString(), servicename.toString(), pcspnlength.toString(), pszspn.toString()) as Int).toUInt() else 0u
+public actual fun dsClientMakeSpnForTargetServerA(serviceclass: Pcstr, servicename: Pcstr, pcspnlength: COpaquePointer?, pszspn: Pstr): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsClientMakeSpnForTargetServerA((serviceclass?.value ?: 0L).toString(), (servicename?.value ?: 0L).toString(), (pcspnlength?.value ?: 0L).toString(), (pszspn?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsClientMakeSpnForTargetServerW(serviceclass: PCWSTR, servicename: PCWSTR, pcspnlength: Long, pszspn: PWSTR): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsClientMakeSpnForTargetServerW(serviceclass.toString(), servicename.toString(), pcspnlength.toString(), pszspn.toString()) as Int).toUInt() else 0u
+public actual fun dsClientMakeSpnForTargetServerW(serviceclass: Pcwstr, servicename: Pcwstr, pcspnlength: COpaquePointer?, pszspn: Pwstr): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsClientMakeSpnForTargetServerW((serviceclass?.value ?: 0L).toString(), (servicename?.value ?: 0L).toString(), (pcspnlength?.value ?: 0L).toString(), (pszspn?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsCrackNamesA(hds: HANDLE, flags: DS_NAME_FLAGS, formatoffered: DS_NAME_FORMAT, formatdesired: DS_NAME_FORMAT, cnames: UInt, rpnames: Long, ppresult: Long): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsCrackNamesA(hds.toString(), flags, formatoffered, formatdesired, cnames.toInt(), rpnames.toString(), ppresult.toString()) as Int).toUInt() else 0u
+public actual fun dsCrackNamesA(hds: Handle, flags: DsNameFlags, formatoffered: DsNameFormat, formatdesired: DsNameFormat, cnames: UInt, rpnames: COpaquePointer?, ppresult: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsCrackNamesA((hds?.value ?: 0L).toString(), flags, formatoffered, formatdesired, cnames.toInt(), (rpnames?.value ?: 0L).toString(), (ppresult?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsCrackNamesW(hds: HANDLE, flags: DS_NAME_FLAGS, formatoffered: DS_NAME_FORMAT, formatdesired: DS_NAME_FORMAT, cnames: UInt, rpnames: Long, ppresult: Long): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsCrackNamesW(hds.toString(), flags, formatoffered, formatdesired, cnames.toInt(), rpnames.toString(), ppresult.toString()) as Int).toUInt() else 0u
+public actual fun dsCrackNamesW(hds: Handle, flags: DsNameFlags, formatoffered: DsNameFormat, formatdesired: DsNameFormat, cnames: UInt, rpnames: COpaquePointer?, ppresult: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsCrackNamesW((hds?.value ?: 0L).toString(), flags, formatoffered, formatdesired, cnames.toInt(), (rpnames?.value ?: 0L).toString(), (ppresult?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsCrackSpn2A(pszspn: PCSTR, cspn: UInt, pcserviceclass: Long, serviceclass: PSTR, pcservicename: Long, servicename: PSTR, pcinstancename: Long, instancename: PSTR, pinstanceport: Long): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsCrackSpn2A(pszspn.toString(), cspn.toInt(), pcserviceclass.toString(), serviceclass.toString(), pcservicename.toString(), servicename.toString(), pcinstancename.toString(), instancename.toString(), pinstanceport.toString()) as Int).toUInt() else 0u
+public actual fun dsCrackSpn2A(pszspn: Pcstr, cspn: UInt, pcserviceclass: COpaquePointer?, serviceclass: Pstr, pcservicename: COpaquePointer?, servicename: Pstr, pcinstancename: COpaquePointer?, instancename: Pstr, pinstanceport: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsCrackSpn2A((pszspn?.value ?: 0L).toString(), cspn.toInt(), (pcserviceclass?.value ?: 0L).toString(), (serviceclass?.value ?: 0L).toString(), (pcservicename?.value ?: 0L).toString(), (servicename?.value ?: 0L).toString(), (pcinstancename?.value ?: 0L).toString(), (instancename?.value ?: 0L).toString(), (pinstanceport?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsCrackSpn2W(pszspn: PCWSTR, cspn: UInt, pcserviceclass: Long, serviceclass: PWSTR, pcservicename: Long, servicename: PWSTR, pcinstancename: Long, instancename: PWSTR, pinstanceport: Long): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsCrackSpn2W(pszspn.toString(), cspn.toInt(), pcserviceclass.toString(), serviceclass.toString(), pcservicename.toString(), servicename.toString(), pcinstancename.toString(), instancename.toString(), pinstanceport.toString()) as Int).toUInt() else 0u
+public actual fun dsCrackSpn2W(pszspn: Pcwstr, cspn: UInt, pcserviceclass: COpaquePointer?, serviceclass: Pwstr, pcservicename: COpaquePointer?, servicename: Pwstr, pcinstancename: COpaquePointer?, instancename: Pwstr, pinstanceport: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsCrackSpn2W((pszspn?.value ?: 0L).toString(), cspn.toInt(), (pcserviceclass?.value ?: 0L).toString(), (serviceclass?.value ?: 0L).toString(), (pcservicename?.value ?: 0L).toString(), (servicename?.value ?: 0L).toString(), (pcinstancename?.value ?: 0L).toString(), (instancename?.value ?: 0L).toString(), (pinstanceport?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsCrackSpn3W(pszspn: PCWSTR, cspn: UInt, pchostname: Long, hostname: PWSTR, pcinstancename: Long, instancename: PWSTR, pportnumber: Long, pcdomainname: Long, domainname: PWSTR, pcrealmname: Long, realmname: PWSTR): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsCrackSpn3W(pszspn.toString(), cspn.toInt(), pchostname.toString(), hostname.toString(), pcinstancename.toString(), instancename.toString(), pportnumber.toString(), pcdomainname.toString(), domainname.toString(), pcrealmname.toString(), realmname.toString()) as Int).toUInt() else 0u
+public actual fun dsCrackSpn3W(pszspn: Pcwstr, cspn: UInt, pchostname: COpaquePointer?, hostname: Pwstr, pcinstancename: COpaquePointer?, instancename: Pwstr, pportnumber: COpaquePointer?, pcdomainname: COpaquePointer?, domainname: Pwstr, pcrealmname: COpaquePointer?, realmname: Pwstr): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsCrackSpn3W((pszspn?.value ?: 0L).toString(), cspn.toInt(), (pchostname?.value ?: 0L).toString(), (hostname?.value ?: 0L).toString(), (pcinstancename?.value ?: 0L).toString(), (instancename?.value ?: 0L).toString(), (pportnumber?.value ?: 0L).toString(), (pcdomainname?.value ?: 0L).toString(), (domainname?.value ?: 0L).toString(), (pcrealmname?.value ?: 0L).toString(), (realmname?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsCrackSpn4W(pszspn: PCWSTR, cspn: UInt, pchostname: Long, hostname: PWSTR, pcinstancename: Long, instancename: PWSTR, pcportname: Long, portname: PWSTR, pcdomainname: Long, domainname: PWSTR, pcrealmname: Long, realmname: PWSTR): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsCrackSpn4W(pszspn.toString(), cspn.toInt(), pchostname.toString(), hostname.toString(), pcinstancename.toString(), instancename.toString(), pcportname.toString(), portname.toString(), pcdomainname.toString(), domainname.toString(), pcrealmname.toString(), realmname.toString()) as Int).toUInt() else 0u
+public actual fun dsCrackSpn4W(pszspn: Pcwstr, cspn: UInt, pchostname: COpaquePointer?, hostname: Pwstr, pcinstancename: COpaquePointer?, instancename: Pwstr, pcportname: COpaquePointer?, portname: Pwstr, pcdomainname: COpaquePointer?, domainname: Pwstr, pcrealmname: COpaquePointer?, realmname: Pwstr): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsCrackSpn4W((pszspn?.value ?: 0L).toString(), cspn.toInt(), (pchostname?.value ?: 0L).toString(), (hostname?.value ?: 0L).toString(), (pcinstancename?.value ?: 0L).toString(), (instancename?.value ?: 0L).toString(), (pcportname?.value ?: 0L).toString(), (portname?.value ?: 0L).toString(), (pcdomainname?.value ?: 0L).toString(), (domainname?.value ?: 0L).toString(), (pcrealmname?.value ?: 0L).toString(), (realmname?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsCrackSpnA(pszspn: PCSTR, pcserviceclass: Long, serviceclass: PSTR, pcservicename: Long, servicename: PSTR, pcinstancename: Long, instancename: PSTR, pinstanceport: Long): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsCrackSpnA(pszspn.toString(), pcserviceclass.toString(), serviceclass.toString(), pcservicename.toString(), servicename.toString(), pcinstancename.toString(), instancename.toString(), pinstanceport.toString()) as Int).toUInt() else 0u
+public actual fun dsCrackSpnA(pszspn: Pcstr, pcserviceclass: COpaquePointer?, serviceclass: Pstr, pcservicename: COpaquePointer?, servicename: Pstr, pcinstancename: COpaquePointer?, instancename: Pstr, pinstanceport: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsCrackSpnA((pszspn?.value ?: 0L).toString(), (pcserviceclass?.value ?: 0L).toString(), (serviceclass?.value ?: 0L).toString(), (pcservicename?.value ?: 0L).toString(), (servicename?.value ?: 0L).toString(), (pcinstancename?.value ?: 0L).toString(), (instancename?.value ?: 0L).toString(), (pinstanceport?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsCrackSpnW(pszspn: PCWSTR, pcserviceclass: Long, serviceclass: PWSTR, pcservicename: Long, servicename: PWSTR, pcinstancename: Long, instancename: PWSTR, pinstanceport: Long): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsCrackSpnW(pszspn.toString(), pcserviceclass.toString(), serviceclass.toString(), pcservicename.toString(), servicename.toString(), pcinstancename.toString(), instancename.toString(), pinstanceport.toString()) as Int).toUInt() else 0u
+public actual fun dsCrackSpnW(pszspn: Pcwstr, pcserviceclass: COpaquePointer?, serviceclass: Pwstr, pcservicename: COpaquePointer?, servicename: Pwstr, pcinstancename: COpaquePointer?, instancename: Pwstr, pinstanceport: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsCrackSpnW((pszspn?.value ?: 0L).toString(), (pcserviceclass?.value ?: 0L).toString(), (serviceclass?.value ?: 0L).toString(), (pcservicename?.value ?: 0L).toString(), (servicename?.value ?: 0L).toString(), (pcinstancename?.value ?: 0L).toString(), (instancename?.value ?: 0L).toString(), (pinstanceport?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsCrackUnquotedMangledRdnA(pszrdn: PCSTR, cchrdn: UInt, pguid: Long, pedsmanglefor: Long): BOOL =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsCrackUnquotedMangledRdnA(pszrdn.toString(), cchrdn.toInt(), pguid.toString(), pedsmanglefor.toString()) as Int) else 0
+public actual fun dsCrackUnquotedMangledRdnA(pszrdn: Pcstr, cchrdn: UInt, pguid: COpaquePointer?, pedsmanglefor: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsCrackUnquotedMangledRdnA((pszrdn?.value ?: 0L).toString(), cchrdn.toInt(), (pguid?.value ?: 0L).toString(), (pedsmanglefor?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsCrackUnquotedMangledRdnW(pszrdn: PCWSTR, cchrdn: UInt, pguid: Long, pedsmanglefor: Long): BOOL =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsCrackUnquotedMangledRdnW(pszrdn.toString(), cchrdn.toInt(), pguid.toString(), pedsmanglefor.toString()) as Int) else 0
+public actual fun dsCrackUnquotedMangledRdnW(pszrdn: Pcwstr, cchrdn: UInt, pguid: COpaquePointer?, pedsmanglefor: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsCrackUnquotedMangledRdnW((pszrdn?.value ?: 0L).toString(), cchrdn.toInt(), (pguid?.value ?: 0L).toString(), (pedsmanglefor?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsDeregisterDnsHostRecordsA(servername: PCSTR, dnsdomainname: PCSTR, domainguid: Long, dsaguid: Long, dnshostname: PCSTR): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsDeregisterDnsHostRecordsA(servername.toString(), dnsdomainname.toString(), domainguid.toString(), dsaguid.toString(), dnshostname.toString()) as Int).toUInt() else 0u
+public actual fun dsDeregisterDnsHostRecordsA(servername: Pcstr, dnsdomainname: Pcstr, domainguid: COpaquePointer?, dsaguid: COpaquePointer?, dnshostname: Pcstr): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsDeregisterDnsHostRecordsA((servername?.value ?: 0L).toString(), (dnsdomainname?.value ?: 0L).toString(), (domainguid?.value ?: 0L).toString(), (dsaguid?.value ?: 0L).toString(), (dnshostname?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsDeregisterDnsHostRecordsW(servername: PCWSTR, dnsdomainname: PCWSTR, domainguid: Long, dsaguid: Long, dnshostname: PCWSTR): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsDeregisterDnsHostRecordsW(servername.toString(), dnsdomainname.toString(), domainguid.toString(), dsaguid.toString(), dnshostname.toString()) as Int).toUInt() else 0u
+public actual fun dsDeregisterDnsHostRecordsW(servername: Pcwstr, dnsdomainname: Pcwstr, domainguid: COpaquePointer?, dsaguid: COpaquePointer?, dnshostname: Pcwstr): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsDeregisterDnsHostRecordsW((servername?.value ?: 0L).toString(), (dnsdomainname?.value ?: 0L).toString(), (domainguid?.value ?: 0L).toString(), (dsaguid?.value ?: 0L).toString(), (dnshostname?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsEnumerateDomainTrustsA(servername: PCSTR, flags: UInt, domains: Long, domaincount: Long): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsEnumerateDomainTrustsA(servername.toString(), flags.toInt(), domains.toString(), domaincount.toString()) as Int).toUInt() else 0u
+public actual fun dsEnumerateDomainTrustsA(servername: Pcstr, flags: UInt, domains: COpaquePointer?, domaincount: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsEnumerateDomainTrustsA((servername?.value ?: 0L).toString(), flags.toInt(), (domains?.value ?: 0L).toString(), (domaincount?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsEnumerateDomainTrustsW(servername: PCWSTR, flags: UInt, domains: Long, domaincount: Long): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsEnumerateDomainTrustsW(servername.toString(), flags.toInt(), domains.toString(), domaincount.toString()) as Int).toUInt() else 0u
+public actual fun dsEnumerateDomainTrustsW(servername: Pcwstr, flags: UInt, domains: COpaquePointer?, domaincount: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsEnumerateDomainTrustsW((servername?.value ?: 0L).toString(), flags.toInt(), (domains?.value ?: 0L).toString(), (domaincount?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsFreeDomainControllerInfoA(infolevel: UInt, cinfo: UInt, pinfo: Long) {
+public actual fun dsFreeDomainControllerInfoA(infolevel: UInt, cinfo: UInt, pinfo: COpaquePointer?) {
     if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) {
-        _windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsFreeDomainControllerInfoA(infolevel.toInt(), cinfo.toInt(), pinfo.toString())
+        _windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsFreeDomainControllerInfoA(infolevel.toInt(), cinfo.toInt(), (pinfo?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun DsFreeDomainControllerInfoW(infolevel: UInt, cinfo: UInt, pinfo: Long) {
+public actual fun dsFreeDomainControllerInfoW(infolevel: UInt, cinfo: UInt, pinfo: COpaquePointer?) {
     if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) {
-        _windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsFreeDomainControllerInfoW(infolevel.toInt(), cinfo.toInt(), pinfo.toString())
+        _windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsFreeDomainControllerInfoW(infolevel.toInt(), cinfo.toInt(), (pinfo?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun DsFreeNameResultA(presult: Long) {
+public actual fun dsFreeNameResultA(presult: COpaquePointer?) {
     if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) {
-        _windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsFreeNameResultA(presult.toString())
+        _windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsFreeNameResultA((presult?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun DsFreeNameResultW(presult: Long) {
+public actual fun dsFreeNameResultW(presult: COpaquePointer?) {
     if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) {
-        _windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsFreeNameResultW(presult.toString())
+        _windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsFreeNameResultW((presult?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun DsFreePasswordCredentials(authidentity: Long) {
+public actual fun dsFreePasswordCredentials(authidentity: COpaquePointer?) {
     if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) {
-        _windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsFreePasswordCredentials(authidentity.toString())
+        _windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsFreePasswordCredentials((authidentity?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun DsFreeSchemaGuidMapA(pguidmap: Long) {
+public actual fun dsFreeSchemaGuidMapA(pguidmap: COpaquePointer?) {
     if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) {
-        _windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsFreeSchemaGuidMapA(pguidmap.toString())
+        _windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsFreeSchemaGuidMapA((pguidmap?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun DsFreeSchemaGuidMapW(pguidmap: Long) {
+public actual fun dsFreeSchemaGuidMapW(pguidmap: COpaquePointer?) {
     if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) {
-        _windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsFreeSchemaGuidMapW(pguidmap.toString())
+        _windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsFreeSchemaGuidMapW((pguidmap?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun DsFreeSpnArrayA(cspn: UInt, rpszspn: Long) {
+public actual fun dsFreeSpnArrayA(cspn: UInt, rpszspn: COpaquePointer?) {
     if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) {
-        _windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsFreeSpnArrayA(cspn.toInt(), rpszspn.toString())
+        _windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsFreeSpnArrayA(cspn.toInt(), (rpszspn?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun DsFreeSpnArrayW(cspn: UInt, rpszspn: Long) {
+public actual fun dsFreeSpnArrayW(cspn: UInt, rpszspn: COpaquePointer?) {
     if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) {
-        _windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsFreeSpnArrayW(cspn.toInt(), rpszspn.toString())
+        _windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsFreeSpnArrayW(cspn.toInt(), (rpszspn?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun DsGetDcCloseW(getdccontexthandle: HANDLE) {
+public actual fun dsGetDcCloseW(getdccontexthandle: Handle) {
     if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) {
-        _windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsGetDcCloseW(getdccontexthandle.toString())
+        _windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsGetDcCloseW((getdccontexthandle?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun DsGetDcNameA(computername: PCSTR, domainname: PCSTR, domainguid: Long, sitename: PCSTR, flags: UInt, domaincontrollerinfo: Long): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsGetDcNameA(computername.toString(), domainname.toString(), domainguid.toString(), sitename.toString(), flags.toInt(), domaincontrollerinfo.toString()) as Int).toUInt() else 0u
+public actual fun dsGetDcNameA(computername: Pcstr, domainname: Pcstr, domainguid: COpaquePointer?, sitename: Pcstr, flags: UInt, domaincontrollerinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsGetDcNameA((computername?.value ?: 0L).toString(), (domainname?.value ?: 0L).toString(), (domainguid?.value ?: 0L).toString(), (sitename?.value ?: 0L).toString(), flags.toInt(), (domaincontrollerinfo?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsGetDcNameW(computername: PCWSTR, domainname: PCWSTR, domainguid: Long, sitename: PCWSTR, flags: UInt, domaincontrollerinfo: Long): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsGetDcNameW(computername.toString(), domainname.toString(), domainguid.toString(), sitename.toString(), flags.toInt(), domaincontrollerinfo.toString()) as Int).toUInt() else 0u
+public actual fun dsGetDcNameW(computername: Pcwstr, domainname: Pcwstr, domainguid: COpaquePointer?, sitename: Pcwstr, flags: UInt, domaincontrollerinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsGetDcNameW((computername?.value ?: 0L).toString(), (domainname?.value ?: 0L).toString(), (domainguid?.value ?: 0L).toString(), (sitename?.value ?: 0L).toString(), flags.toInt(), (domaincontrollerinfo?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsGetDcNextA(getdccontexthandle: HANDLE, sockaddresscount: Long, sockaddresses: Long, dnshostname: Long): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsGetDcNextA(getdccontexthandle.toString(), sockaddresscount.toString(), sockaddresses.toString(), dnshostname.toString()) as Int).toUInt() else 0u
+public actual fun dsGetDcNextA(getdccontexthandle: Handle, sockaddresscount: COpaquePointer?, sockaddresses: COpaquePointer?, dnshostname: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsGetDcNextA((getdccontexthandle?.value ?: 0L).toString(), (sockaddresscount?.value ?: 0L).toString(), (sockaddresses?.value ?: 0L).toString(), (dnshostname?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsGetDcNextW(getdccontexthandle: HANDLE, sockaddresscount: Long, sockaddresses: Long, dnshostname: Long): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsGetDcNextW(getdccontexthandle.toString(), sockaddresscount.toString(), sockaddresses.toString(), dnshostname.toString()) as Int).toUInt() else 0u
+public actual fun dsGetDcNextW(getdccontexthandle: Handle, sockaddresscount: COpaquePointer?, sockaddresses: COpaquePointer?, dnshostname: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsGetDcNextW((getdccontexthandle?.value ?: 0L).toString(), (sockaddresscount?.value ?: 0L).toString(), (sockaddresses?.value ?: 0L).toString(), (dnshostname?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsGetDcOpenA(dnsname: PCSTR, optionflags: UInt, sitename: PCSTR, domainguid: Long, dnsforestname: PCSTR, dcflags: UInt, retgetdccontext: Long): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsGetDcOpenA(dnsname.toString(), optionflags.toInt(), sitename.toString(), domainguid.toString(), dnsforestname.toString(), dcflags.toInt(), retgetdccontext.toString()) as Int).toUInt() else 0u
+public actual fun dsGetDcOpenA(dnsname: Pcstr, optionflags: UInt, sitename: Pcstr, domainguid: COpaquePointer?, dnsforestname: Pcstr, dcflags: UInt, retgetdccontext: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsGetDcOpenA((dnsname?.value ?: 0L).toString(), optionflags.toInt(), (sitename?.value ?: 0L).toString(), (domainguid?.value ?: 0L).toString(), (dnsforestname?.value ?: 0L).toString(), dcflags.toInt(), (retgetdccontext?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsGetDcOpenW(dnsname: PCWSTR, optionflags: UInt, sitename: PCWSTR, domainguid: Long, dnsforestname: PCWSTR, dcflags: UInt, retgetdccontext: Long): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsGetDcOpenW(dnsname.toString(), optionflags.toInt(), sitename.toString(), domainguid.toString(), dnsforestname.toString(), dcflags.toInt(), retgetdccontext.toString()) as Int).toUInt() else 0u
+public actual fun dsGetDcOpenW(dnsname: Pcwstr, optionflags: UInt, sitename: Pcwstr, domainguid: COpaquePointer?, dnsforestname: Pcwstr, dcflags: UInt, retgetdccontext: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsGetDcOpenW((dnsname?.value ?: 0L).toString(), optionflags.toInt(), (sitename?.value ?: 0L).toString(), (domainguid?.value ?: 0L).toString(), (dnsforestname?.value ?: 0L).toString(), dcflags.toInt(), (retgetdccontext?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsGetDcSiteCoverageA(servername: PCSTR, entrycount: Long, sitenames: Long): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsGetDcSiteCoverageA(servername.toString(), entrycount.toString(), sitenames.toString()) as Int).toUInt() else 0u
+public actual fun dsGetDcSiteCoverageA(servername: Pcstr, entrycount: COpaquePointer?, sitenames: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsGetDcSiteCoverageA((servername?.value ?: 0L).toString(), (entrycount?.value ?: 0L).toString(), (sitenames?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsGetDcSiteCoverageW(servername: PCWSTR, entrycount: Long, sitenames: Long): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsGetDcSiteCoverageW(servername.toString(), entrycount.toString(), sitenames.toString()) as Int).toUInt() else 0u
+public actual fun dsGetDcSiteCoverageW(servername: Pcwstr, entrycount: COpaquePointer?, sitenames: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsGetDcSiteCoverageW((servername?.value ?: 0L).toString(), (entrycount?.value ?: 0L).toString(), (sitenames?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsGetDomainControllerInfoA(hds: HANDLE, domainname: PCSTR, infolevel: UInt, pcout: Long, ppinfo: Long): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsGetDomainControllerInfoA(hds.toString(), domainname.toString(), infolevel.toInt(), pcout.toString(), ppinfo.toString()) as Int).toUInt() else 0u
+public actual fun dsGetDomainControllerInfoA(hds: Handle, domainname: Pcstr, infolevel: UInt, pcout: COpaquePointer?, ppinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsGetDomainControllerInfoA((hds?.value ?: 0L).toString(), (domainname?.value ?: 0L).toString(), infolevel.toInt(), (pcout?.value ?: 0L).toString(), (ppinfo?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsGetDomainControllerInfoW(hds: HANDLE, domainname: PCWSTR, infolevel: UInt, pcout: Long, ppinfo: Long): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsGetDomainControllerInfoW(hds.toString(), domainname.toString(), infolevel.toInt(), pcout.toString(), ppinfo.toString()) as Int).toUInt() else 0u
+public actual fun dsGetDomainControllerInfoW(hds: Handle, domainname: Pcwstr, infolevel: UInt, pcout: COpaquePointer?, ppinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsGetDomainControllerInfoW((hds?.value ?: 0L).toString(), (domainname?.value ?: 0L).toString(), infolevel.toInt(), (pcout?.value ?: 0L).toString(), (ppinfo?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsGetForestTrustInformationW(servername: PCWSTR, trusteddomainname: PCWSTR, flags: UInt, foresttrustinfo: Long): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsGetForestTrustInformationW(servername.toString(), trusteddomainname.toString(), flags.toInt(), foresttrustinfo.toString()) as Int).toUInt() else 0u
+public actual fun dsGetForestTrustInformationW(servername: Pcwstr, trusteddomainname: Pcwstr, flags: UInt, foresttrustinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsGetForestTrustInformationW((servername?.value ?: 0L).toString(), (trusteddomainname?.value ?: 0L).toString(), flags.toInt(), (foresttrustinfo?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsGetFriendlyClassName(pszobjectclass: PCWSTR, pszbuffer: PWSTR, cchbuffer: UInt): HRESULT =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsGetFriendlyClassName(pszobjectclass.toString(), pszbuffer.toString(), cchbuffer.toInt()) as Int) else 0
+public actual fun dsGetFriendlyClassName(pszobjectclass: Pcwstr, pszbuffer: Pwstr, cchbuffer: UInt): Hresult =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsGetFriendlyClassName((pszobjectclass?.value ?: 0L).toString(), (pszbuffer?.value ?: 0L).toString(), cchbuffer.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsGetIcon(dwflags: UInt, pszobjectclass: PCWSTR, cximage: Int, cyimage: Int): HICON =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsGetIcon(dwflags.toInt(), pszobjectclass.toString(), cximage, cyimage) as String).toLong() else 0L
+public actual fun dsGetIcon(dwflags: UInt, pszobjectclass: Pcwstr, cximage: Int, cyimage: Int): Hicon =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsGetIcon(dwflags.toInt(), (pszobjectclass?.value ?: 0L).toString(), cximage, cyimage) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsGetRdnW(ppdn: Long, pcdn: Long, ppkey: Long, pckey: Long, ppval: Long, pcval: Long): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsGetRdnW(ppdn.toString(), pcdn.toString(), ppkey.toString(), pckey.toString(), ppval.toString(), pcval.toString()) as Int).toUInt() else 0u
+public actual fun dsGetRdnW(ppdn: COpaquePointer?, pcdn: COpaquePointer?, ppkey: COpaquePointer?, pckey: COpaquePointer?, ppval: COpaquePointer?, pcval: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsGetRdnW((ppdn?.value ?: 0L).toString(), (pcdn?.value ?: 0L).toString(), (ppkey?.value ?: 0L).toString(), (pckey?.value ?: 0L).toString(), (ppval?.value ?: 0L).toString(), (pcval?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsGetSiteNameA(computername: PCSTR, sitename: Long): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsGetSiteNameA(computername.toString(), sitename.toString()) as Int).toUInt() else 0u
+public actual fun dsGetSiteNameA(computername: Pcstr, sitename: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsGetSiteNameA((computername?.value ?: 0L).toString(), (sitename?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsGetSiteNameW(computername: PCWSTR, sitename: Long): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsGetSiteNameW(computername.toString(), sitename.toString()) as Int).toUInt() else 0u
+public actual fun dsGetSiteNameW(computername: Pcwstr, sitename: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsGetSiteNameW((computername?.value ?: 0L).toString(), (sitename?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsGetSpnA(servicetype: DS_SPN_NAME_TYPE, serviceclass: PCSTR, servicename: PCSTR, instanceport: UShort, cinstancenames: UShort, pinstancenames: Long, pinstanceports: Long, pcspn: Long, prpszspn: Long): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsGetSpnA(servicetype, serviceclass.toString(), servicename.toString(), instanceport.toInt(), cinstancenames.toInt(), pinstancenames.toString(), pinstanceports.toString(), pcspn.toString(), prpszspn.toString()) as Int).toUInt() else 0u
+public actual fun dsGetSpnA(servicetype: DsSpnNameType, serviceclass: Pcstr, servicename: Pcstr, instanceport: UShort, cinstancenames: UShort, pinstancenames: COpaquePointer?, pinstanceports: COpaquePointer?, pcspn: COpaquePointer?, prpszspn: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsGetSpnA(servicetype, (serviceclass?.value ?: 0L).toString(), (servicename?.value ?: 0L).toString(), instanceport.toInt(), cinstancenames.toInt(), (pinstancenames?.value ?: 0L).toString(), (pinstanceports?.value ?: 0L).toString(), (pcspn?.value ?: 0L).toString(), (prpszspn?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsGetSpnW(servicetype: DS_SPN_NAME_TYPE, serviceclass: PCWSTR, servicename: PCWSTR, instanceport: UShort, cinstancenames: UShort, pinstancenames: Long, pinstanceports: Long, pcspn: Long, prpszspn: Long): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsGetSpnW(servicetype, serviceclass.toString(), servicename.toString(), instanceport.toInt(), cinstancenames.toInt(), pinstancenames.toString(), pinstanceports.toString(), pcspn.toString(), prpszspn.toString()) as Int).toUInt() else 0u
+public actual fun dsGetSpnW(servicetype: DsSpnNameType, serviceclass: Pcwstr, servicename: Pcwstr, instanceport: UShort, cinstancenames: UShort, pinstancenames: COpaquePointer?, pinstanceports: COpaquePointer?, pcspn: COpaquePointer?, prpszspn: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsGetSpnW(servicetype, (serviceclass?.value ?: 0L).toString(), (servicename?.value ?: 0L).toString(), instanceport.toInt(), cinstancenames.toInt(), (pinstancenames?.value ?: 0L).toString(), (pinstanceports?.value ?: 0L).toString(), (pcspn?.value ?: 0L).toString(), (prpszspn?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsInheritSecurityIdentityA(hds: HANDLE, flags: UInt, srcprincipal: PCSTR, dstprincipal: PCSTR): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsInheritSecurityIdentityA(hds.toString(), flags.toInt(), srcprincipal.toString(), dstprincipal.toString()) as Int).toUInt() else 0u
+public actual fun dsInheritSecurityIdentityA(hds: Handle, flags: UInt, srcprincipal: Pcstr, dstprincipal: Pcstr): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsInheritSecurityIdentityA((hds?.value ?: 0L).toString(), flags.toInt(), (srcprincipal?.value ?: 0L).toString(), (dstprincipal?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsInheritSecurityIdentityW(hds: HANDLE, flags: UInt, srcprincipal: PCWSTR, dstprincipal: PCWSTR): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsInheritSecurityIdentityW(hds.toString(), flags.toInt(), srcprincipal.toString(), dstprincipal.toString()) as Int).toUInt() else 0u
+public actual fun dsInheritSecurityIdentityW(hds: Handle, flags: UInt, srcprincipal: Pcwstr, dstprincipal: Pcwstr): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsInheritSecurityIdentityW((hds?.value ?: 0L).toString(), flags.toInt(), (srcprincipal?.value ?: 0L).toString(), (dstprincipal?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsIsMangledDnA(pszdn: PCSTR, edsmanglefor: DS_MANGLE_FOR): BOOL =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsIsMangledDnA(pszdn.toString(), edsmanglefor) as Int) else 0
+public actual fun dsIsMangledDnA(pszdn: Pcstr, edsmanglefor: DsMangleFor): Bool =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsIsMangledDnA((pszdn?.value ?: 0L).toString(), edsmanglefor) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsIsMangledDnW(pszdn: PCWSTR, edsmanglefor: DS_MANGLE_FOR): BOOL =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsIsMangledDnW(pszdn.toString(), edsmanglefor) as Int) else 0
+public actual fun dsIsMangledDnW(pszdn: Pcwstr, edsmanglefor: DsMangleFor): Bool =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsIsMangledDnW((pszdn?.value ?: 0L).toString(), edsmanglefor) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsIsMangledRdnValueA(pszrdn: PCSTR, crdn: UInt, edsmanglefordesired: DS_MANGLE_FOR): BOOL =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsIsMangledRdnValueA(pszrdn.toString(), crdn.toInt(), edsmanglefordesired) as Int) else 0
+public actual fun dsIsMangledRdnValueA(pszrdn: Pcstr, crdn: UInt, edsmanglefordesired: DsMangleFor): Bool =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsIsMangledRdnValueA((pszrdn?.value ?: 0L).toString(), crdn.toInt(), edsmanglefordesired) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsIsMangledRdnValueW(pszrdn: PCWSTR, crdn: UInt, edsmanglefordesired: DS_MANGLE_FOR): BOOL =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsIsMangledRdnValueW(pszrdn.toString(), crdn.toInt(), edsmanglefordesired) as Int) else 0
+public actual fun dsIsMangledRdnValueW(pszrdn: Pcwstr, crdn: UInt, edsmanglefordesired: DsMangleFor): Bool =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsIsMangledRdnValueW((pszrdn?.value ?: 0L).toString(), crdn.toInt(), edsmanglefordesired) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsListDomainsInSiteA(hds: HANDLE, site: PCSTR, ppdomains: Long): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsListDomainsInSiteA(hds.toString(), site.toString(), ppdomains.toString()) as Int).toUInt() else 0u
+public actual fun dsListDomainsInSiteA(hds: Handle, site: Pcstr, ppdomains: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsListDomainsInSiteA((hds?.value ?: 0L).toString(), (site?.value ?: 0L).toString(), (ppdomains?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsListDomainsInSiteW(hds: HANDLE, site: PCWSTR, ppdomains: Long): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsListDomainsInSiteW(hds.toString(), site.toString(), ppdomains.toString()) as Int).toUInt() else 0u
+public actual fun dsListDomainsInSiteW(hds: Handle, site: Pcwstr, ppdomains: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsListDomainsInSiteW((hds?.value ?: 0L).toString(), (site?.value ?: 0L).toString(), (ppdomains?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsListInfoForServerA(hds: HANDLE, server: PCSTR, ppinfo: Long): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsListInfoForServerA(hds.toString(), server.toString(), ppinfo.toString()) as Int).toUInt() else 0u
+public actual fun dsListInfoForServerA(hds: Handle, server: Pcstr, ppinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsListInfoForServerA((hds?.value ?: 0L).toString(), (server?.value ?: 0L).toString(), (ppinfo?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsListInfoForServerW(hds: HANDLE, server: PCWSTR, ppinfo: Long): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsListInfoForServerW(hds.toString(), server.toString(), ppinfo.toString()) as Int).toUInt() else 0u
+public actual fun dsListInfoForServerW(hds: Handle, server: Pcwstr, ppinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsListInfoForServerW((hds?.value ?: 0L).toString(), (server?.value ?: 0L).toString(), (ppinfo?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsListRolesA(hds: HANDLE, pproles: Long): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsListRolesA(hds.toString(), pproles.toString()) as Int).toUInt() else 0u
+public actual fun dsListRolesA(hds: Handle, pproles: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsListRolesA((hds?.value ?: 0L).toString(), (pproles?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsListRolesW(hds: HANDLE, pproles: Long): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsListRolesW(hds.toString(), pproles.toString()) as Int).toUInt() else 0u
+public actual fun dsListRolesW(hds: Handle, pproles: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsListRolesW((hds?.value ?: 0L).toString(), (pproles?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsListServersForDomainInSiteA(hds: HANDLE, domain: PCSTR, site: PCSTR, ppservers: Long): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsListServersForDomainInSiteA(hds.toString(), domain.toString(), site.toString(), ppservers.toString()) as Int).toUInt() else 0u
+public actual fun dsListServersForDomainInSiteA(hds: Handle, domain: Pcstr, site: Pcstr, ppservers: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsListServersForDomainInSiteA((hds?.value ?: 0L).toString(), (domain?.value ?: 0L).toString(), (site?.value ?: 0L).toString(), (ppservers?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsListServersForDomainInSiteW(hds: HANDLE, domain: PCWSTR, site: PCWSTR, ppservers: Long): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsListServersForDomainInSiteW(hds.toString(), domain.toString(), site.toString(), ppservers.toString()) as Int).toUInt() else 0u
+public actual fun dsListServersForDomainInSiteW(hds: Handle, domain: Pcwstr, site: Pcwstr, ppservers: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsListServersForDomainInSiteW((hds?.value ?: 0L).toString(), (domain?.value ?: 0L).toString(), (site?.value ?: 0L).toString(), (ppservers?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsListServersInSiteA(hds: HANDLE, site: PCSTR, ppservers: Long): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsListServersInSiteA(hds.toString(), site.toString(), ppservers.toString()) as Int).toUInt() else 0u
+public actual fun dsListServersInSiteA(hds: Handle, site: Pcstr, ppservers: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsListServersInSiteA((hds?.value ?: 0L).toString(), (site?.value ?: 0L).toString(), (ppservers?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsListServersInSiteW(hds: HANDLE, site: PCWSTR, ppservers: Long): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsListServersInSiteW(hds.toString(), site.toString(), ppservers.toString()) as Int).toUInt() else 0u
+public actual fun dsListServersInSiteW(hds: Handle, site: Pcwstr, ppservers: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsListServersInSiteW((hds?.value ?: 0L).toString(), (site?.value ?: 0L).toString(), (ppservers?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsListSitesA(hds: HANDLE, ppsites: Long): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsListSitesA(hds.toString(), ppsites.toString()) as Int).toUInt() else 0u
+public actual fun dsListSitesA(hds: Handle, ppsites: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsListSitesA((hds?.value ?: 0L).toString(), (ppsites?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsListSitesW(hds: HANDLE, ppsites: Long): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsListSitesW(hds.toString(), ppsites.toString()) as Int).toUInt() else 0u
+public actual fun dsListSitesW(hds: Handle, ppsites: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsListSitesW((hds?.value ?: 0L).toString(), (ppsites?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsMakePasswordCredentialsA(user: PCSTR, domain: PCSTR, password: PCSTR, pauthidentity: Long): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsMakePasswordCredentialsA(user.toString(), domain.toString(), password.toString(), pauthidentity.toString()) as Int).toUInt() else 0u
+public actual fun dsMakePasswordCredentialsA(user: Pcstr, domain: Pcstr, password: Pcstr, pauthidentity: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsMakePasswordCredentialsA((user?.value ?: 0L).toString(), (domain?.value ?: 0L).toString(), (password?.value ?: 0L).toString(), (pauthidentity?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsMakePasswordCredentialsW(user: PCWSTR, domain: PCWSTR, password: PCWSTR, pauthidentity: Long): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsMakePasswordCredentialsW(user.toString(), domain.toString(), password.toString(), pauthidentity.toString()) as Int).toUInt() else 0u
+public actual fun dsMakePasswordCredentialsW(user: Pcwstr, domain: Pcwstr, password: Pcwstr, pauthidentity: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsMakePasswordCredentialsW((user?.value ?: 0L).toString(), (domain?.value ?: 0L).toString(), (password?.value ?: 0L).toString(), (pauthidentity?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsMakeSpnA(serviceclass: PCSTR, servicename: PCSTR, instancename: PCSTR, instanceport: UShort, referrer: PCSTR, pcspnlength: Long, pszspn: PSTR): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsMakeSpnA(serviceclass.toString(), servicename.toString(), instancename.toString(), instanceport.toInt(), referrer.toString(), pcspnlength.toString(), pszspn.toString()) as Int).toUInt() else 0u
+public actual fun dsMakeSpnA(serviceclass: Pcstr, servicename: Pcstr, instancename: Pcstr, instanceport: UShort, referrer: Pcstr, pcspnlength: COpaquePointer?, pszspn: Pstr): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsMakeSpnA((serviceclass?.value ?: 0L).toString(), (servicename?.value ?: 0L).toString(), (instancename?.value ?: 0L).toString(), instanceport.toInt(), (referrer?.value ?: 0L).toString(), (pcspnlength?.value ?: 0L).toString(), (pszspn?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsMakeSpnW(serviceclass: PCWSTR, servicename: PCWSTR, instancename: PCWSTR, instanceport: UShort, referrer: PCWSTR, pcspnlength: Long, pszspn: PWSTR): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsMakeSpnW(serviceclass.toString(), servicename.toString(), instancename.toString(), instanceport.toInt(), referrer.toString(), pcspnlength.toString(), pszspn.toString()) as Int).toUInt() else 0u
+public actual fun dsMakeSpnW(serviceclass: Pcwstr, servicename: Pcwstr, instancename: Pcwstr, instanceport: UShort, referrer: Pcwstr, pcspnlength: COpaquePointer?, pszspn: Pwstr): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsMakeSpnW((serviceclass?.value ?: 0L).toString(), (servicename?.value ?: 0L).toString(), (instancename?.value ?: 0L).toString(), instanceport.toInt(), (referrer?.value ?: 0L).toString(), (pcspnlength?.value ?: 0L).toString(), (pszspn?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsMapSchemaGuidsA(hds: HANDLE, cguids: UInt, rguids: Long, ppguidmap: Long): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsMapSchemaGuidsA(hds.toString(), cguids.toInt(), rguids.toString(), ppguidmap.toString()) as Int).toUInt() else 0u
+public actual fun dsMapSchemaGuidsA(hds: Handle, cguids: UInt, rguids: COpaquePointer?, ppguidmap: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsMapSchemaGuidsA((hds?.value ?: 0L).toString(), cguids.toInt(), (rguids?.value ?: 0L).toString(), (ppguidmap?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsMapSchemaGuidsW(hds: HANDLE, cguids: UInt, rguids: Long, ppguidmap: Long): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsMapSchemaGuidsW(hds.toString(), cguids.toInt(), rguids.toString(), ppguidmap.toString()) as Int).toUInt() else 0u
+public actual fun dsMapSchemaGuidsW(hds: Handle, cguids: UInt, rguids: COpaquePointer?, ppguidmap: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsMapSchemaGuidsW((hds?.value ?: 0L).toString(), cguids.toInt(), (rguids?.value ?: 0L).toString(), (ppguidmap?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsMergeForestTrustInformationW(domainname: PCWSTR, newforesttrustinfo: Long, oldforesttrustinfo: Long, mergedforesttrustinfo: Long): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsMergeForestTrustInformationW(domainname.toString(), newforesttrustinfo.toString(), oldforesttrustinfo.toString(), mergedforesttrustinfo.toString()) as Int).toUInt() else 0u
+public actual fun dsMergeForestTrustInformationW(domainname: Pcwstr, newforesttrustinfo: COpaquePointer?, oldforesttrustinfo: COpaquePointer?, mergedforesttrustinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsMergeForestTrustInformationW((domainname?.value ?: 0L).toString(), (newforesttrustinfo?.value ?: 0L).toString(), (oldforesttrustinfo?.value ?: 0L).toString(), (mergedforesttrustinfo?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsQuerySitesByCostA(hds: HANDLE, pszfromsite: PCSTR, rgsztosites: Long, ctosites: UInt, dwflags: UInt, prgsiteinfo: Long): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsQuerySitesByCostA(hds.toString(), pszfromsite.toString(), rgsztosites.toString(), ctosites.toInt(), dwflags.toInt(), prgsiteinfo.toString()) as Int).toUInt() else 0u
+public actual fun dsQuerySitesByCostA(hds: Handle, pszfromsite: Pcstr, rgsztosites: COpaquePointer?, ctosites: UInt, dwflags: UInt, prgsiteinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsQuerySitesByCostA((hds?.value ?: 0L).toString(), (pszfromsite?.value ?: 0L).toString(), (rgsztosites?.value ?: 0L).toString(), ctosites.toInt(), dwflags.toInt(), (prgsiteinfo?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsQuerySitesByCostW(hds: HANDLE, pwszfromsite: PCWSTR, rgwsztosites: Long, ctosites: UInt, dwflags: UInt, prgsiteinfo: Long): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsQuerySitesByCostW(hds.toString(), pwszfromsite.toString(), rgwsztosites.toString(), ctosites.toInt(), dwflags.toInt(), prgsiteinfo.toString()) as Int).toUInt() else 0u
+public actual fun dsQuerySitesByCostW(hds: Handle, pwszfromsite: Pcwstr, rgwsztosites: COpaquePointer?, ctosites: UInt, dwflags: UInt, prgsiteinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsQuerySitesByCostW((hds?.value ?: 0L).toString(), (pwszfromsite?.value ?: 0L).toString(), (rgwsztosites?.value ?: 0L).toString(), ctosites.toInt(), dwflags.toInt(), (prgsiteinfo?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsQuerySitesFree(rgsiteinfo: Long) {
+public actual fun dsQuerySitesFree(rgsiteinfo: COpaquePointer?) {
     if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) {
-        _windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsQuerySitesFree(rgsiteinfo.toString())
+        _windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsQuerySitesFree((rgsiteinfo?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun DsQuoteRdnValueA(cunquotedrdnvaluelength: UInt, psunquotedrdnvalue: PCSTR, pcquotedrdnvaluelength: Long, psquotedrdnvalue: PSTR): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsQuoteRdnValueA(cunquotedrdnvaluelength.toInt(), psunquotedrdnvalue.toString(), pcquotedrdnvaluelength.toString(), psquotedrdnvalue.toString()) as Int).toUInt() else 0u
+public actual fun dsQuoteRdnValueA(cunquotedrdnvaluelength: UInt, psunquotedrdnvalue: Pcstr, pcquotedrdnvaluelength: COpaquePointer?, psquotedrdnvalue: Pstr): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsQuoteRdnValueA(cunquotedrdnvaluelength.toInt(), (psunquotedrdnvalue?.value ?: 0L).toString(), (pcquotedrdnvaluelength?.value ?: 0L).toString(), (psquotedrdnvalue?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsQuoteRdnValueW(cunquotedrdnvaluelength: UInt, psunquotedrdnvalue: PCWSTR, pcquotedrdnvaluelength: Long, psquotedrdnvalue: PWSTR): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsQuoteRdnValueW(cunquotedrdnvaluelength.toInt(), psunquotedrdnvalue.toString(), pcquotedrdnvaluelength.toString(), psquotedrdnvalue.toString()) as Int).toUInt() else 0u
+public actual fun dsQuoteRdnValueW(cunquotedrdnvaluelength: UInt, psunquotedrdnvalue: Pcwstr, pcquotedrdnvaluelength: COpaquePointer?, psquotedrdnvalue: Pwstr): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsQuoteRdnValueW(cunquotedrdnvaluelength.toInt(), (psunquotedrdnvalue?.value ?: 0L).toString(), (pcquotedrdnvaluelength?.value ?: 0L).toString(), (psquotedrdnvalue?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsRemoveDsDomainA(hds: HANDLE, domaindn: PCSTR): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsRemoveDsDomainA(hds.toString(), domaindn.toString()) as Int).toUInt() else 0u
+public actual fun dsRemoveDsDomainA(hds: Handle, domaindn: Pcstr): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsRemoveDsDomainA((hds?.value ?: 0L).toString(), (domaindn?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsRemoveDsDomainW(hds: HANDLE, domaindn: PCWSTR): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsRemoveDsDomainW(hds.toString(), domaindn.toString()) as Int).toUInt() else 0u
+public actual fun dsRemoveDsDomainW(hds: Handle, domaindn: Pcwstr): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsRemoveDsDomainW((hds?.value ?: 0L).toString(), (domaindn?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsRemoveDsServerA(hds: HANDLE, serverdn: PCSTR, domaindn: PCSTR, flastdcindomain: Long, fcommit: BOOL): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsRemoveDsServerA(hds.toString(), serverdn.toString(), domaindn.toString(), flastdcindomain.toString(), fcommit) as Int).toUInt() else 0u
+public actual fun dsRemoveDsServerA(hds: Handle, serverdn: Pcstr, domaindn: Pcstr, flastdcindomain: COpaquePointer?, fcommit: Bool): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsRemoveDsServerA((hds?.value ?: 0L).toString(), (serverdn?.value ?: 0L).toString(), (domaindn?.value ?: 0L).toString(), (flastdcindomain?.value ?: 0L).toString(), fcommit) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsRemoveDsServerW(hds: HANDLE, serverdn: PCWSTR, domaindn: PCWSTR, flastdcindomain: Long, fcommit: BOOL): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsRemoveDsServerW(hds.toString(), serverdn.toString(), domaindn.toString(), flastdcindomain.toString(), fcommit) as Int).toUInt() else 0u
+public actual fun dsRemoveDsServerW(hds: Handle, serverdn: Pcwstr, domaindn: Pcwstr, flastdcindomain: COpaquePointer?, fcommit: Bool): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsRemoveDsServerW((hds?.value ?: 0L).toString(), (serverdn?.value ?: 0L).toString(), (domaindn?.value ?: 0L).toString(), (flastdcindomain?.value ?: 0L).toString(), fcommit) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsReplicaAddA(hds: HANDLE, namecontext: PCSTR, sourcedsadn: PCSTR, transportdn: PCSTR, sourcedsaaddress: PCSTR, pschedule: Long, options: UInt): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsReplicaAddA(hds.toString(), namecontext.toString(), sourcedsadn.toString(), transportdn.toString(), sourcedsaaddress.toString(), pschedule.toString(), options.toInt()) as Int).toUInt() else 0u
+public actual fun dsReplicaAddA(hds: Handle, namecontext: Pcstr, sourcedsadn: Pcstr, transportdn: Pcstr, sourcedsaaddress: Pcstr, pschedule: COpaquePointer?, options: UInt): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsReplicaAddA((hds?.value ?: 0L).toString(), (namecontext?.value ?: 0L).toString(), (sourcedsadn?.value ?: 0L).toString(), (transportdn?.value ?: 0L).toString(), (sourcedsaaddress?.value ?: 0L).toString(), (pschedule?.value ?: 0L).toString(), options.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsReplicaAddW(hds: HANDLE, namecontext: PCWSTR, sourcedsadn: PCWSTR, transportdn: PCWSTR, sourcedsaaddress: PCWSTR, pschedule: Long, options: UInt): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsReplicaAddW(hds.toString(), namecontext.toString(), sourcedsadn.toString(), transportdn.toString(), sourcedsaaddress.toString(), pschedule.toString(), options.toInt()) as Int).toUInt() else 0u
+public actual fun dsReplicaAddW(hds: Handle, namecontext: Pcwstr, sourcedsadn: Pcwstr, transportdn: Pcwstr, sourcedsaaddress: Pcwstr, pschedule: COpaquePointer?, options: UInt): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsReplicaAddW((hds?.value ?: 0L).toString(), (namecontext?.value ?: 0L).toString(), (sourcedsadn?.value ?: 0L).toString(), (transportdn?.value ?: 0L).toString(), (sourcedsaaddress?.value ?: 0L).toString(), (pschedule?.value ?: 0L).toString(), options.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsReplicaConsistencyCheck(hds: HANDLE, taskid: DS_KCC_TASKID, dwflags: UInt): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsReplicaConsistencyCheck(hds.toString(), taskid, dwflags.toInt()) as Int).toUInt() else 0u
+public actual fun dsReplicaConsistencyCheck(hds: Handle, taskid: DsKccTaskid, dwflags: UInt): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsReplicaConsistencyCheck((hds?.value ?: 0L).toString(), taskid, dwflags.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsReplicaDelA(hds: HANDLE, namecontext: PCSTR, dsasrc: PCSTR, options: UInt): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsReplicaDelA(hds.toString(), namecontext.toString(), dsasrc.toString(), options.toInt()) as Int).toUInt() else 0u
+public actual fun dsReplicaDelA(hds: Handle, namecontext: Pcstr, dsasrc: Pcstr, options: UInt): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsReplicaDelA((hds?.value ?: 0L).toString(), (namecontext?.value ?: 0L).toString(), (dsasrc?.value ?: 0L).toString(), options.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsReplicaDelW(hds: HANDLE, namecontext: PCWSTR, dsasrc: PCWSTR, options: UInt): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsReplicaDelW(hds.toString(), namecontext.toString(), dsasrc.toString(), options.toInt()) as Int).toUInt() else 0u
+public actual fun dsReplicaDelW(hds: Handle, namecontext: Pcwstr, dsasrc: Pcwstr, options: UInt): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsReplicaDelW((hds?.value ?: 0L).toString(), (namecontext?.value ?: 0L).toString(), (dsasrc?.value ?: 0L).toString(), options.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsReplicaFreeInfo(infotype: DS_REPL_INFO_TYPE, pinfo: Long) {
+public actual fun dsReplicaFreeInfo(infotype: DsReplInfoType, pinfo: COpaquePointer?) {
     if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) {
-        _windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsReplicaFreeInfo(infotype, pinfo.toString())
+        _windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsReplicaFreeInfo(infotype, (pinfo?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun DsReplicaGetInfo2W(hds: HANDLE, infotype: DS_REPL_INFO_TYPE, pszobject: PCWSTR, puuidforsourcedsaobjguid: Long, pszattributename: PCWSTR, pszvalue: PCWSTR, dwflags: UInt, dwenumerationcontext: UInt, ppinfo: Long): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsReplicaGetInfo2W(hds.toString(), infotype, pszobject.toString(), puuidforsourcedsaobjguid.toString(), pszattributename.toString(), pszvalue.toString(), dwflags.toInt(), dwenumerationcontext.toInt(), ppinfo.toString()) as Int).toUInt() else 0u
+public actual fun dsReplicaGetInfo2W(hds: Handle, infotype: DsReplInfoType, pszobject: Pcwstr, puuidforsourcedsaobjguid: COpaquePointer?, pszattributename: Pcwstr, pszvalue: Pcwstr, dwflags: UInt, dwenumerationcontext: UInt, ppinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsReplicaGetInfo2W((hds?.value ?: 0L).toString(), infotype, (pszobject?.value ?: 0L).toString(), (puuidforsourcedsaobjguid?.value ?: 0L).toString(), (pszattributename?.value ?: 0L).toString(), (pszvalue?.value ?: 0L).toString(), dwflags.toInt(), dwenumerationcontext.toInt(), (ppinfo?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsReplicaGetInfoW(hds: HANDLE, infotype: DS_REPL_INFO_TYPE, pszobject: PCWSTR, puuidforsourcedsaobjguid: Long, ppinfo: Long): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsReplicaGetInfoW(hds.toString(), infotype, pszobject.toString(), puuidforsourcedsaobjguid.toString(), ppinfo.toString()) as Int).toUInt() else 0u
+public actual fun dsReplicaGetInfoW(hds: Handle, infotype: DsReplInfoType, pszobject: Pcwstr, puuidforsourcedsaobjguid: COpaquePointer?, ppinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsReplicaGetInfoW((hds?.value ?: 0L).toString(), infotype, (pszobject?.value ?: 0L).toString(), (puuidforsourcedsaobjguid?.value ?: 0L).toString(), (ppinfo?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsReplicaModifyA(hds: HANDLE, namecontext: PCSTR, puuidsourcedsa: Long, transportdn: PCSTR, sourcedsaaddress: PCSTR, pschedule: Long, replicaflags: UInt, modifyfields: UInt, options: UInt): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsReplicaModifyA(hds.toString(), namecontext.toString(), puuidsourcedsa.toString(), transportdn.toString(), sourcedsaaddress.toString(), pschedule.toString(), replicaflags.toInt(), modifyfields.toInt(), options.toInt()) as Int).toUInt() else 0u
+public actual fun dsReplicaModifyA(hds: Handle, namecontext: Pcstr, puuidsourcedsa: COpaquePointer?, transportdn: Pcstr, sourcedsaaddress: Pcstr, pschedule: COpaquePointer?, replicaflags: UInt, modifyfields: UInt, options: UInt): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsReplicaModifyA((hds?.value ?: 0L).toString(), (namecontext?.value ?: 0L).toString(), (puuidsourcedsa?.value ?: 0L).toString(), (transportdn?.value ?: 0L).toString(), (sourcedsaaddress?.value ?: 0L).toString(), (pschedule?.value ?: 0L).toString(), replicaflags.toInt(), modifyfields.toInt(), options.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsReplicaModifyW(hds: HANDLE, namecontext: PCWSTR, puuidsourcedsa: Long, transportdn: PCWSTR, sourcedsaaddress: PCWSTR, pschedule: Long, replicaflags: UInt, modifyfields: UInt, options: UInt): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsReplicaModifyW(hds.toString(), namecontext.toString(), puuidsourcedsa.toString(), transportdn.toString(), sourcedsaaddress.toString(), pschedule.toString(), replicaflags.toInt(), modifyfields.toInt(), options.toInt()) as Int).toUInt() else 0u
+public actual fun dsReplicaModifyW(hds: Handle, namecontext: Pcwstr, puuidsourcedsa: COpaquePointer?, transportdn: Pcwstr, sourcedsaaddress: Pcwstr, pschedule: COpaquePointer?, replicaflags: UInt, modifyfields: UInt, options: UInt): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsReplicaModifyW((hds?.value ?: 0L).toString(), (namecontext?.value ?: 0L).toString(), (puuidsourcedsa?.value ?: 0L).toString(), (transportdn?.value ?: 0L).toString(), (sourcedsaaddress?.value ?: 0L).toString(), (pschedule?.value ?: 0L).toString(), replicaflags.toInt(), modifyfields.toInt(), options.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsReplicaSyncA(hds: HANDLE, namecontext: PCSTR, puuiddsasrc: Long, options: UInt): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsReplicaSyncA(hds.toString(), namecontext.toString(), puuiddsasrc.toString(), options.toInt()) as Int).toUInt() else 0u
+public actual fun dsReplicaSyncA(hds: Handle, namecontext: Pcstr, puuiddsasrc: COpaquePointer?, options: UInt): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsReplicaSyncA((hds?.value ?: 0L).toString(), (namecontext?.value ?: 0L).toString(), (puuiddsasrc?.value ?: 0L).toString(), options.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsReplicaSyncAllA(hds: HANDLE, psznamecontext: PCSTR, ulflags: UInt, pfncallback: Long, pcallbackdata: Long, perrors: Long): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsReplicaSyncAllA(hds.toString(), psznamecontext.toString(), ulflags.toInt(), pfncallback.toString(), pcallbackdata.toString(), perrors.toString()) as Int).toUInt() else 0u
+public actual fun dsReplicaSyncAllA(hds: Handle, psznamecontext: Pcstr, ulflags: UInt, pfncallback: Long, pcallbackdata: COpaquePointer?, perrors: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsReplicaSyncAllA((hds?.value ?: 0L).toString(), (psznamecontext?.value ?: 0L).toString(), ulflags.toInt(), pfncallback.toString(), (pcallbackdata?.value ?: 0L).toString(), (perrors?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsReplicaSyncAllW(hds: HANDLE, psznamecontext: PCWSTR, ulflags: UInt, pfncallback: Long, pcallbackdata: Long, perrors: Long): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsReplicaSyncAllW(hds.toString(), psznamecontext.toString(), ulflags.toInt(), pfncallback.toString(), pcallbackdata.toString(), perrors.toString()) as Int).toUInt() else 0u
+public actual fun dsReplicaSyncAllW(hds: Handle, psznamecontext: Pcwstr, ulflags: UInt, pfncallback: Long, pcallbackdata: COpaquePointer?, perrors: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsReplicaSyncAllW((hds?.value ?: 0L).toString(), (psznamecontext?.value ?: 0L).toString(), ulflags.toInt(), pfncallback.toString(), (pcallbackdata?.value ?: 0L).toString(), (perrors?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsReplicaSyncW(hds: HANDLE, namecontext: PCWSTR, puuiddsasrc: Long, options: UInt): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsReplicaSyncW(hds.toString(), namecontext.toString(), puuiddsasrc.toString(), options.toInt()) as Int).toUInt() else 0u
+public actual fun dsReplicaSyncW(hds: Handle, namecontext: Pcwstr, puuiddsasrc: COpaquePointer?, options: UInt): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsReplicaSyncW((hds?.value ?: 0L).toString(), (namecontext?.value ?: 0L).toString(), (puuiddsasrc?.value ?: 0L).toString(), options.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsReplicaUpdateRefsA(hds: HANDLE, namecontext: PCSTR, dsadest: PCSTR, puuiddsadest: Long, options: UInt): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsReplicaUpdateRefsA(hds.toString(), namecontext.toString(), dsadest.toString(), puuiddsadest.toString(), options.toInt()) as Int).toUInt() else 0u
+public actual fun dsReplicaUpdateRefsA(hds: Handle, namecontext: Pcstr, dsadest: Pcstr, puuiddsadest: COpaquePointer?, options: UInt): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsReplicaUpdateRefsA((hds?.value ?: 0L).toString(), (namecontext?.value ?: 0L).toString(), (dsadest?.value ?: 0L).toString(), (puuiddsadest?.value ?: 0L).toString(), options.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsReplicaUpdateRefsW(hds: HANDLE, namecontext: PCWSTR, dsadest: PCWSTR, puuiddsadest: Long, options: UInt): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsReplicaUpdateRefsW(hds.toString(), namecontext.toString(), dsadest.toString(), puuiddsadest.toString(), options.toInt()) as Int).toUInt() else 0u
+public actual fun dsReplicaUpdateRefsW(hds: Handle, namecontext: Pcwstr, dsadest: Pcwstr, puuiddsadest: COpaquePointer?, options: UInt): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsReplicaUpdateRefsW((hds?.value ?: 0L).toString(), (namecontext?.value ?: 0L).toString(), (dsadest?.value ?: 0L).toString(), (puuiddsadest?.value ?: 0L).toString(), options.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsReplicaVerifyObjectsA(hds: HANDLE, namecontext: PCSTR, puuiddsasrc: Long, uloptions: UInt): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsReplicaVerifyObjectsA(hds.toString(), namecontext.toString(), puuiddsasrc.toString(), uloptions.toInt()) as Int).toUInt() else 0u
+public actual fun dsReplicaVerifyObjectsA(hds: Handle, namecontext: Pcstr, puuiddsasrc: COpaquePointer?, uloptions: UInt): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsReplicaVerifyObjectsA((hds?.value ?: 0L).toString(), (namecontext?.value ?: 0L).toString(), (puuiddsasrc?.value ?: 0L).toString(), uloptions.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsReplicaVerifyObjectsW(hds: HANDLE, namecontext: PCWSTR, puuiddsasrc: Long, uloptions: UInt): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsReplicaVerifyObjectsW(hds.toString(), namecontext.toString(), puuiddsasrc.toString(), uloptions.toInt()) as Int).toUInt() else 0u
+public actual fun dsReplicaVerifyObjectsW(hds: Handle, namecontext: Pcwstr, puuiddsasrc: COpaquePointer?, uloptions: UInt): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsReplicaVerifyObjectsW((hds?.value ?: 0L).toString(), (namecontext?.value ?: 0L).toString(), (puuiddsasrc?.value ?: 0L).toString(), uloptions.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsRoleFreeMemory(buffer: Long) {
+public actual fun dsRoleFreeMemory(buffer: COpaquePointer?) {
     if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) {
-        _windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsRoleFreeMemory(buffer.toString())
+        _windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsRoleFreeMemory((buffer?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun DsRoleGetPrimaryDomainInformation(lpserver: PCWSTR, infolevel: DSROLE_PRIMARY_DOMAIN_INFO_LEVEL, buffer: Long): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsRoleGetPrimaryDomainInformation(lpserver.toString(), infolevel, buffer.toString()) as Int).toUInt() else 0u
+public actual fun dsRoleGetPrimaryDomainInformation(lpserver: Pcwstr, infolevel: DsrolePrimaryDomainInfoLevel, buffer: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsRoleGetPrimaryDomainInformation((lpserver?.value ?: 0L).toString(), infolevel, (buffer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsServerRegisterSpnA(operation: DS_SPN_WRITE_OP, serviceclass: PCSTR, userobjectdn: PCSTR): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsServerRegisterSpnA(operation, serviceclass.toString(), userobjectdn.toString()) as Int).toUInt() else 0u
+public actual fun dsServerRegisterSpnA(operation: DsSpnWriteOp, serviceclass: Pcstr, userobjectdn: Pcstr): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsServerRegisterSpnA(operation, (serviceclass?.value ?: 0L).toString(), (userobjectdn?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsServerRegisterSpnW(operation: DS_SPN_WRITE_OP, serviceclass: PCWSTR, userobjectdn: PCWSTR): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsServerRegisterSpnW(operation, serviceclass.toString(), userobjectdn.toString()) as Int).toUInt() else 0u
+public actual fun dsServerRegisterSpnW(operation: DsSpnWriteOp, serviceclass: Pcwstr, userobjectdn: Pcwstr): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsServerRegisterSpnW(operation, (serviceclass?.value ?: 0L).toString(), (userobjectdn?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsUnBindA(phds: Long): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsUnBindA(phds.toString()) as Int).toUInt() else 0u
+public actual fun dsUnBindA(phds: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsUnBindA((phds?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsUnBindW(phds: Long): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsUnBindW(phds.toString()) as Int).toUInt() else 0u
+public actual fun dsUnBindW(phds: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsUnBindW((phds?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsUnquoteRdnValueA(cquotedrdnvaluelength: UInt, psquotedrdnvalue: PCSTR, pcunquotedrdnvaluelength: Long, psunquotedrdnvalue: PSTR): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsUnquoteRdnValueA(cquotedrdnvaluelength.toInt(), psquotedrdnvalue.toString(), pcunquotedrdnvaluelength.toString(), psunquotedrdnvalue.toString()) as Int).toUInt() else 0u
+public actual fun dsUnquoteRdnValueA(cquotedrdnvaluelength: UInt, psquotedrdnvalue: Pcstr, pcunquotedrdnvaluelength: COpaquePointer?, psunquotedrdnvalue: Pstr): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsUnquoteRdnValueA(cquotedrdnvaluelength.toInt(), (psquotedrdnvalue?.value ?: 0L).toString(), (pcunquotedrdnvaluelength?.value ?: 0L).toString(), (psunquotedrdnvalue?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsUnquoteRdnValueW(cquotedrdnvaluelength: UInt, psquotedrdnvalue: PCWSTR, pcunquotedrdnvaluelength: Long, psunquotedrdnvalue: PWSTR): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsUnquoteRdnValueW(cquotedrdnvaluelength.toInt(), psquotedrdnvalue.toString(), pcunquotedrdnvaluelength.toString(), psunquotedrdnvalue.toString()) as Int).toUInt() else 0u
+public actual fun dsUnquoteRdnValueW(cquotedrdnvaluelength: UInt, psquotedrdnvalue: Pcwstr, pcunquotedrdnvaluelength: COpaquePointer?, psunquotedrdnvalue: Pwstr): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsUnquoteRdnValueW(cquotedrdnvaluelength.toInt(), (psquotedrdnvalue?.value ?: 0L).toString(), (pcunquotedrdnvaluelength?.value ?: 0L).toString(), (psunquotedrdnvalue?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsValidateSubnetNameA(subnetname: PCSTR): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsValidateSubnetNameA(subnetname.toString()) as Int).toUInt() else 0u
+public actual fun dsValidateSubnetNameA(subnetname: Pcstr): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsValidateSubnetNameA((subnetname?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsValidateSubnetNameW(subnetname: PCWSTR): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsValidateSubnetNameW(subnetname.toString()) as Int).toUInt() else 0u
+public actual fun dsValidateSubnetNameW(subnetname: Pcwstr): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsValidateSubnetNameW((subnetname?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsWriteAccountSpnA(hds: HANDLE, operation: DS_SPN_WRITE_OP, pszaccount: PCSTR, cspn: UInt, rpszspn: Long): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsWriteAccountSpnA(hds.toString(), operation, pszaccount.toString(), cspn.toInt(), rpszspn.toString()) as Int).toUInt() else 0u
+public actual fun dsWriteAccountSpnA(hds: Handle, operation: DsSpnWriteOp, pszaccount: Pcstr, cspn: UInt, rpszspn: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsWriteAccountSpnA((hds?.value ?: 0L).toString(), operation, (pszaccount?.value ?: 0L).toString(), cspn.toInt(), (rpszspn?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DsWriteAccountSpnW(hds: HANDLE, operation: DS_SPN_WRITE_OP, pszaccount: PCWSTR, cspn: UInt, rpszspn: Long): UInt =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_DsWriteAccountSpnW(hds.toString(), operation, pszaccount.toString(), cspn.toInt(), rpszspn.toString()) as Int).toUInt() else 0u
+public actual fun dsWriteAccountSpnW(hds: Handle, operation: DsSpnWriteOp, pszaccount: Pcwstr, cspn: UInt, rpszspn: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_dsWriteAccountSpnW((hds?.value ?: 0L).toString(), operation, (pszaccount?.value ?: 0L).toString(), cspn.toInt(), (rpszspn?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FreeADsMem(pmem: Long): BOOL =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_FreeADsMem(pmem.toString()) as Int) else 0
+public actual fun freeADsMem(pmem: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_freeADsMem((pmem?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FreeADsStr(pstr: PCWSTR): BOOL =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_FreeADsStr(pstr.toString()) as Int) else 0
+public actual fun freeADsStr(pstr: Pcwstr): Bool =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_freeADsStr((pstr?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PropVariantToAdsType(pvariant: Long, dwnumvariant: UInt, ppadsvalues: Long, pdwnumvalues: Long): HRESULT =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_PropVariantToAdsType(pvariant.toString(), dwnumvariant.toInt(), ppadsvalues.toString(), pdwnumvalues.toString()) as Int) else 0
+public actual fun propVariantToAdsType(pvariant: COpaquePointer?, dwnumvariant: UInt, ppadsvalues: COpaquePointer?, pdwnumvalues: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_propVariantToAdsType((pvariant?.value ?: 0L).toString(), dwnumvariant.toInt(), (ppadsvalues?.value ?: 0L).toString(), (pdwnumvalues?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ReallocADsMem(poldmem: Long, cbold: UInt, cbnew: UInt): Long =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_ReallocADsMem(poldmem.toString(), cbold.toInt(), cbnew.toInt()) as String).toLong() else 0L
+public actual fun reallocADsMem(poldmem: COpaquePointer?, cbold: UInt, cbnew: UInt): COpaquePointer? =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_reallocADsMem((poldmem?.value ?: 0L).toString(), cbold.toInt(), cbnew.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ReallocADsStr(ppstr: Long, pstr: PCWSTR): BOOL =
-    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_ReallocADsStr(ppstr.toString(), pstr.toString()) as Int) else 0
+public actual fun reallocADsStr(ppstr: COpaquePointer?, pstr: Pcwstr): Bool =
+    if (_windowsWin32NetworkingActivedirectoryNapiAddon != null) (_windowsWin32NetworkingActivedirectoryNapiAddon.windowssys_windows_win32_networking_activedirectory_reallocADsStr((ppstr?.value ?: 0L).toString(), (pstr?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SecurityDescriptorToBinarySD(vvarsecdes: VARIANT, ppsecuritydescriptor: Long, pdwsdlength: Long, pszservername: PCWSTR, username: PCWSTR, password: PCWSTR, dwflags: UInt): HRESULT =
-    0
+public actual fun securityDescriptorToBinarySD(vvarsecdes: Variant, ppsecuritydescriptor: COpaquePointer?, pdwsdlength: COpaquePointer?, pszservername: Pcwstr, username: Pcwstr, password: Pcwstr, dwflags: UInt): Hresult =
+    throw UnsupportedOperationException("Native FFI addon is not available")

@@ -1,59 +1,60 @@
 package io.github.kotlinmania.windowssys.windows.win32.security.cryptography.sip
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 
-public fun interface pCryptSIPCreateIndirectDataFn {
-    public operator fun invoke(psubjectinfo: Long, pcbindirectdata: Long, pindirectdata: Long): BOOL
+public fun interface PCryptSipcreateIndirectDataFn {
+    public operator fun invoke(psubjectinfo: COpaquePointer?, pcbindirectdata: COpaquePointer?, pindirectdata: COpaquePointer?): Bool
 }
 
-public typealias pCryptSIPCreateIndirectData = pCryptSIPCreateIndirectDataFn?
+public typealias PCryptSipcreateIndirectData = PCryptSipcreateIndirectDataFn?
 
-public fun interface pCryptSIPGetCapsFn {
-    public operator fun invoke(psubjinfo: Long, pcaps: Long): BOOL
+public fun interface PCryptSipgetCapsFn {
+    public operator fun invoke(psubjinfo: COpaquePointer?, pcaps: COpaquePointer?): Bool
 }
 
-public typealias pCryptSIPGetCaps = pCryptSIPGetCapsFn?
+public typealias PCryptSipgetCaps = PCryptSipgetCapsFn?
 
-public fun interface pCryptSIPGetSealedDigestFn {
-    public operator fun invoke(psubjectinfo: Long, psig: Long, dwsig: UInt, pbdigest: Long, pcbdigest: Long): BOOL
+public fun interface PCryptSipgetSealedDigestFn {
+    public operator fun invoke(psubjectinfo: COpaquePointer?, psig: COpaquePointer?, dwsig: UInt, pbdigest: COpaquePointer?, pcbdigest: COpaquePointer?): Bool
 }
 
-public typealias pCryptSIPGetSealedDigest = pCryptSIPGetSealedDigestFn?
+public typealias PCryptSipgetSealedDigest = PCryptSipgetSealedDigestFn?
 
-public fun interface pCryptSIPGetSignedDataMsgFn {
-    public operator fun invoke(psubjectinfo: Long, pdwencodingtype: Long, dwindex: UInt, pcbsigneddatamsg: Long, pbsigneddatamsg: Long): BOOL
+public fun interface PCryptSipgetSignedDataMsgFn {
+    public operator fun invoke(psubjectinfo: COpaquePointer?, pdwencodingtype: COpaquePointer?, dwindex: UInt, pcbsigneddatamsg: COpaquePointer?, pbsigneddatamsg: COpaquePointer?): Bool
 }
 
-public typealias pCryptSIPGetSignedDataMsg = pCryptSIPGetSignedDataMsgFn?
+public typealias PCryptSipgetSignedDataMsg = PCryptSipgetSignedDataMsgFn?
 
-public fun interface pCryptSIPPutSignedDataMsgFn {
-    public operator fun invoke(psubjectinfo: Long, dwencodingtype: UInt, pdwindex: Long, cbsigneddatamsg: UInt, pbsigneddatamsg: Long): BOOL
+public fun interface PCryptSipputSignedDataMsgFn {
+    public operator fun invoke(psubjectinfo: COpaquePointer?, dwencodingtype: UInt, pdwindex: COpaquePointer?, cbsigneddatamsg: UInt, pbsigneddatamsg: COpaquePointer?): Bool
 }
 
-public typealias pCryptSIPPutSignedDataMsg = pCryptSIPPutSignedDataMsgFn?
+public typealias PCryptSipputSignedDataMsg = PCryptSipputSignedDataMsgFn?
 
-public fun interface pCryptSIPRemoveSignedDataMsgFn {
-    public operator fun invoke(psubjectinfo: Long, dwindex: UInt): BOOL
+public fun interface PCryptSipremoveSignedDataMsgFn {
+    public operator fun invoke(psubjectinfo: COpaquePointer?, dwindex: UInt): Bool
 }
 
-public typealias pCryptSIPRemoveSignedDataMsg = pCryptSIPRemoveSignedDataMsgFn?
+public typealias PCryptSipremoveSignedDataMsg = PCryptSipremoveSignedDataMsgFn?
 
-public fun interface pCryptSIPVerifyIndirectDataFn {
-    public operator fun invoke(psubjectinfo: Long, pindirectdata: Long): BOOL
+public fun interface PCryptSipverifyIndirectDataFn {
+    public operator fun invoke(psubjectinfo: COpaquePointer?, pindirectdata: COpaquePointer?): Bool
 }
 
-public typealias pCryptSIPVerifyIndirectData = pCryptSIPVerifyIndirectDataFn?
+public typealias PCryptSipverifyIndirectData = PCryptSipverifyIndirectDataFn?
 
-public fun interface pfnIsFileSupportedFn {
-    public operator fun invoke(hfile: HANDLE, pgsubject: Long): BOOL
+public fun interface PfnIsFileSupportedFn {
+    public operator fun invoke(hfile: Handle, pgsubject: COpaquePointer?): Bool
 }
 
-public typealias pfnIsFileSupported = pfnIsFileSupportedFn?
+public typealias PfnIsFileSupported = PfnIsFileSupportedFn?
 
-public fun interface pfnIsFileSupportedNameFn {
-    public operator fun invoke(pwszfilename: PCWSTR, pgsubject: Long): BOOL
+public fun interface PfnIsFileSupportedNameFn {
+    public operator fun invoke(pwszfilename: Pcwstr, pgsubject: COpaquePointer?): Bool
 }
 
-public typealias pfnIsFileSupportedName = pfnIsFileSupportedNameFn?
+public typealias PfnIsFileSupportedName = PfnIsFileSupportedNameFn?

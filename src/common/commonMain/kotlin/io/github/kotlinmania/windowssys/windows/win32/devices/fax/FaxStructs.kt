@@ -1,634 +1,635 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.devices.fax
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.SYSTEMTIME
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HDC
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Systemtime
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hdc
 
-public data class FAX_CONFIGURATIONA(
-    public var SizeOfStruct: UInt = 0u,
-    public var Retries: UInt = 0u,
-    public var RetryDelay: UInt = 0u,
-    public var DirtyDays: UInt = 0u,
-    public var Branding: BOOL = 0,
-    public var UseDeviceTsid: BOOL = 0,
-    public var ServerCp: BOOL = 0,
-    public var PauseServerQueue: BOOL = 0,
-    public var StartCheapTime: FAX_TIME = FAX_TIME(),
-    public var StopCheapTime: FAX_TIME = FAX_TIME(),
-    public var ArchiveOutgoingFaxes: BOOL = 0,
-    public var ArchiveDirectory: PCSTR = 0L,
-    public var Reserved: PCSTR = 0L,
+public data class FaxConfigurationa(
+    public var sizeOfStruct: UInt = 0u,
+    public var retries: UInt = 0u,
+    public var retryDelay: UInt = 0u,
+    public var dirtyDays: UInt = 0u,
+    public var branding: Bool = 0,
+    public var useDeviceTsid: Bool = 0,
+    public var serverCp: Bool = 0,
+    public var pauseServerQueue: Bool = 0,
+    public var startCheapTime: FaxTime = FaxTime(),
+    public var stopCheapTime: FaxTime = FaxTime(),
+    public var archiveOutgoingFaxes: Bool = 0,
+    public var archiveDirectory: Pcstr = null,
+    public var reserved: Pcstr = null,
 )
 
-public data class FAX_CONFIGURATIONW(
-    public var SizeOfStruct: UInt = 0u,
-    public var Retries: UInt = 0u,
-    public var RetryDelay: UInt = 0u,
-    public var DirtyDays: UInt = 0u,
-    public var Branding: BOOL = 0,
-    public var UseDeviceTsid: BOOL = 0,
-    public var ServerCp: BOOL = 0,
-    public var PauseServerQueue: BOOL = 0,
-    public var StartCheapTime: FAX_TIME = FAX_TIME(),
-    public var StopCheapTime: FAX_TIME = FAX_TIME(),
-    public var ArchiveOutgoingFaxes: BOOL = 0,
-    public var ArchiveDirectory: PCWSTR = 0L,
-    public var Reserved: PCWSTR = 0L,
+public data class FaxConfigurationw(
+    public var sizeOfStruct: UInt = 0u,
+    public var retries: UInt = 0u,
+    public var retryDelay: UInt = 0u,
+    public var dirtyDays: UInt = 0u,
+    public var branding: Bool = 0,
+    public var useDeviceTsid: Bool = 0,
+    public var serverCp: Bool = 0,
+    public var pauseServerQueue: Bool = 0,
+    public var startCheapTime: FaxTime = FaxTime(),
+    public var stopCheapTime: FaxTime = FaxTime(),
+    public var archiveOutgoingFaxes: Bool = 0,
+    public var archiveDirectory: Pcwstr = null,
+    public var reserved: Pcwstr = null,
 )
 
-public data class FAX_CONTEXT_INFOA(
-    public var SizeOfStruct: UInt = 0u,
-    public var hDC: HDC = 0L,
-    public var ServerName: ByteArray = ByteArray(16),
+public data class FaxContextInfoa(
+    public var sizeOfStruct: UInt = 0u,
+    public var hDC: Hdc = null,
+    public var serverName: ByteArray = ByteArray(16),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is FAX_CONTEXT_INFOA) return false
-        if (this.SizeOfStruct != other.SizeOfStruct) return false
+        if (other !is FaxContextInfoa) return false
+        if (this.sizeOfStruct != other.sizeOfStruct) return false
         if (this.hDC != other.hDC) return false
-        if (!this.ServerName.contentEquals(other.ServerName)) return false
+        if (!this.serverName.contentEquals(other.serverName)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.SizeOfStruct.hashCode()
+        var result = this.sizeOfStruct.hashCode()
         result = 31 * result + this.hDC.hashCode()
-        result = 31 * result + this.ServerName.contentHashCode()
+        result = 31 * result + this.serverName.contentHashCode()
         return result
     }
 }
 
-public data class FAX_CONTEXT_INFOW(
-    public var SizeOfStruct: UInt = 0u,
-    public var hDC: HDC = 0L,
-    public var ServerName: UShortArray = UShortArray(16),
+public data class FaxContextInfow(
+    public var sizeOfStruct: UInt = 0u,
+    public var hDC: Hdc = null,
+    public var serverName: UShortArray = UShortArray(16),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is FAX_CONTEXT_INFOW) return false
-        if (this.SizeOfStruct != other.SizeOfStruct) return false
+        if (other !is FaxContextInfow) return false
+        if (this.sizeOfStruct != other.sizeOfStruct) return false
         if (this.hDC != other.hDC) return false
-        if (!this.ServerName.contentEquals(other.ServerName)) return false
+        if (!this.serverName.contentEquals(other.serverName)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.SizeOfStruct.hashCode()
+        var result = this.sizeOfStruct.hashCode()
         result = 31 * result + this.hDC.hashCode()
-        result = 31 * result + this.ServerName.contentHashCode()
+        result = 31 * result + this.serverName.contentHashCode()
         return result
     }
 }
 
-public class FAX_COVERPAGE_INFOA(
-    public var SizeOfStruct: UInt = 0u,
-    public var CoverPageName: PCSTR = 0L,
-    public var UseServerCoverPage: BOOL = 0,
-    public var RecName: PCSTR = 0L,
-    public var RecFaxNumber: PCSTR = 0L,
-    public var RecCompany: PCSTR = 0L,
-    public var RecStreetAddress: PCSTR = 0L,
-    public var RecCity: PCSTR = 0L,
-    public var RecState: PCSTR = 0L,
-    public var RecZip: PCSTR = 0L,
-    public var RecCountry: PCSTR = 0L,
-    public var RecTitle: PCSTR = 0L,
-    public var RecDepartment: PCSTR = 0L,
-    public var RecOfficeLocation: PCSTR = 0L,
-    public var RecHomePhone: PCSTR = 0L,
-    public var RecOfficePhone: PCSTR = 0L,
-    public var SdrName: PCSTR = 0L,
-    public var SdrFaxNumber: PCSTR = 0L,
-    public var SdrCompany: PCSTR = 0L,
-    public var SdrAddress: PCSTR = 0L,
-    public var SdrTitle: PCSTR = 0L,
-    public var SdrDepartment: PCSTR = 0L,
-    public var SdrOfficeLocation: PCSTR = 0L,
-    public var SdrHomePhone: PCSTR = 0L,
-    public var SdrOfficePhone: PCSTR = 0L,
-    public var Note: PCSTR = 0L,
-    public var Subject: PCSTR = 0L,
-    public var TimeSent: SYSTEMTIME = SYSTEMTIME(),
-    public var PageCount: UInt = 0u,
+public class FaxCoverpageInfoa(
+    public var sizeOfStruct: UInt = 0u,
+    public var coverPageName: Pcstr = null,
+    public var useServerCoverPage: Bool = 0,
+    public var recName: Pcstr = null,
+    public var recFaxNumber: Pcstr = null,
+    public var recCompany: Pcstr = null,
+    public var recStreetAddress: Pcstr = null,
+    public var recCity: Pcstr = null,
+    public var recState: Pcstr = null,
+    public var recZip: Pcstr = null,
+    public var recCountry: Pcstr = null,
+    public var recTitle: Pcstr = null,
+    public var recDepartment: Pcstr = null,
+    public var recOfficeLocation: Pcstr = null,
+    public var recHomePhone: Pcstr = null,
+    public var recOfficePhone: Pcstr = null,
+    public var sdrName: Pcstr = null,
+    public var sdrFaxNumber: Pcstr = null,
+    public var sdrCompany: Pcstr = null,
+    public var sdrAddress: Pcstr = null,
+    public var sdrTitle: Pcstr = null,
+    public var sdrDepartment: Pcstr = null,
+    public var sdrOfficeLocation: Pcstr = null,
+    public var sdrHomePhone: Pcstr = null,
+    public var sdrOfficePhone: Pcstr = null,
+    public var note: Pcstr = null,
+    public var subject: Pcstr = null,
+    public var timeSent: Systemtime = Systemtime(),
+    public var pageCount: UInt = 0u,
 )
 
-public class FAX_COVERPAGE_INFOW(
-    public var SizeOfStruct: UInt = 0u,
-    public var CoverPageName: PCWSTR = 0L,
-    public var UseServerCoverPage: BOOL = 0,
-    public var RecName: PCWSTR = 0L,
-    public var RecFaxNumber: PCWSTR = 0L,
-    public var RecCompany: PCWSTR = 0L,
-    public var RecStreetAddress: PCWSTR = 0L,
-    public var RecCity: PCWSTR = 0L,
-    public var RecState: PCWSTR = 0L,
-    public var RecZip: PCWSTR = 0L,
-    public var RecCountry: PCWSTR = 0L,
-    public var RecTitle: PCWSTR = 0L,
-    public var RecDepartment: PCWSTR = 0L,
-    public var RecOfficeLocation: PCWSTR = 0L,
-    public var RecHomePhone: PCWSTR = 0L,
-    public var RecOfficePhone: PCWSTR = 0L,
-    public var SdrName: PCWSTR = 0L,
-    public var SdrFaxNumber: PCWSTR = 0L,
-    public var SdrCompany: PCWSTR = 0L,
-    public var SdrAddress: PCWSTR = 0L,
-    public var SdrTitle: PCWSTR = 0L,
-    public var SdrDepartment: PCWSTR = 0L,
-    public var SdrOfficeLocation: PCWSTR = 0L,
-    public var SdrHomePhone: PCWSTR = 0L,
-    public var SdrOfficePhone: PCWSTR = 0L,
-    public var Note: PCWSTR = 0L,
-    public var Subject: PCWSTR = 0L,
-    public var TimeSent: SYSTEMTIME = SYSTEMTIME(),
-    public var PageCount: UInt = 0u,
+public class FaxCoverpageInfow(
+    public var sizeOfStruct: UInt = 0u,
+    public var coverPageName: Pcwstr = null,
+    public var useServerCoverPage: Bool = 0,
+    public var recName: Pcwstr = null,
+    public var recFaxNumber: Pcwstr = null,
+    public var recCompany: Pcwstr = null,
+    public var recStreetAddress: Pcwstr = null,
+    public var recCity: Pcwstr = null,
+    public var recState: Pcwstr = null,
+    public var recZip: Pcwstr = null,
+    public var recCountry: Pcwstr = null,
+    public var recTitle: Pcwstr = null,
+    public var recDepartment: Pcwstr = null,
+    public var recOfficeLocation: Pcwstr = null,
+    public var recHomePhone: Pcwstr = null,
+    public var recOfficePhone: Pcwstr = null,
+    public var sdrName: Pcwstr = null,
+    public var sdrFaxNumber: Pcwstr = null,
+    public var sdrCompany: Pcwstr = null,
+    public var sdrAddress: Pcwstr = null,
+    public var sdrTitle: Pcwstr = null,
+    public var sdrDepartment: Pcwstr = null,
+    public var sdrOfficeLocation: Pcwstr = null,
+    public var sdrHomePhone: Pcwstr = null,
+    public var sdrOfficePhone: Pcwstr = null,
+    public var note: Pcwstr = null,
+    public var subject: Pcwstr = null,
+    public var timeSent: Systemtime = Systemtime(),
+    public var pageCount: UInt = 0u,
 )
 
-public class FAX_DEVICE_STATUSA(
-    public var SizeOfStruct: UInt = 0u,
-    public var CallerId: PCSTR = 0L,
-    public var Csid: PCSTR = 0L,
-    public var CurrentPage: UInt = 0u,
-    public var DeviceId: UInt = 0u,
-    public var DeviceName: PCSTR = 0L,
-    public var DocumentName: PCSTR = 0L,
-    public var JobType: UInt = 0u,
-    public var PhoneNumber: PCSTR = 0L,
-    public var RoutingString: PCSTR = 0L,
-    public var SenderName: PCSTR = 0L,
-    public var RecipientName: PCSTR = 0L,
-    public var Size: UInt = 0u,
-    public var StartTime: FILETIME = FILETIME(),
-    public var Status: UInt = 0u,
-    public var StatusString: PCSTR = 0L,
-    public var SubmittedTime: FILETIME = FILETIME(),
-    public var TotalPages: UInt = 0u,
-    public var Tsid: PCSTR = 0L,
-    public var UserName: PCSTR = 0L,
+public class FaxDeviceStatusa(
+    public var sizeOfStruct: UInt = 0u,
+    public var callerId: Pcstr = null,
+    public var csid: Pcstr = null,
+    public var currentPage: UInt = 0u,
+    public var deviceId: UInt = 0u,
+    public var deviceName: Pcstr = null,
+    public var documentName: Pcstr = null,
+    public var jobType: UInt = 0u,
+    public var phoneNumber: Pcstr = null,
+    public var routingString: Pcstr = null,
+    public var senderName: Pcstr = null,
+    public var recipientName: Pcstr = null,
+    public var size: UInt = 0u,
+    public var startTime: Filetime = Filetime(),
+    public var status: UInt = 0u,
+    public var statusString: Pcstr = null,
+    public var submittedTime: Filetime = Filetime(),
+    public var totalPages: UInt = 0u,
+    public var tsid: Pcstr = null,
+    public var userName: Pcstr = null,
 )
 
-public class FAX_DEVICE_STATUSW(
-    public var SizeOfStruct: UInt = 0u,
-    public var CallerId: PCWSTR = 0L,
-    public var Csid: PCWSTR = 0L,
-    public var CurrentPage: UInt = 0u,
-    public var DeviceId: UInt = 0u,
-    public var DeviceName: PCWSTR = 0L,
-    public var DocumentName: PCWSTR = 0L,
-    public var JobType: UInt = 0u,
-    public var PhoneNumber: PCWSTR = 0L,
-    public var RoutingString: PCWSTR = 0L,
-    public var SenderName: PCWSTR = 0L,
-    public var RecipientName: PCWSTR = 0L,
-    public var Size: UInt = 0u,
-    public var StartTime: FILETIME = FILETIME(),
-    public var Status: UInt = 0u,
-    public var StatusString: PCWSTR = 0L,
-    public var SubmittedTime: FILETIME = FILETIME(),
-    public var TotalPages: UInt = 0u,
-    public var Tsid: PCWSTR = 0L,
-    public var UserName: PCWSTR = 0L,
+public class FaxDeviceStatusw(
+    public var sizeOfStruct: UInt = 0u,
+    public var callerId: Pcwstr = null,
+    public var csid: Pcwstr = null,
+    public var currentPage: UInt = 0u,
+    public var deviceId: UInt = 0u,
+    public var deviceName: Pcwstr = null,
+    public var documentName: Pcwstr = null,
+    public var jobType: UInt = 0u,
+    public var phoneNumber: Pcwstr = null,
+    public var routingString: Pcwstr = null,
+    public var senderName: Pcwstr = null,
+    public var recipientName: Pcwstr = null,
+    public var size: UInt = 0u,
+    public var startTime: Filetime = Filetime(),
+    public var status: UInt = 0u,
+    public var statusString: Pcwstr = null,
+    public var submittedTime: Filetime = Filetime(),
+    public var totalPages: UInt = 0u,
+    public var tsid: Pcwstr = null,
+    public var userName: Pcwstr = null,
 )
 
-public data class FAX_DEV_STATUS(
-    public var SizeOfStruct: UInt = 0u,
-    public var StatusId: UInt = 0u,
-    public var StringId: UInt = 0u,
-    public var PageCount: UInt = 0u,
-    public var CSI: PWSTR = 0L,
-    public var CallerId: PWSTR = 0L,
-    public var RoutingInfo: PWSTR = 0L,
-    public var ErrorCode: UInt = 0u,
-    public var Reserved: UIntArray = UIntArray(3),
+public data class FaxDevStatus(
+    public var sizeOfStruct: UInt = 0u,
+    public var statusId: UInt = 0u,
+    public var stringId: UInt = 0u,
+    public var pageCount: UInt = 0u,
+    public var csi: Pwstr = null,
+    public var callerId: Pwstr = null,
+    public var routingInfo: Pwstr = null,
+    public var errorCode: UInt = 0u,
+    public var reserved: UIntArray = UIntArray(3),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is FAX_DEV_STATUS) return false
-        if (this.SizeOfStruct != other.SizeOfStruct) return false
-        if (this.StatusId != other.StatusId) return false
-        if (this.StringId != other.StringId) return false
-        if (this.PageCount != other.PageCount) return false
-        if (this.CSI != other.CSI) return false
-        if (this.CallerId != other.CallerId) return false
-        if (this.RoutingInfo != other.RoutingInfo) return false
-        if (this.ErrorCode != other.ErrorCode) return false
-        if (!this.Reserved.contentEquals(other.Reserved)) return false
+        if (other !is FaxDevStatus) return false
+        if (this.sizeOfStruct != other.sizeOfStruct) return false
+        if (this.statusId != other.statusId) return false
+        if (this.stringId != other.stringId) return false
+        if (this.pageCount != other.pageCount) return false
+        if (this.csi != other.csi) return false
+        if (this.callerId != other.callerId) return false
+        if (this.routingInfo != other.routingInfo) return false
+        if (this.errorCode != other.errorCode) return false
+        if (!this.reserved.contentEquals(other.reserved)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.SizeOfStruct.hashCode()
-        result = 31 * result + this.StatusId.hashCode()
-        result = 31 * result + this.StringId.hashCode()
-        result = 31 * result + this.PageCount.hashCode()
-        result = 31 * result + this.CSI.hashCode()
-        result = 31 * result + this.CallerId.hashCode()
-        result = 31 * result + this.RoutingInfo.hashCode()
-        result = 31 * result + this.ErrorCode.hashCode()
-        result = 31 * result + this.Reserved.contentHashCode()
+        var result = this.sizeOfStruct.hashCode()
+        result = 31 * result + this.statusId.hashCode()
+        result = 31 * result + this.stringId.hashCode()
+        result = 31 * result + this.pageCount.hashCode()
+        result = 31 * result + this.csi.hashCode()
+        result = 31 * result + this.callerId.hashCode()
+        result = 31 * result + this.routingInfo.hashCode()
+        result = 31 * result + this.errorCode.hashCode()
+        result = 31 * result + this.reserved.contentHashCode()
         return result
     }
 }
 
-public data class FAX_EVENTA(
-    public var SizeOfStruct: UInt = 0u,
-    public var TimeStamp: FILETIME = FILETIME(),
-    public var DeviceId: UInt = 0u,
-    public var EventId: UInt = 0u,
-    public var JobId: UInt = 0u,
+public data class FaxEventa(
+    public var sizeOfStruct: UInt = 0u,
+    public var timeStamp: Filetime = Filetime(),
+    public var deviceId: UInt = 0u,
+    public var eventId: UInt = 0u,
+    public var jobId: UInt = 0u,
 )
 
-public data class FAX_EVENTW(
-    public var SizeOfStruct: UInt = 0u,
-    public var TimeStamp: FILETIME = FILETIME(),
-    public var DeviceId: UInt = 0u,
-    public var EventId: UInt = 0u,
-    public var JobId: UInt = 0u,
+public data class FaxEventw(
+    public var sizeOfStruct: UInt = 0u,
+    public var timeStamp: Filetime = Filetime(),
+    public var deviceId: UInt = 0u,
+    public var eventId: UInt = 0u,
+    public var jobId: UInt = 0u,
 )
 
-public data class FAX_GLOBAL_ROUTING_INFOA(
-    public var SizeOfStruct: UInt = 0u,
-    public var Priority: UInt = 0u,
-    public var Guid: PCSTR = 0L,
-    public var FriendlyName: PCSTR = 0L,
-    public var FunctionName: PCSTR = 0L,
-    public var ExtensionImageName: PCSTR = 0L,
-    public var ExtensionFriendlyName: PCSTR = 0L,
+public data class FaxGlobalRoutingInfoa(
+    public var sizeOfStruct: UInt = 0u,
+    public var priority: UInt = 0u,
+    public var guid: Pcstr = null,
+    public var friendlyName: Pcstr = null,
+    public var functionName: Pcstr = null,
+    public var extensionImageName: Pcstr = null,
+    public var extensionFriendlyName: Pcstr = null,
 )
 
-public data class FAX_GLOBAL_ROUTING_INFOW(
-    public var SizeOfStruct: UInt = 0u,
-    public var Priority: UInt = 0u,
-    public var Guid: PCWSTR = 0L,
-    public var FriendlyName: PCWSTR = 0L,
-    public var FunctionName: PCWSTR = 0L,
-    public var ExtensionImageName: PCWSTR = 0L,
-    public var ExtensionFriendlyName: PCWSTR = 0L,
+public data class FaxGlobalRoutingInfow(
+    public var sizeOfStruct: UInt = 0u,
+    public var priority: UInt = 0u,
+    public var guid: Pcwstr = null,
+    public var friendlyName: Pcwstr = null,
+    public var functionName: Pcwstr = null,
+    public var extensionImageName: Pcwstr = null,
+    public var extensionFriendlyName: Pcwstr = null,
 )
 
-public class FAX_JOB_ENTRYA(
-    public var SizeOfStruct: UInt = 0u,
-    public var JobId: UInt = 0u,
-    public var UserName: PCSTR = 0L,
-    public var JobType: UInt = 0u,
-    public var QueueStatus: UInt = 0u,
-    public var Status: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var PageCount: UInt = 0u,
-    public var RecipientNumber: PCSTR = 0L,
-    public var RecipientName: PCSTR = 0L,
-    public var Tsid: PCSTR = 0L,
-    public var SenderName: PCSTR = 0L,
-    public var SenderCompany: PCSTR = 0L,
-    public var SenderDept: PCSTR = 0L,
-    public var BillingCode: PCSTR = 0L,
-    public var ScheduleAction: UInt = 0u,
-    public var ScheduleTime: SYSTEMTIME = SYSTEMTIME(),
-    public var DeliveryReportType: UInt = 0u,
-    public var DeliveryReportAddress: PCSTR = 0L,
-    public var DocumentName: PCSTR = 0L,
+public class FaxJobEntrya(
+    public var sizeOfStruct: UInt = 0u,
+    public var jobId: UInt = 0u,
+    public var userName: Pcstr = null,
+    public var jobType: UInt = 0u,
+    public var queueStatus: UInt = 0u,
+    public var status: UInt = 0u,
+    public var size: UInt = 0u,
+    public var pageCount: UInt = 0u,
+    public var recipientNumber: Pcstr = null,
+    public var recipientName: Pcstr = null,
+    public var tsid: Pcstr = null,
+    public var senderName: Pcstr = null,
+    public var senderCompany: Pcstr = null,
+    public var senderDept: Pcstr = null,
+    public var billingCode: Pcstr = null,
+    public var scheduleAction: UInt = 0u,
+    public var scheduleTime: Systemtime = Systemtime(),
+    public var deliveryReportType: UInt = 0u,
+    public var deliveryReportAddress: Pcstr = null,
+    public var documentName: Pcstr = null,
 )
 
-public class FAX_JOB_ENTRYW(
-    public var SizeOfStruct: UInt = 0u,
-    public var JobId: UInt = 0u,
-    public var UserName: PCWSTR = 0L,
-    public var JobType: UInt = 0u,
-    public var QueueStatus: UInt = 0u,
-    public var Status: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var PageCount: UInt = 0u,
-    public var RecipientNumber: PCWSTR = 0L,
-    public var RecipientName: PCWSTR = 0L,
-    public var Tsid: PCWSTR = 0L,
-    public var SenderName: PCWSTR = 0L,
-    public var SenderCompany: PCWSTR = 0L,
-    public var SenderDept: PCWSTR = 0L,
-    public var BillingCode: PCWSTR = 0L,
-    public var ScheduleAction: UInt = 0u,
-    public var ScheduleTime: SYSTEMTIME = SYSTEMTIME(),
-    public var DeliveryReportType: UInt = 0u,
-    public var DeliveryReportAddress: PCWSTR = 0L,
-    public var DocumentName: PCWSTR = 0L,
+public class FaxJobEntryw(
+    public var sizeOfStruct: UInt = 0u,
+    public var jobId: UInt = 0u,
+    public var userName: Pcwstr = null,
+    public var jobType: UInt = 0u,
+    public var queueStatus: UInt = 0u,
+    public var status: UInt = 0u,
+    public var size: UInt = 0u,
+    public var pageCount: UInt = 0u,
+    public var recipientNumber: Pcwstr = null,
+    public var recipientName: Pcwstr = null,
+    public var tsid: Pcwstr = null,
+    public var senderName: Pcwstr = null,
+    public var senderCompany: Pcwstr = null,
+    public var senderDept: Pcwstr = null,
+    public var billingCode: Pcwstr = null,
+    public var scheduleAction: UInt = 0u,
+    public var scheduleTime: Systemtime = Systemtime(),
+    public var deliveryReportType: UInt = 0u,
+    public var deliveryReportAddress: Pcwstr = null,
+    public var documentName: Pcwstr = null,
 )
 
-public data class FAX_JOB_PARAMA(
-    public var SizeOfStruct: UInt = 0u,
-    public var RecipientNumber: PCSTR = 0L,
-    public var RecipientName: PCSTR = 0L,
-    public var Tsid: PCSTR = 0L,
-    public var SenderName: PCSTR = 0L,
-    public var SenderCompany: PCSTR = 0L,
-    public var SenderDept: PCSTR = 0L,
-    public var BillingCode: PCSTR = 0L,
-    public var ScheduleAction: UInt = 0u,
-    public var ScheduleTime: SYSTEMTIME = SYSTEMTIME(),
-    public var DeliveryReportType: UInt = 0u,
-    public var DeliveryReportAddress: PCSTR = 0L,
-    public var DocumentName: PCSTR = 0L,
-    public var CallHandle: UInt = 0u,
-    public var Reserved: ULongArray = ULongArray(3),
+public data class FaxJobParama(
+    public var sizeOfStruct: UInt = 0u,
+    public var recipientNumber: Pcstr = null,
+    public var recipientName: Pcstr = null,
+    public var tsid: Pcstr = null,
+    public var senderName: Pcstr = null,
+    public var senderCompany: Pcstr = null,
+    public var senderDept: Pcstr = null,
+    public var billingCode: Pcstr = null,
+    public var scheduleAction: UInt = 0u,
+    public var scheduleTime: Systemtime = Systemtime(),
+    public var deliveryReportType: UInt = 0u,
+    public var deliveryReportAddress: Pcstr = null,
+    public var documentName: Pcstr = null,
+    public var callHandle: UInt = 0u,
+    public var reserved: IntArray = IntArray(3),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is FAX_JOB_PARAMA) return false
-        if (this.SizeOfStruct != other.SizeOfStruct) return false
-        if (this.RecipientNumber != other.RecipientNumber) return false
-        if (this.RecipientName != other.RecipientName) return false
-        if (this.Tsid != other.Tsid) return false
-        if (this.SenderName != other.SenderName) return false
-        if (this.SenderCompany != other.SenderCompany) return false
-        if (this.SenderDept != other.SenderDept) return false
-        if (this.BillingCode != other.BillingCode) return false
-        if (this.ScheduleAction != other.ScheduleAction) return false
-        if (this.ScheduleTime != other.ScheduleTime) return false
-        if (this.DeliveryReportType != other.DeliveryReportType) return false
-        if (this.DeliveryReportAddress != other.DeliveryReportAddress) return false
-        if (this.DocumentName != other.DocumentName) return false
-        if (this.CallHandle != other.CallHandle) return false
-        if (!this.Reserved.contentEquals(other.Reserved)) return false
+        if (other !is FaxJobParama) return false
+        if (this.sizeOfStruct != other.sizeOfStruct) return false
+        if (this.recipientNumber != other.recipientNumber) return false
+        if (this.recipientName != other.recipientName) return false
+        if (this.tsid != other.tsid) return false
+        if (this.senderName != other.senderName) return false
+        if (this.senderCompany != other.senderCompany) return false
+        if (this.senderDept != other.senderDept) return false
+        if (this.billingCode != other.billingCode) return false
+        if (this.scheduleAction != other.scheduleAction) return false
+        if (this.scheduleTime != other.scheduleTime) return false
+        if (this.deliveryReportType != other.deliveryReportType) return false
+        if (this.deliveryReportAddress != other.deliveryReportAddress) return false
+        if (this.documentName != other.documentName) return false
+        if (this.callHandle != other.callHandle) return false
+        if (!this.reserved.contentEquals(other.reserved)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.SizeOfStruct.hashCode()
-        result = 31 * result + this.RecipientNumber.hashCode()
-        result = 31 * result + this.RecipientName.hashCode()
-        result = 31 * result + this.Tsid.hashCode()
-        result = 31 * result + this.SenderName.hashCode()
-        result = 31 * result + this.SenderCompany.hashCode()
-        result = 31 * result + this.SenderDept.hashCode()
-        result = 31 * result + this.BillingCode.hashCode()
-        result = 31 * result + this.ScheduleAction.hashCode()
-        result = 31 * result + this.ScheduleTime.hashCode()
-        result = 31 * result + this.DeliveryReportType.hashCode()
-        result = 31 * result + this.DeliveryReportAddress.hashCode()
-        result = 31 * result + this.DocumentName.hashCode()
-        result = 31 * result + this.CallHandle.hashCode()
-        result = 31 * result + this.Reserved.contentHashCode()
+        var result = this.sizeOfStruct.hashCode()
+        result = 31 * result + this.recipientNumber.hashCode()
+        result = 31 * result + this.recipientName.hashCode()
+        result = 31 * result + this.tsid.hashCode()
+        result = 31 * result + this.senderName.hashCode()
+        result = 31 * result + this.senderCompany.hashCode()
+        result = 31 * result + this.senderDept.hashCode()
+        result = 31 * result + this.billingCode.hashCode()
+        result = 31 * result + this.scheduleAction.hashCode()
+        result = 31 * result + this.scheduleTime.hashCode()
+        result = 31 * result + this.deliveryReportType.hashCode()
+        result = 31 * result + this.deliveryReportAddress.hashCode()
+        result = 31 * result + this.documentName.hashCode()
+        result = 31 * result + this.callHandle.hashCode()
+        result = 31 * result + this.reserved.contentHashCode()
         return result
     }
 }
 
-public data class FAX_JOB_PARAMW(
-    public var SizeOfStruct: UInt = 0u,
-    public var RecipientNumber: PCWSTR = 0L,
-    public var RecipientName: PCWSTR = 0L,
-    public var Tsid: PCWSTR = 0L,
-    public var SenderName: PCWSTR = 0L,
-    public var SenderCompany: PCWSTR = 0L,
-    public var SenderDept: PCWSTR = 0L,
-    public var BillingCode: PCWSTR = 0L,
-    public var ScheduleAction: UInt = 0u,
-    public var ScheduleTime: SYSTEMTIME = SYSTEMTIME(),
-    public var DeliveryReportType: UInt = 0u,
-    public var DeliveryReportAddress: PCWSTR = 0L,
-    public var DocumentName: PCWSTR = 0L,
-    public var CallHandle: UInt = 0u,
-    public var Reserved: ULongArray = ULongArray(3),
+public data class FaxJobParamw(
+    public var sizeOfStruct: UInt = 0u,
+    public var recipientNumber: Pcwstr = null,
+    public var recipientName: Pcwstr = null,
+    public var tsid: Pcwstr = null,
+    public var senderName: Pcwstr = null,
+    public var senderCompany: Pcwstr = null,
+    public var senderDept: Pcwstr = null,
+    public var billingCode: Pcwstr = null,
+    public var scheduleAction: UInt = 0u,
+    public var scheduleTime: Systemtime = Systemtime(),
+    public var deliveryReportType: UInt = 0u,
+    public var deliveryReportAddress: Pcwstr = null,
+    public var documentName: Pcwstr = null,
+    public var callHandle: UInt = 0u,
+    public var reserved: IntArray = IntArray(3),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is FAX_JOB_PARAMW) return false
-        if (this.SizeOfStruct != other.SizeOfStruct) return false
-        if (this.RecipientNumber != other.RecipientNumber) return false
-        if (this.RecipientName != other.RecipientName) return false
-        if (this.Tsid != other.Tsid) return false
-        if (this.SenderName != other.SenderName) return false
-        if (this.SenderCompany != other.SenderCompany) return false
-        if (this.SenderDept != other.SenderDept) return false
-        if (this.BillingCode != other.BillingCode) return false
-        if (this.ScheduleAction != other.ScheduleAction) return false
-        if (this.ScheduleTime != other.ScheduleTime) return false
-        if (this.DeliveryReportType != other.DeliveryReportType) return false
-        if (this.DeliveryReportAddress != other.DeliveryReportAddress) return false
-        if (this.DocumentName != other.DocumentName) return false
-        if (this.CallHandle != other.CallHandle) return false
-        if (!this.Reserved.contentEquals(other.Reserved)) return false
+        if (other !is FaxJobParamw) return false
+        if (this.sizeOfStruct != other.sizeOfStruct) return false
+        if (this.recipientNumber != other.recipientNumber) return false
+        if (this.recipientName != other.recipientName) return false
+        if (this.tsid != other.tsid) return false
+        if (this.senderName != other.senderName) return false
+        if (this.senderCompany != other.senderCompany) return false
+        if (this.senderDept != other.senderDept) return false
+        if (this.billingCode != other.billingCode) return false
+        if (this.scheduleAction != other.scheduleAction) return false
+        if (this.scheduleTime != other.scheduleTime) return false
+        if (this.deliveryReportType != other.deliveryReportType) return false
+        if (this.deliveryReportAddress != other.deliveryReportAddress) return false
+        if (this.documentName != other.documentName) return false
+        if (this.callHandle != other.callHandle) return false
+        if (!this.reserved.contentEquals(other.reserved)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.SizeOfStruct.hashCode()
-        result = 31 * result + this.RecipientNumber.hashCode()
-        result = 31 * result + this.RecipientName.hashCode()
-        result = 31 * result + this.Tsid.hashCode()
-        result = 31 * result + this.SenderName.hashCode()
-        result = 31 * result + this.SenderCompany.hashCode()
-        result = 31 * result + this.SenderDept.hashCode()
-        result = 31 * result + this.BillingCode.hashCode()
-        result = 31 * result + this.ScheduleAction.hashCode()
-        result = 31 * result + this.ScheduleTime.hashCode()
-        result = 31 * result + this.DeliveryReportType.hashCode()
-        result = 31 * result + this.DeliveryReportAddress.hashCode()
-        result = 31 * result + this.DocumentName.hashCode()
-        result = 31 * result + this.CallHandle.hashCode()
-        result = 31 * result + this.Reserved.contentHashCode()
+        var result = this.sizeOfStruct.hashCode()
+        result = 31 * result + this.recipientNumber.hashCode()
+        result = 31 * result + this.recipientName.hashCode()
+        result = 31 * result + this.tsid.hashCode()
+        result = 31 * result + this.senderName.hashCode()
+        result = 31 * result + this.senderCompany.hashCode()
+        result = 31 * result + this.senderDept.hashCode()
+        result = 31 * result + this.billingCode.hashCode()
+        result = 31 * result + this.scheduleAction.hashCode()
+        result = 31 * result + this.scheduleTime.hashCode()
+        result = 31 * result + this.deliveryReportType.hashCode()
+        result = 31 * result + this.deliveryReportAddress.hashCode()
+        result = 31 * result + this.documentName.hashCode()
+        result = 31 * result + this.callHandle.hashCode()
+        result = 31 * result + this.reserved.contentHashCode()
         return result
     }
 }
 
-public data class FAX_LOG_CATEGORYA(
-    public var Name: PCSTR = 0L,
-    public var Category: UInt = 0u,
-    public var Level: UInt = 0u,
+public data class FaxLogCategorya(
+    public var name: Pcstr = null,
+    public var category: UInt = 0u,
+    public var level: UInt = 0u,
 )
 
-public data class FAX_LOG_CATEGORYW(
-    public var Name: PCWSTR = 0L,
-    public var Category: UInt = 0u,
-    public var Level: UInt = 0u,
+public data class FaxLogCategoryw(
+    public var name: Pcwstr = null,
+    public var category: UInt = 0u,
+    public var level: UInt = 0u,
 )
 
-public data class FAX_PORT_INFOA(
-    public var SizeOfStruct: UInt = 0u,
-    public var DeviceId: UInt = 0u,
-    public var State: UInt = 0u,
-    public var Flags: UInt = 0u,
-    public var Rings: UInt = 0u,
-    public var Priority: UInt = 0u,
-    public var DeviceName: PCSTR = 0L,
-    public var Tsid: PCSTR = 0L,
-    public var Csid: PCSTR = 0L,
+public data class FaxPortInfoa(
+    public var sizeOfStruct: UInt = 0u,
+    public var deviceId: UInt = 0u,
+    public var state: UInt = 0u,
+    public var flags: UInt = 0u,
+    public var rings: UInt = 0u,
+    public var priority: UInt = 0u,
+    public var deviceName: Pcstr = null,
+    public var tsid: Pcstr = null,
+    public var csid: Pcstr = null,
 )
 
-public data class FAX_PORT_INFOW(
-    public var SizeOfStruct: UInt = 0u,
-    public var DeviceId: UInt = 0u,
-    public var State: UInt = 0u,
-    public var Flags: UInt = 0u,
-    public var Rings: UInt = 0u,
-    public var Priority: UInt = 0u,
-    public var DeviceName: PCWSTR = 0L,
-    public var Tsid: PCWSTR = 0L,
-    public var Csid: PCWSTR = 0L,
+public data class FaxPortInfow(
+    public var sizeOfStruct: UInt = 0u,
+    public var deviceId: UInt = 0u,
+    public var state: UInt = 0u,
+    public var flags: UInt = 0u,
+    public var rings: UInt = 0u,
+    public var priority: UInt = 0u,
+    public var deviceName: Pcwstr = null,
+    public var tsid: Pcwstr = null,
+    public var csid: Pcwstr = null,
 )
 
-public data class FAX_PRINT_INFOA(
-    public var SizeOfStruct: UInt = 0u,
-    public var DocName: PCSTR = 0L,
-    public var RecipientName: PCSTR = 0L,
-    public var RecipientNumber: PCSTR = 0L,
-    public var SenderName: PCSTR = 0L,
-    public var SenderCompany: PCSTR = 0L,
-    public var SenderDept: PCSTR = 0L,
-    public var SenderBillingCode: PCSTR = 0L,
-    public var Reserved: PCSTR = 0L,
-    public var DrEmailAddress: PCSTR = 0L,
-    public var OutputFileName: PCSTR = 0L,
+public data class FaxPrintInfoa(
+    public var sizeOfStruct: UInt = 0u,
+    public var docName: Pcstr = null,
+    public var recipientName: Pcstr = null,
+    public var recipientNumber: Pcstr = null,
+    public var senderName: Pcstr = null,
+    public var senderCompany: Pcstr = null,
+    public var senderDept: Pcstr = null,
+    public var senderBillingCode: Pcstr = null,
+    public var reserved: Pcstr = null,
+    public var drEmailAddress: Pcstr = null,
+    public var outputFileName: Pcstr = null,
 )
 
-public data class FAX_PRINT_INFOW(
-    public var SizeOfStruct: UInt = 0u,
-    public var DocName: PCWSTR = 0L,
-    public var RecipientName: PCWSTR = 0L,
-    public var RecipientNumber: PCWSTR = 0L,
-    public var SenderName: PCWSTR = 0L,
-    public var SenderCompany: PCWSTR = 0L,
-    public var SenderDept: PCWSTR = 0L,
-    public var SenderBillingCode: PCWSTR = 0L,
-    public var Reserved: PCWSTR = 0L,
-    public var DrEmailAddress: PCWSTR = 0L,
-    public var OutputFileName: PCWSTR = 0L,
+public data class FaxPrintInfow(
+    public var sizeOfStruct: UInt = 0u,
+    public var docName: Pcwstr = null,
+    public var recipientName: Pcwstr = null,
+    public var recipientNumber: Pcwstr = null,
+    public var senderName: Pcwstr = null,
+    public var senderCompany: Pcwstr = null,
+    public var senderDept: Pcwstr = null,
+    public var senderBillingCode: Pcwstr = null,
+    public var reserved: Pcwstr = null,
+    public var drEmailAddress: Pcwstr = null,
+    public var outputFileName: Pcwstr = null,
 )
 
-public data class FAX_RECEIVE(
-    public var SizeOfStruct: UInt = 0u,
-    public var FileName: PWSTR = 0L,
-    public var ReceiverName: PWSTR = 0L,
-    public var ReceiverNumber: PWSTR = 0L,
-    public var Reserved: UIntArray = UIntArray(4),
+public data class FaxReceive(
+    public var sizeOfStruct: UInt = 0u,
+    public var fileName: Pwstr = null,
+    public var receiverName: Pwstr = null,
+    public var receiverNumber: Pwstr = null,
+    public var reserved: UIntArray = UIntArray(4),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is FAX_RECEIVE) return false
-        if (this.SizeOfStruct != other.SizeOfStruct) return false
-        if (this.FileName != other.FileName) return false
-        if (this.ReceiverName != other.ReceiverName) return false
-        if (this.ReceiverNumber != other.ReceiverNumber) return false
-        if (!this.Reserved.contentEquals(other.Reserved)) return false
+        if (other !is FaxReceive) return false
+        if (this.sizeOfStruct != other.sizeOfStruct) return false
+        if (this.fileName != other.fileName) return false
+        if (this.receiverName != other.receiverName) return false
+        if (this.receiverNumber != other.receiverNumber) return false
+        if (!this.reserved.contentEquals(other.reserved)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.SizeOfStruct.hashCode()
-        result = 31 * result + this.FileName.hashCode()
-        result = 31 * result + this.ReceiverName.hashCode()
-        result = 31 * result + this.ReceiverNumber.hashCode()
-        result = 31 * result + this.Reserved.contentHashCode()
+        var result = this.sizeOfStruct.hashCode()
+        result = 31 * result + this.fileName.hashCode()
+        result = 31 * result + this.receiverName.hashCode()
+        result = 31 * result + this.receiverNumber.hashCode()
+        result = 31 * result + this.reserved.contentHashCode()
         return result
     }
 }
 
-public data class FAX_ROUTE(
-    public var SizeOfStruct: UInt = 0u,
-    public var JobId: UInt = 0u,
-    public var ElapsedTime: ULong = 0uL,
-    public var ReceiveTime: ULong = 0uL,
-    public var PageCount: UInt = 0u,
-    public var Csid: PCWSTR = 0L,
-    public var Tsid: PCWSTR = 0L,
-    public var CallerId: PCWSTR = 0L,
-    public var RoutingInfo: PCWSTR = 0L,
-    public var ReceiverName: PCWSTR = 0L,
-    public var ReceiverNumber: PCWSTR = 0L,
-    public var DeviceName: PCWSTR = 0L,
-    public var DeviceId: UInt = 0u,
-    public var RoutingInfoData: Long = 0L,
-    public var RoutingInfoDataSize: UInt = 0u,
+public data class FaxRoute(
+    public var sizeOfStruct: UInt = 0u,
+    public var jobId: UInt = 0u,
+    public var elapsedTime: ULong = 0uL,
+    public var receiveTime: ULong = 0uL,
+    public var pageCount: UInt = 0u,
+    public var csid: Pcwstr = null,
+    public var tsid: Pcwstr = null,
+    public var callerId: Pcwstr = null,
+    public var routingInfo: Pcwstr = null,
+    public var receiverName: Pcwstr = null,
+    public var receiverNumber: Pcwstr = null,
+    public var deviceName: Pcwstr = null,
+    public var deviceId: UInt = 0u,
+    public var routingInfoData: COpaquePointer? = null,
+    public var routingInfoDataSize: UInt = 0u,
 )
 
-public data class FAX_ROUTE_CALLBACKROUTINES(
-    public var SizeOfStruct: UInt = 0u,
-    public var FaxRouteAddFile: PFAXROUTEADDFILE = null,
-    public var FaxRouteDeleteFile: PFAXROUTEDELETEFILE = null,
-    public var FaxRouteGetFile: PFAXROUTEGETFILE = null,
-    public var FaxRouteEnumFiles: PFAXROUTEENUMFILES = null,
-    public var FaxRouteModifyRoutingData: PFAXROUTEMODIFYROUTINGDATA = null,
+public data class FaxRouteCallbackroutines(
+    public var sizeOfStruct: UInt = 0u,
+    public var faxRouteAddFile: Pfaxrouteaddfile = null,
+    public var faxRouteDeleteFile: Pfaxroutedeletefile = null,
+    public var faxRouteGetFile: Pfaxroutegetfile = null,
+    public var faxRouteEnumFiles: Pfaxrouteenumfiles = null,
+    public var faxRouteModifyRoutingData: Pfaxroutemodifyroutingdata = null,
 )
 
-public data class FAX_ROUTING_METHODA(
-    public var SizeOfStruct: UInt = 0u,
-    public var DeviceId: UInt = 0u,
-    public var Enabled: BOOL = 0,
-    public var DeviceName: PCSTR = 0L,
-    public var Guid: PCSTR = 0L,
-    public var FriendlyName: PCSTR = 0L,
-    public var FunctionName: PCSTR = 0L,
-    public var ExtensionImageName: PCSTR = 0L,
-    public var ExtensionFriendlyName: PCSTR = 0L,
+public data class FaxRoutingMethoda(
+    public var sizeOfStruct: UInt = 0u,
+    public var deviceId: UInt = 0u,
+    public var enabled: Bool = 0,
+    public var deviceName: Pcstr = null,
+    public var guid: Pcstr = null,
+    public var friendlyName: Pcstr = null,
+    public var functionName: Pcstr = null,
+    public var extensionImageName: Pcstr = null,
+    public var extensionFriendlyName: Pcstr = null,
 )
 
-public data class FAX_ROUTING_METHODW(
-    public var SizeOfStruct: UInt = 0u,
-    public var DeviceId: UInt = 0u,
-    public var Enabled: BOOL = 0,
-    public var DeviceName: PCWSTR = 0L,
-    public var Guid: PCWSTR = 0L,
-    public var FriendlyName: PCWSTR = 0L,
-    public var FunctionName: PCWSTR = 0L,
-    public var ExtensionImageName: PCWSTR = 0L,
-    public var ExtensionFriendlyName: PCWSTR = 0L,
+public data class FaxRoutingMethodw(
+    public var sizeOfStruct: UInt = 0u,
+    public var deviceId: UInt = 0u,
+    public var enabled: Bool = 0,
+    public var deviceName: Pcwstr = null,
+    public var guid: Pcwstr = null,
+    public var friendlyName: Pcwstr = null,
+    public var functionName: Pcwstr = null,
+    public var extensionImageName: Pcwstr = null,
+    public var extensionFriendlyName: Pcwstr = null,
 )
 
-public data class FAX_SEND(
-    public var SizeOfStruct: UInt = 0u,
-    public var FileName: PWSTR = 0L,
-    public var CallerName: PWSTR = 0L,
-    public var CallerNumber: PWSTR = 0L,
-    public var ReceiverName: PWSTR = 0L,
-    public var ReceiverNumber: PWSTR = 0L,
-    public var Branding: BOOL = 0,
-    public var CallHandle: UInt = 0u,
-    public var Reserved: UIntArray = UIntArray(3),
+public data class FaxSend(
+    public var sizeOfStruct: UInt = 0u,
+    public var fileName: Pwstr = null,
+    public var callerName: Pwstr = null,
+    public var callerNumber: Pwstr = null,
+    public var receiverName: Pwstr = null,
+    public var receiverNumber: Pwstr = null,
+    public var branding: Bool = 0,
+    public var callHandle: UInt = 0u,
+    public var reserved: UIntArray = UIntArray(3),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is FAX_SEND) return false
-        if (this.SizeOfStruct != other.SizeOfStruct) return false
-        if (this.FileName != other.FileName) return false
-        if (this.CallerName != other.CallerName) return false
-        if (this.CallerNumber != other.CallerNumber) return false
-        if (this.ReceiverName != other.ReceiverName) return false
-        if (this.ReceiverNumber != other.ReceiverNumber) return false
-        if (this.Branding != other.Branding) return false
-        if (this.CallHandle != other.CallHandle) return false
-        if (!this.Reserved.contentEquals(other.Reserved)) return false
+        if (other !is FaxSend) return false
+        if (this.sizeOfStruct != other.sizeOfStruct) return false
+        if (this.fileName != other.fileName) return false
+        if (this.callerName != other.callerName) return false
+        if (this.callerNumber != other.callerNumber) return false
+        if (this.receiverName != other.receiverName) return false
+        if (this.receiverNumber != other.receiverNumber) return false
+        if (this.branding != other.branding) return false
+        if (this.callHandle != other.callHandle) return false
+        if (!this.reserved.contentEquals(other.reserved)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.SizeOfStruct.hashCode()
-        result = 31 * result + this.FileName.hashCode()
-        result = 31 * result + this.CallerName.hashCode()
-        result = 31 * result + this.CallerNumber.hashCode()
-        result = 31 * result + this.ReceiverName.hashCode()
-        result = 31 * result + this.ReceiverNumber.hashCode()
-        result = 31 * result + this.Branding.hashCode()
-        result = 31 * result + this.CallHandle.hashCode()
-        result = 31 * result + this.Reserved.contentHashCode()
+        var result = this.sizeOfStruct.hashCode()
+        result = 31 * result + this.fileName.hashCode()
+        result = 31 * result + this.callerName.hashCode()
+        result = 31 * result + this.callerNumber.hashCode()
+        result = 31 * result + this.receiverName.hashCode()
+        result = 31 * result + this.receiverNumber.hashCode()
+        result = 31 * result + this.branding.hashCode()
+        result = 31 * result + this.callHandle.hashCode()
+        result = 31 * result + this.reserved.contentHashCode()
         return result
     }
 }
 
-public data class FAX_TIME(public var Hour: UShort = 0u, public var Minute: UShort = 0u)
+public data class FaxTime(public var hour: UShort = 0u, public var minute: UShort = 0u)
 
-public data class STINOTIFY(
+public data class Stinotify(
     public var dwSize: UInt = 0u,
-    public var guidNotificationCode: GUID = GUID(),
+    public var guidNotificationCode: Guid = Guid(),
     public var abNotificationData: UByteArray = UByteArray(64),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is STINOTIFY) return false
+        if (other !is Stinotify) return false
         if (this.dwSize != other.dwSize) return false
         if (this.guidNotificationCode != other.guidNotificationCode) return false
         if (!this.abNotificationData.contentEquals(other.abNotificationData)) return false
@@ -643,34 +644,34 @@ public data class STINOTIFY(
     }
 }
 
-public data class STISUBSCRIBE(
+public data class Stisubscribe(
     public var dwSize: UInt = 0u,
     public var dwFlags: UInt = 0u,
     public var dwFilter: UInt = 0u,
-    public var hWndNotify: HWND = 0L,
-    public var hEvent: HANDLE = 0L,
+    public var hWndNotify: Hwnd = null,
+    public var hEvent: Handle = null,
     public var uiNotificationMessage: UInt = 0u,
 )
 
-public data class STI_DEVICE_INFORMATIONW(
+public data class StiDeviceInformationw(
     public var dwSize: UInt = 0u,
-    public var DeviceType: UInt = 0u,
+    public var deviceType: UInt = 0u,
     public var szDeviceInternalName: UShortArray = UShortArray(128),
-    public var DeviceCapabilitiesA: STI_DEV_CAPS = STI_DEV_CAPS(),
+    public var deviceCapabilitiesA: StiDevCaps = StiDevCaps(),
     public var dwHardwareConfiguration: UInt = 0u,
-    public var pszVendorDescription: PWSTR = 0L,
-    public var pszDeviceDescription: PWSTR = 0L,
-    public var pszPortName: PWSTR = 0L,
-    public var pszPropProvider: PWSTR = 0L,
-    public var pszLocalName: PWSTR = 0L,
+    public var pszVendorDescription: Pwstr = null,
+    public var pszDeviceDescription: Pwstr = null,
+    public var pszPortName: Pwstr = null,
+    public var pszPropProvider: Pwstr = null,
+    public var pszLocalName: Pwstr = null,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is STI_DEVICE_INFORMATIONW) return false
+        if (other !is StiDeviceInformationw) return false
         if (this.dwSize != other.dwSize) return false
-        if (this.DeviceType != other.DeviceType) return false
+        if (this.deviceType != other.deviceType) return false
         if (!this.szDeviceInternalName.contentEquals(other.szDeviceInternalName)) return false
-        if (this.DeviceCapabilitiesA != other.DeviceCapabilitiesA) return false
+        if (this.deviceCapabilitiesA != other.deviceCapabilitiesA) return false
         if (this.dwHardwareConfiguration != other.dwHardwareConfiguration) return false
         if (this.pszVendorDescription != other.pszVendorDescription) return false
         if (this.pszDeviceDescription != other.pszDeviceDescription) return false
@@ -682,9 +683,9 @@ public data class STI_DEVICE_INFORMATIONW(
 
     override fun hashCode(): Int {
         var result = this.dwSize.hashCode()
-        result = 31 * result + this.DeviceType.hashCode()
+        result = 31 * result + this.deviceType.hashCode()
         result = 31 * result + this.szDeviceInternalName.contentHashCode()
-        result = 31 * result + this.DeviceCapabilitiesA.hashCode()
+        result = 31 * result + this.deviceCapabilitiesA.hashCode()
         result = 31 * result + this.dwHardwareConfiguration.hashCode()
         result = 31 * result + this.pszVendorDescription.hashCode()
         result = 31 * result + this.pszDeviceDescription.hashCode()
@@ -695,48 +696,48 @@ public data class STI_DEVICE_INFORMATIONW(
     }
 }
 
-public data class STI_DEVICE_STATUS(
+public data class StiDeviceStatus(
     public var dwSize: UInt = 0u,
-    public var StatusMask: UInt = 0u,
+    public var statusMask: UInt = 0u,
     public var dwOnlineState: UInt = 0u,
     public var dwHardwareStatusCode: UInt = 0u,
     public var dwEventHandlingState: UInt = 0u,
     public var dwPollingInterval: UInt = 0u,
 )
 
-public data class STI_DEV_CAPS(public var dwGeneric: UInt = 0u)
+public data class StiDevCaps(public var dwGeneric: UInt = 0u)
 
-public data class STI_DIAG(
+public data class StiDiag(
     public var dwSize: UInt = 0u,
     public var dwBasicDiagCode: UInt = 0u,
     public var dwVendorDiagCode: UInt = 0u,
     public var dwStatusMask: UInt = 0u,
-    public var sErrorInfo: _ERROR_INFOW = _ERROR_INFOW(),
+    public var sErrorInfo: ErrorInfow = ErrorInfow(),
 )
 
-public data class STI_USD_CAPS(public var dwVersion: UInt = 0u, public var dwGenericCaps: UInt = 0u)
+public data class StiUsdCaps(public var dwVersion: UInt = 0u, public var dwGenericCaps: UInt = 0u)
 
-public data class STI_WIA_DEVICE_INFORMATIONW(
+public data class StiWiaDeviceInformationw(
     public var dwSize: UInt = 0u,
-    public var DeviceType: UInt = 0u,
+    public var deviceType: UInt = 0u,
     public var szDeviceInternalName: UShortArray = UShortArray(128),
-    public var DeviceCapabilitiesA: STI_DEV_CAPS = STI_DEV_CAPS(),
+    public var deviceCapabilitiesA: StiDevCaps = StiDevCaps(),
     public var dwHardwareConfiguration: UInt = 0u,
-    public var pszVendorDescription: PWSTR = 0L,
-    public var pszDeviceDescription: PWSTR = 0L,
-    public var pszPortName: PWSTR = 0L,
-    public var pszPropProvider: PWSTR = 0L,
-    public var pszLocalName: PWSTR = 0L,
-    public var pszUiDll: PWSTR = 0L,
-    public var pszServer: PWSTR = 0L,
+    public var pszVendorDescription: Pwstr = null,
+    public var pszDeviceDescription: Pwstr = null,
+    public var pszPortName: Pwstr = null,
+    public var pszPropProvider: Pwstr = null,
+    public var pszLocalName: Pwstr = null,
+    public var pszUiDll: Pwstr = null,
+    public var pszServer: Pwstr = null,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is STI_WIA_DEVICE_INFORMATIONW) return false
+        if (other !is StiWiaDeviceInformationw) return false
         if (this.dwSize != other.dwSize) return false
-        if (this.DeviceType != other.DeviceType) return false
+        if (this.deviceType != other.deviceType) return false
         if (!this.szDeviceInternalName.contentEquals(other.szDeviceInternalName)) return false
-        if (this.DeviceCapabilitiesA != other.DeviceCapabilitiesA) return false
+        if (this.deviceCapabilitiesA != other.deviceCapabilitiesA) return false
         if (this.dwHardwareConfiguration != other.dwHardwareConfiguration) return false
         if (this.pszVendorDescription != other.pszVendorDescription) return false
         if (this.pszDeviceDescription != other.pszDeviceDescription) return false
@@ -750,9 +751,9 @@ public data class STI_WIA_DEVICE_INFORMATIONW(
 
     override fun hashCode(): Int {
         var result = this.dwSize.hashCode()
-        result = 31 * result + this.DeviceType.hashCode()
+        result = 31 * result + this.deviceType.hashCode()
         result = 31 * result + this.szDeviceInternalName.contentHashCode()
-        result = 31 * result + this.DeviceCapabilitiesA.hashCode()
+        result = 31 * result + this.deviceCapabilitiesA.hashCode()
         result = 31 * result + this.dwHardwareConfiguration.hashCode()
         result = 31 * result + this.pszVendorDescription.hashCode()
         result = 31 * result + this.pszDeviceDescription.hashCode()
@@ -765,7 +766,7 @@ public data class STI_WIA_DEVICE_INFORMATIONW(
     }
 }
 
-public data class _ERROR_INFOW(
+public data class ErrorInfow(
     public var dwSize: UInt = 0u,
     public var dwGenericError: UInt = 0u,
     public var dwVendorError: UInt = 0u,
@@ -773,7 +774,7 @@ public data class _ERROR_INFOW(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is _ERROR_INFOW) return false
+        if (other !is ErrorInfow) return false
         if (this.dwSize != other.dwSize) return false
         if (this.dwGenericError != other.dwGenericError) return false
         if (this.dwVendorError != other.dwVendorError) return false

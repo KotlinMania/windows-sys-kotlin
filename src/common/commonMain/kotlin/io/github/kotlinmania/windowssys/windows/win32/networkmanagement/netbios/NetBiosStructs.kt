@@ -1,85 +1,86 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netbios
 
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 
-public data class ACTION_HEADER(
-    public var transport_id: UInt = 0u,
-    public var action_code: UShort = 0u,
+public data class ActionHeader(
+    public var transportId: UInt = 0u,
+    public var actionCode: UShort = 0u,
     public var reserved: UShort = 0u,
 )
 
-public class ADAPTER_STATUS(
-    public var adapter_address: UByteArray = UByteArray(6),
-    public var rev_major: UByte = 0u,
+public class AdapterStatus(
+    public var adapterAddress: UByteArray = UByteArray(6),
+    public var revMajor: UByte = 0u,
     public var reserved0: UByte = 0u,
-    public var adapter_type: UByte = 0u,
-    public var rev_minor: UByte = 0u,
+    public var adapterType: UByte = 0u,
+    public var revMinor: UByte = 0u,
     public var duration: UShort = 0u,
-    public var frmr_recv: UShort = 0u,
-    public var frmr_xmit: UShort = 0u,
-    public var iframe_recv_err: UShort = 0u,
-    public var xmit_aborts: UShort = 0u,
-    public var xmit_success: UInt = 0u,
-    public var recv_success: UInt = 0u,
-    public var iframe_xmit_err: UShort = 0u,
-    public var recv_buff_unavail: UShort = 0u,
-    public var t1_timeouts: UShort = 0u,
-    public var ti_timeouts: UShort = 0u,
+    public var frmrRecv: UShort = 0u,
+    public var frmrXmit: UShort = 0u,
+    public var iframeRecvErr: UShort = 0u,
+    public var xmitAborts: UShort = 0u,
+    public var xmitSuccess: UInt = 0u,
+    public var recvSuccess: UInt = 0u,
+    public var iframeXmitErr: UShort = 0u,
+    public var recvBuffUnavail: UShort = 0u,
+    public var t1Timeouts: UShort = 0u,
+    public var tiTimeouts: UShort = 0u,
     public var reserved1: UInt = 0u,
-    public var free_ncbs: UShort = 0u,
-    public var max_cfg_ncbs: UShort = 0u,
-    public var max_ncbs: UShort = 0u,
-    public var xmit_buf_unavail: UShort = 0u,
-    public var max_dgram_size: UShort = 0u,
-    public var pending_sess: UShort = 0u,
-    public var max_cfg_sess: UShort = 0u,
-    public var max_sess: UShort = 0u,
-    public var max_sess_pkt_size: UShort = 0u,
-    public var name_count: UShort = 0u,
+    public var freeNcbs: UShort = 0u,
+    public var maxCfgNcbs: UShort = 0u,
+    public var maxNcbs: UShort = 0u,
+    public var xmitBufUnavail: UShort = 0u,
+    public var maxDgramSize: UShort = 0u,
+    public var pendingSess: UShort = 0u,
+    public var maxCfgSess: UShort = 0u,
+    public var maxSess: UShort = 0u,
+    public var maxSessPktSize: UShort = 0u,
+    public var nameCount: UShort = 0u,
 )
 
-public data class FIND_NAME_BUFFER(
+public data class FindNameBuffer(
     public var length: UByte = 0u,
-    public var access_control: UByte = 0u,
-    public var frame_control: UByte = 0u,
-    public var destination_addr: UByteArray = UByteArray(6),
-    public var source_addr: UByteArray = UByteArray(6),
-    public var routing_info: UByteArray = UByteArray(18),
+    public var accessControl: UByte = 0u,
+    public var frameControl: UByte = 0u,
+    public var destinationAddr: UByteArray = UByteArray(6),
+    public var sourceAddr: UByteArray = UByteArray(6),
+    public var routingInfo: UByteArray = UByteArray(18),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is FIND_NAME_BUFFER) return false
+        if (other !is FindNameBuffer) return false
         if (this.length != other.length) return false
-        if (this.access_control != other.access_control) return false
-        if (this.frame_control != other.frame_control) return false
-        if (!this.destination_addr.contentEquals(other.destination_addr)) return false
-        if (!this.source_addr.contentEquals(other.source_addr)) return false
-        if (!this.routing_info.contentEquals(other.routing_info)) return false
+        if (this.accessControl != other.accessControl) return false
+        if (this.frameControl != other.frameControl) return false
+        if (!this.destinationAddr.contentEquals(other.destinationAddr)) return false
+        if (!this.sourceAddr.contentEquals(other.sourceAddr)) return false
+        if (!this.routingInfo.contentEquals(other.routingInfo)) return false
         return true
     }
 
     override fun hashCode(): Int {
         var result = this.length.hashCode()
-        result = 31 * result + this.access_control.hashCode()
-        result = 31 * result + this.frame_control.hashCode()
-        result = 31 * result + this.destination_addr.contentHashCode()
-        result = 31 * result + this.source_addr.contentHashCode()
-        result = 31 * result + this.routing_info.contentHashCode()
+        result = 31 * result + this.accessControl.hashCode()
+        result = 31 * result + this.frameControl.hashCode()
+        result = 31 * result + this.destinationAddr.contentHashCode()
+        result = 31 * result + this.sourceAddr.contentHashCode()
+        result = 31 * result + this.routingInfo.contentHashCode()
         return result
     }
 }
 
-public data class FIND_NAME_HEADER(
-    public var node_count: UShort = 0u,
+public data class FindNameHeader(
+    public var nodeCount: UShort = 0u,
     public var reserved: UByte = 0u,
-    public var unique_group: UByte = 0u,
+    public var uniqueGroup: UByte = 0u,
 )
 
-public data class LANA_ENUM(public var length: UByte = 0u, public var lana: UByteArray = UByteArray(255)) {
+public data class LanaEnum(public var length: UByte = 0u, public var lana: UByteArray = UByteArray(255)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is LANA_ENUM) return false
+        if (other !is LanaEnum) return false
         if (this.length != other.length) return false
         if (!this.lana.contentEquals(other.lana)) return false
         return true
@@ -92,120 +93,120 @@ public data class LANA_ENUM(public var length: UByte = 0u, public var lana: UByt
     }
 }
 
-public data class NAME_BUFFER(
+public data class NameBuffer(
     public var name: UByteArray = UByteArray(16),
-    public var name_num: UByte = 0u,
-    public var name_flags: UByte = 0u,
+    public var nameNum: UByte = 0u,
+    public var nameFlags: UByte = 0u,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NAME_BUFFER) return false
+        if (other !is NameBuffer) return false
         if (!this.name.contentEquals(other.name)) return false
-        if (this.name_num != other.name_num) return false
-        if (this.name_flags != other.name_flags) return false
+        if (this.nameNum != other.nameNum) return false
+        if (this.nameFlags != other.nameFlags) return false
         return true
     }
 
     override fun hashCode(): Int {
         var result = this.name.contentHashCode()
-        result = 31 * result + this.name_num.hashCode()
-        result = 31 * result + this.name_flags.hashCode()
+        result = 31 * result + this.nameNum.hashCode()
+        result = 31 * result + this.nameFlags.hashCode()
         return result
     }
 }
 
-public data class NCB(
-    public var ncb_command: UByte = 0u,
-    public var ncb_retcode: UByte = 0u,
-    public var ncb_lsn: UByte = 0u,
-    public var ncb_num: UByte = 0u,
-    public var ncb_buffer: Long = 0L,
-    public var ncb_length: UShort = 0u,
-    public var ncb_callname: UByteArray = UByteArray(16),
-    public var ncb_name: UByteArray = UByteArray(16),
-    public var ncb_rto: UByte = 0u,
-    public var ncb_sto: UByte = 0u,
-    public var ncb_post: Long = 0L,
-    public var ncb_lana_num: UByte = 0u,
-    public var ncb_cmd_cplt: UByte = 0u,
-    public var ncb_reserve: UByteArray = UByteArray(18),
-    public var ncb_event: HANDLE = 0L,
+public data class Ncb(
+    public var ncbCommand: UByte = 0u,
+    public var ncbRetcode: UByte = 0u,
+    public var ncbLsn: UByte = 0u,
+    public var ncbNum: UByte = 0u,
+    public var ncbBuffer: COpaquePointer? = null,
+    public var ncbLength: UShort = 0u,
+    public var ncbCallname: UByteArray = UByteArray(16),
+    public var ncbName: UByteArray = UByteArray(16),
+    public var ncbRto: UByte = 0u,
+    public var ncbSto: UByte = 0u,
+    public var ncbPost: Int = 0,
+    public var ncbLanaNum: UByte = 0u,
+    public var ncbCmdCplt: UByte = 0u,
+    public var ncbReserve: UByteArray = UByteArray(18),
+    public var ncbEvent: Handle = null,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NCB) return false
-        if (this.ncb_command != other.ncb_command) return false
-        if (this.ncb_retcode != other.ncb_retcode) return false
-        if (this.ncb_lsn != other.ncb_lsn) return false
-        if (this.ncb_num != other.ncb_num) return false
-        if (this.ncb_buffer != other.ncb_buffer) return false
-        if (this.ncb_length != other.ncb_length) return false
-        if (!this.ncb_callname.contentEquals(other.ncb_callname)) return false
-        if (!this.ncb_name.contentEquals(other.ncb_name)) return false
-        if (this.ncb_rto != other.ncb_rto) return false
-        if (this.ncb_sto != other.ncb_sto) return false
-        if (this.ncb_post != other.ncb_post) return false
-        if (this.ncb_lana_num != other.ncb_lana_num) return false
-        if (this.ncb_cmd_cplt != other.ncb_cmd_cplt) return false
-        if (!this.ncb_reserve.contentEquals(other.ncb_reserve)) return false
-        if (this.ncb_event != other.ncb_event) return false
+        if (other !is Ncb) return false
+        if (this.ncbCommand != other.ncbCommand) return false
+        if (this.ncbRetcode != other.ncbRetcode) return false
+        if (this.ncbLsn != other.ncbLsn) return false
+        if (this.ncbNum != other.ncbNum) return false
+        if (this.ncbBuffer != other.ncbBuffer) return false
+        if (this.ncbLength != other.ncbLength) return false
+        if (!this.ncbCallname.contentEquals(other.ncbCallname)) return false
+        if (!this.ncbName.contentEquals(other.ncbName)) return false
+        if (this.ncbRto != other.ncbRto) return false
+        if (this.ncbSto != other.ncbSto) return false
+        if (this.ncbPost != other.ncbPost) return false
+        if (this.ncbLanaNum != other.ncbLanaNum) return false
+        if (this.ncbCmdCplt != other.ncbCmdCplt) return false
+        if (!this.ncbReserve.contentEquals(other.ncbReserve)) return false
+        if (this.ncbEvent != other.ncbEvent) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.ncb_command.hashCode()
-        result = 31 * result + this.ncb_retcode.hashCode()
-        result = 31 * result + this.ncb_lsn.hashCode()
-        result = 31 * result + this.ncb_num.hashCode()
-        result = 31 * result + this.ncb_buffer.hashCode()
-        result = 31 * result + this.ncb_length.hashCode()
-        result = 31 * result + this.ncb_callname.contentHashCode()
-        result = 31 * result + this.ncb_name.contentHashCode()
-        result = 31 * result + this.ncb_rto.hashCode()
-        result = 31 * result + this.ncb_sto.hashCode()
-        result = 31 * result + this.ncb_post.hashCode()
-        result = 31 * result + this.ncb_lana_num.hashCode()
-        result = 31 * result + this.ncb_cmd_cplt.hashCode()
-        result = 31 * result + this.ncb_reserve.contentHashCode()
-        result = 31 * result + this.ncb_event.hashCode()
+        var result = this.ncbCommand.hashCode()
+        result = 31 * result + this.ncbRetcode.hashCode()
+        result = 31 * result + this.ncbLsn.hashCode()
+        result = 31 * result + this.ncbNum.hashCode()
+        result = 31 * result + this.ncbBuffer.hashCode()
+        result = 31 * result + this.ncbLength.hashCode()
+        result = 31 * result + this.ncbCallname.contentHashCode()
+        result = 31 * result + this.ncbName.contentHashCode()
+        result = 31 * result + this.ncbRto.hashCode()
+        result = 31 * result + this.ncbSto.hashCode()
+        result = 31 * result + this.ncbPost.hashCode()
+        result = 31 * result + this.ncbLanaNum.hashCode()
+        result = 31 * result + this.ncbCmdCplt.hashCode()
+        result = 31 * result + this.ncbReserve.contentHashCode()
+        result = 31 * result + this.ncbEvent.hashCode()
         return result
     }
 }
 
-public data class SESSION_BUFFER(
+public data class SessionBuffer(
     public var lsn: UByte = 0u,
     public var state: UByte = 0u,
-    public var local_name: UByteArray = UByteArray(16),
-    public var remote_name: UByteArray = UByteArray(16),
-    public var rcvs_outstanding: UByte = 0u,
-    public var sends_outstanding: UByte = 0u,
+    public var localName: UByteArray = UByteArray(16),
+    public var remoteName: UByteArray = UByteArray(16),
+    public var rcvsOutstanding: UByte = 0u,
+    public var sendsOutstanding: UByte = 0u,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SESSION_BUFFER) return false
+        if (other !is SessionBuffer) return false
         if (this.lsn != other.lsn) return false
         if (this.state != other.state) return false
-        if (!this.local_name.contentEquals(other.local_name)) return false
-        if (!this.remote_name.contentEquals(other.remote_name)) return false
-        if (this.rcvs_outstanding != other.rcvs_outstanding) return false
-        if (this.sends_outstanding != other.sends_outstanding) return false
+        if (!this.localName.contentEquals(other.localName)) return false
+        if (!this.remoteName.contentEquals(other.remoteName)) return false
+        if (this.rcvsOutstanding != other.rcvsOutstanding) return false
+        if (this.sendsOutstanding != other.sendsOutstanding) return false
         return true
     }
 
     override fun hashCode(): Int {
         var result = this.lsn.hashCode()
         result = 31 * result + this.state.hashCode()
-        result = 31 * result + this.local_name.contentHashCode()
-        result = 31 * result + this.remote_name.contentHashCode()
-        result = 31 * result + this.rcvs_outstanding.hashCode()
-        result = 31 * result + this.sends_outstanding.hashCode()
+        result = 31 * result + this.localName.contentHashCode()
+        result = 31 * result + this.remoteName.contentHashCode()
+        result = 31 * result + this.rcvsOutstanding.hashCode()
+        result = 31 * result + this.sendsOutstanding.hashCode()
         return result
     }
 }
 
-public data class SESSION_HEADER(
-    public var sess_name: UByte = 0u,
-    public var num_sess: UByte = 0u,
-    public var rcv_dg_outstanding: UByte = 0u,
-    public var rcv_any_outstanding: UByte = 0u,
+public data class SessionHeader(
+    public var sessName: UByte = 0u,
+    public var numSess: UByte = 0u,
+    public var rcvDgOutstanding: UByte = 0u,
+    public var rcvAnyOutstanding: UByte = 0u,
 )

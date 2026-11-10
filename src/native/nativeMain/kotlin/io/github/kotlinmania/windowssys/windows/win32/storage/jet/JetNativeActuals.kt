@@ -2,697 +2,698 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.storage.jet
 
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.storage.structuredstorage.JET_API_PTR
-import io.github.kotlinmania.windowssys.windows.win32.storage.structuredstorage.JET_HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.storage.structuredstorage.JET_TABLEID
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.storage.structuredstorage.JetApiPtr
+import io.github.kotlinmania.windowssys.windows.win32.storage.structuredstorage.JetHandle
+import io.github.kotlinmania.windowssys.windows.win32.storage.structuredstorage.JetTableid
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun JetAddColumnA(sesid: JET_SESID, tableid: JET_TABLEID, szcolumnname: Long, pcolumndef: Long, pvdefault: Long, cbdefault: UInt, pcolumnid: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetAddColumnA(sesid, tableid, szcolumnname.toCPointer<ByteVar>(), pcolumndef.toCPointer<ByteVar>(), pvdefault.toCPointer<ByteVar>(), cbdefault, pcolumnid.toCPointer<ByteVar>())
+public actual fun jetAddColumnA(sesid: JetSesid, tableid: JetTableid, szcolumnname: COpaquePointer?, pcolumndef: COpaquePointer?, pvdefault: COpaquePointer?, cbdefault: UInt, pcolumnid: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetAddColumnA(sesid, tableid, szcolumnname?.value?.toCPointer<ByteVar>(), pcolumndef?.value?.toCPointer<ByteVar>(), pvdefault?.value?.toCPointer<ByteVar>(), cbdefault, pcolumnid?.value?.toCPointer<ByteVar>())
 
-public actual fun JetAddColumnW(sesid: JET_SESID, tableid: JET_TABLEID, szcolumnname: Long, pcolumndef: Long, pvdefault: Long, cbdefault: UInt, pcolumnid: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetAddColumnW(sesid, tableid, szcolumnname.toCPointer<ByteVar>(), pcolumndef.toCPointer<ByteVar>(), pvdefault.toCPointer<ByteVar>(), cbdefault, pcolumnid.toCPointer<ByteVar>())
+public actual fun jetAddColumnW(sesid: JetSesid, tableid: JetTableid, szcolumnname: COpaquePointer?, pcolumndef: COpaquePointer?, pvdefault: COpaquePointer?, cbdefault: UInt, pcolumnid: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetAddColumnW(sesid, tableid, szcolumnname?.value?.toCPointer<ByteVar>(), pcolumndef?.value?.toCPointer<ByteVar>(), pvdefault?.value?.toCPointer<ByteVar>(), cbdefault, pcolumnid?.value?.toCPointer<ByteVar>())
 
-public actual fun JetAttachDatabase2A(sesid: JET_SESID, szfilename: Long, cpgdatabasesizemax: UInt, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetAttachDatabase2A(sesid, szfilename.toCPointer<ByteVar>(), cpgdatabasesizemax, grbit)
+public actual fun jetAttachDatabase2A(sesid: JetSesid, szfilename: COpaquePointer?, cpgdatabasesizemax: UInt, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetAttachDatabase2A(sesid, szfilename?.value?.toCPointer<ByteVar>(), cpgdatabasesizemax, grbit)
 
-public actual fun JetAttachDatabase2W(sesid: JET_SESID, szfilename: Long, cpgdatabasesizemax: UInt, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetAttachDatabase2W(sesid, szfilename.toCPointer<ByteVar>(), cpgdatabasesizemax, grbit)
+public actual fun jetAttachDatabase2W(sesid: JetSesid, szfilename: COpaquePointer?, cpgdatabasesizemax: UInt, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetAttachDatabase2W(sesid, szfilename?.value?.toCPointer<ByteVar>(), cpgdatabasesizemax, grbit)
 
-public actual fun JetAttachDatabaseA(sesid: JET_SESID, szfilename: Long, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetAttachDatabaseA(sesid, szfilename.toCPointer<ByteVar>(), grbit)
+public actual fun jetAttachDatabaseA(sesid: JetSesid, szfilename: COpaquePointer?, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetAttachDatabaseA(sesid, szfilename?.value?.toCPointer<ByteVar>(), grbit)
 
-public actual fun JetAttachDatabaseW(sesid: JET_SESID, szfilename: Long, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetAttachDatabaseW(sesid, szfilename.toCPointer<ByteVar>(), grbit)
+public actual fun jetAttachDatabaseW(sesid: JetSesid, szfilename: COpaquePointer?, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetAttachDatabaseW(sesid, szfilename?.value?.toCPointer<ByteVar>(), grbit)
 
-public actual fun JetBackupA(szbackuppath: Long, grbit: UInt, pfnstatus: JET_PFNSTATUS): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetBackupA(szbackuppath.toCPointer<ByteVar>(), grbit, pfnstatus.toLong().toCPointer<ByteVar>())
+public actual fun jetBackupA(szbackuppath: COpaquePointer?, grbit: UInt, pfnstatus: JetPfnstatus): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetBackupA(szbackuppath?.value?.toCPointer<ByteVar>(), grbit, 0L.toCPointer<ByteVar>())
 
-public actual fun JetBackupInstanceA(instance: JET_INSTANCE, szbackuppath: Long, grbit: UInt, pfnstatus: JET_PFNSTATUS): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetBackupInstanceA(instance, szbackuppath.toCPointer<ByteVar>(), grbit, pfnstatus.toLong().toCPointer<ByteVar>())
+public actual fun jetBackupInstanceA(instance: JetInstance, szbackuppath: COpaquePointer?, grbit: UInt, pfnstatus: JetPfnstatus): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetBackupInstanceA(instance, szbackuppath?.value?.toCPointer<ByteVar>(), grbit, 0L.toCPointer<ByteVar>())
 
-public actual fun JetBackupInstanceW(instance: JET_INSTANCE, szbackuppath: Long, grbit: UInt, pfnstatus: JET_PFNSTATUS): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetBackupInstanceW(instance, szbackuppath.toCPointer<ByteVar>(), grbit, pfnstatus.toLong().toCPointer<ByteVar>())
+public actual fun jetBackupInstanceW(instance: JetInstance, szbackuppath: COpaquePointer?, grbit: UInt, pfnstatus: JetPfnstatus): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetBackupInstanceW(instance, szbackuppath?.value?.toCPointer<ByteVar>(), grbit, 0L.toCPointer<ByteVar>())
 
-public actual fun JetBackupW(szbackuppath: Long, grbit: UInt, pfnstatus: JET_PFNSTATUS): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetBackupW(szbackuppath.toCPointer<ByteVar>(), grbit, pfnstatus.toLong().toCPointer<ByteVar>())
+public actual fun jetBackupW(szbackuppath: COpaquePointer?, grbit: UInt, pfnstatus: JetPfnstatus): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetBackupW(szbackuppath?.value?.toCPointer<ByteVar>(), grbit, 0L.toCPointer<ByteVar>())
 
-public actual fun JetBeginExternalBackup(grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetBeginExternalBackup(grbit)
+public actual fun jetBeginExternalBackup(grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetBeginExternalBackup(grbit)
 
-public actual fun JetBeginExternalBackupInstance(instance: JET_INSTANCE, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetBeginExternalBackupInstance(instance, grbit)
+public actual fun jetBeginExternalBackupInstance(instance: JetInstance, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetBeginExternalBackupInstance(instance, grbit)
 
-public actual fun JetBeginSessionA(instance: JET_INSTANCE, psesid: Long, szusername: Long, szpassword: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetBeginSessionA(instance, psesid.toCPointer<ByteVar>(), szusername.toCPointer<ByteVar>(), szpassword.toCPointer<ByteVar>())
+public actual fun jetBeginSessionA(instance: JetInstance, psesid: COpaquePointer?, szusername: COpaquePointer?, szpassword: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetBeginSessionA(instance, psesid?.value?.toCPointer<ByteVar>(), szusername?.value?.toCPointer<ByteVar>(), szpassword?.value?.toCPointer<ByteVar>())
 
-public actual fun JetBeginSessionW(instance: JET_INSTANCE, psesid: Long, szusername: Long, szpassword: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetBeginSessionW(instance, psesid.toCPointer<ByteVar>(), szusername.toCPointer<ByteVar>(), szpassword.toCPointer<ByteVar>())
+public actual fun jetBeginSessionW(instance: JetInstance, psesid: COpaquePointer?, szusername: COpaquePointer?, szpassword: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetBeginSessionW(instance, psesid?.value?.toCPointer<ByteVar>(), szusername?.value?.toCPointer<ByteVar>(), szpassword?.value?.toCPointer<ByteVar>())
 
-public actual fun JetBeginTransaction(sesid: JET_SESID): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetBeginTransaction(sesid)
+public actual fun jetBeginTransaction(sesid: JetSesid): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetBeginTransaction(sesid)
 
-public actual fun JetBeginTransaction2(sesid: JET_SESID, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetBeginTransaction2(sesid, grbit)
+public actual fun jetBeginTransaction2(sesid: JetSesid, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetBeginTransaction2(sesid, grbit)
 
-public actual fun JetBeginTransaction3(sesid: JET_SESID, trxid: Long, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetBeginTransaction3(sesid, trxid, grbit)
+public actual fun jetBeginTransaction3(sesid: JetSesid, trxid: Long, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetBeginTransaction3(sesid, trxid, grbit)
 
-public actual fun JetCloseDatabase(sesid: JET_SESID, dbid: UInt, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetCloseDatabase(sesid, dbid, grbit)
+public actual fun jetCloseDatabase(sesid: JetSesid, dbid: UInt, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetCloseDatabase(sesid, dbid, grbit)
 
-public actual fun JetCloseFile(hffile: JET_HANDLE): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetCloseFile(hffile)
+public actual fun jetCloseFile(hffile: JetHandle): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetCloseFile(hffile)
 
-public actual fun JetCloseFileInstance(instance: JET_INSTANCE, hffile: JET_HANDLE): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetCloseFileInstance(instance, hffile)
+public actual fun jetCloseFileInstance(instance: JetInstance, hffile: JetHandle): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetCloseFileInstance(instance, hffile)
 
-public actual fun JetCloseTable(sesid: JET_SESID, tableid: JET_TABLEID): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetCloseTable(sesid, tableid)
+public actual fun jetCloseTable(sesid: JetSesid, tableid: JetTableid): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetCloseTable(sesid, tableid)
 
-public actual fun JetCommitTransaction(sesid: JET_SESID, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetCommitTransaction(sesid, grbit)
+public actual fun jetCommitTransaction(sesid: JetSesid, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetCommitTransaction(sesid, grbit)
 
-public actual fun JetCommitTransaction2(sesid: JET_SESID, grbit: UInt, cmsecdurablecommit: UInt, pcommitid: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetCommitTransaction2(sesid, grbit, cmsecdurablecommit, pcommitid.toCPointer<ByteVar>())
+public actual fun jetCommitTransaction2(sesid: JetSesid, grbit: UInt, cmsecdurablecommit: UInt, pcommitid: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetCommitTransaction2(sesid, grbit, cmsecdurablecommit, pcommitid?.value?.toCPointer<ByteVar>())
 
-public actual fun JetCompactA(sesid: JET_SESID, szdatabasesrc: Long, szdatabasedest: Long, pfnstatus: JET_PFNSTATUS, pconvert: Long, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetCompactA(sesid, szdatabasesrc.toCPointer<ByteVar>(), szdatabasedest.toCPointer<ByteVar>(), pfnstatus.toLong().toCPointer<ByteVar>(), pconvert.toCPointer<ByteVar>(), grbit)
+public actual fun jetCompactA(sesid: JetSesid, szdatabasesrc: COpaquePointer?, szdatabasedest: COpaquePointer?, pfnstatus: JetPfnstatus, pconvert: COpaquePointer?, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetCompactA(sesid, szdatabasesrc?.value?.toCPointer<ByteVar>(), szdatabasedest?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), pconvert?.value?.toCPointer<ByteVar>(), grbit)
 
-public actual fun JetCompactW(sesid: JET_SESID, szdatabasesrc: Long, szdatabasedest: Long, pfnstatus: JET_PFNSTATUS, pconvert: Long, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetCompactW(sesid, szdatabasesrc.toCPointer<ByteVar>(), szdatabasedest.toCPointer<ByteVar>(), pfnstatus.toLong().toCPointer<ByteVar>(), pconvert.toCPointer<ByteVar>(), grbit)
+public actual fun jetCompactW(sesid: JetSesid, szdatabasesrc: COpaquePointer?, szdatabasedest: COpaquePointer?, pfnstatus: JetPfnstatus, pconvert: COpaquePointer?, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetCompactW(sesid, szdatabasesrc?.value?.toCPointer<ByteVar>(), szdatabasedest?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), pconvert?.value?.toCPointer<ByteVar>(), grbit)
 
-public actual fun JetComputeStats(sesid: JET_SESID, tableid: JET_TABLEID): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetComputeStats(sesid, tableid)
+public actual fun jetComputeStats(sesid: JetSesid, tableid: JetTableid): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetComputeStats(sesid, tableid)
 
-public actual fun JetConfigureProcessForCrashDump(grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetConfigureProcessForCrashDump(grbit)
+public actual fun jetConfigureProcessForCrashDump(grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetConfigureProcessForCrashDump(grbit)
 
-public actual fun JetCreateDatabase2A(sesid: JET_SESID, szfilename: Long, cpgdatabasesizemax: UInt, pdbid: Long, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetCreateDatabase2A(sesid, szfilename.toCPointer<ByteVar>(), cpgdatabasesizemax, pdbid.toCPointer<ByteVar>(), grbit)
+public actual fun jetCreateDatabase2A(sesid: JetSesid, szfilename: COpaquePointer?, cpgdatabasesizemax: UInt, pdbid: COpaquePointer?, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetCreateDatabase2A(sesid, szfilename?.value?.toCPointer<ByteVar>(), cpgdatabasesizemax, pdbid?.value?.toCPointer<ByteVar>(), grbit)
 
-public actual fun JetCreateDatabase2W(sesid: JET_SESID, szfilename: Long, cpgdatabasesizemax: UInt, pdbid: Long, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetCreateDatabase2W(sesid, szfilename.toCPointer<ByteVar>(), cpgdatabasesizemax, pdbid.toCPointer<ByteVar>(), grbit)
+public actual fun jetCreateDatabase2W(sesid: JetSesid, szfilename: COpaquePointer?, cpgdatabasesizemax: UInt, pdbid: COpaquePointer?, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetCreateDatabase2W(sesid, szfilename?.value?.toCPointer<ByteVar>(), cpgdatabasesizemax, pdbid?.value?.toCPointer<ByteVar>(), grbit)
 
-public actual fun JetCreateDatabaseA(sesid: JET_SESID, szfilename: Long, szconnect: Long, pdbid: Long, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetCreateDatabaseA(sesid, szfilename.toCPointer<ByteVar>(), szconnect.toCPointer<ByteVar>(), pdbid.toCPointer<ByteVar>(), grbit)
+public actual fun jetCreateDatabaseA(sesid: JetSesid, szfilename: COpaquePointer?, szconnect: COpaquePointer?, pdbid: COpaquePointer?, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetCreateDatabaseA(sesid, szfilename?.value?.toCPointer<ByteVar>(), szconnect?.value?.toCPointer<ByteVar>(), pdbid?.value?.toCPointer<ByteVar>(), grbit)
 
-public actual fun JetCreateDatabaseW(sesid: JET_SESID, szfilename: Long, szconnect: Long, pdbid: Long, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetCreateDatabaseW(sesid, szfilename.toCPointer<ByteVar>(), szconnect.toCPointer<ByteVar>(), pdbid.toCPointer<ByteVar>(), grbit)
+public actual fun jetCreateDatabaseW(sesid: JetSesid, szfilename: COpaquePointer?, szconnect: COpaquePointer?, pdbid: COpaquePointer?, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetCreateDatabaseW(sesid, szfilename?.value?.toCPointer<ByteVar>(), szconnect?.value?.toCPointer<ByteVar>(), pdbid?.value?.toCPointer<ByteVar>(), grbit)
 
-public actual fun JetCreateIndex2A(sesid: JET_SESID, tableid: JET_TABLEID, pindexcreate: Long, cindexcreate: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetCreateIndex2A(sesid, tableid, pindexcreate.toCPointer<ByteVar>(), cindexcreate)
+public actual fun jetCreateIndex2A(sesid: JetSesid, tableid: JetTableid, pindexcreate: COpaquePointer?, cindexcreate: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetCreateIndex2A(sesid, tableid, pindexcreate?.value?.toCPointer<ByteVar>(), cindexcreate)
 
-public actual fun JetCreateIndex2W(sesid: JET_SESID, tableid: JET_TABLEID, pindexcreate: Long, cindexcreate: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetCreateIndex2W(sesid, tableid, pindexcreate.toCPointer<ByteVar>(), cindexcreate)
+public actual fun jetCreateIndex2W(sesid: JetSesid, tableid: JetTableid, pindexcreate: COpaquePointer?, cindexcreate: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetCreateIndex2W(sesid, tableid, pindexcreate?.value?.toCPointer<ByteVar>(), cindexcreate)
 
-public actual fun JetCreateIndex3A(sesid: JET_SESID, tableid: JET_TABLEID, pindexcreate: Long, cindexcreate: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetCreateIndex3A(sesid, tableid, pindexcreate.toCPointer<ByteVar>(), cindexcreate)
+public actual fun jetCreateIndex3A(sesid: JetSesid, tableid: JetTableid, pindexcreate: COpaquePointer?, cindexcreate: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetCreateIndex3A(sesid, tableid, pindexcreate?.value?.toCPointer<ByteVar>(), cindexcreate)
 
-public actual fun JetCreateIndex3W(sesid: JET_SESID, tableid: JET_TABLEID, pindexcreate: Long, cindexcreate: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetCreateIndex3W(sesid, tableid, pindexcreate.toCPointer<ByteVar>(), cindexcreate)
+public actual fun jetCreateIndex3W(sesid: JetSesid, tableid: JetTableid, pindexcreate: COpaquePointer?, cindexcreate: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetCreateIndex3W(sesid, tableid, pindexcreate?.value?.toCPointer<ByteVar>(), cindexcreate)
 
-public actual fun JetCreateIndex4A(sesid: JET_SESID, tableid: JET_TABLEID, pindexcreate: Long, cindexcreate: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetCreateIndex4A(sesid, tableid, pindexcreate.toCPointer<ByteVar>(), cindexcreate)
+public actual fun jetCreateIndex4A(sesid: JetSesid, tableid: JetTableid, pindexcreate: COpaquePointer?, cindexcreate: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetCreateIndex4A(sesid, tableid, pindexcreate?.value?.toCPointer<ByteVar>(), cindexcreate)
 
-public actual fun JetCreateIndex4W(sesid: JET_SESID, tableid: JET_TABLEID, pindexcreate: Long, cindexcreate: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetCreateIndex4W(sesid, tableid, pindexcreate.toCPointer<ByteVar>(), cindexcreate)
+public actual fun jetCreateIndex4W(sesid: JetSesid, tableid: JetTableid, pindexcreate: COpaquePointer?, cindexcreate: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetCreateIndex4W(sesid, tableid, pindexcreate?.value?.toCPointer<ByteVar>(), cindexcreate)
 
-public actual fun JetCreateIndexA(sesid: JET_SESID, tableid: JET_TABLEID, szindexname: Long, grbit: UInt, szkey: PCSTR, cbkey: UInt, ldensity: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetCreateIndexA(sesid, tableid, szindexname.toCPointer<ByteVar>(), grbit, szkey.toCPointer<ByteVar>(), cbkey, ldensity)
+public actual fun jetCreateIndexA(sesid: JetSesid, tableid: JetTableid, szindexname: COpaquePointer?, grbit: UInt, szkey: Pcstr, cbkey: UInt, ldensity: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetCreateIndexA(sesid, tableid, szindexname?.value?.toCPointer<ByteVar>(), grbit, szkey?.value?.toCPointer<ByteVar>(), cbkey, ldensity)
 
-public actual fun JetCreateIndexW(sesid: JET_SESID, tableid: JET_TABLEID, szindexname: Long, grbit: UInt, szkey: PCWSTR, cbkey: UInt, ldensity: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetCreateIndexW(sesid, tableid, szindexname.toCPointer<ByteVar>(), grbit, szkey.toCPointer<ByteVar>(), cbkey, ldensity)
+public actual fun jetCreateIndexW(sesid: JetSesid, tableid: JetTableid, szindexname: COpaquePointer?, grbit: UInt, szkey: Pcwstr, cbkey: UInt, ldensity: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetCreateIndexW(sesid, tableid, szindexname?.value?.toCPointer<ByteVar>(), grbit, szkey?.value?.toCPointer<ByteVar>(), cbkey, ldensity)
 
-public actual fun JetCreateInstance2A(pinstance: Long, szinstancename: Long, szdisplayname: Long, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetCreateInstance2A(pinstance.toCPointer<ByteVar>(), szinstancename.toCPointer<ByteVar>(), szdisplayname.toCPointer<ByteVar>(), grbit)
+public actual fun jetCreateInstance2A(pinstance: COpaquePointer?, szinstancename: COpaquePointer?, szdisplayname: COpaquePointer?, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetCreateInstance2A(pinstance?.value?.toCPointer<ByteVar>(), szinstancename?.value?.toCPointer<ByteVar>(), szdisplayname?.value?.toCPointer<ByteVar>(), grbit)
 
-public actual fun JetCreateInstance2W(pinstance: Long, szinstancename: Long, szdisplayname: Long, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetCreateInstance2W(pinstance.toCPointer<ByteVar>(), szinstancename.toCPointer<ByteVar>(), szdisplayname.toCPointer<ByteVar>(), grbit)
+public actual fun jetCreateInstance2W(pinstance: COpaquePointer?, szinstancename: COpaquePointer?, szdisplayname: COpaquePointer?, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetCreateInstance2W(pinstance?.value?.toCPointer<ByteVar>(), szinstancename?.value?.toCPointer<ByteVar>(), szdisplayname?.value?.toCPointer<ByteVar>(), grbit)
 
-public actual fun JetCreateInstanceA(pinstance: Long, szinstancename: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetCreateInstanceA(pinstance.toCPointer<ByteVar>(), szinstancename.toCPointer<ByteVar>())
+public actual fun jetCreateInstanceA(pinstance: COpaquePointer?, szinstancename: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetCreateInstanceA(pinstance?.value?.toCPointer<ByteVar>(), szinstancename?.value?.toCPointer<ByteVar>())
 
-public actual fun JetCreateInstanceW(pinstance: Long, szinstancename: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetCreateInstanceW(pinstance.toCPointer<ByteVar>(), szinstancename.toCPointer<ByteVar>())
+public actual fun jetCreateInstanceW(pinstance: COpaquePointer?, szinstancename: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetCreateInstanceW(pinstance?.value?.toCPointer<ByteVar>(), szinstancename?.value?.toCPointer<ByteVar>())
 
-public actual fun JetCreateTableA(sesid: JET_SESID, dbid: UInt, sztablename: Long, lpages: UInt, ldensity: UInt, ptableid: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetCreateTableA(sesid, dbid, sztablename.toCPointer<ByteVar>(), lpages, ldensity, ptableid.toCPointer<ByteVar>())
+public actual fun jetCreateTableA(sesid: JetSesid, dbid: UInt, sztablename: COpaquePointer?, lpages: UInt, ldensity: UInt, ptableid: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetCreateTableA(sesid, dbid, sztablename?.value?.toCPointer<ByteVar>(), lpages, ldensity, ptableid?.value?.toCPointer<ByteVar>())
 
-public actual fun JetCreateTableColumnIndex2A(sesid: JET_SESID, dbid: UInt, ptablecreate: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetCreateTableColumnIndex2A(sesid, dbid, ptablecreate.toCPointer<ByteVar>())
+public actual fun jetCreateTableColumnIndex2A(sesid: JetSesid, dbid: UInt, ptablecreate: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetCreateTableColumnIndex2A(sesid, dbid, ptablecreate?.value?.toCPointer<ByteVar>())
 
-public actual fun JetCreateTableColumnIndex2W(sesid: JET_SESID, dbid: UInt, ptablecreate: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetCreateTableColumnIndex2W(sesid, dbid, ptablecreate.toCPointer<ByteVar>())
+public actual fun jetCreateTableColumnIndex2W(sesid: JetSesid, dbid: UInt, ptablecreate: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetCreateTableColumnIndex2W(sesid, dbid, ptablecreate?.value?.toCPointer<ByteVar>())
 
-public actual fun JetCreateTableColumnIndex3A(sesid: JET_SESID, dbid: UInt, ptablecreate: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetCreateTableColumnIndex3A(sesid, dbid, ptablecreate.toCPointer<ByteVar>())
+public actual fun jetCreateTableColumnIndex3A(sesid: JetSesid, dbid: UInt, ptablecreate: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetCreateTableColumnIndex3A(sesid, dbid, ptablecreate?.value?.toCPointer<ByteVar>())
 
-public actual fun JetCreateTableColumnIndex3W(sesid: JET_SESID, dbid: UInt, ptablecreate: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetCreateTableColumnIndex3W(sesid, dbid, ptablecreate.toCPointer<ByteVar>())
+public actual fun jetCreateTableColumnIndex3W(sesid: JetSesid, dbid: UInt, ptablecreate: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetCreateTableColumnIndex3W(sesid, dbid, ptablecreate?.value?.toCPointer<ByteVar>())
 
-public actual fun JetCreateTableColumnIndex4A(sesid: JET_SESID, dbid: UInt, ptablecreate: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetCreateTableColumnIndex4A(sesid, dbid, ptablecreate.toCPointer<ByteVar>())
+public actual fun jetCreateTableColumnIndex4A(sesid: JetSesid, dbid: UInt, ptablecreate: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetCreateTableColumnIndex4A(sesid, dbid, ptablecreate?.value?.toCPointer<ByteVar>())
 
-public actual fun JetCreateTableColumnIndex4W(sesid: JET_SESID, dbid: UInt, ptablecreate: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetCreateTableColumnIndex4W(sesid, dbid, ptablecreate.toCPointer<ByteVar>())
+public actual fun jetCreateTableColumnIndex4W(sesid: JetSesid, dbid: UInt, ptablecreate: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetCreateTableColumnIndex4W(sesid, dbid, ptablecreate?.value?.toCPointer<ByteVar>())
 
-public actual fun JetCreateTableColumnIndexA(sesid: JET_SESID, dbid: UInt, ptablecreate: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetCreateTableColumnIndexA(sesid, dbid, ptablecreate.toCPointer<ByteVar>())
+public actual fun jetCreateTableColumnIndexA(sesid: JetSesid, dbid: UInt, ptablecreate: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetCreateTableColumnIndexA(sesid, dbid, ptablecreate?.value?.toCPointer<ByteVar>())
 
-public actual fun JetCreateTableColumnIndexW(sesid: JET_SESID, dbid: UInt, ptablecreate: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetCreateTableColumnIndexW(sesid, dbid, ptablecreate.toCPointer<ByteVar>())
+public actual fun jetCreateTableColumnIndexW(sesid: JetSesid, dbid: UInt, ptablecreate: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetCreateTableColumnIndexW(sesid, dbid, ptablecreate?.value?.toCPointer<ByteVar>())
 
-public actual fun JetCreateTableW(sesid: JET_SESID, dbid: UInt, sztablename: Long, lpages: UInt, ldensity: UInt, ptableid: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetCreateTableW(sesid, dbid, sztablename.toCPointer<ByteVar>(), lpages, ldensity, ptableid.toCPointer<ByteVar>())
+public actual fun jetCreateTableW(sesid: JetSesid, dbid: UInt, sztablename: COpaquePointer?, lpages: UInt, ldensity: UInt, ptableid: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetCreateTableW(sesid, dbid, sztablename?.value?.toCPointer<ByteVar>(), lpages, ldensity, ptableid?.value?.toCPointer<ByteVar>())
 
-public actual fun JetDefragment2A(sesid: JET_SESID, dbid: UInt, sztablename: Long, pcpasses: Long, pcseconds: Long, callback: JET_CALLBACK, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetDefragment2A(sesid, dbid, sztablename.toCPointer<ByteVar>(), pcpasses.toCPointer<ByteVar>(), pcseconds.toCPointer<ByteVar>(), callback.toLong().toCPointer<ByteVar>(), grbit)
+public actual fun jetDefragment2A(sesid: JetSesid, dbid: UInt, sztablename: COpaquePointer?, pcpasses: COpaquePointer?, pcseconds: COpaquePointer?, callback: JetCallback, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetDefragment2A(sesid, dbid, sztablename?.value?.toCPointer<ByteVar>(), pcpasses?.value?.toCPointer<ByteVar>(), pcseconds?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), grbit)
 
-public actual fun JetDefragment2W(sesid: JET_SESID, dbid: UInt, sztablename: Long, pcpasses: Long, pcseconds: Long, callback: JET_CALLBACK, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetDefragment2W(sesid, dbid, sztablename.toCPointer<ByteVar>(), pcpasses.toCPointer<ByteVar>(), pcseconds.toCPointer<ByteVar>(), callback.toLong().toCPointer<ByteVar>(), grbit)
+public actual fun jetDefragment2W(sesid: JetSesid, dbid: UInt, sztablename: COpaquePointer?, pcpasses: COpaquePointer?, pcseconds: COpaquePointer?, callback: JetCallback, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetDefragment2W(sesid, dbid, sztablename?.value?.toCPointer<ByteVar>(), pcpasses?.value?.toCPointer<ByteVar>(), pcseconds?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), grbit)
 
-public actual fun JetDefragment3A(sesid: JET_SESID, szdatabasename: Long, sztablename: Long, pcpasses: Long, pcseconds: Long, callback: JET_CALLBACK, pvcontext: Long, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetDefragment3A(sesid, szdatabasename.toCPointer<ByteVar>(), sztablename.toCPointer<ByteVar>(), pcpasses.toCPointer<ByteVar>(), pcseconds.toCPointer<ByteVar>(), callback.toLong().toCPointer<ByteVar>(), pvcontext.toCPointer<ByteVar>(), grbit)
+public actual fun jetDefragment3A(sesid: JetSesid, szdatabasename: COpaquePointer?, sztablename: COpaquePointer?, pcpasses: COpaquePointer?, pcseconds: COpaquePointer?, callback: JetCallback, pvcontext: COpaquePointer?, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetDefragment3A(sesid, szdatabasename?.value?.toCPointer<ByteVar>(), sztablename?.value?.toCPointer<ByteVar>(), pcpasses?.value?.toCPointer<ByteVar>(), pcseconds?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), pvcontext?.value?.toCPointer<ByteVar>(), grbit)
 
-public actual fun JetDefragment3W(sesid: JET_SESID, szdatabasename: Long, sztablename: Long, pcpasses: Long, pcseconds: Long, callback: JET_CALLBACK, pvcontext: Long, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetDefragment3W(sesid, szdatabasename.toCPointer<ByteVar>(), sztablename.toCPointer<ByteVar>(), pcpasses.toCPointer<ByteVar>(), pcseconds.toCPointer<ByteVar>(), callback.toLong().toCPointer<ByteVar>(), pvcontext.toCPointer<ByteVar>(), grbit)
+public actual fun jetDefragment3W(sesid: JetSesid, szdatabasename: COpaquePointer?, sztablename: COpaquePointer?, pcpasses: COpaquePointer?, pcseconds: COpaquePointer?, callback: JetCallback, pvcontext: COpaquePointer?, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetDefragment3W(sesid, szdatabasename?.value?.toCPointer<ByteVar>(), sztablename?.value?.toCPointer<ByteVar>(), pcpasses?.value?.toCPointer<ByteVar>(), pcseconds?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), pvcontext?.value?.toCPointer<ByteVar>(), grbit)
 
-public actual fun JetDefragmentA(sesid: JET_SESID, dbid: UInt, sztablename: Long, pcpasses: Long, pcseconds: Long, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetDefragmentA(sesid, dbid, sztablename.toCPointer<ByteVar>(), pcpasses.toCPointer<ByteVar>(), pcseconds.toCPointer<ByteVar>(), grbit)
+public actual fun jetDefragmentA(sesid: JetSesid, dbid: UInt, sztablename: COpaquePointer?, pcpasses: COpaquePointer?, pcseconds: COpaquePointer?, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetDefragmentA(sesid, dbid, sztablename?.value?.toCPointer<ByteVar>(), pcpasses?.value?.toCPointer<ByteVar>(), pcseconds?.value?.toCPointer<ByteVar>(), grbit)
 
-public actual fun JetDefragmentW(sesid: JET_SESID, dbid: UInt, sztablename: Long, pcpasses: Long, pcseconds: Long, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetDefragmentW(sesid, dbid, sztablename.toCPointer<ByteVar>(), pcpasses.toCPointer<ByteVar>(), pcseconds.toCPointer<ByteVar>(), grbit)
+public actual fun jetDefragmentW(sesid: JetSesid, dbid: UInt, sztablename: COpaquePointer?, pcpasses: COpaquePointer?, pcseconds: COpaquePointer?, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetDefragmentW(sesid, dbid, sztablename?.value?.toCPointer<ByteVar>(), pcpasses?.value?.toCPointer<ByteVar>(), pcseconds?.value?.toCPointer<ByteVar>(), grbit)
 
-public actual fun JetDelete(sesid: JET_SESID, tableid: JET_TABLEID): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetDelete(sesid, tableid)
+public actual fun jetDelete(sesid: JetSesid, tableid: JetTableid): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetDelete(sesid, tableid)
 
-public actual fun JetDeleteColumn2A(sesid: JET_SESID, tableid: JET_TABLEID, szcolumnname: Long, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetDeleteColumn2A(sesid, tableid, szcolumnname.toCPointer<ByteVar>(), grbit)
+public actual fun jetDeleteColumn2A(sesid: JetSesid, tableid: JetTableid, szcolumnname: COpaquePointer?, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetDeleteColumn2A(sesid, tableid, szcolumnname?.value?.toCPointer<ByteVar>(), grbit)
 
-public actual fun JetDeleteColumn2W(sesid: JET_SESID, tableid: JET_TABLEID, szcolumnname: Long, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetDeleteColumn2W(sesid, tableid, szcolumnname.toCPointer<ByteVar>(), grbit)
+public actual fun jetDeleteColumn2W(sesid: JetSesid, tableid: JetTableid, szcolumnname: COpaquePointer?, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetDeleteColumn2W(sesid, tableid, szcolumnname?.value?.toCPointer<ByteVar>(), grbit)
 
-public actual fun JetDeleteColumnA(sesid: JET_SESID, tableid: JET_TABLEID, szcolumnname: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetDeleteColumnA(sesid, tableid, szcolumnname.toCPointer<ByteVar>())
+public actual fun jetDeleteColumnA(sesid: JetSesid, tableid: JetTableid, szcolumnname: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetDeleteColumnA(sesid, tableid, szcolumnname?.value?.toCPointer<ByteVar>())
 
-public actual fun JetDeleteColumnW(sesid: JET_SESID, tableid: JET_TABLEID, szcolumnname: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetDeleteColumnW(sesid, tableid, szcolumnname.toCPointer<ByteVar>())
+public actual fun jetDeleteColumnW(sesid: JetSesid, tableid: JetTableid, szcolumnname: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetDeleteColumnW(sesid, tableid, szcolumnname?.value?.toCPointer<ByteVar>())
 
-public actual fun JetDeleteIndexA(sesid: JET_SESID, tableid: JET_TABLEID, szindexname: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetDeleteIndexA(sesid, tableid, szindexname.toCPointer<ByteVar>())
+public actual fun jetDeleteIndexA(sesid: JetSesid, tableid: JetTableid, szindexname: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetDeleteIndexA(sesid, tableid, szindexname?.value?.toCPointer<ByteVar>())
 
-public actual fun JetDeleteIndexW(sesid: JET_SESID, tableid: JET_TABLEID, szindexname: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetDeleteIndexW(sesid, tableid, szindexname.toCPointer<ByteVar>())
+public actual fun jetDeleteIndexW(sesid: JetSesid, tableid: JetTableid, szindexname: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetDeleteIndexW(sesid, tableid, szindexname?.value?.toCPointer<ByteVar>())
 
-public actual fun JetDeleteTableA(sesid: JET_SESID, dbid: UInt, sztablename: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetDeleteTableA(sesid, dbid, sztablename.toCPointer<ByteVar>())
+public actual fun jetDeleteTableA(sesid: JetSesid, dbid: UInt, sztablename: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetDeleteTableA(sesid, dbid, sztablename?.value?.toCPointer<ByteVar>())
 
-public actual fun JetDeleteTableW(sesid: JET_SESID, dbid: UInt, sztablename: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetDeleteTableW(sesid, dbid, sztablename.toCPointer<ByteVar>())
+public actual fun jetDeleteTableW(sesid: JetSesid, dbid: UInt, sztablename: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetDeleteTableW(sesid, dbid, sztablename?.value?.toCPointer<ByteVar>())
 
-public actual fun JetDetachDatabase2A(sesid: JET_SESID, szfilename: Long, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetDetachDatabase2A(sesid, szfilename.toCPointer<ByteVar>(), grbit)
+public actual fun jetDetachDatabase2A(sesid: JetSesid, szfilename: COpaquePointer?, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetDetachDatabase2A(sesid, szfilename?.value?.toCPointer<ByteVar>(), grbit)
 
-public actual fun JetDetachDatabase2W(sesid: JET_SESID, szfilename: Long, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetDetachDatabase2W(sesid, szfilename.toCPointer<ByteVar>(), grbit)
+public actual fun jetDetachDatabase2W(sesid: JetSesid, szfilename: COpaquePointer?, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetDetachDatabase2W(sesid, szfilename?.value?.toCPointer<ByteVar>(), grbit)
 
-public actual fun JetDetachDatabaseA(sesid: JET_SESID, szfilename: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetDetachDatabaseA(sesid, szfilename.toCPointer<ByteVar>())
+public actual fun jetDetachDatabaseA(sesid: JetSesid, szfilename: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetDetachDatabaseA(sesid, szfilename?.value?.toCPointer<ByteVar>())
 
-public actual fun JetDetachDatabaseW(sesid: JET_SESID, szfilename: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetDetachDatabaseW(sesid, szfilename.toCPointer<ByteVar>())
+public actual fun jetDetachDatabaseW(sesid: JetSesid, szfilename: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetDetachDatabaseW(sesid, szfilename?.value?.toCPointer<ByteVar>())
 
-public actual fun JetDupCursor(sesid: JET_SESID, tableid: JET_TABLEID, ptableid: Long, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetDupCursor(sesid, tableid, ptableid.toCPointer<ByteVar>(), grbit)
+public actual fun jetDupCursor(sesid: JetSesid, tableid: JetTableid, ptableid: COpaquePointer?, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetDupCursor(sesid, tableid, ptableid?.value?.toCPointer<ByteVar>(), grbit)
 
-public actual fun JetDupSession(sesid: JET_SESID, psesid: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetDupSession(sesid, psesid.toCPointer<ByteVar>())
+public actual fun jetDupSession(sesid: JetSesid, psesid: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetDupSession(sesid, psesid?.value?.toCPointer<ByteVar>())
 
-public actual fun JetEnableMultiInstanceA(psetsysparam: Long, csetsysparam: UInt, pcsetsucceed: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetEnableMultiInstanceA(psetsysparam.toCPointer<ByteVar>(), csetsysparam, pcsetsucceed.toCPointer<ByteVar>())
+public actual fun jetEnableMultiInstanceA(psetsysparam: COpaquePointer?, csetsysparam: UInt, pcsetsucceed: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetEnableMultiInstanceA(psetsysparam?.value?.toCPointer<ByteVar>(), csetsysparam, pcsetsucceed?.value?.toCPointer<ByteVar>())
 
-public actual fun JetEnableMultiInstanceW(psetsysparam: Long, csetsysparam: UInt, pcsetsucceed: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetEnableMultiInstanceW(psetsysparam.toCPointer<ByteVar>(), csetsysparam, pcsetsucceed.toCPointer<ByteVar>())
+public actual fun jetEnableMultiInstanceW(psetsysparam: COpaquePointer?, csetsysparam: UInt, pcsetsucceed: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetEnableMultiInstanceW(psetsysparam?.value?.toCPointer<ByteVar>(), csetsysparam, pcsetsucceed?.value?.toCPointer<ByteVar>())
 
-public actual fun JetEndExternalBackup(): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetEndExternalBackup()
+public actual fun jetEndExternalBackup(): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetEndExternalBackup()
 
-public actual fun JetEndExternalBackupInstance(instance: JET_INSTANCE): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetEndExternalBackupInstance(instance)
+public actual fun jetEndExternalBackupInstance(instance: JetInstance): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetEndExternalBackupInstance(instance)
 
-public actual fun JetEndExternalBackupInstance2(instance: JET_INSTANCE, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetEndExternalBackupInstance2(instance, grbit)
+public actual fun jetEndExternalBackupInstance2(instance: JetInstance, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetEndExternalBackupInstance2(instance, grbit)
 
-public actual fun JetEndSession(sesid: JET_SESID, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetEndSession(sesid, grbit)
+public actual fun jetEndSession(sesid: JetSesid, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetEndSession(sesid, grbit)
 
-public actual fun JetEnumerateColumns(sesid: JET_SESID, tableid: JET_TABLEID, cenumcolumnid: UInt, rgenumcolumnid: Long, pcenumcolumn: Long, prgenumcolumn: Long, pfnrealloc: JET_PFNREALLOC, pvrealloccontext: Long, cbdatamost: UInt, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetEnumerateColumns(sesid, tableid, cenumcolumnid, rgenumcolumnid.toCPointer<ByteVar>(), pcenumcolumn.toCPointer<ByteVar>(), prgenumcolumn.toCPointer<ByteVar>(), pfnrealloc.toLong().toCPointer<ByteVar>(), pvrealloccontext.toCPointer<ByteVar>(), cbdatamost, grbit)
+public actual fun jetEnumerateColumns(sesid: JetSesid, tableid: JetTableid, cenumcolumnid: UInt, rgenumcolumnid: COpaquePointer?, pcenumcolumn: COpaquePointer?, prgenumcolumn: COpaquePointer?, pfnrealloc: JetPfnrealloc, pvrealloccontext: COpaquePointer?, cbdatamost: UInt, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetEnumerateColumns(sesid, tableid, cenumcolumnid, rgenumcolumnid?.value?.toCPointer<ByteVar>(), pcenumcolumn?.value?.toCPointer<ByteVar>(), prgenumcolumn?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), pvrealloccontext?.value?.toCPointer<ByteVar>(), cbdatamost, grbit)
 
-public actual fun JetEscrowUpdate(sesid: JET_SESID, tableid: JET_TABLEID, columnid: UInt, pv: Long, cbmax: UInt, pvold: Long, cboldmax: UInt, pcboldactual: Long, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetEscrowUpdate(sesid, tableid, columnid, pv.toCPointer<ByteVar>(), cbmax, pvold.toCPointer<ByteVar>(), cboldmax, pcboldactual.toCPointer<ByteVar>(), grbit)
+public actual fun jetEscrowUpdate(sesid: JetSesid, tableid: JetTableid, columnid: UInt, pv: COpaquePointer?, cbmax: UInt, pvold: COpaquePointer?, cboldmax: UInt, pcboldactual: COpaquePointer?, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetEscrowUpdate(sesid, tableid, columnid, pv?.value?.toCPointer<ByteVar>(), cbmax, pvold?.value?.toCPointer<ByteVar>(), cboldmax, pcboldactual?.value?.toCPointer<ByteVar>(), grbit)
 
-public actual fun JetExternalRestore2A(szcheckpointfilepath: Long, szlogpath: Long, rgrstmap: Long, crstfilemap: Int, szbackuplogpath: Long, ploginfo: Long, sztargetinstancename: Long, sztargetinstancelogpath: Long, sztargetinstancecheckpointpath: Long, pfn: JET_PFNSTATUS): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetExternalRestore2A(szcheckpointfilepath.toCPointer<ByteVar>(), szlogpath.toCPointer<ByteVar>(), rgrstmap.toCPointer<ByteVar>(), crstfilemap, szbackuplogpath.toCPointer<ByteVar>(), ploginfo.toCPointer<ByteVar>(), sztargetinstancename.toCPointer<ByteVar>(), sztargetinstancelogpath.toCPointer<ByteVar>(), sztargetinstancecheckpointpath.toCPointer<ByteVar>(), pfn.toLong().toCPointer<ByteVar>())
+public actual fun jetExternalRestore2A(szcheckpointfilepath: COpaquePointer?, szlogpath: COpaquePointer?, rgrstmap: COpaquePointer?, crstfilemap: Int, szbackuplogpath: COpaquePointer?, ploginfo: COpaquePointer?, sztargetinstancename: COpaquePointer?, sztargetinstancelogpath: COpaquePointer?, sztargetinstancecheckpointpath: COpaquePointer?, pfn: JetPfnstatus): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetExternalRestore2A(szcheckpointfilepath?.value?.toCPointer<ByteVar>(), szlogpath?.value?.toCPointer<ByteVar>(), rgrstmap?.value?.toCPointer<ByteVar>(), crstfilemap, szbackuplogpath?.value?.toCPointer<ByteVar>(), ploginfo?.value?.toCPointer<ByteVar>(), sztargetinstancename?.value?.toCPointer<ByteVar>(), sztargetinstancelogpath?.value?.toCPointer<ByteVar>(), sztargetinstancecheckpointpath?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 
-public actual fun JetExternalRestore2W(szcheckpointfilepath: Long, szlogpath: Long, rgrstmap: Long, crstfilemap: Int, szbackuplogpath: Long, ploginfo: Long, sztargetinstancename: Long, sztargetinstancelogpath: Long, sztargetinstancecheckpointpath: Long, pfn: JET_PFNSTATUS): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetExternalRestore2W(szcheckpointfilepath.toCPointer<ByteVar>(), szlogpath.toCPointer<ByteVar>(), rgrstmap.toCPointer<ByteVar>(), crstfilemap, szbackuplogpath.toCPointer<ByteVar>(), ploginfo.toCPointer<ByteVar>(), sztargetinstancename.toCPointer<ByteVar>(), sztargetinstancelogpath.toCPointer<ByteVar>(), sztargetinstancecheckpointpath.toCPointer<ByteVar>(), pfn.toLong().toCPointer<ByteVar>())
+public actual fun jetExternalRestore2W(szcheckpointfilepath: COpaquePointer?, szlogpath: COpaquePointer?, rgrstmap: COpaquePointer?, crstfilemap: Int, szbackuplogpath: COpaquePointer?, ploginfo: COpaquePointer?, sztargetinstancename: COpaquePointer?, sztargetinstancelogpath: COpaquePointer?, sztargetinstancecheckpointpath: COpaquePointer?, pfn: JetPfnstatus): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetExternalRestore2W(szcheckpointfilepath?.value?.toCPointer<ByteVar>(), szlogpath?.value?.toCPointer<ByteVar>(), rgrstmap?.value?.toCPointer<ByteVar>(), crstfilemap, szbackuplogpath?.value?.toCPointer<ByteVar>(), ploginfo?.value?.toCPointer<ByteVar>(), sztargetinstancename?.value?.toCPointer<ByteVar>(), sztargetinstancelogpath?.value?.toCPointer<ByteVar>(), sztargetinstancecheckpointpath?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 
-public actual fun JetExternalRestoreA(szcheckpointfilepath: Long, szlogpath: Long, rgrstmap: Long, crstfilemap: Int, szbackuplogpath: Long, genlow: Int, genhigh: Int, pfn: JET_PFNSTATUS): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetExternalRestoreA(szcheckpointfilepath.toCPointer<ByteVar>(), szlogpath.toCPointer<ByteVar>(), rgrstmap.toCPointer<ByteVar>(), crstfilemap, szbackuplogpath.toCPointer<ByteVar>(), genlow, genhigh, pfn.toLong().toCPointer<ByteVar>())
+public actual fun jetExternalRestoreA(szcheckpointfilepath: COpaquePointer?, szlogpath: COpaquePointer?, rgrstmap: COpaquePointer?, crstfilemap: Int, szbackuplogpath: COpaquePointer?, genlow: Int, genhigh: Int, pfn: JetPfnstatus): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetExternalRestoreA(szcheckpointfilepath?.value?.toCPointer<ByteVar>(), szlogpath?.value?.toCPointer<ByteVar>(), rgrstmap?.value?.toCPointer<ByteVar>(), crstfilemap, szbackuplogpath?.value?.toCPointer<ByteVar>(), genlow, genhigh, 0L.toCPointer<ByteVar>())
 
-public actual fun JetExternalRestoreW(szcheckpointfilepath: Long, szlogpath: Long, rgrstmap: Long, crstfilemap: Int, szbackuplogpath: Long, genlow: Int, genhigh: Int, pfn: JET_PFNSTATUS): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetExternalRestoreW(szcheckpointfilepath.toCPointer<ByteVar>(), szlogpath.toCPointer<ByteVar>(), rgrstmap.toCPointer<ByteVar>(), crstfilemap, szbackuplogpath.toCPointer<ByteVar>(), genlow, genhigh, pfn.toLong().toCPointer<ByteVar>())
+public actual fun jetExternalRestoreW(szcheckpointfilepath: COpaquePointer?, szlogpath: COpaquePointer?, rgrstmap: COpaquePointer?, crstfilemap: Int, szbackuplogpath: COpaquePointer?, genlow: Int, genhigh: Int, pfn: JetPfnstatus): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetExternalRestoreW(szcheckpointfilepath?.value?.toCPointer<ByteVar>(), szlogpath?.value?.toCPointer<ByteVar>(), rgrstmap?.value?.toCPointer<ByteVar>(), crstfilemap, szbackuplogpath?.value?.toCPointer<ByteVar>(), genlow, genhigh, 0L.toCPointer<ByteVar>())
 
-public actual fun JetFreeBuffer(pbbuf: PCSTR): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetFreeBuffer(pbbuf.toCPointer<ByteVar>())
+public actual fun jetFreeBuffer(pbbuf: Pcstr): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetFreeBuffer(pbbuf?.value?.toCPointer<ByteVar>())
 
-public actual fun JetGetAttachInfoA(szzdatabases: Long, cbmax: UInt, pcbactual: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetGetAttachInfoA(szzdatabases.toCPointer<ByteVar>(), cbmax, pcbactual.toCPointer<ByteVar>())
+public actual fun jetGetAttachInfoA(szzdatabases: COpaquePointer?, cbmax: UInt, pcbactual: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetGetAttachInfoA(szzdatabases?.value?.toCPointer<ByteVar>(), cbmax, pcbactual?.value?.toCPointer<ByteVar>())
 
-public actual fun JetGetAttachInfoInstanceA(instance: JET_INSTANCE, szzdatabases: Long, cbmax: UInt, pcbactual: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetGetAttachInfoInstanceA(instance, szzdatabases.toCPointer<ByteVar>(), cbmax, pcbactual.toCPointer<ByteVar>())
+public actual fun jetGetAttachInfoInstanceA(instance: JetInstance, szzdatabases: COpaquePointer?, cbmax: UInt, pcbactual: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetGetAttachInfoInstanceA(instance, szzdatabases?.value?.toCPointer<ByteVar>(), cbmax, pcbactual?.value?.toCPointer<ByteVar>())
 
-public actual fun JetGetAttachInfoInstanceW(instance: JET_INSTANCE, szzdatabases: Long, cbmax: UInt, pcbactual: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetGetAttachInfoInstanceW(instance, szzdatabases.toCPointer<ByteVar>(), cbmax, pcbactual.toCPointer<ByteVar>())
+public actual fun jetGetAttachInfoInstanceW(instance: JetInstance, szzdatabases: COpaquePointer?, cbmax: UInt, pcbactual: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetGetAttachInfoInstanceW(instance, szzdatabases?.value?.toCPointer<ByteVar>(), cbmax, pcbactual?.value?.toCPointer<ByteVar>())
 
-public actual fun JetGetAttachInfoW(wszzdatabases: Long, cbmax: UInt, pcbactual: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetGetAttachInfoW(wszzdatabases.toCPointer<ByteVar>(), cbmax, pcbactual.toCPointer<ByteVar>())
+public actual fun jetGetAttachInfoW(wszzdatabases: COpaquePointer?, cbmax: UInt, pcbactual: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetGetAttachInfoW(wszzdatabases?.value?.toCPointer<ByteVar>(), cbmax, pcbactual?.value?.toCPointer<ByteVar>())
 
-public actual fun JetGetBookmark(sesid: JET_SESID, tableid: JET_TABLEID, pvbookmark: Long, cbmax: UInt, pcbactual: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetGetBookmark(sesid, tableid, pvbookmark.toCPointer<ByteVar>(), cbmax, pcbactual.toCPointer<ByteVar>())
+public actual fun jetGetBookmark(sesid: JetSesid, tableid: JetTableid, pvbookmark: COpaquePointer?, cbmax: UInt, pcbactual: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetGetBookmark(sesid, tableid, pvbookmark?.value?.toCPointer<ByteVar>(), cbmax, pcbactual?.value?.toCPointer<ByteVar>())
 
-public actual fun JetGetColumnInfoA(sesid: JET_SESID, dbid: UInt, sztablename: Long, pcolumnnameorid: Long, pvresult: Long, cbmax: UInt, infolevel: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetGetColumnInfoA(sesid, dbid, sztablename.toCPointer<ByteVar>(), pcolumnnameorid.toCPointer<ByteVar>(), pvresult.toCPointer<ByteVar>(), cbmax, infolevel)
+public actual fun jetGetColumnInfoA(sesid: JetSesid, dbid: UInt, sztablename: COpaquePointer?, pcolumnnameorid: COpaquePointer?, pvresult: COpaquePointer?, cbmax: UInt, infolevel: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetGetColumnInfoA(sesid, dbid, sztablename?.value?.toCPointer<ByteVar>(), pcolumnnameorid?.value?.toCPointer<ByteVar>(), pvresult?.value?.toCPointer<ByteVar>(), cbmax, infolevel)
 
-public actual fun JetGetColumnInfoW(sesid: JET_SESID, dbid: UInt, sztablename: Long, pwcolumnnameorid: Long, pvresult: Long, cbmax: UInt, infolevel: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetGetColumnInfoW(sesid, dbid, sztablename.toCPointer<ByteVar>(), pwcolumnnameorid.toCPointer<ByteVar>(), pvresult.toCPointer<ByteVar>(), cbmax, infolevel)
+public actual fun jetGetColumnInfoW(sesid: JetSesid, dbid: UInt, sztablename: COpaquePointer?, pwcolumnnameorid: COpaquePointer?, pvresult: COpaquePointer?, cbmax: UInt, infolevel: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetGetColumnInfoW(sesid, dbid, sztablename?.value?.toCPointer<ByteVar>(), pwcolumnnameorid?.value?.toCPointer<ByteVar>(), pvresult?.value?.toCPointer<ByteVar>(), cbmax, infolevel)
 
-public actual fun JetGetCurrentIndexA(sesid: JET_SESID, tableid: JET_TABLEID, szindexname: Long, cbindexname: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetGetCurrentIndexA(sesid, tableid, szindexname.toCPointer<ByteVar>(), cbindexname)
+public actual fun jetGetCurrentIndexA(sesid: JetSesid, tableid: JetTableid, szindexname: COpaquePointer?, cbindexname: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetGetCurrentIndexA(sesid, tableid, szindexname?.value?.toCPointer<ByteVar>(), cbindexname)
 
-public actual fun JetGetCurrentIndexW(sesid: JET_SESID, tableid: JET_TABLEID, szindexname: Long, cbindexname: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetGetCurrentIndexW(sesid, tableid, szindexname.toCPointer<ByteVar>(), cbindexname)
+public actual fun jetGetCurrentIndexW(sesid: JetSesid, tableid: JetTableid, szindexname: COpaquePointer?, cbindexname: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetGetCurrentIndexW(sesid, tableid, szindexname?.value?.toCPointer<ByteVar>(), cbindexname)
 
-public actual fun JetGetCursorInfo(sesid: JET_SESID, tableid: JET_TABLEID, pvresult: Long, cbmax: UInt, infolevel: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetGetCursorInfo(sesid, tableid, pvresult.toCPointer<ByteVar>(), cbmax, infolevel)
+public actual fun jetGetCursorInfo(sesid: JetSesid, tableid: JetTableid, pvresult: COpaquePointer?, cbmax: UInt, infolevel: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetGetCursorInfo(sesid, tableid, pvresult?.value?.toCPointer<ByteVar>(), cbmax, infolevel)
 
-public actual fun JetGetDatabaseFileInfoA(szdatabasename: Long, pvresult: Long, cbmax: UInt, infolevel: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetGetDatabaseFileInfoA(szdatabasename.toCPointer<ByteVar>(), pvresult.toCPointer<ByteVar>(), cbmax, infolevel)
+public actual fun jetGetDatabaseFileInfoA(szdatabasename: COpaquePointer?, pvresult: COpaquePointer?, cbmax: UInt, infolevel: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetGetDatabaseFileInfoA(szdatabasename?.value?.toCPointer<ByteVar>(), pvresult?.value?.toCPointer<ByteVar>(), cbmax, infolevel)
 
-public actual fun JetGetDatabaseFileInfoW(szdatabasename: Long, pvresult: Long, cbmax: UInt, infolevel: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetGetDatabaseFileInfoW(szdatabasename.toCPointer<ByteVar>(), pvresult.toCPointer<ByteVar>(), cbmax, infolevel)
+public actual fun jetGetDatabaseFileInfoW(szdatabasename: COpaquePointer?, pvresult: COpaquePointer?, cbmax: UInt, infolevel: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetGetDatabaseFileInfoW(szdatabasename?.value?.toCPointer<ByteVar>(), pvresult?.value?.toCPointer<ByteVar>(), cbmax, infolevel)
 
-public actual fun JetGetDatabaseInfoA(sesid: JET_SESID, dbid: UInt, pvresult: Long, cbmax: UInt, infolevel: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetGetDatabaseInfoA(sesid, dbid, pvresult.toCPointer<ByteVar>(), cbmax, infolevel)
+public actual fun jetGetDatabaseInfoA(sesid: JetSesid, dbid: UInt, pvresult: COpaquePointer?, cbmax: UInt, infolevel: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetGetDatabaseInfoA(sesid, dbid, pvresult?.value?.toCPointer<ByteVar>(), cbmax, infolevel)
 
-public actual fun JetGetDatabaseInfoW(sesid: JET_SESID, dbid: UInt, pvresult: Long, cbmax: UInt, infolevel: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetGetDatabaseInfoW(sesid, dbid, pvresult.toCPointer<ByteVar>(), cbmax, infolevel)
+public actual fun jetGetDatabaseInfoW(sesid: JetSesid, dbid: UInt, pvresult: COpaquePointer?, cbmax: UInt, infolevel: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetGetDatabaseInfoW(sesid, dbid, pvresult?.value?.toCPointer<ByteVar>(), cbmax, infolevel)
 
-public actual fun JetGetErrorInfoW(pvcontext: Long, pvresult: Long, cbmax: UInt, infolevel: UInt, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetGetErrorInfoW(pvcontext.toCPointer<ByteVar>(), pvresult.toCPointer<ByteVar>(), cbmax, infolevel, grbit)
+public actual fun jetGetErrorInfoW(pvcontext: COpaquePointer?, pvresult: COpaquePointer?, cbmax: UInt, infolevel: UInt, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetGetErrorInfoW(pvcontext?.value?.toCPointer<ByteVar>(), pvresult?.value?.toCPointer<ByteVar>(), cbmax, infolevel, grbit)
 
-public actual fun JetGetIndexInfoA(sesid: JET_SESID, dbid: UInt, sztablename: Long, szindexname: Long, pvresult: Long, cbresult: UInt, infolevel: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetGetIndexInfoA(sesid, dbid, sztablename.toCPointer<ByteVar>(), szindexname.toCPointer<ByteVar>(), pvresult.toCPointer<ByteVar>(), cbresult, infolevel)
+public actual fun jetGetIndexInfoA(sesid: JetSesid, dbid: UInt, sztablename: COpaquePointer?, szindexname: COpaquePointer?, pvresult: COpaquePointer?, cbresult: UInt, infolevel: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetGetIndexInfoA(sesid, dbid, sztablename?.value?.toCPointer<ByteVar>(), szindexname?.value?.toCPointer<ByteVar>(), pvresult?.value?.toCPointer<ByteVar>(), cbresult, infolevel)
 
-public actual fun JetGetIndexInfoW(sesid: JET_SESID, dbid: UInt, sztablename: Long, szindexname: Long, pvresult: Long, cbresult: UInt, infolevel: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetGetIndexInfoW(sesid, dbid, sztablename.toCPointer<ByteVar>(), szindexname.toCPointer<ByteVar>(), pvresult.toCPointer<ByteVar>(), cbresult, infolevel)
+public actual fun jetGetIndexInfoW(sesid: JetSesid, dbid: UInt, sztablename: COpaquePointer?, szindexname: COpaquePointer?, pvresult: COpaquePointer?, cbresult: UInt, infolevel: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetGetIndexInfoW(sesid, dbid, sztablename?.value?.toCPointer<ByteVar>(), szindexname?.value?.toCPointer<ByteVar>(), pvresult?.value?.toCPointer<ByteVar>(), cbresult, infolevel)
 
-public actual fun JetGetInstanceInfoA(pcinstanceinfo: Long, painstanceinfo: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetGetInstanceInfoA(pcinstanceinfo.toCPointer<ByteVar>(), painstanceinfo.toCPointer<ByteVar>())
+public actual fun jetGetInstanceInfoA(pcinstanceinfo: COpaquePointer?, painstanceinfo: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetGetInstanceInfoA(pcinstanceinfo?.value?.toCPointer<ByteVar>(), painstanceinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun JetGetInstanceInfoW(pcinstanceinfo: Long, painstanceinfo: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetGetInstanceInfoW(pcinstanceinfo.toCPointer<ByteVar>(), painstanceinfo.toCPointer<ByteVar>())
+public actual fun jetGetInstanceInfoW(pcinstanceinfo: COpaquePointer?, painstanceinfo: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetGetInstanceInfoW(pcinstanceinfo?.value?.toCPointer<ByteVar>(), painstanceinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun JetGetInstanceMiscInfo(instance: JET_INSTANCE, pvresult: Long, cbmax: UInt, infolevel: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetGetInstanceMiscInfo(instance, pvresult.toCPointer<ByteVar>(), cbmax, infolevel)
+public actual fun jetGetInstanceMiscInfo(instance: JetInstance, pvresult: COpaquePointer?, cbmax: UInt, infolevel: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetGetInstanceMiscInfo(instance, pvresult?.value?.toCPointer<ByteVar>(), cbmax, infolevel)
 
-public actual fun JetGetLS(sesid: JET_SESID, tableid: JET_TABLEID, pls: Long, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetGetLS(sesid, tableid, pls.toCPointer<ByteVar>(), grbit)
+public actual fun jetGetLS(sesid: JetSesid, tableid: JetTableid, pls: COpaquePointer?, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetGetLS(sesid, tableid, pls?.value?.toCPointer<ByteVar>(), grbit)
 
-public actual fun JetGetLock(sesid: JET_SESID, tableid: JET_TABLEID, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetGetLock(sesid, tableid, grbit)
+public actual fun jetGetLock(sesid: JetSesid, tableid: JetTableid, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetGetLock(sesid, tableid, grbit)
 
-public actual fun JetGetLogInfoA(szzlogs: Long, cbmax: UInt, pcbactual: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetGetLogInfoA(szzlogs.toCPointer<ByteVar>(), cbmax, pcbactual.toCPointer<ByteVar>())
+public actual fun jetGetLogInfoA(szzlogs: COpaquePointer?, cbmax: UInt, pcbactual: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetGetLogInfoA(szzlogs?.value?.toCPointer<ByteVar>(), cbmax, pcbactual?.value?.toCPointer<ByteVar>())
 
-public actual fun JetGetLogInfoInstance2A(instance: JET_INSTANCE, szzlogs: Long, cbmax: UInt, pcbactual: Long, ploginfo: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetGetLogInfoInstance2A(instance, szzlogs.toCPointer<ByteVar>(), cbmax, pcbactual.toCPointer<ByteVar>(), ploginfo.toCPointer<ByteVar>())
+public actual fun jetGetLogInfoInstance2A(instance: JetInstance, szzlogs: COpaquePointer?, cbmax: UInt, pcbactual: COpaquePointer?, ploginfo: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetGetLogInfoInstance2A(instance, szzlogs?.value?.toCPointer<ByteVar>(), cbmax, pcbactual?.value?.toCPointer<ByteVar>(), ploginfo?.value?.toCPointer<ByteVar>())
 
-public actual fun JetGetLogInfoInstance2W(instance: JET_INSTANCE, wszzlogs: Long, cbmax: UInt, pcbactual: Long, ploginfo: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetGetLogInfoInstance2W(instance, wszzlogs.toCPointer<ByteVar>(), cbmax, pcbactual.toCPointer<ByteVar>(), ploginfo.toCPointer<ByteVar>())
+public actual fun jetGetLogInfoInstance2W(instance: JetInstance, wszzlogs: COpaquePointer?, cbmax: UInt, pcbactual: COpaquePointer?, ploginfo: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetGetLogInfoInstance2W(instance, wszzlogs?.value?.toCPointer<ByteVar>(), cbmax, pcbactual?.value?.toCPointer<ByteVar>(), ploginfo?.value?.toCPointer<ByteVar>())
 
-public actual fun JetGetLogInfoInstanceA(instance: JET_INSTANCE, szzlogs: Long, cbmax: UInt, pcbactual: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetGetLogInfoInstanceA(instance, szzlogs.toCPointer<ByteVar>(), cbmax, pcbactual.toCPointer<ByteVar>())
+public actual fun jetGetLogInfoInstanceA(instance: JetInstance, szzlogs: COpaquePointer?, cbmax: UInt, pcbactual: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetGetLogInfoInstanceA(instance, szzlogs?.value?.toCPointer<ByteVar>(), cbmax, pcbactual?.value?.toCPointer<ByteVar>())
 
-public actual fun JetGetLogInfoInstanceW(instance: JET_INSTANCE, wszzlogs: Long, cbmax: UInt, pcbactual: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetGetLogInfoInstanceW(instance, wszzlogs.toCPointer<ByteVar>(), cbmax, pcbactual.toCPointer<ByteVar>())
+public actual fun jetGetLogInfoInstanceW(instance: JetInstance, wszzlogs: COpaquePointer?, cbmax: UInt, pcbactual: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetGetLogInfoInstanceW(instance, wszzlogs?.value?.toCPointer<ByteVar>(), cbmax, pcbactual?.value?.toCPointer<ByteVar>())
 
-public actual fun JetGetLogInfoW(szzlogs: Long, cbmax: UInt, pcbactual: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetGetLogInfoW(szzlogs.toCPointer<ByteVar>(), cbmax, pcbactual.toCPointer<ByteVar>())
+public actual fun jetGetLogInfoW(szzlogs: COpaquePointer?, cbmax: UInt, pcbactual: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetGetLogInfoW(szzlogs?.value?.toCPointer<ByteVar>(), cbmax, pcbactual?.value?.toCPointer<ByteVar>())
 
-public actual fun JetGetObjectInfoA(sesid: JET_SESID, dbid: UInt, objtyp: UInt, szcontainername: Long, szobjectname: Long, pvresult: Long, cbmax: UInt, infolevel: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetGetObjectInfoA(sesid, dbid, objtyp, szcontainername.toCPointer<ByteVar>(), szobjectname.toCPointer<ByteVar>(), pvresult.toCPointer<ByteVar>(), cbmax, infolevel)
+public actual fun jetGetObjectInfoA(sesid: JetSesid, dbid: UInt, objtyp: UInt, szcontainername: COpaquePointer?, szobjectname: COpaquePointer?, pvresult: COpaquePointer?, cbmax: UInt, infolevel: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetGetObjectInfoA(sesid, dbid, objtyp, szcontainername?.value?.toCPointer<ByteVar>(), szobjectname?.value?.toCPointer<ByteVar>(), pvresult?.value?.toCPointer<ByteVar>(), cbmax, infolevel)
 
-public actual fun JetGetObjectInfoW(sesid: JET_SESID, dbid: UInt, objtyp: UInt, szcontainername: Long, szobjectname: Long, pvresult: Long, cbmax: UInt, infolevel: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetGetObjectInfoW(sesid, dbid, objtyp, szcontainername.toCPointer<ByteVar>(), szobjectname.toCPointer<ByteVar>(), pvresult.toCPointer<ByteVar>(), cbmax, infolevel)
+public actual fun jetGetObjectInfoW(sesid: JetSesid, dbid: UInt, objtyp: UInt, szcontainername: COpaquePointer?, szobjectname: COpaquePointer?, pvresult: COpaquePointer?, cbmax: UInt, infolevel: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetGetObjectInfoW(sesid, dbid, objtyp, szcontainername?.value?.toCPointer<ByteVar>(), szobjectname?.value?.toCPointer<ByteVar>(), pvresult?.value?.toCPointer<ByteVar>(), cbmax, infolevel)
 
-public actual fun JetGetRecordPosition(sesid: JET_SESID, tableid: JET_TABLEID, precpos: Long, cbrecpos: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetGetRecordPosition(sesid, tableid, precpos.toCPointer<ByteVar>(), cbrecpos)
+public actual fun jetGetRecordPosition(sesid: JetSesid, tableid: JetTableid, precpos: COpaquePointer?, cbrecpos: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetGetRecordPosition(sesid, tableid, precpos?.value?.toCPointer<ByteVar>(), cbrecpos)
 
-public actual fun JetGetRecordSize(sesid: JET_SESID, tableid: JET_TABLEID, precsize: Long, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetGetRecordSize(sesid, tableid, precsize.toCPointer<ByteVar>(), grbit)
+public actual fun jetGetRecordSize(sesid: JetSesid, tableid: JetTableid, precsize: COpaquePointer?, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetGetRecordSize(sesid, tableid, precsize?.value?.toCPointer<ByteVar>(), grbit)
 
-public actual fun JetGetRecordSize2(sesid: JET_SESID, tableid: JET_TABLEID, precsize: Long, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetGetRecordSize2(sesid, tableid, precsize.toCPointer<ByteVar>(), grbit)
+public actual fun jetGetRecordSize2(sesid: JetSesid, tableid: JetTableid, precsize: COpaquePointer?, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetGetRecordSize2(sesid, tableid, precsize?.value?.toCPointer<ByteVar>(), grbit)
 
-public actual fun JetGetSecondaryIndexBookmark(sesid: JET_SESID, tableid: JET_TABLEID, pvsecondarykey: Long, cbsecondarykeymax: UInt, pcbsecondarykeyactual: Long, pvprimarybookmark: Long, cbprimarybookmarkmax: UInt, pcbprimarybookmarkactual: Long, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetGetSecondaryIndexBookmark(sesid, tableid, pvsecondarykey.toCPointer<ByteVar>(), cbsecondarykeymax, pcbsecondarykeyactual.toCPointer<ByteVar>(), pvprimarybookmark.toCPointer<ByteVar>(), cbprimarybookmarkmax, pcbprimarybookmarkactual.toCPointer<ByteVar>(), grbit)
+public actual fun jetGetSecondaryIndexBookmark(sesid: JetSesid, tableid: JetTableid, pvsecondarykey: COpaquePointer?, cbsecondarykeymax: UInt, pcbsecondarykeyactual: COpaquePointer?, pvprimarybookmark: COpaquePointer?, cbprimarybookmarkmax: UInt, pcbprimarybookmarkactual: COpaquePointer?, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetGetSecondaryIndexBookmark(sesid, tableid, pvsecondarykey?.value?.toCPointer<ByteVar>(), cbsecondarykeymax, pcbsecondarykeyactual?.value?.toCPointer<ByteVar>(), pvprimarybookmark?.value?.toCPointer<ByteVar>(), cbprimarybookmarkmax, pcbprimarybookmarkactual?.value?.toCPointer<ByteVar>(), grbit)
 
-public actual fun JetGetSessionParameter(sesid: JET_SESID, sesparamid: UInt, pvparam: Long, cbparammax: UInt, pcbparamactual: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetGetSessionParameter(sesid, sesparamid, pvparam.toCPointer<ByteVar>(), cbparammax, pcbparamactual.toCPointer<ByteVar>())
+public actual fun jetGetSessionParameter(sesid: JetSesid, sesparamid: UInt, pvparam: COpaquePointer?, cbparammax: UInt, pcbparamactual: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetGetSessionParameter(sesid, sesparamid, pvparam?.value?.toCPointer<ByteVar>(), cbparammax, pcbparamactual?.value?.toCPointer<ByteVar>())
 
-public actual fun JetGetSystemParameterA(instance: JET_INSTANCE, sesid: JET_SESID, paramid: UInt, plparam: Long, szparam: Long, cbmax: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetGetSystemParameterA(instance, sesid, paramid, plparam.toCPointer<ByteVar>(), szparam.toCPointer<ByteVar>(), cbmax)
+public actual fun jetGetSystemParameterA(instance: JetInstance, sesid: JetSesid, paramid: UInt, plparam: COpaquePointer?, szparam: COpaquePointer?, cbmax: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetGetSystemParameterA(instance, sesid, paramid, plparam?.value?.toCPointer<ByteVar>(), szparam?.value?.toCPointer<ByteVar>(), cbmax)
 
-public actual fun JetGetSystemParameterW(instance: JET_INSTANCE, sesid: JET_SESID, paramid: UInt, plparam: Long, szparam: Long, cbmax: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetGetSystemParameterW(instance, sesid, paramid, plparam.toCPointer<ByteVar>(), szparam.toCPointer<ByteVar>(), cbmax)
+public actual fun jetGetSystemParameterW(instance: JetInstance, sesid: JetSesid, paramid: UInt, plparam: COpaquePointer?, szparam: COpaquePointer?, cbmax: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetGetSystemParameterW(instance, sesid, paramid, plparam?.value?.toCPointer<ByteVar>(), szparam?.value?.toCPointer<ByteVar>(), cbmax)
 
-public actual fun JetGetTableColumnInfoA(sesid: JET_SESID, tableid: JET_TABLEID, szcolumnname: Long, pvresult: Long, cbmax: UInt, infolevel: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetGetTableColumnInfoA(sesid, tableid, szcolumnname.toCPointer<ByteVar>(), pvresult.toCPointer<ByteVar>(), cbmax, infolevel)
+public actual fun jetGetTableColumnInfoA(sesid: JetSesid, tableid: JetTableid, szcolumnname: COpaquePointer?, pvresult: COpaquePointer?, cbmax: UInt, infolevel: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetGetTableColumnInfoA(sesid, tableid, szcolumnname?.value?.toCPointer<ByteVar>(), pvresult?.value?.toCPointer<ByteVar>(), cbmax, infolevel)
 
-public actual fun JetGetTableColumnInfoW(sesid: JET_SESID, tableid: JET_TABLEID, szcolumnname: Long, pvresult: Long, cbmax: UInt, infolevel: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetGetTableColumnInfoW(sesid, tableid, szcolumnname.toCPointer<ByteVar>(), pvresult.toCPointer<ByteVar>(), cbmax, infolevel)
+public actual fun jetGetTableColumnInfoW(sesid: JetSesid, tableid: JetTableid, szcolumnname: COpaquePointer?, pvresult: COpaquePointer?, cbmax: UInt, infolevel: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetGetTableColumnInfoW(sesid, tableid, szcolumnname?.value?.toCPointer<ByteVar>(), pvresult?.value?.toCPointer<ByteVar>(), cbmax, infolevel)
 
-public actual fun JetGetTableIndexInfoA(sesid: JET_SESID, tableid: JET_TABLEID, szindexname: Long, pvresult: Long, cbresult: UInt, infolevel: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetGetTableIndexInfoA(sesid, tableid, szindexname.toCPointer<ByteVar>(), pvresult.toCPointer<ByteVar>(), cbresult, infolevel)
+public actual fun jetGetTableIndexInfoA(sesid: JetSesid, tableid: JetTableid, szindexname: COpaquePointer?, pvresult: COpaquePointer?, cbresult: UInt, infolevel: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetGetTableIndexInfoA(sesid, tableid, szindexname?.value?.toCPointer<ByteVar>(), pvresult?.value?.toCPointer<ByteVar>(), cbresult, infolevel)
 
-public actual fun JetGetTableIndexInfoW(sesid: JET_SESID, tableid: JET_TABLEID, szindexname: Long, pvresult: Long, cbresult: UInt, infolevel: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetGetTableIndexInfoW(sesid, tableid, szindexname.toCPointer<ByteVar>(), pvresult.toCPointer<ByteVar>(), cbresult, infolevel)
+public actual fun jetGetTableIndexInfoW(sesid: JetSesid, tableid: JetTableid, szindexname: COpaquePointer?, pvresult: COpaquePointer?, cbresult: UInt, infolevel: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetGetTableIndexInfoW(sesid, tableid, szindexname?.value?.toCPointer<ByteVar>(), pvresult?.value?.toCPointer<ByteVar>(), cbresult, infolevel)
 
-public actual fun JetGetTableInfoA(sesid: JET_SESID, tableid: JET_TABLEID, pvresult: Long, cbmax: UInt, infolevel: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetGetTableInfoA(sesid, tableid, pvresult.toCPointer<ByteVar>(), cbmax, infolevel)
+public actual fun jetGetTableInfoA(sesid: JetSesid, tableid: JetTableid, pvresult: COpaquePointer?, cbmax: UInt, infolevel: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetGetTableInfoA(sesid, tableid, pvresult?.value?.toCPointer<ByteVar>(), cbmax, infolevel)
 
-public actual fun JetGetTableInfoW(sesid: JET_SESID, tableid: JET_TABLEID, pvresult: Long, cbmax: UInt, infolevel: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetGetTableInfoW(sesid, tableid, pvresult.toCPointer<ByteVar>(), cbmax, infolevel)
+public actual fun jetGetTableInfoW(sesid: JetSesid, tableid: JetTableid, pvresult: COpaquePointer?, cbmax: UInt, infolevel: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetGetTableInfoW(sesid, tableid, pvresult?.value?.toCPointer<ByteVar>(), cbmax, infolevel)
 
-public actual fun JetGetThreadStats(pvresult: Long, cbmax: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetGetThreadStats(pvresult.toCPointer<ByteVar>(), cbmax)
+public actual fun jetGetThreadStats(pvresult: COpaquePointer?, cbmax: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetGetThreadStats(pvresult?.value?.toCPointer<ByteVar>(), cbmax)
 
-public actual fun JetGetTruncateLogInfoInstanceA(instance: JET_INSTANCE, szzlogs: Long, cbmax: UInt, pcbactual: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetGetTruncateLogInfoInstanceA(instance, szzlogs.toCPointer<ByteVar>(), cbmax, pcbactual.toCPointer<ByteVar>())
+public actual fun jetGetTruncateLogInfoInstanceA(instance: JetInstance, szzlogs: COpaquePointer?, cbmax: UInt, pcbactual: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetGetTruncateLogInfoInstanceA(instance, szzlogs?.value?.toCPointer<ByteVar>(), cbmax, pcbactual?.value?.toCPointer<ByteVar>())
 
-public actual fun JetGetTruncateLogInfoInstanceW(instance: JET_INSTANCE, wszzlogs: Long, cbmax: UInt, pcbactual: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetGetTruncateLogInfoInstanceW(instance, wszzlogs.toCPointer<ByteVar>(), cbmax, pcbactual.toCPointer<ByteVar>())
+public actual fun jetGetTruncateLogInfoInstanceW(instance: JetInstance, wszzlogs: COpaquePointer?, cbmax: UInt, pcbactual: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetGetTruncateLogInfoInstanceW(instance, wszzlogs?.value?.toCPointer<ByteVar>(), cbmax, pcbactual?.value?.toCPointer<ByteVar>())
 
-public actual fun JetGetVersion(sesid: JET_SESID, pwversion: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetGetVersion(sesid, pwversion.toCPointer<ByteVar>())
+public actual fun jetGetVersion(sesid: JetSesid, pwversion: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetGetVersion(sesid, pwversion?.value?.toCPointer<ByteVar>())
 
-public actual fun JetGotoBookmark(sesid: JET_SESID, tableid: JET_TABLEID, pvbookmark: Long, cbbookmark: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetGotoBookmark(sesid, tableid, pvbookmark.toCPointer<ByteVar>(), cbbookmark)
+public actual fun jetGotoBookmark(sesid: JetSesid, tableid: JetTableid, pvbookmark: COpaquePointer?, cbbookmark: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetGotoBookmark(sesid, tableid, pvbookmark?.value?.toCPointer<ByteVar>(), cbbookmark)
 
-public actual fun JetGotoPosition(sesid: JET_SESID, tableid: JET_TABLEID, precpos: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetGotoPosition(sesid, tableid, precpos.toCPointer<ByteVar>())
+public actual fun jetGotoPosition(sesid: JetSesid, tableid: JetTableid, precpos: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetGotoPosition(sesid, tableid, precpos?.value?.toCPointer<ByteVar>())
 
-public actual fun JetGotoSecondaryIndexBookmark(sesid: JET_SESID, tableid: JET_TABLEID, pvsecondarykey: Long, cbsecondarykey: UInt, pvprimarybookmark: Long, cbprimarybookmark: UInt, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetGotoSecondaryIndexBookmark(sesid, tableid, pvsecondarykey.toCPointer<ByteVar>(), cbsecondarykey, pvprimarybookmark.toCPointer<ByteVar>(), cbprimarybookmark, grbit)
+public actual fun jetGotoSecondaryIndexBookmark(sesid: JetSesid, tableid: JetTableid, pvsecondarykey: COpaquePointer?, cbsecondarykey: UInt, pvprimarybookmark: COpaquePointer?, cbprimarybookmark: UInt, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetGotoSecondaryIndexBookmark(sesid, tableid, pvsecondarykey?.value?.toCPointer<ByteVar>(), cbsecondarykey, pvprimarybookmark?.value?.toCPointer<ByteVar>(), cbprimarybookmark, grbit)
 
-public actual fun JetGrowDatabase(sesid: JET_SESID, dbid: UInt, cpg: UInt, pcpgreal: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetGrowDatabase(sesid, dbid, cpg, pcpgreal.toCPointer<ByteVar>())
+public actual fun jetGrowDatabase(sesid: JetSesid, dbid: UInt, cpg: UInt, pcpgreal: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetGrowDatabase(sesid, dbid, cpg, pcpgreal?.value?.toCPointer<ByteVar>())
 
-public actual fun JetIdle(sesid: JET_SESID, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetIdle(sesid, grbit)
+public actual fun jetIdle(sesid: JetSesid, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetIdle(sesid, grbit)
 
-public actual fun JetIndexRecordCount(sesid: JET_SESID, tableid: JET_TABLEID, pcrec: Long, crecmax: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetIndexRecordCount(sesid, tableid, pcrec.toCPointer<ByteVar>(), crecmax)
+public actual fun jetIndexRecordCount(sesid: JetSesid, tableid: JetTableid, pcrec: COpaquePointer?, crecmax: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetIndexRecordCount(sesid, tableid, pcrec?.value?.toCPointer<ByteVar>(), crecmax)
 
-public actual fun JetInit(pinstance: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetInit(pinstance.toCPointer<ByteVar>())
+public actual fun jetInit(pinstance: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetInit(pinstance?.value?.toCPointer<ByteVar>())
 
-public actual fun JetInit2(pinstance: Long, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetInit2(pinstance.toCPointer<ByteVar>(), grbit)
+public actual fun jetInit2(pinstance: COpaquePointer?, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetInit2(pinstance?.value?.toCPointer<ByteVar>(), grbit)
 
-public actual fun JetInit3A(pinstance: Long, prstinfo: Long, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetInit3A(pinstance.toCPointer<ByteVar>(), prstinfo.toCPointer<ByteVar>(), grbit)
+public actual fun jetInit3A(pinstance: COpaquePointer?, prstinfo: COpaquePointer?, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetInit3A(pinstance?.value?.toCPointer<ByteVar>(), prstinfo?.value?.toCPointer<ByteVar>(), grbit)
 
-public actual fun JetInit3W(pinstance: Long, prstinfo: Long, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetInit3W(pinstance.toCPointer<ByteVar>(), prstinfo.toCPointer<ByteVar>(), grbit)
+public actual fun jetInit3W(pinstance: COpaquePointer?, prstinfo: COpaquePointer?, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetInit3W(pinstance?.value?.toCPointer<ByteVar>(), prstinfo?.value?.toCPointer<ByteVar>(), grbit)
 
-public actual fun JetIntersectIndexes(sesid: JET_SESID, rgindexrange: Long, cindexrange: UInt, precordlist: Long, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetIntersectIndexes(sesid, rgindexrange.toCPointer<ByteVar>(), cindexrange, precordlist.toCPointer<ByteVar>(), grbit)
+public actual fun jetIntersectIndexes(sesid: JetSesid, rgindexrange: COpaquePointer?, cindexrange: UInt, precordlist: COpaquePointer?, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetIntersectIndexes(sesid, rgindexrange?.value?.toCPointer<ByteVar>(), cindexrange, precordlist?.value?.toCPointer<ByteVar>(), grbit)
 
-public actual fun JetMakeKey(sesid: JET_SESID, tableid: JET_TABLEID, pvdata: Long, cbdata: UInt, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetMakeKey(sesid, tableid, pvdata.toCPointer<ByteVar>(), cbdata, grbit)
+public actual fun jetMakeKey(sesid: JetSesid, tableid: JetTableid, pvdata: COpaquePointer?, cbdata: UInt, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetMakeKey(sesid, tableid, pvdata?.value?.toCPointer<ByteVar>(), cbdata, grbit)
 
-public actual fun JetMove(sesid: JET_SESID, tableid: JET_TABLEID, crow: Int, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetMove(sesid, tableid, crow, grbit)
+public actual fun jetMove(sesid: JetSesid, tableid: JetTableid, crow: Int, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetMove(sesid, tableid, crow, grbit)
 
-public actual fun JetOSSnapshotAbort(snapid: JET_OSSNAPID, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetOSSnapshotAbort(snapid, grbit)
+public actual fun jetOSSnapshotAbort(snapid: JetOssnapid, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetOSSnapshotAbort(snapid.toULong(), grbit)
 
-public actual fun JetOSSnapshotEnd(snapid: JET_OSSNAPID, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetOSSnapshotEnd(snapid, grbit)
+public actual fun jetOSSnapshotEnd(snapid: JetOssnapid, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetOSSnapshotEnd(snapid.toULong(), grbit)
 
-public actual fun JetOSSnapshotFreezeA(snapid: JET_OSSNAPID, pcinstanceinfo: Long, painstanceinfo: Long, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetOSSnapshotFreezeA(snapid, pcinstanceinfo.toCPointer<ByteVar>(), painstanceinfo.toCPointer<ByteVar>(), grbit)
+public actual fun jetOSSnapshotFreezeA(snapid: JetOssnapid, pcinstanceinfo: COpaquePointer?, painstanceinfo: COpaquePointer?, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetOSSnapshotFreezeA(snapid.toULong(), pcinstanceinfo?.value?.toCPointer<ByteVar>(), painstanceinfo?.value?.toCPointer<ByteVar>(), grbit)
 
-public actual fun JetOSSnapshotFreezeW(snapid: JET_OSSNAPID, pcinstanceinfo: Long, painstanceinfo: Long, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetOSSnapshotFreezeW(snapid, pcinstanceinfo.toCPointer<ByteVar>(), painstanceinfo.toCPointer<ByteVar>(), grbit)
+public actual fun jetOSSnapshotFreezeW(snapid: JetOssnapid, pcinstanceinfo: COpaquePointer?, painstanceinfo: COpaquePointer?, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetOSSnapshotFreezeW(snapid.toULong(), pcinstanceinfo?.value?.toCPointer<ByteVar>(), painstanceinfo?.value?.toCPointer<ByteVar>(), grbit)
 
-public actual fun JetOSSnapshotGetFreezeInfoA(snapid: JET_OSSNAPID, pcinstanceinfo: Long, painstanceinfo: Long, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetOSSnapshotGetFreezeInfoA(snapid, pcinstanceinfo.toCPointer<ByteVar>(), painstanceinfo.toCPointer<ByteVar>(), grbit)
+public actual fun jetOSSnapshotGetFreezeInfoA(snapid: JetOssnapid, pcinstanceinfo: COpaquePointer?, painstanceinfo: COpaquePointer?, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetOSSnapshotGetFreezeInfoA(snapid.toULong(), pcinstanceinfo?.value?.toCPointer<ByteVar>(), painstanceinfo?.value?.toCPointer<ByteVar>(), grbit)
 
-public actual fun JetOSSnapshotGetFreezeInfoW(snapid: JET_OSSNAPID, pcinstanceinfo: Long, painstanceinfo: Long, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetOSSnapshotGetFreezeInfoW(snapid, pcinstanceinfo.toCPointer<ByteVar>(), painstanceinfo.toCPointer<ByteVar>(), grbit)
+public actual fun jetOSSnapshotGetFreezeInfoW(snapid: JetOssnapid, pcinstanceinfo: COpaquePointer?, painstanceinfo: COpaquePointer?, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetOSSnapshotGetFreezeInfoW(snapid.toULong(), pcinstanceinfo?.value?.toCPointer<ByteVar>(), painstanceinfo?.value?.toCPointer<ByteVar>(), grbit)
 
-public actual fun JetOSSnapshotPrepare(psnapid: Long, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetOSSnapshotPrepare(psnapid.toCPointer<ByteVar>(), grbit)
+public actual fun jetOSSnapshotPrepare(psnapid: COpaquePointer?, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetOSSnapshotPrepare(psnapid?.value?.toCPointer<ByteVar>(), grbit)
 
-public actual fun JetOSSnapshotPrepareInstance(snapid: JET_OSSNAPID, instance: JET_INSTANCE, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetOSSnapshotPrepareInstance(snapid, instance, grbit)
+public actual fun jetOSSnapshotPrepareInstance(snapid: JetOssnapid, instance: JetInstance, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetOSSnapshotPrepareInstance(snapid.toULong(), instance, grbit)
 
-public actual fun JetOSSnapshotThaw(snapid: JET_OSSNAPID, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetOSSnapshotThaw(snapid, grbit)
+public actual fun jetOSSnapshotThaw(snapid: JetOssnapid, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetOSSnapshotThaw(snapid.toULong(), grbit)
 
-public actual fun JetOSSnapshotTruncateLog(snapid: JET_OSSNAPID, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetOSSnapshotTruncateLog(snapid, grbit)
+public actual fun jetOSSnapshotTruncateLog(snapid: JetOssnapid, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetOSSnapshotTruncateLog(snapid.toULong(), grbit)
 
-public actual fun JetOSSnapshotTruncateLogInstance(snapid: JET_OSSNAPID, instance: JET_INSTANCE, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetOSSnapshotTruncateLogInstance(snapid, instance, grbit)
+public actual fun jetOSSnapshotTruncateLogInstance(snapid: JetOssnapid, instance: JetInstance, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetOSSnapshotTruncateLogInstance(snapid.toULong(), instance, grbit)
 
-public actual fun JetOpenDatabaseA(sesid: JET_SESID, szfilename: Long, szconnect: Long, pdbid: Long, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetOpenDatabaseA(sesid, szfilename.toCPointer<ByteVar>(), szconnect.toCPointer<ByteVar>(), pdbid.toCPointer<ByteVar>(), grbit)
+public actual fun jetOpenDatabaseA(sesid: JetSesid, szfilename: COpaquePointer?, szconnect: COpaquePointer?, pdbid: COpaquePointer?, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetOpenDatabaseA(sesid, szfilename?.value?.toCPointer<ByteVar>(), szconnect?.value?.toCPointer<ByteVar>(), pdbid?.value?.toCPointer<ByteVar>(), grbit)
 
-public actual fun JetOpenDatabaseW(sesid: JET_SESID, szfilename: Long, szconnect: Long, pdbid: Long, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetOpenDatabaseW(sesid, szfilename.toCPointer<ByteVar>(), szconnect.toCPointer<ByteVar>(), pdbid.toCPointer<ByteVar>(), grbit)
+public actual fun jetOpenDatabaseW(sesid: JetSesid, szfilename: COpaquePointer?, szconnect: COpaquePointer?, pdbid: COpaquePointer?, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetOpenDatabaseW(sesid, szfilename?.value?.toCPointer<ByteVar>(), szconnect?.value?.toCPointer<ByteVar>(), pdbid?.value?.toCPointer<ByteVar>(), grbit)
 
-public actual fun JetOpenFileA(szfilename: Long, phffile: Long, pulfilesizelow: Long, pulfilesizehigh: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetOpenFileA(szfilename.toCPointer<ByteVar>(), phffile.toCPointer<ByteVar>(), pulfilesizelow.toCPointer<ByteVar>(), pulfilesizehigh.toCPointer<ByteVar>())
+public actual fun jetOpenFileA(szfilename: COpaquePointer?, phffile: COpaquePointer?, pulfilesizelow: COpaquePointer?, pulfilesizehigh: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetOpenFileA(szfilename?.value?.toCPointer<ByteVar>(), phffile?.value?.toCPointer<ByteVar>(), pulfilesizelow?.value?.toCPointer<ByteVar>(), pulfilesizehigh?.value?.toCPointer<ByteVar>())
 
-public actual fun JetOpenFileInstanceA(instance: JET_INSTANCE, szfilename: Long, phffile: Long, pulfilesizelow: Long, pulfilesizehigh: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetOpenFileInstanceA(instance, szfilename.toCPointer<ByteVar>(), phffile.toCPointer<ByteVar>(), pulfilesizelow.toCPointer<ByteVar>(), pulfilesizehigh.toCPointer<ByteVar>())
+public actual fun jetOpenFileInstanceA(instance: JetInstance, szfilename: COpaquePointer?, phffile: COpaquePointer?, pulfilesizelow: COpaquePointer?, pulfilesizehigh: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetOpenFileInstanceA(instance, szfilename?.value?.toCPointer<ByteVar>(), phffile?.value?.toCPointer<ByteVar>(), pulfilesizelow?.value?.toCPointer<ByteVar>(), pulfilesizehigh?.value?.toCPointer<ByteVar>())
 
-public actual fun JetOpenFileInstanceW(instance: JET_INSTANCE, szfilename: Long, phffile: Long, pulfilesizelow: Long, pulfilesizehigh: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetOpenFileInstanceW(instance, szfilename.toCPointer<ByteVar>(), phffile.toCPointer<ByteVar>(), pulfilesizelow.toCPointer<ByteVar>(), pulfilesizehigh.toCPointer<ByteVar>())
+public actual fun jetOpenFileInstanceW(instance: JetInstance, szfilename: COpaquePointer?, phffile: COpaquePointer?, pulfilesizelow: COpaquePointer?, pulfilesizehigh: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetOpenFileInstanceW(instance, szfilename?.value?.toCPointer<ByteVar>(), phffile?.value?.toCPointer<ByteVar>(), pulfilesizelow?.value?.toCPointer<ByteVar>(), pulfilesizehigh?.value?.toCPointer<ByteVar>())
 
-public actual fun JetOpenFileW(szfilename: Long, phffile: Long, pulfilesizelow: Long, pulfilesizehigh: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetOpenFileW(szfilename.toCPointer<ByteVar>(), phffile.toCPointer<ByteVar>(), pulfilesizelow.toCPointer<ByteVar>(), pulfilesizehigh.toCPointer<ByteVar>())
+public actual fun jetOpenFileW(szfilename: COpaquePointer?, phffile: COpaquePointer?, pulfilesizelow: COpaquePointer?, pulfilesizehigh: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetOpenFileW(szfilename?.value?.toCPointer<ByteVar>(), phffile?.value?.toCPointer<ByteVar>(), pulfilesizelow?.value?.toCPointer<ByteVar>(), pulfilesizehigh?.value?.toCPointer<ByteVar>())
 
-public actual fun JetOpenTableA(sesid: JET_SESID, dbid: UInt, sztablename: Long, pvparameters: Long, cbparameters: UInt, grbit: UInt, ptableid: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetOpenTableA(sesid, dbid, sztablename.toCPointer<ByteVar>(), pvparameters.toCPointer<ByteVar>(), cbparameters, grbit, ptableid.toCPointer<ByteVar>())
+public actual fun jetOpenTableA(sesid: JetSesid, dbid: UInt, sztablename: COpaquePointer?, pvparameters: COpaquePointer?, cbparameters: UInt, grbit: UInt, ptableid: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetOpenTableA(sesid, dbid, sztablename?.value?.toCPointer<ByteVar>(), pvparameters?.value?.toCPointer<ByteVar>(), cbparameters, grbit, ptableid?.value?.toCPointer<ByteVar>())
 
-public actual fun JetOpenTableW(sesid: JET_SESID, dbid: UInt, sztablename: Long, pvparameters: Long, cbparameters: UInt, grbit: UInt, ptableid: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetOpenTableW(sesid, dbid, sztablename.toCPointer<ByteVar>(), pvparameters.toCPointer<ByteVar>(), cbparameters, grbit, ptableid.toCPointer<ByteVar>())
+public actual fun jetOpenTableW(sesid: JetSesid, dbid: UInt, sztablename: COpaquePointer?, pvparameters: COpaquePointer?, cbparameters: UInt, grbit: UInt, ptableid: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetOpenTableW(sesid, dbid, sztablename?.value?.toCPointer<ByteVar>(), pvparameters?.value?.toCPointer<ByteVar>(), cbparameters, grbit, ptableid?.value?.toCPointer<ByteVar>())
 
-public actual fun JetOpenTempTable(sesid: JET_SESID, prgcolumndef: Long, ccolumn: UInt, grbit: UInt, ptableid: Long, prgcolumnid: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetOpenTempTable(sesid, prgcolumndef.toCPointer<ByteVar>(), ccolumn, grbit, ptableid.toCPointer<ByteVar>(), prgcolumnid.toCPointer<ByteVar>())
+public actual fun jetOpenTempTable(sesid: JetSesid, prgcolumndef: COpaquePointer?, ccolumn: UInt, grbit: UInt, ptableid: COpaquePointer?, prgcolumnid: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetOpenTempTable(sesid, prgcolumndef?.value?.toCPointer<ByteVar>(), ccolumn, grbit, ptableid?.value?.toCPointer<ByteVar>(), prgcolumnid?.value?.toCPointer<ByteVar>())
 
-public actual fun JetOpenTempTable2(sesid: JET_SESID, prgcolumndef: Long, ccolumn: UInt, lcid: UInt, grbit: UInt, ptableid: Long, prgcolumnid: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetOpenTempTable2(sesid, prgcolumndef.toCPointer<ByteVar>(), ccolumn, lcid, grbit, ptableid.toCPointer<ByteVar>(), prgcolumnid.toCPointer<ByteVar>())
+public actual fun jetOpenTempTable2(sesid: JetSesid, prgcolumndef: COpaquePointer?, ccolumn: UInt, lcid: UInt, grbit: UInt, ptableid: COpaquePointer?, prgcolumnid: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetOpenTempTable2(sesid, prgcolumndef?.value?.toCPointer<ByteVar>(), ccolumn, lcid, grbit, ptableid?.value?.toCPointer<ByteVar>(), prgcolumnid?.value?.toCPointer<ByteVar>())
 
-public actual fun JetOpenTempTable3(sesid: JET_SESID, prgcolumndef: Long, ccolumn: UInt, pidxunicode: Long, grbit: UInt, ptableid: Long, prgcolumnid: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetOpenTempTable3(sesid, prgcolumndef.toCPointer<ByteVar>(), ccolumn, pidxunicode.toCPointer<ByteVar>(), grbit, ptableid.toCPointer<ByteVar>(), prgcolumnid.toCPointer<ByteVar>())
+public actual fun jetOpenTempTable3(sesid: JetSesid, prgcolumndef: COpaquePointer?, ccolumn: UInt, pidxunicode: COpaquePointer?, grbit: UInt, ptableid: COpaquePointer?, prgcolumnid: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetOpenTempTable3(sesid, prgcolumndef?.value?.toCPointer<ByteVar>(), ccolumn, pidxunicode?.value?.toCPointer<ByteVar>(), grbit, ptableid?.value?.toCPointer<ByteVar>(), prgcolumnid?.value?.toCPointer<ByteVar>())
 
-public actual fun JetOpenTemporaryTable(sesid: JET_SESID, popentemporarytable: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetOpenTemporaryTable(sesid, popentemporarytable.toCPointer<ByteVar>())
+public actual fun jetOpenTemporaryTable(sesid: JetSesid, popentemporarytable: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetOpenTemporaryTable(sesid, popentemporarytable?.value?.toCPointer<ByteVar>())
 
-public actual fun JetOpenTemporaryTable2(sesid: JET_SESID, popentemporarytable: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetOpenTemporaryTable2(sesid, popentemporarytable.toCPointer<ByteVar>())
+public actual fun jetOpenTemporaryTable2(sesid: JetSesid, popentemporarytable: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetOpenTemporaryTable2(sesid, popentemporarytable?.value?.toCPointer<ByteVar>())
 
-public actual fun JetPrepareUpdate(sesid: JET_SESID, tableid: JET_TABLEID, prep: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetPrepareUpdate(sesid, tableid, prep)
+public actual fun jetPrepareUpdate(sesid: JetSesid, tableid: JetTableid, prep: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetPrepareUpdate(sesid, tableid, prep)
 
-public actual fun JetPrereadIndexRanges(sesid: JET_SESID, tableid: JET_TABLEID, rgindexranges: Long, cindexranges: UInt, pcrangespreread: Long, rgcolumnidpreread: Long, ccolumnidpreread: UInt, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetPrereadIndexRanges(sesid, tableid, rgindexranges.toCPointer<ByteVar>(), cindexranges, pcrangespreread.toCPointer<ByteVar>(), rgcolumnidpreread.toCPointer<ByteVar>(), ccolumnidpreread, grbit)
+public actual fun jetPrereadIndexRanges(sesid: JetSesid, tableid: JetTableid, rgindexranges: COpaquePointer?, cindexranges: UInt, pcrangespreread: COpaquePointer?, rgcolumnidpreread: COpaquePointer?, ccolumnidpreread: UInt, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetPrereadIndexRanges(sesid, tableid, rgindexranges?.value?.toCPointer<ByteVar>(), cindexranges, pcrangespreread?.value?.toCPointer<ByteVar>(), rgcolumnidpreread?.value?.toCPointer<ByteVar>(), ccolumnidpreread, grbit)
 
-public actual fun JetPrereadKeys(sesid: JET_SESID, tableid: JET_TABLEID, rgpvkeys: Long, rgcbkeys: Long, ckeys: Int, pckeyspreread: Long, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetPrereadKeys(sesid, tableid, rgpvkeys.toCPointer<ByteVar>(), rgcbkeys.toCPointer<ByteVar>(), ckeys, pckeyspreread.toCPointer<ByteVar>(), grbit)
+public actual fun jetPrereadKeys(sesid: JetSesid, tableid: JetTableid, rgpvkeys: COpaquePointer?, rgcbkeys: COpaquePointer?, ckeys: Int, pckeyspreread: COpaquePointer?, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetPrereadKeys(sesid, tableid, rgpvkeys?.value?.toCPointer<ByteVar>(), rgcbkeys?.value?.toCPointer<ByteVar>(), ckeys, pckeyspreread?.value?.toCPointer<ByteVar>(), grbit)
 
-public actual fun JetReadFile(hffile: JET_HANDLE, pv: Long, cb: UInt, pcbactual: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetReadFile(hffile, pv.toCPointer<ByteVar>(), cb, pcbactual.toCPointer<ByteVar>())
+public actual fun jetReadFile(hffile: JetHandle, pv: COpaquePointer?, cb: UInt, pcbactual: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetReadFile(hffile, pv?.value?.toCPointer<ByteVar>(), cb, pcbactual?.value?.toCPointer<ByteVar>())
 
-public actual fun JetReadFileInstance(instance: JET_INSTANCE, hffile: JET_HANDLE, pv: Long, cb: UInt, pcbactual: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetReadFileInstance(instance, hffile, pv.toCPointer<ByteVar>(), cb, pcbactual.toCPointer<ByteVar>())
+public actual fun jetReadFileInstance(instance: JetInstance, hffile: JetHandle, pv: COpaquePointer?, cb: UInt, pcbactual: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetReadFileInstance(instance, hffile, pv?.value?.toCPointer<ByteVar>(), cb, pcbactual?.value?.toCPointer<ByteVar>())
 
-public actual fun JetRegisterCallback(sesid: JET_SESID, tableid: JET_TABLEID, cbtyp: UInt, pcallback: JET_CALLBACK, pvcontext: Long, phcallbackid: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetRegisterCallback(sesid, tableid, cbtyp, pcallback.toLong().toCPointer<ByteVar>(), pvcontext.toCPointer<ByteVar>(), phcallbackid.toCPointer<ByteVar>())
+public actual fun jetRegisterCallback(sesid: JetSesid, tableid: JetTableid, cbtyp: UInt, pcallback: JetCallback, pvcontext: COpaquePointer?, phcallbackid: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetRegisterCallback(sesid, tableid, cbtyp, 0L.toCPointer<ByteVar>(), pvcontext?.value?.toCPointer<ByteVar>(), phcallbackid?.value?.toCPointer<ByteVar>())
 
-public actual fun JetRenameColumnA(sesid: JET_SESID, tableid: JET_TABLEID, szname: Long, sznamenew: Long, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetRenameColumnA(sesid, tableid, szname.toCPointer<ByteVar>(), sznamenew.toCPointer<ByteVar>(), grbit)
+public actual fun jetRenameColumnA(sesid: JetSesid, tableid: JetTableid, szname: COpaquePointer?, sznamenew: COpaquePointer?, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetRenameColumnA(sesid, tableid, szname?.value?.toCPointer<ByteVar>(), sznamenew?.value?.toCPointer<ByteVar>(), grbit)
 
-public actual fun JetRenameColumnW(sesid: JET_SESID, tableid: JET_TABLEID, szname: Long, sznamenew: Long, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetRenameColumnW(sesid, tableid, szname.toCPointer<ByteVar>(), sznamenew.toCPointer<ByteVar>(), grbit)
+public actual fun jetRenameColumnW(sesid: JetSesid, tableid: JetTableid, szname: COpaquePointer?, sznamenew: COpaquePointer?, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetRenameColumnW(sesid, tableid, szname?.value?.toCPointer<ByteVar>(), sznamenew?.value?.toCPointer<ByteVar>(), grbit)
 
-public actual fun JetRenameTableA(sesid: JET_SESID, dbid: UInt, szname: Long, sznamenew: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetRenameTableA(sesid, dbid, szname.toCPointer<ByteVar>(), sznamenew.toCPointer<ByteVar>())
+public actual fun jetRenameTableA(sesid: JetSesid, dbid: UInt, szname: COpaquePointer?, sznamenew: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetRenameTableA(sesid, dbid, szname?.value?.toCPointer<ByteVar>(), sznamenew?.value?.toCPointer<ByteVar>())
 
-public actual fun JetRenameTableW(sesid: JET_SESID, dbid: UInt, szname: Long, sznamenew: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetRenameTableW(sesid, dbid, szname.toCPointer<ByteVar>(), sznamenew.toCPointer<ByteVar>())
+public actual fun jetRenameTableW(sesid: JetSesid, dbid: UInt, szname: COpaquePointer?, sznamenew: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetRenameTableW(sesid, dbid, szname?.value?.toCPointer<ByteVar>(), sznamenew?.value?.toCPointer<ByteVar>())
 
-public actual fun JetResetSessionContext(sesid: JET_SESID): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetResetSessionContext(sesid)
+public actual fun jetResetSessionContext(sesid: JetSesid): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetResetSessionContext(sesid)
 
-public actual fun JetResetTableSequential(sesid: JET_SESID, tableid: JET_TABLEID, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetResetTableSequential(sesid, tableid, grbit)
+public actual fun jetResetTableSequential(sesid: JetSesid, tableid: JetTableid, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetResetTableSequential(sesid, tableid, grbit)
 
-public actual fun JetResizeDatabase(sesid: JET_SESID, dbid: UInt, cpgtarget: UInt, pcpgactual: Long, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetResizeDatabase(sesid, dbid, cpgtarget, pcpgactual.toCPointer<ByteVar>(), grbit)
+public actual fun jetResizeDatabase(sesid: JetSesid, dbid: UInt, cpgtarget: UInt, pcpgactual: COpaquePointer?, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetResizeDatabase(sesid, dbid, cpgtarget, pcpgactual?.value?.toCPointer<ByteVar>(), grbit)
 
-public actual fun JetRestore2A(sz: Long, szdest: Long, pfn: JET_PFNSTATUS): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetRestore2A(sz.toCPointer<ByteVar>(), szdest.toCPointer<ByteVar>(), pfn.toLong().toCPointer<ByteVar>())
+public actual fun jetRestore2A(sz: COpaquePointer?, szdest: COpaquePointer?, pfn: JetPfnstatus): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetRestore2A(sz?.value?.toCPointer<ByteVar>(), szdest?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 
-public actual fun JetRestore2W(sz: Long, szdest: Long, pfn: JET_PFNSTATUS): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetRestore2W(sz.toCPointer<ByteVar>(), szdest.toCPointer<ByteVar>(), pfn.toLong().toCPointer<ByteVar>())
+public actual fun jetRestore2W(sz: COpaquePointer?, szdest: COpaquePointer?, pfn: JetPfnstatus): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetRestore2W(sz?.value?.toCPointer<ByteVar>(), szdest?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 
-public actual fun JetRestoreA(szsource: Long, pfn: JET_PFNSTATUS): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetRestoreA(szsource.toCPointer<ByteVar>(), pfn.toLong().toCPointer<ByteVar>())
+public actual fun jetRestoreA(szsource: COpaquePointer?, pfn: JetPfnstatus): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetRestoreA(szsource?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 
-public actual fun JetRestoreInstanceA(instance: JET_INSTANCE, sz: Long, szdest: Long, pfn: JET_PFNSTATUS): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetRestoreInstanceA(instance, sz.toCPointer<ByteVar>(), szdest.toCPointer<ByteVar>(), pfn.toLong().toCPointer<ByteVar>())
+public actual fun jetRestoreInstanceA(instance: JetInstance, sz: COpaquePointer?, szdest: COpaquePointer?, pfn: JetPfnstatus): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetRestoreInstanceA(instance, sz?.value?.toCPointer<ByteVar>(), szdest?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 
-public actual fun JetRestoreInstanceW(instance: JET_INSTANCE, sz: Long, szdest: Long, pfn: JET_PFNSTATUS): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetRestoreInstanceW(instance, sz.toCPointer<ByteVar>(), szdest.toCPointer<ByteVar>(), pfn.toLong().toCPointer<ByteVar>())
+public actual fun jetRestoreInstanceW(instance: JetInstance, sz: COpaquePointer?, szdest: COpaquePointer?, pfn: JetPfnstatus): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetRestoreInstanceW(instance, sz?.value?.toCPointer<ByteVar>(), szdest?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 
-public actual fun JetRestoreW(szsource: Long, pfn: JET_PFNSTATUS): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetRestoreW(szsource.toCPointer<ByteVar>(), pfn.toLong().toCPointer<ByteVar>())
+public actual fun jetRestoreW(szsource: COpaquePointer?, pfn: JetPfnstatus): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetRestoreW(szsource?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 
-public actual fun JetRetrieveColumn(sesid: JET_SESID, tableid: JET_TABLEID, columnid: UInt, pvdata: Long, cbdata: UInt, pcbactual: Long, grbit: UInt, pretinfo: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetRetrieveColumn(sesid, tableid, columnid, pvdata.toCPointer<ByteVar>(), cbdata, pcbactual.toCPointer<ByteVar>(), grbit, pretinfo.toCPointer<ByteVar>())
+public actual fun jetRetrieveColumn(sesid: JetSesid, tableid: JetTableid, columnid: UInt, pvdata: COpaquePointer?, cbdata: UInt, pcbactual: COpaquePointer?, grbit: UInt, pretinfo: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetRetrieveColumn(sesid, tableid, columnid, pvdata?.value?.toCPointer<ByteVar>(), cbdata, pcbactual?.value?.toCPointer<ByteVar>(), grbit, pretinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun JetRetrieveColumns(sesid: JET_SESID, tableid: JET_TABLEID, pretrievecolumn: Long, cretrievecolumn: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetRetrieveColumns(sesid, tableid, pretrievecolumn.toCPointer<ByteVar>(), cretrievecolumn)
+public actual fun jetRetrieveColumns(sesid: JetSesid, tableid: JetTableid, pretrievecolumn: COpaquePointer?, cretrievecolumn: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetRetrieveColumns(sesid, tableid, pretrievecolumn?.value?.toCPointer<ByteVar>(), cretrievecolumn)
 
-public actual fun JetRetrieveKey(sesid: JET_SESID, tableid: JET_TABLEID, pvkey: Long, cbmax: UInt, pcbactual: Long, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetRetrieveKey(sesid, tableid, pvkey.toCPointer<ByteVar>(), cbmax, pcbactual.toCPointer<ByteVar>(), grbit)
+public actual fun jetRetrieveKey(sesid: JetSesid, tableid: JetTableid, pvkey: COpaquePointer?, cbmax: UInt, pcbactual: COpaquePointer?, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetRetrieveKey(sesid, tableid, pvkey?.value?.toCPointer<ByteVar>(), cbmax, pcbactual?.value?.toCPointer<ByteVar>(), grbit)
 
-public actual fun JetRollback(sesid: JET_SESID, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetRollback(sesid, grbit)
+public actual fun jetRollback(sesid: JetSesid, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetRollback(sesid, grbit)
 
-public actual fun JetSeek(sesid: JET_SESID, tableid: JET_TABLEID, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetSeek(sesid, tableid, grbit)
+public actual fun jetSeek(sesid: JetSesid, tableid: JetTableid, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetSeek(sesid, tableid, grbit)
 
-public actual fun JetSetColumn(sesid: JET_SESID, tableid: JET_TABLEID, columnid: UInt, pvdata: Long, cbdata: UInt, grbit: UInt, psetinfo: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetSetColumn(sesid, tableid, columnid, pvdata.toCPointer<ByteVar>(), cbdata, grbit, psetinfo.toCPointer<ByteVar>())
+public actual fun jetSetColumn(sesid: JetSesid, tableid: JetTableid, columnid: UInt, pvdata: COpaquePointer?, cbdata: UInt, grbit: UInt, psetinfo: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetSetColumn(sesid, tableid, columnid, pvdata?.value?.toCPointer<ByteVar>(), cbdata, grbit, psetinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun JetSetColumnDefaultValueA(sesid: JET_SESID, dbid: UInt, sztablename: Long, szcolumnname: Long, pvdata: Long, cbdata: UInt, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetSetColumnDefaultValueA(sesid, dbid, sztablename.toCPointer<ByteVar>(), szcolumnname.toCPointer<ByteVar>(), pvdata.toCPointer<ByteVar>(), cbdata, grbit)
+public actual fun jetSetColumnDefaultValueA(sesid: JetSesid, dbid: UInt, sztablename: COpaquePointer?, szcolumnname: COpaquePointer?, pvdata: COpaquePointer?, cbdata: UInt, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetSetColumnDefaultValueA(sesid, dbid, sztablename?.value?.toCPointer<ByteVar>(), szcolumnname?.value?.toCPointer<ByteVar>(), pvdata?.value?.toCPointer<ByteVar>(), cbdata, grbit)
 
-public actual fun JetSetColumnDefaultValueW(sesid: JET_SESID, dbid: UInt, sztablename: Long, szcolumnname: Long, pvdata: Long, cbdata: UInt, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetSetColumnDefaultValueW(sesid, dbid, sztablename.toCPointer<ByteVar>(), szcolumnname.toCPointer<ByteVar>(), pvdata.toCPointer<ByteVar>(), cbdata, grbit)
+public actual fun jetSetColumnDefaultValueW(sesid: JetSesid, dbid: UInt, sztablename: COpaquePointer?, szcolumnname: COpaquePointer?, pvdata: COpaquePointer?, cbdata: UInt, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetSetColumnDefaultValueW(sesid, dbid, sztablename?.value?.toCPointer<ByteVar>(), szcolumnname?.value?.toCPointer<ByteVar>(), pvdata?.value?.toCPointer<ByteVar>(), cbdata, grbit)
 
-public actual fun JetSetColumns(sesid: JET_SESID, tableid: JET_TABLEID, psetcolumn: Long, csetcolumn: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetSetColumns(sesid, tableid, psetcolumn.toCPointer<ByteVar>(), csetcolumn)
+public actual fun jetSetColumns(sesid: JetSesid, tableid: JetTableid, psetcolumn: COpaquePointer?, csetcolumn: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetSetColumns(sesid, tableid, psetcolumn?.value?.toCPointer<ByteVar>(), csetcolumn)
 
-public actual fun JetSetCurrentIndex2A(sesid: JET_SESID, tableid: JET_TABLEID, szindexname: Long, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetSetCurrentIndex2A(sesid, tableid, szindexname.toCPointer<ByteVar>(), grbit)
+public actual fun jetSetCurrentIndex2A(sesid: JetSesid, tableid: JetTableid, szindexname: COpaquePointer?, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetSetCurrentIndex2A(sesid, tableid, szindexname?.value?.toCPointer<ByteVar>(), grbit)
 
-public actual fun JetSetCurrentIndex2W(sesid: JET_SESID, tableid: JET_TABLEID, szindexname: Long, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetSetCurrentIndex2W(sesid, tableid, szindexname.toCPointer<ByteVar>(), grbit)
+public actual fun jetSetCurrentIndex2W(sesid: JetSesid, tableid: JetTableid, szindexname: COpaquePointer?, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetSetCurrentIndex2W(sesid, tableid, szindexname?.value?.toCPointer<ByteVar>(), grbit)
 
-public actual fun JetSetCurrentIndex3A(sesid: JET_SESID, tableid: JET_TABLEID, szindexname: Long, grbit: UInt, itagsequence: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetSetCurrentIndex3A(sesid, tableid, szindexname.toCPointer<ByteVar>(), grbit, itagsequence)
+public actual fun jetSetCurrentIndex3A(sesid: JetSesid, tableid: JetTableid, szindexname: COpaquePointer?, grbit: UInt, itagsequence: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetSetCurrentIndex3A(sesid, tableid, szindexname?.value?.toCPointer<ByteVar>(), grbit, itagsequence)
 
-public actual fun JetSetCurrentIndex3W(sesid: JET_SESID, tableid: JET_TABLEID, szindexname: Long, grbit: UInt, itagsequence: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetSetCurrentIndex3W(sesid, tableid, szindexname.toCPointer<ByteVar>(), grbit, itagsequence)
+public actual fun jetSetCurrentIndex3W(sesid: JetSesid, tableid: JetTableid, szindexname: COpaquePointer?, grbit: UInt, itagsequence: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetSetCurrentIndex3W(sesid, tableid, szindexname?.value?.toCPointer<ByteVar>(), grbit, itagsequence)
 
-public actual fun JetSetCurrentIndex4A(sesid: JET_SESID, tableid: JET_TABLEID, szindexname: Long, pindexid: Long, grbit: UInt, itagsequence: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetSetCurrentIndex4A(sesid, tableid, szindexname.toCPointer<ByteVar>(), pindexid.toCPointer<ByteVar>(), grbit, itagsequence)
+public actual fun jetSetCurrentIndex4A(sesid: JetSesid, tableid: JetTableid, szindexname: COpaquePointer?, pindexid: COpaquePointer?, grbit: UInt, itagsequence: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetSetCurrentIndex4A(sesid, tableid, szindexname?.value?.toCPointer<ByteVar>(), pindexid?.value?.toCPointer<ByteVar>(), grbit, itagsequence)
 
-public actual fun JetSetCurrentIndex4W(sesid: JET_SESID, tableid: JET_TABLEID, szindexname: Long, pindexid: Long, grbit: UInt, itagsequence: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetSetCurrentIndex4W(sesid, tableid, szindexname.toCPointer<ByteVar>(), pindexid.toCPointer<ByteVar>(), grbit, itagsequence)
+public actual fun jetSetCurrentIndex4W(sesid: JetSesid, tableid: JetTableid, szindexname: COpaquePointer?, pindexid: COpaquePointer?, grbit: UInt, itagsequence: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetSetCurrentIndex4W(sesid, tableid, szindexname?.value?.toCPointer<ByteVar>(), pindexid?.value?.toCPointer<ByteVar>(), grbit, itagsequence)
 
-public actual fun JetSetCurrentIndexA(sesid: JET_SESID, tableid: JET_TABLEID, szindexname: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetSetCurrentIndexA(sesid, tableid, szindexname.toCPointer<ByteVar>())
+public actual fun jetSetCurrentIndexA(sesid: JetSesid, tableid: JetTableid, szindexname: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetSetCurrentIndexA(sesid, tableid, szindexname?.value?.toCPointer<ByteVar>())
 
-public actual fun JetSetCurrentIndexW(sesid: JET_SESID, tableid: JET_TABLEID, szindexname: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetSetCurrentIndexW(sesid, tableid, szindexname.toCPointer<ByteVar>())
+public actual fun jetSetCurrentIndexW(sesid: JetSesid, tableid: JetTableid, szindexname: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetSetCurrentIndexW(sesid, tableid, szindexname?.value?.toCPointer<ByteVar>())
 
-public actual fun JetSetCursorFilter(sesid: JET_SESID, tableid: JET_TABLEID, rgcolumnfilters: Long, ccolumnfilters: UInt, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetSetCursorFilter(sesid, tableid, rgcolumnfilters.toCPointer<ByteVar>(), ccolumnfilters, grbit)
+public actual fun jetSetCursorFilter(sesid: JetSesid, tableid: JetTableid, rgcolumnfilters: COpaquePointer?, ccolumnfilters: UInt, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetSetCursorFilter(sesid, tableid, rgcolumnfilters?.value?.toCPointer<ByteVar>(), ccolumnfilters, grbit)
 
-public actual fun JetSetDatabaseSizeA(sesid: JET_SESID, szdatabasename: Long, cpg: UInt, pcpgreal: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetSetDatabaseSizeA(sesid, szdatabasename.toCPointer<ByteVar>(), cpg, pcpgreal.toCPointer<ByteVar>())
+public actual fun jetSetDatabaseSizeA(sesid: JetSesid, szdatabasename: COpaquePointer?, cpg: UInt, pcpgreal: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetSetDatabaseSizeA(sesid, szdatabasename?.value?.toCPointer<ByteVar>(), cpg, pcpgreal?.value?.toCPointer<ByteVar>())
 
-public actual fun JetSetDatabaseSizeW(sesid: JET_SESID, szdatabasename: Long, cpg: UInt, pcpgreal: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetSetDatabaseSizeW(sesid, szdatabasename.toCPointer<ByteVar>(), cpg, pcpgreal.toCPointer<ByteVar>())
+public actual fun jetSetDatabaseSizeW(sesid: JetSesid, szdatabasename: COpaquePointer?, cpg: UInt, pcpgreal: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetSetDatabaseSizeW(sesid, szdatabasename?.value?.toCPointer<ByteVar>(), cpg, pcpgreal?.value?.toCPointer<ByteVar>())
 
-public actual fun JetSetIndexRange(sesid: JET_SESID, tableidsrc: JET_TABLEID, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetSetIndexRange(sesid, tableidsrc, grbit)
+public actual fun jetSetIndexRange(sesid: JetSesid, tableidsrc: JetTableid, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetSetIndexRange(sesid, tableidsrc, grbit)
 
-public actual fun JetSetLS(sesid: JET_SESID, tableid: JET_TABLEID, ls: JET_LS, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetSetLS(sesid, tableid, ls, grbit)
+public actual fun jetSetLS(sesid: JetSesid, tableid: JetTableid, ls: JetLs, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetSetLS(sesid, tableid, ls.toULong(), grbit)
 
-public actual fun JetSetSessionContext(sesid: JET_SESID, ulcontext: JET_API_PTR): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetSetSessionContext(sesid, ulcontext)
+public actual fun jetSetSessionContext(sesid: JetSesid, ulcontext: JetApiPtr): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetSetSessionContext(sesid, ulcontext)
 
-public actual fun JetSetSessionParameter(sesid: JET_SESID, sesparamid: UInt, pvparam: Long, cbparam: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetSetSessionParameter(sesid, sesparamid, pvparam.toCPointer<ByteVar>(), cbparam)
+public actual fun jetSetSessionParameter(sesid: JetSesid, sesparamid: UInt, pvparam: COpaquePointer?, cbparam: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetSetSessionParameter(sesid, sesparamid, pvparam?.value?.toCPointer<ByteVar>(), cbparam)
 
-public actual fun JetSetSystemParameterA(pinstance: Long, sesid: JET_SESID, paramid: UInt, lparam: JET_API_PTR, szparam: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetSetSystemParameterA(pinstance.toCPointer<ByteVar>(), sesid, paramid, lparam, szparam.toCPointer<ByteVar>())
+public actual fun jetSetSystemParameterA(pinstance: COpaquePointer?, sesid: JetSesid, paramid: UInt, lparam: JetApiPtr, szparam: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetSetSystemParameterA(pinstance?.value?.toCPointer<ByteVar>(), sesid, paramid, lparam, szparam?.value?.toCPointer<ByteVar>())
 
-public actual fun JetSetSystemParameterW(pinstance: Long, sesid: JET_SESID, paramid: UInt, lparam: JET_API_PTR, szparam: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetSetSystemParameterW(pinstance.toCPointer<ByteVar>(), sesid, paramid, lparam, szparam.toCPointer<ByteVar>())
+public actual fun jetSetSystemParameterW(pinstance: COpaquePointer?, sesid: JetSesid, paramid: UInt, lparam: JetApiPtr, szparam: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetSetSystemParameterW(pinstance?.value?.toCPointer<ByteVar>(), sesid, paramid, lparam, szparam?.value?.toCPointer<ByteVar>())
 
-public actual fun JetSetTableSequential(sesid: JET_SESID, tableid: JET_TABLEID, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetSetTableSequential(sesid, tableid, grbit)
+public actual fun jetSetTableSequential(sesid: JetSesid, tableid: JetTableid, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetSetTableSequential(sesid, tableid, grbit)
 
-public actual fun JetStopBackup(): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetStopBackup()
+public actual fun jetStopBackup(): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetStopBackup()
 
-public actual fun JetStopBackupInstance(instance: JET_INSTANCE): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetStopBackupInstance(instance)
+public actual fun jetStopBackupInstance(instance: JetInstance): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetStopBackupInstance(instance)
 
-public actual fun JetStopService(): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetStopService()
+public actual fun jetStopService(): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetStopService()
 
-public actual fun JetStopServiceInstance(instance: JET_INSTANCE): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetStopServiceInstance(instance)
+public actual fun jetStopServiceInstance(instance: JetInstance): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetStopServiceInstance(instance)
 
-public actual fun JetStopServiceInstance2(instance: JET_INSTANCE, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetStopServiceInstance2(instance, grbit)
+public actual fun jetStopServiceInstance2(instance: JetInstance, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetStopServiceInstance2(instance, grbit)
 
-public actual fun JetTerm(instance: JET_INSTANCE): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetTerm(instance)
+public actual fun jetTerm(instance: JetInstance): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetTerm(instance)
 
-public actual fun JetTerm2(instance: JET_INSTANCE, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetTerm2(instance, grbit)
+public actual fun jetTerm2(instance: JetInstance, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetTerm2(instance, grbit)
 
-public actual fun JetTruncateLog(): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetTruncateLog()
+public actual fun jetTruncateLog(): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetTruncateLog()
 
-public actual fun JetTruncateLogInstance(instance: JET_INSTANCE): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetTruncateLogInstance(instance)
+public actual fun jetTruncateLogInstance(instance: JetInstance): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetTruncateLogInstance(instance)
 
-public actual fun JetUnregisterCallback(sesid: JET_SESID, tableid: JET_TABLEID, cbtyp: UInt, hcallbackid: JET_HANDLE): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetUnregisterCallback(sesid, tableid, cbtyp, hcallbackid)
+public actual fun jetUnregisterCallback(sesid: JetSesid, tableid: JetTableid, cbtyp: UInt, hcallbackid: JetHandle): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetUnregisterCallback(sesid, tableid, cbtyp, hcallbackid)
 
-public actual fun JetUpdate(sesid: JET_SESID, tableid: JET_TABLEID, pvbookmark: Long, cbbookmark: UInt, pcbactual: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetUpdate(sesid, tableid, pvbookmark.toCPointer<ByteVar>(), cbbookmark, pcbactual.toCPointer<ByteVar>())
+public actual fun jetUpdate(sesid: JetSesid, tableid: JetTableid, pvbookmark: COpaquePointer?, cbbookmark: UInt, pcbactual: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetUpdate(sesid, tableid, pvbookmark?.value?.toCPointer<ByteVar>(), cbbookmark, pcbactual?.value?.toCPointer<ByteVar>())
 
-public actual fun JetUpdate2(sesid: JET_SESID, tableid: JET_TABLEID, pvbookmark: Long, cbbookmark: UInt, pcbactual: Long, grbit: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_JetUpdate2(sesid, tableid, pvbookmark.toCPointer<ByteVar>(), cbbookmark, pcbactual.toCPointer<ByteVar>(), grbit)
+public actual fun jetUpdate2(sesid: JetSesid, tableid: JetTableid, pvbookmark: COpaquePointer?, cbbookmark: UInt, pcbactual: COpaquePointer?, grbit: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.jet.cinterop.windowssys_windows_win32_storage_jet_jetUpdate2(sesid, tableid, pvbookmark?.value?.toCPointer<ByteVar>(), cbbookmark, pcbactual?.value?.toCPointer<ByteVar>(), grbit)

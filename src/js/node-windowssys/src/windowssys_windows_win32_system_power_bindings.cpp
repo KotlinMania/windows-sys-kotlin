@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_system_power_CallNtPowerInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_callNtPowerInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t informationlevel = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* inputbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -77,7 +77,7 @@ static Napi::Value windowssys_windows_win32_system_power_CallNtPowerInformation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_CanUserWritePwrScheme_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_canUserWritePwrScheme_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void);
@@ -93,7 +93,7 @@ static Napi::Value windowssys_windows_win32_system_power_CanUserWritePwrScheme_n
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_win32_system_power_DeletePwrScheme_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_deletePwrScheme_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t uiid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -111,7 +111,7 @@ static Napi::Value windowssys_windows_win32_system_power_DeletePwrScheme_napi(co
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_win32_system_power_DevicePowerClose_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_devicePowerClose_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void);
@@ -127,7 +127,7 @@ static Napi::Value windowssys_windows_win32_system_power_DevicePowerClose_napi(c
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_win32_system_power_DevicePowerEnumDevices_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_devicePowerEnumDevices_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t queryindex = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t queryinterpretationflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -153,7 +153,7 @@ static Napi::Value windowssys_windows_win32_system_power_DevicePowerEnumDevices_
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_win32_system_power_DevicePowerOpen_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_devicePowerOpen_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t debugmask = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -171,7 +171,7 @@ static Napi::Value windowssys_windows_win32_system_power_DevicePowerOpen_napi(co
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_win32_system_power_DevicePowerSetDeviceState_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_devicePowerSetDeviceState_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* devicedescription = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t setflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -193,7 +193,7 @@ static Napi::Value windowssys_windows_win32_system_power_DevicePowerSetDeviceSta
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_EnumPwrSchemes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_enumPwrSchemes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int64_t lparam = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -213,7 +213,7 @@ static Napi::Value windowssys_windows_win32_system_power_EnumPwrSchemes_napi(con
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_win32_system_power_GetActivePwrScheme_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_getActivePwrScheme_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* puiid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -231,7 +231,7 @@ static Napi::Value windowssys_windows_win32_system_power_GetActivePwrScheme_napi
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_win32_system_power_GetCurrentPowerPolicies_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_getCurrentPowerPolicies_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pglobalpowerpolicy = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppowerpolicy = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -251,7 +251,7 @@ static Napi::Value windowssys_windows_win32_system_power_GetCurrentPowerPolicies
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_win32_system_power_GetDevicePowerState_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_getDevicePowerState_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdevice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pfon = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -271,7 +271,7 @@ static Napi::Value windowssys_windows_win32_system_power_GetDevicePowerState_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_GetPwrCapabilities_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_getPwrCapabilities_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpspc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -289,7 +289,7 @@ static Napi::Value windowssys_windows_win32_system_power_GetPwrCapabilities_napi
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_win32_system_power_GetPwrDiskSpindownRange_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_getPwrDiskSpindownRange_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* puimax = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* puimin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -309,7 +309,7 @@ static Napi::Value windowssys_windows_win32_system_power_GetPwrDiskSpindownRange
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_win32_system_power_GetSystemPowerStatus_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_getSystemPowerStatus_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpsystempowerstatus = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -327,7 +327,7 @@ static Napi::Value windowssys_windows_win32_system_power_GetSystemPowerStatus_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_IsAdminOverrideActive_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_isAdminOverrideActive_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* papp = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -345,7 +345,7 @@ static Napi::Value windowssys_windows_win32_system_power_IsAdminOverrideActive_n
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_win32_system_power_IsPwrHibernateAllowed_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_isPwrHibernateAllowed_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void);
@@ -361,7 +361,7 @@ static Napi::Value windowssys_windows_win32_system_power_IsPwrHibernateAllowed_n
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_win32_system_power_IsPwrShutdownAllowed_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_isPwrShutdownAllowed_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void);
@@ -377,7 +377,7 @@ static Napi::Value windowssys_windows_win32_system_power_IsPwrShutdownAllowed_na
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_win32_system_power_IsPwrSuspendAllowed_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_isPwrSuspendAllowed_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void);
@@ -393,7 +393,7 @@ static Napi::Value windowssys_windows_win32_system_power_IsPwrSuspendAllowed_nap
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_win32_system_power_IsSystemResumeAutomatic_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_isSystemResumeAutomatic_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -409,7 +409,7 @@ static Napi::Value windowssys_windows_win32_system_power_IsSystemResumeAutomatic
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_PowerCanRestoreIndividualDefaultPowerScheme_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_powerCanRestoreIndividualDefaultPowerScheme_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* schemeguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -427,7 +427,7 @@ static Napi::Value windowssys_windows_win32_system_power_PowerCanRestoreIndividu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_PowerClearRequest_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_powerClearRequest_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* powerrequest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t requesttype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -447,7 +447,7 @@ static Napi::Value windowssys_windows_win32_system_power_PowerClearRequest_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_PowerCreatePossibleSetting_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_powerCreatePossibleSetting_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rootsystempowerkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* subgroupofpowersettingsguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -471,7 +471,7 @@ static Napi::Value windowssys_windows_win32_system_power_PowerCreatePossibleSett
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_PowerCreateRequest_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_powerCreateRequest_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -489,7 +489,7 @@ static Napi::Value windowssys_windows_win32_system_power_PowerCreateRequest_napi
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_PowerCreateSetting_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_powerCreateSetting_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rootsystempowerkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* subgroupofpowersettingsguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -511,7 +511,7 @@ static Napi::Value windowssys_windows_win32_system_power_PowerCreateSetting_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_PowerDeleteScheme_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_powerDeleteScheme_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rootpowerkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* schemeguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -531,7 +531,7 @@ static Napi::Value windowssys_windows_win32_system_power_PowerDeleteScheme_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_PowerDeterminePlatformRole_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_powerDeterminePlatformRole_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -547,7 +547,7 @@ static Napi::Value windowssys_windows_win32_system_power_PowerDeterminePlatformR
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_PowerDeterminePlatformRoleEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_powerDeterminePlatformRoleEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t version = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -565,7 +565,7 @@ static Napi::Value windowssys_windows_win32_system_power_PowerDeterminePlatformR
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_PowerDuplicateScheme_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_powerDuplicateScheme_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rootpowerkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sourceschemeguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -587,7 +587,7 @@ static Napi::Value windowssys_windows_win32_system_power_PowerDuplicateScheme_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_PowerEnumerate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_powerEnumerate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rootpowerkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* schemeguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -617,7 +617,7 @@ static Napi::Value windowssys_windows_win32_system_power_PowerEnumerate_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_PowerGetActiveScheme_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_powerGetActiveScheme_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* userrootpowerkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* activepolicyguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -637,7 +637,7 @@ static Napi::Value windowssys_windows_win32_system_power_PowerGetActiveScheme_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_PowerImportPowerScheme_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_powerImportPowerScheme_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rootpowerkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* importfilenamepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -659,7 +659,7 @@ static Napi::Value windowssys_windows_win32_system_power_PowerImportPowerScheme_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_PowerIsSettingRangeDefined_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_powerIsSettingRangeDefined_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* subkeyguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* settingguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -679,7 +679,7 @@ static Napi::Value windowssys_windows_win32_system_power_PowerIsSettingRangeDefi
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_win32_system_power_PowerOpenSystemPowerKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_powerOpenSystemPowerKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* phsystempowerkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t access = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -701,7 +701,7 @@ static Napi::Value windowssys_windows_win32_system_power_PowerOpenSystemPowerKey
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_PowerOpenUserPowerKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_powerOpenUserPowerKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* phuserpowerkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t access = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -723,7 +723,7 @@ static Napi::Value windowssys_windows_win32_system_power_PowerOpenUserPowerKey_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_PowerReadACDefaultIndex_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_powerReadACDefaultIndex_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rootpowerkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* schemepersonalityguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -749,7 +749,7 @@ static Napi::Value windowssys_windows_win32_system_power_PowerReadACDefaultIndex
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_PowerReadACValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_powerReadACValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rootpowerkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* schemeguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -779,7 +779,7 @@ static Napi::Value windowssys_windows_win32_system_power_PowerReadACValue_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_PowerReadACValueIndex_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_powerReadACValueIndex_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rootpowerkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* schemeguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -805,7 +805,7 @@ static Napi::Value windowssys_windows_win32_system_power_PowerReadACValueIndex_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_PowerReadDCDefaultIndex_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_powerReadDCDefaultIndex_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rootpowerkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* schemepersonalityguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -831,7 +831,7 @@ static Napi::Value windowssys_windows_win32_system_power_PowerReadDCDefaultIndex
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_PowerReadDCValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_powerReadDCValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rootpowerkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* schemeguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -861,7 +861,7 @@ static Napi::Value windowssys_windows_win32_system_power_PowerReadDCValue_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_PowerReadDCValueIndex_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_powerReadDCValueIndex_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rootpowerkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* schemeguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -887,7 +887,7 @@ static Napi::Value windowssys_windows_win32_system_power_PowerReadDCValueIndex_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_PowerReadDescription_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_powerReadDescription_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rootpowerkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* schemeguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -915,7 +915,7 @@ static Napi::Value windowssys_windows_win32_system_power_PowerReadDescription_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_PowerReadFriendlyName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_powerReadFriendlyName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rootpowerkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* schemeguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -943,7 +943,7 @@ static Napi::Value windowssys_windows_win32_system_power_PowerReadFriendlyName_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_PowerReadIconResourceSpecifier_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_powerReadIconResourceSpecifier_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rootpowerkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* schemeguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -971,7 +971,7 @@ static Napi::Value windowssys_windows_win32_system_power_PowerReadIconResourceSp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_PowerReadPossibleDescription_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_powerReadPossibleDescription_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rootpowerkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* subgroupofpowersettingsguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -999,7 +999,7 @@ static Napi::Value windowssys_windows_win32_system_power_PowerReadPossibleDescri
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_PowerReadPossibleFriendlyName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_powerReadPossibleFriendlyName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rootpowerkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* subgroupofpowersettingsguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1027,7 +1027,7 @@ static Napi::Value windowssys_windows_win32_system_power_PowerReadPossibleFriend
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_PowerReadPossibleValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_powerReadPossibleValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rootpowerkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* subgroupofpowersettingsguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1057,7 +1057,7 @@ static Napi::Value windowssys_windows_win32_system_power_PowerReadPossibleValue_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_PowerReadSettingAttributes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_powerReadSettingAttributes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* subgroupguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* powersettingguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1077,7 +1077,7 @@ static Napi::Value windowssys_windows_win32_system_power_PowerReadSettingAttribu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_PowerReadValueIncrement_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_powerReadValueIncrement_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rootpowerkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* subgroupofpowersettingsguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1101,7 +1101,7 @@ static Napi::Value windowssys_windows_win32_system_power_PowerReadValueIncrement
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_PowerReadValueMax_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_powerReadValueMax_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rootpowerkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* subgroupofpowersettingsguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1125,7 +1125,7 @@ static Napi::Value windowssys_windows_win32_system_power_PowerReadValueMax_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_PowerReadValueMin_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_powerReadValueMin_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rootpowerkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* subgroupofpowersettingsguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1149,7 +1149,7 @@ static Napi::Value windowssys_windows_win32_system_power_PowerReadValueMin_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_PowerReadValueUnitsSpecifier_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_powerReadValueUnitsSpecifier_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rootpowerkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* subgroupofpowersettingsguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1175,7 +1175,7 @@ static Napi::Value windowssys_windows_win32_system_power_PowerReadValueUnitsSpec
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_PowerRegisterForEffectivePowerModeNotifications_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_powerRegisterForEffectivePowerModeNotifications_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t version = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* callback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1199,7 +1199,7 @@ static Napi::Value windowssys_windows_win32_system_power_PowerRegisterForEffecti
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_PowerRegisterSuspendResumeNotification_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_powerRegisterSuspendResumeNotification_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* recipient = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1221,7 +1221,7 @@ static Napi::Value windowssys_windows_win32_system_power_PowerRegisterSuspendRes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_PowerRemovePowerSetting_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_powerRemovePowerSetting_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* powersettingsubkeyguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* powersettingguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1241,7 +1241,7 @@ static Napi::Value windowssys_windows_win32_system_power_PowerRemovePowerSetting
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_PowerReplaceDefaultPowerSchemes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_powerReplaceDefaultPowerSchemes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -1257,7 +1257,7 @@ static Napi::Value windowssys_windows_win32_system_power_PowerReplaceDefaultPowe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_PowerReportThermalEvent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_powerReportThermalEvent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* event = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1275,7 +1275,7 @@ static Napi::Value windowssys_windows_win32_system_power_PowerReportThermalEvent
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_PowerRestoreDefaultPowerSchemes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_powerRestoreDefaultPowerSchemes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -1291,7 +1291,7 @@ static Napi::Value windowssys_windows_win32_system_power_PowerRestoreDefaultPowe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_PowerRestoreIndividualDefaultPowerScheme_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_powerRestoreIndividualDefaultPowerScheme_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* schemeguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1309,7 +1309,7 @@ static Napi::Value windowssys_windows_win32_system_power_PowerRestoreIndividualD
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_PowerSetActiveScheme_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_powerSetActiveScheme_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* userrootpowerkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* schemeguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1329,7 +1329,7 @@ static Napi::Value windowssys_windows_win32_system_power_PowerSetActiveScheme_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_PowerSetRequest_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_powerSetRequest_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* powerrequest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t requesttype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1349,7 +1349,7 @@ static Napi::Value windowssys_windows_win32_system_power_PowerSetRequest_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_PowerSettingAccessCheck_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_powerSettingAccessCheck_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t accessflags = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* powerguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1369,7 +1369,7 @@ static Napi::Value windowssys_windows_win32_system_power_PowerSettingAccessCheck
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_PowerSettingAccessCheckEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_powerSettingAccessCheckEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t accessflags = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* powerguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1391,7 +1391,7 @@ static Napi::Value windowssys_windows_win32_system_power_PowerSettingAccessCheck
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_PowerSettingRegisterNotification_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_powerSettingRegisterNotification_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* settingguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1415,7 +1415,7 @@ static Napi::Value windowssys_windows_win32_system_power_PowerSettingRegisterNot
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_PowerSettingUnregisterNotification_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_powerSettingUnregisterNotification_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t registrationhandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -1433,7 +1433,7 @@ static Napi::Value windowssys_windows_win32_system_power_PowerSettingUnregisterN
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_PowerUnregisterFromEffectivePowerModeNotifications_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_powerUnregisterFromEffectivePowerModeNotifications_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* registrationhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1451,7 +1451,7 @@ static Napi::Value windowssys_windows_win32_system_power_PowerUnregisterFromEffe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_PowerUnregisterSuspendResumeNotification_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_powerUnregisterSuspendResumeNotification_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t registrationhandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -1469,7 +1469,7 @@ static Napi::Value windowssys_windows_win32_system_power_PowerUnregisterSuspendR
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_PowerWriteACDefaultIndex_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_powerWriteACDefaultIndex_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rootsystempowerkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* schemepersonalityguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1495,7 +1495,7 @@ static Napi::Value windowssys_windows_win32_system_power_PowerWriteACDefaultInde
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_PowerWriteACValueIndex_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_powerWriteACValueIndex_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rootpowerkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* schemeguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1521,7 +1521,7 @@ static Napi::Value windowssys_windows_win32_system_power_PowerWriteACValueIndex_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_PowerWriteDCDefaultIndex_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_powerWriteDCDefaultIndex_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rootsystempowerkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* schemepersonalityguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1547,7 +1547,7 @@ static Napi::Value windowssys_windows_win32_system_power_PowerWriteDCDefaultInde
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_PowerWriteDCValueIndex_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_powerWriteDCValueIndex_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rootpowerkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* schemeguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1573,7 +1573,7 @@ static Napi::Value windowssys_windows_win32_system_power_PowerWriteDCValueIndex_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_PowerWriteDescription_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_powerWriteDescription_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rootpowerkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* schemeguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1601,7 +1601,7 @@ static Napi::Value windowssys_windows_win32_system_power_PowerWriteDescription_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_PowerWriteFriendlyName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_powerWriteFriendlyName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rootpowerkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* schemeguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1629,7 +1629,7 @@ static Napi::Value windowssys_windows_win32_system_power_PowerWriteFriendlyName_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_PowerWriteIconResourceSpecifier_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_powerWriteIconResourceSpecifier_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rootpowerkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* schemeguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1657,7 +1657,7 @@ static Napi::Value windowssys_windows_win32_system_power_PowerWriteIconResourceS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_PowerWritePossibleDescription_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_powerWritePossibleDescription_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rootpowerkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* subgroupofpowersettingsguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1685,7 +1685,7 @@ static Napi::Value windowssys_windows_win32_system_power_PowerWritePossibleDescr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_PowerWritePossibleFriendlyName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_powerWritePossibleFriendlyName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rootpowerkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* subgroupofpowersettingsguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1713,7 +1713,7 @@ static Napi::Value windowssys_windows_win32_system_power_PowerWritePossibleFrien
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_PowerWritePossibleValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_powerWritePossibleValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rootpowerkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* subgroupofpowersettingsguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1743,7 +1743,7 @@ static Napi::Value windowssys_windows_win32_system_power_PowerWritePossibleValue
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_PowerWriteSettingAttributes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_powerWriteSettingAttributes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* subgroupguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* powersettingguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1765,7 +1765,7 @@ static Napi::Value windowssys_windows_win32_system_power_PowerWriteSettingAttrib
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_PowerWriteValueIncrement_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_powerWriteValueIncrement_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rootpowerkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* subgroupofpowersettingsguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1789,7 +1789,7 @@ static Napi::Value windowssys_windows_win32_system_power_PowerWriteValueIncremen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_PowerWriteValueMax_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_powerWriteValueMax_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rootpowerkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* subgroupofpowersettingsguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1813,7 +1813,7 @@ static Napi::Value windowssys_windows_win32_system_power_PowerWriteValueMax_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_PowerWriteValueMin_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_powerWriteValueMin_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rootpowerkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* subgroupofpowersettingsguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1837,7 +1837,7 @@ static Napi::Value windowssys_windows_win32_system_power_PowerWriteValueMin_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_PowerWriteValueUnitsSpecifier_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_powerWriteValueUnitsSpecifier_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rootpowerkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* subgroupofpowersettingsguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1863,7 +1863,7 @@ static Napi::Value windowssys_windows_win32_system_power_PowerWriteValueUnitsSpe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_ReadGlobalPwrPolicy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_readGlobalPwrPolicy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pglobalpowerpolicy = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1881,7 +1881,7 @@ static Napi::Value windowssys_windows_win32_system_power_ReadGlobalPwrPolicy_nap
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_win32_system_power_ReadProcessorPwrScheme_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_readProcessorPwrScheme_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t uiid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pmachineprocessorpowerpolicy = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1901,7 +1901,7 @@ static Napi::Value windowssys_windows_win32_system_power_ReadProcessorPwrScheme_
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_win32_system_power_ReadPwrScheme_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_readPwrScheme_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t uiid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* ppowerpolicy = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1921,49 +1921,49 @@ static Napi::Value windowssys_windows_win32_system_power_ReadPwrScheme_napi(cons
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_win32_system_power_RegisterPowerSettingNotification_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_registerPowerSettingNotification_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrecipient = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* powersettingguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegisterPowerSettingNotification")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrecipient, powersettingguid, flags) : -1;
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrecipient, powersettingguid, flags) : -1;
 #else
     (void)hrecipient;
     (void)powersettingguid;
     (void)flags;
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_RegisterSuspendResumeNotification_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_registerSuspendResumeNotification_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrecipient = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(void*, uint32_t);
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegisterSuspendResumeNotification")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrecipient, flags) : -1;
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrecipient, flags) : -1;
 #else
     (void)hrecipient;
     (void)flags;
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_RequestWakeupLatency_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_requestWakeupLatency_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t latency = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -1981,7 +1981,7 @@ static Napi::Value windowssys_windows_win32_system_power_RequestWakeupLatency_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_SetActivePwrScheme_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_setActivePwrScheme_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t uiid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pglobalpowerpolicy = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2003,7 +2003,7 @@ static Napi::Value windowssys_windows_win32_system_power_SetActivePwrScheme_napi
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_win32_system_power_SetSuspendState_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_setSuspendState_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     bool bhibernate = km_info.Length() > 0 ? km_info[0].ToBoolean().Value() : false;
     bool bforce = km_info.Length() > 1 ? km_info[1].ToBoolean().Value() : false;
@@ -2025,7 +2025,7 @@ static Napi::Value windowssys_windows_win32_system_power_SetSuspendState_napi(co
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_win32_system_power_SetSystemPowerState_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_setSystemPowerState_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t fsuspend = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t fforce = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2045,7 +2045,7 @@ static Napi::Value windowssys_windows_win32_system_power_SetSystemPowerState_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_SetThreadExecutionState_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_setThreadExecutionState_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t esflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -2063,7 +2063,7 @@ static Napi::Value windowssys_windows_win32_system_power_SetThreadExecutionState
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_UnregisterPowerSettingNotification_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_unregisterPowerSettingNotification_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t handle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -2081,7 +2081,7 @@ static Napi::Value windowssys_windows_win32_system_power_UnregisterPowerSettingN
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_UnregisterSuspendResumeNotification_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_unregisterSuspendResumeNotification_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t handle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -2099,7 +2099,7 @@ static Napi::Value windowssys_windows_win32_system_power_UnregisterSuspendResume
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_power_ValidatePowerPolicies_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_validatePowerPolicies_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pglobalpowerpolicy = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppowerpolicy = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2119,7 +2119,7 @@ static Napi::Value windowssys_windows_win32_system_power_ValidatePowerPolicies_n
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_win32_system_power_WriteGlobalPwrPolicy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_writeGlobalPwrPolicy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pglobalpowerpolicy = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2137,7 +2137,7 @@ static Napi::Value windowssys_windows_win32_system_power_WriteGlobalPwrPolicy_na
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_win32_system_power_WriteProcessorPwrScheme_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_writeProcessorPwrScheme_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t uiid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pmachineprocessorpowerpolicy = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2157,7 +2157,7 @@ static Napi::Value windowssys_windows_win32_system_power_WriteProcessorPwrScheme
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_win32_system_power_WritePwrScheme_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_power_writePwrScheme_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* puiid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszschemename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2182,103 +2182,103 @@ static Napi::Value windowssys_windows_win32_system_power_WritePwrScheme_napi(con
 }
 
 static void register_windows_win32_system_power_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_system_power_CallNtPowerInformation", Napi::Function::New(env, windowssys_windows_win32_system_power_CallNtPowerInformation_napi));
-    exports.Set("windowssys_windows_win32_system_power_CanUserWritePwrScheme", Napi::Function::New(env, windowssys_windows_win32_system_power_CanUserWritePwrScheme_napi));
-    exports.Set("windowssys_windows_win32_system_power_DeletePwrScheme", Napi::Function::New(env, windowssys_windows_win32_system_power_DeletePwrScheme_napi));
-    exports.Set("windowssys_windows_win32_system_power_DevicePowerClose", Napi::Function::New(env, windowssys_windows_win32_system_power_DevicePowerClose_napi));
-    exports.Set("windowssys_windows_win32_system_power_DevicePowerEnumDevices", Napi::Function::New(env, windowssys_windows_win32_system_power_DevicePowerEnumDevices_napi));
-    exports.Set("windowssys_windows_win32_system_power_DevicePowerOpen", Napi::Function::New(env, windowssys_windows_win32_system_power_DevicePowerOpen_napi));
-    exports.Set("windowssys_windows_win32_system_power_DevicePowerSetDeviceState", Napi::Function::New(env, windowssys_windows_win32_system_power_DevicePowerSetDeviceState_napi));
-    exports.Set("windowssys_windows_win32_system_power_EnumPwrSchemes", Napi::Function::New(env, windowssys_windows_win32_system_power_EnumPwrSchemes_napi));
-    exports.Set("windowssys_windows_win32_system_power_GetActivePwrScheme", Napi::Function::New(env, windowssys_windows_win32_system_power_GetActivePwrScheme_napi));
-    exports.Set("windowssys_windows_win32_system_power_GetCurrentPowerPolicies", Napi::Function::New(env, windowssys_windows_win32_system_power_GetCurrentPowerPolicies_napi));
-    exports.Set("windowssys_windows_win32_system_power_GetDevicePowerState", Napi::Function::New(env, windowssys_windows_win32_system_power_GetDevicePowerState_napi));
-    exports.Set("windowssys_windows_win32_system_power_GetPwrCapabilities", Napi::Function::New(env, windowssys_windows_win32_system_power_GetPwrCapabilities_napi));
-    exports.Set("windowssys_windows_win32_system_power_GetPwrDiskSpindownRange", Napi::Function::New(env, windowssys_windows_win32_system_power_GetPwrDiskSpindownRange_napi));
-    exports.Set("windowssys_windows_win32_system_power_GetSystemPowerStatus", Napi::Function::New(env, windowssys_windows_win32_system_power_GetSystemPowerStatus_napi));
-    exports.Set("windowssys_windows_win32_system_power_IsAdminOverrideActive", Napi::Function::New(env, windowssys_windows_win32_system_power_IsAdminOverrideActive_napi));
-    exports.Set("windowssys_windows_win32_system_power_IsPwrHibernateAllowed", Napi::Function::New(env, windowssys_windows_win32_system_power_IsPwrHibernateAllowed_napi));
-    exports.Set("windowssys_windows_win32_system_power_IsPwrShutdownAllowed", Napi::Function::New(env, windowssys_windows_win32_system_power_IsPwrShutdownAllowed_napi));
-    exports.Set("windowssys_windows_win32_system_power_IsPwrSuspendAllowed", Napi::Function::New(env, windowssys_windows_win32_system_power_IsPwrSuspendAllowed_napi));
-    exports.Set("windowssys_windows_win32_system_power_IsSystemResumeAutomatic", Napi::Function::New(env, windowssys_windows_win32_system_power_IsSystemResumeAutomatic_napi));
-    exports.Set("windowssys_windows_win32_system_power_PowerCanRestoreIndividualDefaultPowerScheme", Napi::Function::New(env, windowssys_windows_win32_system_power_PowerCanRestoreIndividualDefaultPowerScheme_napi));
-    exports.Set("windowssys_windows_win32_system_power_PowerClearRequest", Napi::Function::New(env, windowssys_windows_win32_system_power_PowerClearRequest_napi));
-    exports.Set("windowssys_windows_win32_system_power_PowerCreatePossibleSetting", Napi::Function::New(env, windowssys_windows_win32_system_power_PowerCreatePossibleSetting_napi));
-    exports.Set("windowssys_windows_win32_system_power_PowerCreateRequest", Napi::Function::New(env, windowssys_windows_win32_system_power_PowerCreateRequest_napi));
-    exports.Set("windowssys_windows_win32_system_power_PowerCreateSetting", Napi::Function::New(env, windowssys_windows_win32_system_power_PowerCreateSetting_napi));
-    exports.Set("windowssys_windows_win32_system_power_PowerDeleteScheme", Napi::Function::New(env, windowssys_windows_win32_system_power_PowerDeleteScheme_napi));
-    exports.Set("windowssys_windows_win32_system_power_PowerDeterminePlatformRole", Napi::Function::New(env, windowssys_windows_win32_system_power_PowerDeterminePlatformRole_napi));
-    exports.Set("windowssys_windows_win32_system_power_PowerDeterminePlatformRoleEx", Napi::Function::New(env, windowssys_windows_win32_system_power_PowerDeterminePlatformRoleEx_napi));
-    exports.Set("windowssys_windows_win32_system_power_PowerDuplicateScheme", Napi::Function::New(env, windowssys_windows_win32_system_power_PowerDuplicateScheme_napi));
-    exports.Set("windowssys_windows_win32_system_power_PowerEnumerate", Napi::Function::New(env, windowssys_windows_win32_system_power_PowerEnumerate_napi));
-    exports.Set("windowssys_windows_win32_system_power_PowerGetActiveScheme", Napi::Function::New(env, windowssys_windows_win32_system_power_PowerGetActiveScheme_napi));
-    exports.Set("windowssys_windows_win32_system_power_PowerImportPowerScheme", Napi::Function::New(env, windowssys_windows_win32_system_power_PowerImportPowerScheme_napi));
-    exports.Set("windowssys_windows_win32_system_power_PowerIsSettingRangeDefined", Napi::Function::New(env, windowssys_windows_win32_system_power_PowerIsSettingRangeDefined_napi));
-    exports.Set("windowssys_windows_win32_system_power_PowerOpenSystemPowerKey", Napi::Function::New(env, windowssys_windows_win32_system_power_PowerOpenSystemPowerKey_napi));
-    exports.Set("windowssys_windows_win32_system_power_PowerOpenUserPowerKey", Napi::Function::New(env, windowssys_windows_win32_system_power_PowerOpenUserPowerKey_napi));
-    exports.Set("windowssys_windows_win32_system_power_PowerReadACDefaultIndex", Napi::Function::New(env, windowssys_windows_win32_system_power_PowerReadACDefaultIndex_napi));
-    exports.Set("windowssys_windows_win32_system_power_PowerReadACValue", Napi::Function::New(env, windowssys_windows_win32_system_power_PowerReadACValue_napi));
-    exports.Set("windowssys_windows_win32_system_power_PowerReadACValueIndex", Napi::Function::New(env, windowssys_windows_win32_system_power_PowerReadACValueIndex_napi));
-    exports.Set("windowssys_windows_win32_system_power_PowerReadDCDefaultIndex", Napi::Function::New(env, windowssys_windows_win32_system_power_PowerReadDCDefaultIndex_napi));
-    exports.Set("windowssys_windows_win32_system_power_PowerReadDCValue", Napi::Function::New(env, windowssys_windows_win32_system_power_PowerReadDCValue_napi));
-    exports.Set("windowssys_windows_win32_system_power_PowerReadDCValueIndex", Napi::Function::New(env, windowssys_windows_win32_system_power_PowerReadDCValueIndex_napi));
-    exports.Set("windowssys_windows_win32_system_power_PowerReadDescription", Napi::Function::New(env, windowssys_windows_win32_system_power_PowerReadDescription_napi));
-    exports.Set("windowssys_windows_win32_system_power_PowerReadFriendlyName", Napi::Function::New(env, windowssys_windows_win32_system_power_PowerReadFriendlyName_napi));
-    exports.Set("windowssys_windows_win32_system_power_PowerReadIconResourceSpecifier", Napi::Function::New(env, windowssys_windows_win32_system_power_PowerReadIconResourceSpecifier_napi));
-    exports.Set("windowssys_windows_win32_system_power_PowerReadPossibleDescription", Napi::Function::New(env, windowssys_windows_win32_system_power_PowerReadPossibleDescription_napi));
-    exports.Set("windowssys_windows_win32_system_power_PowerReadPossibleFriendlyName", Napi::Function::New(env, windowssys_windows_win32_system_power_PowerReadPossibleFriendlyName_napi));
-    exports.Set("windowssys_windows_win32_system_power_PowerReadPossibleValue", Napi::Function::New(env, windowssys_windows_win32_system_power_PowerReadPossibleValue_napi));
-    exports.Set("windowssys_windows_win32_system_power_PowerReadSettingAttributes", Napi::Function::New(env, windowssys_windows_win32_system_power_PowerReadSettingAttributes_napi));
-    exports.Set("windowssys_windows_win32_system_power_PowerReadValueIncrement", Napi::Function::New(env, windowssys_windows_win32_system_power_PowerReadValueIncrement_napi));
-    exports.Set("windowssys_windows_win32_system_power_PowerReadValueMax", Napi::Function::New(env, windowssys_windows_win32_system_power_PowerReadValueMax_napi));
-    exports.Set("windowssys_windows_win32_system_power_PowerReadValueMin", Napi::Function::New(env, windowssys_windows_win32_system_power_PowerReadValueMin_napi));
-    exports.Set("windowssys_windows_win32_system_power_PowerReadValueUnitsSpecifier", Napi::Function::New(env, windowssys_windows_win32_system_power_PowerReadValueUnitsSpecifier_napi));
-    exports.Set("windowssys_windows_win32_system_power_PowerRegisterForEffectivePowerModeNotifications", Napi::Function::New(env, windowssys_windows_win32_system_power_PowerRegisterForEffectivePowerModeNotifications_napi));
-    exports.Set("windowssys_windows_win32_system_power_PowerRegisterSuspendResumeNotification", Napi::Function::New(env, windowssys_windows_win32_system_power_PowerRegisterSuspendResumeNotification_napi));
-    exports.Set("windowssys_windows_win32_system_power_PowerRemovePowerSetting", Napi::Function::New(env, windowssys_windows_win32_system_power_PowerRemovePowerSetting_napi));
-    exports.Set("windowssys_windows_win32_system_power_PowerReplaceDefaultPowerSchemes", Napi::Function::New(env, windowssys_windows_win32_system_power_PowerReplaceDefaultPowerSchemes_napi));
-    exports.Set("windowssys_windows_win32_system_power_PowerReportThermalEvent", Napi::Function::New(env, windowssys_windows_win32_system_power_PowerReportThermalEvent_napi));
-    exports.Set("windowssys_windows_win32_system_power_PowerRestoreDefaultPowerSchemes", Napi::Function::New(env, windowssys_windows_win32_system_power_PowerRestoreDefaultPowerSchemes_napi));
-    exports.Set("windowssys_windows_win32_system_power_PowerRestoreIndividualDefaultPowerScheme", Napi::Function::New(env, windowssys_windows_win32_system_power_PowerRestoreIndividualDefaultPowerScheme_napi));
-    exports.Set("windowssys_windows_win32_system_power_PowerSetActiveScheme", Napi::Function::New(env, windowssys_windows_win32_system_power_PowerSetActiveScheme_napi));
-    exports.Set("windowssys_windows_win32_system_power_PowerSetRequest", Napi::Function::New(env, windowssys_windows_win32_system_power_PowerSetRequest_napi));
-    exports.Set("windowssys_windows_win32_system_power_PowerSettingAccessCheck", Napi::Function::New(env, windowssys_windows_win32_system_power_PowerSettingAccessCheck_napi));
-    exports.Set("windowssys_windows_win32_system_power_PowerSettingAccessCheckEx", Napi::Function::New(env, windowssys_windows_win32_system_power_PowerSettingAccessCheckEx_napi));
-    exports.Set("windowssys_windows_win32_system_power_PowerSettingRegisterNotification", Napi::Function::New(env, windowssys_windows_win32_system_power_PowerSettingRegisterNotification_napi));
-    exports.Set("windowssys_windows_win32_system_power_PowerSettingUnregisterNotification", Napi::Function::New(env, windowssys_windows_win32_system_power_PowerSettingUnregisterNotification_napi));
-    exports.Set("windowssys_windows_win32_system_power_PowerUnregisterFromEffectivePowerModeNotifications", Napi::Function::New(env, windowssys_windows_win32_system_power_PowerUnregisterFromEffectivePowerModeNotifications_napi));
-    exports.Set("windowssys_windows_win32_system_power_PowerUnregisterSuspendResumeNotification", Napi::Function::New(env, windowssys_windows_win32_system_power_PowerUnregisterSuspendResumeNotification_napi));
-    exports.Set("windowssys_windows_win32_system_power_PowerWriteACDefaultIndex", Napi::Function::New(env, windowssys_windows_win32_system_power_PowerWriteACDefaultIndex_napi));
-    exports.Set("windowssys_windows_win32_system_power_PowerWriteACValueIndex", Napi::Function::New(env, windowssys_windows_win32_system_power_PowerWriteACValueIndex_napi));
-    exports.Set("windowssys_windows_win32_system_power_PowerWriteDCDefaultIndex", Napi::Function::New(env, windowssys_windows_win32_system_power_PowerWriteDCDefaultIndex_napi));
-    exports.Set("windowssys_windows_win32_system_power_PowerWriteDCValueIndex", Napi::Function::New(env, windowssys_windows_win32_system_power_PowerWriteDCValueIndex_napi));
-    exports.Set("windowssys_windows_win32_system_power_PowerWriteDescription", Napi::Function::New(env, windowssys_windows_win32_system_power_PowerWriteDescription_napi));
-    exports.Set("windowssys_windows_win32_system_power_PowerWriteFriendlyName", Napi::Function::New(env, windowssys_windows_win32_system_power_PowerWriteFriendlyName_napi));
-    exports.Set("windowssys_windows_win32_system_power_PowerWriteIconResourceSpecifier", Napi::Function::New(env, windowssys_windows_win32_system_power_PowerWriteIconResourceSpecifier_napi));
-    exports.Set("windowssys_windows_win32_system_power_PowerWritePossibleDescription", Napi::Function::New(env, windowssys_windows_win32_system_power_PowerWritePossibleDescription_napi));
-    exports.Set("windowssys_windows_win32_system_power_PowerWritePossibleFriendlyName", Napi::Function::New(env, windowssys_windows_win32_system_power_PowerWritePossibleFriendlyName_napi));
-    exports.Set("windowssys_windows_win32_system_power_PowerWritePossibleValue", Napi::Function::New(env, windowssys_windows_win32_system_power_PowerWritePossibleValue_napi));
-    exports.Set("windowssys_windows_win32_system_power_PowerWriteSettingAttributes", Napi::Function::New(env, windowssys_windows_win32_system_power_PowerWriteSettingAttributes_napi));
-    exports.Set("windowssys_windows_win32_system_power_PowerWriteValueIncrement", Napi::Function::New(env, windowssys_windows_win32_system_power_PowerWriteValueIncrement_napi));
-    exports.Set("windowssys_windows_win32_system_power_PowerWriteValueMax", Napi::Function::New(env, windowssys_windows_win32_system_power_PowerWriteValueMax_napi));
-    exports.Set("windowssys_windows_win32_system_power_PowerWriteValueMin", Napi::Function::New(env, windowssys_windows_win32_system_power_PowerWriteValueMin_napi));
-    exports.Set("windowssys_windows_win32_system_power_PowerWriteValueUnitsSpecifier", Napi::Function::New(env, windowssys_windows_win32_system_power_PowerWriteValueUnitsSpecifier_napi));
-    exports.Set("windowssys_windows_win32_system_power_ReadGlobalPwrPolicy", Napi::Function::New(env, windowssys_windows_win32_system_power_ReadGlobalPwrPolicy_napi));
-    exports.Set("windowssys_windows_win32_system_power_ReadProcessorPwrScheme", Napi::Function::New(env, windowssys_windows_win32_system_power_ReadProcessorPwrScheme_napi));
-    exports.Set("windowssys_windows_win32_system_power_ReadPwrScheme", Napi::Function::New(env, windowssys_windows_win32_system_power_ReadPwrScheme_napi));
-    exports.Set("windowssys_windows_win32_system_power_RegisterPowerSettingNotification", Napi::Function::New(env, windowssys_windows_win32_system_power_RegisterPowerSettingNotification_napi));
-    exports.Set("windowssys_windows_win32_system_power_RegisterSuspendResumeNotification", Napi::Function::New(env, windowssys_windows_win32_system_power_RegisterSuspendResumeNotification_napi));
-    exports.Set("windowssys_windows_win32_system_power_RequestWakeupLatency", Napi::Function::New(env, windowssys_windows_win32_system_power_RequestWakeupLatency_napi));
-    exports.Set("windowssys_windows_win32_system_power_SetActivePwrScheme", Napi::Function::New(env, windowssys_windows_win32_system_power_SetActivePwrScheme_napi));
-    exports.Set("windowssys_windows_win32_system_power_SetSuspendState", Napi::Function::New(env, windowssys_windows_win32_system_power_SetSuspendState_napi));
-    exports.Set("windowssys_windows_win32_system_power_SetSystemPowerState", Napi::Function::New(env, windowssys_windows_win32_system_power_SetSystemPowerState_napi));
-    exports.Set("windowssys_windows_win32_system_power_SetThreadExecutionState", Napi::Function::New(env, windowssys_windows_win32_system_power_SetThreadExecutionState_napi));
-    exports.Set("windowssys_windows_win32_system_power_UnregisterPowerSettingNotification", Napi::Function::New(env, windowssys_windows_win32_system_power_UnregisterPowerSettingNotification_napi));
-    exports.Set("windowssys_windows_win32_system_power_UnregisterSuspendResumeNotification", Napi::Function::New(env, windowssys_windows_win32_system_power_UnregisterSuspendResumeNotification_napi));
-    exports.Set("windowssys_windows_win32_system_power_ValidatePowerPolicies", Napi::Function::New(env, windowssys_windows_win32_system_power_ValidatePowerPolicies_napi));
-    exports.Set("windowssys_windows_win32_system_power_WriteGlobalPwrPolicy", Napi::Function::New(env, windowssys_windows_win32_system_power_WriteGlobalPwrPolicy_napi));
-    exports.Set("windowssys_windows_win32_system_power_WriteProcessorPwrScheme", Napi::Function::New(env, windowssys_windows_win32_system_power_WriteProcessorPwrScheme_napi));
-    exports.Set("windowssys_windows_win32_system_power_WritePwrScheme", Napi::Function::New(env, windowssys_windows_win32_system_power_WritePwrScheme_napi));
+    exports.Set("windowssys_windows_win32_system_power_callNtPowerInformation", Napi::Function::New(env, windowssys_windows_win32_system_power_callNtPowerInformation_napi));
+    exports.Set("windowssys_windows_win32_system_power_canUserWritePwrScheme", Napi::Function::New(env, windowssys_windows_win32_system_power_canUserWritePwrScheme_napi));
+    exports.Set("windowssys_windows_win32_system_power_deletePwrScheme", Napi::Function::New(env, windowssys_windows_win32_system_power_deletePwrScheme_napi));
+    exports.Set("windowssys_windows_win32_system_power_devicePowerClose", Napi::Function::New(env, windowssys_windows_win32_system_power_devicePowerClose_napi));
+    exports.Set("windowssys_windows_win32_system_power_devicePowerEnumDevices", Napi::Function::New(env, windowssys_windows_win32_system_power_devicePowerEnumDevices_napi));
+    exports.Set("windowssys_windows_win32_system_power_devicePowerOpen", Napi::Function::New(env, windowssys_windows_win32_system_power_devicePowerOpen_napi));
+    exports.Set("windowssys_windows_win32_system_power_devicePowerSetDeviceState", Napi::Function::New(env, windowssys_windows_win32_system_power_devicePowerSetDeviceState_napi));
+    exports.Set("windowssys_windows_win32_system_power_enumPwrSchemes", Napi::Function::New(env, windowssys_windows_win32_system_power_enumPwrSchemes_napi));
+    exports.Set("windowssys_windows_win32_system_power_getActivePwrScheme", Napi::Function::New(env, windowssys_windows_win32_system_power_getActivePwrScheme_napi));
+    exports.Set("windowssys_windows_win32_system_power_getCurrentPowerPolicies", Napi::Function::New(env, windowssys_windows_win32_system_power_getCurrentPowerPolicies_napi));
+    exports.Set("windowssys_windows_win32_system_power_getDevicePowerState", Napi::Function::New(env, windowssys_windows_win32_system_power_getDevicePowerState_napi));
+    exports.Set("windowssys_windows_win32_system_power_getPwrCapabilities", Napi::Function::New(env, windowssys_windows_win32_system_power_getPwrCapabilities_napi));
+    exports.Set("windowssys_windows_win32_system_power_getPwrDiskSpindownRange", Napi::Function::New(env, windowssys_windows_win32_system_power_getPwrDiskSpindownRange_napi));
+    exports.Set("windowssys_windows_win32_system_power_getSystemPowerStatus", Napi::Function::New(env, windowssys_windows_win32_system_power_getSystemPowerStatus_napi));
+    exports.Set("windowssys_windows_win32_system_power_isAdminOverrideActive", Napi::Function::New(env, windowssys_windows_win32_system_power_isAdminOverrideActive_napi));
+    exports.Set("windowssys_windows_win32_system_power_isPwrHibernateAllowed", Napi::Function::New(env, windowssys_windows_win32_system_power_isPwrHibernateAllowed_napi));
+    exports.Set("windowssys_windows_win32_system_power_isPwrShutdownAllowed", Napi::Function::New(env, windowssys_windows_win32_system_power_isPwrShutdownAllowed_napi));
+    exports.Set("windowssys_windows_win32_system_power_isPwrSuspendAllowed", Napi::Function::New(env, windowssys_windows_win32_system_power_isPwrSuspendAllowed_napi));
+    exports.Set("windowssys_windows_win32_system_power_isSystemResumeAutomatic", Napi::Function::New(env, windowssys_windows_win32_system_power_isSystemResumeAutomatic_napi));
+    exports.Set("windowssys_windows_win32_system_power_powerCanRestoreIndividualDefaultPowerScheme", Napi::Function::New(env, windowssys_windows_win32_system_power_powerCanRestoreIndividualDefaultPowerScheme_napi));
+    exports.Set("windowssys_windows_win32_system_power_powerClearRequest", Napi::Function::New(env, windowssys_windows_win32_system_power_powerClearRequest_napi));
+    exports.Set("windowssys_windows_win32_system_power_powerCreatePossibleSetting", Napi::Function::New(env, windowssys_windows_win32_system_power_powerCreatePossibleSetting_napi));
+    exports.Set("windowssys_windows_win32_system_power_powerCreateRequest", Napi::Function::New(env, windowssys_windows_win32_system_power_powerCreateRequest_napi));
+    exports.Set("windowssys_windows_win32_system_power_powerCreateSetting", Napi::Function::New(env, windowssys_windows_win32_system_power_powerCreateSetting_napi));
+    exports.Set("windowssys_windows_win32_system_power_powerDeleteScheme", Napi::Function::New(env, windowssys_windows_win32_system_power_powerDeleteScheme_napi));
+    exports.Set("windowssys_windows_win32_system_power_powerDeterminePlatformRole", Napi::Function::New(env, windowssys_windows_win32_system_power_powerDeterminePlatformRole_napi));
+    exports.Set("windowssys_windows_win32_system_power_powerDeterminePlatformRoleEx", Napi::Function::New(env, windowssys_windows_win32_system_power_powerDeterminePlatformRoleEx_napi));
+    exports.Set("windowssys_windows_win32_system_power_powerDuplicateScheme", Napi::Function::New(env, windowssys_windows_win32_system_power_powerDuplicateScheme_napi));
+    exports.Set("windowssys_windows_win32_system_power_powerEnumerate", Napi::Function::New(env, windowssys_windows_win32_system_power_powerEnumerate_napi));
+    exports.Set("windowssys_windows_win32_system_power_powerGetActiveScheme", Napi::Function::New(env, windowssys_windows_win32_system_power_powerGetActiveScheme_napi));
+    exports.Set("windowssys_windows_win32_system_power_powerImportPowerScheme", Napi::Function::New(env, windowssys_windows_win32_system_power_powerImportPowerScheme_napi));
+    exports.Set("windowssys_windows_win32_system_power_powerIsSettingRangeDefined", Napi::Function::New(env, windowssys_windows_win32_system_power_powerIsSettingRangeDefined_napi));
+    exports.Set("windowssys_windows_win32_system_power_powerOpenSystemPowerKey", Napi::Function::New(env, windowssys_windows_win32_system_power_powerOpenSystemPowerKey_napi));
+    exports.Set("windowssys_windows_win32_system_power_powerOpenUserPowerKey", Napi::Function::New(env, windowssys_windows_win32_system_power_powerOpenUserPowerKey_napi));
+    exports.Set("windowssys_windows_win32_system_power_powerReadACDefaultIndex", Napi::Function::New(env, windowssys_windows_win32_system_power_powerReadACDefaultIndex_napi));
+    exports.Set("windowssys_windows_win32_system_power_powerReadACValue", Napi::Function::New(env, windowssys_windows_win32_system_power_powerReadACValue_napi));
+    exports.Set("windowssys_windows_win32_system_power_powerReadACValueIndex", Napi::Function::New(env, windowssys_windows_win32_system_power_powerReadACValueIndex_napi));
+    exports.Set("windowssys_windows_win32_system_power_powerReadDCDefaultIndex", Napi::Function::New(env, windowssys_windows_win32_system_power_powerReadDCDefaultIndex_napi));
+    exports.Set("windowssys_windows_win32_system_power_powerReadDCValue", Napi::Function::New(env, windowssys_windows_win32_system_power_powerReadDCValue_napi));
+    exports.Set("windowssys_windows_win32_system_power_powerReadDCValueIndex", Napi::Function::New(env, windowssys_windows_win32_system_power_powerReadDCValueIndex_napi));
+    exports.Set("windowssys_windows_win32_system_power_powerReadDescription", Napi::Function::New(env, windowssys_windows_win32_system_power_powerReadDescription_napi));
+    exports.Set("windowssys_windows_win32_system_power_powerReadFriendlyName", Napi::Function::New(env, windowssys_windows_win32_system_power_powerReadFriendlyName_napi));
+    exports.Set("windowssys_windows_win32_system_power_powerReadIconResourceSpecifier", Napi::Function::New(env, windowssys_windows_win32_system_power_powerReadIconResourceSpecifier_napi));
+    exports.Set("windowssys_windows_win32_system_power_powerReadPossibleDescription", Napi::Function::New(env, windowssys_windows_win32_system_power_powerReadPossibleDescription_napi));
+    exports.Set("windowssys_windows_win32_system_power_powerReadPossibleFriendlyName", Napi::Function::New(env, windowssys_windows_win32_system_power_powerReadPossibleFriendlyName_napi));
+    exports.Set("windowssys_windows_win32_system_power_powerReadPossibleValue", Napi::Function::New(env, windowssys_windows_win32_system_power_powerReadPossibleValue_napi));
+    exports.Set("windowssys_windows_win32_system_power_powerReadSettingAttributes", Napi::Function::New(env, windowssys_windows_win32_system_power_powerReadSettingAttributes_napi));
+    exports.Set("windowssys_windows_win32_system_power_powerReadValueIncrement", Napi::Function::New(env, windowssys_windows_win32_system_power_powerReadValueIncrement_napi));
+    exports.Set("windowssys_windows_win32_system_power_powerReadValueMax", Napi::Function::New(env, windowssys_windows_win32_system_power_powerReadValueMax_napi));
+    exports.Set("windowssys_windows_win32_system_power_powerReadValueMin", Napi::Function::New(env, windowssys_windows_win32_system_power_powerReadValueMin_napi));
+    exports.Set("windowssys_windows_win32_system_power_powerReadValueUnitsSpecifier", Napi::Function::New(env, windowssys_windows_win32_system_power_powerReadValueUnitsSpecifier_napi));
+    exports.Set("windowssys_windows_win32_system_power_powerRegisterForEffectivePowerModeNotifications", Napi::Function::New(env, windowssys_windows_win32_system_power_powerRegisterForEffectivePowerModeNotifications_napi));
+    exports.Set("windowssys_windows_win32_system_power_powerRegisterSuspendResumeNotification", Napi::Function::New(env, windowssys_windows_win32_system_power_powerRegisterSuspendResumeNotification_napi));
+    exports.Set("windowssys_windows_win32_system_power_powerRemovePowerSetting", Napi::Function::New(env, windowssys_windows_win32_system_power_powerRemovePowerSetting_napi));
+    exports.Set("windowssys_windows_win32_system_power_powerReplaceDefaultPowerSchemes", Napi::Function::New(env, windowssys_windows_win32_system_power_powerReplaceDefaultPowerSchemes_napi));
+    exports.Set("windowssys_windows_win32_system_power_powerReportThermalEvent", Napi::Function::New(env, windowssys_windows_win32_system_power_powerReportThermalEvent_napi));
+    exports.Set("windowssys_windows_win32_system_power_powerRestoreDefaultPowerSchemes", Napi::Function::New(env, windowssys_windows_win32_system_power_powerRestoreDefaultPowerSchemes_napi));
+    exports.Set("windowssys_windows_win32_system_power_powerRestoreIndividualDefaultPowerScheme", Napi::Function::New(env, windowssys_windows_win32_system_power_powerRestoreIndividualDefaultPowerScheme_napi));
+    exports.Set("windowssys_windows_win32_system_power_powerSetActiveScheme", Napi::Function::New(env, windowssys_windows_win32_system_power_powerSetActiveScheme_napi));
+    exports.Set("windowssys_windows_win32_system_power_powerSetRequest", Napi::Function::New(env, windowssys_windows_win32_system_power_powerSetRequest_napi));
+    exports.Set("windowssys_windows_win32_system_power_powerSettingAccessCheck", Napi::Function::New(env, windowssys_windows_win32_system_power_powerSettingAccessCheck_napi));
+    exports.Set("windowssys_windows_win32_system_power_powerSettingAccessCheckEx", Napi::Function::New(env, windowssys_windows_win32_system_power_powerSettingAccessCheckEx_napi));
+    exports.Set("windowssys_windows_win32_system_power_powerSettingRegisterNotification", Napi::Function::New(env, windowssys_windows_win32_system_power_powerSettingRegisterNotification_napi));
+    exports.Set("windowssys_windows_win32_system_power_powerSettingUnregisterNotification", Napi::Function::New(env, windowssys_windows_win32_system_power_powerSettingUnregisterNotification_napi));
+    exports.Set("windowssys_windows_win32_system_power_powerUnregisterFromEffectivePowerModeNotifications", Napi::Function::New(env, windowssys_windows_win32_system_power_powerUnregisterFromEffectivePowerModeNotifications_napi));
+    exports.Set("windowssys_windows_win32_system_power_powerUnregisterSuspendResumeNotification", Napi::Function::New(env, windowssys_windows_win32_system_power_powerUnregisterSuspendResumeNotification_napi));
+    exports.Set("windowssys_windows_win32_system_power_powerWriteACDefaultIndex", Napi::Function::New(env, windowssys_windows_win32_system_power_powerWriteACDefaultIndex_napi));
+    exports.Set("windowssys_windows_win32_system_power_powerWriteACValueIndex", Napi::Function::New(env, windowssys_windows_win32_system_power_powerWriteACValueIndex_napi));
+    exports.Set("windowssys_windows_win32_system_power_powerWriteDCDefaultIndex", Napi::Function::New(env, windowssys_windows_win32_system_power_powerWriteDCDefaultIndex_napi));
+    exports.Set("windowssys_windows_win32_system_power_powerWriteDCValueIndex", Napi::Function::New(env, windowssys_windows_win32_system_power_powerWriteDCValueIndex_napi));
+    exports.Set("windowssys_windows_win32_system_power_powerWriteDescription", Napi::Function::New(env, windowssys_windows_win32_system_power_powerWriteDescription_napi));
+    exports.Set("windowssys_windows_win32_system_power_powerWriteFriendlyName", Napi::Function::New(env, windowssys_windows_win32_system_power_powerWriteFriendlyName_napi));
+    exports.Set("windowssys_windows_win32_system_power_powerWriteIconResourceSpecifier", Napi::Function::New(env, windowssys_windows_win32_system_power_powerWriteIconResourceSpecifier_napi));
+    exports.Set("windowssys_windows_win32_system_power_powerWritePossibleDescription", Napi::Function::New(env, windowssys_windows_win32_system_power_powerWritePossibleDescription_napi));
+    exports.Set("windowssys_windows_win32_system_power_powerWritePossibleFriendlyName", Napi::Function::New(env, windowssys_windows_win32_system_power_powerWritePossibleFriendlyName_napi));
+    exports.Set("windowssys_windows_win32_system_power_powerWritePossibleValue", Napi::Function::New(env, windowssys_windows_win32_system_power_powerWritePossibleValue_napi));
+    exports.Set("windowssys_windows_win32_system_power_powerWriteSettingAttributes", Napi::Function::New(env, windowssys_windows_win32_system_power_powerWriteSettingAttributes_napi));
+    exports.Set("windowssys_windows_win32_system_power_powerWriteValueIncrement", Napi::Function::New(env, windowssys_windows_win32_system_power_powerWriteValueIncrement_napi));
+    exports.Set("windowssys_windows_win32_system_power_powerWriteValueMax", Napi::Function::New(env, windowssys_windows_win32_system_power_powerWriteValueMax_napi));
+    exports.Set("windowssys_windows_win32_system_power_powerWriteValueMin", Napi::Function::New(env, windowssys_windows_win32_system_power_powerWriteValueMin_napi));
+    exports.Set("windowssys_windows_win32_system_power_powerWriteValueUnitsSpecifier", Napi::Function::New(env, windowssys_windows_win32_system_power_powerWriteValueUnitsSpecifier_napi));
+    exports.Set("windowssys_windows_win32_system_power_readGlobalPwrPolicy", Napi::Function::New(env, windowssys_windows_win32_system_power_readGlobalPwrPolicy_napi));
+    exports.Set("windowssys_windows_win32_system_power_readProcessorPwrScheme", Napi::Function::New(env, windowssys_windows_win32_system_power_readProcessorPwrScheme_napi));
+    exports.Set("windowssys_windows_win32_system_power_readPwrScheme", Napi::Function::New(env, windowssys_windows_win32_system_power_readPwrScheme_napi));
+    exports.Set("windowssys_windows_win32_system_power_registerPowerSettingNotification", Napi::Function::New(env, windowssys_windows_win32_system_power_registerPowerSettingNotification_napi));
+    exports.Set("windowssys_windows_win32_system_power_registerSuspendResumeNotification", Napi::Function::New(env, windowssys_windows_win32_system_power_registerSuspendResumeNotification_napi));
+    exports.Set("windowssys_windows_win32_system_power_requestWakeupLatency", Napi::Function::New(env, windowssys_windows_win32_system_power_requestWakeupLatency_napi));
+    exports.Set("windowssys_windows_win32_system_power_setActivePwrScheme", Napi::Function::New(env, windowssys_windows_win32_system_power_setActivePwrScheme_napi));
+    exports.Set("windowssys_windows_win32_system_power_setSuspendState", Napi::Function::New(env, windowssys_windows_win32_system_power_setSuspendState_napi));
+    exports.Set("windowssys_windows_win32_system_power_setSystemPowerState", Napi::Function::New(env, windowssys_windows_win32_system_power_setSystemPowerState_napi));
+    exports.Set("windowssys_windows_win32_system_power_setThreadExecutionState", Napi::Function::New(env, windowssys_windows_win32_system_power_setThreadExecutionState_napi));
+    exports.Set("windowssys_windows_win32_system_power_unregisterPowerSettingNotification", Napi::Function::New(env, windowssys_windows_win32_system_power_unregisterPowerSettingNotification_napi));
+    exports.Set("windowssys_windows_win32_system_power_unregisterSuspendResumeNotification", Napi::Function::New(env, windowssys_windows_win32_system_power_unregisterSuspendResumeNotification_napi));
+    exports.Set("windowssys_windows_win32_system_power_validatePowerPolicies", Napi::Function::New(env, windowssys_windows_win32_system_power_validatePowerPolicies_napi));
+    exports.Set("windowssys_windows_win32_system_power_writeGlobalPwrPolicy", Napi::Function::New(env, windowssys_windows_win32_system_power_writeGlobalPwrPolicy_napi));
+    exports.Set("windowssys_windows_win32_system_power_writeProcessorPwrScheme", Napi::Function::New(env, windowssys_windows_win32_system_power_writeProcessorPwrScheme_napi));
+    exports.Set("windowssys_windows_win32_system_power_writePwrScheme", Napi::Function::New(env, windowssys_windows_win32_system_power_writePwrScheme_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_system_power_napi, nullptr };

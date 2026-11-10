@@ -2,106 +2,107 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
-import io.github.kotlinmania.windowssys.windows.win32.foundation.WPARAM
-import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.WNDENUMPROC
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Wparam
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Wndenumproc
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun BroadcastSystemMessageA(flags: UInt, lpinfo: Long, msg: UInt, wparam: WPARAM, lparam: LPARAM): Int =
-    io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops.cinterop.windowssys_windows_win32_system_stationsanddesktops_BroadcastSystemMessageA(flags, lpinfo.toCPointer<ByteVar>(), msg, wparam, lparam)
+public actual fun broadcastSystemMessageA(flags: UInt, lpinfo: COpaquePointer?, msg: UInt, wparam: Wparam, lparam: Lparam): Int =
+    io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops.cinterop.windowssys_windows_win32_system_stationsanddesktops_broadcastSystemMessageA(flags, lpinfo?.value?.toCPointer<ByteVar>(), msg, wparam, lparam)
 
-public actual fun BroadcastSystemMessageExA(flags: BROADCAST_SYSTEM_MESSAGE_FLAGS, lpinfo: Long, msg: UInt, wparam: WPARAM, lparam: LPARAM, pbsminfo: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops.cinterop.windowssys_windows_win32_system_stationsanddesktops_BroadcastSystemMessageExA(flags, lpinfo.toCPointer<ByteVar>(), msg, wparam, lparam, pbsminfo.toCPointer<ByteVar>())
+public actual fun broadcastSystemMessageExA(flags: BroadcastSystemMessageFlags, lpinfo: COpaquePointer?, msg: UInt, wparam: Wparam, lparam: Lparam, pbsminfo: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops.cinterop.windowssys_windows_win32_system_stationsanddesktops_broadcastSystemMessageExA(flags, lpinfo?.value?.toCPointer<ByteVar>(), msg, wparam, lparam, pbsminfo?.value?.toCPointer<ByteVar>())
 
-public actual fun BroadcastSystemMessageExW(flags: BROADCAST_SYSTEM_MESSAGE_FLAGS, lpinfo: Long, msg: UInt, wparam: WPARAM, lparam: LPARAM, pbsminfo: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops.cinterop.windowssys_windows_win32_system_stationsanddesktops_BroadcastSystemMessageExW(flags, lpinfo.toCPointer<ByteVar>(), msg, wparam, lparam, pbsminfo.toCPointer<ByteVar>())
+public actual fun broadcastSystemMessageExW(flags: BroadcastSystemMessageFlags, lpinfo: COpaquePointer?, msg: UInt, wparam: Wparam, lparam: Lparam, pbsminfo: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops.cinterop.windowssys_windows_win32_system_stationsanddesktops_broadcastSystemMessageExW(flags, lpinfo?.value?.toCPointer<ByteVar>(), msg, wparam, lparam, pbsminfo?.value?.toCPointer<ByteVar>())
 
-public actual fun BroadcastSystemMessageW(flags: BROADCAST_SYSTEM_MESSAGE_FLAGS, lpinfo: Long, msg: UInt, wparam: WPARAM, lparam: LPARAM): Int =
-    io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops.cinterop.windowssys_windows_win32_system_stationsanddesktops_BroadcastSystemMessageW(flags, lpinfo.toCPointer<ByteVar>(), msg, wparam, lparam)
+public actual fun broadcastSystemMessageW(flags: BroadcastSystemMessageFlags, lpinfo: COpaquePointer?, msg: UInt, wparam: Wparam, lparam: Lparam): Int =
+    io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops.cinterop.windowssys_windows_win32_system_stationsanddesktops_broadcastSystemMessageW(flags, lpinfo?.value?.toCPointer<ByteVar>(), msg, wparam, lparam)
 
-public actual fun CloseDesktop(hdesktop: HDESK): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops.cinterop.windowssys_windows_win32_system_stationsanddesktops_CloseDesktop(hdesktop.toCPointer<ByteVar>())
+public actual fun closeDesktop(hdesktop: Hdesk): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops.cinterop.windowssys_windows_win32_system_stationsanddesktops_closeDesktop(hdesktop?.value?.toCPointer<ByteVar>())
 
-public actual fun CloseWindowStation(hwinsta: HWINSTA): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops.cinterop.windowssys_windows_win32_system_stationsanddesktops_CloseWindowStation(hwinsta.toCPointer<ByteVar>())
+public actual fun closeWindowStation(hwinsta: Hwinsta): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops.cinterop.windowssys_windows_win32_system_stationsanddesktops_closeWindowStation(hwinsta?.value?.toCPointer<ByteVar>())
 
-public actual fun CreateDesktopA(lpszdesktop: PCSTR, lpszdevice: PCSTR, pdevmode: Long, dwflags: DESKTOP_CONTROL_FLAGS, dwdesiredaccess: UInt, lpsa: Long): HDESK =
-    io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops.cinterop.windowssys_windows_win32_system_stationsanddesktops_CreateDesktopA(lpszdesktop.toCPointer<ByteVar>(), lpszdevice.toCPointer<ByteVar>(), pdevmode.toCPointer<ByteVar>(), dwflags, dwdesiredaccess, lpsa.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun createDesktopA(lpszdesktop: Pcstr, lpszdevice: Pcstr, pdevmode: COpaquePointer?, dwflags: DesktopControlFlags, dwdesiredaccess: UInt, lpsa: COpaquePointer?): Hdesk =
+    io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops.cinterop.windowssys_windows_win32_system_stationsanddesktops_createDesktopA(lpszdesktop?.value?.toCPointer<ByteVar>(), lpszdevice?.value?.toCPointer<ByteVar>(), pdevmode?.value?.toCPointer<ByteVar>(), dwflags, dwdesiredaccess, lpsa?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateDesktopExA(lpszdesktop: PCSTR, lpszdevice: PCSTR, pdevmode: Long, dwflags: DESKTOP_CONTROL_FLAGS, dwdesiredaccess: UInt, lpsa: Long, ulheapsize: UInt, pvoid: Long): HDESK =
-    io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops.cinterop.windowssys_windows_win32_system_stationsanddesktops_CreateDesktopExA(lpszdesktop.toCPointer<ByteVar>(), lpszdevice.toCPointer<ByteVar>(), pdevmode.toCPointer<ByteVar>(), dwflags, dwdesiredaccess, lpsa.toCPointer<ByteVar>(), ulheapsize, pvoid.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun createDesktopExA(lpszdesktop: Pcstr, lpszdevice: Pcstr, pdevmode: COpaquePointer?, dwflags: DesktopControlFlags, dwdesiredaccess: UInt, lpsa: COpaquePointer?, ulheapsize: UInt, pvoid: COpaquePointer?): Hdesk =
+    io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops.cinterop.windowssys_windows_win32_system_stationsanddesktops_createDesktopExA(lpszdesktop?.value?.toCPointer<ByteVar>(), lpszdevice?.value?.toCPointer<ByteVar>(), pdevmode?.value?.toCPointer<ByteVar>(), dwflags, dwdesiredaccess, lpsa?.value?.toCPointer<ByteVar>(), ulheapsize, pvoid?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateDesktopExW(lpszdesktop: PCWSTR, lpszdevice: PCWSTR, pdevmode: Long, dwflags: DESKTOP_CONTROL_FLAGS, dwdesiredaccess: UInt, lpsa: Long, ulheapsize: UInt, pvoid: Long): HDESK =
-    io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops.cinterop.windowssys_windows_win32_system_stationsanddesktops_CreateDesktopExW(lpszdesktop.toCPointer<ByteVar>(), lpszdevice.toCPointer<ByteVar>(), pdevmode.toCPointer<ByteVar>(), dwflags, dwdesiredaccess, lpsa.toCPointer<ByteVar>(), ulheapsize, pvoid.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun createDesktopExW(lpszdesktop: Pcwstr, lpszdevice: Pcwstr, pdevmode: COpaquePointer?, dwflags: DesktopControlFlags, dwdesiredaccess: UInt, lpsa: COpaquePointer?, ulheapsize: UInt, pvoid: COpaquePointer?): Hdesk =
+    io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops.cinterop.windowssys_windows_win32_system_stationsanddesktops_createDesktopExW(lpszdesktop?.value?.toCPointer<ByteVar>(), lpszdevice?.value?.toCPointer<ByteVar>(), pdevmode?.value?.toCPointer<ByteVar>(), dwflags, dwdesiredaccess, lpsa?.value?.toCPointer<ByteVar>(), ulheapsize, pvoid?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateDesktopW(lpszdesktop: PCWSTR, lpszdevice: PCWSTR, pdevmode: Long, dwflags: DESKTOP_CONTROL_FLAGS, dwdesiredaccess: UInt, lpsa: Long): HDESK =
-    io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops.cinterop.windowssys_windows_win32_system_stationsanddesktops_CreateDesktopW(lpszdesktop.toCPointer<ByteVar>(), lpszdevice.toCPointer<ByteVar>(), pdevmode.toCPointer<ByteVar>(), dwflags, dwdesiredaccess, lpsa.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun createDesktopW(lpszdesktop: Pcwstr, lpszdevice: Pcwstr, pdevmode: COpaquePointer?, dwflags: DesktopControlFlags, dwdesiredaccess: UInt, lpsa: COpaquePointer?): Hdesk =
+    io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops.cinterop.windowssys_windows_win32_system_stationsanddesktops_createDesktopW(lpszdesktop?.value?.toCPointer<ByteVar>(), lpszdevice?.value?.toCPointer<ByteVar>(), pdevmode?.value?.toCPointer<ByteVar>(), dwflags, dwdesiredaccess, lpsa?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateWindowStationA(lpwinsta: PCSTR, dwflags: UInt, dwdesiredaccess: UInt, lpsa: Long): HWINSTA =
-    io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops.cinterop.windowssys_windows_win32_system_stationsanddesktops_CreateWindowStationA(lpwinsta.toCPointer<ByteVar>(), dwflags, dwdesiredaccess, lpsa.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun createWindowStationA(lpwinsta: Pcstr, dwflags: UInt, dwdesiredaccess: UInt, lpsa: COpaquePointer?): Hwinsta =
+    io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops.cinterop.windowssys_windows_win32_system_stationsanddesktops_createWindowStationA(lpwinsta?.value?.toCPointer<ByteVar>(), dwflags, dwdesiredaccess, lpsa?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateWindowStationW(lpwinsta: PCWSTR, dwflags: UInt, dwdesiredaccess: UInt, lpsa: Long): HWINSTA =
-    io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops.cinterop.windowssys_windows_win32_system_stationsanddesktops_CreateWindowStationW(lpwinsta.toCPointer<ByteVar>(), dwflags, dwdesiredaccess, lpsa.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun createWindowStationW(lpwinsta: Pcwstr, dwflags: UInt, dwdesiredaccess: UInt, lpsa: COpaquePointer?): Hwinsta =
+    io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops.cinterop.windowssys_windows_win32_system_stationsanddesktops_createWindowStationW(lpwinsta?.value?.toCPointer<ByteVar>(), dwflags, dwdesiredaccess, lpsa?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun EnumDesktopWindows(hdesktop: HDESK, lpfn: WNDENUMPROC, lparam: LPARAM): BOOL =
+public actual fun enumDesktopWindows(hdesktop: Hdesk, lpfn: Wndenumproc, lparam: Lparam): Bool =
     0
 
-public actual fun EnumDesktopsA(hwinsta: HWINSTA, lpenumfunc: DESKTOPENUMPROCA, lparam: LPARAM): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops.cinterop.windowssys_windows_win32_system_stationsanddesktops_EnumDesktopsA(hwinsta.toCPointer<ByteVar>(), lpenumfunc.toLong().toCPointer<ByteVar>(), lparam)
+public actual fun enumDesktopsA(hwinsta: Hwinsta, lpenumfunc: Desktopenumproca, lparam: Lparam): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops.cinterop.windowssys_windows_win32_system_stationsanddesktops_enumDesktopsA(hwinsta?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lparam)
 
-public actual fun EnumDesktopsW(hwinsta: HWINSTA, lpenumfunc: DESKTOPENUMPROCW, lparam: LPARAM): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops.cinterop.windowssys_windows_win32_system_stationsanddesktops_EnumDesktopsW(hwinsta.toCPointer<ByteVar>(), lpenumfunc.toLong().toCPointer<ByteVar>(), lparam)
+public actual fun enumDesktopsW(hwinsta: Hwinsta, lpenumfunc: Desktopenumprocw, lparam: Lparam): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops.cinterop.windowssys_windows_win32_system_stationsanddesktops_enumDesktopsW(hwinsta?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lparam)
 
-public actual fun EnumWindowStationsA(lpenumfunc: WINSTAENUMPROCA, lparam: LPARAM): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops.cinterop.windowssys_windows_win32_system_stationsanddesktops_EnumWindowStationsA(lpenumfunc.toLong().toCPointer<ByteVar>(), lparam)
+public actual fun enumWindowStationsA(lpenumfunc: Winstaenumproca, lparam: Lparam): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops.cinterop.windowssys_windows_win32_system_stationsanddesktops_enumWindowStationsA(0L.toCPointer<ByteVar>(), lparam)
 
-public actual fun EnumWindowStationsW(lpenumfunc: WINSTAENUMPROCW, lparam: LPARAM): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops.cinterop.windowssys_windows_win32_system_stationsanddesktops_EnumWindowStationsW(lpenumfunc.toLong().toCPointer<ByteVar>(), lparam)
+public actual fun enumWindowStationsW(lpenumfunc: Winstaenumprocw, lparam: Lparam): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops.cinterop.windowssys_windows_win32_system_stationsanddesktops_enumWindowStationsW(0L.toCPointer<ByteVar>(), lparam)
 
-public actual fun GetProcessWindowStation(): HWINSTA =
-    io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops.cinterop.windowssys_windows_win32_system_stationsanddesktops_GetProcessWindowStation()?.toLong() ?: 0L
+public actual fun getProcessWindowStation(): Hwinsta =
+    io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops.cinterop.windowssys_windows_win32_system_stationsanddesktops_getProcessWindowStation()?.let { COpaquePointer(it.toLong()) }
 
-public actual fun GetThreadDesktop(dwthreadid: UInt): HDESK =
-    io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops.cinterop.windowssys_windows_win32_system_stationsanddesktops_GetThreadDesktop(dwthreadid)?.toLong() ?: 0L
+public actual fun getThreadDesktop(dwthreadid: UInt): Hdesk =
+    io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops.cinterop.windowssys_windows_win32_system_stationsanddesktops_getThreadDesktop(dwthreadid)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun GetUserObjectInformationA(hobj: HANDLE, nindex: USER_OBJECT_INFORMATION_INDEX, pvinfo: Long, nlength: UInt, lpnlengthneeded: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops.cinterop.windowssys_windows_win32_system_stationsanddesktops_GetUserObjectInformationA(hobj.toCPointer<ByteVar>(), nindex, pvinfo.toCPointer<ByteVar>(), nlength, lpnlengthneeded.toCPointer<ByteVar>())
+public actual fun getUserObjectInformationA(hobj: Handle, nindex: UserObjectInformationIndex, pvinfo: COpaquePointer?, nlength: UInt, lpnlengthneeded: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops.cinterop.windowssys_windows_win32_system_stationsanddesktops_getUserObjectInformationA(hobj?.value?.toCPointer<ByteVar>(), nindex, pvinfo?.value?.toCPointer<ByteVar>(), nlength, lpnlengthneeded?.value?.toCPointer<ByteVar>())
 
-public actual fun GetUserObjectInformationW(hobj: HANDLE, nindex: USER_OBJECT_INFORMATION_INDEX, pvinfo: Long, nlength: UInt, lpnlengthneeded: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops.cinterop.windowssys_windows_win32_system_stationsanddesktops_GetUserObjectInformationW(hobj.toCPointer<ByteVar>(), nindex, pvinfo.toCPointer<ByteVar>(), nlength, lpnlengthneeded.toCPointer<ByteVar>())
+public actual fun getUserObjectInformationW(hobj: Handle, nindex: UserObjectInformationIndex, pvinfo: COpaquePointer?, nlength: UInt, lpnlengthneeded: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops.cinterop.windowssys_windows_win32_system_stationsanddesktops_getUserObjectInformationW(hobj?.value?.toCPointer<ByteVar>(), nindex, pvinfo?.value?.toCPointer<ByteVar>(), nlength, lpnlengthneeded?.value?.toCPointer<ByteVar>())
 
-public actual fun OpenDesktopA(lpszdesktop: PCSTR, dwflags: DESKTOP_CONTROL_FLAGS, finherit: BOOL, dwdesiredaccess: UInt): HDESK =
-    io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops.cinterop.windowssys_windows_win32_system_stationsanddesktops_OpenDesktopA(lpszdesktop.toCPointer<ByteVar>(), dwflags, finherit, dwdesiredaccess)?.toLong() ?: 0L
+public actual fun openDesktopA(lpszdesktop: Pcstr, dwflags: DesktopControlFlags, finherit: Bool, dwdesiredaccess: UInt): Hdesk =
+    io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops.cinterop.windowssys_windows_win32_system_stationsanddesktops_openDesktopA(lpszdesktop?.value?.toCPointer<ByteVar>(), dwflags, finherit, dwdesiredaccess)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun OpenDesktopW(lpszdesktop: PCWSTR, dwflags: DESKTOP_CONTROL_FLAGS, finherit: BOOL, dwdesiredaccess: UInt): HDESK =
-    io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops.cinterop.windowssys_windows_win32_system_stationsanddesktops_OpenDesktopW(lpszdesktop.toCPointer<ByteVar>(), dwflags, finherit, dwdesiredaccess)?.toLong() ?: 0L
+public actual fun openDesktopW(lpszdesktop: Pcwstr, dwflags: DesktopControlFlags, finherit: Bool, dwdesiredaccess: UInt): Hdesk =
+    io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops.cinterop.windowssys_windows_win32_system_stationsanddesktops_openDesktopW(lpszdesktop?.value?.toCPointer<ByteVar>(), dwflags, finherit, dwdesiredaccess)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun OpenInputDesktop(dwflags: DESKTOP_CONTROL_FLAGS, finherit: BOOL, dwdesiredaccess: DESKTOP_ACCESS_FLAGS): HDESK =
-    io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops.cinterop.windowssys_windows_win32_system_stationsanddesktops_OpenInputDesktop(dwflags, finherit, dwdesiredaccess)?.toLong() ?: 0L
+public actual fun openInputDesktop(dwflags: DesktopControlFlags, finherit: Bool, dwdesiredaccess: DesktopAccessFlags): Hdesk =
+    io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops.cinterop.windowssys_windows_win32_system_stationsanddesktops_openInputDesktop(dwflags, finherit, dwdesiredaccess)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun OpenWindowStationA(lpszwinsta: PCSTR, finherit: BOOL, dwdesiredaccess: UInt): HWINSTA =
-    io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops.cinterop.windowssys_windows_win32_system_stationsanddesktops_OpenWindowStationA(lpszwinsta.toCPointer<ByteVar>(), finherit, dwdesiredaccess)?.toLong() ?: 0L
+public actual fun openWindowStationA(lpszwinsta: Pcstr, finherit: Bool, dwdesiredaccess: UInt): Hwinsta =
+    io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops.cinterop.windowssys_windows_win32_system_stationsanddesktops_openWindowStationA(lpszwinsta?.value?.toCPointer<ByteVar>(), finherit, dwdesiredaccess)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun OpenWindowStationW(lpszwinsta: PCWSTR, finherit: BOOL, dwdesiredaccess: UInt): HWINSTA =
-    io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops.cinterop.windowssys_windows_win32_system_stationsanddesktops_OpenWindowStationW(lpszwinsta.toCPointer<ByteVar>(), finherit, dwdesiredaccess)?.toLong() ?: 0L
+public actual fun openWindowStationW(lpszwinsta: Pcwstr, finherit: Bool, dwdesiredaccess: UInt): Hwinsta =
+    io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops.cinterop.windowssys_windows_win32_system_stationsanddesktops_openWindowStationW(lpszwinsta?.value?.toCPointer<ByteVar>(), finherit, dwdesiredaccess)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun SetProcessWindowStation(hwinsta: HWINSTA): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops.cinterop.windowssys_windows_win32_system_stationsanddesktops_SetProcessWindowStation(hwinsta.toCPointer<ByteVar>())
+public actual fun setProcessWindowStation(hwinsta: Hwinsta): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops.cinterop.windowssys_windows_win32_system_stationsanddesktops_setProcessWindowStation(hwinsta?.value?.toCPointer<ByteVar>())
 
-public actual fun SetThreadDesktop(hdesktop: HDESK): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops.cinterop.windowssys_windows_win32_system_stationsanddesktops_SetThreadDesktop(hdesktop.toCPointer<ByteVar>())
+public actual fun setThreadDesktop(hdesktop: Hdesk): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops.cinterop.windowssys_windows_win32_system_stationsanddesktops_setThreadDesktop(hdesktop?.value?.toCPointer<ByteVar>())
 
-public actual fun SetUserObjectInformationA(hobj: HANDLE, nindex: Int, pvinfo: Long, nlength: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops.cinterop.windowssys_windows_win32_system_stationsanddesktops_SetUserObjectInformationA(hobj.toCPointer<ByteVar>(), nindex, pvinfo.toCPointer<ByteVar>(), nlength)
+public actual fun setUserObjectInformationA(hobj: Handle, nindex: Int, pvinfo: COpaquePointer?, nlength: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops.cinterop.windowssys_windows_win32_system_stationsanddesktops_setUserObjectInformationA(hobj?.value?.toCPointer<ByteVar>(), nindex, pvinfo?.value?.toCPointer<ByteVar>(), nlength)
 
-public actual fun SetUserObjectInformationW(hobj: HANDLE, nindex: Int, pvinfo: Long, nlength: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops.cinterop.windowssys_windows_win32_system_stationsanddesktops_SetUserObjectInformationW(hobj.toCPointer<ByteVar>(), nindex, pvinfo.toCPointer<ByteVar>(), nlength)
+public actual fun setUserObjectInformationW(hobj: Handle, nindex: Int, pvinfo: COpaquePointer?, nlength: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops.cinterop.windowssys_windows_win32_system_stationsanddesktops_setUserObjectInformationW(hobj?.value?.toCPointer<ByteVar>(), nindex, pvinfo?.value?.toCPointer<ByteVar>(), nlength)
 
-public actual fun SwitchDesktop(hdesktop: HDESK): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops.cinterop.windowssys_windows_win32_system_stationsanddesktops_SwitchDesktop(hdesktop.toCPointer<ByteVar>())
+public actual fun switchDesktop(hdesktop: Hdesk): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops.cinterop.windowssys_windows_win32_system_stationsanddesktops_switchDesktop(hdesktop?.value?.toCPointer<ByteVar>())
